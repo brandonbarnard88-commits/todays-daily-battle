@@ -195,6 +195,164 @@
     }
     .sb-insert-target:focus { border-color: var(--gold, #e3bc67); }
 
+    /* ── OIA workspace + preview (Church & Teaching slice) ── */
+    .sb-workspace-wrap {
+      margin: 0.75rem 0 1.25rem;
+      padding: 1rem 1rem 1.15rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 28%, transparent);
+      background: color-mix(in srgb, var(--card, #1b212d) 96%, transparent);
+    }
+    .sb-workspace-intro {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--muted, #bcc5d6);
+      margin: 0 0 1rem;
+      max-width: 46rem;
+    }
+    .sb-workspace-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+    @media (min-width: 900px) {
+      .sb-workspace-grid { grid-template-columns: 1fr 320px; align-items: start; }
+    }
+    .sb-oia-points-wrap h3,
+    .sb-side-stack h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold, #e3bc67);
+      margin: 0 0 0.5rem;
+      font-family: var(--font-display), Georgia, serif;
+    }
+    .sb-oia-points {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .sb-oia-point {
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 22%, transparent);
+      border-radius: 11px;
+      padding: 0.65rem 0.75rem 0.75rem;
+      background: var(--bg-soft, #171c25);
+    }
+    .sb-oia-point-head {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 0.45rem;
+    }
+    .sb-oia-point-title {
+      flex: 1;
+      min-width: 0;
+      padding: 0.45rem 0.55rem;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, transparent);
+      background: var(--card, #1b212d);
+      color: var(--text, #f5f7fb);
+      font-size: 0.9rem;
+    }
+    .sb-oia-remove {
+      flex-shrink: 0;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.75rem;
+      border-radius: 7px;
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      background: transparent;
+      color: #fca5a5;
+      cursor: pointer;
+    }
+    .sb-oia-remove:hover { border-color: #f87171; color: #fecaca; }
+    .sb-oia-details summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text, #e2e8f0);
+      margin-bottom: 0.4rem;
+      list-style: none;
+    }
+    .sb-oia-details summary::-webkit-details-marker { display: none; }
+    .sb-oia-field label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted, #94a3b8);
+      margin: 0.45rem 0 0.2rem;
+    }
+    .sb-oia-field textarea {
+      width: 100%;
+      min-height: 3.2rem;
+      padding: 0.45rem 0.55rem;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 25%, transparent);
+      background: rgba(0,0,0,0.15);
+      color: var(--text, #f5f7fb);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    .sb-add-point-btn {
+      margin-top: 0.35rem;
+      align-self: flex-start;
+    }
+    .sb-side-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .sb-verse-collector-label,
+    .sb-preview-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted, #94a3b8);
+      margin-bottom: 0.25rem;
+    }
+    #sb-verse-collector,
+    #sb-study-materials {
+      width: 100%;
+      min-height: 5.5rem;
+      padding: 0.5rem 0.6rem;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 30%, transparent);
+      background: var(--bg-soft, #171c25);
+      color: var(--text, #f5f7fb);
+      font-size: 0.84rem;
+      line-height: 1.4;
+      box-sizing: border-box;
+    }
+    #sb-study-materials { min-height: 4.5rem; }
+    #sb-live-preview {
+      min-height: 8rem;
+      max-height: 22rem;
+      overflow: auto;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(0,0,0,0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--text, #e2e8f0);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .sb-oia-scaffold-btn {
+      margin-top: 0.45rem;
+      padding: 0.35rem 0.55rem;
+      font-size: 0.76rem;
+      border-radius: 7px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 40%, transparent);
+      background: color-mix(in srgb, var(--gold, #e3bc67) 12%, transparent);
+      color: var(--text, #f5f7fb);
+      cursor: pointer;
+    }
+    .sb-oia-scaffold-btn:hover { border-color: var(--gold, #e3bc67); }
+
     /* ── Scholar Notes Sidebar ── */
     .sb-notes-sidebar {
       position: fixed;
@@ -408,8 +566,11 @@
         <header class="hero-banner">
           <h1>Sermon Builder</h1>
           <p>Start with the Word. Build from there.</p>
+          <p class="section-note hero-banner-trust" style="margin-top:0.35rem;max-width:40rem;">Nothing here is against you—only Scripture, your notes, and files that stay on this device until you choose to share them.</p>
           <div class="cta-group">
+            <a class="btn btn-primary" href="pastor-toolkit.html">Pastor Toolkit</a>
             <a class="btn btn-secondary" href="resources.html">Pastor Resources</a>
+            <a class="btn btn-secondary" href="curriculum.html">Curriculum</a>
           </div>
         </header>
         <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
@@ -450,9 +611,39 @@
             <button type="button" id="sb-notes-toggle"    class="sb-btn" aria-label="Toggle Scholar Notes sidebar" aria-pressed="false">✎ Notes</button>
             <button type="button" id="sb-tts-btn"         class="sb-btn" aria-label="Read sermon aloud" aria-pressed="false">🔊 Read&nbsp;Aloud</button>
             <button type="button" id="sb-pdf-btn"         class="sb-btn sb-btn--gold" aria-label="Export sermon as PDF">⬇ PDF</button>
+            <button type="button" id="sb-pdf-handout-btn" class="sb-btn" aria-label="Export handout PDF with larger text and discussion space">Handout PDF</button>
+            <button type="button" id="sb-pdf-lesson-btn"  class="sb-btn" aria-label="Export small group lesson PDF with OIA main points, discussion prompts from application, verses, and supporting context">Lesson pack</button>
             <button type="button" id="sb-share-btn"       class="sb-btn" aria-label="Share sermon text">↑ Share</button>
             <span id="sb-autosave-status" class="sb-autosave-status" aria-live="polite" aria-atomic="true"></span>
           </div>
+
+          <div class="sb-workspace-wrap" id="sb-workspace-wrap" aria-labelledby="sb-workspace-heading">
+            <h3 id="sb-workspace-heading" class="sr-only">Structured outline with observation, interpretation, and application</h3>
+            <p class="sb-workspace-intro">Each main point uses a calm <strong>OIA rhythm</strong> (Observation → Interpretation → Application). Add verses in the collector; they stay on this device. Use <strong>Add Verse</strong> in the toolbar, then <strong>Add OIA scaffold</strong> on a result to drop text into the first point’s Observation (you can move it after).</p>
+            <div class="sb-workspace-grid">
+              <div class="sb-oia-points-wrap">
+                <h3>Main points (OIA)</h3>
+                <div id="sb-oia-points" class="sb-oia-points" role="list" aria-label="Sermon main points"></div>
+                <button type="button" id="sb-add-point-btn" class="btn btn-secondary sb-add-point-btn">Add main point</button>
+              </div>
+              <div class="sb-side-stack">
+                <div>
+                  <div class="sb-verse-collector-label" id="sb-vc-label">Verse collector</div>
+                  <textarea id="sb-verse-collector" aria-labelledby="sb-vc-label" placeholder="One verse per line (e.g. John 3:16). Paste from Bible Tool or plans."></textarea>
+                </div>
+                <div>
+                  <div class="sb-verse-collector-label" id="sb-sm-label">Supporting context (optional)</div>
+                  <textarea id="sb-study-materials" aria-labelledby="sb-sm-label" aria-describedby="sb-sm-hint" placeholder="Short excerpts you pasted from book intros, cross-reference chains, or word helps — stays on this device."></textarea>
+                  <p id="sb-sm-hint" class="section-note util-mt-0_35 util-mb-0" style="font-size:0.78rem;">Feeds the Lesson pack PDF under &ldquo;Supporting context.&rdquo; Interpretation in OIA still comes first in your own words.</p>
+                </div>
+                <div>
+                  <div class="sb-preview-label" id="sb-preview-label">Live preview</div>
+                  <div id="sb-live-preview" role="region" aria-labelledby="sb-preview-label" aria-live="polite"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="sermon-grid">
             <div>
               <label for="sermon-title">Title</label>
@@ -565,6 +756,7 @@
   </nav>
 
   <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
@@ -672,7 +864,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260328lesson-pack-oia" data-cfasync="false"></script>
 
   <!-- ── Quick Start Popover ── -->
   <div id="sbQuickStartBackdrop" class="sb-popover-backdrop" hidden role="dialog" aria-modal="true" aria-label="Quick Start sermon templates">
@@ -824,6 +1016,172 @@
     /* ── Helper: get text field by id ── */
     function getField(id) { return document.getElementById(id); }
 
+    function sbNewPointId() {
+      return 'p' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
+    }
+
+    function sbCollectOiaPoints() {
+      var root = document.getElementById('sb-oia-points');
+      if (!root) return [];
+      var articles = root.querySelectorAll('.sb-oia-point');
+      var out = [];
+      articles.forEach(function (art) {
+        if (!art) return;
+        var id = art.getAttribute('data-point-id') || '';
+        var titleEl = art.querySelector('.sb-oia-point-title');
+        var obsEl = art.querySelector('.sb-oia-obs');
+        var intEl = art.querySelector('.sb-oia-int');
+        var appEl = art.querySelector('.sb-oia-app');
+        out.push({
+          id: id,
+          title: (titleEl && titleEl.value || '').trim(),
+          observation: (obsEl && obsEl.value || '').trim(),
+          interpretation: (intEl && intEl.value || '').trim(),
+          application: (appEl && appEl.value || '').trim()
+        });
+      });
+      return out;
+    }
+
+    function sbRenderOiaPoints(points) {
+      var root = document.getElementById('sb-oia-points');
+      if (!root) return;
+      root.textContent = '';
+      var list = Array.isArray(points) && points.length ? points : [{ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' }];
+      list.forEach(function (pt, idx) {
+        var id = pt.id || sbNewPointId();
+        var art = document.createElement('article');
+        art.className = 'sb-oia-point';
+        art.setAttribute('data-point-id', id);
+        art.setAttribute('role', 'listitem');
+
+        var head = document.createElement('div');
+        head.className = 'sb-oia-point-head';
+        var titleIn = document.createElement('input');
+        titleIn.type = 'text';
+        titleIn.className = 'sb-oia-point-title';
+        titleIn.setAttribute('aria-label', 'Main point ' + (idx + 1) + ' title');
+        titleIn.placeholder = (idx + 1) + '. Main point…';
+        titleIn.value = pt.title || '';
+        var rm = document.createElement('button');
+        rm.type = 'button';
+        rm.className = 'sb-oia-remove';
+        rm.textContent = 'Remove';
+        rm.setAttribute('aria-label', 'Remove main point ' + (idx + 1));
+        rm.addEventListener('click', function () {
+          if (root.querySelectorAll('.sb-oia-point').length <= 1) {
+            if (typeof showEliteToast === 'function') showEliteToast('Keep at least one main point.');
+            return;
+          }
+          art.remove();
+          sbSyncOutlineFromOia();
+          sbUpdateLivePreview();
+          sbAutoSaveNow();
+        });
+        head.appendChild(titleIn);
+        head.appendChild(rm);
+
+        var det = document.createElement('details');
+        det.className = 'sb-oia-details';
+        det.open = true;
+        var sum = document.createElement('summary');
+        sum.textContent = 'Observation · Interpretation · Application';
+        det.appendChild(sum);
+
+        function addField(className, labelText, val) {
+          var wrap = document.createElement('div');
+          wrap.className = 'sb-oia-field';
+          var lab = document.createElement('label');
+          lab.textContent = labelText;
+          var ta = document.createElement('textarea');
+          ta.className = className;
+          ta.rows = 3;
+          ta.value = val || '';
+          wrap.appendChild(lab);
+          wrap.appendChild(ta);
+          det.appendChild(wrap);
+        }
+        addField('sb-oia-obs', 'Observation — what does the text say?', pt.observation);
+        addField('sb-oia-int', 'Interpretation — what does it mean?', pt.interpretation);
+        addField('sb-oia-app', 'Application — how do we live it?', pt.application);
+
+        art.appendChild(head);
+        art.appendChild(det);
+        root.appendChild(art);
+      });
+      sbSyncOutlineFromOia();
+      sbUpdateLivePreview();
+    }
+
+    function sbSyncOutlineFromOia() {
+      var pts = sbCollectOiaPoints();
+      var lines = pts.map(function (p) { return p.title; }).filter(Boolean);
+      var outlineEl = getField('sermon-outline');
+      if (outlineEl && lines.length) outlineEl.value = lines.join('\n');
+    }
+
+    var sbPreviewTimer = null;
+    function sbUpdateLivePreview() {
+      if (sbPreviewTimer) clearTimeout(sbPreviewTimer);
+      sbPreviewTimer = setTimeout(function () {
+        var prev = document.getElementById('sb-live-preview');
+        if (!prev) return;
+        var d = sbGetDraft();
+        var oia = d.oiaPoints || [];
+        var parts = [];
+        if (d.title) parts.push(d.title);
+        if (d.textRef) parts.push('Primary text: ' + d.textRef);
+        if (d.theme) parts.push('Theme: ' + d.theme);
+        parts.push('');
+        oia.forEach(function (p, i) {
+          var h = p.title || ('Point ' + (i + 1));
+          parts.push('— ' + h + ' —');
+          if (p.observation) parts.push('Observation: ' + p.observation);
+          if (p.interpretation) parts.push('Interpretation: ' + p.interpretation);
+          if (p.application) parts.push('Application: ' + p.application);
+          parts.push('');
+        });
+        if (d.verseCollector) {
+          parts.push('Verses collected:');
+          parts.push(d.verseCollector);
+          parts.push('');
+        }
+        if (d.studyMaterials) {
+          parts.push('Supporting context:');
+          parts.push(d.studyMaterials);
+          parts.push('');
+        }
+        if (d.application) parts.push('Congregation application:\n' + d.application);
+        prev.textContent = parts.join('\n').trim() || '(Preview fills as you type.)';
+      }, 120);
+    }
+
+    function sbInitOiaFromStorage() {
+      try {
+        var raw = localStorage.getItem('sermonDraft');
+        var d = raw ? JSON.parse(raw) : {};
+        if (d.oiaPoints && Array.isArray(d.oiaPoints) && d.oiaPoints.length) {
+          sbRenderOiaPoints(d.oiaPoints);
+        } else {
+          sbRenderOiaPoints([{ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' }]);
+        }
+        var vc = getField('sb-verse-collector');
+        if (vc && d.verseCollector) vc.value = d.verseCollector;
+        var sm = getField('sb-study-materials');
+        if (sm && d.studyMaterials) sm.value = d.studyMaterials;
+      } catch (e) {
+        sbRenderOiaPoints([{ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' }]);
+      }
+      sbUpdateLivePreview();
+    }
+
+    function sbFirstOiaObservationTa() {
+      var root = document.getElementById('sb-oia-points');
+      if (!root) return null;
+      var first = root.querySelector('.sb-oia-obs');
+      return first || null;
+    }
+
     /* ── Helper: append text to a textarea ── */
     function appendToField(fieldId, text) {
       var el = getField(fieldId);
@@ -886,7 +1244,10 @@
         prayer:      (getField('sermon-prayer')?.value || '').trim(),
         date:        (getField('sermon-date')?.value || ''),
         status:      (getField('sermon-status')?.value || 'draft'),
-        notes:       (getField('sbNotesText')?.value || '').trim()
+        notes:       (getField('sbNotesText')?.value || '').trim(),
+        oiaPoints:   sbCollectOiaPoints(),
+        verseCollector: (getField('sb-verse-collector')?.value || '').trim(),
+        studyMaterials: (getField('sb-study-materials')?.value || '').trim()
       };
     }
 
@@ -906,7 +1267,7 @@
     }
 
     /* Wire auto-save on all sermon fields */
-    ['sermon-title','sermon-theme','sermon-text-ref','sermon-outline','sermon-points','sermon-application','sermon-prayer','sermon-date','sbNotesText']
+    ['sermon-title','sermon-theme','sermon-text-ref','sermon-outline','sermon-points','sermon-application','sermon-prayer','sermon-date','sbNotesText','sb-study-materials']
       .forEach(function (id) {
         var el = getField(id);
         if (el) {
@@ -1035,8 +1396,28 @@
           appendToField(fid, insertText);
           closeBackdrop('sbAddVerseBackdrop', 'sb-add-verse-btn');
         }
+        var scBtn = document.createElement('button');
+        scBtn.type = 'button';
+        scBtn.className = 'sb-oia-scaffold-btn';
+        scBtn.textContent = 'Add OIA scaffold';
+        scBtn.setAttribute('aria-label', 'Add this verse to Observation in the first main point and to the verse collector');
+        scBtn.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          var insertText = item.verse.ref + ' (KJV): "' + item.verse.text + '"';
+          var ta = sbFirstOiaObservationTa();
+          if (ta) {
+            var cur = ta.value.trim();
+            ta.value = cur ? cur + '\n\n' + insertText : insertText;
+            ta.dispatchEvent(new Event('input', { bubbles: true }));
+          }
+          appendToField('sb-verse-collector', item.verse.ref);
+          sbUpdateLivePreview();
+          sbAutoSaveNow();
+          closeBackdrop('sbAddVerseBackdrop', 'sb-add-verse-btn');
+        });
         card.addEventListener('click', doInsert);
         card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doInsert(); } });
+        card.appendChild(scBtn);
         container.appendChild(card);
       });
     }
@@ -1174,11 +1555,21 @@
       if (draft.title)       parts.push(draft.title + '.');
       if (draft.textRef)     parts.push('Primary text: ' + draft.textRef + '.');
       if (draft.theme)       parts.push('Theme: ' + draft.theme + '.');
+      if (draft.oiaPoints && draft.oiaPoints.length) {
+        draft.oiaPoints.forEach(function (p, i) {
+          var h = p.title || ('Point ' + (i + 1));
+          parts.push(h + '.');
+          if (p.observation) parts.push('Observation. ' + p.observation.replace(/\n/g, '. '));
+          if (p.interpretation) parts.push('Interpretation. ' + p.interpretation.replace(/\n/g, '. '));
+          if (p.application) parts.push('Application. ' + p.application.replace(/\n/g, '. '));
+        });
+      }
       if (draft.outline)     parts.push('Outline. ' + draft.outline.replace(/\n/g, '. '));
       if (draft.points)      parts.push('Key points. ' + draft.points.replace(/\n/g, '. '));
       if (draft.application) parts.push('Application. ' + draft.application);
       if (draft.prayer)      parts.push('Closing prayer. ' + draft.prayer);
       if (draft.notes)       parts.push('Scholar notes. ' + draft.notes);
+      if (draft.studyMaterials) parts.push('Supporting context. ' + draft.studyMaterials.replace(/\n/g, '. ');
       return parts.join(' ');
     }
 
@@ -1218,67 +1609,241 @@
       sbTTSBtn.hidden = true;
     }
 
-    /* ── PDF Export (jsPDF) ── */
-    document.getElementById('sb-pdf-btn')?.addEventListener('click', function () {
+    /* ── Lesson pack: turn Application lines into discussion prompts (device-local; no network) ── */
+    function sbLessonDiscussionLines(appText) {
+      var s = String(appText || '').trim();
+      if (!s) return ['Where does this truth meet your life this week?'];
+      var lines = s.split('\n').map(function (x) { return x.trim(); }).filter(Boolean);
+      if (lines.length > 1) {
+        return lines.slice(0, 5).map(function (line) {
+          return line.length > 280 ? line.slice(0, 277) + '\u2026' : line;
+        });
+      }
+      var one = lines[0] || s;
+      var sentences = [];
+      var buf = '';
+      for (var i = 0; i < one.length; i++) {
+        buf += one[i];
+        var ch = one[i];
+        if ((ch === '.' || ch === '!' || ch === '?') && (i === one.length - 1 || /\s/.test(one[i + 1]))) {
+          var t = buf.trim();
+          if (t) sentences.push(t);
+          buf = '';
+        }
+      }
+      if (buf.trim()) sentences.push(buf.trim());
+      if (!sentences.length) sentences = [one];
+      if (sentences.length === 1) {
+        var u = sentences[0];
+        return ['Discuss: ' + (u.length > 220 ? u.slice(0, 217) + '\u2026' : u)];
+      }
+      return sentences.slice(0, 4).map(function (sent) {
+        return 'Discuss: ' + sent;
+      });
+    }
+
+    /* ── PDF Export (jsPDF): standard, handout, small-group lesson (OIA-friendly) ── */
+    function sbExportSermonPdf(exportMode) {
+      exportMode = exportMode || 'standard';
       var draft = sbGetDraft();
       var title = draft.title || 'Sermon';
+      var isHandout = exportMode === 'handout';
+      var isLesson = exportMode === 'lesson';
 
-      /* Try jsPDF (loaded via CDN above) */
       var jspdf = window.jspdf;
       if (jspdf && jspdf.jsPDF) {
         var doc = new jspdf.jsPDF({ unit: 'pt', format: 'a4' });
-        var margin = 48, y = 60, W = doc.internal.pageSize.getWidth() - margin * 2;
-        var lh = 16;
+        var margin = 48;
+        var y = 60;
+        var W = doc.internal.pageSize.getWidth() - margin * 2;
+        var sizes = isHandout
+          ? { title: 18, heading: 12, body: 12, note: 10, lh: 18 }
+          : isLesson
+          ? { title: 17, heading: 12, body: 11, note: 10, lh: 17 }
+          : { title: 20, heading: 11, body: 10, note: 9, lh: 16 };
 
         function addLine(text, style) {
+          if (!text && style !== 'title') return;
           if (y > doc.internal.pageSize.getHeight() - 60) { doc.addPage(); y = 60; }
+          var lh = sizes.lh;
           if (style === 'title') {
-            doc.setFont('helvetica', 'bold'); doc.setFontSize(20); doc.setTextColor(163, 125, 64);
+            doc.setFont('helvetica', 'bold'); doc.setFontSize(sizes.title); doc.setTextColor(163, 125, 64);
           } else if (style === 'heading') {
-            doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(80, 80, 80);
+            doc.setFont('helvetica', 'bold'); doc.setFontSize(sizes.heading); doc.setTextColor(80, 80, 80);
           } else if (style === 'note') {
-            doc.setFont('helvetica', 'italic'); doc.setFontSize(9); doc.setTextColor(120, 120, 120);
+            doc.setFont('helvetica', 'italic'); doc.setFontSize(sizes.note); doc.setTextColor(120, 120, 120);
           } else {
-            doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(30, 30, 30);
+            doc.setFont('helvetica', 'normal'); doc.setFontSize(sizes.body); doc.setTextColor(30, 30, 30);
           }
-          var lines = doc.splitTextToSize(text, W);
+          var lines = doc.splitTextToSize(String(text || ''), W);
           doc.text(lines, margin, y);
           y += lines.length * lh + (style === 'title' ? 10 : style === 'heading' ? 6 : 4);
         }
 
-        addLine(title, 'title');
-        if (draft.date)    addLine('Date: ' + draft.date, 'note');
-        if (draft.theme)   addLine('Theme: ' + draft.theme, 'note');
-        if (draft.textRef) addLine('Primary Text: ' + draft.textRef, 'heading');
-        y += 8;
-
-        if (draft.outline) {
-          addLine('Outline', 'heading');
-          draft.outline.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
-          y += 6;
-        }
-        if (draft.points) {
-          addLine('Key Points & Illustrations', 'heading');
-          draft.points.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
-          y += 6;
-        }
-        if (draft.application) {
-          addLine('Application', 'heading');
-          draft.application.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
-          y += 6;
-        }
-        if (draft.prayer) {
-          addLine('Closing Prayer', 'heading');
-          draft.prayer.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
-          y += 6;
-        }
-        if (draft.notes) {
+        function addParagraph(block, heading) {
+          if (!block || !String(block).trim()) return;
+          addLine(heading, 'heading');
+          String(block).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
           y += 4;
-          addLine('Scholar Notes', 'heading');
-          draft.notes.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'note'); });
         }
 
-        /* Footer */
+        if (isLesson) {
+          addLine(title, 'title');
+          addLine('Small group lesson pack (KJV) — Observation · Interpretation · Application', 'note');
+          if (draft.date) addLine('Date: ' + draft.date, 'note');
+          if (draft.theme) addLine('Aim: ' + draft.theme, 'note');
+          if (draft.textRef) addLine('Primary text: ' + draft.textRef, 'heading');
+          y += 8;
+
+          var hasOiaLesson = draft.oiaPoints && draft.oiaPoints.some(function (p) {
+            return p && ((p.title || '').trim() || (p.observation || '').trim() || (p.interpretation || '').trim() || (p.application || '').trim());
+          });
+
+          if (hasOiaLesson) {
+            addLine('Main points (OIA)', 'heading');
+            draft.oiaPoints.forEach(function (p, idx) {
+              var hasPt = p && ((p.title || '').trim() || (p.observation || '').trim() || (p.interpretation || '').trim() || (p.application || '').trim());
+              if (!hasPt) return;
+              addLine((idx + 1) + '. ' + ((p.title || '').trim() || 'Point'), 'heading');
+              if (p.observation && String(p.observation).trim()) {
+                addLine('Observation — what does the text say?', 'note');
+                String(p.observation).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+              }
+              if (p.interpretation && String(p.interpretation).trim()) {
+                addLine('Interpretation — what does it mean?', 'note');
+                String(p.interpretation).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+              }
+              if (p.application && String(p.application).trim()) {
+                addLine('Application — how do we live it?', 'note');
+                String(p.application).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+                addLine('Discussion prompts', 'note');
+                sbLessonDiscussionLines(p.application).forEach(function (line) {
+                  addLine('\u2022 ' + line, 'body');
+                });
+              }
+              y += 4;
+            });
+            y += 4;
+          } else {
+            addLine('Observation — What does the text say?', 'heading');
+            var obsL = [draft.textRef ? '(' + draft.textRef + ')' : '', draft.outline, draft.points].filter(function (x) { return x && String(x).trim(); }).join('\n\n');
+            if (obsL.trim()) {
+              obsL.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            } else {
+              addLine('(Add observations from the passage, or use main points above in the workspace.)', 'note');
+            }
+            y += 6;
+            addLine('Interpretation — What does it mean?', 'heading');
+            var interpL = draft.notes || draft.theme;
+            if (interpL && String(interpL).trim()) {
+              String(interpL).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            } else {
+              addLine('(Context, cross-references, one main idea.)', 'note');
+            }
+            y += 6;
+            addLine('Application — What should we do?', 'heading');
+            if (draft.application && draft.application.trim()) {
+              draft.application.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+              addLine('Discussion prompts', 'note');
+              sbLessonDiscussionLines(draft.application).forEach(function (line) {
+                addLine('\u2022 ' + line, 'body');
+              });
+            } else {
+              addLine('(How this shapes love, repentance, or obedience this week.)', 'note');
+            }
+            y += 6;
+          }
+
+          if (draft.verseCollector && String(draft.verseCollector).trim()) {
+            addLine('Verse collector', 'heading');
+            draft.verseCollector.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            y += 6;
+          }
+          if (draft.studyMaterials && String(draft.studyMaterials).trim()) {
+            addLine('Supporting context (book intros, chains, word helps)', 'heading');
+            String(draft.studyMaterials).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            y += 6;
+          }
+          if (draft.outline && draft.outline.trim()) {
+            addParagraph(draft.outline, 'Outline');
+          }
+          if (draft.points && draft.points.trim()) {
+            addParagraph(draft.points, 'Key points & illustrations');
+          }
+          if (hasOiaLesson && draft.application && draft.application.trim()) {
+            addParagraph(draft.application, 'Whole-group application');
+            addLine('Discussion prompts', 'note');
+            sbLessonDiscussionLines(draft.application).forEach(function (line) {
+              addLine('\u2022 ' + line, 'body');
+            });
+            y += 4;
+          }
+          if (draft.prayer && draft.prayer.trim()) {
+            addParagraph(draft.prayer, 'Closing prayer');
+          }
+          if (draft.notes && draft.notes.trim()) {
+            addParagraph(draft.notes, 'Scholar notes');
+          }
+        } else {
+          addLine(title, 'title');
+          if (draft.date) addLine('Date: ' + draft.date, 'note');
+          if (draft.theme) addLine('Theme: ' + draft.theme, 'note');
+          if (draft.textRef) addLine('Primary Text: ' + draft.textRef, 'heading');
+          y += 8;
+
+          if (draft.oiaPoints && draft.oiaPoints.length) {
+            var hasOia = draft.oiaPoints.some(function (p) {
+              return p && ((p.title || '').trim() || (p.observation || '').trim() || (p.interpretation || '').trim() || (p.application || '').trim());
+            });
+            if (hasOia) {
+              addLine('Main points (OIA)', 'heading');
+              draft.oiaPoints.forEach(function (p, idx) {
+                addLine((idx + 1) + '. ' + ((p.title || '').trim() || 'Point'), 'heading');
+                if (p.observation && String(p.observation).trim()) {
+                  addLine('Observation — what does the text say?', 'note');
+                  String(p.observation).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+                }
+                if (p.interpretation && String(p.interpretation).trim()) {
+                  addLine('Interpretation — what does it mean?', 'note');
+                  String(p.interpretation).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+                }
+                if (p.application && String(p.application).trim()) {
+                  addLine('Application — how do we live it?', 'note');
+                  String(p.application).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+                }
+                y += 4;
+              });
+              y += 4;
+            }
+          }
+          if (draft.verseCollector) {
+            addLine('Verse collector', 'heading');
+            draft.verseCollector.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            y += 6;
+          }
+          if (draft.studyMaterials && String(draft.studyMaterials).trim()) {
+            addLine('Supporting context (book intros, chains, word helps)', 'heading');
+            String(draft.studyMaterials).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            y += 6;
+          }
+
+          addParagraph(draft.outline, 'Outline');
+          addParagraph(draft.points, 'Key Points & Illustrations');
+          addParagraph(draft.application, 'Application');
+          addParagraph(draft.prayer, 'Closing Prayer');
+          if (draft.notes) {
+            y += 4;
+            addParagraph(draft.notes, 'Scholar Notes');
+          }
+          if (isHandout) {
+            y += 10;
+            addLine('For discussion', 'heading');
+            addLine('1. _________________________________________________', 'body');
+            addLine('2. _________________________________________________', 'body');
+            addLine('3. _________________________________________________', 'body');
+          }
+        }
+
         var pageCount = doc.getNumberOfPages();
         for (var i = 1; i <= pageCount; i++) {
           doc.setPage(i);
@@ -1288,31 +1853,125 @@
         }
 
         var safeTitle = title.replace(/[^a-z0-9]/gi, '-').toLowerCase().slice(0, 40);
-        doc.save('sermon-' + safeTitle + '-' + new Date().toISOString().slice(0, 10) + '.pdf');
+        var suffix = exportMode === 'handout' ? '-handout' : exportMode === 'lesson' ? '-lesson' : '';
+        doc.save('sermon' + suffix + '-' + safeTitle + '-' + new Date().toISOString().slice(0, 10) + '.pdf');
+        if (typeof trackEvent === 'function') {
+          trackEvent('sermon_pdf_export', { mode: exportMode });
+        }
         return;
       }
 
-      /* Fallback: plain text download */
-      var lines = [
-        'SERMON: ' + title,
-        draft.date    ? 'Date: ' + draft.date    : '',
-        draft.theme   ? 'Theme: ' + draft.theme  : '',
-        draft.textRef ? 'Text: '  + draft.textRef : '',
-        '',
-        draft.outline     ? 'OUTLINE\n' + draft.outline       : '',
-        draft.points      ? '\nKEY POINTS\n' + draft.points   : '',
-        draft.application ? '\nAPPLICATION\n' + draft.application : '',
-        draft.prayer      ? '\nCLOSING PRAYER\n' + draft.prayer  : '',
-        draft.notes       ? '\nSCHOLAR NOTES\n' + draft.notes    : '',
-        '\n\ntodays daily battle | todaysdailybattle.com | KJV'
-      ].filter(Boolean).join('\n');
+      /* Fallback: plain text */
+      var parts = [];
+      if (isLesson) {
+        var lp = [];
+        lp.push('LESSON PACK (KJV) — ' + title);
+        if (draft.date) lp.push('Date: ' + draft.date);
+        lp.push('');
+        lp.push('PRIMARY TEXT: ' + (draft.textRef || ''));
+        lp.push('AIM: ' + (draft.theme || ''));
+        lp.push('');
+        var hasOiaT = draft.oiaPoints && draft.oiaPoints.some(function (p) {
+          return p && ((p.title || '').trim() || (p.observation || '').trim() || (p.interpretation || '').trim() || (p.application || '').trim());
+        });
+        if (hasOiaT) {
+          lp.push('MAIN POINTS (OIA)');
+          draft.oiaPoints.forEach(function (p, i) {
+            lp.push('');
+            lp.push((i + 1) + '. ' + (p.title || 'Point'));
+            if (p.observation) lp.push('Observation: ' + p.observation);
+            if (p.interpretation) lp.push('Interpretation: ' + p.interpretation);
+            if (p.application) {
+              lp.push('Application: ' + p.application);
+              lp.push('Discussion prompts:');
+              sbLessonDiscussionLines(p.application).forEach(function (line) {
+                lp.push('• ' + line);
+              });
+            }
+          });
+        } else {
+          lp.push('OBSERVATION — What does the text say?');
+          lp.push(draft.outline || '');
+          lp.push(draft.points || '');
+          lp.push('');
+          lp.push('INTERPRETATION — What does it mean?');
+          lp.push(draft.notes || draft.theme || '');
+          lp.push('');
+          lp.push('APPLICATION — What should we do?');
+          lp.push(draft.application || '');
+        }
+        lp.push('');
+        if (draft.verseCollector && String(draft.verseCollector).trim()) {
+          lp.push('VERSE COLLECTOR');
+          lp.push(draft.verseCollector);
+          lp.push('');
+        }
+        if (draft.studyMaterials && String(draft.studyMaterials).trim()) {
+          lp.push('SUPPORTING CONTEXT');
+          lp.push(draft.studyMaterials);
+          lp.push('');
+        }
+        if (hasOiaT && draft.application && String(draft.application).trim()) {
+          lp.push('WHOLE-GROUP APPLICATION');
+          lp.push(draft.application);
+          lp.push('Discussion prompts:');
+          sbLessonDiscussionLines(draft.application).forEach(function (line) {
+            lp.push('• ' + line);
+          });
+          lp.push('');
+        }
+        lp.push('CLOSING PRAYER');
+        lp.push(draft.prayer || '');
+        lp.push('');
+        if (draft.notes && String(draft.notes).trim()) {
+          lp.push('SCHOLAR NOTES');
+          lp.push(draft.notes);
+          lp.push('');
+        }
+        lp.push('todaysdailybattle.com | KJV');
+        parts = lp;
+      } else {
+        var oiaTxt = '';
+        if (draft.oiaPoints && draft.oiaPoints.length) {
+          oiaTxt = '\nMAIN POINTS (OIA)\n';
+          draft.oiaPoints.forEach(function (p, i) {
+            oiaTxt += '\n' + (i + 1) + '. ' + (p.title || '') + '\n';
+            if (p.observation) oiaTxt += 'Observation: ' + p.observation + '\n';
+            if (p.interpretation) oiaTxt += 'Interpretation: ' + p.interpretation + '\n';
+            if (p.application) oiaTxt += 'Application: ' + p.application + '\n';
+          });
+        }
+        parts = [
+          (isHandout ? 'HANDOUT — ' : 'SERMON — ') + title,
+          draft.date ? 'Date: ' + draft.date : '',
+          draft.theme ? 'Theme: ' + draft.theme : '',
+          draft.textRef ? 'Text: ' + draft.textRef : '',
+          oiaTxt,
+          draft.verseCollector ? '\nVERSE COLLECTOR\n' + draft.verseCollector : '',
+          draft.studyMaterials ? '\nSUPPORTING CONTEXT\n' + draft.studyMaterials : '',
+          '',
+          draft.outline ? 'OUTLINE\n' + draft.outline : '',
+          draft.points ? '\nKEY POINTS\n' + draft.points : '',
+          draft.application ? '\nAPPLICATION\n' + draft.application : '',
+          draft.prayer ? '\nCLOSING PRAYER\n' + draft.prayer : '',
+          draft.notes ? '\nSCHOLAR NOTES\n' + draft.notes : '',
+          isHandout ? '\nFOR DISCUSSION\n1.\n2.\n3.' : '',
+          '\ntodaysdailybattle.com | KJV'
+        ];
+      }
+      var lines = parts.filter(function (x) { return x !== '' && x != null; }).join('\n');
       var blob = new Blob([lines], { type: 'text/plain;charset=utf-8' });
-      var url  = URL.createObjectURL(blob);
-      var a    = document.createElement('a');
-      a.href = url; a.download = 'sermon-' + new Date().toISOString().slice(0,10) + '.txt';
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'sermon-' + exportMode + '-' + new Date().toISOString().slice(0, 10) + '.txt';
       document.body.appendChild(a); a.click();
       setTimeout(function () { URL.revokeObjectURL(url); document.body.removeChild(a); }, 1000);
-    });
+    }
+
+    document.getElementById('sb-pdf-btn')?.addEventListener('click', function () { sbExportSermonPdf('standard'); });
+    document.getElementById('sb-pdf-handout-btn')?.addEventListener('click', function () { sbExportSermonPdf('handout'); });
+    document.getElementById('sb-pdf-lesson-btn')?.addEventListener('click', function () { sbExportSermonPdf('lesson'); });
 
     /* ── Web Share ── */
     document.getElementById('sb-share-btn')?.addEventListener('click', function () {
@@ -1343,6 +2002,61 @@
     window.addEventListener('load', function () {
       sbUpdateCrossRefs(getField('sermon-text-ref')?.value || '');
     });
+
+    document.getElementById('sb-add-point-btn')?.addEventListener('click', function () {
+      var cur = sbCollectOiaPoints();
+      cur.push({ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' });
+      sbRenderOiaPoints(cur);
+      sbAutoSaveNow();
+    });
+
+    (function sbWireWorkspaceDelegation() {
+      var wrap = document.getElementById('sb-workspace-wrap');
+      if (!wrap) return;
+      wrap.addEventListener('input', function () {
+        sbUpdateLivePreview();
+        clearTimeout(sbAutoSaveTimer);
+        sbAutoSaveTimer = setTimeout(sbAutoSaveNow, 5000);
+        if (sbAutoSaveStatus) {
+          sbAutoSaveStatus.textContent = 'Unsaved changes…';
+          sbAutoSaveStatus.className = 'sb-autosave-status';
+        }
+      });
+    })();
+
+    window.tdbSermonGetExtendedDraft = function () {
+      var d = sbGetDraft();
+      return {
+        oiaPoints: d.oiaPoints || [],
+        verseCollector: d.verseCollector || '',
+        studyMaterials: d.studyMaterials || ''
+      };
+    };
+    window.tdbSermonApplyOiaDraft = function (draft) {
+      if (!draft) return;
+      var vc = getField('sb-verse-collector');
+      if (vc && draft.verseCollector != null) vc.value = draft.verseCollector;
+      var sm = getField('sb-study-materials');
+      if (sm && draft.studyMaterials != null) sm.value = draft.studyMaterials;
+      if (draft.oiaPoints && Array.isArray(draft.oiaPoints) && draft.oiaPoints.length) {
+        sbRenderOiaPoints(draft.oiaPoints);
+      } else {
+        sbRenderOiaPoints([{ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' }]);
+      }
+      sbUpdateLivePreview();
+    };
+
+    sbInitOiaFromStorage();
+
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      var refQ = (params.get('ref') || '').trim();
+      if (refQ && getField('sermon-text-ref') && !getField('sermon-text-ref').value) {
+        getField('sermon-text-ref').value = refQ;
+        appendToField('sb-verse-collector', refQ);
+        sbUpdateLivePreview();
+      }
+    } catch (eRef) {}
 
   }());
   </script>

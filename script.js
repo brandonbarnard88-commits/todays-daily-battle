@@ -16307,6 +16307,8 @@ function applySermonDraft(draft) {
   el = document.getElementById('sermon-date'); if (el) el.value = draft.date || '';
   el = document.getElementById('sermon-status'); if (el) el.value = draft.status || 'draft';
   el = document.getElementById('sbNotesText'); if (el) el.value = draft.notes || '';
+  el = document.getElementById('sb-study-materials'); if (el) el.value = draft.studyMaterials || '';
+  if (typeof window.tdbSermonApplyOiaDraft === 'function') window.tdbSermonApplyOiaDraft(draft);
 }
 
 function getSermonDraftFromForm() {
@@ -16315,7 +16317,7 @@ function getSermonDraftFromForm() {
   var statusEl = document.getElementById('sermon-status');
   var dateVal = dateEl && dateEl.value ? dateEl.value.trim() : '';
   var statusVal = statusEl && statusEl.value ? statusEl.value : 'draft';
-  return {
+  var base = {
     id: id || undefined,
     title: document.getElementById('sermon-title')?.value.trim() || '',
     theme: document.getElementById('sermon-theme')?.value.trim() || '',
@@ -16326,8 +16328,20 @@ function getSermonDraftFromForm() {
     prayer: document.getElementById('sermon-prayer')?.value.trim() || '',
     notes: document.getElementById('sbNotesText')?.value.trim() || '',
     date: dateVal || undefined,
-    status: statusVal
+    status: statusVal,
+    oiaPoints: [],
+    verseCollector: '',
+    studyMaterials: ''
   };
+  if (typeof window.tdbSermonGetExtendedDraft === 'function') {
+    try {
+      var ext = window.tdbSermonGetExtendedDraft();
+      if (ext && Array.isArray(ext.oiaPoints)) base.oiaPoints = ext.oiaPoints;
+      if (ext && ext.verseCollector != null) base.verseCollector = ext.verseCollector;
+      if (ext && ext.studyMaterials != null) base.studyMaterials = ext.studyMaterials;
+    } catch (eS) {}
+  }
+  return base;
 }
 
 async function saveSermonDraftToSupabase(draft) {
@@ -16834,6 +16848,24 @@ function renderBookIntroIntoContainer(container, normalized, linkPrefix, readerB
     pl.appendChild(pa);
     pl.appendChild(document.createTextNode(' — same gentle pace; progress stays on this device.'));
     container.appendChild(pl);
+  }
+  const sermonSeed =
+    normalized.anchors && normalized.anchors[0]
+      ? normalized.anchors[0]
+      : readerBookName
+        ? `${readerBookName} 1:1`
+        : '';
+  if (sermonSeed) {
+    const sp = document.createElement('p');
+    sp.className = 'section-note util-mb-0_5';
+    const sa = document.createElement('a');
+    sa.href = `${pre}sermon.html?ref=${encodeURIComponent(sermonSeed)}`;
+    sa.className = 'bible-tool-gold-link';
+    sa.textContent = 'Build a sermon or lesson';
+    sa.setAttribute('aria-label', `Open Sermon Builder with ${sermonSeed} as primary text`);
+    sp.appendChild(sa);
+    sp.appendChild(document.createTextNode(' — OIA workspace; stays on your device.'));
+    container.appendChild(sp);
   }
   if (readerBookName) {
     const r = document.createElement('p');
@@ -22330,7 +22362,7 @@ async function tdbInitImpl() {
   }
   if (params.get('load') === '1') {
     const draft = loadSermonDraft();
-    if (draft && (draft.title || draft.textRef || draft.outline)) applySermonDraft(draft);
+    if (draft && (draft.title || draft.textRef || draft.outline || draft.studyMaterials || draft.verseCollector || (draft.oiaPoints && draft.oiaPoints.length))) applySermonDraft(draft);
   }
 
   var ptBuildBtn = document.getElementById('pt-build');
@@ -22467,7 +22499,7 @@ async function tdbInitImpl() {
   if (loadSermonBtn) {
     loadSermonBtn.addEventListener('click', () => {
       const draft = loadSermonDraft();
-      if (!draft || !(draft.title || draft.textRef || draft.outline || draft.points)) {
+      if (!draft || !(draft.title || draft.textRef || draft.outline || draft.points || draft.studyMaterials || draft.verseCollector || (draft.oiaPoints && draft.oiaPoints.length))) {
         if (typeof showEliteToast === 'function') showEliteToast('No saved draft found. Start typing — it saves automatically.');
         return;
       }

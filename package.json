@@ -10,6 +10,7 @@
     "build": "node build-config.js && node build-copy-static.js && node scripts/minify.mjs",
     "build:kjv-words": "node scripts/build-kjv-words.mjs",
     "build:book-intros": "node scripts/build-book-intros.mjs",
+    "build:cross-refs": "node scripts/build-cross-refs.mjs",
     "curriculum": "node build-curriculum.js",
     "characters": "node build-characters.js",
     "test": "node scripts/verify-homepage-search-wiring.mjs && python3 test-site.py --offline",

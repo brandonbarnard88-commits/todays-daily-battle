@@ -81,7 +81,7 @@ const SUMMARY = {
   Revelation: 'Jesus wins: letters, seals, trumpets, King of kings—no more curse; come, Lord Jesus.'
 };
 
-/** Richer entries (first wave): fight, anchors, small step — same tone as word helps. */
+/** Richer entries: fight, anchors, small step — same tone as word helps. */
 const EXTENDED = {
   Genesis: {
     fight: 'Who is God, who are we, and what promise outlasts the fall? The fight is faith versus self-rule.',
@@ -119,9 +119,39 @@ const EXTENDED = {
     step: 'Read the Proverbs chapter that matches today’s date; circle one verse to obey before sunset.'
   },
   Philippians: {
-    fight: 'Joy under pressure—Christ magnified when plans break and the gospel still advances.',
-    anchors: ['Philippians 1:21', 'Philippians 2:5', 'Philippians 4:6-7', 'Philippians 4:13', 'Philippians 4:19'],
-    step: 'Philippians 4:6–7—turn one named worry into prayer with thanks.'
+    fight: 'Joy in chains and thorns—Christ is enough when feelings are not; humility and prayer beat performance.',
+    anchors: ['Philippians 1:21', 'Philippians 1:29', 'Philippians 2:5', 'Philippians 4:11', 'Philippians 4:13'],
+    step: 'Philippians 4:6–8—name one worry, pray with thanks, then pick one “whatsoever things” from verse 8 to rehearse today. Open Battle Plans for verse-led tracks that draw on Philippians.'
+  },
+  '2 Corinthians': {
+    fight: 'Comfort in affliction first—then pour it out; God’s strength lands in cracked jars, not polished speeches.',
+    anchors: ['2 Corinthians 1:4', '2 Corinthians 4:7', '2 Corinthians 4:17', '2 Corinthians 5:17', '2 Corinthians 12:9'],
+    step: 'Read 2 Corinthians 1:3–7 slowly—thank God for one way He comforted you that you can pass on to someone else this week.'
+  },
+  Matthew: {
+    fight: 'Kingdom of heaven versus anxiety, performance, and the need to look righteous—Jesus goes for the heart first.',
+    anchors: ['Matthew 5:3', 'Matthew 6:33', 'Matthew 11:28', 'Matthew 16:16', 'Matthew 28:18'],
+    step: 'Read Matthew 5–7 across a week (one chapter a day) and mark one command that names you kindly.'
+  },
+  '1 Corinthians': {
+    fight: 'Cross-shaped wisdom where the city loves status and noise—love that never fails when gifts do not.',
+    anchors: ['1 Corinthians 1:18', '1 Corinthians 13:4', '1 Corinthians 15:3', '1 Corinthians 15:58', '1 Corinthians 16:14'],
+    step: 'Read 1 Corinthians 13:4–7 aloud; underline one line that corrects you—pray it for your church.'
+  },
+  Hebrews: {
+    fight: 'Will you drift from Christ, or draw near to a Priest who sat down because the work finished?',
+    anchors: ['Hebrews 4:15', 'Hebrews 6:19', 'Hebrews 10:23', 'Hebrews 11:1', 'Hebrews 12:2'],
+    step: 'Read Hebrews 10:19–25 aloud and pick one “let us” to obey before the week ends.'
+  },
+  '1 Peter': {
+    fight: 'Holy living in exile when the world mislabels you—honor without fear; hope under fire.',
+    anchors: ['1 Peter 1:3', '1 Peter 2:9', '1 Peter 3:15', '1 Peter 4:12', '1 Peter 5:7'],
+    step: 'Name one care you rehearse in your mind; pray 1 Peter 5:7 slowly, then leave it with God in one written sentence.'
+  },
+  Revelation: {
+    fight: 'Jesus is Lord over empire, fear, and the final lie—so hold fast until He comes.',
+    anchors: ['Revelation 1:1', 'Revelation 3:20', 'Revelation 5:9', 'Revelation 19:16', 'Revelation 22:20'],
+    step: 'Read one letter to the churches in Revelation 2–3; ask what Jesus says to small, tired congregations.'
   }
 };
 
@@ -136,7 +166,7 @@ const order = [
 ];
 
 const payload = {
-  version: 2,
+  version: 4,
   about:
     'Book introductions: short orientation, optional “fight,” anchor verses, and a small step. KJV-only site; human tone.',
   bookOrder: order,

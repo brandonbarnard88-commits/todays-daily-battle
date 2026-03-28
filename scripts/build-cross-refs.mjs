@@ -258,13 +258,17 @@ const sufferingEndurance = [
   'Romans 5:3',
   'Romans 5:4',
   'Romans 5:5',
+  'Romans 8:18',
   'James 1:2',
   'James 1:3',
   'James 1:4',
   '2 Corinthians 12:9',
   '2 Corinthians 12:10',
   'Hebrews 12:1',
-  '1 Peter 5:10'
+  '1 Peter 1:7',
+  '1 Peter 5:10',
+  'Psalm 34:19',
+  'Job 23:10'
 ];
 sufferingEndurance.forEach(function (k) {
   add(k, sufferingEndurance.filter(function (x) {
@@ -356,7 +360,40 @@ marriageParenting.forEach(function (k) {
   }));
 });
 
-/** Optional: theme blurbs for Bible Tool (verse in chain → show gentle note). Priority: prayer > fear > grief > forgiveness > anger > grace > suffering > loneliness > identity > marriage (forgiveness before anger for shared verses; grace before suffering for 2 Cor 12:9). */
+// --- Batch 4: wisdom & fear of the Lord; union with Christ (pairs with Proverbs Wisdom Sampler + deeper abiding) ---
+const wisdomFearLord = [
+  'Proverbs 1:7',
+  'Proverbs 9:10',
+  'Job 28:28',
+  'Psalm 111:10',
+  'Psalm 119:1',
+  'James 1:5',
+  'James 3:17',
+  'Ecclesiastes 12:13'
+];
+wisdomFearLord.forEach(function (k) {
+  add(k, wisdomFearLord.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+const unionWithChrist = [
+  'John 15:4',
+  'John 15:5',
+  'Romans 6:4',
+  'Romans 6:11',
+  'Ephesians 2:6',
+  'Colossians 2:10',
+  'Galatians 3:27',
+  '1 Corinthians 6:17'
+];
+unionWithChrist.forEach(function (k) {
+  add(k, unionWithChrist.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+/** Optional: theme blurbs for Bible Tool (verse in chain → show gentle note). Priority: prayer > fear > grief > wisdom > forgiveness > anger > grace > union > suffering > loneliness > identity > marriage (grace before suffering for 2 Cor 12:9). */
 const chains = {
   'prayer-supplication': {
     title: 'Prayer & Supplication',
@@ -379,6 +416,13 @@ const chains = {
     blurb:
       'Grief is heavy and real. These verses do not rush you — they point to the God who heals the brokenhearted and promises a day with no more tears. One small step: let one verse sit with you today without trying to fix everything.'
   },
+  'wisdom-fear-lord': {
+    title: 'Wisdom & fear of the Lord',
+    anchor: 'Proverbs 1:7',
+    verses: wisdomFearLord,
+    blurb:
+      'Wisdom begins in reverence, not cleverness. These verses keep the fear of the Lord as the starting place—then counsel, speech, and choices follow. One small step: read the anchor verse slowly and ask God for one decision where you need His counsel today.'
+  },
   'anger-peace': {
     title: 'Anger to Peace',
     anchor: 'Ephesians 4:26',
@@ -393,12 +437,19 @@ const chains = {
     blurb:
       'Salvation and daily strength come by grace through faith — not earned, but received. These verses keep the balance: grace is free, yet real faith shows itself in action. One small step: rest in the anchor verse when you feel you must perform to be accepted.'
   },
+  'union-with-christ': {
+    title: 'Union with Christ',
+    anchor: 'John 15:5',
+    verses: unionWithChrist,
+    blurb:
+      'Union with Christ is abiding and true—not a label you earn. These verses tie baptism, new life, and being complete in Him to daily dependence. One small step: read John 15:5 aloud and name one area where you need to stay in the Vine today.'
+  },
   'suffering-endurance': {
-    title: 'Suffering to Endurance',
+    title: 'Endurance in suffering',
     anchor: 'Romans 5:3',
     verses: sufferingEndurance,
     blurb:
-      'Pain and trials test us deeply. These verses do not minimize the hurt — they show how God uses it to build endurance, character, and deeper hope. One small step: hold one verse today and ask the Lord to sustain you in the middle of it.'
+      'Pain and trials test us deeply. These verses do not minimize the hurt—they show endurance forged in hope. They pair well with the Suffering & Endurance reading plan if you want a verse-led week. One small step: hold one verse today and ask the Lord to sustain you in the middle of it.'
   },
   'loneliness-community': {
     title: 'Loneliness to Community',
@@ -431,7 +482,7 @@ const chains = {
 };
 
 const payload = {
-  version: 1,
+  version: 2,
   about: 'Human-curated KJV cross-references for Today\'s Daily Battle. Expand over time; JSON over inline script.',
   refs,
   chains

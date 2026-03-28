@@ -158,8 +158,8 @@
     }
     .mobius-ribbon-cap { margin: 0.35rem 0 0; font-size: 0.78rem; color: var(--tool-muted); line-height: 1.4; }
     @keyframes mobius-ribbon-breathe {
-      0%, 100% { stroke-opacity: 0.48; }
-      50% { stroke-opacity: 0.78; }
+      0%, 100% { stroke-opacity: 0.46; }
+      50% { stroke-opacity: 0.82; }
     }
     @keyframes mobius-weekly-ribbon-shimmer {
       to { stroke-dashoffset: -128; }
@@ -180,7 +180,7 @@
       filter: drop-shadow(0 0 16px rgba(227, 188, 103, 0.48)) drop-shadow(0 0 34px rgba(227, 188, 103, 0.2)) brightness(1.03);
     }
     .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) #ribbon-main {
-      animation: mobius-ribbon-breathe 8s ease-in-out infinite, mobius-weekly-ribbon-shimmer 9s linear infinite, mobius-ribbon-halo-filter 7s ease-in-out infinite;
+      animation: mobius-ribbon-breathe 10s ease-in-out infinite, mobius-weekly-ribbon-shimmer 11s linear infinite, mobius-ribbon-halo-filter 9s ease-in-out infinite;
     }
     .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) .mobius-weekly-ribbon-main {
       stroke-dasharray: 96 32;
@@ -222,8 +222,19 @@
     #mobius-universal-viz line.mobius-link-pivot-arm {
       animation: mobius-pivot-arm-breathe 6s ease-in-out infinite;
     }
+    .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) .mobius-pivot-jewel {
+      animation: mobius-pivot-jewel-lume 8.5s ease-in-out infinite;
+    }
+    @keyframes mobius-pivot-jewel-lume {
+      0%, 100% { filter: drop-shadow(0 0 3px rgba(242, 220, 152, 0.45)); }
+      50% { filter: drop-shadow(0 0 11px rgba(242, 220, 152, 0.78)) drop-shadow(0 0 18px rgba(227, 188, 103, 0.35)); }
+    }
     @media (prefers-reduced-motion: reduce) {
       .mobius-ribbon-dot { transition: none; animation: none !important; }
+      .mobius-pivot-jewel { animation: none !important; filter: none !important; }
+      .mobius-weekly-bevel-shadow { transform: translate(0, 0) !important; opacity: 0.48 !important; }
+      .mobius-weekly-ribbon-rim { opacity: 0.62 !important; }
+      .mobius-weekly-twist-under { opacity: 0.78 !important; }
       .mobius-weekly-particles { display: none !important; }
       #mobius-ribbon-svg #ribbon-main {
         filter: drop-shadow(0 0 14px rgba(227, 188, 103, 0.32)) !important;
@@ -257,11 +268,52 @@
     .mobius-text-v2-lead { font-size: 0.92rem; color: var(--tool-muted); line-height: 1.55; margin: 0 0 1rem; }
     .mobius-v2-stage { min-height: 12rem; margin-top: 0.5rem; }
     .mobius-v2-breathe, .mobius-v2-verse, .mobius-v2-done { padding: 0.5rem 0; }
+    .mobius-v2-breathe { --mobius-breath-fill: 0; position: relative; }
+    .mobius-v2-breathe-visual { margin: 0 0 0.35rem; }
+    .mobius-v2-breathe-ring-outer {
+      width: min(132px, 42vw);
+      height: min(132px, 42vw);
+      margin: 0 auto 0.65rem;
+      border-radius: 50%;
+      position: relative;
+      box-shadow:
+        0 0 0 1px rgba(201, 162, 107, 0.38),
+        inset 0 0 22px rgba(0, 0, 0, 0.42),
+        0 0 32px rgba(227, 188, 103, 0.1);
+      background:
+        radial-gradient(circle at 50% 42%, rgba(32, 28, 24, 0.35) 0%, rgba(10, 12, 18, 0.92) 68%);
+    }
+    .mobius-v2-breathe-ring-progress {
+      position: absolute;
+      inset: 6px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from -90deg,
+        rgba(242, 220, 152, 0.62) calc(var(--mobius-breath-fill, 0) * 1turn),
+        rgba(227, 188, 103, 0.14) 0
+      );
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
+      transition: filter 0.35s ease;
+    }
+    .mobius-breathe--hold .mobius-v2-breathe-ring-progress {
+      filter: brightness(1.06) saturate(0.95);
+    }
+    .mobius-breathe--exhale .mobius-v2-breathe-ring-progress {
+      filter: brightness(0.94) saturate(0.88);
+    }
     .mobius-v2-phase-label { font-size: clamp(1.1rem, 3.8vw, 1.45rem); color: var(--tool-gold-soft); font-weight: 600; margin: 0 0 0.35rem; line-height: 1.35; }
     .mobius-v2-phase-sub { font-size: 0.82rem; color: var(--tool-muted); margin: 0 0 0.5rem; }
     .mobius-v2-countdown { font-size: 2rem; font-variant-numeric: tabular-nums; color: var(--tool-gold); margin: 0.5rem 0; min-height: 2.5rem; }
     .mobius-v2-verse-text { font-size: clamp(0.95rem, 3.2vw, 1.05rem); font-style: italic; color: #e0e0e0; line-height: 1.55; margin: 0.75rem 0; text-align: left; }
     .mobius-v2-rep-counter { font-size: 0.85rem; color: var(--tool-gold); margin: 0.25rem 0; }
+    .mobius-v2-verse:not([hidden]) .mobius-v2-rep-counter {
+      animation: mobius-rep-counter-lume 7s ease-in-out infinite;
+    }
+    @keyframes mobius-rep-counter-lume {
+      0%, 100% { text-shadow: 0 0 10px rgba(227, 188, 103, 0.22); }
+      50% { text-shadow: 0 0 22px rgba(242, 220, 152, 0.42), 0 0 36px rgba(227, 188, 103, 0.12); }
+    }
     .mobius-v2-rep-hint { font-size: 0.8rem; color: var(--tool-muted); margin: 0 0 0.75rem; line-height: 1.45; }
     .mobius-v2-done-msg { font-size: 0.95rem; color: var(--tool-text); line-height: 1.55; margin: 0 0 1rem; }
     .mobius-v2-session-text { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
@@ -302,11 +354,41 @@
         radial-gradient(1px 1px at 28% 68%, rgba(200, 200, 220, 0.1) 0%, transparent 40%),
         radial-gradient(1px 1px at 8% 48%, rgba(255, 252, 245, 0.12) 0%, transparent 40%),
         radial-gradient(1px 1px at 52% 38%, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
+      animation: mobius-starfield-drift 200s ease-in-out infinite alternate;
+    }
+    @keyframes mobius-starfield-drift {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-0.9%, 0.45%); }
+    }
+    body.mobius-luxe-page.tool-page-shell::after {
+      content: '';
+      position: fixed;
+      inset: -12%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.38;
+      background:
+        radial-gradient(ellipse 42% 36% at 28% 38%, rgba(72, 58, 112, 0.22), transparent 58%),
+        radial-gradient(ellipse 38% 32% at 72% 58%, rgba(30, 58, 90, 0.2), transparent 55%),
+        radial-gradient(ellipse 28% 22% at 48% 82%, rgba(100, 70, 42, 0.1), transparent 50%);
+      animation: mobius-nebula-drift 140s ease-in-out infinite alternate;
+    }
+    @keyframes mobius-nebula-drift {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(1.2%, -0.6%) scale(1.04); }
     }
     @media (prefers-reduced-motion: reduce) {
-      body.mobius-luxe-page.tool-page-shell::before { opacity: 0.28; }
+      body.mobius-luxe-page.tool-page-shell::before {
+        opacity: 0.28;
+        animation: none;
+      }
+      body.mobius-luxe-page.tool-page-shell::after {
+        opacity: 0.22;
+        animation: none;
+      }
     }
     body.mobius-luxe-page .mobius-weekly-viz-wrapper {
+      position: relative;
       border: 1px solid rgba(201, 162, 107, 0.22);
       box-shadow:
         0 0 0 1px rgba(0, 0, 0, 0.45),
@@ -315,23 +397,43 @@
       background:
         radial-gradient(ellipse 95% 85% at 50% 28%, rgba(36, 28, 22, 0.55), rgba(6, 8, 14, 0.88));
     }
+    body.mobius-luxe-page .mobius-weekly-viz-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: radial-gradient(ellipse 72% 58% at 50% 42%, rgba(227, 188, 103, 0.09), transparent 62%);
+    }
     body.mobius-luxe-page .mobius-ff-bridge {
       border-color: rgba(201, 162, 107, 0.28);
       background: rgba(12, 14, 22, 0.62);
       box-shadow: inset 0 1px 0 rgba(255, 248, 235, 0.04);
     }
     .mobius-text-luxe-panel {
+      position: relative;
+      overflow: hidden;
       width: 100%;
       max-width: 26.5rem;
       margin: 0 auto 1.25rem;
       padding: 1.35rem 1.2rem 1.5rem;
       border-radius: 18px;
-      background: linear-gradient(165deg, rgba(30, 24, 20, 0.94) 0%, rgba(12, 14, 22, 0.97) 100%);
-      border: 1px solid rgba(201, 162, 107, 0.26);
+      background: linear-gradient(168deg, rgba(38, 32, 26, 0.96) 0%, rgba(14, 16, 24, 0.98) 55%, rgba(10, 12, 18, 0.99) 100%);
+      border: 1px solid rgba(201, 162, 107, 0.28);
       box-shadow:
-        0 0 48px rgba(227, 188, 103, 0.05),
-        inset 0 1px 0 rgba(255, 248, 235, 0.05);
+        0 0 52px rgba(227, 188, 103, 0.06),
+        inset 0 1px 0 rgba(255, 248, 235, 0.07),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.25);
     }
+    .mobius-text-luxe-panel::before {
+      content: '';
+      position: absolute;
+      inset: -45% -25% auto;
+      height: 70%;
+      pointer-events: none;
+      background: radial-gradient(ellipse 55% 48% at 50% 0%, rgba(255, 248, 235, 0.07), transparent 72%);
+    }
+    .mobius-text-luxe-panel .mobius-text-v2 { position: relative; z-index: 1; }
     .mobius-text-luxe-eyebrow {
       margin: 0 0 0.65rem;
       font-size: 0.68rem;
@@ -364,6 +466,11 @@
       .mobius-breathe--exhale .mobius-v2-phase-label {
         text-shadow: none;
       }
+      .mobius-v2-verse:not([hidden]) .mobius-v2-rep-counter {
+        animation: none !important;
+        text-shadow: none;
+      }
+      .mobius-v2-breathe-ring-progress { transition: none; }
       .mobius-weekly-ribbon-guilloche { display: none !important; }
     }
     .mobius-deep-ribbon-mini {
@@ -550,6 +657,11 @@
         <button type="button" id="mobius-v2-start" class="tool-btn" aria-label="Begin calm path with breathing and verse">Begin calm path</button>
         <div id="mobius-v2-stage" class="mobius-v2-stage">
           <div id="mobius-v2-breathe" class="mobius-v2-breathe" hidden>
+            <div class="mobius-v2-breathe-visual" aria-hidden="true">
+              <div class="mobius-v2-breathe-ring-outer">
+                <div class="mobius-v2-breathe-ring-progress"></div>
+              </div>
+            </div>
             <p id="mobius-v2-phase-label" class="mobius-v2-phase-label" role="status"></p>
             <p id="mobius-v2-phase-sub" class="mobius-v2-phase-sub"></p>
             <div id="mobius-v2-countdown" class="mobius-v2-countdown" aria-live="polite"></div>
@@ -631,8 +743,8 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
-  <script src="mobius-universal.js?v=20260329mobius30" defer></script>
-  <script src="mobius-text-v2.js?v=20260329mobius30" defer></script>
+  <script src="mobius-universal.js?v=20260329mobius31" defer></script>
+  <script src="mobius-text-v2.js?v=20260329mobius31" defer></script>
   <script src="share-page.js" defer></script>
   <script src="easter-eggs.js" defer></script>
   <script nonce="tdb2025s">

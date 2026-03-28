@@ -581,6 +581,30 @@
     return parts.join(' ');
   }
 
+  /** Partial lemniscate polyline (step index range) for twist / depth overlays. */
+  function buildLemniscateArcD(cx, cy, a, steps, iStart, iEnd) {
+    cx = cx == null ? 200 : cx;
+    cy = cy == null ? 110 : cy;
+    a = a == null ? 78 : a;
+    steps = steps || 96;
+    iStart = Math.max(0, Math.min(steps, iStart | 0));
+    iEnd = Math.max(0, Math.min(steps, iEnd | 0));
+    if (iEnd < iStart) return '';
+    var sqrt2 = Math.SQRT2;
+    var parts = [];
+    var i;
+    for (i = iStart; i <= iEnd; i++) {
+      var t = (i / steps) * Math.PI * 2;
+      var st = Math.sin(t);
+      var ct = Math.cos(t);
+      var denom = 1 + st * st;
+      var x = cx + (a * sqrt2 * ct) / denom;
+      var y = cy + (a * sqrt2 * st * ct) / denom;
+      parts.push((i === iStart ? 'M' : 'L') + x.toFixed(1) + ' ' + y.toFixed(1));
+    }
+    return parts.join(' ');
+  }
+
   function prefersReducedMotionRibbon() {
     try {
       return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -599,17 +623,64 @@
     }
   }
 
-  function updateMobiusRibbonDot() {
-    if (!mobiusRibbonPath || !mobiusRibbonDot) return;
+  var mobiusRibbonTourbillonRaf = null;
+
+  function paintMobiusRibbonDot() {
+    if (!mobiusRibbonPath || !mobiusRibbonDot || mobiusRibbonTraceAnimating) return;
     try {
       var len = mobiusRibbonPath.getTotalLength();
-      var t = getRibbonProgress();
+      var base = getRibbonProgress();
+      var wobble = 0;
+      if (!prefersReducedMotionRibbon()) {
+        wobble = 0.048 * Math.sin(performance.now() / 15200);
+      }
+      var t = Math.min(1, Math.max(0, base + wobble));
       var pt = mobiusRibbonPath.getPointAtLength(len * t);
       mobiusRibbonDot.setAttribute('cx', String(pt.x));
       mobiusRibbonDot.setAttribute('cy', String(pt.y));
     } catch (e) {}
   }
+
+  function updateMobiusRibbonDot() {
+    paintMobiusRibbonDot();
+  }
   window.updateMobiusRibbonDot = updateMobiusRibbonDot;
+
+  function mobiusRibbonTourbillonTick() {
+    mobiusRibbonTourbillonRaf = requestAnimationFrame(mobiusRibbonTourbillonTick);
+    if (!mobiusRibbonPath || !mobiusRibbonDot || mobiusRibbonTraceAnimating) return;
+    paintMobiusRibbonDot();
+  }
+
+  function startMobiusRibbonTourbillon() {
+    if (prefersReducedMotionRibbon() || mobiusRibbonTourbillonRaf != null) return;
+    mobiusRibbonTourbillonRaf = requestAnimationFrame(mobiusRibbonTourbillonTick);
+  }
+
+  function appendSvgEngraveFilter(defs, id, scale) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var filt = document.createElementNS(ns, 'filter');
+    filt.setAttribute('id', id);
+    filt.setAttribute('x', '-8%');
+    filt.setAttribute('y', '-8%');
+    filt.setAttribute('width', '116%');
+    filt.setAttribute('height', '116%');
+    var turb = document.createElementNS(ns, 'feTurbulence');
+    turb.setAttribute('type', 'fractalNoise');
+    turb.setAttribute('baseFrequency', '0.65 0.04');
+    turb.setAttribute('numOctaves', '1');
+    turb.setAttribute('seed', '31');
+    turb.setAttribute('result', 'mobiusNoise');
+    filt.appendChild(turb);
+    var disp = document.createElementNS(ns, 'feDisplacementMap');
+    disp.setAttribute('in', 'SourceGraphic');
+    disp.setAttribute('in2', 'mobiusNoise');
+    disp.setAttribute('scale', String(scale == null ? 0.55 : scale));
+    disp.setAttribute('xChannelSelector', 'R');
+    disp.setAttribute('yChannelSelector', 'G');
+    filt.appendChild(disp);
+    defs.appendChild(filt);
+  }
 
   function appendSvgGlowFilter(defs, id, stdDev) {
     var ns = 'http://www.w3.org/2000/svg';
@@ -639,7 +710,12 @@
     if (!wrap || wrap.querySelector('svg')) return;
     var ns = 'http://www.w3.org/2000/svg';
     var reduced = prefersReducedMotionRibbon();
-    var d = buildLemniscateRibbonPathD(200, 110, 78, 96);
+    var cx = 200;
+    var cy = 110;
+    var a = 78;
+    var steps = 96;
+    var d = buildLemniscateRibbonPathD(cx, cy, a, steps);
+    var dTwistUnder = buildLemniscateArcD(cx, cy, a, steps, 40, 56);
 
     var svg = document.createElementNS(ns, 'svg');
     svg.setAttribute('id', 'mobius-ribbon-svg');
@@ -672,6 +748,7 @@
       grad.appendChild(s);
     });
     defs.appendChild(grad);
+    appendSvgEngraveFilter(defs, 'mobius-weekly-engrave', 0.48);
     var motionPathDef = document.createElementNS(ns, 'path');
     motionPathDef.setAttribute('id', 'mobius-weekly-particle-path');
     motionPathDef.setAttribute('d', d);
@@ -679,24 +756,51 @@
     motionPathDef.setAttribute('stroke', 'none');
     motionPathDef.setAttribute('visibility', 'hidden');
     defs.appendChild(motionPathDef);
-    appendSvgGlowFilter(defs, 'mobius-slot-weekly-dot-glow', 3.1);
+    appendSvgGlowFilter(defs, 'mobius-slot-weekly-dot-glow', 3.6);
     svg.appendChild(defs);
+
+    var bevelG = document.createElementNS(ns, 'g');
+    bevelG.setAttribute('class', 'mobius-weekly-bevel-shadow');
+    bevelG.setAttribute('transform', 'translate(0,2.2)');
+    var bevelPath = document.createElementNS(ns, 'path');
+    bevelPath.setAttribute('fill', 'none');
+    bevelPath.setAttribute('stroke', 'rgba(0,0,0,0.62)');
+    bevelPath.setAttribute('stroke-width', '21');
+    bevelPath.setAttribute('stroke-linecap', 'round');
+    bevelPath.setAttribute('stroke-linejoin', 'round');
+    bevelPath.setAttribute('pointer-events', 'none');
+    bevelPath.setAttribute('opacity', '0.85');
+    bevelPath.setAttribute('d', d);
+    bevelG.appendChild(bevelPath);
 
     var bgPath = document.createElementNS(ns, 'path');
     bgPath.setAttribute('class', 'mobius-weekly-ribbon-bg');
     bgPath.setAttribute('fill', 'none');
-    bgPath.setAttribute('stroke', '#0a0d14');
-    bgPath.setAttribute('stroke-width', '24');
+    bgPath.setAttribute('stroke', '#05070c');
+    bgPath.setAttribute('stroke-width', '25');
     bgPath.setAttribute('stroke-linecap', 'round');
     bgPath.setAttribute('stroke-linejoin', 'round');
-    bgPath.setAttribute('opacity', '0.5');
+    bgPath.setAttribute('opacity', '0.62');
     bgPath.setAttribute('pointer-events', 'none');
     bgPath.setAttribute('d', d);
+
+    var twistUnder = null;
+    if (dTwistUnder) {
+      twistUnder = document.createElementNS(ns, 'path');
+      twistUnder.setAttribute('class', 'mobius-weekly-twist-under');
+      twistUnder.setAttribute('fill', 'none');
+      twistUnder.setAttribute('stroke', 'rgba(18,12,8,0.88)');
+      twistUnder.setAttribute('stroke-width', '17');
+      twistUnder.setAttribute('stroke-linecap', 'round');
+      twistUnder.setAttribute('stroke-linejoin', 'round');
+      twistUnder.setAttribute('pointer-events', 'none');
+      twistUnder.setAttribute('d', dTwistUnder);
+    }
 
     var mainPath = document.createElementNS(ns, 'path');
     mainPath.setAttribute('fill', 'none');
     mainPath.setAttribute('stroke', 'url(#mobius-slot-weekly-grad)');
-    mainPath.setAttribute('stroke-width', '12');
+    mainPath.setAttribute('stroke-width', '11.5');
     mainPath.setAttribute('stroke-linecap', 'round');
     mainPath.setAttribute('stroke-linejoin', 'round');
     mainPath.setAttribute('pointer-events', 'none');
@@ -719,14 +823,25 @@
     if (!reduced) {
       guillochePath = document.createElementNS(ns, 'path');
       guillochePath.setAttribute('fill', 'none');
-      guillochePath.setAttribute('stroke', 'rgba(255, 248, 235, 0.1)');
-      guillochePath.setAttribute('stroke-width', '10');
-      guillochePath.setAttribute('stroke-dasharray', '1.5 6');
+      guillochePath.setAttribute('stroke', 'rgba(255, 245, 228, 0.14)');
+      guillochePath.setAttribute('stroke-width', '9');
+      guillochePath.setAttribute('stroke-dasharray', '1.2 5');
       guillochePath.setAttribute('stroke-linecap', 'round');
       guillochePath.setAttribute('pointer-events', 'none');
       guillochePath.setAttribute('d', d);
       guillochePath.setAttribute('class', 'mobius-weekly-ribbon-guilloche');
+      guillochePath.setAttribute('filter', 'url(#mobius-weekly-engrave)');
     }
+
+    var rimPath = document.createElementNS(ns, 'path');
+    rimPath.setAttribute('class', 'mobius-weekly-ribbon-rim');
+    rimPath.setAttribute('fill', 'none');
+    rimPath.setAttribute('stroke', 'rgba(255, 250, 235, 0.2)');
+    rimPath.setAttribute('stroke-width', '2.25');
+    rimPath.setAttribute('stroke-linecap', 'round');
+    rimPath.setAttribute('stroke-linejoin', 'round');
+    rimPath.setAttribute('pointer-events', 'none');
+    rimPath.setAttribute('d', d);
 
     var twistG = document.createElementNS(ns, 'g');
     twistG.setAttribute('class', 'mobius-ribbon-twist mobius-pivot-cross');
@@ -760,12 +875,14 @@
     twistG.appendChild(pivotJewel);
 
     var dot = document.createElementNS(ns, 'circle');
-    dot.setAttribute('r', '6.5');
-    dot.setAttribute('fill', '#e3bc67');
-    dot.setAttribute('stroke', 'rgba(255,255,255,0.4)');
-    dot.setAttribute('stroke-width', '1');
+    dot.setAttribute('r', '5.8');
+    dot.setAttribute('fill', '#f2dc98');
+    dot.setAttribute('stroke', 'rgba(255,255,255,0.55)');
+    dot.setAttribute('stroke-width', '1.1');
     dot.setAttribute('class', 'mobius-ribbon-dot');
-    if (!reduced) dot.setAttribute('filter', 'url(#mobius-slot-weekly-dot-glow)');
+    if (!reduced) {
+      dot.setAttribute('filter', 'url(#mobius-slot-weekly-dot-glow)');
+    }
 
     var particleG = null;
     if (!reduced) {
@@ -792,9 +909,12 @@
       }
     }
 
+    svg.appendChild(bevelG);
     svg.appendChild(bgPath);
+    if (twistUnder) svg.appendChild(twistUnder);
     svg.appendChild(mainPath);
     if (guillochePath) svg.appendChild(guillochePath);
+    svg.appendChild(rimPath);
     if (slotShimmerEl) svg.appendChild(slotShimmerEl);
     if (particleG) svg.appendChild(particleG);
     svg.appendChild(twistG);
@@ -808,6 +928,7 @@
     mobiusRibbonDot = dot;
     mobiusWeeklyPivotCross = twistG;
     updateMobiusRibbonDot();
+    startMobiusRibbonTourbillon();
   }
 
   function flashWeeklyPivotCrossHighlight() {

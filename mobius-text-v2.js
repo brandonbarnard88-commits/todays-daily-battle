@@ -56,16 +56,19 @@
     }
   }
 
-  function runPhase(title, totalMs, phaseLabel, sub, countdownEl) {
+  function runPhase(title, totalMs, phaseLabel, sub, countdownEl, breatheRoot) {
     setPhaseLabel(phaseLabel, title, sub);
     return new Promise(function (resolve) {
       var end = Date.now() + totalMs;
       var iv = setInterval(function () {
         var left = Math.max(0, end - Date.now());
+        var p = totalMs <= 0 ? 1 : Math.min(1, Math.max(0, 1 - left / totalMs));
+        if (breatheRoot) breatheRoot.style.setProperty('--mobius-breath-fill', String(p));
         if (countdownEl) countdownEl.textContent = left > 0 ? Math.ceil(left / 1000) + 's' : '';
         if (left <= 0) {
           clearInterval(iv);
           if (countdownEl) countdownEl.textContent = '';
+          if (breatheRoot) breatheRoot.style.setProperty('--mobius-breath-fill', '1');
           resolve();
         }
       }, 120);
@@ -77,15 +80,16 @@
     var hold = reduced ? Math.min(HOLD_MS, 1400) : HOLD_MS;
     var exh = reduced ? Math.min(EXHALE_MS, 4000) : EXHALE_MS;
     var subBase = 'Round ' + round + ' of ' + BREATH_ROUNDS;
+    var breatheRoot = $('mobius-v2-breathe');
     setBreatheVisualPhase('inhale');
-    return runPhase('Breathe in slowly', inh, phaseLabel, subBase + ' — fill gently; God holds the room.', countdownEl)
+    return runPhase('Breathe in slowly', inh, phaseLabel, subBase + ' — fill gently; God holds the room.', countdownEl, breatheRoot)
       .then(function () {
         setBreatheVisualPhase('hold');
-        return runPhase('Rest here', hold, phaseLabel, subBase + ' — no rush; Christ is steady.', countdownEl);
+        return runPhase('Rest here', hold, phaseLabel, subBase + ' — no rush; Christ is steady.', countdownEl, breatheRoot);
       })
       .then(function () {
         setBreatheVisualPhase('exhale');
-        return runPhase('Let it go gently', exh, phaseLabel, subBase + ' — same ribbon; same Lord.', countdownEl);
+        return runPhase('Let it go gently', exh, phaseLabel, subBase + ' — same ribbon; same Lord.', countdownEl, breatheRoot);
       });
   }
 
@@ -100,6 +104,8 @@
     }
     return chain.then(function () {
       setBreatheVisualPhase('');
+      var br = $('mobius-v2-breathe');
+      if (br) br.style.setProperty('--mobius-breath-fill', '0');
     });
   }
 
@@ -234,6 +240,7 @@
       setVisible(done, false);
       setVisible(breathe, true);
       setVisible(verse, false);
+      if (breathe) breathe.style.setProperty('--mobius-breath-fill', '0');
 
       var reduced = prefersReducedMotion();
 

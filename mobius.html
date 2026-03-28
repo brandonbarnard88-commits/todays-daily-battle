@@ -28,6 +28,9 @@
   </script>
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="preload" href="/vendor/d3.v7.min.js" as="script">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="stylesheet" href="tool-pages.css?v=20260305p">
@@ -50,6 +53,11 @@
     .mobius-controls label { font-size: 0.85rem; color: var(--tool-muted); }
     .mobius-mood-select { padding: 0.4rem 0.75rem; font-size: 0.9rem; color: var(--tool-text); background: rgba(26, 33, 45, 0.9); border: 1px solid var(--tool-line); border-radius: 8px; min-width: 140px; }
     .mobius-mood-select:focus { outline: none; border-color: rgba(227, 188, 103, 0.6); }
+    .mobius-mood-select:focus-visible {
+      outline: 3px solid rgba(227, 188, 103, 0.75);
+      outline-offset: 2px;
+      border-color: rgba(227, 188, 103, 0.65);
+    }
     .mobius-viz-wrap { width: 90%; max-width: 900px; height: 70vh; min-height: 320px; display: flex; align-items: center; justify-content: center; flex: 1; margin: 0 auto 1.5rem; }
     .mobius-viz-wrap svg { max-width: 100%; max-height: 100%; object-fit: contain; }
     .mobius-node.mobius-start-node circle { stroke: var(--tool-gold); stroke-width: 3; }
@@ -95,15 +103,6 @@
     .mobius-section .verse-lead { font-style: italic; color: var(--tool-muted); line-height: 1.6; margin: 0 0 1rem; }
     .mobius-section .core-truth { text-align: left; line-height: 1.65; color: var(--tool-text); margin: 0 0 0.5rem; }
     .mobius-section .core-truth strong { color: var(--tool-gold-soft); font-weight: 600; }
-    .mobius-visual { width: min(280px, 72vw); height: min(280px, 72vw); margin: 1.25rem auto 1.5rem; perspective: 1000px; position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.75rem; }
-    .mobius-ribbon { width: 100%; height: 100%; max-width: 280px; max-height: 280px; border-radius: 50%; transform-style: preserve-3d; animation: mobius-rotate 25s linear infinite; box-shadow: 0 0 40px rgba(74, 112, 67, 0.45), inset 0 0 24px rgba(0, 0, 0, 0.25); background: linear-gradient(135deg, rgba(74, 112, 67, 0.95), rgba(143, 188, 143, 0.85), rgba(74, 112, 67, 0.95)); position: relative; }
-    .mobius-ribbon::before { content: ''; position: absolute; inset: 12%; border-radius: 50%; border: 3px solid rgba(227, 188, 103, 0.35); transform: rotateX(60deg); box-shadow: inset 0 0 20px rgba(227, 188, 103, 0.15); }
-    .mobius-ribbon::after { content: ''; position: absolute; inset: 22%; border-radius: 50%; border: 2px dashed rgba(245, 247, 251, 0.12); animation: mobius-rotate 18s linear infinite reverse; }
-    @keyframes mobius-rotate { from { transform: rotateX(45deg) rotateY(0deg); } to { transform: rotateX(45deg) rotateY(360deg); } }
-    @media (prefers-reduced-motion: reduce) {
-      .mobius-ribbon, .mobius-ribbon::after { animation: none; }
-      .mobius-ribbon { transform: rotateX(45deg) rotateY(20deg); opacity: 0.95; }
-    }
     .mobius-section .visual-placeholder { margin: 0; font-size: 0.88rem; color: var(--tool-muted); line-height: 1.45; max-width: 22rem; }
     .mobius-section ol.deep-walk-steps { text-align: left; margin: 1rem auto 1.25rem; padding-left: 1.5rem; max-width: 100%; line-height: 1.65; color: var(--tool-text); counter-reset: step; list-style: decimal; }
     .mobius-section ol.deep-walk-steps > li { margin-bottom: 1rem; }
@@ -269,9 +268,134 @@
     .mobius-legacy-text { max-width: 28rem; margin: 1.5rem auto 0; text-align: left; border: 1px solid var(--tool-line); border-radius: 12px; padding: 0 1rem 1rem; background: rgba(26,33,45,0.35); }
     .mobius-legacy-text summary { cursor: pointer; padding: 0.85rem 0; font-size: 0.95rem; color: var(--tool-gold-soft); font-weight: 600; min-height: 44px; display: flex; align-items: center; list-style: none; }
     .mobius-legacy-text summary::-webkit-details-marker { display: none; }
+
+    /* ── Möbius 3.0 — quiet luxe atmosphere (velvet field, watch-case frame, text chamber) ── */
+    body.mobius-luxe-page.tool-page-shell {
+      background:
+        radial-gradient(ellipse 100% 55% at 50% -8%, rgba(227, 188, 103, 0.055), transparent 52%),
+        radial-gradient(ellipse 70% 45% at 92% 88%, rgba(72, 58, 112, 0.14), transparent 48%),
+        radial-gradient(ellipse 50% 35% at 8% 75%, rgba(30, 58, 90, 0.12), transparent 45%),
+        linear-gradient(178deg, #06080e 0%, #0c1018 38%, #080a10 100%);
+    }
+    body.mobius-luxe-page .tool-page-header,
+    body.mobius-luxe-page .tool-page-footer {
+      position: relative;
+      z-index: 2;
+    }
+    body.mobius-luxe-page .tool-page-main {
+      position: relative;
+      z-index: 1;
+    }
+    body.mobius-luxe-page.tool-page-shell::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.42;
+      background-image:
+        radial-gradient(1px 1px at 15% 22%, rgba(255, 252, 240, 0.34) 0%, transparent 42%),
+        radial-gradient(1px 1px at 42% 8%, rgba(255, 250, 235, 0.22) 0%, transparent 40%),
+        radial-gradient(1px 1px at 78% 18%, rgba(230, 210, 170, 0.2) 0%, transparent 40%),
+        radial-gradient(1px 1px at 88% 44%, rgba(255, 255, 255, 0.14) 0%, transparent 40%),
+        radial-gradient(1px 1px at 62% 72%, rgba(227, 188, 103, 0.12) 0%, transparent 40%),
+        radial-gradient(1px 1px at 28% 68%, rgba(200, 200, 220, 0.1) 0%, transparent 40%),
+        radial-gradient(1px 1px at 8% 48%, rgba(255, 252, 245, 0.12) 0%, transparent 40%),
+        radial-gradient(1px 1px at 52% 38%, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      body.mobius-luxe-page.tool-page-shell::before { opacity: 0.28; }
+    }
+    body.mobius-luxe-page .mobius-weekly-viz-wrapper {
+      border: 1px solid rgba(201, 162, 107, 0.22);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 250, 235, 0.06),
+        0 28px 56px rgba(0, 0, 0, 0.38);
+      background:
+        radial-gradient(ellipse 95% 85% at 50% 28%, rgba(36, 28, 22, 0.55), rgba(6, 8, 14, 0.88));
+    }
+    body.mobius-luxe-page .mobius-ff-bridge {
+      border-color: rgba(201, 162, 107, 0.28);
+      background: rgba(12, 14, 22, 0.62);
+      box-shadow: inset 0 1px 0 rgba(255, 248, 235, 0.04);
+    }
+    .mobius-text-luxe-panel {
+      width: 100%;
+      max-width: 26.5rem;
+      margin: 0 auto 1.25rem;
+      padding: 1.35rem 1.2rem 1.5rem;
+      border-radius: 18px;
+      background: linear-gradient(165deg, rgba(30, 24, 20, 0.94) 0%, rgba(12, 14, 22, 0.97) 100%);
+      border: 1px solid rgba(201, 162, 107, 0.26);
+      box-shadow:
+        0 0 48px rgba(227, 188, 103, 0.05),
+        inset 0 1px 0 rgba(255, 248, 235, 0.05);
+    }
+    .mobius-text-luxe-eyebrow {
+      margin: 0 0 0.65rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(227, 188, 103, 0.55);
+      text-align: center;
+    }
+    .mobius-v3-verse-serif {
+      font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.05rem, 3.4vw, 1.2rem) !important;
+      letter-spacing: 0.03em;
+      line-height: 1.58 !important;
+      color: #f2ebe3 !important;
+    }
+    .mobius-breathe--inhale .mobius-v2-phase-label {
+      text-shadow: 0 0 28px rgba(227, 188, 103, 0.35);
+    }
+    .mobius-breathe--hold .mobius-v2-phase-label {
+      text-shadow: 0 0 20px rgba(242, 220, 152, 0.28);
+    }
+    .mobius-breathe--exhale .mobius-v2-phase-label {
+      text-shadow: 0 0 18px rgba(180, 200, 220, 0.2);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mobius-breathe--inhale .mobius-v2-phase-label,
+      .mobius-breathe--hold .mobius-v2-phase-label,
+      .mobius-breathe--exhale .mobius-v2-phase-label {
+        text-shadow: none;
+      }
+      .mobius-weekly-ribbon-guilloche { display: none !important; }
+    }
+    .mobius-deep-ribbon-mini {
+      width: min(300px, 88vw);
+      margin: 0 auto 0.5rem;
+    }
+    .mobius-deep-ribbon-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(227, 188, 103, 0.18));
+    }
+    .mobius-deep-ribbon-caption {
+      margin: 0.5rem 0 0;
+      font-size: 0.82rem;
+      color: var(--tool-muted);
+      line-height: 1.45;
+      text-align: center;
+      font-style: italic;
+    }
+    .mobius-visual--luxe {
+      width: 100%;
+      max-width: 22rem;
+      margin: 1.25rem auto 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
   </style>
 </head>
-<body class="tool-page-shell">
+<body class="tool-page-shell mobius-luxe-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="tdb-global-nav" aria-label="Main site navigation">
     <a href="/">Home</a>
@@ -294,7 +418,7 @@
     <header class="mobius-hero">
       <p class="mobius-kjv-banner" role="note">This page is <strong>KJV only</strong> for Scripture and practice: the graph, the text loop, and the Deep Walk below all draw from the same Word—no apocrypha, no mixed sources.</p>
       <h1>Möbius Loop</h1>
-      <p>One journey, two modes: <strong>Graph</strong> (trace the mood cycle) and <strong>Text</strong> (breath + KJV anchor). The <strong>Deep Walk</strong> lives on the same page—one ribbon, real trials, verses for what is ahead.</p>
+      <p>One journey, two modes: <strong>Graph</strong> (the mood cycle on one ribbon) and <strong>Text</strong> (slow breath, then 2 Timothy 1:7 in the KJV). The <strong>Deep Walk</strong> stays below—crafted like a quiet instrument: warm metal, soft light, no hurry.</p>
       <p class="tdb-trust-return">A quiet place to meet God in the battle — breathing and session notes stay on this device.</p>
       <p class="tdb-offline-trust">Still here when the signal isn&rsquo;t.</p>
       <div class="tdb-soft-retry-row"><button type="button" class="tool-btn tool-btn-muted tdb-soft-retry-btn">Try again</button></div>
@@ -333,9 +457,23 @@
         <h2 id="mobius-deep-walk-title">Möbius Deep Walk</h2>
         <p class="verse-lead">“Thy word is a lamp unto my feet, and a light unto my path.” — Psalm 119:105 KJV</p>
 
-        <div class="mobius-visual">
-          <div class="mobius-ribbon" aria-hidden="true"></div>
-          <p class="visual-placeholder">One continuous ribbon. One surface. Endless forward motion.</p>
+        <div class="mobius-visual mobius-visual--luxe">
+          <div class="mobius-deep-ribbon-mini">
+            <svg class="mobius-deep-ribbon-svg" viewBox="0 0 400 220" focusable="false" aria-hidden="true">
+              <defs>
+                <linearGradient id="mobius-deep-walk-rib-grad" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="#8f6230"/>
+                  <stop offset="42%" stop-color="#e3bc67"/>
+                  <stop offset="100%" stop-color="#f2dc98"/>
+                </linearGradient>
+              </defs>
+              <path fill="none" stroke="url(#mobius-deep-walk-rib-grad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" d="M310.3 110.0L309.6 117.2L307.5 124.0L304.2 130.3L299.9 135.8L294.7 140.4L288.9 144.0L282.7 146.6L276.4 148.2L270.1 148.9L263.9 148.9L257.8 148.1L252.0 146.8L246.5 144.9L241.2 142.7L236.2 140.1L231.5 137.3L227.0 134.3L222.8 131.0L218.7 127.7L214.8 124.3L211.0 120.8L207.3 117.2L203.6 113.6L200.0 110.0L196.4 106.4L192.7 102.8L189.0 99.2L185.2 95.7L181.3 92.3L177.2 89.0L173.0 85.7L168.5 82.7L163.8 79.9L158.8 77.3L153.5 75.1L148.0 73.2L142.2 71.9L136.1 71.1L129.9 71.1L123.6 71.8L117.3 73.4L111.1 76.0L105.3 79.6L100.1 84.2L95.8 89.7L92.5 96.0L90.4 102.8L89.7 110.0L90.4 117.2L92.5 124.0L95.8 130.3L100.1 135.8L105.3 140.4L111.1 144.0L117.3 146.6L123.6 148.2L129.9 148.9L136.1 148.9L142.2 148.1L148.0 146.8L153.5 144.9L158.8 142.7L163.8 140.1L168.5 137.3L173.0 134.3L177.2 131.0L181.3 127.7L185.2 124.3L189.0 120.8L192.7 117.2L196.4 113.6L200.0 110.0L203.6 106.4L207.3 102.8L211.0 99.2L214.8 95.7L218.7 92.3L222.8 89.0L227.0 85.7L231.5 82.7L236.2 79.9L241.2 77.3L246.5 75.1L252.0 73.2L257.8 71.9L263.9 71.1L270.1 71.1L276.4 71.8L282.7 73.4L288.9 76.0L294.7 79.6L299.9 84.2L304.2 89.7L307.5 96.0L309.6 102.8L310.3 110.0Z"/>
+              <line x1="200" y1="82" x2="200" y2="138" stroke="rgba(242,220,152,0.5)" stroke-width="1.65" stroke-linecap="round"/>
+              <line x1="172" y1="110" x2="228" y2="110" stroke="rgba(242,220,152,0.5)" stroke-width="1.65" stroke-linecap="round"/>
+              <circle cx="200" cy="110" r="3.2" fill="#f2dc98" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+            </svg>
+            <p class="mobius-deep-ribbon-caption">One continuous path · the Cross sits at the twist</p>
+          </div>
         </div>
 
         <p class="core-truth">
@@ -397,8 +535,10 @@
     </div>
 
     <div id="mobius-panel-text" class="mobius-panel" role="tabpanel" aria-labelledby="mobius-tab-text" hidden>
-      <div class="mobius-text-v2">
-        <p class="mobius-text-v2-lead">Calm path: three slow breathing rounds, then twelve to twenty quiet repetitions of <strong>2 Timothy 1:7</strong> (KJV)—you choose. Nothing leaves your device.</p>
+      <div class="mobius-text-luxe-panel">
+        <p class="mobius-text-luxe-eyebrow" aria-hidden="true">Still chamber</p>
+        <div class="mobius-text-v2">
+        <p class="mobius-text-v2-lead">Three unhurried breathing rounds, then twelve to twenty quiet passes through <strong>2 Timothy 1:7</strong> (KJV)—you set the count. Nothing leaves your device.</p>
         <div class="mobius-v2-presets">
           <label for="mobius-v2-rep-count" class="mobius-v2-label">KJV repetitions (2 Timothy 1:7)</label>
           <select id="mobius-v2-rep-count" class="mobius-mood-select" aria-label="Number of verse repetitions">
@@ -416,7 +556,7 @@
           </div>
           <div id="mobius-v2-verse" class="mobius-v2-verse" hidden>
             <p id="mobius-v2-rep-counter" class="mobius-v2-rep-counter"></p>
-            <p id="mobius-v2-verse-text" class="mobius-v2-verse-text"></p>
+            <p id="mobius-v2-verse-text" class="mobius-v2-verse-text mobius-v3-verse-serif"></p>
             <p id="mobius-v2-rep-hint" class="mobius-v2-rep-hint"></p>
             <button type="button" class="tool-btn tool-btn-muted" id="mobius-v2-verse-next">Next verse</button>
           </div>
@@ -430,6 +570,7 @@
             <button type="button" class="tool-btn tool-btn-muted" id="mobius-v2-print">Print summary</button>
             <pre id="mobius-v2-session-text" class="mobius-v2-session-text" aria-hidden="true"></pre>
           </div>
+        </div>
         </div>
       </div>
       <details class="mobius-legacy-text">
@@ -476,7 +617,7 @@
       <a href="/fuerza.html">Fuerza</a>
       <a href="/paz.html">Paz</a>
     </nav>
-    <p class="last-updated">Last updated: March 28, 2026 • Built in the trenches of Memphis</p>
+    <p class="last-updated">Last updated: March 29, 2026 • Built in the trenches of Memphis</p>
     <nav class="tool-footer-links" aria-label="Footer links">
       <a href="explore.html">Explore</a>
       <a href="privacy.html">Privacy</a>
@@ -490,8 +631,8 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
-  <script src="mobius-universal.js?v=20260328mobius3" defer></script>
-  <script src="mobius-text-v2.js?v=20260328mobius3" defer></script>
+  <script src="mobius-universal.js?v=20260329mobius30" defer></script>
+  <script src="mobius-text-v2.js?v=20260329mobius30" defer></script>
   <script src="share-page.js" defer></script>
   <script src="easter-eggs.js" defer></script>
   <script nonce="tdb2025s">
@@ -516,7 +657,7 @@
             modeLabel.removeAttribute('hidden');
             modeLabel.style.display = 'block';
             modeLabel.classList.add('visible');
-            modeLabel.textContent = 'Text mode: breath + KJV anchor (original line loop in “More”)';
+            modeLabel.textContent = 'Text mode: guided breath, then 2 Timothy 1:7 (original line loop in “More”)';
           } else {
             modeLabel.classList.remove('visible');
             modeLabel.setAttribute('hidden', '');

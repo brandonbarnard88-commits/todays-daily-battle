@@ -1,5 +1,5 @@
 /**
- * Möbius Text Mode 2.0 — guided breathing, KJV anchor repetition (2 Timothy 1:7),
+ * Möbius Text Mode 3.0 — guided breathing, KJV anchor repetition (2 Timothy 1:7),
  * device-local only. Legacy line meditation remains in mobius.html (details).
  */
 (function () {
@@ -9,10 +9,10 @@
     'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.';
   var STUDY_KEY = 'tdb_my_study_v1';
   var BREATH_ROUNDS = 3;
-  var INHALE_MS = 4000;
-  var HOLD_MS = 3000;
-  var EXHALE_MS = 5000;
-  var VERSE_AUTO_MS = 3800;
+  var INHALE_MS = 5200;
+  var HOLD_MS = 2800;
+  var EXHALE_MS = 6200;
+  var VERSE_AUTO_MS = 4200;
 
   function $(id) {
     return document.getElementById(id);
@@ -47,6 +47,15 @@
     if (subEl) subEl.textContent = sub || '';
   }
 
+  function setBreatheVisualPhase(phase) {
+    var wrap = $('mobius-v2-breathe');
+    if (!wrap) return;
+    wrap.classList.remove('mobius-breathe--inhale', 'mobius-breathe--hold', 'mobius-breathe--exhale');
+    if (phase === 'inhale' || phase === 'hold' || phase === 'exhale') {
+      wrap.classList.add('mobius-breathe--' + phase);
+    }
+  }
+
   function runPhase(title, totalMs, phaseLabel, sub, countdownEl) {
     setPhaseLabel(phaseLabel, title, sub);
     return new Promise(function (resolve) {
@@ -64,16 +73,19 @@
   }
 
   function runBreathingRound(round, phaseLabel, countdownEl, reduced) {
-    var inh = reduced ? Math.min(INHALE_MS, 2500) : INHALE_MS;
-    var hold = reduced ? Math.min(HOLD_MS, 1200) : HOLD_MS;
-    var exh = reduced ? Math.min(EXHALE_MS, 3500) : EXHALE_MS;
-    var sub = 'Round ' + round + ' of ' + BREATH_ROUNDS;
-    return runPhase('Inhale — this battle is real', inh, phaseLabel, sub, countdownEl)
+    var inh = reduced ? Math.min(INHALE_MS, 2800) : INHALE_MS;
+    var hold = reduced ? Math.min(HOLD_MS, 1400) : HOLD_MS;
+    var exh = reduced ? Math.min(EXHALE_MS, 4000) : EXHALE_MS;
+    var subBase = 'Round ' + round + ' of ' + BREATH_ROUNDS;
+    setBreatheVisualPhase('inhale');
+    return runPhase('Breathe in slowly', inh, phaseLabel, subBase + ' — fill gently; God holds the room.', countdownEl)
       .then(function () {
-        return runPhase('Hold — name the weight honestly', hold, phaseLabel, sub, countdownEl);
+        setBreatheVisualPhase('hold');
+        return runPhase('Rest here', hold, phaseLabel, subBase + ' — no rush; Christ is steady.', countdownEl);
       })
       .then(function () {
-        return runPhase('Exhale — same ribbon. Same God.', exh, phaseLabel, sub, countdownEl);
+        setBreatheVisualPhase('exhale');
+        return runPhase('Let it go gently', exh, phaseLabel, subBase + ' — same ribbon; same Lord.', countdownEl);
       });
   }
 
@@ -86,7 +98,9 @@
         });
       })(r);
     }
-    return chain;
+    return chain.then(function () {
+      setBreatheVisualPhase('');
+    });
   }
 
   function runVerseReps(n, verseEl, counterEl, repHint, reduced) {
@@ -99,7 +113,7 @@
           if (counterEl) counterEl.textContent = 'Repetition ' + rep + ' of ' + n;
           if (repHint) {
             repHint.textContent =
-              'Speak quietly or read along. Tap “Next verse” to move sooner, or wait.';
+              'Whisper the words or read in silence. Tap “Next verse” when you are ready, or rest until the page advances.';
           }
           return new Promise(function (resolve) {
             var tid = setTimeout(resolve, delay);

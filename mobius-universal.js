@@ -396,9 +396,11 @@
 
     var defs = svg.append('defs');
     var grad = defs.append('linearGradient').attr('id', 'mobius-ribbon-grad').attr('x1', '0%').attr('y1', '0%').attr('x2', '100%').attr('y2', '100%');
-    grad.append('stop').attr('offset', '0%').attr('stop-color', '#8b9dc3');
-    grad.append('stop').attr('offset', '50%').attr('stop-color', '#e3bc67');
-    grad.append('stop').attr('offset', '100%').attr('stop-color', '#8b9dc3');
+    grad.append('stop').attr('offset', '0%').attr('stop-color', '#7a8aad');
+    grad.append('stop').attr('offset', '38%').attr('stop-color', '#c9a44a');
+    grad.append('stop').attr('offset', '50%').attr('stop-color', '#f2dc98');
+    grad.append('stop').attr('offset', '62%').attr('stop-color', '#c9a44a');
+    grad.append('stop').attr('offset', '100%').attr('stop-color', '#7a8aad');
     var twistGrad = defs.append('linearGradient').attr('id', 'mobius-twist-grad').attr('x1', '0%').attr('y1', '0%').attr('x2', '100%').attr('y2', '100%');
     twistGrad.append('stop').attr('offset', '0%').attr('stop-color', '#e3bc67');
     twistGrad.append('stop').attr('offset', '50%').attr('stop-color', '#f2dc98');
@@ -416,20 +418,20 @@
     var ribbonClass = 'mobius-ribbon' + (traceGoldNow ? ' mobius-ribbon-gold-trail' : '');
     if (!traceGoldNow) {
       pathGroup.append('path').attr('class', 'mobius-ribbon mobius-viz-ribbon-halo')
-        .attr('fill', 'none').attr('stroke', 'rgba(227,188,103,0.11)')
-        .attr('stroke-width', 14).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
+        .attr('fill', 'none').attr('stroke', 'rgba(227,188,103,0.08)')
+        .attr('stroke-width', 18).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
         .attr('pointer-events', 'none').attr('d', ribbonD);
     }
     pathGroup.append('path').attr('class', ribbonClass)
       .attr('fill', 'none').attr('stroke', traceGoldNow ? '#e3bc67' : 'url(#mobius-ribbon-grad)')
-      .attr('stroke-width', traceGoldNow ? 4 : 3).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
-      .attr('stroke-opacity', traceGoldNow ? 0.6 : 0.38)
+      .attr('stroke-width', traceGoldNow ? 4.25 : 3.25).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
+      .attr('stroke-opacity', traceGoldNow ? 0.72 : 0.48)
       .attr('pointer-events', 'none').attr('d', ribbonD);
     if (traceGoldNow) window.__mobiusTraceGold = false;
     if (!traceGoldNow) {
       pathGroup.append('path').attr('class', 'mobius-viz-ribbon-shimmer')
-        .attr('fill', 'none').attr('stroke', 'rgba(242, 220, 152, 0.38)')
-        .attr('stroke-width', 1.65).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
+        .attr('fill', 'none').attr('stroke', 'rgba(252, 245, 230, 0.32)')
+        .attr('stroke-width', 1.35).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
         .attr('pointer-events', 'none').attr('d', ribbonD);
     }
     pathGroup.append('path').attr('class', 'mobius-tracer-path')
@@ -456,15 +458,15 @@
       .attr('y2', function (d) { return d.target.y; })
       .attr('stroke', function (d) {
         if (d.isRedeemed) return 'url(#mobius-twist-grad)';
-        if (d.source.id === '2tim' || d.target.id === '2tim') return 'rgba(227,188,103,0.55)';
-        return 'rgba(139,157,195,0.4)';
+        if (d.source.id === '2tim' || d.target.id === '2tim') return 'rgba(232, 201, 140, 0.42)';
+        return 'rgba(148, 163, 184, 0.16)';
       })
       .attr('stroke-width', function (d) {
-        if (d.isRedeemed) return 2.5;
-        if (d.source.id === '2tim' || d.target.id === '2tim') return isTouch ? 2.55 : 2.2;
-        return 1.5;
+        if (d.isRedeemed) return 2;
+        if (d.source.id === '2tim' || d.target.id === '2tim') return isTouch ? 2.35 : 2;
+        return 1.15;
       })
-      .attr('stroke-dasharray', function (d) { return d.isRedeemed ? '6 4' : 'none'; });
+      .attr('stroke-dasharray', function (d) { return d.isRedeemed ? '5 5' : 'none'; });
 
     var nodeRadius = isTouch ? 22 : 18;
     var pivotRadius = 26;
@@ -488,7 +490,7 @@
 
     nodeEls.append('text')
       .attr('text-anchor', 'middle').attr('dy', 4)
-      .attr('fill', '#0d0d0d').attr('font-size', function (d) { return d.id === '2tim' ? (isTouch ? '8px' : '7px') : (isTouch ? '9px' : '8px'); })
+      .attr('fill', 'rgba(248, 250, 252, 0.94)').attr('font-size', function (d) { return d.id === '2tim' ? (isTouch ? '8px' : '7px') : (isTouch ? '9px' : '8px'); })
       .attr('font-weight', '600')
       .text(function (d) {
         var lbl = d.label;
@@ -557,9 +559,27 @@
   var mobiusRibbonTraceAnimating = false;
   var mobiusWeeklyPivotCross = null;
 
-  /** Weekly schematic ribbon — cubic ∞, velvet field viewBox 0 0 400 220. */
-  var MOBIUS_WEEKLY_RIBBON_D =
-    'M50 100 C100 0 300 0 350 100 C300 200 100 200 50 100 Z';
+  /** True lemniscate (∞) ribbon — Bernoulli curve, twist at (cx,cy). Matches watch-dial proportions in viewBox 0 0 400 220. */
+  function buildLemniscateRibbonPathD(cx, cy, a, steps) {
+    cx = cx == null ? 200 : cx;
+    cy = cy == null ? 110 : cy;
+    a = a == null ? 78 : a;
+    steps = steps || 96;
+    var sqrt2 = Math.SQRT2;
+    var parts = [];
+    var i;
+    for (i = 0; i <= steps; i++) {
+      var t = (i / steps) * Math.PI * 2;
+      var st = Math.sin(t);
+      var ct = Math.cos(t);
+      var denom = 1 + st * st;
+      var x = cx + (a * sqrt2 * ct) / denom;
+      var y = cy + (a * sqrt2 * st * ct) / denom;
+      parts.push((i === 0 ? 'M' : 'L') + x.toFixed(1) + ' ' + y.toFixed(1));
+    }
+    parts.push('Z');
+    return parts.join(' ');
+  }
 
   function prefersReducedMotionRibbon() {
     try {
@@ -619,7 +639,7 @@
     if (!wrap || wrap.querySelector('svg')) return;
     var ns = 'http://www.w3.org/2000/svg';
     var reduced = prefersReducedMotionRibbon();
-    var d = MOBIUS_WEEKLY_RIBBON_D;
+    var d = buildLemniscateRibbonPathD(200, 110, 78, 96);
 
     var svg = document.createElementNS(ns, 'svg');
     svg.setAttribute('id', 'mobius-ribbon-svg');
@@ -639,7 +659,13 @@
     grad.setAttribute('y1', '0%');
     grad.setAttribute('x2', '100%');
     grad.setAttribute('y2', '0%');
-    [['0%', '#c4a35a'], ['45%', '#e3bc67'], ['100%', '#f2dc98']].forEach(function (stop) {
+    [
+      ['0%', '#8f6230'],
+      ['28%', '#c9a44a'],
+      ['50%', '#f2dc98'],
+      ['72%', '#c9a44a'],
+      ['100%', '#a67c3a'],
+    ].forEach(function (stop) {
       var s = document.createElementNS(ns, 'stop');
       s.setAttribute('offset', stop[0]);
       s.setAttribute('stop-color', stop[1]);
@@ -653,14 +679,14 @@
     motionPathDef.setAttribute('stroke', 'none');
     motionPathDef.setAttribute('visibility', 'hidden');
     defs.appendChild(motionPathDef);
-    appendSvgGlowFilter(defs, 'mobius-slot-weekly-dot-glow', 2.2);
+    appendSvgGlowFilter(defs, 'mobius-slot-weekly-dot-glow', 3.1);
     svg.appendChild(defs);
 
     var bgPath = document.createElementNS(ns, 'path');
     bgPath.setAttribute('class', 'mobius-weekly-ribbon-bg');
     bgPath.setAttribute('fill', 'none');
-    bgPath.setAttribute('stroke', '#141b2a');
-    bgPath.setAttribute('stroke-width', '22');
+    bgPath.setAttribute('stroke', '#0a0d14');
+    bgPath.setAttribute('stroke-width', '24');
     bgPath.setAttribute('stroke-linecap', 'round');
     bgPath.setAttribute('stroke-linejoin', 'round');
     bgPath.setAttribute('opacity', '0.5');
@@ -670,7 +696,7 @@
     var mainPath = document.createElementNS(ns, 'path');
     mainPath.setAttribute('fill', 'none');
     mainPath.setAttribute('stroke', 'url(#mobius-slot-weekly-grad)');
-    mainPath.setAttribute('stroke-width', '13');
+    mainPath.setAttribute('stroke-width', '12');
     mainPath.setAttribute('stroke-linecap', 'round');
     mainPath.setAttribute('stroke-linejoin', 'round');
     mainPath.setAttribute('pointer-events', 'none');
@@ -689,30 +715,52 @@
       slotShimmerEl.setAttribute('class', 'mobius-ribbon-slot-shimmer');
     }
 
+    var guillochePath = null;
+    if (!reduced) {
+      guillochePath = document.createElementNS(ns, 'path');
+      guillochePath.setAttribute('fill', 'none');
+      guillochePath.setAttribute('stroke', 'rgba(255, 248, 235, 0.1)');
+      guillochePath.setAttribute('stroke-width', '10');
+      guillochePath.setAttribute('stroke-dasharray', '1.5 6');
+      guillochePath.setAttribute('stroke-linecap', 'round');
+      guillochePath.setAttribute('pointer-events', 'none');
+      guillochePath.setAttribute('d', d);
+      guillochePath.setAttribute('class', 'mobius-weekly-ribbon-guilloche');
+    }
+
     var twistG = document.createElementNS(ns, 'g');
     twistG.setAttribute('class', 'mobius-ribbon-twist mobius-pivot-cross');
     twistG.setAttribute('pointer-events', 'none');
     var crossV = document.createElementNS(ns, 'line');
     crossV.setAttribute('x1', '200');
-    crossV.setAttribute('y1', '88');
+    crossV.setAttribute('y1', '82');
     crossV.setAttribute('x2', '200');
-    crossV.setAttribute('y2', '112');
-    crossV.setAttribute('stroke', 'rgba(227,188,103,0.24)');
-    crossV.setAttribute('stroke-width', '1.25');
+    crossV.setAttribute('y2', '138');
+    crossV.setAttribute('stroke', 'rgba(242, 220, 152, 0.5)');
+    crossV.setAttribute('stroke-width', '1.65');
     crossV.setAttribute('stroke-linecap', 'round');
     var crossH = document.createElementNS(ns, 'line');
-    crossH.setAttribute('x1', '186');
-    crossH.setAttribute('y1', '100');
-    crossH.setAttribute('x2', '214');
-    crossH.setAttribute('y2', '100');
-    crossH.setAttribute('stroke', 'rgba(227,188,103,0.24)');
-    crossH.setAttribute('stroke-width', '1.25');
+    crossH.setAttribute('x1', '172');
+    crossH.setAttribute('y1', '110');
+    crossH.setAttribute('x2', '228');
+    crossH.setAttribute('y2', '110');
+    crossH.setAttribute('stroke', 'rgba(242, 220, 152, 0.5)');
+    crossH.setAttribute('stroke-width', '1.65');
     crossH.setAttribute('stroke-linecap', 'round');
     twistG.appendChild(crossV);
     twistG.appendChild(crossH);
+    var pivotJewel = document.createElementNS(ns, 'circle');
+    pivotJewel.setAttribute('cx', '200');
+    pivotJewel.setAttribute('cy', '110');
+    pivotJewel.setAttribute('r', '3.2');
+    pivotJewel.setAttribute('fill', '#f2dc98');
+    pivotJewel.setAttribute('stroke', 'rgba(255,255,255,0.35)');
+    pivotJewel.setAttribute('stroke-width', '0.5');
+    pivotJewel.setAttribute('class', 'mobius-pivot-jewel');
+    twistG.appendChild(pivotJewel);
 
     var dot = document.createElementNS(ns, 'circle');
-    dot.setAttribute('r', '8');
+    dot.setAttribute('r', '6.5');
     dot.setAttribute('fill', '#e3bc67');
     dot.setAttribute('stroke', 'rgba(255,255,255,0.4)');
     dot.setAttribute('stroke-width', '1');
@@ -746,13 +794,14 @@
 
     svg.appendChild(bgPath);
     svg.appendChild(mainPath);
+    if (guillochePath) svg.appendChild(guillochePath);
     if (slotShimmerEl) svg.appendChild(slotShimmerEl);
     if (particleG) svg.appendChild(particleG);
     svg.appendChild(twistG);
     svg.appendChild(dot);
     var cap = document.createElement('p');
     cap.className = 'mobius-ribbon-cap';
-    cap.textContent = 'Loops this week — your place on one ribbon (schematic lap)';
+    cap.textContent = 'Loops this week — one ribbon, one path (your lap on the ∞)';
     wrap.appendChild(svg);
     wrap.appendChild(cap);
     mobiusRibbonPath = mainPath;
@@ -784,7 +833,7 @@
       btn.disabled = true;
       var totalLen = mobiusRibbonPath.getTotalLength();
       var start = performance.now();
-      var dur = 2600;
+      var dur = 9500;
       function step(now) {
         var t = (now - start) / dur;
         if (t >= 1) {
@@ -818,20 +867,21 @@
     var a = document.createElement('a');
     a.className = 'mobius-ff-bridge-link';
     if (day <= 0) {
-      p.appendChild(document.createTextNode('Fear to Faith — '));
-      a.textContent = 'open the 7-day KJV plan';
+      p.appendChild(document.createTextNode('Fear to Faith — a calm 7-day KJV path on this device. '));
+      a.textContent = 'Begin day 1';
       a.setAttribute('href', 'plans.html?plan=fearfaith&day=1');
       p.appendChild(a);
-      p.appendChild(document.createTextNode(' (progress stays on this device).'));
+      p.appendChild(document.createTextNode('.'));
     } else if (day >= 7) {
-      p.appendChild(document.createTextNode('Fear to Faith — '));
-      a.textContent = 'plan complete — revisit or walk the loop again';
+      p.appendChild(document.createTextNode('Fear to Faith — you finished all 7 days. '));
+      a.textContent = 'Revisit the plan or stay in the loop';
       a.setAttribute('href', 'plans.html?plan=fearfaith');
       p.appendChild(a);
       p.appendChild(document.createTextNode('.'));
     } else {
-      p.appendChild(document.createTextNode('Fear to Faith — through day ' + day + ' of 7. '));
-      a.textContent = 'Continue the plan';
+      var onDay = Math.min(day + 1, 7);
+      p.appendChild(document.createTextNode('Fear to Faith — you are on day ' + onDay + ' of 7. '));
+      a.textContent = 'Open today’s reading';
       a.setAttribute('href', 'plans.html?plan=fearfaith&day=' + String(Math.min(day + 1, 7)));
       p.appendChild(a);
       p.appendChild(document.createTextNode('.'));

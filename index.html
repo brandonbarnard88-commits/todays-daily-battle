@@ -98,7 +98,8 @@
       --bg-soft: #171c25;
       --card: #1b212d;
       --text: #f5f7fb;
-      --muted: #bcc5d6;
+      /* Secondary line copy on dark — ~4.5:1+ vs #000818 / near-black */
+      --muted: #a8b3c4;
       --gold: #e3bc67;
       --gold-soft: #f2dc98;
       --line: #2a3344;
@@ -114,7 +115,7 @@
       --bg-soft: #fff8e9;
       --card: #fffdf7;
       --text: #191d26;
-      --muted: #5f6877;
+      --muted: #4d525c;
       --gold: #9e7625;
       --gold-soft: #b88d31;
       --line: #e6dcc1;
@@ -1013,7 +1014,7 @@
       border-color: color-mix(in srgb, var(--gold) 32%, var(--line));
     }
     .site-top-links a {
-      color: rgba(148, 163, 184, 0.9);
+      color: #c5ced9;
       text-decoration: none;
       margin: 0 0.35rem;
       padding: 0.2rem 0.1rem;
@@ -1026,8 +1027,8 @@
       outline: 2px solid rgba(234, 179, 8, 0.6);
       outline-offset: 2px;
     }
-    .site-top-links .header-auth-welcome { color: rgba(148, 163, 184, 0.85); margin-right: 0.25rem; display: inline-flex; align-items: center; gap: 0.35rem; }
-    .site-top-links .header-auth-sep { color: rgba(148, 163, 184, 0.5); margin: 0 0.25rem; }
+    .site-top-links .header-auth-welcome { color: #b4c0d0; margin-right: 0.25rem; display: inline-flex; align-items: center; gap: 0.35rem; }
+    .site-top-links .header-auth-sep { color: rgba(180, 192, 208, 0.75); margin: 0 0.25rem; }
     .site-top-links .auth-avatar { background: rgba(234, 179, 8, 0.35); color: rgba(255,255,255,0.95); border-radius: 50%; width: 26px; height: 26px; line-height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; vertical-align: middle; margin-right: 0.5rem; }
     .landing-privacy-teaser {
       text-align: center;
@@ -1085,6 +1086,22 @@
     .site-plan-nudge a:hover,
     .site-plan-nudge a:focus-visible {
       text-decoration: underline;
+    }
+    /* Cream: gold alone can dip under 4.5:1 — underline + deep brown (matches privacy teaser links) */
+    :root[data-theme="light"] .site-feedback-hint a,
+    :root[data-theme="light"] .site-plan-nudge a,
+    :root[data-theme="light"] .tdb-whats-new-hint a {
+      color: #2d1f0a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    :root[data-theme="light"] .site-feedback-hint a:hover,
+    :root[data-theme="light"] .site-feedback-hint a:focus-visible,
+    :root[data-theme="light"] .site-plan-nudge a:hover,
+    :root[data-theme="light"] .site-plan-nudge a:focus-visible,
+    :root[data-theme="light"] .tdb-whats-new-hint a:hover,
+    :root[data-theme="light"] .tdb-whats-new-hint a:focus-visible {
+      color: #1a1206;
     }
     /* Today strip — inside #main-content, above hero (does not replace search/topics) */
     #main-content {
@@ -1187,6 +1204,9 @@
       text-transform: uppercase;
       font-size: 0.65rem;
       color: color-mix(in srgb, var(--muted) 90%, var(--gold) 10%);
+    }
+    :root[data-theme="light"] .tdb-whats-new-label {
+      color: #4a3f32;
     }
     .tdb-whats-new-date { font-style: italic; opacity: 0.92; }
     @media (max-width: 400px) {

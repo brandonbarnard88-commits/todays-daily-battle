@@ -103,7 +103,8 @@ html[data-theme="light"] .app-shell {
   --text: #1a2234;
   --color-text: #1a2234;
   --color-bg: #f6f1e3;
-  --muted-readable: #5f6877;
+  /* Secondary copy on cream — WCAG AA (~7:1 vs warm white) */
+  --muted-readable: #4d525c;
   --input-placeholder-on-dark: #64748b;
   --card-light: rgba(255, 253, 247, 0.96);
   --border-subtle: rgba(15, 23, 42, 0.12);
@@ -210,7 +211,7 @@ details.bottom-nav-es-more summary {
   color: var(--muted-readable, #94a3b8);
 }
 :root[data-theme="light"] .tdb-appearance-lead {
-  color: #5f6877;
+  color: #4d525c;
 }
 .tdb-appearance-toggle-row {
   display: flex;
@@ -8290,12 +8291,22 @@ body.red-letter-off .red-letter-card {
 .sermons-list-item .section-note { margin: 0; font-size: 0.9rem; }
 
 .section-note {
-  color: #64748b;
+  /* Muted body copy on light surfaces — darker slate for AA vs white/cream */
+  color: #4a5568;
   margin: 0.6rem 0 1.25rem;
   font-family: var(--font-body);
   font-size: 1.02rem;
   line-height: 1.55;
   letter-spacing: 0.01em;
+}
+
+html[data-theme="dark"] .section-note,
+html:not([data-theme]) .section-note {
+  color: #d4d4d4;
+}
+
+html[data-theme="light"] .section-note {
+  color: #4a4f58;
 }
 
 .dark-mode .section-note {
@@ -15170,14 +15181,15 @@ html.tdb-perf-mode .sky-cloud {
   text-align: center;
   font-size: 0.78rem;
   line-height: 1.45;
-  color: rgba(226, 232, 240, 0.5);
+  color: #b8b8b8;
   margin: 0;
   padding: 0.55rem 1rem 1rem;
   letter-spacing: 0.02em;
-  font-weight: 400;
+  font-weight: 500;
 }
 :root[data-theme="light"] .tdb-site-humility {
-  color: rgba(60, 50, 40, 0.55);
+  color: #5a5045;
+  font-weight: 500;
 }
 body.kids-battle-page .tdb-site-humility {
   padding-bottom: calc(0.75rem + 52px);

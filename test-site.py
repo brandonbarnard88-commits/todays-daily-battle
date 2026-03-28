@@ -44,7 +44,7 @@ PAGES = [
     ("/bible-study.html", "Bible Study", ["Bible", "id=\"auth-section\""]),
     ("/coloring.html", "Coloring", ["Coloring", "Kids", "coloring-sheet-grid", "Pick a page", "id=\"auth-section\""]),
     ("/kids-corner.html", "Kids Corner", ["Bible Loop Library", "kids-loop-og.jpg", "Download loop progress (PDF)", "loop-pdf-export", 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', "Quick calm loops", "Open Kids Coloring", "coloring.html", "hreflang=\"pt\" href=\"https://todaysdailybattle.com/pt/criancas.html\"", "Story Stars", "loop-grid", "script.js?v=20260328feelwire", "kids-corner.css?v=8",
-    "kids-corner-daily-verse.js?v=2",
+    "kids-corner-daily-verse.js?v=3",
     "Verse of the day",
     "kids-family-hub-banner", "Open Family hub", "For parents",
     "kids-daily-verse-root", "family.html", "kids/kids-page-sky.css?v=20260326playful", "sky-ip-geo.js?v=20260327ipgeo", "kids/kids-page-sky.js?v=20260327ipgeo"]),

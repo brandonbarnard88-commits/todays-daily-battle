@@ -13744,6 +13744,9 @@ async function loadBible(version = currentVersion) {
     bibleEntries = Object.entries(bible);
     searchCache.clear();
     renderDailyVerse();
+    try {
+      if (typeof window.dispatchEvent === 'function') window.dispatchEvent(new CustomEvent('tdb-bible-ready'));
+    } catch (eBr) { /* non-fatal */ }
     return;
   }
   const file = versionFiles[version] || versionFiles.KJV;
@@ -13763,6 +13766,9 @@ async function loadBible(version = currentVersion) {
       bibleEntries = Object.entries(bible);
       searchCache.clear();
       renderDailyVerse();
+      try {
+        if (typeof window.dispatchEvent === 'function') window.dispatchEvent(new CustomEvent('tdb-bible-ready'));
+      } catch (eBr2) { /* non-fatal */ }
       return;
     } catch (err) {
       if (i === 0 && version !== 'KJV') {
@@ -20049,7 +20055,10 @@ async function tdbInitImpl() {
   var path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
   var isHome = path === '' || path === '/' || path === '/index.html';
   var isVersePage = /verse\.html$/.test(path);
-  if ((isHome || isVersePage) && Object.keys(bible).length === 0 && typeof loadBible === 'function') {
+  /* Family hub + Kids Corner use kids-corner-daily-verse.js, which needs bible + getBibleVerseText — same as verse page. */
+  var isFamilyHubPage = /family\.html$/i.test(path);
+  var isKidsCornerPage = /kids-corner\.html$/i.test(path);
+  if ((isHome || isVersePage || isFamilyHubPage || isKidsCornerPage) && Object.keys(bible).length === 0 && typeof loadBible === 'function') {
     loadBible(currentVersion).catch(function () {});
   }
   if (isHome && typeof URLSearchParams !== 'undefined' && window.location.search) {
@@ -20096,7 +20105,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260328-trust-retry', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260329-family-bible', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

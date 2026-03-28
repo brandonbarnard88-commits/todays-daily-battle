@@ -113,9 +113,18 @@
     setTimeout(tick, 250);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', tick);
-  } else {
-    tick();
+  function start() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', tick);
+    } else {
+      tick();
+    }
+    try {
+      window.addEventListener('tdb-bible-ready', function onBible() {
+        window.removeEventListener('tdb-bible-ready', onBible);
+        if (ready()) paint();
+      });
+    } catch (eL) { /* ignore */ }
   }
+  start();
 })();

@@ -48,7 +48,7 @@ const pages = [
   { path: '/family-youth-journal.html', name: 'Family teen journal', mustInclude: ['Teen journal', 'See — What stands out?', 'galatiansfreedom', 'family-activity-packs.html'] },
   { path: '/mission-outreach-packs.html', name: 'Mission outreach packs', mustInclude: ['Mission &amp; outreach packs', 'mission-outreach-data.js', 'mo-pack-themes', 'hospital &amp; bedside', 'grief &amp; funeral', 'prison &amp; jail', 'mo-print-btn', 'tdb-cache-hygiene:'] },
   { path: '/kids-corner.html', name: 'Kids Corner', mustInclude: ['Bible Loop', 'Story Stars', 'loop-grid', 'kids-loop-og.jpg', 'summary_large_image', 'Download loop progress (PDF)', 'loop-pdf-export', 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', 'Quick calm loops', '/kids/corner.html', 'Open Kids Coloring', 'coloring.html', 'hreflang="pt" href="https://todaysdailybattle.com/pt/criancas.html"', 'script.js?v=20260328feelwire', 'kids-corner.css?v=8',
-    'kids-corner-daily-verse.js?v=2',
+    'kids-corner-daily-verse.js?v=3',
     'Verse of the day',
     'kids-family-hub-banner', 'Open Family hub', 'For parents',
     'kids-daily-verse-root', 'kids/kids-page-sky.css?v=20260326playful', 'sky-ip-geo.js?v=20260327ipgeo', 'kids/kids-page-sky.js?v=20260327ipgeo'] },

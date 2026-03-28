@@ -93,11 +93,15 @@
     var strip = byId('mystudy-memorize-strip');
     var el = byId('mystudy-memorize-pill');
     var btn = byId('mystudy-memorize-review-next');
-    if (!strip || !el) return;
+    if (!strip || !el) {
+      renderProgressSummary();
+      return;
+    }
     if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.listMemorizeQueue !== 'function') {
       strip.classList.add('mystudy-memorize-strip--empty');
       el.textContent = '';
       if (btn) btn.classList.add('hidden');
+      renderProgressSummary();
       return;
     }
     var snap = getMemorizeQueueSnapshot(window.TDBStudyCompanion);
@@ -106,6 +110,7 @@
     if (!n) {
       el.textContent = '';
       if (btn) btn.classList.add('hidden');
+      renderProgressSummary();
       return;
     }
     var line =
@@ -125,6 +130,7 @@
         btn.setAttribute('aria-label', 'Mark the next verse reviewed today');
       }
     }
+    renderProgressSummary();
   }
 
   function markNextMemorizeReviewed() {
@@ -171,26 +177,108 @@
     updateMemorizePill();
   }
 
-  function renderDashboardPanel(comp) {
-    var el = byId('mystudy-dash-stats');
-    if (!el || !comp.getDashboardStats) return;
+  function createBibleToolOpenAnchor(ref, label) {
+    var a = document.createElement('a');
+    a.href = 'bible-tool.html?ref=' + encodeURIComponent(ref);
+    a.className = 'btn btn-secondary mystudy-open-tool';
+    a.textContent = label || 'Bible Tool';
+    a.setAttribute('aria-label', 'Open ' + ref + ' in Bible Tool');
+    return a;
+  }
+
+  function renderProgressSummary() {
+    var el = byId('mystudy-progress-summary');
+    if (!el) return;
+    el.textContent = '';
+    var comp = window.TDBStudyCompanion;
+    if (!comp || typeof comp.getDashboardStats !== 'function') {
+      var err = document.createElement('p');
+      err.className = 'mystudy-progress-summary-line';
+      err.textContent = 'Study tools did not load. Refresh the page.';
+      el.appendChild(err);
+      return;
+    }
     var s = comp.getDashboardStats();
-    el.textContent =
-      'This month you updated ' +
-      s.notesTouchedThisMonth +
-      ' tagged note' +
-      (s.notesTouchedThisMonth === 1 ? '' : 's') +
-      '. ' +
-      s.versesWithNotes +
-      ' verse' +
-      (s.versesWithNotes === 1 ? '' : 's') +
-      ' with notes. ' +
-      s.readingPlanCheckmarks +
-      ' Bible Tool reading checkmark' +
-      (s.readingPlanCheckmarks === 1 ? '' : 's') +
-      '. ' +
-      s.memorizeVerses +
-      ' in memorize.';
+    var lines = [];
+    if (s.versesWithNotes > 0) {
+      lines.push(
+        'You have ' +
+          s.versesWithNotes +
+          ' verse note' +
+          (s.versesWithNotes === 1 ? '' : 's') +
+          ' saved on this device.'
+      );
+    }
+    if (s.notesTouchedThisMonth > 0) {
+      lines.push(
+        'This month you refreshed tags on ' +
+          s.notesTouchedThisMonth +
+          ' tagged verse' +
+          (s.notesTouchedThisMonth === 1 ? '' : 's') +
+          '.'
+      );
+    }
+    if (s.readingPlanCheckmarks > 0) {
+      lines.push(
+        'Reading plan: ' +
+          s.readingPlanCheckmarks +
+          ' day marker' +
+          (s.readingPlanCheckmarks === 1 ? '' : 's') +
+          ' in the Bible Tool.'
+      );
+    }
+    if (s.chaptersVisitedThisMonth > 0) {
+      lines.push(
+        'Chapter reader: ' +
+          s.chaptersVisitedThisMonth +
+          ' chapter visit' +
+          (s.chaptersVisitedThisMonth === 1 ? '' : 'es') +
+          ' this month.'
+      );
+    }
+    if (s.memorizeVerses > 0) {
+      var memLine =
+        'Memorize: ' +
+        s.memorizeVerses +
+        ' verse' +
+        (s.memorizeVerses === 1 ? '' : 's') +
+        ' in your queue';
+      if (s.memorizeReviewsThisMonth > 0) {
+        memLine +=
+          ', ' +
+          s.memorizeReviewsThisMonth +
+          ' review' +
+          (s.memorizeReviewsThisMonth === 1 ? '' : 's') +
+          ' logged this month';
+      }
+      memLine += '.';
+      lines.push(memLine);
+    }
+    if (!lines.length) {
+      var p = document.createElement('p');
+      p.className = 'mystudy-progress-summary-line mystudy-progress-summary-line--lead';
+      p.appendChild(document.createTextNode('Quiet start. Add a verse note in the '));
+      var aBt = document.createElement('a');
+      aBt.href = 'bible-tool.html';
+      aBt.className = 'mystudy-inline-tool-link';
+      aBt.textContent = 'Bible Tool';
+      p.appendChild(aBt);
+      p.appendChild(document.createTextNode(', open a chapter in the '));
+      var aRd = document.createElement('a');
+      aRd.href = 'reader.html';
+      aRd.className = 'mystudy-inline-tool-link';
+      aRd.textContent = 'chapter reader';
+      p.appendChild(aRd);
+      p.appendChild(document.createTextNode(', or check off a reading-plan day—then you will see a simple rhythm here.'));
+      el.appendChild(p);
+      return;
+    }
+    lines.forEach(function (line) {
+      var lineEl = document.createElement('p');
+      lineEl.className = 'mystudy-progress-summary-line';
+      lineEl.textContent = line;
+      el.appendChild(lineEl);
+    });
   }
 
   function renderMemorizePanel(comp) {
@@ -200,8 +288,14 @@
     var q = comp.listMemorizeQueue();
     if (!q.length) {
       var empty = document.createElement('li');
-      empty.className = 'section-note';
-      empty.textContent = 'None yet. Look up a verse in the Bible Tool and tap Memorize.';
+      empty.className = 'section-note mystudy-empty-hint';
+      empty.appendChild(document.createTextNode('None yet. Look up a verse in the '));
+      var emA = document.createElement('a');
+      emA.href = 'bible-tool.html';
+      emA.className = 'mystudy-inline-tool-link';
+      emA.textContent = 'Bible Tool';
+      empty.appendChild(emA);
+      empty.appendChild(document.createTextNode(' and tap Memorize.'));
       el.appendChild(empty);
       return;
     }
@@ -287,14 +381,24 @@
     var top = tagged.slice(0, 8);
     if (!top.length) {
       var empty = document.createElement('li');
-      empty.className = 'section-note';
-      empty.textContent = 'No tagged notes yet. Add tags when you save a verse note in the Bible Tool.';
+      empty.className = 'section-note mystudy-empty-hint';
+      empty.appendChild(document.createTextNode('No tagged notes yet. In the '));
+      var elBt = document.createElement('a');
+      elBt.href = 'bible-tool.html';
+      elBt.className = 'mystudy-inline-tool-link';
+      elBt.textContent = 'Bible Tool';
+      empty.appendChild(elBt);
+      empty.appendChild(document.createTextNode(', add a comma-separated tag when you save a note—then it can surface here.'));
       el.appendChild(empty);
       return;
     }
     top.forEach(function (row) {
       var li = document.createElement('li');
       li.className = 'mystudy-library-item mystudy-recent-tagged-item';
+      var rowWrap = document.createElement('div');
+      rowWrap.className = 'mystudy-library-item-row';
+      var main = document.createElement('div');
+      main.className = 'mystudy-library-item-main';
       var a = document.createElement('a');
       a.className = 'mystudy-library-link';
       a.href = 'bible-tool.html?ref=' + encodeURIComponent(row.ref);
@@ -307,7 +411,10 @@
       tagSpan.textContent = row.tags.join(' · ');
       a.appendChild(document.createTextNode(' '));
       a.appendChild(tagSpan);
-      li.appendChild(a);
+      main.appendChild(a);
+      rowWrap.appendChild(main);
+      rowWrap.appendChild(createBibleToolOpenAnchor(row.ref, 'Open'));
+      li.appendChild(rowWrap);
       el.appendChild(li);
     });
   }
@@ -329,7 +436,6 @@
       updateMemorizePill();
       return;
     }
-    renderDashboardPanel(comp);
     renderMemorizePanel(comp);
     renderTagPills(comp);
     renderRecentlyTagged(comp);
@@ -342,16 +448,33 @@
       });
     }
     if (statusEl) {
-      statusEl.textContent = rows.length
-        ? rows.length + ' note' + (rows.length === 1 ? '' : 's') + (q ? ' match your filter.' : ' saved from the Bible Tool.')
-        : q
-          ? 'No notes match that filter.'
-          : 'No verse notes yet. Look up a verse on the Bible Tool and add a note.';
+      statusEl.textContent = '';
+      if (rows.length) {
+        statusEl.textContent =
+          rows.length + ' note' + (rows.length === 1 ? '' : 's') + (q ? ' match your filter.' : ' saved from the Bible Tool.');
+      } else if (q) {
+        statusEl.textContent = 'No notes match that filter.';
+      } else {
+        var emptyP = document.createElement('p');
+        emptyP.className = 'section-note mystudy-empty-hint';
+        emptyP.appendChild(document.createTextNode('No verse notes yet. Look up a verse in the '));
+        var stA = document.createElement('a');
+        stA.href = 'bible-tool.html';
+        stA.className = 'mystudy-inline-tool-link';
+        stA.textContent = 'Bible Tool';
+        emptyP.appendChild(stA);
+        emptyP.appendChild(document.createTextNode(' and add a note—it stays on this device.'));
+        statusEl.appendChild(emptyP);
+      }
     }
     listEl.innerHTML = '';
     rows.forEach(function (row) {
       var li = document.createElement('li');
       li.className = 'mystudy-library-item';
+      var rowWrap = document.createElement('div');
+      rowWrap.className = 'mystudy-library-item-row';
+      var main = document.createElement('div');
+      main.className = 'mystudy-library-item-main';
       var a = document.createElement('a');
       a.className = 'mystudy-library-link';
       a.href = 'bible-tool.html?ref=' + encodeURIComponent(row.ref);
@@ -369,8 +492,11 @@
       var prev = document.createElement('p');
       prev.className = 'mystudy-library-preview';
       prev.textContent = row.preview || '';
-      li.appendChild(a);
-      li.appendChild(prev);
+      main.appendChild(a);
+      main.appendChild(prev);
+      rowWrap.appendChild(main);
+      rowWrap.appendChild(createBibleToolOpenAnchor(row.ref, 'Open'));
+      li.appendChild(rowWrap);
       listEl.appendChild(li);
     });
 
@@ -379,8 +505,14 @@
       var recent = typeof comp.getRecentChapters === 'function' ? comp.getRecentChapters() : [];
       if (!recent.length) {
         var empty = document.createElement('li');
-        empty.className = 'section-note';
-        empty.textContent = 'No recent chapters yet. Open any chapter in the reader.';
+        empty.className = 'section-note mystudy-empty-hint';
+        empty.appendChild(document.createTextNode('No recent chapters yet. Open any chapter in the '));
+        var rA = document.createElement('a');
+        rA.href = 'reader.html';
+        rA.className = 'mystudy-inline-tool-link';
+        rA.textContent = 'chapter reader';
+        empty.appendChild(rA);
+        empty.appendChild(document.createTextNode('.'));
         recentEl.appendChild(empty);
       } else {
         recent.forEach(function (item) {
@@ -496,7 +628,7 @@
     var q = String(qEl.value || '').trim().toLowerCase();
     if (!q) {
       renderResults([], study, handlers);
-      if (status) status.textContent = 'Type a topic, keyword, or verse reference.';
+      if (status) status.textContent = 'Try a verse reference (e.g. John 3:16) or a word like peace, fear, hope.';
       return;
     }
     var ok = await ensureBibleLoaded();

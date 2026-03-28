@@ -260,11 +260,25 @@
       }
     } catch (e) {}
     var memCount = Object.keys((loadMemorize().refs || {})).length;
+    var memSt = loadMemorize();
+    var memReviewsThisMonth = 0;
+    Object.keys(memSt.refs || {}).forEach(function (k) {
+      var e = memSt.refs[k];
+      var lr = e && e.lastReviewed;
+      if (typeof lr === 'string' && lr.slice(0, 7) === ym) memReviewsThisMonth++;
+    });
+    var chaptersThisMonth = 0;
+    getRecentChapters().forEach(function (item) {
+      var at = item && item.at;
+      if (typeof at === 'string' && at.slice(0, 7) === ym) chaptersThisMonth++;
+    });
     return {
       notesTouchedThisMonth: notesThisMonth,
       versesWithNotes: verseWithNotes,
       readingPlanCheckmarks: planMarks,
-      memorizeVerses: memCount
+      memorizeVerses: memCount,
+      memorizeReviewsThisMonth: memReviewsThisMonth,
+      chaptersVisitedThisMonth: chaptersThisMonth
     };
   }
 

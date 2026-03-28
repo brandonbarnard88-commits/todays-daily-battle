@@ -37,6 +37,79 @@
   margin-bottom: 1rem;
 }
 
+.mystudy-progress-summary {
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.mystudy-progress-summary-line {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+.mystudy-progress-summary-line + .mystudy-progress-summary-line {
+  margin-top: 0.45rem;
+}
+
+.mystudy-progress-summary-line--lead {
+  color: #e2e8f0;
+}
+
+.mystudy-inline-tool-link {
+  color: #e3bc67;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mystudy-inline-tool-link:hover,
+.mystudy-inline-tool-link:focus-visible {
+  color: #fde68a;
+}
+
+.mystudy-empty-hint a {
+  color: #e3bc67;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mystudy-library-item-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: stretch;
+}
+
+@media (min-width: 520px) {
+  .mystudy-library-item-row {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.65rem;
+  }
+
+  .mystudy-library-item-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mystudy-open-tool {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    min-height: 44px;
+  }
+}
+
+.mystudy-open-tool {
+  font-size: 0.88rem;
+  padding: 0.4rem 0.65rem;
+  text-decoration: none !important;
+}
+
 .mystudy-memorize-strip {
   margin: 0 0 0.85rem;
   padding: 0.65rem 0.75rem;
@@ -406,17 +479,6 @@
 
 .mystudy-recent-list {
   margin-bottom: 0.25rem;
-}
-
-.mystudy-dash-stats {
-  margin: 0.5rem 0 0.75rem;
-  padding: 0.65rem 0.75rem;
-  border-radius: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  background: rgba(15, 23, 42, 0.55);
-  font-size: 0.92rem;
-  line-height: 1.45;
-  color: #cbd5e1;
 }
 
 .mystudy-library-actions {

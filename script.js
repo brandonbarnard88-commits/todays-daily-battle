@@ -439,9 +439,25 @@ function wireEarlySearchFallbacks() {
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', wireEarlySearchFallbacks);
   document.addEventListener('DOMContentLoaded', normalizeHomeMainOrder);
+  document.addEventListener('DOMContentLoaded', wireTdbSoftRetry);
 } else {
   wireEarlySearchFallbacks();
   normalizeHomeMainOrder();
+  wireTdbSoftRetry();
+}
+
+/** One consistent “Try again” for pages that use .tdb-soft-retry-btn (reload). CSP-safe — no inline handlers. */
+function wireTdbSoftRetry() {
+  if (typeof window === 'undefined' || window.__tdbSoftRetryWired) return;
+  window.__tdbSoftRetryWired = true;
+  document.addEventListener('click', function (e) {
+    var btn = e.target && e.target.closest && e.target.closest('.tdb-soft-retry-btn');
+    if (!btn) return;
+    e.preventDefault();
+    try {
+      location.reload();
+    } catch (_) {}
+  });
 }
 
 function wireHashLinkFallbacks() {
@@ -20080,7 +20096,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260328-mobius-mobius3', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260328-trust-retry', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

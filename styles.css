@@ -578,6 +578,33 @@ button.download-btn:focus-visible {
 .util-mb-0_25 { margin-bottom: 0.25rem; }
 .util-mt-0_15 { margin-top: 0.15rem; }
 .util-mb-0_35 { margin-bottom: 0.35rem; }
+
+/* Returning users — calm trust + offline (shared across Bible Tool, My Study, Sermon, Möbius, Family hub) */
+.tdb-trust-return {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--muted-readable, #b8c5d4);
+  margin: 0.35rem 0 0;
+  max-width: 40rem;
+}
+.tdb-offline-trust {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--muted-readable, #b8c5d4);
+  margin: 0.5rem 0 0;
+  max-width: 40rem;
+}
+.tdb-soft-retry-row {
+  margin: 0.45rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.tdb-soft-retry-btn.btn {
+  min-height: 44px;
+}
+
 .cta-group-flex-wrap { flex-wrap: wrap; gap: 0.5rem; }
 .daily-verse-email-input { max-width: 16rem; padding: 0.4rem 0.6rem; }
 .prayer-map-svg-fill { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }

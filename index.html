@@ -1564,6 +1564,14 @@
       text-transform: uppercase;
     }
 
+    .tdb-why-stay-line {
+      margin: 0.35rem 0 0.75rem;
+      font-size: clamp(0.92rem, 2.4vw, 1.02rem);
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--muted) 88%, var(--gold) 12%);
+      max-width: 40rem;
+    }
+
     .hero-daily-bread-line {
       margin: 0 0 12px;
       font-family: 'Cormorant Garamond', Georgia, serif;
@@ -2155,6 +2163,30 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
+    }
+
+    .tdb-hero-search-priority-hint {
+      display: none;
+      margin: 0 0 0.35rem;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--muted);
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+      background: color-mix(in srgb, var(--gold) 6%, transparent);
+    }
+    @media (max-width: 899px) {
+      .tdb-hero-search-priority-hint { display: block; }
+      #quick-search-hero { order: -10; }
+    }
+
+    .tdb-more-tools-lead {
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--muted);
+      margin: 0 0 0.65rem;
+      max-width: 40rem;
     }
 
     .first-visit-hint {
@@ -5001,6 +5033,7 @@
           </button>
         </div>
         <p class="verse-ref" id="heroRef">Philippians 4:6-7 (KJV)</p>
+        <p class="tdb-why-stay-line" id="tdb-why-stay-line">A quiet place to meet God in the battle — everything stays on your device.</p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Verses">
           <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint" aria-label="Save today’s verse to My Verses on this device">Save to My Verses</button>
           <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/my-verses.html">Open My Verses</a>.</p>
@@ -5102,6 +5135,7 @@
 
       <!-- ── Feel Search (nav anchor: #quick-search-hero) — below Why not AI teaser, above Battle Plans ── -->
       <div id="quick-search-hero">
+      <p class="tdb-hero-search-priority-hint">On a small screen, search and topics stay up front — scroll down for today&rsquo;s verse, plans, and more tools.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
       <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>
         <p class="first-visit-text">Type how you feel (e.g. anxious, tired) to find verses — or tap a topic below.</p>
@@ -5244,6 +5278,7 @@
       </section>
 
       <!-- ── Sermon Builder teaser ── -->
+      <p class="tdb-more-tools-lead">For pastors, teachers, and families: Sermon Builder, Bible tools, Family hub, and mission packs live below—search and topics stay above.</p>
       <div class="quick-links">
       <section class="card tool-teaser-card" aria-label="Sermon Builder">
         <a href="sermon.html" class="tool-teaser-link" aria-label="Sermon Builder">
@@ -6966,7 +7001,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260328-mobius-mobius3", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260328-trust-retry", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });

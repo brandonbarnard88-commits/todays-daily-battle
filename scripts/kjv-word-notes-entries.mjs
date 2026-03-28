@@ -2,6 +2,8 @@
  * Source list for kjv-word-notes.json (human-curated).
  * Fields: w (headword), note, ex (3–5 KJV refs), step (optional), c (optional concordance override).
  */
+import { ENTRIES_EXTRA } from './kjv-word-notes-entries-extra.mjs';
+
 export const ENTRIES = [
   { w: 'charity', note: 'Often means self-giving love (caritas), not fundraising or a donation drive.', ex: ['1 Corinthians 13:1', '1 Corinthians 13:13', 'Colossians 3:14', '1 Corinthians 16:14'], step: 'In 1 Corinthians 13, read “charity” as steadfast love.' },
   { w: 'conversation', note: 'Usually manner of life or citizenship, not small talk.', ex: ['Philippians 1:27', 'Galatians 1:13', 'Philippians 3:20', 'Hebrews 13:5', 'James 3:13'], step: 'Ask: “How is my walk?” when you see “conversation.”' },
@@ -100,4 +102,5 @@ export const ENTRIES = [
   { w: 'baptism', note: 'Immersion picture — union with Christ’s death and resurrection.', ex: ['Romans 6:4', 'Colossians 2:12', 'Acts 2:38', '1 Peter 3:21'], step: 'Distinguish sign from saving work — faith in Christ saves.' },
   { w: 'communion', note: 'Fellowship — often Lord’s supper sense in older usage.', ex: ['1 Corinthians 10:16', '2 Corinthians 13:14', 'Acts 2:42'], step: '1 Corinthians 10 ties cup and bread to one body.' },
   { w: 'offence', note: 'Stumbling block — trap or cause to fall.', ex: ['Matthew 16:23', 'Romans 14:13', '1 Corinthians 8:9', '2 Corinthians 6:3'], step: 'Love limits liberty when others stumble.' },
+  ...ENTRIES_EXTRA,
 ];

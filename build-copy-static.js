@@ -472,7 +472,7 @@ if (fs.existsSync(wellKnown)) {
 
 // Classic deferred script: fills #footer-date without waiting for script.js (module cache / CSP / order).
 (function injectFooterBuildStampScript() {
-  var SNIPPET = '\n  <script defer src="/footer-build-stamp.js?v=20260328stamp"></script>';
+  var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329footer"></script>';
   function ensure(html) {
     if (html.indexOf('footer-build-stamp.js') !== -1) return html;
     if (!/id\s*=\s*["']footer-date["']/.test(html)) return html;
@@ -498,11 +498,22 @@ if (fs.existsSync(wellKnown)) {
 // Write build-date.txt so JS can fetch it as fallback if HTML replacement missed
 fs.writeFileSync(path.join(dist, 'build-date.txt'), BUILD_DATE_STR, 'utf8');
 
+// Embed build date inside footer-build-stamp.js so footer works even when build-date.txt 404s at edge
+(function stampFooterBuildStampJs() {
+  var p = path.join(dist, 'footer-build-stamp.js');
+  if (!fs.existsSync(p)) return;
+  var c = fs.readFileSync(p, 'utf8');
+  if (c.indexOf('@@TDB_DIST_STAMP@@') === -1) return;
+  var safe = BUILD_DATE_STR.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+  fs.writeFileSync(p, c.replace(/@@TDB_DIST_STAMP@@/g, safe), 'utf8');
+  console.log('build-copy-static.js: inlined build stamp in dist/footer-build-stamp.js');
+})();
+
 // Verify critical pages exist (fail build if missing)
 const CRITICAL_PAGES = [
   'index.html', 'bible-tool.html', 'pastor-toolkit.html', 'sermon.html', 'plans.html',
   'testimonials.html', 'why-not-ai.html',
-  'pastor/index.html', 'bible/index.html', 'script.js'
+  'pastor/index.html', 'bible/index.html', 'script.js', 'footer-build-stamp.js', 'build-date.txt'
 ];
 const missing = CRITICAL_PAGES.filter(function (f) { return !fs.existsSync(path.join(dist, f)); });
 if (missing.length) {

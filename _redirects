@@ -161,6 +161,9 @@
 # Auth routes
 /login /login.html 200!
 
+# Build stamp: prefer static file in dist (avoids SPA-style 404 HTML for /build-date.txt)
+/build-date.txt /build-date.txt 200!
+
 # Block package.json from public (security)
 /package.json  /404.html  404
 

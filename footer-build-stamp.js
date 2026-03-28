@@ -5,6 +5,8 @@
  */
 (function () {
   'use strict';
+  /** Replaced in dist only: real build date from npm run build (survives missing build-date.txt). */
+  var INLINE_STAMP = '@@TDB_DIST_STAMP@@';
   function fallbackDate() {
     var d = new Date();
     var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -47,10 +49,21 @@
     } catch (e) {}
     return '/build-date.txt';
   }
+  function distInlineStamp() {
+    if (typeof INLINE_STAMP !== 'string') return '';
+    if (INLINE_STAMP.indexOf('@@') !== -1) return '';
+    var s = INLINE_STAMP.replace(/\u00a0/g, ' ').trim();
+    return s && !needsFix(s) ? s : '';
+  }
   function run() {
     try {
       if (typeof window !== 'undefined' && window.__tdbFooterBuildDateHydrated) return;
     } catch (e0) {}
+    var fromDist = distInlineStamp();
+    if (fromDist) {
+      applyStamp(fromDist);
+      return;
+    }
     var m = metaStamp();
     if (m && !needsFix(m)) {
       applyStamp(m);

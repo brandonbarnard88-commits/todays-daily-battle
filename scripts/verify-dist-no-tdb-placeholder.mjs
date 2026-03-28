@@ -37,6 +37,15 @@ if (!stamp) {
   fail('dist/build-date.txt is empty.');
 }
 
+const footerStampJs = path.join(dist, 'footer-build-stamp.js');
+if (!fs.existsSync(footerStampJs)) {
+  fail('dist/footer-build-stamp.js missing.');
+}
+const footerJsBody = fs.readFileSync(footerStampJs, 'utf8');
+if (footerJsBody.includes('@@TDB_DIST_STAMP@@')) {
+  fail('dist/footer-build-stamp.js still has @@TDB_DIST_STAMP@@ (build-copy-static stamp step did not run).');
+}
+
 const files = walkHtml(dist, []);
 const bad = [];
 for (let f = 0; f < files.length; f++) {

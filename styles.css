@@ -15788,3 +15788,76 @@ body.kids-battle-page .tdb-site-humility {
   outline: none;
 }
 
+/* —— About page: typography utilities + reader stories toggle —— */
+.about-byline--accent {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--elite-gold, #d4af37);
+}
+
+.content-inner .about-feature-list {
+  margin-left: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.about-closing-invite {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.about-testimonials-footnote {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.about-accessibility .section-note {
+  line-height: 1.58;
+}
+
+.testimonials-toggle {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 1px solid rgba(227, 188, 103, 0.3);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  color: var(--gold, #e3bc67);
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+}
+
+.testimonials-toggle:hover {
+  background: rgba(227, 188, 103, 0.08);
+}
+
+.testimonials-toggle:focus-visible {
+  outline: 3px solid var(--tdb-focus-ring, #e3bc67);
+  outline-offset: 2px;
+}
+
+.testimonials-toggle[aria-expanded="true"] .testimonials-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.testimonials-content {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.testimonial-quote {
+  font-style: italic;
+  color: var(--muted, #94a3b8);
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+:root[data-theme="light"] .testimonials-content {
+  border-top-color: rgba(15, 23, 42, 0.1);
+}
+

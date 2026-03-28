@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Built from a hospital season — someone who still needs it. KJV Scripture for real people on real hard days.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260426openbeta">
+  <link rel="stylesheet" href="styles.css?v=20260328about-a11y">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -181,7 +181,7 @@
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <p class="about-byline" style="font-weight:700; font-size:1.1rem; margin-bottom:0.75rem; color:var(--elite-gold,#d4af37);">Built solo—still fighting daily battles.</p>
+          <p class="about-byline about-byline--accent">Built solo—still fighting daily battles.</p>
           <h1>About Today's Daily Battle</h1>
           <p class="privacy-line">No ads. No tracking. Your prayers and data stay on your device. Just you and God.</p>
           <p class="hero-tagline">We build for spiritual endurance: one grounded Scripture moment a day that is strong enough for real battles and simple enough to keep.</p>
@@ -193,6 +193,10 @@
         <section id="open-beta" class="glass about-open-beta" aria-labelledby="open-beta-heading">
           <h2 class="section-divider" id="open-beta-heading">Open beta</h2>
           <p class="section-note">This site is a <strong>working ministry build</strong>, not a polished corporate product. Core English pages and four language hubs are tended first; other languages are <strong>pilots</strong> (thin hubs or single-topic doors) until they earn more depth. Heavy tools often stay <strong>English inside</strong> with honest labeling&mdash;so we never fake a translation we have not done. Rough edges are not negligence; they are the truth of a solo build that still wants to help real people today. If something confuses you, <a href="contact.html">say so</a>&mdash;it shapes what we fix next.</p>
+        </section>
+        <section id="accessibility" class="glass about-accessibility" aria-labelledby="accessibility-heading">
+          <h2 class="section-divider" id="accessibility-heading">Accessibility &amp; calm use</h2>
+          <p class="section-note">We aim for readable type, enough contrast in both dark and light themes, visible keyboard focus, and clear labels on buttons and forms. Decorative motion (like the soft gold glow on some tools) steps back when your device requests <strong>reduced motion</strong>. If anything blocks you from hearing God here&mdash;screen reader quirks, contrast, tap targets&mdash;please <a href="contact.html">write us</a>. We read every note and use them to fix what is fixable on a solo build.</p>
         </section>
         <section id="whats-new-study" class="glass about-whats-new" aria-labelledby="whats-new-study-heading">
           <h2 class="section-divider" id="whats-new-study-heading">What&rsquo;s new in study tools (Spring 2026)</h2>
@@ -228,7 +232,7 @@
         <section class="glass">
           <h2 class="section-divider">What you'll find</h2>
           <p class="section-note">Mood search (anxiety, fear, hope), kids coloring, prayer wall, offline mode—everything free. Plus verse cards, 7-day plans, chapter reader, message board, and more. Supporters get custom plans and extras; churches get group tools. See <a href="pricing.html">Pricing</a> for the full list.</p>
-          <ul class="section-note" style="margin-left:1.25rem; margin-top:0.5rem;">
+          <ul class="section-note about-feature-list">
             <li>Search by mood (anxiety, fear, hope)</li>
             <li>Kids coloring pages</li>
             <li>Prayer wall</li>
@@ -253,7 +257,7 @@
           </div>
         </section>
         <section class="glass">
-          <p class="section-note" style="font-size:1.05rem; line-height:1.6;">If this helps you, share it. Or just… say thanks. I'm here.</p>
+          <p class="section-note about-closing-invite">If this helps you, share it. Or just… say thanks. I'm here.</p>
           <p class="section-note util-mt-0_5"><a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a> · <a href="contact.html">Contact</a></p>
         </section>
         <section class="glass testimonials-section" id="testimonialsSection" aria-label="Stories from users">
@@ -266,7 +270,7 @@
             <p class="testimonial-quote">"The mood search found exactly what I needed. No fluff."</p>
             <p class="testimonial-quote">"Offline mode got me through a week without service."</p>
             <p class="testimonial-quote">"Seven days of Peace got me through the hardest month."</p>
-            <p class="section-note" style="margin-top:0.75rem; font-size:0.85rem;">Shared with permission. More reader notes live on <a href="testimonials.html">Reader stories</a>. Have yours? <a href="mailto:support@todaysdailybattle.com">Share it</a>.</p>
+            <p class="section-note about-testimonials-footnote">Shared with permission. More reader notes live on <a href="testimonials.html">Reader stories</a>. Have yours? <a href="mailto:support@todaysdailybattle.com">Share it</a>.</p>
           </div>
         </section>
       </div>
@@ -425,13 +429,6 @@
 </footer>
   </div>
 
-  <style>
-    .testimonials-toggle { width: 100%; text-align: left; background: none; border: 1px solid rgba(227,188,103,0.3); border-radius: 8px; padding: 0.6rem 1rem; color: var(--gold, #e3bc67); font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
-    .testimonials-toggle:hover { background: rgba(227,188,103,0.08); }
-    .testimonials-toggle[aria-expanded="true"] .testimonials-toggle-icon { transform: rotate(180deg); }
-    .testimonials-content { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); }
-    .testimonial-quote { font-style: italic; color: var(--muted, #94a3b8); margin: 0 0 0.5rem; font-size: 0.95rem; }
-  </style>
   <script nonce="tdb2025s">
     (function() {
       var btn = document.getElementById('testimonialsToggle');

@@ -251,6 +251,30 @@
   }
 }
 
+/* —— Family print packs & teen journal (screen only; print styles stay in page) —— */
+@media screen {
+  .fam-print-sheet {
+    background-color: var(--card, rgba(12, 18, 30, 0.94));
+    background-image: var(--tdb-lux-guilloche);
+    border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 24%, var(--line, #2a3344));
+    box-shadow: var(--tdb-lux-shadow-card);
+  }
+
+  .fam-print-verse {
+    background-color: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 92%, var(--gold, #e3bc67));
+    background-image: var(--tdb-lux-guilloche);
+    border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 28%, var(--line, #2a3344));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .teen-j-sheet {
+    background-color: var(--card, rgba(12, 18, 30, 0.94));
+    background-image: var(--tdb-lux-guilloche);
+    border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 24%, var(--line, #2a3344));
+    box-shadow: var(--tdb-lux-shadow-card);
+  }
+}
+
 /* —— Mission / outreach (screen only) —— */
 @media screen {
   .mo-print-sheet {

@@ -313,7 +313,7 @@
     container.appendChild(card);
   }
 
-  var _tracerInterval = null;
+  var _tracerRafId = null;
   var _tracerDuration = 15000;
   var _lastSvg = null;
   var _tracerSpeeds = [15000, 10000, 6000, 15000];
@@ -323,20 +323,22 @@
   function runTracer(svg, duration) {
     _lastSvg = svg;
     var d = duration != null ? duration : _tracerDuration;
-    if (_tracerInterval) clearInterval(_tracerInterval);
+    if (_tracerRafId != null) {
+      cancelAnimationFrame(_tracerRafId);
+      _tracerRafId = null;
+    }
     var path = svg.select('.mobius-tracer-path');
     if (path.empty()) return;
     var totalLen = path.node().getTotalLength();
-    var start = Date.now();
+    var start = performance.now();
     function tick() {
-      var elapsed = Date.now() - start;
+      var elapsed = performance.now() - start;
       var rawPct = (elapsed / d) % 1;
       if (_tracerReverse) {
-        if (Date.now() - _tracerReverseStart > d) _tracerReverse = false;
+        if (performance.now() - _tracerReverseStart > d) _tracerReverse = false;
         rawPct = 1 - rawPct;
       }
-      var pct = rawPct;
-      var len = totalLen * pct;
+      var len = totalLen * rawPct;
       var pt = path.node().getPointAtLength(len);
       var dot = svg.select('.mobius-tracer-dot');
       if (dot.empty()) {
@@ -354,8 +356,12 @@
       }
       dot.attr('cx', pt.x).attr('cy', pt.y);
     }
+    function frame() {
+      tick();
+      _tracerRafId = requestAnimationFrame(frame);
+    }
     tick();
-    _tracerInterval = setInterval(tick, 50);
+    _tracerRafId = requestAnimationFrame(frame);
   }
 
   function mountViz(container, startKey) {
@@ -380,6 +386,7 @@
     var h = container.clientHeight || 500;
     var width = w;
     var height = h;
+    var isTouch = isTouchDevice();
 
     safeSetHTML(container, '');
     var svg = d3.select(container).append('svg')
@@ -401,17 +408,33 @@
     var pts = simNodes.map(function (d) { return [d.x, d.y]; });
     pts.push([simNodes[0].x, simNodes[0].y]);
 
-    var lineGen = d3.line().curve(d3.curveCatmullRomClosed);
+    var curveClosed = d3.curveCatmullRomClosed;
+    var lineGen = d3.line().curve(typeof curveClosed.alpha === 'function' ? curveClosed.alpha(0.5) : curveClosed);
+    var ribbonD = lineGen(pts);
     var pathGroup = svg.append('g').attr('class', 'mobius-path');
-    var ribbonClass = 'mobius-ribbon' + (window.__mobiusTraceGold ? ' mobius-ribbon-gold-trail' : '');
+    var traceGoldNow = !!window.__mobiusTraceGold;
+    var ribbonClass = 'mobius-ribbon' + (traceGoldNow ? ' mobius-ribbon-gold-trail' : '');
+    if (!traceGoldNow) {
+      pathGroup.append('path').attr('class', 'mobius-ribbon mobius-viz-ribbon-halo')
+        .attr('fill', 'none').attr('stroke', 'rgba(227,188,103,0.11)')
+        .attr('stroke-width', 14).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
+        .attr('pointer-events', 'none').attr('d', ribbonD);
+    }
     pathGroup.append('path').attr('class', ribbonClass)
-      .attr('fill', 'none').attr('stroke', window.__mobiusTraceGold ? '#e3bc67' : 'url(#mobius-ribbon-grad)')
-      .attr('stroke-width', window.__mobiusTraceGold ? 4 : 3).attr('stroke-opacity', window.__mobiusTraceGold ? 0.6 : 0.35)
-      .attr('d', lineGen(pts));
-    if (window.__mobiusTraceGold) window.__mobiusTraceGold = false;
+      .attr('fill', 'none').attr('stroke', traceGoldNow ? '#e3bc67' : 'url(#mobius-ribbon-grad)')
+      .attr('stroke-width', traceGoldNow ? 4 : 3).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
+      .attr('stroke-opacity', traceGoldNow ? 0.6 : 0.38)
+      .attr('pointer-events', 'none').attr('d', ribbonD);
+    if (traceGoldNow) window.__mobiusTraceGold = false;
+    if (!traceGoldNow) {
+      pathGroup.append('path').attr('class', 'mobius-viz-ribbon-shimmer')
+        .attr('fill', 'none').attr('stroke', 'rgba(242, 220, 152, 0.38)')
+        .attr('stroke-width', 1.65).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
+        .attr('pointer-events', 'none').attr('d', ribbonD);
+    }
     pathGroup.append('path').attr('class', 'mobius-tracer-path')
       .attr('fill', 'none').attr('stroke', 'transparent').attr('stroke-width', 1)
-      .attr('d', lineGen(pts));
+      .attr('d', ribbonD);
 
     var links = [];
     for (var i = 0; i < simNodes.length; i++) {
@@ -421,16 +444,28 @@
 
     var linkGroup = svg.append('g').attr('class', 'mobius-links');
     linkGroup.selectAll('line').data(links).join('line')
-      .attr('class', function (d) { return 'mobius-link' + (d.isRedeemed ? ' mobius-link-redeemed' : ''); })
+      .attr('class', function (d) {
+        var c = 'mobius-link';
+        if (d.isRedeemed) c += ' mobius-link-redeemed';
+        else if (d.source.id === '2tim' || d.target.id === '2tim') c += ' mobius-link-pivot-arm';
+        return c;
+      })
       .attr('x1', function (d) { return d.source.x; })
       .attr('y1', function (d) { return d.source.y; })
       .attr('x2', function (d) { return d.target.x; })
       .attr('y2', function (d) { return d.target.y; })
-      .attr('stroke', function (d) { return d.isRedeemed ? 'url(#mobius-twist-grad)' : 'rgba(139,157,195,0.4)'; })
-      .attr('stroke-width', function (d) { return d.isRedeemed ? 2.5 : 1.5; })
+      .attr('stroke', function (d) {
+        if (d.isRedeemed) return 'url(#mobius-twist-grad)';
+        if (d.source.id === '2tim' || d.target.id === '2tim') return 'rgba(227,188,103,0.55)';
+        return 'rgba(139,157,195,0.4)';
+      })
+      .attr('stroke-width', function (d) {
+        if (d.isRedeemed) return 2.5;
+        if (d.source.id === '2tim' || d.target.id === '2tim') return isTouch ? 2.55 : 2.2;
+        return 1.5;
+      })
       .attr('stroke-dasharray', function (d) { return d.isRedeemed ? '6 4' : 'none'; });
 
-    var isTouch = isTouchDevice();
     var nodeRadius = isTouch ? 22 : 18;
     var pivotRadius = 26;
     var nodeGroup = svg.append('g').attr('class', 'mobius-nodes');
@@ -521,9 +556,27 @@
   var mobiusRibbonDot = null;
   var mobiusRibbonTraceAnimating = false;
 
-  /** Figure-eight (lemniscate-style) ribbon; viewBox 0 0 200 100 — matches weekly progress dot. */
-  var MOBIUS_RIBBON_PATH_D =
-    'M 100 50 C 30 50 30 10 100 10 C 170 10 170 50 100 50 C 30 50 30 90 100 90 C 170 90 170 50 100 50';
+  /** True lemniscate (Bernoulli) in viewBox 0 0 200 100 — smooth ∞ for weekly progress dot. */
+  function mobiusLemniscatePathD(cx, cy, scaleX, scaleY, segments) {
+    cx = cx == null ? 100 : cx;
+    cy = cy == null ? 50 : cy;
+    scaleX = scaleX == null ? 76 : scaleX;
+    scaleY = scaleY == null ? 34 : scaleY;
+    segments = segments || 128;
+    var parts = [];
+    var i, t, st, ct, den, x, y;
+    for (i = 0; i <= segments; i++) {
+      t = (i / segments) * Math.PI * 2;
+      st = Math.sin(t);
+      ct = Math.cos(t);
+      den = 1 + st * st;
+      x = cx + (scaleX * ct) / den;
+      y = cy + (scaleY * st * ct) / den;
+      parts.push((i === 0 ? 'M ' : ' L ') + x.toFixed(2) + ',' + y.toFixed(2));
+    }
+    return parts.join('') + ' Z';
+  }
+  var MOBIUS_RIBBON_PATH_D = mobiusLemniscatePathD(100, 50, 76, 34, 128);
 
   function prefersReducedMotionRibbon() {
     try {
@@ -559,22 +612,109 @@
     var wrap = document.getElementById('mobius-ribbon-slot');
     if (!wrap || wrap.querySelector('svg')) return;
     var ns = 'http://www.w3.org/2000/svg';
+    var reduced = prefersReducedMotionRibbon();
     var svg = document.createElementNS(ns, 'svg');
     svg.setAttribute('viewBox', '0 0 200 100');
-    svg.setAttribute('class', 'mobius-ribbon-svg');
+    svg.setAttribute('class', 'mobius-ribbon-svg' + (reduced ? ' mobius-ribbon-svg--reduced-motion' : ''));
     svg.setAttribute('aria-hidden', 'true');
+
+    var defs = document.createElementNS(ns, 'defs');
+    var grad = document.createElementNS(ns, 'linearGradient');
+    grad.setAttribute('id', 'mobius-slot-ribbon-grad');
+    grad.setAttribute('x1', '0%');
+    grad.setAttribute('y1', '50%');
+    grad.setAttribute('x2', '100%');
+    grad.setAttribute('y2', '50%');
+    [['0%', 'rgba(139,157,195,0.35)'], ['50%', 'rgba(227,188,103,0.75)'], ['100%', 'rgba(139,157,195,0.35)']].forEach(function (stop) {
+      var s = document.createElementNS(ns, 'stop');
+      s.setAttribute('offset', stop[0]);
+      s.setAttribute('stop-color', stop[1]);
+      grad.appendChild(s);
+    });
+    var filt = document.createElementNS(ns, 'filter');
+    filt.setAttribute('id', 'mobius-slot-soft-glow');
+    filt.setAttribute('x', '-60%');
+    filt.setAttribute('y', '-60%');
+    filt.setAttribute('width', '220%');
+    filt.setAttribute('height', '220%');
+    var blur = document.createElementNS(ns, 'feGaussianBlur');
+    blur.setAttribute('stdDeviation', '1.8');
+    blur.setAttribute('result', 'blur');
+    filt.appendChild(blur);
+    var merge = document.createElementNS(ns, 'feMerge');
+    var mn1 = document.createElementNS(ns, 'feMergeNode');
+    mn1.setAttribute('in', 'blur');
+    var mn2 = document.createElementNS(ns, 'feMergeNode');
+    mn2.setAttribute('in', 'SourceGraphic');
+    merge.appendChild(mn1);
+    merge.appendChild(mn2);
+    filt.appendChild(merge);
+    defs.appendChild(grad);
+    defs.appendChild(filt);
+    svg.appendChild(defs);
+
+    var halo = document.createElementNS(ns, 'path');
+    halo.setAttribute('fill', 'none');
+    halo.setAttribute('stroke', 'rgba(227,188,103,0.08)');
+    halo.setAttribute('stroke-width', '10');
+    halo.setAttribute('stroke-linecap', 'round');
+    halo.setAttribute('stroke-linejoin', 'round');
+    halo.setAttribute('d', MOBIUS_RIBBON_PATH_D);
+    halo.setAttribute('class', 'mobius-ribbon-halo');
     var path = document.createElementNS(ns, 'path');
     path.setAttribute('fill', 'none');
-    path.setAttribute('stroke', 'rgba(227,188,103,0.45)');
-    path.setAttribute('stroke-width', '2');
+    path.setAttribute('stroke', 'url(#mobius-slot-ribbon-grad)');
+    path.setAttribute('stroke-width', '2.25');
     path.setAttribute('stroke-linecap', 'round');
     path.setAttribute('stroke-linejoin', 'round');
     path.setAttribute('d', MOBIUS_RIBBON_PATH_D);
+    path.setAttribute('class', 'mobius-ribbon-track mobius-ribbon-track-main');
+    path.setAttribute('filter', 'url(#mobius-slot-soft-glow)');
+
+    var slotShimmerEl = null;
+    if (!reduced) {
+      slotShimmerEl = document.createElementNS(ns, 'path');
+      slotShimmerEl.setAttribute('fill', 'none');
+      slotShimmerEl.setAttribute('stroke', 'rgba(252, 245, 220, 0.42)');
+      slotShimmerEl.setAttribute('stroke-width', '1');
+      slotShimmerEl.setAttribute('stroke-linecap', 'round');
+      slotShimmerEl.setAttribute('d', MOBIUS_RIBBON_PATH_D);
+      slotShimmerEl.setAttribute('class', 'mobius-ribbon-slot-shimmer');
+    }
+
+    var twistG = document.createElementNS(ns, 'g');
+    twistG.setAttribute('class', 'mobius-ribbon-twist');
+    twistG.setAttribute('pointer-events', 'none');
+    var crossV = document.createElementNS(ns, 'line');
+    crossV.setAttribute('x1', '100');
+    crossV.setAttribute('y1', '44');
+    crossV.setAttribute('x2', '100');
+    crossV.setAttribute('y2', '56');
+    crossV.setAttribute('stroke', 'rgba(227,188,103,0.22)');
+    crossV.setAttribute('stroke-width', '1');
+    crossV.setAttribute('stroke-linecap', 'round');
+    var crossH = document.createElementNS(ns, 'line');
+    crossH.setAttribute('x1', '94');
+    crossH.setAttribute('y1', '50');
+    crossH.setAttribute('x2', '106');
+    crossH.setAttribute('y2', '50');
+    crossH.setAttribute('stroke', 'rgba(227,188,103,0.22)');
+    crossH.setAttribute('stroke-width', '1');
+    crossH.setAttribute('stroke-linecap', 'round');
+    twistG.appendChild(crossV);
+    twistG.appendChild(crossH);
+
     var dot = document.createElementNS(ns, 'circle');
     dot.setAttribute('r', '5');
     dot.setAttribute('fill', '#e3bc67');
+    dot.setAttribute('stroke', 'rgba(255,255,255,0.35)');
+    dot.setAttribute('stroke-width', '0.75');
     dot.setAttribute('class', 'mobius-ribbon-dot');
+
+    svg.appendChild(halo);
     svg.appendChild(path);
+    if (slotShimmerEl) svg.appendChild(slotShimmerEl);
+    svg.appendChild(twistG);
     svg.appendChild(dot);
     var cap = document.createElement('p');
     cap.className = 'mobius-ribbon-cap';

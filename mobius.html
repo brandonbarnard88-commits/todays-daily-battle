@@ -137,8 +137,49 @@
     .mobius-ribbon-actions { display: flex; justify-content: center; margin-bottom: 0.75rem; }
     .mobius-ribbon-svg { width: min(100%, 320px); height: auto; display: block; margin: 0 auto; }
     .mobius-ribbon-cap { margin: 0.35rem 0 0; font-size: 0.78rem; color: var(--tool-muted); line-height: 1.4; }
+    @keyframes mobius-ribbon-breathe {
+      0%, 100% { stroke-opacity: 0.42; }
+      50% { stroke-opacity: 0.68; }
+    }
+    .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) .mobius-ribbon-track-main {
+      animation: mobius-ribbon-breathe 8s ease-in-out infinite;
+    }
+    .mobius-ribbon-svg--reduced-motion .mobius-ribbon-track-main { stroke-opacity: 0.52; }
+    @keyframes mobius-viz-shimmer-travel {
+      to { stroke-dashoffset: -120; }
+    }
+    #mobius-universal-viz .mobius-viz-ribbon-shimmer {
+      stroke-dasharray: 10 72;
+      animation: mobius-viz-shimmer-travel 22s linear infinite;
+    }
+    @keyframes mobius-slot-shimmer-travel {
+      to { stroke-dashoffset: -72; }
+    }
+    .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) .mobius-ribbon-slot-shimmer {
+      stroke-dasharray: 6 42;
+      animation: mobius-slot-shimmer-travel 16s linear infinite;
+    }
+    @keyframes mobius-pivot-arm-breathe {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 1; }
+    }
+    #mobius-universal-viz line.mobius-link-pivot-arm {
+      animation: mobius-pivot-arm-breathe 6s ease-in-out infinite;
+    }
     @media (prefers-reduced-motion: reduce) {
       .mobius-ribbon-dot { transition: none; }
+      .mobius-ribbon-track-main { animation: none !important; stroke-opacity: 0.52; }
+      #mobius-universal-viz .mobius-viz-ribbon-shimmer {
+        animation: none !important;
+        stroke-dasharray: none !important;
+        opacity: 0 !important;
+      }
+      .mobius-ribbon-slot-shimmer {
+        animation: none !important;
+        stroke-dasharray: none !important;
+        opacity: 0 !important;
+      }
+      #mobius-universal-viz line.mobius-link-pivot-arm { animation: none !important; }
     }
     .mobius-text-v2 { width: 100%; max-width: 28rem; margin: 0 auto; text-align: center; }
     .mobius-v2-presets { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-bottom: 1rem; }

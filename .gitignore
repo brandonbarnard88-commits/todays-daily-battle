@@ -27,3 +27,4 @@ test-results/
 # Kids full-story video sources (large binaries — deploy via CDN/host; .vtt may stay tracked)
 media/kids-stories/*.mp4
 media/kids-stories/*.webm
+.vercel

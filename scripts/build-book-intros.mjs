@@ -106,7 +106,8 @@ const EXTENDED = {
   John: {
     fight: 'Believing Jesus is the Christ—life in His name instead of a religion you manufacture.',
     anchors: ['John 1:12', 'John 3:16', 'John 14:6', 'John 14:27', 'John 20:31'],
-    step: 'Read John 3–4 and notice who believes; ask the Lord to show you one person to pray for by name.'
+    step: 'Read John 3–4 and notice who believes; ask the Lord to show you one person to pray for by name.',
+    planLink: { href: 'plans.html?plan=gospeljohn', label: 'Gospel of John (7 days)' }
   },
   James: {
     fight: 'Faith that shows in the tongue, the pocket, and the widow’s row—not empty words.',
@@ -116,7 +117,8 @@ const EXTENDED = {
   Proverbs: {
     fight: 'The fear of the Lord first—then wisdom for mouth, money, and neighbor in a loud world.',
     anchors: ['Proverbs 1:7', 'Proverbs 3:5', 'Proverbs 15:1', 'Proverbs 18:10', 'Proverbs 22:6'],
-    step: 'Read the Proverbs chapter that matches today’s date; circle one verse to obey before sunset.'
+    step: 'Read the Proverbs chapter that matches today’s date; circle one verse to obey before sunset.',
+    planLink: { href: 'plans.html?plan=proverbswisdom', label: 'Proverbs Wisdom Sampler' }
   },
   Philippians: {
     fight: 'Joy in chains and thorns—Christ is enough when feelings are not; humility and prayer beat performance.',
@@ -156,7 +158,8 @@ const EXTENDED = {
   Galatians: {
     fight: 'Freedom in Christ versus slavery to law-as-performance—faith working through love, not scoring points.',
     anchors: ['Galatians 2:20', 'Galatians 3:26', 'Galatians 4:6', 'Galatians 5:1', 'Galatians 6:9'],
-    step: 'Galatians 5:22–23—circle one fruit you need the Spirit to grow this week; pray for it morning and night.'
+    step: 'Galatians 5:22–23—circle one fruit you need the Spirit to grow this week; pray for it morning and night.',
+    planLink: { href: 'plans.html?plan=galatiansfreedom', label: 'Galatians: Freedom in Christ' }
   },
   Isaiah: {
     fight: 'Holy judgment and tender comfort in one voice—light to the nations, a Servant who bears what we cannot.',
@@ -211,9 +214,9 @@ const order = [
 ];
 
 const payload = {
-  version: 6,
+  version: 7,
   about:
-    'Book introductions: short orientation, optional “fight,” anchor verses, and a small step. KJV-only site; human tone. v6 adds Luke, Acts, 1 Samuel, Daniel; refreshes Romans.',
+    'Book introductions: short orientation, optional “fight,” anchor verses, small step, optional Battle Plan link. KJV-only site; human tone. v7 adds optional planLink for Galatians, Proverbs, John.',
   bookOrder: order,
   books: {}
 };
@@ -228,6 +231,12 @@ for (const b of order) {
       anchors: extra.anchors,
       step: extra.step
     };
+    if (extra.planLink && extra.planLink.href && extra.planLink.label) {
+      payload.books[b].planLink = {
+        href: String(extra.planLink.href).trim(),
+        label: String(extra.planLink.label).trim()
+      };
+    }
   } else {
     payload.books[b] = { summary };
   }

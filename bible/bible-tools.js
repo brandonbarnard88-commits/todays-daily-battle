@@ -897,17 +897,24 @@
     if (raw == null) return null;
     if (typeof raw === 'string') {
       var s = String(raw).trim();
-      return s ? { summary: s, fight: '', anchors: [], step: '' } : null;
+      return s ? { summary: s, fight: '', anchors: [], step: '', planLink: null } : null;
     }
     if (typeof raw === 'object' && raw.summary) {
       var anchors = Array.isArray(raw.anchors)
         ? raw.anchors.map(function (r) { return String(r).replace(/\s+/g, ' ').trim(); }).filter(Boolean)
         : [];
+      var planLink = null;
+      if (raw.planLink && typeof raw.planLink === 'object') {
+        var ph = raw.planLink.href ? String(raw.planLink.href).trim() : '';
+        var plab = raw.planLink.label ? String(raw.planLink.label).trim() : '';
+        if (ph && plab) planLink = { href: ph, label: plab };
+      }
       return {
         summary: String(raw.summary).trim(),
         fight: raw.fight ? String(raw.fight).trim() : '',
         anchors: anchors,
-        step: raw.step ? String(raw.step).trim() : ''
+        step: raw.step ? String(raw.step).trim() : '',
+        planLink: planLink
       };
     }
     return null;
@@ -953,6 +960,19 @@
       s.appendChild(st);
       s.appendChild(document.createTextNode(n.step));
       container.appendChild(s);
+    }
+    if (n.planLink && n.planLink.href && n.planLink.label) {
+      var pp = document.createElement('p');
+      pp.className = 'section-note util-mb-0_5';
+      pp.appendChild(document.createTextNode('Related Battle Plan: '));
+      var paa = document.createElement('a');
+      paa.href = '../' + n.planLink.href;
+      paa.className = 'kjv-word-helps-ref';
+      paa.textContent = n.planLink.label;
+      paa.setAttribute('aria-label', 'Open ' + n.planLink.label + ' on Battle Plans');
+      pp.appendChild(paa);
+      pp.appendChild(document.createTextNode(' — same gentle pace; progress stays on this device.'));
+      container.appendChild(pp);
     }
     if (bookName) {
       var r = document.createElement('p');

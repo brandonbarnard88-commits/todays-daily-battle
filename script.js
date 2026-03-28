@@ -16756,17 +16756,24 @@ function normalizeBookIntroEntry(raw) {
   if (raw == null) return null;
   if (typeof raw === 'string') {
     const s = raw.trim();
-    return s ? { summary: s, fight: '', anchors: [], step: '' } : null;
+    return s ? { summary: s, fight: '', anchors: [], step: '', planLink: null } : null;
   }
   if (typeof raw === 'object' && raw.summary) {
     const anchors = Array.isArray(raw.anchors)
       ? raw.anchors.map((r) => String(r).replace(/\s+/g, ' ').trim()).filter(Boolean)
       : [];
+    let planLink = null;
+    if (raw.planLink && typeof raw.planLink === 'object') {
+      const href = raw.planLink.href ? String(raw.planLink.href).trim() : '';
+      const label = raw.planLink.label ? String(raw.planLink.label).trim() : '';
+      if (href && label) planLink = { href, label };
+    }
     return {
       summary: String(raw.summary).trim(),
       fight: raw.fight ? String(raw.fight).trim() : '',
       anchors,
-      step: raw.step ? String(raw.step).trim() : ''
+      step: raw.step ? String(raw.step).trim() : '',
+      planLink
     };
   }
   return null;
@@ -16814,6 +16821,19 @@ function renderBookIntroIntoContainer(container, normalized, linkPrefix, readerB
     s.appendChild(st);
     s.appendChild(document.createTextNode(normalized.step));
     container.appendChild(s);
+  }
+  if (normalized.planLink && normalized.planLink.href && normalized.planLink.label) {
+    const pl = document.createElement('p');
+    pl.className = 'section-note util-mb-0_5';
+    pl.appendChild(document.createTextNode('Related Battle Plan: '));
+    const pa = document.createElement('a');
+    pa.href = `${pre}${normalized.planLink.href}`;
+    pa.className = 'bible-tool-gold-link';
+    pa.textContent = normalized.planLink.label;
+    pa.setAttribute('aria-label', `Open ${normalized.planLink.label} on Battle Plans`);
+    pl.appendChild(pa);
+    pl.appendChild(document.createTextNode(' — same gentle pace; progress stays on this device.'));
+    container.appendChild(pl);
   }
   if (readerBookName) {
     const r = document.createElement('p');

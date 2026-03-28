@@ -84,13 +84,17 @@
     refs.sort(function (a, b) {
       return a.localeCompare(b);
     });
+    var meta = loadMeta();
     return refs.map(function (r) {
       var text = String(notes[r] || '').trim();
       var tags = getTags(r);
+      var rowMeta = meta[r];
+      var updated = rowMeta && rowMeta.updated ? String(rowMeta.updated) : '';
       return {
         ref: r,
         preview: text.length > 140 ? text.slice(0, 137) + '\u2026' : text,
-        tags: tags
+        tags: tags,
+        updated: updated
       };
     });
   }

@@ -263,6 +263,55 @@
     });
   }
 
+  function renderRecentlyTagged(comp) {
+    var el = byId('mystudy-recent-tagged');
+    if (!el) return;
+    if (!comp || typeof comp.listVerseNotes !== 'function') {
+      el.innerHTML = '';
+      var err = document.createElement('li');
+      err.className = 'section-note';
+      err.textContent = 'Note library needs the study helper script. Refresh the page.';
+      el.appendChild(err);
+      return;
+    }
+    el.innerHTML = '';
+    var tagged = comp.listVerseNotes().filter(function (row) {
+      return row.tags && row.tags.length;
+    });
+    tagged.sort(function (a, b) {
+      var ta = a.updated ? Date.parse(a.updated) : 0;
+      var tb = b.updated ? Date.parse(b.updated) : 0;
+      if (tb !== ta) return tb - ta;
+      return (a.ref || '').localeCompare(b.ref || '');
+    });
+    var top = tagged.slice(0, 8);
+    if (!top.length) {
+      var empty = document.createElement('li');
+      empty.className = 'section-note';
+      empty.textContent = 'No tagged notes yet. Add tags when you save a verse note in the Bible Tool.';
+      el.appendChild(empty);
+      return;
+    }
+    top.forEach(function (row) {
+      var li = document.createElement('li');
+      li.className = 'mystudy-library-item mystudy-recent-tagged-item';
+      var a = document.createElement('a');
+      a.className = 'mystudy-library-link';
+      a.href = 'bible-tool.html?ref=' + encodeURIComponent(row.ref);
+      a.setAttribute('aria-label', 'Open ' + row.ref + ' in Bible Tool');
+      var refStrong = document.createElement('strong');
+      refStrong.textContent = row.ref;
+      a.appendChild(refStrong);
+      var tagSpan = document.createElement('span');
+      tagSpan.className = 'mystudy-library-tags';
+      tagSpan.textContent = row.tags.join(' · ');
+      a.appendChild(document.createTextNode(' '));
+      a.appendChild(tagSpan);
+      li.appendChild(a);
+      el.appendChild(li);
+    });
+  }
+
   function renderNoteLibrary() {
     var listEl = byId('mystudy-library-list');
     var recentEl = byId('mystudy-recent-chapters');
@@ -272,6 +321,7 @@
     var comp = window.TDBStudyCompanion;
     if (!comp || typeof comp.listVerseNotes !== 'function') {
       listEl.innerHTML = '';
+      renderRecentlyTagged(null);
       var li = document.createElement('li');
       li.className = 'section-note';
       li.textContent = 'Note library needs the study helper script. Refresh the page.';
@@ -282,6 +332,7 @@
     renderDashboardPanel(comp);
     renderMemorizePanel(comp);
     renderTagPills(comp);
+    renderRecentlyTagged(comp);
     var q = filterEl ? String(filterEl.value || '').trim().toLowerCase() : '';
     var rows = comp.listVerseNotes();
     if (q) {

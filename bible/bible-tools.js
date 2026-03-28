@@ -9,6 +9,8 @@
   const CROSS_REFS_URL = '../cross-refs.json';
   const KJV_URL = '../kjv.json';
   const CHAPTERS_URL = '../chapters.json';
+  /** Loaded from cross-refs.json; used for chain blurbs in Hub concordance. */
+  var crossChainsRemote = null;
   const BIBLE_READ_STREAK_KEY = 'bibleReadStreak';
   const QUIZ_TAKEN_KEY = 'quizTaken';
   const MEMORY_DONE_KEY = 'memoryDone';
@@ -230,6 +232,32 @@
     return Array.isArray(arr) ? arr : [];
   }
 
+  function findChainBlurbForHub(reference) {
+    var r = normChainRef(reference);
+    if (!r || !crossChainsRemote || typeof crossChainsRemote !== 'object') return '';
+    var order = [
+      'prayer-supplication',
+      'fear-trust',
+      'grief-hope',
+      'forgiveness-bitterness',
+      'anger-peace',
+      'grace-faith',
+      'suffering-endurance',
+      'loneliness-community',
+      'identity-christ',
+      'marriage-parenting'
+    ];
+    for (var oi = 0; oi < order.length; oi++) {
+      var c = crossChainsRemote[order[oi]];
+      if (!c || !Array.isArray(c.verses) || !c.blurb) continue;
+      if (normChainRef(c.anchor) === r) return c.blurb;
+      for (var j = 0; j < c.verses.length; j++) {
+        if (normChainRef(c.verses[j]) === r) return c.blurb;
+      }
+    }
+    return '';
+  }
+
   function renderConcordanceChainRefs(ref) {
     var chainEl = document.getElementById('concordance-chain-refs');
     if (!chainEl) return;
@@ -256,6 +284,13 @@
       chainEl.classList.add('hidden');
       return;
     }
+    var blurbText = findChainBlurbForHub(base);
+    if (blurbText) {
+      var blurbP = document.createElement('p');
+      blurbP.className = 'concordance-chain-blurb';
+      blurbP.textContent = blurbText;
+      chainEl.appendChild(blurbP);
+    }
     var title = document.createElement('p');
     title.className = 'concordance-chain-title';
     title.textContent = 'Curated chains';
@@ -276,8 +311,12 @@
         if (v && v.ref && v.text) bible[v.ref] = v.text;
       });
       var cr = results[2];
+      crossChainsRemote = null;
       if (cr && cr.refs && typeof cr.refs === 'object') {
         crossRefsMap = cr.refs;
+      }
+      if (cr && cr.chains && typeof cr.chains === 'object') {
+        crossChainsRemote = cr.chains;
       }
     });
   }

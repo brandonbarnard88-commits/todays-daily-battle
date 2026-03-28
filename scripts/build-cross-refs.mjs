@@ -289,7 +289,74 @@ graceFaith.forEach(function (k) {
   }));
 });
 
-/** Optional: theme blurbs for Bible Tool (verse in chain → show gentle note). Priority: prayer > fear > grief > anger > grace > suffering (grace before suffering for 2 Cor 12:9 overlap). */
+// --- Batch 3: loneliness/community, forgiveness/bitterness, identity in Christ, marriage/parenting ---
+const lonelinessCommunity = [
+  'Psalm 25:16',
+  'Psalm 68:6',
+  'Psalm 27:10',
+  'Hebrews 10:24',
+  'Hebrews 10:25',
+  'Matthew 18:20',
+  'Romans 12:5',
+  'Acts 2:46',
+  '1 John 1:7'
+];
+lonelinessCommunity.forEach(function (k) {
+  add(k, lonelinessCommunity.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+const forgivenessBitterness = [
+  'Matthew 6:14',
+  'Matthew 6:15',
+  'Mark 11:25',
+  'Luke 17:3',
+  'Luke 17:4',
+  'Hebrews 12:15',
+  'Colossians 3:13',
+  'Ephesians 4:32',
+  'Psalm 103:12'
+];
+forgivenessBitterness.forEach(function (k) {
+  add(k, forgivenessBitterness.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+const identityChrist = [
+  '2 Corinthians 5:17',
+  'Galatians 2:20',
+  'Romans 8:16',
+  'Romans 8:17',
+  '1 John 3:1',
+  'Ephesians 2:19',
+  'Colossians 3:3',
+  'Colossians 3:4'
+];
+identityChrist.forEach(function (k) {
+  add(k, identityChrist.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+const marriageParenting = [
+  'Ephesians 5:25',
+  'Ephesians 5:33',
+  'Colossians 3:19',
+  'Colossians 3:20',
+  'Colossians 3:21',
+  'Proverbs 22:6',
+  'Deuteronomy 6:7',
+  'Ephesians 6:4'
+];
+marriageParenting.forEach(function (k) {
+  add(k, marriageParenting.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+/** Optional: theme blurbs for Bible Tool (verse in chain → show gentle note). Priority: prayer > fear > grief > forgiveness > anger > grace > suffering > loneliness > identity > marriage (forgiveness before anger for shared verses; grace before suffering for 2 Cor 12:9). */
 const chains = {
   'prayer-supplication': {
     title: 'Prayer & Supplication',
@@ -332,6 +399,34 @@ const chains = {
     verses: sufferingEndurance,
     blurb:
       'Pain and trials test us deeply. These verses do not minimize the hurt — they show how God uses it to build endurance, character, and deeper hope. One small step: hold one verse today and ask the Lord to sustain you in the middle of it.'
+  },
+  'loneliness-community': {
+    title: 'Loneliness to Community',
+    anchor: 'Psalm 68:6',
+    verses: lonelinessCommunity,
+    blurb:
+      'Isolation stings, but Scripture keeps pointing you toward the God who gathers the solitary and toward His people. These verses are not a rush to pretend you are fine — they invite honest turning to the Lord and faithful fellowship. One small step: read the anchor verse and name one person you could greet with kindness this week.'
+  },
+  'forgiveness-bitterness': {
+    title: 'Forgiveness over Bitterness',
+    anchor: 'Matthew 6:14',
+    verses: forgivenessBitterness,
+    blurb:
+      'Unforgiveness becomes its own prison. These verses call you to release others as you have been forgiven — without pretending the wound never happened. One small step: pray the anchor verse slowly and ask God to soften what you cannot fix alone.'
+  },
+  'identity-christ': {
+    title: 'Identity in Christ',
+    anchor: '2 Corinthians 5:17',
+    verses: identityChrist,
+    blurb:
+      'Your standing is not earned by performance. These verses anchor who you are in Christ — new creation, child of God, hidden with Him. One small step: when shame speaks, answer it with the anchor verse as truth, not mood.'
+  },
+  'marriage-parenting': {
+    title: 'Marriage & Parenting',
+    anchor: 'Ephesians 5:25',
+    verses: marriageParenting,
+    blurb:
+      'Home life is where love is tested daily. These verses keep Christ-shaped love, respect, and training in view — patient, clear, and grounded in Scripture. One small step: choose one verse from this chain to pray over your home before the day runs away from you.'
   }
 };
 

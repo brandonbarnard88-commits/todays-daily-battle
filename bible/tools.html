@@ -10,14 +10,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tools • Bible Hub • Today's Daily Battle</title>
-  <meta name="description" content="Concordance, verse maps, timeline. Tools for deeper study.">
+  <meta name="description" content="KJV concordance, verse maps, book intros, word helps, memory and quiz—quiet tools for deeper study.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/bible/tools.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css?v=20260309p">
+  <link rel="stylesheet" href="../styles.css?v=20260329tools-hub">
   <link rel="stylesheet" href="bible-hub.css?v=1">
-  <link rel="stylesheet" href="bible-tools.css?v=20260328bookintros-v6">
+  <link rel="stylesheet" href="bible-tools.css?v=20260329tools-grid">
   <link rel="manifest" href="../manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" integrity="sha384-0esPaJH+F9evp2lsJYN36SW7XkRbaYviuyF+PpnbjDXBC9i1CWGiJyGrXCyiyGqZ" crossorigin="anonymous" defer></script>
@@ -60,14 +60,61 @@
 
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner bible-hub-inner bible-tools-inner">
-        <header class="bible-hub-hero">
+        <header class="bible-hub-hero bible-tools-hero">
           <h1>Tools</h1>
-          <p class="bible-hub-tagline">Concordance, timeline. Find every use of a word.</p>
+          <p class="bible-hub-tagline">A calm workshop for the King James Bible—search, map, memorize, and go deeper.</p>
+          <p class="bible-tools-intro">Quiet tools to help you search, understand, and teach the KJV. Everything here is built to stay light and fast; open each tool once while online so it is ready when you need it offline.</p>
         </header>
+
+        <nav class="bible-tools-overview" aria-label="Jump to a tool">
+          <p class="bible-tools-overview-label" id="bible-tools-overview-label">At a glance</p>
+          <ul class="bible-tools-overview-grid" aria-labelledby="bible-tools-overview-label">
+            <li>
+              <a class="bible-tools-overview-card" href="#verse-maps-section">
+                <span class="bible-tools-overview-name">Verse Maps</span>
+                <span class="bible-tools-overview-desc">See a place on the map and read related verses</span>
+              </a>
+            </li>
+            <li>
+              <a class="bible-tools-overview-card" href="#verse-memory-section">
+                <span class="bible-tools-overview-name">Verse Memory</span>
+                <span class="bible-tools-overview-desc">Fill-in-the-blank from today&rsquo;s chapter</span>
+              </a>
+            </li>
+            <li>
+              <a class="bible-tools-overview-card" href="#bible-quiz-section">
+                <span class="bible-tools-overview-name">Today&rsquo;s Quiz</span>
+                <span class="bible-tools-overview-desc">Quick questions on today&rsquo;s chapter</span>
+              </a>
+            </li>
+            <li>
+              <a class="bible-tools-overview-card" href="#book-intros">
+                <span class="bible-tools-overview-name">Book introductions</span>
+                <span class="bible-tools-overview-desc">What each book is doing, in plain words</span>
+              </a>
+            </li>
+            <li>
+              <a class="bible-tools-overview-card" href="#kjv-word-helps">
+                <span class="bible-tools-overview-name">KJV word helps</span>
+                <span class="bible-tools-overview-desc">Short glosses for older or easy-to-misread words</span>
+              </a>
+            </li>
+            <li>
+              <a class="bible-tools-overview-card" href="#concordance-section">
+                <span class="bible-tools-overview-name">Concordance</span>
+                <span class="bible-tools-overview-desc">Find every verse that uses a word</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="bible-tools-group" aria-labelledby="bible-tools-group-place">
+          <h2 id="bible-tools-group-place" class="bible-tools-group-title">Maps &amp; place</h2>
+          <p class="bible-tools-group-lead">Start with geography when the text names towns, rivers, or regions.</p>
 
         <section id="verse-maps-section" class="verse-maps-section glass" role="search" aria-label="Verse Maps">
           <div class="verse-maps-header">
-            <h2 class="verse-maps-title">Verse Maps</h2>
+            <h3 class="verse-maps-title">Verse Maps</h3>
             <p class="verse-maps-hint">Type a place to see it on the map and related verses.</p>
             <div class="verse-maps-search-row">
               <input type="search" id="verse-maps-input" class="verse-maps-input" placeholder="e.g. Bethlehem, Jordan, Jerusalem" autocomplete="off" aria-label="Search place for verse map">
@@ -95,22 +142,32 @@
             </div>
           </div>
         </section>
+        </section>
+
+        <section class="bible-tools-group" aria-labelledby="bible-tools-group-practice">
+          <h2 id="bible-tools-group-practice" class="bible-tools-group-title">Practice &amp; recall</h2>
+          <p class="bible-tools-group-lead">Gentle drills—fill-in memory and a short quiz tied to today&rsquo;s chapter.</p>
 
         <section id="verse-memory-section" class="verse-memory-section glass" role="region" aria-label="Verse Memory">
-          <h2 class="verse-memory-title">Verse Memory</h2>
+          <h3 class="verse-memory-title">Verse Memory</h3>
           <p class="verse-memory-hint" id="verse-memory-hint">Fill in the blank. From today's chapter or this week's theme.</p>
           <button type="button" id="memorize-verse-btn" class="memorize-verse-btn">Memorize a Verse</button>
         </section>
 
         <section id="bible-quiz-section" class="bible-quiz-section glass" role="region" aria-label="Bible Quiz">
-          <h2 class="bible-quiz-title">Today's Quiz</h2>
+          <h3 class="bible-quiz-title">Today's Quiz</h3>
           <p class="bible-quiz-hint" id="bible-quiz-hint">Test your knowledge of today's chapter.</p>
           <button type="button" id="take-quiz-btn" class="take-quiz-btn">Take Today's Quiz</button>
         </section>
+        </section>
+
+        <section class="bible-tools-group" aria-labelledby="bible-tools-group-study">
+          <h2 id="bible-tools-group-study" class="bible-tools-group-title">Study &amp; search</h2>
+          <p class="bible-tools-group-lead">Book context, word glosses, and a full concordance—everything stays on your device until you choose to share.</p>
 
         <section id="book-intros" class="concordance-section glass book-intros-section" role="region" aria-labelledby="book-intros-title">
           <div class="concordance-section-header">
-            <h2 id="book-intros-title" class="concordance-section-title">Book introductions</h2>
+            <h3 id="book-intros-title" class="concordance-section-title">Book introductions</h3>
             <p class="concordance-hint">Short orientation for each book: what fight it serves, a few anchor verses, and one small step. The same text appears in the <a href="../reader.html">chapter reader</a> and in <a href="../bible-tool.html">Bible Tool</a> when you look up a verse. Battle Plans: <a href="../plans.html?plan=psalmscomfort">Psalms of Comfort</a>, <a href="../plans.html?plan=psalmspraise">Psalms of Praise</a>, <a href="../plans.html?plan=proverbswisdom">Proverbs Wisdom</a>, <a href="../plans.html?plan=hopeuncertain">Hope in Uncertainty</a>, <a href="../plans.html?plan=gospeljohn">John sampler</a>, <a href="../plans.html?plan=sufferendure">Suffering &amp; Endurance</a>.</p>
           </div>
           <div class="hub-book-intro-controls">
@@ -122,7 +179,7 @@
 
         <section id="kjv-word-helps" class="concordance-section glass kjv-word-helps-section" role="region" aria-labelledby="kjv-word-helps-title">
           <div class="concordance-section-header">
-            <h2 id="kjv-word-helps-title" class="concordance-section-title">KJV word helps</h2>
+            <h3 id="kjv-word-helps-title" class="concordance-section-title">KJV word helps</h3>
             <p class="concordance-hint">Short glosses for wording that often misleads modern readers. Tap the headword to search the concordance below; tap a verse to open it in the Bible Tool.</p>
             <p class="section-note util-mb-0_5"><a href="../bible-tool.html#bible-tool-study-details">Open the full study list</a> in the Bible Tool (scrollable, with a small step line on each entry).</p>
           </div>
@@ -131,7 +188,7 @@
 
         <section id="concordance-section" class="concordance-section glass" role="search" aria-label="Concordance">
           <div class="concordance-section-header">
-            <h2 class="concordance-section-title">Concordance</h2>
+            <h3 class="concordance-section-title">Concordance</h3>
             <p class="concordance-hint">Type a word to see all verses that use it.</p>
             <div class="concordance-search-row">
               <input type="search" id="concordance-search-input" class="concordance-search-input" placeholder="e.g. faith, love, peace" autocomplete="off" aria-label="Search word in concordance">
@@ -151,6 +208,7 @@
               </div>
             </div>
           </div>
+        </section>
         </section>
       </div>
     </main>

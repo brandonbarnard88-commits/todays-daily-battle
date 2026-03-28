@@ -10,9 +10,9 @@
   var STUDY_KEY = 'tdb_my_study_v1';
   var BREATH_ROUNDS = 3;
   var INHALE_MS = 4000;
-  var HOLD_MS = 2000;
-  var EXHALE_MS = 6000;
-  var VERSE_AUTO_MS = 5200;
+  var HOLD_MS = 3000;
+  var EXHALE_MS = 5000;
+  var VERSE_AUTO_MS = 3800;
 
   function $(id) {
     return document.getElementById(id);

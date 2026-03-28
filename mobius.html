@@ -133,18 +133,38 @@
     .mobius-ff-bridge { max-width: 36rem; margin: 0 auto 1rem; padding: 0.75rem 1rem; border: 1px solid rgba(227,188,103,0.35); border-radius: 12px; background: rgba(26,33,45,0.5); text-align: center; }
     .mobius-ff-bridge-inner { margin: 0; font-size: 0.88rem; color: var(--tool-muted); line-height: 1.5; }
     .mobius-ff-bridge-link { color: var(--tool-gold-soft); font-weight: 600; }
-    .mobius-ribbon-slot { width: 100%; max-width: 420px; margin: 0 auto 0.35rem; text-align: center; }
+    .mobius-weekly-viz-wrapper {
+      width: 100%;
+      max-width: 36rem;
+      margin: 0 auto 0.5rem;
+      padding: 1rem 1.1rem 1.15rem;
+      border-radius: 16px;
+      background: rgba(8, 12, 22, 0.55);
+      border: 1px solid rgba(227, 188, 103, 0.12);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+    }
+    .mobius-ribbon-slot { width: 100%; max-width: none; margin: 0 auto; text-align: center; }
     .mobius-ribbon-actions { display: flex; justify-content: center; margin-bottom: 0.75rem; }
     .mobius-ribbon-svg { width: min(100%, 320px); height: auto; display: block; margin: 0 auto; }
+    .mobius-ribbon-svg--weekly-2 {
+      width: 100%;
+      max-width: min(100%, 520px);
+      height: auto;
+      aspect-ratio: 600 / 320;
+    }
     .mobius-ribbon-cap { margin: 0.35rem 0 0; font-size: 0.78rem; color: var(--tool-muted); line-height: 1.4; }
     @keyframes mobius-ribbon-breathe {
-      0%, 100% { stroke-opacity: 0.42; }
-      50% { stroke-opacity: 0.68; }
+      0%, 100% { stroke-opacity: 0.48; }
+      50% { stroke-opacity: 0.78; }
     }
-    .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) .mobius-ribbon-track-main {
-      animation: mobius-ribbon-breathe 8s ease-in-out infinite;
+    @keyframes mobius-weekly-ribbon-shimmer {
+      to { stroke-dashoffset: -160; }
     }
-    .mobius-ribbon-svg--reduced-motion .mobius-ribbon-track-main { stroke-opacity: 0.52; }
+    .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) .mobius-weekly-ribbon-main {
+      stroke-dasharray: 120 40;
+      animation: mobius-ribbon-breathe 8s ease-in-out infinite, mobius-weekly-ribbon-shimmer 9s linear infinite;
+    }
+    .mobius-ribbon-svg--reduced-motion .mobius-weekly-ribbon-main { stroke-opacity: 0.58; stroke-dasharray: none; }
     @keyframes mobius-viz-shimmer-travel {
       to { stroke-dashoffset: -120; }
     }
@@ -168,7 +188,11 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .mobius-ribbon-dot { transition: none; }
-      .mobius-ribbon-track-main { animation: none !important; stroke-opacity: 0.52; }
+      .mobius-weekly-ribbon-main {
+        animation: none !important;
+        stroke-dasharray: none !important;
+        stroke-opacity: 0.58 !important;
+      }
       #mobius-universal-viz .mobius-viz-ribbon-shimmer {
         animation: none !important;
         stroke-dasharray: none !important;
@@ -250,7 +274,9 @@
         <button type="button" class="tool-btn tool-btn-muted" id="mobius-timer-stop" aria-label="Stop meditation" hidden>Stop</button>
         <button type="button" class="tool-btn" id="mobius-fullscreen" aria-label="Toggle full screen">Full Screen</button>
       </div>
-      <div id="mobius-ribbon-slot" class="mobius-ribbon-slot"></div>
+      <div class="mobius-weekly-viz-wrapper">
+        <div id="mobius-ribbon-slot" class="mobius-ribbon-slot"></div>
+      </div>
       <div class="mobius-ribbon-actions">
         <button type="button" id="mobius-ribbon-trace" class="tool-btn tool-btn-muted" aria-label="Trace the ribbon once">Trace ribbon</button>
       </div>

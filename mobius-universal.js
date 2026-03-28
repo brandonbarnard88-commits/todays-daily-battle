@@ -557,26 +557,9 @@
   var mobiusRibbonTraceAnimating = false;
 
   /** True lemniscate (Bernoulli) in viewBox 0 0 200 100 — smooth ∞ for weekly progress dot. */
-  function mobiusLemniscatePathD(cx, cy, scaleX, scaleY, segments) {
-    cx = cx == null ? 100 : cx;
-    cy = cy == null ? 50 : cy;
-    scaleX = scaleX == null ? 76 : scaleX;
-    scaleY = scaleY == null ? 34 : scaleY;
-    segments = segments || 128;
-    var parts = [];
-    var i, t, st, ct, den, x, y;
-    for (i = 0; i <= segments; i++) {
-      t = (i / segments) * Math.PI * 2;
-      st = Math.sin(t);
-      ct = Math.cos(t);
-      den = 1 + st * st;
-      x = cx + (scaleX * ct) / den;
-      y = cy + (scaleY * st * ct) / den;
-      parts.push((i === 0 ? 'M ' : ' L ') + x.toFixed(2) + ',' + y.toFixed(2));
-    }
-    return parts.join('') + ' Z';
-  }
-  var MOBIUS_RIBBON_PATH_D = mobiusLemniscatePathD(100, 50, 76, 34, 128);
+  /** Weekly schematic ribbon — wide figure-eight (quadratic), viewBox 0 0 600 320. */
+  var MOBIUS_WEEKLY_RIBBON_D =
+    'M80 160 Q200 60 320 160 Q440 260 520 160 Q440 60 320 160 Q200 260 80 160 Z';
 
   function prefersReducedMotionRibbon() {
     try {
@@ -608,77 +591,94 @@
   }
   window.updateMobiusRibbonDot = updateMobiusRibbonDot;
 
-  function initMobiusRibbonSvg() {
-    var wrap = document.getElementById('mobius-ribbon-slot');
-    if (!wrap || wrap.querySelector('svg')) return;
+  function appendSvgGlowFilter(defs, id, stdDev) {
     var ns = 'http://www.w3.org/2000/svg';
-    var reduced = prefersReducedMotionRibbon();
-    var svg = document.createElementNS(ns, 'svg');
-    svg.setAttribute('viewBox', '0 0 200 100');
-    svg.setAttribute('class', 'mobius-ribbon-svg' + (reduced ? ' mobius-ribbon-svg--reduced-motion' : ''));
-    svg.setAttribute('aria-hidden', 'true');
-
-    var defs = document.createElementNS(ns, 'defs');
-    var grad = document.createElementNS(ns, 'linearGradient');
-    grad.setAttribute('id', 'mobius-slot-ribbon-grad');
-    grad.setAttribute('x1', '0%');
-    grad.setAttribute('y1', '50%');
-    grad.setAttribute('x2', '100%');
-    grad.setAttribute('y2', '50%');
-    [['0%', 'rgba(139,157,195,0.35)'], ['50%', 'rgba(227,188,103,0.75)'], ['100%', 'rgba(139,157,195,0.35)']].forEach(function (stop) {
-      var s = document.createElementNS(ns, 'stop');
-      s.setAttribute('offset', stop[0]);
-      s.setAttribute('stop-color', stop[1]);
-      grad.appendChild(s);
-    });
     var filt = document.createElementNS(ns, 'filter');
-    filt.setAttribute('id', 'mobius-slot-soft-glow');
-    filt.setAttribute('x', '-60%');
-    filt.setAttribute('y', '-60%');
-    filt.setAttribute('width', '220%');
-    filt.setAttribute('height', '220%');
+    filt.setAttribute('id', id);
+    filt.setAttribute('x', '-45%');
+    filt.setAttribute('y', '-45%');
+    filt.setAttribute('width', '190%');
+    filt.setAttribute('height', '190%');
     var blur = document.createElementNS(ns, 'feGaussianBlur');
-    blur.setAttribute('stdDeviation', '1.8');
-    blur.setAttribute('result', 'blur');
+    blur.setAttribute('stdDeviation', String(stdDev));
+    blur.setAttribute('result', 'mobiusBlur');
     filt.appendChild(blur);
     var merge = document.createElementNS(ns, 'feMerge');
     var mn1 = document.createElementNS(ns, 'feMergeNode');
-    mn1.setAttribute('in', 'blur');
+    mn1.setAttribute('in', 'mobiusBlur');
     var mn2 = document.createElementNS(ns, 'feMergeNode');
     mn2.setAttribute('in', 'SourceGraphic');
     merge.appendChild(mn1);
     merge.appendChild(mn2);
     filt.appendChild(merge);
-    defs.appendChild(grad);
     defs.appendChild(filt);
+  }
+
+  function initMobiusRibbonSvg() {
+    var wrap = document.getElementById('mobius-ribbon-slot');
+    if (!wrap || wrap.querySelector('svg')) return;
+    var ns = 'http://www.w3.org/2000/svg';
+    var reduced = prefersReducedMotionRibbon();
+    var d = MOBIUS_WEEKLY_RIBBON_D;
+
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 600 320');
+    svg.setAttribute('width', '100%');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    svg.setAttribute(
+      'class',
+      'mobius-ribbon-svg mobius-ribbon-svg--weekly-2' + (reduced ? ' mobius-ribbon-svg--reduced-motion' : '')
+    );
+    svg.setAttribute('aria-hidden', 'true');
+
+    var defs = document.createElementNS(ns, 'defs');
+    var grad = document.createElementNS(ns, 'linearGradient');
+    grad.setAttribute('id', 'mobius-slot-weekly-grad');
+    grad.setAttribute('x1', '0%');
+    grad.setAttribute('y1', '0%');
+    grad.setAttribute('x2', '100%');
+    grad.setAttribute('y2', '0%');
+    [['0%', '#c4a35a'], ['45%', '#e3bc67'], ['100%', '#f2dc98']].forEach(function (stop) {
+      var s = document.createElementNS(ns, 'stop');
+      s.setAttribute('offset', stop[0]);
+      s.setAttribute('stop-color', stop[1]);
+      grad.appendChild(s);
+    });
+    defs.appendChild(grad);
+    appendSvgGlowFilter(defs, 'mobius-slot-weekly-ribbon-glow', 3.2);
+    appendSvgGlowFilter(defs, 'mobius-slot-weekly-dot-glow', 2.2);
     svg.appendChild(defs);
 
-    var halo = document.createElementNS(ns, 'path');
-    halo.setAttribute('fill', 'none');
-    halo.setAttribute('stroke', 'rgba(227,188,103,0.08)');
-    halo.setAttribute('stroke-width', '10');
-    halo.setAttribute('stroke-linecap', 'round');
-    halo.setAttribute('stroke-linejoin', 'round');
-    halo.setAttribute('d', MOBIUS_RIBBON_PATH_D);
-    halo.setAttribute('class', 'mobius-ribbon-halo');
-    var path = document.createElementNS(ns, 'path');
-    path.setAttribute('fill', 'none');
-    path.setAttribute('stroke', 'url(#mobius-slot-ribbon-grad)');
-    path.setAttribute('stroke-width', '2.25');
-    path.setAttribute('stroke-linecap', 'round');
-    path.setAttribute('stroke-linejoin', 'round');
-    path.setAttribute('d', MOBIUS_RIBBON_PATH_D);
-    path.setAttribute('class', 'mobius-ribbon-track mobius-ribbon-track-main');
-    path.setAttribute('filter', 'url(#mobius-slot-soft-glow)');
+    var bgPath = document.createElementNS(ns, 'path');
+    bgPath.setAttribute('class', 'mobius-weekly-ribbon-bg');
+    bgPath.setAttribute('fill', 'none');
+    bgPath.setAttribute('stroke', '#141b2a');
+    bgPath.setAttribute('stroke-width', '26');
+    bgPath.setAttribute('stroke-linecap', 'round');
+    bgPath.setAttribute('stroke-linejoin', 'round');
+    bgPath.setAttribute('opacity', '0.5');
+    bgPath.setAttribute('pointer-events', 'none');
+    bgPath.setAttribute('d', d);
+
+    var mainPath = document.createElementNS(ns, 'path');
+    mainPath.setAttribute('fill', 'none');
+    mainPath.setAttribute('stroke', 'url(#mobius-slot-weekly-grad)');
+    mainPath.setAttribute('stroke-width', '15');
+    mainPath.setAttribute('stroke-linecap', 'round');
+    mainPath.setAttribute('stroke-linejoin', 'round');
+    mainPath.setAttribute('filter', 'url(#mobius-slot-weekly-ribbon-glow)');
+    mainPath.setAttribute('pointer-events', 'none');
+    mainPath.setAttribute('d', d);
+    mainPath.setAttribute('class', 'mobius-ribbon-track mobius-ribbon-track-main mobius-weekly-ribbon-main');
 
     var slotShimmerEl = null;
     if (!reduced) {
       slotShimmerEl = document.createElementNS(ns, 'path');
       slotShimmerEl.setAttribute('fill', 'none');
-      slotShimmerEl.setAttribute('stroke', 'rgba(252, 245, 220, 0.42)');
-      slotShimmerEl.setAttribute('stroke-width', '1');
+      slotShimmerEl.setAttribute('stroke', 'rgba(252, 245, 220, 0.38)');
+      slotShimmerEl.setAttribute('stroke-width', '1.25');
       slotShimmerEl.setAttribute('stroke-linecap', 'round');
-      slotShimmerEl.setAttribute('d', MOBIUS_RIBBON_PATH_D);
+      slotShimmerEl.setAttribute('d', d);
       slotShimmerEl.setAttribute('class', 'mobius-ribbon-slot-shimmer');
     }
 
@@ -686,33 +686,34 @@
     twistG.setAttribute('class', 'mobius-ribbon-twist');
     twistG.setAttribute('pointer-events', 'none');
     var crossV = document.createElementNS(ns, 'line');
-    crossV.setAttribute('x1', '100');
-    crossV.setAttribute('y1', '44');
-    crossV.setAttribute('x2', '100');
-    crossV.setAttribute('y2', '56');
-    crossV.setAttribute('stroke', 'rgba(227,188,103,0.22)');
-    crossV.setAttribute('stroke-width', '1');
+    crossV.setAttribute('x1', '320');
+    crossV.setAttribute('y1', '148');
+    crossV.setAttribute('x2', '320');
+    crossV.setAttribute('y2', '172');
+    crossV.setAttribute('stroke', 'rgba(227,188,103,0.24)');
+    crossV.setAttribute('stroke-width', '1.25');
     crossV.setAttribute('stroke-linecap', 'round');
     var crossH = document.createElementNS(ns, 'line');
-    crossH.setAttribute('x1', '94');
-    crossH.setAttribute('y1', '50');
-    crossH.setAttribute('x2', '106');
-    crossH.setAttribute('y2', '50');
-    crossH.setAttribute('stroke', 'rgba(227,188,103,0.22)');
-    crossH.setAttribute('stroke-width', '1');
+    crossH.setAttribute('x1', '306');
+    crossH.setAttribute('y1', '160');
+    crossH.setAttribute('x2', '334');
+    crossH.setAttribute('y2', '160');
+    crossH.setAttribute('stroke', 'rgba(227,188,103,0.24)');
+    crossH.setAttribute('stroke-width', '1.25');
     crossH.setAttribute('stroke-linecap', 'round');
     twistG.appendChild(crossV);
     twistG.appendChild(crossH);
 
     var dot = document.createElementNS(ns, 'circle');
-    dot.setAttribute('r', '5');
+    dot.setAttribute('r', '8');
     dot.setAttribute('fill', '#e3bc67');
-    dot.setAttribute('stroke', 'rgba(255,255,255,0.35)');
-    dot.setAttribute('stroke-width', '0.75');
+    dot.setAttribute('stroke', 'rgba(255,255,255,0.4)');
+    dot.setAttribute('stroke-width', '1');
     dot.setAttribute('class', 'mobius-ribbon-dot');
+    if (!reduced) dot.setAttribute('filter', 'url(#mobius-slot-weekly-dot-glow)');
 
-    svg.appendChild(halo);
-    svg.appendChild(path);
+    svg.appendChild(bgPath);
+    svg.appendChild(mainPath);
     if (slotShimmerEl) svg.appendChild(slotShimmerEl);
     svg.appendChild(twistG);
     svg.appendChild(dot);
@@ -721,7 +722,7 @@
     cap.textContent = 'Loops this week — your place on one ribbon (schematic lap)';
     wrap.appendChild(svg);
     wrap.appendChild(cap);
-    mobiusRibbonPath = path;
+    mobiusRibbonPath = mainPath;
     mobiusRibbonDot = dot;
     updateMobiusRibbonDot();
   }
@@ -815,18 +816,25 @@
     } catch (e) { return 0; }
   }
   function refreshMobiusStreakDisplay() {
+    var n = 0;
     try {
-      var el = document.getElementById('mobius-streak-display');
-      if (!el) return;
       var wk = getWeekKey();
       var key = STREAK_KEY_PREFIX + wk;
-      var n = parseInt(localStorage.getItem(key) || '0', 10);
-      if (n === 0) el.textContent = '0 loops this week.';
-      else if (n === 1) el.textContent = '1 loop this week. One step stronger.';
-      else if (n >= 3) safeSetHTML(el, n + ' loops this week. <strong>You\'re building something real.</strong>');
-      else el.textContent = n + ' loops this week.';
+      n = parseInt(localStorage.getItem(key) || '0', 10);
+      var el = document.getElementById('mobius-streak-display');
+      if (el) {
+        if (n === 0) el.textContent = '0 loops this week.';
+        else if (n === 1) el.textContent = '1 loop this week. One step stronger.';
+        else if (n >= 3) safeSetHTML(el, n + ' loops this week. <strong>You\'re building something real.</strong>');
+        else el.textContent = n + ' loops this week.';
+      }
     } catch (e) {}
     updateMobiusRibbonDot();
+    try {
+      if (typeof CustomEvent !== 'undefined' && document.dispatchEvent) {
+        document.dispatchEvent(new CustomEvent('mobius-streak-updated', { detail: { loops: n } }));
+      }
+    } catch (e2) {}
   }
   window.bumpMobiusLoopStreak = bumpMobiusLoopStreak;
   window.refreshMobiusStreakDisplay = refreshMobiusStreakDisplay;

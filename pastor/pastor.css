@@ -577,3 +577,72 @@
 .pastor-builder-toast.hidden {
   display: none;
 }
+
+/* Layout utilities (replace inline styles) */
+.pastor-section-title-spaced {
+  margin-top: 1.25rem;
+}
+.pastor-btn-mt-half {
+  margin-top: 0.5rem;
+}
+.pastor-builder-actions-spaced {
+  margin-top: 1.25rem;
+}
+.pastor-verse-search-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.pastor-ai-suggest-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted, #94a3b8);
+  max-width: 36rem;
+  line-height: 1.45;
+}
+
+/* Focus-visible (keyboard / a11y) */
+.pastor-hub-nav a:focus-visible {
+  outline: 2px solid var(--pastor-blue);
+  outline-offset: 2px;
+}
+.pastor-reflection-input:focus-visible,
+.pastor-builder-section input:focus-visible,
+.pastor-builder-section textarea:focus-visible,
+.pastor-tools-search input:focus-visible,
+.pastor-builder-block .pastor-block-text:focus-visible,
+.pastor-ref-item input:focus-visible {
+  outline: 2px solid var(--pastor-blue);
+  outline-offset: 2px;
+}
+.pastor-btn-primary:focus-visible,
+.pastor-btn-secondary:focus-visible,
+.pastor-use-btn:focus-visible,
+.pastor-insert-btn:focus-visible,
+.pastor-ai-suggest button:focus-visible,
+.pastor-btn-notes:focus-visible {
+  outline: 2px solid var(--pastor-blue);
+  outline-offset: 2px;
+}
+.pastor-bottom-nav a:focus-visible {
+  outline: 2px solid var(--pastor-blue);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .pastor-hub-page .app-content {
+    padding-top: var(--space-lg, 1.25rem);
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+  .pastor-hub-page .content-inner {
+    gap: var(--space-xl, 1.5rem);
+  }
+  .pastor-dub-card,
+  .pastor-weekly-tease {
+    padding: 1rem;
+  }
+  .pastor-daily-hero {
+    margin-bottom: 1.1rem;
+  }
+}

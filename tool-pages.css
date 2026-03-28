@@ -46,11 +46,16 @@
   transition: color 0.18s, border-color 0.18s;
 }
 
-.tool-header-home:hover,
+.tool-header-home:hover {
+  color: var(--tool-gold-soft);
+  border-color: var(--tool-gold);
+}
+
 .tool-header-home:focus-visible {
   color: var(--tool-gold-soft);
   border-color: var(--tool-gold);
-  outline: none;
+  outline: 3px solid rgba(227, 188, 103, 0.85);
+  outline-offset: 2px;
 }
 
 .tool-header-brand {
@@ -62,6 +67,12 @@
 
 .tool-header-brand:hover {
   color: var(--tool-gold-soft);
+}
+
+.tool-header-brand:focus-visible {
+  outline: 3px solid rgba(227, 188, 103, 0.85);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .tool-page-main {
@@ -102,6 +113,12 @@
   color: var(--tool-gold-soft);
 }
 
+.tool-page-footer a:focus-visible {
+  outline: 2px solid var(--tool-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .tool-footer-copy {
   margin: 0.5rem 0 0;
   opacity: 0.8;
@@ -123,12 +140,18 @@
   cursor: pointer;
   transition: color 0.18s, border-color 0.18s, box-shadow 0.18s;
 }
-.share-page-btn:hover,
+.share-page-btn:hover {
+  color: var(--tool-gold-soft);
+  border-color: var(--tool-gold);
+  box-shadow: 0 0 12px rgba(227, 188, 103, 0.35);
+}
+
 .share-page-btn:focus-visible {
   color: var(--tool-gold-soft);
   border-color: var(--tool-gold);
   box-shadow: 0 0 12px rgba(227, 188, 103, 0.35);
-  outline: none;
+  outline: 3px solid rgba(227, 188, 103, 0.9);
+  outline-offset: 2px;
 }
 .share-toast {
   position: fixed;
@@ -159,11 +182,16 @@
   transition: background 0.18s, border-color 0.18s, transform 0.18s;
 }
 
-.tool-btn:hover,
+.tool-btn:hover {
+  background: rgba(227, 188, 103, 0.12);
+  border-color: var(--tool-gold);
+}
+
 .tool-btn:focus-visible {
   background: rgba(227, 188, 103, 0.12);
   border-color: var(--tool-gold);
-  outline: none;
+  outline: 3px solid rgba(227, 188, 103, 0.85);
+  outline-offset: 2px;
 }
 
 .tool-btn:active {
@@ -174,15 +202,24 @@
 @media (max-width: 480px) {
   .tool-page-header {
     flex-wrap: wrap;
-    padding: 0.6rem 0.75rem;
+    gap: 0.5rem 0.65rem;
+    padding: 0.5rem 0.65rem;
   }
   .tool-page-main {
-    padding: 0.75rem;
+    padding: 0.6rem 0.65rem 0.75rem;
   }
   .tool-page-footer {
-    padding: 1rem 0.75rem;
+    padding: 0.85rem 0.65rem;
+    font-size: 0.78rem;
+  }
+  .tool-footer-tagline {
+    margin-bottom: 0.4rem;
   }
   .tool-footer-links {
-    gap: 0.4rem 0.75rem;
+    gap: 0.35rem 0.65rem;
+    margin: 0.4rem 0;
+  }
+  .tool-footer-copy {
+    margin-top: 0.4rem;
   }
 }

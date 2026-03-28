@@ -868,3 +868,53 @@
   gap: 0.5rem;
   flex-wrap: wrap;
 }
+
+.bible-hub-tools-label {
+  display: block;
+}
+
+.bible-hub-read-btn-stack {
+  margin-top: 0.5rem;
+}
+
+.bible-hub-nav a:focus-visible {
+  outline: 2px solid var(--bible-gold);
+  outline-offset: 2px;
+}
+
+.bible-hub-audio-btn:focus-visible,
+.bible-hub-read-btn:focus-visible,
+.bible-hub-share-btn:focus-visible,
+.verse-of-week-arrow:focus-visible,
+.bible-hub-bottom-nav a:focus-visible {
+  outline: 3px solid var(--bible-gold);
+  outline-offset: 2px;
+}
+
+.bible-hub-name-input:focus-visible,
+.bible-hub-prayer-input:focus-visible,
+.bible-hub-reflection-input:focus-visible,
+.verse-of-week-note-input:focus-visible {
+  outline: 2px solid var(--bible-gold);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .bible-hub-page .app-content {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+    padding-top: var(--space-lg, 1.25rem);
+  }
+  .bible-hub-page .content-inner {
+    gap: var(--space-xl, 1.5rem);
+  }
+  .bible-hub-verse-card {
+    padding: 1.15rem;
+  }
+  .bible-hub-reading-plan {
+    padding: 1rem;
+  }
+  .verse-of-week-carousel {
+    padding: 0.85rem 0.4rem 0.9rem;
+  }
+}

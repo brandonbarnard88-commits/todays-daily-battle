@@ -22,6 +22,11 @@
   text-decoration: underline;
 }
 
+.mystudy-home-link + .mystudy-home-link {
+  margin-left: 1rem;
+  margin-bottom: 0;
+}
+
 .mystudy-card {
   padding: 1rem;
   border-radius: 14px;

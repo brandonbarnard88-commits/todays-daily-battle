@@ -54,7 +54,6 @@
       color: var(--gold, #e3bc67);
       background: rgba(227,188,103,0.08);
     }
-    .tt-tab:focus-visible { outline: 2px solid var(--gold,#e3bc67); outline-offset: 2px; }
     .tt-panel { display: none; }
     .tt-panel.active { display: block; }
 
@@ -70,7 +69,7 @@
       color: var(--text, #e2e8f0);
       font-size: 0.9rem;
     }
-    .tt-input:focus { outline: 2px solid rgba(227,188,103,0.6); border-color: var(--gold,#e3bc67); }
+    .tt-input:focus { outline: none; border-color: var(--gold,#e3bc67); }
     .tt-select {
       padding: 0.55rem 0.6rem;
       border-radius: 10px;
@@ -80,7 +79,7 @@
       font-size: 0.88rem;
       cursor: pointer;
     }
-    .tt-select:focus { outline: 2px solid rgba(227,188,103,0.6); border-color: var(--gold,#e3bc67); }
+    .tt-select:focus { outline: none; border-color: var(--gold,#e3bc67); }
     .tt-btn {
       padding: 0.55rem 1.1rem;
       border-radius: 10px;
@@ -93,11 +92,7 @@
       white-space: nowrap;
     }
     .tt-btn:hover { background: rgba(227,188,103,0.2); }
-    .tt-btn:focus-visible {
-      background: rgba(227,188,103,0.2);
-      outline: 2px solid var(--gold, #e3bc67);
-      outline-offset: 2px;
-    }
+    .tt-btn:focus-visible { background: rgba(227,188,103,0.2); }
     .tt-btn-sm { padding: 0.3rem 0.65rem; font-size: 0.78rem; border-radius: 7px; }
     .tt-btn-danger { border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.08); color: #f87171; }
     .tt-btn-danger:hover { background: rgba(239,68,68,0.16); }
@@ -118,7 +113,7 @@
       cursor: pointer;
       min-width: 140px;
     }
-    .mini-cal-trigger:focus-visible { outline: 2px solid rgba(227,188,103,0.6); }
+    .mini-cal-trigger:focus { outline: none; }
     .mini-cal {
       position: absolute; top: calc(100% + 6px); left: 0;
       z-index: 50;
@@ -315,7 +310,7 @@
       color: var(--gold,#e3bc67);
       cursor: pointer;
     }
-    .lib-tag-del { opacity: 0.6; margin-left: 2px; }
+    .lib-tag-del { opacity: 0.6; margin-left: 2px; cursor: pointer; }
     .lib-tag-input {
       font-size: 0.7rem; padding: 0.1rem 0.4rem;
       border-radius: 999px;
@@ -453,6 +448,73 @@
       border-color: rgba(227,188,103,0.4);
       color: var(--gold,#e3bc67);
     }
+
+    /* ── Layout / a11y utilities (no inline styles) ── */
+    .tt-is-hidden { display: none !important; }
+    .tt-glass-tight { margin-bottom: 1rem; }
+    .tt-flex-center-wrap { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .tt-label-field { font-size: 0.85rem; color: var(--muted, #94a3b8); white-space: nowrap; }
+    .tt-label-muted-row { font-size: 0.82rem; color: var(--muted, #94a3b8); white-space: nowrap; }
+    .tt-time-sep { color: var(--muted, #94a3b8); }
+    .tt-label-check-row {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--muted, #94a3b8); white-space: nowrap; cursor: pointer;
+    }
+    .tt-input-max220 { max-width: 220px; }
+    .tt-input-max200 { max-width: 200px; }
+    .tt-input-max180 { max-width: 180px; }
+    .tt-input-flex2 { flex: 2; min-width: 0; }
+    .tt-team-name-slot { font-size: 0.82rem; color: var(--gold, #e3bc67); }
+    .tt-note-micro { margin-top: 0.5rem; font-size: 0.78rem; }
+    .tt-row-actions { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .tt-row-mb { margin-bottom: 0.75rem; }
+    .att-th-present { width: 64px; text-align: center; }
+    .att-th-actions { width: 36px; }
+    .tt-upload-label { display: inline-flex; align-items: center; gap: 0.3rem; cursor: pointer; }
+    .tt-file-hidden { display: none !important; }
+    .chain-note-subtle { opacity: 0.55; font-size: 0.72rem; margin-top: 0.3rem; }
+    .chain-list-empty { color: var(--muted, #94a3b8); font-size: 0.88rem; padding: 1.5rem 0; text-align: center; }
+    .chain-answered-list-inner { margin-top: 0.6rem; }
+    .tt-table-empty td { color: var(--muted, #94a3b8); font-size: 0.85rem; padding: 1.2rem 0; }
+    .att-td-check { text-align: center; }
+    .lib-empty--full { grid-column: 1 / -1; }
+    .vp-gate-msg { margin-bottom: 0.5rem; }
+    .tt-vp-err { color: #f87171 !important; margin-top: 0.4rem !important; }
+    .vp-hint-foot { margin-top: 0.5rem; opacity: 0.6; font-size: 0.72rem; }
+    .vp-admin-panel { margin-top: 1.25rem; }
+    .vp-section-title { font-size: 0.9rem; font-weight: 700; color: var(--gold, #e3bc67); margin-bottom: 0.6rem; }
+    .vp-section-title--mt { margin: 1rem 0 0.6rem; }
+    .vp-pack-textarea { resize: vertical; font-family: inherit; min-height: 8rem; }
+    .tt-cursor-pointer { cursor: pointer; }
+    .vp-password-details { margin-top: 1rem; }
+    .vp-password-summary { font-size: 0.78rem; color: var(--muted, #94a3b8); cursor: pointer; }
+    .panel-comms-foot { margin-top: 1rem; }
+
+    .mini-cal-nav:focus-visible,
+    .tt-onboard-dismiss:focus-visible,
+    .tt-tab:focus-visible,
+    .tt-input:focus-visible,
+    .tt-select:focus-visible,
+    .mini-cal-trigger:focus-visible,
+    .tt-btn:focus-visible,
+    .tt-upload-label:focus-within,
+    .lib-tag-del:focus-visible,
+    .att-check:focus-visible,
+    .chain-answered-toggle:focus-visible {
+      outline: 3px solid rgba(227, 188, 103, 0.85);
+      outline-offset: 2px;
+    }
+    .vp-password-summary:focus-visible {
+      outline: 3px solid rgba(227, 188, 103, 0.85);
+      outline-offset: 2px;
+    }
+    @media (max-width: 480px) {
+      .content-inner .tt-tabs { gap: 0.3rem; margin-bottom: 1rem; }
+      .tt-tab { padding: 0.42rem 0.75rem; font-size: 0.8rem; }
+      .tt-form { gap: 0.5rem; margin-bottom: 0.85rem; }
+      .tt-row { gap: 0.4rem; }
+      .hero-banner .hero-tagline { margin-bottom: 0.65rem; }
+    }
   </style>
 </head>
 <body class="dark-mode">
@@ -574,15 +636,15 @@
         </div>
 
         <!-- ── Team ID ──────────────────────────────────────────── -->
-        <section class="glass" style="margin-bottom:1rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
-            <label for="tt-team-id" style="font-size:0.85rem;color:var(--muted);white-space:nowrap;">Team ID</label>
-            <input id="tt-team-id" class="tt-input" style="max-width:220px;" placeholder="e.g. youth-group" aria-label="Team ID">
+        <section class="glass tt-glass-tight">
+          <div class="tt-flex-center-wrap">
+            <label for="tt-team-id" class="tt-label-field">Team ID</label>
+            <input id="tt-team-id" class="tt-input tt-input-max220" placeholder="e.g. youth-group" aria-label="Team ID">
             <button id="tt-set-team" class="tt-btn tt-btn-sm">Set Team</button>
-            <span id="tt-team-name" style="font-size:0.82rem;color:var(--gold);"></span>
+            <span id="tt-team-name" class="tt-team-name-slot"></span>
             <span class="tt-privacy-badge" title="Nothing is sent to a server. All data stays in this browser.">🔒 Local only — this device</span>
           </div>
-          <p class="section-note" style="margin-top:0.5rem;font-size:0.78rem;">All data stays in this browser, under the name you set. Everyone on the same device who uses the same name shares the same workspace.</p>
+          <p class="section-note tt-note-micro">All data stays in this browser, under the name you set. Everyone on the same device who uses the same name shares the same workspace.</p>
         </section>
 
         <!-- ── Tool tabs ────────────────────────────────────────── -->
@@ -603,7 +665,7 @@
 
             <div class="tt-form" id="cal-form">
               <div class="tt-row">
-                <input class="tt-input" id="cal-title" placeholder="Event title — e.g. Youth Bible Study" aria-label="Event title" style="flex:2;">
+                <input class="tt-input tt-input-flex2" id="cal-title" placeholder="Event title — e.g. Youth Bible Study" aria-label="Event title">
                 <!-- Mini-cal date picker -->
                 <div class="mini-cal-wrap" id="cal-date-wrap">
                   <button type="button" class="mini-cal-trigger" id="cal-date-trigger" aria-label="Pick date" aria-haspopup="true" aria-expanded="false">
@@ -615,9 +677,9 @@
               </div>
               <div class="tt-row">
                 <!-- Hour / minute selects -->
-                <label style="font-size:0.82rem;color:var(--muted);white-space:nowrap;">Time</label>
+                <label for="cal-hour" class="tt-label-muted-row">Time</label>
                 <select class="tt-select" id="cal-hour" aria-label="Hour"></select>
-                <span style="color:var(--muted);">:</span>
+                <span class="tt-time-sep" aria-hidden="true">:</span>
                 <select class="tt-select" id="cal-min" aria-label="Minute">
                   <option value="">--</option>
                   <option value="00">00</option>
@@ -626,7 +688,7 @@
                   <option value="45">45</option>
                 </select>
                 <!-- Color tag -->
-                <label style="font-size:0.82rem;color:var(--muted);white-space:nowrap;">Color</label>
+                <label for="cal-color" class="tt-label-muted-row">Color</label>
                 <select class="tt-select" id="cal-color" aria-label="Event color">
                   <option value="blue">🔵 Blue</option>
                   <option value="green">🟢 Green</option>
@@ -637,14 +699,14 @@
               </div>
               <div class="tt-row">
                 <input class="tt-input" id="cal-desc" placeholder="Short description (optional)" aria-label="Description">
-                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--muted);white-space:nowrap;cursor:pointer;">
+                <label class="tt-label-check-row" for="cal-repeat">
                   <input type="checkbox" id="cal-repeat"> Repeat weekly (4 weeks)
                 </label>
                 <button class="tt-btn" id="cal-add-btn" type="button">Add Event</button>
               </div>
             </div>
 
-            <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;flex-wrap:wrap;">
+            <div class="tt-row-actions">
               <button class="tt-btn tt-btn-sm tt-btn-ghost" id="cal-export-btn" type="button">Export CSV</button>
               <button class="tt-btn tt-btn-sm tt-btn-ghost" id="cal-clear-past-btn" type="button">Clear Past</button>
             </div>
@@ -658,7 +720,7 @@
             <p class="section-note">Mark who showed up. Saves per date. Export for reports.</p>
 
             <div class="att-meta">
-              <label style="font-size:0.82rem;color:var(--muted);">Meeting date</label>
+              <label for="att-date-trigger" class="tt-label-muted-row">Meeting date</label>
               <div class="mini-cal-wrap" id="att-date-wrap">
                 <button type="button" class="mini-cal-trigger" id="att-date-trigger" aria-label="Pick meeting date" aria-haspopup="true" aria-expanded="false">
                   <span>📅</span><span id="att-date-display">Today</span>
@@ -674,7 +736,7 @@
 
             <div class="att-stats" id="att-stats"></div>
 
-            <div class="tt-row" style="margin-bottom:0.75rem;">
+            <div class="tt-row tt-row-mb">
               <input class="tt-input" id="att-new-name" placeholder="Add member name" aria-label="New member name">
               <button class="tt-btn tt-btn-sm" id="att-add-member" type="button">Add</button>
             </div>
@@ -684,8 +746,8 @@
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th style="width:64px;text-align:center;">Present</th>
-                    <th style="width:36px;"></th>
+                    <th class="att-th-present" scope="col">Present</th>
+                    <th class="att-th-actions" scope="col"><span class="sr-only">Remove</span></th>
                   </tr>
                 </thead>
                 <tbody id="att-tbody"></tbody>
@@ -699,11 +761,11 @@
             <p class="section-note">Upload sermon notes, song sheets, handouts. Stored locally — 100 MB per team.</p>
 
             <div class="lib-toolbar">
-              <label class="tt-btn" for="lib-file-input" style="display:inline-flex;align-items:center;gap:0.3rem;cursor:pointer;" aria-label="Upload file">
+              <label class="tt-btn tt-upload-label" for="lib-file-input" aria-label="Upload file">
                 ＋ Upload
               </label>
-              <input id="lib-file-input" type="file" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.txt" multiple style="display:none;" aria-hidden="true">
-              <input class="tt-input" id="lib-search" placeholder="Search files…" aria-label="Search files" style="max-width:200px;">
+              <input id="lib-file-input" class="tt-file-hidden" type="file" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.txt" multiple tabindex="-1" aria-hidden="true">
+              <input class="tt-input tt-input-max200" id="lib-search" placeholder="Search files…" aria-label="Search files">
               <select class="tt-select" id="lib-sort" aria-label="Sort files">
                 <option value="newest">Newest first</option>
                 <option value="az">A – Z</option>
@@ -714,12 +776,12 @@
             <div class="lib-quota-bar"><div class="lib-quota-fill" id="lib-quota-fill"></div></div>
             <p class="lib-quota" id="lib-quota-text">0 KB used of 100 MB</p>
 
-            <div class="lib-progress" id="lib-progress-wrap" style="display:none;">
+            <div class="lib-progress tt-is-hidden" id="lib-progress-wrap" aria-hidden="true">
               <div class="lib-progress-bar" id="lib-progress-bar"></div>
             </div>
 
             <div class="lib-grid" id="lib-grid" aria-live="polite" aria-label="Uploaded files">
-              <p class="lib-empty" style="grid-column:1/-1;">No files yet. Upload above.</p>
+              <p class="lib-empty lib-empty--full">No files yet. Upload above.</p>
             </div>
           </div>
 
@@ -738,21 +800,21 @@
                 </select>
               </div>
               <div class="tt-row">
-                <input class="tt-input" id="chain-poster" placeholder="Your name (optional)" aria-label="Your name" style="max-width:180px;">
+                <input class="tt-input tt-input-max180" id="chain-poster" placeholder="Your name (optional)" aria-label="Your name">
                 <input class="tt-input" id="chain-desc" placeholder="Details (optional)" aria-label="Details">
                 <button class="tt-btn" id="chain-add-btn" type="button">Add Request</button>
-                <p class="section-note" style="opacity:0.55;font-size:0.72rem;margin-top:0.3rem;">Requests expire after 30 days.</p>
+                <p class="section-note chain-note-subtle">Requests expire after 30 days.</p>
               </div>
             </div>
 
             <div class="chain-list" id="chain-list" aria-live="polite" aria-label="Prayer chain requests">
-              <p style="color:var(--muted);font-size:0.88rem;padding:1.5rem 0;text-align:center;">No active requests.</p>
+              <p class="chain-list-empty">No active requests.</p>
             </div>
 
             <!-- Answered section -->
-            <div class="chain-answered-section" id="chain-answered-section" style="display:none;">
+            <div class="chain-answered-section tt-is-hidden" id="chain-answered-section">
               <button class="chain-answered-toggle" id="chain-answered-toggle" type="button" aria-expanded="false">▸ Show answered prayers</button>
-              <div id="chain-answered-list" style="display:none;margin-top:0.6rem;"></div>
+              <div id="chain-answered-list" class="chain-answered-list-inner tt-is-hidden"></div>
             </div>
           </div>
 
@@ -765,42 +827,42 @@
             <div id="vp-today-wrap"></div>
 
             <!-- Password gate -->
-            <div id="vp-gate" class="vp-gate">
-              <p class="section-note" id="vp-gate-msg" style="margin-bottom:0.5rem;">Enter the admin password to manage packs.</p>
+            <div id="vp-gate" class="vp-gate" aria-hidden="false">
+              <p class="section-note vp-gate-msg" id="vp-gate-msg">Enter the admin password to manage packs.</p>
               <div class="tt-row">
-                <input class="tt-input" id="vp-pw-input" type="password" placeholder="Password" aria-label="Admin password" style="max-width:200px;">
+                <input class="tt-input tt-input-max200" id="vp-pw-input" type="password" placeholder="Password" aria-label="Admin password" autocomplete="current-password">
                 <button class="tt-btn tt-btn-sm" id="vp-unlock-btn" type="button">Unlock</button>
               </div>
-              <p class="section-note" id="vp-pw-err" style="color:#f87171;margin-top:0.4rem;display:none;">Wrong password.</p>
-              <p class="section-note" style="margin-top:0.5rem;opacity:0.6;font-size:0.72rem;">Forgot it? Clear this site&#8217;s data in your browser settings to reset.</p>
+              <p class="section-note tt-vp-err tt-is-hidden" id="vp-pw-err" role="alert" aria-hidden="true">Wrong password.</p>
+              <p class="section-note vp-hint-foot">Forgot it? Clear this site&#8217;s data in your browser settings to reset.</p>
             </div>
 
             <!-- Admin panel (hidden until unlocked) -->
-            <div id="vp-admin" style="display:none;margin-top:1.25rem;">
+            <div id="vp-admin" class="vp-admin-panel tt-is-hidden" aria-hidden="true">
 
-              <h3 style="font-size:0.9rem;font-weight:700;color:var(--gold);margin-bottom:0.6rem;">Add a New Pack</h3>
+              <h3 class="vp-section-title">Add a New Pack</h3>
               <div class="tt-form">
                 <div class="tt-row">
                   <input class="tt-input" id="vp-pack-name" placeholder='Pack name — e.g. "Sunday Hope Series"' aria-label="Pack name">
                 </div>
-                <textarea id="vp-pack-text" class="tt-input" rows="6"
+                <textarea id="vp-pack-text" class="tt-input vp-pack-textarea" rows="6"
                   placeholder="KJV text only. One verse per line. Format: Book Ch:Vs Verse text&#10;Example:&#10;John 3:16 For God so loved the world...&#10;Philippians 4:13 I can do all things..."
-                  aria-label="Verse list (KJV only)" style="resize:vertical;font-family:inherit;"></textarea>
+                  aria-label="Verse list (KJV only)"></textarea>
                 <div class="tt-row">
                   <button class="tt-btn" id="vp-save-btn" type="button">Save Pack</button>
-                  <label class="tt-btn tt-btn-ghost" for="vp-import-file" style="cursor:pointer;">Import JSON</label>
-                  <input id="vp-import-file" type="file" accept=".json" style="display:none;" aria-hidden="true">
+                  <label class="tt-btn tt-btn-ghost tt-cursor-pointer" for="vp-import-file">Import JSON</label>
+                  <input id="vp-import-file" class="tt-file-hidden" type="file" accept=".json" tabindex="-1" aria-hidden="true">
                 </div>
               </div>
 
-              <h3 style="font-size:0.9rem;font-weight:700;color:var(--gold);margin:1rem 0 0.6rem;">Saved Packs</h3>
+              <h3 class="vp-section-title vp-section-title--mt">Saved Packs</h3>
               <div id="vp-pack-list" aria-live="polite" aria-label="Saved verse packs"></div>
 
               <!-- Change password -->
-              <details style="margin-top:1rem;">
-                <summary style="font-size:0.78rem;color:var(--muted);cursor:pointer;">Change admin password</summary>
-                <div class="tt-row" style="margin-top:0.5rem;">
-                  <input class="tt-input" id="vp-new-pw" type="password" placeholder="New password" aria-label="New password" style="max-width:200px;">
+              <details class="vp-password-details">
+                <summary class="vp-password-summary">Change admin password</summary>
+                <div class="tt-row tt-row-tight-mt">
+                  <input class="tt-input tt-input-max200" id="vp-new-pw" type="password" placeholder="New password" aria-label="New password" autocomplete="new-password">
                   <button class="tt-btn tt-btn-sm tt-btn-ghost" id="vp-change-pw-btn" type="button">Save</button>
                 </div>
               </details>
@@ -818,7 +880,7 @@
               <div class="list-item"><div><strong><a href="study.html">Shared Study Links</a></strong><p>Build a lesson in Study Workspace and share the link — team gets the same verses and notes.</p></div></div>
               <div class="list-item"><div><strong><a href="sermon.html">Sermon Builder</a></strong><p>Build and share outlines with your congregation or co-leaders.</p></div></div>
             </div>
-            <div class="section-note" style="margin-top:1rem;">
+            <div class="section-note panel-comms-foot">
               <strong>$49/month Church plan:</strong> team logins, shared notes library, and your church's verse sent to everyone's morning screen. <a href="pricing.html">See Pricing →</a>
             </div>
           </div>
@@ -1617,7 +1679,7 @@
       tbody.innerHTML = '';
 
       if (!members.length) {
-        tbody.innerHTML = '<tr><td colspan="3" style="color:var(--muted);font-size:0.85rem;padding:1.2rem 0;">No members yet. Add names above.</td></tr>';
+        tbody.innerHTML = '<tr class="tt-table-empty"><td colspan="3">No members yet. Add names above.</td></tr>';
       } else {
         members.forEach(function(name) {
           var checked = !!record[name];
@@ -1628,7 +1690,7 @@
               escHtml(name) +
               (streak >= 2 ? '<span class="att-streak">🔥 ' + streak + '</span>' : '') +
             '</td>' +
-            '<td style="text-align:center;">' +
+            '<td class="att-td-check">' +
               '<button class="att-check" data-name="' + escHtml(name) + '" data-checked="' + checked + '" type="button" ' +
               'aria-label="' + (checked?'Present':'Absent') + ': ' + escHtml(name) + '">' +
               (checked ? '✓' : '×') + '</button>' +
@@ -1819,7 +1881,7 @@
         });
 
         if (!files.length) {
-          grid.innerHTML = '<p class="lib-empty" style="grid-column:1/-1;">' +
+          grid.innerHTML = '<p class="lib-empty lib-empty--full">' +
             (q ? 'No files match your search.' : 'No files yet. Upload above.') + '</p>';
           return;
         }
@@ -1844,7 +1906,7 @@
           // Tag chips
           var tagsHtml = (f.tags||[]).map(function(tag) {
             return '<span class="lib-tag">' + escHtml(tag) +
-              '<span class="lib-tag-del" data-tag-del="' + escHtml(tag) + '" data-fid="' + escHtml(f.id) + '" title="Remove tag" style="cursor:pointer;"> ×</span></span>';
+              '<span class="lib-tag-del" data-tag-del="' + escHtml(tag) + '" data-fid="' + escHtml(f.id) + '" title="Remove tag" role="button" tabindex="0" aria-label="Remove tag ' + escHtml(tag) + '"> ×</span></span>';
           }).join('');
           tagsHtml += '<input class="lib-tag-input" type="text" placeholder="＋tag" aria-label="Add tag" data-fid="' + escHtml(f.id) + '" maxlength="20">';
 
@@ -1883,11 +1945,15 @@
 
           // Tag delete
           card.querySelectorAll('[data-tag-del]').forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
+            function removeTag(e) {
               e.stopPropagation();
               var tag = btn.dataset.tagDel;
               var tags = (f.tags||[]).filter(function(t){ return t !== tag; });
               updateLibFile(f.id, { tags: tags });
+            }
+            btn.addEventListener('click', removeTag);
+            btn.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); removeTag(e); }
             });
           });
 
@@ -1925,7 +1991,10 @@
             showToast('Upload would exceed 100 MB. Delete some files first.');
             return;
           }
-          if (libProgressWrap) libProgressWrap.style.display = 'block';
+          if (libProgressWrap) {
+            libProgressWrap.classList.remove('tt-is-hidden');
+            libProgressWrap.setAttribute('aria-hidden', 'false');
+          }
           var done = 0;
           files.forEach(function(file) {
             addLibFile(file, function() {
@@ -1933,7 +2002,10 @@
               if (libProgressBar) libProgressBar.style.width = Math.round(100*done/files.length) + '%';
               if (done === files.length) {
                 setTimeout(function() {
-                  if (libProgressWrap) libProgressWrap.style.display = 'none';
+                  if (libProgressWrap) {
+                    libProgressWrap.classList.add('tt-is-hidden');
+                    libProgressWrap.setAttribute('aria-hidden', 'true');
+                  }
                   if (libProgressBar) libProgressBar.style.width = '0';
                 }, 600);
                 renderLibrary();
@@ -1977,7 +2049,7 @@
 
       list.innerHTML = '';
       if (!active.length) {
-        list.innerHTML = '<p style="color:var(--muted);font-size:0.88rem;padding:1.5rem 0;text-align:center;">No active requests.</p>';
+        list.innerHTML = '<p class="chain-list-empty">No active requests.</p>';
       } else {
         active.forEach(function(item) {
           list.appendChild(buildChainCard(item, false));
@@ -1985,8 +2057,11 @@
       }
 
       // Answered section
-      if (answeredSection) answeredSection.style.display = answered.length ? 'block' : 'none';
-      if (answeredList && answeredList.style.display !== 'none') {
+      if (answeredSection) {
+        answeredSection.classList.toggle('tt-is-hidden', answered.length === 0);
+        answeredSection.setAttribute('aria-hidden', answered.length ? 'false' : 'true');
+      }
+      if (answeredList && !answeredList.classList.contains('tt-is-hidden')) {
         answeredList.innerHTML = '';
         answered.forEach(function(item) { answeredList.appendChild(buildChainCard(item, true)); });
       }
@@ -2091,13 +2166,13 @@
 
     var answeredToggle = document.getElementById('chain-answered-toggle');
     var answeredListWrap = document.getElementById('chain-answered-list');
-    if (answeredToggle) {
+    if (answeredToggle && answeredListWrap) {
       answeredToggle.addEventListener('click', function() {
-        var shown = answeredListWrap.style.display !== 'none';
-        answeredListWrap.style.display = shown ? 'none' : 'block';
-        answeredToggle.textContent = (shown ? '▸' : '▾') + ' ' + (shown ? 'Show' : 'Hide') + ' answered prayers';
-        answeredToggle.setAttribute('aria-expanded', shown ? 'false' : 'true');
-        if (!shown) {
+        var wasOpen = !answeredListWrap.classList.contains('tt-is-hidden');
+        answeredListWrap.classList.toggle('tt-is-hidden', wasOpen);
+        answeredToggle.textContent = (wasOpen ? '▸' : '▾') + ' ' + (wasOpen ? 'Show' : 'Hide') + ' answered prayers';
+        answeredToggle.setAttribute('aria-expanded', wasOpen ? 'false' : 'true');
+        if (!wasOpen) {
           answeredListWrap.innerHTML = '';
           var answered = getChain().filter(function(i){ return !!i.answeredAt; });
           answered.forEach(function(item) { answeredListWrap.appendChild(buildChainCard(item, true)); });
@@ -2255,6 +2330,18 @@
     var vpPwInput   = document.getElementById('vp-pw-input');
     var vpPwErr     = document.getElementById('vp-pw-err');
     var vpGateMsg   = document.getElementById('vp-gate-msg');
+    var vpGateEl    = document.getElementById('vp-gate');
+    var vpAdminEl   = document.getElementById('vp-admin');
+    function vpRevealAdmin() {
+      if (vpGateEl) {
+        vpGateEl.classList.add('tt-is-hidden');
+        vpGateEl.setAttribute('aria-hidden', 'true');
+      }
+      if (vpAdminEl) {
+        vpAdminEl.classList.remove('tt-is-hidden');
+        vpAdminEl.setAttribute('aria-hidden', 'false');
+      }
+    }
     // If no password set yet, prompt the user to create one on first unlock
     (function initVpGate() {
       try {
@@ -2273,19 +2360,26 @@
         // First time — set the password now
         try { localStorage.setItem(VP_PW_KEY, pw); } catch(_) {}
         vpUnlocked = true;
-        document.getElementById('vp-gate').style.display = 'none';
-        document.getElementById('vp-admin').style.display = 'block';
-        if (vpPwErr) vpPwErr.style.display = 'none';
+        vpRevealAdmin();
+        if (vpPwErr) {
+          vpPwErr.classList.add('tt-is-hidden');
+          vpPwErr.setAttribute('aria-hidden', 'true');
+        }
         renderVersePacks();
         showToast('Password set. You\'re in.');
       } else if (pw === stored) {
         vpUnlocked = true;
-        document.getElementById('vp-gate').style.display = 'none';
-        document.getElementById('vp-admin').style.display = 'block';
-        if (vpPwErr) vpPwErr.style.display = 'none';
+        vpRevealAdmin();
+        if (vpPwErr) {
+          vpPwErr.classList.add('tt-is-hidden');
+          vpPwErr.setAttribute('aria-hidden', 'true');
+        }
         renderVersePacks();
       } else {
-        if (vpPwErr) vpPwErr.style.display = 'block';
+        if (vpPwErr) {
+          vpPwErr.classList.remove('tt-is-hidden');
+          vpPwErr.setAttribute('aria-hidden', 'false');
+        }
       }
     });
     if (vpPwInput) vpPwInput.addEventListener('keydown', function(e){ if(e.key==='Enter') vpUnlockBtn.click(); });

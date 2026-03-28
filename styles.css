@@ -610,6 +610,22 @@ button.download-btn:focus-visible {
 }
 
 .cta-group-flex-wrap { flex-wrap: wrap; gap: 0.5rem; }
+.cta-group-align-center { align-items: center; }
+.ptk-topic-field {
+  min-width: 12rem;
+}
+
+/* Plans / family satellite pages — avoid inline back-link + note spacing */
+.plans-back-hub {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+.section-note-tight-top {
+  margin-top: 0.35rem;
+}
+.teen-j-lines-minh {
+  min-height: 6rem;
+}
 .daily-verse-email-input { max-width: 16rem; padding: 0.4rem 0.6rem; }
 .prayer-map-svg-fill { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 

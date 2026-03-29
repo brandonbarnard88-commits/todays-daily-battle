@@ -14891,7 +14891,7 @@ function populateReaderXrefsSheetBody(anchorRef, verseText, full) {
   sheetIntro.dataset.xrefFilterText =
     'themes comfort grief peace prayer faith grace christ union identity related passages cross references';
   sheetIntro.textContent =
-    'Curated chains appear under each theme when your verse belongs there. Extra references from the list group the same way when they match a theme; anything left shows under “More related passages.”';
+    'Curated chains appear under each theme when your verse belongs there. When this verse has its own short list, those passages are grouped the same way; use the filter to narrow long lists. Anything still open shows under “More related passages.”';
   body.appendChild(sheetIntro);
 
   if (!built.sections.length) {

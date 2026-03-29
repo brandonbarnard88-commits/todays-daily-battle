@@ -26,7 +26,9 @@
 
   <!-- Core tools -->
   <url><loc>https://todaysdailybattle.com/verse.html</loc><lastmod>2026-03-24</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
-  <url><loc>https://todaysdailybattle.com/reader.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/reader.html</loc><lastmod>2026-03-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/memorize.html</loc><lastmod>2026-03-28</lastmod><changefreq>monthly</changefreq><priority>0.84</priority></url>
+  <url><loc>https://todaysdailybattle.com/what-god-has-done.html</loc><lastmod>2026-03-28</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
   <url><loc>https://todaysdailybattle.com/bible-tool.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://todaysdailybattle.com/reading-plan.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://todaysdailybattle.com/verse-image.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>

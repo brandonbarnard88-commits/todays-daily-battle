@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="tt-bootstrap.js?v=20260326clean"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Story of the King James Version • Today&apos;s Daily Battle</title>
+  <meta name="description" content="A calm look at how we received the beloved King James Bible: Tyndale, the 1611 translators, and the edition many read today. KJV-only site.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kjv-story.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260402wghd">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"The Story of the King James Version","url":"https://todaysdailybattle.com/kjv-story.html","description":"Calm timeline of the KJV translation.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
+  </script>
+  <style>
+    :root { --bg:#0d1117; --text:#f5f7fb; --muted:#8896b0; --gold:#e3bc67; --line:#242d3d; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--gold); color: #111; }
+    .tdb-global-nav {
+      display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
+      padding: 0.35rem 0.75rem; min-height: 52px;
+      background: rgba(8, 12, 22, 0.55); border-bottom: 1px solid rgba(227, 188, 103, 0.22);
+      position: sticky; top: 0; z-index: 201; backdrop-filter: blur(10px); font-size: 0.86rem;
+    }
+    .tdb-global-nav a {
+      color: rgba(226, 232, 240, 0.85); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px;
+      min-height: 44px; display: inline-flex; align-items: center;
+    }
+    .tdb-global-nav a:hover, .tdb-global-nav a:focus-visible { color: var(--gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
+    main.kjv-main { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem 5rem; display: block; }
+    h1 { font-size: clamp(1.45rem, 4vw, 1.95rem); color: var(--gold); margin: 0 0 0.35rem; font-weight: 800; line-height: 1.25; }
+    .kjv-sub { font-size: 1rem; color: rgba(226, 232, 240, 0.92); margin: 0 0 1.25rem; font-weight: 600; }
+    .kjv-lead { color: var(--muted); font-size: 0.98rem; margin: 0 0 1.75rem; line-height: 1.6; }
+    .kjv-timeline { display: flex; flex-direction: column; gap: 1rem; margin: 0 0 2rem; }
+    .kjv-card {
+      padding: 1rem 1.1rem; border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.45);
+    }
+    .kjv-card time { display: block; font-size: 0.82rem; font-weight: 700; color: var(--gold); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .kjv-card p { margin: 0; color: rgba(245, 247, 251, 0.92); font-size: 0.95rem; }
+    h2 { font-size: 1.08rem; color: var(--gold); margin: 2rem 0 0.75rem; font-weight: 700; }
+    .kjv-closing { font-size: 0.98rem; color: rgba(245, 247, 251, 0.9); margin: 0 0 1.5rem; line-height: 1.6; }
+    .kjv-sample {
+      margin: 1.25rem 0; padding: 1rem 1.1rem; border-radius: 12px;
+      border: 1px solid rgba(227, 188, 103, 0.28); background: rgba(8, 12, 22, 0.5);
+    }
+    .kjv-sample h3 { margin: 0 0 0.65rem; font-size: 1rem; color: var(--gold); }
+    .kjv-sample-grid { display: grid; gap: 0.85rem; }
+    @media (min-width: 520px) { .kjv-sample-grid { grid-template-columns: 1fr 1fr; gap: 1rem; } }
+    .kjv-sample-col p { margin: 0; font-size: 0.88rem; line-height: 1.55; color: rgba(226, 232, 240, 0.9); }
+    .kjv-sample-col .kjv-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.35rem; font-weight: 600; }
+    .kjv-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 1.25rem 0 2rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+      padding: 0.55rem 1rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; border: 1px solid rgba(227, 188, 103, 0.45);
+      background: rgba(227, 188, 103, 0.12); color: var(--gold); cursor: pointer; font-family: inherit;
+    }
+    .btn:hover, .btn:focus-visible { background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .btn-secondary { background: transparent; color: rgba(226, 232, 240, 0.9); border-color: var(--line); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--gold); color: var(--gold); }
+    footer { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem 2.5rem; font-size: 0.82rem; color: var(--muted); }
+    footer a { color: var(--gold); }
+    @media print {
+      .tdb-global-nav, .kjv-actions, .skip-link, footer { display: none !important; }
+      body { background: #fff; color: #111; font-size: 11pt; }
+      main { max-width: none; padding: 0; }
+      h1, h2, .kjv-sub { color: #111; }
+      .kjv-card, .kjv-sample { border-color: #ccc; background: #fff; break-inside: avoid; }
+      .kjv-lead, .kjv-closing, .kjv-card p, .kjv-sample-col p { color: #222; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="tdb-global-nav" aria-label="Main site navigation">
+    <a href="/">Home</a>
+    <a href="explore.html">Explore</a>
+    <a href="site-guide.html">Guide</a>
+    <a href="reader.html">Reader</a>
+    <a href="kjv-story.html" aria-current="page">KJV story</a>
+    <a href="bible-tool.html">Tools</a>
+  </nav>
+  <main id="main" class="kjv-main">
+    <h1>The Story of the King James Version</h1>
+    <p class="kjv-sub">A calm look at how we received this beloved Bible</p>
+    <p class="kjv-lead">The King James Version is not just a translation &mdash; it is a labor of love, prayer, and careful scholarship that God has used for over 400 years to speak to millions.</p>
+
+    <div class="kjv-actions">
+      <button type="button" class="btn" id="kjv-print-page" aria-label="Print this page">Print this page</button>
+      <a class="btn btn-secondary" href="reader.html?book=Psalm&amp;chapter=23&amp;ref=Psalm%2023%3A1">Read Psalm 23 in the chapter reader</a>
+    </div>
+
+    <section class="kjv-timeline" aria-label="Timeline">
+      <article class="kjv-card">
+        <time datetime="1525-1535">1525&ndash;1535</time>
+        <p>William Tyndale translates the New Testament and part of the Old into English for ordinary people. He is martyred, but his words live on.</p>
+      </article>
+      <article class="kjv-card">
+        <time datetime="1604">1604</time>
+        <p>King James I calls for a new translation so the whole nation can have one faithful English Bible.</p>
+      </article>
+      <article class="kjv-card">
+        <time datetime="1604-1611">1604&ndash;1611</time>
+        <p>Forty-seven scholars (working in six teams at Westminster, Oxford, and Cambridge) carefully revise earlier translations. They build on Tyndale, the Bishops&rsquo; Bible, and the Geneva Bible while going back to the original Hebrew and Greek.</p>
+      </article>
+      <article class="kjv-card">
+        <time datetime="1611">1611</time>
+        <p>The King James Version is published. It quickly becomes the Bible of the English-speaking world.</p>
+      </article>
+      <article class="kjv-card">
+        <time datetime="1769">1769</time>
+        <p>The edition most of us read today (minor spelling and punctuation updates for clarity).</p>
+      </article>
+    </section>
+
+    <h2>Why the KJV still feels special</h2>
+    <ul class="kjv-lead" style="margin:0 0 1.5rem; padding-left:1.2rem; color:rgba(245,247,251,0.9);">
+      <li style="margin-bottom:0.5rem;">It was made to be read aloud &mdash; the rhythm and beauty of the language make it easy to remember.</li>
+      <li style="margin-bottom:0.5rem;">The translators wanted every English speaker to hear the Word clearly and reverently.</li>
+      <li style="margin-bottom:0.5rem;">Nearly 90% of the New Testament still echoes William Tyndale&rsquo;s faithful work from 400 years earlier.</li>
+    </ul>
+
+    <div class="kjv-sample" id="kjv-sample-1611">
+      <h3>Sample: Psalm 23, first line (1611 style beside familiar wording)</h3>
+      <div class="kjv-sample-grid">
+        <div class="kjv-sample-col">
+          <p class="kjv-label">1611 spelling</p>
+          <p>The Lord is my shepheard, I shall not want.</p>
+        </div>
+        <div class="kjv-sample-col">
+          <p class="kjv-label">Familiar KJV (1769 tradition)</p>
+          <p>The Lord is my shepherd; I shall not want.</p>
+        </div>
+      </div>
+      <p class="kjv-lead" style="margin:0.85rem 0 0; font-size:0.86rem;">Same verse, same faithfulness &mdash; small changes in spelling and punctuation over centuries. Public-domain text; we show it here for history, not as a second translation on the site.</p>
+    </div>
+
+    <h2>Closing note</h2>
+    <p class="kjv-closing">This Bible has comforted the grieving, strengthened the weary, and pointed countless souls to Christ. We honor it here by keeping it pure, private, and easy to use.</p>
+  </main>
+  <footer>
+    <p><a href="reader.html">Chapter reader</a> &middot; <a href="site-guide.html">How to use this site</a> &middot; <a href="/">Home</a></p>
+  </footer>
+  <script>
+    (function () {
+      var btn = document.getElementById('kjv-print-page');
+      if (btn) btn.addEventListener('click', function () { window.print(); });
+    })();
+  </script>
+</body>
+</html>

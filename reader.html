@@ -26,7 +26,7 @@
   <meta name="twitter:description" content="Read full Bible chapters in context with the chapter reader.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260403reader-companion">
+  <link rel="stylesheet" href="styles.css?v=20260328reader-study">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,6 +143,334 @@
       display: inline-block; padding: 0.1rem 0.35rem; border-radius: 4px;
       border: 1px solid rgba(148, 163, 184, 0.35); font-size: 0.78rem; font-family: ui-monospace, monospace;
     }
+    .reader-crossrefs-panel {
+      margin: 1rem 0 0;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(227, 188, 103, 0.28);
+      background: rgba(8, 12, 22, 0.42);
+    }
+    .reader-crossrefs-panel.hidden { display: none !important; }
+    .reader-crossrefs-back {
+      margin: 0 0 0.65rem;
+      font-size: 0.9rem;
+    }
+    .reader-crossrefs-back a {
+      color: #e8cf7a;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .reader-crossrefs-title {
+      margin: 0 0 0.45rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #e3bc67;
+    }
+    .reader-crossrefs-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .reader-crossrefs-list a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      color: rgba(226, 232, 240, 0.95);
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 0.2rem 0.35rem;
+      border: 1px solid transparent;
+    }
+    .reader-crossrefs-list a:hover, .reader-crossrefs-list a:focus-visible {
+      border-color: rgba(227, 188, 103, 0.4);
+      color: #fde68a;
+      outline: none;
+    }
+    .reader-crossrefs-empty {
+      margin: 0;
+      font-size: 0.88rem;
+      color: rgba(148, 163, 184, 0.95);
+    }
+    .reader-study-wrap {
+      margin: 1rem 0 0;
+      padding: 0.75rem 0.95rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(12, 18, 30, 0.4);
+    }
+    .reader-study-wrap summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #e3bc67;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+    .reader-study-wrap summary::-webkit-details-marker { display: none; }
+    .reader-study-wrap[open] summary { margin-bottom: 0.5rem; }
+    .reader-chapter-study-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 6rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.55);
+      color: #e2e8f0;
+      font-family: inherit;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      padding: 0.55rem 0.65rem;
+      resize: vertical;
+    }
+    .reader-chapter-study-textarea:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.45);
+      outline-offset: 2px;
+    }
+    .reader-verse-line--tools {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 0.35rem 0.5rem;
+    }
+    .reader-verse-line--tools strong { flex: 1 1 100%; }
+    .reader-verse-xref-btn,
+    .reader-verse-wordstudy-btn {
+      flex: 0 0 auto;
+      min-height: 36px;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: inherit;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.55);
+      color: rgba(226, 232, 240, 0.92);
+      cursor: pointer;
+    }
+    .reader-verse-xref-btn:hover, .reader-verse-xref-btn:focus-visible,
+    .reader-verse-wordstudy-btn:hover, .reader-verse-wordstudy-btn:focus-visible {
+      border-color: rgba(227, 188, 103, 0.5);
+      color: #fde68a;
+      outline: 2px solid rgba(227, 188, 103, 0.45);
+      outline-offset: 2px;
+    }
+    .reader-sheet-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .reader-sheet-layer.hidden { display: none !important; }
+    .reader-sheet-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 6, 15, 0.72);
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    .reader-sheet-panel {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 32rem;
+      max-height: min(88vh, 640px);
+      overflow: auto;
+      margin: 0;
+      padding: 0.85rem 1rem 1.15rem;
+      border-radius: 16px 16px 0 0;
+      border: 1px solid rgba(227, 188, 103, 0.28);
+      border-bottom: none;
+      background: #0d1117;
+      box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.45);
+    }
+    @media (min-width: 520px) {
+      .reader-sheet-layer { align-items: center; padding: 1rem; }
+      .reader-sheet-panel {
+        border-radius: 16px;
+        border-bottom: 1px solid rgba(227, 188, 103, 0.28);
+        max-height: min(85vh, 620px);
+      }
+    }
+    .reader-sheet-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.75rem;
+      margin-bottom: 0.65rem;
+    }
+    .reader-sheet-back-btn {
+      min-height: 44px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: inherit;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: transparent;
+      color: #e2e8f0;
+      cursor: pointer;
+    }
+    .reader-sheet-back-btn:hover, .reader-sheet-back-btn:focus-visible {
+      border-color: rgba(227, 188, 103, 0.5);
+      color: #fde68a;
+      outline: 2px solid rgba(227, 188, 103, 0.45);
+      outline-offset: 2px;
+    }
+    .reader-sheet-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #e3bc67;
+      flex: 1 1 auto;
+    }
+    .reader-sheet-filter {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 44px;
+      margin: 0 0 0.65rem;
+      padding: 0.45rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(15, 23, 42, 0.55);
+      color: #e2e8f0;
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+    .reader-sheet-body {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: rgba(226, 232, 240, 0.94);
+    }
+    .reader-sheet-empty {
+      font-size: 0.88rem;
+      color: rgba(148, 163, 184, 0.95);
+      margin: 0 0 0.65rem;
+    }
+    .reader-sheet-empty.hidden { display: none !important; }
+    .reader-sheet-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .reader-sheet-action-btn { min-height: 44px; }
+    .reader-sheet-footer-status {
+      margin: 0.5rem 0 0;
+      font-size: 0.86rem;
+      color: rgba(148, 163, 184, 0.95);
+      min-height: 1.25em;
+    }
+    .reader-xrefs-anchor-block {
+      margin: 0 0 0.75rem;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+    .reader-xrefs-anchor-ref { margin: 0; font-weight: 700; color: #e3bc67; font-size: 0.95rem; }
+    .reader-xrefs-anchor-text { margin: 0.35rem 0 0; color: rgba(226, 232, 240, 0.92); }
+    .reader-xrefs-group { margin: 0 0 1rem; }
+    .reader-xrefs-group-title { margin: 0 0 0.35rem; font-size: 0.92rem; color: #e8cf7a; }
+    .reader-xrefs-group-blurb { margin: 0 0 0.45rem; font-size: 0.84rem; color: rgba(148, 163, 184, 0.95); }
+    .reader-xrefs-group-list { list-style: none; margin: 0; padding: 0; }
+    .reader-xrefs-group-list li { margin: 0.25rem 0; }
+    .reader-xrefs-group-list li.hidden { display: none !important; }
+    .reader-xrefs-group.hidden { display: none !important; }
+    .reader-xrefs-open-link {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      color: rgba(226, 232, 240, 0.95);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .reader-xrefs-open-link:hover, .reader-xrefs-open-link:focus-visible { color: #fde68a; outline: none; }
+    .reader-wordstudy-anchor-block {
+      margin: 0 0 0.65rem;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+    .reader-wordstudy-anchor-ref { margin: 0; font-weight: 700; color: #e3bc67; }
+    .reader-wordstudy-anchor-text { margin: 0.35rem 0 0; color: rgba(226, 232, 240, 0.92); }
+    .reader-wordstudy-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0 0 0.65rem;
+    }
+    .reader-wordstudy-chip {
+      min-height: 40px;
+      padding: 0.25rem 0.55rem;
+      font-size: 0.86rem;
+      font-family: inherit;
+      font-weight: 600;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(12, 18, 30, 0.65);
+      color: #e2e8f0;
+      cursor: pointer;
+    }
+    .reader-wordstudy-chip:hover, .reader-wordstudy-chip:focus-visible {
+      border-color: rgba(227, 188, 103, 0.5);
+      color: #fde68a;
+      outline: 2px solid rgba(227, 188, 103, 0.45);
+      outline-offset: 2px;
+    }
+    .reader-wordstudy-manual-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .reader-wordstudy-manual-row .reader-sheet-filter { flex: 1 1 12rem; margin-bottom: 0; }
+    .reader-wordstudy-search-btn { min-height: 44px; }
+    .reader-wordstudy-meaning .reader-wordstudy-heading-word:empty { display: none; }
+    .reader-wordstudy-deep {
+      margin: 0.5rem 0 0.65rem;
+      padding: 0.5rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(8, 12, 22, 0.35);
+    }
+    .reader-wordstudy-deep summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #c4b87a;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+    .reader-wordstudy-deep summary::-webkit-details-marker { display: none; }
+    .reader-wordstudy-book-block { margin: 0 0 0.85rem; }
+    .reader-wordstudy-book-block.hidden { display: none !important; }
+    .reader-wordstudy-book-title { margin: 0 0 0.35rem; font-size: 0.9rem; color: #e8cf7a; }
+    .reader-wordstudy-ref-list { list-style: none; margin: 0; padding: 0; }
+    .reader-wordstudy-ref-list li { margin: 0.2rem 0; }
+    .reader-wordstudy-open-link {
+      color: rgba(226, 232, 240, 0.95);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .reader-wordstudy-open-link:hover, .reader-wordstudy-open-link:focus-visible { color: #fde68a; outline: none; }
+    body.reader-xrefs-open,
+    body.reader-wordstudy-open { overflow: hidden; }
   </style>
 </head>
 <body class="dark-mode chapter-reader-page">
@@ -245,9 +573,9 @@
               <button id="reader-prev" type="button">Prev</button>
               <button id="reader-next" type="button">Next</button>
               <button id="reader-open" type="button">Open Chapter</button>
-              <button id="reader-listen" class="btn btn-secondary btn-listen" type="button" aria-label="Read this chapter aloud">Listen</button>
+              <button id="reader-listen" class="btn btn-secondary btn-listen" type="button" aria-pressed="false" aria-label="Read this chapter aloud">Read aloud</button>
               <button id="reader-audio" class="btn btn-secondary btn-kjv-audio" type="button" aria-label="Open KJV audio in new tab">KJV Audio</button>
-              <p class="section-note util-mb-0 reader-audio-hint"><span id="reader-listen-hint">Listen uses your device voice. </span>KJV Audio opens the passage in a new tab.</p>
+              <p class="section-note util-mb-0 reader-audio-hint"><span id="reader-listen-hint">Calm, on-device voice&mdash;pause anytime. </span>KJV Audio opens the passage in a new tab.</p>
             </div>
           </div>
           <div id="reader-resume-strip" class="reader-resume-strip hidden" role="region" aria-label="Resume last chapter">
@@ -275,6 +603,72 @@
           </details>
           <div id="reader-output" class="chapter-output reader-output-empty" role="region" aria-label="Chapter content" aria-live="polite" tabindex="-1">
             <p class="section-note empty">Pick a book — chapter 1 loads right away. Try a quick link above (e.g. <a href="?book=Mark&amp;chapter=1">Mark 1</a>, <a href="?book=Luke&amp;chapter=15">Luke 15</a>, <a href="?book=Psalm&amp;chapter=1">Psalm 1</a>), or jump back from <strong>Saved chapters</strong> once you start saving. <strong>Offline:</strong> chapters you opened before may still load from cache.</p>
+          </div>
+          <div id="reader-crossrefs-panel" class="reader-crossrefs-panel hidden" role="region" aria-label="Related verses"></div>
+          <details id="reader-study-wrap" class="reader-study-wrap">
+            <summary>Chapter notes (this device)</summary>
+            <p class="section-note util-mb-0_5 util-mt-0">Private notes for this chapter only&mdash;never uploaded.</p>
+            <label for="reader-chapter-study-notes" class="sr-only">Notes for this chapter</label>
+            <textarea id="reader-chapter-study-notes" class="reader-chapter-study-textarea" maxlength="8000" rows="4" autocomplete="off" placeholder="A word, a question, something to pray&hellip;"></textarea>
+          </details>
+          <p class="section-note util-mt-1 util-mb-0"><a href="memorize.html">Memorize</a> &mdash; gentle verse memory tools on this device (no account).</p>
+
+          <div id="reader-xrefs-layer" class="reader-sheet-layer hidden" aria-hidden="true">
+            <div id="reader-xrefs-backdrop" class="reader-sheet-backdrop" tabindex="-1" aria-hidden="true"></div>
+            <div class="reader-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="reader-xrefs-sheet-title">
+              <div class="reader-sheet-header">
+                <button type="button" id="reader-xrefs-back" class="reader-sheet-back-btn">Back</button>
+                <h2 id="reader-xrefs-sheet-title" class="reader-sheet-title">Cross references</h2>
+              </div>
+              <label class="sr-only" for="reader-xrefs-filter">Filter cross references</label>
+              <input id="reader-xrefs-filter" class="reader-sheet-filter" type="search" autocomplete="off" placeholder="Filter by word or reference&hellip;">
+              <div id="reader-xrefs-sheet-body" class="reader-sheet-body"></div>
+              <p id="reader-xrefs-sheet-empty" class="reader-sheet-empty hidden" role="status"></p>
+              <div class="reader-sheet-footer">
+                <button type="button" id="reader-xrefs-save-mystudy" class="btn btn-secondary reader-sheet-action-btn">Save to My Study</button>
+                <button type="button" id="reader-xrefs-print" class="btn btn-secondary reader-sheet-action-btn">Print</button>
+              </div>
+              <p id="reader-xrefs-save-status" class="reader-sheet-footer-status" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div id="reader-wordstudy-layer" class="reader-sheet-layer hidden" aria-hidden="true">
+            <div id="reader-wordstudy-backdrop" class="reader-sheet-backdrop" tabindex="-1" aria-hidden="true"></div>
+            <div class="reader-sheet-panel reader-wordstudy-panel" role="dialog" aria-modal="true" aria-labelledby="reader-wordstudy-sheet-title">
+              <div class="reader-sheet-header">
+                <button type="button" id="reader-wordstudy-back" class="reader-sheet-back-btn">Back</button>
+                <h2 id="reader-wordstudy-sheet-title" class="reader-sheet-title">KJV word study</h2>
+              </div>
+              <div class="reader-wordstudy-anchor-block">
+                <p id="reader-wordstudy-anchor-ref" class="reader-wordstudy-anchor-ref"></p>
+                <p id="reader-wordstudy-anchor-text" class="reader-wordstudy-anchor-text"></p>
+              </div>
+              <p class="reader-wordstudy-hint section-note util-mb-0_5 util-mt-0">Tap a word from the verse, or type one and search. Uses the full KJV on this device (offline once loaded).</p>
+              <div id="reader-wordstudy-chips" class="reader-wordstudy-chips" aria-label="Words in this verse"></div>
+              <div class="reader-wordstudy-manual-row">
+                <label class="sr-only" for="reader-wordstudy-manual">Word to study</label>
+                <input id="reader-wordstudy-manual" class="reader-sheet-filter" type="text" autocomplete="off" placeholder="Type a KJV word&hellip;">
+                <button type="button" id="reader-wordstudy-search-btn" class="btn btn-secondary reader-wordstudy-search-btn">Search</button>
+              </div>
+              <label class="sr-only" for="reader-wordstudy-filter">Filter occurrence list</label>
+              <input id="reader-wordstudy-filter" class="reader-sheet-filter" type="search" autocomplete="off" placeholder="Filter verses (book or reference)&hellip;">
+              <p id="reader-wordstudy-meaning-block" class="reader-wordstudy-meaning section-note util-mb-0_5 util-mt-0_75 hidden" hidden>
+                <strong id="reader-wordstudy-heading-word" class="reader-wordstudy-heading-word"></strong>
+                &mdash; Classic dictionary entries (Easton&rsquo;s, Smith&rsquo;s, etc.) can ship in a future offline bundle. Here you see how the King James Bible uses this <em>exact English form</em> throughout the text.
+              </p>
+              <details class="reader-wordstudy-deep">
+                <summary>Deep dive (original languages)</summary>
+                <p class="section-note util-mb-0 util-mt-0_5">Greek and Hebrew notes stay off by default. When we add them, they will appear here as an optional layer&mdash;the site stays KJV-first.</p>
+              </details>
+              <div id="reader-wordstudy-sheet-body" class="reader-sheet-body reader-wordstudy-results"></div>
+              <p id="reader-wordstudy-sheet-empty" class="reader-sheet-empty" role="status">Tap a word above, or type in the box and press Search.</p>
+              <p id="reader-wordstudy-status" class="reader-wordstudy-count-note section-note util-mb-0" role="status" aria-live="polite"></p>
+              <div class="reader-sheet-footer">
+                <button type="button" id="reader-wordstudy-save-mystudy" class="btn btn-secondary reader-sheet-action-btn">Save to My Study</button>
+                <button type="button" id="reader-wordstudy-print" class="btn btn-secondary reader-sheet-action-btn">Print</button>
+              </div>
+              <p id="reader-wordstudy-save-status" class="reader-sheet-footer-status" role="status" aria-live="polite"></p>
+            </div>
           </div>
         </section>
       </div>
@@ -643,7 +1037,7 @@
       setTimeout(run, 1600);
     })();
   </script>
-  <script src="bible-study-companion.js?v=20260403reader-companion"></script>
-  <script type="module" src="script.js?v=20260403reader-companion" data-cfasync="false" fetchpriority="low"></script>
+  <script src="bible-study-companion.js?v=20260328reader-study"></script>
+  <script type="module" src="script.js?v=20260328reader-study" data-cfasync="false" fetchpriority="low"></script>
 </body>
 </html>

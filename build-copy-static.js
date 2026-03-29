@@ -119,6 +119,7 @@ const rootFiles = [
   'bible-study-companion.js',
   'mystudy.js',
   'what-god-has-done.js',
+  'memorize.js',
   'highlights.js',
   'streak.js',
   'family-hierarchy.js',

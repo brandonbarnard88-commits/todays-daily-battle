@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="tt-bootstrap.js?v=20260326clean"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memorize • Gentle KJV memory tools • Today&apos;s Daily Battle</title>
+  <meta name="description" content="Private verse cards, gentle review, typing and listening practice—King James Bible only; everything stays on your device.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/memorize.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260328mem">
+  <style>
+    :root { --bg:#0d1117; --text:#f5f7fb; --muted:#8896b0; --gold:#e3bc67; --line:#242d3d; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--gold); color: #111; }
+    .tdb-global-nav {
+      display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
+      padding: 0.35rem 0.75rem; min-height: 52px;
+      background: rgba(8, 12, 22, 0.55); border-bottom: 1px solid rgba(227, 188, 103, 0.22);
+      position: sticky; top: 0; z-index: 201; backdrop-filter: blur(10px); font-size: 0.86rem;
+    }
+    .tdb-global-nav a {
+      color: rgba(226, 232, 240, 0.85); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px;
+      min-height: 44px; display: inline-flex; align-items: center;
+    }
+    .tdb-global-nav a:hover, .tdb-global-nav a:focus-visible { color: var(--gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
+    main.mem-main { margin: 0 auto; padding: 2rem 1.25rem 5rem; max-width: 40rem; }
+    h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.35rem; font-weight: 800; }
+    .subtitle { color: var(--muted); margin: 0 0 1rem; font-size: 0.95rem; }
+    .lead { color: rgba(245, 247, 251, 0.9); margin: 0 0 1.5rem; line-height: 1.6; }
+    section { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: none; }
+    h2 { font-size: 1.05rem; color: var(--gold); margin: 0 0 0.65rem; font-weight: 700; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+      padding: 0.55rem 1rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+      border: 1px solid rgba(227, 188, 103, 0.45);
+      background: rgba(227, 188, 103, 0.12); color: var(--gold);
+      cursor: pointer; font-family: inherit;
+    }
+    .btn:hover, .btn:focus-visible { background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .btn-secondary { background: transparent; color: rgba(226, 232, 240, 0.9); border-color: var(--line); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--gold); color: var(--gold); }
+    label { display: block; font-weight: 600; margin: 0.5rem 0 0.25rem; font-size: 0.88rem; color: rgba(226, 232, 240, 0.88); }
+    input[type="text"] {
+      width: 100%; max-width: 22rem; min-height: 44px; padding: 0.45rem 0.65rem; border-radius: 10px;
+      border: 1px solid var(--line); background: rgba(15, 23, 42, 0.55); color: var(--text); font-family: inherit; font-size: 1rem;
+    }
+    input:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.45); outline-offset: 2px; }
+    .mem-card {
+      margin-top: 1rem; padding: 1rem 1.1rem; border-radius: 14px; border: 1px solid rgba(227, 188, 103, 0.25);
+      background: rgba(12, 18, 30, 0.55); min-height: 8rem;
+    }
+    .mem-card p { margin: 0.35rem 0 0; }
+    .mem-card .mem-ref { font-weight: 700; color: var(--gold); font-size: 1.05rem; }
+    .mem-card:not(.mem-card--text) .mem-body { display: none; }
+    .mem-card.mem-card--text .mem-ref { display: none; }
+    .mem-card.mem-card--text .mem-body { display: block; font-size: 1.08rem; line-height: 1.6; color: rgba(245, 247, 251, 0.95); }
+    .mem-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    .mem-queue { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+    .mem-queue li {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem 0.65rem;
+      padding: 0.5rem 0; border-bottom: 1px solid var(--line);
+    }
+    .mem-queue li:last-child { border-bottom: none; }
+    .mem-type-input { width: 100%; max-width: none; min-height: 6rem; font-family: inherit; font-size: 1rem; line-height: 1.55; resize: vertical; }
+    .section-note { font-size: 0.9rem; color: var(--muted); margin: 0.35rem 0 0; }
+    .mem-growing { font-size: 0.92rem; color: rgba(226, 232, 240, 0.88); margin: 0.5rem 0 0; }
+    footer { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem 2rem; font-size: 0.82rem; color: var(--muted); }
+    footer a { color: var(--gold); }
+    .mem-hide .mem-hidden-bit { color: transparent; text-shadow: 0 0 10px rgba(245,247,251,0.35); user-select: none; }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="tdb-global-nav" aria-label="Main site navigation">
+    <a href="/">Home</a>
+    <a href="explore.html">Explore</a>
+    <a href="site-guide.html">Guide</a>
+    <a href="daily-quiet-time.html">Daily quiet</a>
+    <a href="reader.html">Reader</a>
+    <a href="memorize.html" aria-current="page">Memorize</a>
+    <a href="mystudy.html">My Study</a>
+    <a href="bible-tool.html">Tools</a>
+  </nav>
+  <main id="main" class="mem-main">
+    <h1>Memorize</h1>
+    <p class="subtitle">Private &mdash; everything stays on this device</p>
+    <p class="lead">Quiet tools to hide God&rsquo;s Word in your heart. No streaks, no scores, no competition&mdash;just gentle repetition that still works on hard days.</p>
+
+    <section aria-labelledby="mem-card-h2">
+      <h2 id="mem-card-h2">One-tap verse cards</h2>
+      <p class="section-note">Flip between reference and full text. Optional &ldquo;hide words&rdquo; blanks out some words for gentle recall.</p>
+      <label for="mem-ref-input">Verse reference (KJV)</label>
+      <input type="text" id="mem-ref-input" maxlength="80" autocomplete="off" placeholder="e.g. John 3:16" aria-describedby="mem-ref-hint">
+      <p id="mem-ref-hint" class="section-note">Use the same form as elsewhere on the site (book, chapter:verse).</p>
+      <div class="mem-row">
+        <button type="button" class="btn" id="mem-load-verse">Load verse</button>
+        <button type="button" class="btn btn-secondary" id="mem-add-queue">Add to my memory list</button>
+      </div>
+      <div id="mem-status" class="section-note" role="status" aria-live="polite"></div>
+      <div id="mem-card" class="mem-card hidden" tabindex="0" aria-live="polite">
+        <p class="mem-ref" id="mem-card-ref"></p>
+        <p class="mem-body" id="mem-card-body"></p>
+      </div>
+      <div class="mem-row">
+        <button type="button" class="btn btn-secondary hidden" id="mem-flip">Flip card</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-hide-toggle" aria-pressed="false">Hide some words</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-mark-known">I know it</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-mark-review">Review later</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="mem-srs-h2">
+      <h2 id="mem-srs-h2">Gentle review</h2>
+      <p class="section-note">Verses you add also live in <a href="mystudy.html">My Study</a>&rsquo;s memorize queue. We use a soft on-device rhythm&mdash;never a grade.</p>
+      <p id="mem-growing" class="mem-growing" role="status" aria-live="polite"></p>
+      <ul id="mem-queue-list" class="mem-queue" aria-label="Memory list"></ul>
+      <p id="mem-queue-empty" class="lead">Nothing here yet &mdash; verses you save will appear gently when it&rsquo;s time to review.</p>
+    </section>
+
+    <section aria-labelledby="mem-type-h2">
+      <h2 id="mem-type-h2">Typing practice</h2>
+      <p class="section-note">Type the verse from memory. When you pause, first letters appear as a quiet hint&mdash;not a test.</p>
+      <label for="mem-type-area">Your typing</label>
+      <textarea id="mem-type-area" class="mem-type-input" rows="4" autocomplete="off" placeholder="Load a verse above, then type it here&hellip;" aria-describedby="mem-type-hint"></textarea>
+      <p id="mem-type-hint" class="section-note">Pause about a second after typing to show first-letter hints for words you have not typed yet.</p>
+      <div class="mem-row">
+        <button type="button" class="btn btn-secondary" id="mem-type-hint-now">Show first letters</button>
+        <button type="button" class="btn btn-secondary" id="mem-type-clear">Clear</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="mem-audio-h2">
+      <h2 id="mem-audio-h2">Listen &amp; repeat</h2>
+      <p class="section-note">Uses your browser&rsquo;s calm voice when available. Load a verse above, then listen and speak along at your pace.</p>
+      <div class="mem-row">
+        <button type="button" class="btn" id="mem-speak">Read verse aloud</button>
+        <button type="button" class="btn btn-secondary" id="mem-speak-stop" hidden>Stop</button>
+      </div>
+      <p id="mem-audio-note" class="section-note hidden" role="status">Speaking is not available in this browser.</p>
+    </section>
+
+    <section aria-labelledby="mem-export-h2">
+      <h2 id="mem-export-h2">Export</h2>
+      <p class="section-note">Plain list of references and text for your own backup or printing.</p>
+      <div class="mem-row">
+        <button type="button" class="btn btn-secondary" id="mem-export-txt">Download list as text</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="mem-remind-h2">
+      <h2 id="mem-remind-h2">Optional reminders</h2>
+      <p class="section-note">Browser reminders stay off by default. Nothing here nags you; open this page when you want a quiet round.</p>
+    </section>
+  </main>
+  <footer>
+    <p><a href="reader.html">Chapter reader</a> &middot; <a href="daily-quiet-time.html">Daily quiet time</a> &middot; <a href="mystudy.html">My Study</a> &middot; <a href="privacy.html">Privacy</a></p>
+  </footer>
+  <script src="bible-study-companion.js?v=20260328mem"></script>
+  <script src="memorize.js?v=20260328mem"></script>
+</body>
+</html>

@@ -7,19 +7,105 @@
 .wghd-subtitle {
   font-size: 0.95rem;
   color: var(--muted, #8896b0);
-  margin: -0.35rem 0 1rem;
+  margin: -0.35rem 0 0.65rem;
   font-weight: 600;
 }
 
-.wghd-privacy {
-  font-size: 0.88rem;
-  color: var(--muted, #8896b0);
-  line-height: 1.55;
-  margin-bottom: 1.25rem;
-  padding: 0.85rem 1rem;
-  border-radius: 12px;
+.wghd-lead-second {
+  margin-top: 0.5rem !important;
+}
+
+.wghd-hero-new-wrap {
+  margin: 0 0 1.35rem;
+}
+
+.wghd-new-entry-hero {
+  width: 100%;
+  max-width: 16rem;
+  font-weight: 600;
+  border-color: rgba(227, 188, 103, 0.38) !important;
+  background: rgba(227, 188, 103, 0.14) !important;
+}
+
+.wghd-bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 220;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 0.5rem;
+  padding: 0.65rem 0.75rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+  background: rgba(8, 12, 22, 0.92);
+  border-top: 1px solid rgba(227, 188, 103, 0.22);
+  backdrop-filter: blur(12px);
+}
+
+.wghd-bar-btn {
+  min-height: 44px;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.65);
+  color: rgba(226, 232, 240, 0.95);
+  cursor: pointer;
+}
+
+.wghd-bar-btn:hover,
+.wghd-bar-btn:focus-visible {
+  border-color: rgba(227, 188, 103, 0.45);
+  color: #fde68a;
+  outline: 2px solid rgba(227, 188, 103, 0.45);
+  outline-offset: 2px;
+}
+
+.wghd-bar-btn-danger {
+  border-color: rgba(248, 113, 113, 0.4);
+  color: #fecaca;
+}
+
+.wghd-bar-btn-danger:hover,
+.wghd-bar-btn-danger:focus-visible {
+  background: rgba(248, 113, 113, 0.1);
+  outline-color: rgba(248, 113, 113, 0.5);
+}
+
+.wghd-input-date {
+  width: 100%;
+  max-width: 14rem;
+  box-sizing: border-box;
+  border-radius: 10px;
   border: 1px solid var(--line, #242d3d);
-  background: rgba(15, 23, 42, 0.35);
+  background: rgba(13, 17, 23, 0.85);
+  color: #f5f7fb;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 0.65rem;
+  margin-bottom: 0.35rem;
+  min-height: 44px;
+}
+
+.wghd-input-date:focus-visible {
+  outline: 2px solid rgba(227, 188, 103, 0.55);
+  outline-offset: 2px;
+}
+
+.wghd-date-hint {
+  font-size: 0.82rem;
+  color: var(--muted, #8896b0);
+  line-height: 1.5;
+  margin: 0 0 0.85rem !important;
+}
+
+.wghd-entry-saved-at {
+  font-size: 0.82rem;
+  color: var(--muted, #8896b0);
+  font-weight: 400;
 }
 
 .wghd-status {
@@ -89,11 +175,12 @@
 }
 
 .wghd-char-row {
-  display: flex;
-  justify-content: flex-end;
+  display: block;
+  text-align: right;
   margin: -0.5rem 0 0.75rem;
   font-size: 0.78rem;
   color: var(--muted, #8896b0);
+  line-height: 1.45;
 }
 
 .wghd-form-actions {

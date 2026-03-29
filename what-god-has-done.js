@@ -4,7 +4,7 @@
   var STORAGE_KEY = 'tdb_what_god_has_done_v1';
   var VERSION = 1;
   var MAX_TITLE = 120;
-  var MAX_BODY = 2000;
+  var MAX_BODY = 800;
 
   function byId(id) {
     return document.getElementById(id);
@@ -21,6 +21,40 @@
     var t = String(s || '').replace(/\u0000/g, '').trim();
     if (t.length > max) return t.slice(0, max);
     return t;
+  }
+
+  function pad2(n) {
+    return n < 10 ? '0' + n : String(n);
+  }
+
+  /** YYYY-MM-DD in local timezone */
+  function todayLocalYmd() {
+    var d = new Date();
+    var y = d.getFullYear();
+    return y + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+  }
+
+  function ymdFromCreatedAt(iso) {
+    try {
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return todayLocalYmd();
+      var y = d.getFullYear();
+      return y + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+    } catch (e) {
+      return todayLocalYmd();
+    }
+  }
+
+  function validYmd(s) {
+    if (!s || typeof s !== 'string') return false;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
+    var parts = s.split('-');
+    var y = Number(parts[0]);
+    var m = Number(parts[1]);
+    var d = Number(parts[2]);
+    if (y < 1900 || y > 2100 || m < 1 || m > 12 || d < 1 || d > 31) return false;
+    var dt = new Date(y, m - 1, d);
+    return dt.getFullYear() === y && dt.getMonth() === m - 1 && dt.getDate() === d;
   }
 
   function validEntry(e) {
@@ -43,9 +77,14 @@
       return {
         version: VERSION,
         entries: entries.filter(validEntry).map(function (x) {
+          var entryDate =
+            typeof x.entryDate === 'string' && validYmd(x.entryDate)
+              ? x.entryDate
+              : ymdFromCreatedAt(x.createdAt);
           return {
             id: String(x.id),
             createdAt: String(x.createdAt),
+            entryDate: entryDate,
             title: typeof x.title === 'string' ? x.title.slice(0, MAX_TITLE) : '',
             body: String(x.body).slice(0, MAX_BODY)
           };
@@ -67,6 +106,10 @@
 
   function sortEntries(entries) {
     return entries.slice().sort(function (a, b) {
+      var da = String(a.entryDate || ymdFromCreatedAt(a.createdAt));
+      var db = String(b.entryDate || ymdFromCreatedAt(b.createdAt));
+      var c = db.localeCompare(da);
+      if (c !== 0) return c;
       return String(b.createdAt).localeCompare(String(a.createdAt));
     });
   }
@@ -81,6 +124,17 @@
     }
   }
 
+  function formatEntryDateLong(ymd) {
+    if (!validYmd(ymd)) return ymd;
+    try {
+      var p = ymd.split('-');
+      var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+      return d.toLocaleDateString(undefined, { dateStyle: 'long' });
+    } catch (e) {
+      return ymd;
+    }
+  }
+
   function buildPlainExport(entries) {
     var lines = [];
     lines.push("What God has done — export (Today's Daily Battle)");
@@ -88,7 +142,8 @@
     lines.push('');
     sortEntries(entries).forEach(function (e) {
       lines.push('---');
-      lines.push(formatWhen(e.createdAt));
+      lines.push('Date: ' + (e.entryDate || ymdFromCreatedAt(e.createdAt)));
+      lines.push('Saved: ' + formatWhen(e.createdAt));
       if (e.title) lines.push(e.title);
       lines.push(e.body);
       lines.push('');
@@ -112,15 +167,26 @@
     el.classList.toggle('wghd-status--err', !!isErr);
   }
 
+  function focusNewEntry() {
+    clearForm();
+    setStatus('');
+    var card = byId('wghd-form-card');
+    if (card && card.scrollIntoView) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var body = byId('wghd-body');
+    if (body) body.focus();
+  }
+
   function clearForm() {
     var title = byId('wghd-title');
     var body = byId('wghd-body');
+    var dateIn = byId('wghd-date');
     var sectionTitle = byId('wghd-form-section-title');
     var cancelBtn = byId('wghd-cancel-edit');
     if (title) title.value = '';
     if (body) body.value = '';
+    if (dateIn) dateIn.value = todayLocalYmd();
     editingId = null;
-    if (sectionTitle) sectionTitle.textContent = 'Add an entry';
+    if (sectionTitle) sectionTitle.textContent = 'Your entry';
     if (cancelBtn) cancelBtn.classList.add('hidden');
     updateCharCount();
   }
@@ -128,9 +194,14 @@
   function updateCharCount() {
     var body = byId('wghd-body');
     var countEl = byId('wghd-body-count');
+    var sr = byId('wghd-body-count-sr');
     if (!body || !countEl) return;
     var n = body.value.length;
-    countEl.textContent = n + ' / ' + MAX_BODY;
+    var gentle = countEl.querySelector('.wghd-char-gentle');
+    var num = countEl.querySelector('.wghd-char-num');
+    if (gentle) gentle.textContent = 'A few sentences is perfect';
+    if (num) num.textContent = ' \u00b7 ' + n + ' / ' + MAX_BODY;
+    if (sr) sr.textContent = n + ' of ' + MAX_BODY + ' characters used.';
   }
 
   function renderList() {
@@ -151,10 +222,15 @@
 
       var meta = document.createElement('p');
       meta.className = 'wghd-entry-meta';
+      var ed = e.entryDate || ymdFromCreatedAt(e.createdAt);
       var time = document.createElement('time');
-      time.dateTime = e.createdAt;
-      time.textContent = formatWhen(e.createdAt);
+      time.dateTime = ed;
+      time.textContent = formatEntryDateLong(ed);
       meta.appendChild(time);
+      var savedSpan = document.createElement('span');
+      savedSpan.className = 'wghd-entry-saved-at';
+      savedSpan.textContent = ' · saved ' + formatWhen(e.createdAt);
+      meta.appendChild(savedSpan);
       li.appendChild(meta);
 
       if (e.title) {
@@ -176,7 +252,7 @@
       editBtn.type = 'button';
       editBtn.className = 'btn btn-secondary';
       editBtn.textContent = 'Edit';
-      editBtn.setAttribute('aria-label', 'Edit entry from ' + formatWhen(e.createdAt));
+      editBtn.setAttribute('aria-label', 'Edit entry from ' + formatEntryDateLong(ed));
       editBtn.addEventListener('click', function () {
         beginEdit(e);
       });
@@ -214,10 +290,12 @@
     editingId = e.id;
     var title = byId('wghd-title');
     var body = byId('wghd-body');
+    var dateIn = byId('wghd-date');
     var sectionTitle = byId('wghd-form-section-title');
     var cancelBtn = byId('wghd-cancel-edit');
     if (title) title.value = e.title || '';
     if (body) body.value = e.body || '';
+    if (dateIn) dateIn.value = e.entryDate || ymdFromCreatedAt(e.createdAt);
     if (sectionTitle) sectionTitle.textContent = 'Edit entry';
     if (cancelBtn) cancelBtn.classList.remove('hidden');
     updateCharCount();
@@ -230,12 +308,19 @@
   function saveEntry() {
     var titleIn = byId('wghd-title');
     var bodyIn = byId('wghd-body');
+    var dateIn = byId('wghd-date');
     if (!bodyIn) return;
     var title = clampStr(titleIn ? titleIn.value : '', MAX_TITLE);
     var body = clampStr(bodyIn.value, MAX_BODY);
     if (!body) {
       setStatus('Write something short first, or cancel.', true);
       bodyIn.focus();
+      return;
+    }
+    var entryDate = dateIn && dateIn.value ? String(dateIn.value).trim() : todayLocalYmd();
+    if (!validYmd(entryDate)) {
+      setStatus('Pick a real calendar date, or leave today’s date.', true);
+      if (dateIn) dateIn.focus();
       return;
     }
 
@@ -253,6 +338,7 @@
       state.entries[idx] = {
         id: state.entries[idx].id,
         createdAt: state.entries[idx].createdAt,
+        entryDate: entryDate,
         title: title,
         body: body
       };
@@ -260,6 +346,7 @@
       state.entries.push({
         id: genId(),
         createdAt: new Date().toISOString(),
+        entryDate: entryDate,
         title: title,
         body: body
       });
@@ -271,17 +358,13 @@
     }
 
     clearForm();
-    setStatus(wasEdit ? 'Entry updated.' : 'Saved. Only this device holds it until you export.');
+    setStatus('Saved privately on your device.');
     renderList();
     trackSafe('wghd_entry_save', { count: state.entries.length, edit: wasEdit });
   }
 
   function clearAll() {
-    if (
-      !confirm(
-        'Erase every entry on this device? This cannot be undone. Export first if you need a copy.'
-      )
-    ) {
+    if (!confirm('Delete every entry forever? This cannot be undone.')) {
       return;
     }
     state = { version: VERSION, entries: [] };
@@ -308,6 +391,10 @@
   }
 
   function exportTxt() {
+    if (!state.entries.length) {
+      setStatus('Nothing to export yet.', true);
+      return;
+    }
     var text = buildPlainExport(state.entries);
     var stamp = new Date().toISOString().slice(0, 10);
     downloadText('what-god-has-done-' + stamp + '.txt', text);
@@ -316,6 +403,10 @@
   }
 
   function exportJson() {
+    if (!state.entries.length) {
+      setStatus('Nothing to export yet.', true);
+      return;
+    }
     var payload = {
       exportedAt: new Date().toISOString(),
       source: "Today's Daily Battle — What God has done",
@@ -329,35 +420,18 @@
     trackSafe('wghd_export', { format: 'json', entry_count: state.entries.length });
   }
 
-  function copyAll() {
-    var text = buildPlainExport(state.entries);
-    if (!text) {
-      setStatus('Nothing to copy yet.', true);
-      return;
-    }
-    function done(ok) {
-      setStatus(ok ? 'Copied to clipboard.' : 'Copy failed; try Export instead.', !ok);
-      if (ok) trackSafe('wghd_export', { format: 'clipboard', entry_count: state.entries.length });
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () {
-        done(true);
-      }).catch(function () {
-        done(false);
-      });
-    } else {
-      done(false);
-    }
-  }
-
   function init() {
     var saveBtn = byId('wghd-save');
     var cancelBtn = byId('wghd-cancel-edit');
     var bodyIn = byId('wghd-body');
-    var exportTxtBtn = byId('wghd-export-txt');
-    var exportJsonBtn = byId('wghd-export-json');
-    var copyBtn = byId('wghd-copy-all');
-    var clearAllBtn = byId('wghd-clear-all');
+    var dateIn = byId('wghd-date');
+    var heroNew = byId('wghd-new-entry-hero');
+    var barNew = byId('wghd-bar-new');
+    var barTxt = byId('wghd-bar-export-txt');
+    var barJson = byId('wghd-bar-export-json');
+    var barClear = byId('wghd-bar-clear');
+
+    if (dateIn && !dateIn.value) dateIn.value = todayLocalYmd();
 
     if (saveBtn) saveBtn.addEventListener('click', saveEntry);
     if (cancelBtn) {
@@ -372,10 +446,11 @@
       if (titleIn.value.length > MAX_TITLE) titleIn.value = titleIn.value.slice(0, MAX_TITLE);
     });
 
-    if (exportTxtBtn) exportTxtBtn.addEventListener('click', exportTxt);
-    if (exportJsonBtn) exportJsonBtn.addEventListener('click', exportJson);
-    if (copyBtn) copyBtn.addEventListener('click', copyAll);
-    if (clearAllBtn) clearAllBtn.addEventListener('click', clearAll);
+    if (heroNew) heroNew.addEventListener('click', focusNewEntry);
+    if (barNew) barNew.addEventListener('click', focusNewEntry);
+    if (barTxt) barTxt.addEventListener('click', exportTxt);
+    if (barJson) barJson.addEventListener('click', exportJson);
+    if (barClear) barClear.addEventListener('click', clearAll);
 
     updateCharCount();
     renderList();

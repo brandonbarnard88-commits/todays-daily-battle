@@ -1,6 +1,8 @@
 /**
  * Homepage hero: deterministic daily verse + breakdown before the rest of index.html parses.
  * Primary: 365-verse UTC day-of-year list (__TDB_HERO_DAILY_YEAR from hero-daily-365-data.js).
+ *   That file is loaded asynchronously after first paint (see scheduleHero365Hydrate) so the large
+ *   array does not block LCP / main-thread parse on mobile.
  * Fallback: small merged pool + HERO_DAILY_VERSE_ROTATION_EPOCH if the year list is missing.
  */
 (function () {
@@ -274,8 +276,10 @@
 
     var verseRaw = pickHeroVerseForToday();
     if (!verseRaw || !verseRaw.ref) return;
-    if (!verseRaw) return;
     var v = normalizeVerse(verseRaw);
+    if (!v.ref) return;
+    var sig = v.ref + '\0' + v.text;
+    if (window.__TDB_HERO_FIRST_PAINT_SIGNATURE === sig) return;
 
     var heroBreakdown = document.getElementById('heroBreakdown');
     var heroApplication = document.getElementById('heroApplication');
@@ -361,6 +365,7 @@
     if (imgText) imgText.textContent = '\u201c' + v.text + '\u201d';
     if (imgRef) imgRef.textContent = v.ref;
 
+    window.__TDB_HERO_FIRST_PAINT_SIGNATURE = sig;
     window.__TDB_HERO_FIRST_PAINT_REF = v.ref;
 
     try {
@@ -370,5 +375,32 @@
     } catch (eHeroEvt) { /* non-fatal */ }
   }
 
+  window.__TDB_reapplyHeroFirstPaint = applyHeroFirstPaint;
+
+  /** Load 365 calendar list after idle so first paint uses the small fallback pool only. */
+  function scheduleHero365Hydrate() {
+    if (window.__TDB_HERO365_LOAD_SCHEDULED) return;
+    if (window.__TDB_HERO_DAILY_YEAR && window.__TDB_HERO_DAILY_YEAR.length) return;
+    window.__TDB_HERO365_LOAD_SCHEDULED = true;
+    var s = document.createElement('script');
+    s.src = 'hero-daily-365-data.js?v=20260325b';
+    s.async = true;
+    s.setAttribute('data-tdb-hero365', '1');
+    s.onload = function () {
+      try {
+        applyHeroFirstPaint();
+      } catch (e365) { /* non-fatal */ }
+    };
+    s.onerror = function () {
+      window.__TDB_HERO365_LOAD_SCHEDULED = false;
+    };
+    (document.head || document.documentElement).appendChild(s);
+  }
+
   applyHeroFirstPaint();
+  if (typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(function () { scheduleHero365Hydrate(); }, { timeout: 2500 });
+  } else {
+    window.setTimeout(scheduleHero365Hydrate, 1);
+  }
 })();

@@ -9,6 +9,7 @@
   var memHideOn = false;
   var memHintTimer = null;
   var memUtter = null;
+  var memRepeatClearTimer = null;
 
   function byId(id) {
     return document.getElementById(id);
@@ -78,6 +79,7 @@
     var ht = byId('mem-hide-toggle');
     var kn = byId('mem-mark-known');
     var rv = byId('mem-mark-review');
+    var rep = byId('mem-repeat-along');
     if (flip) flip.classList.remove('hidden');
     if (ht) {
       ht.classList.remove('hidden');
@@ -85,6 +87,7 @@
     }
     if (kn) kn.classList.remove('hidden');
     if (rv) rv.classList.remove('hidden');
+    if (rep) rep.classList.remove('hidden');
   }
 
   function updateFlipUi() {
@@ -162,11 +165,23 @@
     if (empty) empty.style.display = rows.length ? 'none' : '';
     if (!ul) return;
     ul.textContent = '';
+    var now = Date.now();
     rows.forEach(function (row) {
       var li = document.createElement('li');
       var span = document.createElement('span');
       span.textContent = row.ref;
       li.appendChild(span);
+      var due = row.dueAt <= now;
+      var hint = document.createElement('span');
+      hint.className = 'section-note';
+      hint.style.marginLeft = '0.25rem';
+      if (due) {
+        hint.textContent = 'Ready for a gentle review.';
+      } else {
+        var days = Math.max(1, Math.ceil((row.dueAt - now) / 86400000));
+        hint.textContent = 'Next quiet check-in in about ' + days + ' day' + (days === 1 ? '' : 's') + '.';
+      }
+      li.appendChild(hint);
       var rm = String(row.ref || '').match(/^(.+)\s(\d+):(\d+)$/);
       var open = document.createElement('a');
       if (rm) {
@@ -186,6 +201,113 @@
       li.appendChild(open);
       ul.appendChild(li);
     });
+    renderMemProgressRhythm(rows, now);
+  }
+
+  function renderMemProgressRhythm(rows, now) {
+    var wrap = byId('mem-progress-rhythm');
+    var sum = byId('mem-progress-summary');
+    if (!wrap) return;
+    if (!rows.length) {
+      wrap.hidden = true;
+      wrap.innerHTML = '';
+      if (sum) {
+        sum.hidden = true;
+        sum.textContent = '';
+      }
+      return;
+    }
+    wrap.hidden = false;
+    wrap.setAttribute('role', 'presentation');
+    wrap.setAttribute('aria-hidden', 'true');
+    var due = 0;
+    var later = 0;
+    wrap.innerHTML = '';
+    rows.forEach(function (row) {
+      var isDue = row.dueAt <= now;
+      if (isDue) due++;
+      else later++;
+      var dot = document.createElement('span');
+      dot.className = 'mem-rhythm-dot' + (isDue ? ' mem-rhythm-dot--due' : '');
+      dot.title = row.ref + (isDue ? ' — ready when you are' : ' — resting until later');
+      wrap.appendChild(dot);
+    });
+    if (sum) {
+      sum.hidden = false;
+      var parts = [];
+      if (due) parts.push(due === 1 ? '1 ready when you are' : due + ' ready when you are');
+      if (later) parts.push(later === 1 ? '1 resting' : later + ' resting');
+      sum.textContent = parts.join(' · ') + ' — no scores, just rhythm.';
+    }
+  }
+
+  function printMemoryCards() {
+    if (!comp || typeof comp.listMemorizeQueue !== 'function') return;
+    var rows = comp.listMemorizeQueue();
+    if (!rows.length) {
+      setStatus('Add a verse to your list first.', true);
+      return;
+    }
+    var esc = function (s) {
+      return String(s || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    };
+    var body = '';
+    rows.forEach(function (row) {
+      var t = memTextCache[row.ref] || '';
+      body += '<article class="mem-print-card"><h2 class="mem-print-ref">' + esc(row.ref) + '</h2>';
+      if (t) {
+        body += '<p class="mem-print-text">' + esc(t) + '</p>';
+      } else {
+        body +=
+          '<p class="mem-print-missing">Verse text will appear after you load this reference once on the Memorize page on this device.</p>';
+      }
+      body += '</article>';
+    });
+    var html =
+      '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>KJV memory cards</title><style>' +
+      '@page{margin:1.2cm}' +
+      'body{font-family:Georgia,serif;line-height:1.55;color:#111;max-width:48rem;margin:0 auto;padding:1rem}' +
+      '.mem-print-card{border:1px solid #ccc;border-radius:10px;padding:1rem 1.15rem;margin-bottom:1.35rem;page-break-inside:avoid}' +
+      '.mem-print-ref{margin:0 0 .45rem;font-size:1.08rem;color:#1a1a1a}' +
+      '.mem-print-text{margin:0;font-size:1rem}' +
+      '.mem-print-missing{margin:0;font-size:.9rem;color:#555;font-style:italic}' +
+      'h1{font-size:1.22rem;margin:0 0 .75rem}' +
+      '.lead{font-size:.88rem;color:#444;margin:0 0 1.35rem;line-height:1.5}' +
+      '</style></head><body><h1>KJV memory cards</h1><p class="lead">From this device only. Fold, cut, or tuck in your Bible&mdash;no streaks, no scores.</p>' +
+      body +
+      '</body></html>';
+    try {
+      var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var w = window.open(url, '_blank', 'noopener,noreferrer');
+      if (w) {
+        w.addEventListener(
+          'load',
+          function () {
+            try {
+              w.print();
+            } catch (eP) {}
+            setTimeout(function () {
+              URL.revokeObjectURL(url);
+            }, 120000);
+          },
+          { once: true }
+        );
+        try {
+          if (typeof trackEvent === 'function') trackEvent('memorize_print_cards', { count: rows.length });
+        } catch (eT) {}
+        setStatus('Print sheet opened. If nothing appears, allow pop-ups for this site.');
+      } else {
+        URL.revokeObjectURL(url);
+        setStatus('Pop-up blocked. Allow pop-ups to open the print sheet.', true);
+      }
+    } catch (e) {
+      setStatus('Could not open print sheet. Try again in a moment.', true);
+    }
   }
 
   function downloadText(filename, text) {
@@ -222,6 +344,7 @@
       setStatus('Load a verse first.', true);
       return;
     }
+    clearRepeatAlongVisuals();
     if (!('speechSynthesis' in window)) {
       var na = byId('mem-audio-note');
       if (na) na.classList.remove('hidden');
@@ -249,6 +372,72 @@
     } catch (e) {}
     var stop = byId('mem-speak-stop');
     if (stop) stop.hidden = true;
+    clearRepeatAlongVisuals();
+  }
+
+  function clearRepeatAlongVisuals() {
+    var card = byId('mem-card');
+    if (card) {
+      card.classList.remove('mem-card--listening');
+      card.classList.remove('mem-card--your-turn');
+    }
+    if (memRepeatClearTimer) {
+      clearTimeout(memRepeatClearTimer);
+      memRepeatClearTimer = null;
+    }
+  }
+
+  function prefersReducedMotion() {
+    try {
+      return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /** Listen, then gentle visual cue to speak aloud (no mic; private on-device). */
+  function repeatAfterMe() {
+    if (!memCurrentText || !memCurrentRef) {
+      setStatus('Load a verse first.', true);
+      return;
+    }
+    if (!('speechSynthesis' in window)) {
+      setStatus('Speaking is not available here. You can still read aloud quietly.', true);
+      return;
+    }
+    clearRepeatAlongVisuals();
+    try {
+      speechSynthesis.cancel();
+    } catch (e) {}
+    var card = byId('mem-card');
+    var u = new SpeechSynthesisUtterance(memCurrentRef + '. ' + memCurrentText);
+    u.rate = 0.8;
+    memUtter = u;
+    u.onstart = function () {
+      if (card) card.classList.add('mem-card--listening');
+    };
+    u.onend = function () {
+      memUtter = null;
+      var stop = byId('mem-speak-stop');
+      if (stop) stop.hidden = true;
+      if (card) {
+        card.classList.remove('mem-card--listening');
+        if (!prefersReducedMotion()) card.classList.add('mem-card--your-turn');
+      }
+      setStatus('Your turn — say it out loud at your own pace. No rush.');
+      memRepeatClearTimer = setTimeout(function () {
+        if (card) card.classList.remove('mem-card--your-turn');
+        memRepeatClearTimer = null;
+      }, prefersReducedMotion() ? 1200 : 5200);
+    };
+    u.onerror = function () {
+      memUtter = null;
+      clearRepeatAlongVisuals();
+      setStatus('Could not play audio. Try again when you are ready.', true);
+    };
+    speechSynthesis.speak(u);
+    var stop = byId('mem-speak-stop');
+    if (stop) stop.hidden = false;
   }
 
   function firstLetterHints(text) {
@@ -273,9 +462,11 @@
     var ta = byId('mem-type-area');
     var hintBtn = byId('mem-type-hint-now');
     var clearBtn = byId('mem-type-clear');
+    var printCards = byId('mem-print-cards');
     var ex = byId('mem-export-txt');
     var spk = byId('mem-speak');
     var spkStop = byId('mem-speak-stop');
+    var rep = byId('mem-repeat-along');
 
     if (loadBtn && inp) {
       loadBtn.addEventListener('click', function () {
@@ -331,15 +522,18 @@
     if (kn && comp && typeof comp.markMemorizeReviewed === 'function') {
       kn.addEventListener('click', function () {
         if (!memCurrentRef) return;
-        comp.markMemorizeReviewed(memCurrentRef);
-        setStatus('Marked as reviewed for this gentle rhythm.');
+        comp.markMemorizeReviewed(memCurrentRef, 'good');
+        setStatus('Logged as remembered — your next reminder will wait a little longer.');
         renderQueue();
       });
     }
 
-    if (rv) {
+    if (rv && comp && typeof comp.markMemorizeReviewed === 'function') {
       rv.addEventListener('click', function () {
-        setStatus('Kept in your queue for next time. No pressure.');
+        if (!memCurrentRef) return;
+        comp.markMemorizeReviewed(memCurrentRef, 'again');
+        setStatus('Kept close on your queue — we will nudge again sooner. Still no pressure.');
+        renderQueue();
       });
     }
 
@@ -374,10 +568,12 @@
       });
     }
 
+    if (printCards) printCards.addEventListener('click', printMemoryCards);
     if (ex) ex.addEventListener('click', exportList);
 
     if (spk) spk.addEventListener('click', speakVerse);
     if (spkStop) spkStop.addEventListener('click', stopSpeak);
+    if (rep) rep.addEventListener('click', repeatAfterMe);
 
     renderQueue();
 
@@ -385,6 +581,7 @@
       var na = byId('mem-audio-note');
       if (na) na.classList.remove('hidden');
       if (spk) spk.disabled = true;
+      if (rep) rep.disabled = true;
     }
   }
 

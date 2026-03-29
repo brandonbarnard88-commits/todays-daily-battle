@@ -139,7 +139,7 @@
     if (!comp || typeof comp.listMemorizeQueue !== 'function' || typeof comp.markMemorizeReviewed !== 'function') return;
     var snap = getMemorizeQueueSnapshot(comp);
     if (!snap.nextRow || !snap.nextRow.ref) return;
-    comp.markMemorizeReviewed(snap.nextRow.ref);
+    comp.markMemorizeReviewed(snap.nextRow.ref, 'good');
     if (typeof window.showEliteToast === 'function') {
       window.showEliteToast('Reviewed: ' + snap.nextRow.ref + '. Next reminder follows your schedule.');
     }
@@ -185,6 +185,18 @@
     a.textContent = label || 'Bible Tool';
     a.setAttribute('aria-label', 'Open ' + ref + ' in Bible Tool');
     return a;
+  }
+
+  function createWordStudyButton(ref, textHint) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn btn-secondary mystudy-wordstudy-btn';
+    btn.textContent = 'Word study';
+    btn.setAttribute('aria-label', 'Word study for ' + ref);
+    btn.setAttribute('data-tdb-wordstudy-ref', ref);
+    var hint = String(textHint || '').trim();
+    if (hint) btn.setAttribute('data-tdb-wordstudy-text', hint);
+    return btn;
   }
 
   function renderProgressSummary() {
@@ -323,7 +335,7 @@
       btn.textContent = 'Reviewed today';
       btn.setAttribute('aria-label', 'Mark ' + row.ref + ' reviewed for memory schedule');
       btn.addEventListener('click', function () {
-        comp.markMemorizeReviewed(row.ref);
+        comp.markMemorizeReviewed(row.ref, 'good');
         renderNoteLibrary();
       });
       line.appendChild(a);
@@ -420,6 +432,7 @@
       a.appendChild(tagSpan);
       main.appendChild(a);
       rowWrap.appendChild(main);
+      rowWrap.appendChild(createWordStudyButton(row.ref, row.preview || ''));
       rowWrap.appendChild(createBibleToolOpenAnchor(row.ref, 'Open'));
       li.appendChild(rowWrap);
       el.appendChild(li);
@@ -507,6 +520,7 @@
       main.appendChild(a);
       main.appendChild(prev);
       rowWrap.appendChild(main);
+      rowWrap.appendChild(createWordStudyButton(row.ref, row.preview || ''));
       rowWrap.appendChild(createBibleToolOpenAnchor(row.ref, 'Open'));
       li.appendChild(rowWrap);
       listEl.appendChild(li);

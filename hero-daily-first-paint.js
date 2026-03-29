@@ -362,6 +362,12 @@
     if (imgRef) imgRef.textContent = v.ref;
 
     window.__TDB_HERO_FIRST_PAINT_REF = v.ref;
+
+    try {
+      if (typeof window.dispatchEvent === 'function') {
+        window.dispatchEvent(new CustomEvent('tdb-hero-verse-updated'));
+      }
+    } catch (eHeroEvt) { /* non-fatal */ }
   }
 
   applyHeroFirstPaint();

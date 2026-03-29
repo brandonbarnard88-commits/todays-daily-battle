@@ -122,6 +122,19 @@
   text-decoration: none !important;
 }
 
+.mystudy-wordstudy-btn {
+  font-size: 0.88rem;
+  padding: 0.4rem 0.65rem;
+}
+
+@media (min-width: 520px) {
+  .mystudy-wordstudy-btn {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    min-height: 44px;
+  }
+}
+
 .mystudy-memorize-strip {
   margin: 0 0 0.85rem;
   padding: 0.65rem 0.75rem;

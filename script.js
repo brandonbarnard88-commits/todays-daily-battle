@@ -14629,7 +14629,8 @@ function ensureCrossRefsLoaded() {
     .then((data) => {
       const full = {
         refs: data && data.refs && typeof data.refs === 'object' ? data.refs : {},
-        chains: data && data.chains && typeof data.chains === 'object' ? data.chains : {}
+        chains: data && data.chains && typeof data.chains === 'object' ? data.chains : {},
+        themeGroups: Array.isArray(data && data.themeGroups) ? data.themeGroups : []
       };
       if (typeof globalThis !== 'undefined') {
         globalThis._tdbCrossRefsRefsMap = full.refs;
@@ -14638,7 +14639,7 @@ function ensureCrossRefsLoaded() {
       return full;
     })
     .catch(() => {
-      const empty = { refs: {}, chains: {} };
+      const empty = { refs: {}, chains: {}, themeGroups: [] };
       if (typeof globalThis !== 'undefined') {
         globalThis._tdbCrossRefsRefsMap = empty.refs;
         globalThis._tdbCrossRefsFull = empty;
@@ -14731,6 +14732,46 @@ function normXrefRefKey(r) {
     .trim();
 }
 
+function partitionMoreXrefsByTheme(more, full) {
+  const normMore = (more || []).map((r) => normXrefRefKey(r)).filter(Boolean);
+  if (!normMore.length) return [];
+  const chains = full && full.chains && typeof full.chains === 'object' ? full.chains : {};
+  const themeGroups = full && Array.isArray(full.themeGroups) ? full.themeGroups : [];
+  if (!themeGroups.length) {
+    return [{ chainKey: null, title: 'More related passages', blurb: '', verses: normMore }];
+  }
+  const assigned = new Set();
+  const sections = [];
+  themeGroups.forEach((tg) => {
+    if (!tg || !tg.title || !Array.isArray(tg.keys)) return;
+    const inTheme = new Set();
+    tg.keys.forEach((ck) => {
+      const ch = chains[ck];
+      if (!ch || !Array.isArray(ch.verses)) return;
+      ch.verses.forEach((v) => inTheme.add(normXrefRefKey(v)));
+    });
+    const bucket = [];
+    normMore.forEach((nr) => {
+      if (assigned.has(nr)) return;
+      if (inTheme.has(nr)) bucket.push(nr);
+    });
+    if (bucket.length) {
+      bucket.forEach((nr) => assigned.add(nr));
+      sections.push({
+        chainKey: null,
+        title: `${String(tg.title)} — related passages`,
+        blurb: 'From your verse’s list, placed with the theme that shares these curated chains.',
+        verses: bucket
+      });
+    }
+  });
+  const rest = normMore.filter((nr) => !assigned.has(nr));
+  if (rest.length) {
+    sections.push({ chainKey: null, title: 'More related passages', blurb: '', verses: rest });
+  }
+  return sections;
+}
+
 function buildCrossRefSheetSections(anchorRef, full) {
   const refsMap = full && full.refs ? full.refs : {};
   const chains = full && full.chains ? full.chains : {};
@@ -14747,6 +14788,7 @@ function buildCrossRefSheetSections(anchorRef, full) {
     const others = verses.filter((v) => v && v !== nref).slice(0, 12);
     if (!others.length) return;
     sections.push({
+      chainKey: key,
       title: String(ch.title),
       blurb: ch.blurb ? String(ch.blurb) : '',
       verses: others
@@ -14755,10 +14797,13 @@ function buildCrossRefSheetSections(anchorRef, full) {
   });
 
   const flat = Array.isArray(refsMap[nref]) ? refsMap[nref].map(normXrefRefKey).filter(Boolean) : [];
-  const more = flat.filter((v) => v && v !== nref && !seen.has(v)).slice(0, 12);
+  const more = flat.filter((v) => v && v !== nref && !seen.has(v)).slice(0, 18);
   if (more.length) {
-    sections.push({ title: 'More related passages', blurb: '', verses: more });
-    more.forEach((v) => seen.add(v));
+    const parts = partitionMoreXrefsByTheme(more, full);
+    parts.forEach((p) => {
+      sections.push(p);
+      p.verses.forEach((v) => seen.add(v));
+    });
   }
 
   return { sections, flatLen: flat.length };
@@ -14787,6 +14832,36 @@ function getVerseSnippetFromContextLine(line) {
     .trim();
 }
 
+function createReaderXrefSectionEl(sec, nref) {
+  const wrap = document.createElement('section');
+  wrap.className = 'reader-xrefs-group';
+  wrap.dataset.xrefFilterText = `${sec.title} ${sec.verses.join(' ')}`.toLowerCase();
+  const ht = document.createElement('h3');
+  ht.className = 'reader-xrefs-group-title';
+  ht.textContent = sec.title;
+  wrap.appendChild(ht);
+  if (sec.blurb) {
+    const bp = document.createElement('p');
+    bp.className = 'reader-xrefs-group-blurb';
+    bp.textContent = sec.blurb;
+    wrap.appendChild(bp);
+  }
+  const ul = document.createElement('ul');
+  ul.className = 'reader-xrefs-group-list';
+  sec.verses.forEach((vr) => {
+    const li = document.createElement('li');
+    li.dataset.xrefFilterText = vr.toLowerCase();
+    const a = document.createElement('a');
+    a.href = buildReaderUrl(vr, nref);
+    a.className = 'reader-xrefs-open-link';
+    a.textContent = vr;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+  wrap.appendChild(ul);
+  return wrap;
+}
+
 function populateReaderXrefsSheetBody(anchorRef, verseText, full) {
   const body = document.getElementById('reader-xrefs-sheet-body');
   const emptyEl = document.getElementById('reader-xrefs-sheet-empty');
@@ -14807,6 +14882,14 @@ function populateReaderXrefsSheetBody(anchorRef, verseText, full) {
   anchorBlock.appendChild(at);
   body.appendChild(anchorBlock);
 
+  const sheetIntro = document.createElement('p');
+  sheetIntro.className = 'reader-xrefs-sheet-intro';
+  sheetIntro.dataset.xrefFilterText =
+    'themes comfort grief peace prayer faith grace christ union identity related passages cross references';
+  sheetIntro.textContent =
+    'Curated chains appear under each theme when your verse belongs there. Extra references from the list group the same way when they match a theme; anything left shows under “More related passages.”';
+  body.appendChild(sheetIntro);
+
   if (!built.sections.length) {
     if (emptyEl) {
       emptyEl.textContent =
@@ -14817,34 +14900,45 @@ function populateReaderXrefsSheetBody(anchorRef, verseText, full) {
   }
   if (emptyEl) emptyEl.classList.add('hidden');
 
+  const byChain = new Map();
   built.sections.forEach((sec) => {
-    const wrap = document.createElement('section');
-    wrap.className = 'reader-xrefs-group';
-    wrap.dataset.xrefFilterText = `${sec.title} ${sec.verses.join(' ')}`.toLowerCase();
-    const ht = document.createElement('h3');
-    ht.className = 'reader-xrefs-group-title';
-    ht.textContent = sec.title;
-    wrap.appendChild(ht);
-    if (sec.blurb) {
-      const bp = document.createElement('p');
-      bp.className = 'reader-xrefs-group-blurb';
-      bp.textContent = sec.blurb;
-      wrap.appendChild(bp);
+    if (sec.chainKey) byChain.set(sec.chainKey, sec);
+  });
+  const usedChains = new Set();
+  const themeGroups = full && Array.isArray(full.themeGroups) ? full.themeGroups : [];
+
+  themeGroups.forEach((tg) => {
+    if (!tg || !tg.title || !Array.isArray(tg.keys)) return;
+    const themeWrap = document.createElement('section');
+    themeWrap.className = 'reader-xrefs-theme';
+    const h2 = document.createElement('h2');
+    h2.className = 'reader-xrefs-theme-title';
+    h2.textContent = String(tg.title);
+    themeWrap.appendChild(h2);
+    if (tg.subtitle) {
+      const sub = document.createElement('p');
+      sub.className = 'reader-xrefs-theme-sub';
+      sub.textContent = String(tg.subtitle);
+      sub.dataset.xrefFilterText = String(tg.subtitle).toLowerCase();
+      themeWrap.appendChild(sub);
     }
-    const ul = document.createElement('ul');
-    ul.className = 'reader-xrefs-group-list';
-    sec.verses.forEach((vr) => {
-      const li = document.createElement('li');
-      li.dataset.xrefFilterText = vr.toLowerCase();
-      const a = document.createElement('a');
-      a.href = buildReaderUrl(vr, nref);
-      a.className = 'reader-xrefs-open-link';
-      a.textContent = vr;
-      li.appendChild(a);
-      ul.appendChild(li);
+    themeWrap.dataset.xrefFilterText = (String(tg.title) + ' ' + (tg.subtitle ? String(tg.subtitle) : '')).toLowerCase();
+    let any = false;
+    tg.keys.forEach((ck) => {
+      const sec = byChain.get(ck);
+      if (!sec) return;
+      any = true;
+      usedChains.add(ck);
+      const inner = createReaderXrefSectionEl(sec, nref);
+      inner.dataset.xrefFilterText = `${themeWrap.dataset.xrefFilterText} ${inner.dataset.xrefFilterText || ''}`;
+      themeWrap.appendChild(inner);
     });
-    wrap.appendChild(ul);
-    body.appendChild(wrap);
+    if (any) body.appendChild(themeWrap);
+  });
+
+  built.sections.forEach((sec) => {
+    if (sec.chainKey && usedChains.has(sec.chainKey)) return;
+    body.appendChild(createReaderXrefSectionEl(sec, nref));
   });
 }
 
@@ -14863,6 +14957,24 @@ function applyReaderXrefsFilter(query) {
     });
     sec.classList.toggle('hidden', !!q && !anyLi && blob.indexOf(q) === -1);
   });
+  document.querySelectorAll('#reader-xrefs-sheet-body .reader-xrefs-theme').forEach((tw) => {
+    const innerGroups = tw.querySelectorAll(':scope > .reader-xrefs-group');
+    let anyVisible = false;
+    innerGroups.forEach((g) => {
+      if (!g.classList.contains('hidden')) anyVisible = true;
+    });
+    const blob = (tw.dataset.xrefFilterText || '').toLowerCase();
+    tw.querySelectorAll(':scope > .reader-xrefs-theme-sub').forEach((sub) => {
+      const sb = (sub.dataset.xrefFilterText || sub.textContent || '').toLowerCase();
+      if (q && sb.indexOf(q) !== -1) anyVisible = true;
+    });
+    tw.classList.toggle('hidden', !!q && !anyVisible && blob.indexOf(q) === -1);
+  });
+  const intro = document.querySelector('#reader-xrefs-sheet-body .reader-xrefs-sheet-intro');
+  if (intro) {
+    const ib = (intro.dataset.xrefFilterText || intro.textContent || '').toLowerCase();
+    intro.classList.toggle('hidden', !!q && ib.indexOf(q) === -1);
+  }
 }
 
 function openReaderCrossrefsSheet(anchorRef, verseTextOpt) {
@@ -14994,259 +15106,9 @@ function wireReaderXrefsSheetUiOnce() {
   });
 }
 
-var readerWordStudyAnchorRef = '';
-var readerWordStudyVerseText = '';
-var readerWordStudyLastPayload = null;
-var _tdbWordStudyConcordanceCache = typeof Map !== 'undefined' ? new Map() : null;
-
-function normKjvWordStudyToken(raw) {
-  return String(raw || '')
-    .replace(/^[^a-zA-Z']+/g, '')
-    .replace(/[^a-zA-Z']+$/g, '')
-    .trim();
-}
-
-function closeReaderWordStudySheet() {
-  const layer = document.getElementById('reader-wordstudy-layer');
-  if (!layer) return;
-  layer.classList.add('hidden');
-  layer.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('reader-wordstudy-open');
-}
-
-function ensureBibleForReaderWordStudy() {
-  if (typeof bible !== 'undefined' && bible && Object.keys(bible).length > 1000) {
-    return Promise.resolve(true);
-  }
-  if (typeof loadBible === 'function') {
-    return loadBible(typeof currentVersion !== 'undefined' ? currentVersion : 'KJV')
-      .then(() => !!(typeof bible !== 'undefined' && bible && Object.keys(bible).length > 1000))
-      .catch(() => false);
-  }
-  return Promise.resolve(false);
-}
-
-function collectKjvWordConcordance(normalizedToken) {
-  const key = String(normalizedToken || '').toLowerCase();
-  if (!key || key.length < 2) return { byBook: {}, total: 0, capped: 0 };
-  if (_tdbWordStudyConcordanceCache && _tdbWordStudyConcordanceCache.has(key)) {
-    return _tdbWordStudyConcordanceCache.get(key);
-  }
-  const esc = escapeRegExp(key);
-  const re = new RegExp(`\\b${esc}\\b`, 'i');
-  const byBook = {};
-  let total = 0;
-  const maxRefs = 240;
-  const bibleObj = typeof bible !== 'undefined' && bible ? bible : {};
-  const refs = Object.keys(bibleObj);
-  for (let i = 0; i < refs.length; i++) {
-    const ref = refs[i];
-    const raw = String(bibleObj[ref] || '').replace(/<[^>]+>/g, ' ');
-    if (!re.test(raw)) continue;
-    total++;
-    if (total > maxRefs) continue;
-    const m = String(ref || '').match(/^(.+)\s(\d+):(\d+)$/);
-    const book = m ? m[1].trim() : 'Scripture';
-    if (!byBook[book]) byBook[book] = [];
-    byBook[book].push(ref);
-  }
-  const capped = total > maxRefs ? total - maxRefs : 0;
-  const out = { byBook, total, capped };
-  if (_tdbWordStudyConcordanceCache && _tdbWordStudyConcordanceCache.size < 80) {
-    _tdbWordStudyConcordanceCache.set(key, out);
-  }
-  return out;
-}
-
-function populateReaderWordStudyChips(text) {
-  const wrap = document.getElementById('reader-wordstudy-chips');
-  if (!wrap) return;
-  wrap.textContent = '';
-  const tokens = String(text).match(/\S+/g) || [];
-  tokens.forEach((tok) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'reader-wordstudy-chip';
-    btn.textContent = tok;
-    btn.setAttribute('aria-label', `Study this word: ${tok}`);
-    btn.addEventListener('click', () => {
-      runReaderWordStudyForToken(tok);
-    });
-    wrap.appendChild(btn);
-  });
-}
-
-function clearReaderWordStudyResultsBody() {
-  const body = document.getElementById('reader-wordstudy-sheet-body');
-  const emptyEl = document.getElementById('reader-wordstudy-sheet-empty');
-  const status = document.getElementById('reader-wordstudy-status');
-  const headingWord = document.getElementById('reader-wordstudy-heading-word');
-  const meaningBlock = document.getElementById('reader-wordstudy-meaning-block');
-  if (body) body.textContent = '';
-  if (emptyEl) {
-    emptyEl.textContent = 'Tap a word above, or type in the box and press Search.';
-    emptyEl.classList.remove('hidden');
-  }
-  if (status) status.textContent = '';
-  if (headingWord) headingWord.textContent = '';
-  if (meaningBlock) {
-    meaningBlock.classList.add('hidden');
-    meaningBlock.hidden = true;
-  }
-  readerWordStudyLastPayload = null;
-}
-
-function applyReaderWordStudyFilter(query) {
-  const q = String(query || '')
-    .trim()
-    .toLowerCase();
-  document.querySelectorAll('#reader-wordstudy-sheet-body .reader-wordstudy-book-block').forEach((block) => {
-    const blob = (block.dataset.wordstudyFilterText || '').toLowerCase();
-    const match = !q || blob.indexOf(q) !== -1;
-    block.classList.toggle('hidden', !match);
-  });
-}
-
-function renderReaderWordStudyResults(anchorRef, verseSnippet, displayToken, normalizedToken, conc) {
-  const body = document.getElementById('reader-wordstudy-sheet-body');
-  const emptyEl = document.getElementById('reader-wordstudy-sheet-empty');
-  const status = document.getElementById('reader-wordstudy-status');
-  const headingWord = document.getElementById('reader-wordstudy-heading-word');
-  const meaningBlock = document.getElementById('reader-wordstudy-meaning-block');
-  if (!body) return;
-  body.textContent = '';
-  if (headingWord) headingWord.textContent = displayToken;
-  if (meaningBlock) {
-    meaningBlock.classList.remove('hidden');
-    meaningBlock.hidden = false;
-  }
-  if (emptyEl) emptyEl.classList.add('hidden');
-
-  const books = Object.keys(conc.byBook || {}).sort(function (a, b) {
-    return a.localeCompare(b);
-  });
-  if (!books.length) {
-    if (emptyEl) {
-      emptyEl.textContent =
-        'No matches found for that form, or the full KJV text is still loading. Try again in a moment, or pick another word.';
-      emptyEl.classList.remove('hidden');
-    }
-    readerWordStudyLastPayload = {
-      anchorRef,
-      displayWord: displayToken,
-      verseSnippet,
-      normalizedToken,
-      total: 0,
-      capped: 0,
-      groups: []
-    };
-    if (status) status.textContent = '';
-    return;
-  }
-
-  const groups = [];
-  books.forEach((bk) => {
-    const refs = conc.byBook[bk] || [];
-    const block = document.createElement('section');
-    block.className = 'reader-wordstudy-book-block';
-    block.dataset.wordstudyFilterText = `${bk} ${refs.join(' ')}`;
-    const ht = document.createElement('h3');
-    ht.className = 'reader-wordstudy-book-title';
-    ht.textContent = bk;
-    block.appendChild(ht);
-    const ul = document.createElement('ul');
-    ul.className = 'reader-wordstudy-ref-list';
-    refs.forEach((vr) => {
-      const li = document.createElement('li');
-      li.dataset.wordstudyFilterText = String(vr).toLowerCase();
-      const a = document.createElement('a');
-      a.href = buildReaderUrl(vr, anchorRef);
-      a.className = 'reader-wordstudy-open-link';
-      a.textContent = vr;
-      li.appendChild(a);
-      ul.appendChild(li);
-    });
-    block.appendChild(ul);
-    body.appendChild(block);
-    groups.push({ book: bk, refs: refs.slice() });
-  });
-
-  let msg = `${conc.total} verse${conc.total === 1 ? '' : 's'} use this English form (whole word).`;
-  if (conc.capped) msg += ` Showing first ${Object.values(conc.byBook).reduce((n, a) => n + a.length, 0)}.`;
-  if (status) status.textContent = msg;
-
-  readerWordStudyLastPayload = {
-    anchorRef,
-    displayWord: displayToken,
-    verseSnippet,
-    normalizedToken,
-    total: conc.total,
-    capped: conc.capped,
-    groups
-  };
-}
-
-function runReaderWordStudyForToken(rawToken) {
-  const norm = normKjvWordStudyToken(rawToken);
-  if (norm.length < 2) return;
-  const filterIn = document.getElementById('reader-wordstudy-filter');
-  if (filterIn) filterIn.value = '';
-  ensureBibleForReaderWordStudy().then((ok) => {
-    if (!ok) {
-      const emptyEl = document.getElementById('reader-wordstudy-sheet-empty');
-      const body = document.getElementById('reader-wordstudy-sheet-body');
-      if (body) body.textContent = '';
-      if (emptyEl) {
-        emptyEl.textContent =
-          'The full KJV text is still loading. Wait a moment and tap the word again, or open the site from home once so the Bible bundle can finish.';
-        emptyEl.classList.remove('hidden');
-      }
-      return;
-    }
-    const conc = collectKjvWordConcordance(norm);
-    renderReaderWordStudyResults(
-      readerWordStudyAnchorRef,
-      readerWordStudyVerseText,
-      norm,
-      norm,
-      conc
-    );
-    try {
-      trackEvent('reader_wordstudy_run', { ok: true, hits: conc.total });
-    } catch (e) {
-      /* ignore */
-    }
-  });
-}
-
-function openReaderWordStudySheet(anchorRef, verseTextOpt) {
-  const layer = document.getElementById('reader-wordstudy-layer');
-  if (!layer) return;
-  readerWordStudyAnchorRef = normXrefRefKey(parseReference(anchorRef) || anchorRef);
-  readerWordStudyVerseText = String(verseTextOpt || getVerseSnippetForXrefRef(readerWordStudyAnchorRef) || '').trim();
-  const filterIn = document.getElementById('reader-wordstudy-filter');
-  if (filterIn) filterIn.value = '';
-  const anchorBlock = document.getElementById('reader-wordstudy-anchor-ref');
-  const anchorText = document.getElementById('reader-wordstudy-anchor-text');
-  if (anchorBlock) anchorBlock.textContent = readerWordStudyAnchorRef;
-  if (anchorText) anchorText.textContent = readerWordStudyVerseText || 'Verse text appears with the chapter above.';
-  populateReaderWordStudyChips(readerWordStudyVerseText);
-  clearReaderWordStudyResultsBody();
-  layer.classList.remove('hidden');
-  layer.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('reader-wordstudy-open');
-  try {
-    trackEvent('reader_wordstudy_open', {});
-  } catch (e) {
-    /* ignore */
-  }
-  const backBtn = document.getElementById('reader-wordstudy-back');
-  if (backBtn) backBtn.focus();
-}
-
 function attachReaderVerseWordStudyControls() {
   const out = document.getElementById('reader-output');
-  if (!out) return;
+  if (!out || !globalThis.TDBWordStudy || typeof globalThis.TDBWordStudy.open !== 'function') return;
   out.querySelectorAll('.context-line').forEach((line) => {
     if (line.querySelector('.reader-verse-wordstudy-btn')) return;
     const ref = line.dataset.ref;
@@ -15262,128 +15124,17 @@ function attachReaderVerseWordStudyControls() {
       ev.preventDefault();
       ev.stopPropagation();
       const txt = getVerseSnippetFromContextLine(line);
-      openReaderWordStudySheet(ref, txt);
+      globalThis.TDBWordStudy.open(ref, txt);
     });
     line.appendChild(btn);
   });
 }
 
-function saveReaderWordStudyToMyStudy() {
-  const p = readerWordStudyLastPayload;
-  const status = document.getElementById('reader-wordstudy-save-status');
-  if (!p || !p.anchorRef || !p.displayWord) {
-    if (status) status.textContent = 'Pick a word first, then save.';
-    return;
-  }
-  const lines = [
-    `KJV word study — “${p.displayWord}” (from ${p.anchorRef})`,
-    p.verseSnippet ? `Verse: ${p.verseSnippet}` : '',
-    `Occurrences (${p.total}):`,
-    ...(p.groups || []).map((g) => `${g.book}: ${g.refs.join('; ')}`)
-  ].filter(Boolean);
-  const ok = saveBibleToolNoteAppend(p.anchorRef, lines.join('\n'));
-  try {
-    trackEvent('reader_wordstudy_save_mystudy', { ok: !!ok });
-  } catch (e) {
-    /* ignore */
-  }
-  if (status) {
-    status.textContent = ok ? 'Saved with your verse notes on this device.' : 'Could not save. Storage may be full.';
-    setTimeout(() => {
-      status.textContent = '';
-    }, 3800);
-  }
-}
-
-function printReaderWordStudySheetBlock() {
-  const p = readerWordStudyLastPayload;
-  if (!p || !p.displayWord) return;
-  const esc = (s) =>
-    String(s || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  let bodyHtml = `<p class="ref">${esc(p.anchorRef)}</p><p>${esc(p.verseSnippet)}</p><h2>Word: ${esc(p.displayWord)}</h2><p>${esc(
-    String(p.total)
-  )} verse(s) in KJV (whole-word form).</p>`;
-  (p.groups || []).forEach((g) => {
-    bodyHtml += `<h3>${esc(g.book)}</h3><ul>`;
-    g.refs.forEach((r) => {
-      bodyHtml += `<li>${esc(r)}</li>`;
-    });
-    bodyHtml += '</ul>';
-  });
-  const html =
-    '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
-    '<title>KJV word study</title><style>body{font-family:Georgia,Palatino,serif;max-width:40rem;margin:1.2rem auto;padding:0 1rem;line-height:1.55;color:#111}h2{font-size:1.15rem;margin-top:1.2rem}h3{font-size:1rem;margin-top:1rem}.ref{font-weight:700}</style></head><body>' +
-    '<header><p>Today&rsquo;s Daily Battle &mdash; KJV word study (printed from this device)</p></header><main>' +
-    bodyHtml +
-    '</main></body></html>';
-  try {
-    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const w = window.open(url, '_blank', 'noopener,noreferrer');
-    if (w) {
-      w.addEventListener(
-        'load',
-        () => {
-          try {
-            w.focus();
-            w.print();
-          } catch (e) {
-            /* ignore */
-          }
-          setTimeout(() => URL.revokeObjectURL(url), 120000);
-        },
-        { once: true }
-      );
-    } else {
-      URL.revokeObjectURL(url);
-    }
-  } catch (e) {
-    /* ignore */
-  }
-}
-
 function wireReaderWordStudySheetUiOnce() {
-  const root = document.getElementById('reader-wordstudy-layer');
-  if (!root || root.dataset.tdbWired === '1') return;
-  root.dataset.tdbWired = '1';
-  const close = () => closeReaderWordStudySheet();
-  const back = document.getElementById('reader-wordstudy-back');
-  const bd = document.getElementById('reader-wordstudy-backdrop');
-  if (back) back.addEventListener('click', close);
-  if (bd) bd.addEventListener('click', close);
-  const saveStudy = document.getElementById('reader-wordstudy-save-mystudy');
-  if (saveStudy) saveStudy.addEventListener('click', saveReaderWordStudyToMyStudy);
-  const printBtn = document.getElementById('reader-wordstudy-print');
-  if (printBtn) printBtn.addEventListener('click', printReaderWordStudySheetBlock);
-  const filterIn = document.getElementById('reader-wordstudy-filter');
-  if (filterIn) {
-    filterIn.addEventListener('input', () => applyReaderWordStudyFilter(filterIn.value));
+  if (globalThis.TDBWordStudy && typeof globalThis.TDBWordStudy.init === 'function') {
+    globalThis.TDBWordStudy.init();
   }
-  const goBtn = document.getElementById('reader-wordstudy-search-btn');
-  const manualIn = document.getElementById('reader-wordstudy-manual');
-  const runManual = () => {
-    if (!manualIn) return;
-    runReaderWordStudyForToken(manualIn.value || '');
-  };
-  if (goBtn) goBtn.addEventListener('click', runManual);
-  if (manualIn) {
-    manualIn.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        runManual();
-      }
-    });
-  }
-  document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    if (root && !root.classList.contains('hidden')) close();
-  });
 }
-
 function maybeOpenReaderXrefFromQuery() {
   try {
     const params = new URLSearchParams(window.location.search || '');
@@ -18357,6 +18108,19 @@ function updateNoteSelect(results) {
   }
 }
 
+function appendSavedListWordStudyButton(actionsEl, ref, verseText) {
+  if (!actionsEl || !ref) return;
+  const ws = document.createElement('button');
+  ws.type = 'button';
+  ws.className = 'btn btn-secondary';
+  ws.textContent = 'Word study';
+  ws.setAttribute('aria-label', `Word study for ${ref}`);
+  ws.setAttribute('data-tdb-wordstudy-ref', ref);
+  const t = String(verseText || '').trim();
+  if (t) ws.setAttribute('data-tdb-wordstudy-text', t);
+  actionsEl.appendChild(ws);
+}
+
 function renderSavedVerses() {
   const container = document.getElementById('saved-verses');
   if (!container) return;
@@ -18396,6 +18160,7 @@ function renderSavedVerses() {
         renderSavedVerses();
       };
       actions.appendChild(copyBtn);
+      appendSavedListWordStudyButton(actions, v.ref, v.note || '');
       actions.appendChild(deleteBtn);
       row.appendChild(actions);
       toolSection.appendChild(row);
@@ -18449,6 +18214,7 @@ function renderSavedVerses() {
         };
       })(idx);
       actions.appendChild(copyBtn);
+      appendSavedListWordStudyButton(actions, ref, text);
       actions.appendChild(deleteBtn);
       card.appendChild(actions);
       container.appendChild(card);
@@ -18514,6 +18280,7 @@ function renderSavedVerses() {
         renderSavedVerses();
       };
       actions.appendChild(copyBtn);
+      appendSavedListWordStudyButton(actions, item.ref, item.text || '');
       actions.appendChild(removeBtn);
       row.appendChild(actions);
       section.appendChild(row);

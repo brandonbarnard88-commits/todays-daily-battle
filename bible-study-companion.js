@@ -13,8 +13,21 @@
   var MEM_KEY = 'tdb_memorize_lite_v1';
   var MAX_RECENT = 14;
   var MAX_BOOKMARKS = 16;
-  var MEM_INTERVALS_DAYS = [1, 2, 4, 7, 14];
+  /** Gentle on-device spaced repetition: base day steps × ease factor (nudges up on “good,” down on “again”). Legacy `step` maps to intervalIdx on read. */
+  var MEM_INTERVALS_DAYS = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
   var DAY_MS = 86400000;
+
+  function normalizeMemEntry(e) {
+    if (!e || typeof e !== 'object') return e;
+    if (e.intervalIdx == null && e.step != null) {
+      e.intervalIdx = Math.min(MEM_INTERVALS_DAYS.length - 1, Math.max(0, Number(e.step) || 0));
+    }
+    if (e.intervalIdx == null) e.intervalIdx = 0;
+    var ef = Number(e.easeFactor);
+    if (e.easeFactor == null || isNaN(ef)) e.easeFactor = 2;
+    e.easeFactor = Math.max(1.25, Math.min(2.65, Number(e.easeFactor)));
+    return e;
+  }
 
   /** Shared print / PDF-friendly styles for openPrintableNotes and openPrintableStudyBundle (blob window; no external CSS). */
   var PRINT_BUNDLE_CSS =
@@ -267,8 +280,12 @@
 
   function memNextDueMs(entry) {
     if (!entry) return 0;
-    var step = Math.min(Math.max(Number(entry.step) || 0, 0), MEM_INTERVALS_DAYS.length - 1);
-    var days = MEM_INTERVALS_DAYS[step];
+    normalizeMemEntry(entry);
+    var idx = Math.min(Math.max(Number(entry.intervalIdx) || 0, 0), MEM_INTERVALS_DAYS.length - 1);
+    var ef = Number(entry.easeFactor) || 2;
+    var days = MEM_INTERVALS_DAYS[idx] * (ef / 2);
+    if (days < 0.9) days = 0.9;
+    if (days > 200) days = 200;
     var base = entry.lastReviewed ? Date.parse(entry.lastReviewed) : Date.parse(entry.added || new Date().toISOString());
     if (isNaN(base)) base = Date.now();
     return base + days * DAY_MS;
@@ -291,20 +308,35 @@
     st.refs[r] = {
       added: new Date().toISOString(),
       lastReviewed: null,
-      step: 0
+      intervalIdx: 0,
+      easeFactor: 2,
+      lapses: 0
     };
     saveMemorize(st);
     return true;
   }
 
-  function markMemorizeReviewed(ref) {
+  /**
+   * @param {string} ref
+   * @param {'good'|'again'|undefined} quality — 'again' shortens the interval gently; default is 'good'.
+   */
+  function markMemorizeReviewed(ref, quality) {
     var r = normRef(ref);
     if (!r) return;
     var st = loadMemorize();
     var e = st.refs[r];
     if (!e) return;
+    normalizeMemEntry(e);
+    var again = quality === 'again';
+    if (again) {
+      e.easeFactor = Math.max(1.25, (Number(e.easeFactor) || 2) - 0.22);
+      e.intervalIdx = Math.max(0, (Number(e.intervalIdx) || 0) - 2);
+      e.lapses = (Number(e.lapses) || 0) + 1;
+    } else {
+      e.easeFactor = Math.min(2.65, (Number(e.easeFactor) || 2) + 0.07);
+      e.intervalIdx = Math.min(MEM_INTERVALS_DAYS.length - 1, (Number(e.intervalIdx) || 0) + 1);
+    }
     e.lastReviewed = new Date().toISOString();
-    e.step = Math.min(MEM_INTERVALS_DAYS.length - 1, (Number(e.step) || 0) + 1);
     saveMemorize(st);
   }
 
@@ -312,10 +344,12 @@
     var st = loadMemorize();
     var refs = st.refs || {};
     var rows = Object.keys(refs).map(function (k) {
+      var entry = refs[k];
+      normalizeMemEntry(entry);
       return {
         ref: k,
-        entry: refs[k],
-        dueAt: memNextDueMs(refs[k])
+        entry: entry,
+        dueAt: memNextDueMs(entry)
       };
     });
     rows.sort(function (a, b) {

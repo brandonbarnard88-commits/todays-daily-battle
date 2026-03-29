@@ -465,6 +465,8 @@
       border-left: 3px solid color-mix(in srgb, var(--gold) 40%, transparent);
       padding-left: 0.9rem;
     }
+    .day-card-ws-row { margin: 0 0 1rem; }
+    .day-card-wordstudy { font-size: 0.88rem; }
     /* Breakdown panels */
     .day-breakdown { display: grid; gap: 8px; margin-bottom: 1rem; }
     .day-bp {
@@ -1111,6 +1113,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="/plans-data.js"></script>
+  <script src="/word-study.js?v=20260428ws"></script>
   <script src="/easter-season.js"></script>
   <script nonce="tdb2025s">
   (function () {
@@ -2505,6 +2508,22 @@
       verseP.className = 'day-card-verse-text';
       verseP.textContent = '\u201c' + cleanPlanPlain(dayData.text == null ? '' : String(dayData.text)) + '\u201d';
       card.appendChild(verseP);
+
+      var refWs = cleanPlanPlain(dayData.ref == null ? '' : String(dayData.ref));
+      var txtWs = cleanPlanPlain(dayData.text == null ? '' : String(dayData.text));
+      if (refWs) {
+        var wsWrap = document.createElement('div');
+        wsWrap.className = 'day-card-ws-row';
+        var wsBtn = document.createElement('button');
+        wsBtn.type = 'button';
+        wsBtn.className = 'btn btn-secondary day-card-wordstudy';
+        wsBtn.textContent = 'Word study';
+        wsBtn.setAttribute('aria-label', 'Word study for ' + refWs);
+        wsBtn.setAttribute('data-tdb-wordstudy-ref', refWs);
+        if (txtWs) wsBtn.setAttribute('data-tdb-wordstudy-text', txtWs);
+        wsWrap.appendChild(wsBtn);
+        card.appendChild(wsWrap);
+      }
 
       var breakdown = document.createElement('div');
       breakdown.className = 'day-breakdown';

@@ -4008,6 +4008,8 @@
 
     /* Make hero ref and smart-ref look interactive when WHY_NOTES applies */
     #heroRef { cursor: help; }
+    .hero-word-study-wrap { margin: 0.4rem 0 0; }
+    .hero-word-study-btn { min-height: 44px; font-size: 0.88rem; padding: 0.45rem 0.9rem; }
     .smart-ref {
       cursor: help;
       text-decoration: underline dotted;
@@ -5138,6 +5140,9 @@
           </button>
         </div>
         <p class="verse-ref" id="heroRef">Philippians 4:6-7 (KJV)</p>
+        <p class="hero-word-study-wrap">
+          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Philippians 4:6-7" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." aria-label="Word study for Philippians 4:6-7">Word study</button>
+        </p>
         <p class="tdb-why-stay-line" id="tdb-why-stay-line">A quiet place to meet God in the battle — everything stays on your device.</p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Verses">
           <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint" aria-label="Save today’s verse to My Verses on this device">Save to My Verses</button>
@@ -5197,7 +5202,7 @@
         <button class="verse-img-share" type="button" id="verseImgShare" aria-label="Share this verse image">Share ↗</button>
       </div>
       <script src="hero-daily-365-data.js?v=20260325b"></script>
-      <script src="hero-daily-first-paint.js?v=20260325b"></script>
+      <script src="hero-daily-first-paint.js?v=20260428hp"></script>
       </div><!-- /#main-content -->
 
       <!-- ── How's this helping? (feedback for future priorities) ── -->
@@ -9518,6 +9523,7 @@
 
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script src="word-study.js?v=20260428ws"></script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260329auth-ui" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->

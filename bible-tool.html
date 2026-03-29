@@ -717,6 +717,7 @@
               <button type="button" id="add-to-notes-lookup" class="link-button" aria-label="Add to battle log">Add to Notes</button>
               <button type="button" id="memorize-lookup" class="link-button hidden" aria-pressed="false" aria-label="Add current verse to memorize queue">Memorize</button>
               <button type="button" id="pray-lookup" class="link-button" aria-label="Generate prayer for this verse">Pray this</button>
+              <button type="button" id="wordstudy-lookup" class="link-button" aria-label="Open KJV word study for this verse">Word study</button>
               <a id="lookup-read-chapter" href="#" class="link-button hidden" aria-label="Read full chapter in chapter reader">Read full chapter</a>
             </div>
             <div id="lookup-prayer-box" class="hidden util-mt-0_5 prayer-box"></div>
@@ -849,6 +850,7 @@
 
   <script type="module" src="script.js?v=20260328integration-shine"></script>
   <script src="bible-study-companion.js?v=20260328printpolish"></script>
+  <script src="word-study.js?v=20260428ws"></script>
   <script src="verse-breakdown.js?v=20260325clean"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
@@ -1918,6 +1920,13 @@
     });
   });
 
+  document.getElementById('wordstudy-lookup').addEventListener('click', function () {
+    var ref = document.getElementById('lookup-ref').textContent.trim();
+    var text = document.getElementById('lookup-text').textContent.trim();
+    if (!ref || !window.TDBWordStudy || typeof window.TDBWordStudy.open !== 'function') return;
+    window.TDBWordStudy.open(ref, text);
+  });
+
   document.getElementById('lookup-result').addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('a[data-ref]');
     if (a && a.dataset.ref) {
@@ -2162,7 +2171,16 @@
         var d = results[i];
         if (!d && KEY_VERSES[refs[i]]) d = { reference: refs[i], text: KEY_VERSES[refs[i]] };
         if (d) {
-          html += '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + escapeHtml(d.reference) + '</p><p class="util-mt-0_5">' + escapeHtml(d.text || '') + '</p></div>';
+          html +=
+            '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' +
+            escapeHtml(d.reference) +
+            '</p><p class="util-mt-0_5">' +
+            escapeHtml(d.text || '') +
+            '</p><p class="util-mt-0_5"><button type="button" class="link-button" data-tdb-wordstudy-ref="' +
+            escapeHtml(d.reference) +
+            '" data-tdb-wordstudy-text="' +
+            escapeHtml(d.text || '') +
+            '">Word study</button></p></div>';
           if (typeof window.buildVerseContextHtml === 'function') html += '<div class="util-mt-0_5">' + window.buildVerseContextHtml(d.reference) + '</div>';
         }
       }
@@ -2240,7 +2258,20 @@
       if (data) {
         var copyText = 'Battle Ready: ' + data.reference + ' — ' + data.text + '\n' + prayer + '\n— todaysdailybattle.com';
         var contextHtml = (typeof window.buildVerseContextHtml === 'function') ? window.buildVerseContextHtml(data.reference) : '';
-        container.innerHTML = '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + escapeHtml(data.reference) + '</p><p class="util-mt-0_5">' + escapeHtml(data.text || '') + '</p></div><div class="util-mt-0_5">' + contextHtml + '</div><p class="section-note util-mt-0_5" style="font-style:italic">' + escapeHtml(prayer) + '</p><button type="button" class="btn btn-secondary util-mt-0_5" id="copy-battle-ready" aria-label="Copy verse and prayer">Copy</button> <button type="button" class="btn btn-secondary util-mt-0_5" id="add-notes-battle-ready" aria-label="Add to battle log">Add to Notes</button>';
+        container.innerHTML =
+          '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' +
+          escapeHtml(data.reference) +
+          '</p><p class="util-mt-0_5">' +
+          escapeHtml(data.text || '') +
+          '</p><p class="util-mt-0_5"><button type="button" class="link-button" data-tdb-wordstudy-ref="' +
+          escapeHtml(data.reference) +
+          '" data-tdb-wordstudy-text="' +
+          escapeHtml(data.text || '') +
+          '">Word study</button></p></div><div class="util-mt-0_5">' +
+          contextHtml +
+          '</div><p class="section-note util-mt-0_5" style="font-style:italic">' +
+          escapeHtml(prayer) +
+          '</p><button type="button" class="btn btn-secondary util-mt-0_5" id="copy-battle-ready" aria-label="Copy verse and prayer">Copy</button> <button type="button" class="btn btn-secondary util-mt-0_5" id="add-notes-battle-ready" aria-label="Add to battle log">Add to Notes</button>';
         document.getElementById('copy-battle-ready').addEventListener('click', function () {
           copyToClipboardWithFeedback(copyText, this);
         });

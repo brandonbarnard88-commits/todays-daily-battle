@@ -11,7 +11,8 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/daily-quiet-time.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260403dqt-grace">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260405hubs">
+  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260428ch">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"Daily Quiet Time — start your morning with the Lord","url":"https://todaysdailybattle.com/daily-quiet-time.html","description":"Calm morning hub: verse, Bible search, calm, prayer tools, Battle Plans, My Study, and family quiet links on Today's Daily Battle.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
@@ -33,7 +34,7 @@
     }
     .tdb-global-nav a:hover, .tdb-global-nav a:focus-visible { color: var(--gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
     .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
-    main { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    main#main.tdb-calm-hub { padding-bottom: 4rem; }
     h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.75rem; font-weight: 800; }
     .lead { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.5rem; }
     section { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
@@ -72,13 +73,16 @@
     .btn:hover, .btn:focus-visible { background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
     .btn-secondary { background: transparent; color: rgba(226, 232, 240, 0.9); border-color: var(--line); }
     .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--gold); color: var(--gold); }
-    footer { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem 2.5rem; font-size: 0.82rem; color: var(--muted); }
+    footer.tdb-calm-hub-footer { font-size: 0.82rem; color: var(--muted); padding-bottom: 2.5rem; }
     footer a { color: var(--gold); }
     .dqt-rotate-note { font-size: 0.88rem; color: var(--muted); margin: 0 0 0.75rem; }
     .dqt-family-lead { font-size: 0.9rem; color: var(--muted); margin: 0 0 0.75rem; line-height: 1.55; }
     .dqt-one-chapter-lead { font-size: 0.92rem; color: rgba(245, 247, 251, 0.9); margin: 0 0 0.65rem; line-height: 1.55; }
     .dqt-wghd-lead { font-size: 0.88rem; color: var(--muted); margin: 1.15rem 0 0; line-height: 1.55; padding-top: 1rem; border-top: 1px solid var(--line); }
     .dqt-wghd-lead a { font-weight: 600; }
+    .dqt-ws-ref { font-weight: 700; color: var(--gold); margin: 0 0 0.5rem; font-size: 1rem; }
+    .dqt-ws-text { margin: 0 0 1rem; line-height: 1.55; color: rgba(245, 247, 251, 0.92); font-size: 0.98rem; }
+    .dqt-ws-surface { margin-top: 0.75rem; }
   </style>
 </head>
 <body>
@@ -101,7 +105,7 @@
     <a href="kids-corner.html">Kids</a>
     <a href="bible-tool.html">Tools</a>
   </nav>
-  <main id="main">
+  <main id="main" class="tdb-calm-hub">
     <h1>Daily quiet time</h1>
     <p class="lead">A gentle place to begin the day. One verse, one calm moment, one honest prayer&mdash;no pressure, just room with the Lord. If yesterday was heavy, <strong>Calm alone</strong> is enough; you are not behind. Everything stays on your device.</p>
 
@@ -132,6 +136,16 @@
         <h3 class="dqt-reflect-h3">Reflect</h3>
         <p class="dqt-wghd-lead"><a href="what-god-has-done.html">What God has done</a> &mdash; a private journal for naming His faithfulness in your own words.</p>
         <p class="dqt-memorize-lead"><a href="memorize.html">Memorize</a> &mdash; hide God&rsquo;s Word in your heart, one gentle step at a time.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="dqt-wordstudy-h2" id="dqt-wordstudy-anchor">
+      <h2 id="dqt-wordstudy-h2">Linger on one verse</h2>
+      <p class="dqt-rotate-note">A single KJV line rotates with the date. Open word study when you want to slow down on a word&mdash;concordance and short glosses stay on this device.</p>
+      <div id="dqt-ws-block" class="dqt-starters-surface dqt-ws-surface" tabindex="-1">
+        <p id="dqt-ws-ref" class="dqt-ws-ref" aria-live="polite"></p>
+        <p id="dqt-ws-text" class="dqt-ws-text" aria-live="polite"></p>
+        <button type="button" class="btn btn-secondary" id="dqt-ws-btn" aria-label="Open word study for today&apos;s anchor verse">Word study</button>
       </div>
     </section>
 
@@ -194,9 +208,34 @@
     <p class="closing-note">Come back when you can. No streak to keep, and no guilt for a quiet day&mdash;mercy is still there when you return.</p>
     <p class="closing-note-sub">Bookmark if you want; this doorway stays put.</p>
   </main>
-  <footer>
+  <footer class="tdb-calm-hub-footer">
     <p><a href="site-guide.html">How to use this site</a> · <a href="printables.html">Printables</a> · <a href="plans.html">Battle Plans</a> · <a href="/">Home</a></p>
   </footer>
+  <script src="word-study.js?v=20260428ws"></script>
+  <script>
+    (function () {
+      var verses = [
+        { ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.' },
+        { ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
+        { ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.' },
+        { ref: 'Philippians 4:6', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.' },
+        { ref: 'John 14:27', text: 'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.' },
+        { ref: 'Romans 15:13', text: 'Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.' },
+        { ref: 'Lamentations 3:22', text: 'It is of the Lord\'s mercies that we are not consumed, because his compassions fail not.' },
+        { ref: 'Psalm 23:1', text: 'The Lord is my shepherd; I shall not want.' }
+      ];
+      var refEl = document.getElementById('dqt-ws-ref');
+      var textEl = document.getElementById('dqt-ws-text');
+      var btn = document.getElementById('dqt-ws-btn');
+      if (!refEl || !textEl || !btn) return;
+      var day = Math.floor(Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate()) / 86400000);
+      var v = verses[Math.abs(day) % verses.length];
+      refEl.textContent = v.ref + ' (KJV)';
+      textEl.textContent = '\u201c' + v.text + '\u201d';
+      btn.setAttribute('data-tdb-wordstudy-ref', v.ref);
+      btn.setAttribute('data-tdb-wordstudy-text', v.text);
+    })();
+  </script>
   <script>
     (function () {
       var el = document.getElementById('dqt-recommended-plan');

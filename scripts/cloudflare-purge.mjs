@@ -320,6 +320,7 @@ const SOCIAL_PURGE_PATHS = [
   '/script.js?v=20260328footer-date',
   '/script.js?v=20260328armor-open',
   '/script.js?v=20260328studygrid',
+  '/script.js?v=20260328studyhydrate',
   '/footer-build-stamp.js',
   '/footer-build-stamp.js?v=20260328stamp',
   '/footer-build-stamp.js?v=20260329footer',

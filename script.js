@@ -19113,6 +19113,27 @@ async function loadStudies() {
   if (loadingEl) loadingEl.textContent = 'Loading studies…';
   if (typeof supabaseClient === 'undefined' || !supabaseClient) {
     if (loadingEl) loadingEl.remove();
+    grid.setAttribute('aria-busy', 'false');
+    /* Static cards in bible-study.html: wire Start links so localStorage + analytics match button path. */
+    var staticLinks = grid.querySelectorAll('a.study-card-btn[href*="study="]');
+    if (staticLinks.length) {
+      staticLinks.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          if (e.defaultPrevented) return;
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          if (typeof e.button === 'number' && e.button !== 0) return;
+          var id = '';
+          try {
+            var u = new URL(a.getAttribute('href') || '', window.location.href);
+            id = (u.searchParams.get('study') || '').trim();
+          } catch (err) { id = ''; }
+          if (!id) return;
+          e.preventDefault();
+          startStudy(id);
+        });
+      });
+      return;
+    }
     var data = getDefaultBibleStudies();
     grid.innerHTML = '';
     data.forEach(function (study) {
@@ -19132,7 +19153,6 @@ async function loadStudies() {
       card.appendChild(btn);
       grid.appendChild(card);
     });
-    grid.setAttribute('aria-busy', 'false');
     return;
   }
   try {

@@ -39,7 +39,7 @@ const pages = [
   { path: '/plans.html', name: 'Battle Plans', mustInclude: ['Battle Plans', 'plan-list', 'planIndex', 'plans-start-here', 'Start here', 'id="all-plans"', 'familyworship', 'Family Worship in the Trenches', 'psalmscomfortfamily', 'Psalms of Comfort (Family Edition)', 'hreflang="pt" href="https://todaysdailybattle.com/pt/planos.html"', 'tdb-cache-hygiene:'] },
   { path: '/verse-image.html', name: 'Verse image generator', mustInclude: ['Verse image generator', 'verse-image.js', 'verse-ref-slug.js', 'qrcode.browser.min.js', 'verse-image-include-qr', 'Include scan link (QR)', 'assets/share/verse-share.jpg', 'recent-gens', 'verse-image-tweet', 'data-verse-store="verseGens"', 'verse-image-text-color', 'verse-image-layout', 'Silver mist', 'Centered', 'value="cross"', 'Quiet field'] },
   { path: '/v.html', name: 'Verse short link', mustInclude: ['verse-ref-slug.js', 'bible-api.com', 'v-ref', 'v-text', 'Bible Tool'] },
-  { path: '/bible-study.html', name: 'Bible Studies', mustInclude: ['Bible', 'Study', 'study-card-title', 'Armor of God', 'reading-plan.html?study=armor-of-god', 'script.js?v=20260328studygrid'] },
+  { path: '/bible-study.html', name: 'Bible Studies', mustInclude: ['Bible', 'Study', 'study-card-title', 'Armor of God', 'reading-plan.html?study=armor-of-god', 'script.js?v=20260328studyhydrate'] },
   { path: '/pastor-toolkit.html', name: 'Pastor Toolkit', mustInclude: ['Pastor'] },
   { path: '/team-toolkit.html', name: 'Team Toolkit', mustInclude: ['Team', 'Ready-to-use packs'] },
   { path: '/coloring.html', name: 'Kids Coloring', mustInclude: ['Coloring', 'Kids', 'coloring-sheet-grid', 'Pick a page'] },

@@ -15135,9 +15135,9 @@ function attachReaderVerseWordStudyControls() {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'reader-verse-wordstudy-btn';
-    btn.setAttribute('aria-label', `Word study for ${ref}`);
-    btn.setAttribute('title', 'Word study');
-    btn.appendChild(document.createTextNode('Study'));
+    btn.setAttribute('aria-label', `Open word study for ${ref}`);
+    btn.setAttribute('title', 'Study this verse');
+    btn.appendChild(document.createTextNode('Study this verse'));
     btn.addEventListener('click', (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
@@ -18131,8 +18131,8 @@ function appendSavedListWordStudyButton(actionsEl, ref, verseText) {
   const ws = document.createElement('button');
   ws.type = 'button';
   ws.className = 'btn btn-secondary';
-  ws.textContent = 'Word study';
-  ws.setAttribute('aria-label', `Word study for ${ref}`);
+  ws.textContent = 'Study this verse';
+  ws.setAttribute('aria-label', `Open word study for ${ref}`);
   ws.setAttribute('data-tdb-wordstudy-ref', ref);
   const t = String(verseText || '').trim();
   if (t) ws.setAttribute('data-tdb-wordstudy-text', t);

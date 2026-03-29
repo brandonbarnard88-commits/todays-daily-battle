@@ -60,6 +60,12 @@ main.tdb-calm-hub a:focus-visible {
     padding-right: 1rem;
     padding-bottom: 4.5rem;
   }
+  main.tdb-calm-hub > h1 {
+    font-size: clamp(1.38rem, 5.8vw, 1.85rem);
+  }
+  main.tdb-calm-hub section {
+    scroll-margin-top: 5.25rem;
+  }
   footer.tdb-calm-hub-footer {
     padding-left: 1rem;
     padding-right: 1rem;

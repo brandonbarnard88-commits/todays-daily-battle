@@ -9104,6 +9104,8 @@ function wireArmorBuilderModal() {
   var modal = document.getElementById('family-armor-stories-modal');
   var closeBtn = document.getElementById('family-armor-stories-close');
   if (!modal) return;
+  if (typeof window !== 'undefined' && window.__tdbArmorStoriesModalWired) return;
+  if (typeof window !== 'undefined') window.__tdbArmorStoriesModalWired = true;
   var params = (window.location.search || '').replace(/^\?/, '').split('&');
   var openToArmor = false;
   for (var i = 0; i < params.length; i++) {
@@ -9133,6 +9135,13 @@ function wireArmorBuilderModal() {
     if (_tdbModalUntrap) _tdbModalUntrap();
     _tdbModalUntrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
   }
+  try {
+    if (typeof window !== 'undefined') {
+      window.__tdbOpenFamilyArmorStoriesModal = function (toArmor) {
+        openModal(!!toArmor);
+      };
+    }
+  } catch (_) {}
   if (openToArmor) {
     setTimeout(function () {
       if (typeof renderArmorModal === 'function') renderArmorModal();
@@ -24679,9 +24688,11 @@ function wireRandomBattleVerseHero() {
         var t = e && e.target;
         var cta = t && typeof t.closest === 'function' ? t.closest('#daily-nudge-open-armor') : null;
         if (cta) {
-          var armorBtn = document.getElementById('family-armor-stories-btn');
-          if (armorBtn) armorBtn.click();
-          else if (typeof window !== 'undefined' && window.location) window.location.href = '/family-armor.html';
+          if (typeof window.__tdbOpenFamilyArmorStoriesModal === 'function') {
+            window.__tdbOpenFamilyArmorStoriesModal(false);
+          } else if (typeof window !== 'undefined' && window.location) {
+            window.location.href = '/#armor-builder-btn';
+          }
           if (typeof trackEvent === 'function') trackEvent('daily_nudge_family_armor', {});
         }
         dismiss();

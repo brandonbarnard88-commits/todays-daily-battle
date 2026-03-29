@@ -10234,6 +10234,14 @@ a.family-armor-stories-btn {
 a.family-armor-stories-btn:visited {
   color: rgba(212, 175, 55, 0.98);
 }
+button.family-armor-stories-btn {
+  font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
 .family-armor-stories-btn:hover {
   border-color: rgba(212, 175, 55, 0.8);
   box-shadow: 0 0 24px rgba(212, 175, 55, 0.4), 0 0 8px rgba(212, 175, 55, 0.25);

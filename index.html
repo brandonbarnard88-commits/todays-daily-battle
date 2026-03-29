@@ -91,7 +91,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260328footer-date">
+  <link rel="modulepreload" href="script.js?v=20260328armor-open">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -5483,7 +5483,7 @@
         <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Family Armor &amp; Stories</h2>
         <p class="section-note">Link your household, track progress, share stories. Each story adds a piece to your armor.</p>
         <div class="armor-progress-teaser" id="armorProgressTeaser" aria-live="polite" hidden></div>
-        <a href="#armor-builder-btn" id="family-armor-stories-btn" class="btn btn-secondary family-armor-stories-btn" role="button" aria-label="Open Family Armor and Bible stories">Open Family Armor</a>
+        <button type="button" id="family-armor-stories-btn" class="btn btn-secondary family-armor-stories-btn" aria-label="Open Family Armor and Bible stories">Open Family Armor</button>
         <p class="section-note family-armor-card-more">Or go straight to the <a href="kids/corner.html" class="family-armor-library-link" id="family-armor-card-kids-link">Kids Story Library</a> for every read-along loop, coloring page, and verse tap-in.</p>
       </section>
       <section class="card challenge-30-banner" id="challenge-30-banner" aria-label="30-Day Battle Plan">
@@ -9389,7 +9389,7 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260328footer-date" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260328armor-open" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer></script>
 </body>

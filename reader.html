@@ -497,6 +497,12 @@
     .reader-wordstudy-open-link:hover, .reader-wordstudy-open-link:focus-visible { color: #fde68a; outline: none; }
     body.reader-xrefs-open,
     body.reader-wordstudy-open { overflow: hidden; }
+    .context-line.reader-verse-line--tts-active {
+      box-shadow: inset 3px 0 0 0 rgba(227, 188, 103, 0.88);
+      border-radius: 6px;
+      background: rgba(227, 188, 103, 0.07);
+      transition: background 0.25s ease, box-shadow 0.25s ease;
+    }
   </style>
 </head>
 <body class="dark-mode chapter-reader-page">
@@ -1066,6 +1072,7 @@
     })();
   </script>
   <script src="word-study.js?v=20260430a11y-modals"></script>
+  <script src="verse-narration.js?v=20260328narration"></script>
   <script src="verse-study.js?v=20260328verse-study"></script>
   <script src="bible-study-companion.js?v=20260328reader-study"></script>
   <script type="module" src="script.js?v=20260430a11y-modals" data-cfasync="false" fetchpriority="low"></script>

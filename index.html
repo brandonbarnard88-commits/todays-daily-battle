@@ -2003,6 +2003,12 @@
     .read-aloud-btn.is-playing .ra-icon-speaker { display: none; }
     .read-aloud-btn.is-playing .ra-icon-pause   { display: block; }
     .read-aloud-label { font-size: 0.8rem; font-weight: 600; color: var(--gold-soft); }
+    #heroVerse.tdb-tts-highlight-active {
+      transition: background-color 0.35s ease, box-shadow 0.35s ease;
+      background-color: rgba(227, 188, 103, 0.1);
+      box-shadow: 0 0 0 1px rgba(227, 188, 103, 0.28);
+      border-radius: 8px;
+    }
     @media (max-width: 480px) { .read-aloud-label { display: none; } .read-aloud-btn { padding: 0.35rem; min-width: 40px; } }
     /* loading skeleton hides it */
     .verse-card.is-loading .read-aloud-btn,
@@ -5149,7 +5155,7 @@
         <p class="verse-ref" id="heroRef">Philippians 4:6-7 (KJV)</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses stay on your device.</span>
-          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Philippians 4:6-7" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." aria-describedby="hero-study-verse-hint" aria-label="Open word study for today’s verse of the day">Study this verse</button>
+          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Philippians 4:6-7" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
         <p class="tdb-why-stay-line" id="tdb-why-stay-line">A quiet place to meet God in the battle — everything stays on your device.</p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Verses">
@@ -7384,7 +7390,15 @@
         synth.addEventListener('voiceschanged', refreshVoices);
         refreshVoices();
         setReady();
+        window.addEventListener('tdb-verse-tts-playing', (e) => {
+          if (e && e.detail && typeof e.detail.playing === 'boolean') setPlaying(e.detail.playing);
+        });
         btn.addEventListener('click', () => {
+          if (window.TDBVerseNarration && typeof window.TDBVerseNarration.isSpeaking === 'function' && window.TDBVerseNarration.isSpeaking()) {
+            window.TDBVerseNarration.stop();
+            setPlaying(false);
+            return;
+          }
           if (synth.speaking && !synth.paused) {
             synth.pause();
             setPlaying(false);
@@ -7398,6 +7412,14 @@
           try { synth.cancel(); } catch (_) {}
           const text = buildTtsText();
           if (!text.trim()) return;
+          if (window.TDBVerseNarration && typeof window.TDBVerseNarration.speakPlainText === 'function') {
+            const heroEl = document.getElementById('heroVerse');
+            const ok = window.TDBVerseNarration.speakPlainText(text, { highlightEl: heroEl, calm: true });
+            if (ok) {
+              setPlaying(true);
+              return;
+            }
+          }
           dailyUtterance = new SpeechSynthesisUtterance(text);
           dailyUtterance.rate  = 0.88;
           dailyUtterance.pitch = 1;
@@ -9532,6 +9554,7 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script src="word-study.js?v=20260430a11y-modals"></script>
+  <script src="verse-narration.js?v=20260328narration"></script>
   <script src="verse-study.js?v=20260328verse-study"></script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260430a11y-modals" data-cfasync="false" fetchpriority="high"></script>

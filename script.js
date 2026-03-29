@@ -13405,7 +13405,18 @@ function setTtsPlaying(playing) {
   }
 }
 
+if (typeof window !== 'undefined' && !window.__tdbVerseNarrTtsBridge) {
+  window.__tdbVerseNarrTtsBridge = true;
+  window.addEventListener('tdb-verse-tts-playing', function (e) {
+    var on = !!(e && e.detail && e.detail.playing);
+    if (typeof setTtsPlaying === 'function') setTtsPlaying(on);
+  });
+}
+
 function stopTts() {
+  if (window.TDBVerseNarration && typeof window.TDBVerseNarration.stop === 'function') {
+    window.TDBVerseNarration.stop();
+  }
   if ('speechSynthesis' in window) window.speechSynthesis.cancel();
   setTtsPlaying(false);
 }
@@ -13476,12 +13487,29 @@ function getReaderChapterPlainTextFromDom(output) {
 
 function speakChapter(book, chapter) {
   const key = `${book} ${chapter}`;
+  const output = document.getElementById('reader-output');
+  const lineEls = output && output.querySelectorAll ? output.querySelectorAll('.context-line') : null;
+  if (
+    window.TDBVerseNarration &&
+    typeof window.TDBVerseNarration.speakReaderLines === 'function' &&
+    lineEls &&
+    lineEls.length
+  ) {
+    try {
+      trackEvent('chapter_reader_listen', { book: String(book || ''), chapter: String(chapter || '') });
+    } catch (e) {}
+    window.TDBVerseNarration.speakReaderLines(Array.prototype.slice.call(lineEls), {
+      calm: true,
+      repeat: window.TDBVerseNarration.getRepeat(),
+      phrasePause: window.TDBVerseNarration.getPhrasePause()
+    });
+    return;
+  }
   let verses = chapterIndex[key];
   let text = '';
   if (verses && verses.length) {
     text = verses.map(function (v) { return v.text || ''; }).join(' ').replace(/\s+/g, ' ').trim();
   } else {
-    const output = document.getElementById('reader-output');
     text = output ? getReaderChapterPlainTextFromDom(output) : '';
   }
   if (!text) {

@@ -133,7 +133,7 @@
     btn.setAttribute('data-tdb-wordstudy-ref', ref);
     if (text) btn.setAttribute('data-tdb-wordstudy-text', text);
     else btn.removeAttribute('data-tdb-wordstudy-text');
-    btn.setAttribute('aria-label', 'Open word study for today’s verse of the day');
+    btn.setAttribute('aria-label', 'Open verse study for ' + ref);
   }
 
   function syncVersePageWordStudyButton() {
@@ -154,7 +154,7 @@
     btn.setAttribute('data-tdb-wordstudy-ref', ref);
     if (text) btn.setAttribute('data-tdb-wordstudy-text', text);
     else btn.removeAttribute('data-tdb-wordstudy-text');
-    btn.setAttribute('aria-label', 'Open word study for ' + ref);
+    btn.setAttribute('aria-label', 'Open verse study for ' + ref);
   }
 
   function wireGlobalWordStudyAnchors() {

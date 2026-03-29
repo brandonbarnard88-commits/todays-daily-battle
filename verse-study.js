@@ -40,6 +40,18 @@
     '.tdb-vs-actions .tdb-vs-primary{background:rgba(227,188,103,.22);border-color:rgba(138,112,48,.35)}' +
     '#tdb-vs-status{margin:.55rem 0 0;font-size:.84rem;min-height:1.2em;color:#57534e}' +
     '#tdb-vs-foot{margin:.65rem 0 0;font-size:.78rem;line-height:1.45;color:#78716c}' +
+    '.tdb-vs-listen-block{margin:0 0 1rem;padding:.65rem .75rem;border-radius:14px;border:1px solid rgba(138,112,48,.22);background:rgba(255,253,248,.65)}' +
+    '.tdb-vs-listen-row{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .65rem}' +
+    '.tdb-vs-listen-btn{min-height:44px;padding:.42rem .9rem;border-radius:10px;border:1px solid rgba(90,78,58,.28);background:rgba(227,188,103,.2);color:#292524;font-weight:700;font-size:.86rem;cursor:pointer;font-family:inherit}' +
+    '.tdb-vs-listen-btn:hover,.tdb-vs-listen-btn:focus-visible{outline:2px solid rgba(227,188,103,.45);outline-offset:2px}' +
+    '.tdb-vs-listen-btn.tdb-vs-listen-active{background:rgba(124,92,28,.22);border-color:rgba(124,92,28,.35)}' +
+    '.tdb-vs-listen-details{margin:.5rem 0 0;font-size:.82rem;color:#44403c}' +
+    '.tdb-vs-listen-details summary{cursor:pointer;font-weight:600;min-height:40px;list-style:none}' +
+    '.tdb-vs-listen-details summary::-webkit-details-marker{display:none}' +
+    '.tdb-vs-listen-opts{display:flex;flex-direction:column;gap:.45rem;margin:.45rem 0 0}' +
+    '.tdb-vs-listen-opts label{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}' +
+    '.tdb-vs-listen-opts select{min-height:40px;padding:.25rem .4rem;border-radius:8px;border:1px solid rgba(90,78,58,.25);font:inherit;max-width:100%}' +
+    '#tdb-vs-verse.tdb-vs-verse--tts-speak{box-shadow:0 0 0 2px rgba(227,188,103,.35);border-radius:8px;transition:box-shadow .25s ease}' +
     'body.tdb-verse-study-open{overflow:hidden}';
 
   var layerWired = false;
@@ -48,6 +60,7 @@
   var stateText = '';
   var stateWhy = '';
   var stateXrefs = [];
+  var narrationFromVerseStudy = false;
 
   function escapeRe(s) {
     return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -349,6 +362,19 @@
       '<p id="tdb-vs-why-text"></p></div>' +
       '<div id="tdb-vs-xref-block" class="hidden"><p id="tdb-vs-xref-label">Related passages</p>' +
       '<ul id="tdb-vs-xref-list"></ul></div>' +
+      '<div id="tdb-vs-listen-block" class="tdb-vs-listen-block hidden">' +
+      '<div class="tdb-vs-listen-row">' +
+      '<button type="button" id="tdb-vs-listen" class="tdb-vs-listen-btn">Listen</button>' +
+      '<span id="tdb-vs-listen-hint" class="tdb-vs-foot" style="margin:0;flex:1 1 10rem">KJV only, on your device. Tap again to stop.</span></div>' +
+      '<details class="tdb-vs-listen-details">' +
+      '<summary>Narration options</summary>' +
+      '<div class="tdb-vs-listen-opts">' +
+      '<label for="tdb-vs-rate">Speed <select id="tdb-vs-rate" aria-label="Narration speed">' +
+      '<option value="very_slow">Very slow</option><option value="slow">Slow</option><option value="normal">Normal</option></select></label>' +
+      '<label><input type="checkbox" id="tdb-vs-phrase-pause" checked> Pause between phrases</label>' +
+      '<label><input type="checkbox" id="tdb-vs-repeat"> Repeat until stopped</label>' +
+      '<label><input type="checkbox" id="tdb-vs-ambient"> Very soft undertone (generated on-device, optional)</label>' +
+      '</div></details></div>' +
       '<div class="tdb-vs-actions">' +
       '<button type="button" class="tdb-vs-primary" id="tdb-vs-save-mystudy">Save to My Study</button>' +
       '<button type="button" id="tdb-vs-memorize">Add to Memorize</button>' +
@@ -389,9 +415,111 @@
     if (mm) mm.addEventListener('click', addMemorize);
     if (jn) jn.addEventListener('click', saveJournal);
     if (pr) pr.addEventListener('click', printStudy);
+    var ln = document.getElementById('tdb-vs-listen');
+    if (ln) ln.addEventListener('click', toggleVerseStudyListen);
+    var rt = document.getElementById('tdb-vs-rate');
+    if (rt) rt.addEventListener('change', readVerseStudyListenPrefsFromForm);
+    var ppEl = document.getElementById('tdb-vs-phrase-pause');
+    if (ppEl) ppEl.addEventListener('change', readVerseStudyListenPrefsFromForm);
+    var rpEl = document.getElementById('tdb-vs-repeat');
+    if (rpEl) rpEl.addEventListener('change', readVerseStudyListenPrefsFromForm);
+    var amEl = document.getElementById('tdb-vs-ambient');
+    if (amEl) amEl.addEventListener('change', readVerseStudyListenPrefsFromForm);
+    syncVerseStudyListenUi();
+    if (!global.__tdbVsListenPlayingEv) {
+      global.__tdbVsListenPlayingEv = true;
+      global.addEventListener('tdb-verse-tts-playing', function (e) {
+        if (e && e.detail && e.detail.playing === false) {
+          narrationFromVerseStudy = false;
+          setVerseStudyListenButtonActive(false);
+        }
+      });
+    }
+  }
+
+  function syncVerseStudyListenUi() {
+    var N = global.TDBVerseNarration;
+    var block = document.getElementById('tdb-vs-listen-block');
+    if (block) {
+      if (!N) block.classList.add('hidden');
+      else block.classList.remove('hidden');
+    }
+    if (!N) return;
+    var rate = document.getElementById('tdb-vs-rate');
+    var pp = document.getElementById('tdb-vs-phrase-pause');
+    var rp = document.getElementById('tdb-vs-repeat');
+    var am = document.getElementById('tdb-vs-ambient');
+    if (rate) {
+      var pr = N.getRatePreset();
+      rate.value = N.RATE_PRESETS && N.RATE_PRESETS[pr] != null ? pr : 'slow';
+    }
+    if (pp) pp.checked = N.getPhrasePause();
+    if (rp) rp.checked = N.getRepeat();
+    if (am) am.checked = N.getAmbient() === 'soft';
+  }
+
+  function readVerseStudyListenPrefsFromForm() {
+    var N = global.TDBVerseNarration;
+    if (!N) return;
+    var rate = document.getElementById('tdb-vs-rate');
+    var pp = document.getElementById('tdb-vs-phrase-pause');
+    var rp = document.getElementById('tdb-vs-repeat');
+    var am = document.getElementById('tdb-vs-ambient');
+    if (rate && rate.value) N.setRatePreset(rate.value);
+    if (pp) N.setPhrasePause(!!pp.checked);
+    if (rp) N.setRepeat(!!rp.checked);
+    if (am) N.setAmbient(am.checked ? 'soft' : 'off');
+  }
+
+  function setVerseStudyListenButtonActive(on) {
+    var ln = document.getElementById('tdb-vs-listen');
+    if (!ln) return;
+    ln.classList.toggle('tdb-vs-listen-active', !!on);
+    ln.setAttribute('aria-pressed', on ? 'true' : 'false');
+    ln.textContent = on ? 'Stop' : 'Listen';
+    ln.setAttribute('aria-label', on ? 'Stop verse narration' : 'Listen to this verse, on device');
+  }
+
+  function toggleVerseStudyListen() {
+    var N = global.TDBVerseNarration;
+    if (!N) return;
+    if (N.isSpeaking()) {
+      N.stop();
+      narrationFromVerseStudy = false;
+      setVerseStudyListenButtonActive(false);
+      return;
+    }
+    readVerseStudyListenPrefsFromForm();
+    var ref = normRefKey(stateRef);
+    var body = stateText ? (ref ? ref + '. ' : '') + stateText : '';
+    if (!String(body).trim()) return;
+    var ok = N.speakPlainText(body, {
+      highlightMode: 'verse-study',
+      calm: true,
+      onComplete: function () {
+        narrationFromVerseStudy = false;
+        setVerseStudyListenButtonActive(false);
+      }
+    });
+    if (ok) {
+      narrationFromVerseStudy = true;
+      setVerseStudyListenButtonActive(true);
+      try {
+        if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_listen', {});
+      } catch (e) {}
+    }
   }
 
   function close() {
+    if (
+      narrationFromVerseStudy &&
+      global.TDBVerseNarration &&
+      typeof global.TDBVerseNarration.stop === 'function'
+    ) {
+      global.TDBVerseNarration.stop();
+    }
+    narrationFromVerseStudy = false;
+    setVerseStudyListenButtonActive(false);
     var layer = document.getElementById('tdb-verse-study-layer');
     if (!layer) return;
     layer.classList.add('tdb-vs-hidden');
@@ -678,6 +806,8 @@
     try {
       if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_open', {});
     } catch (e) {}
+
+    syncVerseStudyListenUi();
 
     var closeBtn = document.getElementById('tdb-vs-close');
     if (closeBtn) closeBtn.focus();

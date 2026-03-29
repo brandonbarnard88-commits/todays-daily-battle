@@ -4913,7 +4913,7 @@
     <div class="header-sub-toolbar" role="region" aria-label="Share today’s verse and reading plans">
       <div class="share-verse-row">
         <div class="share-verse-actions">
-          <button type="button" class="share-verse-btn share-verse-listen" id="shareVerseListenBtn" aria-label="Listen to this verse read aloud">Listen</button>
+          <button type="button" class="share-verse-btn share-verse-listen" id="shareVerseListenBtn" aria-label="Listen — verse and today’s breakdown read aloud">Listen</button>
           <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share this encouragement with a friend">Share</button>
         </div>
         <p class="share-verse-whisper">If this helped, tell a friend.</p>
@@ -5029,7 +5029,7 @@
             class="read-aloud-btn read-aloud-with-label"
             id="readAloudBtn"
             type="button"
-            aria-label="Listen to this verse read aloud"
+            aria-label="Listen — verse and today’s breakdown read aloud"
             aria-pressed="false"
           >
             <svg class="ra-icon-speaker" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -5089,7 +5089,7 @@
         <div class="hero-mini-menu" id="heroMiniMenu" aria-hidden="true" role="menu">
           <button type="button" class="hero-menu-btn" id="heroMenuSave" role="menuitem" aria-label="Save today’s verse to My Verses">💾 My Verses</button>
           <button type="button" class="hero-menu-btn" id="heroMenuShare" role="menuitem" aria-label="Share verse to clipboard">📄 Share</button>
-          <button type="button" class="hero-menu-btn" id="heroMenuListen" role="menuitem" aria-label="Listen to verse read aloud">🔊 Listen</button>
+          <button type="button" class="hero-menu-btn" id="heroMenuListen" role="menuitem" aria-label="Listen — verse and today’s breakdown read aloud">🔊 Listen</button>
           <button type="button" class="hero-menu-btn" id="heroMenuImage" role="menuitem" aria-label="Create shareable verse image">🖼 Image</button>
         </div>
       </section>
@@ -7212,7 +7212,7 @@
         btn.hidden = false;
         btn.disabled = false;
         btn.removeAttribute('aria-disabled');
-        btn.setAttribute('aria-label', 'Read this verse aloud');
+        btn.setAttribute('aria-label', 'Listen — verse and today’s breakdown read aloud');
         btn.removeAttribute('title');
         var rlbl = btn.querySelector('.read-aloud-label');
         if (rlbl) rlbl.textContent = 'Listen';
@@ -7221,7 +7221,7 @@
       function setPlaying(yes) {
         btn.classList.toggle('is-playing', yes);
         btn.setAttribute('aria-pressed', yes ? 'true' : 'false');
-        btn.setAttribute('aria-label', yes ? 'Pause verse reading' : 'Listen to this verse read aloud');
+        btn.setAttribute('aria-label', yes ? 'Pause reading' : 'Listen — verse and today’s breakdown read aloud');
         var lbl = btn.querySelector('.read-aloud-label');
         if (lbl) lbl.textContent = yes ? 'Pause' : 'Listen';
       }
@@ -7232,14 +7232,26 @@
         const ref       = document.getElementById('heroRef');
         const breakdown = document.getElementById('heroBreakdown');
         const app       = document.getElementById('heroApplication');
-        const lines = breakdown
-          ? Array.from(breakdown.querySelectorAll('li')).map(li => li.textContent).join('. ')
+        const panels    = document.getElementById('heroBreakdownPanels');
+        let lines = '';
+        if (panels && panels.querySelector('.hbp-panel')) {
+          lines = Array.from(panels.querySelectorAll('.hbp-panel')).map(function (panel) {
+            const lbl = panel.querySelector('.hbp-label');
+            const txt = panel.querySelector('.hbp-text');
+            if (!txt || !String(txt.textContent || '').trim()) return '';
+            return (lbl && lbl.textContent ? lbl.textContent + '. ' : '') + txt.textContent;
+          }).filter(Boolean).join('. ');
+        } else if (breakdown) {
+          lines = Array.from(breakdown.querySelectorAll('li')).map(li => li.textContent).join('. ');
+        }
+        const appLine = (app && app.style.display !== 'none' && app.textContent && String(app.textContent).trim())
+          ? app.textContent
           : '';
         return [
           verse ? verse.textContent : '',
           ref   ? ref.textContent   : '',
           lines,
-          app   ? app.textContent   : ''
+          appLine
         ].filter(Boolean).join('. ');
       }
 
@@ -7380,7 +7392,16 @@
       battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },
       battle30: { label: '\u2694\uFE0F 30-Day Battle',       key: 'tdb-plan-battle30-day',  max: 30 },
       battle40: { label: '\uD83C\uDFD4\uFE0F 40-Day Wilderness', key: 'tdb-plan-battle40-day',  max: 40 },
-      easter:   { label: '\u2728 Resurrection Hope', key: 'tdb-plan-easter-day',   max: 7  }
+      easter:   { label: '\u2728 Resurrection Hope', key: 'tdb-plan-easter-day',   max: 7  },
+      firststeps: { label: '\uD83C\uDF31 New Believer — First Steps', key: 'tdb-plan-firststeps-day', max: 14 },
+      identityinchrist: { label: '\u2728 Who God Says You Are', key: 'tdb-plan-identityinchrist-day', max: 7 },
+      praisethanks30: { label: '\uD83D\uDE4C 30-Day Praise & Thanksgiving', key: 'tdb-plan-praisethanks30-day', max: 30 },
+      armorofgod: { label: '\uD83D\uDEE1\uFE0F Armor of God', key: 'tdb-plan-armorofgod-day', max: 7 },
+      lettinggo: { label: '\uD83D\uDCA7 Bitterness & Letting Go', key: 'tdb-plan-lettinggo-day', max: 7 },
+      fearnot14: { label: '\uD83C\uDF19 Fear Not (14 days)', key: 'tdb-plan-fearnot14-day', max: 14 },
+      dailylabor: { label: '\u2692\uFE0F Work & Daily Labor', key: 'tdb-plan-dailylabor-day', max: 7 },
+      christmas7: { label: '\u2728 Christmas Week', key: 'tdb-plan-christmas7-day', max: 7 },
+      newyear7: { label: '\uD83C\uDF05 New Year Week', key: 'tdb-plan-newyear7-day', max: 7 }
     };
 
     // ── Battle Plan Progress (shows plan with highest progress; streak flame when \u2265 2) ──

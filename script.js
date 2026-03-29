@@ -7918,6 +7918,9 @@ var FIRST_VISIT_READ_AUTO_DAY_KEY = 'tdb_first_visit_read_auto_day_v1';
 var FIRST_VISIT_READ_MODAL_ID = 'first-visit-read-modal';
 
 function getDailyVerseReadPayload() {
+  function stripDailyTts(s) {
+    return String(s || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  }
   var fallback = (typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' && DAILY_VERSE_BUNDLED_FALLBACK)
     ? DAILY_VERSE_BUNDLED_FALLBACK
     : { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' };
@@ -7927,9 +7930,21 @@ function getDailyVerseReadPayload() {
   if (!verse && typeof getBibleVerseText === 'function') verse = getBibleVerseText(ref);
   if (!verse && bible && bible[ref]) verse = bible[ref];
   if (!verse) verse = fallback.text || '';
+  verse = stripDailyTts(verse);
+  var refStr = String(ref || '').trim();
+  var parts = [refStr + '. ' + verse];
+  if (currentDailyBattle) {
+    var pm = stripDailyTts(currentDailyBattle.plain_meaning);
+    var rf = stripDailyTts(currentDailyBattle.reflection);
+    var pr = stripDailyTts(currentDailyBattle.prayer);
+    if (pm) parts.push(pm);
+    if (rf) parts.push(rf);
+    if (pr) parts.push('A short prayer. ' + pr);
+  }
   return {
-    ref: String(ref || '').trim(),
-    verse: String(verse || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+    ref: refStr,
+    verse: verse,
+    fullSpoken: parts.join(' ')
   };
 }
 
@@ -7939,7 +7954,7 @@ function speakDailyVerseGently(options) {
   if (!payload.ref || !payload.verse) return false;
   if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') return false;
 
-  var spoken = payload.ref + '. ' + payload.verse;
+  var spoken = payload.fullSpoken || (payload.ref + '. ' + payload.verse);
   var utterance = new SpeechSynthesisUtterance(spoken);
   var voice = null;
   try { voice = typeof pickWelcomeFemaleVoice === 'function' ? pickWelcomeFemaleVoice() : null; } catch (voiceErr) { voice = null; }

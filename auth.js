@@ -148,10 +148,20 @@
     return params.get('next') || '/';
   }
 
+  function getAuthRedirectBase() {
+    var cfg = getCfg();
+    if (cfg && cfg.AUTH_REDIRECT_BASE) {
+      return String(cfg.AUTH_REDIRECT_BASE).replace(/\/$/, '');
+    }
+    if (window.location.protocol === 'file:') {
+      return 'https://todaysdailybattle.com';
+    }
+    return window.location.origin;
+  }
+
   function getAuthRedirectUrl() {
     var next = getNextUrl();
-    var base = window.location.origin + LOGIN_PATH;
-    return base + '?next=' + encodeURIComponent(next);
+    return getAuthRedirectBase() + LOGIN_PATH + '?next=' + encodeURIComponent(next);
   }
 
   function providerLabel(provider) {

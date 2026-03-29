@@ -20,7 +20,8 @@
 ## Supabase-side (common 2026)
 
 - **Outages:** Some US regions had 500s/502s on auth (e.g. Feb 12–28 reports). If project is US-West/East, retry later or check [supabase.com/status](https://supabase.com/status).
-- **Redirect URLs:** In Supabase → Authentication → URL Configuration, ensure your site and reset URLs are listed (e.g. `https://todaysdailybattle.com`, `https://todaysdailybattle.com/reset.html`). Match `AUTH_REDIRECT_BASE` / redirect base used in app.
+- **Browser console: `400` on `authorize`:** Usually Supabase Auth rejecting OAuth because **`redirect_to` is not in Redirect URLs**. Google/Apple then fail to start. Fix: Supabase → Authentication → URL Configuration → add the exact return URLs you use (including `www` vs apex if both exist). The app sends OAuth users to **`/login.html?next=…`** (same as the login page), so allow e.g. `https://todaysdailybattle.com/login.html` or a wildcard your project supports (e.g. `https://todaysdailybattle.com/**`). Also list `https://todaysdailybattle.com/reset.html` for password reset.
+- **Redirect URLs:** In Supabase → Authentication → URL Configuration, ensure your site and reset URLs are listed (e.g. `https://todaysdailybattle.com`, `https://todaysdailybattle.com/login.html`, `https://todaysdailybattle.com/reset.html`). Match `AUTH_REDIRECT_BASE` / redirect base used in app.
 - **Email provider:** If using Resend/Brevo etc., confirm emails are sending (Auth → Users; test signup).
 - **CLI:** `supabase auth status` if you use the CLI, to confirm session/redirect config.
 

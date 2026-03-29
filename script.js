@@ -5757,6 +5757,29 @@ function getAuthRedirectBase() {
   return window.location.origin;
 }
 
+/**
+ * OAuth return URL — must match Supabase Auth → URL Configuration → Redirect URLs.
+ * Same pattern as auth.js (login.html?next=…) so one allowlist entry covers header + modal + login page.
+ */
+function getOAuthRedirectToForSupabase() {
+  var base = getAuthRedirectBase();
+  var rawPath = window.location.pathname || '/';
+  var normPath = rawPath.replace(/\/+$/, '') || '/';
+  var isLogin = normPath === '/login' || normPath === '/login.html' || /\/login\.html$/i.test(rawPath);
+  var next;
+  if (isLogin) {
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      next = params.get('next') || '/';
+    } catch (e) {
+      next = '/';
+    }
+  } else {
+    next = rawPath + (window.location.search || '') + (window.location.hash || '');
+  }
+  return base + '/login.html?next=' + encodeURIComponent(next);
+}
+
 /** Sign in with Google or Apple via Supabase OAuth. Redirects to provider, then back to site. */
 async function signInWithOAuthProvider(provider, setStatusFn) {
   const setStatus = setStatusFn || setAuthStatus;
@@ -5769,10 +5792,9 @@ async function signInWithOAuthProvider(provider, setStatusFn) {
     }
   }
   setStatus('Redirecting to ' + (provider === 'google' ? 'Google' : 'Apple') + '…', 'info');
-  const baseUrl = getAuthRedirectBase();
   const { data, error } = await supabaseClient.auth.signInWithOAuth({
     provider: provider,
-    options: { redirectTo: baseUrl + '/' }
+    options: { redirectTo: getOAuthRedirectToForSupabase() }
   });
   if (error) {
     setStatus(error.message || 'Sign-in failed. Please try again.', 'error');

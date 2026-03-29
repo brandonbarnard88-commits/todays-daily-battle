@@ -11,7 +11,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/daily-quiet-time.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260329wording">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260330dqt-fallback">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"Daily Quiet Time — start your morning with the Lord","url":"https://todaysdailybattle.com/daily-quiet-time.html","description":"Calm morning hub: verse, Bible search, calm, prayer tools, Battle Plans, My Study, and family quiet links on Today's Daily Battle.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
@@ -149,7 +149,7 @@
 
     <section aria-labelledby="dqt-battle-h2" id="dqt-battle">
       <h2 id="dqt-battle-h2">Today&rsquo;s plan</h2>
-      <p id="dqt-recommended-wrap" class="dqt-recommended">A gentle pick for today: <span id="dqt-recommended-plan"></span> &mdash; one KJV verse, plain words, a small step, and prayer; progress stays on this device.</p>
+      <p id="dqt-recommended-wrap" class="dqt-recommended">A gentle pick for today: <span id="dqt-recommended-plan"><a href="plans.html">Choose a plan</a></span> &mdash; one KJV verse, plain words, a small step, and prayer; progress stays on this device.</p>
       <p class="dqt-rotate-note">We rotate softly through eight morning lanes (Armor, Peace, Battle Distraction, Holy Spirit, Walk the Word, Stand firm, Great Commission, Psalms of Comfort) so the rhythm helps more than it rules.</p>
       <ul>
         <li>Prefer to choose yourself? <a href="plans.html?plan=armorofgod">Armor of God</a> · <a href="plans.html?plan=peace">7-Day Peace</a> · <a href="plans.html?plan=battle">Battle Distraction</a> · <a href="plans.html?plan=holyspirit">Holy Spirit</a> · <a href="plans.html?plan=walktheword">Walk the Word</a> · <a href="plans.html?plan=standfirm">Stand firm</a> · <a href="plans.html?plan=greatcommission">Great Commission</a> · <a href="plans.html?plan=psalmscomfort">Psalms of Comfort</a>.</li>
@@ -208,6 +208,7 @@
       ];
       var day = Math.floor(Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate()) / 86400000);
       var pick = plans[Math.abs(day) % plans.length];
+      while (el.firstChild) el.removeChild(el.firstChild);
       var a = document.createElement('a');
       a.href = pick.href;
       a.textContent = pick.label;

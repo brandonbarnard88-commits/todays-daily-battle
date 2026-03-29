@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Foundation in Ephesians 6 (KJV), then stories and armor progress for your household—on this device, no hype.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260401fa-lux">
+  <link rel="stylesheet" href="styles.css?v=20260401fa-chapel">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -181,13 +181,19 @@
       </div>
     </aside>
 
-    <main class="app-content" id="main-content">
+    <main class="app-content family-armor-chapel-main" id="main-content">
       <div class="content-inner family-armor-page-inner">
         <header class="hero-banner family-armor-hero">
           <p class="about-byline about-byline--accent">KJV · on this device · no performance pressure</p>
           <h1>Family Armor &amp; Stories</h1>
           <p class="privacy-line">This page is the front door. The interactive workspace lives on the home page so it can sit next to search, verse of the day, and the rest of your battle rhythm.</p>
           <p class="hero-tagline">We start where Paul starts: truth, not trend. Then we give you a calm place to pray with Bible stories and watch each piece of the armor land—together.</p>
+          <figure class="family-armor-hero-verse-frame" aria-label="Ephesians chapter 6, verses 10 and 11, King James Version">
+            <blockquote class="family-armor-hero-verse-text" cite="https://www.kingjamesbibleonline.org/Ephesians-Chapter-6/">
+              Finally, my brethren, be strong in the Lord, and in the power of his might. Put on the whole armour of God, that ye may be able to stand against the wiles of the devil.
+            </blockquote>
+            <figcaption class="family-armor-hero-verse-ref">Ephesians 6:10&ndash;11 · KJV</figcaption>
+          </figure>
           <p class="family-armor-trust-strip" role="note">Nothing here uploads your family&rsquo;s story progress unless you sign in for optional sync—by default it stays on this device, offline-friendly, the same quiet rule as the rest of the site.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/#armor-builder-btn">Open the Family Armor workspace</a>
@@ -196,42 +202,70 @@
           </div>
         </header>
 
-        <section class="glass" id="family-armor-foundation" aria-labelledby="fa-foundation-heading">
-          <h2 class="section-divider" id="fa-foundation-heading">The foundation (Ephesians 6, KJV)</h2>
-          <p class="section-note">Family Armor is not a game for its own sake. It tracks with the <strong>whole armor of God</strong>—God&rsquo;s own picture of how we stand when life is loud.</p>
-          <blockquote class="family-armor-foundation-quote" cite="https://www.kingjamesbibleonline.org/Ephesians-Chapter-6/">
-            Finally, my brethren, be strong in the Lord, and in the power of his might. Put on the whole armour of God, that ye may be able to stand against the wiles of the devil.
-          </blockquote>
-          <p class="section-note">Paul names six pieces—belt, breastplate, shoes, shield, helmet, sword—and prayer that keeps the soldier speaking with God. In the workspace, each family Bible story you walk through can mark another piece <strong>remembered together</strong> on this device.</p>
-          <ul class="family-armor-piece-list">
-            <li><strong>Truth</strong> (girdle / belt)—honesty before God and each other.</li>
-            <li><strong>Righteousness</strong> (breastplate)—Christ&rsquo;s covering, not self-made polish.</li>
-            <li><strong>Peace</strong> (feet shod)—ready to carry good news, not just dodge conflict.</li>
-            <li><strong>Faith</strong> (shield)—lifting what God said against what fear shouts.</li>
-            <li><strong>Salvation</strong> (helmet)—the mind guarded by what Christ finished.</li>
-            <li><strong>The Spirit&rsquo;s sword</strong>—Scripture itself, spoken and obeyed.</li>
-          </ul>
-          <p class="section-note util-mt-1">Want the full chapter open beside you? Use the <a href="bible-tool.html">Bible Tool</a> or <a href="reader.html">Chapter reader</a> to Ephesians 6.</p>
+        <section class="glass family-armor-panel" id="family-armor-foundation" aria-labelledby="fa-foundation-heading">
+          <h2 class="section-divider" id="fa-foundation-heading">The six pieces &amp; prayer</h2>
+          <p class="section-note">Family Armor tracks with the <strong>whole armor of God</strong>—not a scoreboard, but a gentle way to remember Christ&rsquo;s provision together. Each card is one piece Paul names; the workspace ties stories to these reminders on <strong>this device</strong>.</p>
+          <div class="family-armor-pieces-grid" role="list">
+            <article class="family-armor-lux-card" role="listitem">
+              <h3 class="family-armor-lux-card-title">Truth</h3>
+              <p class="family-armor-lux-card-desc">Girdle / belt—honesty before God and each other.</p>
+            </article>
+            <article class="family-armor-lux-card" role="listitem">
+              <h3 class="family-armor-lux-card-title">Righteousness</h3>
+              <p class="family-armor-lux-card-desc">Breastplate—Christ&rsquo;s covering, not self-made polish.</p>
+            </article>
+            <article class="family-armor-lux-card" role="listitem">
+              <h3 class="family-armor-lux-card-title">Peace</h3>
+              <p class="family-armor-lux-card-desc">Feet shod—ready to carry good news, not only to dodge conflict.</p>
+            </article>
+            <article class="family-armor-lux-card" role="listitem">
+              <h3 class="family-armor-lux-card-title">Faith</h3>
+              <p class="family-armor-lux-card-desc">Shield—lifting what God said against what fear shouts.</p>
+            </article>
+            <article class="family-armor-lux-card" role="listitem">
+              <h3 class="family-armor-lux-card-title">Salvation</h3>
+              <p class="family-armor-lux-card-desc">Helmet—the mind guarded by what Christ finished.</p>
+            </article>
+            <article class="family-armor-lux-card" role="listitem">
+              <h3 class="family-armor-lux-card-title">The Spirit&rsquo;s sword</h3>
+              <p class="family-armor-lux-card-desc">Scripture itself, spoken and obeyed.</p>
+            </article>
+            <article class="family-armor-lux-card family-armor-lux-card--prayer" role="listitem">
+              <h3 class="family-armor-lux-card-title">Praying always</h3>
+              <p class="family-armor-lux-card-desc">Paul does not end with hardware—he ends with perseverance in prayer for all saints. That thread runs through the workspace: short prayers, not performance.</p>
+            </article>
+          </div>
+          <p class="section-note util-mt-1">Read the full chapter beside you: <a href="bible-tool.html">Bible Tool</a> or <a href="reader.html">Chapter reader</a> → Ephesians 6.</p>
         </section>
 
-        <section class="glass" aria-labelledby="fa-workspace-heading">
-          <h2 class="section-divider" id="fa-workspace-heading">What you&rsquo;ll do in the workspace</h2>
-          <div class="list">
-            <div class="list-item"><div><strong>Stories tab</strong><p>Short Bible-story cards meant for reading or listening together. Tap in, pray one sentence, let the Word do the heavy lifting.</p></div></div>
-            <div class="list-item"><div><strong>Armor tab</strong><p>See which pieces you&rsquo;ve walked through as a household, copy a simple invite link if you want someone on another screen to join the same rhythm, and keep it all <strong>local to this browser</strong> unless you choose to sign in for sync elsewhere.</p></div></div>
-            <div class="list-item"><div><strong>Kids Story Library</strong><p>Every read-along loop, coloring page, and verse shortcut lives in <a href="kids/corner.html">Kids Corner</a>—linked from the workspace so you are not sent on a scavenger hunt.</p></div></div>
+        <section class="glass family-armor-panel" aria-labelledby="fa-workspace-heading">
+          <h2 class="section-divider" id="fa-workspace-heading">In the workspace</h2>
+          <p class="section-note">Three doors on the home page—same calm privacy as here.</p>
+          <div class="family-armor-workspace-grid" role="list">
+            <article class="family-armor-lux-card family-armor-lux-card--workspace" role="listitem">
+              <h3 class="family-armor-lux-card-title">Stories</h3>
+              <p class="family-armor-lux-card-desc">Short Bible-story cards for reading or listening together. One honest prayer; let the Word carry the weight.</p>
+            </article>
+            <article class="family-armor-lux-card family-armor-lux-card--workspace" role="listitem">
+              <h3 class="family-armor-lux-card-title">Armor</h3>
+              <p class="family-armor-lux-card-desc">See which pieces your household has walked through, copy a household invite if you like, and keep progress <strong>local to this browser</strong> unless you sign in for optional sync.</p>
+            </article>
+            <article class="family-armor-lux-card family-armor-lux-card--workspace" role="listitem">
+              <h3 class="family-armor-lux-card-title">Kids Story Library</h3>
+              <p class="family-armor-lux-card-desc">Every loop, coloring page, and verse shortcut lives in <a href="kids/corner.html">Kids Corner</a>—one hop from the modal.</p>
+            </article>
           </div>
           <p class="section-note util-mt-1"><a class="btn btn-primary" href="/#armor-builder-btn">Go to workspace</a></p>
         </section>
 
-        <section class="glass" aria-labelledby="fa-household-heading">
-          <h2 class="section-divider" id="fa-household-heading">Households, curriculum, and calm expectations</h2>
-          <p class="section-note">Some classrooms and family groups use the armor visuals alongside <a href="curriculum.html">curriculum</a> ideas. Progress you see here is meant to encourage faithfulness, not scorekeeping. Miss a week? Pick up with the next story. God meets us in mercy, not metrics.</p>
+        <section class="glass family-armor-panel" aria-labelledby="fa-household-heading">
+          <h2 class="section-divider" id="fa-household-heading">Households, curriculum, calm expectations</h2>
+          <p class="section-note">Some classrooms and family groups pair these visuals with <a href="curriculum.html">curriculum</a> ideas. Progress is meant to encourage faithfulness, not scorekeeping. Miss a week? Pick up with the next story. God meets us in mercy, not metrics.</p>
         </section>
 
-        <section class="glass">
+        <section class="glass family-armor-panel">
           <h2 class="section-divider">More for parents</h2>
-          <p class="section-note">Plans, printables, and a local prayer list for your table: <a href="family.html">Family hub</a>. For teens, the printable OIA sheet pairs well with family worship plans linked there.</p>
+          <p class="section-note">Plans, printables, and a local prayer list for your table: <a href="family.html">Family hub</a>. Teens: the printable OIA sheet pairs well with family worship plans there.</p>
         </section>
       </div>
     </main>

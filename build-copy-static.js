@@ -119,6 +119,7 @@ const rootFiles = [
   'verse-breakdown.js',
   'bible-study-companion.js',
   'word-study.js',
+  'verse-study.js',
   'kjv-lexicon.json',
   'mystudy.js',
   'what-god-has-done.js',

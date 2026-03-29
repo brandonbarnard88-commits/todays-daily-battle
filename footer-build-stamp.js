@@ -75,12 +75,10 @@
       applyStamp(m);
       return;
     }
-    /* Source / live-reload: INLINE_STAMP stays @@…@@ — no build-date.txt on disk; skip fetch (avoids console 404). */
+    /* Unstamped JS (source tree, LAN dev, previews, stale cache): no reliable /build-date.txt — skip fetch (avoids 404 noise). */
     try {
-      var pr = (window.location && window.location.protocol) || '';
-      var ho = (window.location && window.location.hostname) || '';
       var unreplaced = typeof INLINE_STAMP === 'string' && INLINE_STAMP.indexOf('@@') !== -1;
-      if (unreplaced && (pr === 'file:' || ho === 'localhost' || ho === '127.0.0.1' || ho === '[::1]')) {
+      if (unreplaced) {
         applyStamp(fallbackDate());
         return;
       }

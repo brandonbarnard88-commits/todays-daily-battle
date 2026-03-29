@@ -324,7 +324,7 @@ const SOCIAL_PURGE_PATHS = [
   '/footer-build-stamp.js',
   '/footer-build-stamp.js?v=20260328stamp',
   '/footer-build-stamp.js?v=20260329footer',
-  '/footer-build-stamp.js?v=20260328builddate',
+  '/footer-build-stamp.js?v=20260329fdbuild',
   '/tt-bootstrap.js?v=20260326clean',
   '/build-date.txt',
   '/sitemap.xml',

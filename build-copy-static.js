@@ -472,7 +472,7 @@ if (fs.existsSync(wellKnown)) {
 
 // Classic deferred script: fills #footer-date without waiting for script.js (module cache / CSP / order).
 (function injectFooterBuildStampScript() {
-  var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260328builddate"></script>';
+  var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>';
   function ensure(html) {
     if (html.indexOf('footer-build-stamp.js') !== -1) return html;
     if (!/id\s*=\s*["']footer-date["']/.test(html)) return html;

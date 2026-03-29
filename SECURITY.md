@@ -36,6 +36,7 @@
 - **XSS** — User/API content is never written raw to the DOM. Use `escapeHtml()`, `sanitizeHtml()` (DOMPurify when available), or `sanitizeUserInput()` before storing or displaying. Prefer `textContent` when HTML is not needed.
 - **Input** — `sanitizeUserInput()` strips tags and script-like patterns. `truncateForDb()` enforces length limits before Supabase. Use both for prayer intents, family name, message board, etc.
 - **LocalStorage** — Keys prefixed with `tdb_` and versioned (e.g. `tdb_prayer_list_v1`). "Clear local data" button with confirm + toast. No secrets in JS; config placeholder check warns on load.
+- **What God has done** (`what-god-has-done.html`) — Private gratitude/journal entries in **`localStorage`** only (`tdb_what_god_has_done_v1`). **v1: no Supabase rows, no sync.** User-initiated export (plain text / JSON). Analytics must not include entry text; use aggregate events only (e.g. entry count), per PRIVACY-ANALYTICS.md.
 
 ### Supabase
 

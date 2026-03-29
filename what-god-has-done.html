@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="tt-bootstrap.js?v=20260326clean"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What God has done • Private journal • Today&apos;s Daily Battle</title>
+  <meta name="description" content="A private, device-only place to name what God has done—short dated entries, export when you want. KJV site; nothing is shared or graded.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/what-god-has-done.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260402wghd">
+  <link rel="stylesheet" href="what-god-has-done.css?v=20260402wghd">
+  <style>
+    :root { --bg:#0d1117; --text:#f5f7fb; --muted:#8896b0; --gold:#e3bc67; --line:#242d3d; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--gold); color: #111; }
+    .tdb-global-nav {
+      display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
+      padding: 0.35rem 0.75rem; min-height: 52px;
+      background: rgba(8, 12, 22, 0.55); border-bottom: 1px solid rgba(227, 188, 103, 0.22);
+      position: sticky; top: 0; z-index: 201; backdrop-filter: blur(10px); font-size: 0.86rem;
+    }
+    .tdb-global-nav a {
+      color: rgba(226, 232, 240, 0.85); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px;
+      min-height: 44px; display: inline-flex; align-items: center;
+    }
+    .tdb-global-nav a:hover, .tdb-global-nav a:focus-visible { color: var(--gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
+    main.wghd-main { margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.25rem; font-weight: 800; }
+    .lead { color: var(--muted); font-size: 0.95rem; margin: 0 0 1rem; line-height: 1.55; }
+    section { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: none; }
+    h2 { font-size: 1.05rem; color: var(--gold); margin: 0 0 0.65rem; font-weight: 700; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+      padding: 0.55rem 1rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; border: 1px solid rgba(227, 188, 103, 0.45);
+      background: rgba(227, 188, 103, 0.12); color: var(--gold);
+      cursor: pointer; font-family: inherit;
+    }
+    .btn:hover, .btn:focus-visible { background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .btn-secondary { background: transparent; color: rgba(226, 232, 240, 0.9); border-color: var(--line); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--gold); color: var(--gold); }
+    footer { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem 2.5rem; font-size: 0.82rem; color: var(--muted); }
+    footer a { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="tdb-global-nav" aria-label="Main site navigation">
+    <a href="/">Home</a>
+    <a href="explore.html">Explore</a>
+    <a href="site-guide.html">Guide</a>
+    <a href="daily-quiet-time.html">Daily quiet</a>
+    <a href="what-god-has-done.html" aria-current="page">What God has done</a>
+    <a href="mystudy.html">My Study</a>
+    <a href="calm.html">Calm</a>
+    <a href="plans.html">Plans</a>
+    <a href="bible-tool.html">Tools</a>
+  </nav>
+  <main id="main" class="wghd-main">
+    <h1>What God has done</h1>
+    <p class="wghd-subtitle">Private; stays on this device</p>
+    <p class="lead">A quiet place to name mercy, help, or faithfulness you have seen—not a performance, not a post. One honest paragraph is enough. You never have to share this with anyone.</p>
+    <p class="wghd-privacy" role="note">Entries live in your browser&rsquo;s storage on this device only. They are not uploaded, synced, or used for analytics. Clear site data in your browser if you need them gone everywhere here. Export first if you want a backup.</p>
+
+    <div id="wghd-status" class="wghd-status" role="status" aria-live="polite"></div>
+
+    <section class="wghd-form-card" id="wghd-form-card" aria-labelledby="wghd-form-section-title">
+      <h2 id="wghd-form-section-title">Add an entry</h2>
+      <label class="wghd-label" for="wghd-title">Optional title <span class="wghd-label-hint">(short)</span></label>
+      <input id="wghd-title" class="wghd-input-title" type="text" maxlength="120" autocomplete="off" aria-describedby="wghd-title-hint">
+      <p id="wghd-title-hint" class="hidden">Up to 120 characters.</p>
+
+      <label class="wghd-label" for="wghd-body">What you want to remember</label>
+      <textarea id="wghd-body" class="wghd-input-body" maxlength="2000" rows="7" autocomplete="off" aria-describedby="wghd-body-count wghd-body-hint" placeholder="A kindness you noticed, an answer to prayer, a verse that held you…"></textarea>
+      <p id="wghd-body-hint" class="hidden">Up to 2000 characters.</p>
+      <div id="wghd-body-count" class="wghd-char-row" aria-live="polite">0 / 2000</div>
+
+      <div class="wghd-form-actions">
+        <button type="button" class="btn" id="wghd-save">Save entry</button>
+        <button type="button" class="btn btn-secondary hidden" id="wghd-cancel-edit">Cancel edit</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="wghd-entries-heading">
+      <div class="wghd-entries-head">
+        <h2 id="wghd-entries-heading">Your entries</h2>
+      </div>
+      <p id="wghd-empty" class="wghd-empty">Nothing saved yet. When you are ready, write one true line about what God has done—today or years ago.</p>
+      <ul id="wghd-list" class="wghd-list" aria-label="Saved journal entries"></ul>
+    </section>
+
+    <section class="wghd-export" aria-labelledby="wghd-export-heading">
+      <h2 id="wghd-export-heading">Keep a copy</h2>
+      <p class="wghd-export-lead">Download or copy your entries for your files. Still private—you control where it goes.</p>
+      <div class="wghd-export-actions">
+        <button type="button" class="btn btn-secondary" id="wghd-export-txt">Download as text</button>
+        <button type="button" class="btn btn-secondary" id="wghd-export-json">Download as JSON</button>
+        <button type="button" class="btn btn-secondary" id="wghd-copy-all">Copy all (text)</button>
+      </div>
+      <button type="button" class="btn btn-secondary wghd-btn-danger" id="wghd-clear-all">Clear all entries on this device</button>
+      <p class="wghd-sr-context">Removing one entry or clearing all asks for confirmation. There is no undo after clear.</p>
+    </section>
+  </main>
+  <footer>
+    <p><a href="daily-quiet-time.html">Daily quiet time</a> · <a href="site-guide.html">How to use this site</a> · <a href="privacy.html">Privacy</a> · <a href="/">Home</a></p>
+  </footer>
+  <script src="what-god-has-done.js?v=20260402wghd" defer></script>
+</body>
+</html>

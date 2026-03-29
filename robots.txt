@@ -25,6 +25,8 @@ Disallow: /stats.html
 Disallow: /stats
 Disallow: /mystudy.html
 Disallow: /mystudy
+Disallow: /what-god-has-done.html
+Disallow: /what-god-has-done
 Disallow: /secrets.html
 Disallow: /secrets
 

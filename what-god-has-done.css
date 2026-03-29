@@ -1,0 +1,208 @@
+/* What God has done — private journal (device-local). Pairs with tdb-quiet-luxury.css */
+
+.wghd-main {
+  max-width: 40rem;
+}
+
+.wghd-subtitle {
+  font-size: 0.95rem;
+  color: var(--muted, #8896b0);
+  margin: -0.35rem 0 1rem;
+  font-weight: 600;
+}
+
+.wghd-privacy {
+  font-size: 0.88rem;
+  color: var(--muted, #8896b0);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--line, #242d3d);
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.wghd-status {
+  min-height: 1.25rem;
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+  color: rgba(245, 247, 251, 0.88);
+}
+
+.wghd-status[aria-live] {
+  outline: none;
+}
+
+.wghd-status--err {
+  color: #fca5a5;
+}
+
+.wghd-form-card {
+  padding: 1.1rem 1.15rem 1.15rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 28%, var(--line, #242d3d));
+  background: color-mix(in srgb, var(--bg, #0d1117) 88%, var(--gold, #e3bc67));
+  margin-bottom: 2rem;
+}
+
+.wghd-form-card h2 {
+  margin-top: 0;
+}
+
+.wghd-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(226, 232, 240, 0.9);
+  margin-bottom: 0.35rem;
+}
+
+.wghd-label-hint {
+  font-weight: 400;
+  color: var(--muted, #8896b0);
+}
+
+.wghd-input-title,
+.wghd-input-body {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid var(--line, #242d3d);
+  background: rgba(13, 17, 23, 0.85);
+  color: #f5f7fb;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.55rem 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.wghd-input-body {
+  min-height: 7rem;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.wghd-input-title:focus-visible,
+.wghd-input-body:focus-visible {
+  outline: 2px solid rgba(227, 188, 103, 0.55);
+  outline-offset: 2px;
+}
+
+.wghd-char-row {
+  display: flex;
+  justify-content: flex-end;
+  margin: -0.5rem 0 0.75rem;
+  font-size: 0.78rem;
+  color: var(--muted, #8896b0);
+}
+
+.wghd-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.wghd-btn-danger {
+  border-color: rgba(248, 113, 113, 0.45) !important;
+  color: #fecaca !important;
+}
+
+.wghd-btn-danger:hover,
+.wghd-btn-danger:focus-visible {
+  background: rgba(248, 113, 113, 0.12) !important;
+  outline-color: rgba(248, 113, 113, 0.55) !important;
+}
+
+.wghd-entries-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.wghd-empty {
+  font-size: 0.92rem;
+  color: var(--muted, #8896b0);
+  line-height: 1.55;
+  margin: 0;
+  padding: 0.5rem 0 0;
+}
+
+.wghd-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wghd-entry {
+  padding: 1rem 1.05rem;
+  border-radius: 12px;
+  border: 1px solid var(--line, #242d3d);
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.wghd-entry-meta {
+  font-size: 0.8rem;
+  color: var(--muted, #8896b0);
+  margin: 0 0 0.45rem;
+}
+
+.wghd-entry-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--gold, #e3bc67) 90%, #fff);
+  margin: 0 0 0.5rem;
+}
+
+.wghd-entry-body {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.58;
+  color: rgba(245, 247, 251, 0.92);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.wghd-entry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.wghd-export {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line, #242d3d);
+}
+
+.wghd-export-lead {
+  font-size: 0.88rem;
+  color: var(--muted, #8896b0);
+  margin: 0 0 0.85rem;
+  line-height: 1.55;
+}
+
+.wghd-export-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.wghd-sr-context {
+  font-size: 0.82rem;
+  color: var(--muted, #8896b0);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.hidden {
+  display: none !important;
+}

@@ -35,7 +35,19 @@
     .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
     main { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
     h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.75rem; font-weight: 800; }
-    .lead { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.5rem; }
+    .lead { color: var(--muted); font-size: 0.95rem; margin: 0 0 1rem; }
+    .quick-picks {
+      margin: 0 0 1.5rem;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      background: color-mix(in srgb, var(--bg) 92%, var(--gold));
+    }
+    .quick-picks h2 { font-size: 0.72rem; margin: 0 0 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .quick-picks ul { margin: 0; padding-left: 1.15rem; }
+    .quick-picks li { margin-bottom: 0.4rem; }
+    .quick-picks li:last-child { margin-bottom: 0; }
+    .print-doorways-lead { margin: 0; font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
     section { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
     section:last-of-type { border-bottom: none; }
     h2 { font-size: 1.05rem; color: var(--gold); margin: 0 0 0.65rem; font-weight: 700; }
@@ -61,6 +73,8 @@
     <a href="first-steps.html">First steps</a>
     <a href="family-home.html">Family</a>
     <a href="printables.html" aria-current="page">Printables</a>
+    <a href="daily-quiet-time.html">Daily quiet</a>
+    <a href="psalms.html">Psalms</a>
     <a href="seasonal.html">Seasonal</a>
     <a href="/#quick-actions-hero">Topics</a>
     <a href="kids-corner.html">Kids</a>
@@ -69,6 +83,15 @@
   <main id="main">
     <h1>Printables &amp; quiet pages</h1>
     <p class="lead">Paper when you want it—same reverent KJV voice as the rest of the site. Open a page, use your browser&rsquo;s <strong>Print</strong> (or a page&rsquo;s print button). Your words stay private until they hit the sheet.</p>
+
+    <div class="quick-picks" aria-label="Quick picks">
+      <h2>Quick picks</h2>
+      <ul>
+        <li><a href="he-is-risen.html">He is risen</a> — short resurrection readings (anytime)</li>
+        <li><a href="family-activity-packs.html">Family activity packs</a> &amp; <a href="family-youth-journal.html">teen journal</a></li>
+        <li><a href="/verse-cards/">Verse cards</a> (gallery) · <a href="verse-image.html">Verse image</a> (Supporters)</li>
+      </ul>
+    </div>
 
     <section aria-labelledby="print-faith-h2">
       <h2 id="print-faith-h2">Resurrection &amp; Easter</h2>
@@ -109,9 +132,14 @@
       </ul>
       <p class="note">Battle Plans progress still lives in the browser; printing is for what you choose to carry on paper.</p>
     </section>
+
+    <section aria-labelledby="print-doorways-h2">
+      <h2 id="print-doorways-h2">Morning &amp; Psalms doorways</h2>
+      <p class="print-doorways-lead"><a href="daily-quiet-time.html">Daily quiet time</a> — verse, Calm, one plan day, My Study, prayer. <a href="psalms.html">Psalms hub</a> — comfort, praise, and family Psalms plans.</p>
+    </section>
   </main>
   <footer>
-    <p><a href="family.html">Family hub</a> · <a href="plans.html">Battle Plans</a> · <a href="he-is-risen.html">He is risen</a> · <a href="/">Home</a></p>
+    <p><a href="daily-quiet-time.html">Daily quiet</a> · <a href="psalms.html">Psalms</a> · <a href="family.html">Family hub</a> · <a href="plans.html">Battle Plans</a> · <a href="he-is-risen.html">He is risen</a> · <a href="/">Home</a></p>
   </footer>
 </body>
 </html>

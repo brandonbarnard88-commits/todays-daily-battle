@@ -11,7 +11,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/daily-quiet-time.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260402chapel">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260329dqt">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"Daily Quiet Time — start your morning with the Lord","url":"https://todaysdailybattle.com/daily-quiet-time.html","description":"Calm morning hub: verse, Bible search, calm, prayer wall, silent amen, Battle Plans, and My Study on Today's Daily Battle.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
@@ -39,14 +39,28 @@
     section { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
     section:last-of-type { border-bottom: none; }
     h2 { font-size: 1.05rem; color: var(--gold); margin: 0 0 0.65rem; font-weight: 700; }
+    h3 { font-size: 0.98rem; color: color-mix(in srgb, var(--gold) 92%, #fff); margin: 1.15rem 0 0.5rem; font-weight: 700; }
     p { margin: 0 0 0.85rem; color: rgba(245, 247, 251, 0.92); }
+    ol.flow { margin: 0.35rem 0 0; padding-left: 1.35rem; color: rgba(245, 247, 251, 0.9); }
+    ol.flow li { margin-bottom: 0.75rem; }
     ul { margin: 0.35rem 0 0; padding-left: 1.2rem; color: rgba(245, 247, 251, 0.9); }
     li { margin-bottom: 0.45rem; }
     a { color: var(--gold); text-underline-offset: 2px; }
     a:hover, a:focus-visible { color: #f0d28a; }
-    .prayer-starters { margin: 0.5rem 0 0; padding-left: 1.15rem; font-size: 0.93rem; color: rgba(245, 247, 251, 0.88); }
-    .prayer-starters li { margin-bottom: 0.4rem; }
+    .dqt-starters-surface {
+      margin-top: 1.25rem;
+      padding: 1rem 1rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      background: color-mix(in srgb, var(--bg) 90%, var(--gold));
+      scroll-margin-top: 5.5rem;
+    }
+    .dqt-starters-surface h3 { margin-top: 0; }
+    .dqt-starters-lead { margin: 0 0 0.65rem; font-size: 0.9rem; color: var(--muted); }
+    .prayer-starters { margin: 0; padding-left: 1.15rem; font-size: 0.93rem; color: rgba(245, 247, 251, 0.92); line-height: 1.55; }
+    .prayer-starters li { margin-bottom: 0.55rem; }
     .closing-note { font-size: 0.95rem; color: rgba(245, 247, 251, 0.9); margin: 0; padding: 1rem 1rem 0; border-top: 1px solid var(--line); }
+    .closing-note-sub { font-size: 0.88rem; color: var(--muted); margin: 0.65rem 0 0; }
     .cta-row { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1rem; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
@@ -85,6 +99,33 @@
     <h1>Daily quiet time</h1>
     <p class="lead">A gentle place to begin each day. One verse, one calm moment, one focused prayer&mdash;no pressure, just time with God. Everything stays on your device.</p>
 
+    <section aria-labelledby="dqt-flow-h2">
+      <h2 id="dqt-flow-h2">A gentle order (not a rule)</h2>
+      <ol class="flow">
+        <li><a href="verse.html">Verse of the Day</a> &mdash; one steady anchor.</li>
+        <li><a href="calm.html">Calm</a> &mdash; when you need breath before anything else.</li>
+        <li><a href="plans.html?plan=peace">7-Day Peace</a> for rhythm, or <a href="plans.html?plan=armorofgod">Armor of God</a> when the fight feels spiritual, or <a href="plans.html?plan=battle">Battle Distraction</a> when the scroll wins.</li>
+        <li><a href="mystudy.html">My Study</a> &mdash; a line in your own words; optional print later.</li>
+        <li><a href="/#prayer-wall">Prayer Wall</a> on Home &mdash; a short anonymous line, or tap the heart (♥) on someone else&rsquo;s request for a <strong>silent amen</strong>.</li>
+        <li><a href="message.html#message-board">Prayer &amp; message board</a> &mdash; when you want more room than the wall line.</li>
+      </ol>
+
+      <div id="dqt-prayer-tools" class="dqt-starters-surface" tabindex="-1">
+        <h3>Prayer tools &mdash; simple starters</h3>
+        <p class="dqt-starters-lead">Say one slowly, in your own words. No need to finish the list.</p>
+        <ul class="prayer-starters">
+          <li>&ldquo;Lord, help me walk in the Spirit today.&rdquo; &mdash; <a href="plans.html?plan=holyspirit">Holy Spirit — Comforter &amp; walk</a></li>
+          <li>&ldquo;But be ye doers of the word, and not hearers only.&rdquo; (James 1:22, KJV) &mdash; <a href="plans.html?plan=walktheword">Walk the Word — hear &amp; do</a></li>
+          <li>&ldquo;Watch ye, stand fast in the faith&hellip;&rdquo; (1 Corinthians 16:13, KJV) &mdash; <a href="plans.html?plan=standfirm">Stand firm — temptation</a></li>
+          <li>&ldquo;Lo, I am with you alway&hellip;&rdquo; (Matthew 28:20, KJV) &mdash; <a href="plans.html?plan=greatcommission">Great Commission — witness</a></li>
+          <li>&ldquo;Create in me a clean heart, O God.&rdquo; (Psalm 51:10, KJV) &mdash; <a href="reader.html">Chapter reader</a> for context</li>
+          <li>&ldquo;Thy word is a lamp unto my feet&hellip;&rdquo; (Psalm 119:105, KJV) &mdash; <a href="reader.html">Reader</a> or <a href="psalms.html">Psalms hub</a></li>
+          <li>&ldquo;Let the words of my mouth&hellip; be acceptable in thy sight, O LORD.&rdquo; (Psalm 19:14, KJV)</li>
+          <li>&ldquo;Order my steps in thy word&hellip;&rdquo; (Psalm 119:133, KJV)</li>
+        </ul>
+      </div>
+    </section>
+
     <section aria-labelledby="dqt-scripture-h2" id="dqt-scripture">
       <h2 id="dqt-scripture-h2">Start with Scripture</h2>
       <ul>
@@ -102,33 +143,12 @@
       </ul>
     </section>
 
-    <section aria-labelledby="dqt-prayer-tools-h2" id="dqt-prayer-tools">
-      <h2 id="dqt-prayer-tools-h2">Prayer Tools</h2>
-      <ul>
-        <li><a href="/#prayer-wall">Prayer Wall</a> &mdash; share quietly or pray with others (anonymous, local on this device until you sign in).</li>
-        <li><strong>Silent Amen</strong> &mdash; on <a href="/#prayer-wall">Home</a>, tap the heart (♥) beside someone&rsquo;s line; your quiet agreement is counted without typing.</li>
-        <li><a href="message.html#message-board">Write a prayer</a> &mdash; the full prayer &amp; message board when you want more room than the wall line.</li>
-        <li>Scripture-based starters (say slowly, in your own words):
-          <ul class="prayer-starters">
-            <li>&ldquo;Lord, help me walk in the Spirit today.&rdquo; &mdash; <a href="plans.html?plan=holyspirit">Holy Spirit — Comforter &amp; walk</a>.</li>
-            <li>&ldquo;But be ye doers of the word, and not hearers only.&rdquo; (James 1:22, KJV) &mdash; <a href="plans.html?plan=walktheword">Walk the Word — hear &amp; do</a>.</li>
-            <li>&ldquo;Watch ye, stand fast in the faith, quit you like men, be strong.&rdquo; (1 Corinthians 16:13, KJV) &mdash; <a href="plans.html?plan=standfirm">Stand firm — temptation</a>.</li>
-            <li>&ldquo;Lo, I am with you alway, even unto the end of the world.&rdquo; (Matthew 28:20, KJV) &mdash; <a href="plans.html?plan=greatcommission">Great Commission — witness</a>.</li>
-            <li>&ldquo;Create in me a clean heart, O God.&rdquo; (Psalm 51:10, KJV) &mdash; <a href="reader.html">Chapter reader</a> for context.</li>
-            <li>&ldquo;Thy word is a lamp unto my feet, and a light unto my path.&rdquo; (Psalm 119:105, KJV) &mdash; stay in one chapter in the <a href="reader.html">reader</a> if you want to read slowly.</li>
-            <li>&ldquo;Let the words of my mouth&hellip; be acceptable in thy sight, O LORD.&rdquo; (Psalm 19:14, KJV)</li>
-            <li>&ldquo;Order my steps in thy word; and let not any iniquity have dominion over me.&rdquo; (Psalm 119:133, KJV)</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
     <section aria-labelledby="dqt-battle-h2" id="dqt-battle">
       <h2 id="dqt-battle-h2">Continue the Battle</h2>
       <p id="dqt-recommended-wrap" class="dqt-recommended">Recommended Battle Plan for today: <span id="dqt-recommended-plan"></span> &mdash; one KJV verse, plain words, a small step, and prayer; progress stays on this device.</p>
-      <p class="dqt-rotate-note">We rotate gently among a few steady mornings (Armor of God, Peace, Battle Distraction) so no single week feels like a rule.</p>
+      <p class="dqt-rotate-note">We rotate gently among five morning lanes (Armor of God, Peace, Battle Distraction, Holy Spirit, Walk the Word) so the week does not feel like a rule.</p>
       <ul>
-        <li>Prefer to choose yourself? <a href="plans.html?plan=armorofgod">Armor of God</a> · <a href="plans.html?plan=peace">7-Day Peace</a> · <a href="plans.html?plan=battle">Battle Distraction</a>.</li>
+        <li>Prefer to choose yourself? <a href="plans.html?plan=armorofgod">Armor of God</a> · <a href="plans.html?plan=peace">7-Day Peace</a> · <a href="plans.html?plan=battle">Battle Distraction</a> · <a href="plans.html?plan=holyspirit">Holy Spirit</a> · <a href="plans.html?plan=walktheword">Walk the Word</a>.</li>
         <li><a href="mystudy.html">My Study</a> &mdash; notes, plan progress, and a printable bundle from this device.</li>
       </ul>
     </section>
@@ -147,6 +167,7 @@
     </section>
 
     <p class="closing-note">Come back tomorrow. The Lord meets you right where you are &mdash; one quiet time at a time.</p>
+    <p class="closing-note-sub">Bookmark this page if it helps; the same doorway will be here.</p>
   </main>
   <footer>
     <p><a href="printables.html">Printables</a> · <a href="plans.html">Battle Plans</a> · <a href="/">Home</a></p>
@@ -158,7 +179,9 @@
       var plans = [
         { href: 'plans.html?plan=armorofgod', label: 'Armor of God — Daily Battle' },
         { href: 'plans.html?plan=peace', label: '7-Day Peace' },
-        { href: 'plans.html?plan=battle', label: 'Battle Distraction' }
+        { href: 'plans.html?plan=battle', label: 'Battle Distraction' },
+        { href: 'plans.html?plan=holyspirit', label: 'Holy Spirit — Comforter & walk' },
+        { href: 'plans.html?plan=walktheword', label: 'Walk the Word — hear & do' }
       ];
       var day = Math.floor(Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate()) / 86400000);
       var pick = plans[Math.abs(day) % plans.length];

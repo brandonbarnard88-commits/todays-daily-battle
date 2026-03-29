@@ -109,17 +109,17 @@
     strip.classList.toggle('mystudy-memorize-strip--empty', !n);
     if (!n) {
       el.textContent =
-        'Memorize queue is empty. Open the Bible Tool, look up a verse, and tap Memorize—reviews stay on this device.';
+        'Your gentle memory list is empty. When a verse steadies you, add it from Memorize or the Bible Tool—reviews stay on this device.';
       if (btn) btn.classList.add('hidden');
       renderProgressSummary();
       return;
     }
     var line =
       n === 1
-        ? '1 verse in your memorize queue on this device'
-        : n + ' verses in your memorize queue on this device';
+        ? '1 verse quietly held in your memory list on this device'
+        : n + ' verses quietly held in your memory list on this device';
     if (snap.dueNow > 0) {
-      line += snap.dueNow === 1 ? ' · 1 ready to review' : ' · ' + snap.dueNow + ' ready to review';
+      line += snap.dueNow === 1 ? ' · 1 ready when you are' : ' · ' + snap.dueNow + ' ready when you are';
     }
     line += '. Open Note library for the full list.';
     el.textContent = line;
@@ -251,11 +251,11 @@
     }
     if (s.memorizeVerses > 0) {
       var memLine =
-        'Memorize: ' +
+        'Gentle memory list: ' +
         s.memorizeVerses +
         ' verse' +
         (s.memorizeVerses === 1 ? '' : 's') +
-        ' in your queue';
+        ' on this device';
       if (s.memorizeReviewsThisMonth > 0) {
         memLine +=
           ', ' +

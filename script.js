@@ -14725,6 +14725,7 @@ function renderReaderCrossRefsPanel(book, chapter) {
 }
 
 var readerXrefsLastAnchorRef = '';
+var readerXrefsLastVerseSnippet = '';
 
 function normXrefRefKey(r) {
   return String(r || '')
@@ -14868,6 +14869,9 @@ function populateReaderXrefsSheetBody(anchorRef, verseText, full) {
   if (!body) return;
   body.textContent = '';
   const nref = normXrefRefKey(parseReference(anchorRef) || anchorRef);
+  readerXrefsLastVerseSnippet = String(verseText || getVerseSnippetForXrefRef(nref) || '')
+    .replace(/\s+/g, ' ')
+    .trim();
   const built = buildCrossRefSheetSections(nref, full);
 
   const anchorBlock = document.createElement('div');
@@ -14893,7 +14897,7 @@ function populateReaderXrefsSheetBody(anchorRef, verseText, full) {
   if (!built.sections.length) {
     if (emptyEl) {
       emptyEl.textContent =
-        'No curated cross-references for this verse are in the offline list yet. Try another verse, or use the Bible Tool for lookup.';
+        'No curated cross-references for this verse are in the offline list yet. Try another verse, or use the Bible Tool for lookup. You can still tap Study this verse below for KJV word study on this line.';
       emptyEl.classList.remove('hidden');
     }
     return;
@@ -15067,7 +15071,7 @@ function saveReaderXrefsToMyStudy() {
     }
     const status = document.getElementById('reader-xrefs-save-status');
     if (status) {
-      status.textContent = ok ? 'Saved with your verse notes on this device.' : 'Could not save. Storage may be full.';
+      status.textContent = ok ? 'Saved to My Study on this device.' : 'Could not save. Storage may be full.';
       setTimeout(() => {
         status.textContent = '';
       }, 3800);
@@ -15094,6 +15098,20 @@ function wireReaderXrefsSheetUiOnce() {
   if (bd) bd.addEventListener('click', close);
   const saveStudy = document.getElementById('reader-xrefs-save-mystudy');
   if (saveStudy) saveStudy.addEventListener('click', saveReaderXrefsToMyStudy);
+  const wsOpen = document.getElementById('reader-xrefs-wordstudy-open');
+  if (wsOpen) {
+    wsOpen.addEventListener('click', () => {
+      const r = readerXrefsLastAnchorRef;
+      if (!r || !globalThis.TDBWordStudy || typeof globalThis.TDBWordStudy.open !== 'function') return;
+      closeReaderCrossrefsSheet();
+      globalThis.TDBWordStudy.open(r, readerXrefsLastVerseSnippet || '');
+      try {
+        trackEvent('reader_xrefs_open_wordstudy', { ok: true });
+      } catch (e) {
+        /* ignore */
+      }
+    });
+  }
   const printBtn = document.getElementById('reader-xrefs-print');
   if (printBtn) printBtn.addEventListener('click', printReaderXrefsSheetBlock);
   const filterIn = document.getElementById('reader-xrefs-filter');

@@ -83,6 +83,13 @@
     .dqt-ws-ref { font-weight: 700; color: var(--gold); margin: 0 0 0.5rem; font-size: 1rem; }
     .dqt-ws-text { margin: 0 0 1rem; line-height: 1.55; color: rgba(245, 247, 251, 0.92); font-size: 0.98rem; }
     .dqt-ws-surface { margin-top: 0.75rem; }
+    .dqt-memorize-lead { font-size: 0.88rem; color: var(--muted); margin: 0.55rem 0 0; line-height: 1.55; }
+    .dqt-memorize-lead a { font-weight: 600; }
+    .dqt-invite-surface { margin-top: 0.35rem; scroll-margin-top: 5.5rem; }
+    .dqt-invite-h2 { margin: 0 0 0.55rem; font-size: 1rem; font-weight: 700; color: var(--gold); line-height: 1.3; }
+    .dqt-invite-kjv { margin: 0 0 0.35rem; font-size: 0.98rem; line-height: 1.58; color: rgba(245, 247, 251, 0.94); }
+    .dqt-invite-ref { margin: 0 0 0.75rem; font-size: 0.82rem; color: var(--muted); letter-spacing: 0.04em; }
+    .dqt-invite-cta-row { margin: 0; }
   </style>
 </head>
 <body>
@@ -108,6 +115,13 @@
   <main id="main" class="tdb-calm-hub">
     <h1>Daily quiet time</h1>
     <p class="lead">A gentle place to begin the day. One verse, one calm moment, one honest prayer&mdash;no pressure, just room with the Lord. If yesterday was heavy, <strong>Calm alone</strong> is enough; you are not behind. Everything stays on your device.</p>
+
+    <div id="dqt-gentle-invite" class="dqt-starters-surface dqt-invite-surface" aria-labelledby="dqt-invite-heading">
+      <h2 id="dqt-invite-heading" class="dqt-invite-h2">Today&rsquo;s gentle invitation</h2>
+      <p id="dqt-invite-kjv" class="dqt-invite-kjv" aria-live="polite"></p>
+      <p id="dqt-invite-ref" class="dqt-invite-ref"></p>
+      <p class="dqt-invite-cta-row"><a id="dqt-invite-cta" class="btn" href="#">Open</a></p>
+    </div>
 
     <section aria-labelledby="dqt-flow-h2">
       <h2 id="dqt-flow-h2">A gentle order (not a rule)</h2>
@@ -211,7 +225,7 @@
   <footer class="tdb-calm-hub-footer">
     <p><a href="site-guide.html">How to use this site</a> · <a href="printables.html">Printables</a> · <a href="plans.html">Battle Plans</a> · <a href="/">Home</a></p>
   </footer>
-  <script src="word-study.js?v=20260428ws"></script>
+  <script src="word-study.js?v=20260429coh"></script>
   <script>
     (function () {
       var verses = [
@@ -257,6 +271,98 @@
       a.href = pick.href;
       a.textContent = pick.label;
       el.appendChild(a);
+    })();
+  </script>
+  <script>
+    (function () {
+      var invitations = [
+        {
+          kjv: 'Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.',
+          ref: 'Psalm 55:22 (KJV)',
+          href: 'memorize.html',
+          label: 'Open Memorize',
+          slug: 'memorize'
+        },
+        {
+          kjv: 'Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.',
+          ref: 'Psalm 46:10 (KJV)',
+          href: 'calm.html',
+          label: 'Open Calm',
+          slug: 'calm'
+        },
+        {
+          kjv: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',
+          ref: 'Matthew 11:28 (KJV)',
+          href: 'plans.html?plan=peace',
+          label: 'Try 7-Day Peace',
+          slug: 'peace_plan'
+        },
+        {
+          kjv: 'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.',
+          ref: 'John 14:27 (KJV)',
+          href: '#dqt-wordstudy-anchor',
+          label: 'Linger on one verse below',
+          slug: 'wordstudy_anchor'
+        },
+        {
+          kjv: 'It is of the LORD\'s mercies that we are not consumed, because his compassions fail not.',
+          ref: 'Lamentations 3:22 (KJV)',
+          href: 'what-god-has-done.html',
+          label: 'Name His faithfulness',
+          slug: 'wghd'
+        },
+        {
+          kjv: 'For the word of God is quick, and powerful, and sharper than any twoedged sword\u2026',
+          ref: 'Hebrews 4:12 (KJV)',
+          href: 'reader.html',
+          label: 'Open chapter reader',
+          slug: 'reader'
+        },
+        {
+          kjv: 'But be ye doers of the word, and not hearers only, deceiving your own selves.',
+          ref: 'James 1:22 (KJV)',
+          href: 'plans.html?plan=walktheword',
+          label: 'Walk the Word plan',
+          slug: 'walk_word'
+        },
+        {
+          kjv: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
+          ref: 'Philippians 4:6 (KJV)',
+          href: 'mystudy.html',
+          label: 'Open My Study',
+          slug: 'mystudy'
+        },
+        {
+          kjv: 'Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.',
+          ref: 'Romans 15:13 (KJV)',
+          href: 'verse.html',
+          label: 'Verse of the Day',
+          slug: 'verse_page'
+        },
+        {
+          kjv: 'The LORD is my shepherd; I shall not want.',
+          ref: 'Psalm 23:1 (KJV)',
+          href: 'psalms.html',
+          label: 'Psalms hub',
+          slug: 'psalms'
+        }
+      ];
+      var kjvEl = document.getElementById('dqt-invite-kjv');
+      var refEl = document.getElementById('dqt-invite-ref');
+      var cta = document.getElementById('dqt-invite-cta');
+      var wrap = document.getElementById('dqt-gentle-invite');
+      if (!kjvEl || !refEl || !cta || !wrap) return;
+      var day = Math.floor(Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate()) / 86400000);
+      var inv = invitations[Math.abs(day) % invitations.length];
+      kjvEl.textContent = '\u201c' + inv.kjv + '\u201d';
+      refEl.textContent = inv.ref;
+      cta.href = inv.href;
+      cta.textContent = inv.label;
+      cta.addEventListener('click', function () {
+        try {
+          if (typeof trackEvent === 'function') trackEvent('dqt_gentle_invitation', { slug: inv.slug });
+        } catch (e) {}
+      });
     })();
   </script>
 </body>

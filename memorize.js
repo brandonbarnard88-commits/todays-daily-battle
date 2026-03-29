@@ -10,6 +10,11 @@
   var memHintTimer = null;
   var memUtter = null;
   var memRepeatClearTimer = null;
+  var memGoodPulseTimer = null;
+  var memQueueFilterDueOnly = false;
+  /** Matches bible-study-companion MEM_INTERVALS_DAYS length minus one (rhythm normalization). */
+  var MEM_INTERVAL_IDX_MAX = 10;
+  var MEM_RHYTHM_SEEDS = 7;
 
   function byId(id) {
     return document.getElementById(id);
@@ -110,6 +115,32 @@
     }
   }
 
+  function buildHiddenTextForPrint(text) {
+    var raw = String(text || '');
+    if (!raw.trim()) return '';
+    var parts = raw.split(/(\s+)/);
+    var indices = [];
+    for (var i = 0; i < parts.length; i++) {
+      if (!/^\s+$/.test(parts[i]) && parts[i].length > 3) indices.push(i);
+    }
+    var hideCount = Math.max(1, Math.floor(indices.length * 0.35));
+    var pick = {};
+    while (Object.keys(pick).length < hideCount && indices.length) {
+      var j = indices[Math.floor(Math.random() * indices.length)];
+      pick[j] = true;
+    }
+    var out = '';
+    for (var k = 0; k < parts.length; k++) {
+      if (pick[k] && !/^\s+$/.test(parts[k])) {
+        var len = Math.min(14, Math.max(5, parts[k].length));
+        out += '\u2014'.repeat(len);
+      } else {
+        out += parts[k];
+      }
+    }
+    return out.replace(/\s+/g, ' ').trim();
+  }
+
   function applyHideWords() {
     var bodyEl = byId('mem-card-body');
     if (!bodyEl || !memCurrentText) return;
@@ -145,33 +176,54 @@
     var ul = byId('mem-queue-list');
     var empty = byId('mem-queue-empty');
     var grow = byId('mem-growing');
+    var fe = byId('mem-queue-filter-empty');
+    var btnDue = byId('mem-review-due');
+    var btnFull = byId('mem-show-full-queue');
     if (!comp || typeof comp.listMemorizeQueue !== 'function') {
       if (grow) grow.textContent = '';
       return;
     }
-    var rows = comp.listMemorizeQueue();
+    var now = Date.now();
+    var allRows = comp.listMemorizeQueue();
+    var rows = memQueueFilterDueOnly ? allRows.filter(function (r) {
+      return r.dueAt <= now;
+    }) : allRows;
     if (grow) {
-      if (!rows.length) {
-        grow.textContent = '';
+      grow.textContent = '';
+    }
+    if (empty) empty.style.display = allRows.length ? 'none' : '';
+    if (fe) {
+      if (memQueueFilterDueOnly && allRows.length && !rows.length) {
+        fe.hidden = false;
+        fe.textContent =
+          'Nothing is due for review right now — a quiet mercy. Tap Show full list when you want every verse.';
       } else {
-        grow.textContent =
-          'Growing strong: ' +
-          rows.length +
-          ' verse' +
-          (rows.length === 1 ? '' : 's') +
-          ' in your gentle queue on this device.';
+        fe.hidden = true;
+        fe.textContent = '';
       }
     }
-    if (empty) empty.style.display = rows.length ? 'none' : '';
+    if (btnFull) {
+      if (memQueueFilterDueOnly) btnFull.classList.remove('hidden');
+      else btnFull.classList.add('hidden');
+    }
+    if (btnDue && allRows.length) {
+      var dueCount = allRows.filter(function (r) {
+        return r.dueAt <= now;
+      }).length;
+      btnDue.disabled = !dueCount;
+      btnDue.setAttribute('aria-label', dueCount ? 'Show only verses due for review' : 'No verses due right now');
+    } else if (btnDue) {
+      btnDue.disabled = true;
+    }
     if (!ul) return;
     ul.textContent = '';
-    var now = Date.now();
     rows.forEach(function (row) {
       var li = document.createElement('li');
+      var due = row.dueAt <= now;
+      if (due) li.classList.add('mem-queue-due');
       var span = document.createElement('span');
       span.textContent = row.ref;
       li.appendChild(span);
-      var due = row.dueAt <= now;
       var hint = document.createElement('span');
       hint.className = 'section-note';
       hint.style.marginLeft = '0.25rem';
@@ -199,45 +251,87 @@
       open.style.marginLeft = '0.35rem';
       open.textContent = 'Open in reader';
       li.appendChild(open);
+      var loadOne = document.createElement('button');
+      loadOne.type = 'button';
+      loadOne.className = 'btn btn-secondary';
+      loadOne.style.fontSize = '0.82rem';
+      loadOne.style.padding = '0.35rem 0.65rem';
+      loadOne.style.minHeight = '40px';
+      loadOne.textContent = 'Load on card';
+      loadOne.setAttribute('aria-label', 'Load ' + row.ref + ' on the verse card above');
+      loadOne.addEventListener('click', function () {
+        var p = parseRefLoose(row.ref);
+        if (!p) return;
+        setStatus('Loading…');
+        fetchKjvVerse(p)
+          .then(function (text) {
+            showCard(p.label, text);
+            setStatus('Loaded ' + row.ref + '. Flip or review when you want.');
+            try {
+              document.getElementById('mem-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } catch (eScroll) {}
+          })
+          .catch(function () {
+            setStatus('Could not load that verse. Check connection or open the reader.', true);
+          });
+      });
+      li.appendChild(loadOne);
       ul.appendChild(li);
     });
-    renderMemProgressRhythm(rows, now);
+    renderMemProgressRhythm(allRows, now);
   }
 
-  function renderMemProgressRhythm(rows, now) {
+  function renderMemProgressRhythm(allRows, now) {
     var wrap = byId('mem-progress-rhythm');
     var sum = byId('mem-progress-summary');
+    var lab = byId('mem-rhythm-label');
     if (!wrap) return;
-    if (!rows.length) {
+    if (!allRows.length) {
       wrap.hidden = true;
       wrap.innerHTML = '';
+      if (lab) lab.hidden = true;
       if (sum) {
         sum.hidden = true;
         sum.textContent = '';
       }
       return;
     }
+    if (lab) lab.hidden = false;
     wrap.hidden = false;
     wrap.setAttribute('role', 'presentation');
     wrap.setAttribute('aria-hidden', 'true');
     var due = 0;
     var later = 0;
-    wrap.innerHTML = '';
-    rows.forEach(function (row) {
+    var sumNorm = 0;
+    var dueAny = false;
+    allRows.forEach(function (row) {
       var isDue = row.dueAt <= now;
-      if (isDue) due++;
-      else later++;
-      var dot = document.createElement('span');
-      dot.className = 'mem-rhythm-dot' + (isDue ? ' mem-rhythm-dot--due' : '');
-      dot.title = row.ref + (isDue ? ' — ready when you are' : ' — resting until later');
-      wrap.appendChild(dot);
+      if (isDue) {
+        due++;
+        dueAny = true;
+      } else later++;
+      var idx = row.entry && row.entry.intervalIdx != null ? Number(row.entry.intervalIdx) : 0;
+      if (isNaN(idx) || idx < 0) idx = 0;
+      sumNorm += Math.min(1, idx / MEM_INTERVAL_IDX_MAX);
     });
+    var avg = sumNorm / allRows.length;
+    var grownThrough = Math.min(MEM_RHYTHM_SEEDS - 1, Math.round(avg * (MEM_RHYTHM_SEEDS - 1)));
+    wrap.textContent = '';
+    var s;
+    for (s = 0; s < MEM_RHYTHM_SEEDS; s++) {
+      var seed = document.createElement('span');
+      seed.className = 'mem-seed';
+      if (s <= grownThrough) seed.classList.add('mem-seed--grown');
+      if (dueAny && s === grownThrough) seed.classList.add('mem-seed--glow');
+      seed.title = 'Gentle rhythm in your list — not a score';
+      wrap.appendChild(seed);
+    }
     if (sum) {
       sum.hidden = false;
       var parts = [];
       if (due) parts.push(due === 1 ? '1 ready when you are' : due + ' ready when you are');
       if (later) parts.push(later === 1 ? '1 resting' : later + ' resting');
-      sum.textContent = parts.join(' · ') + ' — no scores, just rhythm.';
+      sum.textContent = parts.join(' · ') + '.';
     }
   }
 
@@ -255,29 +349,50 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
     };
+    var footer = 'todaysdailybattle.com &mdash; private &amp; offline';
     var body = '';
     rows.forEach(function (row) {
       var t = memTextCache[row.ref] || '';
-      body += '<article class="mem-print-card"><h2 class="mem-print-ref">' + esc(row.ref) + '</h2>';
+      var backText = t ? buildHiddenTextForPrint(t) : '';
+      body += '<div class="mem-print-pair">';
+      body += '<section class="mem-print-face mem-print-front">';
+      body += '<p class="mem-print-ref">' + esc(row.ref) + '</p>';
       if (t) {
-        body += '<p class="mem-print-text">' + esc(t) + '</p>';
+        body += '<p class="mem-print-body">' + esc(t) + '</p>';
       } else {
         body +=
-          '<p class="mem-print-missing">Verse text will appear after you load this reference once on the Memorize page on this device.</p>';
+          '<p class="mem-print-missing">Load this reference once on the Memorize page on this device to fill the text.</p>';
       }
-      body += '</article>';
+      body += '<p class="mem-print-footer">' + footer + '</p>';
+      body += '</section>';
+      body += '<section class="mem-print-face mem-print-back">';
+      body += '<p class="mem-print-ref">' + esc(row.ref) + '</p>';
+      body += '<p class="mem-print-back-hint">Back &mdash; hide-words side. Print <strong>double-sided</strong> (flip on long edge).</p>';
+      if (backText) {
+        body += '<p class="mem-print-body mem-print-body--back">' + esc(backText) + '</p>';
+      } else {
+        body += '<p class="mem-print-missing">No hide-words text until the verse is loaded on Memorize.</p>';
+      }
+      body += '<p class="mem-print-footer">' + footer + '</p>';
+      body += '</section></div>';
     });
     var html =
       '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>KJV memory cards</title><style>' +
-      '@page{margin:1.2cm}' +
-      'body{font-family:Georgia,serif;line-height:1.55;color:#111;max-width:48rem;margin:0 auto;padding:1rem}' +
-      '.mem-print-card{border:1px solid #ccc;border-radius:10px;padding:1rem 1.15rem;margin-bottom:1.35rem;page-break-inside:avoid}' +
-      '.mem-print-ref{margin:0 0 .45rem;font-size:1.08rem;color:#1a1a1a}' +
-      '.mem-print-text{margin:0;font-size:1rem}' +
-      '.mem-print-missing{margin:0;font-size:.9rem;color:#555;font-style:italic}' +
-      'h1{font-size:1.22rem;margin:0 0 .75rem}' +
-      '.lead{font-size:.88rem;color:#444;margin:0 0 1.35rem;line-height:1.5}' +
-      '</style></head><body><h1>KJV memory cards</h1><p class="lead">From this device only. Fold, cut, or tuck in your Bible&mdash;no streaks, no scores.</p>' +
+      '@page{margin:1cm}' +
+      'body{font-family:Georgia,serif;line-height:1.55;color:#1a1a1a;margin:0;padding:0.75rem;background:#fafafa}' +
+      '@media screen and (max-width:540px){body{padding:0.5rem}.mem-print-face{padding:0.9rem 1rem!important;min-height:auto!important}.mem-print-ref{font-size:1.1rem!important}.mem-print-body{font-size:1.2rem!important}.mem-print-body--back{font-size:1.12rem!important}}' +
+      'h1{font-size:1.2rem;margin:0 0 .5rem}' +
+      '.lead{font-size:.85rem;color:#444;margin:0 0 1rem;line-height:1.45;max-width:40rem}' +
+      '.mem-print-pair{page-break-after:always;margin-bottom:0}' +
+      '.mem-print-pair:last-child{page-break-after:auto}' +
+      '.mem-print-face{page-break-inside:avoid;min-height:42vh;box-sizing:border-box;padding:1.15rem 1.25rem;border:1px solid #ccc;border-radius:12px;margin:0 0 .65rem;background:#fff}' +
+      '.mem-print-ref{margin:0 0 .85rem;font-size:1.2rem;font-weight:700;color:#111;letter-spacing:.01em}' +
+      '.mem-print-body{margin:0;font-size:1.38rem;line-height:1.58;color:#111}' +
+      '.mem-print-body--back{font-size:1.28rem;letter-spacing:.02em}' +
+      '.mem-print-back-hint{margin:0 0 .75rem;font-size:.8rem;color:#555;line-height:1.4}' +
+      '.mem-print-missing{margin:0;font-size:.95rem;color:#555;font-style:italic}' +
+      '.mem-print-footer{margin:1.75rem 0 0;font-size:.68rem;color:#666;letter-spacing:.02em}' +
+      '</style></head><body><h1>KJV memory cards</h1><p class="lead">King James Version. One verse per sheet pair: front = full text, back = gentle blanks. Trim or fold. No scores.</p>' +
       body +
       '</body></html>';
     try {
@@ -322,21 +437,79 @@
     URL.revokeObjectURL(a.href);
   }
 
-  function exportList() {
-    if (!comp || typeof comp.listMemorizeQueue !== 'function') return;
+  function getExportRowsOrBail() {
+    if (!comp || typeof comp.listMemorizeQueue !== 'function') return null;
     var rows = comp.listMemorizeQueue();
     if (!rows.length) {
       setStatus('Add a verse to your list first.', true);
-      return;
+      return null;
     }
-    var lines = ['My memory list (KJV) — Today's Daily Battle', 'Private export from this device.', ''];
+    return rows;
+  }
+
+  function exportListTxt() {
+    var rows = getExportRowsOrBail();
+    if (!rows) return;
+    var lines = [
+      'My memory list (KJV) — Today\'s Daily Battle',
+      'Private export from this device.',
+      ''
+    ];
     rows.forEach(function (r) {
       var t = memTextCache[r.ref] || '';
-      lines.push(r.ref + (t ? '\n' + t : ''));
+      lines.push(r.ref);
+      if (t) lines.push(t);
       lines.push('');
     });
     downloadText('memorize-list-' + new Date().toISOString().slice(0, 10) + '.txt', lines.join('\n'));
-    setStatus('Download started.');
+    setStatus('Plain text download started.');
+    try {
+      if (typeof trackEvent === 'function') trackEvent('memorize_export', { format: 'txt' });
+    } catch (e) {}
+  }
+
+  function exportListMd() {
+    var rows = getExportRowsOrBail();
+    if (!rows) return;
+    var lines = [
+      '# KJV memory list',
+      '',
+      '_Today\'s Daily Battle — private export from this device._',
+      ''
+    ];
+    rows.forEach(function (r) {
+      var t = memTextCache[r.ref] || '';
+      lines.push('## ' + r.ref);
+      lines.push('');
+      lines.push(t || '_Verse text: load this reference on the Memorize page to cache it here._');
+      lines.push('');
+    });
+    downloadText('memorize-list-' + new Date().toISOString().slice(0, 10) + '.md', lines.join('\n'));
+    setStatus('Markdown download started.');
+    try {
+      if (typeof trackEvent === 'function') trackEvent('memorize_export', { format: 'md' });
+    } catch (e) {}
+  }
+
+  function exportListJson() {
+    var rows = getExportRowsOrBail();
+    if (!rows) return;
+    var payload = {
+      version: 1,
+      source: 'todaysdailybattle-memorize',
+      exported: new Date().toISOString(),
+      verses: rows.map(function (r) {
+        return { ref: r.ref, text: memTextCache[r.ref] || '' };
+      })
+    };
+    downloadText(
+      'memorize-list-' + new Date().toISOString().slice(0, 10) + '.json',
+      JSON.stringify(payload, null, 2)
+    );
+    setStatus('JSON backup download started.');
+    try {
+      if (typeof trackEvent === 'function') trackEvent('memorize_export', { format: 'json' });
+    } catch (e) {}
   }
 
   function speakVerse() {
@@ -463,7 +636,11 @@
     var hintBtn = byId('mem-type-hint-now');
     var clearBtn = byId('mem-type-clear');
     var printCards = byId('mem-print-cards');
-    var ex = byId('mem-export-txt');
+    var exTxt = byId('mem-export-txt');
+    var exMd = byId('mem-export-md');
+    var exJson = byId('mem-export-json');
+    var reviewDue = byId('mem-review-due');
+    var showFull = byId('mem-show-full-queue');
     var spk = byId('mem-speak');
     var spkStop = byId('mem-speak-stop');
     var rep = byId('mem-repeat-along');
@@ -524,6 +701,16 @@
         if (!memCurrentRef) return;
         comp.markMemorizeReviewed(memCurrentRef, 'good');
         setStatus('Logged as remembered — your next reminder will wait a little longer.');
+        var card = byId('mem-card');
+        if (card) {
+          card.classList.remove('mem-card--good-pulse');
+          if (memGoodPulseTimer) clearTimeout(memGoodPulseTimer);
+          card.classList.add('mem-card--good-pulse');
+          memGoodPulseTimer = setTimeout(function () {
+            if (card) card.classList.remove('mem-card--good-pulse');
+            memGoodPulseTimer = null;
+          }, prefersReducedMotion() ? 400 : 1000);
+        }
         renderQueue();
       });
     }
@@ -569,7 +756,24 @@
     }
 
     if (printCards) printCards.addEventListener('click', printMemoryCards);
-    if (ex) ex.addEventListener('click', exportList);
+    if (exTxt) exTxt.addEventListener('click', exportListTxt);
+    if (exMd) exMd.addEventListener('click', exportListMd);
+    if (exJson) exJson.addEventListener('click', exportListJson);
+
+    if (reviewDue) {
+      reviewDue.addEventListener('click', function () {
+        memQueueFilterDueOnly = true;
+        renderQueue();
+        setStatus('Showing verses that are due for a gentle review.');
+      });
+    }
+    if (showFull) {
+      showFull.addEventListener('click', function () {
+        memQueueFilterDueOnly = false;
+        renderQueue();
+        setStatus('Full memory list.');
+      });
+    }
 
     if (spk) spk.addEventListener('click', speakVerse);
     if (spkStop) spkStop.addEventListener('click', stopSpeak);

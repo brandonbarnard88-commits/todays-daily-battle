@@ -25,13 +25,14 @@ for (let i = 0; i < arr.length; i++) {
   words[k] = {
     g: String(e.note || '').trim(),
     s: e.step ? String(e.step).trim() : '',
+    w: e.why ? String(e.why).trim() : '',
     x: examples
   };
 }
 const out = {
   version: 2,
   source: 'kjv-word-notes',
-  about: 'Curated KJV English glosses (not a full historic dictionary). g=meaning, s=how to read, x=sample refs.',
+  about: 'Curated KJV English glosses (not a full historic dictionary). g=meaning, s=how to read, w=why it matters today, x=sample refs.',
   count: Object.keys(words).length,
   words
 };

@@ -41,7 +41,7 @@ PAGES = [
     ("/plans.html", "Battle Plans", ["Battle Plans", "plan-list", "planIndex", "familyworship", "Family Worship in the Trenches", "psalmscomfortfamily", "Psalms of Comfort (Family Edition)", "hreflang=\"pt\" href=\"https://todaysdailybattle.com/pt/planos.html\"", "tdb-cache-hygiene:"]),
     ("/bible-tool.html", "Bible Tool", ["Bible Tool", "Study workshop", "bible/tools.html", "Bible stories", "bible-story-tool-index.js", "Featured this week", "corner.html?story=davidGoliath", "id=\"lookup-btn\"", "id=\"daily-ref\"", "Read full chapter", "verse-image.html", "tdb-cache-hygiene:"]),
     ("/verse-image.html", "Verse image generator", ["Verse image generator", "verse-image-canvas", "Supporter", "recent-gens", "data-verse-store", "verse-image-text-color", "cross"]),
-    ("/bible-study.html", "Bible Study", ["Bible", "id=\"auth-section\""]),
+    ("/bible-study.html", "Bible Study", ["Bible", "study-card-title", "Armor of God", "reading-plan.html?study=armor-of-god", "script.js?v=20260328studygrid", "id=\"auth-section\""]),
     ("/coloring.html", "Coloring", ["Coloring", "Kids", "coloring-sheet-grid", "Pick a page", "id=\"auth-section\""]),
     ("/kids-corner.html", "Kids Corner", ["Bible Loop Library", "kids-loop-og.jpg", "Download loop progress (PDF)", "loop-pdf-export", 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', "Quick calm loops", "Open Kids Coloring", "coloring.html", "hreflang=\"pt\" href=\"https://todaysdailybattle.com/pt/criancas.html\"", "Story Stars", "loop-grid", "script.js?v=20260328feelwire", "kids-corner.css?v=8",
     "kids-corner-daily-verse.js?v=3",

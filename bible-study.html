@@ -166,10 +166,72 @@
         <section id="bible-study" class="glass">
           <h1 class="section-divider">Bible Studies – Free for All</h1>
           <p class="section-note">Short, daily dives. No login, no guilt—just faith.</p>
-          <p class="section-note util-mb-0">Pick a topic below. Click Start to begin—progress saves on this device (or syncs when you sign in).</p>
-          <div class="study-grid" aria-label="Study list">
-            <!-- Cards loaded from Supabase by script.js -->
+          <p class="section-note util-mb-0">Pick a topic below. Click <strong>Start</strong> to begin—progress saves on this device (or syncs when you sign in).</p>
+          <div class="study-grid" aria-label="Study list" data-tdb-bible-study-cards="1">
             <p class="section-note study-grid-loading" id="study-grid-loading">Loading studies…</p>
+            <div class="study-card">
+              <h3 class="study-card-title">Armor of God</h3>
+              <span class="study-card-topic">Spiritual warfare</span>
+              <p class="study-card-desc">A 7-day look at Ephesians 6:10–18. Belt of truth, breastplate of righteousness, shield of faith—one piece per day.</p>
+              <span class="study-card-days">7 days</span>
+              <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=armor-of-god">Start Free</a>
+            </div>
+            <div class="study-card">
+              <h3 class="study-card-title">Peace in the Storm</h3>
+              <span class="study-card-topic">Anxiety &amp; peace</span>
+              <p class="study-card-desc">Short daily verses and reflections on finding calm when life is chaotic. 5 days.</p>
+              <span class="study-card-days">5 days</span>
+              <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=peace-in-storm">Start Free</a>
+            </div>
+            <div class="study-card">
+              <h3 class="study-card-title">Fruit of the Spirit</h3>
+              <span class="study-card-topic">Character &amp; growth</span>
+              <p class="study-card-desc">Galatians 5:22–23—love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance. One fruit per day.</p>
+              <span class="study-card-days">9 days</span>
+              <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=fruit-of-spirit">Start Free</a>
+            </div>
+            <div class="study-card">
+              <h3 class="study-card-title">Forgiveness Flow</h3>
+              <span class="study-card-topic">Forgiveness</span>
+              <p class="study-card-desc">Matthew 18, Psalm 51, and more. Let go, move on, and receive God&rsquo;s mercy. 7 days.</p>
+              <span class="study-card-days">7 days</span>
+              <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=forgiveness-flow">Start Free</a>
+            </div>
+            <div class="study-card">
+              <h3 class="study-card-title">Psalms of Comfort</h3>
+              <span class="study-card-topic">Comfort &amp; refuge</span>
+              <p class="study-card-desc">Psalm 23, 27, 46, 91, and more. When you need a refuge, these verses meet you there. 7 days.</p>
+              <span class="study-card-days">7 days</span>
+              <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=psalms-of-comfort">Start Free</a>
+            </div>
+            <div class="study-card">
+              <h3 class="study-card-title">Faith Over Fear</h3>
+              <span class="study-card-topic">Courage</span>
+              <p class="study-card-desc">2 Timothy 1:7, Isaiah 41:10, Joshua 1:9—replace fear with faith. 5 days.</p>
+              <span class="study-card-days">5 days</span>
+              <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=faith-over-fear">Start Free</a>
+            </div>
+            <div class="study-card">
+              <h3 class="study-card-title">Hope in Hard Times</h3>
+              <span class="study-card-topic">Hope</span>
+              <p class="study-card-desc">Psalms and Romans—find light when it&rsquo;s dark. God of hope fills you with joy and peace. 5 days.</p>
+              <span class="study-card-days">5 days</span>
+              <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=hope-in-hard-times">Start Free</a>
+            </div>
+            <div class="study-card">
+              <h3 class="study-card-title">Love One Another</h3>
+              <span class="study-card-topic">Love</span>
+              <p class="study-card-desc">John 13:34, 1 John 4—how to love as Christ loved. 5 days.</p>
+              <span class="study-card-days">5 days</span>
+              <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=love-one-another">Start Free</a>
+            </div>
+            <div class="study-card">
+              <h3 class="study-card-title">The Beatitudes</h3>
+              <span class="study-card-topic">Blessed life</span>
+              <p class="study-card-desc">Matthew 5:3–11—Jesus&rsquo; portrait of the blessed. Poor in spirit, meek, merciful, peacemakers. 9 days.</p>
+              <span class="study-card-days">9 days</span>
+              <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=beatitudes">Start Free</a>
+            </div>
           </div>
         </section>
         <p class="section-note util-mt-1"><a href="/">← Back to Home</a> · <a href="reading-plan.html">7-Day Reading Plan</a> · <a href="study.html">Study Workspace</a></p>
@@ -332,10 +394,10 @@
 </footer>
   </div>
 
-  <script type="module" src="script.js?v=20260328feelwire"></script>
+  <script type="module" src="script.js?v=20260328studygrid"></script>
   <script nonce="tdb2025s">
     (function() {
-      var grid = document.querySelector('.study-grid');
+      var grid = document.querySelector('#bible-study .study-grid');
       var loadingEl = document.getElementById('study-grid-loading');
       if (!grid) return;
       grid.setAttribute('aria-busy', 'true');

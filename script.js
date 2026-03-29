@@ -19106,9 +19106,8 @@ function getDefaultBibleStudies() {
 }
 
 async function loadStudies() {
-  var grid = document.querySelector('.study-grid');
+  var grid = document.querySelector('#bible-study .study-grid');
   if (!grid) return;
-  if (!document.getElementById('study-grid-loading')) return;
   var loadingEl = document.getElementById('study-grid-loading');
   grid.setAttribute('aria-busy', 'true');
   if (loadingEl) loadingEl.textContent = 'Loading studies…';
@@ -19195,6 +19194,7 @@ async function loadStudies() {
     });
     grid.setAttribute('aria-busy', 'false');
   }
+}
 
 function startStudy(id) {
   try {
@@ -22106,7 +22106,7 @@ async function tdbInitImpl() {
     }
   })();
 
-  if (document.querySelector('.study-grid')) loadStudies();
+  if (document.querySelector('#bible-study .study-grid')) loadStudies();
 
   (function initTestimonialsCarousel() {
     var slidesContainer = document.getElementById('testimonial-slides');
@@ -24796,5 +24796,4 @@ function wireRandomBattleVerseHero() {
   }
   window.addEventListener('load', improveAccessibility);
 })();
-}  // Workaround: closes unclosed block (fixes "Unexpected end of script" parse error)
 //# sourceMappingURL=script.js.map

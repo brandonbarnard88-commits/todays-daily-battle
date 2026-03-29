@@ -31,6 +31,12 @@
 /explore
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
+/site-guide.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/site-guide
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
 /plans.html
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache

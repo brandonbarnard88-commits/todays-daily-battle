@@ -97,6 +97,8 @@ const SOCIAL_PURGE_PATHS = [
   '/team-toolkit',
   '/explore.html',
   '/explore',
+  '/site-guide.html',
+  '/site-guide',
   '/plans',
   '/my-verses.html',
   '/my-verses',

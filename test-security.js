@@ -127,6 +127,8 @@ const headerLines = headers.split(/\r?\n/).map((l) => l.trim());
 const cacheHygienePaths = [
   '/explore.html',
   '/explore',
+  '/site-guide.html',
+  '/site-guide',
   '/plans.html',
   '/plans',
   '/my-verses.html',

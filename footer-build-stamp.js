@@ -41,12 +41,18 @@
   }
   function buildDateUrl() {
     try {
-      var b = document.querySelector('base[href]');
-      if (b && b.href) {
-        var u = new URL('build-date.txt', b.href);
-        return u.pathname + (u.search || '');
+      var o = window.location && window.location.origin;
+      if (o && o !== 'null') {
+        return new URL('/build-date.txt', o).href;
       }
     } catch (e) {}
+    try {
+      var b = document.querySelector('base[href]');
+      if (b && b.href) {
+        var u = new URL('/build-date.txt', b.href);
+        return u.href;
+      }
+    } catch (e2) {}
     return '/build-date.txt';
   }
   function distInlineStamp() {
@@ -69,6 +75,16 @@
       applyStamp(m);
       return;
     }
+    /* Source / live-reload: INLINE_STAMP stays @@…@@ — no build-date.txt on disk; skip fetch (avoids console 404). */
+    try {
+      var pr = (window.location && window.location.protocol) || '';
+      var ho = (window.location && window.location.hostname) || '';
+      var unreplaced = typeof INLINE_STAMP === 'string' && INLINE_STAMP.indexOf('@@') !== -1;
+      if (unreplaced && (pr === 'file:' || ho === 'localhost' || ho === '127.0.0.1' || ho === '[::1]')) {
+        applyStamp(fallbackDate());
+        return;
+      }
+    } catch (eLocal) {}
     var nodes = document.querySelectorAll('#footer-date');
     if (!nodes.length) return;
     var j;

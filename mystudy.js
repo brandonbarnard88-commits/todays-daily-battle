@@ -109,7 +109,7 @@
     strip.classList.toggle('mystudy-memorize-strip--empty', !n);
     if (!n) {
       el.textContent =
-        'Your gentle memory list is empty. When a verse steadies you, add it from Memorize or the Bible Tool—reviews stay on this device.';
+        'Nothing here yet. When a verse touches your heart, add it from Memorize or the Bible Tool—reviews stay on this device. The Lord meets you right where you are.';
       if (btn) btn.classList.add('hidden');
       renderProgressSummary();
       return;
@@ -288,7 +288,11 @@
       aPl.className = 'mystudy-inline-tool-link';
       aPl.textContent = 'Battle Plans';
       p.appendChild(aPl);
-      p.appendChild(document.createTextNode('—this panel will show a simple rhythm. No rush.'));
+      p.appendChild(
+        document.createTextNode(
+          '—this panel will show a simple rhythm. No rush. The Lord meets you right where you are.'
+        )
+      );
       el.appendChild(p);
       return;
     }
@@ -308,13 +312,15 @@
     if (!q.length) {
       var empty = document.createElement('li');
       empty.className = 'section-note mystudy-empty-hint';
-      empty.appendChild(document.createTextNode('Nothing here yet—that is fine. In the '));
+      empty.appendChild(document.createTextNode('Nothing here yet. When a verse touches your heart, look it up in the '));
       var emA = document.createElement('a');
       emA.href = 'bible-tool.html';
       emA.className = 'mystudy-inline-tool-link';
       emA.textContent = 'Bible Tool';
       empty.appendChild(emA);
-      empty.appendChild(document.createTextNode(', look up a verse and tap Memorize; we keep a gentle review schedule on this device.'));
+      empty.appendChild(
+        document.createTextNode(' and tap Memorize—a gentle review stays on this device. The Lord meets you right where you are.')
+      );
       el.appendChild(empty);
       return;
     }
@@ -401,13 +407,15 @@
     if (!top.length) {
       var empty = document.createElement('li');
       empty.className = 'section-note mystudy-empty-hint';
-      empty.appendChild(document.createTextNode('No tagged notes yet. In the '));
+      empty.appendChild(document.createTextNode('No tagged notes yet. When a verse touches your heart, save a note in the '));
       var elBt = document.createElement('a');
       elBt.href = 'bible-tool.html';
       elBt.className = 'mystudy-inline-tool-link';
       elBt.textContent = 'Bible Tool';
       empty.appendChild(elBt);
-      empty.appendChild(document.createTextNode(', add a comma-separated tag when you save a note—themes you care about can show up here.'));
+      empty.appendChild(
+        document.createTextNode(' and add a comma-separated tag—themes you care about gather here. The Lord meets you right where you are.')
+      );
       el.appendChild(empty);
       return;
     }
@@ -474,11 +482,11 @@
           rows.length + ' note' + (rows.length === 1 ? '' : 's') + (q ? ' match your filter.' : ' saved from the Bible Tool.');
       } else if (q) {
         statusEl.textContent =
-          'No notes match that filter. Clear the box or tap All / another tag to widen the list.';
+          'No notes match that filter yet. Clear the box or tap All to widen the list. The Lord meets you right where you are.';
       } else {
         var emptyP = document.createElement('p');
         emptyP.className = 'section-note mystudy-empty-hint';
-        emptyP.appendChild(document.createTextNode('No verse notes yet. Look up a verse in the '));
+        emptyP.appendChild(document.createTextNode('No notes saved yet. When a verse touches your heart, save a verse study or add your own thoughts in the '));
         var stA = document.createElement('a');
         stA.href = 'bible-tool.html';
         stA.className = 'mystudy-inline-tool-link';
@@ -486,7 +494,7 @@
         emptyP.appendChild(stA);
         emptyP.appendChild(
           document.createTextNode(
-            ' and add a note—everything stays on this device. When you have notes, use Print notes or Print full bundle at the top of this tab to save a tidy copy.'
+            '—everything stays on this device. Print notes or Print full bundle when you want a tidy copy. The Lord meets you right where you are.'
           )
         );
         statusEl.appendChild(emptyP);
@@ -532,14 +540,16 @@
       if (!recent.length) {
         var empty = document.createElement('li');
         empty.className = 'section-note mystudy-empty-hint';
-        empty.appendChild(document.createTextNode('No recent chapters yet. Open any chapter in the '));
+        empty.appendChild(document.createTextNode('No recent chapters yet. When you are ready, open any chapter in the '));
         var rA = document.createElement('a');
         rA.href = 'reader.html';
         rA.className = 'mystudy-inline-tool-link';
         rA.textContent = 'chapter reader';
         empty.appendChild(rA);
         empty.appendChild(
-          document.createTextNode('—your last few chapters will list here and can be included when you print the full bundle.')
+          document.createTextNode(
+            '—your last few will list here for the full bundle. The Lord meets you right where you are.'
+          )
         );
         recentEl.appendChild(empty);
       } else {
@@ -569,7 +579,7 @@
     if (!refEl || !textEl) return;
     refEl.textContent =
       study.verseRef ||
-      'No verse selected. Search above, or open the Bible Tool and pick a reference to study here.';
+      'No verse selected yet. Search on Home or open the Bible Tool when you are ready. The Lord meets you right where you are.';
     textEl.textContent = study.verseText || '';
   }
 
@@ -579,7 +589,7 @@
     var items = loadShared();
     if (!items.length) {
       listEl.innerHTML =
-        '<p class="section-note mystudy-empty-hint">No shared studies yet. Paste a code someone sent you, or generate one from My Study after you pick a verse.</p>';
+        '<p class="section-note mystudy-empty-hint">No shared studies yet. Paste a code someone sent you, or generate one after you pick a verse. The Lord meets you right where you are.</p>';
       return;
     }
     listEl.innerHTML = '';

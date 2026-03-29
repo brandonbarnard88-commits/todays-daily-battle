@@ -13399,9 +13399,9 @@ function setTtsPlaying(playing) {
   if (stopBtn) stopBtn.style.display = playing ? 'inline-flex' : 'none';
   var readerListen = document.getElementById('reader-listen');
   if (readerListen && !readerListen.hidden) {
-    readerListen.textContent = playing ? 'Stop' : 'Read aloud';
+    readerListen.textContent = playing ? 'Stop' : 'Listen';
     readerListen.setAttribute('aria-pressed', playing ? 'true' : 'false');
-    readerListen.setAttribute('aria-label', playing ? 'Stop reading this chapter aloud' : 'Read this chapter aloud');
+    readerListen.setAttribute('aria-label', playing ? 'Stop chapter narration' : 'Listen to this chapter on your device');
   }
 }
 
@@ -19358,7 +19358,8 @@ function renderResults(results) {
   updateGroupPrompts(results);
   const queryText = (results && results.queryText) || normalizeInput(lastQueryInput || '');
   if (results.intent === 'empty') {
-    output.innerHTML = '<p class="empty">Type a topic, keyword, or Bible reference to begin.</p>';
+    output.innerHTML =
+      '<p class="empty">Nothing here yet. Type a topic, a feeling, or a Bible reference to begin. The Lord meets you right where you are.</p>';
     triggerResultsFade(output);
     return;
   }
@@ -19381,7 +19382,8 @@ function renderResults(results) {
     }
     var emptyP = document.createElement('p');
     emptyP.className = 'empty topic-explain';
-    emptyP.textContent = 'Nothing found for that search — try a feeling, topic, or Bible reference (e.g. "John 3:16").';
+    emptyP.textContent =
+      'Nothing found yet. Try a different word or phrase—or tap a topic below. When a verse meets you there, save it from the card. The Lord meets you right where you are.';
     output.appendChild(emptyP);
     var fuzzySuggestions = typeof getFuzzyTopicSuggestions === 'function' ? getFuzzyTopicSuggestions(queryText || lastQueryInput || '', 3) : [];
     var suggestions = document.createElement('div');

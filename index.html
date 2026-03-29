@@ -4023,6 +4023,13 @@
       line-height: 1.5;
       color: var(--muted);
     }
+    .hero-listen-hint {
+      margin: 0.35rem 0 0;
+      max-width: 26rem;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
     .smart-ref {
       cursor: help;
       text-decoration: underline dotted;
@@ -5137,6 +5144,7 @@
             class="read-aloud-btn read-aloud-with-label"
             id="readAloudBtn"
             type="button"
+            aria-describedby="hero-listen-hint"
             aria-label="Listen — verse and today’s breakdown read aloud"
             aria-pressed="false"
           >
@@ -5152,6 +5160,7 @@
             <span class="read-aloud-label">Listen</span>
           </button>
         </div>
+        <p id="hero-listen-hint" class="hero-listen-hint">KJV on this device — tap Listen to hear the verse.</p>
         <p class="verse-ref" id="heroRef">Philippians 4:6-7 (KJV)</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses stay on your device.</span>

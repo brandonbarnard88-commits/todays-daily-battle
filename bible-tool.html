@@ -665,8 +665,8 @@
           <p id="bible-story-tool-count" class="section-note util-mb-0_5" aria-live="polite"></p>
           <ul id="bible-story-tool-list" class="bible-story-tool-list" role="list"></ul>
           <div id="bible-story-tool-no-results" class="bible-story-tool-no-results hidden" role="status" aria-live="polite" tabindex="-1">
-            No stories match your search or filter.<br />
-            Try a different theme or keyword.
+            No results yet. Try a different word or phrase from the KJV—or widen the theme.<br />
+            The Lord meets you right where you are.
           </div>
           <p class="section-note util-mt-1 util-mb-0"><a href="/kids/corner.html" class="bible-tool-gold-link">Open Kids Story Library</a> for the full experience.</p>
         </section>
@@ -1435,7 +1435,8 @@
     banner.innerHTML = '';
     var p = document.createElement('p');
     p.className = 'empty';
-    p.textContent = 'Could not load that verse. Check the reference or your connection, then try again.';
+    p.textContent =
+      'Could not load that verse yet. Check the reference or your connection, then try again. The Lord meets you right where you are.';
     var retryBtn = document.createElement('button');
     retryBtn.type = 'button';
     retryBtn.id = 'lookup-retry';
@@ -1471,8 +1472,8 @@
     html += others.length ? others.slice(0, 10).map(function (ref) {
       var txt = notes[ref].length > 80 ? notes[ref].slice(0, 80) + '…' : notes[ref];
       return '<p class="section-note util-mb-0_5"><strong>' + escapeHtml(ref) + '</strong>: ' + escapeHtml(txt) + '</p>';
-    }).join('') : (battleLog ? '' : '<p class="section-note">No notes saved yet. Look up a verse, then add a note above or use Add to Notes.</p>');
-    list.innerHTML = html || '<p class="section-note">No notes saved yet.</p>';
+    }).join('') : (battleLog ? '' : '<p class="section-note">No notes saved yet. When a verse touches your heart, look it up above and add a note—or use Add to Notes. The Lord meets you right where you are.</p>');
+    list.innerHTML = html || '<p class="section-note">No notes saved yet. When a verse touches your heart, add a note above. The Lord meets you right where you are.</p>';
   }
 
   function shareVerse(ref, text, useToolUrl) {

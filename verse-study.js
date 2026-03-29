@@ -627,7 +627,7 @@
     injectStyles();
     ensureLayer();
     wireLayerOnce();
-    stateRef = parseCanonRef(refRaw) || normRefKey(refRaw);
+    stateRef = normRefKey(refRaw);
     stateText = String(textOpt || '').trim();
     var refEl = document.getElementById('tdb-vs-ref');
     var verseEl = document.getElementById('tdb-vs-verse');

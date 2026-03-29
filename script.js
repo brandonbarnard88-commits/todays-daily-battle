@@ -4155,32 +4155,27 @@ async function waitForSupabaseReady(timeoutMs = 10000) {
 
 async function ensureSupabaseLoaded() {
   if (initSupabaseClient()) {
-    setAuthStatus('Auth ready.', 'success');
     return true;
   }
   const existing = document.querySelector('script[data-supabase-sdk="true"]');
   if (existing) {
     const ready = await waitForSupabaseReady(10000);
     if (ready) {
-      setAuthStatus('Auth ready.', 'success');
       return true;
     }
   }
   for (const urlOrObj of supabaseScriptUrls) {
     const ok = await loadSupabaseScript(urlOrObj);
     if (ok && initSupabaseClient()) {
-      setAuthStatus('Auth ready.', 'success');
       return true;
     }
     const ready = await waitForSupabaseReady(8000);
     if (ready) {
-      setAuthStatus('Auth ready.', 'success');
       return true;
     }
   }
   const delayedReady = await waitForSupabaseReady(8000);
   if (delayedReady) {
-    setAuthStatus('Auth ready.', 'success');
     return true;
   }
   await reportSupabaseDiagnostics();
@@ -20539,11 +20534,11 @@ async function tdbInitImpl() {
         note.textContent = 'Sign-in is optional. Log in to save your streak, favorite verses, and custom plans across devices.';
         authSection.querySelectorAll('input, select, button').forEach(function (el) { el.style.display = 'none'; });
       } else {
-        note.textContent = 'Sign-in loading… If this persists, check that the Supabase SDK loads (network).';
-        ensureSupabaseLoaded();
+        note.textContent = 'Sign-in loads in a moment. If it never does, check your connection or try a refresh.';
         setTimeout(function () {
           var status = document.getElementById('auth-status');
-          if (status && status.textContent && status.textContent.indexOf('Loading') !== -1) {
+          var t = status && status.textContent ? status.textContent : '';
+          if (t && (t.indexOf('Getting sign-in ready') !== -1 || t.indexOf('Loading') !== -1)) {
             reportSupabaseDiagnostics();
           }
         }, 12000);
@@ -20553,7 +20548,11 @@ async function tdbInitImpl() {
     if (!hasConfig) {
       setAuthStatus('Sign-in is optional. Log in to save your streak, favorite verses, and custom plans across devices.', 'info');
     } else {
-      setAuthStatus('Auth not ready. Loading…', 'error');
+      setAuthStatus('Getting sign-in ready…', 'info');
+      await ensureSupabaseLoaded();
+      if (supabaseClient) {
+        setAuthStatus('', 'info');
+      }
     }
   }
   const { data: sessionData } = supabaseClient

@@ -12,6 +12,7 @@
     '#tdb-ws-panel{position:relative;z-index:1;width:100%;max-width:32rem;max-height:min(90vh,680px);overflow:auto;margin:0;padding:1rem 1.1rem 1.25rem;border-radius:18px 18px 0 0;border:1px solid rgba(212,200,170,.55);border-bottom:none;background:#faf7f0;box-shadow:0 -16px 48px rgba(28,24,18,.14),0 4px 24px rgba(28,24,18,.08);color:#1c1917}' +
     '@media(min-width:520px){#tdb-wordstudy-layer{align-items:center;padding:1rem}#tdb-ws-panel{border-radius:18px;border-bottom:1px solid rgba(212,200,170,.55);max-height:min(88vh,660px)}}' +
     '@media(max-width:380px){#tdb-ws-panel{padding:.8rem .9rem 1.05rem;border-radius:16px 16px 0 0}#tdb-ws-title{font-size:.95rem}.word-study-panel{padding:.85rem .9rem .9rem}}' +
+    '@media(max-width:360px){#tdb-ws-panel{padding:.72rem .82rem 1rem}.tdb-ws-chip{min-height:42px;padding:.26rem .55rem;font-size:.84rem}}' +
     '#tdb-ws-header{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .75rem;margin-bottom:.55rem}' +
     '#tdb-ws-back{min-height:44px;padding:.35rem .8rem;font-size:.88rem;font-weight:600;font-family:inherit;border-radius:10px;border:1px solid rgba(90,78,58,.28);background:#fff;cursor:pointer;color:#292524}' +
     '#tdb-ws-back:hover,#tdb-ws-back:focus-visible{background:#fffdf8;border-color:rgba(138,112,48,.45);outline:2px solid rgba(227,188,103,.5);outline-offset:2px}' +
@@ -100,7 +101,7 @@
     btn.setAttribute('data-tdb-wordstudy-ref', ref);
     if (text) btn.setAttribute('data-tdb-wordstudy-text', text);
     else btn.removeAttribute('data-tdb-wordstudy-text');
-    btn.setAttribute('aria-label', 'Word study for ' + ref);
+    btn.setAttribute('aria-label', 'Open word study for today’s verse of the day');
   }
 
   function syncVersePageWordStudyButton() {
@@ -121,7 +122,7 @@
     btn.setAttribute('data-tdb-wordstudy-ref', ref);
     if (text) btn.setAttribute('data-tdb-wordstudy-text', text);
     else btn.removeAttribute('data-tdb-wordstudy-text');
-    btn.setAttribute('aria-label', 'Word study for ' + ref);
+    btn.setAttribute('aria-label', 'Open word study for ' + ref);
   }
 
   function wireGlobalWordStudyAnchors() {

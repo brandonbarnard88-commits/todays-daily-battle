@@ -90,6 +90,45 @@
     .dqt-invite-kjv { margin: 0 0 0.35rem; font-size: 0.98rem; line-height: 1.58; color: rgba(245, 247, 251, 0.94); }
     .dqt-invite-ref { margin: 0 0 0.75rem; font-size: 0.82rem; color: var(--muted); letter-spacing: 0.04em; }
     .dqt-invite-cta-row { margin: 0; }
+    @media (max-width: 380px) {
+      .dqt-invite-surface.dqt-starters-surface { padding-left: 1rem; padding-right: 1rem; }
+      .dqt-invite-h2 { font-size: 0.95rem; }
+      .dqt-invite-kjv { font-size: 0.92rem; }
+    }
+    .dqt-invite-ws-wrap {
+      margin: 0.65rem 0 0;
+      padding-top: 0.55rem;
+      border-top: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line));
+    }
+    .dqt-invite-ws-btn {
+      display: inline-block;
+      margin: 0;
+      padding: 0.35rem 0;
+      background: none;
+      border: none;
+      color: rgba(226, 232, 240, 0.72);
+      font-size: 0.84rem;
+      font-family: inherit;
+      line-height: 1.45;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      min-height: 44px;
+      text-align: left;
+    }
+    .dqt-invite-ws-btn:hover,
+    .dqt-invite-ws-btn:focus-visible {
+      color: var(--gold);
+      outline: 2px solid rgba(227, 188, 103, 0.45);
+      outline-offset: 3px;
+    }
+    .dqt-family-nudge {
+      margin: 0.85rem 0 0;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: rgba(245, 247, 251, 0.88);
+    }
+    .dqt-family-nudge a { font-weight: 600; }
   </style>
 </head>
 <body>
@@ -121,6 +160,9 @@
       <p id="dqt-invite-kjv" class="dqt-invite-kjv" aria-live="polite"></p>
       <p id="dqt-invite-ref" class="dqt-invite-ref"></p>
       <p class="dqt-invite-cta-row"><a id="dqt-invite-cta" class="btn" href="#">Open</a></p>
+      <p class="dqt-invite-ws-wrap">
+        <button type="button" class="dqt-invite-ws-btn" id="dqt-invite-open-wordstudy">Word study on this verse</button>
+      </p>
     </div>
 
     <section aria-labelledby="dqt-flow-h2">
@@ -217,6 +259,7 @@
         <li><a href="printables.html">Printables hub</a> &mdash; activity packs, verse cards, sheets.</li>
         <li><a href="plans.html?plan=parenting">Parenting in Faith</a> &mdash; seven days when patience runs low before the day does.</li>
       </ul>
+      <p class="dqt-family-nudge">Short table win: read one short passage aloud in the <a href="reader.html">chapter reader</a>, or tuck one line into <a href="memorize.html">Memorize</a>&mdash;no quiz, just hearing God&rsquo;s words together.</p>
     </section>
 
     <p class="closing-note">Come back when you can. No streak to keep, and no guilt for a quiet day&mdash;mercy is still there when you return.</p>
@@ -225,7 +268,7 @@
   <footer class="tdb-calm-hub-footer">
     <p><a href="site-guide.html">How to use this site</a> · <a href="printables.html">Printables</a> · <a href="plans.html">Battle Plans</a> · <a href="/">Home</a></p>
   </footer>
-  <script src="word-study.js?v=20260429coh"></script>
+  <script src="word-study.js?v=20260430wave2"></script>
   <script>
     (function () {
       var verses = [
@@ -363,6 +406,27 @@
           if (typeof trackEvent === 'function') trackEvent('dqt_gentle_invitation', { slug: inv.slug });
         } catch (e) {}
       });
+      function stripWsRef(r) {
+        return String(r || '')
+          .replace(/\s*\(KJV\)\s*$/i, '')
+          .trim();
+      }
+      var wsBtn = document.getElementById('dqt-invite-open-wordstudy');
+      if (wsBtn) {
+        var wsRef = stripWsRef(inv.ref);
+        var wsText = inv.kjv;
+        wsBtn.setAttribute('aria-label', 'Open full word study for ' + wsRef);
+        wsBtn.addEventListener('click', function () {
+          if (!window.TDBWordStudy || typeof window.TDBWordStudy.open !== 'function') return;
+          try {
+            if (typeof window.TDBWordStudy.init === 'function') window.TDBWordStudy.init();
+          } catch (eInit) {}
+          window.TDBWordStudy.open(wsRef, wsText);
+          try {
+            if (typeof trackEvent === 'function') trackEvent('dqt_invite_open_wordstudy', { slug: inv.slug });
+          } catch (eTr) {}
+        });
+      }
     })();
   </script>
 </body>

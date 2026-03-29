@@ -69,6 +69,23 @@
       outline: 2px solid var(--primary, #e3bc67);
       outline-offset: 2px;
     }
+    .verse-word-study-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.35rem;
+      width: 100%;
+      max-width: 26rem;
+    }
+    .verse-study-hint {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--muted, #8b949e);
+    }
+    @media (max-width: 380px) {
+      .verse-study-hint { font-size: 0.82rem; }
+    }
   </style>
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -252,7 +269,10 @@
             <button type="button" id="verse-page-share-encourage" class="btn btn-secondary">Share with someone who needs it</button>
             <button type="button" id="verse-page-copy" class="btn btn-secondary" aria-label="Copy verse and link to clipboard">Copy verse</button>
             <button type="button" id="verse-page-save-my-verses" class="btn btn-secondary" aria-describedby="verse-save-hint-text" aria-label="Save today&apos;s verse to My Verses on this device">Save to My Verses</button>
-            <button type="button" id="verse-page-word-study" class="btn btn-secondary" data-tdb-wordstudy-ref="Philippians 4:6" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." aria-label="Word study for today&apos;s verse">Word study</button>
+            <div class="verse-word-study-wrap">
+              <span id="verse-study-hint" class="verse-study-hint">Slow on one word—concordance and short glosses stay on your device.</span>
+              <button type="button" id="verse-page-word-study" class="btn btn-secondary" data-tdb-wordstudy-ref="Philippians 4:6" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." aria-describedby="verse-study-hint" aria-label="Open word study for Philippians 4:6">Study this verse</button>
+            </div>
             <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy verse and share link">Pray this with me</button>
           </div>
           <p id="verse-save-hint-text" class="section-note verse-save-hint">Saved verses appear in <a href="/my-verses.html">My Verses</a>—the same list as Search and the <a href="/bible-tool.html">Bible tool</a>. All verses are from the KJV.</p>
@@ -418,7 +438,7 @@
   </div>
 
   <script src="inline-bootstrap.js"></script>
-  <script src="word-study.js?v=20260429coh" defer></script>
+  <script src="word-study.js?v=20260430wave2" defer></script>
   <script src="verse-breakdown.js?v=20260327-vod-breakdown" defer></script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260331mysave" data-cfasync="false"></script>

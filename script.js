@@ -9832,6 +9832,60 @@ function wirePrayThisWithMe() {
   }
 }
 
+/** verse.html: Listen uses on-device narration (same engine as verse study / reader). */
+function wireVersePageListen() {
+  var btn = document.getElementById('verse-listen-btn');
+  if (!btn) return;
+  function setIdle() {
+    btn.setAttribute('aria-pressed', 'false');
+    btn.textContent = 'Listen';
+    btn.setAttribute('aria-label', 'Listen to this verse on your device');
+  }
+  function getRefTextHighlight() {
+    var card = document.getElementById('daily-verse-card');
+    var refEl = card && card.querySelector('strong');
+    var p = card && (card.querySelector('strong + p') || card.querySelector('p'));
+    var r = refEl ? String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+    var body = p ? String(p.textContent || '').replace(/\s+/g, ' ').trim() : '';
+    return { ref: r, text: body, highlightEl: p || card };
+  }
+  btn.addEventListener('click', function () {
+    var N = window.TDBVerseNarration;
+    if (N && N.isSpeaking && N.isSpeaking()) {
+      if (N.stop) N.stop();
+      setIdle();
+      return;
+    }
+    var v = getRefTextHighlight();
+    if (!v.ref || !v.text) return;
+    if (!N || typeof N.speakPlainText !== 'function') return;
+    var body = v.ref + '. ' + v.text;
+    var ok = N.speakPlainText(body, {
+      calm: true,
+      highlightEl: v.highlightEl || null,
+      onComplete: function () { setIdle(); }
+    });
+    if (ok) {
+      btn.setAttribute('aria-pressed', 'true');
+      btn.textContent = 'Stop';
+      btn.setAttribute('aria-label', 'Stop verse narration');
+      try {
+        if (typeof trackEvent === 'function') trackEvent('verse_page_listen', { verse_ref: v.ref });
+      } catch (e) {}
+    }
+  });
+  window.addEventListener('tdb-verse-tts-playing', function (e) {
+    if (!document.body || !document.body.classList.contains('tdb-verse-page')) return;
+    var on = !!(e && e.detail && e.detail.playing);
+    if (!on) setIdle();
+  });
+  window.addEventListener('tdb-daily-verse-updated', function () {
+    var N = window.TDBVerseNarration;
+    if (N && N.isSpeaking && N.isSpeaking() && N.stop) N.stop();
+    setIdle();
+  });
+}
+
 /** Homepage hero: save today’s verse to My Verses (same storage path as verse.html / Bible tool). */
 function wireHeroSaveToMyVerses() {
   var heroBtn = document.getElementById('hero-save-my-verses');
@@ -21137,6 +21191,7 @@ async function tdbInitImpl() {
   wireBreatheWithHim();
   wireQuickPrayAutocomplete();
   wirePrayThisWithMe();
+  wireVersePageListen();
   wireHeroSaveToMyVerses();
   wireDawnDuskQuickPrayLabel();
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak();

@@ -10,6 +10,10 @@
   var LS_PHRASE_PAUSE = 'tdb_verse_narr_phrase_pause';
   var LS_REPEAT = 'tdb_verse_narr_repeat';
   var LS_AMBIENT = 'tdb_verse_narr_ambient';
+  /** 1–10 UI level; maps to undertone gain when ambient is on */
+  var LS_AMBIENT_LEVEL = 'tdb_verse_narr_ambient_level';
+  var AMBIENT_GAIN_MIN = 0.018;
+  var AMBIENT_GAIN_MAX = 0.078;
 
   var RATE_PRESETS = { very_slow: 0.68, slow: 0.78, normal: 0.88 };
   var PHRASE_PAUSE_MS = 480;
@@ -77,10 +81,60 @@
     } catch (e) {}
   }
 
+  function clamp(n, lo, hi) {
+    return Math.min(hi, Math.max(lo, n));
+  }
+
+  function levelToGain(level) {
+    var lv = clamp(Number(level) || 5, 1, 10);
+    return AMBIENT_GAIN_MIN + ((lv - 1) / 9) * (AMBIENT_GAIN_MAX - AMBIENT_GAIN_MIN);
+  }
+
+  function gainToLevel(gain) {
+    var g = clamp(Number(gain) || levelToGain(5), AMBIENT_GAIN_MIN, AMBIENT_GAIN_MAX);
+    var lv = 1 + Math.round(((g - AMBIENT_GAIN_MIN) / (AMBIENT_GAIN_MAX - AMBIENT_GAIN_MIN)) * 9);
+    return clamp(lv, 1, 10);
+  }
+
+  function getAmbientLevel() {
+    try {
+      var raw = localStorage.getItem(LS_AMBIENT_LEVEL);
+      var n = parseInt(raw, 10);
+      if (!isNaN(n) && n >= 1 && n <= 10) return n;
+    } catch (e) {}
+    return 5;
+  }
+
+  function setAmbientLevel(level) {
+    try {
+      var lv = clamp(parseInt(level, 10) || 5, 1, 10);
+      localStorage.setItem(LS_AMBIENT_LEVEL, String(lv));
+    } catch (e) {}
+  }
+
+  function currentAmbientGain() {
+    return levelToGain(getAmbientLevel());
+  }
+
   function notifyPlaying(playing) {
     try {
       global.dispatchEvent(new CustomEvent('tdb-verse-tts-playing', { detail: { playing: !!playing } }));
     } catch (e) {}
+  }
+
+  function broadcastProgress(opts, detail) {
+    try {
+      global.dispatchEvent(new CustomEvent('tdb-verse-tts-progress', { detail: detail }));
+    } catch (e) {}
+    if (opts && typeof opts.onProgress === 'function') {
+      try {
+        opts.onProgress(detail);
+      } catch (e2) {}
+    }
+  }
+
+  function clearProgressBroadcast() {
+    broadcastProgress(null, { active: false, index: 0, total: 0, source: '' });
   }
 
   function pickVoice(synth) {
@@ -154,7 +208,7 @@
       filter.type = 'lowpass';
       filter.frequency.value = 380;
       var gain = ambientCtx.createGain();
-      gain.gain.value = 0.035;
+      gain.gain.value = currentAmbientGain();
       src.connect(filter);
       filter.connect(gain);
       gain.connect(ambientCtx.destination);
@@ -219,6 +273,7 @@
     var hv = document.getElementById('heroVerse');
     if (hv) clearHeroHighlight(hv);
     notifyPlaying(false);
+    clearProgressBroadcast();
   }
 
   function isSpeaking() {
@@ -254,6 +309,8 @@
     var synth = global.speechSynthesis;
     var voice = pickVoice(synth);
     var heroEl = opts.highlightEl || null;
+    var progressSrc = opts.progressSource || '';
+    var totalPhrases = list.length;
 
     startSoftAmbient();
     notifyPlaying(true);
@@ -285,6 +342,7 @@
         stopAmbient();
         clearLineHL();
         notifyPlaying(false);
+        broadcastProgress(opts, { active: false, index: 0, total: 0, source: progressSrc });
         if (typeof opts.onComplete === 'function') opts.onComplete();
         return;
       }
@@ -299,6 +357,12 @@
       ut.onstart = function () {
         if (myTok !== queueToken) return;
         applyHL(seg.el || null);
+        broadcastProgress(opts, {
+          active: true,
+          index: i + 1,
+          total: totalPhrases,
+          source: progressSrc
+        });
       };
       ut.onend = function () {
         if (myTok !== queueToken) return;
@@ -383,6 +447,8 @@
     setRepeat: setRepeat,
     getAmbient: getAmbient,
     setAmbient: setAmbient,
+    getAmbientLevel: getAmbientLevel,
+    setAmbientLevel: setAmbientLevel,
     RATE_PRESETS: RATE_PRESETS
   };
 })(typeof window !== 'undefined' ? window : this);

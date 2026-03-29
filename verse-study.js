@@ -11,6 +11,11 @@
   var WGHD_MAX_BODY = 800;
   var WGHD_VERSION = 1;
 
+  var SVG_LISTEN =
+    '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>';
+  var SVG_STOP =
+    '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>';
+
   var VS_CSS =
     '#tdb-verse-study-layer{position:fixed;inset:0;z-index:395;display:flex;align-items:flex-end;justify-content:center;padding:0;box-sizing:border-box;font-family:ui-sans-serif,system-ui,Segoe UI,Inter,sans-serif}' +
     '#tdb-verse-study-layer.tdb-vs-hidden{display:none!important}' +
@@ -40,17 +45,29 @@
     '.tdb-vs-actions .tdb-vs-primary{background:rgba(227,188,103,.22);border-color:rgba(138,112,48,.35)}' +
     '#tdb-vs-status{margin:.55rem 0 0;font-size:.84rem;min-height:1.2em;color:#57534e}' +
     '#tdb-vs-foot{margin:.65rem 0 0;font-size:.78rem;line-height:1.45;color:#78716c}' +
-    '.tdb-vs-listen-block{margin:0 0 1rem;padding:.65rem .75rem;border-radius:14px;border:1px solid rgba(138,112,48,.22);background:rgba(255,253,248,.65)}' +
-    '.tdb-vs-listen-row{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .65rem}' +
-    '.tdb-vs-listen-btn{min-height:44px;padding:.42rem .9rem;border-radius:10px;border:1px solid rgba(90,78,58,.28);background:rgba(227,188,103,.2);color:#292524;font-weight:700;font-size:.86rem;cursor:pointer;font-family:inherit}' +
-    '.tdb-vs-listen-btn:hover,.tdb-vs-listen-btn:focus-visible{outline:2px solid rgba(227,188,103,.45);outline-offset:2px}' +
-    '.tdb-vs-listen-btn.tdb-vs-listen-active{background:rgba(124,92,28,.22);border-color:rgba(124,92,28,.35)}' +
-    '.tdb-vs-listen-details{margin:.5rem 0 0;font-size:.82rem;color:#44403c}' +
+    '.tdb-vs-listen-block{margin:0 0 1rem;padding:.75rem .85rem;border-radius:16px;border:2px solid rgba(200,168,88,.45);background:linear-gradient(180deg,rgba(255,248,230,.9) 0%,rgba(250,244,232,.95) 100%);box-shadow:0 6px 20px rgba(124,92,28,.08)}' +
+    '.tdb-vs-listen-row{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem .75rem}' +
+    '.tdb-vs-listen-btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:48px;padding:.5rem 1.05rem;border-radius:12px;border:2px solid rgba(138,112,48,.42);background:linear-gradient(180deg,rgba(255,236,188,.95) 0%,rgba(227,188,103,.55) 100%);color:#3d3420;font-weight:700;font-size:.92rem;letter-spacing:.02em;cursor:pointer;font-family:inherit;box-shadow:0 2px 8px rgba(124,92,28,.12)}' +
+    '.tdb-vs-listen-btn:hover,.tdb-vs-listen-btn:focus-visible{outline:2px solid rgba(227,188,103,.65);outline-offset:2px;border-color:rgba(124,92,28,.5)}' +
+    '.tdb-vs-listen-btn.tdb-vs-listen-active{background:linear-gradient(180deg,rgba(254,240,220,.98) 0%,rgba(212,168,88,.35) 100%);border-color:rgba(124,92,28,.38)}' +
+    '.tdb-vs-listen-icon{display:inline-flex;flex-shrink:0;color:#5c4a24}' +
+    '.tdb-vs-listen-icon svg{display:block}' +
+    '.tdb-vs-repeat-verse-btn{min-height:44px;padding:.42rem .75rem;border-radius:10px;border:1px solid rgba(90,78,58,.32);background:#fff;color:#44403c;font-weight:600;font-size:.82rem;cursor:pointer;font-family:inherit}' +
+    '.tdb-vs-repeat-verse-btn:hover,.tdb-vs-repeat-verse-btn:focus-visible{outline:2px solid rgba(227,188,103,.45);outline-offset:2px;border-color:rgba(138,112,48,.45);color:#292524}' +
+    '.tdb-vs-listen-progress{margin:.55rem 0 0}' +
+    '.tdb-vs-listen-progress.hidden{display:none!important}' +
+    '.tdb-vs-progress-label{margin:0 0 .35rem;font-size:.8rem;font-weight:600;color:#57534e}' +
+    '.tdb-vs-progress-track{height:6px;border-radius:999px;background:rgba(120,113,108,.2);overflow:hidden}' +
+    '.tdb-vs-progress-bar{height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,rgba(200,168,88,.85),rgba(227,188,103,.95));transition:width .2s ease}' +
+    '.tdb-vs-listen-details{margin:.55rem 0 0;font-size:.82rem;color:#44403c}' +
     '.tdb-vs-listen-details summary{cursor:pointer;font-weight:600;min-height:40px;list-style:none}' +
     '.tdb-vs-listen-details summary::-webkit-details-marker{display:none}' +
     '.tdb-vs-listen-opts{display:flex;flex-direction:column;gap:.45rem;margin:.45rem 0 0}' +
     '.tdb-vs-listen-opts label{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}' +
     '.tdb-vs-listen-opts select{min-height:40px;padding:.25rem .4rem;border-radius:8px;border:1px solid rgba(90,78,58,.25);font:inherit;max-width:100%}' +
+    '.tdb-vs-listen-opts .tdb-vs-ambient-row{display:flex;flex-direction:column;align-items:flex-start;gap:.35rem}' +
+    '.tdb-vs-listen-opts input[type=range]{width:100%;max-width:16rem;min-height:32px}' +
+    '.tdb-vs-ambient-gain-label{font-size:.78rem;color:#78716c;font-weight:500}' +
     '#tdb-vs-verse.tdb-vs-verse--tts-speak{box-shadow:0 0 0 2px rgba(227,188,103,.35);border-radius:8px;transition:box-shadow .25s ease}' +
     'body.tdb-verse-study-open{overflow:hidden}';
 
@@ -364,17 +381,28 @@
       '<ul id="tdb-vs-xref-list"></ul></div>' +
       '<div id="tdb-vs-listen-block" class="tdb-vs-listen-block hidden">' +
       '<div class="tdb-vs-listen-row">' +
-      '<button type="button" id="tdb-vs-listen" class="tdb-vs-listen-btn">Listen</button>' +
-      '<span id="tdb-vs-listen-hint" class="tdb-vs-foot" style="margin:0;flex:1 1 10rem">KJV only, on your device. Tap again to stop.</span></div>' +
+      '<button type="button" id="tdb-vs-listen" class="tdb-vs-listen-btn" aria-label="Listen to this verse on your device">' +
+      '<span class="tdb-vs-listen-icon" aria-hidden="true">' +
+      SVG_LISTEN +
+      '</span><span class="tdb-vs-listen-label">Listen</span></button>' +
+      '<button type="button" id="tdb-vs-repeat-verse" class="tdb-vs-repeat-verse-btn">Repeat this verse</button>' +
+      '<span id="tdb-vs-listen-hint" class="tdb-vs-foot" style="margin:0;flex:1 1 8rem">KJV on this device. Tap Listen again to stop.</span></div>' +
+      '<div id="tdb-vs-listen-progress" class="tdb-vs-listen-progress hidden" role="group" aria-label="Narration progress">' +
+      '<p id="tdb-vs-listen-progress-label" class="tdb-vs-progress-label"></p>' +
+      '<div id="tdb-vs-listen-progress-track" class="tdb-vs-progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="1" aria-valuenow="1">' +
+      '<div id="tdb-vs-listen-progress-bar" class="tdb-vs-progress-bar"></div></div></div>' +
       '<details class="tdb-vs-listen-details">' +
       '<summary>Narration options</summary>' +
       '<div class="tdb-vs-listen-opts">' +
       '<label for="tdb-vs-rate">Speed <select id="tdb-vs-rate" aria-label="Narration speed">' +
       '<option value="very_slow">Very slow</option><option value="slow">Slow</option><option value="normal">Normal</option></select></label>' +
       '<label><input type="checkbox" id="tdb-vs-phrase-pause" checked> Pause between phrases</label>' +
-      '<label><input type="checkbox" id="tdb-vs-repeat"> Repeat until stopped</label>' +
-      '<label><input type="checkbox" id="tdb-vs-ambient"> Very soft undertone (generated on-device, optional)</label>' +
-      '</div></details></div>' +
+      '<label><input type="checkbox" id="tdb-vs-repeat"> Repeat until stopped (loops)</label>' +
+      '<div class="tdb-vs-ambient-row">' +
+      '<label><input type="checkbox" id="tdb-vs-ambient"> Soft undertone (on-device, optional)</label>' +
+      '<label class="tdb-vs-ambient-gain-label" for="tdb-vs-ambient-gain">Undertone strength</label>' +
+      '<input type="range" id="tdb-vs-ambient-gain" min="1" max="10" value="5" step="1" aria-label="Undertone strength, 1 quietest to 10 stronger">' +
+      '</div></div></details></div>' +
       '<div class="tdb-vs-actions">' +
       '<button type="button" class="tdb-vs-primary" id="tdb-vs-save-mystudy">Save to My Study</button>' +
       '<button type="button" id="tdb-vs-memorize">Add to Memorize</button>' +
@@ -417,6 +445,8 @@
     if (pr) pr.addEventListener('click', printStudy);
     var ln = document.getElementById('tdb-vs-listen');
     if (ln) ln.addEventListener('click', toggleVerseStudyListen);
+    var rv = document.getElementById('tdb-vs-repeat-verse');
+    if (rv) rv.addEventListener('click', repeatVerseStudyListen);
     var rt = document.getElementById('tdb-vs-rate');
     if (rt) rt.addEventListener('change', readVerseStudyListenPrefsFromForm);
     var ppEl = document.getElementById('tdb-vs-phrase-pause');
@@ -424,8 +454,24 @@
     var rpEl = document.getElementById('tdb-vs-repeat');
     if (rpEl) rpEl.addEventListener('change', readVerseStudyListenPrefsFromForm);
     var amEl = document.getElementById('tdb-vs-ambient');
-    if (amEl) amEl.addEventListener('change', readVerseStudyListenPrefsFromForm);
+    if (amEl) {
+      amEl.addEventListener('change', function () {
+        readVerseStudyListenPrefsFromForm();
+        updateAmbientGainDisabled();
+      });
+    }
+    var agEl = document.getElementById('tdb-vs-ambient-gain');
+    if (agEl) {
+      agEl.addEventListener('input', readVerseStudyListenPrefsFromForm);
+      agEl.addEventListener('change', readVerseStudyListenPrefsFromForm);
+    }
     syncVerseStudyListenUi();
+    if (!global.__tdbVsProgressEv) {
+      global.__tdbVsProgressEv = true;
+      global.addEventListener('tdb-verse-tts-progress', function (e) {
+        updateVerseStudyProgress(e && e.detail);
+      });
+    }
     if (!global.__tdbVsListenPlayingEv) {
       global.__tdbVsListenPlayingEv = true;
       global.addEventListener('tdb-verse-tts-playing', function (e) {
@@ -456,6 +502,18 @@
     if (pp) pp.checked = N.getPhrasePause();
     if (rp) rp.checked = N.getRepeat();
     if (am) am.checked = N.getAmbient() === 'soft';
+    var ag = document.getElementById('tdb-vs-ambient-gain');
+    if (ag && typeof N.getAmbientLevel === 'function') ag.value = String(N.getAmbientLevel());
+    updateAmbientGainDisabled();
+  }
+
+  function updateAmbientGainDisabled() {
+    var am = document.getElementById('tdb-vs-ambient');
+    var ag = document.getElementById('tdb-vs-ambient-gain');
+    if (!ag) return;
+    var on = am && am.checked;
+    ag.disabled = !on;
+    ag.setAttribute('aria-disabled', on ? 'false' : 'true');
   }
 
   function readVerseStudyListenPrefsFromForm() {
@@ -465,37 +523,60 @@
     var pp = document.getElementById('tdb-vs-phrase-pause');
     var rp = document.getElementById('tdb-vs-repeat');
     var am = document.getElementById('tdb-vs-ambient');
+    var ag = document.getElementById('tdb-vs-ambient-gain');
     if (rate && rate.value) N.setRatePreset(rate.value);
     if (pp) N.setPhrasePause(!!pp.checked);
     if (rp) N.setRepeat(!!rp.checked);
     if (am) N.setAmbient(am.checked ? 'soft' : 'off');
+    if (ag && typeof N.setAmbientLevel === 'function') N.setAmbientLevel(ag.value);
   }
 
   function setVerseStudyListenButtonActive(on) {
     var ln = document.getElementById('tdb-vs-listen');
     if (!ln) return;
+    var label = ln.querySelector('.tdb-vs-listen-label');
+    var icon = ln.querySelector('.tdb-vs-listen-icon');
     ln.classList.toggle('tdb-vs-listen-active', !!on);
     ln.setAttribute('aria-pressed', on ? 'true' : 'false');
-    ln.textContent = on ? 'Stop' : 'Listen';
-    ln.setAttribute('aria-label', on ? 'Stop verse narration' : 'Listen to this verse, on device');
+    if (label) label.textContent = on ? 'Stop' : 'Listen';
+    if (icon) icon.innerHTML = on ? SVG_STOP : SVG_LISTEN;
+    ln.setAttribute('aria-label', on ? 'Stop verse narration' : 'Listen to this verse on your device');
   }
 
-  function toggleVerseStudyListen() {
-    var N = global.TDBVerseNarration;
-    if (!N) return;
-    if (N.isSpeaking()) {
-      N.stop();
-      narrationFromVerseStudy = false;
-      setVerseStudyListenButtonActive(false);
+  function updateVerseStudyProgress(detail) {
+    var wrap = document.getElementById('tdb-vs-listen-progress');
+    var lab = document.getElementById('tdb-vs-listen-progress-label');
+    var bar = document.getElementById('tdb-vs-listen-progress-bar');
+    var track = document.getElementById('tdb-vs-listen-progress-track');
+    if (!wrap || !lab || !bar || !track) return;
+    if (!detail || !detail.active || detail.source !== 'verse-study' || !detail.total) {
+      wrap.classList.add('hidden');
+      lab.textContent = '';
+      bar.style.width = '0%';
       return;
     }
-    readVerseStudyListenPrefsFromForm();
+    wrap.classList.remove('hidden');
+    var i = detail.index;
+    var t = detail.total;
+    lab.textContent = t === 1 ? 'Reading…' : 'Phrase ' + i + ' of ' + t;
+    var pct = Math.min(100, Math.round((i / t) * 100));
+    bar.style.width = pct + '%';
+    track.setAttribute('aria-valuenow', String(i));
+    track.setAttribute('aria-valuemax', String(t));
+    track.setAttribute('aria-valuemin', '1');
+    track.setAttribute('aria-label', 'Phrase ' + i + ' of ' + t);
+  }
+
+  function startVerseStudyNarration() {
+    var N = global.TDBVerseNarration;
+    if (!N) return;
     var ref = normRefKey(stateRef);
     var body = stateText ? (ref ? ref + '. ' : '') + stateText : '';
     if (!String(body).trim()) return;
     var ok = N.speakPlainText(body, {
       highlightMode: 'verse-study',
       calm: true,
+      progressSource: 'verse-study',
       onComplete: function () {
         narrationFromVerseStudy = false;
         setVerseStudyListenButtonActive(false);
@@ -508,6 +589,34 @@
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_listen', {});
       } catch (e) {}
     }
+  }
+
+  function toggleVerseStudyListen() {
+    var N = global.TDBVerseNarration;
+    if (!N) return;
+    if (N.isSpeaking()) {
+      N.stop();
+      narrationFromVerseStudy = false;
+      setVerseStudyListenButtonActive(false);
+      return;
+    }
+    readVerseStudyListenPrefsFromForm();
+    startVerseStudyNarration();
+  }
+
+  function repeatVerseStudyListen() {
+    var N = global.TDBVerseNarration;
+    if (!N) return;
+    if (N.isSpeaking()) {
+      N.stop();
+    }
+    narrationFromVerseStudy = false;
+    setVerseStudyListenButtonActive(false);
+    readVerseStudyListenPrefsFromForm();
+    startVerseStudyNarration();
+    try {
+      if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_listen_repeat', {});
+    } catch (e) {}
   }
 
   function close() {

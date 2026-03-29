@@ -6567,6 +6567,11 @@ function unsubscribePrayerRealtimeCounter() {
 function wirePrayerRealtimeCounter() {
   if (!supabaseClient || prayerRealtimeChannel) return;
   if (typeof supabaseClient.channel !== 'function') return;
+  /* Realtime opens a wss to Supabase; Safari may log "suspended" when backgrounding. Only subscribe on pages that show live prayer UI (homepage). */
+  var needsPrayerRealtime = document.getElementById('prayer-counter') ||
+    document.getElementById('prayer-echo') ||
+    document.getElementById('prayer-map-dots');
+  if (!needsPrayerRealtime) return;
   try {
     prayerRealtimeChannel = supabaseClient
       .channel('tdb-prayers-live')

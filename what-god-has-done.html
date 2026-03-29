@@ -12,7 +12,7 @@
   <link rel="canonical" href="https://todaysdailybattle.com/what-god-has-done.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260405hubs">
-  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260430md">
+  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260328offstrip">
   <link rel="stylesheet" href="what-god-has-done.css?v=20260329wghd-v2">
   <style>
     :root { --bg:#0d1117; --text:#f5f7fb; --muted:#8896b0; --gold:#e3bc67; --line:#242d3d; }
@@ -91,6 +91,13 @@
     <a href="plans.html">Plans</a>
     <a href="bible-tool.html">Tools</a>
   </nav>
+  <div
+    id="tdb-offline-strip"
+    class="tdb-offline-strip hidden"
+    role="status"
+    aria-live="polite"
+    data-tdb-offline-msg="Offline — still got you. Reading and writing your journal stay on this device. Export needs a connection only if your browser blocks downloads while offline."
+  ></div>
   <main id="main" class="wghd-main tdb-calm-hub">
     <h1>What God has done</h1>
     <p class="wghd-subtitle">Private &mdash; everything stays on this device</p>
@@ -149,6 +156,7 @@
     <button type="button" class="wghd-bar-btn wghd-bar-btn-danger" id="wghd-bar-clear">Clear all</button>
   </nav>
 
+  <script src="tdb-offline-strip.js?v=20260328offstrip"></script>
   <script src="what-god-has-done.js?v=20260329wghd-v2"></script>
 </body>
 </html>

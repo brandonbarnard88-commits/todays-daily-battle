@@ -124,6 +124,7 @@ const rootFiles = [
   'kjv-lexicon.json',
   'mystudy.js',
   'what-god-has-done.js',
+  'tdb-offline-strip.js',
   'memorize.js',
   'highlights.js',
   'streak.js',

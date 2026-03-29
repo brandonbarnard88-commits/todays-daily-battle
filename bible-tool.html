@@ -717,7 +717,7 @@
               <button type="button" id="add-to-notes-lookup" class="link-button" aria-label="Add to battle log">Add to Notes</button>
               <button type="button" id="memorize-lookup" class="link-button hidden" aria-pressed="false" aria-label="Add current verse to memorize queue">Memorize</button>
               <button type="button" id="pray-lookup" class="link-button" aria-label="Generate prayer for this verse">Pray this</button>
-              <button type="button" id="wordstudy-lookup" class="link-button" aria-label="Open KJV word study for this verse">Study this verse</button>
+              <button type="button" id="wordstudy-lookup" class="link-button" aria-label="Open verse study for this verse">Study this verse</button>
               <a id="lookup-read-chapter" href="#" class="link-button hidden" aria-label="Read full chapter in chapter reader">Read full chapter</a>
             </div>
             <div id="lookup-prayer-box" class="hidden util-mt-0_5 prayer-box"></div>
@@ -2182,6 +2182,8 @@
             escapeHtml(d.reference) +
             '" data-tdb-wordstudy-text="' +
             escapeHtml(d.text || '') +
+            '" aria-label="' +
+            escapeHtml('Open verse study for ' + d.reference) +
             '">Study this verse</button></p></div>';
           if (typeof window.buildVerseContextHtml === 'function') html += '<div class="util-mt-0_5">' + window.buildVerseContextHtml(d.reference) + '</div>';
         }
@@ -2269,6 +2271,8 @@
           escapeHtml(data.reference) +
           '" data-tdb-wordstudy-text="' +
           escapeHtml(data.text || '') +
+          '" aria-label="' +
+          escapeHtml('Open verse study for ' + data.reference) +
           '">Study this verse</button></p></div><div class="util-mt-0_5">' +
           contextHtml +
           '</div><p class="section-note util-mt-0_5" style="font-style:italic">' +

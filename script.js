@@ -15060,6 +15060,10 @@ function openReaderCrossrefsSheet(anchorRef, verseTextOpt) {
     }
     const backBtn = document.getElementById('reader-xrefs-back');
     if (backBtn) backBtn.focus();
+    const wsOpenStudy = document.getElementById('reader-xrefs-wordstudy-open');
+    if (wsOpenStudy && readerXrefsLastAnchorRef) {
+      wsOpenStudy.setAttribute('aria-label', 'Open verse study for ' + readerXrefsLastAnchorRef);
+    }
   });
 }
 
@@ -15210,7 +15214,7 @@ function attachReaderVerseWordStudyControls() {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'reader-verse-wordstudy-btn';
-    btn.setAttribute('aria-label', `Open word study for ${ref}`);
+    btn.setAttribute('aria-label', `Open verse study for ${ref}`);
     btn.setAttribute('title', 'Study this verse');
     btn.appendChild(document.createTextNode('Study this verse'));
     btn.addEventListener('click', (ev) => {
@@ -18207,7 +18211,7 @@ function appendSavedListWordStudyButton(actionsEl, ref, verseText) {
   ws.type = 'button';
   ws.className = 'btn btn-secondary';
   ws.textContent = 'Study this verse';
-  ws.setAttribute('aria-label', `Open word study for ${ref}`);
+  ws.setAttribute('aria-label', `Open verse study for ${ref}`);
   ws.setAttribute('data-tdb-wordstudy-ref', ref);
   const t = String(verseText || '').trim();
   if (t) ws.setAttribute('data-tdb-wordstudy-text', t);

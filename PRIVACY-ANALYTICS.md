@@ -45,3 +45,63 @@ So even if someone later adds `query: input` or `user_id: x` to a call, `trackSe
 ---
 
 *User safety is the key. This document and the code in script.js (`trackSearchAnalytics`) are the single source of truth. Last updated 2026.*
+
+---
+
+## Non-search product events (`trackEvent`)
+
+**Search** stays on `trackSearchAnalytics` only (see above). For everything else, use `trackEvent(eventName, params)` from `script.js` / `analytics-loader.js`, and **never** send raw private text, full journal bodies, or free-typed prayer content.
+
+### Verse study overlay (`verse-study.js`)
+
+| Event | Params (allowed) |
+|-------|------------------|
+| `tdb_verse_study_open` | `{}` |
+| `tdb_verse_study_listen` | `{}` |
+| `tdb_verse_study_listen_repeat` | `{}` |
+| `tdb_verse_study_save_mystudy` | `{ ok: boolean }` |
+| `tdb_verse_study_memorize` | `{ ok: boolean }` |
+| `tdb_verse_study_journal` | `{ ok: boolean }` |
+| `tdb_verse_study_print` | `{ ok: boolean }` |
+
+Do **not** add verse reference or verse text to these calls.
+
+### Word study sheet (`word-study.js`)
+
+| Event | Params (allowed) |
+|-------|------------------|
+| `tdb_wordstudy_open` | `{}` |
+| `tdb_wordstudy_run` | `{ hits: number }` (concordance hit count, aggregate) |
+| `tdb_wordstudy_save_mystudy` | `{ ok: true }` |
+
+### Memorize (`memorize.js`)
+
+| Event | Params (allowed) |
+|-------|------------------|
+| `memorize_print_cards` | `{ count: number }` |
+| `memorize_export` | `{ format: 'txt' \| 'md' \| 'json' }` |
+
+### What God has done (`what-god-has-done.js`)
+
+| Event | Params (allowed) |
+|-------|------------------|
+| `wghd_open` | `{ entry_count: number }` |
+| `wghd_entry_save` | `{ count: number, edit: boolean }` |
+| `wghd_entry_remove` | `{ remaining: number }` |
+| `wghd_clear_all` | `{}` |
+| `wghd_export` | `{ format: string, entry_count: number }` |
+
+### Daily quiet time (inline on `daily-quiet-time.html`)
+
+| Event | Params (allowed) |
+|-------|------------------|
+| `dqt_gentle_invitation` | `{ slug: string }` (preset invitation id, not user text) |
+| `dqt_invite_open_wordstudy` | `{ slug: string }` |
+
+### Reader / chapter listen (`script.js`)
+
+| Event | Params (allowed) |
+|-------|------------------|
+| `chapter_reader_listen` | `{ book: string, chapter: string }` (structural labels only) |
+
+When adding new `trackEvent` names, append them here with allowed keys. **Never** log verse body text, journal text, or search queries in `trackEvent`.

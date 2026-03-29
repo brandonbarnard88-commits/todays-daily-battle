@@ -12,7 +12,7 @@
   <link rel="canonical" href="https://todaysdailybattle.com/daily-quiet-time.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260405hubs">
-  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260430md">
+  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260328offstrip">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"Daily Quiet Time — start your morning with the Lord","url":"https://todaysdailybattle.com/daily-quiet-time.html","description":"Calm morning hub: verse, Bible search, calm, prayer tools, Battle Plans, My Study, and family quiet links on Today's Daily Battle.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
@@ -151,6 +151,13 @@
     <a href="kids-corner.html">Kids</a>
     <a href="bible-tool.html">Tools</a>
   </nav>
+  <div
+    id="tdb-offline-strip"
+    class="tdb-offline-strip hidden"
+    role="status"
+    aria-live="polite"
+    data-tdb-offline-msg="Offline — still got you. Links you already opened, cached Scripture, and on-device tools may still work. Reconnect for fresh verse fetches and new pages."
+  ></div>
   <main id="main" class="tdb-calm-hub">
     <h1>Daily quiet time</h1>
     <p class="lead">A gentle place to begin the day. One verse, one calm moment, one honest prayer&mdash;no pressure, just room with the Lord. If yesterday was heavy, <strong>Calm alone</strong> is enough; you are not behind. Everything stays on your device.</p>
@@ -161,7 +168,7 @@
       <p id="dqt-invite-ref" class="dqt-invite-ref"></p>
       <p class="dqt-invite-cta-row"><a id="dqt-invite-cta" class="btn" href="#">Open</a></p>
       <p class="dqt-invite-ws-wrap">
-        <button type="button" class="dqt-invite-ws-btn" id="dqt-invite-open-wordstudy">Word study on this verse</button>
+        <button type="button" class="dqt-invite-ws-btn" id="dqt-invite-open-wordstudy">Study this verse</button>
       </p>
     </div>
 
@@ -197,11 +204,11 @@
 
     <section aria-labelledby="dqt-wordstudy-h2" id="dqt-wordstudy-anchor">
       <h2 id="dqt-wordstudy-h2">Linger on one verse</h2>
-      <p class="dqt-rotate-note">A single KJV line rotates with the date. Open word study when you want to slow down on a word&mdash;concordance and short glosses stay on this device.</p>
+      <p class="dqt-rotate-note">A single KJV line rotates with the date. Tap <strong>Study this verse</strong> when you want to slow down on a word&mdash;concordance and short glosses stay on this device.</p>
       <div id="dqt-ws-block" class="dqt-starters-surface dqt-ws-surface" tabindex="-1">
         <p id="dqt-ws-ref" class="dqt-ws-ref" aria-live="polite"></p>
         <p id="dqt-ws-text" class="dqt-ws-text" aria-live="polite"></p>
-        <button type="button" class="btn btn-secondary" id="dqt-ws-btn" aria-label="Open word study for today&apos;s anchor verse">Study this verse</button>
+        <button type="button" class="btn btn-secondary" id="dqt-ws-btn" aria-label="Open verse study for today&apos;s anchor verse">Study this verse</button>
       </div>
     </section>
 
@@ -268,6 +275,7 @@
   <footer class="tdb-calm-hub-footer">
     <p><a href="site-guide.html">How to use this site</a> · <a href="printables.html">Printables</a> · <a href="plans.html">Battle Plans</a> · <a href="/">Home</a></p>
   </footer>
+  <script src="tdb-offline-strip.js?v=20260328offstrip"></script>
   <script src="word-study.js?v=20260430a11y-modals"></script>
   <script src="verse-narration.js?v=20260329narr11"></script>
   <script src="verse-study.js?v=20260329verse-study11"></script>
@@ -293,7 +301,7 @@
       textEl.textContent = '\u201c' + v.text + '\u201d';
       btn.setAttribute('data-tdb-wordstudy-ref', v.ref);
       btn.setAttribute('data-tdb-wordstudy-text', v.text);
-      btn.setAttribute('aria-label', 'Open word study for ' + v.ref);
+      btn.setAttribute('aria-label', 'Open verse study for ' + v.ref);
     })();
   </script>
   <script>
@@ -418,7 +426,7 @@
       if (wsBtn) {
         var wsRef = stripWsRef(inv.ref);
         var wsText = inv.kjv;
-        wsBtn.setAttribute('aria-label', 'Open full word study for ' + wsRef);
+        wsBtn.setAttribute('aria-label', 'Open verse study for ' + wsRef);
         wsBtn.addEventListener('click', function () {
           if (!window.TDBWordStudy || typeof window.TDBWordStudy.open !== 'function') return;
           try {

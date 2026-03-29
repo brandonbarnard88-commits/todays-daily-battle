@@ -192,7 +192,7 @@
     btn.type = 'button';
     btn.className = 'btn btn-secondary mystudy-wordstudy-btn';
     btn.textContent = 'Study this verse';
-    btn.setAttribute('aria-label', 'Open word study for ' + ref);
+    btn.setAttribute('aria-label', 'Open verse study for ' + ref);
     btn.setAttribute('data-tdb-wordstudy-ref', ref);
     var hint = String(textHint || '').trim();
     if (hint) btn.setAttribute('data-tdb-wordstudy-text', hint);

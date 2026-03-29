@@ -374,11 +374,11 @@
       '<details class="tdb-ws-deep"><summary>About this list</summary>' +
       '<p class="tdb-ws-deep-hint">Below is a whole-word concordance for this English form in the KJV text we ship. It is not Greek or Hebrew; use it to see how the same English word carries in different verses.</p></details>' +
       '<div id="tdb-ws-body" class="tdb-ws-results"></div>' +
-      '<p id="tdb-ws-empty" role="status">Tap a word above, or type and search.</p>' +
+      '<p id="tdb-ws-empty" role="status">Tap a word from the verse, or type one and press Search.</p>' +
       '<p id="tdb-ws-status" role="status" aria-live="polite"></p>' +
       '<div class="ws-actions">' +
-      '<button type="button" id="ws-save-to-mystudy" aria-label="Save this word study to My Study with the current verse notes">Save to My Study</button>' +
-      '<button type="button" id="ws-print">Print this study</button></div>' +
+      '<button type="button" id="ws-save-to-mystudy" aria-label="Save this word study to My Study on this device">Save to My Study</button>' +
+      '<button type="button" id="ws-print" aria-label="Print this word study">Print this study</button></div>' +
       '<p class="ws-footer-note">Everything here is drawn from the KJV and stays on your device.</p>' +
       '<p id="tdb-ws-save-status" role="status" aria-live="polite"></p>' +
       '</div>';

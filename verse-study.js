@@ -386,7 +386,7 @@
       SVG_LISTEN +
       '</span><span class="tdb-vs-listen-label">Listen</span></button>' +
       '<button type="button" id="tdb-vs-repeat-verse" class="tdb-vs-repeat-verse-btn">Repeat this verse</button>' +
-      '<span id="tdb-vs-listen-hint" class="tdb-vs-foot" style="margin:0;flex:1 1 8rem">KJV on this device. Tap Listen again to stop.</span></div>' +
+      '<span id="tdb-vs-listen-hint" class="tdb-vs-foot" style="margin:0;flex:1 1 8rem">KJV on this device—tap Listen again to stop.</span></div>' +
       '<div id="tdb-vs-listen-progress" class="tdb-vs-listen-progress hidden" role="group" aria-label="Narration progress">' +
       '<p id="tdb-vs-listen-progress-label" class="tdb-vs-progress-label"></p>' +
       '<div id="tdb-vs-listen-progress-track" class="tdb-vs-progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="1" aria-valuenow="1">' +
@@ -404,12 +404,12 @@
       '<input type="range" id="tdb-vs-ambient-gain" min="1" max="10" value="5" step="1" aria-label="Undertone strength, 1 quietest to 10 stronger">' +
       '</div></div></details></div>' +
       '<div class="tdb-vs-actions">' +
-      '<button type="button" class="tdb-vs-primary" id="tdb-vs-save-mystudy">Save to My Study</button>' +
-      '<button type="button" id="tdb-vs-memorize">Add to Memorize</button>' +
-      '<button type="button" id="tdb-vs-journal">Save to What God has done</button>' +
-      '<button type="button" id="tdb-vs-print">Print</button></div>' +
+      '<button type="button" class="tdb-vs-primary" id="tdb-vs-save-mystudy" aria-label="Save this verse study to My Study on this device">Save to My Study</button>' +
+      '<button type="button" id="tdb-vs-memorize" aria-label="Add this verse to your memory list on this device">Add to my memory list</button>' +
+      '<button type="button" id="tdb-vs-journal" aria-label="Save a line about this verse to What God has done on this device">Save to What God has done</button>' +
+      '<button type="button" id="tdb-vs-print" aria-label="Print this verse study">Print</button></div>' +
       '<p id="tdb-vs-status" role="status" aria-live="polite"></p>' +
-      '<p id="tdb-vs-foot">KJV · stays on this device. Tap highlighted words for full word study.</p>' +
+      '<p id="tdb-vs-foot">KJV · stays on this device. Tap a highlighted word for the full word-study sheet.</p>' +
       '</div>';
     document.body.appendChild(layer);
   }
@@ -693,18 +693,18 @@
       comp && typeof comp.toggleMemorize === 'function' && typeof comp.isMemorizing === 'function';
     if (hasCompanion) {
       if (comp.isMemorizing(r)) {
-        if (st) st.textContent = 'Already in your Memorize list.';
+        if (st) st.textContent = 'Already on your memory list.';
       } else {
         comp.toggleMemorize(r);
-        if (st) st.textContent = 'Added to Memorize on this device.';
+        if (st) st.textContent = 'Added to your memory list on this device.';
         try {
           if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_memorize', { ok: true });
         } catch (e) {}
       }
     } else if (isMemLiteStored(r)) {
-      if (st) st.textContent = 'Already in your Memorize list.';
+      if (st) st.textContent = 'Already on your memory list.';
     } else if (addMemLiteEntry(r)) {
-      if (st) st.textContent = 'Added to Memorize on this device. Open Memorize anytime to review.';
+      if (st) st.textContent = 'Added to your memory list. Open Memorize when you want a quiet review.';
       try {
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_memorize', { ok: true });
       } catch (e) {}

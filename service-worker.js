@@ -52,6 +52,8 @@ const CORE_ASSETS = [
   '/hero-daily-first-paint.js',
   '/offline.html',
   '/plans.html',
+  '/printables.html',
+  '/he-is-risen.html',
   '/plans-data.js',
   '/easter-season.js',
   '/logo-shield-600.png',

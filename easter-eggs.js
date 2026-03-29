@@ -1108,7 +1108,8 @@
       } catch (x) { return; }
       var h = new Date().getHours();
       var isEasterMorning = (h >= 6 && h < 12);
-      document.body.classList.add(isEasterMorning ? 'easter-sunday-bg easter-sunday-morning' : 'easter-sunday-bg');
+      document.body.classList.add('easter-sunday-bg');
+      if (isEasterMorning) document.body.classList.add('easter-sunday-morning');
       setTimeout(function () { document.body.classList.remove('easter-sunday-bg', 'easter-sunday-morning'); }, isEasterMorning ? 8000 : 6000);
       var toast = document.createElement('div');
       toast.className = 'easter-triple-toast' + (isEasterMorning ? ' easter-toast-large' : '');

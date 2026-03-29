@@ -16735,6 +16735,7 @@ function renderReaderChapterFromApiData(output, book, chapter, key, list) {
       globalThis.TDBStudyCompanion.recordRecentChapter(book, chapter);
     } catch (e) {}
   }
+  if (typeof readerOnChapterRendered === 'function') readerOnChapterRendered(book, chapter);
 }
 
 function renderReaderChapterFromVerses(output, book, chapter, verses) {
@@ -16782,6 +16783,7 @@ function renderReaderChapterFromVerses(output, book, chapter, verses) {
       globalThis.TDBStudyCompanion.recordRecentChapter(book, chapter);
     } catch (e) {}
   }
+  if (typeof readerOnChapterRendered === 'function') readerOnChapterRendered(book, chapter);
 }
 
 function ensureBookIntrosLoaded() {
@@ -16992,6 +16994,187 @@ if (typeof globalThis !== 'undefined') {
     fillContainer: renderBookIntroIntoContainer,
     updateToolPanel: updateBibleToolBookIntroPanel
   };
+}
+
+function readerOnChapterRendered(book, chapter) {
+  const b = String(book || '').trim();
+  const ch = String(chapter || '').trim();
+  if (!b || !ch) return;
+  const comp = typeof globalThis !== 'undefined' ? globalThis.TDBStudyCompanion : null;
+  if (comp && typeof comp.saveReaderResume === 'function') {
+    try {
+      comp.saveReaderResume(b, ch);
+    } catch (eResume) {}
+  }
+  syncReaderBookmarkToggle(b, ch);
+  renderReaderBookmarksPanel();
+  renderReaderRecentStrip();
+  updateReaderResumeHint(b, ch);
+}
+
+function syncReaderBookmarkToggle(book, chapter) {
+  const btn = document.getElementById('reader-bookmark-toggle');
+  if (!btn || !globalThis.TDBStudyCompanion || typeof globalThis.TDBStudyCompanion.isReaderBookmarked !== 'function') return;
+  let on = false;
+  try {
+    on = globalThis.TDBStudyCompanion.isReaderBookmarked(book, chapter);
+  } catch (e) {}
+  btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  btn.textContent = on ? 'Saved' : 'Save chapter';
+}
+
+function renderReaderBookmarksPanel() {
+  const ul = document.getElementById('reader-bookmarks-list');
+  const empty = document.getElementById('reader-bookmarks-empty');
+  if (!ul) return;
+  ul.textContent = '';
+  const comp = globalThis.TDBStudyCompanion;
+  if (!comp || typeof comp.listReaderBookmarks !== 'function') return;
+  let list = [];
+  try {
+    list = comp.listReaderBookmarks();
+  } catch (e) {
+    list = [];
+  }
+  if (empty) empty.classList.toggle('hidden', list.length > 0);
+  list.forEach((row) => {
+    if (!row || !row.book || !row.chapter) return;
+    const li = document.createElement('li');
+    li.className = 'reader-bookmark-row';
+    const openBtn = document.createElement('button');
+    openBtn.type = 'button';
+    openBtn.className = 'reader-bookmark-open';
+    openBtn.textContent = `${row.book} ${row.chapter}`;
+    openBtn.setAttribute('aria-label', `Open ${row.book} ${row.chapter}`);
+    openBtn.addEventListener('click', () => {
+      selectReaderChapter(row.book, String(row.chapter));
+    });
+    const rm = document.createElement('button');
+    rm.type = 'button';
+    rm.className = 'reader-bookmark-remove';
+    rm.textContent = 'Remove';
+    rm.setAttribute('aria-label', `Remove saved chapter ${row.book} ${row.chapter}`);
+    rm.addEventListener('click', () => {
+      if (comp.removeReaderBookmark) comp.removeReaderBookmark(row.book, row.chapter);
+      renderReaderBookmarksPanel();
+      const bs = document.getElementById('reader-book');
+      const cs = document.getElementById('reader-chapter');
+      if (bs && cs) syncReaderBookmarkToggle(bs.value, cs.value);
+    });
+    li.appendChild(openBtn);
+    li.appendChild(rm);
+    ul.appendChild(li);
+  });
+}
+
+function updateReaderResumeHint(currentBook, currentChapter) {
+  const wrap = document.getElementById('reader-resume-strip');
+  const textEl = document.getElementById('reader-resume-text');
+  const goBtn = document.getElementById('reader-resume-go');
+  if (!wrap || !textEl || !goBtn) return;
+  const comp = globalThis.TDBStudyCompanion;
+  if (!comp || typeof comp.getReaderResume !== 'function') {
+    wrap.classList.add('hidden');
+    return;
+  }
+  let r = null;
+  try {
+    r = comp.getReaderResume();
+  } catch (e) {
+    r = null;
+  }
+  if (!r || !r.book || !r.chapter) {
+    wrap.classList.add('hidden');
+    return;
+  }
+  const same = String(r.book) === String(currentBook) && String(r.chapter) === String(currentChapter);
+  if (same) {
+    wrap.classList.add('hidden');
+    return;
+  }
+  wrap.classList.remove('hidden');
+  textEl.textContent = `Last place you opened: ${r.book} ${r.chapter} (KJV).`;
+  goBtn.onclick = () => {
+    selectReaderChapter(r.book, r.chapter);
+  };
+}
+
+function wireReaderCompanionChrome() {
+  const root = document.getElementById('chapter-reader');
+  if (!root || root.dataset.companionChromeWired === '1') return;
+  root.dataset.companionChromeWired = '1';
+  const bm = document.getElementById('reader-bookmark-toggle');
+  if (bm) {
+    bm.addEventListener('click', () => {
+      const bs = document.getElementById('reader-book');
+      const cs = document.getElementById('reader-chapter');
+      if (!bs || !cs || !globalThis.TDBStudyCompanion || typeof globalThis.TDBStudyCompanion.toggleReaderBookmark !== 'function') return;
+      let now = false;
+      try {
+        now = globalThis.TDBStudyCompanion.toggleReaderBookmark(bs.value, cs.value);
+      } catch (e) {}
+      syncReaderBookmarkToggle(bs.value, cs.value);
+      renderReaderBookmarksPanel();
+      if (typeof showEliteToast === 'function') {
+        showEliteToast(now ? 'Chapter saved on this device.' : 'Removed from saved chapters.');
+      }
+      if (typeof trackEvent === 'function') {
+        trackEvent('reader_bookmark_toggle', { saved: now ? 1 : 0 });
+      }
+    });
+  }
+  root.addEventListener('keydown', (e) => {
+    if (!e.altKey || e.defaultPrevented) return;
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    const prev = document.getElementById('reader-prev');
+    const next = document.getElementById('reader-next');
+    if (e.key === 'ArrowLeft' && prev) {
+      e.preventDefault();
+      prev.click();
+    } else if (e.key === 'ArrowRight' && next) {
+      e.preventDefault();
+      next.click();
+    }
+  });
+  renderReaderRecentStrip();
+  renderReaderBookmarksPanel();
+  const bs = document.getElementById('reader-book');
+  const cs = document.getElementById('reader-chapter');
+  if (bs && cs) {
+    syncReaderBookmarkToggle(bs.value, cs.value);
+    updateReaderResumeHint(bs.value, cs.value);
+  }
+}
+
+function renderReaderRecentStrip() {
+  const ul = document.getElementById('reader-recent-strip-list');
+  const wrap = document.getElementById('reader-recent-strip');
+  if (!ul || !wrap) return;
+  ul.textContent = '';
+  const comp = globalThis.TDBStudyCompanion;
+  if (!comp || typeof comp.getRecentChapters !== 'function') return;
+  let list = [];
+  try {
+    list = comp.getRecentChapters();
+  } catch (e) {
+    list = [];
+  }
+  const shown = list.slice(0, 6);
+  wrap.classList.toggle('hidden', shown.length === 0);
+  shown.forEach((row) => {
+    if (!row || !row.book || !row.chapter) return;
+    const li = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'reader-recent-chip';
+    btn.textContent = `${row.book} ${row.chapter}`;
+    btn.setAttribute('aria-label', `Open ${row.book} chapter ${row.chapter}`);
+    btn.addEventListener('click', () => {
+      selectReaderChapter(row.book, String(row.chapter));
+    });
+    li.appendChild(btn);
+    ul.appendChild(li);
+  });
 }
 
 function selectReaderChapter(book, chapter, highlightRef = '') {
@@ -24077,6 +24260,7 @@ async function tdbInitImpl() {
     run();
     setTimeout(run, 400);
     setTimeout(run, 1500);
+    if (typeof wireReaderCompanionChrome === 'function') wireReaderCompanionChrome();
   })();
 }
 function wireRandomBattleVerseHero() {

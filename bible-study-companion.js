@@ -7,9 +7,12 @@
 
   var META_KEY = 'tdb_study_notes_meta_v1';
   var RECENT_KEY = 'tdb_reader_recent_chapters_v1';
+  var BOOKMARKS_KEY = 'tdb_reader_bookmarks_v1';
+  var RESUME_KEY = 'tdb_reader_resume_v1';
   var NOTES_KEY = 'tdb_bible_tool_notes';
   var MEM_KEY = 'tdb_memorize_lite_v1';
   var MAX_RECENT = 14;
+  var MAX_BOOKMARKS = 16;
   var MEM_INTERVALS_DAYS = [1, 2, 4, 7, 14];
   var DAY_MS = 86400000;
 
@@ -165,6 +168,85 @@
       return Array.isArray(list) ? list : [];
     } catch (e) {
       return [];
+    }
+  }
+
+  function bookmarkPairId(book, chapter) {
+    return String(book || '').trim() + '|' + String(chapter || '').trim();
+  }
+
+  function loadReaderBookmarks() {
+    try {
+      var list = JSON.parse(localStorage.getItem(BOOKMARKS_KEY) || '[]');
+      return Array.isArray(list) ? list : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveReaderBookmarks(list) {
+    try {
+      localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(list.slice(0, MAX_BOOKMARKS)));
+    } catch (e) {}
+  }
+
+  function isReaderBookmarked(book, chapter) {
+    var id = bookmarkPairId(book, chapter);
+    if (!id || id === '|') return false;
+    return loadReaderBookmarks().some(function (x) {
+      return x && x.id === id;
+    });
+  }
+
+  function toggleReaderBookmark(book, chapter) {
+    var b = String(book || '').trim();
+    var ch = String(chapter || '').trim();
+    if (!b || !ch) return false;
+    var id = bookmarkPairId(b, ch);
+    var list = loadReaderBookmarks().filter(function (x) {
+      return x && x.id !== id;
+    });
+    var had = loadReaderBookmarks().some(function (x) {
+      return x && x.id === id;
+    });
+    if (!had) {
+      list.unshift({ id: id, book: b, chapter: ch, at: new Date().toISOString() });
+    }
+    saveReaderBookmarks(list);
+    return !had;
+  }
+
+  function removeReaderBookmark(book, chapter) {
+    var id = bookmarkPairId(book, chapter);
+    var list = loadReaderBookmarks().filter(function (x) {
+      return x && x.id !== id;
+    });
+    saveReaderBookmarks(list);
+  }
+
+  function listReaderBookmarks() {
+    return loadReaderBookmarks();
+  }
+
+  function saveReaderResume(book, chapter) {
+    var b = String(book || '').trim();
+    var ch = String(chapter || '').trim();
+    if (!b || !ch) return;
+    try {
+      localStorage.setItem(
+        RESUME_KEY,
+        JSON.stringify({ book: b, chapter: ch, at: new Date().toISOString() })
+      );
+    } catch (e) {}
+  }
+
+  function getReaderResume() {
+    try {
+      var o = JSON.parse(localStorage.getItem(RESUME_KEY) || 'null');
+      if (!o || typeof o !== 'object' || !o.book || !o.chapter) return null;
+      return { book: String(o.book), chapter: String(o.chapter), at: o.at || '' };
+    } catch (e) {
+      return null;
     }
   }
 
@@ -532,6 +614,12 @@
     exportJson: exportJson,
     recordRecentChapter: recordRecentChapter,
     getRecentChapters: getRecentChapters,
+    isReaderBookmarked: isReaderBookmarked,
+    toggleReaderBookmark: toggleReaderBookmark,
+    removeReaderBookmark: removeReaderBookmark,
+    listReaderBookmarks: listReaderBookmarks,
+    saveReaderResume: saveReaderResume,
+    getReaderResume: getReaderResume,
     isMemorizing: isMemorizing,
     toggleMemorize: toggleMemorize,
     markMemorizeReviewed: markMemorizeReviewed,

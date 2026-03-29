@@ -37,6 +37,7 @@
 - **Input** — `sanitizeUserInput()` strips tags and script-like patterns. `truncateForDb()` enforces length limits before Supabase. Use both for prayer intents, family name, message board, etc.
 - **LocalStorage** — Keys prefixed with `tdb_` and versioned (e.g. `tdb_prayer_list_v1`). "Clear local data" button with confirm + toast. No secrets in JS; config placeholder check warns on load.
 - **What God has done** (`what-god-has-done.html`) — Private gratitude/journal entries in **`localStorage`** only (`tdb_what_god_has_done_v1`). **v1: no Supabase rows, no sync.** User-initiated export (plain text / JSON). Analytics must not include entry text; use aggregate events only (e.g. entry count), per PRIVACY-ANALYTICS.md.
+- **Chapter reader** — Recent chapters (`tdb_reader_recent_chapters_v1`), **saved chapter bookmarks** (`tdb_reader_bookmarks_v1`), and **last-opened resume** (`tdb_reader_resume_v1`) are device-local only; no server upload. Bookmark toggle analytics: `reader_bookmark_toggle` with `{ saved: 0|1 }` only.
 
 ### Supabase
 

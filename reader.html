@@ -26,7 +26,7 @@
   <meta name="twitter:description" content="Read full Bible chapters in context with the chapter reader.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260402reader-chapters">
+  <link rel="stylesheet" href="styles.css?v=20260403reader-companion">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,6 +87,61 @@
       color: var(--gold, #e3bc67);
       border-color: var(--gold, #e3bc67);
       outline: none;
+    }
+    .reader-resume-strip {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem 0.85rem;
+      margin: 0.75rem 0 1rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 12px;
+      border: 1px solid rgba(227, 188, 103, 0.28);
+      background: rgba(12, 18, 30, 0.55);
+    }
+    .reader-resume-strip.hidden { display: none !important; }
+    .reader-resume-text { margin: 0 !important; flex: 1 1 12rem; color: rgba(226, 232, 240, 0.92); }
+    .reader-recent-strip { margin: 0 0 1rem; }
+    .reader-recent-strip.hidden { display: none !important; }
+    .reader-strip-label { font-weight: 600; color: rgba(227, 188, 103, 0.88); margin-top: 0 !important; }
+    .reader-recent-strip-list {
+      list-style: none; margin: 0; padding: 0;
+      display: flex; flex-wrap: wrap; gap: 0.45rem;
+    }
+    .reader-recent-chip {
+      min-height: 40px; padding: 0.35rem 0.75rem; border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(15, 23, 42, 0.45);
+      color: #e2e8f0; font-size: 0.86rem; font-weight: 600; cursor: pointer; font-family: inherit;
+    }
+    .reader-recent-chip:hover, .reader-recent-chip:focus-visible {
+      border-color: rgba(227, 188, 103, 0.45); color: #fde68a; outline: 2px solid rgba(227, 188, 103, 0.45); outline-offset: 2px;
+    }
+    .reader-bookmarks-panel {
+      margin: 0 0 1.15rem;
+      padding: 0.85rem 0.95rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(8, 12, 22, 0.35);
+    }
+    .reader-bookmarks-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.65rem; margin-bottom: 0.5rem; }
+    .reader-bookmarks-heading { margin: 0; font-size: 1rem; font-weight: 700; color: #e3bc67; }
+    .reader-bookmark-toggle[aria-pressed="true"] { border-color: rgba(227, 188, 103, 0.55); color: #fde68a; }
+    .reader-bookmarks-empty.hidden { display: none !important; }
+    .reader-bookmarks-list { list-style: none; margin: 0.35rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+    .reader-bookmark-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem 0.65rem; }
+    .reader-bookmark-open {
+      min-height: 40px; padding: 0.35rem 0.75rem; border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.5); color: #e2e8f0; font-weight: 600; cursor: pointer; font-family: inherit; font-size: 0.9rem;
+    }
+    .reader-bookmark-open:hover, .reader-bookmark-open:focus-visible { border-color: rgba(227, 188, 103, 0.45); color: #fde68a; outline: 2px solid rgba(227, 188, 103, 0.45); outline-offset: 2px; }
+    .reader-bookmark-remove {
+      min-height: 36px; padding: 0.25rem 0.55rem; font-size: 0.82rem;
+      border-radius: 8px; border: 1px solid rgba(248, 113, 113, 0.35);
+      background: transparent; color: #fecaca; cursor: pointer; font-family: inherit;
+    }
+    .reader-strip-hint { font-size: 0.82rem !important; margin-top: 0.65rem !important; color: rgba(148, 163, 184, 0.95) !important; }
+    .reader-kbd {
+      display: inline-block; padding: 0.1rem 0.35rem; border-radius: 4px;
+      border: 1px solid rgba(148, 163, 184, 0.35); font-size: 0.78rem; font-family: ui-monospace, monospace;
     }
   </style>
 </head>
@@ -167,7 +222,7 @@
             <a class="btn btn-secondary" href="verse.html">Daily Verse</a>
           </div>
         </header>
-        <section id="chapter-reader" class="chapter-reader glass">
+        <section id="chapter-reader" class="chapter-reader glass" tabindex="0" aria-label="KJV chapter reader">
           <h2 class="section-divider">Chapter Reader</h2>
           <p class="section-note reader-tagline">Pick a book — chapter 1 loads instantly. Use the chapter picker or Prev/Next to navigate.</p>
           <p class="section-note reader-one-chapter-today util-mb-0_75 util-mt-0" role="note"><strong>Read one chapter today:</strong> <a href="?book=Psalm&amp;chapter=1">Psalm 1</a><span aria-hidden="true"> · </span><a href="?book=Psalm&amp;chapter=23">Psalm 23</a><span aria-hidden="true"> · </span><a href="?book=Mark&amp;chapter=1">Mark 1</a><span aria-hidden="true"> · </span><a href="?book=Luke&amp;chapter=15">Luke 15</a><span aria-hidden="true"> · </span><a href="?book=John&amp;chapter=1">John 1</a><span aria-hidden="true"> · </span><a href="?book=Matthew&amp;chapter=11">Matthew 11</a><span aria-hidden="true"> · </span><a href="?book=Philippians&amp;chapter=4">Philippians 4</a><span aria-hidden="true"> · </span><a href="?book=Romans&amp;chapter=8">Romans 8</a><span aria-hidden="true"> · </span><a href="?book=Proverbs&amp;chapter=3">Proverbs 3</a> — or choose any book above.</p>
@@ -195,14 +250,31 @@
               <p class="section-note util-mb-0 reader-audio-hint"><span id="reader-listen-hint">Listen uses your device voice. </span>KJV Audio opens the passage in a new tab.</p>
             </div>
           </div>
+          <div id="reader-resume-strip" class="reader-resume-strip hidden" role="region" aria-label="Resume last chapter">
+            <p id="reader-resume-text" class="reader-resume-text section-note"></p>
+            <button type="button" id="reader-resume-go" class="btn btn-secondary reader-resume-go">Open</button>
+          </div>
+          <div id="reader-recent-strip" class="reader-recent-strip hidden" role="region" aria-label="Recently opened chapters on this device">
+            <p class="reader-strip-label section-note util-mb-0_5">Recently opened (this device)</p>
+            <ul id="reader-recent-strip-list" class="reader-recent-strip-list"></ul>
+          </div>
+          <div class="reader-bookmarks-panel" role="region" aria-labelledby="reader-bookmarks-heading">
+            <div class="reader-bookmarks-toolbar">
+              <h3 id="reader-bookmarks-heading" class="reader-bookmarks-heading">Saved chapters</h3>
+              <button type="button" id="reader-bookmark-toggle" class="btn btn-secondary reader-bookmark-toggle" aria-pressed="false">Save chapter</button>
+            </div>
+            <p id="reader-bookmarks-empty" class="section-note reader-bookmarks-empty">No saved chapters yet. Open a chapter, then tap Save chapter—bookmarks stay on this device for quick return.</p>
+            <ul id="reader-bookmarks-list" class="reader-bookmarks-list" aria-label="Saved chapter bookmarks"></ul>
+            <p class="section-note reader-strip-hint util-mb-0">Tip: <kbd class="reader-kbd">Alt</kbd> + <kbd class="reader-kbd">←</kbd> / <kbd class="reader-kbd">→</kbd> for Prev/Next when focus is inside the reader block.</p>
+          </div>
           <details id="reader-book-intro-wrap" class="reader-book-intro hidden" aria-labelledby="reader-book-intro-summary-label">
             <summary class="reader-book-intro-summary" id="reader-book-intro-summary-label">About this book</summary>
             <div id="reader-book-intro-body" class="reader-book-intro-body section-note util-mb-0"></div>
             <p class="section-note util-mt-0_5 util-mb-0 reader-book-intro-meta">Browse every introduction in <a href="/bible/tools.html#book-intros">Study workshop</a> (Bible Hub → Tools).</p>
             <p class="section-note util-mt-0_35 util-mb-0 reader-book-intro-meta">KJV. One quiet line to frame your reading—not a full commentary.</p>
           </details>
-          <div id="reader-output" class="chapter-output reader-output-empty" role="region" aria-label="Chapter content" aria-live="polite">
-            <p class="section-note empty">Choose a book above — chapter 1 will load automatically. Or tap a quick link in the line above (e.g. <a href="?book=Mark&amp;chapter=1">Mark 1</a>, <a href="?book=Luke&amp;chapter=15">Luke 15</a>, <a href="?book=Psalm&amp;chapter=1">Psalm 1</a>).</p>
+          <div id="reader-output" class="chapter-output reader-output-empty" role="region" aria-label="Chapter content" aria-live="polite" tabindex="-1">
+            <p class="section-note empty">Pick a book — chapter 1 loads right away. Try a quick link above (e.g. <a href="?book=Mark&amp;chapter=1">Mark 1</a>, <a href="?book=Luke&amp;chapter=15">Luke 15</a>, <a href="?book=Psalm&amp;chapter=1">Psalm 1</a>), or jump back from <strong>Saved chapters</strong> once you start saving. <strong>Offline:</strong> chapters you opened before may still load from cache.</p>
           </div>
         </section>
       </div>
@@ -571,7 +643,7 @@
       setTimeout(run, 1600);
     })();
   </script>
-  <script src="bible-study-companion.js?v=20260328printpolish"></script>
-  <script type="module" src="script.js?v=20260328integration-shine" data-cfasync="false" fetchpriority="low"></script>
+  <script src="bible-study-companion.js?v=20260403reader-companion"></script>
+  <script type="module" src="script.js?v=20260403reader-companion" data-cfasync="false" fetchpriority="low"></script>
 </body>
 </html>

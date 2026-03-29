@@ -206,3 +206,11 @@
 .hidden {
   display: none !important;
 }
+
+.wghd-footer-privacy {
+  font-size: 0.82rem;
+  color: var(--muted, #8896b0);
+  line-height: 1.5;
+  margin: 0 0 0.75rem;
+  max-width: 36rem;
+}

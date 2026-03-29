@@ -49,8 +49,27 @@
       background: rgba(227, 188, 103, 0.12); color: var(--gold);
     }
     .btn:hover, .btn:focus-visible { background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .btn-secondary { background: transparent; color: rgba(226, 232, 240, 0.9); border-color: var(--line); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--gold); color: var(--gold); }
     footer { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem 2.5rem; font-size: 0.82rem; color: var(--muted); }
     footer a { color: var(--gold); }
+    .seasonal-easter-spotlight {
+      margin: 0 0 1.1rem;
+      padding: 0.95rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line));
+      background: color-mix(in srgb, var(--bg) 90%, var(--gold));
+    }
+    .seasonal-easter-spotlight .spot-eyebrow {
+      margin: 0 0 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .seasonal-easter-spotlight p { margin: 0 0 0.65rem; }
+    .seasonal-easter-spotlight p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -62,6 +81,7 @@
     <a href="mobius.html">Möbius</a>
     <a href="plans.html">Plans</a>
     <a href="identity-in-christ.html">Identity</a>
+    <a href="first-steps.html">First steps</a>
     <a href="family-home.html">Family</a>
     <a href="seasonal.html" aria-current="page">Seasonal</a>
     <a href="/#quick-actions-hero">Topics</a>
@@ -74,9 +94,14 @@
 
     <section id="easter" aria-labelledby="season-easter">
       <h2 id="season-easter">Easter</h2>
-      <p>When the week feels loud, <a href="plans.html?plan=easter">Resurrection Hope</a> is seven days centered on Christ risen—gentle structure, no hype.</p>
+      <div class="seasonal-easter-spotlight" role="note" aria-label="Easter morning doorway">
+        <p class="spot-eyebrow">He is risen</p>
+        <p>For Easter morning or Holy Week, <a href="he-is-risen.html">He is risen</a> offers short KJV readings—declarative, still quiet (available any time of year). For a full week of rhythm, keep <a href="plans.html?plan=easter">Resurrection Hope</a> (seven days, one verse a day).</p>
+      </div>
+      <p>When the week feels loud, the seven-day plan keeps the same gentle pace as everything else on the site—saved on your device, optional listen on each day.</p>
       <div class="cta-row">
-        <a class="btn" href="plans.html?plan=easter">Open Resurrection Hope</a>
+        <a class="btn" href="he-is-risen.html">Open He is risen</a>
+        <a class="btn btn-secondary" href="plans.html?plan=easter">Resurrection Hope (7 days)</a>
       </div>
     </section>
 

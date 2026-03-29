@@ -1183,6 +1183,62 @@
       flex-shrink: 0;
       user-select: none;
     }
+    /* Easter season (Gregorian window): same calm band as Battle Plans */
+    .easter-banner {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 0.65rem;
+      background: color-mix(in srgb, var(--card) 96%, var(--gold));
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      border-radius: 14px; padding: 0.85rem 1rem; margin: 0 0 0.65rem;
+      max-width: 52rem; align-self: center; width: 100%; box-sizing: border-box;
+    }
+    .easter-banner.hidden { display: none !important; }
+    .easter-banner-text { flex: 1; min-width: 0; }
+    .easter-banner-eyebrow {
+      margin: 0 0 0.25rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .easter-banner-body {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--text) 92%, var(--muted));
+    }
+    .easter-banner-body a {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .easter-banner-body a:hover,
+    .easter-banner-body a:focus-visible {
+      color: color-mix(in srgb, var(--gold) 85%, #fff);
+      outline: none;
+    }
+    .easter-banner-dismiss {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.35rem;
+      min-width: 44px;
+      min-height: 44px;
+      line-height: 1;
+      border-radius: 8px;
+      margin: -0.2rem -0.15rem 0 0;
+    }
+    .easter-banner-dismiss:hover,
+    .easter-banner-dismiss:focus-visible {
+      color: var(--text);
+      background: color-mix(in srgb, var(--gold) 8%, transparent);
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
     /* One-line discovery for study-depth upgrades (dated; link to About for detail) */
     .tdb-whats-new-hint {
       font-size: 0.8rem;
@@ -5145,6 +5201,14 @@
         </span>
       </nav>
 
+      <div class="easter-banner hidden" id="tdbHomeEasterBanner" role="region" aria-labelledby="tdbHomeEasterBannerH" hidden>
+        <div class="easter-banner-text">
+          <p class="easter-banner-eyebrow" id="tdbHomeEasterBannerH">He is risen</p>
+          <p class="easter-banner-body">Easter week: <a href="he-is-risen.html">He is risen</a> (short readings, anytime), or <a href="plans.html?plan=easter">Resurrection Hope</a> for seven gentle days. <a href="seasonal.html">Seasonal paths</a>.</p>
+        </div>
+        <button type="button" class="easter-banner-dismiss" id="tdbHomeEasterDismiss" aria-label="Dismiss Easter note">×</button>
+      </div>
+
       <!-- ── Feel Search (nav anchor: #quick-search-hero) — below Why not AI teaser, above Battle Plans ── -->
       <div id="quick-search-hero">
       <p class="tdb-hero-search-priority-hint">On a small screen, search and topics stay up front — scroll down for today&rsquo;s verse, plans, and more tools.</p>
@@ -7401,7 +7465,12 @@
       fearnot14: { label: '\uD83C\uDF19 Fear Not (14 days)', key: 'tdb-plan-fearnot14-day', max: 14 },
       dailylabor: { label: '\u2692\uFE0F Work & Daily Labor', key: 'tdb-plan-dailylabor-day', max: 7 },
       christmas7: { label: '\u2728 Christmas Week', key: 'tdb-plan-christmas7-day', max: 7 },
-      newyear7: { label: '\uD83C\uDF05 New Year Week', key: 'tdb-plan-newyear7-day', max: 7 }
+      newyear7: { label: '\uD83C\uDF05 New Year Week', key: 'tdb-plan-newyear7-day', max: 7 },
+      holyspirit: { label: '\uD83D\uDD4A\uFE0F Holy Spirit', key: 'tdb-plan-holyspirit-day', max: 7 },
+      walktheword: { label: '\uD83D\uDCD6 Walk the Word', key: 'tdb-plan-walktheword-day', max: 7 },
+      standfirm: { label: '\u2696\uFE0F Stand Firm', key: 'tdb-plan-standfirm-day', max: 7 },
+      greatcommission: { label: '\uD83C\uDF0D Great Commission', key: 'tdb-plan-greatcommission-day', max: 7 },
+      stewardship: { label: '\uD83D\uDCB0 Stewardship', key: 'tdb-plan-stewardship-day', max: 7 }
     };
 
     // ── Battle Plan Progress (shows plan with highest progress; streak flame when \u2265 2) ──
@@ -9413,5 +9482,11 @@
   <script nonce="tdb2025s" type="module" src="script.js?v=20260329auth-ui" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer></script>
+  <script src="/easter-season.js"></script>
+  <script nonce="tdb2025s">
+  if (window.TDB_EASTER_SEASON && typeof window.TDB_EASTER_SEASON.initEasterBanner === 'function') {
+    window.TDB_EASTER_SEASON.initEasterBanner('tdbHomeEasterBanner', 'tdbHomeEasterDismiss');
+  }
+  </script>
 </body>
 </html>

@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const dist = path.join(root, 'dist');
 
-const JS_FILES = ['script.js', 'easter-eggs.js', 'plans-data.js', 'mission-outreach-data.js'];
+const JS_FILES = ['script.js', 'easter-eggs.js', 'easter-season.js', 'plans-data.js', 'mission-outreach-data.js'];
 const CSS_FILES = ['styles.css', 'tdb-quiet-luxury.css', 'tool-pages.css', 'church.css', 'loop-player.css', 'kids-corner.css', 'mystudy.css', 'kids/story-library-fonts.css'];
 
 async function minifyJs(filePath) {

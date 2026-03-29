@@ -53,6 +53,7 @@ const CORE_ASSETS = [
   '/offline.html',
   '/plans.html',
   '/plans-data.js',
+  '/easter-season.js',
   '/logo-shield-600.png',
   '/logo-crest.jpg',
   '/verse.html',

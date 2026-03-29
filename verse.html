@@ -26,6 +26,50 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260331vod" as="style">
   <link rel="stylesheet" href="styles.css?v=20260331vod">
+  <style>
+    .easter-banner-vod {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 0.65rem;
+      background: color-mix(in srgb, var(--card, #161b22) 94%, #e3bc67);
+      border: 1px solid color-mix(in srgb, #e3bc67 25%, var(--line, #30363d));
+      border-radius: 14px; padding: 0.85rem 1rem; margin: 0 0 1.25rem;
+    }
+    .easter-banner-vod.hidden { display: none !important; }
+    .easter-banner-vod-text { flex: 1; min-width: 0; }
+    .easter-banner-vod-eyebrow {
+      margin: 0 0 0.25rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted, #8b949e);
+    }
+    .easter-banner-vod-body {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--text, #e6edf3) 90%, var(--muted, #8b949e));
+    }
+    .easter-banner-vod-body a { color: var(--primary, #e3bc67); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .easter-banner-vod-dismiss {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      color: var(--muted, #8b949e);
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.35rem;
+      min-width: 44px;
+      min-height: 44px;
+      line-height: 1;
+      border-radius: 8px;
+    }
+    .easter-banner-vod-dismiss:hover,
+    .easter-banner-vod-dismiss:focus-visible {
+      color: var(--text, #e6edf3);
+      outline: 2px solid var(--primary, #e3bc67);
+      outline-offset: 2px;
+    }
+  </style>
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -191,6 +235,13 @@
             <a href="/" class="btn btn-secondary">Back to Home</a>
           </div>
         </header>
+        <div class="easter-banner-vod hidden" id="tdbVerseEasterBanner" role="region" aria-labelledby="tdbVerseEasterH" hidden>
+          <div class="easter-banner-vod-text">
+            <p class="easter-banner-vod-eyebrow" id="tdbVerseEasterH">He is risen</p>
+            <p class="easter-banner-vod-body">Celebrate the resurrection in a quiet way: <a href="he-is-risen.html">He is risen</a> (short KJV readings) or the <a href="plans.html?plan=easter">seven-day Resurrection Hope</a> plan.</p>
+          </div>
+          <button type="button" class="easter-banner-vod-dismiss" id="tdbVerseEasterDismiss" aria-label="Dismiss Easter note">×</button>
+        </div>
         <section id="verse-of-day" class="verse-of-day glass" role="region" aria-live="polite" aria-label="Verse of the day">
           <h2 class="section-divider">Today&rsquo;s Verse</h2>
           <div id="daily-verse-card" class="verse-card verse-card-loaded" aria-live="polite">
@@ -369,5 +420,11 @@
   <script src="verse-breakdown.js?v=20260327-vod-breakdown" defer></script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260331mysave" data-cfasync="false"></script>
+  <script src="/easter-season.js"></script>
+  <script nonce="tdb2025s">
+  if (window.TDB_EASTER_SEASON && typeof window.TDB_EASTER_SEASON.initEasterBanner === 'function') {
+    window.TDB_EASTER_SEASON.initEasterBanner('tdbVerseEasterBanner', 'tdbVerseEasterDismiss');
+  }
+  </script>
 </body>
 </html>

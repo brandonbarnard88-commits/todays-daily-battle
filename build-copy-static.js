@@ -111,6 +111,7 @@ const rootFiles = [
   'search-wire.js',
   'share-page.js',
   'easter-eggs.js',
+  'easter-season.js',
   'easter-eggs.css',
   'plans-data.js',
   'verse-breakdown.js',

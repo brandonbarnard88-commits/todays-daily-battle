@@ -73,6 +73,8 @@
       bodyEl.appendChild(document.createTextNode(text));
     }
     if (card) {
+      card.setAttribute('role', 'article');
+      card.setAttribute('aria-label', ref + ' — verse card');
       card.classList.remove('hidden');
       memCardShowsText = false;
       memHideOn = false;
@@ -349,12 +351,22 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
     };
+    var escAttr = function (s) {
+      return String(s || '')
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;');
+    };
     var footer = 'todaysdailybattle.com &mdash; private &amp; offline';
     var body = '';
     rows.forEach(function (row) {
       var t = memTextCache[row.ref] || '';
       var backText = t ? buildHiddenTextForPrint(t) : '';
-      body += '<div class="mem-print-pair">';
+      body +=
+        '<article class="mem-print-pair" role="article" aria-label="' +
+        escAttr(row.ref) +
+        ' — memory card">';
       body += '<section class="mem-print-face mem-print-front">';
       body += '<p class="mem-print-ref">' + esc(row.ref) + '</p>';
       if (t) {
@@ -374,7 +386,7 @@
         body += '<p class="mem-print-missing">No hide-words text until the verse is loaded on Memorize.</p>';
       }
       body += '<p class="mem-print-footer">' + footer + '</p>';
-      body += '</section></div>';
+      body += '</section></article>';
     });
     var html =
       '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>KJV memory cards</title><style>' +

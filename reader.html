@@ -641,11 +641,12 @@
 
           <div id="reader-xrefs-layer" class="reader-sheet-layer hidden" aria-hidden="true">
             <div id="reader-xrefs-backdrop" class="reader-sheet-backdrop" tabindex="-1" aria-hidden="true"></div>
-            <div class="reader-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="reader-xrefs-sheet-title">
+            <div class="reader-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="reader-xrefs-sheet-title" aria-describedby="reader-xrefs-sheet-desc">
               <div class="reader-sheet-header">
                 <button type="button" id="reader-xrefs-back" class="reader-sheet-back-btn">Back</button>
                 <h2 id="reader-xrefs-sheet-title" class="reader-sheet-title">Cross references</h2>
               </div>
+              <p id="reader-xrefs-sheet-desc" class="sr-only">Curated cross-references for this verse, grouped by theme when available. Use the filter field to narrow the list.</p>
               <label class="sr-only" for="reader-xrefs-filter">Filter cross references</label>
               <input id="reader-xrefs-filter" class="reader-sheet-filter" type="search" autocomplete="off" placeholder="Filter by word or reference&hellip;">
               <div id="reader-xrefs-sheet-body" class="reader-sheet-body"></div>
@@ -661,7 +662,7 @@
 
           <div id="reader-wordstudy-layer" class="reader-sheet-layer hidden" aria-hidden="true">
             <div id="reader-wordstudy-backdrop" class="reader-sheet-backdrop" tabindex="-1" aria-hidden="true"></div>
-            <div class="reader-sheet-panel reader-wordstudy-panel" role="dialog" aria-modal="true" aria-labelledby="reader-wordstudy-sheet-title">
+            <div class="reader-sheet-panel reader-wordstudy-panel" role="dialog" aria-modal="true" aria-labelledby="reader-wordstudy-sheet-title" aria-describedby="reader-wordstudy-sheet-desc">
               <div class="reader-sheet-header">
                 <button type="button" id="reader-wordstudy-back" class="reader-sheet-back-btn">Back</button>
                 <h2 id="reader-wordstudy-sheet-title" class="reader-sheet-title">KJV word study</h2>
@@ -670,7 +671,7 @@
                 <p id="reader-wordstudy-anchor-ref" class="reader-wordstudy-anchor-ref"></p>
                 <p id="reader-wordstudy-anchor-text" class="reader-wordstudy-anchor-text"></p>
               </div>
-              <p class="reader-wordstudy-hint section-note util-mb-0_5 util-mt-0">Tap a word from the verse, or type one and search. Uses the full KJV on this device (offline once loaded).</p>
+              <p id="reader-wordstudy-sheet-desc" class="reader-wordstudy-hint section-note util-mb-0_5 util-mt-0">Tap a word from the verse, or type one and search. Uses the full KJV on this device (offline once loaded).</p>
               <div id="reader-wordstudy-chips" class="reader-wordstudy-chips" aria-label="Words in this verse"></div>
               <div class="reader-wordstudy-manual-row">
                 <label class="sr-only" for="reader-wordstudy-manual">Word to study</label>
@@ -1064,8 +1065,8 @@
       setTimeout(run, 1600);
     })();
   </script>
-  <script src="word-study.js?v=20260430lex100"></script>
+  <script src="word-study.js?v=20260430a11y-modals"></script>
   <script src="bible-study-companion.js?v=20260328reader-study"></script>
-  <script type="module" src="script.js?v=20260429delight" data-cfasync="false" fetchpriority="low"></script>
+  <script type="module" src="script.js?v=20260430a11y-modals" data-cfasync="false" fetchpriority="low"></script>
 </body>
 </html>

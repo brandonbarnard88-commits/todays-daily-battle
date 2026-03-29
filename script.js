@@ -14726,6 +14726,38 @@ function renderReaderCrossRefsPanel(book, chapter) {
 
 var readerXrefsLastAnchorRef = '';
 var readerXrefsLastVerseSnippet = '';
+/** @type {Element|null} */
+var readerXrefsFocusBeforeOpen = null;
+
+function tdbListDialogFocusables(panel) {
+  if (!panel || !panel.querySelectorAll) return [];
+  const sel =
+    'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),summary,[tabindex]:not([tabindex="-1"])';
+  return Array.prototype.slice.call(panel.querySelectorAll(sel)).filter((el) => {
+    if (el.getAttribute && el.getAttribute('tabindex') === '-1') return false;
+    if (el.closest && el.closest('[hidden]')) return false;
+    const s = getComputedStyle(el);
+    if (s.visibility === 'hidden' || s.display === 'none') return false;
+    return el.getClientRects && el.getClientRects().length > 0;
+  });
+}
+
+function tdbTrapDialogTabKeydown(ev, panel) {
+  if (ev.key !== 'Tab' || !panel) return;
+  const list = tdbListDialogFocusables(panel);
+  if (list.length < 2) return;
+  const first = list[0];
+  const last = list[list.length - 1];
+  if (ev.shiftKey) {
+    if (document.activeElement === first) {
+      last.focus();
+      ev.preventDefault();
+    }
+  } else if (document.activeElement === last) {
+    first.focus();
+    ev.preventDefault();
+  }
+}
 
 function normXrefRefKey(r) {
   return String(r || '')
@@ -14984,6 +15016,7 @@ function applyReaderXrefsFilter(query) {
 function openReaderCrossrefsSheet(anchorRef, verseTextOpt) {
   const layer = document.getElementById('reader-xrefs-layer');
   if (!layer) return;
+  readerXrefsFocusBeforeOpen = document.activeElement;
   readerXrefsLastAnchorRef = normXrefRefKey(parseReference(anchorRef) || anchorRef);
   const filterIn = document.getElementById('reader-xrefs-filter');
   if (filterIn) filterIn.value = '';
@@ -15002,12 +15035,22 @@ function openReaderCrossrefsSheet(anchorRef, verseTextOpt) {
   });
 }
 
-function closeReaderCrossrefsSheet() {
+function closeReaderCrossrefsSheet(opts) {
   const layer = document.getElementById('reader-xrefs-layer');
   if (!layer) return;
   layer.classList.add('hidden');
   layer.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('reader-xrefs-open');
+  const skipRestore = opts && opts.skipFocusRestore;
+  const ret = readerXrefsFocusBeforeOpen;
+  readerXrefsFocusBeforeOpen = null;
+  if (!skipRestore && ret && typeof ret.focus === 'function') {
+    try {
+      if (ret.isConnected) ret.focus();
+    } catch (e) {
+      /* ignore */
+    }
+  }
 }
 
 function attachReaderVerseXrefControls() {
@@ -15103,7 +15146,7 @@ function wireReaderXrefsSheetUiOnce() {
     wsOpen.addEventListener('click', () => {
       const r = readerXrefsLastAnchorRef;
       if (!r || !globalThis.TDBWordStudy || typeof globalThis.TDBWordStudy.open !== 'function') return;
-      closeReaderCrossrefsSheet();
+      closeReaderCrossrefsSheet({ skipFocusRestore: true });
       globalThis.TDBWordStudy.open(r, readerXrefsLastVerseSnippet || '');
       try {
         trackEvent('reader_xrefs_open_wordstudy', { ok: true });
@@ -15121,6 +15164,10 @@ function wireReaderXrefsSheetUiOnce() {
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     if (root && !root.classList.contains('hidden')) close();
+  });
+  root.addEventListener('keydown', (ev) => {
+    const panel = root.querySelector('.reader-sheet-panel');
+    if (panel && !root.classList.contains('hidden')) tdbTrapDialogTabKeydown(ev, panel);
   });
 }
 

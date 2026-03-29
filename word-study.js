@@ -82,6 +82,38 @@
   var concCache = typeof Map !== 'undefined' ? new Map() : null;
   var wired = false;
   var globalSyncWired = false;
+  /** @type {Element|null} */
+  var focusBeforeOpen = null;
+
+  function listPanelFocusables(panel) {
+    if (!panel || !panel.querySelectorAll) return [];
+    var sel =
+      'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),summary,[tabindex]:not([tabindex="-1"])';
+    return Array.prototype.slice.call(panel.querySelectorAll(sel)).filter(function (el) {
+      if (el.getAttribute && el.getAttribute('tabindex') === '-1') return false;
+      if (el.closest && el.closest('[hidden]')) return false;
+      var s = window.getComputedStyle(el);
+      if (s.visibility === 'hidden' || s.display === 'none') return false;
+      return el.getClientRects && el.getClientRects().length > 0;
+    });
+  }
+
+  function trapPanelTabKeydown(ev, panel) {
+    if (ev.key !== 'Tab' || !panel) return;
+    var list = listPanelFocusables(panel);
+    if (list.length < 2) return;
+    var first = list[0];
+    var last = list[list.length - 1];
+    if (ev.shiftKey) {
+      if (document.activeElement === first) {
+        last.focus();
+        ev.preventDefault();
+      }
+    } else if (document.activeElement === last) {
+      first.focus();
+      ev.preventDefault();
+    }
+  }
 
   function syncHeroWordStudyButton() {
     var btn = document.getElementById('heroWordStudyBtn');
@@ -315,13 +347,13 @@
     layer.setAttribute('aria-hidden', 'true');
     layer.innerHTML =
       '<div id="tdb-ws-backdrop" class="tdb-ws-backdrop" tabindex="-1" aria-hidden="true"></div>' +
-      '<div id="tdb-ws-panel" role="dialog" aria-modal="true" aria-labelledby="tdb-ws-title">' +
+      '<div id="tdb-ws-panel" role="dialog" aria-modal="true" aria-labelledby="tdb-ws-title" aria-describedby="tdb-ws-dialog-desc">' +
       '<div id="tdb-ws-header">' +
       '<button type="button" id="tdb-ws-back">Back</button>' +
       '<h2 id="tdb-ws-title">Word study</h2></div>' +
       '<div class="tdb-ws-anchor-block"><p id="tdb-ws-anchor-ref" class="tdb-ws-anchor-ref"></p>' +
       '<p id="tdb-ws-anchor-text" class="tdb-ws-anchor-text"></p></div>' +
-      '<p class="tdb-ws-hint">Tap a word, or type and search. Whole-word matches across the KJV (offline once loaded).</p>' +
+      '<p id="tdb-ws-dialog-desc" class="tdb-ws-hint">Tap a word, or type and search. Whole-word matches across the KJV (offline once loaded).</p>' +
       '<div id="tdb-ws-chips" class="tdb-ws-chips" aria-label="Words in this verse"></div>' +
       '<div class="tdb-ws-manual-row"><label class="sr-only" for="tdb-ws-manual">Word</label>' +
       '<input id="tdb-ws-manual" class="tdb-ws-filter" type="text" autocomplete="off" placeholder="Type a KJV word…">' +
@@ -359,6 +391,15 @@
     layer.classList.add('tdb-ws-hidden');
     layer.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('tdb-wordstudy-open');
+    var ret = focusBeforeOpen;
+    focusBeforeOpen = null;
+    if (ret && typeof ret.focus === 'function') {
+      try {
+        if (ret.isConnected) ret.focus();
+      } catch (e) {
+        /* ignore */
+      }
+    }
   }
 
   function clearResults() {
@@ -716,6 +757,10 @@
     var bk = document.getElementById('tdb-ws-back');
     if (bd) bd.addEventListener('click', close);
     if (bk) bk.addEventListener('click', close);
+    layer.addEventListener('keydown', function (ev) {
+      var panel = document.getElementById('tdb-ws-panel');
+      if (panel && !layer.classList.contains('tdb-ws-hidden')) trapPanelTabKeydown(ev, panel);
+    });
     var sv = document.getElementById('ws-save-to-mystudy');
     if (sv) sv.addEventListener('click', saveToMyStudy);
     var pr = document.getElementById('ws-print');
@@ -766,6 +811,7 @@
     clearResults();
     ensureLexicon().catch(function () {});
     if (layer) {
+      focusBeforeOpen = document.activeElement;
       layer.classList.remove('tdb-ws-hidden');
       layer.setAttribute('aria-hidden', 'false');
       document.body.classList.add('tdb-wordstudy-open');

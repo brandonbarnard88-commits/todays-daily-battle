@@ -54,6 +54,18 @@
     banner.removeAttribute('hidden');
   }
 
+  /** When the Easter banner is visible, hide the optional Morning doorway hint (index). */
+  function syncMorningDoorwayHint(banner) {
+    var hint = document.getElementById('tdbMorningDoorwayHint');
+    if (!hint || !banner) return;
+    var bannerHidden = banner.classList.contains('hidden') || banner.hasAttribute('hidden');
+    if (bannerHidden) {
+      hint.removeAttribute('hidden');
+    } else {
+      hint.setAttribute('hidden', '');
+    }
+  }
+
   /**
    * @param {string} bannerId
    * @param {string} dismissId
@@ -71,12 +83,15 @@
       showBanner(banner);
     }
 
+    syncMorningDoorwayHint(banner);
+
     if (dismiss) {
       dismiss.addEventListener('click', function () {
         try {
           global.localStorage.setItem(key, '1');
         } catch (_) {}
         hideBanner(banner);
+        syncMorningDoorwayHint(banner);
       });
     }
   }

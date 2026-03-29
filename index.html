@@ -1239,6 +1239,43 @@
       outline: 2px solid var(--gold);
       outline-offset: 2px;
     }
+    /* Shown when the Easter banner is not active (see easter-season.js syncMorningDoorwayHint) */
+    .tdb-morning-doorway-hint {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 0 0 0.55rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+      background: color-mix(in srgb, var(--card) 94%, var(--bg-soft));
+      max-width: 52rem;
+      align-self: center;
+      text-align: center;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .tdb-morning-doorway-hint[hidden] { display: none !important; }
+    .tdb-morning-doorway-hint a {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: none;
+      text-underline-offset: 2px;
+    }
+    .tdb-morning-doorway-hint a:hover,
+    .tdb-morning-doorway-hint a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+    .tdb-morning-doorway-hint a:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    :root[data-theme="light"] .tdb-morning-doorway-hint {
+      background: color-mix(in srgb, var(--card) 96%, #fff);
+      border-color: color-mix(in srgb, var(--line) 92%, var(--gold) 8%);
+    }
     /* One-line discovery for study-depth upgrades (dated; link to About for detail) */
     .tdb-whats-new-hint {
       font-size: 0.8rem;
@@ -5208,6 +5245,8 @@
         </div>
         <button type="button" class="easter-banner-dismiss" id="tdbHomeEasterDismiss" aria-label="Dismiss Easter note">×</button>
       </div>
+
+      <p class="tdb-morning-doorway-hint" id="tdbMorningDoorwayHint">Morning doorway: <a href="daily-quiet-time.html">Daily quiet time</a> &mdash; Scripture, one-tap calm, <a href="daily-quiet-time.html#dqt-prayer-tools">prayer tools</a>, one Battle Plan.</p>
 
       <!-- ── Feel Search (nav anchor: #quick-search-hero) — below Why not AI teaser, above Battle Plans ── -->
       <div id="quick-search-hero">

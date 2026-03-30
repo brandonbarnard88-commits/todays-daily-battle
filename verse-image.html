@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Verse image generator • KJV share cards • Today's Daily Battle</title>
-  <meta name="description" content="Create a custom KJV verse image: pick a reference, choose background and type, export PNG offline. Supporter feature.">
+  <meta name="description" content="Create a KJV verse image: dawn share templates (square, story, print) or a custom wide canvas. Export PNG offline. Supporter feature.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/verse-image.html">
   <meta property="og:title" content="Verse image generator • Today's Daily Battle">
@@ -210,7 +210,7 @@
       <div class="content-inner bible-tool">
         <header class="hero-banner">
           <h1>Verse image generator</h1>
-          <p class="hero-tagline">Build a calm, share-ready KJV card—pick a serene background, layout, and type. Export PNG or share from your device; no upload required.</p>
+          <p class="hero-tagline">Build a calm, share-ready KJV card—start with a <strong>dawn template</strong> (square, story, or print) or stay on the wide custom canvas. Export PNG or share from your device; no upload required.</p>
         </header>
 
         <section id="verse-image-locked" class="glass verse-image-locked" aria-labelledby="verse-image-locked-h">
@@ -244,6 +244,36 @@
             <div style="flex: 1 1 100%;">
               <label for="verse-image-body">Verse text (KJV)</label>
               <textarea id="verse-image-body" maxlength="2800" aria-label="Verse text to render on the image"></textarea>
+            </div>
+          </div>
+
+          <div class="verse-image-controls" style="margin-top: 0.5rem;">
+            <div style="flex: 1 1 100%;">
+              <label for="verse-image-template">Share template</label>
+              <select id="verse-image-template" aria-label="Share template size and style">
+                <option value="custom" selected>Custom — wide preview (1200×630)</option>
+                <optgroup label="Peace &amp; hope">
+                  <option value="T01-classic-soar">T01 — Classic soar (1080×1080)</option>
+                  <option value="T02-gentle-water">T02 — Gentle water reflection (1080×1350)</option>
+                  <option value="T03-open-field">T03 — Open field at dawn (1080×1080)</option>
+                </optgroup>
+                <optgroup label="Strength &amp; endurance">
+                  <option value="T04-eagle-flight">T04 — Eagle flight (1080×1080)</option>
+                  <option value="T05-lily-bloom">T05 — Lily bloom (1080×1080)</option>
+                  <option value="T06-rock-river">T06 — Rock &amp; river (1080×1080)</option>
+                </optgroup>
+                <optgroup label="Comfort &amp; rest">
+                  <option value="T07-night-peace">T07 — Night peace (1080×1920)</option>
+                  <option value="T08-cross-shadow">T08 — Cross shadow, minimal (1080×1080)</option>
+                  <option value="T09-morning-mist">T09 — Morning mist (1080×1080)</option>
+                </optgroup>
+                <optgroup label="Memory &amp; share">
+                  <option value="T10-scripture-memory">T10 — Scripture memory / print (1080×1080)</option>
+                  <option value="T11-family-blessing">T11 — Family blessing (1080×1080)</option>
+                  <option value="T12-minimal-landscape">T12 — Minimal blank (1200×630)</option>
+                </optgroup>
+              </select>
+              <p id="verse-image-template-hint" class="section-note" style="margin: 0.35rem 0 0;">Twelve calm templates (square, portrait, story, or wide). Custom stays at 1200×630 for link previews. Old A–F bookmarks still load in Recent.</p>
             </div>
           </div>
 
@@ -349,7 +379,8 @@
     <a href="/kids-corner.html">Kids Corner</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/message.html">Prayer Wall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/calm.html">Calm</a>
+    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
 
   <p class="site-footer-share-wrap">
@@ -492,6 +523,6 @@
   <script type="module" src="script.js?v=20260328feelwire"></script>
   <script src="verse-ref-slug.js"></script>
   <script src="/vendor/qrcode.browser.min.js"></script>
-  <script src="verse-image.js?v=20260330verseimgv2" defer></script>
+  <script src="verse-image.js?v=20260402tpl12" defer></script>
 </body>
 </html>

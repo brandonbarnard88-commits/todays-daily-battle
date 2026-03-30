@@ -161,6 +161,141 @@
     wine: '#b91c1c'
   };
 
+  /**
+   * Share templates T01–T12 (designer art can replace canvas fills later).
+   * Legacy A–F keys alias the first six for IndexedDB / old bookmarks.
+   */
+  var TEMPLATES = {
+    custom: { w: 1200, h: 630, bg: null, layout: null, textColor: null, memorize: false, footer: 'default' },
+    'T01-classic-soar': {
+      w: 1080,
+      h: 1080,
+      bg: 'soar',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T02-gentle-water': {
+      w: 1080,
+      h: 1350,
+      bg: 'water_reflection',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T03-open-field': {
+      w: 1080,
+      h: 1080,
+      bg: 'field',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T04-eagle-flight': {
+      w: 1080,
+      h: 1080,
+      bg: 'eagle_flight',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T05-lily-bloom': {
+      w: 1080,
+      h: 1080,
+      bg: 'lily_bloom',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T06-rock-river': {
+      w: 1080,
+      h: 1080,
+      bg: 'rock_river',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T07-night-peace': {
+      w: 1080,
+      h: 1920,
+      bg: 'night_peace',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T08-cross-shadow': {
+      w: 1080,
+      h: 1080,
+      bg: 'cross_soft',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T09-morning-mist': {
+      w: 1080,
+      h: 1080,
+      bg: 'mist',
+      layout: 'centered',
+      textColor: 'ink',
+      memorize: false,
+      footer: 'site'
+    },
+    'T10-scripture-memory': {
+      w: 1080,
+      h: 1080,
+      bg: 'linen',
+      layout: 'centered',
+      textColor: 'ink',
+      memorize: true,
+      footer: 'site'
+    },
+    'T11-family-blessing': {
+      w: 1080,
+      h: 1080,
+      bg: 'family_blessing',
+      layout: 'centered',
+      textColor: 'ink',
+      memorize: false,
+      footer: 'site'
+    },
+    'T12-minimal-landscape': {
+      w: 1200,
+      h: 630,
+      bg: 'minimal_blank',
+      layout: 'centered',
+      textColor: 'ink',
+      memorize: false,
+      footer: 'site'
+    }
+  };
+
+  var LEGACY_TEMPLATE_KEYS = {
+    'A-dawn-soar': 'T01-classic-soar',
+    'B-water-portrait': 'T02-gentle-water',
+    'C-field-hope': 'T03-open-field',
+    'D-memory-print': 'T10-scripture-memory',
+    'E-night-peace': 'T07-night-peace',
+    'F-cross-shadow': 'T08-cross-shadow'
+  };
+
+  function normalizeTemplateKey(k) {
+    var key = k || 'custom';
+    return LEGACY_TEMPLATE_KEYS[key] || key;
+  }
+
+  Object.keys(LEGACY_TEMPLATE_KEYS).forEach(function (oldK) {
+    var nk = LEGACY_TEMPLATE_KEYS[oldK];
+    if (TEMPLATES[nk]) TEMPLATES[oldK] = TEMPLATES[nk];
+  });
+
   function bgGradients(bg) {
     if (bg === 'deep') return { start: '#0a1628', end: '#1e3a5f' };
     if (bg === 'still') return { start: '#0f0a14', end: '#1a1a2e' };
@@ -345,6 +480,245 @@
     ctx.fillRect(0, 0, w, h * 0.58);
   }
 
+  /** B — sunrise over still water; portrait-friendly. */
+  function drawWaterReflectionBackground(ctx, w, h) {
+    var skyH = h * 0.52;
+    var sky = ctx.createLinearGradient(0, 0, 0, skyH);
+    sky.addColorStop(0, '#2d2654');
+    sky.addColorStop(0.35, '#6b4f8c');
+    sky.addColorStop(0.72, '#c9a06c');
+    sky.addColorStop(1, '#f0d4a8');
+    ctx.fillStyle = sky;
+    ctx.fillRect(0, 0, w, skyH);
+    var water = ctx.createLinearGradient(0, skyH * 0.88, 0, h);
+    water.addColorStop(0, '#1e4a62');
+    water.addColorStop(0.45, '#123a52');
+    water.addColorStop(1, '#0a2233');
+    ctx.fillStyle = water;
+    ctx.fillRect(0, skyH * 0.85, w, h - skyH * 0.85);
+    var glow = ctx.createRadialGradient(w * 0.5, skyH * 0.92, 0, w * 0.5, skyH * 0.92, w * 0.55);
+    glow.addColorStop(0, 'rgba(255, 228, 196, 0.4)');
+    glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, skyH * 0.55, w, h * 0.45);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.07)';
+    ctx.beginPath();
+    ctx.ellipse(w * 0.86, h * 0.58, w * 0.045, h * 0.028, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  /** E — deep night, soft stars and gentle light (stories / evening). */
+  function drawNightPeaceBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#070f1c');
+    gr.addColorStop(0.45, '#0f2138');
+    gr.addColorStop(1, '#040810');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var pts = [
+      [0.1, 0.06],
+      [0.28, 0.04],
+      [0.52, 0.09],
+      [0.74, 0.05],
+      [0.9, 0.11],
+      [0.18, 0.12],
+      [0.42, 0.07],
+      [0.63, 0.13]
+    ];
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+    for (var si = 0; si < pts.length; si++) {
+      var px = w * pts[si][0];
+      var py = h * pts[si][1];
+      ctx.beginPath();
+      ctx.arc(px, py, Math.max(1.2, w * 0.0035), 0, Math.PI * 2);
+      ctx.fill();
+    }
+    var rays = ctx.createRadialGradient(w * 0.5, 0, 0, w * 0.5, 0, h * 0.42);
+    rays.addColorStop(0, 'rgba(190, 210, 255, 0.14)');
+    rays.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = rays;
+    ctx.fillRect(0, 0, w, h * 0.48);
+  }
+
+  /** T04 — bolder sunrise with a clear wing curve (Isaiah 40:31 mood). */
+  function drawEagleFlightBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h * 0.55);
+    gr.addColorStop(0, '#ffecd2');
+    gr.addColorStop(0.35, '#fcb69f');
+    gr.addColorStop(0.65, '#7eb6d6');
+    gr.addColorStop(1, '#1e3a5f');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var sun = ctx.createRadialGradient(w * 0.22, h * 0.18, 0, w * 0.22, h * 0.18, w * 0.42);
+    sun.addColorStop(0, 'rgba(255, 248, 220, 0.55)');
+    sun.addColorStop(1, 'rgba(255, 248, 220, 0)');
+    ctx.fillStyle = sun;
+    ctx.fillRect(0, 0, w, h * 0.5);
+    ctx.save();
+    ctx.globalAlpha = 0.22;
+    ctx.fillStyle = '#0f172a';
+    ctx.beginPath();
+    ctx.moveTo(w * 1.02, h * 1.02);
+    ctx.bezierCurveTo(w * 0.55, h * 0.92, w * 0.35, h * 0.62, w * 0.42, h * 0.38);
+    ctx.bezierCurveTo(w * 0.48, h * 0.22, w * 0.72, h * 0.12, w * 0.95, h * 0.08);
+    ctx.lineTo(w * 1.02, h * 0.35);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  /** T05 — soft morning light, lily suggestion (no photo). */
+  function drawLilyBloomBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#fff8f3');
+    gr.addColorStop(0.45, '#fdeef4');
+    gr.addColorStop(1, '#e8d5e0');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    ctx.save();
+    ctx.globalAlpha = 0.35;
+    var cx = w * 0.72;
+    var cy = h * 0.58;
+    for (var p = 0; p < 6; p++) {
+      var ang = (p / 6) * Math.PI * 2 - Math.PI / 2;
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.ellipse(
+        cx + Math.cos(ang) * w * 0.06,
+        cy + Math.sin(ang) * h * 0.05,
+        w * 0.09,
+        h * 0.14,
+        ang + Math.PI / 2,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+    }
+    ctx.globalAlpha = 0.5;
+    ctx.fillStyle = '#fef3c7';
+    ctx.beginPath();
+    ctx.arc(cx, cy, Math.min(w, h) * 0.035, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  /** T06 — rock by flowing water (Psalm 61:2 mood). */
+  function drawRockRiverBackground(ctx, w, h) {
+    var sky = ctx.createLinearGradient(0, 0, w, h * 0.52);
+    sky.addColorStop(0, '#dbeafe');
+    sky.addColorStop(1, '#93c5fd');
+    ctx.fillStyle = sky;
+    ctx.fillRect(0, 0, w, h * 0.52);
+    var water = ctx.createLinearGradient(0, h * 0.48, w, h);
+    water.addColorStop(0, '#5b8fb8');
+    water.addColorStop(0.5, '#3d6b8a');
+    water.addColorStop(1, '#1e3a4a');
+    ctx.fillStyle = water;
+    ctx.fillRect(0, h * 0.48, w, h * 0.52);
+    ctx.save();
+    ctx.globalAlpha = 0.12;
+    for (var i = 0; i < 7; i++) {
+      ctx.strokeStyle = '#e0f2fe';
+      ctx.lineWidth = 1 + (i % 3);
+      ctx.beginPath();
+      ctx.moveTo(0, h * 0.52 + (i * h) / 18);
+      ctx.bezierCurveTo(
+        w * 0.33,
+        h * 0.52 + (i * h) / 20,
+        w * 0.66,
+        h * 0.58 + (i * h) / 22,
+        w,
+        h * 0.54 + (i * h) / 18
+      );
+      ctx.stroke();
+    }
+    ctx.restore();
+    ctx.save();
+    ctx.globalAlpha = 0.88;
+    ctx.fillStyle = '#64748b';
+    ctx.beginPath();
+    ctx.moveTo(w * 0.02, h * 0.52);
+    ctx.lineTo(w * 0.28, h * 0.35);
+    ctx.lineTo(w * 0.38, h * 0.42);
+    ctx.lineTo(w * 0.32, h * 0.52);
+    ctx.closePath();
+    ctx.fill();
+    ctx.fillStyle = '#475569';
+    ctx.beginPath();
+    ctx.moveTo(w * 0.08, h * 0.52);
+    ctx.lineTo(w * 0.26, h * 0.4);
+    ctx.lineTo(w * 0.3, h * 0.52);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  /** T11 — warm parchment with soft corner ornament (room for a note in export). */
+  function drawFamilyBlessingBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#fdf8f0');
+    gr.addColorStop(1, '#f3e8d8');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(180, 140, 100, 0.28)';
+    ctx.lineWidth = Math.max(2, w * 0.003);
+    var inset = Math.round(Math.min(w, h) * 0.08);
+    ctx.strokeRect(inset, inset, w - inset * 2, h - inset * 2);
+    ctx.globalAlpha = 0.22;
+    ctx.strokeStyle = 'rgba(139, 90, 60, 0.42)';
+    ctx.lineWidth = 1.5;
+    var r = Math.min(w, h) * 0.14;
+    ctx.beginPath();
+    ctx.arc(inset + r, inset + r, r, Math.PI, Math.PI * 1.5);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(w - inset - r, inset + r, r, Math.PI * 1.5, 0);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(inset + r, h - inset - r, r, Math.PI * 0.5, Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(w - inset - r, h - inset - r, r, 0, Math.PI * 0.5);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  /** T12 — near-blank for overlay or print (OG-style wide). */
+  function drawMinimalBlankBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#f8fafc');
+    gr.addColorStop(1, '#eef2f7');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  /** F — pale calm with barely-there cross (spec: minimalist). */
+  function drawCrossSoftBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#e4edf5');
+    gr.addColorStop(0.5, '#c8d6e4');
+    gr.addColorStop(1, '#a8b8cc');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    ctx.save();
+    ctx.globalAlpha = 0.06;
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = Math.max(14, w * 0.016);
+    ctx.lineCap = 'round';
+    var cx = w * 0.7;
+    var cy = h * 0.36;
+    var v = h * 0.38;
+    var arm = w * 0.11;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - v * 0.5);
+    ctx.lineTo(cx, cy + v * 0.48);
+    ctx.moveTo(cx - arm, cy - v * 0.02);
+    ctx.lineTo(cx + arm, cy - v * 0.02);
+    ctx.stroke();
+    ctx.restore();
+  }
+
   /** Thin gold-edge frame — share cards feel finished, not flat. */
   function drawSubtleFrame(ctx, w, h) {
     ctx.save();
@@ -415,6 +789,38 @@
       drawAuroraBackground(ctx, w, h);
       return;
     }
+    if (bg === 'water_reflection') {
+      drawWaterReflectionBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'night_peace') {
+      drawNightPeaceBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'cross_soft') {
+      drawCrossSoftBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'eagle_flight') {
+      drawEagleFlightBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'lily_bloom') {
+      drawLilyBloomBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'rock_river') {
+      drawRockRiverBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'family_blessing') {
+      drawFamilyBlessingBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'minimal_blank') {
+      drawMinimalBlankBackground(ctx, w, h);
+      return;
+    }
     var g = bgGradients(bg === 'cross' ? 'dawn' : bg);
     var gr = ctx.createLinearGradient(0, 0, w, h);
     gr.addColorStop(0, g.start);
@@ -437,21 +843,41 @@
     if (!ctx) return;
     var w = canvas.width;
     var h = canvas.height;
+    var tk = normalizeTemplateKey((opts && opts.templateKey) || 'custom');
+    var tdef = TEMPLATES[tk];
+    var isTpl = tdef && tk !== 'custom';
+
     var bg = (opts && opts.bg) || 'dawn';
     var layout = (opts && opts.layout) || 'classic';
     drawSceneBackground(ctx, w, h, bg);
 
     var tc = resolveTextColor(opts);
     var serif = !opts || opts.font === 'serif';
-    var refPx = serif ? 52 : 48;
-    var bodyPx = body.length > 420 ? (serif ? 22 : 21) : (serif ? 28 : 26);
-    var lh = body.length > 420 ? 32 : 36;
-    var pad = 72;
-    if (layout === 'balanced') {
-      pad = 88;
-      refPx = Math.round(refPx * 0.94);
-      bodyPx = Math.round(bodyPx * 0.96);
-      lh += 2;
+    var refPx;
+    var bodyPx;
+    var lh;
+    var pad;
+    if (isTpl) {
+      var sf = Math.min(w, h) / 1080;
+      if (sf < 0.48) sf = 0.48;
+      if (sf > 1.18) sf = 1.18;
+      pad = Math.round(Math.min(w, h) * 0.18);
+      refPx = Math.round((serif ? 54 : 50) * sf);
+      bodyPx =
+        body.length > 520 ? Math.round((serif ? 24 : 22) * sf) : Math.round((serif ? 30 : 28) * sf);
+      lh = Math.round((body.length > 520 ? 34 : 38) * sf);
+      layout = 'centered';
+    } else {
+      refPx = serif ? 52 : 48;
+      bodyPx = body.length > 420 ? (serif ? 22 : 21) : (serif ? 28 : 26);
+      lh = body.length > 420 ? 32 : 36;
+      pad = 72;
+      if (layout === 'balanced') {
+        pad = 88;
+        refPx = Math.round(refPx * 0.94);
+        bodyPx = Math.round(bodyPx * 0.96);
+        lh += 2;
+      }
     }
     var refFont = serif
       ? '700 ' + refPx + 'px "Cormorant Garamond", Georgia, serif'
@@ -465,22 +891,47 @@
     if (layout === 'centered') {
       var cx = w / 2;
       ctx.textAlign = 'center';
+      var refY = isTpl ? pad + Math.round(refPx * 0.82) : 108;
       ctx.fillStyle = tc.main;
       ctx.font = refFont;
-      ctx.fillText(ref, cx, 108);
+      ctx.fillText(ref, cx, refY);
 
       ctx.fillStyle = tc.main;
       ctx.font = bodyFont;
-      var maxW = w - 160;
-      var bodyStart = 168;
+      var maxW = isTpl ? w - pad * 2 : w - 160;
+      var bodyStart = isTpl ? refY + Math.round(lh * 1.2) : 168;
       wrapCanvasTextCentered(ctx, body, cx, bodyStart, maxW, lh);
 
-      ctx.fillStyle = footMuted;
-      ctx.font = '600 24px Inter, system-ui, sans-serif';
-      ctx.fillText("Today's Verse \u2014 A Quiet Place", cx, h - 48);
-      ctx.fillStyle = '#d4af37';
-      ctx.font = '600 20px Inter, system-ui, sans-serif';
-      ctx.fillText('KJV', cx, h - 22);
+      if (opts && opts.footerStyle === 'site') {
+        var sf2 = Math.min(w, h) / 1080;
+        if (sf2 < 0.5) sf2 = 0.5;
+        if (sf2 > 1.12) sf2 = 1.12;
+        var step = Math.max(22, Math.round(26 * sf2));
+        var y = h - pad;
+        ctx.fillStyle = '#d4af37';
+        ctx.font = '600 ' + Math.max(14, Math.round(17 * sf2)) + 'px Inter, system-ui, sans-serif';
+        ctx.fillText('KJV', cx, y);
+        y -= step;
+        ctx.fillStyle = footMuted;
+        ctx.font = '500 ' + Math.max(15, Math.round(18 * sf2)) + 'px Inter, system-ui, sans-serif';
+        ctx.fillText('todaysdailybattle.com', cx, y);
+        y -= step;
+        ctx.font = '600 ' + Math.max(17, Math.round(21 * sf2)) + 'px Inter, system-ui, sans-serif';
+        ctx.fillText("Today's Verse \u2014 A Quiet Place", cx, y);
+        if (opts.memorize) {
+          y -= Math.round(step * 1.12);
+          ctx.fillStyle = '#c9a84c';
+          ctx.font = '600 ' + Math.max(16, Math.round(20 * sf2)) + 'px Inter, system-ui, sans-serif';
+          ctx.fillText('Memorize & Share', cx, y);
+        }
+      } else {
+        ctx.fillStyle = footMuted;
+        ctx.font = '600 24px Inter, system-ui, sans-serif';
+        ctx.fillText("Today's Verse \u2014 A Quiet Place", cx, h - 48);
+        ctx.fillStyle = '#d4af37';
+        ctx.font = '600 20px Inter, system-ui, sans-serif';
+        ctx.fillText('KJV', cx, h - 22);
+      }
       ctx.textAlign = 'left';
       drawSubtleFrame(ctx, w, h);
       return;
@@ -672,14 +1123,58 @@
       if (statusEl) statusEl.textContent = msg || '';
     }
 
+    var templateEl = document.getElementById('verse-image-template');
+    var templateHintEl = document.getElementById('verse-image-template-hint');
+
+    function applyTemplateUi(tk) {
+      tk = normalizeTemplateKey(tk);
+      var tdef = TEMPLATES[tk] || TEMPLATES.custom;
+      canvas.width = tdef.w;
+      canvas.height = tdef.h;
+      var custom = tk === 'custom';
+      if (bgEl) {
+        bgEl.disabled = !custom;
+        if (!custom && tdef.bg) bgEl.value = tdef.bg;
+      }
+      if (layoutEl) {
+        layoutEl.disabled = !custom;
+        if (!custom && tdef.layout) layoutEl.value = tdef.layout;
+      }
+      if (colorEl) {
+        colorEl.disabled = !custom;
+        if (!custom && tdef.textColor) colorEl.value = tdef.textColor;
+      }
+      if (templateHintEl) {
+        templateHintEl.textContent = custom
+          ? 'Custom uses a wide preview (1200×630). Pick a dawn template for square or story-sized shares.'
+          : 'This template sets size and colors. Switch to Custom to mix your own background and layout.';
+      }
+    }
+
     function getCardOpts() {
-      return {
-        bg: bgEl ? bgEl.value : 'dawn',
+      var tk = normalizeTemplateKey(templateEl ? templateEl.value : 'custom');
+      var tdef = TEMPLATES[tk];
+      var base = {
+        templateKey: tk,
         font: fontEl ? fontEl.value : 'serif',
-        textColor: colorEl ? colorEl.value : 'ink',
-        includeQr: qrEl ? qrEl.checked : true,
-        layout: layoutEl ? layoutEl.value : 'classic'
+        includeQr: qrEl ? qrEl.checked : true
       };
+      if (!tdef || tk === 'custom') {
+        return Object.assign(base, {
+          bg: bgEl ? bgEl.value : 'dawn',
+          layout: layoutEl ? layoutEl.value : 'classic',
+          textColor: colorEl ? colorEl.value : 'ink',
+          memorize: false,
+          footerStyle: 'default'
+        });
+      }
+      return Object.assign(base, {
+        bg: tdef.bg,
+        layout: tdef.layout,
+        textColor: tdef.textColor,
+        memorize: !!tdef.memorize,
+        footerStyle: tdef.footer === 'site' ? 'site' : 'default'
+      });
     }
 
     var liveRedrawTimer = null;
@@ -729,6 +1224,9 @@
             btn.addEventListener('click', function () {
               refEl.value = row.ref || '';
               bodyEl.value = row.text || '';
+              var rtk = normalizeTemplateKey(row.templateKey || 'custom');
+              if (templateEl) templateEl.value = rtk;
+              applyTemplateUi(rtk);
               if (bgEl && row.bg) bgEl.value = row.bg;
               if (fontEl && row.font) fontEl.value = row.font;
               if (colorEl) colorEl.value = row.textColor || 'ink';
@@ -738,13 +1236,7 @@
                 canvas,
                 normRef(row.ref),
                 stripHtml(row.text),
-                {
-                  bg: (bgEl && row.bg) || 'dawn',
-                  font: (fontEl && row.font) || 'serif',
-                  textColor: row.textColor || 'ink',
-                  includeQr: qrEl ? qrEl.checked : true,
-                  layout: (layoutEl && row.layout) || 'classic'
-                },
+                getCardOpts(),
                 function () {}
               );
               setStatus('Loaded from Recent. Adjust if needed, then Update preview.');
@@ -788,7 +1280,8 @@
           font: opts.font,
           textColor: opts.textColor,
           includeQr: opts.includeQr,
-          layout: opts.layout || 'classic'
+          layout: opts.layout || 'classic',
+          templateKey: opts.templateKey || 'custom'
         };
         saveVerseGen(rec)
           .then(function () {
@@ -804,9 +1297,15 @@
           font: opts.font,
           color: opts.textColor,
           qr: opts.includeQr ? 1 : 0,
-          layout: opts.layout || 'classic'
+          layout: opts.layout || 'classic',
+          template: opts.templateKey || 'custom'
         });
-        trackEvent('verse_image_customized', { color: opts.textColor, bg: opts.bg, layout: opts.layout || 'classic' });
+        trackEvent('verse_image_customized', {
+          color: opts.textColor,
+          bg: opts.bg,
+          layout: opts.layout || 'classic',
+          template: opts.templateKey || 'custom'
+        });
         setStatus('Preview updated. Download, share, or post on X when ready.');
       });
     }
@@ -838,6 +1337,12 @@
 
     document.getElementById('verse-image-preview-btn').addEventListener('click', runPreview);
 
+    if (templateEl) {
+      templateEl.addEventListener('change', function () {
+        applyTemplateUi(templateEl.value);
+        maybeLiveRedraw();
+      });
+    }
     if (bgEl) bgEl.addEventListener('change', maybeLiveRedraw);
     if (fontEl) fontEl.addEventListener('change', maybeLiveRedraw);
     if (colorEl) colorEl.addEventListener('change', maybeLiveRedraw);
@@ -940,6 +1445,7 @@
       bodyEl.value = cache.text;
       if (qrEl && cache.includeQr === false) qrEl.checked = false;
     }
+    applyTemplateUi(templateEl ? templateEl.value : 'custom');
     renderRecentGens();
     renderCardWithQr(
       canvas,

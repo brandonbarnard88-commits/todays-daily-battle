@@ -1416,6 +1416,26 @@ body {
     transform: translateX(-50%);
     min-width: min(18rem, calc(100vw - 2rem));
   }
+
+  /* Hub shells: global strip + hub top-bar — trim vertical stack on phones */
+  .pastor-hub-page .tdb-global-nav,
+  .church-hub-page .tdb-global-nav {
+    padding: 0.14rem 0.38rem;
+    min-height: 42px;
+    gap: 0.06rem;
+  }
+  .pastor-hub-page .tdb-global-nav a,
+  .church-hub-page .tdb-global-nav a {
+    padding: 0.22rem 0.42rem;
+    min-height: 40px;
+    font-size: 0.8rem;
+  }
+  .pastor-hub-page .tdb-global-nav details.tdb-nav-more > summary,
+  .church-hub-page .tdb-global-nav details.tdb-nav-more > summary {
+    min-height: 40px;
+    padding: 0.22rem 0.42rem;
+    font-size: 0.8rem;
+  }
 }
 
 /* Compact nav: primary links + “More” disclosure */
@@ -5979,6 +5999,25 @@ body:has(.pricing-grid) .section-divider {
   color: rgba(148, 163, 184, 0.45);
   user-select: none;
 }
+.site-footer-ess-support {
+  color: color-mix(in srgb, var(--elite-gold-solid, #e3bc67) 82%, rgba(226, 232, 240, 0.95) 18%);
+  font-weight: 600;
+  text-decoration: none;
+}
+.site-footer-ess-support:hover,
+.site-footer-ess-support:focus-visible {
+  color: var(--elite-gold-solid, #e3bc67);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  outline: none;
+}
+.site-footer-ess-support:focus-visible {
+  outline: 2px solid rgba(227, 188, 103, 0.55);
+  outline-offset: 2px;
+}
+:root[data-theme="light"] .site-footer-ess-support {
+  color: color-mix(in srgb, #7a6228 78%, #1e293b 22%);
+}
 .site-footer-trust-hook {
   margin-top: 0.65rem !important;
   font-style: normal;
@@ -9619,6 +9658,31 @@ a.my-verses-ref-link:focus-visible {
     gap: 0.6rem;
     padding: 0.75rem 1rem;
     padding-top: max(0.75rem, env(safe-area-inset-top));
+  }
+  .pastor-hub-header.top-bar,
+  .church-hub-header.top-bar {
+    gap: 0.42rem 0.65rem;
+    padding: 0.48rem 0.7rem;
+    padding-top: max(0.48rem, env(safe-area-inset-top));
+    min-height: 50px;
+    box-shadow: 0 1px 0 rgba(227, 188, 103, 0.12), 0 4px 18px rgba(0, 0, 0, 0.22);
+  }
+  .pastor-hub-header .tdb-lang-switcher--header,
+  .church-hub-header .tdb-lang-switcher--header {
+    font-size: 0.74rem;
+  }
+  .pastor-hub-header .tdb-lang-switcher--labeled,
+  .church-hub-header .tdb-lang-switcher--labeled {
+    gap: 0.25rem 0.45rem;
+  }
+  .pastor-hub-header .brand-title,
+  .church-hub-header .brand-title {
+    font-size: 1.02rem;
+  }
+  .pastor-hub-header .brand-subtitle,
+  .church-hub-header .brand-subtitle {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.06em;
   }
   .top-bar .auth-details-inline {
     width: 100%;

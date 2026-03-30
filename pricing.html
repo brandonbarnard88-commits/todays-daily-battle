@@ -119,15 +119,22 @@
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>Pricing</h1>
-          <p class="hero-tagline">Free is enough for real practice—paid just adds tools.</p>
-          <p class="section-note" style="margin-top: 0.5rem;">Free includes daily verse, search, and core tools; Supporter and Church add email delivery, <strong>sync across devices</strong>, custom plans, and team features.</p>
-          <p class="section-note pricing-hero-note"><strong>Battle Pro – $19/mo.</strong> Built for serious daily growth: wins tracking, offline access, and premium devotionals.</p>
+          <h1>Pricing <span class="pricing-hero-quiet" style="display:block;font-size:0.65em;font-weight:500;color:var(--muted,#94a3b8);margin-top:0.35rem;">Support this quiet place</span></h1>
+          <p class="hero-tagline">Everything on Today&rsquo;s Daily Battle is free forever&mdash;no ads, no tracking, no paywalls. Paid plans below are optional: tools for teaching, leading, and steady rhythm. If this corner has helped you meet God in your day, you can also <a href="/give">give what feels right</a> to help keep the space calm and open for anyone who needs it.</p>
+          <p class="section-note" style="margin-top: 0.5rem;">Free includes daily verse, search, M&ouml;bius, plans, prayer wall, kids corner, and offline-friendly saves. Supporter and Church add sync, email, builders, and team features.</p>
+          <p class="section-note pricing-hero-note"><strong>Battle Pro – $19/mo.</strong> For steady rhythm: wins tracking, offline-friendly packs, and richer devotionals.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/" aria-label="Go to home and start searching verses">Start Searching</a>
             <a class="btn btn-secondary" href="message.html" aria-label="Post encouragement on the message board">Encourage Someone</a>
+            <a class="btn btn-secondary" href="/give" aria-label="Support this quiet place — choose your amount">Choose your amount</a>
           </div>
         </header>
+
+        <section class="glass" aria-labelledby="pricing-support-quiet-title">
+          <h2 id="pricing-support-quiet-title" class="section-divider">Support without a subscription</h2>
+          <p class="section-note">If this quiet place helped you, you can give once or monthly—<strong>you choose the amount</strong>. It does not unlock features; it helps keep the site calm, private, and ad-free.</p>
+          <p class="section-note" style="margin-top: 0.5rem;"><a href="/give">Open the gift page</a> (Stripe) · <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy Me a Coffee</a></p>
+        </section>
 
         <section class="glass">
           <h2 class="section-divider">Plans</h2>
@@ -139,7 +146,7 @@
             <div class="pricing-card">
               <h3>Free</h3>
               <p class="price">$0</p>
-              <p class="section-note" style="margin-top: 0.25rem; margin-bottom: 0.75rem;">Elite tools included</p>
+              <p class="section-note" style="margin-top: 0.25rem; margin-bottom: 0.75rem;">Core tools—no trial, no cap</p>
               <ul class="pricing-list">
                 <li>Search by topic or verse</li>
                 <li>Verse of the Day + streak</li>
@@ -149,7 +156,7 @@
                 <li>Message board (read + post)</li>
                 <li>Kids coloring activities</li>
                 <li>Share verse & listen (TTS)</li>
-                <li>Verse cards (share image)</li>
+                <li>Verse cards (share image from the site)</li>
                 <li>Memory verse mode</li>
                 <li>Battle of the day + topic of the day</li>
                 <li>Prayer list</li>
@@ -173,7 +180,7 @@
                 <li>Church Center (one place for your church’s verse of the day, shared prayer list, and plans)</li>
                 <li>Sync across devices</li>
                 <li>Custom reading plans</li>
-                <li>Verse image generator</li>
+                <li>Verse image generator (12 quiet share templates + custom canvas)</li>
                 <li>Choose email time</li>
                 <li>Bulk export (saved verses & notes)</li>
                 <li>Recurring verse reminders</li>
@@ -244,6 +251,12 @@
             </div>
           </div>
         </section>
+
+        <section class="glass" aria-labelledby="pricing-roadmap-title">
+          <h2 id="pricing-roadmap-title" class="section-divider">Later, if it fits the mission</h2>
+          <p class="section-note">We may add a deeper &ldquo;companion&rdquo; tier when there is clear demand and real features to ship&mdash;for example fuller audio across plans, a verse-card studio with your own imagery, gentle family offline packs, or private prayer-chain tools that stay anonymous-by-design. Nothing here is for sale yet; the plans above are what you can subscribe to today.</p>
+        </section>
+
         <section class="glass">
           <h2 class="section-divider">Elite tools by plan</h2>
           <p class="section-note">Four tiers. Free includes search, daily verse, reading plan, reader, notes, message board, kids activities, verse cards, Battle of the day, prayer list. <strong>Supporter</strong> ($9/mo launch) adds sync, emails, Sermon/Lesson Builder, Church Center, custom plans, verse image generator, bulk export, private notes. <strong>Battle Pro</strong> ($19/mo) adds Wins Report, offline PDFs, premium devotionals. <strong>Church/Team</strong> ($29/mo launch, reg $49) adds team logins, shared library, church hub, assign reading, group progress, church verse of the day, shared prayer list.</p>
@@ -307,6 +320,8 @@
           </div>
           <p id="supporter-waitlist-status" class="section-note"></p>
         </section>
+
+        <p class="section-note pricing-no-pressure-footer" role="note" style="margin-top: 1.5rem; padding: 0 0 2rem; text-align: center; max-width: 36rem; margin-left: auto; margin-right: auto;">No pressure. Give or subscribe only when it sits right with you. Every gift helps keep this a quiet, private place for Scripture.</p>
       </div>
     </main>
 
@@ -332,7 +347,8 @@
     <a href="/kids-corner.html">Kids Corner</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/message.html">Prayer Wall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/calm.html">Calm</a>
+    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
 
   <p class="site-footer-share-wrap">

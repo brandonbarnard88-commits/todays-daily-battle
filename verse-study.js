@@ -1,6 +1,5 @@
 /**
- * Verse study v2.1 — dialog with lex verse taps, key-word gloss (details) + Open full study,
- * woven “why today” from lexicon w fields, themed cross-refs, unified Listen + action footer.
+ * Verse study v2.4 — v2.3 + idle gloss placeholder, chip-strip edge fade, stronger “why today” emphasis.
  * Wraps TDBWordStudy.open. Depends: word-study.js (TDBWordStudy). Optional: TDBStudyCompanion, TDBVerseNarration, trackEvent.
  */
 (function (global) {
@@ -21,34 +20,44 @@
     '#tdb-verse-study-layer{position:fixed;inset:0;z-index:395;display:flex;align-items:flex-end;justify-content:center;padding:0;box-sizing:border-box;font-family:ui-sans-serif,system-ui,Segoe UI,Inter,sans-serif}' +
     '#tdb-verse-study-layer.tdb-vs-hidden{display:none!important}' +
     '#tdb-vs-backdrop{position:absolute;inset:0;background:rgba(15,18,28,.62);border:0;padding:0;cursor:pointer}' +
-    '#verse-study-sheet.tdb-calm-sheet{position:relative;z-index:1;width:100%;max-width:32rem;max-height:min(100dvh,900px);overflow-x:hidden;overflow-y:auto;margin:0;padding:1rem 1.15rem calc(1rem + env(safe-area-inset-bottom,0px));border-radius:20px 20px 0 0;border:1px solid rgba(212,200,170,.55);border-bottom:none;background:linear-gradient(180deg,#fffdf8 0%,#faf7f0 42%);box-shadow:0 -24px 60px rgba(28,24,18,.18),0 6px 28px rgba(28,24,18,.08);color:#1c1917;display:flex;flex-direction:column;gap:.85rem;-webkit-overflow-scrolling:touch}' +
+    '#verse-study-sheet.tdb-calm-sheet{position:relative;z-index:1;width:100%;max-width:32rem;max-height:min(100dvh,900px);overflow-x:hidden;overflow-y:auto;margin:0;padding:1.05rem 1.2rem calc(1.1rem + env(safe-area-inset-bottom,0px));border-radius:20px 20px 0 0;border:1px solid rgba(212,200,170,.55);border-bottom:none;background:linear-gradient(180deg,#fffdf8 0%,#faf7f0 42%);box-shadow:0 -24px 60px rgba(28,24,18,.18),0 6px 28px rgba(28,24,18,.08);color:#1c1917;display:flex;flex-direction:column;gap:1rem;-webkit-overflow-scrolling:touch}' +
     '@media(min-width:560px){#tdb-verse-study-layer{align-items:center;padding:1rem}#verse-study-sheet.tdb-calm-sheet{border-radius:20px;border-bottom:1px solid rgba(212,200,170,.55);max-height:min(92vh,880px);padding-bottom:1.2rem}}' +
     '@media(max-width:559px){#verse-study-sheet.tdb-calm-sheet{max-height:100dvh;border-radius:0}}' +
     '#verse-study-sheet.tdb-calm-sheet>header.vs-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;margin:0 0 .15rem}' +
     '#vs-ref{margin:0;font-size:clamp(1.08rem,3.4vw,1.32rem);font-weight:700;color:#7c5c1c;line-height:1.25;flex:1 1 auto;padding-right:.25rem}' +
     '#vs-close{flex-shrink:0;min-width:48px;min-height:48px;padding:0;font-size:1.35rem;line-height:1;font-weight:400;font-family:inherit;border-radius:12px;border:1px solid rgba(90,78,58,.28);background:#fff;cursor:pointer;color:#44403c}' +
     '#vs-close:hover,#vs-close:focus-visible{outline:2px solid rgba(227,188,103,.55);outline-offset:2px}' +
-    '.vs-verse{margin:0}' +
-    '#vs-full-verse.large-kjv{margin:0;font-size:clamp(1.14rem,3.8vw,1.42rem);line-height:1.62;color:#1c1917;font-family:Georgia,ui-serif,serif}' +
+    '.vs-verse{margin:0 0 .15rem;padding:0 0 .35rem;border-bottom:1px solid rgba(212,200,170,.35)}' +
+    '#vs-full-verse.large-kjv{margin:0;font-size:clamp(1.2rem,4vw,1.48rem);line-height:1.66;color:#1c1917;font-family:Georgia,ui-serif,serif;letter-spacing:.01em}' +
     '.tdb-vs-verse-word{background:transparent;border:0;padding:0;margin:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-decoration-color:rgba(124,92,28,.45);text-underline-offset:3px;border-radius:4px}' +
     '.tdb-vs-verse-word:hover,.tdb-vs-verse-word:focus-visible{background:rgba(227,188,103,.2);outline:2px solid rgba(227,188,103,.45);outline-offset:1px}' +
     '.tdb-vs-verse-word--lex{font-weight:600;color:#5c4a24}' +
     '.vs-section-title{margin:0 0 .4rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b5a3c}' +
-    '.vs-why{margin:0;padding:.8rem .9rem;border-radius:14px;background:rgba(227,188,103,.14);border:1px solid rgba(227,188,103,.28)}' +
-    '#vs-why-text.vs-why-text{margin:0;font-size:.94rem;line-height:1.62;color:#292524}' +
+    '.vs-why{margin:0;padding:1.05rem 1.12rem;border-radius:18px;background:linear-gradient(165deg,rgba(255,244,214,.55) 0%,rgba(227,188,103,.22) 48%,rgba(227,188,103,.14) 100%);border:1px solid rgba(212,172,88,.4);box-shadow:0 4px 20px rgba(124,92,28,.1),inset 0 1px 0 rgba(255,255,255,.35)}' +
+    '#vs-why-text.vs-why-text{margin:0;font-size:clamp(.98rem,2.8vw,1.06rem);line-height:1.68;color:#1c1917}' +
     '.vs-key-words{margin:0}' +
-    '.vs-why h3,.vs-key-words h3,.vs-related h3{margin:.15rem 0 .4rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b5a3c}' +
+    '.vs-why h3{margin:.08rem 0 .55rem;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5c4a28}' +
+    '.vs-key-words h3,.vs-related h3{margin:.2rem 0 .45rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b5a3c}' +
     '.vs-key-words.vs-key-words--empty{display:none!important}' +
-    '.word-tokens{display:flex;flex-wrap:wrap;gap:.5rem .55rem;align-items:flex-start}' +
-    'details.vs-kw-details{flex:0 1 auto;max-width:100%;border-radius:999px}' +
-    'details.vs-kw-details summary.vs-word-token{list-style:none;min-height:44px;padding:.38rem .75rem;border-radius:999px;border:1px solid rgba(138,112,48,.38);background:#fff;color:#3d3420;font-weight:600;font-size:.84rem;font-family:inherit;cursor:pointer;box-shadow:0 1px 3px rgba(28,24,18,.06)}' +
-    'details.vs-kw-details summary.vs-word-token::-webkit-details-marker{display:none}' +
-    'details.vs-kw-details summary.vs-word-token:hover,details.vs-kw-details summary.vs-word-token:focus-visible{outline:2px solid rgba(227,188,103,.5);outline-offset:2px}' +
-    'details.vs-kw-details[open] summary.vs-word-token{border-color:rgba(124,92,28,.5);background:rgba(227,188,103,.12)}' +
-    '.vs-kw-panel{margin:.45rem 0 0;padding:.65rem .75rem;border-radius:14px;border:1px solid rgba(200,180,140,.5);background:#fffdf9;box-shadow:0 4px 14px rgba(28,24,18,.08);max-width:min(20rem,100%)}' +
-    '.vs-kw-gloss{margin:0 0 .55rem;font-size:.84rem;line-height:1.52;color:#292524}' +
-    '.vs-kw-open-study{display:block;width:100%;min-height:44px;padding:.45rem .75rem;border-radius:12px;border:1px solid rgba(138,112,48,.45);background:linear-gradient(180deg,rgba(255,236,188,.9) 0%,rgba(227,188,103,.45) 100%);color:#3d3420;font-weight:700;font-size:.83rem;font-family:inherit;cursor:pointer}' +
-    '.vs-kw-open-study:hover,.vs-kw-open-study:focus-visible{outline:2px solid rgba(227,188,103,.55);outline-offset:2px}' +
+    '.word-tokens{display:flex;flex-direction:column;gap:.45rem;align-items:stretch;width:100%}' +
+    '.vs-kw-chips-fade-wrap{position:relative;margin:0 -.2rem;padding:0 .05rem}' +
+    '.vs-kw-chips-fade-wrap::before,.vs-kw-chips-fade-wrap::after{content:"";position:absolute;top:0;bottom:6px;width:1.35rem;max-width:22%;pointer-events:none;z-index:2;border-radius:2px}' +
+    '.vs-kw-chips-fade-wrap::before{left:0;background:linear-gradient(to right,rgba(250,247,240,.98) 0%,rgba(250,247,240,.4) 55%,transparent 100%)}' +
+    '.vs-kw-chips-fade-wrap::after{right:0;background:linear-gradient(to left,rgba(250,247,240,.98) 0%,rgba(250,247,240,.4) 55%,transparent 100%)}' +
+    '.vs-kw-chips-scroll{display:flex;flex-wrap:nowrap;gap:.45rem;align-items:center;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;scroll-padding-inline:.4rem;padding:.2rem .35rem .45rem;scrollbar-width:thin;scrollbar-color:rgba(138,112,48,.35) transparent}' +
+    '.vs-kw-chips-scroll::-webkit-scrollbar{height:5px}' +
+    '.vs-kw-chips-scroll::-webkit-scrollbar-thumb{background:rgba(138,112,48,.32);border-radius:999px}' +
+    'button.vs-word-token{flex:0 0 auto;scroll-snap-align:start;min-height:44px;padding:.38rem .8rem;border-radius:999px;border:1px solid rgba(138,112,48,.38);background:#fff;color:#3d3420;font-weight:600;font-size:.84rem;font-family:inherit;cursor:pointer;box-shadow:0 1px 3px rgba(28,24,18,.06)}' +
+    'button.vs-word-token:hover,button.vs-word-token:focus-visible{outline:2px solid rgba(227,188,103,.5);outline-offset:2px}' +
+    'button.vs-word-token[aria-expanded="true"]{border-color:rgba(124,92,28,.48);background:rgba(227,188,103,.14)}' +
+    '.vs-kw-shared-preview{margin:0;padding:.65rem .85rem;border-radius:14px;border:1px solid rgba(200,180,140,.45);background:linear-gradient(180deg,rgba(255,253,248,.98) 0%,#fff9f0 100%);box-shadow:0 3px 14px rgba(28,24,18,.07);width:100%;box-sizing:border-box}' +
+    '.vs-kw-shared-preview.hidden{display:none!important}' +
+    '.vs-kw-shared-placeholder{margin:0;font-size:.83rem;line-height:1.58;color:#78716c;font-weight:500;letter-spacing:.01em}' +
+    '.vs-kw-shared-preview.vs-kw-shared-preview--active .vs-kw-shared-placeholder{display:none!important}' +
+    '.vs-kw-gloss{margin:0 0 .55rem;font-size:.84rem;line-height:1.55;color:#292524}' +
+    '.vs-kw-gloss.hidden,.vs-kw-full-study.hidden{display:none!important}' +
+    '.vs-kw-full-study{display:block;width:100%;min-height:44px;padding:.45rem .75rem;border-radius:12px;border:1px solid rgba(138,112,48,.45);background:linear-gradient(180deg,rgba(255,236,188,.9) 0%,rgba(227,188,103,.45) 100%);color:#3d3420;font-weight:700;font-size:.83rem;font-family:inherit;cursor:pointer}' +
+    '.vs-kw-full-study:hover,.vs-kw-full-study:focus-visible{outline:2px solid rgba(227,188,103,.55);outline-offset:2px}' +
     '.vs-related{margin:0}' +
     '.vs-related.vs-related--empty{display:none!important}' +
     '#vs-related-list.related-list{display:flex;flex-direction:column;gap:.85rem}' +
@@ -62,8 +71,7 @@
     '.vs-related-study-btn strong{font-size:.9rem;font-weight:700;color:#1e40af}' +
     '.vs-related-study-btn span{font-size:.78rem;color:#78716c;font-weight:500}' +
     '.vs-related-study-btn:hover,.vs-related-study-btn:focus-visible{outline:2px solid rgba(227,188,103,.45);outline-offset:2px;border-color:rgba(138,112,48,.4)}' +
-    '.vs-sheet-footer{margin-top:.15rem;padding-top:.85rem;border-top:1px solid rgba(212,200,170,.5);display:flex;flex-direction:column;gap:.75rem}' +
-    '.vs-audio{margin:0}' +
+    '.vs-audio{margin:.35rem 0 0;padding-top:.85rem;border-top:1px solid rgba(212,200,170,.45)}' +
     '#vs-listen-btn.hidden{display:none!important}' +
     '#tdb-vs-listen-block{margin:0;padding:.85rem .9rem;border-radius:16px;border:2px solid rgba(200,168,88,.45);background:linear-gradient(180deg,rgba(255,248,230,.92) 0%,rgba(250,244,232,.96) 100%);box-shadow:0 6px 20px rgba(124,92,28,.08)}' +
     '#tdb-vs-listen-block.hidden{display:none!important}' +
@@ -90,7 +98,7 @@
     '.tdb-vs-listen-opts input[type=range]{width:100%;max-width:16rem;min-height:32px}' +
     '.tdb-vs-ambient-gain-label{font-size:.78rem;color:#78716c;font-weight:500}' +
     '#vs-full-verse.tdb-vs-verse--tts-speak{box-shadow:0 0 0 2px rgba(227,188,103,.35);border-radius:8px;transition:box-shadow .25s ease}' +
-    '.vs-actions{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}' +
+    '.vs-actions{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:.15rem}' +
     '@media(max-width:380px){.vs-actions{grid-template-columns:1fr}}' +
     '.vs-actions .vs-action-btn{min-height:48px;padding:.5rem .7rem;border-radius:12px;border:1px solid rgba(90,78,58,.28);background:#fff;color:#292524;font-weight:600;font-size:.8rem;cursor:pointer;font-family:inherit;line-height:1.28;box-shadow:0 1px 2px rgba(28,24,18,.04)}' +
     '.vs-actions .vs-action-btn:hover,.vs-actions .vs-action-btn:focus-visible{outline:2px solid rgba(227,188,103,.5);outline-offset:2px;border-color:rgba(138,112,48,.4)}' +
@@ -131,7 +139,13 @@
   function saveMemLite(st) {
     try {
       localStorage.setItem(MEM_LITE_KEY, JSON.stringify(st));
-    } catch (e) {}
+    } catch (e) {
+      if (typeof global.TDB_handleStorageError === 'function') {
+        try {
+          global.TDB_handleStorageError();
+        } catch (e2) {}
+      }
+    }
   }
 
   function isMemLiteStored(ref) {
@@ -179,11 +193,27 @@
   function fetchLexiconMap() {
     return fetch('kjv-lexicon.json', { credentials: 'same-origin' })
       .then(function (res) {
-        return res.ok ? res.json() : {};
+        if (!res.ok) {
+          if (typeof global.TDB_showOfflineStrip === 'function') {
+            try {
+              global.TDB_showOfflineStrip('verse-study', { force: true });
+            } catch (e) {}
+          }
+          return {};
+        }
+        return res.json();
       })
       .then(function (data) {
+        if (!data || typeof data !== 'object') {
+          if (typeof global.TDB_showOfflineStrip === 'function') {
+            try {
+              global.TDB_showOfflineStrip('verse-study', { force: true });
+            } catch (e) {}
+          }
+          return {};
+        }
         var map = {};
-        var w = data && data.words && typeof data.words === 'object' ? data.words : {};
+        var w = data.words && typeof data.words === 'object' ? data.words : {};
         Object.keys(w).forEach(function (k) {
           var e = w[k];
           var key = k.toLowerCase();
@@ -199,6 +229,11 @@
         return map;
       })
       .catch(function () {
+        if (typeof global.TDB_showOfflineStrip === 'function') {
+          try {
+            global.TDB_showOfflineStrip('verse-study', { force: true });
+          } catch (e) {}
+        }
         return {};
       });
   }
@@ -502,11 +537,11 @@
       var b = ensureSentenceShape(top[1].w);
       var c = ensureSentenceShape(top[2].w);
       return (
-        'Reading this verse with today in mind, three quiet truths overlap into one encouragement: ' +
+        'Let this verse meet you gently where you are today. ' +
         a +
-        ' The next thread pulls the same way: ' +
+        ' The same mercy shows again, a little closer: ' +
         b +
-        ' A third keeps it grounded: ' +
+        ' And one more line to rest on quietly: ' +
         c
       );
     }
@@ -514,9 +549,9 @@
       var x = ensureSentenceShape(top[0].w);
       var y = ensureSentenceShape(top[1].w);
       return (
-        'For today, this verse hands you two lines to stand on together—' +
+        'This verse leaves room for two quiet truths to stand together today—' +
         x +
-        ' The other line deepens the same kindness: ' +
+        ' The second walks beside the first with the same kindness: ' +
         y
       );
     }
@@ -665,7 +700,7 @@
       stale &&
       (!document.querySelector('#verse-study-sheet[role="dialog"]') ||
         stale.querySelector('#vs-token-detail') ||
-        !stale.querySelector('.vs-sheet-footer'))
+        !stale.querySelector('#verse-study-sheet[data-tdb-vs-layout="2.4"]'))
     ) {
       try {
         stale.remove();
@@ -679,7 +714,7 @@
     layer.innerHTML =
       '<div id="tdb-vs-backdrop" class="tdb-vs-backdrop" tabindex="-1" aria-hidden="true"></div>' +
       '<div id="tdb-vs-panel">' +
-      '<div id="verse-study-sheet" class="tdb-calm-sheet" role="dialog" aria-modal="true" aria-labelledby="vs-ref" aria-describedby="vs-why-text">' +
+      '<div id="verse-study-sheet" class="tdb-calm-sheet" role="dialog" aria-modal="true" aria-labelledby="vs-ref" aria-describedby="vs-why-text" data-tdb-vs-layout="2.4">' +
       '<header class="vs-header">' +
       '<h2 id="vs-ref"></h2>' +
       '<button type="button" id="vs-close" aria-label="Close verse study">✕</button>' +
@@ -692,11 +727,16 @@
       '<p id="vs-why-text" class="vs-why-text"></p></div>' +
       '<div class="vs-key-words vs-key-words--empty" id="vs-key-words-section">' +
       '<h3>Key words in this verse</h3>' +
-      '<div id="vs-key-words-list" class="word-tokens"></div></div>' +
+      '<div id="vs-key-words-list" class="word-tokens">' +
+      '<div class="vs-kw-chips-fade-wrap">' +
+      '<div id="vs-kw-chips-scroll" class="vs-kw-chips-scroll" role="group" aria-label="Key words — scroll sideways to see all"></div></div>' +
+      '<div id="vs-kw-shared-preview" class="vs-kw-shared-preview hidden" hidden role="region" aria-live="polite" aria-relevant="text">' +
+      '<p id="vs-kw-shared-placeholder" class="vs-kw-shared-placeholder">Tap a key word above to see a quick meaning.</p>' +
+      '<p id="vs-kw-shared-gloss" class="vs-kw-gloss hidden"></p>' +
+      '<button type="button" id="vs-kw-shared-full" class="vs-kw-full-study hidden">Full study</button></div></div></div>' +
       '<div class="vs-related vs-related--empty">' +
       '<h3>Related passages</h3>' +
       '<div id="vs-related-list" class="related-list"></div></div>' +
-      '<div class="vs-sheet-footer">' +
       '<div class="vs-audio">' +
       '<button type="button" id="vs-listen-btn" class="btn-primary tdb-vs-listen-btn" aria-label="Listen to this verse on your device">' +
       '<span class="tdb-vs-listen-icon" aria-hidden="true">' +
@@ -705,7 +745,7 @@
       '<div id="tdb-vs-listen-block" class="tdb-vs-listen-block hidden">' +
       '<div class="tdb-vs-listen-row">' +
       '<button type="button" id="tdb-vs-repeat-verse" class="tdb-vs-repeat-verse-btn">Repeat this verse</button>' +
-      '<span id="tdb-vs-listen-hint" class="tdb-vs-foot" style="margin:0;flex:1 1 8rem">KJV on this device — tap Listen above to hear the verse. Use Repeat to hear it again.</span></div>' +
+      '<span id="tdb-vs-listen-hint" class="tdb-vs-foot" style="margin:0;flex:1 1 8rem">KJV on this device — tap Listen to hear the verse. Use Repeat to hear it again.</span></div>' +
       '<div id="tdb-vs-listen-progress" class="tdb-vs-listen-progress hidden" role="group" aria-label="Narration progress">' +
       '<p id="tdb-vs-listen-progress-label" class="tdb-vs-progress-label"></p>' +
       '<div id="tdb-vs-listen-progress-track" class="tdb-vs-progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="1" aria-valuenow="1">' +
@@ -727,7 +767,6 @@
       '<button type="button" id="vs-add-memorize" class="vs-action-btn" aria-label="Add this verse to your memory list on this device">Add to my memory list</button>' +
       '<button type="button" id="vs-save-journal" class="vs-action-btn" aria-label="Save a line about this verse to What God has done on this device">Save to What God has done</button>' +
       '<button type="button" id="vs-print" class="vs-action-btn" aria-label="Print this verse study">Print this study</button></div>' +
-      '</div>' +
       '<p class="vs-footer">Everything here stays on your device.</p>' +
       '<p id="vs-status" role="status" aria-live="polite"></p>' +
       '</div></div>';
@@ -756,28 +795,53 @@
       }
     });
     var kwrap = document.getElementById('vs-key-words-list');
-    if (kwrap && !kwrap.dataset.tdbVsKwToggle) {
-      kwrap.dataset.tdbVsKwToggle = '1';
-      kwrap.addEventListener('toggle', function (ev) {
-        var t = ev.target;
-        if (!t || !t.classList || !t.classList.contains('vs-kw-details') || !kwrap.contains(t)) return;
-        if (!t.open) return;
-        kwrap.querySelectorAll('details.vs-kw-details').forEach(function (d) {
-          if (d !== t) d.open = false;
-        });
-      }, true);
-    }
     var sheet = document.getElementById('verse-study-sheet');
     if (sheet && sheet.dataset.tdbVsSheetUi !== '1') {
       sheet.dataset.tdbVsSheetUi = '1';
       sheet.addEventListener('click', function (ev) {
-        var kOpen = ev.target.closest('.vs-kw-open-study');
-        if (kOpen && kwrap && kwrap.contains(kOpen)) {
+        var kFull = ev.target.closest('.vs-kw-full-study');
+        if (kFull && kwrap && kwrap.contains(kFull)) {
           ev.preventDefault();
-          var det = kOpen.closest('details.vs-kw-details');
-          var surface = det && det.getAttribute('data-surface');
-          if (det) det.open = false;
+          var prevEl = document.getElementById('vs-kw-shared-preview');
+          var surface =
+            (prevEl && prevEl.getAttribute('data-active-surface')) || '';
+          collapseVerseStudyKeyWordPreview();
           if (surface) openWordPanelForLemma(surface);
+          return;
+        }
+        var kscr = document.getElementById('vs-kw-chips-scroll');
+        var chip = ev.target.closest('button.vs-word-token');
+        if (chip && kscr && kscr.contains(chip)) {
+          var wasOpen = chip.getAttribute('aria-expanded') === 'true';
+          kscr.querySelectorAll('button.vs-word-token').forEach(function (b) {
+            b.setAttribute('aria-expanded', 'false');
+          });
+          var prevBox = document.getElementById('vs-kw-shared-preview');
+          var glossEl = document.getElementById('vs-kw-shared-gloss');
+          var fullBtn = document.getElementById('vs-kw-shared-full');
+          if (wasOpen) {
+            setKwSharedPreviewIdle();
+          } else {
+            chip.setAttribute('aria-expanded', 'true');
+            var surface = chip.getAttribute('data-surface') || '';
+            var lw = chip.getAttribute('data-label-word') || surface;
+            var lk = chip.getAttribute('data-lex-key');
+            var glossTxt = '';
+            if (lk && stateLexMap && stateLexMap[lk]) {
+              glossTxt = glossForKeyChip(stateLexMap[lk]);
+            }
+            if (glossEl) glossEl.textContent = glossTxt;
+            if (fullBtn) {
+              fullBtn.setAttribute('aria-label', 'Open full word study for: ' + lw);
+            }
+            if (prevBox) {
+              prevBox.setAttribute('data-active-surface', surface);
+              setKwSharedPreviewActive();
+            }
+            try {
+              chip.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+            } catch (e) {}
+          }
           return;
         }
         var arel = ev.target.closest('a.related-ref');
@@ -984,6 +1048,71 @@
     } catch (e) {}
   }
 
+  function hideKwSharedPanel() {
+    var prev = document.getElementById('vs-kw-shared-preview');
+    var glossEl = document.getElementById('vs-kw-shared-gloss');
+    var fullBtn = document.getElementById('vs-kw-shared-full');
+    if (!prev) return;
+    prev.classList.add('hidden');
+    prev.setAttribute('hidden', '');
+    prev.classList.remove('vs-kw-shared-preview--active');
+    prev.removeAttribute('data-active-surface');
+    if (glossEl) {
+      glossEl.textContent = '';
+      glossEl.classList.add('hidden');
+    }
+    if (fullBtn) fullBtn.classList.add('hidden');
+  }
+
+  function setKwSharedPreviewIdle() {
+    var prev = document.getElementById('vs-kw-shared-preview');
+    var glossEl = document.getElementById('vs-kw-shared-gloss');
+    var fullBtn = document.getElementById('vs-kw-shared-full');
+    if (!prev) return;
+    prev.classList.remove('vs-kw-shared-preview--active');
+    prev.classList.remove('hidden');
+    prev.removeAttribute('hidden');
+    prev.removeAttribute('data-active-surface');
+    if (glossEl) {
+      glossEl.textContent = '';
+      glossEl.classList.add('hidden');
+    }
+    if (fullBtn) fullBtn.classList.add('hidden');
+  }
+
+  function setKwSharedPreviewActive() {
+    var prev = document.getElementById('vs-kw-shared-preview');
+    var glossEl = document.getElementById('vs-kw-shared-gloss');
+    var fullBtn = document.getElementById('vs-kw-shared-full');
+    if (!prev) return;
+    prev.classList.add('vs-kw-shared-preview--active');
+    prev.classList.remove('hidden');
+    prev.removeAttribute('hidden');
+    if (glossEl) glossEl.classList.remove('hidden');
+    if (fullBtn) fullBtn.classList.remove('hidden');
+  }
+
+  function resetVerseStudyKeyWordsStrip() {
+    var kscr = document.getElementById('vs-kw-chips-scroll');
+    if (kscr) kscr.textContent = '';
+    hideKwSharedPanel();
+  }
+
+  function collapseVerseStudyKeyWordPreview() {
+    var kscr = document.getElementById('vs-kw-chips-scroll');
+    var hasChips = kscr && kscr.querySelector('button.vs-word-token');
+    if (kscr) {
+      kscr.querySelectorAll('button.vs-word-token').forEach(function (b) {
+        b.setAttribute('aria-expanded', 'false');
+      });
+    }
+    if (hasChips) {
+      setKwSharedPreviewIdle();
+    } else {
+      hideKwSharedPanel();
+    }
+  }
+
   function close() {
     if (
       narrationFromVerseStudy &&
@@ -996,12 +1125,7 @@
     setVerseStudyListenButtonActive(false);
     var layer = document.getElementById('tdb-verse-study-layer');
     if (!layer) return;
-    var kwl = document.getElementById('vs-key-words-list');
-    if (kwl) {
-      kwl.querySelectorAll('details.vs-kw-details').forEach(function (d) {
-        d.open = false;
-      });
-    }
+    collapseVerseStudyKeyWordPreview();
     layer.classList.add('tdb-vs-hidden');
     layer.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('tdb-verse-study-open');
@@ -1045,6 +1169,11 @@
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_save_mystudy', { ok: true });
       } catch (e) {}
     } catch (err) {
+      if (typeof global.TDB_handleStorageError === 'function') {
+        try {
+          global.TDB_handleStorageError();
+        } catch (e2) {}
+      }
       if (st) st.textContent = 'Could not save. Storage may be full.';
     }
     setTimeout(function () {
@@ -1134,6 +1263,11 @@
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_journal', { ok: true });
       } catch (e) {}
     } catch (err) {
+      if (typeof global.TDB_handleStorageError === 'function') {
+        try {
+          global.TDB_handleStorageError();
+        } catch (e2) {}
+      }
       if (st) st.textContent = 'Could not save journal. Storage may be full.';
     }
     setTimeout(function () {
@@ -1244,7 +1378,6 @@
     var relSec = document.querySelector('#verse-study-sheet .vs-related');
     var rlist = document.getElementById('vs-related-list');
     var ksec = document.getElementById('vs-key-words-section');
-    var klist = document.getElementById('vs-key-words-list');
     if (refEl) refEl.textContent = stateRef ? stateRef + ' (KJV)' : 'Verse study';
     if (whyEl) whyEl.textContent = 'Gathering a gentle read for you…';
     if (verseEl) {
@@ -1252,7 +1385,7 @@
       if (stateText) verseEl.textContent = stateText;
       else verseEl.textContent = 'Add verse text from this page when you can.';
     }
-    if (klist) klist.textContent = '';
+    resetVerseStudyKeyWordsStrip();
     if (ksec) ksec.classList.add('vs-key-words--empty');
     if (rlist) rlist.textContent = '';
     if (relSec) relSec.classList.add('vs-related--empty');
@@ -1274,44 +1407,37 @@
       stateWhy = buildWhyFromLexicon(stateText, lexMap, spans);
       if (whyEl) whyEl.textContent = stateWhy;
       if (verseEl) renderVerseInteractive(verseEl, stateText, spans, lexMap);
-      if (klist) {
-        klist.textContent = '';
+      var kscr = document.getElementById('vs-kw-chips-scroll');
+      if (kscr) {
+        kscr.textContent = '';
+        hideKwSharedPanel();
         var seenKw = {};
         var hasKw = false;
         spans.forEach(function (sp) {
           if (seenKw[sp.key]) return;
           seenKw[sp.key] = true;
           hasKw = true;
-          var det = document.createElement('details');
-          det.className = 'vs-kw-details';
-          det.setAttribute('data-surface', sp.surface);
-          var sum = document.createElement('summary');
+          var labelW = formatDisplayWord(sp.surface) || sp.key;
+          var sum = document.createElement('button');
+          sum.type = 'button';
           sum.className = 'vs-word-token';
-          sum.textContent = formatDisplayWord(sp.surface) || sp.key;
+          sum.textContent = labelW;
+          sum.setAttribute('aria-expanded', 'false');
+          sum.setAttribute('data-surface', sp.surface);
+          sum.setAttribute('data-lex-key', sp.key);
+          sum.setAttribute('data-label-word', labelW);
           sum.setAttribute(
             'aria-label',
-            'Show quick gloss for: ' + (formatDisplayWord(sp.surface) || sp.key)
+            'Show gloss below for ' + labelW + '. Scroll sideways to see other words.'
           );
-          var panel = document.createElement('div');
-          panel.className = 'vs-kw-panel';
-          var gp = document.createElement('p');
-          gp.className = 'vs-kw-gloss';
-          gp.textContent = glossForKeyChip(lexMap[sp.key]);
-          var openBtn = document.createElement('button');
-          openBtn.type = 'button';
-          openBtn.className = 'vs-kw-open-study';
-          openBtn.textContent = 'Open full study';
-          openBtn.setAttribute(
-            'aria-label',
-            'Open full word study for: ' + (formatDisplayWord(sp.surface) || sp.key)
-          );
-          panel.appendChild(gp);
-          panel.appendChild(openBtn);
-          det.appendChild(sum);
-          det.appendChild(panel);
-          klist.appendChild(det);
+          kscr.appendChild(sum);
         });
         if (ksec) ksec.classList.toggle('vs-key-words--empty', !hasKw);
+        if (hasKw) {
+          setKwSharedPreviewIdle();
+        } else {
+          hideKwSharedPanel();
+        }
       }
       stateXrefs = resolveXrefs(xrefData.refs, stateRef);
       var themed = getThemedCrossRefs(stateRef, xrefData);

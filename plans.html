@@ -665,6 +665,23 @@
     .plan-extra-panel p { margin: 0.65rem 0 0; }
     .plan-extra-panel a { color: var(--gold-soft); text-decoration: underline; text-underline-offset: 2px; }
     .plan-extra-panel a:hover, .plan-extra-panel a:focus-visible { color: var(--gold); }
+
+    /* Pass 2 — offline strip (tdb-offline-strip.js) */
+    #tdb-offline-strip.tdb-offline-strip,
+    .tdb-offline-strip {
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0;
+      padding: 0.55rem 1.25rem;
+      background: color-mix(in srgb, var(--gold) 12%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--gold) 25%, transparent);
+      color: var(--text);
+      font-size: 0.88rem;
+      line-height: 1.45;
+      text-align: center;
+    }
+    .tdb-offline-strip.hidden { display: none !important; }
+    .tdb-offline-strip .offline-msg { margin: 0; }
   </style>
   <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260402chapel">
 </head>
@@ -689,6 +706,7 @@
     <a href="bible-tool.html">Tools</a>
     <a href="story.html">Story</a>
   </nav>
+  <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="plans"><p class="offline-msg"></p></div>
 
   <main id="main" class="plans-page">
 
@@ -1113,9 +1131,10 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="/plans-data.js"></script>
-  <script src="/word-study.js?v=20260430a11y-modals"></script>
+  <script src="/tdb-offline-strip.js?v=20260329pass2off"></script>
+  <script src="/word-study.js?v=20260329pass2off"></script>
   <script src="/verse-narration.js?v=20260329narr12"></script>
-  <script src="/verse-study.js?v=20260329verse-study15"></script>
+  <script src="/verse-study.js?v=20260329pass2off"></script>
   <script src="/easter-season.js"></script>
   <script nonce="tdb2025s">
   (function () {
@@ -1902,11 +1921,25 @@
     var currentDay  = 0; // 0-indexed
     var plansReadAloudBtn = null;
 
+    function tdbPlansSafeSetItem(k, v) {
+      try {
+        localStorage.setItem(k, v);
+        return true;
+      } catch (e) {
+        if (typeof window.TDB_handleStorageError === 'function') {
+          try {
+            window.TDB_handleStorageError();
+          } catch (e2) {}
+        }
+        return false;
+      }
+    }
+
     function getDayProgress(plan) {
       return parseInt(localStorage.getItem(plan.key) || '0', 10);
     }
     function setDayProgress(plan, day) {
-      localStorage.setItem(plan.key, String(day));
+      tdbPlansSafeSetItem(plan.key, String(day));
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────
@@ -2009,7 +2042,7 @@
         arr = arr.filter(function (x) { return x !== id; });
         arr.unshift(id);
         arr = arr.slice(0, RECENT_PLANS_MAX);
-        localStorage.setItem(RECENT_PLANS_KEY, JSON.stringify(arr));
+        tdbPlansSafeSetItem(RECENT_PLANS_KEY, JSON.stringify(arr));
       } catch (e) {}
     }
     function getRecentPlans() {
@@ -3243,8 +3276,14 @@
           var mo = nowM.getMonth() + 1;
           var mk = 'tdb-family-plan-days-' + nowM.getFullYear() + '-' + (mo < 10 ? '0' : '') + mo;
           var curM = parseInt(localStorage.getItem(mk) || '0', 10);
-          localStorage.setItem(mk, String(curM + 1));
-        } catch (famMErr) { /* ignore */ }
+          tdbPlansSafeSetItem(mk, String(curM + 1));
+        } catch (famMErr) {
+          if (typeof window.TDB_handleStorageError === 'function') {
+            try {
+              window.TDB_handleStorageError();
+            } catch (e2) {}
+          }
+        }
       }
 
       // Streak
@@ -3255,10 +3294,10 @@
       var streak    = parseInt(localStorage.getItem('tdb-streak-' + plan.id) || '0', 10);
       if (lastDay === yesterday) { streak++; }
       else if (lastDay !== today) { streak = 1; }
-      localStorage.setItem('tdb-streak-' + plan.id, String(streak));
-      localStorage.setItem('tdb-streak-' + plan.id + '-date', today);
+      tdbPlansSafeSetItem('tdb-streak-' + plan.id, String(streak));
+      tdbPlansSafeSetItem('tdb-streak-' + plan.id + '-date', today);
       var longest = parseInt(localStorage.getItem('tdb-longest-streak') || '0', 10);
-      if (streak > longest) localStorage.setItem('tdb-longest-streak', String(streak));
+      if (streak > longest) tdbPlansSafeSetItem('tdb-longest-streak', String(streak));
       var didIncreaseLongest = streak > prevLongest && prevLongest >= 0;
 
       // Move to next day

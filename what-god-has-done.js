@@ -100,6 +100,11 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       return true;
     } catch (err) {
+      if (typeof window.TDB_handleStorageError === 'function') {
+        try {
+          window.TDB_handleStorageError();
+        } catch (e2) {}
+      }
       return false;
     }
   }

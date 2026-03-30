@@ -11180,7 +11180,13 @@ function setReaderCache(chapterKey, data) {
       delete obj.chapters[oldest];
     }
     localStorage.setItem(READER_CACHE_KEY, JSON.stringify(obj));
-  } catch (e) {}
+  } catch (e) {
+    if (typeof globalThis !== 'undefined' && typeof globalThis.TDB_handleStorageError === 'function') {
+      try {
+        globalThis.TDB_handleStorageError();
+      } catch (e2) {}
+    }
+  }
 }
 
 const curriculum = {
@@ -17458,12 +17464,36 @@ function renderReaderChapter(book, chapter) {
       clearTimeout(timeoutId);
       output.innerHTML = '';
       clearReaderLoadingState(output);
+      var cachedFail = getReaderCache(key);
+      if (cachedFail && cachedFail.verses && cachedFail.verses.length) {
+        if (typeof globalThis !== 'undefined' && typeof globalThis.TDB_showOfflineStrip === 'function') {
+          try {
+            globalThis.TDB_showOfflineStrip('reader', { force: true });
+          } catch (e) {}
+        }
+        renderReaderChapterFromApiData(output, book, chapter, key, cachedFail.verses);
+        return;
+      }
+      if (typeof globalThis !== 'undefined' && typeof globalThis.TDB_showOfflineStrip === 'function') {
+        try {
+          globalThis.TDB_showOfflineStrip('reader', { force: true });
+        } catch (e) {}
+      }
       var errP = document.createElement('p');
       errP.className = 'empty';
       errP.textContent = (err.name === 'AbortError'
-        ? 'Request timed out. Check your connection or try again.'
-        : 'Chapter not found or network error. Check your connection or try another reference.');
+        ? 'Request timed out. If you opened this chapter before, it may still be cached—try Prev/Next and back, or try again when you are online.'
+        : 'This chapter is not available offline yet. Open it once when you are online to cache it, or try again when you are back online.');
       output.appendChild(errP);
+      var retryBtn = document.createElement('button');
+      retryBtn.type = 'button';
+      retryBtn.className = 'btn btn-secondary';
+      retryBtn.textContent = 'Try again when online';
+      retryBtn.setAttribute('aria-label', 'Retry loading this chapter');
+      retryBtn.addEventListener('click', function () {
+        renderReaderChapter(book, chapter);
+      });
+      output.appendChild(retryBtn);
     });
 }
 

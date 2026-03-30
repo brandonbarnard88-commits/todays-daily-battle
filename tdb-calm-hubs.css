@@ -87,3 +87,6 @@ main.tdb-calm-hub a:focus-visible {
 .tdb-offline-strip.hidden {
   display: none !important;
 }
+.tdb-offline-strip .offline-msg {
+  margin: 0;
+}

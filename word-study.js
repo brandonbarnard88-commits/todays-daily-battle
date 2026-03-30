@@ -265,7 +265,22 @@
     if (lexiconPromise) return lexiconPromise;
     lexiconPromise = fetch('kjv-lexicon.json', { credentials: 'same-origin' })
       .then(function (res) {
-        return res.ok ? res.json() : {};
+        if (!res.ok) {
+          if (typeof global.TDB_showOfflineStrip === 'function') {
+            try {
+              global.TDB_showOfflineStrip('word-study', { force: true });
+            } catch (e) {}
+          }
+          return {};
+        }
+        return res.json().catch(function () {
+          if (typeof global.TDB_showOfflineStrip === 'function') {
+            try {
+              global.TDB_showOfflineStrip('word-study', { force: true });
+            } catch (e) {}
+          }
+          return {};
+        });
       })
       .then(function (data) {
         lexiconMap = {};
@@ -287,6 +302,11 @@
         return lexiconMap;
       })
       .catch(function () {
+        if (typeof global.TDB_showOfflineStrip === 'function') {
+          try {
+            global.TDB_showOfflineStrip('word-study', { force: true });
+          } catch (e) {}
+        }
         lexiconMap = {};
         return lexiconMap;
       });

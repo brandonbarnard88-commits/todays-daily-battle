@@ -601,6 +601,26 @@ button.download-btn:focus-visible {
   margin: 0.5rem 0 0;
   max-width: 40rem;
 }
+/* Pass 2 — shared offline strip (tdb-offline-strip.js); works on dark tool pages */
+#tdb-offline-strip.tdb-offline-strip,
+.tdb-offline-strip {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0.55rem 1.25rem;
+  background: rgba(227, 188, 103, 0.12);
+  border-bottom: 1px solid rgba(227, 188, 103, 0.25);
+  color: rgba(245, 247, 251, 0.92);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  text-align: center;
+}
+.tdb-offline-strip.hidden {
+  display: none !important;
+}
+.tdb-offline-strip .offline-msg {
+  margin: 0;
+}
 .tdb-soft-retry-row {
   margin: 0.45rem 0 0;
   display: flex;

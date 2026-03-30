@@ -551,6 +551,7 @@
     </header>
     <div id="global-search-wrap"></div>
     <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline — still got you. Notes and verses saved here. We'll sync when you're back.</div>
+    <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="bible-tool"><p class="offline-msg"></p></div>
 
     <aside id="sidebar" class="sidebar">
       <nav class="side-nav" aria-label="Site navigation">
@@ -849,10 +850,11 @@
   </div>
 
   <script type="module" src="script.js?v=20260328integration-shine"></script>
+  <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
   <script src="bible-study-companion.js?v=20260328printpolish"></script>
-  <script src="word-study.js?v=20260430a11y-modals"></script>
+  <script src="word-study.js?v=20260329pass2off"></script>
   <script src="verse-narration.js?v=20260329narr12"></script>
-  <script src="verse-study.js?v=20260329verse-study15"></script>
+  <script src="verse-study.js?v=20260329pass2off"></script>
   <script src="verse-breakdown.js?v=20260325clean"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
@@ -1292,7 +1294,15 @@
     try { return JSON.parse(localStorage.getItem(STORAGE_NOTES) || '{}'); } catch (_) { return {}; }
   }
   function saveNotes(notes) {
-    try { localStorage.setItem(STORAGE_NOTES, JSON.stringify(notes)); } catch (_) {}
+    try {
+      localStorage.setItem(STORAGE_NOTES, JSON.stringify(notes));
+    } catch (_) {
+      if (typeof window.TDB_handleStorageError === 'function') {
+        try {
+          window.TDB_handleStorageError();
+        } catch (e) {}
+      }
+    }
   }
 
   function getCrossRefs(ref) {
@@ -1424,6 +1434,11 @@
   }
 
   function renderLookupError(ref) {
+    if (typeof window.TDB_showOfflineStrip === 'function') {
+      try {
+        window.TDB_showOfflineStrip('bible-tool', { force: true });
+      } catch (e) {}
+    }
     var block = document.getElementById('lookup-result');
     var body = document.getElementById('lookup-result-body');
     var banner = document.getElementById('lookup-error-banner');
@@ -1436,7 +1451,7 @@
     var p = document.createElement('p');
     p.className = 'empty';
     p.textContent =
-      'Could not load that verse yet. Check the reference or your connection, then try again. The Lord meets you right where you are.';
+      'Could not load that verse yet. Offline — search still works on verses already cached on this device. Check the reference or try again when you are online.';
     var retryBtn = document.createElement('button');
     retryBtn.type = 'button';
     retryBtn.id = 'lookup-retry';

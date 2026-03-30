@@ -507,6 +507,7 @@
 </head>
 <body class="dark-mode chapter-reader-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="reader"><p class="offline-msg"></p></div>
   <div class="app-shell">
     <header class="top-bar">
       <div class="tdb-lang-switcher-header-wrap">
@@ -867,6 +868,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
+  <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
   <script nonce="tdb2025s">
     (function () {
       var BOOKS = [
@@ -899,6 +901,17 @@
 
       function getFallbackOutput() {
         return document.getElementById('reader-output');
+      }
+
+      function getReaderCacheFallback(chapterKey) {
+        try {
+          var raw = localStorage.getItem('tdb_reader_cache');
+          if (!raw) return null;
+          var obj = JSON.parse(raw);
+          return obj && obj.chapters && obj.chapters[chapterKey] ? obj.chapters[chapterKey] : null;
+        } catch (e) {
+          return null;
+        }
       }
 
       function renderFallbackChapter(book, chapter) {
@@ -939,9 +952,49 @@
           .catch(function (err) {
             clearTimeout(timeoutId);
             clearFallbackReaderLoading(output);
-            output.innerHTML = '<p class="empty">' + ((err && err.name === 'AbortError')
-              ? 'Request timed out. Check your connection and try again.'
-              : 'Chapter not found or network error. Check your connection and try another chapter.') + '</p>';
+            var cacheKey = safeBook + ' ' + safeChapter;
+            var fromCache = getReaderCacheFallback(cacheKey);
+            if (fromCache && fromCache.verses && fromCache.verses.length) {
+              if (typeof window.TDB_showOfflineStrip === 'function') {
+                try {
+                  window.TDB_showOfflineStrip('reader', { force: true });
+                } catch (e) {}
+              }
+              function esc(s) {
+                if (s == null || s === '') return '';
+                return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+              }
+              var html = '<div class="chapter-title">' + esc(safeBook) + ' ' + esc(safeChapter) + '</div>';
+              for (var ci = 0; ci < fromCache.verses.length; ci++) {
+                var vv = fromCache.verses[ci] || {};
+                var ref = (vv.book_name || safeBook) + ' ' + (vv.chapter || safeChapter) + ':' + (vv.verse || '');
+                var t = String(vv.text || '').trim();
+                html += '<div class="context-line"><strong>' + esc(ref) + '</strong> ' + esc(t) + '</div>';
+              }
+              output.innerHTML = html;
+              return;
+            }
+            if (typeof window.TDB_showOfflineStrip === 'function') {
+              try {
+                window.TDB_showOfflineStrip('reader', { force: true });
+              } catch (e) {}
+            }
+            output.innerHTML = '';
+            var errP = document.createElement('p');
+            errP.className = 'empty';
+            errP.textContent = (err && err.name === 'AbortError')
+              ? 'Request timed out. If you opened this chapter before, it may still be cached—try again when you are online.'
+              : 'This chapter is not available offline yet. Open it once when you are online to cache it, or try again when you are back online.';
+            output.appendChild(errP);
+            var retryBtn = document.createElement('button');
+            retryBtn.type = 'button';
+            retryBtn.className = 'btn btn-secondary';
+            retryBtn.textContent = 'Try again when online';
+            retryBtn.setAttribute('aria-label', 'Retry loading this chapter');
+            retryBtn.addEventListener('click', function () {
+              renderFallbackChapter(safeBook, safeChapter);
+            });
+            output.appendChild(retryBtn);
           });
       }
 
@@ -1072,9 +1125,9 @@
     })();
   </script>
   <!-- Defer study stack so the document can finish parsing / paint before these run; order preserved vs script.js module. -->
-  <script defer src="word-study.js?v=20260430a11y-modals"></script>
+  <script defer src="word-study.js?v=20260329pass2off"></script>
   <script defer src="verse-narration.js?v=20260329narr12"></script>
-  <script defer src="verse-study.js?v=20260329verse-study15"></script>
+  <script defer src="verse-study.js?v=20260329pass2off"></script>
   <script defer src="bible-study-companion.js?v=20260328reader-study"></script>
   <script type="module" src="script.js?v=20260430a11y-modals" data-cfasync="false" fetchpriority="low"></script>
 </body>

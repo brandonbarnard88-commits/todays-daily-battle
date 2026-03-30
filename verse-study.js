@@ -1398,15 +1398,13 @@
       document.body.classList.add('tdb-verse-study-open');
     }
 
-    Promise.all([fetchLexiconMap(), fetchCrossRefs()]).then(function (res) {
-      var lexMap = res[0] || {};
-      var xrefData = res[1] || { refs: {}, chains: {}, themeGroups: [] };
-      if (!xrefData.refs || typeof xrefData.refs !== 'object') xrefData.refs = {};
-      stateLexMap = lexMap;
-      var spans = collectSpans(stateText, lexMap);
-      stateWhy = buildWhyFromLexicon(stateText, lexMap, spans);
+    function applyLexiconAndVerseUi(lexMap) {
+      var lm = lexMap || {};
+      stateLexMap = lm;
+      var spans = collectSpans(stateText, lm);
+      stateWhy = buildWhyFromLexicon(stateText, lm, spans);
       if (whyEl) whyEl.textContent = stateWhy;
-      if (verseEl) renderVerseInteractive(verseEl, stateText, spans, lexMap);
+      if (verseEl) renderVerseInteractive(verseEl, stateText, spans, lm);
       var kscr = document.getElementById('vs-kw-chips-scroll');
       if (kscr) {
         kscr.textContent = '';
@@ -1439,10 +1437,32 @@
           hideKwSharedPanel();
         }
       }
-      stateXrefs = resolveXrefs(xrefData.refs, stateRef);
-      var themed = getThemedCrossRefs(stateRef, xrefData);
-      if (rlist) populateRelatedList(rlist, relSec, themed, stateXrefs, stateRef);
-    });
+    }
+
+    var verseStudySessionKey = normRefKey(refRaw);
+
+    fetchLexiconMap()
+      .then(function (lexMap) {
+        if (stateRef !== verseStudySessionKey) return;
+        applyLexiconAndVerseUi(lexMap);
+        function loadXrefs() {
+          if (stateRef !== verseStudySessionKey) return;
+          fetchCrossRefs().then(function (xrefData) {
+            if (stateRef !== verseStudySessionKey) return;
+            var xd = xrefData || { refs: {}, chains: {}, themeGroups: [] };
+            if (!xd.refs || typeof xd.refs !== 'object') xd.refs = {};
+            stateXrefs = resolveXrefs(xd.refs, stateRef);
+            var themed = getThemedCrossRefs(stateRef, xd);
+            if (rlist) populateRelatedList(rlist, relSec, themed, stateXrefs, stateRef);
+          });
+        }
+        if (typeof requestIdleCallback === 'function') {
+          requestIdleCallback(loadXrefs, { timeout: 2200 });
+        } else {
+          setTimeout(loadXrefs, 1);
+        }
+      })
+      .catch(function () {});
 
     try {
       if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_open', {});

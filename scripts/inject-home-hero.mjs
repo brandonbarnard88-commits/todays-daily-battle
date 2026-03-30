@@ -91,9 +91,12 @@ function main() {
 
   let html = fs.readFileSync(distIndex, 'utf8');
 
-  const heroVerseRe = /<p class="hero-verse is-visible" id="heroVerse">[\s\S]*?<\/p>/;
+  const heroVerseRe = /<p class="hero-verse is-visible" id="heroVerse"[^>]*>[\s\S]*?<\/p>/;
   if (!heroVerseRe.test(html)) fail('could not find #heroVerse paragraph in dist/index.html');
-  html = html.replace(heroVerseRe, '<p class="hero-verse is-visible" id="heroVerse">' + verseInner + '</p>');
+  html = html.replace(
+    heroVerseRe,
+    '<p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">' + verseInner + '</p>'
+  );
 
   const heroRefRe = /<p class="verse-ref" id="heroRef">[\s\S]*?<\/p>/;
   if (!heroRefRe.test(html)) fail('could not find #heroRef in dist/index.html');

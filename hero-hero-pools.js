@@ -1,6 +1,6 @@
 /**
  * Homepage hero fallback pools (OFFLINE_PACK + mood VERSES) for normalizeVerse + legacy rotation.
- * Loaded sync on the homepage (before inline hero logic) so window.__TDB_HERO_* exists; keep hero-daily-first-paint.js smaller/defer-friendly.
+ * Loaded sync on the homepage immediately before the large inline block (see index.html) so window.__TDB_HERO_* exists; hero-daily-first-paint.js is defer.
  */
 (function (global) {
   'use strict';

@@ -9,9 +9,10 @@
   <script nonce="tdb2025s" src="/assets/perf-hint.js"></script>
 
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) — before deferred scripts -->
-  <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="high">
-  <script nonce="tdb2025s" src="/vendor/dompurify.min.js"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260327theme"></script>
+  <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
+  <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
+  <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260327theme" fetchpriority="low"></script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
 
   <title>Bible Verses for Anxiety, Fear & Loneliness – KJV Comfort | Today's Daily Battle</title>
@@ -5134,7 +5135,7 @@
         </div>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
-            <p class="hero-verse is-visible" id="heroVerse">"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God."</p>
+            <p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God."</p>
             <div class="verse-font-controls" aria-label="Adjust verse text size">
               <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
@@ -5224,8 +5225,6 @@
         </div>
         <button class="verse-img-share" type="button" id="verseImgShare" aria-label="Share this verse image">Share ↗</button>
       </div>
-      <script src="hero-hero-pools.js?v=20260328pools"></script>
-      <script defer src="hero-daily-first-paint.js?v=20260328pools"></script>
       </div><!-- /#main-content -->
 
       <!-- ── How's this helping? (feedback for future priorities) ── -->
@@ -5893,9 +5892,12 @@
   <!-- ── First-visit Read-Aloud Modal ── -->
   
 
-  <script nonce="tdb2025s" src="/sky-ip-geo.js?v=20260327ipgeo"></script>
+  <!-- Hero pools: sync immediately before inline block (needs __TDB_HERO_*). First-paint script defer; 365 data still idle-loaded from hero-daily-first-paint.js. -->
+  <script nonce="tdb2025s" src="hero-hero-pools.js?v=20260328pools" fetchpriority="low"></script>
+  <script nonce="tdb2025s" defer src="hero-daily-first-paint.js?v=20260328pools" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/sky-ip-geo.js?v=20260327ipgeo" fetchpriority="low"></script>
   <script nonce="tdb2025s">
-    // Hero verse: hero-hero-pools.js (sync so this block sees OFFLINE_PACK); hero-daily-first-paint.js (defer); 365 idle. Dist injects today’s verse into HTML.
+    // Hero verse: pools + first-paint above; 365 idle. Dist injects today’s verse into HTML for LCP.
     const OFFLINE_PACK = window.__TDB_HERO_OFFLINE_PACK || [];
     const VERSES = window.__TDB_HERO_VERSES || [];
 
@@ -9666,14 +9668,16 @@
 
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
-  <script src="word-study.js?v=20260329pass2off"></script>
-  <script src="verse-narration.js?v=20260329narr12"></script>
-  <script src="verse-study.js?v=20260329pass2off"></script>
-  <script nonce="tdb2025s" type="module" src="config.js"></script>
+  <!-- Study stack: defer + low priority so document can finish parsing; runs before modules (document order). -->
+  <script nonce="tdb2025s" defer fetchpriority="low" src="word-study.js?v=20260329pass2off"></script>
+  <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
+  <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
+  <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260330pass3a11y" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
-  <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer></script>
-  <script src="/easter-season.js"></script>
+  <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>
+  <!-- Sync: following inline calls TDB_EASTER_SEASON on parse; defer would run too late. -->
+  <script fetchpriority="low" src="/easter-season.js"></script>
   <script nonce="tdb2025s">
   if (window.TDB_EASTER_SEASON && typeof window.TDB_EASTER_SEASON.initEasterBanner === 'function') {
     window.TDB_EASTER_SEASON.initEasterBanner('tdbHomeEasterBanner', 'tdbHomeEasterDismiss');

@@ -402,6 +402,20 @@
     }
     .plans-detail-nav-hint strong { color: var(--text); font-weight: 600; }
 
+    /* Light dawn band when a plan is open (ties detail chrome to overview hero) */
+    .plan-detail-dawn-band {
+      padding: 0.75rem 0.65rem 0.95rem;
+      margin: 0 0 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      background: linear-gradient(158deg, rgba(227, 188, 103, 0.07) 0%, rgba(42, 62, 90, 0.11) 48%, rgba(13, 17, 23, 0.55) 100%);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.16);
+    }
+    .plan-detail-dawn-band .detail-header { margin-bottom: 0.85rem; }
+    .plan-detail-dawn-band .detail-subtitle-row { padding: 0 0.2rem 0.35rem; }
+    .plan-detail-dawn-band .streak-banner:not(.hidden) { margin-bottom: 0.65rem; }
+    .plan-detail-dawn-band .detail-progress-wrap { margin-bottom: 0.75rem; }
+
     /* ── Detail view ── */
     .plan-detail { display: none; }
     .plan-detail.active { display: block; }
@@ -1287,6 +1301,7 @@
 
     <!-- ── Detail view ── -->
     <div class="plan-detail" id="planDetail" role="region" aria-label="Plan detail">
+      <div class="plan-detail-dawn-band">
       <div class="detail-header">
         <button type="button" class="detail-back-btn" id="detailBackBtn" aria-label="Back to all plans">← Plans</button>
         <span class="detail-title" id="detailTitle"></span>
@@ -1301,6 +1316,7 @@
           <div class="detail-progress-bar" id="detailProgressBar" style="width:0%"></div>
         </div>
         <p class="detail-progress-label" id="detailProgressLabel"></p>
+      </div>
       </div>
       <div id="planEasterIntro" class="plan-detail-intro" hidden aria-label="About Resurrection Hope">
         <p>This path is a gentle celebration of the empty tomb and living hope—honest about the cross, steady about the third day, and quiet about whatever you carry. No hype: one KJV verse a day, plain words, a small step, and prayer. Want shorter read-alouds (including Christ as firstfruits)? Open <a href="he-is-risen.html">He is risen</a>—any time of year.</p>

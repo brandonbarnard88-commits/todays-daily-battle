@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320" role="img" aria-label="Stylized open field at dawn gradient">
+  <defs>
+    <linearGradient id="ps-field" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#1a3d2e"/>
+      <stop offset="45%" stop-color="#4a7c59"/>
+      <stop offset="100%" stop-color="#f0e6c8"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="320" fill="url(#ps-field)"/>
+  <ellipse cx="160" cy="268" rx="280" ry="48" fill="#0f172a" opacity="0.14"/>
+</svg>

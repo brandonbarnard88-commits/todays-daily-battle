@@ -325,6 +325,7 @@ const SOCIAL_PURGE_PATHS = [
   '/script.js?v=20260331kidsfam',
   '/script.js?v=20260330doorway',
   '/script.js?v=20260331breath',
+  '/script.js?v=20260401fresh',
   '/script.js?v=20260328armor-open',
   '/script.js?v=20260328studygrid',
   '/script.js?v=20260328studyhydrate',

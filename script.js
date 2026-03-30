@@ -14269,6 +14269,42 @@ function shuffleArray(arr) {
   }
 }
 
+/** First-paint doorway topics stay fixed; the rest shuffle each load so the grid feels fresh. */
+function shuffleQuickTopicsInContainer(containerEl, pinnedCount) {
+  if (!containerEl || !containerEl.appendChild) return;
+  var all = Array.prototype.slice.call(containerEl.children);
+  var n = typeof pinnedCount === 'number' && pinnedCount >= 0 ? pinnedCount : 6;
+  if (all.length <= n) return;
+  var head = all.slice(0, n);
+  var tail = all.slice(n);
+  shuffleArray(tail);
+  var k;
+  for (k = 0; k < head.length; k++) containerEl.appendChild(head[k]);
+  for (k = 0; k < tail.length; k++) containerEl.appendChild(tail[k]);
+}
+
+function shuffleHomeQuickTopicSurfaces(pinnedCount) {
+  shuffleQuickTopicsInContainer(document.getElementById('quickTopics'), pinnedCount);
+  shuffleQuickTopicsInContainer(document.getElementById('quick-actions-hero'), pinnedCount);
+}
+
+/** Under-verse welcome line: one calm line per load (main calendar verse unchanged). */
+var TDB_HOME_WELCOME_LINES = [
+  'Whatever your day holds—joy, quiet, questions—step in. No rush.',
+  'A quiet place. No rush.',
+  'Whatever your day holds—step in when you are ready.',
+  'Scripture is a lamp for your path—stay as long as you like.',
+  'Come as you are. You are not behind here.'
+];
+
+function pickHomeWelcomeLine() {
+  var el = document.querySelector('.verse-card#verseCard .hero-daily-welcome') ||
+    document.querySelector('.hero-daily-welcome');
+  if (!el || !TDB_HOME_WELCOME_LINES.length) return;
+  var i = Math.floor(Math.random() * TDB_HOME_WELCOME_LINES.length);
+  el.textContent = TDB_HOME_WELCOME_LINES[i];
+}
+
 function stemWord(word) {
   if (!word || word.length <= 3) return word;
   const rules = [/ing$/, /ed$/, /es$/, /s$/];
@@ -20831,7 +20867,7 @@ async function tdbInitImpl() {
     })();
   } catch (_) {}
 
-  /* Wire search - hero has quick-topic chips hardcoded (never empty); accordion gets dynamic from TDB_TOPICS */
+  /* Wire search - #quickTopics chips in HTML (never empty); after fill we shuffle tail + welcome line for fresh loads. Accordion from TDB_TOPICS. */
   try {
     renderQuickTopicButtons('quick-actions-accordion', false);
     var heroContainer = document.getElementById('quick-actions-hero');
@@ -20840,6 +20876,10 @@ async function tdbInitImpl() {
       renderQuickTopicButtons('quick-actions-hero', true);
       chipCount = heroContainer.querySelectorAll('.topic-chip, .quick-topic, [data-topic]').length;
     }
+    try {
+      shuffleHomeQuickTopicSurfaces(6);
+      pickHomeWelcomeLine();
+    } catch (homeFreshErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: home fresh shuffle', homeFreshErr); }
   } catch (renderErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: renderQuickTopicButtons', renderErr); }
 
   try {
@@ -25974,7 +26014,7 @@ function wireRandomBattleVerseHero() {
     try { localStorage.setItem(LAST_SEEN_KEY, today); } catch (_) {}
   }());
 
-  /** Locale hubs + EN home companion: show one of several fixed anchor verses per UTC day — not the calendar verse. */
+  /** Locale hubs: one anchor verse per UTC day. EN homepage companion: random panel each load (still not the calendar verse). */
   (function initHubDailyAnchorRotate() {
     try {
       var root = document.querySelector('[data-tdb-hub-daily-rotate]');
@@ -25983,7 +26023,10 @@ function wireRandomBattleVerseHero() {
       if (!panels.length) return;
       var d = new Date();
       var dayKey = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
-      var idx = Math.floor(dayKey / 86400000) % panels.length;
+      var isHomeEnCompanion = root.closest && root.closest('#en-hub-daily-verse');
+      var idx = isHomeEnCompanion
+        ? Math.floor(Math.random() * panels.length)
+        : (Math.floor(dayKey / 86400000) % panels.length);
       for (var i = 0; i < panels.length; i++) {
         var on = i === idx;
         panels[i].hidden = !on;

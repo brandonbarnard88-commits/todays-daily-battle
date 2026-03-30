@@ -136,6 +136,7 @@ const rootFiles = [
   'mobius-loop.js',
   'mobius-universal.js',
   'mobius-text-v2.js',
+  'tdb-mobius-journal.js',
   '_redirects',
   '_headers',
   'robots.txt',

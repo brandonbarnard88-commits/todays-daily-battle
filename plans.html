@@ -504,6 +504,44 @@
     }
     .day-card-ws-row { margin: 0 0 1rem; }
     .day-card-wordstudy { font-size: 0.88rem; }
+    .day-card-ribbon-note {
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line));
+      background: color-mix(in srgb, var(--card) 92%, var(--gold));
+    }
+    .plans-ribbon-note-ta {
+      width: 100%;
+      margin: 0 0 0.5rem;
+      padding: 0.5rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--text);
+      font: inherit;
+      line-height: 1.45;
+      resize: vertical;
+      min-height: 3.25rem;
+      box-sizing: border-box;
+    }
+    .plans-ribbon-note-ta:focus {
+      outline: 2px solid color-mix(in srgb, var(--gold) 55%, transparent);
+      outline-offset: 2px;
+    }
+    .plans-ribbon-note-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.75rem;
+    }
+    .plans-ribbon-note-export-link {
+      font-size: 0.88rem;
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .plans-ribbon-note-status { margin: 0.35rem 0 0; min-height: 1.25em; }
     /* Breakdown panels */
     .day-breakdown { display: grid; gap: 8px; margin-bottom: 1rem; }
     .day-bp {
@@ -1280,6 +1318,7 @@
   <script src="/word-study.js?v=20260329pass2off"></script>
   <script src="/verse-narration.js?v=20260329narr12"></script>
   <script src="/verse-study.js?v=20260328pass4vs"></script>
+  <script src="/tdb-mobius-journal.js?v=20260330mlj1"></script>
   <script src="/easter-season.js"></script>
   <script nonce="tdb2025s">
   (function () {
@@ -2866,6 +2905,73 @@
       }
       inductive.appendChild(indInner);
       card.appendChild(inductive);
+
+      var jBlock = document.createElement('div');
+      jBlock.className = 'day-card-ribbon-note';
+      var jLab = document.createElement('p');
+      jLab.className = 'day-bp-label';
+      jLab.textContent = 'Ribbon note (optional)';
+      var jNote = document.createElement('p');
+      jNote.className = 'day-bp-text';
+      jNote.style.marginBottom = '0.5rem';
+      jNote.textContent =
+        'One honest line for this day—saved only on this device, same list as the Möbius loop journal.';
+      var jTa = document.createElement('textarea');
+      jTa.className = 'plans-ribbon-note-ta';
+      jTa.setAttribute('rows', '2');
+      jTa.setAttribute('maxlength', '2000');
+      jTa.setAttribute('aria-label', 'Optional ribbon note for this plan day');
+      jTa.setAttribute('autocomplete', 'off');
+      var jSave = document.createElement('button');
+      jSave.type = 'button';
+      jSave.className = 'btn btn-secondary';
+      jSave.textContent = 'Save to loop journal';
+      var jStat = document.createElement('p');
+      jStat.className = 'section-note plans-ribbon-note-status';
+      jStat.setAttribute('role', 'status');
+      jStat.setAttribute('aria-live', 'polite');
+      jStat.hidden = true;
+      jSave.addEventListener('click', function () {
+        var MJ = window.TDB_mobiusJournal;
+        if (!MJ || typeof MJ.append !== 'function') {
+          jStat.hidden = false;
+          jStat.textContent = 'Journal did not load. Refresh and try again.';
+          return;
+        }
+        var planCtx =
+          'Plan: ' + cleanPlanPlain(plan.label == null ? '' : String(plan.label)) + ' · Day ' + (currentDay + 1);
+        var r = MJ.append(jTa.value, planCtx);
+        if (r.ok) {
+          jTa.value = '';
+          jStat.hidden = false;
+          jStat.textContent = 'Saved on this device. Export a .txt from Möbius when you want everything in one file.';
+          try {
+            if (typeof window.trackEvent === 'function') {
+              window.trackEvent('mobius_loop_journal_save', { source: 'plans_day' });
+            }
+          } catch (trErr) {}
+        } else if (r.reason === 'empty') {
+          jStat.hidden = false;
+          jStat.textContent = 'Write a line first—or skip.';
+        } else {
+          jStat.hidden = false;
+          jStat.textContent = 'Could not save. Storage may be blocked.';
+        }
+      });
+      var jLink = document.createElement('a');
+      jLink.href = 'mobius.html#mobius-loop-journal';
+      jLink.className = 'plans-ribbon-note-export-link';
+      jLink.textContent = 'Export on Möbius →';
+      jBlock.appendChild(jLab);
+      jBlock.appendChild(jNote);
+      jBlock.appendChild(jTa);
+      var jRow = document.createElement('div');
+      jRow.className = 'plans-ribbon-note-row';
+      jRow.appendChild(jSave);
+      jRow.appendChild(jLink);
+      jBlock.appendChild(jRow);
+      jBlock.appendChild(jStat);
+      card.appendChild(jBlock);
 
       var actions = document.createElement('div');
       actions.className = 'day-actions';

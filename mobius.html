@@ -111,6 +111,7 @@
     .mobius-section .daily-carry, .mobius-section .when-heavy { text-align: left; margin-top: 1.25rem; padding: 1rem 1.1rem; border: 1px solid var(--tool-line); border-radius: 10px; background: rgba(26, 33, 45, 0.35); }
     .mobius-section .daily-carry p, .mobius-section .when-heavy p { margin: 0 0 0.75rem; line-height: 1.6; color: var(--tool-text); font-size: 0.92rem; }
     .mobius-section .mobius-journal-prompts-label { margin: 0 0 0.85rem; font-size: 0.88rem; line-height: 1.5; color: var(--tool-muted); text-align: left; }
+    .mobius-loop-journal-block .mobius-journal-prompts-label { margin-bottom: 0.5rem; }
     .mobius-section .daily-carry h3, .mobius-section .when-heavy h3 { margin-top: 0; }
     .mobius-section .mobius-deep-walk-verse-btn { margin-top: 0.25rem; min-height: 44px; transition: border-color 0.18s, color 0.18s, box-shadow 0.18s; }
     .mobius-section .mobius-deep-walk-verse-btn:hover, .mobius-section .mobius-deep-walk-verse-btn:focus-visible { box-shadow: 0 0 0 2px rgba(227, 188, 103, 0.35); }
@@ -500,6 +501,62 @@
       align-items: center;
       gap: 0.35rem;
     }
+    .mobius-loop-journal-block {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1rem 1.1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(201, 162, 107, 0.22);
+      background: rgba(8, 10, 16, 0.55);
+      text-align: left;
+    }
+    .mobius-loop-journal-block label {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--tool-muted);
+      line-height: 1.45;
+      margin: 0 0 0.5rem;
+    }
+    .mobius-loop-journal-block textarea {
+      width: 100%;
+      min-height: 5.5rem;
+      margin: 0 0 0.65rem;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid rgba(201, 162, 107, 0.25);
+      background: rgba(14, 16, 24, 0.9);
+      color: var(--tool-text, #f5f7fb);
+      font: inherit;
+      line-height: 1.5;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    .mobius-loop-journal-block textarea:focus {
+      outline: 2px solid rgba(227, 188, 103, 0.45);
+      outline-offset: 2px;
+    }
+    .mobius-loop-journal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .mobius-loop-journal-block .mobius-loop-journal-more {
+      margin: 0.65rem 0 0;
+      font-size: 0.82rem;
+      color: var(--tool-muted);
+      line-height: 1.45;
+    }
+    .mobius-loop-journal-block .mobius-loop-journal-more a {
+      color: var(--tool-gold-soft);
+    }
+    #mobius-deep-journal-status.tdb-mobius-journal-status--ok,
+    #mobius-v2-journal-status.tdb-mobius-journal-status--ok {
+      color: rgba(180, 220, 170, 0.95);
+    }
+    #mobius-deep-journal-status.tdb-mobius-journal-status--err,
+    #mobius-v2-journal-status.tdb-mobius-journal-status--err {
+      color: rgba(255, 180, 160, 0.95);
+    }
   </style>
 </head>
 <body class="tool-page-shell mobius-luxe-page">
@@ -613,10 +670,20 @@
           <li><strong>Carry It Forward</strong> — Open your eyes and declare: “I am not walking two paths. I am on one continuous ribbon with my God. I am being prepared.”</li>
         </ol>
 
-        <div class="daily-carry">
+        <div class="daily-carry" id="mobius-loop-journal">
           <h3>Carry the Ribbon Today</h3>
           <p>Every step, every conversation, every moment of pressure is another lap on the same surface. The battles will return — but so will His faithfulness. You were never meant to escape the fight. You were meant to overcome on the very ribbon where the fight lives.</p>
-          <p class="mobius-journal-prompts-label"><strong>Journal (optional):</strong> Name the weight without softening it. Write one verse you will speak when this loops back.</p>
+          <div class="mobius-loop-journal-block" aria-label="Optional loop journal on this device">
+            <p class="mobius-journal-prompts-label"><strong>Ribbon note (optional):</strong> Name the weight without softening it. One verse you will speak when this loops back. Nothing leaves this device.</p>
+            <label for="mobius-deep-journal-input">Your lines</label>
+            <textarea id="mobius-deep-journal-input" maxlength="2000" rows="4" autocomplete="off" placeholder="e.g. The weight: …  Verse I will speak: …"></textarea>
+            <div class="mobius-loop-journal-actions">
+              <button type="button" class="tool-btn" id="mobius-deep-journal-save" aria-label="Save ribbon note on this device">Save note</button>
+              <button type="button" class="tool-btn tool-btn-muted" id="mobius-deep-journal-export" aria-label="Download all loop journal entries as a text file">Export journal (.txt)</button>
+            </div>
+            <p id="mobius-deep-journal-status" class="mobius-v2-save-status" role="status" aria-live="polite" hidden></p>
+            <p class="mobius-loop-journal-more">Longer gratitude lines also fit <a href="what-god-has-done.html">What God has done</a>—same device, different shelf.</p>
+          </div>
           <button type="button" class="tool-btn mobius-deep-walk-verse-btn" id="mobius-deep-walk-verse" aria-controls="mobius-deep-walk-verse-output" aria-label="Pull a random verse for today’s battle">Pull a Verse for Today’s Battle</button>
           <div id="mobius-deep-walk-verse-output" class="verse-box" role="status" aria-live="polite"></div>
         </div>
@@ -678,6 +745,14 @@
             <button type="button" class="tool-btn" id="mobius-v2-save-mystudy">Save to My Study</button>
             <a href="study.html" class="tool-btn tool-btn-muted" id="mobius-v2-open-study">Open My Study</a>
             <p id="mobius-v2-save-status" class="mobius-v2-save-status" role="status" aria-live="polite" hidden></p>
+            <div class="mobius-loop-journal-block" aria-label="Optional note after calm path">
+              <label for="mobius-v2-journal-input">Ribbon note after this calm path (optional)</label>
+              <textarea id="mobius-v2-journal-input" maxlength="2000" rows="3" autocomplete="off" placeholder="One honest line from the loop—stays on this device."></textarea>
+              <div class="mobius-loop-journal-actions">
+                <button type="button" class="tool-btn tool-btn-muted" id="mobius-v2-journal-save" aria-label="Save ribbon note on this device">Save note</button>
+              </div>
+              <p id="mobius-v2-journal-status" class="mobius-v2-save-status" role="status" aria-live="polite" hidden></p>
+            </div>
             <button type="button" class="tool-btn tool-btn-muted" id="mobius-v2-copy-summary">Copy session summary</button>
             <button type="button" class="tool-btn tool-btn-muted" id="mobius-v2-print">Print summary</button>
             <pre id="mobius-v2-session-text" class="mobius-v2-session-text" aria-hidden="true"></pre>
@@ -744,6 +819,7 @@
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
   <script src="mobius-universal.js?v=20260329mobius31" defer></script>
+  <script src="tdb-mobius-journal.js?v=20260330mlj1" defer></script>
   <script src="mobius-text-v2.js?v=20260329mobius31" defer></script>
   <script src="share-page.js" defer></script>
   <script src="easter-eggs.js" defer></script>

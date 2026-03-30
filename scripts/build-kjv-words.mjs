@@ -16,6 +16,21 @@ const concPath = path.join(__dirname, '..', 'concordance.json');
 const concordance = JSON.parse(fs.readFileSync(concPath, 'utf8'));
 const concKeys = new Set(Object.keys(concordance));
 
+/** Preserve “why” blurbs across rebuilds when entries in .mjs omit them (see merge-kjv-whys-batch.mjs). */
+let existingWhyByWord = new Map();
+if (fs.existsSync(out)) {
+  try {
+    const prev = JSON.parse(fs.readFileSync(out, 'utf8'));
+    for (const e of prev.words || []) {
+      if (e && e.word && String(e.why || '').trim()) {
+        existingWhyByWord.set(String(e.word).toLowerCase().trim(), String(e.why).trim());
+      }
+    }
+  } catch (_) {
+    /* ignore corrupt prior file */
+  }
+}
+
 /** Hub concordance indexes a limited lemma set; map headword → an indexed lemma for useful hit lists. */
 const CONCORDANCE_FALLBACK = {
   conversation: 'heart',
@@ -209,7 +224,36 @@ const CONCORDANCE_FALLBACK = {
   haste: 'patience',
   haughty: 'evil',
   hearken: 'word',
-  heaviness: 'heavy'
+  heaviness: 'heavy',
+  compass: 'compassed',
+  meet: 'good',
+  leasing: 'evil',
+  mammon: 'world',
+  reprobate: 'evil',
+  lucre: 'evil',
+  sundry: 'all',
+  concupiscence: 'flesh',
+  chambering: 'evil',
+  riot: 'evil',
+  discretion: 'understanding',
+  sodden: 'eat',
+  halting: 'walk',
+  fetch: 'go',
+  convenient: 'good',
+  turtle: 'sweet',
+  husbandman: 'lord',
+  matrix: 'life',
+  carefulness: 'careful',
+  emulation: 'envieth',
+  revellings: 'drink',
+  variance: 'evil',
+  talent: 'gift',
+  penny: 'gift',
+  cloak: 'put',
+  napkin: 'put',
+  publican: 'man',
+  physician: 'saveth',
+  strait: 'path'
 };
 
 function resolveConcordance(w, c) {
@@ -240,6 +284,9 @@ const words = ENTRIES.map(function (e) {
     examples: ex.slice(0, 5)
   };
   if (e.step && String(e.step).trim()) row.step = String(e.step).trim();
+  const srcWhy = e.why && String(e.why).trim();
+  if (srcWhy) row.why = srcWhy;
+  else if (existingWhyByWord.has(w)) row.why = existingWhyByWord.get(w);
   return row;
 });
 

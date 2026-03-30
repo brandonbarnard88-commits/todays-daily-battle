@@ -14,6 +14,8 @@ Human-curated glosses for KJV wording that often misleads modern readers. Built 
 | `concordance` | yes | — | Key passed to Hub concordance (`bible/tools.html?q=`). Usually equals `word`; override if the concordance indexes a different lemma. |
 | `examples` | yes | **3–5** | KJV verse references (strings) illustrating the note. |
 | `step` | no | ~180 chars | One small, practical step for the reader (optional). |
+| `why` | no | ~220 chars | “Why it matters today” blurb for lexicon UI (`kjv-lexicon.json` field `w`). In source entries use `why`; rebuild also carries forward existing `why` from the previous JSON when omitted. |
+| `c` | no | — | Optional concordance lemma override on source objects (`w` headword still indexes the entry). |
 
 ## Rules
 

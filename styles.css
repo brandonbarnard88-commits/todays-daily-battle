@@ -5994,6 +5994,48 @@ body:has(.pricing-grid) .section-divider {
   font-size: 0.8rem;
 }
 
+.site-footer-support-nudge {
+  max-width: 36rem;
+  margin: 0.85rem auto 0.35rem;
+  padding: 0.65rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--muted, #94a3b8) 92%, var(--text, #e2e8f0) 8%);
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--elite-gold, #e3bc67) 22%, transparent);
+  background: color-mix(in srgb, var(--elite-gold, #e3bc67) 6%, transparent);
+}
+.site-footer-support-nudge-primary {
+  color: var(--elite-gold-solid, #ffd54f);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.site-footer-support-nudge-primary:hover,
+.site-footer-support-nudge-primary:focus-visible {
+  color: var(--elite-gold, #e3bc67);
+}
+.site-footer-support-nudge-you {
+  white-space: nowrap;
+}
+.site-footer-support-nudge-alt {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: color-mix(in srgb, var(--muted, #94a3b8) 95%, transparent);
+}
+.site-footer-support-nudge-alt a {
+  color: color-mix(in srgb, var(--elite-gold, #e3bc67) 75%, var(--muted, #94a3b8));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (max-width: 420px) {
+  .site-footer-support-nudge-you {
+    white-space: normal;
+  }
+}
+
 /* Homepage-equivalent footer nav + sitemap (also used on tool/topic pages with styles.css) */
 .site-footer-nav {
   display: flex;

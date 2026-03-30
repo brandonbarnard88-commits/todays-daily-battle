@@ -183,6 +183,15 @@ function main() {
     '<meta name="twitter:description" content="' + escapeHtmlAttr(desc) + '"'
   );
 
+  var appleShort = 'Quiet place · ' + refPlain;
+  if (appleShort.length > 29) {
+    appleShort = refPlain.length > 26 ? refPlain.slice(0, 24) + '…' : refPlain;
+  }
+  html = html.replace(
+    /<meta name="apple-mobile-web-app-title" content="[^"]*"/,
+    '<meta name="apple-mobile-web-app-title" content="' + escapeHtmlAttr(appleShort) + '"'
+  );
+
   fs.writeFileSync(distIndex, html, 'utf8');
   console.log('inject-home-hero: OK —', refPlain, '(UTC doy', utcDayOfYear() + ')');
 }

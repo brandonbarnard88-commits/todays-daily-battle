@@ -250,19 +250,25 @@
   /** Open-sky dawn + soft wing silhouette — fits Isaiah 40:31 and similar verses. */
   function drawSoarBackground(ctx, w, h) {
     var gr = ctx.createLinearGradient(0, 0, 0, h);
-    gr.addColorStop(0, '#0b1528');
-    gr.addColorStop(0.48, '#1e3352');
-    gr.addColorStop(0.76, '#4a3520');
-    gr.addColorStop(1, '#6b4a2e');
+    gr.addColorStop(0, '#080f1f');
+    gr.addColorStop(0.42, '#1a3050');
+    gr.addColorStop(0.72, '#4a3824');
+    gr.addColorStop(1, '#7a5434');
     ctx.fillStyle = gr;
     ctx.fillRect(0, 0, w, h);
-    var rg = ctx.createRadialGradient(w * 0.82, h * 0.16, 0, w * 0.82, h * 0.16, Math.min(w, h) * 0.52);
-    rg.addColorStop(0, 'rgba(255, 224, 172, 0.22)');
+    var rg = ctx.createRadialGradient(w * 0.82, h * 0.14, 0, w * 0.82, h * 0.14, Math.min(w, h) * 0.58);
+    rg.addColorStop(0, 'rgba(255, 232, 196, 0.28)');
+    rg.addColorStop(0.55, 'rgba(255, 210, 160, 0.08)');
     rg.addColorStop(1, 'rgba(255, 224, 172, 0)');
     ctx.fillStyle = rg;
     ctx.fillRect(0, 0, w, h);
+    var low = ctx.createRadialGradient(w * 0.35, h * 0.92, 0, w * 0.35, h * 0.92, h * 0.5);
+    low.addColorStop(0, 'rgba(255, 186, 120, 0.12)');
+    low.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = low;
+    ctx.fillRect(0, 0, w, h);
     ctx.save();
-    ctx.fillStyle = 'rgba(6, 12, 26, 0.22)';
+    ctx.fillStyle = 'rgba(6, 12, 26, 0.24)';
     var sx = w * 0.56;
     var sy = h * 0.05;
     var sw = w * 0.4;
@@ -273,6 +279,79 @@
     ctx.bezierCurveTo(sx + sw * 0.36, sy + sw * 0.4, sx + sw * 0.2, sy + sw * 0.44, sx, sy + sw * 0.14);
     ctx.closePath();
     ctx.fill();
+    ctx.restore();
+  }
+
+  /** Cool twilight hush — soft, still, readable with gold or paper text. */
+  function drawHushBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#1a2332');
+    gr.addColorStop(0.52, '#2d3a4d');
+    gr.addColorStop(1, '#0f1419');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var rg = ctx.createRadialGradient(w * 0.5, h * 0.22, 0, w * 0.5, h * 0.22, h * 0.72);
+    rg.addColorStop(0, 'rgba(186, 200, 220, 0.14)');
+    rg.addColorStop(1, 'rgba(15, 20, 25, 0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  /** Warm ember coals — depth without noise; pair with gold or paper. */
+  function drawEmberBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, h, w, 0);
+    gr.addColorStop(0, '#1c1410');
+    gr.addColorStop(0.45, '#3d2418');
+    gr.addColorStop(0.72, '#5c2e22');
+    gr.addColorStop(1, '#6b3418');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var rg = ctx.createRadialGradient(w * 0.22, h * 0.88, 0, w * 0.22, h * 0.88, h * 0.55);
+    rg.addColorStop(0, 'rgba(255, 170, 100, 0.2)');
+    rg.addColorStop(1, 'rgba(28, 20, 16, 0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  /** Soft veil — lavender dusk, calm contrast for serif verse. */
+  function drawVeilBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#252035');
+    gr.addColorStop(0.55, '#3a3550');
+    gr.addColorStop(1, '#1c1a28');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var v = ctx.createRadialGradient(w * 0.88, h * 0.12, 0, w * 0.88, h * 0.12, w * 0.52);
+    v.addColorStop(0, 'rgba(220, 210, 245, 0.15)');
+    v.addColorStop(1, 'rgba(37, 32, 53, 0)');
+    ctx.fillStyle = v;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  /** Quiet aurora wash — restrained teal and violet, night sky. */
+  function drawAuroraBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#0b1630');
+    gr.addColorStop(0.38, '#16354a');
+    gr.addColorStop(0.64, '#1a4a3c');
+    gr.addColorStop(1, '#0a1f2c');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var arc = ctx.createLinearGradient(w * 0.1, 0, w * 0.9, h * 0.42);
+    arc.addColorStop(0, 'rgba(45, 212, 191, 0.07)');
+    arc.addColorStop(0.48, 'rgba(129, 140, 248, 0.09)');
+    arc.addColorStop(1, 'rgba(52, 211, 153, 0.05)');
+    ctx.fillStyle = arc;
+    ctx.fillRect(0, 0, w, h * 0.58);
+  }
+
+  /** Thin gold-edge frame — share cards feel finished, not flat. */
+  function drawSubtleFrame(ctx, w, h) {
+    ctx.save();
+    ctx.strokeStyle = 'rgba(212, 175, 55, 0.22)';
+    ctx.lineWidth = 2;
+    var inset = 22;
+    ctx.strokeRect(inset, inset, w - inset * 2, h - inset * 2);
     ctx.restore();
   }
 
@@ -318,6 +397,22 @@
     }
     if (bg === 'soar') {
       drawSoarBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'hush') {
+      drawHushBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'ember') {
+      drawEmberBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'veil') {
+      drawVeilBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'aurora') {
+      drawAuroraBackground(ctx, w, h);
       return;
     }
     var g = bgGradients(bg === 'cross' ? 'dawn' : bg);
@@ -387,6 +482,7 @@
       ctx.font = '600 20px Inter, system-ui, sans-serif';
       ctx.fillText('KJV', cx, h - 22);
       ctx.textAlign = 'left';
+      drawSubtleFrame(ctx, w, h);
       return;
     }
 
@@ -404,6 +500,7 @@
     ctx.fillStyle = '#d4af37';
     ctx.font = '600 20px Inter, system-ui, sans-serif';
     ctx.fillText('KJV', pad, h - 22);
+    drawSubtleFrame(ctx, w, h);
   }
 
   /** Printed cards should open prod; local dev still makes scannable links. */

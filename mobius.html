@@ -143,6 +143,46 @@
     .mobius-diy-details ol li { margin-bottom: 0.45rem; }
     .mobius-diy-details + p { text-align: left; margin-top: 0.75rem; font-size: 0.9rem; color: var(--tool-muted); }
     .mobius-timer-display { font-size: 2.5rem; font-variant-numeric: tabular-nums; color: var(--tool-gold-soft); text-align: center; margin: 1.5rem 0; min-height: 3rem; }
+    .mobius-guided-voice-wrap {
+      max-width: 36rem;
+      margin: 0.35rem auto 0;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid rgba(227, 188, 103, 0.2);
+      border-radius: 10px;
+      background: rgba(26, 33, 45, 0.35);
+      text-align: left;
+    }
+    .mobius-guided-voice-wrap legend {
+      padding: 0 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--tool-gold-soft);
+    }
+    .mobius-guided-voice-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin: 0.35rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .mobius-guided-voice-options label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--tool-text);
+      cursor: pointer;
+    }
+    .mobius-guided-voice-options input { margin-top: 0.2rem; flex-shrink: 0; }
+    .mobius-guided-voice-hint {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--tool-muted);
+    }
+    .mobius-guided-voice-hint code { font-size: 0.92em; word-break: break-all; }
     .tool-btn-muted { color: var(--tool-muted); border-color: var(--tool-line); }
     .tool-btn-muted:hover, .tool-btn-muted:focus-visible { color: var(--tool-text); border-color: var(--tool-muted); }
     .mobius-streak-display { font-size: 0.85rem; color: var(--tool-muted); text-align: center; margin: 0.5rem 0; min-height: 1.2rem; }
@@ -633,6 +673,14 @@
         <button type="button" id="mobius-ribbon-trace" class="tool-btn tool-btn-muted" aria-label="Trace the ribbon once">Trace ribbon</button>
       </div>
       <div id="mobius-timer-display" class="mobius-timer-display" role="status" aria-live="polite" aria-atomic="true"></div>
+      <fieldset id="mobius-guided-voice-wrap" class="mobius-guided-voice-wrap" hidden>
+        <legend>Deep meditation audio</legend>
+        <ul class="mobius-guided-voice-options" role="radiogroup" aria-label="Choose guided track">
+          <li><label><input type="radio" name="mobius-guided-voice" value="studio" checked> Original guide track</label></li>
+          <li><label><input type="radio" name="mobius-guided-voice" value="human" aria-describedby="mobius-human-voice-hint"> Human narrator</label></li>
+        </ul>
+        <p id="mobius-human-voice-hint" class="mobius-guided-voice-hint">Uses <span class="sr-only">file </span><code>mobius-guided-human.mp3</code> in <code>/audio/</code> when you add it. See <code>audio/README.md</code>.</p>
+      </fieldset>
       <p id="mobius-streak-display" class="mobius-streak-display" role="status" aria-live="polite"></p>
       <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle&mdash;through 2 Timothy 1:7 and back around the ribbon"></div>
       <section id="mobius-deep-walk" class="mobius-section" aria-labelledby="mobius-deep-walk-title">
@@ -807,6 +855,9 @@
   </main>
 
   <audio id="mobius-guided-audio" src="/audio/mobius-guided-10min.mp3" preload="metadata" aria-label="10-minute guided meditation"></audio>
+  <audio id="mobius-guided-audio-human" preload="none" aria-label="Human-narrated guided meditation">
+    <source src="/audio/mobius-guided-human.mp3" type="audio/mpeg">
+  </audio>
 
   <footer class="tool-page-footer" role="contentinfo">
     <p class="tool-footer-share-wrap tool-footer-share-wrap--tight"><button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button></p>

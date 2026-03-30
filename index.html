@@ -3417,6 +3417,28 @@
     }
 
     /* ── Prayer Wall (standalone card) ── */
+    .prayer-wall-quiet-room {
+      border-color: color-mix(in srgb, var(--gold-soft, #c9a84c) 28%, var(--border, #334155));
+      box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--gold-soft, #c9a84c) 12%, transparent),
+        0 12px 40px rgba(0, 0, 0, 0.22);
+    }
+    .prayer-wall-room-title {
+      margin: 0 0 0.35rem;
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: clamp(1.35rem, 3.2vw, 1.65rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--gold-soft, #c9a84c);
+      line-height: 1.25;
+    }
+    .prayer-wall-room-lead {
+      margin: 0 0 0.85rem;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
+      max-width: 38rem;
+    }
     .prayer-wall-header-row {
       display: flex;
       align-items: center;
@@ -5774,9 +5796,11 @@
       </div><!-- /.quick-links -->
 
       <!-- ── Prayer Wall ── -->
-      <section class="card prayer-wall-card" id="prayer-wall" aria-label="Prayer Wall">
+      <section class="card prayer-wall-card prayer-wall-quiet-room" id="prayer-wall" aria-labelledby="prayer-wall-room-title">
+        <h2 id="prayer-wall-room-title" class="prayer-wall-room-title">A quiet room</h2>
+        <p class="prayer-wall-room-lead">Name one line for God. No feed, no performance&mdash;just this wall, your heart, and a gentle place to be honest.</p>
         <div class="prayer-wall-header-row">
-          <p class="prayer-wall-label"><svg class="section-divider-icon" style="display:inline-block;vertical-align:middle;margin-right:0.35rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Prayer Wall</p>
+          <p class="prayer-wall-label"><svg class="section-divider-icon" style="display:inline-block;vertical-align:middle;margin-right:0.35rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Prayer wall</p>
           <span class="prayer-wall-badge">Say it here quietly&mdash;no account, no name, just you and Him.</span>
           <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
         </div>
@@ -5959,6 +5983,11 @@
     <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
   </p>
 
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, you can <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — you choose the amount">support the work here</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Or use <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support via Buy Me a Coffee">Buy Me a Coffee</a>.</span>
+  </p>
+
   <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
     <a href="/plans.html">Plans</a>
     <a href="/explore.html">Explore</a>
@@ -5991,7 +6020,6 @@
     <a href="/verse-cards/">Verse cards</a>
     <a href="/security.html">Security</a>
     <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
-    <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support</a>
     <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
   </nav>
 

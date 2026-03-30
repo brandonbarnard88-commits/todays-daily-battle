@@ -26,3 +26,11 @@ Add these MP3 files for offline TTS fallback when users tap "Listen" without int
 | `mobius-guided-10min.mp3` | 10-minute guided meditation for Möbius Loop Text mode. Script: `docs/mobius-guided-audio-script.md` |
 
 When present, the "Deep meditation (10 min)" button plays this audio and syncs the countdown.
+
+### Optional: human-narrated guide (same slot)
+
+| File | Description |
+|------|-------------|
+| `mobius-guided-human.mp3` | Same purpose and rough length as `mobius-guided-10min.mp3`, but read by a human voice. When this file is deployed under `/audio/`, Möbius shows a second radio choice ("Human narrator") for the deep meditation timer. |
+
+Record or commission separately; keep KJV-adjacent pacing calm and plain (no hype). Mono MP3, 128kbps or similar is fine.

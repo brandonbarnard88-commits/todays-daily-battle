@@ -1219,7 +1219,47 @@
       var timerInterval = null;
       var timeLeft = 0;
       var timerPaused = false;
-      var audioEl = document.getElementById('mobius-guided-audio');
+      var studioAud = document.getElementById('mobius-guided-audio');
+      var humanAud = document.getElementById('mobius-guided-audio-human');
+      var activeGuidedAudio = null;
+      function resolveGuidedAudio() {
+        var wantHuman = false;
+        try {
+          wantHuman = localStorage.getItem('tdb_mobius_guided_voice') === 'human';
+        } catch (e) {}
+        if (wantHuman && humanAud && window.__tdbMobiusHumanGuidedOk) return humanAud;
+        return studioAud;
+      }
+      (function initMobiusGuidedVoice() {
+        var wrap = document.getElementById('mobius-guided-voice-wrap');
+        var inputs = document.querySelectorAll('input[name="mobius-guided-voice"]');
+        if (!wrap || !inputs.length) return;
+        try {
+          var saved = localStorage.getItem('tdb_mobius_guided_voice');
+          if (saved === 'human') {
+            inputs.forEach(function (el) {
+              el.checked = el.value === 'human';
+            });
+          }
+        } catch (e) {}
+        inputs.forEach(function (el) {
+          el.addEventListener('change', function () {
+            try {
+              localStorage.setItem('tdb_mobius_guided_voice', el.value === 'human' ? 'human' : 'studio');
+            } catch (e2) {}
+          });
+        });
+        if (typeof fetch === 'function') {
+          fetch('/audio/mobius-guided-human.mp3', { method: 'HEAD', cache: 'no-store' })
+            .then(function (r) {
+              if (r.ok) {
+                window.__tdbMobiusHumanGuidedOk = true;
+                wrap.hidden = false;
+              }
+            })
+            .catch(function () {});
+        }
+      })();
       function formatTime(sec) {
         var m = Math.floor(sec / 60);
         var s = sec % 60;
@@ -1227,10 +1267,11 @@
       }
       function stopTimer(skipBump) {
         if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
-        if (audioEl) {
-          audioEl.pause();
-          audioEl.currentTime = 0;
+        if (activeGuidedAudio) {
+          activeGuidedAudio.pause();
+          activeGuidedAudio.currentTime = 0;
         }
+        activeGuidedAudio = null;
         timerPaused = false;
         if (timerDisplay) timerDisplay.textContent = '';
         if (timerBtn) { timerBtn.dataset.timerActive = '0'; timerBtn.textContent = 'Deep meditation (10 min)'; }
@@ -1248,6 +1289,19 @@
           }
         }, 1000);
       }
+      function onGuidedEnded() {
+        if (timerInterval && timerBtn && timerBtn.dataset.timerActive === '1') {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          timeLeft = 0;
+          if (timerDisplay) timerDisplay.textContent = 'Meditation complete.';
+          setTimeout(function () { if (timerDisplay) timerDisplay.textContent = ''; }, 4000);
+          stopTimer(false);
+        }
+      }
+      [studioAud, humanAud].forEach(function (a) {
+        if (a) a.addEventListener('ended', onGuidedEnded);
+      });
       timerBtn.addEventListener('click', function () {
         var btn = timerBtn;
         var deepWalk = document.getElementById('mobius-deep-walk');
@@ -1255,13 +1309,13 @@
           if (timerPaused) {
             timerPaused = false;
             btn.textContent = 'Pause';
-            if (audioEl) audioEl.play().catch(function () {});
+            if (activeGuidedAudio) activeGuidedAudio.play().catch(function () {});
             startTick();
           } else {
             timerPaused = true;
             btn.textContent = 'Resume';
             if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
-            if (audioEl) audioEl.pause();
+            if (activeGuidedAudio) activeGuidedAudio.pause();
           }
           return;
         }
@@ -1271,34 +1325,23 @@
         if (timerStopBtn) timerStopBtn.hidden = false;
         timeLeft = 10 * 60;
         if (timerDisplay) timerDisplay.textContent = formatTime(timeLeft);
-        if (audioEl) {
+        activeGuidedAudio = resolveGuidedAudio();
+        if (activeGuidedAudio) {
           var audioFailed = false;
           function onAudioUnavailable() {
             if (audioFailed) return;
             audioFailed = true;
             showTracerToast('Audio unavailable—follow the Deep Walk steps below.');
           }
-          audioEl.addEventListener('error', onAudioUnavailable, { once: true });
-          audioEl.currentTime = 0;
-          audioEl.play().catch(onAudioUnavailable);
+          activeGuidedAudio.addEventListener('error', onAudioUnavailable, { once: true });
+          activeGuidedAudio.currentTime = 0;
+          activeGuidedAudio.play().catch(onAudioUnavailable);
         }
         startTick();
       });
       if (timerStopBtn) {
         timerStopBtn.addEventListener('click', function () {
           stopTimer(true);
-        });
-      }
-      if (audioEl) {
-        audioEl.addEventListener('ended', function () {
-          if (timerInterval && timerBtn && timerBtn.dataset.timerActive === '1') {
-            clearInterval(timerInterval);
-            timerInterval = null;
-            timeLeft = 0;
-            if (timerDisplay) timerDisplay.textContent = 'Meditation complete.';
-            setTimeout(function () { if (timerDisplay) timerDisplay.textContent = ''; }, 4000);
-            stopTimer(false);
-          }
         });
       }
     }

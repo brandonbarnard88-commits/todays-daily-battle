@@ -329,6 +329,7 @@ const SOCIAL_PURGE_PATHS = [
   '/script.js?v=20260402fullshuffle',
   '/script.js?v=20260403homehook',
   '/script.js?v=20260430quiettitle',
+  '/script.js?v=20260430heropolish',
   '/script.js?v=20260328armor-open',
   '/script.js?v=20260328studygrid',
   '/script.js?v=20260328studyhydrate',

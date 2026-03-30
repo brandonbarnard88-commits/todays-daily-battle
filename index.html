@@ -92,7 +92,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260430quiettitle">
+  <link rel="modulepreload" href="script.js?v=20260430heropolish">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -1657,8 +1657,21 @@
       margin: 0;
     }
 
-    .hero-verse.is-visible {
-      opacity: 1;
+    @keyframes tdbHeroVerseIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    #verseCard #heroVerse.hero-verse {
+      opacity: 0;
+    }
+    #verseCard #heroVerse.hero-verse.is-visible {
+      animation: tdbHeroVerseIn 0.9s ease forwards;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #verseCard #heroVerse.hero-verse.is-visible {
+        animation: none;
+        opacity: 1;
+      }
     }
 
     .verse-ref {
@@ -3556,12 +3569,20 @@
 
     /* Hero daily verse doorway — welcoming any day */
     .hero-daily-headline {
-      margin: 0 0 0.65rem;
+      margin: 0 0 0.35rem;
       font-size: clamp(1.05rem, 2.8vw, 1.22rem);
       font-weight: 600;
       color: var(--gold-soft);
       letter-spacing: 0.02em;
       line-height: 1.35;
+    }
+    .hero-daily-subline {
+      margin: 0 0 0.75rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+      line-height: 1.5;
+      font-weight: 500;
+      color: color-mix(in srgb, var(--muted) 88%, var(--gold-soft) 12%);
+      max-width: 36rem;
     }
     .hero-daily-welcome {
       margin: 0 0 0.85rem;
@@ -5334,6 +5355,7 @@
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
         <h2 class="hero-daily-headline">Today&rsquo;s Verse &mdash; A Quiet Place</h2>
+        <p class="hero-daily-subline" id="heroDailySubline">Whatever your day holds&mdash;step in.</p>
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
           <div class="verse-skeleton-box"></div>
         </div>
@@ -5370,7 +5392,7 @@
             <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
           </div>
         </div>
-        <p class="hero-daily-welcome">Whatever your day&mdash;joy, rest, questions&mdash;step in.</p>
+        <p class="hero-daily-welcome">Joy, rest, questions&mdash;you are welcome here.</p>
         <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown. Keyboard: Tab to Listen, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
@@ -8148,19 +8170,57 @@
       };
     }
 
+    function tdbVerseRefLooksLikeIsaiah4031(verseRef) {
+      var r = verseRef || '';
+      if (!/40\s*:\s*31/.test(r)) return false;
+      return /isaiah/i.test(r) || /^\s*is\.?\s*40/i.test(r);
+    }
+    function tdbDrawSoarShareBackdrop(ctx, w, h) {
+      var gr = ctx.createLinearGradient(0, 0, 0, h);
+      gr.addColorStop(0, '#0b1528');
+      gr.addColorStop(0.48, '#1e3352');
+      gr.addColorStop(0.76, '#4a3520');
+      gr.addColorStop(1, '#6b4a2e');
+      ctx.fillStyle = gr;
+      ctx.fillRect(0, 0, w, h);
+      var rg = ctx.createRadialGradient(w * 0.82, h * 0.16, 0, w * 0.82, h * 0.16, Math.min(w, h) * 0.52);
+      rg.addColorStop(0, 'rgba(255, 224, 172, 0.22)');
+      rg.addColorStop(1, 'rgba(255, 224, 172, 0)');
+      ctx.fillStyle = rg;
+      ctx.fillRect(0, 0, w, h);
+      ctx.save();
+      ctx.fillStyle = 'rgba(6, 12, 26, 0.22)';
+      var sx = w * 0.56;
+      var sy = h * 0.05;
+      var sw = w * 0.4;
+      ctx.beginPath();
+      ctx.moveTo(sx, sy + sw * 0.14);
+      ctx.bezierCurveTo(sx + sw * 0.34, sy - sw * 0.02, sx + sw * 0.7, sy + sw * 0.06, sx + sw, sy + sw * 0.24);
+      ctx.bezierCurveTo(sx + sw * 1.02, sy + sw * 0.4, sx + sw * 0.85, sy + sw * 0.5, sx + sw * 0.58, sy + sw * 0.44);
+      ctx.bezierCurveTo(sx + sw * 0.36, sy + sw * 0.4, sx + sw * 0.2, sy + sw * 0.44, sx, sy + sw * 0.14);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
     // ── Generate Verse Share Image ──
     function generateShareImage(verseText, verseRef) {
       try {
         var canvas = document.createElement('canvas');
         canvas.width = 1080; canvas.height = 1080;
         var ctx = canvas.getContext('2d');
-        var grad = ctx.createLinearGradient(0, 0, 0, 1080);
-        grad.addColorStop(0, '#1a1226'); grad.addColorStop(0.5, '#2c1a42'); grad.addColorStop(1, '#3d2010');
-        ctx.fillStyle = grad; ctx.fillRect(0, 0, 1080, 1080);
-        ctx.strokeStyle = '#e3bc67'; ctx.lineWidth = 3;
+        var useSoar = tdbVerseRefLooksLikeIsaiah4031(verseRef);
+        if (useSoar) {
+          tdbDrawSoarShareBackdrop(ctx, 1080, 1080);
+          ctx.strokeStyle = 'rgba(255, 224, 172, 0.42)'; ctx.lineWidth = 2;
+        } else {
+          var grad = ctx.createLinearGradient(0, 0, 0, 1080);
+          grad.addColorStop(0, '#1a1226'); grad.addColorStop(0.5, '#2c1a42'); grad.addColorStop(1, '#3d2010');
+          ctx.fillStyle = grad; ctx.fillRect(0, 0, 1080, 1080);
+          ctx.strokeStyle = '#e3bc67'; ctx.lineWidth = 3;
+        }
         ctx.beginPath(); ctx.moveTo(80, 200); ctx.lineTo(1000, 200); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(80, 860); ctx.lineTo(1000, 860); ctx.stroke();
-        ctx.fillStyle = '#f5e8c0'; ctx.font = 'bold 46px Georgia, serif'; ctx.textAlign = 'center';
+        ctx.fillStyle = useSoar ? '#f5f0e4' : '#f5e8c0'; ctx.font = 'bold 46px Georgia, serif'; ctx.textAlign = 'center';
         var words = (verseText || '').split(' '), lines = [], line = '';
         words.forEach(function (w) {
           var test = line ? line + ' ' + w : w;
@@ -8169,9 +8229,11 @@
         lines.push(line);
         var startY = 540 - (lines.length * 58) / 2;
         lines.forEach(function (l, i) { ctx.fillText(l, 540, startY + i * 58); });
-        ctx.fillStyle = '#e3bc67'; ctx.font = '36px Georgia, serif';
+        ctx.fillStyle = useSoar ? 'rgba(255, 224, 172, 0.92)' : '#e3bc67'; ctx.font = '36px Georgia, serif';
         ctx.fillText((verseRef || '') + ' \u2014 KJV', 540, 820);
-        ctx.fillStyle = 'rgba(227,188,103,0.4)'; ctx.font = '24px sans-serif';
+        ctx.fillStyle = useSoar ? 'rgba(248, 245, 230, 0.55)' : 'rgba(227,188,103,0.42)'; ctx.font = '22px Georgia, serif';
+        ctx.fillText('Today\u2019s Verse \u2014 A Quiet Place', 540, 888);
+        ctx.fillStyle = useSoar ? 'rgba(248, 245, 230, 0.48)' : 'rgba(227,188,103,0.4)'; ctx.font = '24px sans-serif';
         ctx.fillText('todaysdailybattle.com', 540, 950);
         canvas.toBlob(function (blob) {
           if (!blob) return;
@@ -10087,7 +10149,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260430quiettitle" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260430heropolish" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>
   <!-- Sync: following inline calls TDB_EASTER_SEASON on parse; defer would run too late. -->

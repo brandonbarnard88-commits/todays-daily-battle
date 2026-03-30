@@ -247,6 +247,35 @@
     ctx.fillRect(0, 0, w, h);
   }
 
+  /** Open-sky dawn + soft wing silhouette — fits Isaiah 40:31 and similar verses. */
+  function drawSoarBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#0b1528');
+    gr.addColorStop(0.48, '#1e3352');
+    gr.addColorStop(0.76, '#4a3520');
+    gr.addColorStop(1, '#6b4a2e');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var rg = ctx.createRadialGradient(w * 0.82, h * 0.16, 0, w * 0.82, h * 0.16, Math.min(w, h) * 0.52);
+    rg.addColorStop(0, 'rgba(255, 224, 172, 0.22)');
+    rg.addColorStop(1, 'rgba(255, 224, 172, 0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, w, h);
+    ctx.save();
+    ctx.fillStyle = 'rgba(6, 12, 26, 0.22)';
+    var sx = w * 0.56;
+    var sy = h * 0.05;
+    var sw = w * 0.4;
+    ctx.beginPath();
+    ctx.moveTo(sx, sy + sw * 0.14);
+    ctx.bezierCurveTo(sx + sw * 0.34, sy - sw * 0.02, sx + sw * 0.7, sy + sw * 0.06, sx + sw, sy + sw * 0.24);
+    ctx.bezierCurveTo(sx + sw * 1.02, sy + sw * 0.4, sx + sw * 0.85, sy + sw * 0.5, sx + sw * 0.58, sy + sw * 0.44);
+    ctx.bezierCurveTo(sx + sw * 0.36, sy + sw * 0.4, sx + sw * 0.2, sy + sw * 0.44, sx, sy + sw * 0.14);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
   function drawCrossWatermark(ctx, w, h) {
     ctx.save();
     ctx.globalAlpha = 0.1;
@@ -285,6 +314,10 @@
     }
     if (bg === 'linen') {
       drawLinenBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'soar') {
+      drawSoarBackground(ctx, w, h);
       return;
     }
     var g = bgGradients(bg === 'cross' ? 'dawn' : bg);
@@ -349,7 +382,7 @@
 
       ctx.fillStyle = footMuted;
       ctx.font = '600 24px Inter, system-ui, sans-serif';
-      ctx.fillText("Today's Daily Battle", cx, h - 48);
+      ctx.fillText("Today's Verse \u2014 A Quiet Place", cx, h - 48);
       ctx.fillStyle = '#d4af37';
       ctx.font = '600 20px Inter, system-ui, sans-serif';
       ctx.fillText('KJV', cx, h - 22);
@@ -367,7 +400,7 @@
 
     ctx.fillStyle = footMuted;
     ctx.font = '600 24px Inter, system-ui, sans-serif';
-    ctx.fillText("Today's Daily Battle", pad, h - 48);
+    ctx.fillText("Today's Verse \u2014 A Quiet Place", pad, h - 48);
     ctx.fillStyle = '#d4af37';
     ctx.font = '600 20px Inter, system-ui, sans-serif';
     ctx.fillText('KJV', pad, h - 22);

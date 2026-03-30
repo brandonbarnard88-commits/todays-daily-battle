@@ -1,0 +1,23 @@
+# After each push to main, purge the full Cloudflare zone cache (Dashboard equivalent: Caching → Purge Everything).
+# Requires repo secrets CF_ZONE_ID and CF_API_TOKEN (Edit zone cache). If secrets are missing, the step is skipped without failing the workflow.
+name: Purge Cloudflare cache on push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Purge entire zone (npm run purge:cloudflare)
+        continue-on-error: true
+        env:
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: npm run purge:cloudflare

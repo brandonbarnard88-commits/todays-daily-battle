@@ -14332,13 +14332,12 @@ function shuffleHomeQuickTopicSurfaces() {
 
 /** Under-verse welcome line: one calm line per load (main calendar verse unchanged). */
 var TDB_HOME_WELCOME_LINES = [
-  'Whatever your day—joy, rest, questions—step in.',
-  'Whatever your day holds—joy, quiet, questions—step in. No rush.',
-  'A quiet place. No rush.',
-  'Whatever your day holds—step in when you are ready.',
-  'Scripture is a lamp for your path—stay as long as you like.',
+  'Joy, rest, questions—you are welcome here.',
+  'No rush. Stay as long as you like.',
+  'Scripture is a lamp for your path.',
   'Come as you are. You are not behind here.',
-  'Step in. No questions. Just here.'
+  'A quiet place for whatever the day brought.',
+  'Step in when you are ready.'
 ];
 
 function pickHomeWelcomeLine() {
@@ -14419,6 +14418,11 @@ function tdbRunHomeMoodShuffleAndWelcome() {
     { once: true }
   );
 })();
+
+try {
+  window.tdbShuffleHomeQuickTopics = shuffleHomeQuickTopicSurfaces;
+  window.tdbRunHomeMoodShuffleAndWelcome = tdbRunHomeMoodShuffleAndWelcome;
+} catch (eTdbWin) {}
 
 function stemWord(word) {
   if (!word || word.length <= 3) return word;

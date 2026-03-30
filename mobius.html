@@ -68,6 +68,14 @@
     }
     .mobius-viz-wrap { width: 90%; max-width: 900px; height: 70vh; min-height: 320px; display: flex; align-items: center; justify-content: center; flex: 1; margin: 0 auto 1.5rem; }
     .mobius-viz-wrap svg { max-width: 100%; max-height: 100%; object-fit: contain; }
+    @keyframes mobius-universal-viz-slow-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    #mobius-universal-viz svg {
+      transform-origin: 50% 50%;
+      animation: mobius-universal-viz-slow-spin 5s linear infinite;
+    }
     .mobius-node.mobius-start-node circle { stroke: var(--tool-gold); stroke-width: 3; }
     .mobius-node.mobius-pivot-node circle { stroke: rgba(227, 188, 103, 0.7); stroke-width: 2; }
     .mobius-node.mobius-preferred-node circle { stroke: var(--tool-gold); filter: drop-shadow(0 0 6px rgba(227, 188, 103, 0.5)); }
@@ -269,6 +277,7 @@
         opacity: 0 !important;
       }
       #mobius-universal-viz line.mobius-link-pivot-arm { animation: none !important; }
+      #mobius-universal-viz svg { animation: none !important; }
     }
     .mobius-text-v2 { width: 100%; max-width: 28rem; margin: 0 auto; text-align: center; }
     .mobius-v2-presets { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-bottom: 1rem; }

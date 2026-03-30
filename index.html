@@ -1197,6 +1197,55 @@
       flex-shrink: 0;
       user-select: none;
     }
+    .hero-daily-path-support {
+      flex-basis: 100%;
+      text-align: center;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: color-mix(in srgb, var(--muted) 88%, var(--gold-soft) 12%);
+      margin: 0;
+      padding-top: 0.15rem;
+    }
+    .hero-daily-path-support a {
+      color: color-mix(in srgb, var(--gold-soft) 90%, var(--muted) 10%);
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.35rem 0.5rem;
+      border-radius: 8px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-daily-path-support a:hover,
+    .hero-daily-path-support a:focus-visible {
+      text-decoration: underline;
+      outline: 2px solid var(--gold-soft);
+      outline-offset: 2px;
+    }
+    .tdb-home-mobius-week {
+      flex-basis: 100%;
+      text-align: center;
+      margin: 0;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--muted) 80%, var(--gold-soft) 20%);
+      padding: 0.45rem 0.35rem 0;
+    }
+    .tdb-home-mobius-week:not([hidden]) {
+      border-top: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 6%);
+    }
+    .tdb-home-mobius-week a {
+      color: var(--gold-soft);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .tdb-home-mobius-week a:hover,
+    .tdb-home-mobius-week a:focus-visible {
+      text-decoration: underline;
+      outline: 2px solid var(--gold-soft);
+      outline-offset: 2px;
+    }
     /* Easter season (Gregorian window): same calm band as Battle Plans */
     .easter-banner {
       display: flex; align-items: flex-start; justify-content: space-between; gap: 0.65rem;
@@ -5472,6 +5521,10 @@
           <a href="explore.html">Site map</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="site-guide.html">How to use</a>
         </span>
+        <p class="hero-daily-path-support">
+          <a href="/give" id="heroSupportQuietPlace" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+        </p>
+        <p id="tdbHomeMobiusWeek" class="tdb-home-mobius-week" role="status" aria-live="polite" hidden></p>
       </nav>
 
       <div class="easter-banner hidden" id="tdbHomeEasterBanner" role="region" aria-labelledby="tdbHomeEasterBannerH" hidden>
@@ -6107,6 +6160,7 @@
   <!-- Hero pools: sync immediately before inline block (needs __TDB_HERO_*). First-paint script defer; 365 data still idle-loaded from hero-daily-first-paint.js. -->
   <script nonce="tdb2025s" src="hero-hero-pools.js?v=20260328pools" fetchpriority="low"></script>
   <script nonce="tdb2025s" defer src="hero-daily-first-paint.js?v=20260328pools" fetchpriority="low"></script>
+  <script nonce="tdb2025s" defer fetchpriority="low" src="tdb-home-mobius-week.js?v=20260330home"></script>
   <script nonce="tdb2025s" src="/sky-ip-geo.js?v=20260327ipgeo" fetchpriority="low"></script>
   <script nonce="tdb2025s">
     // Hero verse: pools + first-paint above; 365 idle. Dist injects today’s verse into HTML for LCP.

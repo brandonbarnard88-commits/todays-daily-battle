@@ -1026,6 +1026,9 @@
       var key = STREAK_KEY_PREFIX + wk;
       var n = parseInt(localStorage.getItem(key) || '0', 10) + 1;
       localStorage.setItem(key, String(n));
+      try {
+        localStorage.setItem('mobiusLoops_engaged_v1', '1');
+      } catch (eEng) {}
       refreshMobiusStreakDisplay();
       return n;
     } catch (e) { return 0; }

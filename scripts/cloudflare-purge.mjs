@@ -337,6 +337,7 @@ const SOCIAL_PURGE_PATHS = [
   '/footer-build-stamp.js?v=20260328stamp',
   '/footer-build-stamp.js?v=20260329footer',
   '/footer-build-stamp.js?v=20260329fdbuild',
+  '/tdb-home-mobius-week.js?v=20260330home',
   '/tt-bootstrap.js?v=20260326clean',
   '/build-date.txt',
   '/sitemap.xml',

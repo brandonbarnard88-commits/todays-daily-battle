@@ -92,7 +92,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260430homeflows">
+  <link rel="modulepreload" href="script.js?v=20260430quiettitle">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -6515,16 +6515,21 @@
         }
       })();
 
-      // ── Dynamic <title> + <meta description> for SEO & sharing freshness ──
+      // ── Dynamic <title> + <meta description> for SEO & sharing (aligned with script.js updateDailyVerseWhispers) ──
       (function() {
         if (!v.ref) return;
         var ref = v.ref;
-        var title = 'Today\u2019s Daily Battle: ' + ref + ' \u2014 Daily KJV Verse';
+        var plain = String(v.text || '').replace(/\s+/g, ' ').trim();
+        var snippet = plain.length > 120 ? plain.slice(0, 117) + '\u2026' : plain;
+        var shareDesc = snippet ? '\u201c' + snippet + '\u201d \u2014 ' + ref + ' KJV' : 'Today\u2019s KJV verse: ' + ref + '. A quiet place for any day\u2014search, prayer wall, works offline.';
+        var title = 'Today\u2019s Verse \u2014 A Quiet Place \u2014 ' + ref + ' (KJV)';
         document.title = title;
         var metaDesc = document.querySelector('meta[name="description"]');
-        var desc = 'Today\u2019s verse: ' + ref + ' (KJV). Search by how you\u2019re really feeling, quiet prayer wall, works offline. No ads, no login, no mess.';
-        if (metaDesc) metaDesc.setAttribute('content', desc);
-        // Sync OG + Twitter cards so shares reflect today's verse
+        var seoDesc =
+          'Today\u2019s KJV verse: ' +
+          ref +
+          '. A quiet place for any day\u2014search by how you feel, prayer wall, reading plans\u2014works offline. No ads, no login.';
+        if (metaDesc) metaDesc.setAttribute('content', seoDesc);
         var og = ['og:title', 'twitter:title'];
         og.forEach(function(p) {
           var el = document.querySelector('meta[property="' + p + '"], meta[name="' + p + '"]');
@@ -6533,7 +6538,7 @@
         var ogDesc = ['og:description', 'twitter:description'];
         ogDesc.forEach(function(p) {
           var el = document.querySelector('meta[property="' + p + '"], meta[name="' + p + '"]');
-          if (el) el.setAttribute('content', desc);
+          if (el) el.setAttribute('content', shareDesc);
         });
       })();
 
@@ -6674,11 +6679,26 @@
 
       const verseRef = verseData.ref ? sanitizeText(verseData.ref) : '';
       if (verseRef && !skipHeroRedraw) {
-        document.title = "Today\u2019s Daily Battle \u2013 " + verseRef + " KJV";
-        const metaDesc = document.querySelector('meta[name="description"]');
+        var titleSync = "Today\u2019s Verse \u2014 A Quiet Place \u2014 " + verseRef + " (KJV)";
+        document.title = titleSync;
+        var plainSync = String(verseData.text || "").replace(/\s+/g, " ").trim();
+        var snip = plainSync.length > 120 ? plainSync.slice(0, 117) + "\u2026" : plainSync;
+        var shareD = snip ? "\u201c" + snip + "\u201d \u2014 " + verseRef + " KJV" : "Today\u2019s KJV verse: " + verseRef + ". A quiet place for any day.";
+        var metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-          metaDesc.setAttribute("content", "Today\u2019s KJV verse: " + verseRef + ". Search by how you feel, save notes, pray together\u2014works offline when you need it.");
+          metaDesc.setAttribute(
+            "content",
+            "Today\u2019s KJV verse: " + verseRef + ". A quiet place for any day\u2014search, prayer wall, plans\u2014works offline when you need it."
+          );
         }
+        ["og:title", "twitter:title"].forEach(function (p) {
+          var el = document.querySelector('meta[property="' + p + '"], meta[name="' + p + '"]');
+          if (el) el.setAttribute("content", titleSync);
+        });
+        ["og:description", "twitter:description"].forEach(function (p) {
+          var el = document.querySelector('meta[property="' + p + '"], meta[name="' + p + '"]');
+          if (el) el.setAttribute("content", shareD);
+        });
       }
 
       if (!navigator.onLine) {
@@ -10067,7 +10087,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260430homeflows" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260430quiettitle" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>
   <!-- Sync: following inline calls TDB_EASTER_SEASON on parse; defer would run too late. -->

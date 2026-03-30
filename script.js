@@ -14405,6 +14405,19 @@ function tdbRunHomeMoodShuffleAndWelcome() {
   window.addEventListener('pageshow', function (ev) {
     if (ev && ev.persisted) go();
   });
+  /* After full load: reshuffle topic chips only (not welcome/visit hint—those run once on DOMContentLoaded). */
+  window.addEventListener(
+    'load',
+    function tdbHomeMoodShuffleAfterLoad() {
+      try {
+        if (!document.getElementById('quickTopics')) return;
+        shuffleHomeQuickTopicSurfaces();
+      } catch (eLoadSh) {
+        if (typeof console !== 'undefined' && console.warn) console.warn('TDB: post-load topic shuffle', eLoadSh);
+      }
+    },
+    { once: true }
+  );
 })();
 
 function stemWord(word) {

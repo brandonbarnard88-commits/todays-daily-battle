@@ -9815,7 +9815,7 @@ function wirePrayThisWithMe() {
           versePageSave.textContent = 'Saved';
           versePageSave.disabled = true;
           versePageSave.setAttribute('aria-label', 'Verse saved to My Verses');
-          if (typeof trackEvent === 'function') trackEvent('verse_page_save_my_verses', { verse_ref: v.ref });
+          if (typeof trackEvent === 'function') trackEvent('verse_page_save_my_verses', {});
         } else {
           versePageSave.disabled = false;
           versePageSave.textContent = 'Try again';
@@ -9902,7 +9902,7 @@ function wireVersePageListen() {
       btn.textContent = 'Stop';
       btn.setAttribute('aria-label', 'Stop verse narration');
       try {
-        if (typeof trackEvent === 'function') trackEvent('verse_page_listen', { verse_ref: v.ref });
+        if (typeof trackEvent === 'function') trackEvent('verse_page_listen', {});
       } catch (e) {}
     }
   });
@@ -9984,7 +9984,7 @@ function wireHeroSaveToMyVerses() {
         if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
       } else if (res.ok) {
         if (statusEl) statusEl.textContent = 'Saved privately on this device.';
-        if (typeof trackEvent === 'function') trackEvent('hero_save_my_verses', { verse_ref: v.ref });
+        if (typeof trackEvent === 'function') trackEvent('hero_save_my_verses', {});
         updateHeroSaveButtons();
         if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
       } else {
@@ -12523,7 +12523,7 @@ if (c && c.ref) {
           plainMeaningEl.style.display = expanded ? 'none' : 'block';
           plainMeaningToggle.textContent = expanded ? 'Tap for plain meaning' : 'Hide plain meaning';
           plainMeaningToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          trackEvent('plain_meaning_toggle', { action: expanded ? 'collapse' : 'expand', verse_ref: (currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : '' });
+          trackEvent('plain_meaning_toggle', { action: expanded ? 'collapse' : 'expand' });
         };
       }
     } else {
@@ -13506,11 +13506,17 @@ if (typeof window !== 'undefined' && !window.__tdbVerseNarrTtsBridge) {
 }
 
 function stopTts() {
+  var wasPlaying = ttsPlaying;
   if (window.TDBVerseNarration && typeof window.TDBVerseNarration.stop === 'function') {
     window.TDBVerseNarration.stop();
   }
   if ('speechSynthesis' in window) window.speechSynthesis.cancel();
   setTtsPlaying(false);
+  if (wasPlaying) {
+    try {
+      if (typeof trackEvent === 'function') trackEvent('chapter_reader_listen_stop', {});
+    } catch (e) {}
+  }
 }
 
 function speakVerse(ref, text, ttsOptions) {
@@ -21069,7 +21075,7 @@ async function tdbInitImpl() {
           });
         }
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
-        if (typeof trackEvent === 'function') trackEvent('share_todays_verse', { ref: ref, source: 'org_golden_rule' });
+        if (typeof trackEvent === 'function') trackEvent('share_todays_verse', { source: 'org_golden_rule' });
       });
     }
     var footer = document.querySelector('.site-footer');
@@ -21542,7 +21548,7 @@ async function tdbInitImpl() {
             plainMeaningEl.style.display = expanded ? 'none' : 'block';
             plainMeaningToggle.textContent = expanded ? 'Tap for plain meaning' : 'Hide plain meaning';
             plainMeaningToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-            trackEvent('plain_meaning_toggle', { action: expanded ? 'collapse' : 'expand', verse_ref: (currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : '' });
+            trackEvent('plain_meaning_toggle', { action: expanded ? 'collapse' : 'expand' });
           };
         }
       } else {
@@ -23065,7 +23071,7 @@ async function tdbInitImpl() {
         if (typeof showEliteToast === 'function') showEliteToast('Copied—paste into X to share.');
       });
       window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
-      if (typeof trackEvent === 'function') trackEvent('share_todays_verse', { ref: ref });
+      if (typeof trackEvent === 'function') trackEvent('share_todays_verse', { source: 'home' });
     });
   }
 
@@ -24545,7 +24551,7 @@ async function tdbInitImpl() {
         if (data && data.ref) {
           const text = (typeof bible !== 'undefined' && bible[data.ref]) ? bible[data.ref] : '';
           verseEl.innerHTML = '<strong>' + escapeHtml(data.ref) + '</strong>' + (text ? '<p>' + escapeHtml(text) + '</p>' : '<p class="section-note"><a href="/?ref=' + encodeURIComponent(data.ref) + '">Read ' + escapeHtml(data.ref) + '</a></p>');
-          if (typeof trackEvent === 'function') trackEvent('church_verse_viewed', { verse_ref: data.ref });
+          if (typeof trackEvent === 'function') trackEvent('church_verse_viewed', {});
         } else {
           verseEl.innerHTML = '<p class="section-note">No church verse set. Pastors can set one above.</p>';
         }
@@ -24633,7 +24639,7 @@ async function tdbInitImpl() {
         }
       }
       renderChurchExtras();
-      if (typeof trackEvent === 'function') trackEvent('church_verse_set', { verse_ref: ref });
+      if (typeof trackEvent === 'function') trackEvent('church_verse_set', {});
     });
   }
   const churchPrayerAdd = document.getElementById('church-prayer-add');

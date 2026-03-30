@@ -90,7 +90,7 @@
       if (typeof window.trackEvent === 'function') {
         try {
           var ev = rootId() === 'family-daily-verse-root' ? 'family_hub_daily_verse' : 'kids_corner_daily_verse';
-          window.trackEvent(ev, { ref: battle.ref });
+          window.trackEvent(ev, {});
         } catch (e3) { /* ignore */ }
       }
     } catch (e) {

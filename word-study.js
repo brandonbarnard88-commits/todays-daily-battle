@@ -688,6 +688,9 @@
       } catch (e) {}
     } catch (err) {
       if (st) st.textContent = 'Could not save—storage may be full. Try again when you can.';
+      try {
+        if (typeof global.trackEvent === 'function') global.trackEvent('tdb_wordstudy_save_mystudy', { ok: false });
+      } catch (e2) {}
     }
     setTimeout(function () {
       if (st) st.textContent = '';

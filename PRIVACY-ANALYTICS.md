@@ -57,8 +57,12 @@ So even if someone later adds `query: input` or `user_id: x` to a call, `trackSe
 | Event | Params (allowed) |
 |-------|------------------|
 | `tdb_verse_study_open` | `{}` |
+| `tdb_verse_study_close` | `{}` |
 | `tdb_verse_study_listen` | `{}` |
+| `tdb_verse_study_listen_stop` | `{}` |
 | `tdb_verse_study_listen_repeat` | `{}` |
+| `tdb_verse_study_narration_pref` | `{ kind: 'rate', rate: 'very_slow' \| 'slow' \| 'normal' }` \| `{ kind: 'phrase_pause', on: 0 \| 1 }` \| `{ kind: 'repeat', on: 0 \| 1 }` \| `{ kind: 'ambient', mode: 'soft' \| 'off' }` \| `{ kind: 'ambient_level', level: 1–10 }` |
+| `tdb_verse_study_related_jump` | `{}` (user opened a related verse inside the overlay) |
 | `tdb_verse_study_save_mystudy` | `{ ok: boolean }` |
 | `tdb_verse_study_memorize` | `{ ok: boolean }` |
 | `tdb_verse_study_journal` | `{ ok: boolean }` |
@@ -72,7 +76,7 @@ Do **not** add verse reference or verse text to these calls.
 |-------|------------------|
 | `tdb_wordstudy_open` | `{}` |
 | `tdb_wordstudy_run` | `{ hits: number }` (concordance hit count, aggregate) |
-| `tdb_wordstudy_save_mystudy` | `{ ok: true }` |
+| `tdb_wordstudy_save_mystudy` | `{ ok: boolean }` |
 
 ### Memorize (`memorize.js`)
 
@@ -103,5 +107,25 @@ Do **not** add verse reference or verse text to these calls.
 | Event | Params (allowed) |
 |-------|------------------|
 | `chapter_reader_listen` | `{ book: string, chapter: string }` (structural labels only) |
+| `chapter_reader_listen_stop` | `{}` |
+
+### Home / verse page / church (aggregate only)
+
+| Event | Params (allowed) |
+|-------|------------------|
+| `verse_page_save_my_verses` | `{}` |
+| `verse_page_listen` | `{}` |
+| `hero_save_my_verses` | `{}` |
+| `plain_meaning_toggle` | `{ action: 'expand' \| 'collapse' }` |
+| `share_todays_verse` | `{ source: 'home' \| 'org_golden_rule' }` |
+| `church_verse_viewed` | `{}` |
+| `church_verse_set` | `{}` |
+
+### Kids / family daily verse strip (`kids-corner-daily-verse.js`)
+
+| Event | Params (allowed) |
+|-------|------------------|
+| `kids_corner_daily_verse` | `{}` |
+| `family_hub_daily_verse` | `{}` |
 
 When adding new `trackEvent` names, append them here with allowed keys. **Never** log verse body text, journal text, or search queries in `trackEvent`.

@@ -447,6 +447,9 @@
   function openRelatedVerse(refRaw) {
     var r = normRefKey(refRaw);
     if (!r) return;
+    try {
+      if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_related_jump', {});
+    } catch (e) {}
     fetchBibleMap().then(function (map) {
       var txt = kjvTextForRef(map, r);
       open(r, txt || '');
@@ -872,22 +875,46 @@
     var rv = document.getElementById('tdb-vs-repeat-verse');
     if (rv) rv.addEventListener('click', repeatVerseStudyListen);
     var rt = document.getElementById('tdb-vs-rate');
-    if (rt) rt.addEventListener('change', readVerseStudyListenPrefsFromForm);
+    if (rt) {
+      rt.addEventListener('change', function () {
+        readVerseStudyListenPrefsFromForm();
+        var N = global.TDBVerseNarration;
+        if (N && typeof N.getRatePreset === 'function') trackVerseStudyNarrationPref('rate', N.getRatePreset());
+      });
+    }
     var ppEl = document.getElementById('tdb-vs-phrase-pause');
-    if (ppEl) ppEl.addEventListener('change', readVerseStudyListenPrefsFromForm);
+    if (ppEl) {
+      ppEl.addEventListener('change', function () {
+        readVerseStudyListenPrefsFromForm();
+        var N = global.TDBVerseNarration;
+        if (N) trackVerseStudyNarrationPref('phrase_pause', N.getPhrasePause());
+      });
+    }
     var rpEl = document.getElementById('tdb-vs-repeat');
-    if (rpEl) rpEl.addEventListener('change', readVerseStudyListenPrefsFromForm);
+    if (rpEl) {
+      rpEl.addEventListener('change', function () {
+        readVerseStudyListenPrefsFromForm();
+        var N = global.TDBVerseNarration;
+        if (N) trackVerseStudyNarrationPref('repeat', N.getRepeat());
+      });
+    }
     var amEl = document.getElementById('tdb-vs-ambient');
     if (amEl) {
       amEl.addEventListener('change', function () {
         readVerseStudyListenPrefsFromForm();
         updateAmbientGainDisabled();
+        var N = global.TDBVerseNarration;
+        if (N && typeof N.getAmbient === 'function') trackVerseStudyNarrationPref('ambient', N.getAmbient());
       });
     }
     var agEl = document.getElementById('tdb-vs-ambient-gain');
     if (agEl) {
       agEl.addEventListener('input', readVerseStudyListenPrefsFromForm);
-      agEl.addEventListener('change', readVerseStudyListenPrefsFromForm);
+      agEl.addEventListener('change', function () {
+        readVerseStudyListenPrefsFromForm();
+        var N = global.TDBVerseNarration;
+        if (N && typeof N.getAmbientLevel === 'function') trackVerseStudyNarrationPref('ambient_level', N.getAmbientLevel());
+      });
     }
     syncVerseStudyListenUi();
     if (!global.__tdbVsProgressEv) {
@@ -960,6 +987,30 @@
     if (ag && typeof N.setAmbientLevel === 'function') N.setAmbientLevel(ag.value);
   }
 
+  /** Privacy-safe narration prefs only — no verse text or reference. */
+  function trackVerseStudyNarrationPref(kind, detail) {
+    try {
+      if (typeof global.trackEvent !== 'function') return;
+      var payload = { kind: kind };
+      if (kind === 'rate' && detail && /^(very_slow|slow|normal)$/.test(detail)) {
+        payload.rate = detail;
+      } else if (kind === 'phrase_pause') {
+        payload.on = detail ? 1 : 0;
+      } else if (kind === 'repeat') {
+        payload.on = detail ? 1 : 0;
+      } else if (kind === 'ambient') {
+        payload.mode = detail === 'soft' ? 'soft' : 'off';
+      } else if (kind === 'ambient_level') {
+        var n = parseInt(detail, 10);
+        if (isNaN(n) || n < 1 || n > 10) return;
+        payload.level = n;
+      } else {
+        return;
+      }
+      global.trackEvent('tdb_verse_study_narration_pref', payload);
+    } catch (e) {}
+  }
+
   function setVerseStudyListenButtonActive(on) {
     var ln = document.getElementById('vs-listen-btn');
     if (!ln) return;
@@ -1027,6 +1078,9 @@
       N.stop();
       narrationFromVerseStudy = false;
       setVerseStudyListenButtonActive(false);
+      try {
+        if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_listen_stop', {});
+      } catch (e) {}
       return;
     }
     readVerseStudyListenPrefsFromForm();
@@ -1114,6 +1168,8 @@
   }
 
   function close() {
+    var layer = document.getElementById('tdb-verse-study-layer');
+    var wasOpen = !!(layer && !layer.classList.contains('tdb-vs-hidden'));
     if (
       narrationFromVerseStudy &&
       global.TDBVerseNarration &&
@@ -1123,8 +1179,12 @@
     }
     narrationFromVerseStudy = false;
     setVerseStudyListenButtonActive(false);
-    var layer = document.getElementById('tdb-verse-study-layer');
     if (!layer) return;
+    if (wasOpen) {
+      try {
+        if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_close', {});
+      } catch (e) {}
+    }
     collapseVerseStudyKeyWordPreview();
     layer.classList.add('tdb-vs-hidden');
     layer.setAttribute('aria-hidden', 'true');
@@ -1175,6 +1235,9 @@
         } catch (e2) {}
       }
       if (st) st.textContent = 'Could not save—storage may be full. Try again when you can.';
+      try {
+        if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_save_mystudy', { ok: false });
+      } catch (e2) {}
     }
     setTimeout(function () {
       if (st) st.textContent = '';
@@ -1210,6 +1273,9 @@
       } catch (e) {}
     } else {
       if (st) st.textContent = 'Could not add. Storage may be full.';
+      try {
+        if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_memorize', { ok: false });
+      } catch (e) {}
     }
     setTimeout(function () {
       if (st) st.textContent = '';
@@ -1269,6 +1335,9 @@
         } catch (e2) {}
       }
       if (st) st.textContent = 'Could not save—storage may be full. Try again when you can.';
+      try {
+        if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_journal', { ok: false });
+      } catch (e3) {}
     }
     setTimeout(function () {
       if (st) st.textContent = '';
@@ -1318,11 +1387,20 @@
           },
           { once: true }
         );
-      } else URL.revokeObjectURL(url);
+        try {
+          if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_print', { ok: true });
+        } catch (e) {}
+      } else {
+        URL.revokeObjectURL(url);
+        try {
+          if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_print', { ok: false });
+        } catch (e1) {}
+      }
+    } catch (e) {
       try {
-        if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_print', { ok: true });
-      } catch (e) {}
-    } catch (e) {}
+        if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_print', { ok: false });
+      } catch (e2) {}
+    }
   }
 
   function resolveXrefs(refMap, anchorRaw) {

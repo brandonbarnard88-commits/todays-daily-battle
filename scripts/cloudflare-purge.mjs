@@ -68,7 +68,7 @@ if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder|change
 }
 
 /** Bump with HTML og:image ?v= when replacing share art (cache-bust). */
-const SHARE_OG_V = '20260322';
+const SHARE_OG_V = '20260430';
 
 /** Service worker registration token — keep in sync with repo root SW-VERSION. */
 let SW_REG_VERSION = '20260325-sw-v108';
@@ -328,7 +328,7 @@ const SOCIAL_PURGE_PATHS = [
   '/script.js?v=20260401fresh',
   '/script.js?v=20260402fullshuffle',
   '/script.js?v=20260403homehook',
-  '/script.js?v=20260403quiethead',
+  '/script.js?v=20260430homeflows',
   '/script.js?v=20260328armor-open',
   '/script.js?v=20260328studygrid',
   '/script.js?v=20260328studyhydrate',
@@ -389,6 +389,8 @@ const SOCIAL_PURGE_PATHS = [
   '/v.html',
   '/verse-ref-slug.js',
   '/assets/share/home-og.jpg?v=' + SHARE_OG_V,
+  '/logo-shield-600.png',
+  '/logo-shield-600.png?v=20260430homeog',
   '/assets/share/calm-og.jpg?v=' + SHARE_OG_V,
   '/assets/share/mobius-og.jpg?v=' + SHARE_OG_V,
   '/assets/share/shop-og.jpg?v=' + SHARE_OG_V,

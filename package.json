@@ -63,6 +63,7 @@
     "kids:generate-story-index": "node scripts/generate-bible-story-tool-index.mjs",
     "purge:cloudflare": "node scripts/cloudflare-purge.mjs",
     "purge:cloudflare:social": "node scripts/cloudflare-purge.mjs --social",
+    "vercel": "npx --yes vercel@latest",
     "purge:check": "node scripts/cloudflare-purge-check.mjs",
     "audit:links": "npm run build && node scripts/audit-links.mjs",
     "audit:lighthouse": "CHROME_PATH=\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" npx lighthouse https://www.todaysdailybattle.com --output=html --output-path=./lighthouse-report.html --view --chrome-flags='--headless' --form-factor=mobile --screenEmulation.mobile=true --only-categories=performance,accessibility,best-practices",

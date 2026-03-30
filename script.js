@@ -1984,7 +1984,44 @@ const NT_BOOKS = new Set([
 /** Hero chips: same as TDB_TOPICS so all quick topics appear and work. Uses TDB_TOPICS directly. */
 const TDB_HERO_TOPICS = null; // null = use TDB_TOPICS for hero (all topics)
 
-/** Single source of truth for search topic buttons (hero + accordion). Format: { topic: string, label: string, primary?: boolean } */
+/** Single source of truth for topic chips; `getTdbPlansLaneHashForTopic` maps `data-topic` to plans.html lane anchors. */
+function getTdbPlansLaneHashForTopic(topicRaw) {
+  var t = String(topicRaw || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ');
+  if (!t) return null;
+  var fear = ['peace', 'anxiety', 'fear', 'sleep', 'rest'];
+  var grief = ['grief', 'heartache'];
+  var pain = ['cancer', 'trauma'];
+  var money = ['finances', 'addiction'];
+  var anger = ['anger', 'forgiveness'];
+  var uncertainty = [
+    'hope',
+    'strength',
+    'overwhelmed',
+    'faith',
+    'courage',
+    'loneliness',
+    'guilt',
+    'wisdom',
+    'patience'
+  ];
+  var family = ['love', 'family', 'parenting', 'marriage', 'relationships'];
+  var habits = ['gratitude', 'joy', 'spiritualwarfare', 'obedience', 'jesus said'];
+  var foundations = ['obedience', 'jesus said', 'identity', 'purpose', 'free will'];
+  if (fear.indexOf(t) !== -1) return '#plans-lane-fear';
+  if (grief.indexOf(t) !== -1) return '#plans-lane-grief';
+  if (pain.indexOf(t) !== -1) return '#plans-lane-pain';
+  if (money.indexOf(t) !== -1) return '#plans-lane-money';
+  if (anger.indexOf(t) !== -1) return '#plans-lane-anger';
+  if (family.indexOf(t) !== -1) return '#plans-lane-family';
+  if (habits.indexOf(t) !== -1) return '#plans-lane-habits';
+  if (foundations.indexOf(t) !== -1) return '#plans-lane-foundations';
+  if (uncertainty.indexOf(t) !== -1) return '#plans-lane-uncertainty';
+  return '#plans-lane-foundations';
+}
+
 const TDB_TOPICS = [
   { topic: 'peace', label: 'Peace', primary: true },
   { topic: 'gratitude', label: 'Gratitude' },
@@ -2035,7 +2072,16 @@ function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
   topics.forEach(function (item, i) {
     var isPrimary = firstIsPrimary && i === 0;
     var cls = isPrimary ? 'btn btn-primary topic-chip quick-topic' : 'btn btn-secondary topic-chip quick-topic';
-    html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '" aria-label="Search verses about ' + escapeHtml(item.label) + '">' + escapeHtml(item.label) + '</button>';
+    html +=
+      '<button type="button" class="' +
+      cls +
+      '" data-topic="' +
+      escapeHtml(item.topic) +
+      '" aria-label="Search verses about ' +
+      escapeHtml(item.label) +
+      '. Alt-click or press and hold to open a matching Battle Plans lane.">' +
+      escapeHtml(item.label) +
+      '</button>';
   });
   container.innerHTML = html;
 }
@@ -14304,11 +14350,44 @@ function pickHomeWelcomeLine() {
 }
 
 /** Runs after #quickTopics exists: full chip shuffle + welcome line. DOMContentLoaded + bfcache so it always fires on a real page show. */
+function tdbUpdateWelcomeBackMsg() {
+  var el = document.getElementById('welcomeBackMsg');
+  if (!el) return;
+  function ymd(d) {
+    var y = d.getFullYear();
+    var m = d.getMonth() + 1;
+    var day = d.getDate();
+    return y + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day;
+  }
+  try {
+    var key = 'tdb_visit_local_ymd';
+    var today = new Date();
+    var yToday = ymd(today);
+    var last = localStorage.getItem(key) || '';
+    var yYesterday = ymd(new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1));
+    if (last && last === yYesterday) {
+      el.textContent = 'You were here yesterday. Glad you came back.';
+      el.removeAttribute('hidden');
+      el.setAttribute('aria-hidden', 'false');
+    } else {
+      el.textContent = '';
+      el.setAttribute('hidden', '');
+      el.setAttribute('aria-hidden', 'true');
+    }
+    localStorage.setItem(key, yToday);
+  } catch (eW) {
+    el.textContent = '';
+    el.setAttribute('hidden', '');
+    el.setAttribute('aria-hidden', 'true');
+  }
+}
+
 function tdbRunHomeMoodShuffleAndWelcome() {
   try {
     if (!document.getElementById('quickTopics')) return;
     shuffleHomeQuickTopicSurfaces();
     pickHomeWelcomeLine();
+    tdbUpdateWelcomeBackMsg();
   } catch (eHomeMood) {
     if (typeof console !== 'undefined' && console.warn) console.warn('TDB: home mood shuffle', eHomeMood);
   }
@@ -21208,6 +21287,99 @@ async function tdbInitImpl() {
           handleSearchFilterChange();
         });
       }
+
+      (function wireHomeTopicPlansDeepLinks() {
+        if (!document.getElementById('quick-search-hero')) return;
+        document.addEventListener(
+          'click',
+          function (e) {
+            if (!e.altKey) return;
+            var btn = e.target && e.target.closest ? e.target.closest('.topic-chip, .quick-topic, [data-topic]') : null;
+            if (!btn || !btn.getAttribute('data-topic')) return;
+            if (!btn.closest('#quick-search-hero, #main-search')) return;
+            var topic = String(topicFromChip(btn) || '')
+              .trim()
+              .toLowerCase();
+            var hash = getTdbPlansLaneHashForTopic(topic);
+            if (!hash) return;
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            if (typeof trackEvent === 'function') {
+              trackEvent('home_topic_open_plans_lane', { lane: hash.replace(/^#plans-lane-/, ''), via: 'alt_click' });
+            }
+            window.location.href = 'plans.html' + hash;
+          },
+          true
+        );
+
+        var touchState = { start: 0, btn: null, x: 0, y: 0, cancelled: false };
+        var qs = document.getElementById('quick-search-hero');
+        if (qs) {
+          qs.addEventListener(
+            'touchstart',
+            function (e) {
+              var b = e.target && e.target.closest ? e.target.closest('.quick-topic, .topic-chip, [data-topic]') : null;
+              if (!b || !b.getAttribute('data-topic')) {
+                touchState.btn = null;
+                return;
+              }
+              if (!e.touches || !e.touches[0]) return;
+              touchState.start = Date.now();
+              touchState.btn = b;
+              touchState.x = e.touches[0].clientX;
+              touchState.y = e.touches[0].clientY;
+              touchState.cancelled = false;
+            },
+            { passive: true }
+          );
+          qs.addEventListener(
+            'touchmove',
+            function (e) {
+              if (!touchState.btn || !e.touches || !e.touches[0]) return;
+              var dx = Math.abs(e.touches[0].clientX - touchState.x);
+              var dy = Math.abs(e.touches[0].clientY - touchState.y);
+              if (dx > 14 || dy > 14) touchState.cancelled = true;
+            },
+            { passive: true }
+          );
+          qs.addEventListener(
+            'touchend',
+            function (e) {
+              if (!touchState.btn || touchState.cancelled) {
+                touchState.btn = null;
+                return;
+              }
+              var btn = e.target && e.target.closest ? e.target.closest('.quick-topic, .topic-chip, [data-topic]') : null;
+              if (btn !== touchState.btn) {
+                touchState.btn = null;
+                return;
+              }
+              if (Date.now() - touchState.start < 450) {
+                touchState.btn = null;
+                return;
+              }
+              var topic = String(topicFromChip(touchState.btn) || '')
+                .trim()
+                .toLowerCase();
+              var hash = getTdbPlansLaneHashForTopic(topic);
+              if (!hash) {
+                touchState.btn = null;
+                return;
+              }
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              touchState.btn = null;
+              if (typeof trackEvent === 'function') {
+                trackEvent('home_topic_open_plans_lane', { lane: hash.replace(/^#plans-lane-/, ''), via: 'long_press' });
+              }
+              window.location.href = 'plans.html' + hash;
+            },
+            { passive: false }
+          );
+        }
+      })();
     })();
   } catch (wireErr) { if (typeof console !== 'undefined' && console.error) console.error('TDB search wire:', wireErr); }
 

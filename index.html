@@ -73,16 +73,16 @@
   <meta property="og:title" content="Today&#39;s Verse &mdash; A Quiet Place | Today&#39;s Daily Battle">
   <meta property="og:description" content="One verse. One moment. KJV, calm search, prayer wall, reading plans&mdash;offline when you need them. Less scroll, more soul.">
   <meta property="og:url" content="https://todaysdailybattle.com/">
-  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/home-og.jpg?v=20260322">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png?v=20260430homeog">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="600">
   <meta property="og:image:alt" content="Today&#39;s Verse &mdash; A Quiet Place &middot; one verse, one moment">
 
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Today&#39;s Verse &mdash; A Quiet Place | Today&#39;s Daily Battle">
   <meta name="twitter:description" content="One verse. One moment. KJV, calm search, prayer wall, reading plans&mdash;offline when you need them. Less scroll, more soul.">
-  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/home-og.jpg?v=20260322">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png?v=20260430homeog">
   <!-- Caveat + Cormorant (display=swap). Stylesheet only — avoids preload-not-used warning when CSS applies after paint. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,7 +92,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260403quiethead">
+  <link rel="modulepreload" href="script.js?v=20260430homeflows">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -4655,6 +4655,16 @@
     .nudge-see-more:hover { text-decoration: underline; }
     .nudge-popover-body { flex: 1; }
 
+    .topic-plans-hint {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.45;
+      margin: 0.35rem 0 0.25rem;
+      max-width: 40rem;
+    }
+    .topic-plans-hint a { color: var(--gold-soft, #c9a84c); }
+    .topic-plans-hint a:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.65); outline-offset: 2px; }
+
     /* ── Quick-topic grid — spreads on all screens ── */
     .quick-grid {
       display: grid !important;
@@ -5361,7 +5371,7 @@
           </div>
         </div>
         <p class="hero-daily-welcome">Whatever your day&mdash;joy, rest, questions&mdash;step in.</p>
-        <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown.</p>
+        <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown. Keyboard: Tab to Listen, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
           <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Isaiah 40:31" data-tdb-wordstudy-text="But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
@@ -5488,7 +5498,8 @@
           <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions">
           </div>
         </div>
-        <div class="quick-grid" id="quickTopics" aria-label="Quick topic shortcuts">
+        <p class="topic-plans-hint section-note" id="topicPlansHint">Tap a topic to search verses. <span class="topic-plans-hint-detail">Alt-click (desktop) or press and hold (phone) opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
+        <div class="quick-grid" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Order may change each visit. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
           <button type="button" class="quick-topic" data-topic="peace" aria-label="Peace"><span aria-hidden="true">🕊️</span> Peace</button>
           <button type="button" class="quick-topic" data-topic="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙌</span> Gratitude</button>
           <button type="button" class="quick-topic" data-topic="hope" aria-label="Wonder"><span aria-hidden="true">✨</span> Wonder</button>
@@ -10056,7 +10067,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260403quiethead" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260430homeflows" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>
   <!-- Sync: following inline calls TDB_EASTER_SEASON on parse; defer would run too late. -->

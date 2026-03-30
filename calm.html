@@ -79,6 +79,20 @@
     .calm-page { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 2rem 1.5rem max(1.25rem, env(safe-area-inset-bottom, 0px)); text-align: center; }
     .calm-page .verse { font-family: Cormorant Garamond, Georgia, serif; font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.5; color: var(--text, #e2e8f0); max-width: 32rem; margin: 0 auto 1rem; }
     .calm-page .ref { font-size: 0.95rem; color: var(--gold, #e3bc67); margin-bottom: 1.5rem; }
+    .calm-daily-verse-surface { max-width: 32rem; margin: 0 auto; text-align: center; }
+    .calm-daily-verse-surface .daily-verse-body { margin: 0; border: none; padding: 0; }
+    .calm-daily-verse-surface .daily-verse-ref {
+      font-size: 0.95rem;
+      color: var(--gold, #e3bc67);
+      margin: 0 auto 0.65rem;
+    }
+    .calm-daily-verse-surface .daily-verse-text {
+      font-family: Cormorant Garamond, Georgia, serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      line-height: 1.5;
+      color: var(--text, #e2e8f0);
+      margin: 0;
+    }
     .calm-page .verse-centered { display: flex; flex-direction: column; align-items: center; }
     .calm-prayer-wall-nudge { margin-top: 1rem; max-width: 24rem; text-align: center; font-size: 0.88rem; color: rgba(148, 163, 184, 0.95); }
     .calm-prayer-wall-nudge a { color: rgba(227, 188, 103, 0.95); text-decoration: underline; text-underline-offset: 2px; }
@@ -231,8 +245,12 @@
         </div>
         <div id="verse-container" class="verse-centered calm-verse-container" style="display: none;">
           <p id="calm-loading-mobile" class="calm-verse-loading" hidden aria-live="polite">Finding your verse…</p>
-          <p id="verse-text" class="verse" aria-live="polite"></p>
-          <p id="verse-ref" class="ref"></p>
+          <div class="calm-daily-verse-surface" data-tdb-calm-verse-surface="1">
+            <p class="daily-verse-ref" id="verse-ref"></p>
+            <blockquote class="daily-verse-body" aria-labelledby="verse-ref">
+              <p class="daily-verse-text" id="verse-text" aria-live="polite"></p>
+            </blockquote>
+          </div>
           <button type="button" class="calm-copy-btn" id="copy-verse-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
           <button type="button" class="calm-btn calm-share-btn" id="calm-share-btn" data-calm-share-label="Helped? Share →" aria-label="Share this verse">Helped? Share →</button>
           <p class="calm-prayer-wall-nudge section-note">Copy the verse, then <a href="index.html#prayer-wall">leave it on the Prayer Wall</a> if you want—anonymous.</p>
@@ -249,8 +267,12 @@
         </div>
         <div id="desktop-verse" class="desktop-only verse-centered calm-verse-container" style="display: none;">
           <p id="calm-loading-desktop" class="calm-verse-loading" hidden aria-live="polite">Finding your verse…</p>
-          <p id="desktop-verse-text" class="verse" aria-live="polite"></p>
-          <p id="desktop-verse-ref" class="ref"></p>
+          <div class="calm-daily-verse-surface" data-tdb-calm-verse-surface="1">
+            <p class="daily-verse-ref" id="desktop-verse-ref"></p>
+            <blockquote class="daily-verse-body" aria-labelledby="desktop-verse-ref">
+              <p class="daily-verse-text" id="desktop-verse-text" aria-live="polite"></p>
+            </blockquote>
+          </div>
           <button type="button" class="calm-copy-btn" id="desktop-copy-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
           <button type="button" class="calm-btn calm-share-btn" id="desktop-share-btn" data-calm-share-label="Helped? Share →" aria-label="Share this verse">Helped? Share →</button>
           <p class="calm-prayer-wall-nudge section-note">Copy the verse, then <a href="index.html#prayer-wall">leave it on the Prayer Wall</a> if you want—anonymous.</p>
@@ -295,7 +317,7 @@
         if (document.querySelector('script[data-tdb-calm-app]')) return;
         var s = document.createElement('script');
         s.type = 'module';
-        s.src = 'script.js?v=20260325calmen';
+        s.src = 'script.js?v=20260330wave1calm';
         s.setAttribute('data-tdb-calm-app', '1');
         document.head.appendChild(s);
       }
@@ -355,6 +377,23 @@
       Object.keys(VERSES).forEach(function (k) { VERSES[k].forEach(function (v) { ALL.push(v); }); });
       var FALLBACK_VERSE = { ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.' };
       var currentCategory = null;
+      function calmActiveRefText() {
+        if (typeof window.tdbGetCalmVerseRefAndTextFromPage === 'function') {
+          var pack = window.tdbGetCalmVerseRefAndTextFromPage();
+          if (pack && (pack.ref || pack.text)) return { ref: pack.ref || '', text: pack.text || '' };
+        }
+        var t = document.getElementById('verse-text');
+        var r = document.getElementById('verse-ref');
+        if (t && String(t.textContent || '').trim()) {
+          return { ref: r ? String(r.textContent || '').trim() : '', text: String(t.textContent || '').trim() };
+        }
+        var dt = document.getElementById('desktop-verse-text');
+        var dr = document.getElementById('desktop-verse-ref');
+        return {
+          ref: dr ? String(dr.textContent || '').trim() : '',
+          text: dt ? String(dt.textContent || '').trim() : ''
+        };
+      }
       var isMobile = function () { return window.innerWidth < 768; };
       function prefersReducedMotion() {
         return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -616,18 +655,16 @@
       }
       var copyBtn = document.getElementById('copy-verse-btn');
       if (copyBtn) copyBtn.addEventListener('click', function () {
-        var t = document.getElementById('verse-text');
-        var r = document.getElementById('verse-ref');
-        copyVerse((t && t.textContent) || '', (r && r.textContent) || '');
+        var pair = calmActiveRefText();
+        copyVerse(pair.text, pair.ref);
         if (typeof gtag === 'function') gtag('event', 'calm_copy_verse', { category: currentCategory || 'desktop' });
         copyBtn.textContent = 'Copied';
         setTimeout(function () { copyBtn.textContent = 'Copy to clipboard'; }, 2000);
       });
       var desktopCopy = document.getElementById('desktop-copy-btn');
       if (desktopCopy) desktopCopy.addEventListener('click', function () {
-        var t = document.getElementById('desktop-verse-text');
-        var r = document.getElementById('desktop-verse-ref');
-        copyVerse((t && t.textContent) || '', (r && r.textContent) || '');
+        var pair = calmActiveRefText();
+        copyVerse(pair.text, pair.ref);
         if (typeof gtag === 'function') gtag('event', 'calm_copy_verse', { category: currentCategory || 'desktop' });
         desktopCopy.textContent = 'Copied';
         setTimeout(function () { desktopCopy.textContent = 'Copy to clipboard'; }, 2000);
@@ -643,17 +680,15 @@
       var shareBtn = document.getElementById('calm-share-btn');
       if (shareBtn) {
         shareBtn.addEventListener('click', function () {
-          var t = document.getElementById('verse-text');
-          var r = document.getElementById('verse-ref');
-          shareCalmVerse((t && t.textContent) || '', (r && r.textContent) || '', shareBtn);
+          var pair = calmActiveRefText();
+          shareCalmVerse(pair.text, pair.ref, shareBtn);
         });
       }
       var desktopShare = document.getElementById('desktop-share-btn');
       if (desktopShare) {
         desktopShare.addEventListener('click', function () {
-          var t = document.getElementById('desktop-verse-text');
-          var r = document.getElementById('desktop-verse-ref');
-          shareCalmVerse((t && t.textContent) || '', (r && r.textContent) || '', desktopShare);
+          var pair = calmActiveRefText();
+          shareCalmVerse(pair.text, pair.ref, desktopShare);
         });
       }
       var FEEL_TO_CALM = { anxious: 'anxiety', sad: 'grief', peace: 'peace', tired: 'strength', hopeful: 'peace', difficult: 'worry', angry: 'strength', lonely: 'grief' };

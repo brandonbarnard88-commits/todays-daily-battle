@@ -9735,9 +9735,9 @@ function wirePrayThisWithMe() {
   if (verseBtn) {
     verseBtn.addEventListener('click', function () {
       var card = document.getElementById('daily-verse-card');
-      var ref = card && card.querySelector('strong');
-      var p = card && card.querySelector('p');
-      var verseText = (ref && p) ? (ref.textContent + ' ' + p.textContent).trim() : (card ? card.textContent.trim() : '');
+      var r = tdbGetDailyVerseRefFromCard(card);
+      var t = tdbGetDailyVerseTextFromCard(card);
+      var verseText = (r && t) ? (r + ' ' + t).trim() : (card ? String(card.textContent || '').replace(/\s+/g, ' ').trim() : '');
       copyVerseAndLink(verseText, 'Copied. Ready to share.');
     });
   }
@@ -9753,9 +9753,9 @@ function wirePrayThisWithMe() {
   if (versePageCopy) {
     versePageCopy.addEventListener('click', function () {
       var card = document.getElementById('daily-verse-card');
-      var ref = card && card.querySelector('strong');
-      var p = card && card.querySelector('p');
-      var verseText = (ref && p) ? (ref.textContent + ' ' + p.textContent).trim() : (card ? card.textContent.trim() : '');
+      var r = tdbGetDailyVerseRefFromCard(card);
+      var t = tdbGetDailyVerseTextFromCard(card);
+      var verseText = (r && t) ? (r + ' ' + t).trim() : (card ? String(card.textContent || '').replace(/\s+/g, ' ').trim() : '');
       if (!verseText) return;
       var url = window.location.href;
       var full = verseText + ' ' + url;
@@ -9773,12 +9773,7 @@ function wirePrayThisWithMe() {
   if (versePageSave) {
     function versePageGetCardRefAndText() {
       var card = document.getElementById('daily-verse-card');
-      var refEl = card && card.querySelector('strong');
-      var p = card && (card.querySelector('strong + p') || card.querySelector('p'));
-      var r = refEl ? String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
-      var body = '';
-      if (p) body = String(p.textContent || '').replace(/\s+/g, ' ').trim();
-      return { ref: r, text: body };
+      return { ref: tdbGetDailyVerseRefFromCard(card), text: tdbGetDailyVerseTextFromCard(card) };
     }
     function updateVersePageSaveMyVersesState() {
       var btn = document.getElementById('verse-page-save-my-verses');
@@ -9875,11 +9870,10 @@ function wireVersePageListen() {
   }
   function getRefTextHighlight() {
     var card = document.getElementById('daily-verse-card');
-    var refEl = card && card.querySelector('strong');
-    var p = card && (card.querySelector('strong + p') || card.querySelector('p'));
-    var r = refEl ? String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
-    var body = p ? String(p.textContent || '').replace(/\s+/g, ' ').trim() : '';
-    return { ref: r, text: body, highlightEl: p || card };
+    var r = tdbGetDailyVerseRefFromCard(card);
+    var body = tdbGetDailyVerseTextFromCard(card);
+    var highlightEl = (typeof tdbGetDailyVerseBodyElementFromCard === 'function' && tdbGetDailyVerseBodyElementFromCard(card)) || null;
+    return { ref: r, text: body, highlightEl: highlightEl || card };
   }
   btn.addEventListener('click', function () {
     var N = window.TDBVerseNarration;
@@ -9921,8 +9915,7 @@ function wireVersePageListen() {
 /** Homepage hero: save today’s verse to My Verses (same storage path as verse.html / Bible tool). */
 function wireHeroSaveToMyVerses() {
   var heroBtn = document.getElementById('hero-save-my-verses');
-  var menuSave = document.getElementById('heroMenuSave');
-  if (!heroBtn && !menuSave) return;
+  if (!heroBtn) return;
 
   function heroGetRefAndPlainText() {
     var refEl = document.getElementById('heroRef');
@@ -9954,63 +9947,41 @@ function wireHeroSaveToMyVerses() {
         heroBtn.setAttribute('aria-label', 'Save today\'s verse to My Verses on this device');
       }
     }
-    if (menuSave) {
-      if (!v.ref || !v.text) {
-        menuSave.textContent = '\uD83D\uDCBE Save';
-        menuSave.disabled = true;
-        menuSave.setAttribute('aria-label', 'Verse still loading');
-      } else if (exists) {
-        menuSave.textContent = 'Saved \u2713';
-        menuSave.disabled = true;
-        menuSave.setAttribute('aria-label', 'This verse is already in My Verses');
-      } else {
-        menuSave.textContent = '\uD83D\uDCBE My Verses';
-        menuSave.disabled = false;
-        menuSave.setAttribute('aria-label', 'Save today\'s verse to My Verses');
-      }
-    }
   }
 
   function runSave() {
     var v = heroGetRefAndPlainText();
     if (!v.ref || !v.text) return;
     var statusEl = document.getElementById('hero-save-my-verses-status');
-    var targets = [heroBtn, menuSave].filter(Boolean);
+    var targets = [heroBtn];
     targets.forEach(function (b) { b.disabled = true; });
     saveDailyVerseToMyVerses(v.ref, v.text).then(function (res) {
       if (res.ok && res.already) {
-        if (statusEl) statusEl.textContent = 'Already in My Verses.';
+        if (statusEl) statusEl.textContent = 'Already in My Verses — still on this device.';
         updateHeroSaveButtons();
         if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
       } else if (res.ok) {
-        if (statusEl) statusEl.textContent = 'Saved privately on this device.';
+        if (statusEl) statusEl.textContent = 'Verse saved to My Verses — stays on this device.';
         if (typeof trackEvent === 'function') trackEvent('hero_save_my_verses', {});
         updateHeroSaveButtons();
+        if (typeof window.tdbRefreshHomeResume === 'function') window.tdbRefreshHomeResume();
         if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
       } else {
         if (statusEl) statusEl.textContent = 'Could not save quietly—try again when you can.';
         targets.forEach(function (b) { b.disabled = false; });
         if (heroBtn) heroBtn.textContent = 'Try again';
-        if (menuSave) menuSave.textContent = 'Try again';
         setTimeout(function () { updateHeroSaveButtons(); }, 2200);
       }
     });
   }
 
   if (heroBtn) heroBtn.addEventListener('click', function (e) { e.stopPropagation(); runSave(); });
-  if (menuSave) {
-    menuSave.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var menu = document.getElementById('heroMiniMenu');
-      if (menu) {
-        menu.setAttribute('aria-hidden', 'true');
-        menu.classList.remove('hero-menu--open');
-      }
-      runSave();
-    });
-  }
   if (typeof window !== 'undefined' && window.addEventListener) {
     window.addEventListener('tdb-hero-verse-updated', updateHeroSaveButtons);
+    window.addEventListener('tdb-hero-verse-updated', function () {
+      var s = document.getElementById('hero-save-my-verses-status');
+      if (s) s.textContent = '';
+    });
   }
   updateHeroSaveButtons();
 }
@@ -11699,9 +11670,95 @@ function buildAutoQuickPrayText() {
   return 'Lord, I bring this day to You. Strengthen me and guide my steps. (' + ref + ')';
 }
 
+/**
+ * #daily-verse-card: stable ref + blockquote body (#daily-verse-ref, #daily-verse-text).
+ * Listen/copy/share/save and bible-hub use these APIs so context accordions never win “first p” races.
+ * If ids/classes are missing (cached HTML, forks), fall back to legacy strong/blockquote/p heuristics.
+ */
+function tdbGetDailyVerseRefFromCard(card) {
+  if (!card || !card.querySelector) return '';
+  var el = card.querySelector('#daily-verse-ref') || card.querySelector('.daily-verse-ref') || card.querySelector('strong');
+  return el ? String(el.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+}
+function tdbGetDailyVerseTextFromCard(card) {
+  if (!card || !card.querySelector) return '';
+  var el = card.querySelector('#daily-verse-text');
+  if (el) return String(el.textContent || '').replace(/\s+/g, ' ').trim();
+  el = card.querySelector('blockquote.daily-verse-body .daily-verse-text') || card.querySelector('blockquote .daily-verse-text');
+  if (el) return String(el.textContent || '').replace(/\s+/g, ' ').trim();
+  var bq = card.querySelector('blockquote.daily-verse-body') || card.querySelector('blockquote');
+  if (bq) {
+    var bp = bq.querySelector('p');
+    if (bp) return String(bp.textContent || '').replace(/\s+/g, ' ').trim();
+  }
+  var s = card.querySelector('#daily-verse-ref') || card.querySelector('strong');
+  var sp = s ? card.querySelector('strong + p') : null;
+  if (sp) return String(sp.textContent || '').replace(/\s+/g, ' ').trim();
+  var ps = card.querySelectorAll('p');
+  for (var i = 0; i < ps.length; i++) {
+    if (ps[i].closest && ps[i].closest('.verse-context-accordion')) continue;
+    var t = String(ps[i].textContent || '').replace(/\s+/g, ' ').trim();
+    if (t) return t;
+  }
+  return '';
+}
+/** DOM node that holds KJV body text (for TTS highlight). Matches tdbGetDailyVerseTextFromCard resolution order. */
+/** calm.html: visible verse panel (mobile vs desktop) — ref + body match daily-verse card conventions. */
+function tdbCalmIsMobileLayout() {
+  return typeof window !== 'undefined' && window.innerWidth < 768;
+}
+function tdbGetCalmVerseRootEl() {
+  var vc = document.getElementById('verse-container');
+  var dv = document.getElementById('desktop-verse');
+  var primary = tdbCalmIsMobileLayout() ? vc : dv;
+  var secondary = tdbCalmIsMobileLayout() ? dv : vc;
+  function visible(el) {
+    return el && el.style && el.style.display !== 'none';
+  }
+  if (visible(primary)) return primary;
+  if (visible(secondary)) return secondary;
+  return primary || secondary;
+}
+function tdbGetCalmVerseRefAndTextFromPage() {
+  var root = tdbGetCalmVerseRootEl();
+  if (!root || !root.querySelector) return { ref: '', text: '', highlightEl: null };
+  var refP = root.querySelector('.daily-verse-ref') || root.querySelector('#verse-ref') || root.querySelector('#desktop-verse-ref');
+  var textP = root.querySelector('.daily-verse-text') || root.querySelector('#verse-text') || root.querySelector('#desktop-verse-text');
+  var ref = refP ? String(refP.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+  var text = textP ? String(textP.textContent || '').replace(/\s+/g, ' ').trim() : '';
+  return { ref: ref, text: text, highlightEl: textP || null };
+}
+
+function tdbGetDailyVerseBodyElementFromCard(card) {
+  if (!card || !card.querySelector) return null;
+  var byId = card.querySelector('#daily-verse-text');
+  if (byId) return byId;
+  var byClass = card.querySelector('blockquote.daily-verse-body .daily-verse-text') || card.querySelector('blockquote .daily-verse-text');
+  if (byClass) return byClass;
+  var bq = card.querySelector('blockquote.daily-verse-body') || card.querySelector('blockquote');
+  if (bq) {
+    var fp = bq.querySelector('p');
+    if (fp) return fp;
+  }
+  var sp = card.querySelector('strong + p');
+  if (sp) return sp;
+  return null;
+}
+
 function renderDailyVerse() {
+  /*
+   * Stable verse card shell: #daily-verse-ref (citation line) + blockquote.daily-verse-body > #daily-verse-text (KJV only).
+   * Context HTML is appended after the blockquote so accordions never sit “before” the verse body in DOM order.
+   * Keep this aligned with verse.html / bible/index.html static shells and tdbGetDailyVerse* helpers.
+   */
   const card = document.getElementById('daily-verse-card');
   var fb = typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' ? DAILY_VERSE_BUNDLED_FALLBACK : { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' };
+  function cardShell(refStr, verseStr, noteHtml) {
+    var shell = '<p class="daily-verse-ref" id="daily-verse-ref">' + escapeHtml(refStr) + '</p>' +
+      '<blockquote class="daily-verse-body" aria-labelledby="daily-verse-ref">' +
+      '<p class="daily-verse-text" id="daily-verse-text">' + escapeHtml(verseStr || '') + '</p></blockquote>';
+    return noteHtml ? (shell + noteHtml) : shell;
+  }
   try {
     if (!card) {
       var fallbackRef = getDailyVerseRef();
@@ -11711,19 +11768,19 @@ function renderDailyVerse() {
     }
     card.classList.remove('verse-card-loading');
     if (!Object.keys(bible).length) {
-      card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway. We\'ll sync when back online.</p>';
+      card.innerHTML = cardShell(fb.ref, fb.text || '', '<p class="section-note">Offline? Here\'s today\'s verse anyway. We\'ll sync when back online.</p>');
       card.classList.add('verse-card-loaded');
       updateDailyVerseWhispers(fb.ref, fb.text || '');
       return;
     }
     const ref = getDailyVerseRef();
     if (!ref || !bible[ref]) {
-      card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway.</p>';
+      card.innerHTML = cardShell(fb.ref, fb.text || '', '<p class="section-note">Offline? Here\'s today\'s verse anyway.</p>');
       card.classList.add('verse-card-loaded');
       updateDailyVerseWhispers(fb.ref, fb.text || '');
       return;
     }
-    card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(bible[ref] || '') + '</p>';
+    card.innerHTML = cardShell(ref, bible[ref] || '', '');
     var contextHtml = buildVerseContextHtml(ref);
     if (contextHtml) card.insertAdjacentHTML('beforeend', contextHtml);
     card.classList.remove('verse-card-loading');
@@ -11744,6 +11801,10 @@ if (typeof window !== 'undefined') {
   window.getDailyKey = getDailyKey;
   window.getDailyBattleFromSupabaseForKey = getDailyBattleFromSupabaseForKey;
   window.getDailyBattleFallbackForKey = getDailyBattleFallbackForKey;
+  window.tdbGetDailyVerseRefFromCard = tdbGetDailyVerseRefFromCard;
+  window.tdbGetDailyVerseTextFromCard = tdbGetDailyVerseTextFromCard;
+  window.tdbGetDailyVerseBodyElementFromCard = tdbGetDailyVerseBodyElementFromCard;
+  window.tdbGetCalmVerseRefAndTextFromPage = tdbGetCalmVerseRefAndTextFromPage;
   Object.defineProperty(window, 'bible', { get: function () { return bible; }, configurable: true });
 }
 
@@ -11766,6 +11827,13 @@ function shareDailyBattle() {
 function buildDailyBattleShareText() {
   var ref = (currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : (getDailyVerseRef() || '');
   var verse = (currentDailyBattle && currentDailyBattle.verse) ? (currentDailyBattle.verse || '').replace(/<[^>]+>/g, ' ').trim() : '';
+  var domCard = typeof document !== 'undefined' ? document.getElementById('daily-verse-card') : null;
+  if (domCard) {
+    var dr = tdbGetDailyVerseRefFromCard(domCard);
+    var dt = tdbGetDailyVerseTextFromCard(domCard);
+    if (dr) ref = dr;
+    if (dt) verse = dt;
+  }
   if (!ref) return '';
   var short = verse ? (verse.length > 120 ? verse.slice(0, 117) + '…' : verse) : ref;
   return 'Found this KJV verse helpful today: ' + short + ' via @todaysdailybattle ⚔️';
@@ -11777,10 +11845,8 @@ function buildDailyBattleEncourageShareText() {
   var verse = (currentDailyBattle && currentDailyBattle.verse) ? String(currentDailyBattle.verse || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() : '';
   if (!ref || !verse) {
     var card = document.getElementById('daily-verse-card');
-    var refEl = card && card.querySelector('strong');
-    var p = card && (card.querySelector('strong + p') || card.querySelector('p'));
-    if (refEl) ref = String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
-    if (p) verse = String(p.textContent || '').replace(/\s+/g, ' ').trim();
+    ref = tdbGetDailyVerseRefFromCard(card) || ref;
+    verse = tdbGetDailyVerseTextFromCard(card) || verse;
   }
   var origin = (window.location && window.location.origin) ? window.location.origin : 'https://todaysdailybattle.com';
   var verseUrl = origin.replace(/\/$/, '') + '/verse.html';
@@ -17033,6 +17099,15 @@ async function saveDailyVerseToMyVerses(refRaw, textRaw) {
     if (typeof renderSavedVerses === 'function' && document.getElementById('saved-verses')) {
       renderSavedVerses();
     }
+    try {
+      if (typeof window.dispatchEvent === 'function') {
+        window.dispatchEvent(new CustomEvent('tdb-my-verses-updated'));
+      }
+    } catch (eMv) { /* non-fatal */ }
+    if (typeof window.tdbRefreshHomeResume === 'function') window.tdbRefreshHomeResume();
+    if (typeof showEliteToast === 'function') {
+      showEliteToast('Saved to My Verses — stays on your device.', { duration: 2000 });
+    }
     return { ok: true, already: false };
   } catch (e) {
     return { ok: false, reason: 'error' };
@@ -21721,6 +21796,13 @@ async function tdbInitImpl() {
     shareVerseListenBtn.addEventListener('click', function () {
       var readAloud = document.getElementById('readAloudBtn');
       if (readAloud && !readAloud.classList.contains('is-unavailable')) readAloud.click();
+    });
+  }
+  var heroShareBtn = document.getElementById('heroShareBtn');
+  if (heroShareBtn) {
+    heroShareBtn.addEventListener('click', function () {
+      if (typeof shareDailyBattle === 'function') shareDailyBattle();
+      if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
     });
   }
   wireWeeklyRecapNudge();

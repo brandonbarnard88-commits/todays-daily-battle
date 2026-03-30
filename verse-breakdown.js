@@ -676,6 +676,11 @@
 
   function extractRefAndText(container) {
     if (!container) return { ref: '', text: '' };
+    if (container.id === 'daily-verse-card' && typeof window.tdbGetDailyVerseRefFromCard === 'function' && typeof window.tdbGetDailyVerseTextFromCard === 'function') {
+      var tRef = window.tdbGetDailyVerseRefFromCard(container);
+      var tText = window.tdbGetDailyVerseTextFromCard(container);
+      if (tRef || tText) return { ref: cleanVerseText(tRef), text: cleanVerseText(tText) };
+    }
     var ref = String(
       container.getAttribute('data-ref') ||
       container.getAttribute('data-verse-ref') ||
@@ -684,6 +689,10 @@
     if (!ref) {
       var refNode = container.querySelector('.verse-ref, .smart-ref, .kids-verse-ref, .concordance-verse-ref, .verse-maps-verse-ref');
       if (refNode) ref = extractRefFromText(refNode.textContent || '');
+    }
+    if (!ref) {
+      var dr = container.querySelector('#daily-verse-ref');
+      if (dr) ref = extractRefFromText(dr.textContent || '');
     }
     if (!ref) {
       var strong = container.querySelector('strong');
@@ -699,6 +708,10 @@
     if (!text) {
       var textNode = container.querySelector('.verse-text, .smart-verse, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text');
       if (textNode) text = cleanVerseText(textNode.textContent || '');
+    }
+    if (!text) {
+      var dt = container.querySelector('#daily-verse-text');
+      if (dt) text = cleanVerseText(dt.textContent || '');
     }
     if (!text) {
       var p = container.querySelector('p');

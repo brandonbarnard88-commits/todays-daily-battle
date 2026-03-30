@@ -15718,6 +15718,23 @@ body.kids-battle-page .tdb-site-humility {
   line-height: 1.65;
 }
 
+/* Verse of the Day card: ref + blockquote body (context accordion follows; ids power copy/listen/save). */
+#daily-verse-card .daily-verse-ref {
+  margin: 0 0 0.65rem;
+  font-size: inherit;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+#daily-verse-card .daily-verse-body {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  border-left: 3px solid color-mix(in srgb, var(--gold, #c9a84c) 42%, transparent);
+}
+#daily-verse-card .daily-verse-body .daily-verse-text {
+  margin: 0;
+}
+
 .tdb-verse-page #verse-of-day .section-divider {
   font-size: 1.1rem;
   font-weight: 600;

@@ -92,7 +92,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260330pass3a11y">
+  <link rel="modulepreload" href="script.js?v=20260331homeclean">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -153,6 +153,19 @@
     }
     :root[data-theme="light"] .nav-link--active {
       color: var(--text);
+    }
+    :root[data-theme="light"] .tdb-home-resume {
+      border-color: color-mix(in srgb, #5c4818 35%, var(--line));
+      background: color-mix(in srgb, #fffdf7 92%, #f2e6c8);
+    }
+    :root[data-theme="light"] .tdb-gentle-next-steps {
+      color: #4d525c;
+      border-left-color: color-mix(in srgb, #9e7625 45%, transparent);
+    }
+    :root[data-theme="light"] .tdb-new-here-hint,
+    :root[data-theme="light"] .hero-my-verses-privacy-note,
+    :root[data-theme="light"] .hero-save-my-verses-status-line {
+      color: #5a6068;
     }
     :root[data-theme="light"] .sos-btn {
       background: #c49a3c;
@@ -1387,7 +1400,7 @@
       #hero-verse-wrap    { grid-column: 1 !important; grid-row: 1 / 4 !important; }
       #plan-progress-card { grid-column: 2 !important; grid-row: 1 !important; }
       #plans-teaser       { grid-column: 2 !important; grid-row: 2 !important; }
-      .landing-privacy-teaser{ grid-column: 1 / -1 !important; grid-row: 4 !important; }
+      .verse-growth-row      { grid-column: 1 / -1 !important; grid-row: 4 !important; }
       #quick-search-hero {
         grid-column: 1 / -1 !important;
         grid-row: 5 !important;
@@ -1395,11 +1408,8 @@
         flex-direction: column;
         gap: 0.75rem;
       }
-      .site-feedback-hint,
-      .site-plan-nudge        { grid-column: 1 / -1 !important; }
-      .site-feedback-hint    { grid-row: 6 !important; }
-      .site-plan-nudge       { grid-row: 7 !important; }
-      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 8 !important; }
+      .site-plan-nudge       { grid-column: 1 / -1 !important; grid-row: 6 !important; }
+      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 7 !important; }
       .verse-img-card,
       .calm-cta-wrap,
       .calm-crisis-card,
@@ -1922,12 +1932,52 @@
       50%      { opacity: 0.35; }
     }
 
-    /* ── Read-aloud button ── */
+    /* ── Read-aloud + compact verse toolbar ── */
     .verse-ref-row {
       display: flex;
       align-items: flex-start;
       gap: 10px;
       min-width: 0;
+    }
+    .hero-verse-toolbar {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.35rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .hero-toolbar-btn {
+      min-height: 44px;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--line) 72%, var(--gold) 28%);
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+      color: var(--gold-soft);
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hero-toolbar-btn:hover,
+    .hero-toolbar-btn:focus-visible {
+      border-color: var(--gold);
+      color: var(--text);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 35%, transparent);
+      outline: none;
+    }
+    .header-battle-plans--solo {
+      flex: 1 1 auto;
+      width: 100%;
+      text-align: center;
+    }
+    .header-battle-plans--solo .header-battle-plans-link {
+      align-items: center;
+      text-align: center;
+      max-width: 28rem;
+      margin: 0 auto;
     }
     .hero-verse-wrap-inner { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.5rem; }
     .verse-ref-row #heroVerse, .hero-verse-wrap-inner #heroVerse { flex: 1; margin: 0; min-width: 0; overflow-wrap: break-word; word-break: break-word; }
@@ -1947,7 +1997,7 @@
 
     .read-aloud-btn {
       flex-shrink: 0;
-      margin-top: 4px;
+      margin-top: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2179,6 +2229,13 @@
       margin-top: 1.25rem;
     }
 
+    .tdb-feel-plan-cta {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .tdb-feel-plan-cta.hidden { display: none !important; }
+    .tdb-feel-plan-cta .btn { min-height: 44px; }
+
     @keyframes feel-card-in {
       from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -2279,8 +2336,83 @@
     }
     @media (max-width: 899px) {
       .tdb-hero-search-priority-hint { display: block; }
-      #quick-search-hero { order: -10; }
+      /* Calm first-visit flow: crisis tap, today’s verse, saved progress (if any), mood search, then the rest */
+      .calm-cta-wrap { order: -32; }
+      #main-content { order: -28; }
+      #quick-search-hero { order: -24; }
+      main.tdb-home-has-progress #plan-progress-card { order: -22; }
     }
+
+    .tdb-home-resume {
+      margin: 0.65rem 0 0;
+      padding: 0.55rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      background: color-mix(in srgb, var(--gold) 5%, var(--card));
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--text);
+    }
+    .tdb-home-resume[hidden] { display: none !important; }
+    .tdb-home-resume p { margin: 0; }
+    .tdb-home-resume-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem 0.75rem;
+      margin-top: 0.4rem;
+    }
+    .tdb-home-resume-links a {
+      color: var(--gold-soft);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .tdb-gentle-next-steps {
+      margin: 0.75rem 0 0;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--muted);
+      border-left: 2px solid color-mix(in srgb, var(--gold) 35%, transparent);
+    }
+    .tdb-gentle-next-steps a {
+      color: var(--gold-soft);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .tdb-new-here-hint {
+      margin: 0.4rem 0 0.35rem;
+      padding: 0 0.1rem;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .tdb-new-here-hint a {
+      color: var(--gold-soft);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .hero-my-verses-privacy-note {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .hero-save-my-verses-status-line {
+      margin: 0.4rem 0 0;
+      min-height: 0;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .hero-save-my-verses-status-line:empty { margin: 0; min-height: 0; }
 
     .tdb-more-tools-lead {
       font-size: 0.88rem;
@@ -4334,6 +4466,11 @@
     }
     .referral-share-blurb a { color: var(--accent); }
     .plans-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .plans-grid--categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.5rem;
+    }
     .plan-chip {
       background: color-mix(in srgb, var(--gold) 10%, transparent);
       border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
@@ -4343,6 +4480,58 @@
     }
     .plan-chip:hover { background: color-mix(in srgb, var(--gold) 22%, transparent); }
     .plan-chip-days { color: var(--gold); font-size: 0.72rem; }
+    a.plan-category-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--line) 80%, var(--gold) 20%);
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+      line-height: 1.35;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    a.plan-category-chip:hover,
+    a.plan-category-chip:focus-visible {
+      border-color: var(--gold);
+      background: color-mix(in srgb, var(--gold) 12%, var(--card));
+      outline: none;
+    }
+    .verse-growth-row {
+      margin: 0.35rem 0 0;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--line) 85%, var(--gold) 15%);
+      background: color-mix(in srgb, var(--card) 88%, transparent);
+    }
+    .verse-growth-lead {
+      margin: 0 0 0.5rem;
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .verse-growth-lead a {
+      color: var(--gold-soft);
+      text-decoration: underline;
+      text-underline-offset: 0.12em;
+    }
+    .verse-growth-lead a:hover,
+    .verse-growth-lead a:focus-visible {
+      color: var(--gold);
+    }
+    .verse-growth-row .verse-feedback-btns {
+      justify-content: flex-start;
+    }
+    .prayer-wall-privacy-note {
+      margin: 0 0 0.5rem;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
 
     /* ── Kids Story Modal ── */
     .story-modal {
@@ -4575,20 +4764,8 @@
     }
     @media (min-width: 600px) {
       .header-sub-toolbar {
-        justify-content: space-between;
-        align-items: stretch;
-      }
-      .header-sub-toolbar .share-verse-row {
-        align-items: flex-start;
-        text-align: left;
-      }
-      .header-battle-plans {
-        text-align: right;
-        align-self: center;
-      }
-      .header-battle-plans-link {
-        align-items: flex-end;
-        text-align: right;
+        justify-content: center;
+        align-items: center;
       }
     }
     .verse-feedback-row {
@@ -5003,7 +5180,7 @@
     <div class="tdb-moat-banner" role="region" aria-labelledby="tdb-moat-lead">
       <div class="tdb-moat-banner-inner">
         <div class="moat-banner" role="note">
-          No ads. No selling your data. Prayers stay on your device. Anonymous page stats only—not for ads or cross-site profiling.
+          Your prayers, verses, and progress stay on this device by default. No ads. No tracking. Nothing is sold. Anonymous page stats only—not for profiling.
         </div>
         <div class="tdb-moat-banner-top">
           <p id="tdb-moat-lead" class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</p>
@@ -5022,20 +5199,12 @@
           <li>When pain won&rsquo;t hush, try <a class="tdb-moat-banner-link" href="plans.html?plan=painwontquit" aria-label="Open When Pain Won't Quit, a 7-day KJV reading plan">When Pain Won&rsquo;t Quit</a>.</li>
           <li>When your soul won&rsquo;t settle, try <a class="tdb-moat-banner-link" href="plans.html?plan=peace" aria-label="Open 7-Day Peace, a 7-day KJV reading plan">7-Day Peace</a>.</li>
         </ul>
-        <p id="tdb-moat-plans-note" class="tdb-moat-banner-footnote">Each link opens a seven-day KJV plan; progress stays on your device.</p>
+        <p id="tdb-moat-plans-note" class="tdb-moat-banner-footnote">Each link opens a seven-day KJV plan unless the plan name says otherwise.</p>
       </div>
     </div>
 
-    <div class="header-sub-toolbar" role="region" aria-label="Share today’s verse and reading plans">
-      <div class="share-verse-row">
-        <div class="share-verse-actions">
-          <button type="button" class="share-verse-btn share-verse-listen" id="shareVerseListenBtn" aria-label="Listen — verse and today’s breakdown read aloud">Listen</button>
-          <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share this encouragement with a friend">Share</button>
-        </div>
-        <p class="share-verse-whisper">If this helped, tell a friend.</p>
-        <p class="trust-badge" aria-label="King James Bible tools; works offline. How we handle data is in the Privacy policy.">King James Bible · Calm tools · Works offline</p>
-      </div>
-      <div class="header-battle-plans">
+    <div class="header-sub-toolbar" role="region" aria-label="Reading plans quick link">
+      <div class="header-battle-plans header-battle-plans--solo">
         <a href="plans.html" class="header-battle-plans-link" aria-label="Battle Plans — browse 7 to 40 day KJV reading plans" title="7–40 day plans, saved on your device. Daily bread for today’s daily battle — one verse, one day at a time.">
           <span class="header-battle-plans-title">📋 Battle Plans</span>
           <span class="header-battle-plans-sub">7–40 day plans, saved on your device →</span>
@@ -5126,7 +5295,8 @@
         </span>
       </nav>
       </div>
-      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Mar 2026)</span> &mdash; <a href="explore.html#start-here">First time?</a> A calm five-minute tour on Explore&mdash;no rush. Deeper study: <a href="about.html#whats-new-study">what changed</a> · <a href="bible/tools.html">study workshop</a>.</p>
+      <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
+      <p class="tdb-new-here-hint" id="tdbNewHereHint"><span class="tdb-new-here-muted">New here?</span> <a href="explore.html#start-here">A calm order for your first few minutes</a> &mdash; glance when you like. No rush.</p>
       <div id="hero-verse-wrap" class="hero-verse-wrap">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
@@ -5141,38 +5311,43 @@
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
             </div>
           </div>
-          <button
-            class="read-aloud-btn read-aloud-with-label"
-            id="readAloudBtn"
-            type="button"
-            aria-describedby="hero-listen-hint"
-            aria-label="Listen — verse and today’s breakdown read aloud"
-            aria-pressed="false"
-          >
-            <svg class="ra-icon-speaker" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              <path class="ra-wave-outer" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-            </svg>
-            <svg class="ra-icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="6" y="4" width="4" height="16" rx="1"></rect>
-              <rect x="14" y="4" width="4" height="16" rx="1"></rect>
-            </svg>
-            <span class="read-aloud-label">Listen</span>
-          </button>
+          <div class="hero-verse-toolbar" role="toolbar" aria-label="Today’s verse: listen, share, image">
+            <button
+              class="read-aloud-btn read-aloud-with-label"
+              id="readAloudBtn"
+              type="button"
+              aria-describedby="hero-listen-hint"
+              aria-label="Listen — verse and today’s breakdown read aloud"
+              aria-pressed="false"
+            >
+              <svg class="ra-icon-speaker" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path class="ra-wave-outer" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+              <svg class="ra-icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+                <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+              </svg>
+              <span class="read-aloud-label">Listen</span>
+            </button>
+            <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse (copy or device share)">Share</button>
+            <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
+          </div>
         </div>
-        <p id="hero-listen-hint" class="hero-listen-hint">KJV loads on this device—tap Listen for a quiet hear-through.</p>
+        <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown.</p>
         <p class="verse-ref" id="heroRef">Philippians 4:6-7 (KJV)</p>
         <p class="hero-word-study-wrap">
-          <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses stay on your device.</span>
+          <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
           <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Philippians 4:6-7" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
-        <p class="tdb-why-stay-line" id="tdb-why-stay-line">A quiet place to meet God in the battle — everything stays on your device.</p>
+        <p class="tdb-why-stay-line" id="tdb-why-stay-line">A quiet place to meet God in the battle.</p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Verses">
-          <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint" aria-label="Save today’s verse to My Verses on this device">Save to My Verses</button>
+          <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Verses on this device">Save to My Verses</button>
           <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/my-verses.html">Open My Verses</a>.</p>
+          <p class="hero-my-verses-privacy-note" id="hero-my-verses-privacy-line">Saves stay here on this device unless you sign in.</p>
         </div>
-        <span id="hero-save-my-verses-status" class="sr-only" aria-live="polite"></span>
+        <p id="hero-save-my-verses-status" class="hero-save-my-verses-status-line" role="status" aria-live="polite"></p>
         <p class="hero-daily-bread-line" role="text">Daily bread for today&rsquo;s daily battle.</p>
         <div class="en-hub-daily-companion" id="en-hub-daily-verse" lang="en" aria-labelledby="en-hub-daily-heading">
           <h2 class="en-hub-daily-companion-title" id="en-hub-daily-heading">Verse of the day — same rhythm as every hub</h2>
@@ -5207,35 +5382,25 @@
         <p class="application" id="heroApplication"></p>
         <p class="verse-note" id="verseNote" hidden></p>
         <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
-        <!-- ── Hero Click Mini-Menu ── -->
-        <div class="hero-mini-menu" id="heroMiniMenu" aria-hidden="true" role="menu">
-          <button type="button" class="hero-menu-btn" id="heroMenuSave" role="menuitem" aria-label="Save today’s verse to My Verses">💾 My Verses</button>
-          <button type="button" class="hero-menu-btn" id="heroMenuShare" role="menuitem" aria-label="Share verse to clipboard">📄 Share</button>
-          <button type="button" class="hero-menu-btn" id="heroMenuListen" role="menuitem" aria-label="Listen — verse and today’s breakdown read aloud">🔊 Listen</button>
-          <button type="button" class="hero-menu-btn" id="heroMenuImage" role="menuitem" aria-label="Create shareable verse image">🖼 Image</button>
-        </div>
       </section>
       </div><!-- /#hero-verse-wrap -->
+      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Spring 2026)</span> &mdash; Clearer <a href="explore.html#start-here">Start here</a> flow on Explore, family and mission tools alongside the daily battle, new Battle Plan paths for hard weeks. <a href="explore.html#whats-new-spring-2026">Spring notes</a> · <a href="explore.html#first-visit-tour">Optional five-minute tour</a> · <a href="about.html#whats-new-study">Study tools</a>.</p>
       <!-- ── Daily Verse Image Card (shareable preview under today’s verse) ── -->
-      <div class="verse-img-card" id="verseImgCard" role="region" aria-label="Today’s verse as a shareable image">
+      <div class="verse-img-card" id="verseImgCard" role="region" aria-label="Today’s verse as a shareable image preview">
         <div class="verse-img-inner">
           <p class="verse-img-text" id="verseImgText"></p>
           <hr class="verse-img-rule">
           <p class="verse-img-ref" id="verseImgRef"></p>
         </div>
-        <button class="verse-img-share" type="button" id="verseImgShare" aria-label="Share this verse image">Share ↗</button>
       </div>
-      </div><!-- /#main-content -->
-
-      <!-- ── How's this helping? (feedback for future priorities) ── -->
-      <div class="verse-feedback-row" id="verseFeedbackRow" role="group" aria-label="Verse feedback" hidden>
-        <span class="verse-feedback-label">How's this helping?</span>
-        <div class="verse-feedback-btns">
+      <div class="verse-growth-row" id="verseFeedbackRow" role="region" aria-label="Tell a friend, gentle feedback" hidden>
+        <p class="verse-growth-lead" id="verseGrowthLead">If something landed today, <strong>Share</strong> above is enough for a friend. The buttons below are optional&mdash;they only reach our small team. You can also <a href="contact.html">tell us how it&rsquo;s helping</a> anytime.</p>
+        <div class="verse-feedback-btns" role="group" aria-label="Was today helpful?">
           <button type="button" class="verse-feedback-btn verse-feedback-up" id="verseFeedbackUp" aria-label="This helped">👍</button>
           <button type="button" class="verse-feedback-btn verse-feedback-down" id="verseFeedbackDown" aria-label="Not today">👎</button>
         </div>
       </div>
-      <div class="landing-privacy-teaser">No ads. No selling your data. Prayers stay on your device. Anonymous page stats only—<a href="privacy.html">Privacy policy</a>.</div>
+      </div><!-- /#main-content -->
 
       <nav class="hero-daily-path tdb-start-here-nav" aria-label="Start here — core tools">
         <span class="hero-daily-path-label">Start here</span>
@@ -5251,20 +5416,6 @@
           <a href="site-guide.html">How to use</a>
         </span>
       </nav>
-      <nav class="tdb-lang-switcher tdb-lang-switcher--hero tdb-lang-switcher--hero-secondary" aria-labelledby="tdb-start-lang-label" data-tdb-lang-switcher lang="en">
-        <span class="hero-daily-path-label" id="tdb-start-lang-label">Language</span>
-        <span class="tdb-lang-switcher-inner">
-          <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
-        </span>
-      </nav>
 
       <div class="easter-banner hidden" id="tdbHomeEasterBanner" role="region" aria-labelledby="tdbHomeEasterBannerH" hidden>
         <div class="easter-banner-text">
@@ -5278,7 +5429,7 @@
 
       <!-- ── Feel Search (nav anchor: #quick-search-hero) — below Why not AI teaser, above Battle Plans ── -->
       <div id="quick-search-hero">
-      <p class="tdb-hero-search-priority-hint">On a small screen, search and topics stay up front — scroll down for today&rsquo;s verse, plans, and more tools.</p>
+      <p class="tdb-hero-search-priority-hint">On a phone, you&rsquo;ll see today&rsquo;s verse first, then this mood search&mdash;Battle Plans and the prayer wall sit a little lower, when you&rsquo;re ready.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
       <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>
         <p class="first-visit-text">In your own words, say how it feels (anxious, tired, grateful&hellip;)&mdash;or tap a topic. Nothing you type leaves this device.</p>
@@ -5353,13 +5504,17 @@
         <div id="feel-results" aria-live="polite"></div>
         <p class="warm-intro" id="feelWelcome" aria-live="polite"></p>
         <div class="feel-cards" id="feelCards" aria-live="polite"></div>
+        <div id="tdbFeelPlanCta" class="tdb-feel-plan-cta hidden" role="region" aria-label="Related Battle Plan" hidden>
+          <a href="plans.html?plan=peace" class="btn btn-secondary" id="tdbFeelPlanCtaLink">Start related Battle Plan</a>
+        </div>
         <a class="feel-view-more" href="bible-tool.html" aria-label="Search more verses in the Bible Tool">More verses →</a>
         <p class="feel-no-match" id="feelNoMatch">Try "peace" or "rest" — or tap a topic above.</p>
       </section>
       </div><!-- /#quick-search-hero -->
 
-      <p class="site-feedback-hint">How is this helping you today? <a href="contact.html">Send a note</a>—we read every message.</p>
-      <p class="site-plan-nudge">Want a longer rhythm? <a href="plans.html">Battle Plans</a> — 7–40 days, progress saved on your device. KJV only — saves and prayers stay on this device unless you choose to share.</p>
+      <p class="tdb-gentle-next-steps" id="tdbGentleNextSteps">After you search, save what fits&mdash;<a href="my-verses.html">My Verses</a> holds one list. For a steadier week, <a href="plans.html">Battle Plans</a> are one verse a day. The <a href="#prayer-wall">Prayer Wall</a> is there if naming a burden in a line would help. Nothing here is required; you are not behind.</p>
+
+      <p class="site-plan-nudge">Want a longer rhythm? <a href="plans.html">Battle Plans</a> &mdash; seven to forty days, KJV, one gentle day at a time.</p>
       <p class="site-family-mission-nudge section-note">Home rhythms: <a href="/family.html">Family hub</a> (verse, plans, printables) · <a href="/mission-outreach-packs.html">Mission &amp; outreach packs</a> for bedside, grief, jail, and workers abroad.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
@@ -5397,26 +5552,19 @@
           <span class="plans-teaser-title">📋 Battle Plans</span>
           <a href="plans.html" class="plans-teaser-explore" aria-label="All Plans">All Plans →</a>
         </div>
-        <p class="plans-teaser-thesis section-note" role="text">Steady rhythm—seven to forty days, progress saved on your device.</p>
-        <a href="plans.html" class="plans-teaser-banner" aria-label="Battle Plans — one tap to start, saved on your device">
-          <span class="plans-teaser-badge" aria-hidden="true">New</span>
-          <span>One tap to start &mdash; your progress stays on this device.</span>
+        <p class="plans-teaser-thesis section-note" role="text">Browse by lane&mdash;the library below each card names every plan.</p>
+        <a href="plans.html#all-plans" class="plans-teaser-banner" aria-label="Open full Battle Plans library">
+          <span class="plans-teaser-badge" aria-hidden="true">All</span>
+          <span>Open the full library &mdash; every plan, same gentle rhythm.</span>
           <span class="plans-teaser-arrow" aria-hidden="true">→</span>
         </a>
-        <div class="plans-grid" id="plansGrid">
-          <button type="button" class="plan-chip" data-plan="battle" aria-label="Battle Distraction"><span aria-hidden="true">⚔️</span> Battle Distraction<span class="plan-chip-days" id="planChip-battle"></span></button>
-          <button type="button" class="plan-chip" data-plan="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙏</span> Gratitude<span class="plan-chip-days" id="planChip-gratitude"></span></button>
-          <button type="button" class="plan-chip" data-plan="strength" aria-label="30-Day Strength"><span aria-hidden="true">💪</span> 30-Day Strength<span class="plan-chip-days" id="planChip-strength"></span></button>
-          <button type="button" class="plan-chip" data-plan="marriage" aria-label="Marriage"><span aria-hidden="true">💍</span> Marriage<span class="plan-chip-days" id="planChip-marriage"></span></button>
-          <button type="button" class="plan-chip" data-plan="peace" aria-label="7-Day Peace"><span aria-hidden="true">🕊️</span> 7-Day Peace<span class="plan-chip-days" id="planChip-peace"></span></button>
-          <button type="button" class="plan-chip" data-plan="fearfaith" aria-label="Fear to Faith"><span aria-hidden="true">🛡️</span> Fear to Faith<span class="plan-chip-days" id="planChip-fearfaith"></span></button>
-          <button type="button" class="plan-chip" data-plan="worrytrust" aria-label="Worry to Trust"><span aria-hidden="true">☁️</span> Worry to Trust<span class="plan-chip-days" id="planChip-worrytrust"></span></button>
-          <button type="button" class="plan-chip" data-plan="angerpeace" aria-label="Anger to Peace"><span aria-hidden="true">🔥</span> Anger → Peace<span class="plan-chip-days" id="planChip-angerpeace"></span></button>
-          <button type="button" class="plan-chip" data-plan="doubtassurance" aria-label="Doubt to Assurance"><span aria-hidden="true">❓</span> Doubt → Assurance<span class="plan-chip-days" id="planChip-doubtassurance"></span></button>
-          <button type="button" class="plan-chip" data-plan="griefhope" aria-label="Grief to Hope"><span aria-hidden="true">💔→🌅</span> Grief → Hope<span class="plan-chip-days" id="planChip-griefhope"></span></button>
-          <button type="button" class="plan-chip" data-plan="painwontquit" aria-label="When Pain Won't Quit"><span aria-hidden="true">🕯️</span> When Pain Won&rsquo;t Quit<span class="plan-chip-days" id="planChip-painwontquit"></span></button>
-          <button type="button" class="plan-chip" data-plan="cancercomfort" aria-label="Cancer Comfort — 7-day KJV plan"><span aria-hidden="true">🕊️</span> Cancer Comfort<span class="plan-chip-days" id="planChip-cancercomfort"></span></button>
-          <button type="button" class="plan-chip" data-plan="easter" aria-label="Resurrection Hope"><span aria-hidden="true">✨</span> Resurrection Hope<span class="plan-chip-days" id="planChip-easter"></span></button>
+        <div class="plans-grid plans-grid--categories" id="plansGrid">
+          <a class="plan-category-chip" href="plans.html#plans-lane-fear">Fear, worry &amp; anxiety <span aria-hidden="true">→</span></a>
+          <a class="plan-category-chip" href="plans.html#plans-lane-grief">Grief, pain &amp; healing <span aria-hidden="true">→</span></a>
+          <a class="plan-category-chip" href="plans.html#plans-lane-family">Family &amp; home <span aria-hidden="true">→</span></a>
+          <a class="plan-category-chip plan-category-chip--peace" href="plans.html?plan=peace">Stillness &amp; peace <span aria-hidden="true">→</span></a>
+          <a class="plan-category-chip" href="plans.html#plans-lane-habits">Daily strength &amp; habits <span aria-hidden="true">→</span></a>
+          <a class="plan-category-chip" href="plans.html#all-plans">Full plan list <span aria-hidden="true">→</span></a>
         </div>
         <div class="plans-mini-bars" id="plansMiniBarsList" aria-hidden="true"></div>
       </section>
@@ -5509,6 +5657,7 @@
           <span class="prayer-wall-badge">Say it here quietly&mdash;no account, no name, just you and Him.</span>
           <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
         </div>
+        <p class="prayer-wall-privacy-note landing-privacy-teaser section-note">What you post here stays humble and anonymous unless you sign in and choose otherwise. <a href="privacy.html">Privacy policy</a>.</p>
         <p class="prayer-wall-community-line section-note">Join others in quiet prayer—your silent amen counts. <a href="message.html#message-board" hreflang="en" aria-label="Open the full prayer wall (English page)">Full prayer board</a></p>
         <!-- Grace message: shown once when a streak breaks, dismissed on next post or click -->
         <p id="prayerWallGraceMsg" class="prayer-wall-grace-msg" hidden aria-live="polite">
@@ -5633,7 +5782,7 @@
         </div>
         <p id="quick-pray-feedback" class="section-note" aria-live="polite" hidden></p>
         <div class="referral-nudge" id="referralNudge" role="status" aria-live="polite">
-          <p class="referral-nudge-text">Helped today? Tell a friend who needs hope.</p>
+          <p class="referral-nudge-text section-note">Copy a link or post on X&mdash;only if it feels right.</p>
           <div class="referral-nudge-actions">
             <button type="button" id="referral-copy-link" class="btn btn-secondary referral-copy-btn" aria-label="Copy my link">Copy my link</button>
             <a href="https://twitter.com/intent/tweet?text=Found%20this%20KJV%20verse%20helpful%20today%20%E2%80%94%20todaysdailybattle.com%20%40todaysdailybattle%20%E2%9A%94%EF%B8%8F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary referral-x-btn" aria-label="Share on X">Share on X</a>
@@ -6721,7 +6870,68 @@
       const welcome  = document.getElementById("feelWelcome");
       const cards    = document.getElementById("feelCards");
       const noMatch  = document.getElementById("feelNoMatch");
+      const planCta = document.getElementById("tdbFeelPlanCta");
+      const planCtaLink = document.getElementById("tdbFeelPlanCtaLink");
       if (!input) return;
+
+      const TDB_TOPIC_TO_PLAN = {
+        peace: "peace", fear: "fearnot14", strength: "strength", anxiety: "worrytrust",
+        joy: "gratitude", hope: "hopeuncertain", love: "firststeps", worry: "worrytrust",
+        forgiveness: "forgiveness", patience: "trust", courage: "fearfaith", rest: "peace",
+        grace: "identityinchrist", wisdom: "proverbswisdom", grief: "griefhope", cancer: "cancercomfort",
+        anger: "angerpeace", loneliness: "loneliness", guilt: "doubtassurance", gratitude: "gratitude",
+        faith: "doubtassurance", trauma: "psalmscomfort", addiction: "addictionhope", marriage: "marriage",
+        family: "familyworship", parenting: "parenting", finances: "moneyworry", sleep: "peace",
+        obedience: "walktheword", identity: "identityinchrist", purpose: "greatcommission",
+        heartache: "griefhope"
+      };
+      const FEEL_MOOD_TO_PLAN = {
+        anxious: "worrytrust",
+        tired: "peace",
+        angry: "angerpeace",
+        lonely: "loneliness",
+        hopeful: "hopeuncertain",
+        sad: "griefhope",
+        peace: "peace",
+        difficult: "lettinggo"
+      };
+
+      function resolveFeelMoodKey(raw) {
+        const q = String(raw || "").trim().toLowerCase();
+        if (!q) return null;
+        for (const row of FEEL_MAP) {
+          for (const key of row.keys) {
+            if (q.includes(key)) return row.group;
+          }
+        }
+        const semantic = typeof window.resolveSemanticWithScore === "function" ? window.resolveSemanticWithScore(q) : null;
+        if (semantic && semantic.feelGroup) return semantic.feelGroup;
+        return null;
+      }
+
+      function hideFeelPlanCta() {
+        if (!planCta) return;
+        planCta.classList.add("hidden");
+        planCta.setAttribute("hidden", "");
+      }
+
+      function updateFeelPlanCta(topicOrQuery) {
+        if (!planCta || !planCtaLink) return;
+        const t = String(topicOrQuery || "").trim().toLowerCase();
+        let planId = TDB_TOPIC_TO_PLAN[t];
+        if (!planId) {
+          const mood = resolveFeelMoodKey(topicOrQuery);
+          if (mood && FEEL_MOOD_TO_PLAN[mood]) planId = FEEL_MOOD_TO_PLAN[mood];
+        }
+        if (!planId) {
+          hideFeelPlanCta();
+          return;
+        }
+        planCtaLink.href = "plans.html?plan=" + encodeURIComponent(planId);
+        planCtaLink.textContent = "Start related Battle Plan";
+        planCta.classList.remove("hidden");
+        planCta.removeAttribute("hidden");
+      }
 
       let debounceTimer = null;
       let activeIdx = -1;
@@ -6862,6 +7072,7 @@
       }
 
       function showNoMatch() {
+        hideFeelPlanCta();
         cards.replaceChildren();
         cards.classList.remove("has-results");
         if (welcome) { welcome.classList.remove("show"); welcome.textContent = ""; }
@@ -6869,6 +7080,7 @@
       }
 
       function clearResult() {
+        hideFeelPlanCta();
         cards.replaceChildren();
         cards.classList.remove("has-results");
         if (welcome) { welcome.classList.remove("show"); welcome.textContent = ""; }
@@ -6938,6 +7150,7 @@
           if (group) { showGroup(group, val); }
           else if (!sugs.length) { showNoMatch(); }
           else { clearResult(); }
+          if (val.trim()) updateFeelPlanCta(val);
         }, 300);
       });
 
@@ -6959,6 +7172,7 @@
           if (typeof window.tdbScrollSearchSurfaceIntoView === "function") window.tdbScrollSearchSurfaceIntoView();
           window.runSearchWithInput(val);
         } else if (!group) showNoMatch();
+        updateFeelPlanCta(val);
       }
 
       var searchBtn = document.getElementById("feel-search-btn");
@@ -6990,22 +7204,37 @@
         else if (e.key === "ArrowUp") { e.preventDefault(); navigateSuggest(-1); }
         else if (e.key === "Escape") closeSuggest();
       });
+
+      window.addEventListener('tdb-quick-feel-topic', function (ev) {
+        var topic = ev && ev.detail && ev.detail.topic;
+        if (!topic || !input) return;
+        if (typeof window.tryStillEaster === 'function' && window.tryStillEaster(input)) return;
+        if (typeof window.tryAmenEaster === 'function' && window.tryAmenEaster(input)) return;
+        input.value = topic;
+        const group = resolveFeelGroup(topic);
+        if (group) showGroup(group, topic);
+        if (typeof window.runSearchWithInput === 'function') {
+          var tdbT = document.getElementById('tdb-search');
+          if (tdbT) tdbT.value = topic;
+          if (typeof window.tdbScrollSearchSurfaceIntoView === 'function') window.tdbScrollSearchSurfaceIntoView();
+          window.runSearchWithInput(topic);
+        } else if (!group) showNoMatch();
+        updateFeelPlanCta(topic);
+        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        try { input.focus(); } catch (err) {}
+      });
     }());
 
     // ── Quick-topic button click → trigger feel search ──
     (function wireQuickTopics() {
       const grid = document.getElementById('quickTopics');
-      const input = document.getElementById('feel-search');
-      if (!grid || !input) return;
+      if (!grid) return;
       grid.addEventListener('click', function (e) {
         const btn = e.target.closest('.quick-topic[data-topic]');
         if (!btn) return;
         const topic = btn.dataset.topic || btn.getAttribute('data-topic');
         if (!topic) return;
-        input.value = topic;
-        input.dispatchEvent(new Event('input', { bubbles: true }));
-        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        input.focus();
+        window.dispatchEvent(new CustomEvent('tdb-quick-feel-topic', { detail: { topic: topic } }));
       });
     }());
 
@@ -7130,11 +7359,11 @@
       localStorage.setItem("tdb-pwa-nudge-dismissed", "1");
     });
 
-    // ── Verse image card share button (creates shareable image) ──
+    // ── Verse image card: optional legacy share control (toolbar uses wireHeroImageBtn) ──
     (function wireVerseImgShare() {
       const btn = document.getElementById('verseImgShare');
       if (!btn) return;
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', function () {
         const textEl = document.getElementById('verseImgText');
         const refEl  = document.getElementById('verseImgRef');
         const text = (textEl && textEl.textContent || '').replace(/^["\u201c]|["\u201d]$/g, '').trim();
@@ -7556,25 +7785,79 @@
       walktheword: { label: '\uD83D\uDCD6 Walk the Word', key: 'tdb-plan-walktheword-day', max: 7 },
       standfirm: { label: '\u2696\uFE0F Stand Firm', key: 'tdb-plan-standfirm-day', max: 7 },
       greatcommission: { label: '\uD83C\uDF0D Great Commission', key: 'tdb-plan-greatcommission-day', max: 7 },
-      stewardship: { label: '\uD83D\uDCB0 Stewardship', key: 'tdb-plan-stewardship-day', max: 7 }
+      stewardship: { label: '\uD83D\uDCB0 Stewardship', key: 'tdb-plan-stewardship-day', max: 7 },
+      moneyworry: { label: '\uD83D\uDCCB When Money Won\u2019t Quiet', key: 'tdb-plan-moneyworry-day', max: 7 },
+      addictionhope: { label: '\uD83D\uDD6F\uFE0F Mercy for Habits', key: 'tdb-plan-addictionhope-day', max: 7 },
+      caregiverrest: { label: '\uD83E\uDEF6 Caregiver Rest', key: 'tdb-plan-caregiverrest-day', max: 7 },
+      teenfaith: { label: '\u2733\uFE0F Teen Faith', key: 'tdb-plan-teenfaith-day', max: 7 },
+      longillness: { label: '\uD83C\uDF3F Long Illness', key: 'tdb-plan-longillness-day', max: 7 },
+      trust: { label: '\u2728 Trust', key: 'tdb-plan-trust-day', max: 7 },
+      anger: { label: '\uD83D\uDD25 Anger release', key: 'tdb-plan-anger-day', max: 7 },
+      grief: { label: '\uD83D\uDC94 Healing grief', key: 'tdb-plan-grief-day', max: 7 },
+      forgiveness: { label: '\u2728 Forgiveness', key: 'tdb-plan-forgiveness-day', max: 7 },
+      parenting: { label: '\uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC67 Parenting', key: 'tdb-plan-parenting-day', max: 7 },
+      loneliness: { label: '\uD83E\uDD17 Loneliness', key: 'tdb-plan-loneliness-day', max: 7 },
+      psalmscomfort: { label: '\uD83D\uDCDC Psalms Comfort', key: 'tdb-plan-psalmscomfort-day', max: 7 },
+      proverbswisdom: { label: '\uD83D\uDCD6 Proverbs Wisdom', key: 'tdb-plan-proverbswisdom-day', max: 7 },
+      hopeuncertain: { label: '\u2728 Hope Uncertain', key: 'tdb-plan-hopeuncertain-day', max: 7 },
+      gospeljohn: { label: '\u2728 Gospel of John', key: 'tdb-plan-gospeljohn-day', max: 7 },
+      sufferendure: { label: '\u2694\uFE0F Suffering & Endurance', key: 'tdb-plan-sufferendure-day', max: 7 },
+      psalmspraise: { label: '\uD83C\uDFBC Psalms Praise', key: 'tdb-plan-psalmspraise-day', max: 7 },
+      galatiansfreedom: { label: '\u2728 Galatians Freedom', key: 'tdb-plan-galatiansfreedom-day', max: 7 },
+      familyworship: { label: '\uD83C\uDFE0 Family Worship', key: 'tdb-plan-familyworship-day', max: 7 },
+      psalmscomfortfamily: { label: '\uD83D\uDCDC Psalms Comfort (Family)', key: 'tdb-plan-psalmscomfortfamily-day', max: 7 }
     };
 
-    // ── Battle Plan Progress (shows plan with highest progress; streak flame when \u2265 2) ──
-    function updatePlanStreak() {
+    function tdbParsePlanDayRaw(raw) {
+      var day = 0;
+      try {
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          day = (parsed && typeof parsed === 'object' && typeof parsed.day === 'number') ? parsed.day : parseInt(raw, 10);
+        }
+      } catch (_) { day = parseInt(raw || '0', 10); }
+      return isNaN(day) ? 0 : day;
+    }
+
+    function tdbPickActivePlanForHome() {
+      var recent = [];
+      try {
+        recent = JSON.parse(localStorage.getItem('tdb_recent_plans_v1') || '[]');
+      } catch (_) { recent = []; }
+      if (!Array.isArray(recent)) recent = [];
+      var i;
+      for (i = 0; i < recent.length; i++) {
+        var rid = recent[i];
+        var cfgR = PLAN_CONFIGS[rid];
+        if (!cfgR) continue;
+        var dR = tdbParsePlanDayRaw(localStorage.getItem(cfgR.key));
+        dR = Math.min(Math.max(dR, 0), cfgR.max);
+        if (dR > 0) return { planId: rid, day: dR, max: cfgR.max, label: cfgR.label };
+      }
       var best = { planId: null, day: 0, max: 7, label: '' };
       Object.keys(PLAN_CONFIGS).forEach(function (planId) {
         var cfg = PLAN_CONFIGS[planId];
-        var raw = localStorage.getItem(cfg.key);
-        var day = 0;
-        try {
-          if (raw) {
-            var parsed = JSON.parse(raw);
-            day = (parsed && typeof parsed === 'object' && typeof parsed.day === 'number') ? parsed.day : parseInt(raw, 10);
-          }
-        } catch (_) { day = parseInt(raw || '0', 10); }
-        day = Math.min(Math.max(day, 0), cfg.max);
-        if (day > best.day) { best = { planId: planId, day: day, max: cfg.max, label: cfg.label }; }
+        var d = tdbParsePlanDayRaw(localStorage.getItem(cfg.key));
+        d = Math.min(Math.max(d, 0), cfg.max);
+        if (d > best.day) best = { planId: planId, day: d, max: cfg.max, label: cfg.label };
       });
+      return best;
+    }
+
+    function tdbCountSavedVersesHome() {
+      try {
+        var items = JSON.parse(localStorage.getItem('savedCollectionItems') || '[]');
+        if (Array.isArray(items) && items.length) return items.length;
+      } catch (_) {}
+      try {
+        var list = JSON.parse(localStorage.getItem('tdb_saved_verse_breakdowns') || '[]');
+        return Array.isArray(list) ? list.length : 0;
+      } catch (_) { return 0; }
+    }
+
+    // ── Battle Plan Progress (recent plan first, else highest day; streak flame when \u2265 2) ──
+    function updatePlanStreak() {
+      var best = tdbPickActivePlanForHome();
       if (best.day === 0) best = { planId: null, day: 0, max: 7, label: 'Battle Plan', labelFull: 'Pick a plan \u2014 start today' };
       var bar = document.getElementById('planProgressBar');
       var label = document.getElementById('planProgressLabel');
@@ -7584,12 +7867,70 @@
       if (bar) bar.style.setProperty('--plan-max', String(best.max));
       var streakFlame = best.day >= 2 ? '\uD83D\uDD25 ' : '';
       if (label) label.textContent = best.day > 0 ? streakFlame + 'Day ' + best.day + ' of ' + best.max + ' \u2014 keep going' : (best.labelFull || 'Pick a plan \u2014 start today');
-      if (title) title.textContent = '\uD83D\uDCC5 ' + best.label;
+      if (title) title.textContent = '\uD83D\uDCC5 ' + (best.label || 'Battle Plan');
       if (link) link.href = best.planId ? 'plans.html?plan=' + encodeURIComponent(best.planId) : 'plans.html';
       if (best.day >= best.max) setTimeout(burstConfetti, 600);
       if (best.day >= 2) setTimeout(maybeShowNotifPrompt, 2000);
       updatePlanChips();
+      tdbRenderHomeResumeStrip(best);
     }
+
+    function tdbRenderHomeResumeStrip(best) {
+      var wrap = document.getElementById('tdbHomeResume');
+      var mainEl = document.querySelector('main');
+      var nVerses = tdbCountSavedVersesHome();
+      var streakN = 0;
+      try {
+        var st = JSON.parse(localStorage.getItem('tdb-streak') || '{}');
+        streakN = parseInt(st.count || '0', 10) || 0;
+      } catch (_) { streakN = 0; }
+      var hasProgress = (best && best.day > 0) || nVerses > 0 || streakN >= 2;
+      if (mainEl) mainEl.classList.toggle('tdb-home-has-progress', !!hasProgress);
+      if (!wrap) return;
+      wrap.replaceChildren();
+      if (!hasProgress) {
+        wrap.hidden = true;
+        return;
+      }
+      wrap.hidden = false;
+      var p = document.createElement('p');
+      var parts = [];
+      if (best && best.day > 0 && best.planId) {
+        if (best.day >= best.max) {
+          parts.push(best.label + ' is marked complete on this device\u2014another plan is welcome anytime.');
+        } else {
+          parts.push('Your Battle Plan: day ' + best.day + ' of ' + best.max + '.');
+        }
+      }
+      if (streakN >= 2) parts.push('Daily visit streak: ' + streakN + ' days.');
+      if (nVerses > 0) parts.push(nVerses + ' saved verse' + (nVerses === 1 ? '' : 's') + ' on this device.');
+      p.textContent = parts.join(' ');
+      wrap.appendChild(p);
+      var row = document.createElement('div');
+      row.className = 'tdb-home-resume-links';
+      if (best && best.planId && best.day > 0) {
+        var aPlan = document.createElement('a');
+        aPlan.href = 'plans.html?plan=' + encodeURIComponent(best.planId);
+        aPlan.textContent = best.day >= best.max ? 'Browse plans' : 'Continue plan';
+        row.appendChild(aPlan);
+      }
+      if (nVerses > 0) {
+        var aV = document.createElement('a');
+        aV.href = 'my-verses.html';
+        aV.textContent = 'Open My Verses';
+        row.appendChild(aV);
+      }
+      if (row.childNodes.length) wrap.appendChild(row);
+    }
+
+    window.tdbRefreshHomeResume = function () {
+      try {
+        updatePlanStreak();
+      } catch (e) {}
+    };
+    window.addEventListener('tdb-my-verses-updated', function () {
+      if (typeof window.tdbRefreshHomeResume === 'function') window.tdbRefreshHomeResume();
+    });
 
     // ── Encouragement Nudge (once per session) ──
     let _nudgeShown = false;
@@ -7614,50 +7955,8 @@
       setTimeout(function () { pop.hidden = true; }, 350);
     }
 
-    // ── Hero Card Click Menu ──
-    function wireHeroClickMenu() {
-      const card = document.getElementById('verseCard');
-      const menu = document.getElementById('heroMiniMenu');
-      if (!card || !menu) return;
-      card.addEventListener('click', function (e) {
-        if (e.target.closest('#heroMiniMenu') || e.target.closest('.read-aloud-btn') || e.target.closest('#hero-save-my-verses') || e.target.closest('.hero-my-verses-row')) return;
-        const open = menu.getAttribute('aria-hidden') !== 'true';
-        menu.setAttribute('aria-hidden', open ? 'true' : 'false');
-        menu.classList.toggle('hero-menu--open', !open);
-      });
-      document.addEventListener('click', function (e) {
-        if (!card.contains(e.target)) {
-          menu.setAttribute('aria-hidden', 'true');
-          menu.classList.remove('hero-menu--open');
-        }
-      });
-      document.getElementById('heroMenuShare')?.addEventListener('click', function (e) {
-        e.stopPropagation();
-        const ref  = (document.getElementById('heroRef')?.textContent  || '').replace(' (KJV)', '');
-        const text = document.getElementById('heroVerse')?.textContent || '';
-        const clean = (text || '').replace(/<[^>]+>/g, '').trim();
-        const short = clean.length > 120 ? clean.slice(0, 117) + '\u2026' : clean;
-        const shareText = 'Found this KJV verse helpful today: ' + short + ' via @todaysdailybattle \u2694\uFE0F';
-        navigator.clipboard?.writeText(shareText).then(function () {
-          const btn = document.getElementById('heroMenuShare');
-          if (btn) { btn.textContent = 'Copied \u2713'; setTimeout(function () { btn.textContent = '\uD83D\uDCC4 Share'; }, 1500); }
-        }).catch(function () {});
-        menu.setAttribute('aria-hidden', 'true');
-        menu.classList.remove('hero-menu--open');
-        showEncouragementNudge();
-      });
-      document.getElementById('heroMenuListen')?.addEventListener('click', function (e) {
-        e.stopPropagation();
-        const readAloudBtn = document.getElementById('readAloudBtn');
-        if (readAloudBtn && !readAloudBtn.classList.contains('is-unavailable')) { readAloudBtn.click(); }
-        else if ('speechSynthesis' in window) {
-          const text = document.getElementById('heroVerse')?.textContent || '';
-          if (text) { const u = new SpeechSynthesisUtterance(text); u.rate = 0.88; window.speechSynthesis.speak(u); }
-        }
-        menu.setAttribute('aria-hidden', 'true');
-        menu.classList.remove('hero-menu--open');
-      });
-    }
+    // ── Hero card: verse actions are in .hero-verse-toolbar (no tap-to-open menu) ──
+    function wireHeroClickMenu() {}
 
     // ── Plans Library chip tracker ──
     function updatePlanChips() {
@@ -7918,15 +8217,28 @@
       }
     }
 
-    // ── Wire hero image button ──
+    // ── Wire hero Image toolbar button (PNG share / fallback copy) ──
     function wireHeroImageBtn() {
-      document.getElementById('heroMenuImage')?.addEventListener('click', function (e) {
+      var btn = document.getElementById('heroImageBtn');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
         e.stopPropagation();
-        var ref  = (document.getElementById('heroRef')?.textContent  || '').replace(' (KJV)', '');
-        var text = document.getElementById('heroVerse')?.textContent || '';
-        if (ref && text) generateShareImage(text, ref);
-        document.getElementById('heroMiniMenu')?.setAttribute('aria-hidden', 'true');
-        document.getElementById('heroMiniMenu')?.classList.remove('hero-menu--open');
+        var ref = (document.getElementById('heroRef')?.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+        var text = (document.getElementById('heroVerse')?.textContent || '').replace(/^[\s"\u201c]+|[\s"\u201d]+$/g, '').replace(/\s+/g, ' ').trim();
+        if (ref && text && typeof generateShareImage === 'function') {
+          generateShareImage(text, ref);
+        } else {
+          var shareText = (ref || '') + '\n' + (text || '') + '\n\u2014 todaysdailybattle.com';
+          if (navigator.share) {
+            navigator.share({ text: shareText }).catch(function () {});
+          } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(shareText).then(function () {
+              var prev = btn.textContent;
+              btn.textContent = 'Copied \u2713';
+              setTimeout(function () { btn.textContent = prev || 'Image'; }, 1800);
+            }).catch(function () {});
+          }
+        }
       });
     }
 
@@ -9673,7 +9985,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260330pass3a11y" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260331homeclean" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>
   <!-- Sync: following inline calls TDB_EASTER_SEASON on parse; defer would run too late. -->

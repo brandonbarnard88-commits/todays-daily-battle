@@ -140,10 +140,8 @@
     var btn = document.getElementById('verse-page-word-study');
     if (!btn) return;
     var card = document.getElementById('daily-verse-card');
-    var refEl = card && card.querySelector('strong');
-    var p = card && (card.querySelector('strong + p') || card.querySelector('p'));
-    var ref = refEl ? String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
-    var text = p ? String(p.textContent || '').replace(/\s+/g, ' ').trim() : '';
+    var ref = typeof window.tdbGetDailyVerseRefFromCard === 'function' ? window.tdbGetDailyVerseRefFromCard(card) : '';
+    var text = typeof window.tdbGetDailyVerseTextFromCard === 'function' ? window.tdbGetDailyVerseTextFromCard(card) : '';
     if (!ref) {
       btn.hidden = true;
       btn.setAttribute('aria-hidden', 'true');

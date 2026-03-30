@@ -312,8 +312,11 @@
     var tease = document.getElementById('bible-hub-ref-tease');
     var plainEl = document.getElementById('bible-hub-plain-meaning');
     if (!card || !tease) return;
-    var ref = card.querySelector('strong');
-    var refText = ref ? ref.textContent.trim() : '';
+    var refText = typeof window.tdbGetDailyVerseRefFromCard === 'function' ? window.tdbGetDailyVerseRefFromCard(card) : '';
+    if (!refText) {
+      var ref = card.querySelector('#daily-verse-ref') || card.querySelector('strong');
+      refText = ref ? ref.textContent.trim() : '';
+    }
     if (refText) tease.textContent = refText;
     if (plainEl) {
       var plain = PLAIN_MEANINGS[refText] || (typeof getPlainMeaning === 'function' ? getPlainMeaning(refText) : '');
@@ -340,7 +343,12 @@
 
   function getCurrentVerseRef() {
     var card = document.getElementById('daily-verse-card');
-    var ref = card && card.querySelector('strong');
+    if (!card) return '';
+    if (typeof window.tdbGetDailyVerseRefFromCard === 'function') {
+      var r = window.tdbGetDailyVerseRefFromCard(card);
+      if (r) return r;
+    }
+    var ref = card.querySelector('#daily-verse-ref') || card.querySelector('strong');
     return ref ? ref.textContent.trim() : '';
   }
 
@@ -434,10 +442,14 @@
     if (!btn) return;
     btn.addEventListener('click', function () {
       var card = document.getElementById('daily-verse-card');
-      var ref = card && card.querySelector('strong');
-      var p = card && card.querySelector('p');
-      var refText = ref ? ref.textContent : '';
-      var verseText = p ? p.textContent : '';
+      var refText = typeof window.tdbGetDailyVerseRefFromCard === 'function' ? window.tdbGetDailyVerseRefFromCard(card) : '';
+      var verseText = typeof window.tdbGetDailyVerseTextFromCard === 'function' ? window.tdbGetDailyVerseTextFromCard(card) : '';
+      if (!refText || !verseText) {
+        var ref = card && (card.querySelector('#daily-verse-ref') || card.querySelector('strong'));
+        var p = card && (card.querySelector('#daily-verse-text') || card.querySelector('blockquote p') || card.querySelector('p'));
+        if (!refText) refText = ref ? ref.textContent : '';
+        if (!verseText) verseText = p ? p.textContent : '';
+      }
       var shareText = refText && verseText
         ? refText + ': ' + verseText + ' — Less scroll. More soul. #TodaysDailyBattle'
         : 'Today\'s Daily Battle — Less scroll. More soul.';
@@ -529,10 +541,15 @@
     if (!btn) return;
     btn.addEventListener('click', function () {
       var card = document.getElementById('daily-verse-card');
-      var ref = card && card.querySelector('strong');
-      var p = card && card.querySelector('p');
-      var refText = ref ? ref.textContent.trim() : '';
-      var text = (refText ? refText + '. ' : '') + (p ? p.textContent : '');
+      var refText = typeof window.tdbGetDailyVerseRefFromCard === 'function' ? window.tdbGetDailyVerseRefFromCard(card) : '';
+      var verseOnly = typeof window.tdbGetDailyVerseTextFromCard === 'function' ? window.tdbGetDailyVerseTextFromCard(card) : '';
+      if (!refText || !verseOnly) {
+        var ref = card && (card.querySelector('#daily-verse-ref') || card.querySelector('strong'));
+        var p = card && (card.querySelector('#daily-verse-text') || card.querySelector('blockquote p') || card.querySelector('p'));
+        if (!refText) refText = ref ? ref.textContent.trim() : '';
+        if (!verseOnly) verseOnly = p ? p.textContent : '';
+      }
+      var text = (refText ? refText + '. ' : '') + (verseOnly || '');
       if (!text) return;
       playVerseTTS(refText, text, btn);
     });

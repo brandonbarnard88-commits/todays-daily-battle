@@ -607,6 +607,91 @@
 { title: 'God shall supply', ref: 'Philippians 4:19', text: 'But my God shall supply all your need according to his riches in glory by Christ Jesus.',
   speaker: 'Paul', plain: 'Need—not every want—is supplied from glory-riches in Christ.', today: 'What need are you carrying as if God forgot?', action: 'List one need; pray "supply according to Your riches."', prayer: 'My God, supply our need—Your riches in glory by Christ Jesus. Amen.' }
   ];
+  // When money worry will not quiet (7 days); plans id moneyworry
+  var moneyWorry7 = [
+{ title: 'Sufficient unto the day', ref: 'Matthew 6:34', text: 'Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.',
+  speaker: 'Jesus — on the mount', plain: 'Tomorrow will borrow enough trouble on its own. Today is the only day you have to trust Him in.', today: 'What bill or number are you rehearsing past midnight—can you hand just today back to Him?', action: 'Write one money fear on paper; fold it; pray once: "This day is Yours."', prayer: 'Lord, enough for today. I will not borrow tomorrow\'s fear tonight. Amen.' },
+{ title: 'Not seen the righteous forsaken', ref: 'Psalm 37:25', text: 'I have been young, and now am old; yet have I not seen the righteous forsaken, nor his seed begging bread.',
+  speaker: 'The psalmist — a long witness', plain: 'This is not a promise of ease—it is a testimony across a whole life: God does not abandon His own.', today: 'When shame whispers you are on your own, whose testimony are you believing—the spreadsheet or the psalm?', action: 'Read Psalm 37:3-7 slowly once; underline one line to carry today.', prayer: 'Father, I feel forsaken sometimes anyway. Hold me to Your care. Amen.' },
+{ title: 'Neither poverty nor riches', ref: 'Proverbs 30:8-9', text: 'Remove far from me vanity and lies: give me neither poverty nor riches; feed me with food convenient for me: Lest I be full, and deny thee, and say, Who is the LORD? or lest I be poor, and steal, and take the name of my God in vain.',
+  speaker: 'Agur — an honest prayer', plain: 'The middle path here is dependence—enough to live, not enough to forget God, not so little that desperation dishonors Him.', today: 'Are you asking God only for "more"—or for "enough" with an upright heart?', action: 'Pray Agur\'s two verses aloud once; change nothing else for five minutes after.', prayer: 'Feed me with food convenient for me—keep my heart true. Amen.' },
+{ title: 'Cast thy burden', ref: 'Psalm 55:22', text: 'Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.',
+  speaker: 'David — overwhelmed', plain: 'Casting is not polite handing—it is throwing. The budget dread qualifies.', today: 'What weight are you still white-knuckling that belongs on His shoulders?', action: 'Name the burden out loud; say "Yours" once; leave the phone in another room ten minutes.', prayer: 'I cast this burden; sustain me. Amen.' },
+{ title: 'Seek first', ref: 'Matthew 6:33', text: 'But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.',
+  speaker: 'Jesus', plain: 'Order matters—His reign first; provision follows His way, not panic\'s way.', today: 'What did you seek first this morning—peace in numbers, or righteousness and His rule?', action: 'Before you open banking apps, read one verse and one sentence of prayer.', prayer: 'Kingdom first, Father—then trust You for these things. Amen.' },
+{ title: 'Remember who gives power to get wealth', ref: 'Deuteronomy 8:18', text: 'But thou shalt remember the LORD thy God: for it is he that giveth thee power to get wealth, that he may establish his covenant which he sware unto thy fathers, as it is this day.',
+  speaker: 'Moses — warning and mercy', plain: 'Income is not proof you forgot God—unless you forget who gave the strength to work.', today: 'Can you thank Him for the ability to work—even if the job feels small?', action: 'Send one thank-you text to someone who helped you earn or learn—no money talk required.', prayer: 'You gave power to work; I remember You. Amen.' },
+{ title: 'If riches increase', ref: 'Psalm 62:10', text: 'Trust not in oppression, and become not vain in robbery: if riches increase, set not your heart upon them.',
+  speaker: 'The psalmist', plain: 'Whether the balance went up or down—the heart must not anchor there.', today: 'After seven days, where is your heart leaning—toward calm trust or toward the account total?', action: 'Give or share something small today without calculating the return.', prayer: 'If riches increase, hold my heart on You—not on them. Amen.' }
+  ];
+  // Mercy for habit loops and shame (7 days); plans id addictionhope; not clinical—spiritual anchors
+  var addictionHope7 = [
+{ title: 'If we confess', ref: '1 John 1:9', text: 'If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.',
+  speaker: 'John', plain: 'Confession is not performance for a harsh judge—it is truth with a faithful Father who cleanses.', today: 'What are you hiding that grows stronger in the dark?', action: 'Confess one thing to God aloud—no excuses preface.', prayer: 'Faithful God, forgive and cleanse me. I confess. Amen.' },
+{ title: 'No condemnation', ref: 'Romans 8:1', text: 'There is therefore now no condemnation to them which are in Christ Jesus, who walk not after the flesh, but after the Spirit.',
+  speaker: 'Paul', plain: 'Condemnation loops feed the relapse. In Christ, the verdict is already mercy—walk in step with the Spirit today.', today: 'Whose voice is louder—the accuser or the Advocate?', action: 'Write "no condemnation" on a card; read it when shame spikes.', prayer: 'Thank You—no condemnation in Christ. Help me walk after the Spirit. Amen.' },
+{ title: 'A broken spirit', ref: 'Psalm 51:17', text: 'The sacrifices of God are a broken spirit: a broken and a contrite heart, O God, thou wilt not despise.',
+  speaker: 'David — after great failure', plain: 'God does not want a polished story first—He wants honesty He can heal.', today: 'Are you avoiding Him until you feel "fixed"?', action: 'Sit five minutes with no phone—tell Him one true sentence about the struggle.', prayer: 'A broken heart before You—You will not despise it. Amen.' },
+{ title: 'Who shall deliver me', ref: 'Romans 7:24-25', text: 'O wretched man that I am! who shall deliver me from the body of this death? I thank God through Jesus Christ our Lord.',
+  speaker: 'Paul — blunt and hopeful', plain: 'The war inside is not proof you are fake—it is proof you need the Deliverer, not only willpower.', today: 'Where does "I should" collapse into "I did it again"?', action: 'Replace one self-lecture with "Thank God through Jesus Christ" once today.', prayer: 'Deliver me, Lord—I thank You through Christ. Amen.' },
+{ title: 'Stand fast in liberty', ref: 'Galatians 5:1', text: 'Stand fast therefore in the liberty wherewith Christ hath made us free, and be not entangled again with the yoke of bondage.',
+  speaker: 'Paul', plain: 'Freedom is a position in Christ—bondage often feels familiar; stand anyway.', today: 'What old yoke are you picking back up because it feels known?', action: 'Delete one easy access to the old pattern today—app, bookmark, or contact.', prayer: 'I stand in Your liberty; keep me from the yoke. Amen.' },
+{ title: 'Confess and pray one for another', ref: 'James 5:16', text: 'Confess your faults one to another, and pray one for another, that ye may be healed. The effectual fervent prayer of a righteous man availeth much.',
+  speaker: 'James', plain: 'Healing often walks through trusted human ears—not for shame, for shared prayer.', today: 'Is isolation keeping the cycle alive?', action: 'If you have a safe believer, ask for one short prayer this week—or use the site prayer wall anonymously.', prayer: 'Heal what hiding broke; teach me honest prayer with others. Amen.' },
+{ title: 'New creature', ref: '2 Corinthians 5:17', text: 'Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.',
+  speaker: 'Paul', plain: 'Your worst chapter is not the final word—Christ is making new.', today: 'After seven days, what one "old thing" can you leave named at His feet?', action: 'Thank God aloud for one small victory this week—even showing up.', prayer: 'New creature in Christ—thank You for new. Amen.' }
+  ];
+  // Caregiver exhaustion (7 days); plans id caregiverrest
+  var caregiverRest7 = [
+{ title: 'Come and rest', ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',
+  speaker: 'Jesus', plain: 'Caregiving is holy labor—and it still counts as heavy laden. He invites you, not only the one in the bed.', today: 'When did someone last ask how you are—and did you tell the truth?', action: 'Lie down or sit still ten minutes; say "I am heavy laden" once to Him.', prayer: 'Jesus, I come—I need rest, not a medal. Amen.' },
+{ title: 'Not weary in well doing', ref: 'Galatians 6:9', text: 'And let us not be weary in well doing: for in due season we shall reap, if we faint not.',
+  speaker: 'Paul', plain: 'Weariness is not failure—fainting is the risk; God promises a season of reaping.', today: 'What part of caregiving makes you want to quit today?', action: 'Do one kind thing for your own body today—water, food, shower—without guilt.', prayer: 'Steady me in well doing; I do not want to faint. Amen.' },
+{ title: 'Power to the faint', ref: 'Isaiah 40:29', text: 'He giveth power to the faint; and to them that have no might he increaseth strength.',
+  speaker: 'Isaiah', plain: 'When you have no might left, He specializes in strength for the empty.', today: 'Where is your "no might"—sleep, patience, faith?', action: 'Text one word to a friend: "Pray"—no explanation required.', prayer: 'I am faint; give power. Amen.' },
+{ title: 'Too heavy for thee alone', ref: 'Exodus 18:18', text: 'Thou wilt surely wear away, both thou, and this people that is with thee: for this thing is too heavy for thee; thou art not able to perform it thyself alone.',
+  speaker: 'Jethro to Moses', plain: 'Even the best-hearted leader hits a limit—God sends wisdom through others.', today: 'What help have you refused because it felt like admitting defeat?', action: 'Accept or ask for one concrete help this week—meal, sitter, errand.', prayer: 'Save me from wearing away; send help I can receive. Amen.' },
+{ title: 'Father of mercies', ref: '2 Corinthians 1:3-4', text: 'Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; Who comforteth us in all our tribulation, that we may be able to comfort them which are in any trouble, by the comfort wherewith we ourselves are comforted of God.',
+  speaker: 'Paul', plain: 'The comfort you need is the same stream you will someday pour for someone else—not yet perfectly, but truly.', today: 'Where do you need comfort—not advice?', action: 'Listen to one worship Psalm or hymn without multitasking.', prayer: 'God of all comfort, comfort me in this tribulation. Amen.' },
+{ title: 'He giveth beloved sleep', ref: 'Psalm 127:2', text: 'It is vain for you to rise up early, to sit up late, to eat the bread of sorrows: for so he giveth his beloved sleep.',
+  speaker: 'Solomon', plain: 'Bread of sorrows is real in caregiving—and He still gives sleep as gift, not wage.', today: 'What hour are you stealing from sleep to carry what is not yours tonight?', action: 'Set a phone bedtime alarm; obey it once this week.', prayer: 'Give Your beloved sleep; spare me vain striving. Amen.' },
+{ title: 'Come apart and rest', ref: 'Mark 6:31', text: 'And he said unto them, Come ye yourselves apart into a desert place, and rest a while: for there were many coming and going, and they had no leisure so much as to eat.',
+  speaker: 'Jesus', plain: 'Jesus noticed "no leisure"—He commands rest, not only productivity.', today: 'When did you last eat without rushing?', action: 'Eat one meal seated, screen off, five deep breaths before the first bite.', prayer: 'You saw crowds; You see me. Help me rest a while. Amen.' }
+  ];
+  // Teens and young adults — pressure, identity, courage (7 days); plans id teenfaith
+  var teenFaith7 = [
+{ title: 'Say not, I am a child', ref: 'Jeremiah 1:7', text: 'But say not, I am a child: for thou shalt go to all that I shall send thee, and whatsoever I command thee thou shalt speak.',
+  speaker: 'The LORD to Jeremiah', plain: 'Youth is not disqualification—God sends and speaks through the willing.', today: 'Where are you hiding behind "I\'m just a kid" to avoid obedience?', action: 'Speak one true kind sentence to someone at school or home today.', prayer: 'Send me; I will speak what You command. Amen.' },
+{ title: 'Despise not thy youth', ref: '1 Timothy 4:12', text: 'Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.',
+  speaker: 'Paul to Timothy', plain: 'Example is how youth answers critics—speech, love, faith, purity.', today: 'Which of those five feels weakest right now?', action: 'Pick one—improve it in a small way today (apologize, encourage, step back from a feed).', prayer: 'Make me an example—in word, love, faith, purity. Amen.' },
+{ title: 'Be not conformed', ref: 'Romans 12:2', text: 'And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.',
+  speaker: 'Paul', plain: 'Fitting the crowd is optional; renewed mind is how you know God\'s good will.', today: 'What trend are you conforming to that shrinks your soul?', action: 'Mute or unfollow one pressure source today.', prayer: 'Transform my mind; I want Your will, not the world\'s mold. Amen.' },
+{ title: 'Cleanse his way', ref: 'Psalm 119:9', text: 'Wherewithal shall a young man cleanse his way? by taking heed thereto according to thy word.',
+  speaker: 'The psalmist', plain: 'Clean path is not charisma—it is attention to Scripture.', today: 'What part of your week never meets God\'s word?', action: 'Read five verses before bed tonight—any Psalm.', prayer: 'By Your word I cleanse my way. Amen.' },
+{ title: 'Trust in the LORD', ref: 'Proverbs 3:5-6', text: 'Trust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.',
+  speaker: 'Solomon', plain: 'Your understanding is loud; His direction comes when you acknowledge Him in all your ways.', today: 'Where are you leaning on your own read of a situation?', action: 'Pray "I acknowledge You in this" over one decision before you act.', prayer: 'I trust You with all my heart; direct my paths. Amen.' },
+{ title: 'Let your light shine', ref: 'Matthew 5:16', text: 'Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.',
+  speaker: 'Jesus', plain: 'Good works are visibility with a purpose—Father glorified, not you performing.', today: 'What good work can you do quietly that still honors God?', action: 'Help one person without posting about it.', prayer: 'Let my light shine for Your glory. Amen.' },
+{ title: 'He which hath begun', ref: 'Philippians 1:6', text: 'Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ:',
+  speaker: 'Paul', plain: 'School years feel endless—God\'s work in you is already underway and He finishes what He starts.', today: 'What good work do you doubt He is doing in you?', action: 'Write one line: "God began ______ in me."', prayer: 'Perform Your good work in me until Christ\'s day. Amen.' }
+  ];
+  // Chronic illness and long weariness (7 days); plans id longillness
+  var longIllness7 = [
+{ title: 'Outward and inward', ref: '2 Corinthians 4:16', text: 'For which cause we faint not; but though our outward man perish, yet the inward man is renewed day by day.',
+  speaker: 'Paul', plain: 'The outside can weaken while the inside is renewed—both can be true.', today: 'Where do you feel the outward perishing loudest?', action: 'Thank God for one inward renewal you have seen—even patience you did not have last year.', prayer: 'Renew the inward while the outward struggles; I faint not. Amen.' },
+{ title: 'Strength of my heart', ref: 'Psalm 73:26', text: 'My flesh and my heart faileth: but God is the strength of my heart, and my portion for ever.',
+  speaker: 'Asaph', plain: 'Failure of flesh is not the last line—God remains strength and portion.', today: 'When flesh and heart fail, where do you turn first—scroll, anger, or Him?', action: 'Speak the second half of the verse aloud twice today.', prayer: 'Strength of my heart and my portion—be enough today. Amen.' },
+{ title: 'Mount up as eagles', ref: 'Isaiah 40:31', text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.',
+  speaker: 'Isaiah', plain: 'Waiting on God is active trust—not limp passivity.', today: 'What does waiting look like for you this week—complaint or trust?', action: 'Sit by a window or outside five minutes; breathe; say "I wait on You."', prayer: 'I wait on You—renew strength I cannot manufacture. Amen.' },
+{ title: 'Brokenhearted', ref: 'Psalm 34:18', text: 'The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',
+  speaker: 'David', plain: 'Long illness breaks hearts; God draws near there—not only to the cheerful.', today: 'Is your spirit contrite before Him or only angry?', action: 'Tell Him one honest sentence about the ache.', prayer: 'You are near the brokenhearted—be near me. Amen.' },
+{ title: 'New every morning', ref: 'Lamentations 3:22-23', text: 'It is of the LORD\'S mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.',
+  speaker: 'Jeremiah', plain: 'Mercy is daily ration—not one grant for the whole trial.', today: 'What mercy showed up this morning you almost missed?', action: 'Before sleep, name one mercy from today.', prayer: 'Great is Your faithfulness—new mercy tomorrow. Amen.' },
+{ title: 'Grace sufficient', ref: '2 Corinthians 12:9', text: 'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.',
+  speaker: 'The Lord to Paul', plain: 'Weakness is not the obstacle to grace—it is where strength completes its work.', today: 'What weakness are you hiding that He wants to meet with grace?', action: 'Pray "Your grace is sufficient" before one hard task.', prayer: 'Your strength in my weakness—thank You. Amen.' },
+{ title: 'Not worthy to be compared', ref: 'Romans 8:18', text: 'For I reckon that the sufferings of this present time are not worthy to be compared with the glory which shall be revealed in us.',
+  speaker: 'Paul', plain: 'This does not erase pain—it sets pain beside a glory weightier than years of ache.', today: 'Can you hold both: this hurts, and glory is coming?', action: 'Read Romans 8:18-23 once; underline one hope phrase.', prayer: 'Hold me in present sufferings and coming glory. Amen.' }
+  ];
   var cancerComfort7 = [
 { title: 'The word just hit', ref: 'Psalm 56:3', text: 'What time I am afraid, I will trust in thee.',
   speaker: 'David — afraid and still talking to God', plain: 'That moment the doctor said it\u2026 everything went quiet and loud at the same time. Your hands shook. Your mind started running every worst-case scenario. You don\'t have to pretend you\'re strong right now.', today: 'God doesn\'t shame you for being afraid. He asks you to bring the fear to Him\u2014even if it\'s ugly, even if it\'s screaming.', action: 'First: Right now, say out loud or whisper: \u201cLord, I\'m afraid.\u201d Don\'t dress it up. Just say it. Second: Write the word cancer on a piece of paper, then write But God\u2026 underneath. Leave it somewhere you\'ll see it today.', prayer: 'Jesus, the word cancer just wrecked me. I\'m scared. I don\'t know what to do with all this fear. I\'m trusting You with it anyway. Amen.' },
@@ -663,6 +748,11 @@
     walkTheWord7: walkTheWord7,
     standFirm7: standFirm7,
     greatCommission7: greatCommission7,
-    stewardship7: stewardship7
+    stewardship7: stewardship7,
+    moneyWorry7: moneyWorry7,
+    addictionHope7: addictionHope7,
+    caregiverRest7: caregiverRest7,
+    teenFaith7: teenFaith7,
+    longIllness7: longIllness7
   };
 })(typeof window !== 'undefined' ? window : globalThis);

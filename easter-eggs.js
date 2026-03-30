@@ -764,7 +764,7 @@
         hoverTimer = null;
       });
     }
-    document.querySelectorAll('.quick-topic[data-topic="peace"], .plan-chip[data-plan="peace"]').forEach(wireDoveHoverEl);
+    document.querySelectorAll('.quick-topic[data-topic="peace"], .plan-chip[data-plan="peace"], a.plan-category-chip--peace').forEach(wireDoveHoverEl);
 
     // 5h. Ctrl+Shift+P → Peace chip pulse + scroll + toast
     document.addEventListener('keydown', function (e) {

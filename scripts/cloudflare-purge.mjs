@@ -296,6 +296,7 @@ const SOCIAL_PURGE_PATHS = [
   '/styles.css?v=20260328esNav',
   '/styles.css?v=20260401fa-lux',
   '/styles.css?v=20260401fa-chapel',
+  '/styles.css?v=20260403pv',
   '/tdb-quiet-luxury.css?v=20260401lux',
   '/tdb-quiet-luxury.css?v=20260402chapel',
   '/study.html',
@@ -310,6 +311,7 @@ const SOCIAL_PURGE_PATHS = [
   '/testimonials.html',
   '/index.html',
   '/plans.html',
+  '/pricing.html',
   '/why-not-ai',
   '/why-not-ai/',
   '/why-not-ai.html',
@@ -388,6 +390,9 @@ const SOCIAL_PURGE_PATHS = [
   '/bible-tool.html',
   '/reading-plan.html',
   '/verse-image.html',
+  '/verse-image.js',
+  '/verse-image.js?v=20260402tpl12',
+  '/verse-image.js?v=20260403idb',
   '/v.html',
   '/verse-ref-slug.js',
   '/assets/share/home-og.jpg?v=' + SHARE_OG_V,
@@ -399,7 +404,10 @@ const SOCIAL_PURGE_PATHS = [
   '/assets/share/testimonials-og.jpg?v=' + SHARE_OG_V,
   '/assets/share/verse-share.jpg?v=' + SHARE_OG_V,
   '/assets/share/kids-loop-og.jpg?v=' + SHARE_OG_V,
-  '/assets/share/kids-story-library-og.jpg?v=' + SHARE_OG_V
+  '/assets/share/kids-story-library-og.jpg?v=' + SHARE_OG_V,
+  '/assets/share/pricing-verse-preview-soar.svg',
+  '/assets/share/pricing-verse-preview-night.svg',
+  '/assets/share/pricing-verse-preview-linen.svg'
 ];
 
 const CHUNK = 30;

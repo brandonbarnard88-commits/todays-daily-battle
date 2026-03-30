@@ -5740,6 +5740,46 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   border-left: 3px solid rgba(212, 175, 55, 0.5);
   border-radius: 8px;
 }
+
+/* Pricing: restrained verse-card preview strip (static SVG, no motion) */
+.pricing-page .pricing-verse-previews {
+  margin-top: 0.25rem;
+}
+.pricing-page .pricing-verse-preview-strip {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pricing-page .pricing-verse-preview-strip li {
+  margin: 0;
+  text-align: center;
+  flex: 0 1 auto;
+}
+.pricing-page .pricing-verse-preview-strip img {
+  display: block;
+  width: min(200px, 30vw);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  background: rgba(15, 23, 42, 0.35);
+}
+.pricing-page .pricing-verse-preview-caption {
+  margin: 0.4rem 0 0;
+  font-size: 0.82rem;
+  color: rgba(148, 163, 184, 0.95);
+  line-height: 1.35;
+}
+
 .pricing-page .pricing-beta-banner {
   margin-top: 0.5rem;
   margin-bottom: 0.75rem;

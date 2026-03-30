@@ -296,6 +296,39 @@
     if (TEMPLATES[nk]) TEMPLATES[oldK] = TEMPLATES[nk];
   });
 
+  /** One-time rewrite of A–F keys in verseGens → T01… for cleaner stored state. */
+  var LEGACY_IDB_MIGRATE_KEY = 'tdb_vi_legacy_tpl_keys_v1';
+
+  function migrateLegacyTemplateKeysInIdb() {
+    try {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem(LEGACY_IDB_MIGRATE_KEY) === '1') {
+        return Promise.resolve();
+      }
+    } catch (e0) {}
+    return idbGetAll()
+      .then(function (rows) {
+        var toWrite = [];
+        for (var i = 0; i < rows.length; i++) {
+          var row = rows[i];
+          var canon = row.templateKey && LEGACY_TEMPLATE_KEYS[row.templateKey];
+          if (!canon) continue;
+          toWrite.push(Object.assign({}, row, { templateKey: canon }));
+        }
+        if (!toWrite.length) {
+          try {
+            if (typeof localStorage !== 'undefined') localStorage.setItem(LEGACY_IDB_MIGRATE_KEY, '1');
+          } catch (e1) {}
+          return;
+        }
+        return Promise.all(toWrite.map(idbPut)).then(function () {
+          try {
+            if (typeof localStorage !== 'undefined') localStorage.setItem(LEGACY_IDB_MIGRATE_KEY, '1');
+          } catch (e2) {}
+        });
+      })
+      .catch(function () {});
+  }
+
   function bgGradients(bg) {
     if (bg === 'deep') return { start: '#0a1628', end: '#1e3a5f' };
     if (bg === 'still') return { start: '#0f0a14', end: '#1a1a2e' };
@@ -1445,16 +1478,18 @@
       bodyEl.value = cache.text;
       if (qrEl && cache.includeQr === false) qrEl.checked = false;
     }
-    applyTemplateUi(templateEl ? templateEl.value : 'custom');
-    renderRecentGens();
-    renderCardWithQr(
-      canvas,
-      normRef(refEl.value) || 'Philippians 4:13',
-      stripHtml(bodyEl.value) || 'I can do all things through Christ which strengtheneth me.',
-      getCardOpts(),
-      function () {}
-    );
-    setStatus('Adjust text, then Update preview.');
+    migrateLegacyTemplateKeysInIdb().then(function () {
+      applyTemplateUi(templateEl ? templateEl.value : 'custom');
+      renderRecentGens();
+      renderCardWithQr(
+        canvas,
+        normRef(refEl.value) || 'Philippians 4:13',
+        stripHtml(bodyEl.value) || 'I can do all things through Christ which strengtheneth me.',
+        getCardOpts(),
+        function () {}
+      );
+      setStatus('Adjust text, then Update preview.');
+    });
   }
 
   function tryWire() {

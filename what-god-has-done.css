@@ -4,39 +4,21 @@
   max-width: 40rem;
 }
 
-/* Dawn hero — same quiet warmth as My Verses / Family hub; hairline guilloché for depth */
+/* Dawn hero — classic opaque band (same thread as Explore / My Verses) */
 .wghd-hero--soar-dawn {
   padding: 1.15rem 1rem 1.2rem;
   margin: 0 0 1.2rem;
   border-radius: 14px;
-  border: 1px solid rgba(227, 188, 103, 0.22);
-  background:
-    repeating-linear-gradient(
-      105deg,
-      transparent 0,
-      transparent 3px,
-      rgba(227, 188, 103, 0.022) 3px,
-      rgba(227, 188, 103, 0.022) 4px
-    ),
-    repeating-linear-gradient(
-      -105deg,
-      transparent 0,
-      transparent 3px,
-      rgba(227, 188, 103, 0.018) 3px,
-      rgba(227, 188, 103, 0.018) 4px
-    ),
-    linear-gradient(
-      155deg,
-      rgba(227, 188, 103, 0.09) 0%,
-      rgba(55, 85, 115, 0.14) 42%,
-      rgba(15, 18, 26, 0.78) 100%
-    );
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--tdb-dawn-border, #d4b88a);
+  background: var(--tdb-dawn-classic, linear-gradient(135deg, #f5e8c7 0%, #c8d8e8 50%, #a3b8d1 100%));
+  box-shadow: var(--tdb-dawn-shadow, 0 4px 12px rgba(180, 140, 80, 0.08));
 }
 
 .wghd-page .wghd-hero--soar-dawn h1 {
   margin-top: 0;
   margin-bottom: 0.25rem;
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .wghd-page .wghd-hero--soar-dawn .wghd-subtitle {
@@ -49,9 +31,19 @@
 
 .wghd-subtitle {
   font-size: 0.95rem;
-  color: var(--muted, #8896b0);
+  color: #475569;
   margin: -0.35rem 0 0.65rem;
   font-weight: 600;
+}
+
+.wghd-page .wghd-hero--soar-dawn .wghd-hero-lead {
+  color: #334155;
+}
+
+.wghd-page .wghd-hero--soar-dawn .wghd-new-entry-hero {
+  border-color: rgba(180, 130, 80, 0.45) !important;
+  background: rgba(255, 255, 255, 0.55) !important;
+  color: #9a3412 !important;
 }
 
 .wghd-lead-second {

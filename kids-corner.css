@@ -11,27 +11,33 @@
   box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15), 0 0 40px rgba(212, 175, 55, 0.08), inset 0 0 60px rgba(212, 175, 55, 0.03);
 }
 
-/* Dawn-soar band: same quiet warmth as Explore / Möbius / Plans (loop library hero) */
+/* Soft morning mist — loop library hero (kids) */
 .kids-corner-page .kids-hero.kids-hero--soar-dawn {
   padding: 1.35rem 1.15rem 1.45rem;
   margin-bottom: 1.5rem;
   border-width: 1px;
-  border-color: rgba(227, 188, 103, 0.22);
+  border-color: var(--tdb-dawn-border, #d4b88a);
   border-radius: 14px;
-  background: linear-gradient(
-    155deg,
-    rgba(227, 188, 103, 0.09) 0%,
-    rgba(55, 85, 115, 0.14) 42%,
-    rgba(15, 18, 26, 0.72) 100%
-  );
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+  background: var(--tdb-dawn-mist, linear-gradient(135deg, #f8f1e0 0%, #d8e4f0 60%, #b8c9e0 100%));
+  box-shadow: var(--tdb-dawn-shadow-soft, 0 4px 12px rgba(180, 140, 80, 0.06));
 }
+
 .kids-corner-page .kids-hero.kids-hero--soar-dawn .kids-hero-title {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  color: #c2410c;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.65), 1px 1px 0 rgba(15, 23, 42, 0.12);
 }
+
+.kids-corner-page .kids-hero.kids-hero--soar-dawn .kids-hero-sub {
+  color: #334155;
+}
+
+.kids-corner-page .kids-hero.kids-hero--soar-dawn .parent-note {
+  color: #475569;
+}
+
 :root[data-theme="light"] .kids-corner-page .kids-hero.kids-hero--soar-dawn {
-  background: linear-gradient(155deg, rgba(227, 188, 103, 0.12) 0%, rgba(255, 252, 245, 0.92) 52%, #fffdf7 100%);
-  border-color: rgba(158, 118, 37, 0.22);
+  background: var(--tdb-dawn-mist, linear-gradient(135deg, #f8f1e0 0%, #d8e4f0 60%, #b8c9e0 100%));
+  border-color: var(--tdb-dawn-border, #d4b88a);
 }
 
 .kids-hero-frame {

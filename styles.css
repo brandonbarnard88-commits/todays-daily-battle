@@ -66,6 +66,32 @@
   --font-heading: Georgia, serif;
   --border-radius: 8px;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* Quiet dawn family (gold → blue thread) + soft band shadow — use sparingly */
+  --tdb-dawn-classic: linear-gradient(135deg, #f5e8c7 0%, #c8d8e8 50%, #a3b8d1 100%);
+  --tdb-dawn-mist: linear-gradient(135deg, #f8f1e0 0%, #d8e4f0 60%, #b8c9e0 100%);
+  --tdb-dusk-quiet: linear-gradient(135deg, #e8d9b8 0%, #b8c8d8 55%, #8a9eb8 100%);
+  --tdb-dawn-border: #d4b88a;
+  --tdb-dawn-shadow: 0 4px 12px rgba(180, 140, 80, 0.08);
+  --tdb-dawn-shadow-soft: 0 4px 12px rgba(180, 140, 80, 0.06);
+}
+
+/* Optional backgrounds: Kids / lighter pages → .tdb-dawn-bg--mist; evening / contemplative → .tdb-dawn-bg--dusk */
+.tdb-dawn-bg--classic {
+  background: var(--tdb-dawn-classic);
+}
+
+.tdb-dawn-bg--mist {
+  background: var(--tdb-dawn-mist);
+}
+
+.tdb-dawn-bg--dusk {
+  background: var(--tdb-dusk-quiet);
+}
+
+.calm-hero--soar-dawn,
+.study-hero--soar-dawn,
+.chapter-reader-hero--soar-dawn {
+  position: relative;
 }
 
 *, *::before, *::after {
@@ -3173,6 +3199,106 @@ body {
   border-radius: 2px;
 }
 
+/* Calm / Study / Chapter reader — classic dawn band (same family as Explore/Home thread) */
+.calm-page .calm-hero--soar-dawn.glass,
+.hero-banner.hero-banner--soar-dawn.study-hero--soar-dawn,
+.hero-banner.hero-banner--soar-dawn.chapter-reader-hero--soar-dawn {
+  background: var(--tdb-dawn-classic);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.dark-mode .calm-page .calm-hero--soar-dawn.glass,
+.dark-mode .calm-page .calm-hero--soar-dawn.glass:hover {
+  background: var(--tdb-dawn-classic);
+  border-color: var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
+}
+
+.hero-banner.hero-banner--soar-dawn.study-hero--soar-dawn::before,
+.hero-banner.hero-banner--soar-dawn.chapter-reader-hero--soar-dawn::before {
+  width: min(100%, 22rem);
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 184, 138, 0.9),
+    rgba(180, 130, 80, 0.55),
+    rgba(212, 184, 138, 0.9),
+    transparent
+  );
+}
+
+.hero-banner.hero-banner--soar-dawn.study-hero--soar-dawn::after,
+.hero-banner.hero-banner--soar-dawn.chapter-reader-hero--soar-dawn::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(138, 158, 184, 0.55),
+    rgba(212, 184, 138, 0.45),
+    transparent
+  );
+}
+
+.hero-banner.hero-banner--soar-dawn.study-hero--soar-dawn h1,
+.hero-banner.hero-banner--soar-dawn.chapter-reader-hero--soar-dawn h1 {
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.hero-banner.hero-banner--soar-dawn.study-hero--soar-dawn p,
+.hero-banner.hero-banner--soar-dawn.chapter-reader-hero--soar-dawn p {
+  color: #334155;
+}
+
+.hero-banner.hero-banner--soar-dawn.study-hero--soar-dawn .btn-secondary,
+.hero-banner.hero-banner--soar-dawn.chapter-reader-hero--soar-dawn .btn-secondary {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(71, 85, 105, 0.3);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.hero-banner.hero-banner--soar-dawn.study-hero--soar-dawn .btn-secondary:hover,
+.hero-banner.hero-banner--soar-dawn.study-hero--soar-dawn .btn-secondary:focus-visible,
+.hero-banner.hero-banner--soar-dawn.chapter-reader-hero--soar-dawn .btn-secondary:hover,
+.hero-banner.hero-banner--soar-dawn.chapter-reader-hero--soar-dawn .btn-secondary:focus-visible {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(180, 140, 90, 0.45);
+  color: #0f172a;
+}
+
+:root[data-theme="light"] .calm-page .calm-hero--soar-dawn.glass,
+:root[data-theme="light"] .hero-banner.hero-banner--soar-dawn.study-hero--soar-dawn,
+:root[data-theme="light"] .hero-banner.hero-banner--soar-dawn.chapter-reader-hero--soar-dawn {
+  background: var(--tdb-dawn-mist);
+  border-color: var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow-soft);
+}
+
+/* calm.html — width + padding for dawn shell */
+.calm-page .calm-hero--soar-dawn.glass {
+  max-width: 36rem;
+  width: 100%;
+  margin: 0 auto 1.75rem;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .calm-page .calm-hero--soar-dawn.glass {
+    padding: 1.5rem 1.75rem 1.75rem;
+  }
+}
+
+.calm-page .calm-hero--soar-dawn.glass .intro {
+  margin-bottom: 1.25rem;
+}
+
 @keyframes tdb-hero-in {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
@@ -5822,91 +5948,385 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   }
 }
 
-/* Explore hub: quiet dawn band on hero (matches verse-card / homepage warmth) */
-.explore-page .explore-hero--soar-dawn {
+/* Explore hubs (EN + language shells): classic opaque dawn + slate type */
+.explore-page > header.hero-banner {
   position: relative;
   padding: 1.35rem 1.2rem 1.6rem;
   border-radius: 14px;
-  border: 1px solid rgba(227, 188, 103, 0.22);
-  background: linear-gradient(
-    155deg,
-    rgba(227, 188, 103, 0.09) 0%,
-    rgba(55, 85, 115, 0.14) 42%,
-    rgba(15, 18, 26, 0.72) 100%
-  );
   margin-bottom: 0.35rem;
-}
-:root[data-theme="light"] .explore-page .explore-hero--soar-dawn {
-  background: linear-gradient(155deg, rgba(227, 188, 103, 0.14) 0%, rgba(255, 252, 245, 0.96) 52%, #fffdf7 100%);
-  border-color: rgba(158, 118, 37, 0.22);
+  background: var(--tdb-dawn-classic);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
 }
 
-/* Bible Tool: dawn band on intro (matches Explore / Möbius / Plans) */
+.explore-page > header.hero-banner h1 {
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.explore-page > header.hero-banner .explore-eyebrow {
+  color: #92400e;
+  font-weight: 600;
+}
+
+.explore-page > header.hero-banner .privacy-line,
+.explore-page > header.hero-banner .hero-tagline,
+.explore-page > header.hero-banner .section-note,
+.explore-page > header.hero-banner .real-talk {
+  color: #334155;
+}
+
+.explore-page > header.hero-banner a {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.explore-page > header.hero-banner a:hover,
+.explore-page > header.hero-banner a:focus-visible {
+  color: #92400e;
+}
+
+:root[data-theme="light"] .explore-page > header.hero-banner {
+  background: var(--tdb-dawn-mist);
+  box-shadow: var(--tdb-dawn-shadow-soft);
+}
+
+/* Bible Tool hub: classic dawn + readable type */
 .bible-tool-page .bible-tool-hero--soar-dawn {
   margin-bottom: 1rem;
   padding: 1.15rem 1rem 1.2rem;
   border-radius: 14px;
-  border: 1px solid rgba(227, 188, 103, 0.22);
-  background: linear-gradient(
-    155deg,
-    rgba(227, 188, 103, 0.09) 0%,
-    rgba(55, 85, 115, 0.14) 42%,
-    rgba(15, 18, 26, 0.72) 100%
-  );
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
-}
-.bible-tool-page .bible-tool-hero--soar-dawn .section-divider:first-child {
-  margin-top: 0;
-}
-:root[data-theme="light"] .bible-tool-page .bible-tool-hero--soar-dawn {
-  background: linear-gradient(155deg, rgba(227, 188, 103, 0.12) 0%, rgba(255, 252, 245, 0.94) 52%, #fffdf7 100%);
-  border-color: rgba(158, 118, 37, 0.22);
+  background: var(--tdb-dawn-classic);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
 }
 
-/* My Verses: same quiet dawn band as Explore / hub heroes */
+.bible-tool-page .bible-tool-hero--soar-dawn .section-divider:first-child {
+  margin-top: 0;
+  color: #0f172a;
+}
+
+.bible-tool-page .bible-tool-hero--soar-dawn .section-divider-icon {
+  color: #92400e;
+}
+
+.bible-tool-page .bible-tool-hero--soar-dawn .section-note,
+.bible-tool-page .bible-tool-hero--soar-dawn .tdb-trust-return {
+  color: #334155;
+}
+
+.bible-tool-page .bible-tool-hero--soar-dawn .bible-tool-mini-hub-label {
+  color: #475569;
+}
+
+.bible-tool-page .bible-tool-hero--soar-dawn .bible-tool-mini-hub a {
+  color: #b45309;
+}
+
+.bible-tool-page .bible-tool-hero--soar-dawn .bible-tool-workshop-strip-inner {
+  color: #334155;
+}
+
+.bible-tool-page .bible-tool-hero--soar-dawn .bible-tool-gold-link {
+  color: #b45309;
+}
+
+.bible-tool-page .bible-tool-hero--soar-dawn .btn-secondary {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+:root[data-theme="light"] .bible-tool-page .bible-tool-hero--soar-dawn {
+  background: var(--tdb-dawn-mist);
+  box-shadow: var(--tdb-dawn-shadow-soft);
+}
+
+/* My Verses: classic dawn */
 .my-verses-page .my-verses-hero--soar-dawn {
   padding: 1.15rem 1rem 1.2rem;
   border-radius: 14px;
-  border: 1px solid rgba(227, 188, 103, 0.22);
-  background: linear-gradient(
-    155deg,
-    rgba(227, 188, 103, 0.09) 0%,
-    rgba(55, 85, 115, 0.14) 42%,
-    rgba(15, 18, 26, 0.72) 100%
-  );
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
-}
-.my-verses-page .my-verses-hero--soar-dawn h1 {
-  margin-top: 0;
-}
-:root[data-theme="light"] .my-verses-page .my-verses-hero--soar-dawn {
-  background: linear-gradient(155deg, rgba(227, 188, 103, 0.12) 0%, rgba(255, 252, 245, 0.94) 52%, #fffdf7 100%);
-  border-color: rgba(158, 118, 37, 0.22);
+  background: var(--tdb-dawn-classic);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
 }
 
-/* Family hub: dawn band on hero (same thread as My Verses / Explore) */
+.my-verses-page .my-verses-hero--soar-dawn h1 {
+  margin-top: 0;
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.my-verses-page .my-verses-hero--soar-dawn .privacy-line {
+  color: #334155;
+}
+
+.my-verses-page .my-verses-hero--soar-dawn .privacy-line a {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.my-verses-page .my-verses-hero--soar-dawn .btn-secondary {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+:root[data-theme="light"] .my-verses-page .my-verses-hero--soar-dawn {
+  background: var(--tdb-dawn-mist);
+  box-shadow: var(--tdb-dawn-shadow-soft);
+}
+
+/* Family hub: classic dawn */
 body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn {
   padding: 1.15rem 1rem 1.25rem;
   margin-bottom: 1.15rem;
   border-radius: 14px;
-  border: 1px solid rgba(227, 188, 103, 0.22);
-  background: linear-gradient(
-    155deg,
-    rgba(227, 188, 103, 0.09) 0%,
-    rgba(55, 85, 115, 0.14) 42%,
-    rgba(15, 18, 26, 0.72) 100%
-  );
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+  background: var(--tdb-dawn-classic);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
 }
+
 body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .family-hub-kicker {
   margin-top: 0;
+  color: #92400e;
 }
+
 body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn h1 {
   margin-top: 0;
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
 }
+
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .family-hub-tagline,
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .family-hub-lead,
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .tdb-trust-return,
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .tdb-offline-trust {
+  color: #334155;
+}
+
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .family-hub-lead strong {
+  color: #0f172a;
+}
+
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .family-hub-lead a {
+  color: #b45309;
+  font-weight: 600;
+}
+
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .btn-secondary {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .section-note {
+  color: #475569;
+}
+
 :root[data-theme="light"] body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn {
-  background: linear-gradient(155deg, rgba(227, 188, 103, 0.12) 0%, rgba(255, 252, 245, 0.94) 52%, #fffdf7 100%);
-  border-color: rgba(158, 118, 37, 0.22);
+  background: var(--tdb-dawn-mist);
+  box-shadow: var(--tdb-dawn-shadow-soft);
+}
+
+/* Battle Plans index: classic dawn (detail rules live in plans.html <style>; shadow here) */
+.plans-page .plans-hero--soar-dawn {
+  background: var(--tdb-dawn-classic);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
+}
+
+.plans-page .plans-hero--soar-dawn h1 {
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.plans-page .plans-hero--soar-dawn p,
+.plans-page .plans-hero--soar-dawn .plans-hero-hint,
+.plans-page .plans-hero--soar-dawn .plans-url-hint {
+  color: #334155;
+}
+
+.plans-page .plans-hero--soar-dawn .plans-audio-roadmap {
+  color: #334155;
+  border-color: rgba(212, 184, 138, 0.45);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.plans-page .plans-hero--soar-dawn .plans-audio-roadmap strong {
+  color: #0f172a;
+}
+
+.plans-page .plans-hero--soar-dawn a {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.plans-page .plans-hero--soar-dawn .plans-prayer-callout {
+  color: #475569;
+}
+
+.plans-page .plans-hero--soar-dawn .plans-prayer-callout a {
+  color: #b45309;
+}
+
+.plans-page .plans-hero--soar-dawn .plans-hero-hint {
+  color: #64748b;
+  opacity: 1;
+}
+
+:root[data-theme="light"] .plans-page .plans-hero--soar-dawn {
+  background: var(--tdb-dawn-mist);
+  box-shadow: var(--tdb-dawn-shadow-soft);
+}
+
+/* Möbius: quiet dusk (contemplative band) */
+.mobius-luxe-page .mobius-hero--soar-dawn {
+  background: var(--tdb-dusk-quiet);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
+}
+
+.mobius-luxe-page .mobius-hero--soar-dawn h1 {
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.mobius-luxe-page .mobius-hero--soar-dawn p,
+.mobius-luxe-page .mobius-hero--soar-dawn .mobius-season-lead {
+  color: #334155;
+}
+
+.mobius-luxe-page .mobius-hero--soar-dawn .mobius-kjv-banner {
+  color: #475569;
+}
+
+.mobius-luxe-page .mobius-hero--soar-dawn .mobius-kjv-banner strong {
+  color: #0f172a;
+}
+
+.mobius-luxe-page .mobius-hero--soar-dawn .mobius-audio-roadmap {
+  color: #334155;
+  border-color: rgba(138, 158, 184, 0.35);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.mobius-luxe-page .mobius-hero--soar-dawn .mobius-audio-roadmap strong {
+  color: #0f172a;
+}
+
+:root[data-theme="light"] .mobius-luxe-page .mobius-hero--soar-dawn {
+  background: var(--tdb-dawn-mist);
+  box-shadow: var(--tdb-dawn-shadow-soft);
+}
+
+/* Prayer board + language bridges: dusk */
+.message-board-page .content-inner > header.hero-banner.tdb-dawn-hub--dusk,
+.hero-banner.tdb-dawn-hub--dusk {
+  background: var(--tdb-dusk-quiet);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
+}
+
+.message-board-page .content-inner > header.hero-banner.tdb-dawn-hub--dusk h1,
+.hero-banner.tdb-dawn-hub--dusk h1 {
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.message-board-page .content-inner > header.hero-banner.tdb-dawn-hub--dusk .real-talk,
+.message-board-page .content-inner > header.hero-banner.tdb-dawn-hub--dusk .section-note,
+.message-board-page .content-inner > header.hero-banner.tdb-dawn-hub--dusk p,
+.hero-banner.tdb-dawn-hub--dusk .real-talk,
+.hero-banner.tdb-dawn-hub--dusk .section-note,
+.hero-banner.tdb-dawn-hub--dusk p {
+  color: #334155;
+}
+
+.message-board-page .content-inner > header.hero-banner.tdb-dawn-hub--dusk a,
+.hero-banner.tdb-dawn-hub--dusk a {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.message-board-page .content-inner > header.hero-banner.tdb-dawn-hub--dusk .btn-secondary,
+.hero-banner.tdb-dawn-hub--dusk .btn-secondary {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+:root[data-theme="light"] .message-board-page .content-inner > header.hero-banner.tdb-dawn-hub--dusk,
+:root[data-theme="light"] .hero-banner.tdb-dawn-hub--dusk {
+  background: var(--tdb-dawn-mist);
+  box-shadow: var(--tdb-dawn-shadow-soft);
+}
+
+/* Kids coloring + ES kids bridge: soft morning mist */
+.hero-banner.tdb-dawn-hub--mist {
+  background: var(--tdb-dawn-mist);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow-soft);
+}
+
+.hero-banner.tdb-dawn-hub--mist h1 {
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.hero-banner.tdb-dawn-hub--mist p,
+.hero-banner.tdb-dawn-hub--mist .real-talk {
+  color: #334155;
+}
+
+.hero-banner.tdb-dawn-hub--mist .btn-secondary {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(71, 85, 105, 0.28);
+}
+
+/* Standard app-shell heroes: classic dawn (localized topical, About, FAQ, tools, etc.) */
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) {
+  background: var(--tdb-dawn-classic);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
+}
+
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) h1 {
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) p,
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .section-note,
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .real-talk,
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .hero-tagline,
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .privacy-line {
+  color: #334155;
+}
+
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) a {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .btn-secondary {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+:root[data-theme="light"] .app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) {
+  background: var(--tdb-dawn-mist);
+  box-shadow: var(--tdb-dawn-shadow-soft);
+}
+
+/* Topic mood template: slate type on classic dawn (overrides legacy muted-on-dark tokens) */
+.tdb-topic-mood-page .content-inner > header.hero-banner .topic-mood-tagline,
+.tdb-topic-mood-page .content-inner > header.hero-banner .topic-mood-subtle,
+.tdb-topic-mood-page .content-inner > header.hero-banner .topic-mood-footnote,
+.tdb-topic-mood-page .content-inner > header.hero-banner .topic-mood-pair-note {
+  color: #334155;
 }
 
 .pricing-page .pricing-beta-banner {
@@ -6914,6 +7334,7 @@ h1 {
 }
 
 .glass {
+  position: relative;
   background: var(--card-light);
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
@@ -6941,7 +7362,8 @@ h1 {
     var(--shadow-card),
     0 0 0 1px rgba(148, 163, 184, 0.1),
     inset 0 1px 0 var(--elite-cream),
-    inset 0 -1px 0 rgba(0,0,0,0.08);
+    inset 0 -1px 0 rgba(0,0,0,0.08),
+    0 0 72px rgba(227, 188, 103, 0.04);
   border-color: rgba(148, 163, 184, 0.12);
 }
 
@@ -6952,6 +7374,45 @@ h1 {
     0 0 24px rgba(15, 23, 42, 0.6),
     0 0 32px rgba(59, 130, 246, 0.08),
     0 0 40px rgba(212, 175, 55, 0.06);
+}
+
+/* Very light linen texture on glass + base .card (skip dawn hero shell) */
+.dark-mode .glass:not(.calm-hero--soar-dawn)::before,
+html[data-theme="dark"] .glass:not(.calm-hero--soar-dawn)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27100%27%20height%3D%27100%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpath%20d%3D%27M0%2012c20%203%2040%202%2060%200s40%204%2040%204%27%20stroke%3D%27%23d4b88a%27%20stroke-width%3D%270.35%27%20fill%3D%27none%27%20opacity%3D%270.1%27%2F%3E%3Cpath%20d%3D%27M0%2055c28%202%2055%201%20100%203%27%20stroke%3D%27%2394a3b8%27%20stroke-width%3D%270.28%27%20fill%3D%27none%27%20opacity%3D%270.06%27%2F%3E%3C%2Fsvg%3E");
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  opacity: 0.42;
+}
+
+html[data-theme="light"] .glass:not(.calm-hero--soar-dawn)::before {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27100%27%20height%3D%27100%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpath%20d%3D%27M0%2010c22%204%2044%202%2066%200s34%205%2034%205%27%20stroke%3D%27%23d4b88a%27%20stroke-width%3D%270.32%27%20fill%3D%27none%27%20opacity%3D%270.14%27%2F%3E%3Cpath%20d%3D%27M0%2054c30%202%2060%201%20100%202%27%20stroke%3D%27%2394a3b8%27%20stroke-width%3D%270.25%27%20fill%3D%27none%27%20opacity%3D%270.09%27%2F%3E%3C%2Fsvg%3E");
+  opacity: 0.3;
+}
+
+.dark-mode .card::before,
+html[data-theme="dark"] .card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27100%27%20height%3D%27100%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpath%20d%3D%27M0%2012c20%203%2040%202%2060%200s40%204%2040%204%27%20stroke%3D%27%23d4b88a%27%20stroke-width%3D%270.35%27%20fill%3D%27none%27%20opacity%3D%270.1%27%2F%3E%3Cpath%20d%3D%27M0%2055c28%202%2055%201%20100%203%27%20stroke%3D%27%2394a3b8%27%20stroke-width%3D%270.28%27%20fill%3D%27none%27%20opacity%3D%270.06%27%2F%3E%3C%2Fsvg%3E");
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  opacity: 0.38;
+}
+
+html[data-theme="light"] .card::before {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27100%27%20height%3D%27100%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpath%20d%3D%27M0%2010c22%204%2044%202%2066%200s34%205%2034%205%27%20stroke%3D%27%23d4b88a%27%20stroke-width%3D%270.32%27%20fill%3D%27none%27%20opacity%3D%270.14%27%2F%3E%3Cpath%20d%3D%27M0%2054c30%202%2060%201%20100%202%27%20stroke%3D%27%2394a3b8%27%20stroke-width%3D%270.25%27%20fill%3D%27none%27%20opacity%3D%270.09%27%2F%3E%3C%2Fsvg%3E");
+  opacity: 0.28;
 }
 
 .featured-story-card {
@@ -8939,6 +9400,7 @@ a.my-verses-ref-link:focus-visible {
 
 /* Base card for consistent panels (verse cards, prayer list, progress blocks) */
 .card {
+  position: relative;
   background: var(--card-light);
   border-radius: 12px;
   padding: var(--spacing-md);
@@ -16018,10 +16480,34 @@ body.kids-battle-page .tdb-site-humility {
 .tdb-verse-page .verse-hero {
   text-align: center;
   padding: 2rem 1rem 1.5rem;
+  border-radius: var(--radius-xl);
+  background: var(--tdb-dawn-classic);
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
+}
+
+.tdb-verse-page .verse-hero.hero-banner h1 {
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.tdb-verse-page .verse-hero .hero-tagline,
+.tdb-verse-page .verse-hero .verse-hero-subtle {
+  color: #334155;
+}
+
+.tdb-verse-page .verse-hero .btn-secondary {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+:root[data-theme="light"] .tdb-verse-page .verse-hero {
+  background: var(--tdb-dawn-mist);
+  box-shadow: var(--tdb-dawn-shadow-soft);
 }
 
 .tdb-verse-page .verse-hero-subtle {
-  color: var(--text-muted);
   font-size: 0.95rem;
   margin: 0.5rem 0 1.5rem;
 }

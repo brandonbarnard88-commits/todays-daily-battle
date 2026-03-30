@@ -428,18 +428,22 @@
   50% { transform: translateY(-4px); }
 }
 
-/* Hero */
+/* Hero — soft morning mist band (Kids Battle hub + library entry) */
 .kids-battle-hero {
   text-align: center;
   padding: 1.5rem 1rem 2rem;
   margin-bottom: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--tdb-dawn-border, #d4b88a);
+  background: var(--tdb-dawn-mist, linear-gradient(135deg, #f8f1e0 0%, #d8e4f0 60%, #b8c9e0 100%));
+  box-shadow: var(--tdb-dawn-shadow-soft, 0 4px 12px rgba(180, 140, 80, 0.06));
 }
 
 .kids-battle-title {
   font-family: 'Bangers', cursive;
   font-size: clamp(2.5rem, 8vw, 4rem);
-  color: var(--kids-yellow);
-  text-shadow: 3px 3px 0 #e74c3c, -1px -1px 0 rgba(0,0,0,0.3);
+  color: #ea580c;
+  text-shadow: 2px 2px 0 rgba(255, 252, 248, 0.95), -1px -1px 0 rgba(15, 23, 42, 0.15);
   margin: 0 0 0.5rem;
   letter-spacing: 0.05em;
 }
@@ -447,7 +451,7 @@
 .kids-battle-tagline {
   font-family: 'Comic Neue', cursive;
   font-size: 1.15rem;
-  color: rgba(226, 232, 240, 0.9);
+  color: #334155;
   margin: 0;
 }
 

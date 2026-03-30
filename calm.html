@@ -44,7 +44,7 @@
   <meta name="twitter:description" content="One verse. Right now. KJV. Pick a feeling, get Scripture—offline-friendly.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/calm-og.jpg?v=20260322">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260315p">
+  <link rel="stylesheet" href="styles.css?v=20260431dawn-band">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,6 +108,42 @@
     }
     .intro { margin-bottom: 1.5rem; }
     .intro h2 { font-size: 1.1rem; font-weight: 500; color: var(--muted, #94a3b8); margin: 0; }
+    .calm-hero--soar-dawn .intro h2 { color: #0f172a; font-weight: 600; }
+    .calm-hero--soar-dawn .calm-offline-note {
+      color: #475569;
+      border-color: color-mix(in srgb, var(--tdb-dawn-border, #d4b88a) 55%, transparent);
+      background: rgba(255, 255, 255, 0.42);
+    }
+    .calm-hero--soar-dawn .calm-intro-sub,
+    .calm-hero--soar-dawn .calm-type-hint { color: #64748b !important; }
+    .calm-hero--soar-dawn .calm-type-hint em { color: #475569; }
+    .calm-hero--soar-dawn .calm-input-wrap input {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: rgba(71, 85, 105, 0.28);
+      color: #0f172a;
+    }
+    .calm-hero--soar-dawn .calm-input-wrap input::placeholder { color: #64748b; }
+    .calm-hero--soar-dawn .categories button {
+      border-color: rgba(146, 64, 14, 0.35);
+      background: rgba(255, 255, 255, 0.5);
+      color: #9a3412;
+    }
+    .calm-hero--soar-dawn .categories button:hover,
+    .calm-hero--soar-dawn .categories button:focus-visible {
+      background: rgba(255, 255, 255, 0.78);
+      color: #7c2d12;
+    }
+    .calm-hero--soar-dawn .calm-btn {
+      border-color: rgba(146, 64, 14, 0.42);
+      background: rgba(255, 255, 255, 0.55);
+      color: #9a3412;
+    }
+    .calm-hero--soar-dawn .calm-btn:hover,
+    .calm-hero--soar-dawn .calm-btn:focus-visible {
+      background: rgba(255, 255, 255, 0.82);
+      color: #7c2d12;
+    }
+    .calm-hero--soar-dawn .calm-no-match-hint { color: #64748b; }
     .categories { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem; }
     .categories button { padding: 1rem 1.5rem; min-height: 48px; font-size: 1rem; border-radius: 12px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.08); color: var(--gold); cursor: pointer; transition: background 0.15s; }
     .categories button:hover, .categories button:focus-visible { background: rgba(227,188,103,0.18); outline: 2px solid var(--gold); outline-offset: 2px; }
@@ -187,6 +223,8 @@
         <a href="/kids/?v=hub20260321">Kids</a>
         <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
         <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
@@ -201,10 +239,11 @@
 
     <main class="app-content" id="main-content">
       <div class="calm-page">
+        <section class="calm-hero--soar-dawn glass" aria-labelledby="calm-hero-heading">
         <div class="intro" id="calm-intro">
-          <h2>What are you carrying?</h2>
+          <h2 id="calm-hero-heading">What are you carrying?</h2>
           <p class="calm-offline-note" role="note">Offline? Verses still load—saved on your device. Sync when back online if you choose.</p>
-          <p class="calm-intro-sub" style="margin:0.35rem 0 0;font-size:0.88rem;color:var(--muted,#94a3b8);font-weight:400;">One tap. No account. Stay as long as you need.</p>
+          <p class="calm-intro-sub" style="margin:0.35rem 0 0;font-size:0.88rem;font-weight:400;">One tap. No account. Stay as long as you need.</p>
           <div class="calm-quick-row">
             <button type="button" class="calm-btn calm-one-verse-now" id="calm-one-verse-now" aria-label="Skip to one verse right now">One verse now</button>
             <button type="button" class="calm-btn calm-night-prayer" id="calm-night-prayer" aria-label="Night prayer with Psalm 4:8">Night Prayer</button>
@@ -213,7 +252,7 @@
         <div class="calm-input-wrap">
           <label for="calm-input" class="sr-only">Or type how you feel</label>
           <input type="text" id="calm-input" placeholder="Or type how you feel…" autocomplete="off" aria-label="Type how you feel for a verse">
-          <p class="calm-type-hint" style="margin:0.5rem 0 0;font-size:0.85rem;color:var(--muted, #94a3b8);">Or type freely: <em>lonely and scared</em></p>
+          <p class="calm-type-hint" style="margin:0.5rem 0 0;font-size:0.85rem;">Or type freely: <em>lonely and scared</em></p>
           <p id="calm-no-match-hint" class="calm-no-match-hint" hidden>No match? Try a button above or “One verse now.”</p>
         </div>
         <div class="categories" id="calm-categories" role="group" aria-label="Choose a feeling">
@@ -223,6 +262,7 @@
           <button type="button" class="calm-btn" data-category="strength" aria-label="Need strength">Strength / Courage</button>
           <button type="button" class="calm-btn" data-category="grief" aria-label="Grief or sadness">Grief / Sadness</button>
         </div>
+        </section>
         <p class="calm-prayer-wall-nudge calm-prayer-wall-nudge-always section-note">The <a href="index.html#prayer-wall">Prayer Wall</a> stays open—copy a verse below and paste there if you want, anonymous.</p>
         <div id="night-prayer" class="verse-centered night-prayer-panel" style="display: none;">
           <div class="night-prayer-wrap">

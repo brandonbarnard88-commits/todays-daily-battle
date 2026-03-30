@@ -91,7 +91,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260430a11y-modals">
+  <link rel="modulepreload" href="script.js?v=20260330pass3a11y">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -7843,13 +7843,29 @@
           readBtn.setAttribute('aria-pressed', 'false');
         }
       }
+      var _kidsStoryUntrap = null;
       function openModal() {
+        if (_kidsStoryUntrap) {
+          try {
+            _kidsStoryUntrap();
+          } catch (e) {}
+          _kidsStoryUntrap = null;
+        }
         modal.hidden = false;
         modal.setAttribute('aria-hidden', 'false');
         stopQuickStorySpeech();
+        if (typeof window.trapModalFocus === 'function') {
+          _kidsStoryUntrap = window.trapModalFocus(modal, { restoreOnClose: true });
+        }
         if (close) close.focus();
       }
       function closeModal() {
+        if (_kidsStoryUntrap) {
+          try {
+            _kidsStoryUntrap();
+          } catch (e) {}
+          _kidsStoryUntrap = null;
+        }
         stopQuickStorySpeech();
         modal.hidden = true;
         modal.setAttribute('aria-hidden', 'true');
@@ -7865,7 +7881,13 @@
         if (e.target === modal) closeModal();
       });
       modal.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeModal();
+        if (e.key === 'Escape') {
+          closeModal();
+          return;
+        }
+        if (typeof window.tdbTrapDialogTabKeydown === 'function') {
+          window.tdbTrapDialogTabKeydown(e, modal);
+        }
       });
       if (readBtn && window.speechSynthesis && typeof window.SpeechSynthesisUtterance !== 'undefined') {
         readBtn.addEventListener('click', function () {
@@ -7911,6 +7933,7 @@
     function wireAudioVolumePopover() {
       var slider = document.getElementById('audioVolSlider');
       var closeBtn = document.getElementById('audioVolClose');
+      var pop = document.getElementById('audioVolumePopover');
       if (slider) {
         slider.addEventListener('input', function () {
           window._tdbAudioVolume = parseFloat(slider.value);
@@ -7920,8 +7943,18 @@
       }
       if (closeBtn) {
         closeBtn.addEventListener('click', function () {
-          var pop = document.getElementById('audioVolumePopover');
           if (pop) pop.hidden = true;
+        });
+      }
+      if (pop) {
+        pop.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+            pop.hidden = true;
+            return;
+          }
+          if (typeof window.tdbTrapDialogTabKeydown === 'function') {
+            window.tdbTrapDialogTabKeydown(e, pop);
+          }
         });
       }
     }
@@ -8017,6 +8050,21 @@
         { ref: 'Galatians 5:22',   text: 'But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith.' }
       ]
     };
+
+    var _tdbPlanDetailUntrap = null;
+    function closePlanDetailModal() {
+      var m = document.getElementById('planDetailModal');
+      if (_tdbPlanDetailUntrap) {
+        try {
+          _tdbPlanDetailUntrap();
+        } catch (e) {}
+        _tdbPlanDetailUntrap = null;
+      }
+      if (m) {
+        m.hidden = true;
+        m.setAttribute('aria-hidden', 'true');
+      }
+    }
 
     // ── Load Plan detail modal ──
     function loadPlan(planId) {
@@ -8138,11 +8186,11 @@
               freshNah.addEventListener('click', function () {
                 localStorage.setItem(dismissedKey, 'true');
                 if (extFooter) extFooter.hidden = true;
-                modal.hidden = true;
+                closePlanDetailModal();
               }, { once: true });
             } else {
               // No extend to offer: just close
-              modal.hidden = true;
+              closePlanDetailModal();
             }
             return;
           }
@@ -8151,15 +8199,34 @@
       }
 
       modal.hidden = false;
+      modal.removeAttribute('aria-hidden');
+      if (_tdbPlanDetailUntrap) {
+        try {
+          _tdbPlanDetailUntrap();
+        } catch (e) {}
+        _tdbPlanDetailUntrap = null;
+      }
+      if (!modal.getAttribute('tabindex')) modal.setAttribute('tabindex', '-1');
       modal.focus();
+      if (typeof window.trapModalFocus === 'function') {
+        _tdbPlanDetailUntrap = window.trapModalFocus(modal, { restoreOnClose: true });
+      }
     }
 
     function wirePlanDetailModal() {
       var closeBtn = document.getElementById('planDetailClose');
       var modal    = document.getElementById('planDetailModal');
       if (!modal) return;
-      if (closeBtn) closeBtn.addEventListener('click', function () { modal.hidden = true; });
-      modal.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.hidden = true; });
+      if (closeBtn) closeBtn.addEventListener('click', closePlanDetailModal);
+      modal.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          closePlanDetailModal();
+          return;
+        }
+        if (typeof window.tdbTrapDialogTabKeydown === 'function') {
+          window.tdbTrapDialogTabKeydown(e, modal);
+        }
+      });
       // Tap plan chip → open detail
       var grid = document.getElementById('plansGrid');
       if (grid) {
@@ -8219,7 +8286,15 @@
         }
       });
       popover.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') { popover.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.focus(); }
+        if (e.key === 'Escape') {
+          popover.hidden = true;
+          btn.setAttribute('aria-expanded', 'false');
+          btn.focus();
+          return;
+        }
+        if (typeof window.tdbTrapDialogTabKeydown === 'function') {
+          window.tdbTrapDialogTabKeydown(e, popover);
+        }
       });
 
       // Checkbox handler
@@ -8650,12 +8725,29 @@
       var closeBot = document.getElementById('aboutCloseBtnBottom');
       if (!openBtn || !modal) return;
 
+      var _aboutModalUntrap = null;
       function openAbout() {
+        if (_aboutModalUntrap) {
+          try {
+            _aboutModalUntrap();
+          } catch (e) {}
+          _aboutModalUntrap = null;
+        }
         modal.hidden = false;
         requestAnimationFrame(function () { modal.classList.add('about-modal--open'); });
-        modal.querySelector('.about-modal-sheet')?.focus();
+        var sheet = modal.querySelector('.about-modal-sheet');
+        if (typeof window.trapModalFocus === 'function') {
+          _aboutModalUntrap = window.trapModalFocus(modal, { restoreOnClose: true });
+        }
+        if (sheet && typeof sheet.focus === 'function') sheet.focus();
       }
       function closeAbout() {
+        if (_aboutModalUntrap) {
+          try {
+            _aboutModalUntrap();
+          } catch (e) {}
+          _aboutModalUntrap = null;
+        }
         modal.classList.remove('about-modal--open');
         setTimeout(function () { modal.hidden = true; }, 300);
         openBtn.focus();
@@ -8669,7 +8761,13 @@
         if (e.target === modal) closeAbout();
       });
       modal.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeAbout();
+        if (e.key === 'Escape') {
+          closeAbout();
+          return;
+        }
+        if (typeof window.tdbTrapDialogTabKeydown === 'function') {
+          window.tdbTrapDialogTabKeydown(e, modal);
+        }
       });
 
       // Story form
@@ -9313,7 +9411,13 @@
       if (xBtn) xBtn.addEventListener('click', close);
       if (backdrop) backdrop.addEventListener('click', close);
       sheet.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') close();
+        if (e.key === 'Escape') {
+          close();
+          return;
+        }
+        if (typeof window.tdbTrapDialogTabKeydown === 'function' && !sheet.hidden) {
+          window.tdbTrapDialogTabKeydown(e, sheet);
+        }
       });
 
       // ── Swipe down to close (touch) ──────────────────────
@@ -9357,7 +9461,7 @@
   <!-- ── About Modal ── -->
   <div id="aboutModal" class="about-modal-backdrop" hidden role="dialog" aria-modal="true" aria-label="About Today's Daily Battle">
     <div class="about-modal-sheet" tabindex="-1">
-      <button type="button" class="about-modal-close" id="aboutModalClose" aria-label="Close About">✕</button>
+      <button type="button" class="about-modal-close" id="aboutModalClose" aria-label="Close About" data-tdb-modal-close>✕</button>
       <h2 class="about-modal-title">Why This Exists</h2>
 
       <p>Hey. Born in Dallas, raised in West Tennessee — Union City, Martin, and Memphis. Grew up where the blues play loud and the nights feel longer than they should.</p>
@@ -9383,7 +9487,7 @@
         </div>
       </div>
 
-      <button type="button" class="about-close-btn" id="aboutCloseBtnBottom" aria-label="Close About">Close</button>
+      <button type="button" class="about-close-btn" id="aboutCloseBtnBottom" aria-label="Close About" data-tdb-modal-close>Close</button>
     </div>
   </div>
 
@@ -9426,7 +9530,7 @@
   <!-- ── Welcome Back / Auth Modal ── -->
   <div id="auth-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" aria-hidden="true">
     <div class="modal-inner auth-modal-inner auth-modal-card">
-      <button type="button" id="auth-modal-close" class="about-modal-close" aria-label="Close">✕</button>
+      <button type="button" id="auth-modal-close" class="about-modal-close" aria-label="Close" data-tdb-modal-close>✕</button>
       <h2 id="auth-modal-title" class="auth-modal-headline">Welcome Back</h2>
       <p id="auth-modal-subtext" class="auth-modal-subtext">Enter to access your prayers, notes, streaks, and family armor.</p>
       <p id="auth-modal-verse" class="auth-modal-verse" aria-hidden="true">&#8220;Come unto me, all ye that labour and are heavy laden, and I will give you rest.&#8221; — Matthew 11:28</p>
@@ -9499,16 +9603,16 @@
     </div>
   </div>
 
-  <div id="audioVolumePopover" class="audio-volume-popover" hidden role="dialog" aria-label="Playback volume">
+  <div id="audioVolumePopover" class="audio-volume-popover" hidden role="dialog" aria-modal="true" aria-label="Playback volume" tabindex="-1">
     <label class="audio-vol-label" for="audioVolSlider">🔊 Volume</label>
     <input type="range" id="audioVolSlider" class="audio-vol-slider" min="0" max="1" step="0.05" value="1" aria-label="Playback volume">
-    <button type="button" id="audioVolClose" class="audio-vol-close" aria-label="Close volume panel">✕</button>
+    <button type="button" id="audioVolClose" class="audio-vol-close" aria-label="Close volume panel" data-tdb-modal-close>✕</button>
   </div>
 
   <!-- ── Plan Detail Modal ── -->
-  <div id="planDetailModal" class="plan-detail-modal" hidden role="dialog" aria-modal="true" aria-label="Plan details">
+  <div id="planDetailModal" class="plan-detail-modal" hidden role="dialog" aria-modal="true" aria-label="Plan details" tabindex="-1">
     <div class="plan-detail-inner">
-      <button type="button" id="planDetailClose" class="plan-detail-close" aria-label="Close plan">✕</button>
+      <button type="button" id="planDetailClose" class="plan-detail-close" aria-label="Close plan" data-tdb-modal-close>✕</button>
       <h2 class="plan-detail-title" id="planDetailTitle"></h2>
       <p class="plan-detail-sub" id="planDetailSub"></p>
       <div class="plan-detail-days" id="planDetailDays"></div>
@@ -9527,7 +9631,7 @@
   <!-- ── Hymn Lyrics Modal (Patriotic Hymns "Sing with Me") ── -->
   <div id="hymn-lyrics-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="hymn-lyrics-modal-title" aria-hidden="true">
     <div class="modal-inner hymn-lyrics-modal-inner">
-      <button type="button" id="hymn-lyrics-modal-close" class="about-modal-close" aria-label="Close lyrics">✕</button>
+      <button type="button" id="hymn-lyrics-modal-close" class="about-modal-close" aria-label="Close lyrics" data-tdb-modal-close>✕</button>
       <h2 id="hymn-lyrics-modal-title" class="about-modal-title">Hymn Lyrics</h2>
       <pre id="hymn-lyrics-modal-body" class="hymn-lyrics-modal-body"></pre>
     </div>
@@ -9536,7 +9640,7 @@
   <!-- ── Kids Story Modal ── -->
   <div id="kidsStoryModal" class="story-modal" hidden role="dialog" aria-modal="true" aria-labelledby="kidsStoryModalTitle" aria-hidden="true">
     <div class="story-modal-inner">
-      <button type="button" class="story-modal-close" id="storyModalClose" aria-label="Close story">✕</button>
+      <button type="button" class="story-modal-close" id="storyModalClose" aria-label="Close story" data-tdb-modal-close>✕</button>
       <div class="story-emoji-row" aria-hidden="true">🪨 🐏 ⚔️ 🦁 👑</div>
       <h2 class="story-title" id="kidsStoryModalTitle">David &amp; Goliath</h2>
       <p class="story-verse-ref">1 Samuel 17 — read-aloud, KJV heart</p>
@@ -9566,7 +9670,7 @@
   <script src="verse-narration.js?v=20260329narr12"></script>
   <script src="verse-study.js?v=20260329pass2off"></script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260430a11y-modals" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260330pass3a11y" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer></script>
   <script src="/easter-season.js"></script>

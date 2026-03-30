@@ -131,6 +131,13 @@
     }
     .btn-export:hover { background: color-mix(in srgb, var(--gold) 15%, transparent); }
 
+    .modal-overlay:focus { outline: none; }
+    .modal-content button:focus-visible,
+    .modal-overlay:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.85);
+      outline-offset: 2px;
+    }
+
     .modal-overlay {
       display: none;
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -237,7 +244,7 @@
     </div>
   </main>
 
-  <div id="reset-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+  <div id="reset-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" aria-hidden="true" tabindex="-1">
     <div class="modal-content">
       <h2 id="modal-title">Reset Progress?</h2>
       <p id="modal-desc">This will clear all plans, streaks, and stats. Your data is local only—no recovery.</p>
@@ -442,15 +449,82 @@
       }
     }
 
-    document.getElementById('reset-progress').addEventListener('click', function () {
-      document.getElementById('reset-modal').classList.add('show');
-    });
-    document.getElementById('cancel-reset').addEventListener('click', function () {
-      document.getElementById('reset-modal').classList.remove('show');
-    });
+    var resetModalEl = document.getElementById('reset-modal');
+    var resetProgressBtn = document.getElementById('reset-progress');
+    var resetFocusBefore = null;
+
+    function listResetFocusables() {
+      if (!resetModalEl) return [];
+      var nodes = resetModalEl.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      return Array.prototype.slice.call(nodes).filter(function (el) {
+        if (el.disabled) return false;
+        var s = window.getComputedStyle(el);
+        if (s.visibility === 'hidden' || s.display === 'none') return false;
+        return el.getClientRects && el.getClientRects().length > 0;
+      });
+    }
+
+    function onResetModalKeydown(e) {
+      if (!resetModalEl || !resetModalEl.classList.contains('show')) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeResetModal();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      var list = listResetFocusables();
+      if (list.length < 2) return;
+      var first = list[0];
+      var last = list[list.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          last.focus();
+          e.preventDefault();
+        }
+      } else if (document.activeElement === last) {
+        first.focus();
+        e.preventDefault();
+      }
+    }
+
+    function openResetModal() {
+      if (!resetModalEl) return;
+      resetFocusBefore = document.activeElement;
+      resetModalEl.classList.add('show');
+      resetModalEl.setAttribute('aria-hidden', 'false');
+      document.addEventListener('keydown', onResetModalKeydown, true);
+      var cancel = document.getElementById('cancel-reset');
+      if (cancel && typeof cancel.focus === 'function') {
+        setTimeout(function () {
+          try {
+            cancel.focus();
+          } catch (e) {}
+        }, 0);
+      }
+    }
+
+    function closeResetModal() {
+      if (!resetModalEl) return;
+      document.removeEventListener('keydown', onResetModalKeydown, true);
+      resetModalEl.classList.remove('show');
+      resetModalEl.setAttribute('aria-hidden', 'true');
+      if (resetFocusBefore && typeof resetFocusBefore.focus === 'function') {
+        try {
+          resetFocusBefore.focus();
+        } catch (e) {}
+      }
+      resetFocusBefore = null;
+    }
+
+    if (resetProgressBtn) {
+      resetProgressBtn.addEventListener('click', openResetModal);
+    }
+    document.getElementById('cancel-reset').addEventListener('click', closeResetModal);
     document.getElementById('confirm-reset').addEventListener('click', function () {
       clearAllProgress();
-      document.getElementById('reset-modal').classList.remove('show');
+      closeResetModal();
       showToast('Progress cleared');
       loadProgress();
     });

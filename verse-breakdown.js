@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  var verseBreakdownUntrap = null;
+
   var BOOK_CONTEXT = {
     Genesis: { s: 'Moses', a: 'Israel' }, Exodus: { s: 'Moses', a: 'Israel' }, Leviticus: { s: 'Moses', a: 'Israel' }, Numbers: { s: 'Moses', a: 'Israel' }, Deuteronomy: { s: 'Moses', a: 'Israel' },
     Joshua: { s: 'Joshua', a: 'Israel' }, Judges: { s: 'Unknown', a: 'Israel' }, Ruth: { s: 'Unknown', a: 'Israel' },
@@ -306,6 +308,7 @@
     closeBtn.type = 'button';
     closeBtn.className = 'verse-modal-close';
     closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.setAttribute('data-tdb-modal-close', '');
     closeBtn.appendChild(document.createTextNode('\u00d7'));
     inner.appendChild(closeBtn);
 
@@ -331,10 +334,12 @@
 
     var refH = document.createElement('h3');
     refH.className = 'verse-modal-ref';
+    refH.id = 'tdb-verse-breakdown-title';
     inner.appendChild(refH);
 
     var textP = document.createElement('p');
     textP.className = 'verse-modal-text';
+    textP.setAttribute('aria-live', 'polite');
     inner.appendChild(textP);
 
     var bubble = document.createElement('div');
@@ -395,6 +400,12 @@
       buildVerseModalDom(modal);
     }
     function closeModal() {
+      if (verseBreakdownUntrap) {
+        try {
+          verseBreakdownUntrap();
+        } catch (e) {}
+        verseBreakdownUntrap = null;
+      }
       var ref = modal.getAttribute('data-ref') || '';
       if (typeof window.trackEvent === 'function') window.trackEvent('verse_breakdown_close', { ref: ref.slice(0, 32) });
       modal.classList.add('closing');
@@ -407,6 +418,13 @@
     var backdropHit = modal.querySelector('.verse-modal-backdrop');
     if (closeHit) closeHit.addEventListener('click', closeModal);
     if (backdropHit) backdropHit.addEventListener('click', closeModal);
+    if (!modal.getAttribute('data-tdb-breakdown-a11y')) {
+      modal.setAttribute('data-tdb-breakdown-a11y', '1');
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-labelledby', 'tdb-verse-breakdown-title');
+      modal.setAttribute('tabindex', '-1');
+    }
     modal.querySelectorAll('.verse-age-actions [data-age]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var mode = setAgeMode(btn.getAttribute('data-age') || 'adult');
@@ -524,6 +542,23 @@
       bubble.className = 'verse-modal-bubble verse-modal-bubble-' + ageMode;
     }
     modal.classList.remove('hidden');
+    if (verseBreakdownUntrap) {
+      try {
+        verseBreakdownUntrap();
+      } catch (e) {}
+      verseBreakdownUntrap = null;
+    }
+    try {
+      if (typeof window.trapModalFocus === 'function') {
+        verseBreakdownUntrap = window.trapModalFocus(modal, { restoreOnClose: true });
+      }
+    } catch (e) {}
+    var closeEl = modal.querySelector('.verse-modal-close');
+    if (closeEl && typeof closeEl.focus === 'function') {
+      try {
+        closeEl.focus();
+      } catch (e2) {}
+    }
     if (typeof window.trackEvent === 'function') window.trackEvent('verse_breakdown_open', { ref: (ref || '').slice(0, 32) });
     (function setupScrollDepth() {
       var inner = modal.querySelector('.verse-modal-inner');

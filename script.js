@@ -1899,7 +1899,8 @@ function trapModalFocus(modalEl, options) {
   function onKey(e) {
     if (e.key !== 'Tab' && e.key !== 'Escape') return;
     if (e.key === 'Escape') {
-      var closeBtn = modalEl.querySelector('[aria-label="Dismiss"], .intent-modal-close');
+      var closeBtn = modalEl.querySelector('[data-tdb-modal-close]');
+      if (!closeBtn) closeBtn = modalEl.querySelector('[aria-label="Dismiss"], .intent-modal-close');
       if (closeBtn) closeBtn.click();
       return;
     }
@@ -1917,7 +1918,11 @@ function trapModalFocus(modalEl, options) {
     if (previousActive && previousActive.focus) previousActive.focus();
   };
 }
+try {
+  if (typeof globalThis !== 'undefined') globalThis.trapModalFocus = trapModalFocus;
+} catch (e) {}
 var _tdbModalUntrap = null;
+var _tdbAuthModalUntrap = null;
 
 let currentUserEmail = '';
 let deferredInstallPrompt = null;
@@ -14873,6 +14878,9 @@ function tdbTrapDialogTabKeydown(ev, panel) {
     ev.preventDefault();
   }
 }
+try {
+  if (typeof globalThis !== 'undefined') globalThis.tdbTrapDialogTabKeydown = tdbTrapDialogTabKeydown;
+} catch (e) {}
 
 function normXrefRefKey(r) {
   return String(r || '')
@@ -22024,6 +22032,12 @@ async function tdbInitImpl() {
   function openLoginModal(tab) {
     var modal = document.getElementById('auth-modal');
     if (!modal) return;
+    if (_tdbAuthModalUntrap) {
+      try {
+        _tdbAuthModalUntrap();
+      } catch (e) {}
+      _tdbAuthModalUntrap = null;
+    }
     modal.classList.remove('hidden');
     modal.setAttribute('aria-hidden', 'false');
     var emailEl = document.getElementById('email');
@@ -22059,10 +22073,21 @@ async function tdbInitImpl() {
     }
     var statusEl = document.getElementById('auth-modal-status');
     if (statusEl) statusEl.textContent = '';
+    try {
+      if (typeof trapModalFocus === 'function') {
+        _tdbAuthModalUntrap = trapModalFocus(modal, { restoreOnClose: true });
+      }
+    } catch (e) {}
     if (t === 'signup' && modalFirstName) modalFirstName.focus();
     else if (modalEmail) modalEmail.focus();
   }
   function closeAuthModal() {
+    if (_tdbAuthModalUntrap) {
+      try {
+        _tdbAuthModalUntrap();
+      } catch (e) {}
+      _tdbAuthModalUntrap = null;
+    }
     var modal = document.getElementById('auth-modal');
     if (modal) {
       modal.classList.add('hidden');

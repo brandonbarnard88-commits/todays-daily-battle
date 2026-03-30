@@ -5884,6 +5884,31 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   border-color: rgba(158, 118, 37, 0.22);
 }
 
+/* Family hub: dawn band on hero (same thread as My Verses / Explore) */
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn {
+  padding: 1.15rem 1rem 1.25rem;
+  margin-bottom: 1.15rem;
+  border-radius: 14px;
+  border: 1px solid rgba(227, 188, 103, 0.22);
+  background: linear-gradient(
+    155deg,
+    rgba(227, 188, 103, 0.09) 0%,
+    rgba(55, 85, 115, 0.14) 42%,
+    rgba(15, 18, 26, 0.72) 100%
+  );
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .family-hub-kicker {
+  margin-top: 0;
+}
+body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn h1 {
+  margin-top: 0;
+}
+:root[data-theme="light"] body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn {
+  background: linear-gradient(155deg, rgba(227, 188, 103, 0.12) 0%, rgba(255, 252, 245, 0.94) 52%, #fffdf7 100%);
+  border-color: rgba(158, 118, 37, 0.22);
+}
+
 .pricing-page .pricing-beta-banner {
   margin-top: 0.5rem;
   margin-bottom: 0.75rem;

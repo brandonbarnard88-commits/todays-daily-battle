@@ -143,7 +143,7 @@
     if (!state.items.length) {
       var note = document.createElement('p');
       note.className = 'section-note';
-      note.textContent = 'No highlights saved yet. Open a verse and tap Highlight to build your library.';
+      note.textContent = 'Nothing here yet. When a verse touches your heart, open it and tap Highlight—your picks stay on this device. The Lord meets you right where you are.';
       grid.appendChild(note);
       return;
     }

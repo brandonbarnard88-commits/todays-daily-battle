@@ -407,7 +407,7 @@
     if (!top.length) {
       var empty = document.createElement('li');
       empty.className = 'section-note mystudy-empty-hint';
-      empty.appendChild(document.createTextNode('No tagged notes yet. When a verse touches your heart, save a note in the '));
+      empty.appendChild(document.createTextNode('Nothing here yet. When a verse touches your heart, save a note in the '));
       var elBt = document.createElement('a');
       elBt.href = 'bible-tool.html';
       elBt.className = 'mystudy-inline-tool-link';
@@ -482,11 +482,11 @@
           rows.length + ' note' + (rows.length === 1 ? '' : 's') + (q ? ' match your filter.' : ' saved from the Bible Tool.');
       } else if (q) {
         statusEl.textContent =
-          'No notes match that filter yet. Clear the box or tap All to widen the list. The Lord meets you right where you are.';
+          'Nothing here yet for that filter. Clear the box or tap All to widen the list. The Lord meets you right where you are.';
       } else {
         var emptyP = document.createElement('p');
         emptyP.className = 'section-note mystudy-empty-hint';
-        emptyP.appendChild(document.createTextNode('No notes saved yet. When a verse touches your heart, save a verse study or add your own thoughts in the '));
+        emptyP.appendChild(document.createTextNode('Nothing here yet. When a verse touches your heart, save a verse study or add your own thoughts in the '));
         var stA = document.createElement('a');
         stA.href = 'bible-tool.html';
         stA.className = 'mystudy-inline-tool-link';
@@ -540,7 +540,7 @@
       if (!recent.length) {
         var empty = document.createElement('li');
         empty.className = 'section-note mystudy-empty-hint';
-        empty.appendChild(document.createTextNode('No recent chapters yet. When you are ready, open any chapter in the '));
+        empty.appendChild(document.createTextNode('Nothing here yet. When you are ready, open any chapter in the '));
         var rA = document.createElement('a');
         rA.href = 'reader.html';
         rA.className = 'mystudy-inline-tool-link';
@@ -579,7 +579,7 @@
     if (!refEl || !textEl) return;
     refEl.textContent =
       study.verseRef ||
-      'No verse selected yet. Search on Home or open the Bible Tool when you are ready. The Lord meets you right where you are.';
+      'Nothing here yet. When a verse touches your heart, search on Home or open the Bible Tool. The Lord meets you right where you are.';
     textEl.textContent = study.verseText || '';
   }
 
@@ -589,7 +589,7 @@
     var items = loadShared();
     if (!items.length) {
       listEl.innerHTML =
-        '<p class="section-note mystudy-empty-hint">No shared studies yet. Paste a code someone sent you, or generate one after you pick a verse. The Lord meets you right where you are.</p>';
+        '<p class="section-note mystudy-empty-hint">Nothing here yet. When a verse touches your heart, paste a code someone sent you—or generate one after you pick a verse. The Lord meets you right where you are.</p>';
       return;
     }
     listEl.innerHTML = '';
@@ -630,7 +630,7 @@
     if (!listEl) return;
     listEl.innerHTML = '';
     if (!results.length) {
-      listEl.innerHTML = '<li class="section-note">No matches found. Try a broader keyword or exact reference.</li>';
+      listEl.innerHTML = '<li class="section-note">Nothing here yet. When a verse touches your heart, try a broader keyword or an exact reference. The Lord meets you right where you are.</li>';
       return;
     }
     results.forEach(function (item) {

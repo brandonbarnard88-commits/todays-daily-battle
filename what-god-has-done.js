@@ -274,7 +274,7 @@
           return x.id !== e.id;
         });
         if (!saveState(state)) {
-          setStatus('Could not save after remove. Check storage.', true);
+          setStatus('Could not save after remove—check storage and try again.', true);
           state = loadState();
           renderList();
           return;
@@ -358,12 +358,12 @@
     }
 
     if (!saveState(state)) {
-      setStatus('Could not save. Storage may be full or blocked.', true);
+      setStatus('Could not save—storage may be full or blocked. Try again when you can.', true);
       return;
     }
 
     clearForm();
-    setStatus('Saved privately on your device.');
+    setStatus('Saved privately on this device.');
     renderList();
     trackSafe('wghd_entry_save', { count: state.entries.length, edit: wasEdit });
   }

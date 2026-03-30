@@ -9811,7 +9811,7 @@ function wirePrayThisWithMe() {
           versePageSave.disabled = true;
           versePageSave.setAttribute('aria-label', 'This verse is already in My Verses');
         } else if (res.ok) {
-          if (statusEl) statusEl.textContent = 'Saved to My Verses on this device.';
+          if (statusEl) statusEl.textContent = 'Saved privately on this device.';
           versePageSave.textContent = 'Saved';
           versePageSave.disabled = true;
           versePageSave.setAttribute('aria-label', 'Verse saved to My Verses');
@@ -9820,7 +9820,7 @@ function wirePrayThisWithMe() {
           versePageSave.disabled = false;
           versePageSave.textContent = 'Try again';
           versePageSave.setAttribute('aria-label', 'Save failed; tap to try again');
-          if (statusEl) statusEl.textContent = 'Could not save. Try again.';
+          if (statusEl) statusEl.textContent = 'Could not save quietly—try again when you can.';
           setTimeout(function () {
             updateVersePageSaveMyVersesState();
           }, 2200);
@@ -9983,12 +9983,12 @@ function wireHeroSaveToMyVerses() {
         updateHeroSaveButtons();
         if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
       } else if (res.ok) {
-        if (statusEl) statusEl.textContent = 'Saved to My Verses on this device.';
+        if (statusEl) statusEl.textContent = 'Saved privately on this device.';
         if (typeof trackEvent === 'function') trackEvent('hero_save_my_verses', { verse_ref: v.ref });
         updateHeroSaveButtons();
         if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
       } else {
-        if (statusEl) statusEl.textContent = 'Could not save. Try again.';
+        if (statusEl) statusEl.textContent = 'Could not save quietly—try again when you can.';
         targets.forEach(function (b) { b.disabled = false; });
         if (heroBtn) heroBtn.textContent = 'Try again';
         if (menuSave) menuSave.textContent = 'Try again';
@@ -15241,7 +15241,7 @@ function saveReaderXrefsToMyStudy() {
     }
     const status = document.getElementById('reader-xrefs-save-status');
     if (status) {
-      status.textContent = ok ? 'Saved to My Study on this device.' : 'Could not save. Storage may be full.';
+      status.textContent = ok ? 'Saved privately on this device.' : 'Could not save—storage may be full. Try again when you can.';
       setTimeout(() => {
         status.textContent = '';
       }, 3800);
@@ -17945,7 +17945,7 @@ function wireReaderCompanionChrome() {
       syncReaderBookmarkToggle(bs.value, cs.value);
       renderReaderBookmarksPanel();
       if (typeof showEliteToast === 'function') {
-        showEliteToast(now ? 'Chapter saved on this device.' : 'Removed from saved chapters.');
+        showEliteToast(now ? 'Saved privately on this device.' : 'Removed from saved chapters.');
       }
       if (typeof trackEvent === 'function') {
         trackEvent('reader_bookmark_toggle', { saved: now ? 1 : 0 });
@@ -18069,7 +18069,7 @@ function buildPastorToolkit(results) {
       points: '',
       application: '',
       prayer: '',
-      guide: 'No results found for this query yet.'
+      guide: 'Nothing turned up for that search yet—try hope, fear, or a shorter word.'
     };
   }
   const topVerses = results.verses.slice(0, 3);
@@ -18450,7 +18450,7 @@ function renderSavedVerses() {
   if (collections.length === 0 && items.length === 0) {
     if (!fromTool.verseNotes || !fromTool.verseNotes.length) {
       if (!savedVersesArr || !savedVersesArr.length) {
-        container.innerHTML = '<p class="empty">No notes or saved verses yet - add one from <a href="bible-tool.html">Bible Tool</a> to start building your battle log.</p>';
+        container.innerHTML = '<p class="empty">Nothing here yet. When a verse touches your heart, save one from the <a href="bible-tool.html">Bible Tool</a> or Study workspace. The Lord meets you right where you are.</p>';
       }
     }
     return;
@@ -18697,7 +18697,7 @@ function renderNotes() {
   container.innerHTML = '';
   const notes = loadNotes();
   if (notes.length === 0) {
-    container.innerHTML = '<p class="empty">No notes saved yet - add verses from <a href="bible-tool.html">Bible Tool</a> to build your study archive.</p>';
+    container.innerHTML = '<p class="empty">Nothing here yet. When a verse touches your heart, add notes from the <a href="bible-tool.html">Bible Tool</a>. The Lord meets you right where you are.</p>';
     return;
   }
   const select = document.getElementById('note-verse-select');
@@ -20800,7 +20800,7 @@ async function tdbInitImpl() {
           }
         }
         if (!picks.length) {
-          out.innerHTML = '<p class="empty">No verses available yet. Refresh and try again.</p>';
+          out.innerHTML = '<p class="empty">Nothing here yet. When a verse touches your heart, try Home search or a topic chip—or refresh if the page just loaded. The Lord meets you right where you are.</p>';
           out.style.display = 'grid';
           return;
         }
@@ -23495,7 +23495,7 @@ async function tdbInitImpl() {
       try {
         var results = await runTopicSearch(topic);
         if (!results || !results.verses || results.verses.length === 0) {
-          alert('No verses were found for that topic. Try hope, fear, or anxiety.');
+          alert('Nothing turned up for that topic yet. Try hope, fear, or anxiety—or a shorter word.');
           return;
         }
         var toolkit = buildPastorToolkit(results);

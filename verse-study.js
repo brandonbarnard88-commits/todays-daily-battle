@@ -745,7 +745,7 @@
       '<div id="tdb-vs-listen-block" class="tdb-vs-listen-block hidden">' +
       '<div class="tdb-vs-listen-row">' +
       '<button type="button" id="tdb-vs-repeat-verse" class="tdb-vs-repeat-verse-btn">Repeat this verse</button>' +
-      '<span id="tdb-vs-listen-hint" class="tdb-vs-foot" style="margin:0;flex:1 1 8rem">KJV on this device — tap Listen to hear the verse. Use Repeat to hear it again.</span></div>' +
+      '<span id="tdb-vs-listen-hint" class="tdb-vs-foot" style="margin:0;flex:1 1 8rem">KJV loads on this device—tap Listen for a quiet hear-through; Repeat plays it again.</span></div>' +
       '<div id="tdb-vs-listen-progress" class="tdb-vs-listen-progress hidden" role="group" aria-label="Narration progress">' +
       '<p id="tdb-vs-listen-progress-label" class="tdb-vs-progress-label"></p>' +
       '<div id="tdb-vs-listen-progress-track" class="tdb-vs-progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="1" aria-valuenow="1">' +
@@ -764,7 +764,7 @@
       '</div></div></details></div></div>' +
       '<div class="vs-actions">' +
       '<button type="button" id="vs-save-mystudy" class="vs-action-btn vs-action-btn--primary" aria-label="Save this verse study to My Study on this device">Save to My Study</button>' +
-      '<button type="button" id="vs-add-memorize" class="vs-action-btn" aria-label="Add this verse to your memory list on this device">Add to my memory list</button>' +
+      '<button type="button" id="vs-add-memorize" class="vs-action-btn" aria-label="Add this verse to your memory list on this device">Add to your memory list</button>' +
       '<button type="button" id="vs-save-journal" class="vs-action-btn" aria-label="Save a line about this verse to What God has done on this device">Save to What God has done</button>' +
       '<button type="button" id="vs-print" class="vs-action-btn" aria-label="Print this verse study">Print this study</button></div>' +
       '<p class="vs-footer">Everything here stays on your device.</p>' +
@@ -1164,7 +1164,7 @@
       var prev = String(obj[r] || '').trim();
       obj[r] = prev ? prev + '\n\n' + block : block;
       localStorage.setItem(NOTES_KEY, JSON.stringify(obj));
-      if (st) st.textContent = 'Saved to My Study on this device.';
+      if (st) st.textContent = 'Saved privately on this device.';
       try {
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_save_mystudy', { ok: true });
       } catch (e) {}
@@ -1174,7 +1174,7 @@
           global.TDB_handleStorageError();
         } catch (e2) {}
       }
-      if (st) st.textContent = 'Could not save. Storage may be full.';
+      if (st) st.textContent = 'Could not save—storage may be full. Try again when you can.';
     }
     setTimeout(function () {
       if (st) st.textContent = '';
@@ -1204,7 +1204,7 @@
     } else if (isMemLiteStored(r)) {
       if (st) st.textContent = 'Already on your memory list.';
     } else if (addMemLiteEntry(r)) {
-      if (st) st.textContent = 'Added to your memory list. Open Memorize when you want a quiet review.';
+      if (st) st.textContent = 'Added to your memory list on this device. Open Memorize when you want a quiet review.';
       try {
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_memorize', { ok: true });
       } catch (e) {}
@@ -1258,7 +1258,7 @@
       p.version = WGHD_VERSION;
       p.entries = entries;
       localStorage.setItem(WGHD_KEY, JSON.stringify(p));
-      if (st) st.textContent = 'Saved to What God has done on this device.';
+      if (st) st.textContent = 'Saved privately on this device.';
       try {
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_journal', { ok: true });
       } catch (e) {}
@@ -1268,7 +1268,7 @@
           global.TDB_handleStorageError();
         } catch (e2) {}
       }
-      if (st) st.textContent = 'Could not save journal. Storage may be full.';
+      if (st) st.textContent = 'Could not save—storage may be full. Try again when you can.';
     }
     setTimeout(function () {
       if (st) st.textContent = '';

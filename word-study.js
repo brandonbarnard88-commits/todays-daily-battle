@@ -682,12 +682,12 @@
       var prev = String(obj[r] || '').trim();
       obj[r] = prev ? prev + '\n\n' + lines : lines;
       localStorage.setItem(NOTES_KEY, JSON.stringify(obj));
-      if (st) st.textContent = 'Saved to My Study on this device.';
+      if (st) st.textContent = 'Saved privately on this device.';
       try {
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_wordstudy_save_mystudy', { ok: true });
       } catch (e) {}
     } catch (err) {
-      if (st) st.textContent = 'Could not save. Storage may be full.';
+      if (st) st.textContent = 'Could not save—storage may be full. Try again when you can.';
     }
     setTimeout(function () {
       if (st) st.textContent = '';

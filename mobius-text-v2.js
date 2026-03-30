@@ -270,7 +270,7 @@
         var st = $('mobius-v2-save-status');
         if (st) {
           st.hidden = false;
-          st.textContent = 'Saved to My Study on this device. Open Study to see your notes.';
+          st.textContent = 'Saved privately on this device. Open My Study to see your notes.';
         }
       });
     }

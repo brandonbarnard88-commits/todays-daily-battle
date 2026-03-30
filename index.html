@@ -5224,7 +5224,8 @@
         </div>
         <button class="verse-img-share" type="button" id="verseImgShare" aria-label="Share this verse image">Share ↗</button>
       </div>
-      <script src="hero-daily-first-paint.js?v=20260328defer365"></script>
+      <script src="hero-hero-pools.js?v=20260328pools"></script>
+      <script defer src="hero-daily-first-paint.js?v=20260328pools"></script>
       </div><!-- /#main-content -->
 
       <!-- ── How's this helping? (feedback for future priorities) ── -->
@@ -5894,7 +5895,7 @@
 
   <script nonce="tdb2025s" src="/sky-ip-geo.js?v=20260327ipgeo"></script>
   <script nonce="tdb2025s">
-    // Hero verse: first paint in hero-daily-first-paint.js; 365 list loads async (hero-daily-365-data.js).
+    // Hero verse: hero-hero-pools.js (sync so this block sees OFFLINE_PACK); hero-daily-first-paint.js (defer); 365 idle. Dist injects today’s verse into HTML.
     const OFFLINE_PACK = window.__TDB_HERO_OFFLINE_PACK || [];
     const VERSES = window.__TDB_HERO_VERSES || [];
 
@@ -9562,8 +9563,8 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script src="word-study.js?v=20260430a11y-modals"></script>
-  <script src="verse-narration.js?v=20260329narr11"></script>
-  <script src="verse-study.js?v=20260329verse-study11"></script>
+  <script src="verse-narration.js?v=20260329narr12"></script>
+  <script src="verse-study.js?v=20260329verse-study12"></script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260430a11y-modals" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->

@@ -89,6 +89,7 @@ const rootFiles = [
   'sw.js',
   'daily-verse-widget.js',
   'hero-daily-365-data.js',
+  'hero-hero-pools.js',
   'hero-daily-first-paint.js',
   'inline-bootstrap.js',
   'ga-config.js',

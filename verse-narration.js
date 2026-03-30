@@ -252,8 +252,12 @@
     });
   }
 
+  function verseStudyHighlightEl() {
+    return document.getElementById('vs-full-verse') || document.getElementById('tdb-vs-verse');
+  }
+
   function clearVerseStudyHighlight() {
-    var v = document.getElementById('tdb-vs-verse');
+    var v = verseStudyHighlightEl();
     if (v) v.classList.remove('tdb-vs-verse--tts-speak');
   }
 
@@ -326,7 +330,7 @@
     function applyHL(el) {
       clearLineHL();
       if (opts.highlightMode === 'reader' && el && el.classList) el.classList.add('reader-verse-line--tts-active');
-      var vs = document.getElementById('tdb-vs-verse');
+      var vs = verseStudyHighlightEl();
       if (opts.highlightMode === 'verse-study' && vs) vs.classList.add('tdb-vs-verse--tts-speak');
       if (heroEl && heroEl.classList) heroEl.classList.add('tdb-tts-highlight-active');
     }

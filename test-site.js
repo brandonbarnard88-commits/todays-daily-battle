@@ -14,7 +14,7 @@ const OFFLINE = process.argv.includes('--offline');
 const BASE = 'http://127.0.0.1:8765';
 const DIST = path.join(__dirname, 'dist');
 const pages = [
-  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'What battle are you facing today?', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator', 'sky-ip-geo.js?v=20260327ipgeo', '<button type="button" id="family-armor-stories-btn"', 'id="armor-builder-btn"', 'id="family-armor-kids-library-link"', 'kids/corner.html', 'id="hero-save-my-verses"', 'script.js?v=20260430a11y-modals', 'footer-build-stamp.js?v=20260329fdbuild', 'id="en-hub-daily-verse"', 'data-tdb-hub-daily-rotate', 'Official calendar', 'Extra anchor (KJV)', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)', 'href="/es/"', 'data-tdb-pick="es"', 'href="/fr/"', 'data-tdb-pick="fr"', 'href="/pt/"', 'data-tdb-pick="pt"', 'hreflang="x-default" href="https://todaysdailybattle.com/"', 'hreflang="es" href="https://todaysdailybattle.com/es/"', 'hreflang="fr" href="https://todaysdailybattle.com/fr/"', 'hreflang="pt" href="https://todaysdailybattle.com/pt/"', 'tdb-hero-lang-today-stack', 'id="tdb-hero-lang-label"', 'tdb-lang-switcher--hero-secondary', 'id="tdb-start-lang-label"', 'id="tdb-lang-eyebrow"', 'Explore → Languages lists', 'id="tdb-hero-lang-hint"', 'stay English for now', 'tdb-pwa-nudge', 'Built from pain, not polish', 'href="/family.html"', 'href="/mission-outreach-packs.html"', 'bible/tools.html', 'Study workshop', 'explore.html#start-here', 'First time?'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
+  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'What battle are you facing today?', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator', 'sky-ip-geo.js?v=20260327ipgeo', '<button type="button" id="family-armor-stories-btn"', 'id="armor-builder-btn"', 'id="family-armor-kids-library-link"', 'kids/corner.html', 'id="hero-save-my-verses"', 'script.js?v=20260430a11y-modals', 'footer-build-stamp.js?v=20260329fdbuild', 'id="en-hub-daily-verse"', 'data-tdb-hub-daily-rotate', 'Official calendar', 'Extra anchor (KJV)', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)', 'href="/es/"', 'data-tdb-pick="es"', 'href="/fr/"', 'data-tdb-pick="fr"', 'href="/pt/"', 'data-tdb-pick="pt"', 'hreflang="x-default" href="https://todaysdailybattle.com/"', 'hreflang="es" href="https://todaysdailybattle.com/es/"', 'hreflang="fr" href="https://todaysdailybattle.com/fr/"', 'hreflang="pt" href="https://todaysdailybattle.com/pt/"', 'tdb-hero-lang-today-stack', 'id="tdb-hero-lang-label"', 'tdb-lang-switcher--hero-secondary', 'id="tdb-start-lang-label"', 'id="tdb-lang-eyebrow"', 'Explore → Languages lists', 'id="tdb-hero-lang-hint"', 'stay English for now', 'tdb-pwa-nudge', 'Built from pain, not polish', 'href="/family.html"', 'href="/mission-outreach-packs.html"', 'bible/tools.html', 'Study workshop', 'explore.html#start-here', 'First time?', 'hero-hero-pools.js?v=20260328pools', 'hero-daily-first-paint.js?v=20260328pools', 'data-tdb-hero-prebuilt="1"'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance', 'hreflang="pt" href="https://todaysdailybattle.com/pt/terms.html"'] },
   { path: '/pricing.html', name: 'Pricing', mustInclude: ['Pricing', 'Subscribe', 'terms.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html', 'Privacy is simple here', 'Friday email list', 'hreflang="pt" href="https://todaysdailybattle.com/pt/privacy.html"'] },
@@ -171,6 +171,18 @@ function run() {
   (async () => {
     if (OFFLINE) {
       console.log('Testing site (OFFLINE — reading from dist/)\n');
+      const idxPath = path.join(DIST, 'index.html');
+      if (fs.existsSync(idxPath)) {
+        const raw = fs.readFileSync(idxPath, 'utf8');
+        if (raw.includes('hero-hero-pools.js') && !raw.includes('data-tdb-hero-prebuilt="1"')) {
+          console.error(
+            'test-site: dist/index.html is missing data-tdb-hero-prebuilt="1" (build inject step).\n' +
+              'Run: npm run build — then retry npm run test:site\n' +
+              '(Stale dist/ from before inject-home-hero.mjs, or copy-static without inject.)'
+          );
+          process.exit(1);
+        }
+      }
     } else {
       console.log('Testing site at', BASE, '\n');
     }
@@ -200,7 +212,6 @@ function run() {
       }
     }
     // Search logic: full-text search with synonym expansion (selfless→love) and fallback verses
-    const fs = require('fs');
     const script = fs.readFileSync(__dirname + '/script.js', 'utf8');
     const hasSelflessExpansion = script.includes("'selfless'") && script.includes('love');
     const hasExpandKeywords = script.includes('expandKeywords') && script.includes('rawTokens');

@@ -38,6 +38,7 @@ PAGES = [
     ("/team-toolkit.html", "Team Toolkit", ["Team", "Ready-to-use packs", "id=\"auth-section\""]),
     ("/resources.html", "Pastor Resources", ["Resources", "id=\"auth-section\""]),
     ("/message.html", "Message Board", ["Message", "id=\"auth-section\"", "tdb-privacy-whisper", "Before you post:", "hreflang=\"pt\" href=\"https://todaysdailybattle.com/pt/mural.html\""]),
+    ("/prayer-wall.html", "Prayer wall bridge", ["location.replace('/#prayer-wall')", "Homepage prayer wall", "message.html#message-board", "tt-bootstrap.js", "tdb-cache-hygiene:"]),
     ("/reading-plan.html", "Reading Plan", ["Reading", "id=\"auth-section\""]),
     ("/plans.html", "Battle Plans", ["Battle Plans", "plan-list", "planIndex", "id=\"plans-lane-foundations\"", "plans-lane-quick", "href=\"#plans-lane-pain\"", "id=\"plans-lane-uncertainty\"", "id=\"plans-lane-fear\"", "id=\"plans-lane-family\"", "id=\"planFamilyIntro\"", "plan-family-intro", "familyworship", "Family Worship in the Trenches", "psalmscomfortfamily", "Psalms of Comfort (Family Edition)", "hreflang=\"pt\" href=\"https://todaysdailybattle.com/pt/planos.html\"", "tdb-mobius-journal", "Save to loop journal", "mobius.html#mobius-loop-journal", "tdb-cache-hygiene:"]),
     ("/bible-tool.html", "Bible Tool", ["Bible Tool", "Study workshop", "bible/tools.html", "Bible stories", "bible-story-tool-index.js", "Featured this week", "corner.html?story=davidGoliath", "id=\"lookup-btn\"", "id=\"daily-ref\"", "Read full chapter", "verse-image.html", "tdb-cache-hygiene:"]),

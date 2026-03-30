@@ -119,6 +119,16 @@
       "source": "/donations/:path*",
       "destination": "https://buymeacoffee.com/todaysdailybattle",
       "permanent": true
+    },
+    {
+      "source": "/prayer-wall",
+      "destination": "/#prayer-wall",
+      "permanent": true
+    },
+    {
+      "source": "/prayer-wall/",
+      "destination": "/#prayer-wall",
+      "permanent": true
     }
   ],
   "headers": [

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- tdb-cache-hygiene: bump purge if this bridge changes -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prayer wall — Today&rsquo;s Daily Battle</title>
+  <meta name="description" content="Anonymous prayers on the homepage, or the full message board when you are signed in.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/">
+  <meta http-equiv="refresh" content="0;url=/#prayer-wall">
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260315p">
+  <style>
+    .pw-bridge {
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 1.5rem 1.25rem 2.5rem;
+      max-width: 34rem;
+      margin: 0 auto;
+    }
+    .pw-bridge h1 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--muted, #94a3b8);
+      margin: 0 0 0.65rem;
+    }
+    .pw-bridge p {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--text, #e2e8f0);
+      margin: 0 0 1rem;
+    }
+    .pw-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: 1.25rem;
+    }
+    .pw-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+    .pw-actions a:focus-visible {
+      outline: 2px solid var(--gold, #e3bc67);
+      outline-offset: 2px;
+    }
+    .pw-actions a.pw-primary {
+      border-color: rgba(227, 188, 103, 0.45);
+      background: rgba(227, 188, 103, 0.08);
+      color: var(--gold, #e3bc67);
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <a href="#pw-main" class="skip-link">Skip to main content</a>
+  <main class="pw-bridge" id="pw-main">
+    <h1>Prayer wall</h1>
+    <p>Taking you to the quiet wall on the home page. If you stay here, choose a link below.</p>
+    <nav class="pw-actions" aria-label="Prayer wall destinations">
+      <a class="pw-primary" href="/#prayer-wall">Homepage prayer wall</a>
+      <a href="/message.html#message-board">Full message board</a>
+      <a href="/">Home</a>
+    </nav>
+  </main>
+  <script nonce="tdb2025s">
+    (function () {
+      'use strict';
+      try {
+        location.replace('/#prayer-wall');
+      } catch (e) {
+        /* noscript + links remain */
+      }
+    })();
+  </script>
+</body>
+</html>

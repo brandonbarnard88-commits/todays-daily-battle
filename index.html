@@ -3632,6 +3632,14 @@
       font-weight: 500;
       color: color-mix(in srgb, var(--muted) 88%, var(--gold-soft) 12%);
       max-width: 36rem;
+      overflow-wrap: anywhere;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+    @media (max-width: 380px) {
+      .hero-daily-subline {
+        font-size: clamp(0.88rem, 4.2vw, 1rem);
+      }
     }
     .hero-daily-welcome {
       margin: 0 0 0.85rem;

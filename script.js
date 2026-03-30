@@ -11685,17 +11685,24 @@ function tdbGetDailyVerseRefFromCard(card) {
   if (!card || !card.querySelector) return '';
   var el = card.querySelector('#daily-verse-ref') ||
     card.querySelector('.daily-verse-ref') ||
+    card.querySelector('#kids-daily-verse-ref') ||
+    card.querySelector('#family-daily-verse-ref') ||
+    card.querySelector('#family-armor-hero-ref') ||
     card.querySelector('#heroRef') ||
     card.querySelector('#verse-ref') ||
     card.querySelector('#desktop-verse-ref') ||
     card.querySelector('strong');
-  return el ? String(el.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+  return el ? String(el.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s*·\s*KJV\s*$/i, '').trim() : '';
 }
 function tdbGetDailyVerseTextFromCard(card) {
   if (!card || !card.querySelector) return '';
   var el = card.querySelector('#daily-verse-text');
   if (el) return String(el.textContent || '').replace(/\s+/g, ' ').trim();
-  el = card.querySelector('#verse-text') || card.querySelector('#desktop-verse-text');
+  el = card.querySelector('#kids-daily-verse-text') ||
+    card.querySelector('#family-daily-verse-text') ||
+    card.querySelector('#family-armor-hero-text') ||
+    card.querySelector('#verse-text') ||
+    card.querySelector('#desktop-verse-text');
   if (el) return String(el.textContent || '').replace(/\s+/g, ' ').trim();
   el = card.querySelector('#heroVerse');
   if (el) {
@@ -11748,6 +11755,9 @@ function tdbGetCalmVerseRefAndTextFromPage() {
 function tdbGetDailyVerseBodyElementFromCard(card) {
   if (!card || !card.querySelector) return null;
   var byId = card.querySelector('#daily-verse-text') ||
+    card.querySelector('#kids-daily-verse-text') ||
+    card.querySelector('#family-daily-verse-text') ||
+    card.querySelector('#family-armor-hero-text') ||
     card.querySelector('#verse-text') ||
     card.querySelector('#desktop-verse-text');
   if (byId) return byId;

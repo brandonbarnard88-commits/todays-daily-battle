@@ -34,7 +34,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="stylesheet" href="kids/kids-page-sky.css?v=20260326playful">
-  <link rel="stylesheet" href="kids-corner.css?v=8">
+  <link rel="stylesheet" href="kids-corner.css?v=9">
   <link rel="stylesheet" href="loop-player.css?v=2">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -259,9 +259,12 @@
           <h2 class="section-divider kids-section-divider">Verse of the day</h2>
           <p class="kids-daily-verse-lead section-note">Same Bible pick as the grown-up page today&mdash;King James (KJV).</p>
           <div class="kids-daily-verse-card" id="kids-daily-verse-card">
-            <p class="kids-daily-verse-quote" id="kids-daily-verse-text" aria-live="polite">Loading today&rsquo;s verse&hellip;</p>
-            <p class="kids-daily-verse-ref" id="kids-daily-verse-ref"></p>
+            <p class="kids-daily-verse-ref daily-verse-ref" id="kids-daily-verse-ref"></p>
+            <blockquote class="daily-verse-body kids-daily-verse-body" aria-labelledby="kids-daily-verse-ref">
+              <p class="kids-daily-verse-quote daily-verse-text" id="kids-daily-verse-text" aria-live="polite">Loading today&rsquo;s verse&hellip;</p>
+            </blockquote>
           </div>
+          <p class="section-note tdb-privacy-whisper kids-family-privacy-whisper" role="note">Stars and loop taps stay on this device unless a grown-up turns on sync&mdash;we don&rsquo;t sell play data. <a href="/privacy.html">Privacy</a> has the short version.</p>
           <p class="section-note kids-daily-verse-foot">Grown-ups: <a href="/verse.html">Verse of the Day</a> has the full page.</p>
           <p class="section-note kids-daily-verse-foot"><a href="family.html">Family hub</a> &mdash; worship together, printable activity packs, and a teen journal sheet (KJV, on-device).</p>
         </section>
@@ -503,7 +506,7 @@
   <script src="loop-feedback-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer crossorigin></script>
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
-  <script src="kids-corner-daily-verse.js?v=3" defer></script>
+  <script src="kids-corner-daily-verse.js?v=4" defer></script>
   <script src="sky-ip-geo.js?v=20260327ipgeo" defer></script>
   <script src="kids/kids-page-sky.js?v=20260327ipgeo" defer></script>
 </body>

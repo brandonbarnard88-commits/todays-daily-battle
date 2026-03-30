@@ -1246,6 +1246,9 @@
       <div id="planEasterIntro" class="plan-detail-intro" hidden aria-label="About Resurrection Hope">
         <p>This path is a gentle celebration of the empty tomb and living hope—honest about the cross, steady about the third day, and quiet about whatever you carry. No hype: one KJV verse a day, plain words, a small step, and prayer. Want shorter read-alouds (including Christ as firstfruits)? Open <a href="he-is-risen.html">He is risen</a>—any time of year.</p>
       </div>
+      <div id="planFamilyIntro" class="plan-detail-intro plan-family-intro" hidden aria-label="Family plan progress on this device">
+        <p>Each plan keeps its own day on this device. This family track does not share a day counter with a different Battle Plan you might open for yourself&mdash;no mixing, no rush to align two rhythms.</p>
+      </div>
       <div class="day-pills" id="dayPills" role="list" aria-label="Day selector"></div>
       <p class="plans-detail-nav-hint" id="plansDetailNavHint"><strong>Next day:</strong> tap the next open day along the strip. <strong>Jump:</strong> tap any day you&rsquo;ve already unlocked. <strong>Links:</strong> <code class="plans-code">?day=</code> in the URL opens that day when your progress allows—never ahead of what you&rsquo;ve finished.</p>
       <div id="planCompleteCard" class="plan-complete-card">
@@ -2258,6 +2261,17 @@
         } else {
           eIntro.hidden = true;
           eIntro.setAttribute('hidden', '');
+        }
+      }
+      var fIntro = document.getElementById('planFamilyIntro');
+      if (fIntro) {
+        var isFamilyPlan = plan.id === 'familyworship' || plan.id === 'psalmscomfortfamily' || plan.id === 'parenting';
+        if (isFamilyPlan) {
+          fIntro.hidden = false;
+          fIntro.removeAttribute('hidden');
+        } else {
+          fIntro.hidden = true;
+          fIntro.setAttribute('hidden', '');
         }
       }
 

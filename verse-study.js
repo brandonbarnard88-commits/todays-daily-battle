@@ -1,7 +1,7 @@
 /**
- * Verse study sheet v2 — full-screen-friendly calm sheet, lexicon-tapped verse + key words,
- * combined “why today,” related passages, Listen, and actions. Wraps TDBWordStudy.open.
- * Depends: word-study.js (TDBWordStudy). Optional: TDBStudyCompanion, TDBVerseNarration, trackEvent.
+ * Verse study v2.1 — dialog with lex verse taps, key-word gloss (details) + Open full study,
+ * woven “why today” from lexicon w fields, themed cross-refs, unified Listen + action footer.
+ * Wraps TDBWordStudy.open. Depends: word-study.js (TDBWordStudy). Optional: TDBStudyCompanion, TDBVerseNarration, trackEvent.
  */
 (function (global) {
   'use strict';
@@ -24,7 +24,7 @@
     '#verse-study-sheet.tdb-calm-sheet{position:relative;z-index:1;width:100%;max-width:32rem;max-height:min(100dvh,900px);overflow-x:hidden;overflow-y:auto;margin:0;padding:1rem 1.15rem calc(1rem + env(safe-area-inset-bottom,0px));border-radius:20px 20px 0 0;border:1px solid rgba(212,200,170,.55);border-bottom:none;background:linear-gradient(180deg,#fffdf8 0%,#faf7f0 42%);box-shadow:0 -24px 60px rgba(28,24,18,.18),0 6px 28px rgba(28,24,18,.08);color:#1c1917;display:flex;flex-direction:column;gap:.85rem;-webkit-overflow-scrolling:touch}' +
     '@media(min-width:560px){#tdb-verse-study-layer{align-items:center;padding:1rem}#verse-study-sheet.tdb-calm-sheet{border-radius:20px;border-bottom:1px solid rgba(212,200,170,.55);max-height:min(92vh,880px);padding-bottom:1.2rem}}' +
     '@media(max-width:559px){#verse-study-sheet.tdb-calm-sheet{max-height:100dvh;border-radius:0}}' +
-    '#verse-study-sheet.tdb-calm-sheet>header{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;margin:0 0 .15rem}' +
+    '#verse-study-sheet.tdb-calm-sheet>header.vs-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;margin:0 0 .15rem}' +
     '#vs-ref{margin:0;font-size:clamp(1.08rem,3.4vw,1.32rem);font-weight:700;color:#7c5c1c;line-height:1.25;flex:1 1 auto;padding-right:.25rem}' +
     '#vs-close{flex-shrink:0;min-width:48px;min-height:48px;padding:0;font-size:1.35rem;line-height:1;font-weight:400;font-family:inherit;border-radius:12px;border:1px solid rgba(90,78,58,.28);background:#fff;cursor:pointer;color:#44403c}' +
     '#vs-close:hover,#vs-close:focus-visible{outline:2px solid rgba(227,188,103,.55);outline-offset:2px}' +
@@ -35,29 +35,34 @@
     '.tdb-vs-verse-word--lex{font-weight:600;color:#5c4a24}' +
     '.vs-section-title{margin:0 0 .4rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b5a3c}' +
     '.vs-why{margin:0;padding:.8rem .9rem;border-radius:14px;background:rgba(227,188,103,.14);border:1px solid rgba(227,188,103,.28)}' +
-    '#vs-why-text{margin:0;font-size:.94rem;line-height:1.58;color:#292524}' +
+    '#vs-why-text.vs-why-text{margin:0;font-size:.94rem;line-height:1.62;color:#292524}' +
     '.vs-key-words{margin:0}' +
-    '#vs-token-detail{margin:0 0 .55rem;padding:.7rem .8rem;border-radius:14px;background:rgba(255,252,245,.95);border:1px solid rgba(200,180,140,.4)}' +
-    '#vs-token-detail.vs-token-detail--empty{display:none!important}' +
-    '.vs-token-label{margin:0 0 .35rem;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#78716c}' +
-    '#vs-token-gloss{margin:0 0 .45rem;font-size:.9rem;line-height:1.5;color:#1c1917;font-weight:600}' +
-    '#vs-token-read{margin:0 0 .45rem;font-size:.86rem;line-height:1.52;color:#44403c}' +
-    '#vs-token-why{margin:0;font-size:.88rem;line-height:1.55;color:#292524}' +
-    '.vs-token-full-study-btn{margin-top:.55rem;min-height:44px;padding:.42rem .85rem;border-radius:10px;border:1px solid rgba(138,112,48,.42);background:#fff;color:#3d3420;font-weight:700;font-size:.82rem;font-family:inherit;cursor:pointer;width:100%}' +
-    '.vs-token-full-study-btn:hover,.vs-token-full-study-btn:focus-visible{outline:2px solid rgba(227,188,103,.45);outline-offset:2px}' +
     '.vs-why h3,.vs-key-words h3,.vs-related h3{margin:.15rem 0 .4rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b5a3c}' +
     '.vs-key-words.vs-key-words--empty{display:none!important}' +
-    '.word-tokens{display:flex;flex-wrap:wrap;gap:.4rem .45rem}' +
-    '.vs-word-token{min-height:44px;padding:.38rem .75rem;border-radius:999px;border:1px solid rgba(138,112,48,.38);background:#fff;color:#3d3420;font-weight:600;font-size:.84rem;font-family:inherit;cursor:pointer;box-shadow:0 1px 3px rgba(28,24,18,.06)}' +
-    '.vs-word-token:hover,.vs-word-token:focus-visible{outline:2px solid rgba(227,188,103,.5);outline-offset:2px}' +
-    '.vs-word-token--active{background:rgba(227,188,103,.22);border-color:rgba(124,92,28,.45)}' +
+    '.word-tokens{display:flex;flex-wrap:wrap;gap:.5rem .55rem;align-items:flex-start}' +
+    'details.vs-kw-details{flex:0 1 auto;max-width:100%;border-radius:999px}' +
+    'details.vs-kw-details summary.vs-word-token{list-style:none;min-height:44px;padding:.38rem .75rem;border-radius:999px;border:1px solid rgba(138,112,48,.38);background:#fff;color:#3d3420;font-weight:600;font-size:.84rem;font-family:inherit;cursor:pointer;box-shadow:0 1px 3px rgba(28,24,18,.06)}' +
+    'details.vs-kw-details summary.vs-word-token::-webkit-details-marker{display:none}' +
+    'details.vs-kw-details summary.vs-word-token:hover,details.vs-kw-details summary.vs-word-token:focus-visible{outline:2px solid rgba(227,188,103,.5);outline-offset:2px}' +
+    'details.vs-kw-details[open] summary.vs-word-token{border-color:rgba(124,92,28,.5);background:rgba(227,188,103,.12)}' +
+    '.vs-kw-panel{margin:.45rem 0 0;padding:.65rem .75rem;border-radius:14px;border:1px solid rgba(200,180,140,.5);background:#fffdf9;box-shadow:0 4px 14px rgba(28,24,18,.08);max-width:min(20rem,100%)}' +
+    '.vs-kw-gloss{margin:0 0 .55rem;font-size:.84rem;line-height:1.52;color:#292524}' +
+    '.vs-kw-open-study{display:block;width:100%;min-height:44px;padding:.45rem .75rem;border-radius:12px;border:1px solid rgba(138,112,48,.45);background:linear-gradient(180deg,rgba(255,236,188,.9) 0%,rgba(227,188,103,.45) 100%);color:#3d3420;font-weight:700;font-size:.83rem;font-family:inherit;cursor:pointer}' +
+    '.vs-kw-open-study:hover,.vs-kw-open-study:focus-visible{outline:2px solid rgba(227,188,103,.55);outline-offset:2px}' +
     '.vs-related{margin:0}' +
     '.vs-related.vs-related--empty{display:none!important}' +
-    '#vs-related-list{display:flex;flex-direction:column;gap:.45rem}' +
+    '#vs-related-list.related-list{display:flex;flex-direction:column;gap:.85rem}' +
+    '.theme-group{margin:0}' +
+    '.theme-group h4{margin:0 0 .35rem;font-size:.82rem;font-weight:700;color:#3d3420;line-height:1.35}' +
+    '.theme-group-sub{margin:0 0 .45rem;font-size:.8rem;line-height:1.5;color:#57534e}' +
+    '.ref-list{display:flex;flex-wrap:wrap;gap:.4rem}' +
+    'a.related-ref{display:inline-flex;align-items:center;min-height:44px;padding:.32rem .7rem;border-radius:10px;border:1px solid rgba(30,64,175,.3);background:#fff;color:#1e40af;font-weight:600;font-size:.82rem;text-decoration:none;font-family:inherit;cursor:pointer;box-sizing:border-box}' +
+    'a.related-ref:hover,a.related-ref:focus-visible{outline:2px solid rgba(227,188,103,.5);outline-offset:2px;border-color:rgba(124,92,28,.42);color:#1c3d8a}' +
     '.vs-related-study-btn{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;width:100%;min-height:48px;padding:.55rem .75rem;border-radius:12px;border:1px solid rgba(90,78,58,.22);background:#fff;text-align:left;font:inherit;cursor:pointer;color:#1c1917}' +
     '.vs-related-study-btn strong{font-size:.9rem;font-weight:700;color:#1e40af}' +
     '.vs-related-study-btn span{font-size:.78rem;color:#78716c;font-weight:500}' +
     '.vs-related-study-btn:hover,.vs-related-study-btn:focus-visible{outline:2px solid rgba(227,188,103,.45);outline-offset:2px;border-color:rgba(138,112,48,.4)}' +
+    '.vs-sheet-footer{margin-top:.15rem;padding-top:.85rem;border-top:1px solid rgba(212,200,170,.5);display:flex;flex-direction:column;gap:.75rem}' +
     '.vs-audio{margin:0}' +
     '#vs-listen-btn.hidden{display:none!important}' +
     '#tdb-vs-listen-block{margin:0;padding:.85rem .9rem;border-radius:16px;border:2px solid rgba(200,168,88,.45);background:linear-gradient(180deg,rgba(255,248,230,.92) 0%,rgba(250,244,232,.96) 100%);box-shadow:0 6px 20px rgba(124,92,28,.08)}' +
@@ -85,11 +90,11 @@
     '.tdb-vs-listen-opts input[type=range]{width:100%;max-width:16rem;min-height:32px}' +
     '.tdb-vs-ambient-gain-label{font-size:.78rem;color:#78716c;font-weight:500}' +
     '#vs-full-verse.tdb-vs-verse--tts-speak{box-shadow:0 0 0 2px rgba(227,188,103,.35);border-radius:8px;transition:box-shadow .25s ease}' +
-    '.vs-actions{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.15rem}' +
+    '.vs-actions{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}' +
     '@media(max-width:380px){.vs-actions{grid-template-columns:1fr}}' +
-    '.vs-actions button{min-height:48px;padding:.48rem .65rem;border-radius:12px;border:1px solid rgba(90,78,58,.25);background:#fff;color:#292524;font-weight:600;font-size:.8rem;cursor:pointer;font-family:inherit;line-height:1.25}' +
-    '.vs-actions button:hover,.vs-actions button:focus-visible{outline:2px solid rgba(227,188,103,.45);outline-offset:2px}' +
-    '#vs-save-mystudy{background:rgba(227,188,103,.2);border-color:rgba(138,112,48,.38);font-weight:700}' +
+    '.vs-actions .vs-action-btn{min-height:48px;padding:.5rem .7rem;border-radius:12px;border:1px solid rgba(90,78,58,.28);background:#fff;color:#292524;font-weight:600;font-size:.8rem;cursor:pointer;font-family:inherit;line-height:1.28;box-shadow:0 1px 2px rgba(28,24,18,.04)}' +
+    '.vs-actions .vs-action-btn:hover,.vs-actions .vs-action-btn:focus-visible{outline:2px solid rgba(227,188,103,.5);outline-offset:2px;border-color:rgba(138,112,48,.4)}' +
+    '#vs-save-mystudy.vs-action-btn--primary{background:linear-gradient(180deg,rgba(255,236,188,.88) 0%,rgba(227,188,103,.42) 100%);border-color:rgba(138,112,48,.42);font-weight:700;color:#3d3420}' +
     '#vs-status{margin:0;font-size:.84rem;min-height:1.2em;color:#57534e;order:99}' +
     '.vs-footer{margin:0;font-size:.78rem;line-height:1.45;color:#78716c;text-align:center;order:98}' +
     'body.tdb-verse-study-open{overflow:hidden}';
@@ -102,7 +107,6 @@
   var stateXrefs = [];
   var narrationFromVerseStudy = false;
   var stateLexMap = null;
-  var stateSelectedSurface = '';
   var bibleMapPromise = null;
 
   function escapeRe(s) {
@@ -205,11 +209,154 @@
         return res.ok ? res.json() : {};
       })
       .then(function (d) {
-        return d && d.refs && typeof d.refs === 'object' ? d.refs : {};
+        return {
+          refs: d && d.refs && typeof d.refs === 'object' ? d.refs : {},
+          chains: d && d.chains && typeof d.chains === 'object' ? d.chains : {},
+          themeGroups: Array.isArray(d && d.themeGroups) ? d.themeGroups : []
+        };
       })
       .catch(function () {
-        return {};
+        return { refs: {}, chains: {}, themeGroups: [] };
       });
+  }
+
+  /** Chain IDs whose anchor or verse list includes this reference. */
+  function chainIdsMatchingRef(anchorNorm, chains) {
+    var ids = [];
+    if (!anchorNorm || !chains || typeof chains !== 'object') return ids;
+    Object.keys(chains).forEach(function (id) {
+      var c = chains[id];
+      if (!c || !Array.isArray(c.verses)) return;
+      var anch = normRefKey(c.anchor || '');
+      var hit =
+        anch === anchorNorm ||
+        c.verses.some(function (v) {
+          return normRefKey(v) === anchorNorm;
+        });
+      if (hit) ids.push(id);
+    });
+    return ids;
+  }
+
+  /**
+   * Themed groups from cross-refs.json (themeGroups + chains) relevant to the open verse.
+   * @returns {Array<{title:string,subtitle:string,refs:string[]}>}
+   */
+  function getThemedCrossRefs(anchorRaw, xrefData) {
+    var anchorNorm = normRefKey(anchorRaw);
+    if (!anchorNorm || !xrefData) return [];
+    var chains = xrefData.chains || {};
+    var themeGroups = xrefData.themeGroups || [];
+    var matchedIds = chainIdsMatchingRef(anchorNorm, chains);
+    if (!matchedIds.length) return [];
+    var matchedSet = {};
+    matchedIds.forEach(function (id) {
+      matchedSet[id] = true;
+    });
+
+    var out = [];
+    themeGroups.forEach(function (tg) {
+      var keys = Array.isArray(tg.keys) ? tg.keys : [];
+      var relevant = keys.filter(function (k) {
+        return matchedSet[k];
+      });
+      if (!relevant.length) return;
+
+      var seen = {};
+      var refs = [];
+      relevant.forEach(function (k) {
+        var ch = chains[k];
+        if (!ch || !Array.isArray(ch.verses)) return;
+        ch.verses.forEach(function (v) {
+          var n = normRefKey(v);
+          if (!n || n === anchorNorm || seen[n]) return;
+          seen[n] = true;
+          refs.push(n);
+        });
+      });
+      if (!refs.length) return;
+      out.push({
+        title: String(tg.title || 'Themed passages').trim(),
+        subtitle: String(tg.subtitle || '').trim(),
+        refs: refs.slice(0, 14)
+      });
+    });
+    return out;
+  }
+
+  function appendRelatedRefLinks(container, refList, shownMap, fromRef) {
+    refList.forEach(function (xr) {
+      var n = normRefKey(xr);
+      if (!n || shownMap[n]) return;
+      shownMap[n] = true;
+      var a = document.createElement('a');
+      a.className = 'related-ref';
+      a.href = buildReaderUrl(n, fromRef);
+      a.setAttribute('data-ref', n);
+      a.textContent = n;
+      a.setAttribute('aria-label', 'Study this related verse: ' + n);
+      container.appendChild(a);
+    });
+  }
+
+  function populateRelatedList(rlist, relSec, themedGroups, flatXrefs, fromRef) {
+    if (!rlist) return;
+    rlist.textContent = '';
+    var anchorNorm = normRefKey(fromRef);
+    var shown = {};
+    if (anchorNorm) shown[anchorNorm] = true;
+    var hasContent = false;
+    var anyThemedBlock = false;
+
+    (themedGroups || []).forEach(function (grp) {
+      if (!grp || !grp.refs || !grp.refs.length) return;
+      var wrap = document.createElement('div');
+      wrap.className = 'theme-group';
+      var h = document.createElement('h4');
+      h.textContent = grp.title;
+      wrap.appendChild(h);
+      if (grp.subtitle) {
+        var sub = document.createElement('p');
+        sub.className = 'theme-group-sub';
+        sub.textContent = grp.subtitle;
+        wrap.appendChild(sub);
+      }
+      var refRow = document.createElement('div');
+      refRow.className = 'ref-list';
+      appendRelatedRefLinks(refRow, grp.refs, shown, fromRef);
+      if (refRow.childNodes.length === 0) return;
+      hasContent = true;
+      anyThemedBlock = true;
+      wrap.appendChild(refRow);
+      rlist.appendChild(wrap);
+    });
+
+    var extras = (flatXrefs || []).filter(function (x) {
+      var n = normRefKey(x);
+      return n && !shown[n];
+    });
+    if (extras.length) {
+      hasContent = true;
+      if (anyThemedBlock) {
+        var extraWrap = document.createElement('div');
+        extraWrap.className = 'theme-group vs-related-extra';
+        var hx = document.createElement('h4');
+        hx.textContent = 'Curated for this verse';
+        extraWrap.appendChild(hx);
+        var refRow2 = document.createElement('div');
+        refRow2.className = 'ref-list';
+        appendRelatedRefLinks(refRow2, extras, shown, fromRef);
+        extraWrap.appendChild(refRow2);
+        rlist.appendChild(extraWrap);
+      } else {
+        var refRow3 = document.createElement('div');
+        refRow3.className = 'ref-list';
+        appendRelatedRefLinks(refRow3, extras, shown, fromRef);
+        rlist.appendChild(refRow3);
+      }
+    }
+
+    if (relSec) relSec.classList.toggle('vs-related--empty', !hasContent);
   }
 
   function fetchBibleMap() {
@@ -271,17 +418,6 @@
     });
   }
 
-  function lookupLex(lexMap, token) {
-    if (!lexMap || !token) return null;
-    var k = String(token).toLowerCase();
-    if (lexMap[k]) return lexMap[k];
-    if (k.length > 4 && k.slice(-1) === 's') {
-      var base = k.slice(0, -1);
-      if (lexMap[base]) return lexMap[base];
-    }
-    return null;
-  }
-
   function collectSpans(text, lexMap) {
     var keys = Object.keys(lexMap).filter(function (k) {
       var e = lexMap[k];
@@ -338,6 +474,14 @@
     return picked;
   }
 
+  function ensureSentenceShape(s) {
+    var t = String(s || '').trim();
+    if (!t) return '';
+    if (/[.!?…]["']?$/.test(t)) return t;
+    if (/[.!?…]$/.test(t)) return t;
+    return t + '.';
+  }
+
   function buildWhyFromLexicon(verseText, lexMap, spans) {
     var scored = [];
     var seenK = {};
@@ -354,20 +498,30 @@
     });
     var top = scored.slice(0, 3);
     if (top.length >= 3) {
+      var a = ensureSentenceShape(top[0].w);
+      var b = ensureSentenceShape(top[1].w);
+      var c = ensureSentenceShape(top[2].w);
       return (
-        'This verse gathers a few words that speak quietly into the present moment: ' +
-        top[0].w +
-        ' ' +
-        top[1].w +
-        ' ' +
-        top[2].w
+        'Reading this verse with today in mind, three quiet truths overlap into one encouragement: ' +
+        a +
+        ' The next thread pulls the same way: ' +
+        b +
+        ' A third keeps it grounded: ' +
+        c
       );
     }
     if (top.length === 2) {
-      return 'Two words carry special weight for today: ' + top[0].w + ' ' + top[1].w;
+      var x = ensureSentenceShape(top[0].w);
+      var y = ensureSentenceShape(top[1].w);
+      return (
+        'For today, this verse hands you two lines to stand on together—' +
+        x +
+        ' The other line deepens the same kindness: ' +
+        y
+      );
     }
     if (top.length === 1) {
-      return top[0].w;
+      return ensureSentenceShape(top[0].w);
     }
     return gentleFallbackWhy(verseText);
   }
@@ -401,63 +555,10 @@
     return s.charAt(0).toUpperCase() + s.slice(1);
   }
 
-  function clearTokenDetail() {
-    var box = document.getElementById('vs-token-detail');
-    stateSelectedSurface = '';
-    if (!box) return;
-    box.classList.add('vs-token-detail--empty');
-    var lab = document.getElementById('vs-token-label');
-    var g = document.getElementById('vs-token-gloss');
-    var rd = document.getElementById('vs-token-read');
-    var wy = document.getElementById('vs-token-why');
-    if (lab) lab.textContent = '';
-    if (g) g.textContent = '';
-    if (rd) {
-      rd.textContent = '';
-      rd.classList.add('hidden');
-    }
-    if (wy) wy.textContent = '';
-  }
-
-  function showTokenDetail(surface, entry) {
-    var box = document.getElementById('vs-token-detail');
-    if (!box || !entry) return;
-    stateSelectedSurface = String(surface || '');
-    box.classList.remove('vs-token-detail--empty');
-    var lab = document.getElementById('vs-token-label');
-    var g = document.getElementById('vs-token-gloss');
-    var rd = document.getElementById('vs-token-read');
-    var wy = document.getElementById('vs-token-why');
-    var gloss = String(entry.g || '').trim();
-    var how = String(entry.s || '').trim();
-    var why = String(entry.w || '').trim();
-    if (lab) lab.textContent = stateSelectedSurface ? 'Preview: ' + stateSelectedSurface : 'Word preview';
-    if (g) {
-      g.textContent =
-        gloss ||
-        (why
-          ? 'Gloss: see the full note below.'
-          : 'This KJV word has notes on Today\u2019s Daily Battle—open the full sheet for concordance and context.');
-    }
-    if (rd) {
-      if (how) {
-        rd.textContent = 'How to read it: ' + how;
-        rd.classList.remove('hidden');
-      } else {
-        rd.textContent = '';
-        rd.classList.add('hidden');
-      }
-    }
-    if (wy) wy.textContent = why ? 'Why it matters today: ' + why : '';
-  }
-
-  function setActiveWordToken(btn) {
-    var kw = document.getElementById('vs-key-words-list');
-    if (!kw) return;
-    kw.querySelectorAll('.vs-word-token--active').forEach(function (el) {
-      el.classList.remove('vs-word-token--active');
-    });
-    if (btn) btn.classList.add('vs-word-token--active');
+  function glossForKeyChip(entry) {
+    var g = entry && String(entry.g || '').trim();
+    if (g) return g;
+    return 'Open the full study for the KJV note, concordance, and a steadier read.';
   }
 
   function renderVerseInteractive(container, verseText, spans, lexMap) {
@@ -483,22 +584,20 @@
       btn.textContent = t.slice(sp.start, sp.end);
       btn.setAttribute(
         'aria-label',
-        hasLex ? 'Preview lexicon note for: ' + sp.surface : 'Word study: ' + sp.surface
+        hasLex
+          ? 'Open full word study for: ' + sp.surface
+          : 'Open word study for: ' + sp.surface
       );
+      var glossHint = String(e && e.g ? e.g : '').trim();
+      if (glossHint && hasLex) {
+        btn.setAttribute(
+          'title',
+          glossHint.length > 240 ? glossHint.slice(0, 237) + '…' : glossHint
+        );
+      }
       btn.addEventListener('click', function (ev) {
         ev.preventDefault();
-        setActiveWordToken(null);
-        if (hasLex) {
-          showTokenDetail(sp.surface, e);
-          var de = document.getElementById('vs-token-detail');
-          if (de) {
-            try {
-              de.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-            } catch (err) {}
-          }
-        } else {
-          openWordPanelForLemma(sp.surface);
-        }
+        openWordPanelForLemma(sp.surface);
       });
       container.appendChild(btn);
       i = sp.end;
@@ -562,7 +661,12 @@
 
   function ensureLayer() {
     var stale = document.getElementById('tdb-verse-study-layer');
-    if (stale && !document.getElementById('verse-study-sheet')) {
+    if (
+      stale &&
+      (!document.querySelector('#verse-study-sheet[role="dialog"]') ||
+        stale.querySelector('#vs-token-detail') ||
+        !stale.querySelector('.vs-sheet-footer'))
+    ) {
       try {
         stale.remove();
       } catch (e) {}
@@ -574,30 +678,25 @@
     layer.setAttribute('aria-hidden', 'true');
     layer.innerHTML =
       '<div id="tdb-vs-backdrop" class="tdb-vs-backdrop" tabindex="-1" aria-hidden="true"></div>' +
-      '<div id="tdb-vs-panel" role="dialog" aria-modal="true" aria-labelledby="vs-ref" aria-describedby="vs-why-text">' +
-      '<div id="verse-study-sheet" class="tdb-calm-sheet">' +
-      '<header>' +
+      '<div id="tdb-vs-panel">' +
+      '<div id="verse-study-sheet" class="tdb-calm-sheet" role="dialog" aria-modal="true" aria-labelledby="vs-ref" aria-describedby="vs-why-text">' +
+      '<header class="vs-header">' +
       '<h2 id="vs-ref"></h2>' +
       '<button type="button" id="vs-close" aria-label="Close verse study">✕</button>' +
       '</header>' +
       '<div class="vs-verse">' +
       '<p id="vs-full-verse" class="large-kjv" aria-label="Verse text"></p>' +
-      '<div id="vs-token-detail" class="vs-token-detail vs-token-detail--empty" role="region" aria-label="Word preview">' +
-      '<p class="vs-token-label" id="vs-token-label"></p>' +
-      '<p id="vs-token-gloss"></p>' +
-      '<p id="vs-token-read" class="hidden"></p>' +
-      '<p id="vs-token-why"></p>' +
-      '<button type="button" id="vs-token-full-study" class="vs-token-full-study-btn">Open full word study</button>' +
-      '</div></div>' +
+      '</div>' +
       '<div class="vs-why">' +
       '<h3>Why this verse matters today</h3>' +
-      '<p id="vs-why-text"></p></div>' +
+      '<p id="vs-why-text" class="vs-why-text"></p></div>' +
       '<div class="vs-key-words vs-key-words--empty" id="vs-key-words-section">' +
       '<h3>Key words in this verse</h3>' +
       '<div id="vs-key-words-list" class="word-tokens"></div></div>' +
       '<div class="vs-related vs-related--empty">' +
       '<h3>Related passages</h3>' +
-      '<div id="vs-related-list"></div></div>' +
+      '<div id="vs-related-list" class="related-list"></div></div>' +
+      '<div class="vs-sheet-footer">' +
       '<div class="vs-audio">' +
       '<button type="button" id="vs-listen-btn" class="btn-primary tdb-vs-listen-btn" aria-label="Listen to this verse on your device">' +
       '<span class="tdb-vs-listen-icon" aria-hidden="true">' +
@@ -624,10 +723,11 @@
       '<input type="range" id="tdb-vs-ambient-gain" min="1" max="10" value="5" step="1" aria-label="Undertone strength, 1 quietest to 10 stronger">' +
       '</div></div></details></div></div>' +
       '<div class="vs-actions">' +
-      '<button type="button" id="vs-save-mystudy" aria-label="Save this verse study to My Study on this device">Save to My Study</button>' +
-      '<button type="button" id="vs-add-memorize" aria-label="Add this verse to your memory list on this device">Add to my memory list</button>' +
-      '<button type="button" id="vs-save-journal" aria-label="Save a line about this verse to What God has done on this device">Save to What God has done</button>' +
-      '<button type="button" id="vs-print" aria-label="Print this verse study">Print this study</button></div>' +
+      '<button type="button" id="vs-save-mystudy" class="vs-action-btn vs-action-btn--primary" aria-label="Save this verse study to My Study on this device">Save to My Study</button>' +
+      '<button type="button" id="vs-add-memorize" class="vs-action-btn" aria-label="Add this verse to your memory list on this device">Add to my memory list</button>' +
+      '<button type="button" id="vs-save-journal" class="vs-action-btn" aria-label="Save a line about this verse to What God has done on this device">Save to What God has done</button>' +
+      '<button type="button" id="vs-print" class="vs-action-btn" aria-label="Print this verse study">Print this study</button></div>' +
+      '</div>' +
       '<p class="vs-footer">Everything here stays on your device.</p>' +
       '<p id="vs-status" role="status" aria-live="polite"></p>' +
       '</div></div>';
@@ -655,22 +755,40 @@
         close();
       }
     });
+    var kwrap = document.getElementById('vs-key-words-list');
+    if (kwrap && !kwrap.dataset.tdbVsKwToggle) {
+      kwrap.dataset.tdbVsKwToggle = '1';
+      kwrap.addEventListener('toggle', function (ev) {
+        var t = ev.target;
+        if (!t || !t.classList || !t.classList.contains('vs-kw-details') || !kwrap.contains(t)) return;
+        if (!t.open) return;
+        kwrap.querySelectorAll('details.vs-kw-details').forEach(function (d) {
+          if (d !== t) d.open = false;
+        });
+      }, true);
+    }
     var sheet = document.getElementById('verse-study-sheet');
     if (sheet && sheet.dataset.tdbVsSheetUi !== '1') {
       sheet.dataset.tdbVsSheetUi = '1';
       sheet.addEventListener('click', function (ev) {
-        var kbtn = ev.target.closest('.vs-word-token');
-        var kwrap = document.getElementById('vs-key-words-list');
-        if (kbtn && kwrap && kwrap.contains(kbtn)) {
-          var key = kbtn.getAttribute('data-lemma');
-          var surface = kbtn.getAttribute('data-surface') || key;
-          var ent = stateLexMap && key ? stateLexMap[key] : null;
-          setActiveWordToken(kbtn);
-          if (ent) showTokenDetail(surface, ent);
+        var kOpen = ev.target.closest('.vs-kw-open-study');
+        if (kOpen && kwrap && kwrap.contains(kOpen)) {
+          ev.preventDefault();
+          var det = kOpen.closest('details.vs-kw-details');
+          var surface = det && det.getAttribute('data-surface');
+          if (det) det.open = false;
+          if (surface) openWordPanelForLemma(surface);
+          return;
+        }
+        var arel = ev.target.closest('a.related-ref');
+        var rwrap = document.getElementById('vs-related-list');
+        if (arel && rwrap && rwrap.contains(arel)) {
+          ev.preventDefault();
+          var rref = arel.getAttribute('data-ref');
+          if (rref) openRelatedVerse(rref);
           return;
         }
         var rbtn = ev.target.closest('.vs-related-study-btn');
-        var rwrap = document.getElementById('vs-related-list');
         if (rbtn && rwrap && rwrap.contains(rbtn)) {
           var ref = rbtn.getAttribute('data-ref');
           if (ref) openRelatedVerse(ref);
@@ -685,12 +803,6 @@
     if (mm) mm.addEventListener('click', addMemorize);
     if (jn) jn.addEventListener('click', saveJournal);
     if (pr) pr.addEventListener('click', printStudy);
-    var fs = document.getElementById('vs-token-full-study');
-    if (fs) {
-      fs.addEventListener('click', function () {
-        if (stateSelectedSurface) openWordPanelForLemma(stateSelectedSurface);
-      });
-    }
     var ln = document.getElementById('vs-listen-btn');
     if (ln) ln.addEventListener('click', toggleVerseStudyListen);
     var rv = document.getElementById('tdb-vs-repeat-verse');
@@ -884,6 +996,12 @@
     setVerseStudyListenButtonActive(false);
     var layer = document.getElementById('tdb-verse-study-layer');
     if (!layer) return;
+    var kwl = document.getElementById('vs-key-words-list');
+    if (kwl) {
+      kwl.querySelectorAll('details.vs-kw-details').forEach(function (d) {
+        d.open = false;
+      });
+    }
     layer.classList.add('tdb-vs-hidden');
     layer.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('tdb-verse-study-open');
@@ -1127,7 +1245,6 @@
     var rlist = document.getElementById('vs-related-list');
     var ksec = document.getElementById('vs-key-words-section');
     var klist = document.getElementById('vs-key-words-list');
-    clearTokenDetail();
     if (refEl) refEl.textContent = stateRef ? stateRef + ' (KJV)' : 'Verse study';
     if (whyEl) whyEl.textContent = 'Gathering a gentle read for you…';
     if (verseEl) {
@@ -1137,7 +1254,6 @@
     }
     if (klist) klist.textContent = '';
     if (ksec) ksec.classList.add('vs-key-words--empty');
-    setActiveWordToken(null);
     if (rlist) rlist.textContent = '';
     if (relSec) relSec.classList.add('vs-related--empty');
 
@@ -1151,7 +1267,8 @@
 
     Promise.all([fetchLexiconMap(), fetchCrossRefs()]).then(function (res) {
       var lexMap = res[0] || {};
-      var refMap = res[1] || {};
+      var xrefData = res[1] || { refs: {}, chains: {}, themeGroups: [] };
+      if (!xrefData.refs || typeof xrefData.refs !== 'object') xrefData.refs = {};
       stateLexMap = lexMap;
       var spans = collectSpans(stateText, lexMap);
       stateWhy = buildWhyFromLexicon(stateText, lexMap, spans);
@@ -1165,36 +1282,40 @@
           if (seenKw[sp.key]) return;
           seenKw[sp.key] = true;
           hasKw = true;
-          var chip = document.createElement('button');
-          chip.type = 'button';
-          chip.className = 'vs-word-token';
-          chip.textContent = formatDisplayWord(sp.surface) || sp.key;
-          chip.setAttribute('data-lemma', sp.key);
-          chip.setAttribute('data-surface', sp.surface);
-          klist.appendChild(chip);
+          var det = document.createElement('details');
+          det.className = 'vs-kw-details';
+          det.setAttribute('data-surface', sp.surface);
+          var sum = document.createElement('summary');
+          sum.className = 'vs-word-token';
+          sum.textContent = formatDisplayWord(sp.surface) || sp.key;
+          sum.setAttribute(
+            'aria-label',
+            'Show quick gloss for: ' + (formatDisplayWord(sp.surface) || sp.key)
+          );
+          var panel = document.createElement('div');
+          panel.className = 'vs-kw-panel';
+          var gp = document.createElement('p');
+          gp.className = 'vs-kw-gloss';
+          gp.textContent = glossForKeyChip(lexMap[sp.key]);
+          var openBtn = document.createElement('button');
+          openBtn.type = 'button';
+          openBtn.className = 'vs-kw-open-study';
+          openBtn.textContent = 'Open full study';
+          openBtn.setAttribute(
+            'aria-label',
+            'Open full word study for: ' + (formatDisplayWord(sp.surface) || sp.key)
+          );
+          panel.appendChild(gp);
+          panel.appendChild(openBtn);
+          det.appendChild(sum);
+          det.appendChild(panel);
+          klist.appendChild(det);
         });
         if (ksec) ksec.classList.toggle('vs-key-words--empty', !hasKw);
       }
-      stateXrefs = resolveXrefs(refMap, stateRef);
-      if (rlist) {
-        rlist.textContent = '';
-        if (stateXrefs.length) {
-          if (relSec) relSec.classList.remove('vs-related--empty');
-          stateXrefs.forEach(function (xr) {
-            var btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'vs-related-study-btn';
-            btn.setAttribute('data-ref', xr);
-            var st = document.createElement('strong');
-            st.textContent = xr;
-            var sp = document.createElement('span');
-            sp.textContent = 'Study this related verse';
-            btn.appendChild(st);
-            btn.appendChild(sp);
-            rlist.appendChild(btn);
-          });
-        } else if (relSec) relSec.classList.add('vs-related--empty');
-      }
+      stateXrefs = resolveXrefs(xrefData.refs, stateRef);
+      var themed = getThemedCrossRefs(stateRef, xrefData);
+      if (rlist) populateRelatedList(rlist, relSec, themed, stateXrefs, stateRef);
     });
 
     try {

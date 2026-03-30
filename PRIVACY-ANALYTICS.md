@@ -2,6 +2,8 @@
 
 **Today's Daily Battle is built so your safety and privacy come first.** What you search stays yours. We never want to know who searched, and we never store what you type. That’s locked in code and policy so this stays a safe place, including if anything is ever breached.
 
+**Product analytics (2026):** No raw verse text, journal or prayer body, or personally identifying fields are sent in `trackEvent` / GA parameters—only the structural and aggregate keys listed in the event tables below (and search flows stay on `trackSearchAnalytics` with its allowlist).
+
 ---
 
 ## Privacy in stone: search analytics

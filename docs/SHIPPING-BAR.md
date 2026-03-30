@@ -2,6 +2,19 @@
 
 This is the **definition of done** for tool pages and calm hubs. Ship **A** work only when a hub is being upgraded; otherwise use this as a **dimension pass** checklist (offline, a11y, copy, analytics) rather than one giant project.
 
+## Definition of done (release bar)
+
+Before marking a release or major pass **complete**, confirm:
+
+1. **Offline or honest** — Every tool works from cache / local storage where promised, or states clearly what does not work offline and why.
+2. **Labels + focus** — Every interactive control has a visible or screen-reader name; `:focus-visible` is never removed for primary actions.
+3. **Saves** — On-device saves use calm copy that confirms **on this device** / **privately**; signed-in sync paths say when data syncs across devices.
+4. **No silent failures** — Errors use `aria-live` or visible copy; retry / export / reconnect when reasonable.
+5. **Copy** — First screen, empty, success, and error strings match the **quiet friend at dawn** tone (site rules); no fluff or generic filler.
+6. **Analytics** — New or changed controls use **`trackEvent`** with **privacy-safe** params only, documented in `PRIVACY-ANALYTICS.md`; search uses **`trackSearchAnalytics`** only.
+
+**Automated gate (static + wiring):** `npm run build` then `npm run test:site -- --offline` (and `npm run test`, `npm run test:security` per `.cursorrules`).
+
 ## Non‑negotiables (every tool)
 
 1. **Offline or honest** — Either core value works from cache / local storage, or one clear line explains what failed and what still works. No blank panels after network or storage errors.
@@ -32,6 +45,18 @@ This is the **definition of done** for tool pages and calm hubs. Ship **A** work
 3. DevTools offline (or airplane mode).  
 4. Narrow viewport (~360px).  
 5. Tab through primary actions; Escape from any overlay you opened.
+
+### Verse Study overlay (manual smoke, ~2 minutes)
+
+Run on a page that opens the sheet (e.g. **`bible-tool.html`** after a successful lookup → **Study this verse**, or **Study workspace** paths that call `TDBVerseStudy.open`):
+
+1. **Open** — Sheet appears; focus moves sensibly; **Escape** or backdrop closes it.  
+2. **Keyword** — Tap a word in the verse or a chip; gloss / preview opens without a blank panel.  
+3. **Listen** — **Listen** starts on-device narration; **Stop** stops; **Repeat** (if shown) restarts; optional speed / undertone controls persist without errors.  
+4. **Saves** — **Save to My Study**, **Add to your memory list**, **Save to What God has done** (if used): status confirms **privately / on this device** (or equivalent).  
+5. **Offline** — DevTools → **Offline**; top strip or page copy states offline honestly; cached verse / notes behavior matches expectations (no silent empty crash).
+
+Full dimension passes remain in the table below; this block is the **regression anchor** for Verse Study.
 
 ## Grade (optional hub audit)
 

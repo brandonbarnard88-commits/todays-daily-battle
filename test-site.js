@@ -4,6 +4,8 @@
  * Run: node test-site.js
  *   With server: python3 -m http.server 8765 (in dist/), then node test-site.js
  *   Offline: node test-site.js --offline (reads from dist/)
+ *
+ * Manual smoke — Verse Study overlay: docs/SHIPPING-BAR.md (section “Verse Study overlay”).
  */
 
 const http = require('http');

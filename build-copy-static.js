@@ -681,6 +681,7 @@ if (!fs.existsSync(redirectsPath)) {
 }
 const redirectsContent = fs.readFileSync(redirectsPath, 'utf8');
 const DONATION_REDIRECTS = [
+  { path: '/give', desc: '/give → support destination (quiet-place CTA)' },
   { path: '/donate', desc: '/donate → Buy Me a Coffee' },
   { path: '/stripe', desc: '/stripe → Buy Me a Coffee' },
   { path: '/support', desc: '/support → Buy Me a Coffee' },
@@ -740,7 +741,7 @@ const vercelPath = path.join(root, 'vercel.json');
 if (fs.existsSync(vercelPath)) {
   const vercel = JSON.parse(fs.readFileSync(vercelPath, 'utf8'));
   const redirects = vercel.redirects || [];
-  const requiredSources = ['/donate', '/stripe', '/support', '/donations', '/donations/:path*'];
+  const requiredSources = ['/give', '/donate', '/stripe', '/support', '/donations', '/donations/:path*'];
   const dest = 'https://buymeacoffee.com/todaysdailybattle';
   const missingVercel = requiredSources.filter(function (src) {
     return !redirects.some(function (r) {

@@ -180,7 +180,8 @@
 /our-approach /about.html 301
 /contract /faq.html 301
 
-# Donation/support → Buy Me a Coffee (301)
+# Donation/support → Buy Me a Coffee (301). /give = gentle footer CTA; when Stripe PWYW Payment Link is live, point /give to https://buy.stripe.com/… instead.
+/give https://buymeacoffee.com/todaysdailybattle 301
 /donate https://buymeacoffee.com/todaysdailybattle 301
 /stripe https://buymeacoffee.com/todaysdailybattle 301
 /support https://buymeacoffee.com/todaysdailybattle 301

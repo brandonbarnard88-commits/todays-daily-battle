@@ -91,6 +91,11 @@
       "permanent": true
     },
     {
+      "source": "/give",
+      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "permanent": true
+    },
+    {
       "source": "/donate",
       "destination": "https://buymeacoffee.com/todaysdailybattle",
       "permanent": true

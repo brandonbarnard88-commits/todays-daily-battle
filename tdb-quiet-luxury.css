@@ -901,3 +901,74 @@
     box-shadow: var(--tdb-lux-shadow-card);
   }
 }
+
+/* —— Compact top nav: “More” disclosure (pages that load this file without styles.css) —— */
+@media (max-width: 768px) {
+  .tdb-global-nav:has(details.tdb-nav-more[open]) {
+    overflow: visible;
+  }
+  .tdb-global-nav .tdb-nav-more-panel {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: min(18rem, calc(100vw - 2rem));
+  }
+}
+.tdb-global-nav details.tdb-nav-more {
+  position: relative;
+  flex-shrink: 0;
+}
+.tdb-global-nav details.tdb-nav-more > summary {
+  list-style: none;
+  cursor: pointer;
+  color: rgba(226, 232, 240, 0.85);
+  padding: 0.28rem 0.5rem;
+  border-radius: 6px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+}
+.tdb-global-nav details.tdb-nav-more > summary::-webkit-details-marker {
+  display: none;
+}
+.tdb-global-nav details.tdb-nav-more > summary::after {
+  content: '▾';
+  margin-left: 0.2rem;
+  font-size: 0.65rem;
+  opacity: 0.75;
+}
+.tdb-global-nav details.tdb-nav-more > summary:hover,
+.tdb-global-nav details.tdb-nav-more > summary:focus-visible {
+  color: var(--gold, #e3bc67);
+  background: rgba(227, 188, 103, 0.1);
+  outline: none;
+}
+.tdb-global-nav details.tdb-nav-more > summary:focus-visible {
+  outline: 2px solid rgba(227, 188, 103, 0.7);
+  outline-offset: 2px;
+}
+.tdb-global-nav .tdb-nav-more-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  min-width: 12.5rem;
+  padding: 0.35rem;
+  border-radius: 12px;
+  border: 1px solid rgba(227, 188, 103, 0.28);
+  background: rgba(12, 16, 26, 0.96);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  z-index: 220;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.tdb-global-nav .tdb-nav-more-panel a {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  white-space: normal;
+  line-height: 1.35;
+}

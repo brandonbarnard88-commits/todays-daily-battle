@@ -420,21 +420,69 @@
       color: #e3bc67;
       letter-spacing: 0.02em;
     }
+    #bible-tool-hub {
+      scroll-margin-top: 5.5rem;
+    }
+    .bible-tool-mini-hub {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.85rem;
+      margin: 0.75rem 0 0.5rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      background: rgba(212, 175, 55, 0.06);
+      max-width: 44rem;
+    }
+    .bible-tool-mini-hub-label {
+      font-weight: 600;
+      color: #e3bc67;
+      font-size: 0.92rem;
+      margin-right: 0.15rem;
+    }
+    .bible-tool-mini-hub a {
+      color: #f2dc98;
+      text-decoration: none;
+      font-weight: 500;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .bible-tool-mini-hub a:hover,
+    .bible-tool-mini-hub a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+    .bible-tool-mini-hub a:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.65);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    .bible-tool-mini-hub-sep {
+      color: rgba(148, 163, 184, 0.55);
+      user-select: none;
+    }
   </style>
 </head>
 <body class="dark-mode bible-tool-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="tdb-global-nav" aria-label="Main site navigation">
     <a href="/">Home</a>
-    <a href="explore.html">Explore</a>
-    <a href="calm.html">Calm</a>
     <a href="mobius.html">Möbius</a>
     <a href="plans.html">Plans</a>
-    <a href="/#quick-actions-hero">Topics</a>
-    <a href="explore.html#topics-es" hreflang="es" aria-label="Browse Spanish topics on Explore (Reina-Valera 1960 on Spanish pages; site Bible tool is KJV English)">Spanish topics</a>
-    <a href="kids-corner.html">Kids</a>
-    <a href="bible-tool.html" aria-current="page">Tools</a>
-    <a href="story.html">Story</a>
+    <a href="/kids/?v=hub20260321">Kids</a>
+    <a href="/bible-tool.html#bible-tool-hub" aria-current="page" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
+    <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+    <details class="tdb-nav-more">
+      <summary aria-haspopup="true">More</summary>
+      <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
+        <a href="/explore.html">Explore</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/story.html">Story</a>
+        <a href="/#feel-section">Feel search &amp; topics</a>
+      </div>
+    </details>
   </nav>
   <div class="app-shell">
     <header class="top-bar">
@@ -459,85 +507,7 @@
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <span class="brand-subtitle">KJV verse lookup, notes, and reading plans — no account needed</span>
       </div>
-      <nav class="header-nav header-nav-mega" aria-label="Main">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="/">Home</a></li>
-          <li class="nav-item nav-item-dropdown">
-            <a href="/pastor/" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Pastor <span class="nav-chevron" aria-hidden="true">▾</span></a>
-            <div class="nav-dropdown-panel" aria-hidden="true">
-              <div class="nav-dropdown-inner">
-                <a href="/pastor/">Pastor Hub</a>
-                <a href="pastor/library.html">Library</a>
-                <a href="pastor/builder.html">Builder</a>
-                <a href="pastor/tools.html">Tools</a>
-                <a href="sermon.html">Sermon Builder</a>
-                <a href="pastor-toolkit.html">Pastor Toolkit</a>
-                <a href="message.html">Prayer &amp; Message Board</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item nav-item-dropdown">
-            <a href="church.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Church &amp; Teams <span class="nav-chevron" aria-hidden="true">▾</span></a>
-            <div class="nav-dropdown-panel" aria-hidden="true">
-              <div class="nav-dropdown-inner nav-dropdown-grid">
-                <div class="nav-dropdown-col">
-                  <span class="nav-dropdown-label">Church</span>
-                  <a href="/church/">Church Join Hub</a>
-                  <a href="church/daily.html">Daily for Churches</a>
-                </div>
-                <div class="nav-dropdown-col">
-                  <span class="nav-dropdown-label">Ministries</span>
-                  <a href="church.html">Deacons <span class="nav-badge">visitation</span></a>
-                  <a href="/#patriotic-hymns">Music / Worship</a>
-                  <a href="bible-study.html">Sunday School</a>
-                  <a href="message.html">Women&apos;s Prayer</a>
-                  <a href="/?q=strength#quick-search-hero">Men&apos;s Groups</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item nav-item-dropdown">
-            <a href="/" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Family <span class="nav-chevron" aria-hidden="true">▾</span></a>
-            <div class="nav-dropdown-panel" aria-hidden="true">
-              <div class="nav-dropdown-inner">
-                <a href="/family-armor.html">Family Armor &amp; Stories</a>
-                <a href="/">Add Household</a>
-                <a href="/kids/">Kids Battle Home</a>
-                <a href="kids-corner.html">Family Activities</a>
-                <a href="coloring.html">Kids Coloring</a>
-                <a href="/#challenge-30-banner">Shared Streaks / 30-Day</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item nav-item-dropdown">
-            <a href="bible-study.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Studies &amp; Growth <span class="nav-chevron" aria-hidden="true">▾</span></a>
-            <div class="nav-dropdown-panel" aria-hidden="true">
-              <div class="nav-dropdown-inner">
-                <a href="bible-study.html">Bible Studies</a>
-                <a href="study.html">Study Workspace</a>
-                <a href="/#quick-search-hero">Topic Search</a>
-                <a href="reading-plan.html">7-Day Plan</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item nav-item-dropdown">
-            <a href="/#patriotic-scriptures" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Revival &amp; Outreach <span class="nav-chevron" aria-hidden="true">▾</span></a>
-            <div class="nav-dropdown-panel" aria-hidden="true">
-              <div class="nav-dropdown-inner">
-                <a href="/#patriotic-scriptures">Patriotic Scriptures</a>
-                <a href="/#patriotic-hymns">Patriotic Hymns</a>
-                <a href="/#hero-verse-wrap">Make America God&apos;s Again</a>
-                <a href="/#challenge-30-banner">30-Day Battle Plan</a>
-                <a href="/#quick-pray-wrap">Invite / Share</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item"><a href="bible-tool.html">Bible Tool</a></li>
-          <li class="nav-item"><a href="/#quick-search-hero">Search</a></li>
-          <li class="nav-item"><a href="pricing.html">Pricing</a></li>
-        </ul>
-      </nav>
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+            <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <div id="auth-details" class="auth-details-inline">
         <div id="auth-section" class="auth-inline auth-compact">
           <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
@@ -575,9 +545,16 @@
       <div class="content-inner bible-tool">
         <h1 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/></svg>Bible Tool</h1>
         <p class="section-note">Look up any verse, take notes, track your reading — KJV, no account needed. Sign in to sync across devices.</p>
-        <p class="tdb-trust-return">A quiet place to meet God in the battle — notes and lookups stay on this device unless you sign in to sync.</p>
-        <p class="tdb-offline-trust">Still here when the signal isn&rsquo;t.</p>
+        <p class="tdb-trust-return">Notes and lookups stay on this device unless you sign in to sync. Still here when the signal isn&rsquo;t.</p>
         <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads this page if a verse or panel didn&rsquo;t load.</span></div>
+        <nav class="bible-tool-mini-hub" id="bible-tool-hub" aria-label="Verse and reading tools">
+          <span class="bible-tool-mini-hub-label">From this hub</span>
+          <a href="verse-image.html">Verse image</a>
+          <span class="bible-tool-mini-hub-sep" aria-hidden="true">·</span>
+          <a href="reader.html">Chapter reader</a>
+          <span class="bible-tool-mini-hub-sep" aria-hidden="true">·</span>
+          <a href="bible/tools.html">Study workshop</a>
+        </nav>
         <p class="section-note util-mt-0_5 util-mb-0" style="padding:0.65rem 0.85rem;border-radius:10px;border:1px solid rgba(212,175,55,0.28);background:rgba(212,175,55,0.06);max-width:42rem;"><strong>Supporters:</strong> <a href="verse-image.html" class="bible-tool-gold-link">Create a custom verse image</a> — pick a verse, style the card, export PNG or share.</p>
 
         <div class="bible-tool-workshop-strip" role="navigation" aria-label="Study workshop">

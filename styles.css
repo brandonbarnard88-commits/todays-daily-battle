@@ -5780,6 +5780,25 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   line-height: 1.35;
 }
 
+/* Explore hub: quiet dawn band on hero (matches verse-card / homepage warmth) */
+.explore-page .explore-hero--soar-dawn {
+  position: relative;
+  padding: 1.35rem 1.2rem 1.6rem;
+  border-radius: 14px;
+  border: 1px solid rgba(227, 188, 103, 0.22);
+  background: linear-gradient(
+    155deg,
+    rgba(227, 188, 103, 0.09) 0%,
+    rgba(55, 85, 115, 0.14) 42%,
+    rgba(15, 18, 26, 0.72) 100%
+  );
+  margin-bottom: 0.35rem;
+}
+:root[data-theme="light"] .explore-page .explore-hero--soar-dawn {
+  background: linear-gradient(155deg, rgba(227, 188, 103, 0.14) 0%, rgba(255, 252, 245, 0.96) 52%, #fffdf7 100%);
+  border-color: rgba(158, 118, 37, 0.22);
+}
+
 .pricing-page .pricing-beta-banner {
   margin-top: 0.5rem;
   margin-bottom: 0.75rem;

@@ -5780,6 +5780,39 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   line-height: 1.35;
 }
 
+/* Supporter card: compact verse template hints (same SVGs as full strip above) */
+.pricing-page .pricing-card-verse-thumbs {
+  margin: 0.35rem 0 0.85rem;
+  text-align: center;
+}
+.pricing-page .pricing-card-verse-thumbs-label {
+  margin: 0 0 0.45rem !important;
+  font-size: 0.8rem !important;
+  line-height: 1.45;
+  color: rgba(148, 163, 184, 0.95) !important;
+}
+.pricing-page .pricing-card-verse-thumbs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.45rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.pricing-page .pricing-card-verse-thumbs-list li {
+  margin: 0;
+}
+.pricing-page .pricing-card-verse-thumbs-list img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  background: rgba(15, 23, 42, 0.35);
+}
+
 /* Explore hub: quiet dawn band on hero (matches verse-card / homepage warmth) */
 .explore-page .explore-hero--soar-dawn {
   position: relative;

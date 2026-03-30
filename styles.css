@@ -5832,6 +5832,28 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   border-color: rgba(158, 118, 37, 0.22);
 }
 
+/* Bible Tool: dawn band on intro (matches Explore / Möbius / Plans) */
+.bible-tool-page .bible-tool-hero--soar-dawn {
+  margin-bottom: 1rem;
+  padding: 1.15rem 1rem 1.2rem;
+  border-radius: 14px;
+  border: 1px solid rgba(227, 188, 103, 0.22);
+  background: linear-gradient(
+    155deg,
+    rgba(227, 188, 103, 0.09) 0%,
+    rgba(55, 85, 115, 0.14) 42%,
+    rgba(15, 18, 26, 0.72) 100%
+  );
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+.bible-tool-page .bible-tool-hero--soar-dawn .section-divider:first-child {
+  margin-top: 0;
+}
+:root[data-theme="light"] .bible-tool-page .bible-tool-hero--soar-dawn {
+  background: linear-gradient(155deg, rgba(227, 188, 103, 0.12) 0%, rgba(255, 252, 245, 0.94) 52%, #fffdf7 100%);
+  border-color: rgba(158, 118, 37, 0.22);
+}
+
 .pricing-page .pricing-beta-banner {
   margin-top: 0.5rem;
   margin-bottom: 0.75rem;

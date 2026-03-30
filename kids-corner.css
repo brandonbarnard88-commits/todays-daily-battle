@@ -11,6 +11,29 @@
   box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15), 0 0 40px rgba(212, 175, 55, 0.08), inset 0 0 60px rgba(212, 175, 55, 0.03);
 }
 
+/* Dawn-soar band: same quiet warmth as Explore / Möbius / Plans (loop library hero) */
+.kids-corner-page .kids-hero.kids-hero--soar-dawn {
+  padding: 1.35rem 1.15rem 1.45rem;
+  margin-bottom: 1.5rem;
+  border-width: 1px;
+  border-color: rgba(227, 188, 103, 0.22);
+  border-radius: 14px;
+  background: linear-gradient(
+    155deg,
+    rgba(227, 188, 103, 0.09) 0%,
+    rgba(55, 85, 115, 0.14) 42%,
+    rgba(15, 18, 26, 0.72) 100%
+  );
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+.kids-corner-page .kids-hero.kids-hero--soar-dawn .kids-hero-title {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+:root[data-theme="light"] .kids-corner-page .kids-hero.kids-hero--soar-dawn {
+  background: linear-gradient(155deg, rgba(227, 188, 103, 0.12) 0%, rgba(255, 252, 245, 0.92) 52%, #fffdf7 100%);
+  border-color: rgba(158, 118, 37, 0.22);
+}
+
 .kids-hero-frame {
   position: relative;
   z-index: 1;

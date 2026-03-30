@@ -155,7 +155,7 @@ function main() {
     }
   }
 
-  const title = 'Today\u2019s Verse: A Quiet Place \u2014 ' + refPlain + ' (KJV)';
+  const title = 'Today\u2019s Verse \u2014 A Quiet Place \u2014 ' + refPlain + ' (KJV)';
   const desc =
     'Today\u2019s KJV verse: ' +
     refPlain +

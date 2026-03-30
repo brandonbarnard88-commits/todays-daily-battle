@@ -11443,7 +11443,7 @@ function updateDailyVerseWhispers(ref, verseText) {
     var twTitle = document.querySelector('meta[name="twitter:title"]');
     var snippet = safeText.length > 120 ? safeText.slice(0, 117) + '\u2026' : safeText;
     var desc = '\u201c' + snippet + '\u201d \u2014 ' + safeRef + ' KJV';
-    var title = 'Today\u2019s Verse: A Quiet Place \u2014 ' + safeRef;
+    var title = 'Today\u2019s Verse \u2014 A Quiet Place \u2014 ' + safeRef;
     if (ogDesc) ogDesc.setAttribute('content', desc);
     if (twDesc) twDesc.setAttribute('content', desc);
     if (ogTitle) ogTitle.setAttribute('content', title);
@@ -14269,7 +14269,8 @@ function shuffleArray(arr) {
   }
 }
 
-/** Full grid shuffle each load: every chip stays, order is random (Fisher-Yates, not sort random). */
+/** Full grid shuffle each load: every chip stays, order is random.
+ * Reorders real DOM nodes (no innerHTML). Uses shuffleArray (Fisher–Yates)—not array.sort(() => Math.random()-0.5), which is biased. */
 function shuffleQuickTopicsInContainer(containerEl) {
   if (!containerEl || !containerEl.appendChild) return;
   var all = Array.prototype.slice.call(containerEl.children);
@@ -14285,11 +14286,13 @@ function shuffleHomeQuickTopicSurfaces() {
 
 /** Under-verse welcome line: one calm line per load (main calendar verse unchanged). */
 var TDB_HOME_WELCOME_LINES = [
+  'Whatever your day—joy, rest, questions—step in.',
   'Whatever your day holds—joy, quiet, questions—step in. No rush.',
   'A quiet place. No rush.',
   'Whatever your day holds—step in when you are ready.',
   'Scripture is a lamp for your path—stay as long as you like.',
-  'Come as you are. You are not behind here.'
+  'Come as you are. You are not behind here.',
+  'Step in. No questions. Just here.'
 ];
 
 function pickHomeWelcomeLine() {
@@ -14299,6 +14302,31 @@ function pickHomeWelcomeLine() {
   var i = Math.floor(Math.random() * TDB_HOME_WELCOME_LINES.length);
   el.textContent = TDB_HOME_WELCOME_LINES[i];
 }
+
+/** Runs after #quickTopics exists: full chip shuffle + welcome line. DOMContentLoaded + bfcache so it always fires on a real page show. */
+function tdbRunHomeMoodShuffleAndWelcome() {
+  try {
+    if (!document.getElementById('quickTopics')) return;
+    shuffleHomeQuickTopicSurfaces();
+    pickHomeWelcomeLine();
+  } catch (eHomeMood) {
+    if (typeof console !== 'undefined' && console.warn) console.warn('TDB: home mood shuffle', eHomeMood);
+  }
+}
+
+(function tdbWireHomeMoodShuffleOnLoad() {
+  function go() {
+    tdbRunHomeMoodShuffleAndWelcome();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', go);
+  } else {
+    go();
+  }
+  window.addEventListener('pageshow', function (ev) {
+    if (ev && ev.persisted) go();
+  });
+})();
 
 function stemWord(word) {
   if (!word || word.length <= 3) return word;
@@ -20862,7 +20890,7 @@ async function tdbInitImpl() {
     })();
   } catch (_) {}
 
-  /* Wire search - #quickTopics chips in HTML (never empty); after fill we shuffle full chip order + welcome line. Accordion from TDB_TOPICS. */
+  /* Wire search - #quickTopics chips in HTML (never empty); after fill, tdbRunHomeMoodShuffleAndWelcome() (also on DOMContentLoaded + bfcache pageshow). Accordion from TDB_TOPICS. */
   try {
     renderQuickTopicButtons('quick-actions-accordion', false);
     var heroContainer = document.getElementById('quick-actions-hero');
@@ -20871,10 +20899,7 @@ async function tdbInitImpl() {
       renderQuickTopicButtons('quick-actions-hero', true);
       chipCount = heroContainer.querySelectorAll('.topic-chip, .quick-topic, [data-topic]').length;
     }
-    try {
-      shuffleHomeQuickTopicSurfaces();
-      pickHomeWelcomeLine();
-    } catch (homeFreshErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: home fresh shuffle', homeFreshErr); }
+    tdbRunHomeMoodShuffleAndWelcome();
   } catch (renderErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: renderQuickTopicButtons', renderErr); }
 
   try {

@@ -9873,7 +9873,7 @@ function wireVersePageListen() {
     var r = tdbGetDailyVerseRefFromCard(card);
     var body = tdbGetDailyVerseTextFromCard(card);
     var highlightEl = (typeof tdbGetDailyVerseBodyElementFromCard === 'function' && tdbGetDailyVerseBodyElementFromCard(card)) || null;
-    return { ref: r, text: body, highlightEl: highlightEl || card };
+    return { ref: r, text: body, highlightEl: highlightEl };
   }
   btn.addEventListener('click', function () {
     var N = window.TDBVerseNarration;
@@ -9918,6 +9918,12 @@ function wireHeroSaveToMyVerses() {
   if (!heroBtn) return;
 
   function heroGetRefAndPlainText() {
+    var verseCard = document.getElementById('verseCard');
+    if (verseCard) {
+      var r = tdbGetDailyVerseRefFromCard(verseCard);
+      var t = tdbGetDailyVerseTextFromCard(verseCard);
+      if (r && t) return { ref: r, text: t };
+    }
     var refEl = document.getElementById('heroRef');
     var verseEl = document.getElementById('heroVerse');
     var ref = refEl ? String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
@@ -11671,19 +11677,30 @@ function buildAutoQuickPrayText() {
 }
 
 /**
- * #daily-verse-card: stable ref + blockquote body (#daily-verse-ref, #daily-verse-text).
+ * #daily-verse-card / #verseCard (home hero) / calm verse-container: stable ref + blockquote body.
  * Listen/copy/share/save and bible-hub use these APIs so context accordions never win “first p” races.
  * If ids/classes are missing (cached HTML, forks), fall back to legacy strong/blockquote/p heuristics.
  */
 function tdbGetDailyVerseRefFromCard(card) {
   if (!card || !card.querySelector) return '';
-  var el = card.querySelector('#daily-verse-ref') || card.querySelector('.daily-verse-ref') || card.querySelector('strong');
+  var el = card.querySelector('#daily-verse-ref') ||
+    card.querySelector('.daily-verse-ref') ||
+    card.querySelector('#heroRef') ||
+    card.querySelector('#verse-ref') ||
+    card.querySelector('#desktop-verse-ref') ||
+    card.querySelector('strong');
   return el ? String(el.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
 }
 function tdbGetDailyVerseTextFromCard(card) {
   if (!card || !card.querySelector) return '';
   var el = card.querySelector('#daily-verse-text');
   if (el) return String(el.textContent || '').replace(/\s+/g, ' ').trim();
+  el = card.querySelector('#verse-text') || card.querySelector('#desktop-verse-text');
+  if (el) return String(el.textContent || '').replace(/\s+/g, ' ').trim();
+  el = card.querySelector('#heroVerse');
+  if (el) {
+    return String(el.textContent || '').replace(/^[\s"\u201c]+|[\s"\u201d]+$/g, '').replace(/\s+/g, ' ').trim();
+  }
   el = card.querySelector('blockquote.daily-verse-body .daily-verse-text') || card.querySelector('blockquote .daily-verse-text');
   if (el) return String(el.textContent || '').replace(/\s+/g, ' ').trim();
   var bq = card.querySelector('blockquote.daily-verse-body') || card.querySelector('blockquote');
@@ -11722,17 +11739,20 @@ function tdbGetCalmVerseRootEl() {
 function tdbGetCalmVerseRefAndTextFromPage() {
   var root = tdbGetCalmVerseRootEl();
   if (!root || !root.querySelector) return { ref: '', text: '', highlightEl: null };
-  var refP = root.querySelector('.daily-verse-ref') || root.querySelector('#verse-ref') || root.querySelector('#desktop-verse-ref');
-  var textP = root.querySelector('.daily-verse-text') || root.querySelector('#verse-text') || root.querySelector('#desktop-verse-text');
-  var ref = refP ? String(refP.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
-  var text = textP ? String(textP.textContent || '').replace(/\s+/g, ' ').trim() : '';
-  return { ref: ref, text: text, highlightEl: textP || null };
+  var ref = tdbGetDailyVerseRefFromCard(root);
+  var text = tdbGetDailyVerseTextFromCard(root);
+  var highlightEl = tdbGetDailyVerseBodyElementFromCard(root);
+  return { ref: ref, text: text, highlightEl: highlightEl || null };
 }
 
 function tdbGetDailyVerseBodyElementFromCard(card) {
   if (!card || !card.querySelector) return null;
-  var byId = card.querySelector('#daily-verse-text');
+  var byId = card.querySelector('#daily-verse-text') ||
+    card.querySelector('#verse-text') ||
+    card.querySelector('#desktop-verse-text');
   if (byId) return byId;
+  var hero = card.querySelector('#heroVerse');
+  if (hero) return hero;
   var byClass = card.querySelector('blockquote.daily-verse-body .daily-verse-text') || card.querySelector('blockquote .daily-verse-text');
   if (byClass) return byClass;
   var bq = card.querySelector('blockquote.daily-verse-body') || card.querySelector('blockquote');
@@ -11804,6 +11824,7 @@ if (typeof window !== 'undefined') {
   window.tdbGetDailyVerseRefFromCard = tdbGetDailyVerseRefFromCard;
   window.tdbGetDailyVerseTextFromCard = tdbGetDailyVerseTextFromCard;
   window.tdbGetDailyVerseBodyElementFromCard = tdbGetDailyVerseBodyElementFromCard;
+  window.tdbGetCalmVerseRootEl = tdbGetCalmVerseRootEl;
   window.tdbGetCalmVerseRefAndTextFromPage = tdbGetCalmVerseRefAndTextFromPage;
   Object.defineProperty(window, 'bible', { get: function () { return bible; }, configurable: true });
 }
@@ -11827,7 +11848,9 @@ function shareDailyBattle() {
 function buildDailyBattleShareText() {
   var ref = (currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : (getDailyVerseRef() || '');
   var verse = (currentDailyBattle && currentDailyBattle.verse) ? (currentDailyBattle.verse || '').replace(/<[^>]+>/g, ' ').trim() : '';
-  var domCard = typeof document !== 'undefined' ? document.getElementById('daily-verse-card') : null;
+  var domCard = typeof document !== 'undefined'
+    ? (document.getElementById('daily-verse-card') || document.getElementById('verseCard'))
+    : null;
   if (domCard) {
     var dr = tdbGetDailyVerseRefFromCard(domCard);
     var dt = tdbGetDailyVerseTextFromCard(domCard);

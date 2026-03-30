@@ -1986,38 +1986,42 @@ const TDB_HERO_TOPICS = null; // null = use TDB_TOPICS for hero (all topics)
 
 /** Single source of truth for search topic buttons (hero + accordion). Format: { topic: string, label: string, primary?: boolean } */
 const TDB_TOPICS = [
-  { topic: 'free will', label: 'FREE WILL', primary: true },
-  { topic: 'family', label: 'Family' },
-  { topic: 'hope', label: 'Hope' },
-  { topic: 'fear', label: 'Fear' },
-  { topic: 'peace', label: 'Peace' },
-  { topic: 'courage', label: 'Courage' },
+  { topic: 'peace', label: 'Peace', primary: true },
   { topic: 'gratitude', label: 'Gratitude' },
-  { topic: 'loneliness', label: 'Loneliness' },
-  { topic: 'guilt', label: 'Guilt' },
-  { topic: 'overwhelmed', label: 'Overwhelmed' },
-  { topic: 'strength', label: 'Strength' },
-  { topic: 'heartache', label: 'Heartache' },
-  { topic: 'grief', label: 'Grief' },
-  { topic: 'cancer', label: 'Cancer' },
-  { topic: 'anxiety', label: 'Anxiety' },
-  { topic: 'forgiveness', label: 'Forgiveness' },
-  { topic: 'patience', label: 'Patience' },
-  { topic: 'anger', label: 'Anger' },
+  { topic: 'hope', label: 'Wonder' },
+  { topic: 'anxiety', label: 'Restless' },
+  { topic: 'strength', label: 'Tired' },
+  { topic: 'overwhelmed', label: 'Heavy' },
   { topic: 'joy', label: 'Joy' },
   { topic: 'love', label: 'Love' },
+  { topic: 'faith', label: 'Faith' },
+  { topic: 'courage', label: 'Courage' },
+  { topic: 'forgiveness', label: 'Forgiveness' },
+  { topic: 'patience', label: 'Patience' },
+  { topic: 'wisdom', label: 'Wisdom' },
+  { topic: 'hope', label: 'Hope' },
+  { topic: 'family', label: 'Family' },
+  { topic: 'parenting', label: 'Parenting' },
+  { topic: 'marriage', label: 'Marriage' },
+  { topic: 'relationships', label: 'Relationships' },
+  { topic: 'finances', label: 'Finances' },
+  { topic: 'sleep', label: 'Sleep & Rest' },
+  { topic: 'rest', label: 'Rest' },
+  { topic: 'obedience', label: 'Obedience' },
+  { topic: 'jesus said', label: 'Jesus Said' },
+  { topic: 'spiritualwarfare', label: 'Spiritual Warfare' },
+  { topic: 'fear', label: 'Fear' },
+  { topic: 'loneliness', label: 'Loneliness' },
+  { topic: 'guilt', label: 'Guilt' },
+  { topic: 'heartache', label: 'Heartache' },
+  { topic: 'grief', label: 'Grief' },
+  { topic: 'anger', label: 'Anger' },
+  { topic: 'cancer', label: 'Cancer' },
   { topic: 'addiction', label: 'Addiction' },
   { topic: 'trauma', label: 'Trauma' },
-  { topic: 'relationships', label: 'Relationships' },
-  { topic: 'jesus said', label: 'Jesus Said' },
-  { topic: 'parenting', label: 'Parenting' },
-  { topic: 'finances', label: 'Finances' },
-  { topic: 'spiritualwarfare', label: 'Spiritual Warfare' },
-  { topic: 'sleep', label: 'Sleep & Rest' },
-  { topic: 'marriage', label: 'Marriage' },
-  { topic: 'faith', label: 'Faith' },
-  { topic: 'obedience', label: 'Obedience' },
-  { topic: 'wisdom', label: 'Wisdom' }
+  { topic: 'identity', label: 'Identity' },
+  { topic: 'purpose', label: 'Purpose' },
+  { topic: 'free will', label: 'FREE WILL' }
 ];
 
 function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
@@ -11439,7 +11443,7 @@ function updateDailyVerseWhispers(ref, verseText) {
     var twTitle = document.querySelector('meta[name="twitter:title"]');
     var snippet = safeText.length > 120 ? safeText.slice(0, 117) + '\u2026' : safeText;
     var desc = '\u201c' + snippet + '\u201d \u2014 ' + safeRef + ' KJV';
-    var title = 'Today\u2019s Daily Battle \u2014 ' + safeRef;
+    var title = 'Today\u2019s Verse: A Quiet Place \u2014 ' + safeRef;
     if (ogDesc) ogDesc.setAttribute('content', desc);
     if (twDesc) twDesc.setAttribute('content', desc);
     if (ogTitle) ogTitle.setAttribute('content', title);
@@ -11845,7 +11849,7 @@ function shareDailyBattle() {
   if (!shareText) return;
   emitEasterEgg('share_cape', { source: 'daily_battle' });
   if (navigator.share) {
-    navigator.share({ title: "Today's Daily Battle", text: shareText, url: window.location.href }).catch(() => {});
+    navigator.share({ title: "Today's Verse — Today's Daily Battle", text: shareText, url: window.location.href }).catch(() => {});
     return;
   }
   var full = shareText + '\n' + (window.location.href || window.location.origin + '/');
@@ -11869,7 +11873,7 @@ function buildDailyBattleShareText() {
   }
   if (!ref) return '';
   var short = verse ? (verse.length > 120 ? verse.slice(0, 117) + '…' : verse) : ref;
-  return 'Found this KJV verse helpful today: ' + short + ' via @todaysdailybattle ⚔️';
+  return 'Found this KJV verse helpful today: ' + short + ' via @todaysdailybattle';
 }
 
 /** Quiet pre-filled share for a friend (verse of the day page). No hype; link to verse hub. */
@@ -11898,7 +11902,7 @@ function shareDailyBattleEncourage() {
   emitEasterEgg('share_cape', { source: 'daily_battle_encourage' });
   if (navigator.share) {
     var shareUrl = (window.location && window.location.origin ? window.location.origin.replace(/\/$/, '') : 'https://todaysdailybattle.com') + '/verse.html';
-    navigator.share({ title: "Today's Daily Battle", text: shareText, url: shareUrl }).catch(function () {});
+    navigator.share({ title: "Today's Verse — Today's Daily Battle", text: shareText, url: shareUrl }).catch(function () {});
     return;
   }
   var full = shareText.indexOf('http') === -1 ? shareText + '\n' + ((window.location && window.location.origin) || '') + '/verse.html' : shareText;

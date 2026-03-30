@@ -98,9 +98,12 @@ function main() {
     '<p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">' + verseInner + '</p>'
   );
 
-  const heroRefRe = /<p class="verse-ref" id="heroRef">[\s\S]*?<\/p>/;
+  const heroRefRe = /<p class="verse-ref[^"]*" id="heroRef">[\s\S]*?<\/p>/;
   if (!heroRefRe.test(html)) fail('could not find #heroRef in dist/index.html');
-  html = html.replace(heroRefRe, '<p class="verse-ref" id="heroRef">' + refInner + '</p>');
+  html = html.replace(
+    heroRefRe,
+    '<p class="verse-ref hero-daily-ref-above" id="heroRef">' + refInner + '</p>'
+  );
 
   if (!html.includes('data-tdb-hero-prebuilt')) {
     const verseCardRe = /<section\b[^>]*\bid="verseCard"[^>]*>/;
@@ -152,12 +155,11 @@ function main() {
     }
   }
 
-  const title =
-    'Today\u2019s Daily Battle: ' + refPlain + ' \u2014 Daily KJV Verse';
+  const title = 'Today\u2019s Verse: A Quiet Place \u2014 ' + refPlain + ' (KJV)';
   const desc =
-    'Today\u2019s verse: ' +
+    'Today\u2019s KJV verse: ' +
     refPlain +
-    ' (KJV). Search by how you\u2019re really feeling, quiet prayer wall, works offline. No ads, no login, no mess.';
+    '. A quiet place for any day\u2014search by how you feel, prayer wall, works offline. No ads, no login.';
 
   html = html.replace(/<title>[^<]*<\/title>/, '<title>' + escapeHtmlText(title) + '</title>');
   html = html.replace(

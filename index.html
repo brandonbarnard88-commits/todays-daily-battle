@@ -92,7 +92,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260331kidsfam">
+  <link rel="modulepreload" href="script.js?v=20260331breath">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -3554,6 +3554,29 @@
       letter-spacing: 0.01em;
     }
 
+    /* Hero daily verse doorway — welcoming any day */
+    .hero-daily-headline {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.05rem, 2.8vw, 1.22rem);
+      font-weight: 600;
+      color: var(--gold-soft);
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+    }
+    .hero-daily-welcome {
+      margin: 0 0 0.85rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--muted) 92%, var(--text));
+    }
+    .hero-daily-ref-above {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1rem, 2.4vw, 1.15rem);
+      font-weight: 600;
+      color: var(--gold-soft);
+      letter-spacing: 0.02em;
+    }
+
     /* ── Kids link card ── */
     .kids-card-link {
       display: flex;
@@ -5232,7 +5255,7 @@
           <span class="calm-crisis-text"><strong>Need Him right now?</strong> One-tap verse for whatever you're carrying.</span>
           <span class="calm-crisis-enter">→</span>
         </a>
-        <p class="calm-cta-note">Not just one morning moment—use anytime anxiety, grief, or life hits.</p>
+        <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
       </div>
 
       <!-- ── Offline banner (reassuring message when offline) ── -->
@@ -5300,12 +5323,14 @@
       <div id="hero-verse-wrap" class="hero-verse-wrap">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
+        <h2 class="hero-daily-headline">Today&rsquo;s Verse: A Quiet Place</h2>
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
           <div class="verse-skeleton-box"></div>
         </div>
+        <p class="verse-ref hero-daily-ref-above" id="heroRef">Isaiah 40:31 (KJV)</p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
-            <p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God."</p>
+            <p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">&ldquo;But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.&rdquo;</p>
             <div class="verse-font-controls" aria-label="Adjust verse text size">
               <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
@@ -5335,20 +5360,20 @@
             <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
           </div>
         </div>
+        <p class="hero-daily-welcome">Whatever your day holds&mdash;joy, quiet, questions&mdash;step in. No rush.</p>
         <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown.</p>
-        <p class="verse-ref" id="heroRef">Philippians 4:6-7 (KJV)</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
-          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Philippians 4:6-7" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
+          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Isaiah 40:31" data-tdb-wordstudy-text="But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
-        <p class="tdb-why-stay-line" id="tdb-why-stay-line">A quiet place to meet God in the battle.</p>
+        <p class="tdb-why-stay-line" id="tdb-why-stay-line">A quiet place for Scripture&mdash;any kind of day.</p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Verses">
           <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Verses on this device">Save to My Verses</button>
           <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/my-verses.html">Open My Verses</a>.</p>
           <p class="hero-my-verses-privacy-note" id="hero-my-verses-privacy-line">Saves stay here on this device unless you sign in.</p>
         </div>
         <p id="hero-save-my-verses-status" class="hero-save-my-verses-status-line" role="status" aria-live="polite"></p>
-        <p class="hero-daily-bread-line" role="text">Daily bread for today&rsquo;s daily battle.</p>
+        <p class="hero-daily-bread-line" role="text">Daily bread for today&mdash;one verse at a time.</p>
         <div class="en-hub-daily-companion" id="en-hub-daily-verse" lang="en" aria-labelledby="en-hub-daily-heading">
           <h2 class="en-hub-daily-companion-title" id="en-hub-daily-heading">Verse of the day — same rhythm as every hub</h2>
           <div class="en-hub-daily-companion-grid">
@@ -5384,7 +5409,7 @@
         <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
       </section>
       </div><!-- /#hero-verse-wrap -->
-      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Spring 2026)</span> &mdash; Clearer <a href="explore.html#start-here">Start here</a> flow on Explore, family and mission tools alongside the daily battle, new Battle Plan paths for hard weeks. <a href="explore.html#whats-new-spring-2026">Spring notes</a> · <a href="explore.html#first-visit-tour">Optional five-minute tour</a> · <a href="about.html#whats-new-study">Study tools</a>.</p>
+      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Spring 2026)</span> &mdash; Clearer <a href="explore.html#start-here">Start here</a> flow on Explore, family and mission tools alongside the daily rhythm, new reading-plan paths for hard weeks. <a href="explore.html#whats-new-spring-2026">Spring notes</a> · <a href="explore.html#first-visit-tour">Optional five-minute tour</a> · <a href="about.html#whats-new-study">Study tools</a>.</p>
       <!-- ── Daily Verse Image Card (shareable preview under today’s verse) ── -->
       <div class="verse-img-card" id="verseImgCard" role="region" aria-label="Today’s verse as a shareable image preview">
         <div class="verse-img-inner">
@@ -5429,10 +5454,10 @@
 
       <!-- ── Feel Search (nav anchor: #quick-search-hero) — below Why not AI teaser, above Battle Plans ── -->
       <div id="quick-search-hero">
-      <p class="tdb-hero-search-priority-hint">On a phone, you&rsquo;ll see today&rsquo;s verse first, then this mood search&mdash;Battle Plans and the prayer wall sit a little lower, when you&rsquo;re ready.</p>
+      <p class="tdb-hero-search-priority-hint">On a phone, you&rsquo;ll see today&rsquo;s verse first, then this search&mdash;Battle Plans and the prayer wall sit a little lower, when you&rsquo;re ready.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
       <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>
-        <p class="first-visit-text">In your own words, say how it feels (anxious, tired, grateful&hellip;)&mdash;or tap a topic. Nothing you type leaves this device.</p>
+        <p class="first-visit-text">In your own words, say how it feels (grateful, quiet, tired, heavy&hellip;)&mdash;or tap a topic. Nothing you type leaves this device.</p>
         <button type="button" class="first-visit-dismiss" id="firstVisitDismiss" aria-label="Dismiss welcome tip">Understood</button>
       </div>
       <section class="card" id="feel-section" aria-label="How are you feeling verse search">
@@ -5445,7 +5470,7 @@
             autocomplete="off"
             autocorrect="off"
             spellcheck="false"
-            placeholder="Type how you feel (e.g. nobody cares, falling apart) — or tap a topic below"
+            placeholder="Peace, gratitude, wonder&mdash;or restless, tired, heavy. Your words stay here."
             aria-label="How are you feeling right now?"
             aria-autocomplete="list"
             aria-controls="feelSuggestDropdown"
@@ -5465,37 +5490,41 @@
         </div>
         <div class="quick-grid" id="quickTopics" aria-label="Quick topic shortcuts">
           <button type="button" class="quick-topic" data-topic="peace" aria-label="Peace"><span aria-hidden="true">🕊️</span> Peace</button>
-          <button type="button" class="quick-topic" data-topic="fear" aria-label="Fear"><span aria-hidden="true">🛡️</span> Fear</button>
-          <button type="button" class="quick-topic" data-topic="strength" aria-label="Strength"><span aria-hidden="true">💪</span> Strength</button>
-          <button type="button" class="quick-topic" data-topic="anxiety" aria-label="Anxiety"><span aria-hidden="true">☁️</span> Anxiety</button>
+          <button type="button" class="quick-topic" data-topic="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙌</span> Gratitude</button>
+          <button type="button" class="quick-topic" data-topic="hope" aria-label="Wonder"><span aria-hidden="true">✨</span> Wonder</button>
+          <button type="button" class="quick-topic" data-topic="anxiety" aria-label="Restless"><span aria-hidden="true">🌊</span> Restless</button>
+          <button type="button" class="quick-topic" data-topic="strength" aria-label="Tired"><span aria-hidden="true">😮‍💨</span> Tired</button>
+          <button type="button" class="quick-topic" data-topic="overwhelmed" aria-label="Heavy"><span aria-hidden="true">⛰️</span> Heavy</button>
           <button type="button" class="quick-topic" data-topic="joy" aria-label="Joy"><span aria-hidden="true">☀️</span> Joy</button>
-          <button type="button" class="quick-topic" data-topic="hope" aria-label="Hope"><span aria-hidden="true">♥️</span> Hope</button>
           <button type="button" class="quick-topic" data-topic="love" aria-label="Love"><span aria-hidden="true">❤️</span> Love</button>
-          <button type="button" class="quick-topic" data-topic="worry" aria-label="Worry"><span aria-hidden="true">🤔</span> Worry</button>
+          <button type="button" class="quick-topic" data-topic="faith" aria-label="Faith"><span aria-hidden="true">🌱</span> Faith</button>
+          <button type="button" class="quick-topic" data-topic="courage" aria-label="Courage"><span aria-hidden="true">🛡️</span> Courage</button>
           <button type="button" class="quick-topic" data-topic="forgiveness" aria-label="Forgiveness"><span aria-hidden="true">✝️</span> Forgiveness</button>
           <button type="button" class="quick-topic" data-topic="patience" aria-label="Patience"><span aria-hidden="true">⏳</span> Patience</button>
-          <button type="button" class="quick-topic" data-topic="courage" aria-label="Courage"><span aria-hidden="true">⚔️</span> Courage</button>
-          <button type="button" class="quick-topic" data-topic="rest" aria-label="Rest"><span aria-hidden="true">😮‍💨</span> Rest</button>
-          <button type="button" class="quick-topic" data-topic="grace" aria-label="Grace"><span aria-hidden="true">🙏</span> Grace</button>
           <button type="button" class="quick-topic" data-topic="wisdom" aria-label="Wisdom"><span aria-hidden="true">📖</span> Wisdom</button>
-          <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief"><span aria-hidden="true">🕊️</span> Grief</button>
-          <button type="button" class="quick-topic" data-topic="cancer" aria-label="Cancer"><span aria-hidden="true">🎗️</span> Cancer</button>
-          <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger"><span aria-hidden="true">🔥</span> Anger</button>
-          <button type="button" class="quick-topic" data-topic="loneliness" aria-label="Loneliness"><span aria-hidden="true">🤗</span> Loneliness</button>
-          <button type="button" class="quick-topic" data-topic="guilt" aria-label="Guilt"><span aria-hidden="true">💭</span> Guilt</button>
-          <button type="button" class="quick-topic" data-topic="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙌</span> Gratitude</button>
-          <button type="button" class="quick-topic" data-topic="faith" aria-label="Faith"><span aria-hidden="true">🌱</span> Faith</button>
-          <button type="button" class="quick-topic" data-topic="trauma" aria-label="Trauma"><span aria-hidden="true">🕊️</span> Trauma</button>
-          <button type="button" class="quick-topic" data-topic="addiction" aria-label="Addiction"><span aria-hidden="true">🔗</span> Addiction</button>
-          <button type="button" class="quick-topic" data-topic="marriage" aria-label="Marriage"><span aria-hidden="true">💍</span> Marriage</button>
+          <button type="button" class="quick-topic" data-topic="hope" aria-label="Hope"><span aria-hidden="true">♥️</span> Hope</button>
           <button type="button" class="quick-topic" data-topic="family" aria-label="Family"><span aria-hidden="true">🏠</span> Family</button>
           <button type="button" class="quick-topic" data-topic="parenting" aria-label="Parenting"><span aria-hidden="true">👨‍👩‍👧</span> Parenting</button>
+          <button type="button" class="quick-topic" data-topic="marriage" aria-label="Marriage"><span aria-hidden="true">💍</span> Marriage</button>
+          <button type="button" class="quick-topic" data-topic="relationships" aria-label="Relationships"><span aria-hidden="true">🤝</span> Relationships</button>
           <button type="button" class="quick-topic" data-topic="finances" aria-label="Money"><span aria-hidden="true">💰</span> Money</button>
           <button type="button" class="quick-topic" data-topic="sleep" aria-label="Sleep"><span aria-hidden="true">😴</span> Sleep</button>
-          <button type="button" class="quick-topic" data-topic="obedience" aria-label="Obey"><span aria-hidden="true">🙌</span> Obey</button>
+          <button type="button" class="quick-topic" data-topic="rest" aria-label="Rest"><span aria-hidden="true">🌙</span> Rest</button>
+          <button type="button" class="quick-topic" data-topic="obedience" aria-label="Obey"><span aria-hidden="true">✨</span> Obey</button>
+          <button type="button" class="quick-topic" data-topic="jesus said" aria-label="Jesus said"><span aria-hidden="true">💬</span> Jesus said</button>
+          <button type="button" class="quick-topic" data-topic="spiritualwarfare" aria-label="Spiritual warfare"><span aria-hidden="true">📜</span> Spiritual warfare</button>
+          <button type="button" class="quick-topic" data-topic="fear" aria-label="Fear"><span aria-hidden="true">🌧️</span> Fear</button>
+          <button type="button" class="quick-topic" data-topic="loneliness" aria-label="Loneliness"><span aria-hidden="true">🤗</span> Loneliness</button>
+          <button type="button" class="quick-topic" data-topic="guilt" aria-label="Guilt"><span aria-hidden="true">💭</span> Guilt</button>
+          <button type="button" class="quick-topic" data-topic="heartache" aria-label="Heartache"><span aria-hidden="true">💔</span> Heartache</button>
+          <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief"><span aria-hidden="true">🕯️</span> Grief</button>
+          <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger"><span aria-hidden="true">🔥</span> Anger</button>
+          <button type="button" class="quick-topic" data-topic="cancer" aria-label="Cancer"><span aria-hidden="true">🎗️</span> Cancer</button>
+          <button type="button" class="quick-topic" data-topic="addiction" aria-label="Addiction"><span aria-hidden="true">🔗</span> Addiction</button>
+          <button type="button" class="quick-topic" data-topic="trauma" aria-label="Trauma"><span aria-hidden="true">🕊️</span> Trauma</button>
           <button type="button" class="quick-topic" data-topic="identity" aria-label="Identity"><span aria-hidden="true">🪞</span> Identity</button>
           <button type="button" class="quick-topic" data-topic="purpose" aria-label="Purpose"><span aria-hidden="true">🎯</span> Purpose</button>
-          <button type="button" class="quick-topic" data-topic="heartache" aria-label="Heartache"><span aria-hidden="true">💔</span> Heartache</button>
+          <button type="button" class="quick-topic" data-topic="free will" aria-label="Free will"><span aria-hidden="true">∞</span> FREE WILL</button>
         </div>
         <span class="mobius-loop-row">
           <button type="button" class="mobius-loop-chip" id="mobius-loop-trigger" aria-label="Explore Fear to Faith Loop">🔄 Explore Fear → Faith Loop</button>
@@ -10027,7 +10056,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260331kidsfam" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260331breath" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>
   <!-- Sync: following inline calls TDB_EASTER_SEASON on parse; defer would run too late. -->

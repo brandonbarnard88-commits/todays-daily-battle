@@ -14269,23 +14269,18 @@ function shuffleArray(arr) {
   }
 }
 
-/** First-paint doorway topics stay fixed; the rest shuffle each load so the grid feels fresh. */
-function shuffleQuickTopicsInContainer(containerEl, pinnedCount) {
+/** Full grid shuffle each load: every chip stays, order is random (Fisher-Yates, not sort random). */
+function shuffleQuickTopicsInContainer(containerEl) {
   if (!containerEl || !containerEl.appendChild) return;
   var all = Array.prototype.slice.call(containerEl.children);
-  var n = typeof pinnedCount === 'number' && pinnedCount >= 0 ? pinnedCount : 6;
-  if (all.length <= n) return;
-  var head = all.slice(0, n);
-  var tail = all.slice(n);
-  shuffleArray(tail);
-  var k;
-  for (k = 0; k < head.length; k++) containerEl.appendChild(head[k]);
-  for (k = 0; k < tail.length; k++) containerEl.appendChild(tail[k]);
+  if (all.length < 2) return;
+  shuffleArray(all);
+  for (var k = 0; k < all.length; k++) containerEl.appendChild(all[k]);
 }
 
-function shuffleHomeQuickTopicSurfaces(pinnedCount) {
-  shuffleQuickTopicsInContainer(document.getElementById('quickTopics'), pinnedCount);
-  shuffleQuickTopicsInContainer(document.getElementById('quick-actions-hero'), pinnedCount);
+function shuffleHomeQuickTopicSurfaces() {
+  shuffleQuickTopicsInContainer(document.getElementById('quickTopics'));
+  shuffleQuickTopicsInContainer(document.getElementById('quick-actions-hero'));
 }
 
 /** Under-verse welcome line: one calm line per load (main calendar verse unchanged). */
@@ -20867,7 +20862,7 @@ async function tdbInitImpl() {
     })();
   } catch (_) {}
 
-  /* Wire search - #quickTopics chips in HTML (never empty); after fill we shuffle tail + welcome line for fresh loads. Accordion from TDB_TOPICS. */
+  /* Wire search - #quickTopics chips in HTML (never empty); after fill we shuffle full chip order + welcome line. Accordion from TDB_TOPICS. */
   try {
     renderQuickTopicButtons('quick-actions-accordion', false);
     var heroContainer = document.getElementById('quick-actions-hero');
@@ -20877,7 +20872,7 @@ async function tdbInitImpl() {
       chipCount = heroContainer.querySelectorAll('.topic-chip, .quick-topic, [data-topic]').length;
     }
     try {
-      shuffleHomeQuickTopicSurfaces(6);
+      shuffleHomeQuickTopicSurfaces();
       pickHomeWelcomeLine();
     } catch (homeFreshErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: home fresh shuffle', homeFreshErr); }
   } catch (renderErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: renderQuickTopicButtons', renderErr); }

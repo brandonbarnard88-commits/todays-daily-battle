@@ -11825,6 +11825,47 @@ function tdbGetDailyVerseBodyElementFromCard(card) {
   return null;
 }
 
+/**
+ * Mount #daily-verse-card shell via DOM (no innerHTML). Under Trusted Types, defaultPolicy.createHTML runs
+ * DOMPurify.sanitize; if that throws, the patched innerHTML setter entity-escapes the whole string and the
+ * verse appears as visible “<p class=…” text (verse.html, bible hub, etc.).
+ */
+function tdbMountDailyVerseCardShell(card, refStr, verseStr, offlineNoteText) {
+  if (!card) return;
+  while (card.firstChild) card.removeChild(card.firstChild);
+  var refP = document.createElement('p');
+  refP.className = 'daily-verse-ref';
+  refP.id = 'daily-verse-ref';
+  refP.textContent = String(refStr || '');
+  var bq = document.createElement('blockquote');
+  bq.className = 'daily-verse-body';
+  bq.setAttribute('aria-labelledby', 'daily-verse-ref');
+  var verseP = document.createElement('p');
+  verseP.className = 'daily-verse-text';
+  verseP.id = 'daily-verse-text';
+  verseP.textContent = String(verseStr || '');
+  bq.appendChild(verseP);
+  card.appendChild(refP);
+  card.appendChild(bq);
+  if (offlineNoteText) {
+    var note = document.createElement('p');
+    note.className = 'section-note';
+    note.textContent = String(offlineNoteText);
+    card.appendChild(note);
+  }
+}
+
+/** Append buildVerseContextHtml output without insertAdjacentHTML (same Trusted Types escape pitfall). */
+function tdbAppendParsedHtmlChildren(parent, html) {
+  if (!parent || !html) return;
+  try {
+    var doc = new DOMParser().parseFromString(String(html), 'text/html');
+    if (!doc || !doc.body) return;
+    var b = doc.body;
+    while (b.firstChild) parent.appendChild(b.firstChild);
+  } catch (e) { /* non-fatal */ }
+}
+
 function renderDailyVerse() {
   /*
    * Stable verse card shell: #daily-verse-ref (citation line) + blockquote.daily-verse-body > #daily-verse-text (KJV only).
@@ -11833,12 +11874,8 @@ function renderDailyVerse() {
    */
   const card = document.getElementById('daily-verse-card');
   var fb = typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' ? DAILY_VERSE_BUNDLED_FALLBACK : { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' };
-  function cardShell(refStr, verseStr, noteHtml) {
-    var shell = '<p class="daily-verse-ref" id="daily-verse-ref">' + escapeHtml(refStr) + '</p>' +
-      '<blockquote class="daily-verse-body" aria-labelledby="daily-verse-ref">' +
-      '<p class="daily-verse-text" id="daily-verse-text">' + escapeHtml(verseStr || '') + '</p></blockquote>';
-    return noteHtml ? (shell + noteHtml) : shell;
-  }
+  var noteOfflineSync = 'Offline? Here\'s today\'s verse anyway. We\'ll sync when back online.';
+  var noteOfflineShort = 'Offline? Here\'s today\'s verse anyway.';
   try {
     if (!card) {
       var fallbackRef = getDailyVerseRef();
@@ -11848,21 +11885,21 @@ function renderDailyVerse() {
     }
     card.classList.remove('verse-card-loading');
     if (!Object.keys(bible).length) {
-      card.innerHTML = cardShell(fb.ref, fb.text || '', '<p class="section-note">Offline? Here\'s today\'s verse anyway. We\'ll sync when back online.</p>');
+      tdbMountDailyVerseCardShell(card, fb.ref, fb.text || '', noteOfflineSync);
       card.classList.add('verse-card-loaded');
       updateDailyVerseWhispers(fb.ref, fb.text || '');
       return;
     }
     const ref = getDailyVerseRef();
     if (!ref || !bible[ref]) {
-      card.innerHTML = cardShell(fb.ref, fb.text || '', '<p class="section-note">Offline? Here\'s today\'s verse anyway.</p>');
+      tdbMountDailyVerseCardShell(card, fb.ref, fb.text || '', noteOfflineShort);
       card.classList.add('verse-card-loaded');
       updateDailyVerseWhispers(fb.ref, fb.text || '');
       return;
     }
-    card.innerHTML = cardShell(ref, bible[ref] || '', '');
+    tdbMountDailyVerseCardShell(card, ref, bible[ref] || '', '');
     var contextHtml = buildVerseContextHtml(ref);
-    if (contextHtml) card.insertAdjacentHTML('beforeend', contextHtml);
+    if (contextHtml) tdbAppendParsedHtmlChildren(card, contextHtml);
     card.classList.remove('verse-card-loading');
     card.classList.add('verse-card-loaded');
     updateDailyVerseWhispers(ref, bible[ref] || '');

@@ -109,6 +109,48 @@
       padding: 0;
       background: transparent;
     }
+    details.message-loop-prayer-details {
+      margin-bottom: 1rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold-soft, #f2dc98) 35%, var(--line, #4b5563));
+      background: color-mix(in srgb, var(--card, #2a2e36) 94%, rgba(227, 188, 103, 0.06));
+    }
+    details.message-loop-prayer-details summary {
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      padding: 0.35rem 0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      color: var(--gold-soft, #f2dc98);
+    }
+    details.message-loop-prayer-details summary::-webkit-details-marker { display: none; }
+    .message-loop-prayer-fields label {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--muted, #94a3b8);
+      margin-bottom: 0.25rem;
+    }
+    .message-loop-prayer-fields input[type="text"] {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 0.65rem;
+      padding: 0.45rem 0.55rem;
+      border-radius: 8px;
+      border: 1px solid #4b5563;
+      background: #2a2e36;
+      color: #f1f5f9;
+      font-size: 1rem;
+    }
+    .message-loop-prayer-actions {
+      margin-top: 0.5rem;
+    }
+    .message-loop-prayer-actions .btn {
+      min-height: 44px;
+    }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page message-board-page">
@@ -213,6 +255,7 @@
         <section id="message-board" class="message-board glass" role="region" aria-labelledby="message-board-heading">
           <h2 class="section-divider" id="message-board-heading">Community board</h2>
           <p class="section-note" id="message-board-intro">This wall is for honesty, not polish. A name is optional. We never rank or feature one prayer over another—every post has the same weight before God. If you are not signed in yet, scroll to the top—free accounts can post; until then you can still read and pray quietly for others.</p>
+          <p class="section-note message-board-mobius-nudge">If a post&rsquo;s weight lands on you, try one slow breath—inhale the care, exhale a promise you&rsquo;re holding—and walk the <a href="/mobius.html">Möbius picture</a> in your mind: one path, no dead end.</p>
           <p class="section-note tdb-privacy-whisper" id="message-board-privacy-note" role="note">We don&rsquo;t sell prayer posts or use them for ads. <strong>Before you post:</strong> see <a href="privacy.html">Privacy</a> for how messages are handled.</p>
           <div id="message-board-note" class="section-note"></div>
           <div class="message-toolbar">
@@ -227,11 +270,30 @@
           </div>
           <div class="message-form">
             <input id="message-name" type="text" placeholder="Your name (optional)" aria-label="Your display name">
-            <textarea id="message-text" rows="4" placeholder="A few honest lines are enough—prayer, thanks, or a verse that helped." aria-label="Your prayer or note" aria-describedby="message-board-intro message-board-privacy-note"></textarea>
+            <details class="message-loop-prayer-details" id="message-loop-prayer-details">
+              <summary>Loop prayer template (optional)</summary>
+              <p class="section-note util-mb-0_5">Same language as the Möbius room: lay down a weight, receive a promise. Fill the lines, tap <strong>Use in post</strong>, then edit—nothing posts until you choose.</p>
+              <div class="message-loop-prayer-fields">
+                <label for="loop-prayer-weight">I lay down (a weight, fear, or care)</label>
+                <input type="text" id="loop-prayer-weight" name="loop-prayer-weight" autocomplete="off" maxlength="500" aria-label="What you lay down before God">
+                <label for="loop-prayer-promise">I receive (a thanks or a promise you are holding to)</label>
+                <input type="text" id="loop-prayer-promise" name="loop-prayer-promise" autocomplete="off" maxlength="500" aria-label="What you receive from God">
+              </div>
+              <div class="message-loop-prayer-actions">
+                <button type="button" class="btn btn-secondary" id="loop-prayer-use-btn">Use in post</button>
+              </div>
+            </details>
+            <textarea id="message-text" rows="4" placeholder="A few honest lines are enough—prayer, thanks, or a verse that helped." aria-label="Your prayer or note" aria-describedby="message-board-intro message-board-privacy-note message-loop-prayer-hint"></textarea>
+            <p class="section-note sr-only" id="message-loop-prayer-hint">Optional: open Loop prayer template above to drop in a weight-and-promise pattern, then edit.</p>
             <div class="message-form-actions">
               <button type="button" id="post-message" class="btn btn-primary">Post to the wall</button>
               <button type="button" id="voice-message-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your message"><span class="voice-pray-icon" aria-hidden="true">🎤</span> Speak</button>
             </div>
+          </div>
+          <div id="message-featured-wrap" class="message-featured-wrap" hidden>
+            <h3 class="message-featured-heading">Lifted lately on this device</h3>
+            <p class="section-note message-featured-note">These are the three posts with the most <strong>Amen</strong> taps stored <em>on this phone or browser</em>—a quiet reminder of who you prayed with. Use sort <strong>Popular</strong> below for the full list.</p>
+            <div id="message-featured-strip" class="message-featured-strip" role="list" aria-label="Featured prayers by local Amen count"></div>
           </div>
           <div id="message-list-wrap" class="message-list-wrap" role="region" aria-live="polite" aria-relevant="additions" aria-busy="false" aria-label="Latest messages">
             <div id="message-list-loading" class="message-list-loading" style="display:none;" role="status" aria-live="polite">
@@ -431,5 +493,32 @@
   <script type="module" src="script.js?v=20260324mbseed" data-cfasync="false"></script>
   <script src="voice-message.js"></script>
   <script src="share-page.js" defer></script>
+  <script>
+    (function () {
+      var btn = document.getElementById('loop-prayer-use-btn');
+      var wEl = document.getElementById('loop-prayer-weight');
+      var pEl = document.getElementById('loop-prayer-promise');
+      var ta = document.getElementById('message-text');
+      if (!btn || !wEl || !pEl || !ta) return;
+      btn.addEventListener('click', function () {
+        var w = (wEl.value || '').trim();
+        var p = (pEl.value || '').trim();
+        var weightPhrase = w || 'what I cannot carry alone';
+        var receivePhrase = p || 'what You have said is true';
+        var block = 'God, I lay down ' + weightPhrase + '. I receive ' + receivePhrase + '. Amen.';
+        if (!ta.value.trim()) {
+          ta.value = block;
+        } else {
+          ta.value = ta.value.trim() + '\n\n' + block;
+        }
+        ta.focus();
+        try {
+          if (typeof window.trackEvent === 'function') {
+            window.trackEvent('prayer_loop_template_use', { source: 'message_board' });
+          }
+        } catch (e) {}
+      });
+    })();
+  </script>
 </body>
 </html>

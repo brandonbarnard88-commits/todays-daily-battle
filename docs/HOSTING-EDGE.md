@@ -21,6 +21,8 @@ If **Cloudflare proxies (orange cloud)** an origin that is **not** Cloudflare Pa
 
 7. **`wrangler.toml`** at repo root documents `pages_build_output_dir = "dist"` for Wrangler / docs parity.
 
+8. **Optional cloud text-to-speech (Listen)** — `functions/api/tts.js` is served as **`POST /api/tts`** on Pages (legacy **`POST /api/elevenlabs-tts`** uses the same handler). Set **`ELEVENLABS_API_KEY`** and **`ELEVENLABS_VOICE_ID`** as **encrypted** project variables or `wrangler pages secret put` (see `.env.example` comments). Without them, the endpoint returns **503** and the site keeps **device** speech synthesis. **Vercel-only** deploys do not run this function unless you add an equivalent server route.
+
 Workers (Turnstile, geo, etc.) stay on Cloudflare; align routes with your Pages project.
 
 ## Option B — **Vercel** stays origin; Cloudflare **DNS only** (grey cloud)

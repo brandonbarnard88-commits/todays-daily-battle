@@ -5544,15 +5544,15 @@ function renderSmartResult(query) {
   var listenBtn = document.createElement('button');
   listenBtn.type = 'button';
   listenBtn.className = 'smart-action-btn smart-listen-btn';
-  listenBtn.setAttribute('aria-label', 'Listen to this verse and guidance read aloud');
+  listenBtn.setAttribute('aria-label', 'Listen slow to this verse and guidance read aloud');
   listenBtn.setAttribute('aria-pressed', 'false');
-  listenBtn.textContent = '\uD83D\uDD0A Listen';
+  listenBtn.textContent = '\uD83D\uDD0A Listen slow';
   var _ttsActive = false;
   listenBtn.addEventListener('click', function() {
     if (_ttsActive && window.speechSynthesis) {
       window.speechSynthesis.cancel();
       _ttsActive = false;
-      listenBtn.textContent = '\uD83D\uDD0A Listen';
+      listenBtn.textContent = '\uD83D\uDD0A Listen slow';
       listenBtn.setAttribute('aria-pressed', 'false');
       return;
     }
@@ -5576,9 +5576,9 @@ function renderSmartResult(query) {
     audioEl.onerror = function() { fallbackTTS(); };
     listenBtn.textContent = '\u23F8 Stop';
     listenBtn.setAttribute('aria-pressed', 'true');
-    audioEl.onended = function() { listenBtn.textContent = '\uD83D\uDD0A Listen'; listenBtn.setAttribute('aria-pressed','false'); _ttsActive = false; };
+    audioEl.onended = function() { listenBtn.textContent = '\uD83D\uDD0A Listen slow'; listenBtn.setAttribute('aria-pressed','false'); _ttsActive = false; };
     function fallbackTTS() {
-      if (!window.speechSynthesis) { listenBtn.textContent = '\uD83D\uDD0A Listen'; return; }
+      if (!window.speechSynthesis) { listenBtn.textContent = '\uD83D\uDD0A Listen slow'; return; }
       _ttsActive = true;
       var fullText = info.def + ' \u2026 ' + verse.text + ' \u2014 ' + verse.ref + '. Do this: ' + info.action + '. Then: ' + info.outcome;
       var utt = new SpeechSynthesisUtterance(fullText);
@@ -5588,8 +5588,8 @@ function renderSmartResult(query) {
                  || voices.find(function(v) { return v.lang && v.lang.startsWith('en') && v.localService; })
                  || null;
       if (warm) utt.voice = warm;
-      utt.onend = function() { listenBtn.textContent = '\uD83D\uDD0A Listen'; listenBtn.setAttribute('aria-pressed','false'); _ttsActive = false; };
-      utt.onerror = function() { listenBtn.textContent = '\uD83D\uDD0A Listen'; listenBtn.setAttribute('aria-pressed','false'); _ttsActive = false; };
+      utt.onend = function() { listenBtn.textContent = '\uD83D\uDD0A Listen slow'; listenBtn.setAttribute('aria-pressed','false'); _ttsActive = false; };
+      utt.onerror = function() { listenBtn.textContent = '\uD83D\uDD0A Listen slow'; listenBtn.setAttribute('aria-pressed','false'); _ttsActive = false; };
       window.speechSynthesis.speak(utt);
     }
     // Small probe — if audio fails to load in 1.2s, go TTS
@@ -9926,14 +9926,128 @@ function wirePrayThisWithMe() {
   }
 }
 
-/** verse.html: Listen uses on-device narration (same engine as verse study / reader). */
+/**
+ * Optional cloud TTS (ElevenLabs) via same-origin POST /api/tts (Cloudflare Pages Function).
+ * Legacy /api/elevenlabs-tts is the same handler. Key stays on the edge only.
+ */
+var __tdbElevenLabsObjectUrl = null;
+
+/** One calm line when cloud audio is skipped (offline, 503, or upstream error). */
+var TDB_CLOUD_TTS_FALLBACK_TOAST = 'Cloud voice needs a connection\u2026';
+
+function tdbStopElevenLabsPlayback() {
+  var a = typeof window !== 'undefined' ? window.__tdbElevenLabsAudio : null;
+  var had = !!a;
+  try {
+    if (a) {
+      a.pause();
+      a.src = '';
+    }
+  } catch (_) {}
+  if (typeof window !== 'undefined') window.__tdbElevenLabsAudio = null;
+  try {
+    if (__tdbElevenLabsObjectUrl) {
+      URL.revokeObjectURL(__tdbElevenLabsObjectUrl);
+      __tdbElevenLabsObjectUrl = null;
+    }
+  } catch (_) {}
+  if (had) {
+    try {
+      window.dispatchEvent(new CustomEvent('tdb-verse-tts-playing', { detail: { playing: false } }));
+    } catch (_) {}
+  }
+}
+
+/**
+ * @param {string} text
+ * @param {{ onStart?: function (): void, onEnd?: function (): void, onError?: function (): void }} handlers
+ * @returns {Promise<{ started: boolean, httpStatus?: number, reason?: string }>}
+ */
+function tdbPlayElevenLabsTts(text, handlers) {
+  handlers = handlers || {};
+  if (!text || typeof text !== 'string') {
+    return Promise.resolve({ started: false, reason: 'bad_text' });
+  }
+  if (!navigator.onLine) {
+    return Promise.resolve({ started: false, reason: 'offline' });
+  }
+  tdbStopElevenLabsPlayback();
+  return fetch('/api/tts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text: String(text).slice(0, 2500) }),
+    credentials: 'same-origin',
+  })
+    .then(function (r) {
+      var status = r.status;
+      if (!r.ok) {
+        return Promise.resolve({ started: false, httpStatus: status });
+      }
+      return r.blob().then(function (blob) {
+        if (!blob || !(blob instanceof Blob) || blob.size < 100) {
+          return { started: false, httpStatus: status };
+        }
+        var url = URL.createObjectURL(blob);
+        __tdbElevenLabsObjectUrl = url;
+        var audio = new Audio();
+        if (typeof window !== 'undefined') window.__tdbElevenLabsAudio = audio;
+        audio.src = url;
+        audio.preload = 'auto';
+        /* Pace comes from ElevenLabs voice_settings.speed — avoid playbackRate here (keeps timbre clean). */
+        audio.onended = function () {
+          tdbStopElevenLabsPlayback();
+          if (handlers.onEnd) handlers.onEnd();
+          try {
+            window.dispatchEvent(new CustomEvent('tdb-verse-tts-playing', { detail: { playing: false } }));
+          } catch (_) {}
+        };
+        audio.onerror = function () {
+          tdbStopElevenLabsPlayback();
+          if (handlers.onError) handlers.onError();
+          try {
+            window.dispatchEvent(new CustomEvent('tdb-verse-tts-playing', { detail: { playing: false } }));
+          } catch (_) {}
+        };
+        return audio.play().then(function () {
+          if (handlers.onStart) handlers.onStart();
+          try {
+            window.dispatchEvent(new CustomEvent('tdb-verse-tts-playing', { detail: { playing: true } }));
+          } catch (_) {}
+          return { started: true, httpStatus: 200 };
+        }).catch(function () {
+          tdbStopElevenLabsPlayback();
+          if (handlers.onError) handlers.onError();
+          return { started: false, httpStatus: status, reason: 'play_failed' };
+        });
+      });
+    })
+    .catch(function () {
+      if (handlers.onError) handlers.onError();
+      return { started: false, httpStatus: 0, reason: 'network' };
+    });
+}
+
+if (typeof window !== 'undefined') {
+  try {
+    window.addEventListener('tdb-daily-verse-updated', function () {
+      tdbStopElevenLabsPlayback();
+    });
+  } catch (_) {}
+}
+
+/** verse.html: Listen — try cloud TTS when configured; else on-device narration (verse study / reader). */
 function wireVersePageListen() {
   var btn = document.getElementById('verse-listen-btn');
   if (!btn) return;
   function setIdle() {
     btn.setAttribute('aria-pressed', 'false');
-    btn.textContent = 'Listen';
-    btn.setAttribute('aria-label', 'Listen to this verse on your device');
+    btn.textContent = 'Listen slow';
+    btn.setAttribute('aria-label', 'Listen slow to this verse on your device');
+  }
+  function setActive() {
+    btn.setAttribute('aria-pressed', 'true');
+    btn.textContent = 'Stop';
+    btn.setAttribute('aria-label', 'Stop reading');
   }
   function getRefTextHighlight() {
     var card = document.getElementById('daily-verse-card');
@@ -9942,8 +10056,29 @@ function wireVersePageListen() {
     var highlightEl = (typeof tdbGetDailyVerseBodyElementFromCard === 'function' && tdbGetDailyVerseBodyElementFromCard(card)) || null;
     return { ref: r, text: body, highlightEl: highlightEl };
   }
+  function startLocal(body, highlightEl) {
+    var N = window.TDBVerseNarration;
+    if (!N || typeof N.speakPlainText !== 'function') return false;
+    var ok = N.speakPlainText(body, {
+      calm: true,
+      highlightEl: highlightEl || null,
+      onComplete: function () { setIdle(); }
+    });
+    if (ok) setActive();
+    return ok;
+  }
+  function clearListenLoadingState() {
+    btn.classList.remove('tdb-tts-loading');
+    btn.removeAttribute('aria-busy');
+  }
   btn.addEventListener('click', function () {
     var N = window.TDBVerseNarration;
+    var cloudA = typeof window !== 'undefined' ? window.__tdbElevenLabsAudio : null;
+    if (cloudA && !cloudA.paused) {
+      tdbStopElevenLabsPlayback();
+      setIdle();
+      return;
+    }
     if (N && N.isSpeaking && N.isSpeaking()) {
       if (N.stop) N.stop();
       setIdle();
@@ -9951,28 +10086,67 @@ function wireVersePageListen() {
     }
     var v = getRefTextHighlight();
     if (!v.ref || !v.text) return;
-    if (!N || typeof N.speakPlainText !== 'function') return;
     var body = v.ref + '. ' + v.text;
-    var ok = N.speakPlainText(body, {
-      calm: true,
-      highlightEl: v.highlightEl || null,
-      onComplete: function () { setIdle(); }
-    });
-    if (ok) {
-      btn.setAttribute('aria-pressed', 'true');
-      btn.textContent = 'Stop';
-      btn.setAttribute('aria-label', 'Stop verse narration');
-      try {
-        if (typeof trackEvent === 'function') trackEvent('verse_page_listen', {});
-      } catch (e) {}
+    if (!navigator.onLine) {
+      if (typeof showEliteToast === 'function') {
+        showEliteToast(TDB_CLOUD_TTS_FALLBACK_TOAST);
+      }
+      if (startLocal(body, v.highlightEl)) {
+        try {
+          if (typeof trackEvent === 'function') trackEvent('verse_page_listen', { source: 'device' });
+        } catch (e) {}
+      }
+      return;
     }
+    btn.disabled = true;
+    btn.classList.add('tdb-tts-loading');
+    btn.setAttribute('aria-busy', 'true');
+    var prevTxt = btn.textContent;
+    var prevAria = btn.getAttribute('aria-label') || '';
+    btn.setAttribute('aria-label', 'Loading audio');
+    tdbPlayElevenLabsTts(body, {
+      onStart: function () {
+        btn.disabled = false;
+        clearListenLoadingState();
+        setActive();
+      },
+      onEnd: function () { setIdle(); },
+      onError: function () {
+        btn.disabled = false;
+        clearListenLoadingState();
+        btn.textContent = prevTxt;
+        if (prevAria) btn.setAttribute('aria-label', prevAria);
+      },
+    }).then(function (res) {
+      if (res && res.started) {
+        try {
+          if (typeof trackEvent === 'function') trackEvent('verse_page_listen', { source: 'cloud' });
+        } catch (e) {}
+        return;
+      }
+      btn.disabled = false;
+      clearListenLoadingState();
+      btn.textContent = prevTxt;
+      if (prevAria) btn.setAttribute('aria-label', prevAria);
+      if (typeof showEliteToast === 'function') {
+        showEliteToast(TDB_CLOUD_TTS_FALLBACK_TOAST);
+      }
+      if (startLocal(body, v.highlightEl)) {
+        try {
+          if (typeof trackEvent === 'function') trackEvent('verse_page_listen', { source: 'device' });
+        } catch (e) {}
+      }
+    });
   });
   window.addEventListener('tdb-verse-tts-playing', function (e) {
     if (!document.body || !document.body.classList.contains('tdb-verse-page')) return;
     var on = !!(e && e.detail && e.detail.playing);
+    var porch = document.getElementById('verse-listen-porch');
+    if (porch) porch.classList.toggle('tdb-verse-listen-porch--listening', on);
     if (!on) setIdle();
   });
   window.addEventListener('tdb-daily-verse-updated', function () {
+    tdbStopElevenLabsPlayback();
     var N = window.TDBVerseNarration;
     if (N && N.isSpeaking && N.isSpeaking() && N.stop) N.stop();
     setIdle();
@@ -12156,6 +12330,9 @@ if (typeof window !== 'undefined') {
   window.tdbGetDailyVerseRefFromCard = tdbGetDailyVerseRefFromCard;
   window.tdbGetDailyVerseTextFromCard = tdbGetDailyVerseTextFromCard;
   window.tdbGetDailyVerseBodyElementFromCard = tdbGetDailyVerseBodyElementFromCard;
+  window.tdbStopElevenLabsPlayback = tdbStopElevenLabsPlayback;
+  window.tdbPlayElevenLabsTts = tdbPlayElevenLabsTts;
+  window.TDB_CLOUD_TTS_FALLBACK_TOAST = TDB_CLOUD_TTS_FALLBACK_TOAST;
   window.tdbGetCalmVerseRootEl = tdbGetCalmVerseRootEl;
   window.tdbGetCalmVerseRefAndTextFromPage = tdbGetCalmVerseRefAndTextFromPage;
   Object.defineProperty(window, 'bible', { get: function () { return bible; }, configurable: true });
@@ -13782,6 +13959,38 @@ function renderMessages(items, previewLimit) {
   });
   const limit = typeof previewLimit === 'number' && previewLimit > 0 ? previewLimit : sorted.length;
   const toRender = sorted.slice(0, limit);
+  (function fillMessageFeaturedStrip() {
+    const strip = document.getElementById('message-featured-strip');
+    const wrap = document.getElementById('message-featured-wrap');
+    if (!strip || !wrap) return;
+    strip.replaceChildren();
+    const ranked = visible
+      .map((item) => ({ item: item, n: item && item.id != null ? (amenCounts[item.id] || 0) : 0 }))
+      .filter((o) => o.n > 0)
+      .sort((a, b) => b.n - a.n)
+      .slice(0, 3);
+    if (ranked.length === 0) {
+      wrap.hidden = true;
+      return;
+    }
+    wrap.hidden = false;
+    ranked.forEach(({ item, n }) => {
+      const t = safeStr(item.text ?? item.message ?? item.body, '');
+      const card = document.createElement('article');
+      card.className = 'message-featured-card';
+      card.setAttribute('role', 'listitem');
+      const p = document.createElement('p');
+      p.className = 'message-featured-text';
+      const short = t.length > 200 ? t.slice(0, 197) + '\u2026' : t;
+      p.textContent = short;
+      const meta = document.createElement('p');
+      meta.className = 'message-featured-meta';
+      meta.textContent = 'Amen \u00B7 ' + n + ' on this device';
+      card.appendChild(p);
+      card.appendChild(meta);
+      strip.appendChild(card);
+    });
+  })();
   const pinned = buildPinnedEncouragementItem();
   if (pinned) list.appendChild(pinned);
   toRender.forEach(item => {
@@ -13813,9 +14022,15 @@ function renderMessages(items, previewLimit) {
     const amenBtn = document.createElement('button');
     const itemId = item.id;
     const amenCount = itemId != null ? (amenCounts[itemId] || 0) : 0;
+    amenBtn.type = 'button';
+    amenBtn.className = 'message-amen-btn';
+    amenBtn.setAttribute('aria-label', amenCount ? 'Amen, ' + amenCount + ' on this device' : 'Amen — count on this device only');
     amenBtn.textContent = amenCount ? `Amen (${amenCount})` : 'Amen';
     amenBtn.onclick = () => {
       if (itemId == null) return;
+      try {
+        if (typeof trackEvent === 'function') trackEvent('prayer_wall_amen_tap', {});
+      } catch (_) {}
       const next = loadAmenCounts();
       next[itemId] = (next[itemId] || 0) + 1;
       saveAmenCounts(next);
@@ -20391,8 +20606,8 @@ function renderResults(results) {
         };
         const listenBtn = document.createElement('button');
         listenBtn.className = 'btn btn-secondary btn-listen';
-        listenBtn.textContent = 'Listen';
-        listenBtn.setAttribute('aria-label', 'Read this verse aloud');
+        listenBtn.textContent = 'Listen slow';
+        listenBtn.setAttribute('aria-label', 'Read this verse aloud, slow');
         listenBtn.onclick = () => { speakVerse(v.ref, cleanText()); };
         const cardBtn = document.createElement('button');
         cardBtn.className = 'btn btn-secondary';

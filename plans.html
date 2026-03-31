@@ -690,6 +690,45 @@
     .plan-complete-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .plan-complete-title { font-size: 1.3rem; font-weight: 800; color: var(--gold); margin: 0 0 0.4rem; }
     .plan-complete-sub { font-size: 0.9rem; color: var(--muted); margin: 0 0 1.25rem; }
+    .plan-loop-ribbon-panel {
+      text-align: left;
+      max-width: 32rem;
+      margin: 0 auto 1.35rem;
+      padding: 1rem 1.1rem 1.15rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line));
+      background: color-mix(in srgb, var(--card) 88%, rgba(227, 188, 103, 0.06));
+    }
+    .plan-loop-ribbon-heading {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin: 0 0 0.5rem;
+      text-align: center;
+    }
+    .plan-loop-ribbon-lead,
+    .plan-loop-breath,
+    .plan-loop-prompt {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0 0 0.65rem;
+    }
+    .plan-loop-ribbon-lead:last-child,
+    .plan-loop-breath:last-child,
+    .plan-loop-prompt:last-child { margin-bottom: 0; }
+    .plan-loop-breath strong,
+    .plan-loop-prompt strong { color: var(--text); }
+    .plan-loop-ribbon-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 0.85rem;
+    }
+    .plan-loop-ribbon-actions .btn { min-height: 44px; }
     .plan-complete-related { margin-top: 0.25rem; margin-bottom: 1.25rem; text-align: left; }
     .plan-complete-related[hidden] { display: none !important; }
     .plan-complete-related-heading {
@@ -1340,6 +1379,16 @@
         <div class="plan-complete-icon">🏆</div>
         <p class="plan-complete-title" id="planCompleteTitle">Plan Complete!</p>
         <p class="plan-complete-sub" id="planCompleteSub"></p>
+        <div id="planLoopRibbonPanel" class="plan-loop-ribbon-panel" aria-label="Optional Möbius loop follow-up">
+          <h3 class="plan-loop-ribbon-heading">Return to the ribbon</h3>
+          <p class="plan-loop-ribbon-lead">You finished the numbered days. The Möbius picture is simple: the path does not have to end—it only turns. Nothing here rushes you.</p>
+          <p class="plan-loop-breath"><strong>Breathe once:</strong> inhale slowly; exhale and name one promise from Scripture you want to carry (yesterday&rsquo;s verse counts).</p>
+          <p class="plan-loop-prompt"><strong>Walk the plan again?</strong> Tap <em>Do it again</em> below, open Day 1, and ask: <em>What feels different this time?</em> No wrong answer.</p>
+          <div class="plan-loop-ribbon-actions">
+            <a class="btn btn-secondary" href="/mobius.html">Open the Möbius loop</a>
+            <a class="btn btn-secondary" href="/mobius.html#mobius-loop-journal">Loop journal</a>
+          </div>
+        </div>
         <div id="planCompleteRelated" class="plan-complete-related" hidden aria-label="Related reading plans"></div>
         <button type="button" class="btn-share" id="btnShareComplete" aria-label="Share plan completion">Share</button>
         <button type="button" class="btn-extend" id="btnExtend" aria-label="Do this plan again from day one">Do it again</button>
@@ -2405,7 +2454,7 @@
         completeCard.classList.add('show');
         document.getElementById('planCompleteTitle').textContent = plan.label + ' — Complete! 🏆';
         document.getElementById('planCompleteSub').textContent =
-          'You finished all ' + plan.max + ' days. That\'s real. Want to go deeper or start fresh?';
+          'You finished all ' + plan.max + ' days. That is real. Close the loop—trace the theme back to faith on the Möbius page if it helps, or start fresh when you want. The ribbon below is optional—breath, journal, or walk the plan again when you are ready.';
       } else {
         completeCard.classList.remove('show');
       }

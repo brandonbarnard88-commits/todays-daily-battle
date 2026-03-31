@@ -9,6 +9,7 @@
     "render:fr-es-moods": "node scripts/render-fr-es-mood-pages.mjs",
     "scaffold:id-pilot": "node scripts/scaffold-id-pilot.mjs",
     "render:locale-parity": "node scripts/render-locale-parity.mjs",
+    "elevenlabs:list-voices": "node scripts/list-elevenlabs-voices.mjs",
     "build:kjv-lexicon": "node scripts/build-kjv-lexicon.mjs",
     "audio:mobius-breathe": "node scripts/build-mobius-breathe-human-audio.mjs",
     "audio:mobius-guided": "node scripts/build-mobius-guided-human-audio.mjs",

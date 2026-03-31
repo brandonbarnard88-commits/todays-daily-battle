@@ -366,6 +366,10 @@ if (fs.existsSync(path.join(root, 'assets'))) {
   copyDir(path.join(root, 'assets'), path.join(dist, 'assets'));
   console.log('Copied assets/ folder (share images for OG/Twitter)');
 }
+if (fs.existsSync(path.join(root, 'coloring-pages'))) {
+  copyDir(path.join(root, 'coloring-pages'), path.join(dist, 'coloring-pages'));
+  console.log('Copied coloring-pages/ (digital coloring book line art)');
+}
 
 if (fs.existsSync(path.join(root, 'kids'))) {
   copyDir(path.join(root, 'kids'), path.join(dist, 'kids'));

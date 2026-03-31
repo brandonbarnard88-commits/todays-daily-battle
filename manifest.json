@@ -66,6 +66,18 @@
       "short_name": "Loop",
       "url": "/mobius.html",
       "description": "One journey, no dead ends. Every mood connects."
+    },
+    {
+      "name": "Steady now",
+      "short_name": "Steady",
+      "url": "/sos.html",
+      "description": "Three KJV verses when the moment is heavy—not emergency services."
+    },
+    {
+      "name": "Progress",
+      "short_name": "Progress",
+      "url": "/progress.html",
+      "description": "Quiet streaks and plan rhythm on this device."
     }
   ]
 }

@@ -1,0 +1,411 @@
+/* Color & Tell My Story — progress, story tabs, slideshow (kids coloring) */
+
+#tdb-cat-root {
+  margin-bottom: 2rem;
+}
+
+.tdb-cat-hero-note {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: rgba(254, 243, 199, 0.55);
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #78350f;
+}
+
+.dark-mode .tdb-cat-hero-note {
+  background: rgba(120, 53, 15, 0.25);
+  border-color: rgba(251, 191, 36, 0.3);
+  color: #fde68a;
+}
+
+.tdb-cat-progress {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tdb-cat-progress-card {
+  border-radius: 16px;
+  padding: 0.65rem 0.7rem 0.75rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(224, 242, 254, 0.5) 100%);
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.dark-mode .tdb-cat-progress-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(30, 58, 95, 0.75) 100%);
+  border-color: rgba(96, 165, 250, 0.25);
+}
+
+.tdb-cat-progress-card-thumb {
+  width: 100%;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.dark-mode .tdb-cat-progress-card-thumb {
+  background: #0f172a;
+}
+
+.tdb-cat-progress-card-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.dark-mode .tdb-cat-progress-card-title {
+  color: #f1f5f9;
+}
+
+.tdb-cat-progress-card-status {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.dark-mode .tdb-cat-progress-card-status {
+  color: #94a3b8;
+}
+
+.tdb-cat-progress-card-status--done {
+  color: #15803d;
+}
+
+.dark-mode .tdb-cat-progress-card-status--done {
+  color: #86efac;
+}
+
+.tdb-cat-progress-meter {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.35);
+  overflow: hidden;
+}
+
+.tdb-cat-progress-meter-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8, #a78bfa);
+  transition: width 0.35s ease;
+}
+
+.tdb-cat-story {
+  margin-bottom: 2rem;
+  padding: 1rem 1rem 1.25rem;
+  border-radius: 20px;
+  background: linear-gradient(165deg, rgba(255, 251, 235, 0.98) 0%, rgba(224, 242, 254, 0.92) 100%);
+  border: 2px solid rgba(251, 191, 36, 0.4);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+}
+
+.dark-mode .tdb-cat-story {
+  background: linear-gradient(165deg, rgba(30, 41, 59, 0.95) 0%, rgba(30, 58, 95, 0.88) 100%);
+  border-color: rgba(251, 191, 36, 0.28);
+}
+
+.tdb-cat-story-title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.15rem, 3vw, 1.4rem);
+  color: #b45309;
+}
+
+.dark-mode .tdb-cat-story-title {
+  color: #fde68a;
+}
+
+.tdb-cat-story-lead {
+  margin: 0 0 0.75rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #334155;
+}
+
+.dark-mode .tdb-cat-story-lead {
+  color: #cbd5e1;
+}
+
+.tdb-cat-story-celebrate {
+  margin: 0 0 0.85rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  background: rgba(187, 247, 208, 0.55);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #14532d;
+  display: none;
+}
+
+.dark-mode .tdb-cat-story-celebrate {
+  background: rgba(20, 83, 45, 0.35);
+  color: #bbf7d0;
+  border-color: rgba(74, 222, 128, 0.35);
+}
+
+.tdb-cat-story-celebrate.is-on {
+  display: block;
+}
+
+.tdb-cat-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.tdb-cat-tab {
+  min-height: 44px;
+  padding: 0.45rem 0.75rem;
+  border-radius: 12px;
+  border: 2px solid rgba(59, 130, 246, 0.35);
+  background: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dark-mode .tdb-cat-tab {
+  background: #334155;
+  color: #e2e8f0;
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+.tdb-cat-tab[aria-selected='true'] {
+  border-color: #2563eb;
+  background: linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%);
+}
+
+.dark-mode .tdb-cat-tab[aria-selected='true'] {
+  background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 100%);
+  color: #fff;
+}
+
+.tdb-cat-panel {
+  margin-bottom: 0.5rem;
+}
+
+.tdb-cat-panel[hidden] {
+  display: none !important;
+}
+
+.tdb-cat-scene-caption {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #1e293b;
+}
+
+.dark-mode .tdb-cat-scene-caption {
+  color: #e2e8f0;
+}
+
+.tdb-cat-scene-verse {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.dark-mode .tdb-cat-scene-verse {
+  color: #94a3b8;
+}
+
+.tdb-cat-jl-wrap {
+  margin-bottom: 0.65rem;
+  padding: 0.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+}
+
+.dark-mode .tdb-cat-jl-wrap {
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.tdb-cat-save-scene {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  min-height: 48px;
+}
+
+.tdb-cat-watch-story {
+  margin-top: 0.75rem;
+  min-height: 52px;
+  font-size: 1rem;
+  display: none;
+}
+
+.tdb-cat-watch-story.is-on {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tdb-cat-scene-saved-msg {
+  margin: 0.35rem 0 0;
+  font-size: 0.86rem;
+  color: #15803d;
+  font-weight: 600;
+  min-height: 1.25em;
+}
+
+.dark-mode .tdb-cat-scene-saved-msg {
+  color: #86efac;
+}
+
+/* Fullscreen slideshow */
+.tdb-cat-slideshow {
+  position: fixed;
+  inset: 0;
+  z-index: 10080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right))
+    max(0.75rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
+  background: rgba(15, 23, 42, 0.92);
+  touch-action: manipulation;
+}
+
+.tdb-cat-slideshow[hidden] {
+  display: none !important;
+}
+
+.tdb-cat-slideshow-inner {
+  width: 100%;
+  max-width: 52rem;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.tdb-cat-slideshow-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.tdb-cat-slideshow-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fde68a;
+}
+
+.tdb-cat-slideshow-close {
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.tdb-cat-slideshow-figure {
+  margin: 0;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid rgba(251, 191, 36, 0.35);
+}
+
+.tdb-cat-slideshow-figure img {
+  max-width: 100%;
+  max-height: min(58vh, 520px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.tdb-cat-slideshow-caption {
+  padding: 0.65rem 1rem 0.85rem;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #f1f5f9;
+}
+
+.tdb-cat-slideshow-cap-main {
+  display: block;
+}
+
+.tdb-cat-slideshow-verse {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: #fde68a;
+  font-style: italic;
+}
+
+.tdb-cat-slideshow-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tdb-cat-slideshow-nav button {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0 1rem;
+  border-radius: 12px;
+  border: 2px solid rgba(96, 165, 250, 0.5);
+  background: rgba(37, 99, 235, 0.4);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.tdb-cat-slideshow-tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  color: #e2e8f0;
+  font-size: 0.88rem;
+}
+
+.tdb-cat-slideshow-tools label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.tdb-cat-slideshow-dots {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tdb-cat-progress-meter-fill {
+    transition: none;
+  }
+}

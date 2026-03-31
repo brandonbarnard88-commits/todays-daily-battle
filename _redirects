@@ -175,6 +175,20 @@
 /morpheus-loop /mobius.html?mode=text 301
 /morpheus-loop.html /mobius.html?mode=text 301
 
+# Alternate spellings / short paths
+/moebius /mobius.html 301
+/moebius/ /mobius.html 301
+/moebius.html /mobius.html 301
+
+# Progress dashboard alias (same local streaks & plans UI)
+/dashboard /progress.html 302
+/dashboard/ /progress.html 302
+/dashboard.html /progress.html 302
+
+# Steady-now KJV sheet (not emergency services)
+/sos /sos.html 200!
+/sos/ /sos.html 302
+
 # 301 redirects for broken/legacy paths (enforce, no conflicts)
 /anxiety /about.html 301
 /our-approach /about.html 301

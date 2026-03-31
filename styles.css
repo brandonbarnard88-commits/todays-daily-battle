@@ -503,6 +503,72 @@ body.tdb-inner-page .progress-app-inner .progress-milestone--soft {
   font-style: italic;
 }
 
+body.tdb-inner-page .progress-app-inner .progress-faith-loop-section .progress-faith-loop-line {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text, #f5f7fb);
+}
+
+/* Prayer wall: local “featured by Amen” strip + Amen button */
+.message-featured-wrap {
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem 1rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 22%, var(--tdb-surface-card-border, rgba(148, 163, 184, 0.28)));
+  background: color-mix(in srgb, var(--tdb-surface-panel-bg, #0f141f) 92%, transparent);
+}
+.message-featured-heading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  color: var(--text, #f5f7fb);
+}
+.message-featured-note {
+  margin-bottom: 0.65rem !important;
+}
+.message-featured-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.message-featured-card {
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  border: 1px solid var(--tdb-surface-card-border, rgba(148, 163, 184, 0.22));
+  background: color-mix(in srgb, var(--tdb-surface-card-bg, #121826) 94%, transparent);
+}
+.message-featured-text {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text, #e8ecf4);
+}
+.message-featured-meta {
+  margin: 0.4rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted, #8896b0);
+  letter-spacing: 0.02em;
+}
+.message-amen-btn {
+  min-height: 44px;
+  padding: 0.35rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, var(--tdb-surface-card-border));
+  background: color-mix(in srgb, var(--gold, #e3bc67) 8%, transparent);
+  color: var(--gold-soft, #d4b87a);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.message-amen-btn:hover,
+.message-amen-btn:focus-visible {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  background: color-mix(in srgb, var(--gold, #e3bc67) 14%, transparent);
+  color: var(--gold, #e3bc67);
+  outline: none;
+}
+
 body.tdb-inner-page #reset-modal.modal-overlay {
   display: none;
   position: fixed;
@@ -17400,6 +17466,160 @@ body.kids-battle-page .tdb-site-humility {
   flex-wrap: wrap;
 }
 
+/* Verse page Listen: soft “golden hour” band (CSS only—no stock imagery). */
+.tdb-verse-page .tdb-verse-listen-porch {
+  position: relative;
+  padding: 1rem 1.1rem 1.15rem;
+  margin: 0 0 0.5rem;
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid color-mix(in srgb, var(--gold, #c9a84c) 22%, transparent);
+  background:
+    radial-gradient(120% 180% at 12% 0%, rgba(255, 214, 160, 0.22) 0%, transparent 55%),
+    radial-gradient(100% 140% at 88% 20%, rgba(251, 191, 120, 0.14) 0%, transparent 50%),
+    linear-gradient(165deg, color-mix(in srgb, var(--surface, #1e293b) 88%, #3d2e1f) 0%, var(--surface, #1e293b) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+:root[data-theme="light"] .tdb-verse-page .tdb-verse-listen-porch {
+  background:
+    radial-gradient(120% 180% at 10% 0%, rgba(255, 236, 200, 0.65) 0%, transparent 55%),
+    radial-gradient(90% 120% at 92% 15%, rgba(255, 220, 170, 0.45) 0%, transparent 48%),
+    linear-gradient(170deg, #fffaf3 0%, #f8f4ec 100%);
+  border-color: rgba(201, 168, 76, 0.28);
+}
+
+/* Golden-hour porch deepens gently while audio plays (cloud or on-device). */
+.tdb-verse-page .tdb-verse-listen-porch {
+  transition: box-shadow 1.4s ease, border-color 1.4s ease, background 1.6s ease;
+}
+
+.tdb-verse-page .tdb-verse-listen-porch--listening {
+  border-color: color-mix(in srgb, var(--gold, #c9a84c) 42%, transparent);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--gold-soft, #d4b87a) 25%, transparent),
+    0 0 28px -8px color-mix(in srgb, var(--gold, #c9a84c) 28%, transparent);
+  background:
+    radial-gradient(130% 200% at 15% -5%, rgba(255, 200, 120, 0.28) 0%, transparent 58%),
+    radial-gradient(110% 160% at 85% 25%, rgba(255, 175, 90, 0.2) 0%, transparent 52%),
+    linear-gradient(165deg, color-mix(in srgb, var(--surface, #1e293b) 82%, #4a3520) 0%, var(--surface, #1e293b) 100%);
+}
+
+:root[data-theme="light"] .tdb-verse-page .tdb-verse-listen-porch--listening {
+  background:
+    radial-gradient(130% 200% at 12% -5%, rgba(255, 220, 160, 0.85) 0%, transparent 58%),
+    radial-gradient(100% 140% at 90% 20%, rgba(255, 190, 120, 0.55) 0%, transparent 50%),
+    linear-gradient(172deg, #fff6e8 0%, #fdf3e0 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tdb-verse-page .tdb-verse-listen-porch {
+    transition: none;
+  }
+}
+
+/* Loading spinner on verse Listen (text hidden visually; SR via aria-busy + label). */
+.tdb-verse-page #verse-listen-btn.tdb-tts-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.tdb-verse-page #verse-listen-btn.tdb-tts-loading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: -0.625rem 0 0 -0.625rem;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--gold-soft, #d4b87a) 35%, transparent);
+  border-top-color: color-mix(in srgb, var(--gold, #c9a84c) 75%, transparent);
+  opacity: 0.92;
+  animation: tdb-tts-spin 1.05s linear infinite;
+}
+
+@keyframes tdb-tts-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Home hero Listen: same quiet spinner while cloud TTS loads */
+.read-aloud-btn.tdb-tts-loading {
+  position: relative;
+  min-width: 2.5rem;
+}
+
+.read-aloud-btn.tdb-tts-loading .read-aloud-label {
+  visibility: hidden;
+}
+
+.read-aloud-btn.tdb-tts-loading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: -0.575rem 0 0 -0.575rem;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--gold-soft, #d4b87a) 35%, transparent);
+  border-top-color: color-mix(in srgb, var(--gold, #c9a84c) 75%, transparent);
+  animation: tdb-tts-spin 1.05s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .read-aloud-btn.tdb-tts-loading::after {
+    animation: none;
+    border-color: var(--gold, #c9a84c);
+  }
+}
+
+/* Soft cross-shaped light while verse audio plays — slow breath, Möbius-adjacent. */
+.tdb-verse-page #verse-listen-btn.tdb-verse-listen-btn[aria-pressed="true"] {
+  position: relative;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--gold, #c9a84c) 42%, transparent),
+    0 0 20px color-mix(in srgb, var(--gold-soft, #d4b87a) 30%, transparent),
+    0 -11px 26px -15px color-mix(in srgb, var(--gold, #c9a84c) 48%, transparent),
+    0 11px 26px -15px color-mix(in srgb, var(--gold, #c9a84c) 48%, transparent),
+    -11px 0 26px -15px color-mix(in srgb, var(--gold-soft, #d4b87a) 36%, transparent),
+    11px 0 26px -15px color-mix(in srgb, var(--gold-soft, #d4b87a) 36%, transparent);
+  animation: tdb-listen-cross-glow 4.2s ease-in-out infinite;
+}
+
+@keyframes tdb-listen-cross-glow {
+  0%, 100% {
+    filter: brightness(1);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--gold, #c9a84c) 38%, transparent),
+      0 0 16px color-mix(in srgb, var(--gold-soft, #d4b87a) 24%, transparent),
+      0 -9px 22px -15px color-mix(in srgb, var(--gold, #c9a84c) 44%, transparent),
+      0 9px 22px -15px color-mix(in srgb, var(--gold, #c9a84c) 44%, transparent),
+      -9px 0 22px -15px color-mix(in srgb, var(--gold-soft, #d4b87a) 32%, transparent),
+      9px 0 22px -15px color-mix(in srgb, var(--gold-soft, #d4b87a) 32%, transparent);
+  }
+  50% {
+    filter: brightness(1.05);
+    box-shadow:
+      0 0 0 2px color-mix(in srgb, var(--gold, #c9a84c) 48%, transparent),
+      0 0 26px color-mix(in srgb, var(--gold-soft, #d4b87a) 34%, transparent),
+      0 -12px 28px -14px color-mix(in srgb, var(--gold, #c9a84c) 55%, transparent),
+      0 12px 28px -14px color-mix(in srgb, var(--gold, #c9a84c) 55%, transparent),
+      -12px 0 28px -14px color-mix(in srgb, var(--gold-soft, #d4b87a) 42%, transparent),
+      12px 0 28px -14px color-mix(in srgb, var(--gold-soft, #d4b87a) 42%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tdb-verse-page #verse-listen-btn.tdb-tts-loading::after {
+    animation: none;
+    border-color: var(--gold, #c9a84c);
+  }
+  .tdb-verse-page #verse-listen-btn.tdb-verse-listen-btn[aria-pressed="true"] {
+    animation: none;
+  }
+}
+
 .tdb-verse-page .verse-actions.calm-actions {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
@@ -17522,6 +17742,35 @@ body.kids-battle-page .tdb-site-humility {
   .tdb-topic-mood-page .topic-related-ctas {
     grid-template-columns: 1fr;
   }
+}
+
+/* Mood topics — optional door into the Möbius loop (slow room vs. fast verses) */
+.tdb-topic-mood-page .tdb-mobius-loop-door {
+  margin-bottom: 1rem;
+  padding: 1rem 1.15rem 1.15rem;
+  border-radius: var(--tdb-surface-radius, 14px);
+  border: 1px solid color-mix(in srgb, var(--line, rgba(255, 255, 255, 0.12)) 78%, rgba(227, 188, 103, 0.3));
+  background: color-mix(in srgb, var(--card) 94%, rgba(227, 188, 103, 0.05));
+}
+
+.tdb-topic-mood-page .tdb-mobius-loop-door-heading {
+  margin-top: 0;
+}
+
+.tdb-topic-mood-page .tdb-mobius-loop-door-lead {
+  margin-bottom: 0.75rem;
+  max-width: 40rem;
+  line-height: 1.55;
+}
+
+.tdb-topic-mood-page .tdb-mobius-loop-door-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tdb-topic-mood-page .tdb-mobius-loop-door .btn {
+  min-height: 44px;
 }
 
 /* Open beta — honest scope (Explore callout, About, canonical footer) */

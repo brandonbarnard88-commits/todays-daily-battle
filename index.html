@@ -2691,6 +2691,23 @@
 
     /* ── Fear → Faith Loop (Möbius) ── */
     .mobius-loop-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.75rem; margin-bottom: 0.55rem; }
+    .tdb-mobius-glow-strip {
+      flex: 1 1 100%;
+      max-width: 8.5rem;
+      opacity: 0.92;
+      filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.35));
+    }
+    .tdb-mobius-loop-svg { display: block; width: 100%; height: auto; }
+    .tdb-mobius-loop-path {
+      stroke-dasharray: 2 6;
+      animation: tdb-mobius-dash 14s linear infinite;
+    }
+    @keyframes tdb-mobius-dash {
+      to { stroke-dashoffset: -96; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tdb-mobius-loop-path { animation: none; stroke-dasharray: none; }
+    }
     .mobius-loop-full-link { font-size: 0.8rem; color: #bcc5d6; text-decoration: none; }
     .mobius-loop-full-link:hover { color: var(--gold-soft); }
     .mobius-loop-chip {
@@ -4919,6 +4936,7 @@
       text-decoration: none; margin-top: 0.35rem;
     }
     .nudge-see-more:hover { text-decoration: underline; }
+    .nudge-see-more--second { margin-top: 0.2rem; color: color-mix(in srgb, var(--gold) 88%, var(--muted)); }
     .nudge-popover-body { flex: 1; }
 
     .topic-plans-hint {
@@ -5478,6 +5496,8 @@
           <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
             <a href="/explore.html">Explore</a>
             <a href="/#feel-section">Feel search &amp; topics</a>
+            <a href="/progress.html">Progress</a>
+            <a href="/sos.html">Steady now (three KJV)</a>
             <a href="/family.html">Family</a>
             <a href="/what-god-has-done.html">What God has done</a>
           </div>
@@ -5628,7 +5648,7 @@
               id="readAloudBtn"
               type="button"
               aria-describedby="hero-listen-hint"
-              aria-label="Listen — verse and today’s breakdown read aloud"
+              aria-label="Listen slow — verse and today’s breakdown read aloud"
               aria-pressed="false"
             >
               <svg class="ra-icon-speaker" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -5640,14 +5660,14 @@
                 <rect x="6" y="4" width="4" height="16" rx="1"></rect>
                 <rect x="14" y="4" width="4" height="16" rx="1"></rect>
               </svg>
-              <span class="read-aloud-label">Listen</span>
+              <span class="read-aloud-label">Listen slow</span>
             </button>
             <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse (copy or device share)">Share</button>
             <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
           </div>
         </div>
         <p class="hero-daily-welcome">Joy, rest, questions&mdash;you are welcome here.</p>
-        <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown. Keyboard: Tab to Listen, then Space.</p>
+        <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen slow for a quiet hear-through of today&rsquo;s verse and breakdown. Keyboard: Tab to Listen slow, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
           <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Isaiah 40:31" data-tdb-wordstudy-text="But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
@@ -5848,6 +5868,17 @@
           <div class="plans-mini-bars" id="plansMiniBarsList" aria-hidden="true"></div>
         </div>
         <span class="mobius-loop-row">
+          <span class="tdb-mobius-glow-strip" aria-hidden="true">
+            <svg class="tdb-mobius-loop-svg" viewBox="0 0 120 28" focusable="false" aria-hidden="true">
+              <defs>
+                <linearGradient id="tdbMobiusGlowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="rgba(96,165,250,0.45)"/>
+                  <stop offset="100%" stop-color="rgba(227,188,103,0.55)"/>
+                </linearGradient>
+              </defs>
+              <path class="tdb-mobius-loop-path" d="M4 20 Q 28 6, 58 14 T 116 10" fill="none" stroke="url(#tdbMobiusGlowGrad)" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </span>
           <button type="button" class="mobius-loop-chip" id="mobius-loop-trigger" aria-label="Explore Fear to Faith Loop">🔄 Explore Fear → Faith Loop</button>
           <a href="mobius.html" class="mobius-loop-full-link" aria-label="Enter the Möbius Loop">Enter the Möbius →</a>
         </span>
@@ -7940,18 +7971,18 @@
         btn.hidden = false;
         btn.disabled = false;
         btn.removeAttribute('aria-disabled');
-        btn.setAttribute('aria-label', 'Listen — verse and today’s breakdown read aloud');
+        btn.setAttribute('aria-label', 'Listen slow — verse and today’s breakdown read aloud');
         btn.removeAttribute('title');
         var rlbl = btn.querySelector('.read-aloud-label');
-        if (rlbl) rlbl.textContent = 'Listen';
+        if (rlbl) rlbl.textContent = 'Listen slow';
       }
 
       function setPlaying(yes) {
         btn.classList.toggle('is-playing', yes);
         btn.setAttribute('aria-pressed', yes ? 'true' : 'false');
-        btn.setAttribute('aria-label', yes ? 'Pause reading' : 'Listen — verse and today’s breakdown read aloud');
+        btn.setAttribute('aria-label', yes ? 'Pause reading' : 'Listen slow — verse and today’s breakdown read aloud');
         var lbl = btn.querySelector('.read-aloud-label');
-        if (lbl) lbl.textContent = yes ? 'Pause' : 'Listen';
+        if (lbl) lbl.textContent = yes ? 'Pause' : 'Listen slow';
       }
 
       // ── TTS fallback (used when MP3 unavailable) ──
@@ -8013,9 +8044,23 @@
           if (e && e.detail && typeof e.detail.playing === 'boolean') setPlaying(e.detail.playing);
         });
         btn.addEventListener('click', () => {
+          const tdbCloudTtsToast = (typeof window.TDB_CLOUD_TTS_FALLBACK_TOAST === 'string')
+            ? window.TDB_CLOUD_TTS_FALLBACK_TOAST
+            : 'Cloud voice needs a connection\u2026';
           if (window.TDBVerseNarration && typeof window.TDBVerseNarration.isSpeaking === 'function' && window.TDBVerseNarration.isSpeaking()) {
             window.TDBVerseNarration.stop();
             setPlaying(false);
+            return;
+          }
+          const elAudio = typeof window !== 'undefined' ? window.__tdbElevenLabsAudio : null;
+          if (elAudio && !elAudio.paused) {
+            elAudio.pause();
+            setPlaying(false);
+            return;
+          }
+          if (elAudio && elAudio.paused) {
+            elAudio.play();
+            setPlaying(true);
             return;
           }
           if (synth.speaking && !synth.paused) {
@@ -8029,44 +8074,89 @@
             return;
           }
           try { synth.cancel(); } catch (_) {}
+          if (typeof window.tdbStopElevenLabsPlayback === 'function') window.tdbStopElevenLabsPlayback();
           const text = buildTtsText();
           if (!text.trim()) return;
           const verseCardEl = document.getElementById('verseCard');
           const highlightTarget = (verseCardEl && typeof window.tdbGetDailyVerseBodyElementFromCard === 'function')
             ? window.tdbGetDailyVerseBodyElementFromCard(verseCardEl)
             : document.getElementById('heroVerse');
-          if (window.TDBVerseNarration && typeof window.TDBVerseNarration.speakPlainText === 'function') {
-            const ok = window.TDBVerseNarration.speakPlainText(text, { highlightEl: highlightTarget || null, calm: true });
-            if (ok) {
-              setPlaying(true);
-              return;
+          function startLocalNarration() {
+            if (window.TDBVerseNarration && typeof window.TDBVerseNarration.speakPlainText === 'function') {
+              const ok = window.TDBVerseNarration.speakPlainText(text, { highlightEl: highlightTarget || null, calm: true });
+              if (ok) {
+                setPlaying(true);
+                return;
+              }
             }
+            dailyUtterance = new SpeechSynthesisUtterance(text);
+            dailyUtterance.rate  = 0.88;
+            dailyUtterance.pitch = 1;
+            dailyUtterance.lang  = 'en-US';
+            const voices = refreshVoices();
+            let best = null;
+            if (voices.length) {
+              const en = v => ((v&&v.lang)||'').toLowerCase().indexOf('en')===0;
+              const natural = voices.filter(v => en(v) && /(natural|neural|premium|enhanced|siri|google us english|microsoft (aria|jenny|sara))/i.test((v.name||'')));
+              const warm = voices.filter(v => en(v) && /(female|woman|zira|samantha|victoria|ava|allison|karen|moira|susan|aria|serena|salli|jenny|daniel|alex)/i.test((v.name||'')));
+              best = natural[0] || warm[0] || voices.find(v => en(v) && v.localService) || voices.find(v => en(v)) || voices[0];
+            }
+            if (best) dailyUtterance.voice = best;
+            dailyUtterance.onstart = () => {
+              if (highlightTarget) highlightTarget.classList.add('tdb-tts-highlight-active');
+              setPlaying(true);
+            };
+            dailyUtterance.onend = dailyUtterance.onerror = () => {
+              if (highlightTarget) highlightTarget.classList.remove('tdb-tts-highlight-active');
+              setPlaying(false);
+              dailyUtterance = null;
+            };
+            dailyUtterance.onpause = () => setPlaying(false);
+            dailyUtterance.onresume = () => setPlaying(true);
+            synth.speak(dailyUtterance);
           }
-          dailyUtterance = new SpeechSynthesisUtterance(text);
-          dailyUtterance.rate  = 0.88;
-          dailyUtterance.pitch = 1;
-          dailyUtterance.lang  = 'en-US';
-          const voices = refreshVoices();
-          let best = null;
-          if (voices.length) {
-            const en = v => ((v&&v.lang)||'').toLowerCase().indexOf('en')===0;
-            const natural = voices.filter(v => en(v) && /(natural|neural|premium|enhanced|siri|google us english|microsoft (aria|jenny|sara))/i.test((v.name||'')));
-            const warm = voices.filter(v => en(v) && /(female|woman|zira|samantha|victoria|ava|allison|karen|moira|susan|aria|serena|salli|jenny|daniel|alex)/i.test((v.name||'')));
-            best = natural[0] || warm[0] || voices.find(v => en(v) && v.localService) || voices.find(v => en(v)) || voices[0];
+          if (navigator.onLine && typeof window.tdbPlayElevenLabsTts === 'function') {
+            btn.disabled = true;
+            btn.setAttribute('aria-busy', 'true');
+            btn.classList.add('tdb-tts-loading');
+            const loadLbl = btn.querySelector('.read-aloud-label');
+            const prevLbl = loadLbl ? loadLbl.textContent : '';
+            if (loadLbl) loadLbl.textContent = '\u2026';
+            window.tdbPlayElevenLabsTts(text, {
+              onStart: function () {
+                btn.disabled = false;
+                btn.removeAttribute('aria-busy');
+                btn.classList.remove('tdb-tts-loading');
+                if (highlightTarget) highlightTarget.classList.add('tdb-tts-highlight-active');
+                setPlaying(true);
+              },
+              onEnd: function () {
+                if (highlightTarget) highlightTarget.classList.remove('tdb-tts-highlight-active');
+                setPlaying(false);
+              },
+              onError: function () {
+                if (highlightTarget) highlightTarget.classList.remove('tdb-tts-highlight-active');
+                btn.disabled = false;
+                btn.removeAttribute('aria-busy');
+                btn.classList.remove('tdb-tts-loading');
+                setPlaying(false);
+                if (loadLbl) loadLbl.textContent = prevLbl;
+              },
+            }).then(function (res) {
+              if (res && res.started) return;
+              btn.disabled = false;
+              btn.removeAttribute('aria-busy');
+              btn.classList.remove('tdb-tts-loading');
+              if (loadLbl) loadLbl.textContent = prevLbl;
+              if (typeof showEliteToast === 'function') showEliteToast(tdbCloudTtsToast);
+              startLocalNarration();
+            });
+            return;
           }
-          if (best) dailyUtterance.voice = best;
-          dailyUtterance.onstart = () => {
-            if (highlightTarget) highlightTarget.classList.add('tdb-tts-highlight-active');
-            setPlaying(true);
-          };
-          dailyUtterance.onend = dailyUtterance.onerror = () => {
-            if (highlightTarget) highlightTarget.classList.remove('tdb-tts-highlight-active');
-            setPlaying(false);
-            dailyUtterance = null;
-          };
-          dailyUtterance.onpause = () => setPlaying(false);
-          dailyUtterance.onresume = () => setPlaying(true);
-          synth.speak(dailyUtterance);
+          if (!navigator.onLine && typeof showEliteToast === 'function') {
+            showEliteToast(tdbCloudTtsToast);
+          }
+          startLocalNarration();
         });
       }
 
@@ -10315,6 +10405,7 @@
     <div class="nudge-popover-body">
       <p id="encourageMsg" class="nudge-popover-msg"></p>
       <a href="#verseCard" class="nudge-see-more" id="encourageSeeMore" aria-label="Scroll to today's verse">See today's verse ↑</a>
+      <a href="sos.html" class="nudge-see-more nudge-see-more--second" id="encourageSosSheet" aria-label="Open steady verses sheet with three KJV anchors">Steady verses sheet (three KJV) →</a>
     </div>
     <button type="button" id="encourageDismiss" class="nudge-dismiss-btn" aria-label="Dismiss encouragement">✕</button>
   </div>

@@ -50,7 +50,7 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">Your local streaks &amp; plans</span>
+        <span class="brand-subtitle">Tiny wins on this device — also <a href="/dashboard">/dashboard</a></span>
       </div>
       <nav class="header-nav tdb-global-nav" aria-label="Main">
         <a href="/">Home</a>
@@ -68,6 +68,8 @@
           <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
             <a href="/explore.html">Explore</a>
             <a href="/#feel-section">Feel search &amp; topics</a>
+            <a href="/sos.html">Steady now (three KJV)</a>
+            <a href="/mystudy.html">My Study</a>
           </div>
         </details>
       </nav>
@@ -115,13 +117,20 @@
       <div class="content-inner progress-app-inner">
         <header class="hero-banner">
           <h1>Progress</h1>
-          <p class="hero-tagline">Your battles, your pace — all saved locally.</p>
+          <p class="hero-tagline">Your battles, your pace — all saved locally. No scoreboard; just quiet check-ins.</p>
           <div class="cta-group">
             <a class="btn btn-secondary" href="/">Home</a>
             <a class="btn btn-secondary" href="wins.html">Your Wins</a>
             <a class="btn btn-secondary" href="explore.html">Explore</a>
+            <a class="btn btn-secondary" href="plans.html">Battle Plans</a>
           </div>
         </header>
+
+        <section class="glass progress-faith-loop-section" aria-labelledby="progress-faith-loop-h">
+          <h2 class="section-divider" id="progress-faith-loop-h">Faith loop</h2>
+          <p id="progress-faith-loop-line" class="section-note progress-faith-loop-line" role="status" aria-live="polite"></p>
+          <p class="section-note util-mb-0">When a plan ends, you can <a href="plans.html">loop back</a> or rest. The <a href="mobius.html">Möbius</a> page is the same picture in words—one path, gentle turns.</p>
+        </section>
 
         <section class="glass" id="streak-section" aria-label="Streaks">
           <h2 class="section-divider">Current Streak</h2>
@@ -591,6 +600,18 @@
 
       renderVisitRhythm();
       renderMilestones(completed.length, longest, displayStreak);
+
+      var floop = document.getElementById('progress-faith-loop-line');
+      if (floop) {
+        if (active.length > 0) {
+          var p0 = active[0];
+          floop.textContent = 'Day ' + p0.day + ' of ' + p0.plan.max + ' on ' + p0.plan.label + ' — close the loop at your pace; you can walk it again anytime.';
+        } else if (completed.length > 0) {
+          floop.textContent = 'No active plan right now — you have finished at least one full lane. Start fresh on the plans page whenever you want another slow rhythm.';
+        } else {
+          floop.textContent = 'No plan progress on this device yet — open Battle Plans when you want a day-by-day lane; your checkmarks will gather here.';
+        }
+      }
     }
 
     function escapeHtml(s) {

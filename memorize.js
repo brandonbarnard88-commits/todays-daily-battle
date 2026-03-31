@@ -278,6 +278,30 @@
           });
       });
       li.appendChild(loadOne);
+      if (comp && typeof comp.setMemorizeNextReviewInDays === 'function') {
+        var snoozeWrap = document.createElement('span');
+        snoozeWrap.className = 'mem-snooze-row';
+        [1, 3, 7].forEach(function (d) {
+          var sn = document.createElement('button');
+          sn.type = 'button';
+          sn.className = 'btn btn-secondary mem-snooze-btn';
+          sn.textContent = 'In ' + d + 'd';
+          sn.setAttribute(
+            'aria-label',
+            'Next gentle review for ' + row.ref + ' in about ' + d + ' day' + (d === 1 ? '' : 's')
+          );
+          sn.addEventListener('click', function () {
+            comp.setMemorizeNextReviewInDays(row.ref, d);
+            setStatus('Scheduled a quiet check-in in about ' + d + ' day' + (d === 1 ? '' : 's') + '.');
+            try {
+              if (typeof trackEvent === 'function') trackEvent('memorize_snooze_days', { days: d });
+            } catch (eT) {}
+            renderQueue();
+          });
+          snoozeWrap.appendChild(sn);
+        });
+        li.appendChild(snoozeWrap);
+      }
       ul.appendChild(li);
     });
     renderMemProgressRhythm(allRows, now);
@@ -636,6 +660,36 @@
       .trim();
   }
 
+  function applyMemorizeUrlParams() {
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      var refRaw = params.get('ref');
+      if (!refRaw) return;
+      var trimmed = String(refRaw).replace(/\s+/g, ' ').trim();
+      var inp = byId('mem-ref-input');
+      if (inp) inp.value = trimmed;
+      var p = parseRefLoose(trimmed);
+      if (!p) {
+        setStatus('That link needs a reference like John 3:16.', true);
+        return;
+      }
+      setStatus('Loading…');
+      fetchKjvVerse(p)
+        .then(function (text) {
+          showCard(p.label, text);
+          setStatus('Loaded from your link. Flip, hide words, or add to your list when you want.');
+          try {
+            if (typeof trackEvent === 'function') trackEvent('memorize_open_ref_param', {});
+          } catch (eT) {}
+          var card = byId('mem-card');
+          if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        })
+        .catch(function () {
+          setStatus('Could not load that verse yet. Check the reference or connection.', true);
+        });
+    } catch (e) {}
+  }
+
   function init() {
     var loadBtn = byId('mem-load-verse');
     var addBtn = byId('mem-add-queue');
@@ -792,6 +846,7 @@
     if (rep) rep.addEventListener('click', repeatAfterMe);
 
     renderQueue();
+    applyMemorizeUrlParams();
 
     if (!('speechSynthesis' in window)) {
       var na = byId('mem-audio-note');

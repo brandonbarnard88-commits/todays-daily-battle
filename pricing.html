@@ -541,6 +541,9 @@
     (function() {
       var params = new URLSearchParams(window.location.search);
       if (params.get('success') === '1') {
+        try {
+          localStorage.setItem('tdb_verse_card_perks_v1', '1');
+        } catch (eLs) {}
         var hero = document.querySelector('.hero-banner');
         if (hero) {
           var p = document.createElement('p');
@@ -548,6 +551,16 @@
           p.style.cssText = 'margin-top:0.75rem;padding:0.75rem 1rem;background:rgba(212,175,55,0.15);border-radius:10px;border-left:3px solid var(--elite-gold);font-weight:600;';
           p.textContent = params.get('military') === '1' ? 'Welcome Home. Thank you! Sign in above to unlock Battle Pro. If you just signed up, check your email to verify.' : 'Thank you! Sign in above to unlock Battle Pro. If you just signed up, check your email to verify.';
           hero.appendChild(p);
+          var perks = document.createElement('p');
+          perks.className = 'section-note';
+          perks.style.cssText = 'margin-top:0.5rem;line-height:1.55;';
+          perks.appendChild(document.createTextNode('A quiet thank-you: extra printable-style verse layouts live on '));
+          var aVc = document.createElement('a');
+          aVc.href = '/verse-cards/?perks=1';
+          aVc.textContent = 'KJV verse cards';
+          perks.appendChild(aVc);
+          perks.appendChild(document.createTextNode(' — only on this device, no account needed.'));
+          hero.appendChild(perks);
         }
         history.replaceState({}, '', window.location.pathname);
       }

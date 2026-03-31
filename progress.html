@@ -129,6 +129,15 @@
           <div id="longest-display" class="progress-longest" aria-live="polite"></div>
         </section>
 
+        <section class="glass" id="progress-visit-rhythm" aria-labelledby="progress-visit-rhythm-h">
+          <h2 class="section-divider" id="progress-visit-rhythm-h">Visit rhythm</h2>
+          <p class="section-note progress-visit-rhythm-note">Last four weeks on <strong>this device</strong> — days you marked &ldquo;I prayed / I&rsquo;m done for today&rdquo; on the home card. No scores; just a quiet map.</p>
+          <p id="progress-heat-empty" class="section-note progress-heat-empty hidden" role="status">No home check-ins in this window yet. When you finish today&rsquo;s verse flow on the homepage, a square will glow here.</p>
+          <div id="progress-heat-grid" class="progress-heat-grid" role="group" aria-label="Last 28 days, lighter means no check-in"></div>
+          <h3 class="progress-milestones-heading">Gentle milestones</h3>
+          <ul id="progress-milestones" class="progress-milestones" aria-label="Quiet encouragement based on local progress"></ul>
+        </section>
+
         <section class="glass" id="active-plans" aria-label="Active plans">
           <h2 class="section-divider">Active Plans</h2>
           <div id="active-list"></div>
@@ -155,8 +164,9 @@
               <div class="progress-stat-label">Days battled</div>
             </div>
           </div>
-          <p class="section-note" style="text-align:center; margin-top:1rem;">
+          <p class="section-note progress-stats-actions" style="text-align:center; margin-top:1rem;">
             <button type="button" id="export-stats" class="btn-export" aria-label="Copy my progress stats to clipboard">Copy My Stats</button>
+            <button type="button" id="share-quiet-invite" class="btn-export btn-export-secondary" aria-label="Copy a short invite to Today&apos;s Daily Battle">Copy quiet invite</button>
           </p>
           <p class="section-note" style="text-align:center; margin-top:0.5rem;">
             <a href="plans.html">Pick a plan →</a>
@@ -380,6 +390,78 @@
     };
 
     var LONGEST_KEY = 'tdb-longest-streak';
+    var DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
+
+    function dateKeyForOffset(off) {
+      var d = new Date();
+      d.setHours(0, 0, 0, 0);
+      d.setDate(d.getDate() + off);
+      var y = d.getFullYear();
+      var m = String(d.getMonth() + 1).padStart(2, '0');
+      var day = String(d.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + day;
+    }
+
+    function renderVisitRhythm() {
+      var wrap = document.getElementById('progress-visit-rhythm');
+      var grid = document.getElementById('progress-heat-grid');
+      var emptyEl = document.getElementById('progress-heat-empty');
+      if (!wrap || !grid) return;
+      var set = new Set();
+      try {
+        var raw = localStorage.getItem(DAILY_BATTLE_STREAK_KEY);
+        var data = raw ? JSON.parse(raw) : {};
+        if (data && Array.isArray(data.dates)) {
+          data.dates.forEach(function (dt) { if (typeof dt === 'string') set.add(dt); });
+        }
+      } catch (_) {}
+      grid.textContent = '';
+      var anyInWindow = false;
+      for (var i = -27; i <= 0; i++) {
+        var k = dateKeyForOffset(i);
+        var on = set.has(k);
+        if (on) anyInWindow = true;
+        var cell = document.createElement('span');
+        cell.className = 'progress-heat-cell' + (on ? ' progress-heat-cell--on' : '');
+        cell.title = k + (on ? ' — you showed up' : '');
+        cell.setAttribute('role', 'img');
+        cell.setAttribute('aria-label', k + (on ? ', checked in' : ', no check-in'));
+        grid.appendChild(cell);
+      }
+      if (emptyEl) emptyEl.classList.toggle('hidden', anyInWindow);
+    }
+
+    function renderMilestones(completedLen, longest, planStreak) {
+      var ul = document.getElementById('progress-milestones');
+      if (!ul) return;
+      ul.textContent = '';
+      var seen = new Set();
+      var items = [];
+      function push(t) {
+        if (seen.has(t)) return;
+        seen.add(t);
+        items.push(t);
+      }
+      if (planStreak >= 7) push('A week of plan days — quiet persistence.');
+      if (planStreak >= 21) push('Three weeks in the fight — steady steps.');
+      if (longest >= 7) push('Home rhythm: a seven-day stretch on your longest run.');
+      if (longest >= 30) push('Home rhythm: thirty days of showing up.');
+      if (completedLen >= 1) push('You finished a full reading plan here.');
+      if (completedLen >= 3) push('Several plans carried to the end.');
+      if (items.length === 0) {
+        var li0 = document.createElement('li');
+        li0.className = 'progress-milestone progress-milestone--soft';
+        li0.textContent = 'Keep going — small days stack up.';
+        ul.appendChild(li0);
+        return;
+      }
+      items.forEach(function (t) {
+        var li = document.createElement('li');
+        li.className = 'progress-milestone';
+        li.textContent = t;
+        ul.appendChild(li);
+      });
+    }
 
     function getDay(plan) {
       try {
@@ -506,6 +588,9 @@
       document.getElementById('total-verses').textContent = totalVerses;
       document.getElementById('plans-started').textContent = plansStarted;
       document.getElementById('days-battled').textContent = totalVerses;
+
+      renderVisitRhythm();
+      renderMilestones(completed.length, longest, displayStreak);
     }
 
     function escapeHtml(s) {
@@ -620,6 +705,26 @@
       loadProgress();
     });
     document.getElementById('export-stats').addEventListener('click', exportStats);
+
+    function copyQuietInvite() {
+      var text = 'A quiet place for daily KJV battles — verse, prayer, plans. No noise. todaysdailybattle.com';
+      function done(ok) {
+        showToast(ok ? 'Invite copied' : 'Copy failed');
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          done(true);
+          if (typeof window.trackEvent === 'function') {
+            try { window.trackEvent('progress_quiet_invite_copy', { source: 'progress' }); } catch (e) {}
+          }
+        }).catch(function () { done(false); });
+      } else {
+        done(false);
+      }
+    }
+
+    var shareInviteBtn = document.getElementById('share-quiet-invite');
+    if (shareInviteBtn) shareInviteBtn.addEventListener('click', copyQuietInvite);
 
     loadProgress();
   })();

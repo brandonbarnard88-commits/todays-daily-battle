@@ -26,6 +26,12 @@
     var ef = Number(e.easeFactor);
     if (e.easeFactor == null || isNaN(ef)) e.easeFactor = 2;
     e.easeFactor = Math.max(1.25, Math.min(2.65, Number(e.easeFactor)));
+    var ovr = Number(e.nextDueOverrideMs);
+    if (e.nextDueOverrideMs != null && !isNaN(ovr) && ovr <= Date.now()) {
+      try {
+        delete e.nextDueOverrideMs;
+      } catch (eDel) {}
+    }
     return e;
   }
 
@@ -281,6 +287,10 @@
   function memNextDueMs(entry) {
     if (!entry) return 0;
     normalizeMemEntry(entry);
+    var override = Number(entry.nextDueOverrideMs);
+    if (!isNaN(override) && override > Date.now()) {
+      return override;
+    }
     var idx = Math.min(Math.max(Number(entry.intervalIdx) || 0, 0), MEM_INTERVALS_DAYS.length - 1);
     var ef = Number(entry.easeFactor) || 2;
     var days = MEM_INTERVALS_DAYS[idx] * (ef / 2);
@@ -337,6 +347,27 @@
       e.intervalIdx = Math.min(MEM_INTERVALS_DAYS.length - 1, (Number(e.intervalIdx) || 0) + 1);
     }
     e.lastReviewed = new Date().toISOString();
+    try {
+      delete e.nextDueOverrideMs;
+    } catch (eDel) {}
+    saveMemorize(st);
+  }
+
+  /**
+   * Schedule the next gentle review about N whole days from now (local device).
+   * Clears when the verse is marked reviewed again.
+   * @param {string} ref
+   * @param {number} wholeDays 1–365
+   */
+  function setMemorizeNextReviewInDays(ref, wholeDays) {
+    var r = normRef(ref);
+    if (!r) return;
+    var n = Math.min(365, Math.max(1, Math.floor(Number(wholeDays) || 1)));
+    var st = loadMemorize();
+    var e = st.refs[r];
+    if (!e) return;
+    normalizeMemEntry(e);
+    e.nextDueOverrideMs = Date.now() + n * DAY_MS;
     saveMemorize(st);
   }
 
@@ -657,6 +688,7 @@
     isMemorizing: isMemorizing,
     toggleMemorize: toggleMemorize,
     markMemorizeReviewed: markMemorizeReviewed,
+    setMemorizeNextReviewInDays: setMemorizeNextReviewInDays,
     listMemorizeQueue: listMemorizeQueue,
     collectAllTags: collectAllTags,
     getDashboardStats: getDashboardStats,

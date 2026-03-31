@@ -68,6 +68,17 @@
       box-sizing: border-box;
     }
     main.mem-main > section:last-of-type { margin-bottom: 0; }
+    .mem-intro-panel {
+      margin-bottom: 1.35rem;
+      padding: 1.15rem 1.2rem 1.3rem;
+      border-radius: var(--tdb-surface-radius);
+      border: 1px solid var(--tdb-surface-card-border);
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-card-shadow);
+      box-sizing: border-box;
+    }
+    .mem-intro-panel h1 { margin-top: 0; }
     h2 { font-size: 1.05rem; color: var(--gold); margin: 0 0 0.65rem; font-weight: 700; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
@@ -215,9 +226,11 @@
     data-tdb-offline-page="memorize"
   ><p class="offline-msg"></p></div>
   <main id="main" class="mem-main tdb-calm-hub">
-    <h1>Memorize</h1>
-    <p class="subtitle">Private &mdash; everything stays on this device</p>
-    <p class="lead">Quiet tools to hide God&rsquo;s Word in your heart. No streaks, no scores, no competition&mdash;just gentle repetition that still works on hard days. Verses you keep in <a href="/my-verses.html" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">My Verses</a> have a Memorize link on each card.</p>
+    <header class="mem-intro-panel" aria-labelledby="mem-page-title">
+      <h1 id="mem-page-title">Memorize</h1>
+      <p class="subtitle">Private &mdash; everything stays on this device</p>
+      <p class="lead">Quiet tools to hide God&rsquo;s Word in your heart. No streaks, no scores, no competition&mdash;just gentle repetition that still works on hard days. Verses you keep in <a href="/my-verses.html" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">My Verses</a> have a Memorize link on each card.</p>
+    </header>
 
     <section aria-labelledby="mem-card-h2">
       <h2 id="mem-card-h2">One-tap verse cards</h2>

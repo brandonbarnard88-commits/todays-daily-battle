@@ -44,7 +44,7 @@
     .bible-tool { font-size: 1.0625rem; }
     .bible-tool .section-note { font-size: 1rem; }
     .bible-tool #daily-text, .bible-tool #lookup-text, .bible-tool .verse-ref { font-size: 1.1rem; line-height: 1.5; }
-    .bible-tool .verse-card { margin-bottom: 1.25rem; padding: 1.25rem; border-radius: var(--tdb-surface-radius, 12px); border: 1px solid var(--tdb-surface-card-border); background-color: var(--tdb-surface-card-bg); background-image: var(--tdb-surface-veil-subtle); box-shadow: var(--tdb-surface-panel-shadow); }
+    .bible-tool .verse-card { margin-bottom: 1.25rem; padding: 1.25rem; border-radius: var(--tdb-surface-radius, 12px); border: 1px solid var(--tdb-surface-card-border); background-color: var(--tdb-surface-card-bg); background-image: var(--tdb-surface-veil-subtle); box-shadow: var(--tdb-surface-card-shadow); }
     .bible-tool .verse-card.border-accent { border-left: 4px solid var(--color-primary, #6d28d9); }
     .bible-tool .verse-card.border-gold { border-left: 4px solid #d4af37; }
     .bible-tool .cross-ref-link { color: #a78bfa; text-decoration: none; }
@@ -69,7 +69,14 @@
     .bible-tool .bible-tool-kjv-step { font-size: 0.9rem; color: #cbd5e1; margin: 0.25rem 0 0; padding-left: 0.55rem; border-left: 2px solid rgba(212, 175, 55, 0.4); }
     .bible-tool .bible-tool-kjv-examples { list-style: none; margin: 0.35rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 0.65rem; }
     .bible-tool .bible-tool-kjv-examples li { margin: 0; font-size: 0.88rem; }
-    .bible-tool .bible-tool-book-intro-panel { padding: 0.65rem 0.75rem; border-radius: 10px; border: 1px solid rgba(148,163,184,0.22); background: rgba(12,18,30,0.35); }
+    .bible-tool .bible-tool-book-intro-panel {
+      padding: 0.65rem 0.75rem;
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 2px);
+      border: 1px solid var(--tdb-surface-panel-border);
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-panel-shadow);
+    }
     .bible-tool .bible-tool-book-intro-panel h3 { font-size: 0.95rem; color: #e3bc67; margin: 0 0 0.35rem; font-weight: 600; }
     .bible-tool .bible-tool-book-intro-body .reader-book-intro-anchors { margin: 0.35rem 0 0; padding-left: 1.15rem; color: #e2e8f0; }
     .bible-tool .bible-tool-book-intro-body .reader-book-intro-anchors li { margin: 0.2rem 0; }
@@ -81,8 +88,27 @@
     .bible-tool .plan-progress-bar { height: 8px; background: rgba(148,163,184,0.2); border-radius: 4px; overflow: hidden; margin: 0.5rem 0; }
     .bible-tool .plan-progress-fill { height: 100%; background: linear-gradient(90deg, #6d28d9, #d4af37); border-radius: 4px; transition: width 0.3s ease; }
     .bible-tool .plan-day-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 6px; background: rgba(212,175,55,0.2); color: #d4af37; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .bible-tool .plan-reflection { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.12); border-left: 3px solid #6d28d9; font-size: 1rem; }
-    .bible-tool .plan-complete-msg { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.4); color: #d4af37; font-weight: 600; font-size: 1rem; }
+    .bible-tool .plan-reflection {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 2px);
+      background-color: color-mix(in srgb, var(--tdb-surface-panel-bg) 85%, rgba(109, 40, 217, 0.14));
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid color-mix(in srgb, var(--tdb-surface-panel-border) 80%, rgba(109, 40, 217, 0.25));
+      border-left: 3px solid #6d28d9;
+      font-size: 1rem;
+    }
+    .bible-tool .plan-complete-msg {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 2px);
+      background-color: color-mix(in srgb, var(--tdb-surface-panel-bg) 88%, rgba(212, 175, 55, 0.12));
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid rgba(212,175,55,0.38);
+      color: #d4af37;
+      font-weight: 600;
+      font-size: 1rem;
+    }
     .bible-tool .share-progress-btn { margin-top: 0.5rem; }
     .bible-tool .verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
     .bible-tool .verse-actions .btn { margin-right: 0; }
@@ -99,7 +125,16 @@
       .bible-tool .lookup-controls { gap: 0.5rem; }
       .bible-tool #plan-progress { display: flex; flex-wrap: wrap; flex-direction: column; gap: 0.25rem; }
     }
-    .bible-tool .prayer-box { padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.1); border-left: 3px solid #6d28d9; font-size: 1rem; font-style: italic; }
+    .bible-tool .prayer-box {
+      padding: 0.75rem;
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 2px);
+      background-color: color-mix(in srgb, var(--tdb-surface-panel-bg) 86%, rgba(109, 40, 217, 0.12));
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid color-mix(in srgb, var(--tdb-surface-panel-border) 85%, rgba(109, 40, 217, 0.2));
+      border-left: 3px solid #6d28d9;
+      font-size: 1rem;
+      font-style: italic;
+    }
     .bible-tool .people-btn { border: 2px solid #d4af37; color: #d4af37; }
     .bible-tool .people-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(212,175,55,0.3); }
     .bible-tool .bible-tool-crossrefs-ul { list-style: none; margin: 0; padding: 0; }
@@ -276,11 +311,13 @@
     .bible-tool .whos-this-no-match { font-size: 1rem; color: #94a3b8; font-style: italic; line-height: 1.5; }
     /* Ask the Word — Bible Q&A */
     .bible-qa {
-      background: #1a1a1a;
-      border: 1px solid #d4af37;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 20px 0;
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid color-mix(in srgb, var(--tdb-surface-card-border) 72%, rgba(212, 175, 55, 0.3));
+      border-radius: var(--tdb-surface-radius, 16px);
+      box-shadow: var(--tdb-surface-card-shadow);
+      padding: 1.15rem 1.15rem 1.25rem;
+      margin: 1.25rem 0;
     }
     .bible-qa-title { font-size: 1.25rem; margin: 0 0 1rem; color: #d4af37; font-weight: 600; }
     .bible-qa .qa-input-group { display: flex !important; gap: 10px; flex-wrap: wrap; visibility: visible !important; }
@@ -288,12 +325,12 @@
       flex: 1;
       min-width: 12rem;
       min-height: 44px;
-      font-size: 1.2rem;
-      padding: 12px;
-      background: #222;
-      color: #fff;
-      border: 1px solid rgba(212,175,55,0.4);
-      border-radius: 4px;
+      font-size: 1.05rem;
+      padding: 0.55rem 0.7rem;
+      background-color: color-mix(in srgb, var(--tdb-surface-panel-bg) 88%, #0f172a);
+      color: var(--text-dark, #f1f5f9);
+      border: 1px solid var(--tdb-surface-panel-border);
+      border-radius: 10px;
       display: block;
       visibility: visible;
     }
@@ -328,11 +365,14 @@
     }
     @keyframes qa-spin { to { transform: rotate(360deg); } }
     .qa-result {
-      margin-top: 20px;
-      padding: 15px;
-      background: #111;
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid var(--tdb-surface-panel-border);
       border-left: 4px solid #d4af37;
-      border-radius: 4px;
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 2px);
+      box-shadow: var(--tdb-surface-panel-shadow);
     }
     .qa-result.hidden { display: none; }
     .qa-result .qa-answer { margin: 0; line-height: 1.5; }
@@ -584,7 +624,7 @@
         <section class="bible-qa" id="ask-the-word-section" aria-label="Ask the Word" role="search">
           <h2 class="bible-qa-title">✝️ Ask the Word</h2>
           <div class="qa-input-group" style="display:flex !important; gap:10px; flex-wrap:wrap;">
-            <input id="bible-qa-search" type="text" placeholder="Ask anything about the Bible…" aria-label="Ask a Bible question" autocomplete="off" style="flex:1; min-width:12rem; min-height:44px; padding:12px; background:#222; color:#fff; border:1px solid rgba(212,175,55,0.4); border-radius:4px; font-size:1.1rem;">
+            <input id="bible-qa-search" type="text" placeholder="Ask anything about the Bible…" aria-label="Ask a Bible question" autocomplete="off" style="flex:1; min-width:12rem;">
             <button type="button" class="qa-btn" id="bible-qa-btn" style="min-height:44px;">Ask</button>
           </div>
           <p class="qa-server-note" id="ask-the-word-server-note">

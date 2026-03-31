@@ -421,6 +421,88 @@ body.tdb-inner-page .progress-app-inner .btn-export:hover {
   background: color-mix(in srgb, var(--gold, #e3bc67) 15%, transparent);
 }
 
+body.tdb-inner-page .progress-app-inner .progress-stats-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+body.tdb-inner-page .progress-app-inner .btn-export-secondary {
+  border-color: var(--tdb-surface-card-border);
+  color: var(--muted, #8896b0);
+}
+
+body.tdb-inner-page .progress-app-inner .btn-export-secondary:hover {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 45%, var(--tdb-surface-card-border));
+  color: var(--text, #f5f7fb);
+  background: color-mix(in srgb, var(--tdb-surface-panel-bg) 80%, transparent);
+}
+
+body.tdb-inner-page .progress-app-inner .progress-visit-rhythm-note {
+  margin-bottom: 0.75rem;
+}
+
+body.tdb-inner-page .progress-app-inner .progress-heat-empty {
+  margin-bottom: 0.5rem;
+}
+
+body.tdb-inner-page .progress-app-inner .progress-heat-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+  max-width: 11rem;
+  margin-bottom: 0.25rem;
+}
+
+body.tdb-inner-page .progress-app-inner .progress-heat-cell {
+  aspect-ratio: 1;
+  min-width: 0;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--tdb-surface-panel-border) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tdb-surface-card-border) 55%, transparent);
+}
+
+body.tdb-inner-page .progress-app-inner .progress-heat-cell--on {
+  background: color-mix(in srgb, var(--gold, #e3bc67) 42%, var(--tdb-surface-card-bg));
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold, #e3bc67) 22%, transparent);
+}
+
+body.tdb-inner-page .progress-app-inner .progress-milestones-heading {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted, #8896b0);
+  margin: 1rem 0 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+body.tdb-inner-page .progress-app-inner .progress-milestones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+body.tdb-inner-page .progress-app-inner .progress-milestone {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--tdb-surface-card-border);
+  background: color-mix(in srgb, var(--tdb-surface-panel-bg) 88%, transparent);
+  color: var(--text, #f5f7fb);
+}
+
+body.tdb-inner-page .progress-app-inner .progress-milestone--soft {
+  border-style: dashed;
+  color: var(--muted, #8896b0);
+  font-style: italic;
+}
+
 body.tdb-inner-page #reset-modal.modal-overlay {
   display: none;
   position: fixed;
@@ -10149,6 +10231,21 @@ body.kids-corner-page .content-inner.loop-library-page > section.glass .loop-qui
 /* Loop library grid reads better a touch wider than default inner measure */
 body.kids-corner-page.tdb-inner-page .app-shell .content-inner.loop-library-page {
   max-width: min(52rem, 100%);
+}
+
+/* Parent dashboard — footnote matches hub surface whisper */
+body.kids-battle-page.kids-parent-dashboard .kids-parent-note {
+  font-family: var(--font-ui);
+  margin: 1.25rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: var(--tdb-surface-radius);
+  border: 1px solid var(--tdb-surface-panel-border);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-panel-shadow);
+  color: rgba(226, 232, 240, 0.88);
+  line-height: 1.5;
+  font-size: 0.92rem;
 }
 
 /* Base card for consistent panels (verse cards, prayer list, progress blocks) */

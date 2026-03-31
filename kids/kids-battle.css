@@ -516,6 +516,9 @@
 .kids-path-card-color {
   border-color: #f472b6;
 }
+.kids-path-card-prayer {
+  border-color: #a5b4fc;
+}
 .kids-path-card-emoji {
   font-size: 2rem;
   line-height: 1;
@@ -535,6 +538,9 @@
 }
 .kids-path-card-color .kids-path-card-label {
   color: #fbcfe8;
+}
+.kids-path-card-prayer .kids-path-card-label {
+  color: #c7d2fe;
 }
 .kids-path-card-hint {
   font-family: 'Comic Neue', cursive;
@@ -3065,4 +3071,218 @@
 }
 .kids-library-modal .kids-video-modal-title {
   padding-top: 0.35rem;
+}
+
+/* ── Calm prayer habits (kids/prayer-activities.html) — parent-facing, print-friendly ── */
+.kids-prayer-activities-page {
+  --kids-prayer-muted: #94a3b8;
+}
+
+.kids-prayer-activities-page .kids-battle-inner {
+  max-width: 40rem;
+}
+
+.kids-prayer-hero .kids-battle-tagline {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--kids-prayer-muted);
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kids-prayer-hero .kids-battle-tagline a {
+  color: var(--kids-yellow);
+  font-weight: 600;
+}
+
+.kids-prayer-lead-p,
+.kids-prayer-card-lead {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #cbd5e1;
+  margin: 0 0 0.75rem;
+}
+
+.kids-prayer-steps {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+  margin: 0 0 0.5rem;
+  padding-left: 1.2rem;
+}
+
+.kids-prayer-steps li {
+  margin-bottom: 0.4rem;
+}
+
+.kids-prayer-tie-in {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--kids-prayer-muted);
+  margin: 0.75rem 0 0;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.kids-prayer-tie-label {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.kids-prayer-tie-in a {
+  color: var(--kids-yellow);
+  font-weight: 600;
+}
+
+.kids-prayer-safety {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  color: #fca5a5;
+  margin: 0.75rem 0 0;
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+}
+
+.kids-prayer-card {
+  margin-bottom: 1rem;
+}
+
+.kids-prayer-print-intro {
+  margin-bottom: 1rem;
+}
+
+.kids-prayer-print-only-brand {
+  display: none;
+}
+
+.kids-prayer-kjv-tiny {
+  font-size: 0.72rem;
+  font-style: normal;
+  color: var(--kids-prayer-muted);
+}
+
+.kids-prayer-slips-sheet {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 520px) {
+  .kids-prayer-slips-sheet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.kids-prayer-slip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 4.5rem;
+  padding: 0.5rem 0.45rem;
+  border: 2px dashed rgba(148, 163, 184, 0.55);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.5);
+  font-family: 'Comic Neue', 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  break-inside: avoid;
+}
+
+.kids-prayer-slip-line {
+  display: block;
+}
+
+.kids-prayer-slip-blank {
+  display: block;
+  flex: 1;
+  min-height: 1.75rem;
+  border-bottom: 2px dotted rgba(148, 163, 184, 0.45);
+  margin-top: 0.15rem;
+}
+
+.kids-prayer-print-hint {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  color: var(--kids-prayer-muted);
+  margin: 0;
+}
+
+.kids-prayer-back {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 1.5rem 0 1rem;
+}
+
+@media print {
+  .kids-prayer-activities-page {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .kids-prayer-activities-page .kids-prayer-no-print,
+  .kids-prayer-activities-page .kids-footer,
+  .kids-prayer-activities-page .skip-link {
+    display: none !important;
+  }
+
+  .kids-prayer-activities-page .app-shell {
+    display: block;
+  }
+
+  .kids-prayer-activities-page .glass,
+  .kids-prayer-activities-page .kids-prayer-card,
+  .kids-prayer-activities-page .kids-prayer-lead {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    color: #111 !important;
+    page-break-inside: avoid;
+  }
+
+  .kids-prayer-activities-page .kids-section-title {
+    color: #111 !important;
+  }
+
+  .kids-prayer-activities-page .kids-prayer-steps,
+  .kids-prayer-activities-page .kids-prayer-card-lead,
+  .kids-prayer-activities-page .kids-prayer-lead-p,
+  .kids-prayer-activities-page .kids-prayer-tie-in {
+    color: #222 !important;
+  }
+
+  .kids-prayer-activities-page .kids-prayer-print-only-brand {
+    display: block !important;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 10pt;
+    color: #333 !important;
+    margin: 0 0 0.35rem;
+  }
+
+  .kids-prayer-activities-page .kids-prayer-print-section {
+    page-break-before: always;
+  }
+
+  .kids-prayer-activities-page .kids-prayer-slip {
+    background: #fff !important;
+    border-color: #999 !important;
+    color: #111 !important;
+  }
+
+  .kids-prayer-activities-page .kids-prayer-slip-blank {
+    border-bottom-color: #666 !important;
+  }
+
+  .kids-prayer-activities-page a[href]::after {
+    content: none !important;
+  }
 }

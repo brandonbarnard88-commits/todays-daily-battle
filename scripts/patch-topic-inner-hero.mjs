@@ -17,6 +17,15 @@ for (const name of files) {
   if (h.includes('<body class="dark-mode">') && !h.includes('tdb-inner-page')) {
     h = h.replace('<body class="dark-mode">', '<body class="dark-mode tdb-inner-page">');
   }
+  if (
+    h.includes('<body class="dark-mode tdb-topic-mood-page">') &&
+    !h.includes('tdb-inner-page')
+  ) {
+    h = h.replace(
+      '<body class="dark-mode tdb-topic-mood-page">',
+      '<body class="dark-mode tdb-inner-page tdb-topic-mood-page">'
+    );
+  }
 
   h = h.replace(
     '<header class="hero-banner topic-mood-hero">',

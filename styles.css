@@ -181,6 +181,18 @@ body.tdb-inner-page main.vc-wrap {
   padding-right: clamp(0.75rem, 2vw, 1rem);
 }
 
+/* My Study — no .content-inner; mirror inner-page measure on shell */
+body.tdb-inner-page.mystudy-body .mystudy-shell {
+  max-width: var(--tdb-inner-max);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(0.75rem, 2vw, 1rem);
+  padding-right: clamp(0.75rem, 2vw, 1rem);
+  box-sizing: border-box;
+  gap: var(--tdb-inner-gap);
+}
+
 .calm-hero--soar-dawn,
 .study-hero--soar-dawn,
 .chapter-reader-hero--soar-dawn,

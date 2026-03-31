@@ -1,8 +1,9 @@
 /**
- * Promotes Calm to the primary global nav bar and moves Explore into "More"
- * (matches English app-shell + standalone .tdb-global-nav pattern).
- * Skips files that do not contain the legacy Tools → Support → Explore sequence.
- * Run: node scripts/sync-global-header-nav.mjs
+ * Global nav hygiene for English shells:
+ * 1) Legacy: Tools → Calm → Support (was Tools → Support → Explore).
+ * 2) More panel: Explore first (was Calm-first).
+ * 3) Story on primary bar after Calm; removed from More (Explore + Feel only there; homepage keeps Family / What God has done).
+ * Run: npm run sync:header
  */
 import fs from 'fs';
 import path from 'path';
@@ -37,14 +38,32 @@ const RE_MORE_CALM_FIRST =
   /(<div class="tdb-nav-more-panel" role="group" aria-label="More pages">)\s*<a href="\/calm\.html">Calm<\/a>\s*<a href="\/story\.html">Story<\/a>\s*<a href="\/#feel-section">Feel search &amp; topics<\/a>/g;
 
 const REPLACEMENT_MORE =
-  '$1\n            <a href="/explore.html">Explore</a>\n            <a href="/story.html">Story</a>\n            <a href="/#feel-section">Feel search &amp; topics</a>';
+  '$1\n            <a href="/explore.html">Explore</a>\n            <a href="/#feel-section">Feel search &amp; topics</a>';
 
 /** my-verses.html More panel (standalone nav) */
 const RE_MORE_MY_VERSES =
   /<div class="tdb-nav-more-panel" role="group" aria-label="More pages">\s*<a href="\/my-verses\.html"[^>]*>My Verses<\/a>\s*<a href="\/calm\.html">Calm<\/a>\s*<a href="\/story\.html">Story<\/a>\s*<a href="\/#feel-section">Feel search &amp; topics<\/a>\s*<\/div>/g;
 
 const REPLACEMENT_MORE_MYVERSES =
-  '<div class="tdb-nav-more-panel" role="group" aria-label="More pages">\n        <a href="/explore.html">Explore</a>\n        <a href="/story.html">Story</a>\n        <a href="/#feel-section">Feel search &amp; topics</a>\n      </div>';
+  '<div class="tdb-nav-more-panel" role="group" aria-label="More pages">\n        <a href="/explore.html">Explore</a>\n        <a href="/#feel-section">Feel search &amp; topics</a>\n      </div>';
+
+/** Story on bar after Calm; strip duplicate Story from More (multiline or tight) */
+function patchStoryPrimaryNav(html) {
+  let next = html;
+  next = next.replace(
+    /(<a href="\/calm\.html">Calm<\/a>)\s*\r?\n(\s*)(<a href="\/give")/g,
+    '$1\n$2<a href="/story.html">Story</a>\n$2$3'
+  );
+  next = next.replace(
+    /(<a href="\/explore\.html">Explore<\/a>)\s*\r?\n\s*<a href="\/story\.html">Story<\/a>\s*\r?\n(\s*)(<a href="\/#feel-section">Feel search &amp; topics<\/a>)/g,
+    '$1\n$2$3'
+  );
+  next = next.replace(
+    /(<a href="\/explore\.html">Explore<\/a>)\s+<a href="\/story\.html">Story<\/a>\s+(<a href="\/#feel-section">Feel search &amp; topics<\/a>)/g,
+    '$1\n            $2'
+  );
+  return next;
+}
 
 function patch(html) {
   const orig = html;
@@ -57,6 +76,8 @@ function patch(html) {
   });
 
   next = next.replace(RE_MORE_CALM_FIRST, REPLACEMENT_MORE);
+
+  next = patchStoryPrimaryNav(next);
 
   return { html: next, changed: next !== orig };
 }

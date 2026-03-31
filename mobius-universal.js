@@ -1199,7 +1199,7 @@
     if (shareBtn) {
       shareBtn.addEventListener('click', function () {
         var url = window.location.origin + window.location.pathname + '?mood=' + encodeURIComponent(currentStart);
-        var shareData = { title: 'Möbius Loop on Today\'s Daily Battle', text: 'Trace any mood in an endless journey—fear twists to faith, everything loops back stronger. Check it out!', url: url };
+        var shareData = { title: 'Möbius Loop — meditative endurance (KJV) | Today\'s Daily Battle', text: 'One ribbon, one path: graph the loop, breathe 2 Timothy 1:7, walk the Deep Walk. KJV only.', url: url };
         try {
           if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
             navigator.share(shareData).then(function () {

@@ -36,3 +36,16 @@ The Möbius Loop is the standout, signature feature of todaysdailybattle.com. It
 ## Why it stands out
 
 Most Bible apps offer a verse and a prayer and say “trust God.” Möbius **sits with** the reality that some battles do not end — they **loop** — and shows how the Cross turns that loop into **forward motion** instead of despair. It is the feature people bookmark and return to on the hardest days.
+
+## Audit notes (March 30, 2026)
+
+Post–narrative-pass review (live site, hard refresh + incognito): **9.5 / 10** — strongest single feature on the site; metaphor reads as lived-in, not decorative. Remaining gap to “10”: ship **`mobius-breathe-human.mp3`** (then guided human for Deep Walk) so Text / Deep Walk are not TTS-only. Optional polish: document title now includes **meditative endurance** alongside KJV for tab/search/social parity with body copy.
+
+## Deep Walk additions (2 Timothy 1:7 + companions)
+
+In `mobius.html` → **Möbius Deep Walk**:
+
+- **`#mobius-exhale-verse`** — Full KJV quotation, prison context, and plain-language notes on *deilia*, *dunamis*, *agapē*, *sōphronismos* (why the exhale is an exchange, not a platitude).
+- **`#mobius-endurance-companions`** — Five KJV blocks with short “practice” lines: James 1:2–4, Romans 5:3–5, Hebrews 12:1–2, Isaiah 40:31, 2 Corinthians 4:16–18.
+
+The ribbon journal label links to both anchors for people who want extra phrases after a round.

@@ -182,6 +182,14 @@
     }
     state.refs.ref.textContent = item.ref || '';
     state.refs.text.textContent = item.text || '';
+    if (state.refs.detail) {
+      if (item.text) state.refs.detail.setAttribute('data-kjv-context-verse', item.text);
+      else state.refs.detail.removeAttribute('data-kjv-context-verse');
+    }
+    if (window.TdbKjvDictionary && typeof window.TdbKjvDictionary.applyToElement === 'function') {
+      state.refs.text.removeAttribute('data-tdb-kjv-wrapped');
+      window.TdbKjvDictionary.applyToElement(state.refs.text, { plainText: item.text || '', contextVerse: item.text || '' });
+    }
     state.refs.note.textContent = item.note ? 'Note: ' + item.note : 'No note added yet. Add one to capture why this verse matters today.';
     state.refs.detail.classList.remove('hidden');
   }

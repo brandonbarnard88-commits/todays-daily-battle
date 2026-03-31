@@ -1421,6 +1421,11 @@
     refEl.textContent = data.reference;
     refEl.className = 'verse-ref';
     textEl.textContent = data.text;
+    if (block) block.setAttribute('data-kjv-context-verse', data.text || '');
+    if (window.TdbKjvDictionary && typeof window.TdbKjvDictionary.applyToElement === 'function') {
+      textEl.removeAttribute('data-tdb-kjv-wrapped');
+      window.TdbKjvDictionary.applyToElement(textEl, { plainText: data.text || '', contextVerse: data.text || '' });
+    }
     var parts = parseRefToParts(data.reference);
     if (readChapterLink) {
       if (parts && parts.book && parts.chapter) {

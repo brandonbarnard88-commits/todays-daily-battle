@@ -598,6 +598,18 @@
     });
   }
 
+  function shouldSkipVerseBreakdownHost(el) {
+    if (!el || typeof el.closest !== 'function') return true;
+    try {
+      var path = String((window.location && window.location.pathname) || '').toLowerCase();
+      if (path.indexOf('coloring.html') !== -1) return true;
+    } catch (e0) {}
+    if (el.closest('#tdb-cat-root')) return true;
+    if (el.closest('[data-tdb-no-verse-breakdown="1"]')) return true;
+    if (el.id === 'tdb-verse-breakdown-modal' || el.closest('#tdb-verse-breakdown-modal')) return true;
+    return false;
+  }
+
   function addButton(container, ref, text) {
     if (!container || !ref || !text) return;
     if (container.querySelector('.tdb-breakdown-btn')) return;
@@ -620,7 +632,7 @@
     if (!container || typeof container.querySelector !== 'function') return container;
     /* Verse of the Day: share row is a sibling of #daily-verse-card — append button beside Share/Copy */
     if (container.classList && container.classList.contains('verse-card-actions')) return container;
-    var existing = container.querySelector('.card-actions, .mystudy-share-actions, .verse-actions, .cta-group, .tdb-verse-actions');
+    var existing = container.querySelector('.card-actions, .mystudy-share-actions, .verse-actions, .cta-group, .tdb-verse-actions, [role="group"][aria-label="Verse actions"]');
     if (existing) return existing;
     var row = document.createElement('div');
     row.className = 'tdb-verse-actions card-actions';
@@ -631,6 +643,23 @@
       container.appendChild(row);
     }
     return row;
+  }
+
+  function snippetFromContextLine(line) {
+    if (!line || !line.cloneNode) return '';
+    try {
+      var clone = line.cloneNode(true);
+      var kill = clone.querySelectorAll('.reader-verse-xref-btn, .reader-verse-wordstudy-btn, .tdb-breakdown-btn');
+      for (var i = 0; i < kill.length; i++) {
+        var n = kill[i];
+        if (n.parentNode) n.parentNode.removeChild(n);
+      }
+      var st = clone.querySelector('strong');
+      if (st && st.parentNode) st.parentNode.removeChild(st);
+      return cleanVerseText(clone.textContent || '');
+    } catch (e) {
+      return '';
+    }
   }
 
   function extractRefFromText(text) {
@@ -676,11 +705,65 @@
 
   function extractRefAndText(container) {
     if (!container) return { ref: '', text: '' };
-    if (container.id === 'daily-verse-card' && typeof window.tdbGetDailyVerseRefFromCard === 'function' && typeof window.tdbGetDailyVerseTextFromCard === 'function') {
+
+    if (container.classList && container.classList.contains('context-line')) {
+      var attrRef = String(container.getAttribute('data-ref') || '').trim();
+      var refLine = cleanVerseText(attrRef);
+      var refOk = extractRefFromText(refLine) || refLine;
+      if (!refOk) {
+        var st0 = container.querySelector('strong');
+        var rawStrong = st0 ? String(st0.textContent || '').trim() : '';
+        refOk = extractRefFromText(rawStrong) || cleanVerseText(rawStrong);
+      }
+      var textLine = snippetFromContextLine(container);
+      if (!textLine && refOk) textLine = getBibleVerseText(refOk);
+      if (refOk && textLine) return { ref: refOk, text: textLine };
+    }
+
+    if (container.id === 'lookup-result') {
+      var lr = byId('lookup-ref');
+      var lt = byId('lookup-text');
+      var rL = lr ? cleanVerseText(lr.textContent || '') : '';
+      var tL = lt ? cleanVerseText(lt.textContent || '') : '';
+      var rOk = extractRefFromText(rL) || rL;
+      if (!tL && rOk) tL = getBibleVerseText(rOk);
+      if (rOk && tL) return { ref: rOk, text: tL };
+    }
+
+    if (container.classList && container.classList.contains('mystudy-verse-card')) {
+      var mr = container.querySelector('#mystudy-verse-ref');
+      var mt = container.querySelector('#mystudy-verse-text');
+      var mRefRaw = mr ? String(mr.textContent || '').replace(/\s+/g, ' ').trim() : '';
+      if (/nothing here yet/i.test(mRefRaw)) return { ref: '', text: '' };
+      var mTextRaw = mt ? String(mt.textContent || '').replace(/\s+/g, ' ').trim() : '';
+      var mRefOk = extractRefFromText(mRefRaw) || cleanVerseText(mRefRaw);
+      var mTextOk = cleanVerseText(mTextRaw);
+      if (!mTextOk && mRefOk) mTextOk = getBibleVerseText(mRefOk);
+      if (mRefOk && mTextOk) return { ref: mRefOk, text: mTextOk };
+    }
+
+    if (container.id === 'mystudy-highlight-detail') {
+      var hr = byId('mystudy-highlight-ref');
+      var ht = byId('mystudy-highlight-text');
+      var hRefRaw = hr ? String(hr.textContent || '').replace(/\s+/g, ' ').trim() : '';
+      if (!hRefRaw) return { ref: '', text: '' };
+      var hTextRaw = ht ? String(ht.textContent || '').replace(/\s+/g, ' ').trim() : '';
+      var hRefOk = extractRefFromText(hRefRaw) || cleanVerseText(hRefRaw);
+      var hTextOk = cleanVerseText(hTextRaw);
+      if (!hTextOk && hRefOk) hTextOk = getBibleVerseText(hRefOk);
+      if (hRefOk && hTextOk) return { ref: hRefOk, text: hTextOk };
+    }
+
+    if (typeof window.tdbGetDailyVerseRefFromCard === 'function' && typeof window.tdbGetDailyVerseTextFromCard === 'function') {
       var tRef = window.tdbGetDailyVerseRefFromCard(container);
       var tText = window.tdbGetDailyVerseTextFromCard(container);
-      if (tRef || tText) return { ref: cleanVerseText(tRef), text: cleanVerseText(tText) };
+      var refC = cleanVerseText(tRef);
+      var textC = cleanVerseText(tText);
+      var refCard = extractRefFromText(refC) || refC;
+      if (!textC && refCard) textC = getBibleVerseText(refCard);
+      if (refCard && textC) return { ref: refCard, text: textC };
     }
+
     var ref = String(
       container.getAttribute('data-ref') ||
       container.getAttribute('data-verse-ref') ||
@@ -706,12 +789,19 @@
       ''
     ).trim();
     if (!text) {
-      var textNode = container.querySelector('.verse-text, .smart-verse, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text');
+      var textNode = container.querySelector('.verse-text, .smart-verse, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text, #verse-text, #desktop-verse-text');
       if (textNode) text = cleanVerseText(textNode.textContent || '');
     }
     if (!text) {
       var dt = container.querySelector('#daily-verse-text');
       if (dt) text = cleanVerseText(dt.textContent || '');
+    }
+    if (!text) {
+      var hv = container.querySelector('#heroVerse');
+      if (hv) {
+        text = String(hv.textContent || '').replace(/^[\s"\u201c]+|[\s"\u201d]+$/g, '').replace(/\s+/g, ' ').trim();
+        text = cleanVerseText(text);
+      }
     }
     if (!text) {
       var p = container.querySelector('p');
@@ -723,16 +813,7 @@
 
   function findActionRow(container) {
     if (!container || typeof container.querySelector !== 'function') return null;
-    return container.querySelector('.card-actions, .verse-actions, .mystudy-share-actions, .cta-group');
-  }
-
-  function stripBreakdownInVerseOfDaySection() {
-    var section = document.getElementById('verse-of-day');
-    if (!section || !section.querySelectorAll) return;
-    section.querySelectorAll('.tdb-breakdown-btn').forEach(function (b) { b.remove(); });
-    section.querySelectorAll('.tdb-verse-actions').forEach(function (w) {
-      if (w.children.length === 0 && w.parentNode) w.remove();
-    });
+    return container.querySelector('.card-actions, .verse-actions, .mystudy-share-actions, .cta-group, [role="group"][aria-label="Verse actions"]');
   }
 
   function enhanceVerseContainers(root) {
@@ -744,6 +825,11 @@
       '#church-daily-verse-card',
       '#concordance-verse-card',
       '#verse-maps-verse-card',
+      '#verseCard',
+      '#verse-container',
+      '#desktop-verse',
+      '#lookup-result',
+      '#mystudy-highlight-detail',
       '.verse-card',
       '.smart-card',
       '.verse-item',
@@ -753,13 +839,15 @@
       '.bible-study-verse-card',
       '.verse-of-week-panel',
       '.verse-maps-verse-item',
-      '.concordance-ref-item'
+      '.concordance-ref-item',
+      '.context-line'
     ];
     var seen = new Set();
     selectors.forEach(function (sel) {
       host.querySelectorAll(sel).forEach(function (el) {
         if (!el || seen.has(el)) return;
         seen.add(el);
+        if (shouldSkipVerseBreakdownHost(el)) return;
         if (el.classList && el.classList.contains('daily-battle-loading')) return;
         var pair = extractRefAndText(el);
         if (!pair.ref || !pair.text) return;
@@ -781,8 +869,11 @@
     window.__tdbVerseBreakdownAutoEnhanced = true;
     normalizeExistingBreakdownButtons(document);
     enhanceVerseContainers(document);
+    window.addEventListener('load', function () {
+      normalizeExistingBreakdownButtons(document);
+      enhanceVerseContainers(document);
+    });
     window.addEventListener('tdb-daily-verse-updated', function () {
-      stripBreakdownInVerseOfDaySection();
       normalizeExistingBreakdownButtons(document);
       enhanceVerseContainers(document);
     });

@@ -462,6 +462,13 @@
         if (!list || !list.length) return FALLBACK_VERSE;
         return list[Math.floor(Math.random() * list.length)];
       }
+      function notifyCalmVerseUpdated() {
+        try {
+          if (typeof window.dispatchEvent === 'function') {
+            window.dispatchEvent(new CustomEvent('tdb-calm-verse-updated'));
+          }
+        } catch (eCalmKjv) { /* non-fatal */ }
+      }
       function showVerse(cat) {
         var v = pickVerse(cat);
         var textEl = document.getElementById('verse-text');
@@ -472,6 +479,7 @@
         var desktopRef = document.getElementById('desktop-verse-ref');
         if (desktopText) desktopText.textContent = v.text;
         if (desktopRef) desktopRef.textContent = v.ref;
+        notifyCalmVerseUpdated();
       }
       function showDesktopVerse() {
         var v = pickVerse();
@@ -479,6 +487,7 @@
         var refEl = document.getElementById('desktop-verse-ref');
         if (textEl) textEl.textContent = v.text;
         if (refEl) refEl.textContent = v.ref;
+        notifyCalmVerseUpdated();
       }
       function revealDesktopVerse(cat) {
         var dv = document.getElementById('desktop-verse');
@@ -491,6 +500,7 @@
           if (textEl) textEl.textContent = v.text;
           if (refEl) refEl.textContent = v.ref;
           if (ld) ld.hidden = true;
+          notifyCalmVerseUpdated();
           requestAnimationFrame(function () { dv.classList.add('verse-reveal'); });
         };
         dv.classList.remove('verse-reveal');

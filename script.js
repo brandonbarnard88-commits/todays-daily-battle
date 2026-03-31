@@ -1275,12 +1275,27 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260327-vod-breakdown');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260331-breakdown-everywhere');
   if (!trusted) return;
   var script = document.createElement('script');
   script.src = trusted;
   script.defer = true;
   script.setAttribute('data-tdb-verse-breakdown', '1');
+  document.head.appendChild(script);
+})();
+
+(function loadKjvDictionaryScript() {
+  if (typeof document === 'undefined') return;
+  if (window.TdbKjvDictionary) return;
+  if (document.querySelector('script[src*="kjv-dictionary.js"]')) return;
+  if (document.querySelector('script[data-lazy-src*="kjv-dictionary.js"]')) return;
+  if (document.querySelector('script[data-tdb-kjv-dictionary="1"]')) return;
+  var trusted = trustedScriptURL('/kjv-dictionary.js?v=20260401kjv');
+  if (!trusted) return;
+  var script = document.createElement('script');
+  script.src = trusted;
+  script.defer = true;
+  script.setAttribute('data-tdb-kjv-dictionary', '1');
   document.head.appendChild(script);
 })();
 
@@ -12275,6 +12290,14 @@ function tdbAppendParsedHtmlChildren(parent, html) {
   } catch (e) { /* non-fatal */ }
 }
 
+/** Apply KJV glossary word marks when kjv-dictionary.js has attached TdbKjvDictionary. */
+function tdbApplyKjvLookupIfReady(el, opts) {
+  try {
+    if (!el || !window.TdbKjvDictionary || typeof window.TdbKjvDictionary.applyToElement !== 'function') return;
+    window.TdbKjvDictionary.applyToElement(el, opts || {});
+  } catch (eKjv) { /* non-fatal */ }
+}
+
 function renderDailyVerse() {
   /*
    * Stable verse card shell: #daily-verse-ref (citation line) + blockquote.daily-verse-body > #daily-verse-text (KJV only).
@@ -18600,6 +18623,11 @@ function readerOnChapterRendered(book, chapter) {
   } catch (eSn) {
     /* ignore */
   }
+  try {
+    if (window.TdbKjvDictionary && typeof window.TdbKjvDictionary.wrapReaderChapterLines === 'function') {
+      window.TdbKjvDictionary.wrapReaderChapterLines(document.getElementById('reader-output'));
+    }
+  } catch (eKjvR) { /* non-fatal */ }
 }
 
 function syncReaderBookmarkToggle(book, chapter) {
@@ -20626,6 +20654,7 @@ function renderResults(results) {
             p.classList.remove('memory-mode');
             p.innerHTML = escapeHtml(v.text || '');
             if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) p.classList.add('red-letter');
+            tdbApplyKjvLookupIfReady(p, { plainText: cleanText(), contextVerse: cleanText() });
             memoryBtn.textContent = 'Memory';
             return;
           }
@@ -20769,6 +20798,9 @@ function renderResults(results) {
           card.appendChild(relatedEl);
         }
         card.appendChild(buttonRow);
+        card.setAttribute('data-kjv-context-verse', cleanText());
+        var versePForKjv = card.querySelector('.verse-card > p');
+        if (versePForKjv) tdbApplyKjvLookupIfReady(versePForKjv, { plainText: cleanText(), contextVerse: cleanText() });
         list.appendChild(card);
       });
     };

@@ -118,6 +118,7 @@ const rootFiles = [
   'easter-eggs.css',
   'plans-data.js',
   'verse-breakdown.js',
+  'kjv-dictionary.js',
   'bible-study-companion.js',
   'word-study.js',
   'verse-study.js',
@@ -365,6 +366,11 @@ if (fs.existsSync(path.join(root, 'icons'))) {
 if (fs.existsSync(path.join(root, 'assets'))) {
   copyDir(path.join(root, 'assets'), path.join(dist, 'assets'));
   console.log('Copied assets/ folder (share images for OG/Twitter)');
+}
+
+if (fs.existsSync(path.join(root, 'data'))) {
+  copyDir(path.join(root, 'data'), path.join(dist, 'data'));
+  console.log('Copied data/ folder (KJV dictionary and future JSON)');
 }
 if (fs.existsSync(path.join(root, 'coloring-pages'))) {
   copyDir(path.join(root, 'coloring-pages'), path.join(dist, 'coloring-pages'));

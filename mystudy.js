@@ -581,6 +581,18 @@
       study.verseRef ||
       'Nothing here yet. When a verse touches your heart, search on Home or open the Bible Tool. The Lord meets you right where you are.';
     textEl.textContent = study.verseText || '';
+    var art = textEl.closest('.mystudy-verse-card');
+    if (art) {
+      if (study.verseText) art.setAttribute('data-kjv-context-verse', study.verseText);
+      else art.removeAttribute('data-kjv-context-verse');
+    }
+    if (window.TdbKjvDictionary && typeof window.TdbKjvDictionary.applyToElement === 'function') {
+      textEl.removeAttribute('data-tdb-kjv-wrapped');
+      window.TdbKjvDictionary.applyToElement(textEl, {
+        plainText: study.verseText || '',
+        contextVerse: study.verseText || ''
+      });
+    }
   }
 
   function renderSharedList() {
@@ -658,6 +670,14 @@
           window.TDBVerseBreakdown.open(item.ref, item.text);
         }
       });
+      li.setAttribute('data-kjv-context-verse', item.text || '');
+      var previewP = li.querySelector('p.section-note');
+      var fullText = String(item.text || '');
+      var shown = fullText.length > 190 ? fullText.slice(0, 190) + '...' : fullText;
+      if (previewP && fullText && window.TdbKjvDictionary && typeof window.TdbKjvDictionary.applyToElement === 'function') {
+        previewP.removeAttribute('data-tdb-kjv-wrapped');
+        window.TdbKjvDictionary.applyToElement(previewP, { plainText: shown, contextVerse: fullText });
+      }
       listEl.appendChild(li);
     });
   }

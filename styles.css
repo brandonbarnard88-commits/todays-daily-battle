@@ -17457,3 +17457,30 @@ body.kids-battle-page .tdb-site-humility {
   border-top-color: rgba(15, 23, 42, 0.1);
 }
 
+/* Inner pages — extra panels that ship inline styles (surface parity) */
+body.tdb-inner-page .tdb-moat-voice {
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border: 1px solid var(--tdb-surface-panel-border);
+  box-shadow: var(--tdb-surface-panel-shadow);
+  border-radius: var(--tdb-surface-radius);
+}
+
+body.tdb-inner-page .tdb-compare-table thead th {
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  color: var(--text, #f5f7fb);
+}
+
+body.tdb-inner-page .fp-oia-example-block,
+body.tdb-inner-page .testimonial-page-card {
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border: 1px solid var(--tdb-surface-panel-border);
+  box-shadow: var(--tdb-surface-panel-shadow);
+}
+
+:root[data-theme="light"] body.tdb-inner-page .tdb-compare-table thead th {
+  color: var(--text, #191d26);
+}
+

@@ -23,7 +23,7 @@
   <meta name="twitter:description" content="Build sermon outlines, save drafts, and send them to your congregation or co-leaders.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260328sermon-syntax-fix">
+  <link rel="stylesheet" href="styles.css?v=20260330nav-surface">
   <link rel="manifest" href="manifest.json">
   <script nonce="tdb2025s" type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"Sermon Builder • Today's Daily Battle","url":"https://todaysdailybattle.com/sermon.html","description":"KJV sermon outlines, verse lookup, and study notes — built for pastors who lead from the Word.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
@@ -38,8 +38,12 @@
       gap: 0.5rem;
       align-items: center;
       padding: 0.75rem 1rem;
-      border-radius: 10px;
+      border-radius: var(--tdb-surface-radius, 12px);
       margin: 0.75rem 0 1rem;
+      border: 1px solid var(--tdb-surface-panel-border);
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-panel-shadow);
     }
     .sb-toolbar-label {
       font-size: 0.72rem;
@@ -58,20 +62,23 @@
       padding: 0.45rem 0.85rem;
       font-size: 0.82rem;
       font-weight: 600;
-      border-radius: 7px;
-      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
-      background: var(--card, #1b212d);
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 4px);
+      border: 1px solid var(--tdb-surface-card-border);
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-panel-shadow);
       color: var(--text, #f5f7fb);
       cursor: pointer;
-      transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+      transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease, box-shadow 0.2s ease;
       white-space: nowrap;
     }
     .sb-btn:hover {
-      background: color-mix(in srgb, var(--gold, #e3bc67) 18%, transparent);
-      border-color: var(--gold, #e3bc67);
+      background-color: color-mix(in srgb, var(--tdb-surface-card-bg) 88%, rgba(227, 188, 103, 0.12));
+      border-color: color-mix(in srgb, var(--tdb-surface-card-border) 72%, rgba(227, 188, 103, 0.32));
+      box-shadow: var(--tdb-surface-card-shadow-hover);
     }
     .sb-btn:focus-visible {
-      background: color-mix(in srgb, var(--gold, #e3bc67) 18%, transparent);
+      background-color: color-mix(in srgb, var(--tdb-surface-card-bg) 88%, rgba(227, 188, 103, 0.12));
       border-color: var(--gold, #e3bc67);
       outline: 2px solid var(--gold, #e3bc67);
       outline-offset: 2px;
@@ -100,15 +107,16 @@
     }
     .sb-popover-backdrop[hidden] { display: none; }
     .sb-popover {
-      background: var(--card, #1b212d);
-      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
-      border-radius: 14px;
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid var(--tdb-surface-card-border);
+      border-radius: var(--tdb-surface-radius, 14px);
       padding: 1.4rem 1.3rem 1.2rem;
       width: min(400px, 100%);
       max-height: 80vh;
       overflow-y: auto;
       position: relative;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+      box-shadow: var(--tdb-surface-card-shadow);
     }
     .sb-popover-title {
       font-size: 1.05rem;
@@ -505,15 +513,17 @@
       transform: translateY(0);
     }
     .sb-suggestion-chip {
-      background: var(--card, #1b212d);
-      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, transparent);
-      border-radius: 4px;
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid var(--tdb-surface-panel-border);
+      box-shadow: var(--tdb-surface-panel-shadow);
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 6px);
       padding: 0.25rem 0.55rem;
       font-size: 0.78rem;
       color: var(--muted, #bcc5d6);
       cursor: pointer;
       white-space: nowrap;
-      transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+      transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
       user-select: none;
     }
     .sb-suggestion-chip:hover,

@@ -44,7 +44,7 @@
     .bible-tool { font-size: 1.0625rem; }
     .bible-tool .section-note { font-size: 1rem; }
     .bible-tool #daily-text, .bible-tool #lookup-text, .bible-tool .verse-ref { font-size: 1.1rem; line-height: 1.5; }
-    .bible-tool .verse-card { margin-bottom: 1.25rem; padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(148,163,184,0.14); background: rgba(12,18,30,0.6); }
+    .bible-tool .verse-card { margin-bottom: 1.25rem; padding: 1.25rem; border-radius: var(--tdb-surface-radius, 12px); border: 1px solid var(--tdb-surface-card-border); background-color: var(--tdb-surface-card-bg); background-image: var(--tdb-surface-veil-subtle); box-shadow: var(--tdb-surface-panel-shadow); }
     .bible-tool .verse-card.border-accent { border-left: 4px solid var(--color-primary, #6d28d9); }
     .bible-tool .verse-card.border-gold { border-left: 4px solid #d4af37; }
     .bible-tool .cross-ref-link { color: #a78bfa; text-decoration: none; }
@@ -467,25 +467,6 @@
 </head>
 <body class="dark-mode tdb-inner-page bible-tool-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <nav class="tdb-global-nav" aria-label="Main site navigation">
-    <a href="/">Home</a>
-    <a href="mobius.html">Möbius</a>
-    <a href="plans.html">Plans</a>
-    <a href="/kids/?v=hub20260321">Kids</a>
-    <a href="/bible-tool.html#bible-tool-hub" aria-current="page" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
-    <a href="/calm.html">Calm</a>
-    <a href="/story.html">Story</a>
-    <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
-    <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>
-    <a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>
-    <details class="tdb-nav-more">
-      <summary aria-haspopup="true">More</summary>
-      <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
-            <a href="/explore.html">Explore</a>
-            <a href="/#feel-section">Feel search &amp; topics</a>
-      </div>
-    </details>
-  </nav>
   <div class="app-shell">
     <header class="top-bar">
       <div class="tdb-lang-switcher-header-wrap">
@@ -509,7 +490,26 @@
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <span class="brand-subtitle">KJV verse lookup, notes, and reading plans — no account needed</span>
       </div>
-            <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <nav class="header-nav tdb-global-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/kids/?v=hub20260321">Kids</a>
+        <a href="/bible-tool.html#bible-tool-hub" aria-current="page" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/story.html">Story</a>
+        <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+        <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>
+        <a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
+            <a href="/explore.html">Explore</a>
+            <a href="/#feel-section">Feel search &amp; topics</a>
+          </div>
+        </details>
+      </nav>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <div id="auth-details" class="auth-details-inline">
         <div id="auth-section" class="auth-inline auth-compact">
           <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">

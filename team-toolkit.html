@@ -515,6 +515,30 @@
       .tt-row { gap: 0.4rem; }
       .hero-banner .hero-tagline { margin-bottom: 0.65rem; }
     }
+    @media (max-width: 430px) {
+      .content-inner {
+        min-width: 0;
+      }
+      .tt-flex-center-wrap {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.55rem;
+      }
+      .tt-input-max220,
+      .tt-input-max200,
+      .tt-input-max180 {
+        max-width: 100%;
+        width: 100%;
+      }
+      .mini-cal-trigger {
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+      }
+      .search-hero-row {
+        min-width: 0;
+      }
+    }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page">

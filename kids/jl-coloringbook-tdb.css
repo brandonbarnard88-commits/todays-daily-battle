@@ -55,4 +55,35 @@
   border-radius: 12px;
   overflow: hidden;
   background: #fff;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  touch-action: none;
+}
+
+.canvasWrapper canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  touch-action: none;
+}
+
+@media (max-width: 430px) {
+  .tools .button {
+    min-width: 52px;
+    min-height: 52px;
+    margin: 5px !important;
+  }
+
+  .paletteColor {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+
+  .sizerTool {
+    min-height: 48px;
+    max-width: 100%;
+  }
 }

@@ -29,9 +29,11 @@
       min-height: 100vh;
     }
     .family-hub-page {
-      max-width: 46rem;
+      max-width: min(100%, 46rem);
       margin: 0 auto;
       padding: 1rem 1.1rem 3.25rem;
+      min-width: 0;
+      box-sizing: border-box;
     }
     .family-hub-kicker {
       font-size: 0.78rem;
@@ -41,9 +43,34 @@
       color: rgba(227, 188, 103, 0.62);
       margin: 0 0 0.4rem;
     }
-    .family-hub-hero h1 { font-size: clamp(1.5rem, 4.2vw, 1.95rem); margin: 0 0 0.45rem; font-weight: 700; color: var(--text); }
-    .family-hub-tagline { font-size: clamp(1.02rem, 2.8vw, 1.18rem); color: var(--gold-soft); line-height: 1.45; margin: 0 0 0.65rem; font-weight: 500; }
-    .family-hub-lead { color: var(--muted); line-height: 1.6; margin: 0 0 1.1rem; max-width: 40rem; }
+    .family-hub-hero h1 {
+      font-size: clamp(1.5rem, 4.2vw, 1.95rem);
+      margin: 0 0 0.45rem;
+      font-weight: 700;
+      color: var(--text);
+      max-width: 100%;
+      min-width: 0;
+      text-wrap: balance;
+    }
+    .family-hub-tagline {
+      font-size: clamp(1.02rem, 2.8vw, 1.18rem);
+      color: var(--gold-soft);
+      line-height: 1.45;
+      margin: 0 0 0.65rem;
+      font-weight: 500;
+      max-width: 100%;
+      min-width: 0;
+      text-wrap: pretty;
+    }
+    .family-hub-lead {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 1.1rem;
+      max-width: min(100%, 40rem);
+      min-width: 0;
+      text-wrap: pretty;
+      overflow-wrap: break-word;
+    }
     .family-hub-parent-nudge { margin-top: -0.25rem; font-size: 0.96rem; color: rgba(200, 210, 225, 0.92); }
     .family-hub-parent-nudge a { font-weight: 600; }
     .family-month-stat {
@@ -331,6 +358,22 @@
     .family-prayer-foot a { color: var(--gold-soft); font-weight: 600; }
     .family-kids-tie { font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(227, 188, 103, 0.1); }
     .family-kids-tie a { color: var(--gold-soft); font-weight: 600; }
+    @media (max-width: 430px) {
+      .family-hub-page {
+        padding: 0.85rem max(0.65rem, env(safe-area-inset-left, 0px)) 2.75rem max(0.65rem, env(safe-area-inset-right, 0px));
+      }
+      .family-verse-card,
+      .family-month-stat,
+      .family-section-block {
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+      }
+      .family-verse-quote {
+        font-size: clamp(1.12rem, 4.5vw, 1.38rem);
+        line-height: 1.52;
+      }
+    }
     .family-hub-animate {
       opacity: 0;
       transform: translateY(8px);

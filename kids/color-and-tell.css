@@ -2,13 +2,19 @@
 
 .tdb-cat-parent-tip {
   margin: 0 0 1.25rem;
-  padding: 0.75rem 1rem;
+  padding-block: 0.75rem 0.8rem;
+  padding-inline: max(0.85rem, env(safe-area-inset-left, 0px)) max(0.85rem, env(safe-area-inset-right, 0px));
   border-radius: 14px;
   background: rgba(224, 242, 254, 0.65);
   border: 1px solid rgba(59, 130, 246, 0.28);
-  font-size: 0.92rem;
-  line-height: 1.5;
+  font-size: clamp(0.88rem, 3.8vw, 0.95rem);
+  line-height: 1.55;
   color: #1e3a5f;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 .dark-mode .tdb-cat-parent-tip {
@@ -19,6 +25,9 @@
 
 #tdb-cat-root {
   margin-bottom: 2rem;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .tdb-cat-hero-note {
@@ -52,17 +61,23 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: stretch;
-    gap: 0.75rem;
+    gap: 0.7rem;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x proximity;
-    scroll-padding-inline: max(0.75rem, env(safe-area-inset-left, 0px))
-      max(0.75rem, env(safe-area-inset-right, 0px));
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: max(1rem, env(safe-area-inset-left, 0px))
+      max(1rem, env(safe-area-inset-right, 0px));
+    padding-inline: max(0.35rem, env(safe-area-inset-left, 0px)) max(0.35rem, env(safe-area-inset-right, 0px));
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
-    padding-bottom: 0.45rem;
+    overscroll-behavior-y: auto;
+    padding-bottom: 0.55rem;
     margin-bottom: 0.75rem;
+    margin-inline: 0;
     outline: none;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .tdb-cat-progress:focus-visible {
@@ -76,10 +91,11 @@
   }
 
   .tdb-cat-progress-card {
-    flex: 0 0 clamp(8.5rem, 40vw, 10.75rem);
-    max-width: min(100%, 11rem);
+    flex: 0 0 clamp(9rem, 44vw, 10.85rem);
+    max-width: min(100%, 11.25rem);
     scroll-snap-align: start;
     scroll-snap-stop: normal;
+    box-sizing: border-box;
   }
 }
 

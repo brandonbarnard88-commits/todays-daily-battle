@@ -2957,6 +2957,252 @@
           verse: 'Acts 9:41-42 (KJV)'
         }
       ]
+    },
+    {
+      id: 'nativity',
+      title: 'Jesus Born (the Nativity)',
+      verse:
+        'And the shepherds returned, glorifying and praising God for all the things that they had heard and seen, as it was told unto them. - Luke 2:20',
+      lead: 'Four pictures of that holy night—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/nativity-s1.svg',
+          alt: 'Mary and Joseph travel toward Bethlehem',
+          caption:
+            'Joseph went to be taxed with Mary his espoused wife, being great with child—and Bethlehem was the city of David.',
+          verse: 'Luke 2:4-5 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/nativity-s2.svg',
+          alt: 'Baby Jesus laid in a manger',
+          caption:
+            'She brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger; because there was no room for them in the inn.',
+          verse: 'Luke 2:7 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/nativity-s3.svg',
+          alt: 'Angels tell shepherds the good news',
+          caption:
+            'The angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.',
+          verse: 'Luke 2:10-11 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/nativity-s4.svg',
+          alt: 'Shepherds come to the manger',
+          caption:
+            'They came with haste, and found Mary, and Joseph, and the babe lying in a manger… And the shepherds returned, glorifying and praising God.',
+          verse: 'Luke 2:16-20 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'paul-shipwreck',
+      title: 'Paul & the Storm at Sea',
+      verse:
+        'And so it came to pass, that they escaped all safe to land. - Acts 27:44',
+      lead: 'Four pictures on the voyage—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/paul-shipwreck-s1.svg',
+          alt: 'A ship sails on the sea',
+          caption:
+            'They put to sea… But not long after there arose against it a tempestuous wind, called Euroclydon.',
+          verse: 'Acts 27:2, 14 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/paul-shipwreck-s2.svg',
+          alt: 'A violent storm batters the ship',
+          caption:
+            'The ship was caught, and could not bear up into the wind, so we let her drive… all hope that we should be saved was then taken away.',
+          verse: 'Acts 27:15, 20 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/paul-shipwreck-s3.svg',
+          alt: 'The ship breaks apart',
+          caption:
+            'The shipmen deemed it expedient to cast four anchors out of the stern, and wished for the day… the ship was broken.',
+          verse: 'Acts 27:29, 41 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/paul-shipwreck-s4.svg',
+          alt: 'Everyone reaches shore safely',
+          caption:
+            'It came to pass, that they escaped all safe to land—every soul got to shore, as God had promised through Paul.',
+          verse: 'Acts 27:44 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'rahab-spies',
+      title: 'Rahab & the Spies',
+      verse:
+        'Behold, when we come into the land, thou shalt bind this line of scarlet thread in the window which thou didst let us down by. - Joshua 2:18',
+      lead: 'Four pictures in Jericho—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/rahab-spies-s1.svg',
+          alt: 'Two men come to the city wall',
+          caption:
+            'Joshua sent two men to spy secretly, saying, Go view the land, even Jericho. And they went, and came into an harlot\'s house, named Rahab, and lodged there.',
+          verse: 'Joshua 2:1 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/rahab-spies-s2.svg',
+          alt: 'Rahab lets them down by a cord',
+          caption:
+            'She let them down by a cord through the window: for her house was upon the town wall, and she dwelt upon the wall.',
+          verse: 'Joshua 2:15 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/rahab-spies-s3.svg',
+          alt: 'The scarlet cord in the window',
+          caption:
+            'Bind this line of scarlet thread in the window which thou didst let us down by: and thou shalt bring thy father, and thy mother, and thy brethren, and all thy father\'s household, home unto thee.',
+          verse: 'Joshua 2:18 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/rahab-spies-s4.svg',
+          alt: 'The men return safely to Joshua',
+          caption:
+            'The men went, and came unto Joshua, and told him all things that befell them: Truly the LORD hath delivered into our hands all the land.',
+          verse: 'Joshua 2:23-24 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'elijah-widow',
+      title: 'Elijah & the Widow’s Oil',
+      verse:
+        'For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail. - 1 Kings 17:14',
+      lead: 'Four pictures at Zarephath—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/elijah-widow-s1.svg',
+          alt: 'Elijah meets the widow gathering sticks',
+          caption:
+            'He called to her, and said, Fetch me, I pray thee, a little water… and bring me, I pray thee, a morsel of bread in thine hand.',
+          verse: '1 Kings 17:10-11 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/elijah-widow-s2.svg',
+          alt: 'She makes a small cake first for Elijah',
+          caption:
+            'Fear not; go and do as thou hast said: but make me thereof a little cake first, and bring it unto me, and after make for thee and for thy son.',
+          verse: '1 Kings 17:13 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/elijah-widow-s3.svg',
+          alt: 'Jars and the cruse of oil',
+          caption:
+            'The barrel of meal wasted not, neither did the cruse of oil fail, according to the word of the LORD, which he spake by Elijah.',
+          verse: '1 Kings 17:16 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/elijah-widow-s4.svg',
+          alt: 'God provides day after day',
+          caption:
+            'For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail, until the day that the LORD sendeth rain upon the earth.',
+          verse: '1 Kings 17:14 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'philip-ethiopian',
+      title: 'Philip & the Ethiopian',
+      verse:
+        'And they went down both into the water, both Philip and the eunuch; and he baptized him. - Acts 8:38',
+      lead: 'Four pictures on the road—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/philip-ethiopian-s1.svg',
+          alt: 'A chariot on the desert road',
+          caption:
+            'Philip ran thither to him, and heard him read the prophet Esaias, and said, Understandest thou what thou readest?',
+          verse: 'Acts 8:30 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/philip-ethiopian-s2.svg',
+          alt: 'Philip runs beside the chariot',
+          caption:
+            'The Spirit said unto Philip, Go near, and join thyself to this chariot… How can I, except some man should guide me?',
+          verse: 'Acts 8:29, 31 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/philip-ethiopian-s3.svg',
+          alt: 'Philip opens the Scripture',
+          caption:
+            'Then Philip opened his mouth, and began at the same scripture, and preached unto him Jesus.',
+          verse: 'Acts 8:35 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/philip-ethiopian-s4.svg',
+          alt: 'Baptism in the water',
+          caption:
+            'They went down both into the water, both Philip and the eunuch; and he baptized him. And when they were come up out of the water, the Spirit of the Lord caught away Philip.',
+          verse: 'Acts 8:38-39 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'david-spares-saul',
+      title: 'David Spares Saul',
+      verse:
+        'Thou art more righteous than I: for thou hast rewarded me good, whereas I have rewarded thee evil. - 1 Samuel 24:17',
+      lead: 'Four pictures in the wilderness—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/david-spares-saul-s1.svg',
+          alt: 'Saul sleeps in the cave',
+          caption:
+            'Saul came to the sheepcotes by the way… and Saul went in to cover his feet: and David and his men remained in the sides of the cave.',
+          verse: '1 Samuel 24:3 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/david-spares-saul-s2.svg',
+          alt: 'David cuts the skirt of Saul’s robe',
+          caption:
+            'David arose, and cut off the skirt of Saul\'s robe privily… The LORD forbid that I should stretch forth mine hand against the LORD\'s anointed.',
+          verse: '1 Samuel 24:4-6 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/david-spares-saul-s3.svg',
+          alt: 'David shows Saul the piece of robe',
+          caption:
+            'See the skirt of thy robe in my hand: for in that I cut off the skirt of thy robe, and killed thee not, know thou and see that there is neither evil nor transgression in mine hand.',
+          verse: '1 Samuel 24:11 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/david-spares-saul-s4.svg',
+          alt: 'Saul weeps and goes home',
+          caption:
+            'Saul lifted up his voice, and wept… for thou hast rewarded me good, whereas I have rewarded thee evil… So David went on his way, and Saul returned to his place.',
+          verse: '1 Samuel 24:16-17, 22 (KJV)'
+        }
+      ]
     }
   ];
 

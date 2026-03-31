@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Idempotent: inserts Explore + Verses (My Verses) between Support and More
- * in tdb-global-nav / tdb-home-main-nav strips (4- or 8-space indent).
+ * Idempotent: ensures Explore, Verses, Prayer on primary strip (after Support, before More).
+ * Strips duplicate Explore / plain My Verses from .tdb-nav-more-panel when redundant.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -19,42 +19,82 @@ function walk(dir, out = []) {
   return out;
 }
 
-const SUPPORT =
+const SUPPORT_LONG =
   '<a href="/give" aria-label="Support this quiet place — optional gift">Support</a>';
+const SUPPORT_SHORT = '<a href="/give">Support</a>';
 
-function alreadyInjected(s) {
-  return /\n\s*<a href="\/explore\.html">Explore<\/a>\s*\n\s*<a href="\/my-verses\.html" aria-label="My Verses — saved KJV verses">Verses<\/a>\s*\n\s*<details class="tdb-nav-more">/.test(
-    s
+const STRIP_BLOCK = `
+    <a href="/explore.html">Explore</a>
+    <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>
+    <a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>
+    <details class="tdb-nav-more">`;
+
+function alreadyHasStrip(s) {
+  return (
+    /\/explore\.html">Explore</.test(s) &&
+    /\/my-verses\.html"[^>]*>Verses</.test(s) &&
+    /\/message\.html"[^>]*>Prayer</.test(s) &&
+    /Verses<\/a>\s*\n\s*<a href="\/message\.html"/.test(s)
   );
 }
 
-const SHORT = '<a href="/give">Support</a>';
+function injectStrip(s) {
+  if (alreadyHasStrip(s)) return s;
+  const b4 = `    ${SUPPORT_LONG}\n    <details class="tdb-nav-more">`;
+  const i4 = `    ${SUPPORT_LONG}\n    <a href="/explore.html">Explore</a>\n    <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>\n    <a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>\n    <details class="tdb-nav-more">`;
+  if (s.includes(b4)) return s.replace(b4, i4);
 
-function inject(s) {
-  if (alreadyInjected(s)) return s;
-  const block4 = `    ${SUPPORT}\n    <details class="tdb-nav-more">`;
-  const ins4 = `    ${SUPPORT}\n    <a href="/explore.html">Explore</a>\n    <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>\n    <details class="tdb-nav-more">`;
-  if (s.includes(block4)) return s.replace(block4, ins4);
+  const b8 = `        ${SUPPORT_LONG}\n        <details class="tdb-nav-more">`;
+  const i8 = `        ${SUPPORT_LONG}\n        <a href="/explore.html">Explore</a>\n        <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>\n        <a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>\n        <details class="tdb-nav-more">`;
+  if (s.includes(b8)) return s.replace(b8, i8);
 
-  const block8 = `        ${SUPPORT}\n        <details class="tdb-nav-more">`;
-  const ins8 = `        ${SUPPORT}\n        <a href="/explore.html">Explore</a>\n        <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>\n        <details class="tdb-nav-more">`;
-  if (s.includes(block8)) return s.replace(block8, ins8);
+  const short4 = `    ${SUPPORT_SHORT}\n    <details class="tdb-nav-more">`;
+  const shortIns4 = `    ${SUPPORT_SHORT}\n    <a href="/explore.html">Explore</a>\n    <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>\n    <a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>\n    <details class="tdb-nav-more">`;
+  if (s.includes(short4)) return s.replace(short4, shortIns4);
 
-  /* Explore hub & pages with short Support link (no aria-label on give) */
   return s.replace(
-    /(<a href="\/give">Support<\/a>)\n(\s*)<details class="tdb-nav-more">/,
-    `$1\n$2<a href="/explore.html">Explore</a>\n$2<a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>\n$2<details class="tdb-nav-more">`
+    /(<a href="\/give"[^>]*>Support<\/a>)\n(\s*)<details class="tdb-nav-more">/,
+    `$1\n$2<a href="/explore.html">Explore</a>\n$2<a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>\n$2<a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>\n$2<details class="tdb-nav-more">`
+  );
+}
+
+/** After Explore+Verses on strip, drop duplicate Explore as first panel link */
+function dedupeMorePanel(s) {
+  if (!/\/explore\.html">Explore</.test(s)) return s;
+  let t = s;
+  t = t.replace(
+    /(<div class="tdb-nav-more-panel"[^>]*>\s*)<a href="\/explore\.html">Explore<\/a>\s*\n/g,
+    '$1'
+  );
+  t = t.replace(
+    /\n\s*<a href="\/my-verses\.html">My Verses<\/a>\s*(?=\n\s*<a href="\/family)/g,
+    '\n'
+  );
+  t = t.replace(/\n\s*<a href="\/my-verses\.html">My Verses<\/a>\s*(?=\n\s*<\/div>\s*\n\s*<\/details>)/g, '\n');
+  return t;
+}
+
+/** Insert Prayer after Verses when Verses exists but Prayer missing */
+function ensurePrayerAfterVerses(s) {
+  if (/\/message\.html"[^>]*>Prayer</.test(s) && /Verses<\/a>\s*\n\s*<a href="\/message\.html"/.test(s)) {
+    return s;
+  }
+  return s.replace(
+    /(<a href="\/my-verses\.html"[^>]*>Verses<\/a>)\n(\s*)(<details class="tdb-nav-more">)/g,
+    `$1\n$2<a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>\n$2$3`
   );
 }
 
 let changed = 0;
 for (const fp of walk(ROOT)) {
-  const before = fs.readFileSync(fp, 'utf8');
-  const after = inject(before);
+  let before = fs.readFileSync(fp, 'utf8');
+  let after = injectStrip(before);
+  after = ensurePrayerAfterVerses(after);
+  after = dedupeMorePanel(after);
   if (after !== before) {
     fs.writeFileSync(fp, after);
     changed++;
     console.log('updated', path.relative(ROOT, fp));
   }
 }
-console.log('inject-nav-explore-verses:', changed, 'file(s)');
+console.log('inject-nav-primary-strip:', changed, 'file(s)');

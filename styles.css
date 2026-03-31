@@ -73,6 +73,24 @@
   --tdb-dawn-border: #d4b88a;
   --tdb-dawn-shadow: 0 4px 12px rgba(180, 140, 80, 0.08);
   --tdb-dawn-shadow-soft: 0 4px 12px rgba(180, 140, 80, 0.06);
+  /* Quiet luxury — reusable surfaces (cards, panels, long-tail pages) */
+  --tdb-surface-card-bg: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 93%, rgba(227, 188, 103, 0.09));
+  --tdb-surface-card-border: color-mix(in srgb, var(--line, #2a3344) 82%, rgba(227, 188, 103, 0.22));
+  --tdb-surface-card-shadow: 0 10px 32px rgba(0, 0, 0, 0.32),
+    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.2) 50%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  --tdb-surface-card-shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.38),
+    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.32) 55%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  --tdb-surface-panel-bg: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 96%, rgba(139, 166, 217, 0.06));
+  --tdb-surface-panel-border: color-mix(in srgb, var(--line, #2a3344) 90%, rgba(227, 188, 103, 0.12));
+  --tdb-surface-panel-shadow: 0 6px 22px rgba(0, 0, 0, 0.26),
+    0 0 0 1px color-mix(in srgb, var(--line, #2a3344) 70%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  --tdb-surface-radius: var(--radius-md, 18px);
+  --tdb-inner-max: min(46rem, 100%);
+  --tdb-inner-gap: clamp(1.35rem, 2.5vw, 2rem);
+  --tdb-inner-section-pad: clamp(1.15rem, 2.2vw, 1.65rem);
 }
 
 /* Optional backgrounds: Kids / lighter pages → .tdb-dawn-bg--mist; evening / contemplative → .tdb-dawn-bg--dusk */
@@ -86,6 +104,55 @@
 
 .tdb-dawn-bg--dusk {
   background: var(--tdb-dusk-quiet);
+}
+
+/* —— Surface tokens: opt-in + inner long-tail pages —— */
+.tdb-surface-card {
+  background: var(--tdb-surface-card-bg);
+  border: 1px solid var(--tdb-surface-card-border);
+  border-radius: var(--tdb-surface-radius);
+  box-shadow: var(--tdb-surface-card-shadow);
+  transition: box-shadow 0.35s cubic-bezier(0.33, 1, 0.68, 1), border-color 0.35s ease, transform 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tdb-surface-card:hover,
+  .tdb-surface-card:focus-within {
+    box-shadow: var(--tdb-surface-card-shadow-hover);
+    border-color: color-mix(in srgb, var(--tdb-surface-card-border) 70%, rgba(227, 188, 103, 0.35));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tdb-surface-card:hover,
+  .tdb-surface-card:focus-within {
+    box-shadow: var(--tdb-surface-card-shadow-hover);
+  }
+}
+
+.tdb-surface-panel {
+  background: var(--tdb-surface-panel-bg);
+  border: 1px solid var(--tdb-surface-panel-border);
+  border-radius: var(--tdb-surface-radius);
+  box-shadow: var(--tdb-surface-panel-shadow);
+}
+
+/* Inner-page kit: readable measure, rhythm, elevated sections (supporting pages) */
+body.tdb-inner-page .content-inner {
+  max-width: var(--tdb-inner-max);
+  gap: var(--tdb-inner-gap);
+}
+
+body.tdb-inner-page .content-inner > header.hero-banner:first-child {
+  border-radius: var(--radius-lg, 26px);
+}
+
+body.tdb-inner-page .content-inner > section.glass {
+  padding: var(--tdb-inner-section-pad) clamp(1rem, 3vw, 1.5rem);
+}
+
+body.tdb-inner-page .content-inner > section.glass .section-divider:first-child {
+  margin-top: 0;
 }
 
 .calm-hero--soar-dawn,
@@ -149,6 +216,19 @@ html[data-theme="light"] .app-shell {
   --input-placeholder-on-dark: #5a6578;
   --card-light: rgba(255, 253, 247, 0.96);
   --border-subtle: rgba(15, 23, 42, 0.12);
+  --tdb-surface-card-bg: color-mix(in srgb, var(--card) 97%, rgba(201, 162, 39, 0.08));
+  --tdb-surface-card-border: color-mix(in srgb, rgba(15, 23, 42, 0.14) 75%, rgba(201, 162, 39, 0.35));
+  --tdb-surface-card-shadow: 0 8px 28px rgba(64, 41, 8, 0.1),
+    0 0 0 1px color-mix(in srgb, rgba(201, 162, 39, 0.28) 40%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  --tdb-surface-card-shadow-hover: 0 12px 36px rgba(64, 41, 8, 0.12),
+    0 0 0 1px color-mix(in srgb, rgba(201, 162, 39, 0.4) 45%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  --tdb-surface-panel-bg: color-mix(in srgb, var(--card) 98%, rgba(0, 102, 204, 0.04));
+  --tdb-surface-panel-border: rgba(15, 23, 42, 0.1);
+  --tdb-surface-panel-shadow: 0 5px 20px rgba(64, 41, 8, 0.07),
+    0 0 0 1px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 /* Default keyboard focus — 3px ring; components with higher specificity may override */
@@ -7376,6 +7456,29 @@ h1 {
     0 0 40px rgba(212, 175, 55, 0.06);
 }
 
+/* Main-column glass sections: tinted surface + hairline (overrides generic .glass above) */
+.dark-mode .app-shell .content-inner > section.glass:not(.calm-hero--soar-dawn),
+html[data-theme="dark"] .app-shell .content-inner > section.glass:not(.calm-hero--soar-dawn) {
+  background: var(--tdb-surface-card-bg);
+  border-color: var(--tdb-surface-card-border);
+  box-shadow: var(--tdb-surface-card-shadow);
+}
+
+.dark-mode .app-shell .content-inner > section.glass:not(.calm-hero--soar-dawn):hover,
+html[data-theme="dark"] .app-shell .content-inner > section.glass:not(.calm-hero--soar-dawn):hover {
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+}
+
+html[data-theme="light"] .app-shell .content-inner > section.glass:not(.calm-hero--soar-dawn) {
+  background: var(--tdb-surface-card-bg);
+  border-color: var(--tdb-surface-card-border);
+  box-shadow: var(--tdb-surface-card-shadow);
+}
+
+html[data-theme="light"] .app-shell .content-inner > section.glass:not(.calm-hero--soar-dawn):hover {
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+}
+
 /* Very light linen texture on glass + base .card (skip dawn hero shell) */
 .dark-mode .glass:not(.calm-hero--soar-dawn)::before,
 html[data-theme="dark"] .glass:not(.calm-hero--soar-dawn)::before {
@@ -7577,6 +7680,18 @@ body:has(.pricing-grid) .content-inner .glass:last-of-type {
   border-bottom: none;
   padding-bottom: 0;
 }
+
+/* FAQ-style lists inside glass — soft panel per row (skip live prayer list) */
+.content-inner section.glass:not(.message-board) .list .list-item {
+  padding: 1rem 1rem 1rem 1.15rem;
+  margin-bottom: 0.65rem;
+  border-bottom: none;
+  border-radius: calc(var(--tdb-surface-radius) - 2px);
+  background: var(--tdb-surface-panel-bg);
+  border: 1px solid var(--tdb-surface-panel-border);
+  box-shadow: var(--tdb-surface-panel-shadow);
+}
+
 .content-inner .list .list-item strong {
   display: block;
   margin-bottom: 0.4rem;

@@ -34,3 +34,5 @@ When present, the "Deep meditation (10 min)" button plays this audio and syncs t
 | `mobius-guided-human.mp3` | Same purpose and rough length as `mobius-guided-10min.mp3`, but read by a human voice. When this file is deployed under `/audio/`, Möbius shows a second radio choice ("Human narrator") for the deep meditation timer. |
 
 Record or commission separately; keep KJV-adjacent pacing calm and plain (no hype). Mono MP3, 128kbps or similar is fine.
+
+**Flagship path:** One strong human read of this track (same slot as the 10-minute guide) unlocks the radio on Möbius automatically via `HEAD /audio/mobius-guided-human.mp3`. Offline: add the same filename under `/audio/` in your deploy and ensure your service worker / CDN cache includes it once the file exists.

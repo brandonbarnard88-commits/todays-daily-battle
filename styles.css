@@ -6984,19 +6984,21 @@ body:has(.pricing-grid) .cta-group {
 }
 
 .shop-card {
-  background: rgba(18, 26, 44, 0.82);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  background-color: var(--tdb-surface-card-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border: 1px solid var(--tdb-surface-card-border);
+  border-radius: var(--tdb-surface-radius);
   padding: 1.45rem;
   display: grid;
   gap: 0.65rem;
-  box-shadow: var(--shadow-card), inset 0 1px 0 var(--elite-cream);
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  box-shadow: var(--tdb-surface-card-shadow);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
 }
 
 .shop-card:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-card-hover), inset 0 1px 0 var(--elite-cream-strong);
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 70%, rgba(227, 188, 103, 0.35));
 }
 
 .shop-card-image {

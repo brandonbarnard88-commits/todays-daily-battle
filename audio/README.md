@@ -38,3 +38,13 @@ Record or commission separately; keep KJV-adjacent pacing calm and plain (no hyp
 **Flagship path:** One strong human read of this track (same slot as the 10-minute guide) unlocks the radio on Möbius automatically via `HEAD /audio/mobius-guided-human.mp3`. Offline: add the same filename under `/audio/` in your deploy and ensure your service worker / CDN cache includes it once the file exists.
 
 **Owner step:** The app cannot ship a real human voice from code—add `mobius-guided-human.mp3` locally or from your studio, then deploy. Full checklist: `docs/HUMAN-AUDIO-MILESTONE.md`.
+
+### Optional: human voice for calm-path breathing (Text mode v2)
+
+| File | Description |
+|------|-------------|
+| `mobius-breathe-human.mp3` | Short spoken guide meant to sit **beside** the three slow breathing rounds before 2 Timothy 1:7 repetitions (same visual ring/timers). When deployed under `/audio/`, Möbius shows an optional checkbox on the calm path. |
+
+**Length / shape:** Roughly one to two minutes is enough for a gentle intro plus cues through three in/hold/out cycles; it does not need to lock-step every second with the UI. Plain tone, no hype (same posture as the 10-minute guide).
+
+**Privacy:** Same as other static MP3s—fetch and decode on device; no upload of listening or voice.

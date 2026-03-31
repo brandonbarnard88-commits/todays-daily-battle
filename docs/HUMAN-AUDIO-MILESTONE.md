@@ -33,6 +33,29 @@ One calm, trustworthy **human** read of the same slot as the existing 10-minute 
 - Audio files are **static assets**; playback does not send the user’s voice or listening content anywhere.
 - Keep saying **on-device / nothing uploaded for listening** anywhere Listen/TTS is described; human MP3 is the same class of asset as the existing guided MP3.
 
+## Second slice: calm-path breathing (Text mode v2)
+
+**Goal:** A **first human layer** on the short breathing rounds (before verse reps)—the biggest experiential upgrade next to the 10-minute deep track.
+
+### What’s built
+
+- **File name:** `mobius-breathe-human.mp3` under `/audio/`.
+- **Discovery:** `HEAD /audio/mobius-breathe-human.mp3`; when OK, the calm path shows a **Breathing guide** fieldset with an optional checkbox.
+- **Playback:** If the user opts in, playback starts with **Begin calm path** and stops when the three breathing rounds finish (verse phase begins). Element: `#mobius-breathe-human-audio` in `mobius.html`; logic in `mobius-text-v2.js`.
+- **Preference:** `localStorage` key `tdb_mobius_breathe_human` (`1` / absent).
+
+### Recording brief
+
+- **Tone:** Slow, plain, breathe-with-me; no therapy jargon, no music required.
+- **Length:** ~60–120s is plenty; align loosely with three slow rounds (inhale / hold / exhale), not necessarily frame-perfect to the ring.
+- **Format:** MP3 as above; normalize for comfortable phone volume.
+
+### Ship checklist
+
+1. Export as **`mobius-breathe-human.mp3`** into **`audio/`** (or CDN path equivalent).
+2. Deploy; confirm optional UI appears on Möbius → Text → calm path.
+3. Same offline note as the 10-minute human file: `/audio/` is cached broadly by the service worker when assets exist.
+
 ## After this milestone
 
 - Plan-day human snippets (Plans) can reuse the same **static file** pattern—one file per day or shared bed + verse read—document each in `audio/README.md` when added.

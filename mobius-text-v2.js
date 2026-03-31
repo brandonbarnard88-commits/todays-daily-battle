@@ -13,9 +13,18 @@
   var HOLD_MS = 2800;
   var EXHALE_MS = 6200;
   var VERSE_AUTO_MS = 4200;
+  var BREATHE_HUMAN_LS = 'tdb_mobius_breathe_human';
 
   function $(id) {
     return document.getElementById(id);
+  }
+
+  function stopBreatheHumanAudio(aud) {
+    if (!aud) return;
+    try {
+      aud.pause();
+      aud.currentTime = 0;
+    } catch (e) {}
   }
 
   function prefersReducedMotion() {
@@ -231,8 +240,33 @@
     var copyBtn = $('mobius-v2-copy-summary');
     var printBtn = $('mobius-v2-print');
     var saveStudyBtn = $('mobius-v2-save-mystudy');
+    var breatheVoiceWrap = $('mobius-breathe-voice-wrap');
+    var breatheHumanChk = $('mobius-breathe-human-enable');
+    var breatheHumanAud = $('mobius-breathe-human-audio');
 
     if (!start) return;
+
+    if (typeof fetch === 'function' && breatheVoiceWrap) {
+      fetch('/audio/mobius-breathe-human.mp3', { method: 'HEAD', cache: 'no-store' })
+        .then(function (r) {
+          if (r.ok) {
+            window.__tdbMobiusBreatheHumanOk = true;
+            breatheVoiceWrap.hidden = false;
+          }
+        })
+        .catch(function () {});
+    }
+
+    if (breatheHumanChk) {
+      try {
+        breatheHumanChk.checked = localStorage.getItem(BREATHE_HUMAN_LS) === '1';
+      } catch (e) {}
+      breatheHumanChk.addEventListener('change', function () {
+        try {
+          localStorage.setItem(BREATHE_HUMAN_LS, breatheHumanChk.checked ? '1' : '0');
+        } catch (e2) {}
+      });
+    }
 
     start.addEventListener('click', function () {
       var repCount = getRepCount();
@@ -243,9 +277,28 @@
       if (breathe) breathe.style.setProperty('--mobius-breath-fill', '0');
 
       var reduced = prefersReducedMotion();
+      var wantBreatheHuman =
+        window.__tdbMobiusBreatheHumanOk &&
+        breatheHumanChk &&
+        breatheHumanChk.checked &&
+        breatheHumanAud;
+
+      if (wantBreatheHuman) {
+        try {
+          breatheHumanAud.currentTime = 0;
+          var p = breatheHumanAud.play();
+          if (p && typeof p.catch === 'function') p.catch(function () {});
+        } catch (e3) {}
+        try {
+          if (typeof window.trackEvent === 'function') {
+            window.trackEvent('mobius_breathe_human_start');
+          }
+        } catch (e4) {}
+      }
 
       runAllBreathing(phaseLabel, countdownEl, reduced)
         .then(function () {
+          stopBreatheHumanAudio(breatheHumanAud);
           setVisible(breathe, false);
           setVisible(verse, true);
           return runVerseReps(repCount, verseText, repCounter, repHint, reduced);
@@ -255,6 +308,7 @@
         })
         .catch(function (e) {
           if (typeof console !== 'undefined' && console.warn) console.warn('mobius-text-v2', e);
+          stopBreatheHumanAudio(breatheHumanAud);
           setVisible(breathe, false);
           setVisible(verse, false);
           start.removeAttribute('hidden');

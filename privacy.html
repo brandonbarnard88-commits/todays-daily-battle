@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
@@ -7,124 +7,372 @@
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy · Today's Daily Battle</title>
-  <meta name="description" content="Privacy policy for Today's Daily Battle.">
+  <title>Privacy Policy • Today's Daily Battle</title>
+  <meta name="description" content="Privacy policy for Today's Daily Battle: what we collect, what stays on your device, analytics, email, and your rights.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
   <link rel="canonical" href="https://todaysdailybattle.com/privacy.html">
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/privacy.html">
   <link rel="alternate" hreflang="pt" href="https://todaysdailybattle.com/pt/privacy.html">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/privacy.html">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#ff8c00">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #0f1218;
-      color: #cbd5e1;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 1rem;
-      line-height: 1.7;
-      padding: 2rem 1.25rem 4rem;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    a { color: #e3bc67; }
-    a:hover { text-decoration: underline; }
-    h1 {
-      font-size: 1.6rem;
-      color: #e3bc67;
-      margin-bottom: 0.3rem;
-    }
-    h2 {
-      font-size: 1.05rem;
-      color: #e2e8f0;
-      margin: 1.8rem 0 0.4rem;
-    }
-    p { margin-bottom: 0.9rem; }
-    .back {
-      display: inline-block;
-      margin-bottom: 1.8rem;
-      font-size: 0.88rem;
-      color: #aebdcb;
-    }
-    .updated {
-      font-size: 0.8rem;
-      color: #8b99ab;
-      margin-bottom: 2rem;
-    }
-    .skip-link { position: absolute; top: -3rem; left: 1rem; z-index: 100; padding: 0.5rem 1rem; background: #e3bc67; color: #0f1218; font-weight: 600; text-decoration: none; border-radius: 4px; transition: top 0.2s ease; }
-    .skip-link:focus, .skip-link:focus-visible { top: 0.75rem; outline: 2px solid #fff; outline-offset: 2px; }
-  </style>
+  <meta property="og:title" content="Privacy Policy • Today's Daily Battle">
+  <meta property="og:description" content="What we collect, what stays local, and how we respect your prayers and notes.">
+  <meta property="og:url" content="https://todaysdailybattle.com/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy • Today's Daily Battle">
+  <meta name="twitter:description" content="What we collect, what stays local, and how we respect your prayers and notes.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="dark-mode tdb-inner-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <a class="back" href="/">← Back to Today's Daily Battle</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+          <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
 
-  <main id="main-content">
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: March 2026</p>
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Privacy policy</span>
+      </div>
+      <nav class="header-nav tdb-global-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/kids/?v=hub20260321">Kids</a>
+        <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/story.html">Story</a>
+        <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+        <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>
+        <a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
+            <a href="/explore.html">Explore</a>
+            <a href="/#feel-section">Feel search &amp; topics</a>
+          </div>
+        </details>
+      </nav>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <div id="auth-section" class="auth-inline auth-compact">
+        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+        <button id="signup-btn">Sign Up</button>
+        <button id="login-btn">Log In</button>
+        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
+        <button id="logout-btn" class="hidden">Log Out</button>
+      </div>
+    </header>
 
-  <p><strong>Privacy is simple here.</strong> We do not sell your data. We do not run targeted ads. Your prayers, streaks, saved verses, and notes stay on your device by default. The only analytics we collect are anonymous page views and light feature counts (no personal information in those reports; we do not use them to identify you or tie an IP address to a named individual). Here&rsquo;s the full breakdown.</p>
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
+        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
+        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
+        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
+        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
+        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
+        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
+        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
+        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      </nav>
+      <div class="sidebar-options">
+        <label class="inline-toggle">
+          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
+          Red letters
+        </label>
+      </div>
+    </aside>
 
-  <h2>Data We Don't Collect</h2>
-  <p>Nothing you don't choose to give. No ad networks, no selling of data—ever. We don't log your IP for identification, don't store raw search queries or prayer content in analytics, and don't use fingerprinting for ads.</p>
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner">
+          <h1>Privacy Policy</h1>
+          <p class="hero-tagline">What stays on your device, what we see in aggregate, and how to reach us.</p>
+          <p class="section-note privacy-updated-meta">Last updated: March 2026</p>
+        </header>
 
-  <h2>What Happens Without an Account (Default Experience)</h2>
-  <p>Everything runs locally in your browser:</p>
-  <ul style="margin: 0.5rem 0 1rem 1.5rem;">
-    <li>Prayers, notes, streaks, saved verses, reading plans, <strong>What God has done</strong> journal entries, and chapter reader bookmarks / &ldquo;resume&rdquo; spots stay in <code>localStorage</code> on your device only (nothing uploaded in v1 for the journal).</li>
-    <li>No data leaves your phone/computer unless you hit "sync" after signing in.</li>
-    <li>We do <strong>not</strong> ask for device GPS by default. The sky (homepage and kids) uses your browser clock plus a small same-site request that returns <strong>approximate</strong> latitude and longitude from our CDN&rsquo;s IP-based geolocation (so sunset timing matches your region better). That response is held in <code>sessionStorage</code> for the day only; we do not use it to build a profile. If you turn on optional precise GPS (a local browser preference), those coordinates stay on your device—they are never sent to us.</li>
-  </ul>
-  <p>This keeps your private moments truly private.</p>
+        <section class="glass">
+          <h2 class="section-divider">The short version</h2>
+          <p class="section-note"><strong>Privacy is simple here.</strong> We do not sell your data. We do not run targeted ads. Your prayers, streaks, saved verses, and notes stay on your device by default. The only analytics we collect are anonymous page views and light feature counts (no personal information in those reports; we do not use them to identify you or tie an IP address to a named individual). Here&rsquo;s the full breakdown.</p>
+        </section>
 
-  <h2>Anonymous Usage Stats (Why We Have Them)</h2>
-  <p>To improve the site and see what's helping people most, we use:</p>
-  <ul style="margin: 0.5rem 0 1rem 1.5rem;">
-    <li><strong>Google Analytics 4 (GA4)</strong> — anonymous page views, feature usage, country-level location only (no IPs tied to individuals, no prayer content).</li>
-    <li><strong>Plausible Analytics</strong> — even lighter, privacy-first stats (same anonymous level).</li>
-  </ul>
-  <p>These help us know if the anxiety plan or kids' corner is getting used—no personal details ever.</p>
+        <section class="glass">
+          <h2 class="section-divider">Data we don&rsquo;t collect</h2>
+          <p class="section-note">Nothing you don&rsquo;t choose to give. No ad networks, no selling of data—ever. We don&rsquo;t log your IP for identification, don&rsquo;t store raw search queries or prayer content in analytics, and don&rsquo;t use fingerprinting for ads.</p>
+        </section>
 
-  <h2>Tracking we don&rsquo;t do</h2>
-  <p>We do not track you across other websites for advertising. We do not use cookies to run targeted ads or sell your browsing habits. Personal spiritual content you keep in local tools (prayers, battles, notes) stays on your device unless you sign in to sync—or unless you choose to submit something (contact form, prayer wall, story share), as described in those sections.</p>
+        <section class="glass">
+          <h2 class="section-divider">What happens without an account (default experience)</h2>
+          <p class="section-note">Everything runs locally in your browser:</p>
+          <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
+            <li>Prayers, notes, streaks, saved verses, reading plans, <strong>What God has done</strong> journal entries, and chapter reader bookmarks / &ldquo;resume&rdquo; spots stay in <code>localStorage</code> on your device only (nothing uploaded in v1 for the journal).</li>
+            <li>No data leaves your phone/computer unless you hit &ldquo;sync&rdquo; after signing in.</li>
+            <li>We do <strong>not</strong> ask for device GPS by default. The sky (homepage and kids) uses your browser clock plus a small same-site request that returns <strong>approximate</strong> latitude and longitude from our CDN&rsquo;s IP-based geolocation (so sunset timing matches your region better). That response is held in <code>sessionStorage</code> for the day only; we do not use it to build a profile. If you turn on optional precise GPS (a local browser preference), those coordinates stay on your device—they are never sent to us.</li>
+          </ul>
+          <p class="section-note">This keeps your private moments truly private.</p>
+        </section>
 
-  <h2>Friday email list</h2>
-  <p>For the Friday verse recap signup, we send at most one email per week (verse plus a short prayer).</p>
-  <p>No spam. We don&rsquo;t add marketing or ad-tracking pixels to the messages we send; unsubscribe anytime (one click in the email, or write us). Your address is stored only to run that list.</p>
+        <section class="glass">
+          <h2 class="section-divider">Anonymous usage stats (why we have them)</h2>
+          <p class="section-note">To improve the site and see what&rsquo;s helping people most, we use:</p>
+          <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
+            <li><strong>Google Analytics 4 (GA4)</strong> — anonymous page views, feature usage, country-level location only (no IPs tied to individuals, no prayer content).</li>
+            <li><strong>Plausible Analytics</strong> — even lighter, privacy-first stats (same anonymous level).</li>
+          </ul>
+          <p class="section-note">These help us know if the anxiety plan or kids&rsquo; corner is getting used—no personal details ever.</p>
+        </section>
 
-  <h2>When You Choose to Sign In / Sync</h2>
-  <ul style="margin: 0.5rem 0 1rem 1.5rem;">
-    <li>Optional account via Supabase Auth: stores your email + saved content (prayers, notes, streaks) so it syncs across devices.</li>
-    <li>Push notification tokens (for daily verse reminders) go to Supabase/Firebase for delivery only—you can revoke in browser settings.</li>
-    <li>You can delete everything anytime: email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>.</li>
-  </ul>
+        <section class="glass">
+          <h2 class="section-divider">Tracking we don&rsquo;t do</h2>
+          <p class="section-note">We do not track you across other websites for advertising. We do not use cookies to run targeted ads or sell your browsing habits. Personal spiritual content you keep in local tools (prayers, battles, notes) stays on your device unless you sign in to sync—or unless you choose to submit something (contact form, prayer wall, story share), as described in those sections.</p>
+        </section>
 
-  <h2>Contact form &amp; shop waitlist</h2>
-  <p>If you use the <a href="contact.html">contact form</a> or the <a href="shop.html#shop-waitlist">shop launch list</a>, we store your email and message or product interest in our database (Supabase) so we can reply or notify you—<strong>not</strong> for general marketing or resale. Email us anytime to request deletion of those rows.</p>
-  <p><strong>Retention</strong> — We keep contact messages and shop waitlist entries only as long as needed to respond or to send the launch notice you asked for, and we aim to delete them within <strong>about ninety (90) days</strong> after the issue is resolved or after the shop launch (whichever applies), unless a longer period is required by law. Operational backups may persist briefly after deletion.</p>
+        <section class="glass">
+          <h2 class="section-divider">Friday email list</h2>
+          <p class="section-note">For the Friday verse recap signup, we send at most one email per week (verse plus a short prayer).</p>
+          <p class="section-note">No spam. We don&rsquo;t add marketing or ad-tracking pixels to the messages we send; unsubscribe anytime (one click in the email, or write us). Your address is stored only to run that list.</p>
+        </section>
 
-  <h2>Other Services We Use</h2>
-  <ul style="margin: 0.5rem 0 1rem 1.5rem;">
-    <li><strong>Cloudflare</strong> — CDN and basic security (standard for fast, safe sites).</li>
-    <li><strong>Google Fonts</strong> — for clean typography.</li>
-    <li><strong>Stripe</strong> — only if you choose to support us (one-time donations).</li>
-  </ul>
-  <p>None access your prayers or searches.</p>
+        <section class="glass">
+          <h2 class="section-divider">When you choose to sign in / sync</h2>
+          <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
+            <li>Optional account via Supabase Auth: stores your email + saved content (prayers, notes, streaks) so it syncs across devices.</li>
+            <li>Push notification tokens (for daily verse reminders) go to Supabase/Firebase for delivery only—you can revoke in browser settings.</li>
+            <li>You can delete everything anytime: email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>.</li>
+          </ul>
+        </section>
 
-  <h2>Kids & Special Notes</h2>
-  <p>We don't knowingly collect data from kids under 13. Kids Corner is for parents/guardians to use together.</p>
-  <p>GDPR/EU rights? Email us to delete or ask questions.</p>
+        <section class="glass">
+          <h2 class="section-divider">Contact form &amp; shop waitlist</h2>
+          <p class="section-note">If you use the <a href="contact.html">contact form</a> or the <a href="shop.html#shop-waitlist">shop launch list</a>, we store your email and message or product interest in our database (Supabase) so we can reply or notify you—<strong>not</strong> for general marketing or resale. Email us anytime to request deletion of those rows.</p>
+          <p class="section-note"><strong>Retention</strong> — We keep contact messages and shop waitlist entries only as long as needed to respond or to send the launch notice you asked for, and we aim to delete them within <strong>about ninety (90) days</strong> after the issue is resolved or after the shop launch (whichever applies), unless a longer period is required by law. Operational backups may persist briefly after deletion.</p>
+        </section>
 
-  <h2>Contact</h2>
-  <p>Questions? <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a></p>
+        <section class="glass">
+          <h2 class="section-divider">Other services we use</h2>
+          <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
+            <li><strong>Cloudflare</strong> — CDN and basic security (standard for fast, safe sites).</li>
+            <li><strong>Google Fonts</strong> — for clean typography.</li>
+            <li><strong>Stripe</strong> — only if you choose to support us (one-time donations).</li>
+          </ul>
+          <p class="section-note">None access your prayers or searches.</p>
+        </section>
 
-  <p style="margin-top:2rem;">We respect EU data rights (GDPR)—email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a> to delete your data or request info.</p>
+        <section class="glass">
+          <h2 class="section-divider">Kids &amp; special notes</h2>
+          <p class="section-note">We don&rsquo;t knowingly collect data from kids under 13. Kids Corner is for parents/guardians to use together.</p>
+          <p class="section-note">GDPR/EU rights? Email us to delete or ask questions.</p>
+        </section>
 
-  <p style="margin-top:2rem;font-size:0.8rem;color:#475569;">© 2026 Today&rsquo;s Daily Battle · All rights reserved · <a href="explore.html">Explore</a> · <a href="terms.html">Terms</a> · <a href="/">Home</a></p>
+        <section class="glass">
+          <h2 class="section-divider">Contact &amp; rights</h2>
+          <p class="section-note">Questions? <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a></p>
+          <p class="section-note">We respect EU data rights (GDPR)—email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a> to delete your data or request info.</p>
+          <p class="section-note">For legal terms of use, see <a href="terms.html">Terms of Service</a>. For security practices, see <a href="security.html">Security &amp; privacy basics</a>.</p>
+        </section>
+      </div>
+    </main>
 
-  </main>
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/kids-corner.html">Kids Corner</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/message.html">Prayer Wall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, you can <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — you choose the amount">support the work here</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Or use <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support via Buy Me a Coffee">Buy Me a Coffee</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/my-verses.html">My Verses</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/kids-corner.html">Kids corner</a>
+        <a href="/kids/?v=hub20260321">Kids battle</a>
+        <a href="/coloring.html">Kids coloring</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/message.html">Prayer wall</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Open beta: live, useful, still growing&mdash;honest pilots and English tool interiors. <a href="/about.html#open-beta">What that means</a>.</p>
+  <p class="site-footer-story">Built by hand, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <script defer src="/language-switcher.js"></script>
+</footer>
+  </div>
+
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
 </body>
 </html>

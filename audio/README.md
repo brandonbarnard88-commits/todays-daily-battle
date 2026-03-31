@@ -36,3 +36,5 @@ When present, the "Deep meditation (10 min)" button plays this audio and syncs t
 Record or commission separately; keep KJV-adjacent pacing calm and plain (no hype). Mono MP3, 128kbps or similar is fine.
 
 **Flagship path:** One strong human read of this track (same slot as the 10-minute guide) unlocks the radio on Möbius automatically via `HEAD /audio/mobius-guided-human.mp3`. Offline: add the same filename under `/audio/` in your deploy and ensure your service worker / CDN cache includes it once the file exists.
+
+**Owner step:** The app cannot ship a real human voice from code—add `mobius-guided-human.mp3` locally or from your studio, then deploy. Full checklist: `docs/HUMAN-AUDIO-MILESTONE.md`.

@@ -210,6 +210,111 @@ body.tdb-inner-page .content-inner > section:not(.glass):not(.message-board) .li
   margin-bottom: 0;
 }
 
+/* Inner kit — Calm uses .calm-page instead of .content-inner */
+body.tdb-inner-page .calm-page {
+  max-width: var(--tdb-inner-max);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(0.75rem, 2vw, 1rem);
+  padding-right: clamp(0.75rem, 2vw, 1rem);
+  box-sizing: border-box;
+}
+
+/* Pricing — plan cards align with quiet-luxury panels when inner kit is on */
+body.tdb-inner-page.pricing-page .pricing-grid .pricing-card {
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border: 1px solid var(--tdb-surface-panel-border);
+  box-shadow: var(--tdb-surface-panel-shadow);
+}
+
+body.tdb-inner-page.pricing-page .pricing-grid .pricing-card:hover {
+  border-color: color-mix(in srgb, var(--tdb-surface-panel-border) 78%, rgba(227, 188, 103, 0.28));
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+}
+
+body.tdb-inner-page.pricing-page .pricing-grid .pricing-card.highlight-card {
+  background-color: color-mix(in srgb, var(--tdb-surface-card-bg) 92%, rgba(227, 188, 103, 0.07));
+  background-image: var(--tdb-surface-veil-subtle);
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 72%, rgba(227, 188, 103, 0.32));
+  box-shadow: var(--tdb-surface-card-shadow);
+}
+
+body.tdb-inner-page.pricing-page .pricing-grid .pricing-card.highlight-card:hover {
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+}
+
+/* Explore — compact discoverability row (four high-traffic doors) */
+.explore-quick-doors {
+  margin: 0 0 var(--tdb-inner-gap);
+  padding: clamp(1rem, 2.4vw, 1.35rem) clamp(1rem, 2.8vw, 1.45rem);
+  border-radius: var(--tdb-surface-radius);
+  border: 1px solid var(--tdb-surface-panel-border);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-panel-shadow);
+}
+
+.explore-quick-doors-heading {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--gold-soft, #f2dc98) 88%, transparent);
+}
+
+.explore-quick-doors-lead {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+.explore-quick-doors-list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+a.explore-quick-door {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: calc(var(--tdb-surface-radius) - 4px);
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text, #e6edf3);
+  background-color: color-mix(in srgb, var(--tdb-surface-card-bg) 90%, rgba(139, 166, 217, 0.05));
+  background-image: var(--tdb-surface-veil-subtle);
+  border: 1px solid var(--tdb-surface-card-border);
+  box-shadow: var(--tdb-surface-card-shadow);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.explore-quick-door:hover,
+a.explore-quick-door:focus-visible {
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 65%, rgba(227, 188, 103, 0.38));
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+  outline: none;
+}
+
+:root[data-theme="light"] .explore-quick-doors {
+  background-color: var(--tdb-surface-panel-bg);
+  border-color: var(--tdb-surface-panel-border);
+}
+
+:root[data-theme="light"] a.explore-quick-door {
+  color: var(--text, #191d26);
+}
+
 .calm-hero--soar-dawn,
 .study-hero--soar-dawn,
 .chapter-reader-hero--soar-dawn,
@@ -15810,7 +15915,8 @@ main > .card {
   padding: 0.88rem 1.02rem 1.02rem;
   border-radius: var(--tdb-surface-radius);
   border: 1px solid var(--tdb-surface-panel-border);
-  background: var(--tdb-surface-panel-bg);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
   box-shadow: var(--tdb-surface-panel-shadow);
 }
 
@@ -15897,7 +16003,8 @@ main > .card {
 
 :root[data-theme="light"] .explore-lang-tier {
   border-color: var(--tdb-surface-panel-border);
-  background: var(--tdb-surface-panel-bg);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
   box-shadow: var(--tdb-surface-panel-shadow);
 }
 
@@ -16906,7 +17013,8 @@ body.kids-battle-page .tdb-site-humility {
   padding: 1rem 1.15rem 1.1rem;
   border-radius: 14px;
   border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
-  background: color-mix(in srgb, var(--card) 94%, var(--gold));
+  background-color: color-mix(in srgb, var(--card) 94%, var(--gold));
+  background-image: var(--tdb-surface-veil-subtle);
 }
 
 .tdb-open-beta-callout-title {

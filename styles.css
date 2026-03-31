@@ -193,6 +193,23 @@ body.tdb-inner-page.mystudy-body .mystudy-shell {
   gap: var(--tdb-inner-gap);
 }
 
+/* Inner pages — panel treatment for FAQ-style lists in plain sections (not .glass / not message board) */
+body.tdb-inner-page .content-inner > section:not(.glass):not(.message-board) .list .list-item {
+  padding: 1rem 1rem 1rem 1.15rem;
+  margin-bottom: 0.65rem;
+  border-radius: calc(var(--tdb-surface-radius) - 2px);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border: 1px solid var(--tdb-surface-panel-border);
+  box-shadow: var(--tdb-surface-panel-shadow);
+  border-bottom: none;
+  border-left: none;
+}
+
+body.tdb-inner-page .content-inner > section:not(.glass):not(.message-board) .list .list-item:last-child {
+  margin-bottom: 0;
+}
+
 .calm-hero--soar-dawn,
 .study-hero--soar-dawn,
 .chapter-reader-hero--soar-dawn,

@@ -2301,6 +2301,334 @@
             'So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses. Matthew 18:33-35 (KJV)'
         }
       ]
+    },
+    {
+      id: 'boy-david',
+      title: 'The Boy David',
+      verse:
+        'Then Samuel took the horn of oil, and anointed him in the midst of his brethren: and the Spirit of the LORD came upon David from that day forward. - 1 Samuel 16:13',
+      lead: 'Four pictures at Jesse\'s house and the field—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/boy-david-s1.svg',
+          alt: 'Samuel comes to Jesse\'s house',
+          caption:
+            'Samuel came to Bethlehem... and sanctified Jesse and his sons, and called them to the sacrifice.',
+          verse: '1 Samuel 16:4-5 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/boy-david-s2.svg',
+          alt: 'David keeps sheep in the field',
+          caption:
+            'Jesse made seven of his sons to pass before Samuel... Are here all thy children? And he said, There remaineth yet the youngest, and, behold, he keepeth the sheep.',
+          verse: '1 Samuel 16:10-11 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/boy-david-s3.svg',
+          alt: 'David is anointed before his brothers',
+          caption:
+            'Then Samuel took the horn of oil, and anointed him in the midst of his brethren: and the Spirit of the LORD came upon David from that day forward.',
+          verse: '1 Samuel 16:13 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/boy-david-s4.svg',
+          alt: 'The Spirit of the LORD is upon David',
+          caption:
+            'The LORD said, Arise, anoint him: for this is he. And Samuel took the horn of oil, and anointed him.',
+          verse: '1 Samuel 16:12-13 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'elijah-ravens',
+      title: 'Elijah Fed by Ravens',
+      verse:
+        'And the ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. - 1 Kings 17:6',
+      lead: 'Four pictures by the brook—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/elijah-ravens-s1.svg',
+          alt: 'Elijah by the brook Cherith',
+          caption:
+            'Get thee hence, and turn thee eastward, and hide thyself by the brook Cherith, that is before Jordan.',
+          verse: '1 Kings 17:3 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/elijah-ravens-s2.svg',
+          alt: 'Ravens bring food',
+          caption:
+            'The ravens brought him bread and flesh in the morning, and bread and flesh in the evening.',
+          verse: '1 Kings 17:6 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/elijah-ravens-s3.svg',
+          alt: 'Elijah drinks from the brook',
+          caption:
+            'And it shall be, that thou shalt drink of the brook; and I have commanded the ravens to feed thee there. So he went and did according unto the word of the LORD.',
+          verse: '1 Kings 17:4-5 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/elijah-ravens-s4.svg',
+          alt: 'The brook dries up',
+          caption:
+            'It came to pass after a while, that the brook dried up, because there had been no rain in the land.',
+          verse: '1 Kings 17:7 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'writing-on-wall',
+      title: 'The Writing on the Wall',
+      verse:
+        'And this is the writing that was written, MENE, MENE, TEKEL, UPHARSIN. - Daniel 5:25',
+      lead: 'Four pictures in the king\'s feast hall—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/writing-on-wall-s1.svg',
+          alt: 'A great feast in the palace',
+          caption:
+            'Belshazzar the king made a great feast to a thousand of his lords, and drank wine before the thousand.',
+          verse: 'Daniel 5:1 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/writing-on-wall-s2.svg',
+          alt: 'A hand writes on the plaster',
+          caption:
+            'In the same hour came forth fingers of a man\'s hand, and wrote over against the candlestick upon the plaister of the wall of the king\'s palace.',
+          verse: 'Daniel 5:5 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/writing-on-wall-s3.svg',
+          alt: 'The king is afraid',
+          caption:
+            'Then the king\'s countenance was changed, and his thoughts troubled him, so that the joints of his loins were loosed, and his knees smote one against another.',
+          verse: 'Daniel 5:6 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/writing-on-wall-s4.svg',
+          alt: 'Daniel reads the writing',
+          caption:
+            'This is the interpretation of the thing: MENE; God hath numbered thy kingdom, and finished it. TEKEL; Thou art weighed in the balances, and art found wanting.',
+          verse: 'Daniel 5:26-27 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'ruth-boaz',
+      title: 'Ruth & Boaz',
+      verse:
+        'The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust. - Ruth 2:12',
+      lead: 'Four pictures in the field and at the gate—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/ruth-boaz-s1.svg',
+          alt: 'Ruth gleans in Boaz\'s field',
+          caption:
+            'She went, and came, and gleaned in the field after the reapers: and her hap was to light on a part of the field belonging unto Boaz.',
+          verse: 'Ruth 2:3 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/ruth-boaz-s2.svg',
+          alt: 'Boaz speaks kindly to Ruth',
+          caption:
+            'Boaz answered and said unto her, It hath fully been shewed me, all that thou hast done unto thy mother in law since the death of thine husband.',
+          verse: 'Ruth 2:11 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/ruth-boaz-s3.svg',
+          alt: 'Boaz redeems at the gate',
+          caption:
+            "Boaz said unto the elders, and unto all the people, Ye are witnesses this day, that I have bought all that was Elimelech's, and all that was Chilion's and Mahlon's, of the hand of Naomi.",
+          verse: 'Ruth 4:9 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/ruth-boaz-s4.svg',
+          alt: 'Ruth and Boaz are married',
+          caption:
+            'So Boaz took Ruth, and she was his wife: and when he went in unto her, the LORD gave her conception, and she bare a son.',
+          verse: 'Ruth 4:13 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'jesus-baptism',
+      title: 'Jesus Is Baptized',
+      verse:
+        'And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him. - Matthew 3:16',
+      lead: 'Four pictures at the Jordan River—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/jesus-baptism-s1.svg',
+          alt: 'John preaches at the river',
+          caption:
+            'John the Baptist, preaching in the wilderness of Judaea, And saying, Repent ye: for the kingdom of heaven is at hand.',
+          verse: 'Matthew 3:1-2 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/jesus-baptism-s2.svg',
+          alt: 'Jesus comes to John to be baptized',
+          caption:
+            'Then cometh Jesus from Galilee to Jordan unto John, to be baptized of him. But John forbad him, saying, I have need to be baptized of thee.',
+          verse: 'Matthew 3:13-14 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/jesus-baptism-s3.svg',
+          alt: 'John baptizes Jesus in the water',
+          caption:
+            'Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered him.',
+          verse: 'Matthew 3:15 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/jesus-baptism-s4.svg',
+          alt: 'The Spirit descends like a dove',
+          caption:
+            'Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him.',
+          verse: 'Matthew 3:16 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'emmaus-road',
+      title: 'The Road to Emmaus',
+      verse:
+        'Did not our heart burn within us, while he talked with us by the way, and while he opened to us the scriptures? - Luke 24:32',
+      lead: 'Four pictures on the road and at the table—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/emmaus-road-s1.svg',
+          alt: 'Two disciples walk sadly',
+          caption:
+            'Behold, two of them went that same day to a village called Emmaus, which was from Jerusalem about threescore furlongs.',
+          verse: 'Luke 24:13 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/emmaus-road-s2.svg',
+          alt: 'Jesus draws near and walks with them',
+          caption:
+            'Jesus himself drew near, and went with them. But their eyes were holden that they should not know him.',
+          verse: 'Luke 24:15-16 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/emmaus-road-s3.svg',
+          alt: 'He breaks bread at the table',
+          caption:
+            'He took bread, and blessed it, and brake, and gave to them. And their eyes were opened, and they knew him.',
+          verse: 'Luke 24:30-31 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/emmaus-road-s4.svg',
+          alt: 'They hurry back to Jerusalem',
+          caption:
+            'They rose up the same hour, and returned to Jerusalem, and found the eleven gathered together, and them that were with them, Saying, The Lord is risen indeed.',
+          verse: 'Luke 24:33-34 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'jesus-washes-feet',
+      title: "Jesus Washes the Disciples' Feet",
+      verse:
+        "If I then, your Lord and Master, have washed your feet; ye also ought to wash one another's feet. - John 13:14",
+      lead: 'Four pictures at the supper—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/jesus-washes-feet-s1.svg',
+          alt: 'The supper is prepared',
+          caption:
+            "Now before the feast of the passover, when Jesus knew that his hour was come... supper being ended, the devil having now put into the heart of Judas Iscariot, Simon's son, to betray him.",
+          verse: 'John 13:1-2 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/jesus-washes-feet-s2.svg',
+          alt: 'Jesus rises with a towel',
+          caption:
+            'Jesus... riseth from supper, and laid aside his garments; and took a towel, and girded himself.',
+          verse: 'John 13:4 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/jesus-washes-feet-s3.svg',
+          alt: 'He pours water and washes feet',
+          caption:
+            "After that he poureth water into a bason, and began to wash the disciples' feet, and to wipe them with the towel wherewith he was girded.",
+          verse: 'John 13:5 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/jesus-washes-feet-s4.svg',
+          alt: 'He teaches them to love one another',
+          caption:
+            "If I then, your Lord and Master, have washed your feet; ye also ought to wash one another's feet. For I have given you an example.",
+          verse: 'John 13:14-15 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'transfiguration',
+      title: 'The Transfiguration',
+      verse:
+        'And he was transfigured before them: and his face did shine as the sun, and his raiment was white as the light. - Matthew 17:2',
+      lead: 'Four pictures on the holy mountain—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/transfiguration-s1.svg',
+          alt: 'Jesus leads them up a high mountain',
+          caption:
+            'After six days Jesus taketh Peter, James, and John his brother, and bringeth them up into an high mountain apart.',
+          verse: 'Matthew 17:1 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/transfiguration-s2.svg',
+          alt: 'Jesus shines with Moses and Elijah',
+          caption:
+            'He was transfigured before them: and his face did shine as the sun, and his raiment was white as the light. And, behold, there appeared unto them Moses and Elias talking with him.',
+          verse: 'Matthew 17:2-3 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/transfiguration-s3.svg',
+          alt: 'A bright cloud overshadows them',
+          caption:
+            'While he yet spake, behold, a bright cloud overshadowed them: and behold a voice out of the cloud, which said, This is my beloved Son, in whom I am well pleased; hear ye him.',
+          verse: 'Matthew 17:5 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/transfiguration-s4.svg',
+          alt: 'Jesus stands alone with his friends',
+          caption:
+            'When the disciples heard it, they fell on their face, and were sore afraid. And Jesus came and touched them, and said, Arise, and be not afraid.',
+          verse: 'Matthew 17:6-7 (KJV)'
+        }
+      ]
     }
   ];
 

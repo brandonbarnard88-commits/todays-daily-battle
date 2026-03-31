@@ -4,6 +4,7 @@
   "scripts": {
     "sync:vercel-headers": "node scripts/sync-vercel-headers-from-headers.mjs",
     "sync:footer": "node scripts/sync-site-footer.mjs",
+    "sync:header": "node scripts/sync-global-header-nav.mjs",
     "sync:lang-header": "node scripts/sync-language-switcher-header.mjs",
     "render:fr-es-moods": "node scripts/render-fr-es-mood-pages.mjs",
     "scaffold:id-pilot": "node scripts/scaffold-id-pilot.mjs",
@@ -63,6 +64,7 @@
     "kids:generate-story-index": "node scripts/generate-bible-story-tool-index.mjs",
     "purge:cloudflare": "node scripts/cloudflare-purge.mjs",
     "purge:cloudflare:social": "node scripts/cloudflare-purge.mjs --social",
+    "deploy:cf-pages": "node scripts/deploy-cf-pages.mjs",
     "vercel": "npx --yes vercel@latest",
     "purge:check": "node scripts/cloudflare-purge-check.mjs",
     "audit:links": "npm run build && node scripts/audit-links.mjs",

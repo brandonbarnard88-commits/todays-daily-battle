@@ -91,6 +91,8 @@
   --tdb-inner-max: min(46rem, 100%);
   --tdb-inner-gap: clamp(1.35rem, 2.5vw, 2rem);
   --tdb-inner-section-pad: clamp(1.15rem, 2.2vw, 1.65rem);
+  /* Whisper grain — same family as tdb-quiet-luxury.css dial; raises baseline on every .tdb-surface-* */
+  --tdb-surface-veil-subtle: var(--tdb-lux-guilloche);
 }
 
 /* Optional backgrounds: Kids / lighter pages → .tdb-dawn-bg--mist; evening / contemplative → .tdb-dawn-bg--dusk */
@@ -108,7 +110,8 @@
 
 /* —— Surface tokens: opt-in + inner long-tail pages —— */
 .tdb-surface-card {
-  background: var(--tdb-surface-card-bg);
+  background-color: var(--tdb-surface-card-bg);
+  background-image: var(--tdb-surface-veil-subtle);
   border: 1px solid var(--tdb-surface-card-border);
   border-radius: var(--tdb-surface-radius);
   box-shadow: var(--tdb-surface-card-shadow);
@@ -131,11 +134,20 @@
 }
 
 .tdb-surface-panel {
-  background: var(--tdb-surface-panel-bg);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
   border: 1px solid var(--tdb-surface-panel-border);
   border-radius: var(--tdb-surface-radius);
   box-shadow: var(--tdb-surface-panel-shadow);
 }
+
+/*
+ * Surface vocabulary (quiet luxury):
+ * — .tdb-surface-card + .tdb-surface-card-hover — interactive tiles / hub jump cards.
+ * — .tdb-surface-panel — static panels; main-column .glass sections use the same
+ *   border/shadow family via .app-shell .content-inner > section.glass rules below.
+ * — Prefer --tdb-surface-card-shadow* for new work over legacy --shadow-card* on dark pages.
+ */
 
 /* Inner-page kit: readable measure, rhythm, elevated sections (supporting pages) */
 body.tdb-inner-page .content-inner {
@@ -160,10 +172,71 @@ body.tdb-inner-page .content-inner > section.glass .section-divider:first-child 
   margin-top: 0;
 }
 
+/* Verse cards index — same reading measure as other inner pages */
+body.tdb-inner-page main.vc-wrap {
+  max-width: var(--tdb-inner-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(0.75rem, 2vw, 1rem);
+  padding-right: clamp(0.75rem, 2vw, 1rem);
+}
+
 .calm-hero--soar-dawn,
 .study-hero--soar-dawn,
-.chapter-reader-hero--soar-dawn {
+.chapter-reader-hero--soar-dawn,
+.topic-hero--soar-dawn {
   position: relative;
+}
+
+/* Topic pages — same dawn band language as Calm / study heroes */
+.content-inner > header.hero-banner.topic-hero--soar-dawn {
+  padding: clamp(1rem, 3vw, 1.35rem) clamp(1rem, 3vw, 1.5rem) clamp(1.15rem, 3vw, 1.5rem);
+  border: 1px solid color-mix(in srgb, var(--tdb-dawn-border, #d4b88a) 55%, transparent);
+  box-shadow: var(--tdb-dawn-shadow-soft, 0 4px 12px rgba(180, 140, 80, 0.06));
+}
+
+.content-inner > header.hero-banner.topic-hero--soar-dawn h1 {
+  color: var(--text-dark, #f0f2f7);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-dawn h1 {
+  color: var(--text-light, #1a2234);
+  text-shadow: none;
+}
+
+.content-inner > header.hero-banner.topic-hero--soar-dawn .topic-hero-lead {
+  margin: 0.5rem 0 0;
+  font-size: clamp(0.95rem, 2.8vw, 1.05rem);
+  line-height: 1.55;
+  max-width: 36rem;
+  color: color-mix(in srgb, var(--text-dark, #f0f2f7) 88%, transparent);
+}
+
+html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-hero-lead {
+  color: color-mix(in srgb, var(--text-light, #1a2234) 85%, transparent);
+}
+
+/* On-device listen / TTS — reuse anywhere “Listen” appears */
+.tdb-listen-privacy-hint,
+p.reader-audio-hint.tdb-listen-privacy-hint {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted-readable, #c8d3e3);
+  margin: 0.5rem 0 0;
+  max-width: 38rem;
+}
+
+html[data-theme="light"] .tdb-listen-privacy-hint {
+  color: var(--text-light, #1a2234);
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 *, *::before, *::after {
@@ -234,6 +307,20 @@ html[data-theme="light"] .app-shell {
   --tdb-surface-panel-shadow: 0 5px 20px rgba(64, 41, 8, 0.07),
     0 0 0 1px rgba(15, 23, 42, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --tdb-surface-veil-subtle: repeating-linear-gradient(
+      105deg,
+      transparent 0,
+      transparent 3px,
+      rgba(154, 123, 28, 0.038) 3px,
+      rgba(154, 123, 28, 0.038) 4px
+    ),
+    repeating-linear-gradient(
+      -105deg,
+      transparent 0,
+      transparent 3px,
+      rgba(120, 100, 60, 0.028) 3px,
+      rgba(120, 100, 60, 0.028) 4px
+    );
 }
 
 /* Default keyboard focus — 3px ring; components with higher specificity may override */
@@ -7464,7 +7551,8 @@ h1 {
 /* Main-column glass sections: tinted surface + hairline (overrides generic .glass above) */
 .dark-mode .app-shell .content-inner > section.glass:not(.calm-hero--soar-dawn),
 html[data-theme="dark"] .app-shell .content-inner > section.glass:not(.calm-hero--soar-dawn) {
-  background: var(--tdb-surface-card-bg);
+  background-color: var(--tdb-surface-card-bg);
+  background-image: var(--tdb-surface-veil-subtle);
   border-color: var(--tdb-surface-card-border);
   box-shadow: var(--tdb-surface-card-shadow);
 }
@@ -7475,7 +7563,8 @@ html[data-theme="dark"] .app-shell .content-inner > section.glass:not(.calm-hero
 }
 
 html[data-theme="light"] .app-shell .content-inner > section.glass:not(.calm-hero--soar-dawn) {
-  background: var(--tdb-surface-card-bg);
+  background-color: var(--tdb-surface-card-bg);
+  background-image: var(--tdb-surface-veil-subtle);
   border-color: var(--tdb-surface-card-border);
   box-shadow: var(--tdb-surface-card-shadow);
 }

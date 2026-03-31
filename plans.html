@@ -132,6 +132,8 @@
       max-width: 40rem;
     }
     .plans-audio-roadmap strong { font-weight: 600; }
+    /* Shared hook with styles.css on full app-shell pages; keeps roadmap sizing here */
+    .plans-audio-roadmap.tdb-listen-privacy-hint { font-size: inherit; line-height: inherit; color: inherit; }
     .plans-hero p  { font-size: 0.92rem; margin: 0; }
     .plans-hero-hint { font-size: 0.82rem; margin-top: 0.4rem !important; opacity: 0.85; }
     .plans-prayer-callout {
@@ -843,16 +845,16 @@
     <a href="plans.html" aria-current="page">Plans</a>
     <a href="/kids/?v=hub20260321">Kids</a>
     <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
+    <a href="/calm.html">Calm</a>
     <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
-    <a href="/explore.html">Explore</a>
     <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>
     <a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>
     <details class="tdb-nav-more">
       <summary aria-haspopup="true">More</summary>
       <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
-                <a href="/calm.html">Calm</a>
-        <a href="/story.html">Story</a>
-        <a href="/#feel-section">Feel search &amp; topics</a>
+            <a href="/explore.html">Explore</a>
+            <a href="/story.html">Story</a>
+            <a href="/#feel-section">Feel search &amp; topics</a>
       </div>
     </details>
   </nav>
@@ -866,7 +868,7 @@
       <div class="plans-hero plans-hero--soar-dawn">
         <h1>Battle Plans</h1>
         <p>When your mind can only hold one thing, hold this: one short day in the Word. Each plan gives you a KJV verse, plain talk, a small step, and a prayer—progress stays on your device, even offline.</p>
-        <p class="plans-audio-roadmap" role="note">We hope to add warm <strong>human narration</strong> for plan days (and Möbius breathing) when recording lines up&mdash;nothing extra to buy or turn on yet. Each day&rsquo;s <strong>Listen</strong> still uses steady device TTS.</p>
+        <p class="plans-audio-roadmap tdb-listen-privacy-hint" role="note">We hope to add warm <strong>human narration</strong> for plan days (and Möbius breathing) when recording lines up&mdash;nothing extra to buy or turn on yet. Each day&rsquo;s <strong>Listen</strong> still uses steady device TTS. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
         <p class="plans-hero-hint">You are not behind. Open any day; pick up where you left off.</p>
         <p class="plans-prayer-callout">Others are praying quietly too—<a href="message.html#message-board">the prayer wall</a> is there when you want company without noise.</p>
         <p class="plans-hero-hint plans-mystudy-print-hint">Your plan checkmarks and verse notes stay on this device. <a href="mystudy.html">My Study</a> can print your notes or a <strong>full bundle</strong> (notes, memorize queue, recent chapters) when you want a tidy copy to keep.</p>

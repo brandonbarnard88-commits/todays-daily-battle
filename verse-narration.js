@@ -2,6 +2,9 @@
  * On-device verse / chapter narration — speechSynthesis queue, optional soft ambient bed,
  * phrase pauses, repeat, reader line highlight. Private; no network audio.
  * Exposes window.TDBVerseNarration. Companion to script.js stopTts / setTtsPlaying via events.
+ *
+ * Roadmap: optional bundled human narration (e.g. plan days, Möbius) may ship as static files
+ * later—opt-in / local only—without changing the default “nothing uploaded for playback” story.
  */
 (function (global) {
   'use strict';

@@ -18,7 +18,8 @@
   flex-direction: column;
   background: radial-gradient(ellipse 100% 48% at 50% -6%, rgba(201, 162, 39, 0.065), transparent 48%), var(--tool-bg);
   color: var(--tool-text);
-  font-family: ui-rounded, "Avenir Next", "Segoe UI", Inter, sans-serif;
+  /* Align with site chrome when styles.css tokens load (mobius, etc.) */
+  font-family: var(--font-ui, ui-rounded, "Avenir Next", "Segoe UI", Inter, sans-serif);
 }
 
 .tool-page-header {
@@ -222,4 +223,12 @@
   .tool-footer-copy {
     margin-top: 0.4rem;
   }
+}
+
+/* When tool-pages.css loads after styles.css (e.g. mobius.html), match main-site panel hairline */
+.mobius-section,
+.mobius-node-card,
+.mobius-diy-details,
+.mobius-deep-walk-teaser {
+  border-color: var(--tdb-surface-panel-border, var(--tool-line));
 }

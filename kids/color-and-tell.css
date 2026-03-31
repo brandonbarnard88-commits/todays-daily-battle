@@ -1,5 +1,22 @@
 /* Color & Tell My Story — progress, story tabs, slideshow (kids coloring) */
 
+.tdb-cat-parent-tip {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  background: rgba(224, 242, 254, 0.65);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #1e3a5f;
+}
+
+.dark-mode .tdb-cat-parent-tip {
+  background: rgba(30, 58, 95, 0.35);
+  border-color: rgba(96, 165, 250, 0.35);
+  color: #e2e8f0;
+}
+
 #tdb-cat-root {
   margin-bottom: 2rem;
 }
@@ -25,7 +42,17 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.tdb-cat-clear-all-wrap {
   margin-bottom: 1.5rem;
+}
+
+.tdb-cat-clear-all {
+  min-height: 48px;
+  width: 100%;
+  max-width: 22rem;
 }
 
 .tdb-cat-progress-card {
@@ -240,8 +267,15 @@
   min-height: 48px;
 }
 
-.tdb-cat-watch-story {
+.tdb-cat-story-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 0.75rem;
+}
+
+.tdb-cat-watch-story {
   min-height: 52px;
   font-size: 1rem;
   display: none;
@@ -251,6 +285,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 1 1 12rem;
+  min-width: min(100%, 12rem);
+  max-width: 24rem;
+  min-height: 58px;
+  font-size: 1.12rem;
+  font-weight: 800;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 6px 22px rgba(37, 99, 235, 0.32);
+}
+
+.tdb-cat-start-over {
+  min-height: 48px;
+  flex: 0 1 auto;
 }
 
 .tdb-cat-scene-saved-msg {
@@ -350,14 +397,29 @@
 
 .tdb-cat-slideshow-cap-main {
   display: block;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  opacity: 0.95;
 }
 
 .tdb-cat-slideshow-verse {
   display: block;
-  margin-top: 0.35rem;
-  font-size: 0.82rem;
-  color: #fde68a;
-  font-style: italic;
+  margin: 0 0 0.55rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  font-size: clamp(0.88rem, 2.6vw, 1.05rem);
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.4;
+  color: #fef9c3;
+  font-family: var(--font-body, Georgia, 'Times New Roman', serif);
+  background: rgba(180, 83, 9, 0.42);
+  border: 1px solid rgba(251, 191, 36, 0.5);
+  overflow-wrap: anywhere;
+  text-align: left;
+  max-height: 10.5rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tdb-cat-slideshow-nav {
@@ -379,6 +441,11 @@
   font-weight: 700;
   font-size: 0.9rem;
   cursor: pointer;
+}
+
+.tdb-cat-slideshow-replay {
+  border-color: rgba(251, 191, 36, 0.55) !important;
+  background: rgba(180, 83, 9, 0.55) !important;
 }
 
 .tdb-cat-slideshow-tools {

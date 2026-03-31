@@ -151,7 +151,6 @@ try {
     );
 
     const cardSel = '#output .verse-card, #output .smart-card, #feel-results .verse-card, #feel-results .smart-card, #feelCards .verse-card, #feelCards .smart-card, .feel-verse-card';
-    const breakdownBtnSel = '.tdb-breakdown-btn, button:has-text("Breakdown"), [aria-label="Open verse breakdown"]';
     if (cards > 0) {
       let breakdownOk = false;
       try {
@@ -163,24 +162,19 @@ try {
           { timeout: 30000 }
         );
         await page.waitForTimeout(800);
-        // Visible homepage results live in #feel-results; #output is sr-only and appears first in DOM — do not union it.
-        const scopedBtn = page.locator('#feel-results').locator(breakdownBtnSel).first();
-        const hasScopedBtn = (await scopedBtn.count()) > 0;
-        const btnLoc = hasScopedBtn ? scopedBtn : page.locator(breakdownBtnSel).first();
-        const hasBtn = (await btnLoc.count()) > 0;
-        const target = hasBtn ? btnLoc : page.locator(cardSel).first();
-        await target.scrollIntoViewIfNeeded().catch(() => {});
+        // Visible homepage results live in #feel-results; #output is sr-only — scope inline breakdown there.
+        const scopedDetails = page.locator('#feel-results .tdb-verse-breakdown-inline').first();
+        await scopedDetails.waitFor({ state: 'attached', timeout: 12000 }).catch(() => {});
+        const summary = scopedDetails.locator('.tdb-vb-inline-summary').first();
+        await summary.scrollIntoViewIfNeeded().catch(() => {});
         await page.waitForTimeout(200);
-        await target.click({ timeout: 8000 });
-        await page.waitForTimeout(1500);
-        const modal = page.locator('#tdb-verse-breakdown-modal');
-        await modal.waitFor({ state: 'attached', timeout: 6000 }).catch(() => {});
-        await page.waitForTimeout(400);
-        const modalVisible = await modal.evaluate((el) => !el.classList.contains('hidden')).catch(() => false);
-        const modalActions = page.locator('#tdb-verse-breakdown-modal .verse-modal-actions [data-action], #tdb-verse-breakdown-modal [data-action]');
-        const actions = (await modalActions.allTextContents()).join(' | ');
-        breakdownOk = modalVisible && (/Pray it/i.test(actions) && /Save/i.test(actions) && /Share/i.test(actions));
-        mark('Verse breakdown actions', breakdownOk, actions || (modalVisible ? 'Modal visible but no [data-action]' : 'Modal not visible'));
+        await summary.click({ timeout: 8000 });
+        await page.waitForTimeout(500);
+        const actionsLoc = scopedDetails.locator('.tdb-vb-inline-actions [data-action]');
+        await actionsLoc.first().waitFor({ state: 'visible', timeout: 6000 }).catch(() => {});
+        const actions = (await actionsLoc.allTextContents()).join(' | ');
+        breakdownOk = /Pray it/i.test(actions) && /Save/i.test(actions) && /Share/i.test(actions);
+        mark('Verse breakdown actions', breakdownOk, actions || 'No inline [data-action] buttons visible');
       } catch (clickErr) {
         mark('Verse breakdown actions', false, 'Breakdown open failed: ' + (clickErr.message || 'timeout'));
       }

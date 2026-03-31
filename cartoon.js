@@ -113,9 +113,10 @@
           '</div>' +
         '</div>' +
         '<div id="tdb-cartoon-panels" class="tdb-cartoon-panels"></div>' +
-        '<p id="tdb-kjv-overlay" class="tdb-kjv-overlay"></p>' +
+        '<div id="tdb-cartoon-verse-host" class="tdb-cartoon-verse-host">' +
+          '<p id="tdb-kjv-overlay" class="tdb-kjv-overlay"></p>' +
+        '</div>' +
         '<div class="tdb-verse-actions">' +
-          '<button type="button" id="tdb-kjv-breakdown-btn" class="btn btn-secondary">Breakdown</button>' +
           '<button type="button" id="tdb-max-avatar-btn" class="btn btn-secondary">See Highest Avatar</button>' +
         '</div>' +
         '<div id="tdb-road-wrap" class="tdb-road-wrap">' +
@@ -170,18 +171,6 @@
     if (laterBtn) {
       laterBtn.addEventListener('click', function () {
         close();
-      });
-    }
-
-    var breakdownBtn = root.querySelector('#tdb-kjv-breakdown-btn');
-    if (breakdownBtn) {
-      breakdownBtn.addEventListener('click', function () {
-        var ref = breakdownBtn.getAttribute('data-ref') || '';
-        var text = breakdownBtn.getAttribute('data-text') || '';
-        if (!ref || !text) return;
-        if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
-          window.TDBVerseBreakdown.open(ref, text);
-        }
       });
     }
 
@@ -453,12 +442,21 @@
     if (!el || !state.panels[index]) return;
     var kjv = state.panels[index].kjv || '';
     renderReadAlongText(el, kjv, spokenWords);
-    var btn = document.getElementById('tdb-kjv-breakdown-btn');
-    if (btn) {
-      var parsed = parsePanelVerse(kjv);
-      btn.setAttribute('data-ref', parsed.ref);
-      btn.setAttribute('data-text', parsed.text);
-      btn.disabled = !parsed.ref || !parsed.text;
+    var host = document.getElementById('tdb-cartoon-verse-host');
+    var parsed = parsePanelVerse(kjv);
+    if (host) {
+      if (parsed.ref && parsed.text) {
+        host.setAttribute('data-ref', parsed.ref);
+        host.setAttribute('data-text', parsed.text);
+      } else {
+        host.removeAttribute('data-ref');
+        host.removeAttribute('data-text');
+      }
+      if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.injectInlineBreakdown === 'function') {
+        if (parsed.ref && parsed.text) {
+          window.TDBVerseBreakdown.injectInlineBreakdown(host, parsed.ref, parsed.text);
+        }
+      }
     }
   }
 

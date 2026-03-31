@@ -437,8 +437,13 @@
       card.onclick = function (evt) {
         var target = evt && evt.target;
         if (target && target.closest && target.closest('button,a,input,textarea,select,label')) return;
-        if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
-          window.TDBVerseBreakdown.open(verse.ref, verse.text);
+        if (window.TDBVerseBreakdown) {
+          if (typeof window.TDBVerseBreakdown.injectInlineBreakdown === 'function') {
+            window.TDBVerseBreakdown.injectInlineBreakdown(card, verse.ref, verse.text);
+          }
+          if (typeof window.TDBVerseBreakdown.open === 'function') {
+            window.TDBVerseBreakdown.open(verse.ref, verse.text);
+          }
         }
       };
       card.onkeydown = function (evt) {

@@ -1275,7 +1275,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260331-breakdown-everywhere');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260401-inline-breakdown');
   if (!trusted) return;
   var script = document.createElement('script');
   script.src = trusted;
@@ -20484,50 +20484,6 @@ function renderResults(results) {
           plainP.textContent = PLAIN_MEANING_LABEL + ' ' + plainMeaning;
           card.appendChild(plainP);
         }
-        var breakdown = v.breakdown && v.breakdown.context ? v.breakdown : (typeof getVerseBreakdown === 'function' ? getVerseBreakdown(v.ref, v.text) : null);
-        var useDailyFormat = breakdown && breakdown.context && breakdown.realTalk && breakdown.doThis;
-        var details = document.createElement('details');
-        details.className = 'verse-breakdown';
-        details.setAttribute('open', '');
-        var summary = document.createElement('summary');
-        summary.textContent = 'Verse breakdown';
-        summary.setAttribute('aria-label', 'Expand verse breakdown');
-        details.appendChild(summary);
-        var content = document.createElement('div');
-        content.className = 'verse-breakdown-content' + (useDailyFormat ? ' breakdown-panels' : '');
-        if (useDailyFormat) {
-          var ctxP = document.createElement('p');
-          ctxP.innerHTML = '<strong>Context:</strong> ' + escapeHtml(breakdown.context);
-          content.appendChild(ctxP);
-          var rtP = document.createElement('p');
-          rtP.innerHTML = '<strong>Real talk:</strong> ' + escapeHtml(breakdown.realTalk);
-          content.appendChild(rtP);
-          var dtP = document.createElement('p');
-          dtP.innerHTML = '<strong>Do this:</strong> ' + escapeHtml(breakdown.doThis);
-          content.appendChild(dtP);
-        } else {
-          var layman = (breakdown && breakdown.layman) ? breakdown.layman : 'A timeless truth from Scripture—reflect on how it speaks to you today.';
-          var laymanP = document.createElement('p');
-          laymanP.innerHTML = '<strong>Layman\'s terms:</strong> ' + escapeHtml(layman);
-          content.appendChild(laymanP);
-          if (breakdown && breakdown.about) {
-            var aboutP = document.createElement('p');
-            aboutP.innerHTML = '<strong>Who it\'s talking about:</strong> ' + escapeHtml(breakdown.about);
-            content.appendChild(aboutP);
-          }
-          if (breakdown && breakdown.to) {
-            var toP = document.createElement('p');
-            toP.innerHTML = '<strong>Who it\'s talking to:</strong> ' + escapeHtml(breakdown.to);
-            content.appendChild(toP);
-          }
-          if (breakdown && breakdown.applies) {
-            var appliesP = document.createElement('p');
-            appliesP.innerHTML = '<strong>How it applies today:</strong> ' + escapeHtml(breakdown.applies);
-            content.appendChild(appliesP);
-          }
-        }
-        details.appendChild(content);
-        card.appendChild(details);
         if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) {
           card.classList.add('red-letter-card');
           const verseText = card.querySelector('p');
@@ -20623,15 +20579,6 @@ function renderResults(results) {
         openBtn.setAttribute('aria-label', 'Open full chapter in reader');
         openBtn.onclick = () => {
           window.location.href = buildReaderUrl(v.ref);
-        };
-        const breakdownBtn = document.createElement('button');
-        breakdownBtn.className = 'btn btn-secondary';
-        breakdownBtn.textContent = 'Breakdown';
-        breakdownBtn.setAttribute('aria-label', 'Open verse breakdown popup');
-        breakdownBtn.onclick = () => {
-          if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
-            window.TDBVerseBreakdown.open(v.ref, cleanText());
-          }
         };
         const listenBtn = document.createElement('button');
         listenBtn.className = 'btn btn-secondary btn-listen';
@@ -20729,7 +20676,6 @@ function renderResults(results) {
         buttonRow.appendChild(audioBtn);
         buttonRow.appendChild(saveBtn);
         buttonRow.appendChild(contextBtn);
-        buttonRow.appendChild(breakdownBtn);
         buttonRow.appendChild(openBtn);
         const closeOpenDropdowns = () => { card.querySelectorAll('.card-action-dropdown-open').forEach(el => el.classList.remove('card-action-dropdown-open')); card.querySelectorAll('[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false')); };
         const bindCloseOnOutside = () => setTimeout(() => { document.addEventListener('click', function one() { closeOpenDropdowns(); document.removeEventListener('click', one); }); });

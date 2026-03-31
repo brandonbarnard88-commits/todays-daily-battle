@@ -335,30 +335,16 @@
     }
 
     if (refEl) refEl.textContent = ref;
-    if (!card.querySelector('[data-church-daily-text]')) {
+    if (!card.querySelector('#church-daily-verse-text')) {
       card.innerHTML = '' +
-        '<strong data-church-daily-ref></strong>' +
-        '<p data-church-daily-text></p>' +
-        '<div class="verse-actions"><button type="button" id="church-daily-breakdown" class="btn btn-secondary">Breakdown</button></div>';
+        '<strong id="church-daily-verse-ref"></strong>' +
+        '<p id="church-daily-verse-text"></p>';
     }
-    var cardRef = card.querySelector('[data-church-daily-ref]');
-    var cardText = card.querySelector('[data-church-daily-text]');
+    var cardRef = card.querySelector('#church-daily-verse-ref');
+    var cardText = card.querySelector('#church-daily-verse-text');
     if (cardRef) cardRef.textContent = ref;
     if (cardText) cardText.textContent = text;
     card.classList.add('verse-card-loaded');
-    if (!card.__tdbBreakdownWired) {
-      card.addEventListener('click', function (evt) {
-        var btn = evt.target && evt.target.closest ? evt.target.closest('#church-daily-breakdown') : null;
-        if (!btn) return;
-        if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
-          var activeRef = refEl ? String(refEl.textContent || '').trim() : '';
-          var activeTextEl = card.querySelector('[data-church-daily-text]');
-          var activeText = activeTextEl ? String(activeTextEl.textContent || '').trim() : '';
-          window.TDBVerseBreakdown.open(activeRef || ref, activeText || text);
-        }
-      });
-      card.__tdbBreakdownWired = true;
-    }
   }
 
   function loadReflections(groupId) {

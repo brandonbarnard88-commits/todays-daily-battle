@@ -135,7 +135,7 @@
 
   function applyToElement(el, opts) {
     if (!el || shouldSkipPage() || isUserDisabled()) return Promise.resolve();
-    if (el.closest && el.closest('#tdb-verse-breakdown-modal')) return Promise.resolve();
+    if (el.closest && el.closest('.tdb-verse-breakdown-inline')) return Promise.resolve();
     var plain = opts && opts.plainText != null ? String(opts.plainText) : String(el.textContent || '');
     return loadEntries().then(function () {
       if (!el.isConnected) return;
@@ -272,9 +272,9 @@
       var a = host.getAttribute('data-kjv-context-verse');
       if (a) return a;
     }
-    var breakdownModal = span.closest('#tdb-verse-breakdown-modal');
-    if (breakdownModal) {
-      var dt = breakdownModal.getAttribute('data-text');
+    var inlineBk = span.closest('.tdb-verse-breakdown-inline');
+    if (inlineBk) {
+      var dt = inlineBk.getAttribute('data-text');
       if (dt) return dt;
     }
     var card = span.closest('.verse-card, .mystudy-verse-card, #daily-verse-card, [data-tdb-calm-verse-surface], .mystudy-highlight-detail');
@@ -283,11 +283,6 @@
         var t = window.tdbGetDailyVerseTextFromCard(card);
         if (t) return t;
       } catch (e) {}
-    }
-    var modalText = span.closest('.verse-modal-inner');
-    if (modalText) {
-      var mp = modalText.querySelector('.verse-modal-text');
-      if (mp) return String(mp.textContent || '');
     }
     var line = span.closest('.context-line');
     if (line && line.dataset && line.dataset.ref) {

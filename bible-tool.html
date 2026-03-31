@@ -702,7 +702,6 @@
           <div class="verse-actions" role="group" aria-label="Today's verse actions">
             <button type="button" class="btn btn-primary" id="share-daily" aria-label="Share today's verse">Share</button>
             <button type="button" class="btn btn-secondary" id="copy-daily" aria-label="Copy verse to clipboard">Copy</button>
-            <button type="button" class="btn btn-secondary" id="breakdown-daily" aria-label="Open verse breakdown">Breakdown</button>
           </div>
         </section>
 
@@ -734,7 +733,6 @@
             <div class="util-mt-0_5" role="group" aria-label="Verse actions">
               <button type="button" id="share-lookup" class="link-button" aria-label="Share this verse lookup">Share</button>
               <button type="button" id="copy-lookup" class="link-button" aria-label="Copy verse to clipboard">Copy</button>
-              <button type="button" id="breakdown-lookup" class="link-button" aria-label="Open verse breakdown">Breakdown</button>
               <button type="button" id="highlight-lookup" class="link-button" aria-label="Highlight this verse">Highlight</button>
               <button type="button" id="add-to-notes-lookup" class="link-button" aria-label="Add to battle log">Add to Notes</button>
               <button type="button" id="memorize-lookup" class="link-button hidden" aria-pressed="false" aria-label="Add current verse to memorize queue">Memorize</button>
@@ -877,7 +875,7 @@
   <script src="word-study.js?v=20260329pass2off"></script>
   <script src="verse-narration.js?v=20260329narr12"></script>
   <script src="verse-study.js?v=20260328pass4vs"></script>
-  <script src="verse-breakdown.js?v=20260330pass3a11y"></script>
+  <script src="verse-breakdown.js?v=20260401-inline-breakdown"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">
@@ -1910,26 +1908,12 @@
   document.getElementById('copy-daily').addEventListener('click', function () {
     copyVerseToClipboard(document.getElementById('daily-ref').textContent, document.getElementById('daily-text').textContent, this);
   });
-  document.getElementById('breakdown-daily').addEventListener('click', function () {
-    var ref = document.getElementById('daily-ref').textContent.trim();
-    var text = document.getElementById('daily-text').textContent.trim();
-    if (!ref || !text || !window.TDBVerseBreakdown || typeof window.TDBVerseBreakdown.open !== 'function') return;
-    window.TDBVerseBreakdown.open(ref, text);
-  });
-
   document.getElementById('share-lookup').addEventListener('click', function () {
     shareVerse(document.getElementById('lookup-ref').textContent, document.getElementById('lookup-text').textContent, true);
   });
 
   document.getElementById('copy-lookup').addEventListener('click', function () {
     copyVerseToClipboard(document.getElementById('lookup-ref').textContent, document.getElementById('lookup-text').textContent, this);
-  });
-
-  document.getElementById('breakdown-lookup').addEventListener('click', function () {
-    var ref = document.getElementById('lookup-ref').textContent.trim();
-    var text = document.getElementById('lookup-text').textContent.trim();
-    if (!ref || !text || !window.TDBVerseBreakdown || typeof window.TDBVerseBreakdown.open !== 'function') return;
-    window.TDBVerseBreakdown.open(ref, text);
   });
 
   document.getElementById('add-to-notes-lookup').addEventListener('click', function () {

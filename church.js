@@ -207,25 +207,9 @@
       var v = await dailyVerseForCode(code);
       byId('church-daily-ref').textContent = v.ref;
       byId('church-daily-text').textContent = v.text;
-      var breakdownBtn = byId('church-daily-breakdown');
-      if (breakdownBtn) {
-        breakdownBtn.onclick = function () {
-          if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
-            window.TDBVerseBreakdown.open(v.ref, v.text);
-          }
-        };
-      }
     } catch (e) {
       byId('church-daily-ref').textContent = 'Psalm 27:1';
       byId('church-daily-text').textContent = 'The LORD is my light and my salvation; whom shall I fear?';
-      var fallbackBtn = byId('church-daily-breakdown');
-      if (fallbackBtn) {
-        fallbackBtn.onclick = function () {
-          if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
-            window.TDBVerseBreakdown.open('Psalm 27:1', 'The LORD is my light and my salvation; whom shall I fear?');
-          }
-        };
-      }
     }
   }
 

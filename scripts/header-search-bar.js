@@ -85,30 +85,28 @@
     if (!modal) {
       modal = document.createElement('div');
       modal.id = 'verse-commentary-modal';
-      modal.className = 'verse-modal hidden';
+      modal.className = 'tdb-commentary-modal hidden';
       modal.setAttribute('role', 'dialog');
       modal.setAttribute('aria-modal', 'true');
-      modal.setAttribute('aria-label', 'Verse breakdown');
-      modal.innerHTML = '<div class="verse-modal-backdrop"></div><div class="verse-modal-inner">' +
-        '<button type="button" class="verse-modal-close" aria-label="Close">&times;</button>' +
-        '<h3 class="verse-modal-ref"></h3><p class="verse-modal-text"></p><div class="verse-modal-breakdown"></div></div>';
+      modal.setAttribute('aria-label', 'Verse context from commentary');
+      modal.innerHTML = '<div class="tdb-commentary-modal__backdrop"></div><div class="tdb-commentary-modal__inner">' +
+        '<button type="button" class="tdb-commentary-modal__close" aria-label="Close">&times;</button>' +
+        '<h3 class="tdb-commentary-modal__ref"></h3><p class="tdb-commentary-modal__text"></p><div class="tdb-commentary-modal__body"></div></div>';
       document.body.appendChild(modal);
-      modal.querySelector('.verse-modal-close').onclick = function () { modal.classList.add('hidden'); };
-      modal.querySelector('.verse-modal-backdrop').onclick = function () { modal.classList.add('hidden'); };
+      modal.querySelector('.tdb-commentary-modal__close').onclick = function () { modal.classList.add('hidden'); };
+      modal.querySelector('.tdb-commentary-modal__backdrop').onclick = function () { modal.classList.add('hidden'); };
       modal.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.classList.add('hidden'); });
     }
-    modal.querySelector('.verse-modal-ref').textContent = ref;
-    modal.querySelector('.verse-modal-text').textContent = text || '';
-    var b = modal.querySelector('.verse-modal-breakdown');
+    modal.querySelector('.tdb-commentary-modal__ref').textContent = ref;
+    modal.querySelector('.tdb-commentary-modal__text').textContent = text || '';
+    var b = modal.querySelector('.tdb-commentary-modal__body');
     if (c && (c.speaker || c.audience || c.today)) {
       b.innerHTML = '<p><strong>Speaker:</strong> ' + escapeHtml(c.speaker || '—') + '</p><p><strong>To:</strong> ' + escapeHtml(c.audience || '—') + '</p><p><strong>Today:</strong> ' + escapeHtml(c.today || '—') + '</p>';
-      b.classList.remove('hidden');
     } else {
-      b.innerHTML = '<p class="verse-modal-nonote">Context note not available for this verse yet. Try another verse or open breakdown for deeper study.</p>';
-      b.classList.remove('hidden');
+      b.innerHTML = '<p class="tdb-commentary-modal__empty">Context note not available for this verse yet. Try another verse or use “Understand this verse” where it appears on the page.</p>';
     }
     modal.classList.remove('hidden');
-    modal.querySelector('.verse-modal-close').focus();
+    modal.querySelector('.tdb-commentary-modal__close').focus();
   }
 
   function renderDropdown(results) {

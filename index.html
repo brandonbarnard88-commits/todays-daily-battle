@@ -833,6 +833,14 @@
         left: 50%;
         transform: translateX(-50%);
         min-width: min(18rem, calc(100vw - 2rem));
+        max-width: calc(100vw - 2rem);
+        box-sizing: border-box;
+      }
+      @supports (width: 1dvi) {
+        .tdb-home-main-nav .tdb-nav-more-panel {
+          min-width: min(18rem, calc(100dvi - 2rem));
+          max-width: calc(100dvi - 2rem);
+        }
       }
     }
 
@@ -1077,8 +1085,9 @@
       font-weight: 700;
       letter-spacing: 0.03em;
       color: #ffffff;
-      line-height: 1.05;
-      white-space: nowrap;
+      line-height: 1.12;
+      max-width: 100%;
+      text-wrap: balance;
       text-shadow:
         0 2px 8px rgba(200,100,0,0.85),
         0 0 28px rgba(227,160,30,0.35);
@@ -1213,6 +1222,35 @@
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      min-width: 0;
+      max-width: 100%;
+    }
+    /* Index does not load styles.css — keep language row wrapping inside the padded shell */
+    .tdb-hero-lang-today-stack {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .tdb-lang-switcher.tdb-lang-switcher--hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem 0.75rem;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .tdb-lang-switcher--hero .tdb-lang-switcher-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem 0.35rem;
+      max-width: 100%;
+      min-width: 0;
+    }
+    .tdb-hero-lang-hint {
+      max-width: 100%;
+      box-sizing: border-box;
     }
     .hero-daily-path {
       font-size: 0.84rem;
@@ -1596,6 +1634,8 @@
     main {
       display: grid !important;
       gap: 1rem;
+      min-width: 0;
+      max-width: 100%;
     }
 
     /* ── Desktop: two-column layout + all scaling ── */
@@ -2341,9 +2381,18 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       align-items: center;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
     .feel-search-wrap .feel-suggest { width: 100%; order: 10; }
-    .feel-search-wrap #feel-search { flex: 1; min-width: 0; }
+    .feel-search-wrap #feel-search {
+      flex: 1 1 12rem;
+      min-width: 0;
+      max-width: 100%;
+      width: auto;
+    }
     .feel-search-btn {
       flex-shrink: 0;
       padding: 0.5rem 1rem;
@@ -2367,7 +2416,6 @@
     }
 
     #feel-search {
-      width: 100%;
       box-sizing: border-box;
       background: var(--bg-soft);
       color: var(--text);
@@ -5147,6 +5195,11 @@
       border-radius: 999px;
       border: 1px solid rgba(227, 188, 103, 0.35);
       transition: color 0.15s, border-color 0.15s, background 0.15s;
+      max-width: 100%;
+      white-space: normal;
+      text-align: center;
+      justify-content: center;
+      box-sizing: border-box;
     }
     .explore-hero-link:hover, .explore-hero-link:focus-visible {
       color: #fff8e8;

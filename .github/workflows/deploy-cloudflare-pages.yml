@@ -1,12 +1,11 @@
-# Optional: deploy dist/ to Cloudflare Pages (manual only).
+# Deploy dist/ to Cloudflare Pages (manual workflow_dispatch only).
 #
-# Required:
-#   - secrets.CF_API_TOKEN — must be non-empty; needs Cloudflare Pages — Edit (cache-only tokens will fail at deploy).
+# Required repository secrets (Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN   — Cloudflare → My Profile → API Tokens → Create → use "Edit Cloudflare Pages" template (or custom with Pages Edit).
+#   CLOUDFLARE_ACCOUNT_ID  — Cloudflare Dashboard → Workers & Pages → Overview → Account ID (right column).
+#   CF_PAGES_PROJECT_NAME  — Workers & Pages → your project → Settings → General → Project name (exact slug, not the public hostname).
 #
-# Optional:
-#   - secrets.CLOUDFLARE_API_TOKEN — if set, used first for zone lookup (same permissions as above).
-#   - secrets.CLOUDFLARE_ACCOUNT_ID — if unset, account ID is resolved via Zone API (needs zone read).
-#   - secrets.CF_PAGES_PROJECT_NAME — if unset, defaults to todaysdailybattle-site (wrangler.toml name).
+# After a green run, purge CDN cache (Dashboard → Caching, or repo purge workflow) so /coloring.html and assets update everywhere.
 #
 # Do not use alongside another auto-prod deploy to the same domain without a plan.
 name: Deploy Cloudflare Pages (manual)
@@ -35,39 +34,31 @@ jobs:
           npm ci
           npm run build
 
-      - name: Resolve Cloudflare account ID and validate token
-        id: cf_ids
+      - name: Require Cloudflare Pages secrets
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          STATIC_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          DOMAIN: todaysdailybattle.com
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_PAGES_PROJECT_NAME: ${{ secrets.CF_PAGES_PROJECT_NAME }}
         run: |
           set -euo pipefail
-          TOKEN="${CLOUDFLARE_API_TOKEN:-}"
-          if [ -z "$TOKEN" ]; then TOKEN="${CF_API_TOKEN:-}"; fi
-          if [ -z "$TOKEN" ]; then
-            echo "::error::Set repository secret CF_API_TOKEN to a real Cloudflare API token (or add CLOUDFLARE_API_TOKEN). Token must include Cloudflare Pages — Edit. If the secret name exists but the value was never saved, open Settings → Secrets and re-paste the token."
-            exit 1
+          missing=0
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::Missing repository secret CLOUDFLARE_API_TOKEN (Cloudflare API token with Cloudflare Pages — Edit)."
+            missing=1
           fi
-          export TOKEN
-          if [ -n "$STATIC_ACCOUNT" ]; then
-            echo "account_id=$STATIC_ACCOUNT" >> "$GITHUB_OUTPUT"
-            exit 0
+          if [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Missing repository secret CLOUDFLARE_ACCOUNT_ID (Workers & Pages → Overview → Account ID)."
+            missing=1
           fi
-          RES=$(curl -fsS "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}" \
-            -H "Authorization: Bearer ${TOKEN}" \
-            -H "Content-Type: application/json")
-          AID=$(echo "$RES" | jq -r '.result[0].account.id // empty')
-          if [ -z "$AID" ] || [ "$AID" = "null" ]; then
-            echo "::error::Could not resolve account ID from Zone API. Add repository secret CLOUDFLARE_ACCOUNT_ID, or use a token with Zone read on ${DOMAIN}."
-            exit 1
+          if [ -z "$CF_PAGES_PROJECT_NAME" ]; then
+            echo "::error::Missing repository secret CF_PAGES_PROJECT_NAME (exact Pages project slug from project Settings → General)."
+            missing=1
           fi
-          echo "account_id=$AID" >> "$GITHUB_OUTPUT"
+          exit $missing
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          accountId: ${{ steps.cf_ids.outputs.account_id }}
-          command: pages deploy dist --project-name=${{ secrets.CF_PAGES_PROJECT_NAME || 'todaysdailybattle-site' }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ secrets.CF_PAGES_PROJECT_NAME }}

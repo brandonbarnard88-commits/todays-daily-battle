@@ -2629,6 +2629,334 @@
           verse: 'Matthew 17:6-7 (KJV)'
         }
       ]
+    },
+    {
+      id: 'jordan-crossing',
+      title: 'Crossing the Jordan',
+      verse:
+        'And the priests that bare the ark of the covenant of the LORD stood firm on dry ground in the midst of Jordan, and all the Israelites passed over on dry ground. - Joshua 3:17',
+      lead: 'Four pictures at the river—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/jordan-crossing-s1.svg',
+          alt: 'Israel camps by the Jordan River',
+          caption:
+            'Joshua rose early; and they removed from Shittim, and came to Jordan, he and all the children of Israel, and lodged there before they passed over.',
+          verse: 'Joshua 3:1 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/jordan-crossing-s2.svg',
+          alt: 'The priests carry the ark into the river',
+          caption:
+            'It shall come to pass, as soon as the soles of the feet of the priests... shall rest in the waters of Jordan, that the waters of Jordan shall be cut off.',
+          verse: 'Joshua 3:13 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/jordan-crossing-s3.svg',
+          alt: 'The people cross on dry ground',
+          caption:
+            'The priests which bare the ark of the covenant of the LORD stood firm on dry ground in the midst of Jordan, and all the Israelites passed over on dry ground.',
+          verse: 'Joshua 3:17 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/jordan-crossing-s4.svg',
+          alt: 'Twelve stones for a memorial',
+          caption:
+            'Take you twelve men out of the people... and command ye them, saying, Take you hence out of the midst of Jordan, out of the place where the priests\' feet stood firm, twelve stones.',
+          verse: 'Joshua 4:2-3 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'balaams-donkey',
+      title: 'Balaam and the Donkey',
+      verse:
+        'The LORD opened the mouth of the ass, and she said unto Balaam, What have I done unto thee, that thou hast smitten me these three times? - Numbers 22:28',
+      lead: 'Four pictures on the road—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/balaams-donkey-s1.svg',
+          alt: 'Balaam rides his donkey',
+          caption:
+            'Balaam rose up in the morning, and saddled his ass, and went with the princes of Moab.',
+          verse: 'Numbers 22:21 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/balaams-donkey-s2.svg',
+          alt: 'The donkey sees the angel',
+          caption:
+            'The angel of the LORD stood in the way for an adversary against him... the ass saw the angel of the LORD standing in the way, and his sword drawn in his hand.',
+          verse: 'Numbers 22:22-23 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/balaams-donkey-s3.svg',
+          alt: 'The donkey speaks',
+          caption:
+            'The LORD opened the mouth of the ass, and she said unto Balaam, What have I done unto thee, that thou hast smitten me these three times?',
+          verse: 'Numbers 22:28 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/balaams-donkey-s4.svg',
+          alt: 'Balaam bows before the angel',
+          caption:
+            'Then the LORD opened the eyes of Balaam, and he saw the angel of the LORD... and he bowed down his head, and fell flat on his face.',
+          verse: 'Numbers 22:31 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'elijah-taken-up',
+      title: 'Elijah Taken to Heaven',
+      verse:
+        'And Elijah went up by a whirlwind into heaven. - 2 Kings 2:11',
+      lead: 'Four pictures with Elijah and Elisha—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/elijah-taken-up-s1.svg',
+          alt: 'Elijah and Elisha walk together',
+          caption:
+            'It came to pass, when the LORD would take up Elijah into heaven by a whirlwind, that Elijah went with Elisha from Gilgal.',
+          verse: '2 Kings 2:1 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/elijah-taken-up-s2.svg',
+          alt: 'Elijah strikes the Jordan with his mantle',
+          caption:
+            'Elijah took his mantle, and wrapped it together, and smote the waters, and they were divided hither and thither, so that they two went over on dry ground.',
+          verse: '2 Kings 2:8 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/elijah-taken-up-s3.svg',
+          alt: 'Chariot of fire and horses',
+          caption:
+            'There appeared a chariot of fire, and horses of fire, and parted them both asunder; and Elijah went up by a whirlwind into heaven.',
+          verse: '2 Kings 2:11 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/elijah-taken-up-s4.svg',
+          alt: 'Elisha picks up Elijah\'s mantle',
+          caption:
+            'Elisha saw it, and he cried, My father, my father, the chariot of Israel, and the horsemen thereof. And he saw him no more: and he took hold of his own clothes, and rent them in two pieces.',
+          verse: '2 Kings 2:12 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'nehemiah-walls',
+      title: 'Nehemiah Builds the Wall',
+      verse:
+        'So built we the wall; and all the wall was joined together unto the half thereof: for the people had a mind to work. - Nehemiah 4:6',
+      lead: 'Four pictures in Jerusalem—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/nehemiah-walls-s1.svg',
+          alt: 'Nehemiah is sad for Jerusalem',
+          caption:
+            'It came to pass... I asked them concerning the Jews that had escaped... and concerning Jerusalem. And they said unto me, The remnant... are in great affliction and reproach: the wall of Jerusalem also is broken down.',
+          verse: 'Nehemiah 1:2-3 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/nehemiah-walls-s2.svg',
+          alt: 'The king sends Nehemiah',
+          caption:
+            'The king said unto me, For what dost thou make request? So I prayed to the God of heaven. And I said unto the king... that thou wouldest send me unto Judah, unto the city of my fathers\' sepulchres, that I may build it.',
+          verse: 'Nehemiah 2:4-5 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/nehemiah-walls-s3.svg',
+          alt: 'The people build with one hand and guard with the other',
+          caption:
+            'They which builded on the wall, and they that bare burdens, with those that laded, every one with one of his hands wrought in the work, and with the other hand held a weapon.',
+          verse: 'Nehemiah 4:17 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/nehemiah-walls-s4.svg',
+          alt: 'The wall is finished',
+          caption:
+            'So the wall was finished in the twenty and fifth day of the month Elul, in fifty and two days. And it came to pass, that when all our enemies heard thereof, they were much cast down in their own eyes.',
+          verse: 'Nehemiah 6:15-16 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'jesus-tempted',
+      title: 'Jesus Tempted in the Wilderness',
+      verse:
+        'Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God. - Matthew 4:4',
+      lead: 'Four pictures in the wilderness—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/jesus-tempted-s1.svg',
+          alt: 'Jesus fasts in the wilderness',
+          caption:
+            'Then was Jesus led up of the Spirit into the wilderness to be tempted of the devil. And when he had fasted forty days and forty nights, he was afterward an hungred.',
+          verse: 'Matthew 4:1-2 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/jesus-tempted-s2.svg',
+          alt: 'Command these stones to be made bread',
+          caption:
+            'If thou be the Son of God, command that these stones be made bread. But he answered and said, It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God.',
+          verse: 'Matthew 4:3-4 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/jesus-tempted-s3.svg',
+          alt: 'Cast thyself down from the temple',
+          caption:
+            'If thou be the Son of God, cast thyself down: for it is written, He shall give his angels charge concerning thee... Jesus said unto him, It is written again, Thou shalt not tempt the Lord thy God.',
+          verse: 'Matthew 4:6-7 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/jesus-tempted-s4.svg',
+          alt: 'Get thee hence, Satan',
+          caption:
+            'The devil taketh him up into an exceeding high mountain... All these things will I give thee, if thou wilt fall down and worship me. Then saith Jesus unto him, Get thee hence, Satan... Then the devil leaveth him, and, behold, angels came and ministered unto him.',
+          verse: 'Matthew 4:8-11 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'paul-silas-prison',
+      title: 'Paul and Silas in Prison',
+      verse:
+        'And suddenly there was a great earthquake, so that the foundations of the prison were shaken: and immediately all the doors were opened, and every one\'s bands were loosed. - Acts 16:26',
+      lead: 'Four pictures in the jail at Philippi—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/paul-silas-prison-s1.svg',
+          alt: 'Paul and Silas sing at midnight',
+          caption:
+            'At midnight Paul and Silas prayed, and sang praises unto God: and the prisoners heard them.',
+          verse: 'Acts 16:25 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/paul-silas-prison-s2.svg',
+          alt: 'A great earthquake shakes the prison',
+          caption:
+            'Suddenly there was a great earthquake, so that the foundations of the prison were shaken: and immediately all the doors were opened, and every one\'s bands were loosed.',
+          verse: 'Acts 16:26 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/paul-silas-prison-s3.svg',
+          alt: 'The jailer draws his sword',
+          caption:
+            'The keeper of the prison... drew out his sword, and would have killed himself, supposing that the prisoners had been fled. But Paul cried with a loud voice, saying, Do thyself no harm: for we are all here.',
+          verse: 'Acts 16:27-28 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/paul-silas-prison-s4.svg',
+          alt: 'The jailer and his house believe',
+          caption:
+            'He took them the same hour of the night, and washed their stripes; and was baptized, he and all his, straightway... and rejoiced, believing in God with all his house.',
+          verse: 'Acts 16:33-34 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'lydia-purple',
+      title: 'Lydia Believes',
+      verse:
+        'Whose heart the Lord opened, that she attended unto the things which were spoken of Paul. - Acts 16:14',
+      lead: 'Four pictures by the river—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/lydia-purple-s1.svg',
+          alt: 'Women gather to pray by the river',
+          caption:
+            'On the sabbath we went out of the city by a river side, where prayer was wont to be made; and we sat down, and spake unto the women which resorted thither.',
+          verse: 'Acts 16:13 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/lydia-purple-s2.svg',
+          alt: 'Lydia listens to Paul',
+          caption:
+            'A certain woman named Lydia, a seller of purple, of the city of Thyatira, which worshipped God, heard us: whose heart the Lord opened, that she attended unto the things which were spoken of Paul.',
+          verse: 'Acts 16:14 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/lydia-purple-s3.svg',
+          alt: 'She is baptized with her household',
+          caption:
+            'When she was baptized, and her household, she besought us, saying, If ye have judged me to be faithful to the Lord, come into my house, and abide there. And she constrained us.',
+          verse: 'Acts 16:15 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/lydia-purple-s4.svg',
+          alt: 'Lydia welcomes Paul and Silas into her home',
+          caption:
+            'She besought us, saying, If ye have judged me to be faithful to the Lord, come into my house, and abide there. And she constrained us.',
+          verse: 'Acts 16:15 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'tabitha-dorcas',
+      title: 'Tabitha Raised',
+      verse:
+        'But Peter put them all forth, and kneeled down, and prayed; and turning him to the body said, Tabitha, arise. And she opened her eyes. - Acts 9:40',
+      lead: 'Four pictures in Joppa—save each one, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/tabitha-dorcas-s1.svg',
+          alt: 'Dorcas helps the poor with coats',
+          caption:
+            'This woman was full of good works and almsdeeds which she did... all the widows stood by him, weeping, and shewing the coats and garments which Dorcas made, while she was with them.',
+          verse: 'Acts 9:36, 39 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/tabitha-dorcas-s2.svg',
+          alt: 'She grows sick and dies',
+          caption:
+            'It came to pass in those days, that she was sick, and died: whom when they had washed, they laid her in an upper chamber.',
+          verse: 'Acts 9:37 (KJV)'
+        },
+        {
+          id: '3',
+          src: '/coloring-pages/tabitha-dorcas-s3.svg',
+          alt: 'Peter kneels and prays',
+          caption:
+            'Peter put them all forth, and kneeled down, and prayed; and turning him to the body said, Tabitha, arise. And she opened her eyes: and when she saw Peter, she sat up.',
+          verse: 'Acts 9:40 (KJV)'
+        },
+        {
+          id: '4',
+          src: '/coloring-pages/tabitha-dorcas-s4.svg',
+          alt: 'She is alive and many believe',
+          caption:
+            'He gave her his hand, and lifted her up, and when he had called the saints and widows, presented her alive. And it was known throughout all Joppa; and many believed in the Lord.',
+          verse: 'Acts 9:41-42 (KJV)'
+        }
+      ]
     }
   ];
 

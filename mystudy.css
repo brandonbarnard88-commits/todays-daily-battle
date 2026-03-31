@@ -47,9 +47,11 @@
 .mystudy-progress-summary {
   margin: 0 0 1rem;
   padding: 0.75rem 0.85rem;
-  border-radius: 12px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  background: rgba(15, 23, 42, 0.55);
+  border-radius: var(--tdb-surface-radius, 18px);
+  border: 1px solid var(--tdb-surface-panel-border);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-panel-shadow);
 }
 
 .mystudy-progress-summary-line {
@@ -138,9 +140,11 @@
 .mystudy-memorize-strip {
   margin: 0 0 0.85rem;
   padding: 0.65rem 0.75rem;
-  border-radius: 12px;
-  background: rgba(30, 41, 59, 0.65);
-  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: var(--tdb-surface-radius, 18px);
+  background-color: var(--tdb-surface-card-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border: 1px solid color-mix(in srgb, var(--tdb-surface-card-border) 78%, rgba(212, 175, 55, 0.32));
+  box-shadow: var(--tdb-surface-card-shadow);
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -201,8 +205,10 @@
 }
 
 .mystudy-tab {
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--tdb-surface-panel-border);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-panel-shadow);
   color: #e2e8f0;
   border-radius: 10px;
   min-height: 2.8rem;
@@ -211,8 +217,8 @@
 }
 
 .mystudy-tab.active {
-  border-color: rgba(212, 175, 55, 0.65);
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.2);
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 65%, rgba(212, 175, 55, 0.45));
+  box-shadow: var(--tdb-surface-card-shadow-hover);
 }
 
 .mystudy-panel.hidden {
@@ -238,8 +244,8 @@
 #mystudy-join-code {
   width: 100%;
   border-radius: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid color-mix(in srgb, var(--tdb-surface-panel-border) 88%, rgba(148, 163, 184, 0.25));
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg) 94%, #0f172a);
   color: #e2e8f0;
   padding: 0.7rem 0.8rem;
 }
@@ -262,10 +268,12 @@
 }
 
 .mystudy-result {
-  border: 1px solid rgba(148, 163, 184, 0.25);
+  border: 1px solid var(--tdb-surface-panel-border);
   border-radius: 10px;
   padding: 0.6rem;
-  background: rgba(15, 23, 42, 0.65);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-panel-shadow);
   display: grid;
   gap: 0.35rem;
 }
@@ -279,10 +287,12 @@
 
 .mystudy-verse-card {
   margin-top: 0.8rem;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  border-radius: 12px;
+  border: 1px solid var(--tdb-surface-panel-border);
+  border-radius: var(--tdb-surface-radius, 18px);
   padding: 0.75rem;
-  background: rgba(15, 23, 42, 0.45);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-panel-shadow);
 }
 
 .mystudy-h2 {
@@ -327,10 +337,12 @@
 }
 
 .mystudy-shared-item {
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--tdb-surface-card-border) 75%, rgba(212, 175, 55, 0.35));
+  border-radius: var(--tdb-surface-radius, 18px);
   padding: 0.8rem;
-  background: rgba(15, 23, 42, 0.7);
+  background-color: var(--tdb-surface-card-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-card-shadow);
 }
 
 .mystudy-shared-label {
@@ -357,9 +369,11 @@
 }
 
 .mystudy-highlight-card {
-  border: 1px solid rgba(212, 175, 55, 0.26);
-  border-radius: 12px;
-  background: rgba(10, 13, 24, 0.88);
+  border: 1px solid color-mix(in srgb, var(--tdb-surface-card-border) 72%, rgba(212, 175, 55, 0.3));
+  border-radius: var(--tdb-surface-radius, 18px);
+  background-color: var(--tdb-surface-card-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-card-shadow);
   padding: 0.6rem;
   cursor: pointer;
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
@@ -368,8 +382,8 @@
 .mystudy-highlight-card:hover,
 .mystudy-highlight-card:focus-visible {
   transform: translateY(-2px);
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 10px 20px rgba(3, 6, 16, 0.45);
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 55%, rgba(212, 175, 55, 0.55));
+  box-shadow: var(--tdb-surface-card-shadow-hover);
   outline: none;
 }
 
@@ -411,8 +425,8 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   color: #f8fafc;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(148, 163, 184, 0.32);
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg) 90%, #0f172a);
+  border: 1px solid var(--tdb-surface-panel-border);
 }
 
 .mystudy-highlight-ref {
@@ -425,10 +439,12 @@
 
 .mystudy-highlight-detail {
   margin-top: 0.9rem;
-  border: 1px solid rgba(212, 175, 55, 0.26);
-  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--tdb-surface-panel-border) 78%, rgba(212, 175, 55, 0.26));
+  border-radius: var(--tdb-surface-radius, 18px);
   padding: 0.8rem;
-  background: rgba(15, 23, 42, 0.5);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-panel-shadow);
 }
 
 .mystudy-library-lead a,
@@ -444,8 +460,8 @@
   min-height: 44px;
   padding: 0.45rem 0.6rem;
   border-radius: 8px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid color-mix(in srgb, var(--tdb-surface-panel-border) 88%, rgba(148, 163, 184, 0.2));
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg) 92%, #0f172a);
   color: #e2e8f0;
   font-size: 1rem;
   box-sizing: border-box;
@@ -469,8 +485,10 @@
   margin: 0;
   padding: 0.65rem 0.75rem;
   border-radius: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid var(--tdb-surface-panel-border);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-panel-shadow);
 }
 
 .mystudy-library-link {
@@ -539,8 +557,10 @@
   gap: 0.5rem;
   padding: 0.55rem 0.65rem;
   border-radius: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid var(--tdb-surface-panel-border);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  box-shadow: var(--tdb-surface-panel-shadow);
 }
 
 .mystudy-memorize-ref {
@@ -566,8 +586,9 @@
 }
 
 .mystudy-tag-pill {
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid var(--tdb-surface-panel-border);
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
   color: #e2e8f0;
   border-radius: 999px;
   padding: 0.35rem 0.75rem;

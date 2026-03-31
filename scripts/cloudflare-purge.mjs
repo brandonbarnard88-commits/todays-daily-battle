@@ -310,6 +310,7 @@ const SOCIAL_PURGE_PATHS = [
   '/styles.css?v=20260431dawn-band',
   '/styles.css?v=20260331innerkit',
   '/styles.css?v=20260330surface-mob',
+  '/styles.css?v=20260331surface-final',
   '/tdb-quiet-luxury.css?v=20260401lux',
   '/tdb-quiet-luxury.css?v=20260402chapel',
   '/study.html',

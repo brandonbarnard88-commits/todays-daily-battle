@@ -53,8 +53,9 @@ One calm, trustworthy **human** read of the same slot as the existing 10-minute 
 ### Ship checklist
 
 1. Export as **`mobius-breathe-human.mp3`** into **`audio/`** (or CDN path equivalent).
-2. Deploy; confirm optional UI appears on Möbius → Text → calm path.
-3. Same offline note as the 10-minute human file: `/audio/` is cached broadly by the service worker when assets exist.
+2. Commit the binary with the rest of the site and deploy your usual pipeline (`npm run build` should copy **`dist/audio/mobius-breathe-human.mp3`** alongside other clips).
+3. Hard-refresh Möbius (or wait for CDN); confirm **`HEAD /audio/mobius-breathe-human.mp3`** returns **200** and the **Breathing guide** block appears.
+4. Same offline note as the 10-minute human file: `/audio/` is cached broadly by the service worker when assets exist.
 
 ## After this milestone
 

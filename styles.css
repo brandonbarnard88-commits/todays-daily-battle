@@ -13513,46 +13513,61 @@ body.has-promo-banner .header-search-sticky {
 }
 .dropdown-empty { padding: 8px; margin: 0; color: rgba(226, 232, 240, 0.8); }
 
-/* Inline verse breakdown (details/summary) — under verse text */
+/* Inline verse breakdown — button + .is-open panel (no modal) */
 .tdb-verse-breakdown-inline {
   margin-top: 0.85rem;
   border: 1px solid rgba(250, 204, 21, 0.28);
   border-radius: 10px;
   background: rgba(15, 23, 42, 0.5);
   overflow: hidden;
+  overflow-x: hidden;
+  max-width: 100%;
   contain: content;
 }
-.tdb-vb-inline-summary {
-  list-style: none;
-  cursor: pointer;
+.tdb-vb-inline-toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
   min-height: 44px;
+  margin: 0;
   padding: 0.65rem 0.85rem;
-  padding-inline-start: 0.85rem;
+  box-sizing: border-box;
+  font-family: inherit;
   font-weight: 600;
   font-size: 0.98rem;
-  color: rgba(253, 224, 71, 0.96);
   line-height: 1.35;
+  color: rgba(253, 224, 71, 0.96);
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   transition: background 0.12s ease, color 0.12s ease;
 }
-.tdb-verse-breakdown-inline .tdb-vb-inline-summary::-webkit-details-marker {
-  display: none;
-}
-.tdb-vb-inline-summary:hover {
+.tdb-vb-inline-toggle:hover {
   background: rgba(250, 204, 21, 0.08);
 }
-.tdb-vb-inline-summary:focus-visible {
+.tdb-vb-inline-toggle:focus-visible {
   outline: 2px solid rgba(250, 204, 21, 0.75);
-  outline-offset: 2px;
+  outline-offset: -2px;
+  z-index: 1;
+  position: relative;
 }
 .tdb-vb-inline-panel {
   padding: 0 0.85rem 1rem;
   border-top: 1px solid rgba(250, 204, 21, 0.22);
   max-height: min(70vh, 28rem);
+  overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.tdb-vb-inline-panel[hidden] {
+  display: none !important;
 }
 .tdb-vb-inline-ref {
   font-size: 1.15rem;

@@ -27,6 +27,7 @@
   var KJV_DICT_URLS = ['/kjv.json'];
   var INLINE_SUMMARY = 'Understand this verse';
   var INLINE_SUMMARY_ARIA = 'Show a plain-language breakdown under this verse';
+  var inlinePanelUid = 0;
   var RELATIONS_FALLBACK = {
     anxiety: {
       line: "Your boss just texted 'urgent'—same as Paul's friends panicking. Pray first."
@@ -337,19 +338,84 @@
     copyText(shareText, btn, 'Share copied!');
   }
 
+  function attachPanelScrollAnalytics(root) {
+    var panel = root && root.querySelector ? root.querySelector('.tdb-vb-inline-panel') : null;
+    if (!panel) return;
+    if (root.__tdbVbScrollCleanup) {
+      try {
+        root.__tdbVbScrollCleanup();
+      } catch (eCl) {}
+      root.__tdbVbScrollCleanup = null;
+    }
+    var fired = false;
+    function onScroll() {
+      if (fired) return;
+      if (panel.scrollTop + panel.clientHeight >= panel.scrollHeight * 0.45) {
+        fired = true;
+        var ref1 = root.getAttribute('data-ref') || '';
+        if (typeof window.trackEvent === 'function') {
+          window.trackEvent('verse_breakdown_scrolled_50', { ref: ref1.slice(0, 32) });
+        }
+        panel.removeEventListener('scroll', onScroll);
+        root.__tdbVbScrollCleanup = null;
+      }
+    }
+    panel.addEventListener('scroll', onScroll);
+    root.__tdbVbScrollCleanup = function () {
+      panel.removeEventListener('scroll', onScroll);
+    };
+  }
+
+  function setInlineBreakdownOpen(root, open) {
+    if (!root || !root.classList) return;
+    var wasOpen = root.classList.contains('is-open');
+    var toggle = root.querySelector('.tdb-vb-inline-toggle');
+    var panel = root.querySelector('.tdb-vb-inline-panel');
+    if (open) root.classList.add('is-open');
+    else root.classList.remove('is-open');
+    if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (panel) {
+      if (open) panel.removeAttribute('hidden');
+      else panel.setAttribute('hidden', '');
+    }
+    if (!open && root.__tdbVbScrollCleanup) {
+      try {
+        root.__tdbVbScrollCleanup();
+      } catch (eC2) {}
+      root.__tdbVbScrollCleanup = null;
+    }
+    if (open && !wasOpen) {
+      if (typeof window.trackEvent === 'function') {
+        var ref0 = root.getAttribute('data-ref') || '';
+        window.trackEvent('verse_breakdown_open', { ref: ref0.slice(0, 32) });
+      }
+      attachPanelScrollAnalytics(root);
+    }
+  }
+
   function buildInlineDetailsElement() {
-    var details = document.createElement('details');
+    inlinePanelUid += 1;
+    var uid = inlinePanelUid;
+    var details = document.createElement('div');
     details.className = 'tdb-verse-breakdown-inline';
     details.setAttribute('data-tdb-breakdown-inline', '1');
 
-    var summary = document.createElement('summary');
-    summary.className = 'tdb-vb-inline-summary';
-    summary.setAttribute('aria-label', INLINE_SUMMARY_ARIA);
-    summary.appendChild(document.createTextNode(INLINE_SUMMARY));
-    details.appendChild(summary);
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'tdb-vb-inline-toggle';
+    toggle.id = 'tdb-vb-toggle-' + uid;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'tdb-vb-panel-' + uid);
+    toggle.setAttribute('aria-label', INLINE_SUMMARY_ARIA);
+    toggle.appendChild(document.createTextNode(INLINE_SUMMARY));
+    details.appendChild(toggle);
 
     var panel = document.createElement('div');
     panel.className = 'tdb-vb-inline-panel';
+    panel.id = 'tdb-vb-panel-' + uid;
+    panel.setAttribute('hidden', '');
+    panel.setAttribute('role', 'region');
+    panel.setAttribute('aria-labelledby', toggle.id);
 
     var agePrompt = document.createElement('div');
     agePrompt.className = 'verse-age-prompt tdb-vb-age-prompt hidden';
@@ -433,26 +499,13 @@
     if (!details || details.getAttribute('data-tdb-vb-wired') === '1') return;
     details.setAttribute('data-tdb-vb-wired', '1');
 
-    details.addEventListener('toggle', function () {
-      if (!details.open) return;
-      if (typeof window.trackEvent === 'function') {
-        var ref0 = details.getAttribute('data-ref') || '';
-        window.trackEvent('verse_breakdown_open', { ref: ref0.slice(0, 32) });
-      }
-      var panel = details.querySelector('.tdb-vb-inline-panel');
-      if (!panel) return;
-      var fired = false;
-      function onScroll() {
-        if (fired) return;
-        if (panel.scrollTop + panel.clientHeight >= panel.scrollHeight * 0.45) {
-          fired = true;
-          var ref1 = details.getAttribute('data-ref') || '';
-          if (typeof window.trackEvent === 'function') window.trackEvent('verse_breakdown_scrolled_50', { ref: ref1.slice(0, 32) });
-          panel.removeEventListener('scroll', onScroll);
-        }
-      }
-      panel.addEventListener('scroll', onScroll);
-    });
+    var toggleBtn = details.querySelector('.tdb-vb-inline-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function () {
+        var next = !details.classList.contains('is-open');
+        setInlineBreakdownOpen(details, next);
+      });
+    }
 
     details.querySelectorAll('.tdb-vb-age-prompt .verse-age-actions [data-age]').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -493,10 +546,10 @@
     if (hideBtn) {
       hideBtn.addEventListener('click', function (ev) {
         ev.preventDefault();
-        details.open = false;
+        setInlineBreakdownOpen(details, false);
         try {
-          var sm = details.querySelector('summary');
-          if (sm && typeof sm.focus === 'function') sm.focus();
+          var tg = details.querySelector('.tdb-vb-inline-toggle');
+          if (tg && typeof tg.focus === 'function') tg.focus();
         } catch (eH) {}
       });
     }
@@ -725,7 +778,7 @@
     var list = document.querySelectorAll('.tdb-verse-breakdown-inline[data-ref]');
     for (var i = 0; i < list.length; i++) {
       if (list[i].getAttribute('data-ref') === normalizedRef) {
-        list[i].open = true;
+        setInlineBreakdownOpen(list[i], true);
         try {
           list[i].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } catch (e) {}

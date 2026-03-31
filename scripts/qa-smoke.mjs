@@ -165,10 +165,10 @@ try {
         // Visible homepage results live in #feel-results; #output is sr-only — scope inline breakdown there.
         const scopedDetails = page.locator('#feel-results .tdb-verse-breakdown-inline').first();
         await scopedDetails.waitFor({ state: 'attached', timeout: 12000 }).catch(() => {});
-        const summary = scopedDetails.locator('.tdb-vb-inline-summary').first();
-        await summary.scrollIntoViewIfNeeded().catch(() => {});
+        const trigger = scopedDetails.locator('.tdb-vb-inline-toggle').first();
+        await trigger.scrollIntoViewIfNeeded().catch(() => {});
         await page.waitForTimeout(200);
-        await summary.click({ timeout: 8000 });
+        await trigger.click({ timeout: 8000 });
         await page.waitForTimeout(500);
         const actionsLoc = scopedDetails.locator('.tdb-vb-inline-actions [data-action]');
         await actionsLoc.first().waitFor({ state: 'visible', timeout: 6000 }).catch(() => {});

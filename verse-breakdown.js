@@ -26,7 +26,7 @@
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
   var RELATIONS_DICT_URL = 'relations-dict.json';
-  var KJV_DICT_URLS = ['/kjv.json', 'kjv.json'];
+  var KJV_DICT_URLS = ['/kjv.json'];
   var BREAKDOWN_LABEL = 'Verse Breakdown';
   var BREAKDOWN_ARIA = 'Open verse breakdown';
   var RELATIONS_FALLBACK = {

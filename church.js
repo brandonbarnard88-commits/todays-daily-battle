@@ -106,7 +106,7 @@
   }
   async function loadKjv() {
     if (KJV_CACHE) return KJV_CACHE;
-    var res = await fetch('kjv.json');
+    var res = await fetch('/kjv.json');
     if (!res.ok) throw new Error('kjv_load_failed');
     KJV_CACHE = await res.json();
     return KJV_CACHE;

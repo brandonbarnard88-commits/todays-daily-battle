@@ -1287,7 +1287,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 /* Preload Bible data after first paint/idle so startup stays fast; loadBible() still falls back normally. */
 (function preloadBibleWhenIdle() {
   if (typeof window === 'undefined') return;
-  var urls = ['/kjv.json', 'kjv.json', 'https://todaysdailybattle.com/kjv.json'];
+  var urls = ['/kjv.json', 'https://todaysdailybattle.com/kjv.json'];
   var started = false;
 
   function canPreloadNow() {
@@ -11585,11 +11585,11 @@ const templates = [
 ];
 
 const versionFiles = {
-  KJV: 'kjv.json',
-  NIV: 'niv.json',
-  ESV: 'esv.json',
-  NLT: 'nlt.json',
-  NKJV: 'nkjv.json'
+  KJV: '/kjv.json',
+  NIV: '/niv.json',
+  ESV: '/esv.json',
+  NLT: '/nlt.json',
+  NKJV: '/nkjv.json'
 };
 const BIBLE_DATA_ORIGIN = 'https://todaysdailybattle.com';
 
@@ -14538,9 +14538,10 @@ async function loadBible(version = currentVersion) {
   }
   const file = versionFiles[version] || versionFiles.KJV;
   const isFileProtocol = typeof location !== 'undefined' && location.protocol === 'file:';
+  const rootPath = file.startsWith('/') ? file : '/' + file;
   const urlsToTry = isFileProtocol
-    ? [BIBLE_DATA_ORIGIN + '/' + file]
-    : [file, BIBLE_DATA_ORIGIN + '/' + file];
+    ? [BIBLE_DATA_ORIGIN + rootPath]
+    : [rootPath, BIBLE_DATA_ORIGIN + rootPath];
   for (let i = 0; i < urlsToTry.length; i++) {
     try {
       const response = await fetch(urlsToTry[i]);

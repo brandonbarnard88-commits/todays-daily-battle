@@ -610,7 +610,7 @@
     var status = byId('mystudy-search-status');
     try {
       if (status) status.textContent = 'Loading Bible...';
-      var res = await fetch('kjv.json');
+      var res = await fetch('/kjv.json');
       if (!res.ok) throw new Error('bible_fetch_failed');
       var data = await res.json();
       kjvEntries = Object.keys(data || {}).map(function (ref) {

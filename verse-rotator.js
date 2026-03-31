@@ -94,7 +94,7 @@
 
   async function hydrateFromLocalKjv(cache) {
     try {
-      var local = await fetch('kjv.json').then(function (r) { return r.json(); });
+      var local = await fetch('/kjv.json').then(function (r) { return r.json(); });
       var merged = (Array.isArray(cache) ? cache : []).concat(normalizeRows(local || []));
       var dedup = {};
       merged.forEach(function (v) { dedup[v.ref] = v; });

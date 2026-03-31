@@ -405,7 +405,7 @@
     } catch (e) {
       origin = '';
     }
-    var urls = ['kjv.json'];
+    var urls = ['/kjv.json'];
     if (origin) urls.push(origin.replace(/\/$/, '') + '/kjv.json');
     urls.push('https://todaysdailybattle.com/kjv.json');
     bibleMapPromise = (function tryFetch(i) {

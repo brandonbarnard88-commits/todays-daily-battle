@@ -7,7 +7,7 @@
   'use strict';
 
   var WIDGET_ID = 'daily-verse-widget';
-  var KJV_URL = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.kjvPath) ? window.TDB_CONFIG.kjvPath : 'kjv.json';
+  var KJV_URL = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.kjvPath) ? window.TDB_CONFIG.kjvPath : '/kjv.json';
   var SAFE_REFS = [
     'Psalms 23:1', 'Psalms 23:4', 'Psalms 27:1', 'Psalms 34:4', 'Psalms 46:1', 'Psalms 91:1', 'Psalms 121:1', 'Psalms 138:3',
     'Proverbs 3:5', 'Proverbs 12:25', 'Proverbs 16:3', 'Proverbs 22:6',

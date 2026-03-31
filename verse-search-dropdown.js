@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  var KJV_URL = 'kjv.json';
+  var KJV_URL = '/kjv.json';
   var KJV_LOADED = false;
 
   var MOCK_VERSE_REFS = [

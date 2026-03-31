@@ -87,7 +87,7 @@
     }
 
     function localSearch(q) {
-      var urls = ['kjv.json', '/kjv.json', 'https://todaysdailybattle.com/kjv.json'];
+      var urls = ['/kjv.json', 'https://todaysdailybattle.com/kjv.json'];
       function tryF(i) {
         if (i >= urls.length) return Promise.reject();
         return fetch(urls[i])

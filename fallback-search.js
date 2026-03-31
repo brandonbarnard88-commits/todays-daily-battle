@@ -72,7 +72,7 @@
     if (!out) return;
     out.innerHTML = '<p class="empty" style="text-align:center;padding:1.5rem;">Seeking God\'s truth…</p>';
     out.style.display = 'grid';
-    var urls = ['kjv.json', 'https://todaysdailybattle.com/kjv.json'];
+    var urls = ['/kjv.json', 'https://todaysdailybattle.com/kjv.json'];
     function tryFetch(i) {
       if (i >= urls.length) return Promise.reject();
       return fetch(urls[i])

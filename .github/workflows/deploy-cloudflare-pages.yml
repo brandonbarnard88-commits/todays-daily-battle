@@ -1,12 +1,12 @@
 # Optional: deploy dist/ to Cloudflare Pages (manual only).
 #
-# Auth (pick one):
-#   - secrets.CF_API_TOKEN — if it already includes Cloudflare Pages — Edit (in addition to whatever you use for cache purge), OR
-#   - secrets.CLOUDFLARE_API_TOKEN — dedicated Pages deploy token
+# Required:
+#   - secrets.CF_API_TOKEN — must be non-empty; needs Cloudflare Pages — Edit (cache-only tokens will fail at deploy).
 #
-# Optional overrides:
-#   - secrets.CLOUDFLARE_ACCOUNT_ID — if unset, resolved via Zone API (needs zone read on todaysdailybattle.com)
-#   - secrets.CF_PAGES_PROJECT_NAME — if unset, defaults to todaysdailybattle-site (see wrangler.toml name)
+# Optional:
+#   - secrets.CLOUDFLARE_API_TOKEN — if set, used first for zone lookup (same permissions as above).
+#   - secrets.CLOUDFLARE_ACCOUNT_ID — if unset, account ID is resolved via Zone API (needs zone read).
+#   - secrets.CF_PAGES_PROJECT_NAME — if unset, defaults to todaysdailybattle-site (wrangler.toml name).
 #
 # Do not use alongside another auto-prod deploy to the same domain without a plan.
 name: Deploy Cloudflare Pages (manual)
@@ -38,15 +38,19 @@ jobs:
       - name: Resolve Cloudflare account ID and validate token
         id: cf_ids
         env:
-          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN || secrets.CF_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           STATIC_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           DOMAIN: todaysdailybattle.com
         run: |
           set -euo pipefail
+          TOKEN="${CLOUDFLARE_API_TOKEN:-}"
+          if [ -z "$TOKEN" ]; then TOKEN="${CF_API_TOKEN:-}"; fi
           if [ -z "$TOKEN" ]; then
-            echo "::error::Add repository secret CF_API_TOKEN and/or CLOUDFLARE_API_TOKEN (needs Cloudflare Pages — Edit for deploy)."
+            echo "::error::Set repository secret CF_API_TOKEN to a real Cloudflare API token (or add CLOUDFLARE_API_TOKEN). Token must include Cloudflare Pages — Edit. If the secret name exists but the value was never saved, open Settings → Secrets and re-paste the token."
             exit 1
           fi
+          export TOKEN
           if [ -n "$STATIC_ACCOUNT" ]; then
             echo "account_id=$STATIC_ACCOUNT" >> "$GITHUB_OUTPUT"
             exit 0
@@ -64,6 +68,6 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN || secrets.CF_API_TOKEN }}
+          apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ steps.cf_ids.outputs.account_id }}
           command: pages deploy dist --project-name=${{ secrets.CF_PAGES_PROJECT_NAME || 'todaysdailybattle-site' }}

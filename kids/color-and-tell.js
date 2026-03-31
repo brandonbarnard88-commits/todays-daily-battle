@@ -3616,14 +3616,29 @@
     note.textContent =
       'Color & Tell: each Bible story has a few big scenes. When you save all of them on this device, you can watch your own slideshow—your colors, your story. No account needed.';
 
+    var progressOuter = document.createElement('div');
+    progressOuter.className = 'tdb-cat-progress-outer';
+
     var progressWrap = document.createElement('div');
     progressWrap.className = 'tdb-cat-progress';
     progressWrap.setAttribute('role', 'region');
     progressWrap.setAttribute('aria-label', 'Story progress');
     progressWrap.tabIndex = 0;
 
+    var jumpHint = document.createElement('p');
+    jumpHint.className = 'tdb-cat-progress-jump-hint section-note';
+    jumpHint.appendChild(document.createTextNode('Scroll sideways for all stories, or '));
+    var jumpA = document.createElement('a');
+    jumpA.href = '#tdb-cat-story-start';
+    jumpA.className = 'link-button';
+    jumpA.textContent = 'jump to coloring';
+    jumpHint.appendChild(jumpA);
+    jumpHint.appendChild(document.createTextNode('.'));
+
     mount.appendChild(note);
-    mount.appendChild(progressWrap);
+    mount.appendChild(jumpHint);
+    mount.appendChild(progressOuter);
+    progressOuter.appendChild(progressWrap);
 
     var clearAllWrap = document.createElement('div');
     clearAllWrap.className = 'tdb-cat-clear-all-wrap';
@@ -3660,6 +3675,9 @@
         var section = document.createElement('section');
         section.className = 'tdb-cat-story';
         section.setAttribute('data-tdb-story', story.id);
+        if (STORIES[0] && story.id === STORIES[0].id) {
+          section.id = 'tdb-cat-story-start';
+        }
 
         var h2 = document.createElement('h2');
         h2.className = 'tdb-cat-story-title';

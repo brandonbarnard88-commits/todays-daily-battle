@@ -848,6 +848,7 @@ html, body {
 }
 main, .app-content, .content-inner {
   max-width: 100%;
+  min-width: 0;
   overflow-x: clip;
 }
 html {
@@ -1752,8 +1753,9 @@ body {
 
 .app-shell {
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
+  min-width: 0;
 }
 
 .app-shell::before {
@@ -1811,7 +1813,7 @@ body {
   padding: var(--spacing-sm) var(--spacing-md);
   min-height: 56px;
   min-width: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: linear-gradient(180deg, rgba(8, 12, 22, 0.99) 0%, rgba(10, 14, 26, 0.98) 100%);
   border-bottom: 2px solid var(--elite-gold-dim);
   box-shadow: 0 1px 0 var(--elite-gold), 0 8px 40px rgba(0, 0, 0, 0.35);
@@ -2073,6 +2075,7 @@ body {
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  overflow-x: clip;
   box-sizing: border-box;
   border-radius: 16px;
   border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 32%, var(--line, #2a3344));
@@ -4577,6 +4580,26 @@ body:has(.search-hero-home) #search-hero {
   align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
+}
+.hero-daily-headline {
+  text-wrap: balance;
+  max-width: 100%;
+}
+
+.tdb-home-todays-battle-card {
+  max-width: 100%;
+  min-width: 0;
+  padding: 1rem 1.1rem 1.1rem;
+}
+.tdb-home-todays-battle-lead {
+  text-wrap: pretty;
+}
+.tdb-home-todays-battle-ctas {
+  flex-wrap: wrap;
+}
+.tdb-home-family-teaser {
+  margin-top: 0.65rem;
+  text-wrap: pretty;
 }
 /* Auto-focus: gold outline on load */
 .hero-verse-wrap.hero-verse-highlight .hero-verse-card.verse-card {
@@ -13513,10 +13536,10 @@ body.has-promo-banner .header-search-sticky {
 }
 .dropdown-empty { padding: 8px; margin: 0; color: rgba(226, 232, 240, 0.8); }
 
-/* Inline verse breakdown — button + .is-open panel (no modal) */
+/* Inline verse breakdown — secondary button + .is-open panel (no modal) */
 .tdb-verse-breakdown-inline {
   margin-top: 0.85rem;
-  border: 1px solid rgba(250, 204, 21, 0.28);
+  border: 1px solid rgba(250, 204, 21, 0.32);
   border-radius: 10px;
   background: rgba(15, 23, 42, 0.5);
   overflow: hidden;
@@ -13524,36 +13547,33 @@ body.has-promo-banner .header-search-sticky {
   max-width: 100%;
   contain: content;
 }
-.tdb-vb-inline-toggle {
-  display: flex;
+.tdb-vb-inline-toggle.btn.btn-secondary {
+  display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
   width: 100%;
+  max-width: 100%;
   min-height: 44px;
   margin: 0;
-  padding: 0.65rem 0.85rem;
+  padding: 0.55rem 0.85rem;
   box-sizing: border-box;
-  font-family: inherit;
   font-weight: 600;
-  font-size: 0.98rem;
-  line-height: 1.35;
-  color: rgba(253, 224, 71, 0.96);
+  font-size: 0.95rem;
+  line-height: 1.3;
   text-align: left;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  border-radius: 0;
+  border-radius: 8px;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: background 0.12s ease, color 0.12s ease;
 }
-.tdb-vb-inline-toggle:hover {
-  background: rgba(250, 204, 21, 0.08);
+.tdb-vb-inline-toggle-icon {
+  flex-shrink: 0;
+  opacity: 0.92;
 }
-.tdb-vb-inline-toggle:focus-visible {
-  outline: 2px solid rgba(250, 204, 21, 0.75);
-  outline-offset: -2px;
-  z-index: 1;
-  position: relative;
+.tdb-vb-inline-toggle-label {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
 }
 .tdb-vb-inline-panel {
   padding: 0 0.85rem 1rem;
@@ -18110,12 +18130,21 @@ body.tdb-kjv-dict-open {
   cursor: pointer;
 }
 
+.tdb-kjv-dict-hint {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--muted, #94a3b8) 92%, var(--gold, #e3bc67) 8%);
+  margin: 0 0 0.65rem;
+  max-width: 40rem;
+  text-wrap: pretty;
+}
+
 .tdb-kjv-dict-card {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 320px;
-  max-height: min(70vh, 28rem);
+  max-width: min(400px, 92vw);
+  max-height: min(78vh, 30rem);
   overflow: auto;
   padding: 1.1rem 1.15rem 1rem;
   border-radius: var(--tdb-surface-radius, 12px);

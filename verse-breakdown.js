@@ -25,8 +25,8 @@
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
   var RELATIONS_DICT_URL = 'relations-dict.json';
   var KJV_DICT_URLS = ['/kjv.json'];
-  var INLINE_SUMMARY = 'Understand this verse';
-  var INLINE_SUMMARY_ARIA = 'Show a plain-language breakdown under this verse';
+  var INLINE_SUMMARY = 'Break it down';
+  var INLINE_SUMMARY_ARIA = 'Open a plain-language breakdown under this verse';
   var inlinePanelUid = 0;
   var RELATIONS_FALLBACK = {
     anxiety: {
@@ -402,12 +402,45 @@
 
     var toggle = document.createElement('button');
     toggle.type = 'button';
-    toggle.className = 'tdb-vb-inline-toggle';
+    toggle.className = 'tdb-vb-inline-toggle btn btn-secondary';
     toggle.id = 'tdb-vb-toggle-' + uid;
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-controls', 'tdb-vb-panel-' + uid);
     toggle.setAttribute('aria-label', INLINE_SUMMARY_ARIA);
-    toggle.appendChild(document.createTextNode(INLINE_SUMMARY));
+    var icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    icon.setAttribute('class', 'tdb-vb-inline-toggle-icon');
+    icon.setAttribute('width', '18');
+    icon.setAttribute('height', '18');
+    icon.setAttribute('viewBox', '0 0 24 24');
+    icon.setAttribute('fill', 'none');
+    icon.setAttribute('stroke', 'currentColor');
+    icon.setAttribute('stroke-width', '2');
+    icon.setAttribute('stroke-linecap', 'round');
+    icon.setAttribute('stroke-linejoin', 'round');
+    icon.setAttribute('aria-hidden', 'true');
+    var p1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p1.setAttribute('d', 'M4 19.5A2.5 2.5 0 0 1 6.5 17H20');
+    icon.appendChild(p1);
+    var p2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p2.setAttribute('d', 'M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z');
+    icon.appendChild(p2);
+    var p3 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    p3.setAttribute('x1', '12');
+    p3.setAttribute('y1', '6');
+    p3.setAttribute('x2', '12');
+    p3.setAttribute('y2', '12');
+    icon.appendChild(p3);
+    var p4 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    p4.setAttribute('x1', '10');
+    p4.setAttribute('y1', '14');
+    p4.setAttribute('x2', '14');
+    p4.setAttribute('y2', '14');
+    icon.appendChild(p4);
+    var label = document.createElement('span');
+    label.className = 'tdb-vb-inline-toggle-label';
+    label.appendChild(document.createTextNode(INLINE_SUMMARY));
+    toggle.appendChild(icon);
+    toggle.appendChild(label);
     details.appendChild(toggle);
 
     var panel = document.createElement('div');

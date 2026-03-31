@@ -1275,7 +1275,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260402-js-toggle-breakdown');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260403-js-polish');
   if (!trusted) return;
   var script = document.createElement('script');
   script.src = trusted;

@@ -143,6 +143,11 @@ body.tdb-inner-page .content-inner {
   gap: var(--tdb-inner-gap);
 }
 
+/* Wider curated hubs stay readable but keep room for multi-column jump cards */
+body.tdb-inner-page .content-inner.for-pastors-page {
+  max-width: min(56rem, 100%);
+}
+
 body.tdb-inner-page .content-inner > header.hero-banner:first-child {
   border-radius: var(--radius-lg, 26px);
 }
@@ -15603,24 +15608,37 @@ main > .card {
   gap: 0.22rem;
   min-height: 5.75rem;
   padding: 0.9rem 1.05rem;
-  border-radius: 12px;
   text-decoration: none;
   box-sizing: border-box;
   height: 100%;
-  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 30%, transparent);
-  background: color-mix(in srgb, var(--bg, #0f1218) 58%, transparent);
   color: inherit;
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.explore-hub-card:hover,
-.explore-hub-card:focus-visible {
-  border-color: color-mix(in srgb, var(--gold, #e3bc67) 58%, transparent);
-  background: color-mix(in srgb, var(--gold, #e3bc67) 10%, transparent);
+/* Explicit luxury surface — paired with .tdb-surface-card on Explore jump links */
+.explore-hub-card.tdb-surface-card {
+  border-radius: var(--tdb-surface-radius);
+  border: 1px solid var(--tdb-surface-card-border);
+  background: var(--tdb-surface-card-bg);
+  box-shadow: var(--tdb-surface-card-shadow);
+  transition: box-shadow 0.35s cubic-bezier(0.33, 1, 0.68, 1), border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+
+.explore-hub-card.tdb-surface-card:hover,
+.explore-hub-card.tdb-surface-card:focus-visible {
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 72%, rgba(227, 188, 103, 0.32));
+  background: color-mix(in srgb, var(--tdb-surface-card-bg) 90%, rgba(227, 188, 103, 0.1));
   outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
   outline-offset: 2px;
   transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explore-hub-card.tdb-surface-card:hover,
+  .explore-hub-card.tdb-surface-card:focus-visible {
+    transform: none;
+  }
 }
 
 .explore-hub-card-label {
@@ -15654,9 +15672,9 @@ main > .card {
   word-break: break-word;
 }
 
-.explore-hub-card--languages {
-  border-color: color-mix(in srgb, var(--gold, #e3bc67) 46%, transparent);
-  background: color-mix(in srgb, var(--bg, #0f1218) 52%, transparent);
+.explore-hub-card--languages.tdb-surface-card {
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 55%, rgba(227, 188, 103, 0.38));
+  background: color-mix(in srgb, var(--tdb-surface-card-bg) 88%, rgba(227, 188, 103, 0.06));
 }
 
 .explore-languages-lead {
@@ -15672,9 +15690,10 @@ main > .card {
 
 .explore-lang-tier {
   padding: 0.88rem 1.02rem 1.02rem;
-  border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--line, #2a3140) 90%, transparent);
-  background: color-mix(in srgb, var(--bg, #0f1218) 72%, transparent);
+  border-radius: var(--tdb-surface-radius);
+  border: 1px solid var(--tdb-surface-panel-border);
+  background: var(--tdb-surface-panel-bg);
+  box-shadow: var(--tdb-surface-panel-shadow);
 }
 
 .explore-lang-tier-title {
@@ -15733,14 +15752,16 @@ main > .card {
   }
 }
 
-:root[data-theme="light"] .explore-hub-card {
-  background: color-mix(in srgb, var(--card) 94%, var(--gold) 5%);
-  border-color: color-mix(in srgb, var(--gold) 38%, var(--line));
+:root[data-theme="light"] .explore-hub-card.tdb-surface-card {
+  background: var(--tdb-surface-card-bg);
+  border-color: var(--tdb-surface-card-border);
+  box-shadow: var(--tdb-surface-card-shadow);
 }
 
-:root[data-theme="light"] .explore-hub-card:hover,
-:root[data-theme="light"] .explore-hub-card:focus-visible {
-  background: color-mix(in srgb, var(--card) 88%, var(--gold) 10%);
+:root[data-theme="light"] .explore-hub-card.tdb-surface-card:hover,
+:root[data-theme="light"] .explore-hub-card.tdb-surface-card:focus-visible {
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+  background: color-mix(in srgb, var(--tdb-surface-card-bg) 88%, rgba(201, 162, 39, 0.12));
 }
 
 :root[data-theme="light"] .explore-hub-card-title {
@@ -15751,14 +15772,15 @@ main > .card {
   color: var(--muted, #5f6877);
 }
 
-:root[data-theme="light"] .explore-hub-card--languages {
-  border-color: color-mix(in srgb, var(--gold) 42%, var(--line));
-  background: color-mix(in srgb, var(--card) 92%, var(--gold) 5%);
+:root[data-theme="light"] .explore-hub-card--languages.tdb-surface-card {
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 60%, rgba(201, 162, 39, 0.35));
+  background: color-mix(in srgb, var(--tdb-surface-card-bg) 92%, rgba(201, 162, 39, 0.08));
 }
 
 :root[data-theme="light"] .explore-lang-tier {
-  border-color: color-mix(in srgb, var(--line) 94%, var(--gold) 6%);
-  background: color-mix(in srgb, var(--card) 96%, var(--gold) 3%);
+  border-color: var(--tdb-surface-panel-border);
+  background: var(--tdb-surface-panel-bg);
+  box-shadow: var(--tdb-surface-panel-shadow);
 }
 
 :root[data-theme="light"] .explore-lang-tier-title {
@@ -15894,12 +15916,12 @@ main > .card {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .explore-hub-card {
-    transition: none;
+  .explore-hub-card.tdb-surface-card {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   }
 
-  .explore-hub-card:hover,
-  .explore-hub-card:focus-visible {
+  .explore-hub-card.tdb-surface-card:hover,
+  .explore-hub-card.tdb-surface-card:focus-visible {
     transform: none;
   }
 }
@@ -15964,13 +15986,6 @@ main > .card {
 .explore-start-here-full {
   margin-top: 0.45rem;
   padding-bottom: 0.2rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .explore-hub-card:hover,
-  .explore-hub-card:focus-visible {
-    transform: none;
-  }
 }
 
 /* For pastors hub (for-pastors.html) — same spirit as Explore tiles, tighter grid */
@@ -16041,20 +16056,25 @@ main > .card {
   gap: 0.2rem;
   min-height: 4.75rem;
   padding: 0.75rem 0.9rem;
-  border-radius: 12px;
   text-decoration: none;
   box-sizing: border-box;
   height: 100%;
-  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 28%, transparent);
-  background: color-mix(in srgb, var(--bg, #0f1218) 58%, transparent);
   color: inherit;
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 }
 
-.for-pastors-hub-card:hover,
-.for-pastors-hub-card:focus-visible {
-  border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
-  background: color-mix(in srgb, var(--gold, #e3bc67) 10%, transparent);
+.for-pastors-hub-card.tdb-surface-card {
+  border-radius: var(--tdb-surface-radius);
+  border: 1px solid var(--tdb-surface-card-border);
+  background: var(--tdb-surface-card-bg);
+  box-shadow: var(--tdb-surface-card-shadow);
+  transition: box-shadow 0.35s cubic-bezier(0.33, 1, 0.68, 1), border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+
+.for-pastors-hub-card.tdb-surface-card:hover,
+.for-pastors-hub-card.tdb-surface-card:focus-visible {
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 72%, rgba(227, 188, 103, 0.32));
+  background: color-mix(in srgb, var(--tdb-surface-card-bg) 90%, rgba(227, 188, 103, 0.1));
   outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 42%, transparent);
   outline-offset: 2px;
   transform: translateY(-1px);
@@ -16084,9 +16104,15 @@ main > .card {
   color: var(--text-muted, #94a3b8);
 }
 
-:root[data-theme="light"] .for-pastors-hub-card {
-  background: color-mix(in srgb, var(--card) 94%, var(--gold) 5%);
-  border-color: color-mix(in srgb, var(--gold) 36%, var(--line));
+:root[data-theme="light"] .for-pastors-hub-card.tdb-surface-card {
+  background: var(--tdb-surface-card-bg);
+  border-color: var(--tdb-surface-card-border);
+  box-shadow: var(--tdb-surface-card-shadow);
+}
+
+:root[data-theme="light"] .for-pastors-hub-card.tdb-surface-card:hover,
+:root[data-theme="light"] .for-pastors-hub-card.tdb-surface-card:focus-visible {
+  box-shadow: var(--tdb-surface-card-shadow-hover);
 }
 
 :root[data-theme="light"] .for-pastors-hub-card-title {

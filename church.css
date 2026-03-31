@@ -15,8 +15,10 @@
 .church-hub-tab {
   min-height: 2.8rem;
   border-radius: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--tdb-surface-panel-border, rgba(148, 163, 184, 0.35));
+  background-color: var(--tdb-surface-panel-bg, rgba(15, 23, 42, 0.8));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-panel-shadow, none);
   color: #e2e8f0;
   font-weight: 600;
   cursor: pointer;
@@ -24,7 +26,7 @@
 
 .church-hub-tab.active {
   border-color: rgba(212, 175, 55, 0.65);
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.2);
+  box-shadow: var(--tdb-surface-card-shadow-hover, 0 0 18px rgba(212, 175, 55, 0.2));
 }
 
 .church-label {
@@ -50,9 +52,9 @@
 .church-board-form textarea,
 .church-chat-input-row input {
   width: 100%;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  border: 1px solid var(--tdb-surface-panel-border, rgba(148, 163, 184, 0.35));
   border-radius: 10px;
-  background: rgba(15, 23, 42, 0.92);
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(15, 23, 42, 0.92)) 94%, #0f172a);
   color: #e2e8f0;
   padding: 0.7rem 0.8rem;
 }
@@ -74,10 +76,12 @@
 .church-streak-card,
 .church-chat-card {
   margin-top: 0.95rem;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  border-radius: 12px;
+  border: 1px solid var(--tdb-surface-panel-border, rgba(148, 163, 184, 0.25));
+  border-radius: var(--tdb-surface-radius, 12px);
   padding: 0.85rem;
-  background: rgba(15, 23, 42, 0.55);
+  background-color: var(--tdb-surface-panel-bg, rgba(15, 23, 42, 0.55));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-panel-shadow, none);
 }
 
 .church-daily-ref {
@@ -105,8 +109,10 @@
 .church-chat-item {
   border-radius: 10px;
   padding: 0.65rem;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  background: rgba(2, 6, 23, 0.6);
+  border: 1px solid var(--tdb-surface-panel-border, rgba(148, 163, 184, 0.25));
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(2, 6, 23, 0.75)) 88%, #020617);
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-panel-shadow, none);
 }
 
 .church-board-item p,
@@ -124,8 +130,10 @@
 .church-avatar-chip {
   min-width: 7.4rem;
   border-radius: 999px;
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid color-mix(in srgb, var(--tdb-surface-card-border, rgba(212, 175, 55, 0.5)) 60%, rgba(212, 175, 55, 0.45));
+  background-color: var(--tdb-surface-card-bg, rgba(15, 23, 42, 0.78));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-card-shadow, none);
   padding: 0.45rem 0.7rem;
   white-space: nowrap;
   text-align: center;

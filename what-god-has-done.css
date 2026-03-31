@@ -73,9 +73,12 @@
   justify-content: center;
   gap: 0.4rem 0.5rem;
   padding: 0.65rem 0.75rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
-  background: rgba(8, 12, 22, 0.92);
-  border-top: 1px solid rgba(227, 188, 103, 0.22);
+  background-color: var(--tdb-surface-panel-bg, rgba(8, 12, 22, 0.92));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  border-top: 1px solid var(--tdb-surface-panel-border, rgba(227, 188, 103, 0.22));
+  box-shadow: var(--tdb-surface-panel-shadow, none);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .wghd-bar-btn {
@@ -85,8 +88,9 @@
   font-size: 0.82rem;
   font-weight: 600;
   font-family: inherit;
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid var(--tdb-surface-panel-border, rgba(148, 163, 184, 0.35));
+  background-color: color-mix(in srgb, var(--tdb-surface-card-bg, rgba(15, 23, 42, 0.75)) 88%, #0f172a);
+  background-image: var(--tdb-surface-veil-subtle, none);
   color: rgba(226, 232, 240, 0.95);
   cursor: pointer;
 }
@@ -115,8 +119,9 @@
   max-width: 14rem;
   box-sizing: border-box;
   border-radius: 10px;
-  border: 1px solid var(--line, #242d3d);
-  background: rgba(13, 17, 23, 0.85);
+  border: 1px solid var(--tdb-surface-panel-border, var(--line, #242d3d));
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(13, 17, 23, 0.92)) 92%, #0a0e14);
+  background-image: var(--tdb-surface-veil-subtle, none);
   color: #f5f7fb;
   font-family: inherit;
   font-size: 1rem;
@@ -160,14 +165,12 @@
 
 .wghd-form-card {
   padding: 1.1rem 1.15rem 1.15rem;
-  border-radius: 14px;
-  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 28%, var(--line, #242d3d));
-  background: color-mix(in srgb, var(--bg, #0d1117) 88%, var(--gold, #e3bc67));
+  border-radius: var(--tdb-surface-radius, 14px);
+  border: 1px solid var(--tdb-surface-card-border, color-mix(in srgb, var(--gold, #e3bc67) 28%, var(--line, #242d3d)));
+  background-color: var(--tdb-surface-card-bg, color-mix(in srgb, var(--bg, #0d1117) 88%, var(--gold, #e3bc67)));
+  background-image: var(--tdb-surface-veil-subtle, none);
   margin-bottom: 2rem;
-  box-shadow:
-    0 14px 40px rgba(0, 0, 0, 0.22),
-    0 0 36px rgba(227, 188, 103, 0.04),
-    inset 0 1px 0 rgba(255, 248, 235, 0.04);
+  box-shadow: var(--tdb-surface-card-shadow);
 }
 
 .wghd-form-card h2 {
@@ -192,8 +195,9 @@
   width: 100%;
   box-sizing: border-box;
   border-radius: 10px;
-  border: 1px solid var(--line, #242d3d);
-  background: rgba(13, 17, 23, 0.85);
+  border: 1px solid var(--tdb-surface-panel-border, var(--line, #242d3d));
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(13, 17, 23, 0.92)) 92%, #0a0e14);
+  background-image: var(--tdb-surface-veil-subtle, none);
   color: #f5f7fb;
   font-family: inherit;
   font-size: 1rem;
@@ -268,12 +272,11 @@
 
 .wghd-entry {
   padding: 1rem 1.05rem;
-  border-radius: 12px;
-  border: 1px solid var(--line, #242d3d);
-  background: rgba(15, 23, 42, 0.4);
-  box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 248, 235, 0.03);
+  border-radius: var(--tdb-surface-radius, 12px);
+  border: 1px solid var(--tdb-surface-panel-border, var(--line, #242d3d));
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(15, 23, 42, 0.55)) 75%, transparent);
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-panel-shadow);
 }
 
 .wghd-entry-meta {

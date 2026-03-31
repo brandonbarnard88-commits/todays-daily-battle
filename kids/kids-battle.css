@@ -2830,9 +2830,11 @@
   min-width: 140px;
   max-width: 200px;
   padding: 0.65rem 0.75rem;
-  border-radius: 12px;
+  border-radius: var(--tdb-surface-radius, 12px);
   border: 2px solid rgba(250, 204, 21, 0.45);
-  background: rgba(15, 23, 42, 0.85);
+  background-color: var(--tdb-surface-card-bg, rgba(15, 23, 42, 0.85));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-card-shadow, none);
   text-decoration: none;
   color: #fef08a;
   scroll-snap-align: start;
@@ -2868,9 +2870,11 @@
 .kids-fuse-suggest {
   margin: 0.35rem 0 0.85rem;
   padding: 0.35rem;
-  border-radius: 12px;
+  border-radius: var(--tdb-surface-radius, 12px);
   border: 2px solid rgba(250, 204, 21, 0.28);
-  background: rgba(15, 23, 42, 0.94);
+  background-color: var(--tdb-surface-panel-bg, rgba(15, 23, 42, 0.94));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-panel-shadow, none);
   max-height: 240px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -2888,7 +2892,8 @@
   margin: 0.12rem 0;
   border: none;
   border-radius: 8px;
-  background: rgba(30, 41, 59, 0.72);
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(30, 41, 59, 0.85)) 90%, #0f172a);
+  background-image: var(--tdb-surface-veil-subtle, none);
   color: #e2e8f0;
   cursor: pointer;
   font-family: 'Nunito', sans-serif;
@@ -2896,7 +2901,7 @@
 }
 .kids-fuse-suggest-item:hover,
 .kids-fuse-suggest-item:focus-visible {
-  background: rgba(51, 65, 85, 0.85);
+  background-color: color-mix(in srgb, var(--tdb-surface-card-bg, rgba(51, 65, 85, 0.88)) 88%, #1e293b);
   outline: 2px solid rgba(250, 204, 21, 0.45);
   outline-offset: 1px;
 }

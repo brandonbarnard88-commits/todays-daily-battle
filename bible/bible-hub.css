@@ -165,7 +165,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: 0.95rem;
   color: #e2e8f0;
-  background: rgba(15, 23, 42, 0.9);
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(15, 23, 42, 0.9)) 94%, #0f172a);
   border: 2px solid var(--bible-gold-dim);
   border-radius: 10px;
   resize: vertical;
@@ -204,7 +204,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: 0.95rem;
   color: #e2e8f0;
-  background: rgba(15, 23, 42, 0.9);
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(15, 23, 42, 0.9)) 94%, #0f172a);
   border: 2px solid var(--bible-gold);
   border-radius: 10px;
   resize: vertical;
@@ -264,7 +264,8 @@
   font-size: 0.9rem;
   border: 2px solid var(--bible-gold-dim);
   border-radius: 8px;
-  background: var(--bible-card);
+  background-color: var(--tdb-surface-panel-bg, var(--bible-card));
+  background-image: var(--tdb-surface-veil-subtle, none);
   color: #e2e8f0;
   box-sizing: border-box;
 }
@@ -313,7 +314,8 @@
   font-size: 1rem;
   border: 3px solid var(--bible-gold-dim);
   border-radius: 10px;
-  background: var(--bible-card);
+  background-color: var(--tdb-surface-panel-bg, var(--bible-card));
+  background-image: var(--tdb-surface-veil-subtle, none);
   color: #e2e8f0;
   margin-bottom: 1rem;
   box-sizing: border-box;
@@ -321,9 +323,11 @@
 
 /* Daily verse card */
 .bible-hub-verse-card {
-  background: var(--bible-card);
-  border: 2px solid var(--bible-gold-dim);
-  border-radius: 12px;
+  background-color: var(--tdb-surface-card-bg, var(--bible-card));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  border: 2px solid color-mix(in srgb, var(--tdb-surface-card-border, var(--bible-gold-dim)) 55%, var(--bible-gold-dim));
+  border-radius: var(--tdb-surface-radius, 12px);
+  box-shadow: var(--tdb-surface-card-shadow, none);
   padding: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -667,9 +671,11 @@
   flex: 0 0 min(85%, 260px);
   scroll-snap-align: center;
   scroll-snap-stop: always;
-  background: var(--bible-card);
+  background-color: var(--tdb-surface-card-bg, var(--bible-card));
+  background-image: var(--tdb-surface-veil-subtle, none);
   border: 2px solid var(--bible-gold-dim);
-  border-radius: 12px;
+  border-radius: var(--tdb-surface-radius, 12px);
+  box-shadow: var(--tdb-surface-card-shadow, none);
   padding: 1rem;
   cursor: pointer;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -677,7 +683,7 @@
 
 .verse-of-week-panel:hover {
   border-color: var(--bible-gold);
-  box-shadow: 0 4px 16px var(--bible-gold-dim);
+  box-shadow: var(--tdb-surface-card-shadow-hover, 0 4px 16px var(--bible-gold-dim));
 }
 
 .verse-of-week-panel:nth-child(1) { animation: versePanelFadeIn 0.6s ease-out 0s both; }
@@ -849,7 +855,8 @@
   font-family: 'Nunito', sans-serif;
   font-size: 0.95rem;
   color: #e2e8f0;
-  background: var(--bible-card);
+  background-color: var(--tdb-surface-panel-bg, var(--bible-card));
+  background-image: var(--tdb-surface-veil-subtle, none);
   border: 2px solid var(--bible-gold-dim);
   border-radius: 10px;
   resize: vertical;

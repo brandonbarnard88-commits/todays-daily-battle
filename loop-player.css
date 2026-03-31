@@ -19,7 +19,7 @@
   padding: 0.4rem 0.65rem;
   border-radius: 8px;
   border: 1px solid rgba(212, 175, 55, 0.4);
-  background: rgba(15, 22, 36, 0.6);
+  background-color: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(15, 22, 36, 0.75)) 90%, #0f172a);
   color: var(--text, #e2e8f0);
   font-size: 0.9rem;
   min-width: 140px;
@@ -30,17 +30,18 @@
 }
 
 .kids-corner-report-banner {
-  background: linear-gradient(145deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.96));
+  background-color: var(--tdb-surface-card-bg, rgba(15, 23, 42, 0.96));
+  background-image: var(--tdb-surface-veil-subtle, linear-gradient(145deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.96)));
   border: 1px solid rgba(250, 204, 21, 0.45);
   padding: 0.85rem 1rem;
   margin: 0 auto 0.5rem;
   max-width: 800px;
   text-align: center;
-  border-radius: var(--radius-md, 12px);
+  border-radius: var(--tdb-surface-radius, var(--radius-md, 12px));
   font-size: 0.95rem;
   color: #e2e8f0;
   line-height: 1.5;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35);
+  box-shadow: var(--tdb-surface-card-shadow, 0 8px 24px rgba(15, 23, 42, 0.35));
 }
 
 .kids-corner-report-banner strong {

@@ -13,18 +13,42 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260405hubs">
   <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260328offstrip">
-  <link rel="stylesheet" href="what-god-has-done.css?v=20260431wghdawn">
+  <link rel="stylesheet" href="what-god-has-done.css?v=20260331aux-surface">
   <style>
-    :root { --bg:#0d1117; --text:#f5f7fb; --muted:#8896b0; --gold:#e3bc67; --line:#242d3d; }
+    :root {
+      --bg: #0d1117;
+      --card: #161c26;
+      --text: #f5f7fb;
+      --muted: #8896b0;
+      --gold: #e3bc67;
+      --line: #242d3d;
+      --tdb-surface-veil-subtle: var(--tdb-lux-guilloche);
+      --tdb-surface-card-bg: color-mix(in srgb, var(--card) 93%, rgba(227, 188, 103, 0.09));
+      --tdb-surface-card-border: color-mix(in srgb, var(--line) 82%, rgba(227, 188, 103, 0.22));
+      --tdb-surface-card-shadow: 0 10px 32px rgba(0, 0, 0, 0.32),
+        0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.2) 50%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+      --tdb-surface-panel-bg: color-mix(in srgb, var(--card) 96%, rgba(139, 166, 217, 0.06));
+      --tdb-surface-panel-border: color-mix(in srgb, var(--line) 90%, rgba(227, 188, 103, 0.12));
+      --tdb-surface-panel-shadow: 0 6px 22px rgba(0, 0, 0, 0.26),
+        0 0 0 1px color-mix(in srgb, var(--line) 70%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+      --tdb-surface-radius: 18px;
+    }
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
     .skip-link { position: absolute; left: -9999px; }
     .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--gold); color: #111; }
     .tdb-global-nav {
       display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
-      padding: 0.35rem 0.75rem; min-height: 52px;
-      background: rgba(8, 12, 22, 0.55); border-bottom: 1px solid rgba(227, 188, 103, 0.22);
-      position: sticky; top: 0; z-index: 201; backdrop-filter: blur(10px); font-size: 0.86rem;
+      padding: 0.35rem 0.75rem; min-height: 52px; box-sizing: border-box;
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border-bottom: 1px solid var(--tdb-surface-panel-border);
+      box-shadow: var(--tdb-surface-panel-shadow);
+      position: sticky; top: 0; z-index: 201;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      font-size: 0.86rem;
     }
     .tdb-global-nav a {
       color: rgba(226, 232, 240, 0.85); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px;

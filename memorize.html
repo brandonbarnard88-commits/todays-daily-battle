@@ -14,7 +14,26 @@
   <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260405hubs">
   <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260328offstrip">
   <style>
-    :root { --bg:#0d1117; --text:#f5f7fb; --muted:#8896b0; --gold:#e3bc67; --line:#242d3d; }
+    :root {
+      --bg:#0d1117;
+      --card:#161c26;
+      --text:#f5f7fb;
+      --muted:#8896b0;
+      --gold:#e3bc67;
+      --line:#242d3d;
+      --tdb-surface-veil-subtle: var(--tdb-lux-guilloche);
+      --tdb-surface-card-bg: color-mix(in srgb, var(--card) 93%, rgba(227, 188, 103, 0.09));
+      --tdb-surface-card-border: color-mix(in srgb, var(--line) 82%, rgba(227, 188, 103, 0.22));
+      --tdb-surface-card-shadow: 0 10px 32px rgba(0, 0, 0, 0.32),
+        0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.2) 50%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+      --tdb-surface-panel-bg: color-mix(in srgb, var(--card) 96%, rgba(139, 166, 217, 0.06));
+      --tdb-surface-panel-border: color-mix(in srgb, var(--line) 90%, rgba(227, 188, 103, 0.12));
+      --tdb-surface-panel-shadow: 0 6px 22px rgba(0, 0, 0, 0.26),
+        0 0 0 1px color-mix(in srgb, var(--line) 70%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+      --tdb-surface-radius: 18px;
+    }
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
     .skip-link { position: absolute; left: -9999px; }
@@ -22,7 +41,10 @@
     .tdb-global-nav {
       display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
       padding: 0.35rem 0.75rem; min-height: 52px;
-      background: rgba(8, 12, 22, 0.55); border-bottom: 1px solid rgba(227, 188, 103, 0.22);
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border-bottom: 1px solid var(--tdb-surface-panel-border);
+      box-shadow: var(--tdb-surface-panel-shadow);
       position: sticky; top: 0; z-index: 201; backdrop-filter: blur(10px); font-size: 0.86rem;
     }
     .tdb-global-nav a {
@@ -51,12 +73,18 @@
     label { display: block; font-weight: 600; margin: 0.5rem 0 0.25rem; font-size: 0.88rem; color: rgba(226, 232, 240, 0.88); }
     input[type="text"] {
       width: 100%; max-width: 22rem; min-height: 44px; padding: 0.45rem 0.65rem; border-radius: 10px;
-      border: 1px solid var(--line); background: rgba(15, 23, 42, 0.55); color: var(--text); font-family: inherit; font-size: 1rem;
+      border: 1px solid var(--tdb-surface-panel-border);
+      background-color: color-mix(in srgb, var(--tdb-surface-panel-bg) 92%, #0f172a);
+      color: var(--text); font-family: inherit; font-size: 1rem;
     }
     input:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.45); outline-offset: 2px; }
     .mem-card {
-      margin-top: 1rem; padding: 1rem 1.1rem; border-radius: 14px; border: 1px solid rgba(227, 188, 103, 0.25);
-      background: rgba(12, 18, 30, 0.55); min-height: 8rem;
+      margin-top: 1rem; padding: 1rem 1.1rem; border-radius: var(--tdb-surface-radius);
+      border: 1px solid var(--tdb-surface-card-border);
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-card-shadow);
+      min-height: 8rem;
     }
     .mem-card p { margin: 0.35rem 0 0; }
     .mem-card .mem-ref { font-weight: 700; color: var(--gold); font-size: 1.05rem; }

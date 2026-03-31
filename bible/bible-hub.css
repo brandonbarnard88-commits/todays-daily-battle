@@ -278,7 +278,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
+  background-color: color-mix(in srgb, #000000 70%, var(--tdb-surface-card-bg, #0f172a) 30%);
   padding: 1rem;
 }
 
@@ -287,7 +287,9 @@
 }
 
 .bible-hub-name-modal-inner {
-  background: var(--bible-bg);
+  background-color: var(--tdb-surface-card-bg, var(--bible-bg));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-card-shadow, none);
   border: 4px solid var(--bible-gold);
   border-radius: 16px;
   padding: 1.5rem;
@@ -432,8 +434,10 @@
   display: flex;
   justify-content: space-around;
   padding: 0.5rem 0.5rem max(0.5rem, env(safe-area-inset-bottom));
-  background: rgba(8, 12, 22, 0.98);
-  border-top: 2px solid var(--bible-gold-dim);
+  background-color: var(--tdb-surface-panel-bg, rgba(8, 12, 22, 0.98));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  border-top: 2px solid var(--tdb-surface-panel-border, var(--bible-gold-dim));
+  box-shadow: var(--tdb-surface-panel-shadow, none);
   z-index: 50;
 }
 
@@ -531,7 +535,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.75);
+  background-color: color-mix(in srgb, #000000 74%, var(--tdb-surface-card-bg, #0f172a) 26%);
   padding: 1rem;
   overflow-y: auto;
 }
@@ -541,7 +545,9 @@
 }
 
 .bible-hub-chapter-modal-inner {
-  background: var(--bible-bg);
+  background-color: var(--tdb-surface-card-bg, var(--bible-bg));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-card-shadow, none);
   border: 4px solid var(--bible-gold);
   border-radius: 16px;
   padding: 1.5rem;
@@ -774,7 +780,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.75);
+  background-color: color-mix(in srgb, #000000 74%, var(--tdb-surface-card-bg, #0f172a) 26%);
   padding: 1rem;
 }
 
@@ -783,7 +789,9 @@
 }
 
 .verse-of-week-study-inner {
-  background: var(--bible-bg);
+  background-color: var(--tdb-surface-card-bg, var(--bible-bg));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-card-shadow, none);
   border: 4px solid var(--bible-gold);
   border-radius: 16px;
   padding: 1.5rem;
@@ -819,7 +827,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.75);
+  background-color: color-mix(in srgb, #000000 74%, var(--tdb-surface-card-bg, #0f172a) 26%);
   padding: 1rem;
 }
 
@@ -828,7 +836,9 @@
 }
 
 .verse-of-week-note-inner {
-  background: var(--bible-bg);
+  background-color: var(--tdb-surface-card-bg, var(--bible-bg));
+  background-image: var(--tdb-surface-veil-subtle, none);
+  box-shadow: var(--tdb-surface-card-shadow, none);
   border: 4px solid var(--bible-gold);
   border-radius: 16px;
   padding: 1.5rem;

@@ -351,7 +351,7 @@
   display: grid;
   place-items: center;
   padding: 1rem;
-  background: rgba(15, 23, 42, 0.82);
+  background-color: color-mix(in srgb, var(--tdb-surface-card-bg, rgba(15, 23, 42, 0.94)) 78%, #000000);
 }
 
 .loop-modal.is-hidden {

@@ -77,8 +77,13 @@ main.tdb-calm-hub a:focus-visible {
   box-sizing: border-box;
   margin: 0;
   padding: 0.55rem 1.25rem;
-  background: rgba(227, 188, 103, 0.12);
-  border-bottom: 1px solid rgba(227, 188, 103, 0.25);
+  background-color: color-mix(
+    in srgb,
+    var(--tdb-surface-panel-bg, rgba(13, 17, 23, 0.96)) 82%,
+    rgba(227, 188, 103, 0.22)
+  );
+  background-image: var(--tdb-surface-veil-subtle, none);
+  border-bottom: 1px solid var(--tdb-surface-panel-border, rgba(227, 188, 103, 0.25));
   color: rgba(245, 247, 251, 0.92);
   font-size: 0.88rem;
   line-height: 1.45;

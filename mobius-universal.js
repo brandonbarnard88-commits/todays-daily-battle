@@ -1042,8 +1042,10 @@
       var el = document.getElementById('mobius-streak-display');
       if (el) {
         if (n === 0) el.textContent = '0 loops this week.';
-        else if (n === 1) el.textContent = '1 loop this week. One step stronger.';
-        else if (n >= 3) safeSetHTML(el, n + ' loops this week. <strong>You\'re building something real.</strong>');
+        else if (n === 1) el.textContent = '1 loop this week — one honest lap on the ribbon.';
+        else if (n >= 3)
+          el.textContent =
+            n + ' loops this week — a quiet marker that you are still walking this ribbon with Him.';
         else el.textContent = n + ' loops this week.';
       }
     } catch (e) {}

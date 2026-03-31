@@ -57,8 +57,17 @@
     h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.35rem; font-weight: 800; }
     .subtitle { color: var(--muted); margin: 0 0 1rem; font-size: 0.95rem; }
     .lead { color: rgba(245, 247, 251, 0.9); margin: 0 0 1.5rem; line-height: 1.6; }
-    section { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
-    section:last-of-type { border-bottom: none; }
+    main.mem-main > section {
+      margin-bottom: 1.35rem;
+      padding: 1.2rem 1.15rem 1.35rem;
+      border-radius: var(--tdb-surface-radius);
+      border: 1px solid var(--tdb-surface-panel-border);
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-panel-shadow);
+      box-sizing: border-box;
+    }
+    main.mem-main > section:last-of-type { margin-bottom: 0; }
     h2 { font-size: 1.05rem; color: var(--gold); margin: 0 0 0.65rem; font-weight: 700; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
@@ -155,6 +164,11 @@
     }
     .mem-progress-summary { margin-top: 0.45rem !important; max-width: 36rem; }
     .mem-queue li.mem-queue-due { border-left: 3px solid rgba(227, 188, 103, 0.45); padding-left: 0.45rem; margin-left: -0.15rem; }
+    .mem-snooze-row {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;
+      width: 100%; margin-top: 0.25rem;
+    }
+    .mem-snooze-btn { font-size: 0.78rem !important; padding: 0.3rem 0.5rem !important; min-height: 40px !important; }
     @media (max-width: 380px) {
       .mem-progress-rhythm { gap: 0.35rem; max-width: 100%; }
       .mem-seed { max-width: 1.85rem; height: 0.5rem; }
@@ -203,7 +217,7 @@
   <main id="main" class="mem-main tdb-calm-hub">
     <h1>Memorize</h1>
     <p class="subtitle">Private &mdash; everything stays on this device</p>
-    <p class="lead">Quiet tools to hide God&rsquo;s Word in your heart. No streaks, no scores, no competition&mdash;just gentle repetition that still works on hard days.</p>
+    <p class="lead">Quiet tools to hide God&rsquo;s Word in your heart. No streaks, no scores, no competition&mdash;just gentle repetition that still works on hard days. Verses you keep in <a href="/my-verses.html" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">My Verses</a> have a Memorize link on each card.</p>
 
     <section aria-labelledby="mem-card-h2">
       <h2 id="mem-card-h2">One-tap verse cards</h2>
@@ -242,6 +256,7 @@
       <p id="mem-queue-filter-empty" class="section-note" hidden role="status" aria-live="polite"></p>
       <ul id="mem-queue-list" class="mem-queue" aria-label="Memory list"></ul>
       <p id="mem-queue-empty" class="lead">Nothing here yet.<br><br>When a verse touches your heart, tap <strong>Add to your memory list</strong> above.<br><br>The Lord meets you right where you are.</p>
+      <p id="mem-snooze-legend" class="section-note">When your list has verses, optional buttons appear beside each line: <strong>In 1d</strong>, <strong>In 3d</strong>, <strong>In 7d</strong> schedule the next gentle check-in about that many days out&mdash;still private, still no score.</p>
     </section>
 
     <section aria-labelledby="mem-type-h2">

@@ -1344,6 +1344,75 @@
       outline: 2px solid var(--gold-soft);
       outline-offset: 2px;
     }
+    /* Optional: one quiet “pick up on this device” row (journal / memorize / WGHD) */
+    .tdb-home-continue-loop-wrap {
+      margin: 0 0 0.65rem;
+      max-width: 52rem;
+      width: 100%;
+      align-self: center;
+      box-sizing: border-box;
+    }
+    .tdb-home-continue-loop-wrap[hidden] {
+      display: none !important;
+    }
+    .tdb-home-continue-loop-link {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
+      min-height: 44px;
+      padding: 0.55rem 0.95rem;
+      border-radius: 14px;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid color-mix(in srgb, var(--line) 90%, var(--gold) 10%);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card) 94%, rgba(227, 188, 103, 0.06)) 0%, color-mix(in srgb, var(--bg-soft) 55%, var(--card)) 100%);
+      box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 3.5%, transparent);
+      font-family: var(--font-ui, ui-sans-serif, system-ui, sans-serif);
+    }
+    .tdb-home-continue-loop-link:hover {
+      border-color: color-mix(in srgb, var(--line) 82%, var(--gold) 18%);
+    }
+    .tdb-home-continue-loop-link:focus-visible {
+      outline: 2px solid var(--gold-soft);
+      outline-offset: 3px;
+    }
+    .tdb-home-continue-loop-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 78%, var(--gold-soft) 22%);
+      margin: 0;
+    }
+    .tdb-home-continue-loop-title {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      font-weight: 600;
+      color: color-mix(in srgb, var(--text) 92%, var(--muted));
+    }
+    :root[data-theme="light"] .tdb-home-continue-loop-link {
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card) 97%, #fff) 0%, var(--card) 100%);
+      border-color: color-mix(in srgb, var(--line) 92%, var(--gold) 8%);
+    }
+    :root[data-theme="light"] .tdb-home-continue-loop-title {
+      color: color-mix(in srgb, var(--text) 88%, #334155);
+    }
+    /* Empty device: slightly easier to notice, still soft */
+    .tdb-home-continue-loop-wrap--soft .tdb-home-continue-loop-link {
+      border-color: color-mix(in srgb, var(--line) 78%, var(--gold) 22%);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card) 88%, rgba(227, 188, 103, 0.09)) 0%, color-mix(in srgb, var(--bg-soft) 52%, var(--card)) 100%);
+    }
+    .tdb-home-continue-loop-wrap--soft .tdb-home-continue-loop-eyebrow {
+      color: color-mix(in srgb, var(--muted) 62%, var(--gold-soft) 38%);
+    }
+    .tdb-home-continue-loop-wrap--soft .tdb-home-continue-loop-title {
+      color: color-mix(in srgb, var(--text) 91%, var(--gold-soft) 9%);
+    }
+    :root[data-theme="light"] .tdb-home-continue-loop-wrap--soft .tdb-home-continue-loop-link {
+      border-color: color-mix(in srgb, var(--line) 85%, var(--gold) 15%);
+    }
     /* Easter season (Gregorian window): same calm band as Battle Plans */
     .easter-banner {
       display: flex; align-items: flex-start; justify-content: space-between; gap: 0.65rem;
@@ -5586,6 +5655,7 @@
         <p class="tdb-why-stay-line" id="tdb-why-stay-line">A quiet place for Scripture&mdash;any kind of day.</p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Verses">
           <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Verses on this device">Save to My Verses</button>
+          <a href="memorize.html" class="btn btn-secondary hero-memorize-link" id="hero-memorize-link" aria-label="Open gentle memorize tools for today’s verse">Memorize</a>
           <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/my-verses.html">Open My Verses</a>.</p>
           <p class="hero-my-verses-privacy-note" id="hero-my-verses-privacy-line">Saves stay here on this device unless you sign in.</p>
         </div>
@@ -5662,6 +5732,13 @@
         </p>
         <p id="tdbHomeMobiusWeek" class="tdb-home-mobius-week" role="status" aria-live="polite" hidden></p>
       </nav>
+
+      <div id="tdb-home-continue-loop-wrap" class="tdb-home-continue-loop-wrap" role="region" aria-label="Pick up on this device" hidden>
+        <a id="tdb-home-continue-loop-link" class="tdb-home-continue-loop-link" href="mobius.html#mobius-loop-journal">
+          <span class="tdb-home-continue-loop-eyebrow" id="tdb-home-continue-loop-eyebrow"></span>
+          <span class="tdb-home-continue-loop-title" id="tdb-home-continue-loop-title"></span>
+        </a>
+      </div>
 
       <div class="easter-banner hidden" id="tdbHomeEasterBanner" role="region" aria-labelledby="tdbHomeEasterBannerH" hidden>
         <div class="easter-banner-text">
@@ -8239,6 +8316,9 @@
       try {
         updatePlanStreak();
       } catch (e) {}
+      try {
+        if (typeof window.tdbRefreshHomeContinueLoop === 'function') window.tdbRefreshHomeContinueLoop();
+      } catch (e2) {}
     };
     window.addEventListener('tdb-my-verses-updated', function () {
       if (typeof window.tdbRefreshHomeResume === 'function') window.tdbRefreshHomeResume();

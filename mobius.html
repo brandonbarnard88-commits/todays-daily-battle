@@ -698,7 +698,7 @@
       <p class="mobius-kjv-banner" role="note">This page is <strong>KJV only</strong> for Scripture and practice: the graph, the text loop, and the Deep Walk below all draw from the same Word—no apocrypha, no mixed sources.</p>
       <h1>Möbius Loop</h1>
       <p class="mobius-season-lead"><strong>One ribbon, one path.</strong> This is a meditative endurance practice, not a quick pick-me-up: fear, grief, anxiety, and pain do not get a tidy &ldquo;other side&rdquo; you escape to&mdash;you stay on the same surface. The half-twist is the Cross: it does not erase the loop; it turns the direction so the same trials can roll forward with strength, hope, and endurance. You do not &ldquo;get over it&rdquo;; you trace it with God until the path itself changes you.</p>
-      <p class="mobius-audio-roadmap tdb-listen-privacy-hint" role="note">On our list: gentle <strong>human-narrated</strong> breathing and plan-day audio when we can record and host it well&mdash;still private, still optional. Add <code>mobius-breathe-human.mp3</code> for Text mode and <code>mobius-guided-human.mp3</code> for the 10-minute Deep Walk when ready. For now, <strong>Listen</strong> on the homepage and plan cards uses calm device speech; the 10-minute guide keeps its own track. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
+      <p class="mobius-audio-roadmap tdb-listen-privacy-hint" role="note">Optional spoken layers: <code>mobius-breathe-human.mp3</code> (calm path) and <code>mobius-guided-human.mp3</code> (Deep Walk alternate) ship as calm system reads you can swap for studio recordings&mdash;same filenames. <strong>Listen</strong> on the homepage and plan cards still uses on-device speech; the main 10-minute guide keeps its own track. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
       <p><strong>Graph</strong> shows the mood cycle on one surface&mdash;how the loop can spiral upward with God&rsquo;s twist. <strong>Text</strong> is slow breath (inhale the hard truth, exhale <strong>2 Timothy 1:7</strong>), then twelve to twenty quiet passes through the verse (KJV). The <strong>Deep Walk</strong> below is the same truth in plain steps, with an optional ten-minute guided track. Counts and notes stay on this device; everything still works offline after the first load.</p>
       <div class="tdb-soft-retry-row"><button type="button" class="tool-btn tool-btn-muted tdb-soft-retry-btn">Try again</button></div>
     </header>
@@ -734,9 +734,9 @@
         <legend>Deep meditation audio</legend>
         <ul class="mobius-guided-voice-options" role="radiogroup" aria-label="Choose guided track">
           <li><label><input type="radio" name="mobius-guided-voice" value="studio" checked> Original guide track</label></li>
-          <li><label><input type="radio" name="mobius-guided-voice" value="human" aria-describedby="mobius-human-voice-hint"> Human narrator</label></li>
+          <li><label><input type="radio" name="mobius-guided-voice" value="human" aria-describedby="mobius-human-voice-hint"> Spoken narrator (alternate)</label></li>
         </ul>
-        <p id="mobius-human-voice-hint" class="mobius-guided-voice-hint">Uses <span class="sr-only">file </span><code>mobius-guided-human.mp3</code> in <code>/audio/</code> when you add it. See <code>audio/README.md</code>.</p>
+        <p id="mobius-human-voice-hint" class="mobius-guided-voice-hint">Uses <span class="sr-only">file </span><code>mobius-guided-human.mp3</code> when present. Default is a gentle system voice; replace the file for a human studio read anytime. See <code>audio/README.md</code>.</p>
       </fieldset>
       <p id="mobius-streak-display" class="mobius-streak-display" role="status" aria-live="polite"></p>
       <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle&mdash;through 2 Timothy 1:7 and back around the ribbon"></div>
@@ -901,9 +901,9 @@
           <legend>Breathing guide</legend>
           <label class="mobius-breathe-voice-label" for="mobius-breathe-human-enable">
             <input type="checkbox" id="mobius-breathe-human-enable" aria-describedby="mobius-breathe-human-hint" />
-            Human voice for the three slow rounds (optional)
+            Spoken guide for the three slow rounds (optional)
           </label>
-          <p id="mobius-breathe-human-hint" class="mobius-guided-voice-hint">When <code>mobius-breathe-human.mp3</code> is in <code>/audio/</code>, you can add a calm spoken layer beside the ring. Playback is on this device only&mdash;nothing is uploaded for listening.</p>
+          <p id="mobius-breathe-human-hint" class="mobius-guided-voice-hint">A calm spoken track sits beside the ring&mdash;playback stays on this device only. The default file is a gentle system voice; swap <code>mobius-breathe-human.mp3</code> for your own human read anytime (same filename).</p>
         </fieldset>
         <button type="button" id="mobius-v2-start" class="tool-btn" aria-label="Begin calm path with breathing and verse">Begin calm path</button>
         <div id="mobius-v2-stage" class="mobius-v2-stage">
@@ -973,10 +973,10 @@
   </main>
 
   <audio id="mobius-guided-audio" src="/audio/mobius-guided-10min.mp3" preload="metadata" aria-label="10-minute guided meditation"></audio>
-  <audio id="mobius-guided-audio-human" preload="none" aria-label="Human-narrated guided meditation">
+  <audio id="mobius-guided-audio-human" preload="none" aria-label="Spoken alternate guided meditation (10 minutes)">
     <source src="/audio/mobius-guided-human.mp3" type="audio/mpeg">
   </audio>
-  <audio id="mobius-breathe-human-audio" preload="none" playsinline aria-label="Human breathing guide for calm path">
+  <audio id="mobius-breathe-human-audio" preload="none" playsinline aria-label="Spoken breathing guide for calm path">
     <source src="/audio/mobius-breathe-human.mp3" type="audio/mpeg">
   </audio>
 

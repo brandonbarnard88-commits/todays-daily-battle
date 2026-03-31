@@ -1,6 +1,8 @@
 *.txt
 !.well-known/security.txt
 !CLOUDFLARE-CSP-COPY-PASTE.txt
+!scripts/mobius-breathe-human-say-input.txt
+!scripts/mobius-guided-human-say-input.txt
 token*
 *.key
 .env
@@ -28,3 +30,10 @@ test-results/
 media/kids-stories/*.mp4
 media/kids-stories/*.webm
 .vercel
+
+# Möbius breathe generator temps (track audio/mobius-breathe-human.mp3 only)
+audio/mobius-breathe-human-temp.*
+# Möbius guided alternate-track generator temps
+audio/mobius-guided-human-temp.*
+audio/mobius-guided-pad-temp.wav
+audio/mobius-guided-merged-temp.wav

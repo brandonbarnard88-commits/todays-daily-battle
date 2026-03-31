@@ -1,5 +1,18 @@
 # Offline Verse Audio (MP3)
 
+## Möbius human narration (highest-leverage polish)
+
+Two files drive the **premium** Möbius experience. Replace the bundled placeholders (often macOS “Samantha” / system TTS renders) with **your own calm human studio reads** when ready—same filenames, same paths:
+
+| File | Role |
+|------|------|
+| `mobius-guided-human.mp3` | ~10 min alternate for **Deep meditation** (timer ~600s) |
+| `mobius-breathe-human.mp3` | ~1–2 min optional guide beside **Begin calm path** breathing |
+
+After export: drop into `audio/`, run **`npm run verify:mobius-audio`**, then **`npm run build`** and deploy. Spec: `docs/MOBIUS-STUDIO-AUDIO-SPEC.md`. Scripts: `docs/mobius-guided-audio-script.md`, `docs/MOBIUS-BREATHE-HUMAN-SCRIPT.md`.
+
+---
+
 Add these MP3 files for offline TTS fallback when users tap "Listen" without internet:
 
 | File | Verse | Suggested length |
@@ -27,24 +40,28 @@ Add these MP3 files for offline TTS fallback when users tap "Listen" without int
 
 When present, the "Deep meditation (10 min)" button plays this audio and syncs the countdown.
 
-### Optional: human-narrated guide (same slot)
+### Deep Walk — alternate spoken track (same slot as 10-minute guide)
 
 | File | Description |
 |------|-------------|
-| `mobius-guided-human.mp3` | Same purpose and rough length as `mobius-guided-10min.mp3`, but read by a human voice. When this file is deployed under `/audio/`, Möbius shows a second radio choice ("Human narrator") for the deep meditation timer. |
+| `mobius-guided-human.mp3` | Same purpose and **~10 minute** length as `mobius-guided-10min.mp3`. The repo ships a **macOS Samantha** (system TTS) render plus trailing silence so the timer stays aligned; replace with a **human studio read** anytime (same filename). When deployed, Möbius shows a second radio choice (**Spoken narrator (alternate)**). |
 
-Record or commission separately; keep KJV-adjacent pacing calm and plain (no hype). Mono MP3, 128kbps or similar is fine.
+Script source: `docs/mobius-guided-audio-script.md` (condensed into `scripts/mobius-guided-human-say-input.txt` for generation). Keep KJV-adjacent pacing calm and plain (no hype). Mono MP3, ~96 kbps is fine for length.
 
-**Flagship path:** One strong human read of this track (same slot as the 10-minute guide) unlocks the radio on Möbius automatically via `HEAD /audio/mobius-guided-human.mp3`. Offline: add the same filename under `/audio/` in your deploy and ensure your service worker / CDN cache includes it once the file exists.
+**Regenerate (macOS):** `npm run audio:mobius-guided` — uses `say`, `afconvert`, and `ffmpeg-static` (pads to ~600s). Full checklist: `docs/HUMAN-AUDIO-MILESTONE.md`.
 
-**Owner step:** The app cannot ship a real human voice from code—add `mobius-guided-human.mp3` locally or from your studio, then deploy. Full checklist: `docs/HUMAN-AUDIO-MILESTONE.md`.
-
-### Optional: human voice for calm-path breathing (Text mode v2)
+### Calm-path breathing guide (Text mode v2)
 
 | File | Description |
 |------|-------------|
-| `mobius-breathe-human.mp3` | Short spoken guide meant to sit **beside** the three slow breathing rounds before 2 Timothy 1:7 repetitions (same visual ring/timers). When deployed under `/audio/`, Möbius shows an optional checkbox on the calm path. |
+| `mobius-breathe-human.mp3` | Short **spoken** guide beside the three slow breathing rounds before 2 Timothy 1:7 repetitions (same visual ring/timers). The repo ships a calm **macOS Samantha** (system TTS) render so the feature works out of the box; replace this file with a **human studio read** anytime (keep the same filename). |
 
 **Length / shape:** Roughly one to two minutes is enough for a gentle intro plus cues through three in/hold/out cycles; it does not need to lock-step every second with the UI. Plain tone, no hype (same posture as the 10-minute guide).
 
+**Suggested spoken script:** `docs/MOBIUS-BREATHE-HUMAN-SCRIPT.md`
+
+**Regenerate (macOS):** `npm run audio:mobius-breathe` — uses `scripts/mobius-breathe-human-say-input.txt`, `say`, `afconvert`, and `ffmpeg-static`. WAV-only encode: `node scripts/encode-mobius-breathe-wav-to-mp3.mjs`.
+
 **Privacy:** Same as other static MP3s—fetch and decode on device; no upload of listening or voice.
+
+**Studio human replacements:** `docs/MOBIUS-STUDIO-AUDIO-SPEC.md` — after export, run **`npm run verify:mobius-audio`** (duration + channel check).

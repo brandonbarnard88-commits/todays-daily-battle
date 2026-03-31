@@ -151,3 +151,9 @@ Amen.
 - **Music (optional):** Very soft ambient pad or single sustained note. No melody. Fade in/out gently.
 - **Format:** MP3 or WebM. Target ~1–2 MB for 10 min.
 - **File:** Save as `mobius-guided-10min.mp3` in project root or `/audio/`.
+
+---
+
+## Alternate track filename (`mobius-guided-human.mp3`)
+
+For the **Spoken narrator (alternate)** radio on Möbius, use the same script and pacing (~10 minutes). A condensed `say` input for regeneration lives at `scripts/mobius-guided-human-say-input.txt`; run **`npm run audio:mobius-guided`** (macOS) to rebuild the default system-voice MP3, or replace that file with a studio recording.

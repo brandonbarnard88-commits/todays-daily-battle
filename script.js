@@ -9825,6 +9825,21 @@ function wirePrayThisWithMe() {
       var card = document.getElementById('daily-verse-card');
       return { ref: tdbGetDailyVerseRefFromCard(card), text: tdbGetDailyVerseTextFromCard(card) };
     }
+    function updateVersePageMemorizeLink() {
+      var v = versePageGetCardRefAndText();
+      if (!v.ref) return;
+      var href = 'memorize.html?ref=' + encodeURIComponent(v.ref);
+      var link = document.getElementById('verse-page-memorize-link');
+      if (link) {
+        link.href = href;
+        link.setAttribute('aria-label', 'Open gentle memorize tools for ' + v.ref);
+      }
+      var hintMem = document.getElementById('verse-save-hint-memorize');
+      if (hintMem) {
+        hintMem.href = href;
+        hintMem.setAttribute('aria-label', 'Open gentle memorize tools for ' + v.ref);
+      }
+    }
     function updateVersePageSaveMyVersesState() {
       var btn = document.getElementById('verse-page-save-my-verses');
       if (!btn) return;
@@ -9874,8 +9889,10 @@ function wirePrayThisWithMe() {
     });
     if (typeof window !== 'undefined' && window.addEventListener) {
       window.addEventListener('tdb-daily-verse-updated', updateVersePageSaveMyVersesState);
+      window.addEventListener('tdb-daily-verse-updated', updateVersePageMemorizeLink);
     }
     updateVersePageSaveMyVersesState();
+    updateVersePageMemorizeLink();
   }
   var dailyBtn = document.getElementById('pray-this-with-me-daily');
   if (dailyBtn) {
@@ -10003,6 +10020,16 @@ function wireHeroSaveToMyVerses() {
         heroBtn.setAttribute('aria-label', 'Save today\'s verse to My Verses on this device');
       }
     }
+    var heroMem = document.getElementById('hero-memorize-link');
+    if (heroMem) {
+      if (!v.ref) {
+        heroMem.href = 'memorize.html';
+        heroMem.setAttribute('aria-label', 'Open Memorize — verse still loading');
+      } else {
+        heroMem.href = 'memorize.html?ref=' + encodeURIComponent(v.ref);
+        heroMem.setAttribute('aria-label', 'Open gentle memorize tools for ' + v.ref);
+      }
+    }
   }
 
   function runSave() {
@@ -10040,6 +10067,214 @@ function wireHeroSaveToMyVerses() {
     });
   }
   updateHeroSaveButtons();
+}
+
+/**
+ * Homepage only: one optional row linking to local journal / memorize / WGHD (localStorage only).
+ */
+function wireHomeContinueLoopCard() {
+  var wrap = document.getElementById('tdb-home-continue-loop-wrap');
+  var link = document.getElementById('tdb-home-continue-loop-link');
+  var eyebrow = document.getElementById('tdb-home-continue-loop-eyebrow');
+  var title = document.getElementById('tdb-home-continue-loop-title');
+  if (!wrap || !link || !eyebrow || !title) return;
+
+  var MEM_KEY = 'tdb_memorize_lite_v1';
+  var MEM_INTERVALS_DAYS = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
+  var DAY_MS = 86400000;
+  var MEM_LOOKAHEAD_MS = 3 * DAY_MS;
+
+  function clampStr(s, max) {
+    var t = String(s || '').replace(/\u0000/g, '').trim();
+    if (t.length > max) return t.slice(0, max);
+    return t;
+  }
+
+  function normRef(ref) {
+    return String(ref || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function normalizeMemEntry(e) {
+    if (!e || typeof e !== 'object') return e;
+    if (e.intervalIdx == null && e.step != null) {
+      e.intervalIdx = Math.min(MEM_INTERVALS_DAYS.length - 1, Math.max(0, Number(e.step) || 0));
+    }
+    if (e.intervalIdx == null) e.intervalIdx = 0;
+    var ef = Number(e.easeFactor);
+    if (e.easeFactor == null || isNaN(ef)) e.easeFactor = 2;
+    e.easeFactor = Math.max(1.25, Math.min(2.65, Number(e.easeFactor)));
+    var ovr = Number(e.nextDueOverrideMs);
+    if (e.nextDueOverrideMs != null && !isNaN(ovr) && ovr <= Date.now()) {
+      try {
+        delete e.nextDueOverrideMs;
+      } catch (eDel) {}
+    }
+    return e;
+  }
+
+  function memNextDueMs(entry) {
+    if (!entry) return 0;
+    normalizeMemEntry(entry);
+    var override = Number(entry.nextDueOverrideMs);
+    if (!isNaN(override) && override > Date.now()) {
+      return override;
+    }
+    var idx = Math.min(Math.max(Number(entry.intervalIdx) || 0, 0), MEM_INTERVALS_DAYS.length - 1);
+    var ef = Number(entry.easeFactor) || 2;
+    var days = MEM_INTERVALS_DAYS[idx] * (ef / 2);
+    if (days < 0.9) days = 0.9;
+    if (days > 200) days = 200;
+    var base = entry.lastReviewed ? Date.parse(entry.lastReviewed) : Date.parse(entry.added || new Date().toISOString());
+    if (isNaN(base)) base = Date.now();
+    return base + days * DAY_MS;
+  }
+
+  function loadMemorizeState() {
+    try {
+      var raw = localStorage.getItem(MEM_KEY);
+      var o = raw ? JSON.parse(raw) : null;
+      if (o && typeof o === 'object' && o.refs && typeof o.refs === 'object') return o;
+    } catch (e) {}
+    return { refs: {} };
+  }
+
+  function getSoonestMemorize() {
+    var st = loadMemorizeState();
+    var refs = st.refs || {};
+    var rows = Object.keys(refs).map(function (k) {
+      var entry = refs[k];
+      normalizeMemEntry(entry);
+      return { ref: normRef(k), dueAt: memNextDueMs(entry) };
+    });
+    rows.sort(function (a, b) {
+      return a.dueAt - b.dueAt;
+    });
+    return rows.length ? rows[0] : null;
+  }
+
+  /** Local-midnight buckets for calm “today / tomorrow” copy. */
+  function startOfLocalDay(d) {
+    var x = new Date(d);
+    x.setHours(0, 0, 0, 0);
+    return x.getTime();
+  }
+
+  function memorizeEyebrowForDue(dueAt, now) {
+    var dueDay = startOfLocalDay(dueAt);
+    var today = startOfLocalDay(now);
+    var diffDays = Math.round((dueDay - today) / DAY_MS);
+    if (diffDays < 0) return 'Memorize review';
+    if (diffDays === 0) return 'Memorize review';
+    if (diffDays === 1) return "Tomorrow's ribbon";
+    return 'Memorize';
+  }
+
+  function memorizeTitleLine(ref, dueAt, now) {
+    var r = clampStr(ref, 44);
+    var dueDay = startOfLocalDay(dueAt);
+    var today = startOfLocalDay(now);
+    var diffDays = Math.round((dueDay - today) / DAY_MS);
+    if (diffDays < 0) return r + ' — ready when you are';
+    if (diffDays === 0) return r + ' — gentle review today';
+    if (diffDays === 1) return r + ' — review tomorrow';
+    if (diffDays <= 3) return r + ' — in ' + diffDays + ' days';
+    return r + ' — coming up';
+  }
+
+  function loadMobiusJournalEntries() {
+    try {
+      var raw = localStorage.getItem('tdb_mobius_loop_journal_v1');
+      if (!raw) return [];
+      var p = JSON.parse(raw);
+      if (!p || !Array.isArray(p.entries)) return [];
+      return p.entries.filter(function (e) {
+        return e && typeof e.createdAt === 'string' && typeof e.body === 'string' && String(e.body).trim();
+      });
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function loadWghdEntries() {
+    try {
+      var raw = localStorage.getItem('tdb_what_god_has_done_v1');
+      if (!raw) return [];
+      var p = JSON.parse(raw);
+      if (!p || !Array.isArray(p.entries)) return [];
+      return p.entries.filter(function (e) {
+        return e && typeof e.createdAt === 'string' && typeof e.body === 'string' && String(e.body).trim();
+      });
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function refreshHomeContinueLoop() {
+    wrap.classList.remove('tdb-home-continue-loop-wrap--soft');
+    var now = Date.now();
+    var mem = getSoonestMemorize();
+    if (mem && mem.ref && mem.dueAt <= now + MEM_LOOKAHEAD_MS) {
+      wrap.hidden = false;
+      eyebrow.textContent = memorizeEyebrowForDue(mem.dueAt, now);
+      title.textContent = memorizeTitleLine(mem.ref, mem.dueAt, now);
+      link.href = 'memorize.html?ref=' + encodeURIComponent(mem.ref);
+      link.setAttribute('data-tdb-continue-kind', 'memorize');
+      link.setAttribute(
+        'aria-label',
+        'Open Memorize for ' + mem.ref + ' — on-device review queue'
+      );
+      return;
+    }
+
+    var jn = loadMobiusJournalEntries();
+    if (jn.length) {
+      var je = jn[0];
+      var ctx = clampStr(je.context || 'Loop journal', 72);
+      wrap.hidden = false;
+      eyebrow.textContent = 'Continue your loop';
+      title.textContent = ctx;
+      link.href = 'mobius.html#mobius-loop-journal';
+      link.setAttribute('data-tdb-continue-kind', 'journal');
+      link.setAttribute('aria-label', 'Open Möbius loop journal — last saved on this device');
+      return;
+    }
+
+    var wg = loadWghdEntries();
+    if (wg.length) {
+      var we = wg[wg.length - 1];
+      var line = clampStr(we.title || we.entryDate || 'Last entry', 64);
+      wrap.hidden = false;
+      eyebrow.textContent = 'What God has done';
+      title.textContent = line;
+      link.href = 'what-god-has-done.html';
+      link.setAttribute('data-tdb-continue-kind', 'wghd');
+      link.setAttribute('aria-label', 'Open What God has done — private on this device');
+      return;
+    }
+
+    wrap.hidden = false;
+    wrap.classList.add('tdb-home-continue-loop-wrap--soft');
+    eyebrow.textContent = 'Pick up where you left off';
+    title.textContent = 'Start a new ribbon on Möbius — or open gentle memorize when you are ready.';
+    link.href = 'mobius.html';
+    link.setAttribute('data-tdb-continue-kind', 'soft_mobius');
+    link.setAttribute(
+      'aria-label',
+      'Open Möbius to start or continue a quiet ribbon on this device'
+    );
+  }
+
+  link.addEventListener('click', function () {
+    var k = link.getAttribute('data-tdb-continue-kind');
+    if (k && typeof trackEvent === 'function') {
+      try {
+        trackEvent('home_continue_loop_click', { kind: k });
+      } catch (e) {}
+    }
+  });
+
+  refreshHomeContinueLoop();
+  window.tdbRefreshHomeContinueLoop = refreshHomeContinueLoop;
 }
 
 function wireDawnDuskQuickPrayLabel() {
@@ -18647,6 +18882,18 @@ function appendSavedListWordStudyButton(actionsEl, ref, verseText) {
   actionsEl.appendChild(ws);
 }
 
+function appendSavedListMemorizeLink(actionsEl, ref) {
+  if (!actionsEl || !ref) return;
+  const r = String(ref || '').replace(/\s+/g, ' ').trim();
+  if (!r) return;
+  const a = document.createElement('a');
+  a.href = 'memorize.html?ref=' + encodeURIComponent(r);
+  a.className = 'btn btn-secondary';
+  a.textContent = 'Memorize';
+  a.setAttribute('aria-label', 'Open gentle memorize tools for ' + r);
+  actionsEl.appendChild(a);
+}
+
 function renderSavedVerses() {
   const container = document.getElementById('saved-verses');
   if (!container) return;
@@ -18687,6 +18934,7 @@ function renderSavedVerses() {
       };
       actions.appendChild(copyBtn);
       appendSavedListWordStudyButton(actions, v.ref, v.note || '');
+      appendSavedListMemorizeLink(actions, v.ref);
       actions.appendChild(deleteBtn);
       row.appendChild(actions);
       toolSection.appendChild(row);
@@ -18741,6 +18989,7 @@ function renderSavedVerses() {
       })(idx);
       actions.appendChild(copyBtn);
       appendSavedListWordStudyButton(actions, ref, text);
+      appendSavedListMemorizeLink(actions, ref);
       actions.appendChild(deleteBtn);
       card.appendChild(actions);
       container.appendChild(card);
@@ -18807,6 +19056,7 @@ function renderSavedVerses() {
       };
       actions.appendChild(copyBtn);
       appendSavedListWordStudyButton(actions, item.ref, item.text || '');
+      appendSavedListMemorizeLink(actions, item.ref);
       actions.appendChild(removeBtn);
       row.appendChild(actions);
       section.appendChild(row);
@@ -21662,6 +21912,7 @@ async function tdbInitImpl() {
   wirePrayThisWithMe();
   wireVersePageListen();
   wireHeroSaveToMyVerses();
+  if (isHome) wireHomeContinueLoopCard();
   wireDawnDuskQuickPrayLabel();
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak();
   updateFirstPrayerBadge();

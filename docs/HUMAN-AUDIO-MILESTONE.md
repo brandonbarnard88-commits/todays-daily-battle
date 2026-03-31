@@ -4,11 +4,11 @@ This is the **production checklist** for the first human-narrated track. Technic
 
 ## Goal
 
-One calm, trustworthy **human** read of the same slot as the existing 10-minute guided track, so users can choose **Human narrator** in Möbius Text mode when the file is present.
+One calm, trustworthy **human** read of the same slot as the existing 10-minute guided track, so users can choose **Spoken narrator (alternate)** in Möbius Text mode when `mobius-guided-human.mp3` is present (the repo may ship a system-voice placeholder first).
 
 ## What’s already built
 
-- **UI:** Radio choice “Human narrator” appears when `/audio/mobius-guided-human.mp3` is available (see Möbius guided voice fieldset).
+- **UI:** Radio choice **Spoken narrator (alternate)** appears when `/audio/mobius-guided-human.mp3` is available (see Möbius guided voice fieldset).
 - **Element:** `<audio id="mobius-guided-audio-human">` with `<source src="/audio/mobius-guided-human.mp3">`.
 - **Copy:** `audio/README.md` — file name, format, and privacy posture.
 - **Script reference:** `docs/mobius-guided-audio-script.md` (align human read with the same pacing/sections as the studio track unless you intentionally shorten).
@@ -20,13 +20,15 @@ One calm, trustworthy **human** read of the same slot as the existing 10-minute 
 - **Format:** Mono or stereo MP3, ~128 kbps, normalized for comfortable phone playback (not brick-wall loud).
 - **Length:** Same ballpark as `mobius-guided-10min.mp3` so the timer and flow still make sense.
 
+**Full export spec (durations, LUFS, QA):** `docs/MOBIUS-STUDIO-AUDIO-SPEC.md` — run **`npm run verify:mobius-audio`** after replacing files.
+
 ## Ship checklist
 
 1. Export final file as **`mobius-guided-human.mp3`**.
 2. Place under **`audio/mobius-guided-human.mp3`** in the repo (or your CDN equivalent with the same URL path).
 3. Run **`npm run build`** and confirm **`dist/audio/mobius-guided-human.mp3`** exists in output (or that your host copies `audio/` as today’s pipeline does for other clips).
 4. Verify **offline / PWA:** include the file in the service worker cache set if you cache other `/audio/` assets (match existing pattern).
-5. **Live test:** Möbius → Text mode → deep meditation → select Human narrator → play; confirm no network upload (playback is fetch + local decode only).
+5. **Live test:** Möbius → Text mode → deep meditation → select Spoken narrator (alternate) → play; confirm no network upload (playback is fetch + local decode only).
 
 ## Privacy (user-facing truth)
 

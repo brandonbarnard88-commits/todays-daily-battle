@@ -10066,6 +10066,91 @@ a.my-verses-ref-link:focus-visible {
   outline-offset: 2px;
 }
 
+/* My Verses — standalone column (no .app-shell): align glass panel with surface + veil tokens */
+body.my-verses-page.dark-mode .my-verses-main > section.glass,
+html[data-theme="dark"] body.my-verses-page .my-verses-main > section.glass {
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border-color: var(--tdb-surface-panel-border);
+  box-shadow: var(--tdb-surface-panel-shadow);
+}
+html[data-theme="light"] body.my-verses-page .my-verses-main > section.glass {
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border-color: var(--tdb-surface-panel-border);
+  box-shadow: var(--tdb-surface-panel-shadow);
+}
+body.my-verses-page .my-verses-panel .section-note {
+  font-family: var(--font-ui);
+}
+
+/* Prayer wall — UI rhythm matches other inner hubs */
+.message-board-page .message-board .section-note,
+.message-board-page .message-board .tdb-privacy-whisper {
+  font-family: var(--font-ui);
+}
+
+/* Bible Tool — calm UI type on dense controls */
+.bible-tool-page .bible-tool .section-note,
+.bible-tool-page .bible-tool label.plan-progress {
+  font-family: var(--font-ui);
+}
+
+/* Pastor resources, approach, reader stories — UI rhythm + quote cards */
+body.resources-page .content-inner > section.glass .section-note,
+body.approach-page .content-inner > section.glass .section-note {
+  font-family: var(--font-ui);
+}
+
+body.testimonials-page .testimonial-page-card {
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border: 1px solid var(--tdb-surface-panel-border);
+  border-radius: calc(var(--tdb-surface-radius) - 2px);
+  box-shadow: var(--tdb-surface-panel-shadow);
+  padding: 1rem 1.15rem;
+  margin-bottom: 1rem;
+}
+
+body.testimonials-page .testimonial-page-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Kids loop library — gold-frame sections pick up the same veil + card depth as hubs */
+.dark-mode body.kids-corner-page .content-inner.loop-library-page > section.glass.card-gold,
+html[data-theme="dark"] body.kids-corner-page .content-inner.loop-library-page > section.glass.card-gold {
+  background-color: var(--tdb-surface-card-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 72%, rgba(212, 175, 55, 0.32));
+  box-shadow: var(--tdb-surface-card-shadow);
+}
+
+.dark-mode body.kids-corner-page .content-inner.loop-library-page > section.glass.card-gold:hover,
+html[data-theme="dark"] body.kids-corner-page .content-inner.loop-library-page > section.glass.card-gold:hover {
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+}
+
+html[data-theme="light"] body.kids-corner-page .content-inner.loop-library-page > section.glass.card-gold {
+  background-color: var(--tdb-surface-card-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 78%, rgba(180, 140, 50, 0.28));
+  box-shadow: var(--tdb-surface-card-shadow);
+}
+
+html[data-theme="light"] body.kids-corner-page .content-inner.loop-library-page > section.glass.card-gold:hover {
+  box-shadow: var(--tdb-surface-card-shadow-hover);
+}
+
+body.kids-corner-page .content-inner.loop-library-page > section.glass .section-note,
+body.kids-corner-page .content-inner.loop-library-page > section.glass .loop-quick-calm-kicker {
+  font-family: var(--font-ui);
+}
+
+/* Loop library grid reads better a touch wider than default inner measure */
+body.kids-corner-page.tdb-inner-page .app-shell .content-inner.loop-library-page {
+  max-width: min(52rem, 100%);
+}
+
 /* Base card for consistent panels (verse cards, prayer list, progress blocks) */
 .card {
   position: relative;

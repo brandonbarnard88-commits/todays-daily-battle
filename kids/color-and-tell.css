@@ -45,6 +45,50 @@
   margin-bottom: 0.75rem;
 }
 
+/* Phones & tablets: one sideways row so 50+ stories don’t stack forever */
+@media (max-width: 64rem) {
+  .tdb-cat-progress {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0.75rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: max(0.75rem, env(safe-area-inset-left, 0px))
+      max(0.75rem, env(safe-area-inset-right, 0px));
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    padding-bottom: 0.45rem;
+    margin-bottom: 0.75rem;
+    outline: none;
+  }
+
+  .tdb-cat-progress:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.55);
+    outline-offset: 4px;
+    border-radius: 14px;
+  }
+
+  .dark-mode .tdb-cat-progress:focus-visible {
+    outline-color: rgba(147, 197, 253, 0.65);
+  }
+
+  .tdb-cat-progress-card {
+    flex: 0 0 clamp(8.5rem, 40vw, 10.75rem);
+    max-width: min(100%, 11rem);
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+
+@media (max-width: 64rem) and (prefers-reduced-motion: reduce) {
+  .tdb-cat-progress {
+    scroll-snap-type: none;
+  }
+}
+
 .tdb-cat-clear-all-wrap {
   margin-bottom: 1.5rem;
 }

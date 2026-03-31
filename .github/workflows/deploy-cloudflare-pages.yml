@@ -1,0 +1,35 @@
+# Optional: deploy dist/ to Cloudflare Pages from GitHub (manual only).
+# Set secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, CF_PAGES_PROJECT_NAME
+# Do not use alongside another auto-prod deploy to the same domain without a plan.
+name: Deploy Cloudflare Pages (manual)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-cf-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ secrets.CF_PAGES_PROJECT_NAME }}

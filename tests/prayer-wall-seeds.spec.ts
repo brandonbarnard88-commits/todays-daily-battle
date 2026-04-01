@@ -21,7 +21,7 @@ async function waitForPrayerWallSeeds(page: Page, testInfo?: { attach: (name: st
   page.on('pageerror', (err) => logs.push(`[pageerror] ${err.message}`));
 
   /* `domcontentloaded` can beat the module bundle; prayer wall needs tdbInit + render() for ready + handlers. */
-  await page.goto('/#prayer-wall', { waitUntil: 'load', timeout: 60000 });
+  await page.goto('/prayer-wall.html', { waitUntil: 'load', timeout: 60000 });
   const skipBtn = page.locator('#welcome-intro-skip');
   if (await skipBtn.isVisible({ timeout: 5000 }).catch(() => false)) await skipBtn.click();
   await page.locator('#prayer-wall').scrollIntoViewIfNeeded().catch(() => {});

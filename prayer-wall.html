@@ -1,87 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- tdb-cache-hygiene: bump purge if this bridge changes -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prayer wall — Today&rsquo;s Daily Battle</title>
-  <meta name="description" content="Anonymous prayers on the homepage, or the full message board when you are signed in.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/">
-  <meta http-equiv="refresh" content="0;url=/#prayer-wall">
+  <!-- tdb-cache-hygiene: bump purge if prayer-wall layout or CSP changes -->
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://cdn.jsdelivr.net https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://unpkg.com https://cdn.jsdelivr.net; frame-src 'self' https://challenges.cloudflare.com;">
+  <meta name="referrer" content="no-referrer">
+  <title>Quiet prayer room &mdash; Today&rsquo;s Daily Battle</title>
+  <meta name="description" content="A quiet room: one honest line for God, anonymous on this device. Hearts for a silent amen. Community board is separate when you want to read others.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/prayer-wall.html">
+  <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/prayer-wall.html">
+  <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
+  <meta property="og:title" content="Quiet prayer room &mdash; Today&rsquo;s Daily Battle">
+  <meta property="og:description" content="One line for God. No feed, no performance &mdash; just honesty before Him. Optional community board when you are ready.">
+  <meta property="og:url" content="https://todaysdailybattle.com/prayer-wall.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quiet prayer room &mdash; Today&rsquo;s Daily Battle">
+  <meta name="twitter:description" content="One line for God. No feed, no performance.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260331surface-final">
-  <style>
-    .pw-bridge {
-      min-height: 100vh;
-      min-height: 100dvh;
-      padding: 1.5rem 1.25rem 2.5rem;
-      max-width: 34rem;
-      margin: 0 auto;
-    }
-    .pw-bridge h1 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--muted, #94a3b8);
-      margin: 0 0 0.65rem;
-    }
-    .pw-bridge p {
-      font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--text, #e2e8f0);
-      margin: 0 0 1rem;
-    }
-    .pw-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      margin-top: 1.25rem;
-    }
-    .pw-actions a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      color: #e2e8f0;
-      text-decoration: none;
-      font-size: 0.92rem;
-    }
-    .pw-actions a:focus-visible {
-      outline: 2px solid var(--gold, #e3bc67);
-      outline-offset: 2px;
-    }
-    .pw-actions a.pw-primary {
-      border-color: rgba(227, 188, 103, 0.45);
-      background: rgba(227, 188, 103, 0.08);
-      color: var(--gold, #e3bc67);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=20260331surface-final" nonce="tdb2025s">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" nonce="tdb2025s" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" nonce="tdb2025s">
 </head>
-<body class="dark-mode tdb-inner-page">
-  <a href="#pw-main" class="skip-link">Skip to main content</a>
-  <main class="pw-bridge" id="pw-main">
-    <h1>Prayer wall</h1>
-    <p>Taking you to the quiet wall on the home page. If you stay here, choose a link below.</p>
-    <nav class="pw-actions" aria-label="Prayer wall destinations">
-      <a class="pw-primary" href="/#prayer-wall">Homepage prayer wall</a>
-      <a href="/message.html#message-board">Full message board</a>
-      <a href="/">Home</a>
-    </nav>
-  </main>
-  <script nonce="tdb2025s">
-    (function () {
-      'use strict';
-      try {
-        location.replace('/#prayer-wall');
-      } catch (e) {
-        /* noscript + links remain */
-      }
-    })();
-  </script>
+<body class="dark-mode tdb-inner-page prayer-wall-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Quiet wall — one anonymous line; community board is separate</span>
+      </div>
+      <nav class="header-nav tdb-global-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/kids/?v=hub20260321">Kids</a>
+        <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/story.html">Story</a>
+        <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+        <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>
+        <a href="/message.html" aria-label="Community prayer board — read and post when signed in">Prayer</a>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
+            <a href="/prayer-wall.html" aria-current="page">Quiet room</a>
+            <a href="/calm.html">Calm</a>
+            <a href="/story.html">Story</a>
+          </div>
+        </details>
+      </nav>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <div id="auth-section" class="auth-inline auth-compact">
+        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+        <button id="signup-btn">Sign Up</button>
+        <button id="login-btn">Log In</button>
+        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
+        <button id="logout-btn" class="hidden">Log Out</button>
+      </div>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
+        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
+        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
+        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
+        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
+        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
+        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
+        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
+        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      </nav>
+      <div class="sidebar-options">
+        <label class="inline-toggle">
+          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
+          Red letters
+        </label>
+      </div>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner tdb-dawn-hub--dusk">
+          <h1>A quiet room</h1>
+          <p class="real-talk">Same wall as before&mdash;one anonymous line, silent <strong>Amen</strong> on the hearts, gentle starters if you freeze. Home still welcomes you with verse search first; this page is the full room. Want the <a href="message.html#message-board">community board</a> instead? That&rsquo;s where signed-in posts live.</p>
+          <div class="cta-group">
+            <a class="btn btn-secondary" href="/">Home &amp; search</a>
+            <a class="btn btn-secondary" href="verse.html">Verse of the Day</a>
+            <a class="btn btn-secondary" href="message.html#message-board">Community board</a>
+          </div>
+        </header>
+
+        <!-- ── Prayer Wall ── -->
+        <section class="card prayer-wall-card prayer-wall-quiet-room" id="prayer-wall" aria-labelledby="prayer-wall-room-title">
+          <h2 id="prayer-wall-room-title" class="prayer-wall-room-title">A quiet room</h2>
+          <p class="prayer-wall-room-lead">Name one line for God. No feed, no performance&mdash;just this room, your heart, and a gentle place to be honest.</p>
+          <div class="prayer-wall-header-row">
+            <p class="prayer-wall-label"><svg class="section-divider-icon" style="display:inline-block;vertical-align:middle;margin-right:0.35rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Prayer wall</p>
+            <span class="prayer-wall-badge">Say it here quietly&mdash;no account, no name, just you and Him.</span>
+            <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
+          </div>
+          <p class="prayer-wall-privacy-note landing-privacy-teaser section-note">What you post here stays humble and anonymous unless you sign in and choose otherwise. <a href="privacy.html">Privacy policy</a>.</p>
+          <p class="prayer-wall-community-line section-note">Want to read others or post with an account? <a href="message.html#message-board" hreflang="en" aria-label="Open the community prayer board">Community board</a>&mdash;separate from this quiet room.</p>
+          <!-- Grace message: shown once when a streak breaks, dismissed on next post or click -->
+          <p id="prayerWallGraceMsg" class="prayer-wall-grace-msg" hidden aria-live="polite">
+            Missed a day? No shame&#8212;fresh start today. 🙏
+            <button type="button" id="prayerWallGraceDismiss" class="prayer-wall-grace-dismiss" aria-label="Dismiss message">&#x2715;</button>
+          </p>
+          <p class="prayer-wall-prompt">"Lord, keep me in truth today."</p>
+          <p id="prayerWallNudge" class="prayer-wall-nudge section-note" hidden aria-live="polite">Need to pray? You can post without a name.</p>
+          <div class="prayer-counter-row">
+            <span class="prayer-today-label" id="prayerTodayLabel">Quiet today—open starters on the wall</span>
+            <span class="prayer-today-badge" id="prayerTodayBadge" aria-live="polite" aria-atomic="true"></span>
+            <span class="prayer-offline-notice hidden" id="prayerOfflineNotice">Saved locally—sync when back</span>
+            <button type="button" id="prayerRetrySyncBtn" class="prayer-retry-sync-btn hidden" aria-label="Retry syncing prayers">Retry sync</button>
+          </div>
+          <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">23</span></p>
+          <p class="prayer-amen-signal hidden" id="prayerAmenSignal" aria-live="polite"></p>
+          <p class="prayer-social-proof hidden" id="prayerSocialProof" aria-live="polite"><span id="prayer-social-proof-num">0</span> prayed today—you're not alone.</p>
+          <p class="prayer-social-proof prayer-social-proof-zero" id="prayerSocialProofZero" aria-live="polite">You're the first today—your prayer could encourage someone tomorrow.</p>
+          <div id="prayer-echo" class="prayer-echo" aria-labelledby="prayer-echo-heading">
+            <h3 id="prayer-echo-heading" class="prayer-echo-heading">Whispers in the room right now</h3>
+            <p class="prayer-echo-sub section-note">Anonymous intents from the table—no names, just hearts. <a href="privacy.html">Privacy</a></p>
+            <p id="prayer-echo-sacred" class="prayer-echo-sacred hidden" hidden>Live whispers rest while sacred silence is on.</p>
+            <p id="prayer-echo-loading" class="prayer-echo-loading section-note">Gathering the latest hushed prayers…</p>
+            <p id="prayer-echo-presence" class="prayer-echo-presence hidden" aria-live="polite"></p>
+            <ul id="prayer-echo-list" class="prayer-echo-list" aria-label="Recent anonymous prayer intents"></ul>
+            <button type="button" id="prayer-echo-join" class="link-button prayer-echo-join hidden" aria-label="Copy a short invite to pray with this site">Copy a humble invite</button>
+          </div>
+          <button class="silent-amen-btn" type="button" id="silentAmenBtn" aria-label="Add a silent amen">
+            Silent Amen
+          </button>
+          <p class="prayer-wall-nudge-silent section-note" aria-live="polite">No one sees this. Just you and God.</p>
+          <p class="prayer-wall-battle-q" id="prayer-wall-battle-prompt">What battle are you facing today?</p>
+          <!-- Community wall: name the battle in a few words; stored as "Facing … today" -->
+          <div class="prayer-wall-input-row">
+            <label for="prayer-wall-input" class="sr-only">Name your battle in a few words (posts anonymously)</label>
+            <input type="text" id="prayer-wall-input" class="prayer-wall-input" maxlength="120"
+              placeholder="e.g. anxiety, caregiving, chronic pain" aria-label="Name your battle in a few words (posts anonymously)" autocomplete="off">
+            <button type="button" id="prayer-wall-add" class="prayer-wall-add-btn" aria-label="Share anonymously on the prayer wall">Share anonymously</button>
+          </div>
+          <div class="prayer-wall-alive" role="region" aria-label="Your prayers on this device">
+            <div class="today-count" id="prayer-device-today-block">
+              <span id="prayer-device-quiet" class="prayer-device-quiet">Quiet on this device today—Silent Amen still counts.</span>
+              <span id="prayer-device-count-wrap" class="prayer-device-count-wrap hidden" aria-live="polite">
+                <strong><span id="prayer-count-today">0</span></strong> prayers today on this device
+              </span>
+            </div>
+            <div id="prayer-encouragement" class="prayer-encouragement hidden" aria-live="polite"></div>
+            <div id="recent-prayers" class="recent-prayers" role="region" aria-label="Recent anonymous prayers" aria-live="polite"></div>
+          </div>
+          <!-- Sync status note — updated by updateSyncStatusUI() -->
+          <p class="prayer-wall-note" aria-live="polite">Stays right here on your phone or computer until you sign in.</p>
+          <div class="prayer-export-row">
+            <button type="button" id="prayer-export-btn" class="prayer-export-btn" aria-label="Export my prayers" aria-describedby="prayer-export-hint">Export my prayers</button>
+            <p id="prayer-export-hint" class="prayer-export-hint section-note">Save as a text file—or share a verse anonymously with Share on any line.</p>
+          </div>
+          <div id="featured-prayer" class="featured-prayer-container" aria-live="polite"></div>
+          <ul id="prayer-wall-list" class="prayer-wall-list" aria-label="Prayer wall entries" aria-live="polite" data-prayer-wall-rendered="1">
+            <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-1" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, my legs hurt so bad today I can barely stand. Just help me make it through this hour. Amen.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-2" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, I&rsquo;m tired of fighting the same battle every single day. Give me strength I don&rsquo;t have on my own.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-3" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, my marriage is hanging by a thread. Please heal what I can&rsquo;t fix.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-4" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Father, I messed up again last night. I&rsquo;m ashamed, but I&rsquo;m still here asking for another chance.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-5" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, my kids are struggling and I don&rsquo;t know how to help them. Show me what to say.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-6" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, the anxiety won&rsquo;t let me sleep. Calm my mind and let me rest in You tonight.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-7" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, I feel so alone even when the house is full. Remind me You&rsquo;re right here.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-8" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, money is tight again. I&rsquo;m scared. Please provide like You always have.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-9" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Father, the pain in my body is wearing me down. Give me joy anyway.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-10" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, I&rsquo;ve been angry at You and I&rsquo;m sorry. Help me trust You again.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-11" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, my mom is sick and I&rsquo;m scared to lose her. Hold her close.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-12" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, I want to quit this habit so bad but I keep falling. Don&rsquo;t let me go.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-13" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Father, thank You for getting me through yesterday when I thought I couldn&rsquo;t.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-14" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, I&rsquo;m trying to forgive someone who hurt me deep. It&rsquo;s hard &mdash; help me.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-15" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, my job is crushing my spirit. Give me purpose in it or open a new door.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-16" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, I feel worthless today. Speak Your truth over the lies in my head.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-17" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, my friend is lost and won&rsquo;t listen. Draw them to You somehow.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-18" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Father, I&rsquo;m so grateful for this quiet moment with You right now.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-19" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, the depression is heavy again. Be my light when I can&rsquo;t see.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-20" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, help me be a better daddy/husband today than I was yesterday.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-21" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, I don&rsquo;t understand why this is happening, but I&rsquo;m choosing to trust You anyway.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-22" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, thank You for never giving up on me even when I give up on myself.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+            <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-23" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Father, whatever today brings, don&rsquo;t let me face it without You.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          </ul>
+          <div class="prayer-share-row" id="prayerShareRow" role="status" aria-live="polite">
+            <button class="share-prayer-btn" type="button" id="share-prayer-btn" aria-label="Copy prayer to clipboard">Share this prayer?</button>
+            <button class="prayer-share-dismiss" type="button" id="prayerShareDismissBtn" aria-label="Dismiss share prompt">✕</button>
+          </div>
+          <div class="prayer-invite-row" role="status" aria-live="polite">
+            <button type="button" id="prayer-invite-friend-btn" class="btn btn-secondary prayer-invite-btn" aria-label="Invite a friend to pray with you">Invite a friend to pray with you</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+<footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/kids-corner.html">Kids Corner</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/coloring.html">Color &amp; Tell</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/message.html">Prayer Wall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy.html">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, you can <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — you choose the amount">support the work here</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Or use <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support via Buy Me a Coffee">Buy Me a Coffee</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/my-verses.html">My Verses</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/kids-corner.html">Kids corner</a>
+        <a href="/kids/?v=hub20260321">Kids battle</a>
+        <a href="/coloring.html">Kids coloring</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/message.html">Prayer wall</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Open beta: live, useful, still growing&mdash;honest pilots and English tool interiors. <a href="/about.html#open-beta">What that means</a>.</p>
+  <p class="site-footer-story">Built by hand, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <script defer src="/language-switcher.js"></script>
+</footer>
+  </div>
+
+  <script src="inline-bootstrap.js"></script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260431idle" data-cfasync="false"></script>
+  <script src="share-page.js" defer></script>
 </body>
 </html>

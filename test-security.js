@@ -143,6 +143,8 @@ const cacheHygienePaths = [
   '/reader',
   '/message.html',
   '/message',
+  '/prayer-wall.html',
+  '/prayer-wall',
   '/ansiedad.html',
   '/ansiedad',
   '/fuerza.html',

@@ -214,7 +214,7 @@
 /coffee https://buymeacoffee.com/todaysdailybattle 301
 /premium /pricing.html 301
 /search /#quick-search-hero 301
-/prayer-wall /#prayer-wall 301
-/prayer-wall/ /#prayer-wall 301
+/prayer-wall /prayer-wall.html 301
+/prayer-wall/ /prayer-wall.html 301
 /index.html / 301
 /index / 301

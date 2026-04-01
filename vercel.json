@@ -124,12 +124,12 @@
     },
     {
       "source": "/prayer-wall",
-      "destination": "/#prayer-wall",
+      "destination": "/prayer-wall.html",
       "permanent": true
     },
     {
       "source": "/prayer-wall/",
-      "destination": "/#prayer-wall",
+      "destination": "/prayer-wall.html",
       "permanent": true
     }
   ],

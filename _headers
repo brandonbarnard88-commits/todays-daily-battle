@@ -83,6 +83,12 @@
 /message
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
+/prayer-wall.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/prayer-wall
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
 
 # Spanish topical pages (copy + “Más ayuda” links churn; sync cloudflare-purge SOCIAL_PURGE_PATHS)
 /ansiedad.html

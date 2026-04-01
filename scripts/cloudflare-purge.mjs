@@ -330,6 +330,8 @@ const SOCIAL_PURGE_PATHS = [
   '/why-not-ai/',
   '/why-not-ai.html',
   '/message.html',
+  '/prayer-wall.html',
+  '/prayer-wall',
   '/script.js',
   '/script.js?v=20260328feelwire',
   '/script.js?v=20260325calmen',

@@ -142,10 +142,20 @@
     wrap.innerHTML = '<div class="search-wrap"><input type="text" id="global-search" placeholder="Search verses..." aria-label="Bible search">' +
       '<div class="chips" id="quick-chips"></div><button id="win-day" type="button">Win the Day</button></div>' +
       '<div class="dropdown" id="search-dropdown" role="listbox" aria-hidden="true"></div>';
-    var input = document.getElementById('global-search');
-    var chips = document.getElementById('quick-chips');
-    var dropdown = document.getElementById('search-dropdown');
-    var winBtn = document.getElementById('win-day');
+    /* Scope to wrap: Trusted Types + DOMPurify may drop empty nodes or ids; getElementById can hit a wrong duplicate. */
+    var searchInner = wrap.querySelector('.search-wrap');
+    if (!searchInner) return;
+    var input = searchInner.querySelector('#global-search');
+    var chips = searchInner.querySelector('#quick-chips') || searchInner.querySelector('.chips');
+    var dropdown = wrap.querySelector('#search-dropdown');
+    var winBtn = searchInner.querySelector('#win-day');
+    if (!input || !dropdown || !winBtn) return;
+    if (!chips) {
+      chips = document.createElement('div');
+      chips.className = 'chips';
+      chips.id = 'quick-chips';
+      input.insertAdjacentElement('afterend', chips);
+    }
     function showDropdown() {
       var q = (input.value || '').trim().toLowerCase();
       if (q.length < 2) { dropdown.style.display = 'none'; dropdown.setAttribute('aria-hidden', 'true'); return; }

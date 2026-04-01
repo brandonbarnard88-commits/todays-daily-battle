@@ -895,6 +895,16 @@
       outline: 2px solid rgba(227, 188, 103, 0.65);
       outline-offset: 2px;
     }
+    .tdb-sticky-wayfind a.is-wayfind-active {
+      color: var(--gold-soft, #f2dc98);
+      border-color: color-mix(in srgb, var(--gold) 42%, transparent);
+      background: color-mix(in srgb, var(--gold) 12%, transparent);
+    }
+    :root[data-theme="light"] .tdb-sticky-wayfind a.is-wayfind-active {
+      color: #5c410f;
+      border-color: color-mix(in srgb, #7a5818 40%, transparent);
+      background: color-mix(in srgb, #9e7625 12%, transparent);
+    }
     :root[data-theme="light"] .tdb-sticky-wayfind {
       background: color-mix(in srgb, var(--card) 96%, #fff 4%);
       border-bottom-color: color-mix(in srgb, var(--line) 88%, #9e7625 12%);
@@ -2750,6 +2760,34 @@
       gap: 0.75rem;
     }
 
+    .tdb-back-to-today {
+      margin: 0 0 0.35rem;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+    .tdb-back-to-today a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.35rem 0.75rem;
+      color: var(--gold-soft, #c9a84c);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--gold) 32%, transparent);
+      background: color-mix(in srgb, var(--gold) 6%, transparent);
+    }
+    .tdb-back-to-today a:hover,
+    .tdb-back-to-today a:focus-visible {
+      border-color: color-mix(in srgb, var(--gold) 50%, transparent);
+      color: var(--gold);
+      outline: none;
+    }
+    .tdb-back-to-today a:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.65);
+      outline-offset: 2px;
+    }
     .tdb-hero-search-priority-hint {
       display: none;
       margin: 0 0 0.35rem;
@@ -2763,13 +2801,13 @@
     }
     @media (max-width: 899px) {
       .tdb-hero-search-priority-hint { display: block; }
-      /* Calm first-visit flow: crisis tap, today’s verse, saved progress (if any), mood search, then the rest */
-      .calm-cta-wrap { order: -32; }
-      .tdb-page-orientation { order: -30; }
-      #main-content { order: -28; }
-      .tdb-install-reassurance-stack { order: -26; }
-      #quick-search-hero { order: -24; }
-      main.tdb-home-has-progress #plan-progress-card { order: -22; }
+      /* Daily anchor first, then calm doorway, then feel search (install before long scroll continues) */
+      #main-content { order: -40; }
+      .calm-cta-wrap { order: -38; }
+      .tdb-page-orientation { order: -36; }
+      #quick-search-hero { order: -34; }
+      .tdb-install-reassurance-stack { order: -32; }
+      main.tdb-home-has-progress #plan-progress-card { order: -30; }
     }
 
     .tdb-home-resume {
@@ -5758,20 +5796,22 @@
             <a href="/progress.html">Progress</a>
             <a href="/sos.html">Steady now (three KJV)</a>
             <a href="/family.html">Family</a>
+            <a href="/printables.html#print-family-h2">Printables &amp; coloring</a>
             <a href="/what-god-has-done.html">What God has done</a>
           </div>
         </details>
       </nav>
     </header>
 
-    <nav class="tdb-sticky-wayfind" aria-label="Jump on this page">
-      <a href="#hero-verse-wrap">Verse</a>
-      <a href="#feel-section">Feel search</a>
-      <a href="plans.html">Plans</a>
-      <a href="calm.html">Calm</a>
-      <a href="message.html">Prayer</a>
-      <a href="bible-tool.html">Tools</a>
-      <a href="/give">Support</a>
+    <nav class="tdb-sticky-wayfind" id="tdb-sticky-wayfind" aria-label="Jump on this page">
+      <a href="#hero-verse-wrap" data-tdb-wayfind="verse" aria-label="Today's verse">Verse</a>
+      <a href="#feel-section" data-tdb-wayfind="feel" aria-label="Search by how you feel">Feel</a>
+      <a href="plans.html" aria-label="Battle Plans — KJV reading plans">Plans</a>
+      <a href="calm.html" aria-label="Calm — one-tap verse">Calm</a>
+      <a href="message.html" aria-label="Prayer wall">Prayer</a>
+      <a href="bible-tool.html" aria-label="Bible Tool">Tools</a>
+      <a href="/family.html" aria-label="Family hub and printables">Family</a>
+      <a href="/give" aria-label="Support this work">Support</a>
     </nav>
 
     <details class="tdb-moat-banner" id="tdb-moat-details">
@@ -5820,7 +5860,7 @@
         <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
       </div>
 
-      <p class="tdb-page-orientation" id="tdb-page-orientation">Today&rsquo;s verse comes first; feel search and the rest follow when you&rsquo;re ready.</p>
+      <p class="tdb-page-orientation" id="tdb-page-orientation">Today&rsquo;s verse is up first on your phone; the calm doorway and feel search sit just below when you want them.</p>
 
       <div class="tdb-install-reassurance-stack" aria-label="Offline status and add to home screen">
       <!-- ── Offline banner (reassuring message when offline) ── -->
@@ -6053,6 +6093,7 @@
 
       <!-- ── Feel Search (nav anchor: #quick-search-hero) — below Why not AI teaser, above Battle Plans ── -->
       <div id="quick-search-hero">
+      <p class="tdb-back-to-today"><a href="#hero-verse-wrap">Back to today&rsquo;s verse</a></p>
       <p class="tdb-hero-search-priority-hint">On a phone, today&rsquo;s verse lands first; this search and the rest of the page follow&mdash;no rush.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
       <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>

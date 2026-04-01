@@ -15053,6 +15053,42 @@ function tdbRunHomeMoodShuffleAndWelcome() {
   );
 })();
 
+/** Highlight sticky #tdb-sticky-wayfind Verse vs Feel from scroll position (homepage only). */
+(function tdbWireHomeStickyWayfindSpy() {
+  var bar = document.getElementById('tdb-sticky-wayfind');
+  var feelEl = document.getElementById('feel-section');
+  if (!bar || !feelEl) return;
+  var verseLink = bar.querySelector('a[data-tdb-wayfind="verse"]');
+  var feelLink = bar.querySelector('a[data-tdb-wayfind="feel"]');
+  if (!verseLink || !feelLink) return;
+  var raf = 0;
+  function setActive(which) {
+    var v = which === 'verse';
+    verseLink.classList.toggle('is-wayfind-active', v);
+    feelLink.classList.toggle('is-wayfind-active', !v);
+    verseLink.removeAttribute('aria-current');
+    feelLink.removeAttribute('aria-current');
+    if (v) verseLink.setAttribute('aria-current', 'location');
+    else feelLink.setAttribute('aria-current', 'location');
+  }
+  function update() {
+    raf = 0;
+    var vh = window.innerHeight || document.documentElement.clientHeight || 600;
+    var rect = feelEl.getBoundingClientRect();
+    var threshold = vh * 0.48;
+    if (rect.top < threshold && rect.bottom > 72) setActive('feel');
+    else setActive('verse');
+  }
+  function onScrollOrResize() {
+    if (raf) return;
+    raf = window.requestAnimationFrame(update);
+  }
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize, { passive: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', update);
+  else update();
+})();
+
 try {
   window.tdbShuffleHomeQuickTopics = shuffleHomeQuickTopicSurfaces;
   window.tdbRunHomeMoodShuffleAndWelcome = tdbRunHomeMoodShuffleAndWelcome;

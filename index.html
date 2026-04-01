@@ -7828,7 +7828,7 @@
       var doReg = function () {
         if (window.__tdbSwRegisterStarted) return;
         window.__tdbSwRegisterStarted = true;
-        navigator.serviceWorker.register("/sw.js?v=20260401-sw-lifecycle", { scope: "/" }).catch(function () {
+        navigator.serviceWorker.register("/sw.js?v=20260401-precache-lenient", { scope: "/" }).catch(function () {
           window.__tdbSwRegisterStarted = false;
         });
       };

@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v207-20260401-sw-lifecycle';
+const CACHE_NAME = 'tdb-v208-20260401-precache-lenient';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -46,6 +46,7 @@ const DAILY_KJV_POOL = [
 ];
 const CORE_ASSETS = [
   /* Root `/` omitted: WebKit sometimes logs "Cannot load ." during precache; offline `/` uses `/index.html` in fetch handler. */
+  /* Trailing-only hub URLs (/kids/, /bible/, /pastor/, /church/) omitted for the same reason; index.html + navigate fallback covers offline. */
   '/index.html',
   '/assets/perf-hint.js',
   '/hero-daily-365-data.js',
@@ -104,9 +105,7 @@ const CORE_ASSETS = [
   '/topic-fear.html',
   '/topic-grief.html',
   '/topic-parenting.html',
-  '/kids/',
   '/kids/index.html',
-  '/bible/',
   '/bible/index.html',
   '/bible/study.html',
   '/bible/tools.html',
@@ -116,7 +115,6 @@ const CORE_ASSETS = [
   '/bible/bible-study.js',
   '/bible/bible-tools.css',
   '/bible/bible-tools.js',
-  '/pastor/',
   '/pastor/index.html',
   '/pastor/library.html',
   '/pastor/builder.html',
@@ -174,7 +172,6 @@ const CORE_ASSETS = [
   '/kids/bible-story-tool-index.js',
   '/kids/kids-read-quiz-loop-posters.js',
   '/kids/kids-beta.html',
-  '/church/',
   '/church/index.html',
   '/church/daily.html',
   '/church/church.css',
@@ -247,6 +244,34 @@ function matchCachedSameOriginAsset(cacheName, request, url) {
   });
 }
 
+/** Precache each URL alone so one failure does not roll back the entire batch (Cache.addAll is atomic). Reduces WebKit install noise. */
+function precacheUrlsLenient(cache, urls) {
+  return Promise.all(
+    urls.map(function (path) {
+      if (!path || typeof path !== 'string') return Promise.resolve();
+      var p = path.trim();
+      if (!p || p === '.') return Promise.resolve();
+      return cache.add(p).catch(function () {});
+    })
+  );
+}
+
+/** Offline document navigation when the exact path is not in cache (hub slash URLs). */
+function offlineNavigateFallbackPath(pathname) {
+  if (!pathname) return null;
+  var map = {
+    '/kids': '/kids/index.html',
+    '/kids/': '/kids/index.html',
+    '/bible': '/bible/index.html',
+    '/bible/': '/bible/index.html',
+    '/pastor': '/pastor/index.html',
+    '/pastor/': '/pastor/index.html',
+    '/church': '/church/index.html',
+    '/church/': '/church/index.html'
+  };
+  return map[pathname] || null;
+}
+
 function daySeed(offsetDays) {
   const date = new Date();
   date.setUTCDate(date.getUTCDate() + offsetDays);
@@ -276,19 +301,23 @@ function seedVerseCache() {
 }
 
 self.addEventListener('install', (event) => {
-  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function (cache) {
-        return cache.addAll(CORE_ASSETS).then(function () {
+        return precacheUrlsLenient(cache, CORE_ASSETS).then(function () {
           return Promise.all([
             cache.add(CDN_FUSE_JS).catch(function () {}),
-            cache.addAll(AUDIO_ASSETS).catch(function () {}),
+            precacheUrlsLenient(cache, AUDIO_ASSETS),
             seedVerseCache()
           ]);
         });
       })
-      .catch(function () {})
+      .then(function () {
+        self.skipWaiting();
+      })
+      .catch(function () {
+        self.skipWaiting();
+      })
   );
 });
 
@@ -579,6 +608,8 @@ self.addEventListener('fetch', (event) => {
           if (url.pathname === '/' || url.pathname === '') {
             return caches.match('/index.html');
           }
+          var altPath = offlineNavigateFallbackPath(url.pathname);
+          if (altPath) return caches.match(altPath);
           return null;
         }).then((cached) => {
           if (cached) return cached;

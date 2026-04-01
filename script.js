@@ -22057,7 +22057,7 @@ async function tdbInitImpl() {
             return;
           }
           if (typeof window !== 'undefined') window.__tdbSwRegisterStarted = true;
-          navigator.serviceWorker.register('/sw.js?v=20260401-sw-lifecycle', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260401-precache-lenient', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

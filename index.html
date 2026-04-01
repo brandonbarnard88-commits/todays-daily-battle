@@ -856,7 +856,7 @@
     .tdb-sticky-wayfind {
       position: sticky;
       top: 0;
-      z-index: 24;
+      z-index: 32;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -4137,10 +4137,24 @@
       text-wrap: balance;
     }
     #feel-section .mood-subtitle.section-note {
-      margin: 0 0 0.85rem;
+      margin: 0 0 0.4rem;
       font-size: 0.9rem;
       line-height: 1.55;
       max-width: 38rem;
+    }
+    #feel-section .mood-directive {
+      margin: 0 auto 0.85rem;
+      padding: 0 0.25rem;
+      max-width: 34rem;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      font-weight: 600;
+      text-align: center;
+      color: color-mix(in srgb, var(--muted) 72%, var(--gold-soft) 28%);
+      letter-spacing: 0.01em;
+    }
+    :root[data-theme="light"] #feel-section .mood-directive {
+      color: rgba(75, 62, 42, 0.88);
     }
 
     /* Hero daily verse doorway — welcoming any day */
@@ -5297,16 +5311,16 @@
     }
     .quick-topic-group-title {
       margin: 0 0 0.75rem;
-      padding: 0.5rem 0.65rem 0.6rem;
-      font-size: clamp(0.82rem, 2.2vw, 0.95rem);
+      padding: 0.55rem 0.7rem 0.65rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.08rem);
       font-weight: 800;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.018em;
       text-transform: none;
-      color: color-mix(in srgb, var(--text) 82%, var(--gold-soft) 18%);
+      color: color-mix(in srgb, var(--gold-soft) 42%, var(--text) 58%);
       text-align: center;
       border-radius: 10px;
-      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, var(--gold) 22%);
-      background: color-mix(in srgb, var(--bg-soft) 55%, var(--card) 45%);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 62%, var(--gold) 30%);
+      background: color-mix(in srgb, var(--bg-soft) 48%, var(--card) 52%);
     }
     .quick-topic-group-chips {
       display: grid !important;
@@ -5319,37 +5333,48 @@
       box-shadow: inset 0 1px 0 color-mix(in srgb, #9e7625 8%, transparent);
     }
     :root[data-theme="light"] .quick-topic-group-title {
-      color: rgba(35, 40, 52, 0.92);
-      background: rgba(255, 252, 245, 0.9);
-      border-bottom-color: color-mix(in srgb, var(--line) 72%, #9e7625 20%);
+      color: rgba(58, 48, 28, 0.94);
+      background: rgba(255, 250, 240, 0.95);
+      border-bottom-color: color-mix(in srgb, var(--line) 65%, #9e7625 28%);
     }
     .quick-grid .quick-topic,
     .quick-topic-group-chips .quick-topic {
       min-height: 48px;
       font-size: 0.88rem;
-      padding: 0.65rem 0.4rem;
+      padding: 0.72rem 0.48rem;
       text-align: center;
       border-radius: 12px;
       cursor: pointer;
-      background: var(--card);
-      border: 1px solid var(--line);
-      color: var(--text);
+      background: color-mix(in srgb, var(--bg-soft) 38%, var(--card) 62%);
+      border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 6%);
+      color: color-mix(in srgb, var(--text) 94%, var(--muted) 6%);
       transition: border-color 0.15s, color 0.15s, background 0.15s;
     }
     .quick-grid .quick-topic:hover,
     .quick-grid .quick-topic:focus-visible,
     .quick-topic-group-chips .quick-topic:hover,
     .quick-topic-group-chips .quick-topic:focus-visible {
-      border-color: var(--gold);
-      color: var(--gold);
-      background: color-mix(in srgb, var(--gold) 10%, var(--card));
+      border-color: color-mix(in srgb, var(--gold) 55%, var(--line) 45%);
+      color: var(--gold-soft);
+      background: color-mix(in srgb, var(--gold) 8%, color-mix(in srgb, var(--bg-soft) 32%, var(--card) 68%));
       outline: none;
+    }
+    :root[data-theme="light"] .quick-topic-group-chips .quick-topic {
+      background: rgba(255, 253, 250, 0.92);
+      border-color: color-mix(in srgb, var(--line) 82%, #9e7625 10%);
+      color: rgba(38, 44, 58, 0.94);
+    }
+    :root[data-theme="light"] .quick-topic-group-chips .quick-topic:hover,
+    :root[data-theme="light"] .quick-topic-group-chips .quick-topic:focus-visible {
+      background: color-mix(in srgb, #9e7625 9%, #fff 91%);
+      border-color: color-mix(in srgb, #9e7625 42%, var(--line) 58%);
+      color: #5c410f;
     }
     @media (min-width: 900px) {
       .quick-grid .quick-topic,
       .quick-topic-group-chips .quick-topic {
         font-size: 1rem;
-        padding: 0.8rem 0.6rem;
+        padding: 0.88rem 0.62rem;
         min-height: 54px;
       }
     }
@@ -5367,7 +5392,7 @@
       .quick-topic-group-chips .quick-topic {
         font-size: 0.82rem;
         min-height: 48px;
-        padding: 0.52rem 0.3rem;
+        padding: 0.58rem 0.36rem;
       }
     }
     /* ── Share verse row ────────────────────────── */
@@ -6212,6 +6237,7 @@
       <section class="card" id="feel-section" aria-label="How are you feeling verse search">
         <h2 class="mood-title">What are you carrying today?</h2>
         <p class="mood-subtitle section-note" id="feelSectionSubtitle">Tap any chip below to search verses and take a gentle next step. Type a feeling above if you prefer&mdash;your words stay on this device.</p>
+        <p class="mood-directive" id="feelSectionDirective">Tap what&rsquo;s on your heart. A gentle verse and next step will open.</p>
         <div class="feel-search-wrap">
           <label for="feel-search" class="sr-only">How are you feeling?</label>
           <input

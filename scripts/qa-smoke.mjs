@@ -121,6 +121,11 @@ try {
   const hasQuickHope = (await quickHope.count()) > 0;
   const searchReady = await waitForSearchReady(page);
 
+  const feelBack = page.locator('#feelBandBack');
+  if (await feelBack.isVisible().catch(() => false)) {
+    await feelBack.click().catch(() => {});
+    await page.waitForTimeout(200);
+  }
   const feelSteady = page.locator('#quickTopics .feel-category-card[data-feel-band="steady"]');
   if (await feelSteady.count() > 0) {
     await feelSteady.first().click().catch(() => {});

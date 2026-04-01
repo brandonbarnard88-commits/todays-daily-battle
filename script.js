@@ -15114,7 +15114,9 @@ function wireFeelTopicProgressive() {
       b.setAttribute('aria-expanded', isOpen && bb === activeBand ? 'true' : 'false');
     }
   }
-  function openBand(band) {
+  function openBand(band, opts) {
+    opts = opts || {};
+    var skipFocus = opts.skipFocus === true;
     lastBand = band;
     pickers.hidden = true;
     pickers.setAttribute('aria-hidden', 'true');
@@ -15132,13 +15134,20 @@ function wireFeelTopicProgressive() {
       }
     }
     setExpandedOnButtons(true, band);
-    backBtn.focus();
+    if (!skipFocus && backBtn && typeof backBtn.focus === 'function') {
+      backBtn.focus();
+    }
     try {
       var reduceMotion = false;
+      var narrow = false;
       try {
         reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        narrow = window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
       } catch (eM) {}
-      expanded.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+      expanded.scrollIntoView({
+        behavior: reduceMotion ? 'auto' : 'smooth',
+        block: narrow ? 'start' : 'nearest'
+      });
     } catch (eScroll) {}
   }
   function closeBand() {
@@ -15174,6 +15183,27 @@ function wireFeelTopicProgressive() {
     window.tdbCloseFeelTopicBand = closeBand;
     window.tdbOpenFeelTopicBand = openBand;
   } catch (eW) {}
+
+  /** Once per device: soft nudge on “heavy” door, then open that band (no focus steal). Tests set localStorage to skip. */
+  var autoHeavyKey = 'tdb_feel_category_auto_heavy_v1';
+  try {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem(autoHeavyKey) !== '1') {
+      localStorage.setItem(autoHeavyKey, '1');
+      var heavyBtn = pickers.querySelector('.feel-category-card[data-feel-band="heavy"]');
+      var motionOk = true;
+      try {
+        motionOk = !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      } catch (eRm) {}
+      var openDelay = !motionOk || !heavyBtn ? 0 : 720;
+      if (motionOk && heavyBtn && openDelay > 0) {
+        heavyBtn.classList.add('feel-category-card--first-visit-nudge');
+      }
+      window.setTimeout(function () {
+        if (heavyBtn) heavyBtn.classList.remove('feel-category-card--first-visit-nudge');
+        openBand('heavy', { skipFocus: true });
+      }, openDelay);
+    }
+  } catch (eAuto) {}
 }
 
 function stemWord(word) {

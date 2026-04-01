@@ -76,7 +76,10 @@ async function runMobileSmokeTest() {
       userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1'
     });
     await context.addInitScript(() => {
-      try { localStorage.setItem('welcome-seen', '1'); } catch (e) {}
+      try {
+        localStorage.setItem('welcome-seen', '1');
+        localStorage.setItem('tdb_feel_category_auto_heavy_v1', '1');
+      } catch (e) {}
     });
 
     const page = await context.newPage();
@@ -148,6 +151,11 @@ async function runMobileSmokeTest() {
       await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await waitForSearchReady(page);
       await scrollFeelSectionIntoView(page);
+      const bandBack = page.locator('#feelBandBack');
+      if (await bandBack.isVisible().catch(() => false)) {
+        await bandBack.click();
+        await page.waitForTimeout(220);
+      }
       const categoryOpen = page.locator('#quickTopics .feel-category-card[data-feel-band="heavy"]').first();
       if (await categoryOpen.count() > 0) {
         await categoryOpen.click();

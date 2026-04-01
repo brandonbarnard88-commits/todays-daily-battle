@@ -5300,12 +5300,31 @@
     .feel-category-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.78rem;
+      gap: 0.92rem;
     }
     @media (min-width: 640px) {
       .feel-category-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 0.85rem;
+        gap: 1rem;
+      }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes tdb-feel-door-nudge {
+        0%, 100% {
+          box-shadow:
+            inset 0 1px 0 color-mix(in srgb, var(--gold) 9%, transparent),
+            0 1px 0 color-mix(in srgb, var(--line) 55%, transparent);
+          border-color: color-mix(in srgb, var(--line) 78%, var(--gold) 18%);
+        }
+        50% {
+          box-shadow:
+            inset 0 0 0 1px color-mix(in srgb, var(--gold) 28%, transparent),
+            0 0 22px color-mix(in srgb, var(--gold) 14%, transparent);
+          border-color: color-mix(in srgb, var(--gold) 42%, var(--line) 58%);
+        }
+      }
+      .feel-category-card--first-visit-nudge {
+        animation: tdb-feel-door-nudge 1.35s ease-in-out 1;
       }
     }
     .feel-category-card {
@@ -5313,34 +5332,36 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      gap: 0.28rem;
+      gap: 0.38rem;
       width: 100%;
       margin: 0;
-      padding: 1rem 1.05rem 1.05rem;
-      min-height: 3.25rem;
+      padding: 1.14rem 1.18rem 1.2rem;
+      min-height: 3.55rem;
       box-sizing: border-box;
       text-align: left;
       font-family: inherit;
       cursor: pointer;
-      border-radius: 16px;
-      border: 1px solid color-mix(in srgb, var(--line) 78%, var(--gold) 18%);
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--line) 76%, var(--gold) 20%);
       background: linear-gradient(
         165deg,
-        color-mix(in srgb, var(--card) 93%, var(--bg-soft) 7%) 0%,
-        color-mix(in srgb, var(--card) 86%, var(--gold) 5%) 100%
+        color-mix(in srgb, var(--card) 92%, var(--bg-soft) 8%) 0%,
+        color-mix(in srgb, var(--card) 84%, var(--gold) 6%) 100%
       );
       box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--gold) 9%, transparent),
-        0 1px 0 color-mix(in srgb, var(--line) 55%, transparent);
+        inset 0 1px 0 color-mix(in srgb, var(--gold) 11%, transparent),
+        inset 0 -1px 0 color-mix(in srgb, var(--line) 35%, transparent),
+        0 3px 14px rgba(0, 0, 0, 0.14);
       color: var(--text);
-      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, transform 0.15s ease;
     }
     .feel-category-card:hover,
     .feel-category-card:focus-visible {
       border-color: color-mix(in srgb, var(--gold) 48%, var(--line) 52%);
       box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--gold) 14%, transparent),
-        0 0 0 1px color-mix(in srgb, var(--gold) 22%, transparent);
+        inset 0 1px 0 color-mix(in srgb, var(--gold) 16%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--gold) 24%, transparent),
+        0 5px 20px rgba(0, 0, 0, 0.12);
       outline: none;
     }
     .feel-category-title {
@@ -5357,8 +5378,12 @@
       font-weight: 500;
     }
     :root[data-theme="light"] .feel-category-card {
-      background: linear-gradient(165deg, rgba(255, 253, 248, 0.98), rgba(250, 246, 238, 0.99));
-      border-color: color-mix(in srgb, var(--line) 72%, #9e7625 20%);
+      background: linear-gradient(165deg, rgba(255, 253, 248, 0.99), rgba(252, 247, 236, 0.99));
+      border-color: color-mix(in srgb, var(--line) 70%, #9e7625 22%);
+      box-shadow:
+        inset 0 1px 0 color-mix(in srgb, #9e7625 8%, transparent),
+        inset 0 -1px 0 color-mix(in srgb, var(--line) 45%, #9e7625 8%),
+        0 3px 16px rgba(64, 48, 22, 0.07);
     }
     :root[data-theme="light"] .feel-category-title {
       color: rgba(58, 48, 28, 0.94);
@@ -5369,6 +5394,12 @@
       gap: 0.9rem;
       margin: 0;
       padding: 0;
+      scroll-margin-top: max(0.65rem, env(safe-area-inset-top, 0px));
+    }
+    @media (max-width: 767px) {
+      .feel-topic-expanded:not([hidden]) {
+        scroll-margin-top: max(0.5rem, calc(52px + env(safe-area-inset-top, 0px)));
+      }
     }
     .feel-topic-expanded[hidden] {
       display: none !important;

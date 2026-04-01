@@ -16,6 +16,13 @@ test.describe('core smoke (dist)', () => {
   });
 
   test('home: Hope topic shows verse cards', async ({ page }) => {
+    await page.addInitScript(() => {
+      try {
+        localStorage.setItem('tdb_feel_category_auto_heavy_v1', '1');
+      } catch (e) {
+        /* ignore */
+      }
+    });
     await page.goto('/');
     await dismissFirstVisitIfPresent(page);
     /* Progressive disclosure: open steadiness band, then tap Hope (second hope chip is the labeled Hope). */

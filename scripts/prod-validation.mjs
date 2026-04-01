@@ -216,6 +216,11 @@ async function validateQuickTopic(page) {
     await page.goto(PROD_URL, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
     await waitForPageSettle(page);
     await page.locator('#feel-section').scrollIntoViewIfNeeded().catch(() => {});
+    const feelBack = page.locator('#feelBandBack');
+    if (await feelBack.isVisible().catch(() => false)) {
+      await feelBack.click().catch(() => {});
+      await page.waitForTimeout(220);
+    }
 
     let chipName = '';
     let chip = null;

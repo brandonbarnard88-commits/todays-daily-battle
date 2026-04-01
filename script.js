@@ -11856,6 +11856,55 @@ function buildVerseContextHtml(ref, openByDefault) {
 window.getVerseContext = getVerseContext;
 window.buildVerseContextHtml = buildVerseContextHtml;
 
+/**
+ * Mount Context & Application accordion with createElement only (no DOMParser).
+ * Avoids WebKit/importNode quirks where parsed nodes never attach and raw HTML appears as text.
+ */
+function tdbMountVerseContextAccordion(parent, ref, openByDefault) {
+  if (!parent || !ref) return;
+  var ctx = getVerseContext(ref);
+  var readerUrl = typeof buildReaderUrl === 'function' ? buildReaderUrl(ref) : 'reader.html';
+  if (ctx) {
+    var details = document.createElement('details');
+    details.className = 'verse-context-accordion';
+    details.setAttribute('aria-label', 'Context and application');
+    if (openByDefault) details.open = true;
+    var summary = document.createElement('summary');
+    summary.className = 'verse-context-summary';
+    summary.textContent = 'Context & Application';
+    var ul = document.createElement('ul');
+    ul.className = 'verse-context-list';
+    function addRow(label, value) {
+      var li = document.createElement('li');
+      var s = document.createElement('strong');
+      s.textContent = label;
+      li.appendChild(s);
+      li.appendChild(document.createTextNode(' ' + String(value || '')));
+      ul.appendChild(li);
+    }
+    addRow('Speaker:', ctx.speaker || '');
+    addRow('To whom:', ctx.audience || '');
+    addRow('How it applies today:', ctx.application || '');
+    if (ctx.reflection) {
+      addRow('Reflection:', ctx.reflection);
+    }
+    if (ctx.prayer) {
+      addRow('Prayer:', ctx.prayer);
+    }
+    details.appendChild(summary);
+    details.appendChild(ul);
+    parent.appendChild(details);
+    return;
+  }
+  var p = document.createElement('p');
+  p.className = 'section-note verse-context-dive';
+  var a = document.createElement('a');
+  a.href = readerUrl;
+  a.textContent = 'Dive deeper in full chapter →';
+  p.appendChild(a);
+  parent.appendChild(p);
+}
+
 /** Lock verse context & People cards — fallback when verse-context/who-was elements exist (bible-tool, verse.html). */
 function renderVerseContext(verseObj) {
   if (!verseObj) return;
@@ -12309,17 +12358,6 @@ function tdbMountDailyVerseCardShell(card, refStr, verseStr, offlineNoteText) {
   }
 }
 
-/** Append buildVerseContextHtml output without insertAdjacentHTML (same Trusted Types escape pitfall). */
-function tdbAppendParsedHtmlChildren(parent, html) {
-  if (!parent || !html) return;
-  try {
-    var doc = new DOMParser().parseFromString(String(html), 'text/html');
-    if (!doc || !doc.body) return;
-    var b = doc.body;
-    while (b.firstChild) parent.appendChild(b.firstChild);
-  } catch (e) { /* non-fatal */ }
-}
-
 /** Apply KJV glossary word marks when kjv-dictionary.js has attached TdbKjvDictionary. */
 function tdbApplyKjvLookupIfReady(el, opts) {
   try {
@@ -12360,8 +12398,7 @@ function renderDailyVerse() {
       return;
     }
     tdbMountDailyVerseCardShell(card, ref, bible[ref] || '', '');
-    var contextHtml = buildVerseContextHtml(ref);
-    if (contextHtml) tdbAppendParsedHtmlChildren(card, contextHtml);
+    tdbMountVerseContextAccordion(card, ref, false);
     card.classList.remove('verse-card-loading');
     card.classList.add('verse-card-loaded');
     updateDailyVerseWhispers(ref, bible[ref] || '');

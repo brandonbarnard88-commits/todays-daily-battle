@@ -18,7 +18,7 @@
 
   function getReg() {
     if (!('serviceWorker' in navigator)) return Promise.resolve(null);
-    return navigator.serviceWorker.register('/sw.js?v=20260328-footer-stamp').then(function (reg) { return reg; }).catch(function () { return null; });
+    return navigator.serviceWorker.register('/sw.js?v=20260401-sw-lifecycle').then(function (reg) { return reg; }).catch(function () { return null; });
   }
 
   function requestPermission() {

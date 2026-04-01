@@ -22052,7 +22052,12 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260328-footer-stamp', { scope: '/' })
+          if (typeof window !== 'undefined' && window.__tdbSwRegisterStarted) {
+            navigator.serviceWorker.getRegistration('/').then(function (r) { resolve(r || null); }).catch(function () { resolve(null); });
+            return;
+          }
+          if (typeof window !== 'undefined') window.__tdbSwRegisterStarted = true;
+          navigator.serviceWorker.register('/sw.js?v=20260401-sw-lifecycle', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {
@@ -22067,6 +22072,7 @@ async function tdbInitImpl() {
               }).catch(function () { resolve(reg); });
             })
             .catch(function (e) {
+              if (typeof window !== 'undefined') window.__tdbSwRegisterStarted = false;
               if (typeof console !== 'undefined' && console.error) {
                 console.error('SW registration failed:', e.message);
               }

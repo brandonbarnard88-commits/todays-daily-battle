@@ -7826,7 +7826,11 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260328-footer-stamp", { scope: "/" }).catch(function () {});
+        if (window.__tdbSwRegisterStarted) return;
+        window.__tdbSwRegisterStarted = true;
+        navigator.serviceWorker.register("/sw.js?v=20260401-sw-lifecycle", { scope: "/" }).catch(function () {
+          window.__tdbSwRegisterStarted = false;
+        });
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });

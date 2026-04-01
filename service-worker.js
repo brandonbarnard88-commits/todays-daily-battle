@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v206-20260331-kjv-root-path';
+const CACHE_NAME = 'tdb-v207-20260401-sw-lifecycle';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -45,7 +45,7 @@ const DAILY_KJV_POOL = [
   }
 ];
 const CORE_ASSETS = [
-  '/',
+  /* Root `/` omitted: WebKit sometimes logs "Cannot load ." during precache; offline `/` uses `/index.html` in fetch handler. */
   '/index.html',
   '/assets/perf-hint.js',
   '/hero-daily-365-data.js',
@@ -332,7 +332,9 @@ self.addEventListener('push', (event) => {
   const safeTitle = String(data.title || 'Today\'s Daily Battle');
   const safeBody = String(data.body || 'Your verse is ready. Tap to open.');
   const safeTag = String(data.tag || data.type || 'daily-verse');
-  const safeUrl = String((data && data.url) || '/');
+  var rawUrl = String((data && data.url) || '/').trim();
+  var safeUrl = !rawUrl || rawUrl === '.' ? '/' : rawUrl;
+  if (safeUrl !== '/' && !safeUrl.startsWith('/') && !/^https:\/\//i.test(safeUrl)) safeUrl = '/';
   event.waitUntil(
     self.registration.showNotification(safeTitle, {
       body: safeBody,
@@ -348,7 +350,10 @@ self.addEventListener('push', (event) => {
 
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  const url = event.notification.data?.url || '/';
+  var raw = (event.notification.data && event.notification.data.url) || '/';
+  var url = typeof raw === 'string' ? raw.trim() : '/';
+  if (!url || url === '.') url = '/';
+  else if (url !== '/' && !url.startsWith('/') && !/^https:\/\//i.test(url)) url = '/';
   event.waitUntil(
     clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
       if (list.length) list[0].focus().then(() => list[0].navigate(url));
@@ -359,7 +364,12 @@ self.addEventListener('notificationclick', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
-  const url = new URL(event.request.url);
+  let url;
+  try {
+    url = new URL(event.request.url);
+  } catch (e) {
+    return;
+  }
   const sameOrigin = url.origin === self.location.origin;
 
   // Sky geolocation JSON — always network (edge IP must be current; do not cache in SW).
@@ -565,6 +575,12 @@ self.addEventListener('fetch', (event) => {
           return res;
         })
         .catch(() => caches.match(event.request).then((cached) => {
+          if (cached) return cached;
+          if (url.pathname === '/' || url.pathname === '') {
+            return caches.match('/index.html');
+          }
+          return null;
+        }).then((cached) => {
           if (cached) return cached;
           return caches.match(OFFLINE_URL).then((offlinePage) => offlinePage || new Response('You are offline. Check back later.', { status: 503 }));
         }))

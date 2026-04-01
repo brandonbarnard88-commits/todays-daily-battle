@@ -1640,6 +1640,36 @@ function setLocalSilentAmenTotalCount(total, options) {
   if (badge) badge.classList.toggle('hidden', n <= 0);
   return n;
 }
+
+/** Defer non-critical work until idle (or `timeout` ms) so first paint and LCP get main-thread room. */
+function tdbRunWhenIdle(fn, timeout) {
+  if (typeof tdbIsPerfMode === 'function' && tdbIsPerfMode()) {
+    try {
+      fn();
+    } catch (ePerf) {}
+    return;
+  }
+  var ms = timeout != null ? timeout : 2200;
+  try {
+    if (typeof requestIdleCallback === 'function') {
+      requestIdleCallback(
+        function () {
+          try {
+            fn();
+          } catch (eIdle) {}
+        },
+        { timeout: ms }
+      );
+      return;
+    }
+  } catch (eRIC) {}
+  setTimeout(function () {
+    try {
+      fn();
+    } catch (eT) {}
+  }, 1);
+}
+
 function hydrateCounterFallbacksFromLocal() {
   if (typeof window !== 'undefined' && window.__tdbCounterFallbacksHydrated) return;
   if (typeof window !== 'undefined') window.__tdbCounterFallbacksHydrated = true;
@@ -22045,9 +22075,11 @@ async function tdbInitImpl() {
         });
       }
       if (document.readyState === 'complete') {
-        registerSW();
+        tdbRunWhenIdle(registerSW, 4000);
       } else {
-        window.addEventListener('load', function () { registerSW(); });
+        window.addEventListener('load', function () {
+          tdbRunWhenIdle(registerSW, 4000);
+        });
       }
       navigator.serviceWorker.addEventListener('message', function (event) {
         if (!event || !event.data || event.data.type !== 'TDB_FLUSH_PRAYER_QUEUE') return;
@@ -22057,8 +22089,10 @@ async function tdbInitImpl() {
   }
   // Cloudflare beacon loads via loadDeferredThirdParty on window load
   wireOfflineBanner();
-  initImageLazyLoading();
-  initVerseCardLazyLoading();
+  tdbRunWhenIdle(function () {
+    initImageLazyLoading();
+    initVerseCardLazyLoading();
+  }, 1400);
   hydrateCounterFallbacksFromLocal();
   if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
   (function () {
@@ -22086,8 +22120,10 @@ async function tdbInitImpl() {
   wireDonationSuccessFailure();
   wireDownloadDevotionalButton();
   wireCollectiveIntention();
-  wireFooterRotating();
-  wireFooterFridaySignup();
+  tdbRunWhenIdle(function () {
+    wireFooterRotating();
+    wireFooterFridaySignup();
+  }, 1800);
   if (isHome) wirePwaInstallNudge();
   wireSoundEchoToggle();
   wireBlessSessionBtn();
@@ -22153,16 +22189,18 @@ async function tdbInitImpl() {
       });
     }
   }
-  document.querySelectorAll('.content-inner .list').forEach(function (listEl) {
-    var section = listEl.closest('section');
-    var heading = section && section.querySelector('h2');
-    if (heading && heading.textContent.indexOf('How It Works') !== -1) return;
-    var items = Array.from(listEl.querySelectorAll('.list-item'));
-    if (items.length > 1) {
-      shuffleArray(items);
-      items.forEach(function (el) { listEl.appendChild(el); });
-    }
-  });
+  tdbRunWhenIdle(function () {
+    document.querySelectorAll('.content-inner .list').forEach(function (listEl) {
+      var section = listEl.closest('section');
+      var heading = section && section.querySelector('h2');
+      if (heading && heading.textContent.indexOf('How It Works') !== -1) return;
+      var items = Array.from(listEl.querySelectorAll('.list-item'));
+      if (items.length > 1) {
+        shuffleArray(items);
+        items.forEach(function (el) { listEl.appendChild(el); });
+      }
+    });
+  }, 900);
   function normalizePrimaryNavLabels() {
     const sectionLabelMap = {
       'study-tools': 'Study Workspace',

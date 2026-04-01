@@ -1,12 +1,24 @@
 #!/usr/bin/env node
 /**
  * Build, serve dist on 8080, run Lighthouse, then stop serve.
- * Single-command local Lighthouse audit (no second terminal needed).
- * Uses built-in Node http server (no external deps).
+ *
+ * Defaults (reliable on heavy pages / busy machines):
+ *   URL: homepage
+ *   Categories: accessibility, best-practices only (Performance trace often PROTOCOL_TIMEOUT / NO_FCP locally)
+ *
+ * Full run with Performance (uses calm.html + no simulated throttling):
+ *   npm run audit:lighthouse:local:perf
+ *
+ * Env overrides:
+ *   LIGHTHOUSE_LOCAL_URL — e.g. http://127.0.0.1:8080/calm.html
+ *   LIGHTHOUSE_LOCAL_CATEGORIES — e.g. performance,accessibility,best-practices
+ *
+ * Skip rebuild (after `npm run build`):
+ *   node scripts/lighthouse-local.mjs --skip-build
  */
 import { createServer } from 'http';
 import { readFileSync, existsSync, statSync } from 'fs';
-import { execSync } from 'child_process';
+import { execSync, spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { dirname, join, extname } from 'path';
 import { freePort } from './free-port.mjs';
@@ -16,9 +28,15 @@ const root = join(__dirname, '..');
 const dist = join(root, 'dist');
 const MIME = { '.html': 'text/html', '.js': 'application/javascript', '.css': 'text/css', '.json': 'application/json', '.ico': 'image/x-icon', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' };
 
+const DEFAULT_URL = 'http://127.0.0.1:8080/';
+const DEFAULT_CATEGORIES = 'accessibility,best-practices';
+
 async function main() {
-  console.log('Building...');
-  execSync('npm run build', { cwd: root, stdio: 'inherit' });
+  const skipBuild = process.argv.includes('--skip-build');
+  if (!skipBuild) {
+    console.log('Building...');
+    execSync('npm run build', { cwd: root, stdio: 'inherit' });
+  }
 
   console.log('Starting serve on port 8080...');
   await freePort(8080);
@@ -47,11 +65,41 @@ async function main() {
       } catch (_) {}
     }
     if (!ready) throw new Error('Server did not start on port 8080 in time');
-    console.log('Server ready. Running Lighthouse...');
-    execSync(
-      'npx lighthouse http://localhost:8080 --output=html --output-path=./lighthouse-report.html --view --form-factor=mobile --only-categories=performance,accessibility,best-practices',
-      { cwd: root, stdio: 'inherit' }
+
+    const targetUrl = (process.env.LIGHTHOUSE_LOCAL_URL || DEFAULT_URL).trim() || DEFAULT_URL;
+    const categories = (process.env.LIGHTHOUSE_LOCAL_CATEGORIES || DEFAULT_CATEGORIES).trim() || DEFAULT_CATEGORIES;
+    const includePerf = categories.split(',').map((s) => s.trim()).includes('performance');
+
+    console.log('Server ready. Running Lighthouse on', targetUrl);
+    console.log('Categories:', categories.replace(/,/g, ', '));
+    if (!includePerf) {
+      console.log('Tip: npm run audit:lighthouse:local:perf for Performance on calm.html (all three categories).');
+    } else {
+      console.log('Performance run uses --throttling-method=provided (lab ceiling, not slow 4G — use PSI on prod).');
+    }
+
+    const outBase = join(root, 'lighthouse-report');
+    const lhArgs = [
+      'lighthouse',
+      targetUrl,
+      '--output=html',
+      '--output=json',
+      `--output-path=${outBase}`,
+      '--form-factor=mobile',
+      '--screenEmulation.mobile=true',
+      '--max-wait-for-load=120000'
+    ];
+    if (includePerf) lhArgs.push('--throttling-method=provided');
+    lhArgs.push(
+      '--chrome-flags=--headless=new --no-sandbox --disable-dev-shm-usage',
+      `--only-categories=${categories}`
     );
+
+    const lh = spawnSync('npx', lhArgs, { cwd: root, stdio: 'inherit', shell: false, env: process.env });
+    if (lh.status !== 0 && lh.status !== null) {
+      throw new Error(`lighthouse exited with code ${lh.status}`);
+    }
+    console.log('Wrote lighthouse-report.report.html and lighthouse-report.report.json (open the HTML in your browser).');
   } finally {
     server.close();
   }

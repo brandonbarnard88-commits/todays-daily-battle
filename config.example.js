@@ -67,6 +67,14 @@ window.TDB_CONFIG = {
   STRIPE_BATTLEPRO_MILITARY_YEARLY_LINK: '',
   STRIPE_CHURCH_MONTHLY_LINK: '',
   STRIPE_CHURCH_YEARLY_LINK: '',
+  // Signed-in checkout: six Price IDs from Stripe → Supabase create-checkout-session (see STRIPE-STEPS.md).
+  STRIPE_PRICE_IDS: {
+    supporter: { monthly: '', yearly: '' },
+    battle_pro: { monthly: '', yearly: '' },
+    church: { monthly: '', yearly: '' }
+  },
+  // Usually SUPABASE_URL + '/functions/v1/create-checkout-session'; build-config.js sets this when SUPABASE_URL is in env.
+  CREATE_CHECKOUT_SESSION_URL: '',
   CF_ANALYTICS_TOKEN: '',
   GA_MEASUREMENT_ID: '',
   PLAUSIBLE_DOMAIN: '',

@@ -2106,6 +2106,29 @@ const TDB_TOPICS = [
   { topic: 'free will', label: 'FREE WILL' }
 ];
 
+/** Indices into TDB_TOPICS — homepage visible + sr-only hero use the same four bands. */
+const TDB_QUICK_TOPIC_GROUP_ORDER = [
+  { id: 'qtg-heavy', title: 'When it feels heavy', indices: [3, 5, 24, 28, 27, 29, 26, 25, 32, 31, 30] },
+  { id: 'qtg-steady', title: 'When you need steadiness', indices: [0, 1, 2, 4, 6, 7, 8, 9, 11, 12, 13, 20, 19] },
+  { id: 'qtg-home', title: 'Home and relationships', indices: [14, 15, 16, 17, 18] },
+  { id: 'qtg-faith', title: 'Faith and calling', indices: [10, 21, 22, 23, 33, 34, 35] }
+];
+
+function quickTopicHeroButtonHtml(item, isPrimary) {
+  var cls = isPrimary ? 'btn btn-primary topic-chip quick-topic' : 'btn btn-secondary topic-chip quick-topic';
+  return (
+    '<button type="button" class="' +
+    cls +
+    '" data-topic="' +
+    escapeHtml(item.topic) +
+    '" aria-label="Search verses about ' +
+    escapeHtml(item.label) +
+    '. Alt-click or press and hold to open a matching Battle Plans lane.">' +
+    escapeHtml(item.label) +
+    '</button>'
+  );
+}
+
 function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
   var container = document.getElementById(containerId);
   if (!container) return;
@@ -2113,20 +2136,37 @@ function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
     ? TDB_HERO_TOPICS
     : TDB_TOPICS;
   if (!Array.isArray(topics) || topics.length === 0) return;
+  var useGrouped =
+    containerId === 'quick-actions-hero' &&
+    topics === TDB_TOPICS &&
+    Array.isArray(TDB_QUICK_TOPIC_GROUP_ORDER) &&
+    TDB_QUICK_TOPIC_GROUP_ORDER.length > 0;
+  if (useGrouped) {
+    var gHtml = '';
+    TDB_QUICK_TOPIC_GROUP_ORDER.forEach(function (g) {
+      var sid = g.id + '-sr';
+      gHtml +=
+        '<div class="quick-topic-group" role="group" aria-labelledby="' +
+        escapeHtml(sid) +
+        '"><h3 class="quick-topic-group-title" id="' +
+        escapeHtml(sid) +
+        '">' +
+        escapeHtml(g.title) +
+        '</h3><div class="quick-topic-group-chips">';
+      g.indices.forEach(function (idx) {
+        var item = topics[idx];
+        if (!item) return;
+        gHtml += quickTopicHeroButtonHtml(item, firstIsPrimary && idx === 0);
+      });
+      gHtml += '</div></div>';
+    });
+    container.innerHTML = gHtml;
+    return;
+  }
   var html = '';
   topics.forEach(function (item, i) {
     var isPrimary = firstIsPrimary && i === 0;
-    var cls = isPrimary ? 'btn btn-primary topic-chip quick-topic' : 'btn btn-secondary topic-chip quick-topic';
-    html +=
-      '<button type="button" class="' +
-      cls +
-      '" data-topic="' +
-      escapeHtml(item.topic) +
-      '" aria-label="Search verses about ' +
-      escapeHtml(item.label) +
-      '. Alt-click or press and hold to open a matching Battle Plans lane.">' +
-      escapeHtml(item.label) +
-      '</button>';
+    html += quickTopicHeroButtonHtml(item, isPrimary);
   });
   container.innerHTML = html;
 }
@@ -11445,7 +11485,12 @@ function saveMessageNameMap(map) {
 
 function openStripeCheckout(url) {
   if (!url) {
-    alert('Checkout is not configured yet. Add your Stripe payment links in script.js.');
+    try {
+      if (typeof console !== 'undefined' && console.info) {
+        console.info('TDB: checkout URL missing — add Stripe Payment Links or STRIPE_PRICE_IDS + create-checkout-session (see STRIPE-CONFIG.md).');
+      }
+    } catch (_) {}
+    alert('This checkout option is not ready yet. You can support the work from Support when the site host finishes setup.');
     return;
   }
   window.location.href = url;
@@ -14897,6 +14942,17 @@ function shuffleArray(arr) {
  * Reorders real DOM nodes (no innerHTML). Uses shuffleArray (Fisher–Yates)—not array.sort(() => Math.random()-0.5), which is biased. */
 function shuffleQuickTopicsInContainer(containerEl) {
   if (!containerEl || !containerEl.appendChild) return;
+  var chipRows = containerEl.querySelectorAll('.quick-topic-group-chips');
+  if (chipRows && chipRows.length) {
+    for (var r = 0; r < chipRows.length; r++) {
+      var row = chipRows[r];
+      var chips = Array.prototype.slice.call(row.querySelectorAll('button.quick-topic[data-topic], .quick-topic[data-topic]'));
+      if (chips.length < 2) continue;
+      shuffleArray(chips);
+      for (var c = 0; c < chips.length; c++) row.appendChild(chips[c]);
+    }
+    return;
+  }
   var all = Array.prototype.slice.call(containerEl.children);
   if (all.length < 2) return;
   shuffleArray(all);

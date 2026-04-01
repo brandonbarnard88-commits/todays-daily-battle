@@ -3,6 +3,9 @@
  * Run in build: node build-config.js
  * Set SUPABASE_URL and SUPABASE_ANON_KEY (required); others optional.
  * Does nothing if SUPABASE_URL is not set (so local dev keeps your real config.js).
+ *
+ * Optional: STRIPE_PRICE_IDS_JSON — single-line JSON for signed-in checkout, e.g.
+ * {"supporter":{"monthly":"price_…","yearly":"price_…"},"battle_pro":{...},"church":{...}}
  */
 const fs = require('fs');
 const path = require('path');
@@ -19,6 +22,11 @@ if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
       SUPABASE_ANON_KEY: '',
       CREATE_CHECKOUT_SESSION_URL: '',
       CREATE_DONATION_SESSION_URL: '',
+      STRIPE_PRICE_IDS: {
+        supporter: { monthly: '', yearly: '' },
+        battle_pro: { monthly: '', yearly: '' },
+        church: { monthly: '', yearly: '' }
+      },
       WALKTHROUGH_VIDEO_URL: '',
       STRIPE_SUPPORTER_MONTHLY_URL: '',
       STRIPE_SUPPORTER_YEARLY_URL: '',
@@ -72,6 +80,15 @@ const config = {
   PUSH_UNSUBSCRIBE_URL: process.env.PUSH_UNSUBSCRIBE_URL || '',
   STATS_PASSWORD: process.env.STATS_PASSWORD || ''
 };
+
+const priceRaw = (process.env.STRIPE_PRICE_IDS_JSON || '').trim();
+if (priceRaw) {
+  try {
+    config.STRIPE_PRICE_IDS = JSON.parse(priceRaw);
+  } catch (e) {
+    console.warn('build-config.js: STRIPE_PRICE_IDS_JSON is not valid JSON, skipping.');
+  }
+}
 
 const out = `/**
  * Generated at build from env (Cloudflare/CI). Do not commit.

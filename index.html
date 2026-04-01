@@ -852,6 +852,61 @@
       }
     }
 
+    /* ── Sticky on-page wayfinding (below header) ── */
+    .tdb-sticky-wayfind {
+      position: sticky;
+      top: 0;
+      z-index: 24;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem 0.45rem;
+      padding: 0.42rem 0.6rem;
+      margin: 0;
+      list-style: none;
+      background: color-mix(in srgb, var(--bg-soft, #0f172a) 94%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 82%, var(--gold) 10%);
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+    .tdb-sticky-wayfind a {
+      color: color-mix(in srgb, var(--muted) 90%, var(--text) 10%);
+      text-decoration: none;
+      padding: 0.38rem 0.6rem;
+      border-radius: 999px;
+      min-height: 44px;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+    .tdb-sticky-wayfind a:hover,
+    .tdb-sticky-wayfind a:focus-visible {
+      color: var(--gold-soft, #f2dc98);
+      border-color: color-mix(in srgb, var(--gold) 35%, transparent);
+      background: color-mix(in srgb, var(--gold) 8%, transparent);
+      outline: none;
+    }
+    .tdb-sticky-wayfind a:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.65);
+      outline-offset: 2px;
+    }
+    :root[data-theme="light"] .tdb-sticky-wayfind {
+      background: color-mix(in srgb, var(--card) 96%, #fff 4%);
+      border-bottom-color: color-mix(in srgb, var(--line) 88%, #9e7625 12%);
+    }
+    :root[data-theme="light"] .tdb-sticky-wayfind a {
+      color: rgba(45, 52, 68, 0.88);
+    }
+    :root[data-theme="light"] .tdb-sticky-wayfind a:hover,
+    :root[data-theme="light"] .tdb-sticky-wayfind a:focus-visible {
+      color: #5c410f;
+    }
+
     /* ── Moat banner (curated habit vs. endless chat) — below hero, glass band ── */
     .tdb-moat-banner {
       margin: 0;
@@ -902,9 +957,44 @@
         padding: 1.15rem 1.5rem 1.25rem;
       }
     }
+    details.tdb-moat-banner {
+      text-align: left;
+    }
+    details.tdb-moat-banner > summary {
+      list-style: none;
+      cursor: pointer;
+      margin: 0 auto;
+      max-width: 46rem;
+      padding: 0.65rem 0.5rem 0.75rem;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: color-mix(in srgb, var(--muted) 92%, var(--text) 8%);
+      text-align: center;
+    }
+    details.tdb-moat-banner > summary::-webkit-details-marker {
+      display: none;
+    }
+    .tdb-moat-summary-main {
+      display: block;
+      font-weight: 600;
+      color: color-mix(in srgb, var(--text) 88%, var(--muted) 12%);
+    }
+    .tdb-moat-summary-more {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.8rem;
+      color: var(--gold-soft, #c9a84c);
+      font-weight: 500;
+    }
+    details.tdb-moat-banner[open] > summary {
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, var(--gold) 15%);
+      margin-bottom: 0.75rem;
+    }
     .tdb-moat-banner-inner {
       margin: 0 auto;
       max-width: 46rem;
+      text-align: center;
     }
     .tdb-moat-banner-top {
       display: flex;
@@ -1717,6 +1807,7 @@
       #offline-banner,
       .pwa-nudge,
       .offline-pill,
+      .tdb-install-reassurance-stack,
       .quick-links       { grid-column: 1 / -1 !important; }
       main > .card:not(#verseCard):not(#plan-progress-card):not(#feel-section) {
         grid-column: 1 / -1 !important;
@@ -1728,7 +1819,7 @@
       #heroApplication   { font-size: 1.15rem; }
       .quick-topic       { font-size: 1.05rem !important; padding: 0.9rem 0.75rem !important; }
       #feel-search       { font-size: 1.1rem; padding: 0.95rem 1.1rem; }
-      .quick-grid {
+      .quick-topic-group-chips {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
         gap: 0.55rem !important;
       }
@@ -2468,7 +2559,9 @@
       background: color-mix(in srgb, var(--gold) 12%, transparent);
       outline: none;
     }
-    #feel-search, .quick-grid .quick-topic {
+    #feel-search,
+    .quick-grid .quick-topic,
+    .quick-topic-group-chips .quick-topic {
       touch-action: manipulation;
       -webkit-tap-highlight-color: rgba(212, 175, 55, 0.2);
     }
@@ -2672,7 +2765,9 @@
       .tdb-hero-search-priority-hint { display: block; }
       /* Calm first-visit flow: crisis tap, today’s verse, saved progress (if any), mood search, then the rest */
       .calm-cta-wrap { order: -32; }
+      .tdb-page-orientation { order: -30; }
       #main-content { order: -28; }
+      .tdb-install-reassurance-stack { order: -26; }
       #quick-search-hero { order: -24; }
       main.tdb-home-has-progress #plan-progress-card { order: -22; }
     }
@@ -3338,6 +3433,21 @@
     /* ── Need Him right now? Single entry (calm flow) ── */
     .calm-cta-wrap { margin-bottom: 0.45rem; }
     .calm-cta-note { margin: 0.35rem 0 0; font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
+    .tdb-page-orientation {
+      margin: 0 auto 0.55rem;
+      padding: 0 0.35rem;
+      max-width: 38rem;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      text-align: center;
+      color: color-mix(in srgb, var(--muted) 93%, var(--text) 7%);
+    }
+    .tdb-install-reassurance-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin: 0.2rem 0 0.4rem;
+    }
     .calm-crisis-card {
       display: flex; align-items: center; gap: 0.6rem;
       padding: 0.85rem 1.1rem; margin: 0;
@@ -5058,14 +5168,36 @@
     .topic-plans-hint a { color: var(--gold-soft, #c9a84c); }
     .topic-plans-hint a:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.65); outline-offset: 2px; }
 
-    /* ── Quick-topic grid — spreads on all screens ── */
+    /* ── Quick-topic grid — grouped rows; chips use same cell sizing as before ── */
     .quick-grid {
+      display: flex !important;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 0.55rem 0 0;
+    }
+    .quick-topic-group {
+      margin: 0;
+    }
+    .quick-topic-group-title {
+      margin: 0 0 0.4rem;
+      padding: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 92%, var(--gold) 8%);
+      text-align: center;
+    }
+    .quick-topic-group-chips {
       display: grid !important;
       grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)) !important;
       gap: 0.5rem;
-      margin: 0.55rem 0 0;
     }
-    .quick-grid .quick-topic {
+    :root[data-theme="light"] .quick-topic-group-title {
+      color: rgba(90, 72, 40, 0.78);
+    }
+    .quick-grid .quick-topic,
+    .quick-topic-group-chips .quick-topic {
       min-height: 52px;
       font-size: 0.88rem;
       padding: 0.65rem 0.4rem;
@@ -5078,14 +5210,17 @@
       transition: border-color 0.15s, color 0.15s, background 0.15s;
     }
     .quick-grid .quick-topic:hover,
-    .quick-grid .quick-topic:focus-visible {
+    .quick-grid .quick-topic:focus-visible,
+    .quick-topic-group-chips .quick-topic:hover,
+    .quick-topic-group-chips .quick-topic:focus-visible {
       border-color: var(--gold);
       color: var(--gold);
       background: color-mix(in srgb, var(--gold) 10%, var(--card));
       outline: none;
     }
     @media (min-width: 900px) {
-      .quick-grid .quick-topic {
+      .quick-grid .quick-topic,
+      .quick-topic-group-chips .quick-topic {
         font-size: 1rem;
         padding: 0.8rem 0.6rem;
         min-height: 54px;
@@ -5297,7 +5432,6 @@
       mix-blend-mode: overlay;
     }
 
-    .header-sub-toolbar,
     main,
     .site-footer,
     .app > section.sr-only {
@@ -5630,10 +5764,24 @@
       </nav>
     </header>
 
-    <div class="tdb-moat-banner" role="region" aria-labelledby="tdb-moat-lead">
+    <nav class="tdb-sticky-wayfind" aria-label="Jump on this page">
+      <a href="#hero-verse-wrap">Verse</a>
+      <a href="#feel-section">Feel search</a>
+      <a href="plans.html">Plans</a>
+      <a href="calm.html">Calm</a>
+      <a href="message.html">Prayer</a>
+      <a href="bible-tool.html">Tools</a>
+      <a href="/give">Support</a>
+    </nav>
+
+    <details class="tdb-moat-banner" id="tdb-moat-details">
+      <summary class="tdb-moat-summary">
+        <span class="tdb-moat-summary-main">No ads &middot; verses and notes stay on this device unless you sync</span>
+        <span class="tdb-moat-summary-more">Why not AI, privacy, and sample plans &mdash; expand</span>
+      </summary>
       <div class="tdb-moat-banner-inner">
         <div class="moat-banner" role="note">
-          No ads, no data sold—anonymous page stats only, not for profiling. Verses, plans, and notes stay on this device unless you sign in to sync.
+          No ads, no data sold&mdash;anonymous page stats only, not for profiling. Verses, plans, and notes stay on this device unless you sign in to sync.
         </div>
         <div class="tdb-moat-banner-top">
           <p id="tdb-moat-lead" class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</p>
@@ -5643,20 +5791,11 @@
         <ul class="tdb-moat-banner-plans" aria-labelledby="tdb-moat-kicker" aria-describedby="tdb-moat-plans-note">
           <li>Fear or anxiety spiking &mdash; <a class="tdb-moat-banner-link" href="plans.html?plan=fearfaith" aria-label="Open Fear to Faith, a 7-day KJV reading plan">Fear to Faith</a>.</li>
           <li>Mind on tomorrow, can&rsquo;t rest &mdash; <a class="tdb-moat-banner-link" href="plans.html?plan=worrytrust" aria-label="Open Worry to Trust, a 7-day KJV reading plan">Worry to Trust</a>.</li>
-          <li>Loss, anger, doubt, pain, or a soul that won&rsquo;t settle &mdash; <a class="tdb-moat-banner-link" href="plans.html#all-plans" aria-label="Open Battle Plans library">open the full library</a> (Psalms comfort, Galatians, John, peace, and more).</li>
+          <li>Heavy heart or a soul that won&rsquo;t settle &mdash; <a class="tdb-moat-banner-link" href="plans.html#all-plans" aria-label="Open Battle Plans library">open the full library</a> (Psalms comfort, Galatians, John, peace, and more).</li>
         </ul>
         <p id="tdb-moat-plans-note" class="tdb-moat-banner-footnote">Each link opens a seven-day KJV plan unless the plan name says otherwise.</p>
       </div>
-    </div>
-
-    <div class="header-sub-toolbar" role="region" aria-label="Reading plans quick link">
-      <div class="header-battle-plans header-battle-plans--solo">
-        <a href="plans.html" class="header-battle-plans-link" aria-label="Battle Plans — browse 7 to 40 day KJV reading plans" title="7–40 day plans, saved on your device. Daily bread for today’s daily battle — one verse, one day at a time.">
-          <span class="header-battle-plans-title">📋 Battle Plans</span>
-          <span class="header-battle-plans-sub">7–40 day plans, saved on your device →</span>
-        </a>
-      </div>
-    </div>
+    </details>
 
     <!-- Hidden search plumbing for script.js compatibility -->
     <!-- DO NOT REMOVE: #main-search, #quick-actions-hero are protected core tools — build fails if missing -->
@@ -5681,6 +5820,9 @@
         <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
       </div>
 
+      <p class="tdb-page-orientation" id="tdb-page-orientation">Today&rsquo;s verse comes first; feel search and the rest follow when you&rsquo;re ready.</p>
+
+      <div class="tdb-install-reassurance-stack" aria-label="Offline status and add to home screen">
       <!-- ── Offline banner (reassuring message when offline) ── -->
       <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — verse, search &amp; prayers still work. We'll sync when you're back.</div>
 
@@ -5710,6 +5852,7 @@
             <label for="install-dismiss-forever">Don&apos;t ask again</label>
           </div>
         </div>
+      </div>
       </div>
 
       <!-- ── Hero Verse ── -->
@@ -5910,7 +6053,7 @@
 
       <!-- ── Feel Search (nav anchor: #quick-search-hero) — below Why not AI teaser, above Battle Plans ── -->
       <div id="quick-search-hero">
-      <p class="tdb-hero-search-priority-hint">On a phone, you&rsquo;ll see today&rsquo;s verse first, then this search&mdash;Family Armor, the 30-day plan, invite and share, and the email nudge sit next; the quiet prayer room follows when you&rsquo;re ready.</p>
+      <p class="tdb-hero-search-priority-hint">On a phone, today&rsquo;s verse lands first; this search and the rest of the page follow&mdash;no rush.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
       <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>
         <p class="first-visit-text">In your own words, say how it feels (grateful, quiet, tired, heavy&hellip;) or tap a topic chip below.</p>
@@ -5947,42 +6090,62 @@
         </div>
         <p class="topic-plans-hint section-note" id="topicPlansHint">Tap a chip to search verses. <span class="topic-plans-hint-detail">Alt-click (desktop) or long-press (phone) on a chip opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
         <div class="quick-grid" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Order may change each visit. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
-          <button type="button" class="quick-topic" data-topic="peace" aria-label="Peace"><span aria-hidden="true">🕊️</span> Peace</button>
-          <button type="button" class="quick-topic" data-topic="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙌</span> Gratitude</button>
-          <button type="button" class="quick-topic" data-topic="hope" aria-label="Wonder"><span aria-hidden="true">✨</span> Wonder</button>
-          <button type="button" class="quick-topic" data-topic="anxiety" aria-label="Restless"><span aria-hidden="true">🌊</span> Restless</button>
-          <button type="button" class="quick-topic" data-topic="strength" aria-label="Tired"><span aria-hidden="true">😮‍💨</span> Tired</button>
-          <button type="button" class="quick-topic" data-topic="overwhelmed" aria-label="Heavy"><span aria-hidden="true">⛰️</span> Heavy</button>
-          <button type="button" class="quick-topic" data-topic="joy" aria-label="Joy"><span aria-hidden="true">☀️</span> Joy</button>
-          <button type="button" class="quick-topic" data-topic="love" aria-label="Love"><span aria-hidden="true">❤️</span> Love</button>
-          <button type="button" class="quick-topic" data-topic="faith" aria-label="Faith"><span aria-hidden="true">🌱</span> Faith</button>
-          <button type="button" class="quick-topic" data-topic="courage" aria-label="Courage"><span aria-hidden="true">🛡️</span> Courage</button>
-          <button type="button" class="quick-topic" data-topic="forgiveness" aria-label="Forgiveness"><span aria-hidden="true">✝️</span> Forgiveness</button>
-          <button type="button" class="quick-topic" data-topic="patience" aria-label="Patience"><span aria-hidden="true">⏳</span> Patience</button>
-          <button type="button" class="quick-topic" data-topic="wisdom" aria-label="Wisdom"><span aria-hidden="true">📖</span> Wisdom</button>
-          <button type="button" class="quick-topic" data-topic="hope" aria-label="Hope"><span aria-hidden="true">♥️</span> Hope</button>
-          <button type="button" class="quick-topic" data-topic="family" aria-label="Family"><span aria-hidden="true">🏠</span> Family</button>
-          <button type="button" class="quick-topic" data-topic="parenting" aria-label="Parenting"><span aria-hidden="true">👨‍👩‍👧</span> Parenting</button>
-          <button type="button" class="quick-topic" data-topic="marriage" aria-label="Marriage"><span aria-hidden="true">💍</span> Marriage</button>
-          <button type="button" class="quick-topic" data-topic="relationships" aria-label="Relationships"><span aria-hidden="true">🤝</span> Relationships</button>
-          <button type="button" class="quick-topic" data-topic="finances" aria-label="Money"><span aria-hidden="true">💰</span> Money</button>
-          <button type="button" class="quick-topic" data-topic="sleep" aria-label="Sleep"><span aria-hidden="true">😴</span> Sleep</button>
-          <button type="button" class="quick-topic" data-topic="rest" aria-label="Rest"><span aria-hidden="true">🌙</span> Rest</button>
-          <button type="button" class="quick-topic" data-topic="obedience" aria-label="Obey"><span aria-hidden="true">✨</span> Obey</button>
-          <button type="button" class="quick-topic" data-topic="jesus said" aria-label="Jesus said"><span aria-hidden="true">💬</span> Jesus said</button>
-          <button type="button" class="quick-topic" data-topic="spiritualwarfare" aria-label="Spiritual warfare"><span aria-hidden="true">📜</span> Spiritual warfare</button>
-          <button type="button" class="quick-topic" data-topic="fear" aria-label="Fear"><span aria-hidden="true">🌧️</span> Fear</button>
-          <button type="button" class="quick-topic" data-topic="loneliness" aria-label="Loneliness"><span aria-hidden="true">🤗</span> Loneliness</button>
-          <button type="button" class="quick-topic" data-topic="guilt" aria-label="Guilt"><span aria-hidden="true">💭</span> Guilt</button>
-          <button type="button" class="quick-topic" data-topic="heartache" aria-label="Heartache"><span aria-hidden="true">💔</span> Heartache</button>
-          <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief"><span aria-hidden="true">🕯️</span> Grief</button>
-          <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger"><span aria-hidden="true">🔥</span> Anger</button>
-          <button type="button" class="quick-topic" data-topic="cancer" aria-label="Cancer"><span aria-hidden="true">🎗️</span> Cancer</button>
-          <button type="button" class="quick-topic" data-topic="addiction" aria-label="Addiction"><span aria-hidden="true">🔗</span> Addiction</button>
-          <button type="button" class="quick-topic" data-topic="trauma" aria-label="Trauma"><span aria-hidden="true">🕊️</span> Trauma</button>
-          <button type="button" class="quick-topic" data-topic="identity" aria-label="Identity"><span aria-hidden="true">🪞</span> Identity</button>
-          <button type="button" class="quick-topic" data-topic="purpose" aria-label="Purpose"><span aria-hidden="true">🎯</span> Purpose</button>
-          <button type="button" class="quick-topic" data-topic="free will" aria-label="Free will"><span aria-hidden="true">∞</span> FREE WILL</button>
+          <div class="quick-topic-group" role="group" aria-labelledby="qtg-heavy">
+            <h3 class="quick-topic-group-title" id="qtg-heavy">When it feels heavy</h3>
+            <div class="quick-topic-group-chips">
+              <button type="button" class="quick-topic" data-topic="anxiety" aria-label="Restless"><span aria-hidden="true">🌊</span> Restless</button>
+              <button type="button" class="quick-topic" data-topic="overwhelmed" aria-label="Heavy"><span aria-hidden="true">⛰️</span> Heavy</button>
+              <button type="button" class="quick-topic" data-topic="fear" aria-label="Fear"><span aria-hidden="true">🌧️</span> Fear</button>
+              <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief"><span aria-hidden="true">🕯️</span> Grief</button>
+              <button type="button" class="quick-topic" data-topic="heartache" aria-label="Heartache"><span aria-hidden="true">💔</span> Heartache</button>
+              <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger"><span aria-hidden="true">🔥</span> Anger</button>
+              <button type="button" class="quick-topic" data-topic="guilt" aria-label="Guilt"><span aria-hidden="true">💭</span> Guilt</button>
+              <button type="button" class="quick-topic" data-topic="loneliness" aria-label="Loneliness"><span aria-hidden="true">🤗</span> Loneliness</button>
+              <button type="button" class="quick-topic" data-topic="trauma" aria-label="Trauma"><span aria-hidden="true">🕊️</span> Trauma</button>
+              <button type="button" class="quick-topic" data-topic="addiction" aria-label="Addiction"><span aria-hidden="true">🔗</span> Addiction</button>
+              <button type="button" class="quick-topic" data-topic="cancer" aria-label="Cancer"><span aria-hidden="true">🎗️</span> Cancer</button>
+            </div>
+          </div>
+          <div class="quick-topic-group" role="group" aria-labelledby="qtg-steady">
+            <h3 class="quick-topic-group-title" id="qtg-steady">When you need steadiness</h3>
+            <div class="quick-topic-group-chips">
+              <button type="button" class="quick-topic" data-topic="peace" aria-label="Peace"><span aria-hidden="true">🕊️</span> Peace</button>
+              <button type="button" class="quick-topic" data-topic="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙌</span> Gratitude</button>
+              <button type="button" class="quick-topic" data-topic="hope" aria-label="Wonder"><span aria-hidden="true">✨</span> Wonder</button>
+              <button type="button" class="quick-topic" data-topic="strength" aria-label="Tired"><span aria-hidden="true">😮‍💨</span> Tired</button>
+              <button type="button" class="quick-topic" data-topic="joy" aria-label="Joy"><span aria-hidden="true">☀️</span> Joy</button>
+              <button type="button" class="quick-topic" data-topic="love" aria-label="Love"><span aria-hidden="true">❤️</span> Love</button>
+              <button type="button" class="quick-topic" data-topic="faith" aria-label="Faith"><span aria-hidden="true">🌱</span> Faith</button>
+              <button type="button" class="quick-topic" data-topic="courage" aria-label="Courage"><span aria-hidden="true">🛡️</span> Courage</button>
+              <button type="button" class="quick-topic" data-topic="patience" aria-label="Patience"><span aria-hidden="true">⏳</span> Patience</button>
+              <button type="button" class="quick-topic" data-topic="wisdom" aria-label="Wisdom"><span aria-hidden="true">📖</span> Wisdom</button>
+              <button type="button" class="quick-topic" data-topic="hope" aria-label="Hope"><span aria-hidden="true">♥️</span> Hope</button>
+              <button type="button" class="quick-topic" data-topic="rest" aria-label="Rest"><span aria-hidden="true">🌙</span> Rest</button>
+              <button type="button" class="quick-topic" data-topic="sleep" aria-label="Sleep"><span aria-hidden="true">😴</span> Sleep</button>
+            </div>
+          </div>
+          <div class="quick-topic-group" role="group" aria-labelledby="qtg-home">
+            <h3 class="quick-topic-group-title" id="qtg-home">Home and relationships</h3>
+            <div class="quick-topic-group-chips">
+              <button type="button" class="quick-topic" data-topic="family" aria-label="Family"><span aria-hidden="true">🏠</span> Family</button>
+              <button type="button" class="quick-topic" data-topic="parenting" aria-label="Parenting"><span aria-hidden="true">👨‍👩‍👧</span> Parenting</button>
+              <button type="button" class="quick-topic" data-topic="marriage" aria-label="Marriage"><span aria-hidden="true">💍</span> Marriage</button>
+              <button type="button" class="quick-topic" data-topic="relationships" aria-label="Relationships"><span aria-hidden="true">🤝</span> Relationships</button>
+              <button type="button" class="quick-topic" data-topic="finances" aria-label="Money"><span aria-hidden="true">💰</span> Money</button>
+            </div>
+          </div>
+          <div class="quick-topic-group" role="group" aria-labelledby="qtg-faith">
+            <h3 class="quick-topic-group-title" id="qtg-faith">Faith and calling</h3>
+            <div class="quick-topic-group-chips">
+              <button type="button" class="quick-topic" data-topic="forgiveness" aria-label="Forgiveness"><span aria-hidden="true">✝️</span> Forgiveness</button>
+              <button type="button" class="quick-topic" data-topic="obedience" aria-label="Obey"><span aria-hidden="true">✨</span> Obey</button>
+              <button type="button" class="quick-topic" data-topic="jesus said" aria-label="Jesus said"><span aria-hidden="true">💬</span> Jesus said</button>
+              <button type="button" class="quick-topic" data-topic="spiritualwarfare" aria-label="Spiritual warfare"><span aria-hidden="true">📜</span> Spiritual warfare</button>
+              <button type="button" class="quick-topic" data-topic="identity" aria-label="Identity"><span aria-hidden="true">🪞</span> Identity</button>
+              <button type="button" class="quick-topic" data-topic="purpose" aria-label="Purpose"><span aria-hidden="true">🎯</span> Purpose</button>
+              <button type="button" class="quick-topic" data-topic="free will" aria-label="Free will"><span aria-hidden="true">∞</span> FREE WILL</button>
+            </div>
+          </div>
         </div>
         <div id="plans-teaser" class="plans-teaser plans-teaser--nested" aria-label="Battle Plans lanes">
           <div class="plans-teaser-header">

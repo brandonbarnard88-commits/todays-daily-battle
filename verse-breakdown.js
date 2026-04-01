@@ -1084,6 +1084,13 @@
         seen.add(el);
         if (shouldSkipVerseBreakdownHost(el)) return;
         if (el.classList && el.classList.contains('daily-battle-loading')) return;
+        /* Homepage #verseCard: rich panels (#heroBreakdownPanels) already explain the calendar verse; skip second “Break it down” UI. */
+        if (el.id === 'verseCard') {
+          try {
+            var pHome = String((window.location && window.location.pathname) || '');
+            if (pHome === '/' || /\/index\.html?$/i.test(pHome)) return;
+          } catch (eHome) {}
+        }
         var pair = extractRefAndText(el);
         if (!pair.ref || !pair.text) return;
         injectInlineBreakdown(el, pair.ref, pair.text);

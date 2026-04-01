@@ -6770,9 +6770,20 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 
 .explore-page > header.hero-banner .privacy-line,
 .explore-page > header.hero-banner .hero-tagline,
+.explore-page > header.hero-banner .explore-positioning-line,
 .explore-page > header.hero-banner .section-note,
 .explore-page > header.hero-banner .real-talk {
   color: #334155;
+}
+
+.explore-page > header.hero-banner .explore-positioning-line {
+  margin-top: 0.45rem;
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.58;
+  max-width: 54ch;
+  letter-spacing: 0.02em;
 }
 
 .explore-page > header.hero-banner a {
@@ -17992,6 +18003,10 @@ body.kids-battle-page .tdb-site-humility {
   font-size: 1.1rem;
   margin-bottom: 0.75rem;
   color: var(--elite-gold, #d4af37);
+}
+
+.about-page > header.hero-banner .about-scripture-first-lead {
+  margin-bottom: 0.55rem;
 }
 
 .content-inner .about-feature-list {

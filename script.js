@@ -1275,7 +1275,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260403-js-polish');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260404-home-hero');
   if (!trusted) return;
   var script = document.createElement('script');
   script.src = trusted;
@@ -23729,16 +23729,27 @@ async function tdbInitImpl() {
   }
   if (kidsHistoryEl) {
     try {
-      const history = JSON.parse(localStorage.getItem(DAILY_KIDS_HISTORY_KEY) || '[]').slice(0, 7);
+      const historyTodayKey = getDailyKey();
+      const historyRaw = JSON.parse(localStorage.getItem(DAILY_KIDS_HISTORY_KEY) || '[]');
+      const history = historyRaw
+        .filter(function (entry) {
+          return entry && entry.key && entry.item && entry.key !== historyTodayKey;
+        })
+        .slice(0, 7);
       if (history.length) {
-        kidsHistoryEl.innerHTML = history.map(entry => (
-          `<div class="list-item"><div><strong>${entry.item.title}</strong><p>${entry.item.prompt}</p><p class="section-note">Verse: ${entry.item.verse}</p></div></div>`
-        )).join('');
+        kidsHistoryEl.innerHTML = history.map(function (entry) {
+          var t = escapeHtml(String(entry.item.title || ''));
+          var p = escapeHtml(String(entry.item.prompt || ''));
+          var v = escapeHtml(String(entry.item.verse || ''));
+          return (
+            '<div class="list-item"><div><strong>' + t + '</strong><p>' + p + '</p><p class="section-note">Verse: ' + v + '</p></div></div>'
+          );
+        }).join('');
       } else {
-        kidsHistoryEl.innerHTML = '<p class="section-note">History will appear here after a few days.</p>';
+        kidsHistoryEl.innerHTML = '<p class="section-note">Past prompts will show here when you come back on another day.</p>';
       }
     } catch {
-      kidsHistoryEl.innerHTML = '<p class="section-note">History will appear here after a few days.</p>';
+      kidsHistoryEl.innerHTML = '<p class="section-note">Past prompts will show here when you come back on another day.</p>';
     }
   }
 

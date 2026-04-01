@@ -44,3 +44,13 @@ Do **not** enable a second automatic production deploy on every push until you�
 ## Purge on push
 
 `.github/workflows/purge-cloudflare-on-push.yml` purges the **zone** after each push to `main` when `CF_ZONE_ID` + `CF_API_TOKEN` are set. If you move to **Pages-only**, consider switching to **Pages cache invalidation** or trimming purges—see `scripts/cloudflare-purge.mjs` and `npm run purge:cloudflare:social` for lighter touches.
+
+## Production parity checklist (after every meaningful deploy)
+
+Use this when “GitHub is right but the site feels old.”
+
+1. **Confirm one authoritative publish path** for the live hostname (Pages **or** Vercel **or** another origin)—avoid two systems both claiming production without a documented rule.
+2. **Run a green deploy** (`npm run build` locally; then GitHub **Deploy Cloudflare Pages (manual)** or your connected Git build; wait for success).
+3. **Purge edge cache** if HTML/JS still looks stale: Cloudflare **Caching → Purge Everything** once, or `npm run purge:cloudflare` / `purge:cloudflare:social` with real `CF_API_TOKEN` in `.env` or Actions secrets.
+4. **Spot-check in a private window**: `/` (hero + breakdown order), `/coloring.html` (Color & Tell bundle + `kids/color-and-tell.js` version), `/verse-image.html` (supporter flow).
+5. **Service worker**: after big asset changes, a normal reload may still show old shells; hard refresh or “clear site data” once if PWA users report ghosts.

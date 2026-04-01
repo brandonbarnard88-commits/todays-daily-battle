@@ -34,10 +34,12 @@
     .verse-image-page .verse-image-preview-wrap {
       max-width: min(100%, 720px);
       margin: 1rem auto;
-      border-radius: 12px;
+      border-radius: var(--tdb-surface-radius, 12px);
       overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      background: rgba(12, 18, 30, 0.5);
+      border: 1px solid var(--tdb-surface-card-border, rgba(148, 163, 184, 0.2));
+      background: var(--tdb-surface-card-bg, rgba(12, 18, 30, 0.5));
+      background-image: var(--tdb-surface-veil-subtle, none);
+      box-shadow: var(--tdb-surface-card-shadow, none);
     }
     .verse-image-page #verse-image-canvas {
       display: block;
@@ -58,10 +60,11 @@
     .verse-image-page .verse-image-controls textarea {
       min-height: 44px;
       padding: 0.5rem 0.65rem;
-      border-radius: 8px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.85);
-      color: #e2e8f0;
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 4px);
+      border: 1px solid var(--tdb-surface-panel-border, rgba(148, 163, 184, 0.35));
+      background: var(--tdb-surface-panel-bg, rgba(15, 23, 42, 0.85));
+      background-image: var(--tdb-surface-veil-subtle, none);
+      color: var(--text, #e2e8f0);
       font-size: 1rem;
       width: 100%;
       box-sizing: border-box;
@@ -69,9 +72,9 @@
     .verse-image-page .verse-image-controls textarea { min-height: 6rem; resize: vertical; }
     .verse-image-page .verse-image-locked {
       padding: 1.25rem;
-      border-radius: 12px;
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      background: rgba(212, 175, 55, 0.06);
+      border-radius: var(--tdb-surface-radius, 12px);
+      border: 1px solid color-mix(in srgb, var(--gold, #d4af37) 38%, var(--tdb-surface-card-border, rgba(148, 163, 184, 0.25)));
+      background: color-mix(in srgb, var(--gold, #d4af37) 8%, var(--tdb-surface-card-bg, rgba(12, 18, 30, 0.65)));
     }
     .verse-image-page .verse-image-app[hidden],
     .verse-image-page .verse-image-locked[hidden] { display: none !important; }

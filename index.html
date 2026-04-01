@@ -2102,6 +2102,16 @@
       color: var(--text);
     }
 
+    /* Calendar verse breakdown sits directly under the verse row (before hub “extra anchor”) */
+    .hero-calendar-breakdown-wrap {
+      margin: 0.5rem 0 0;
+      padding-top: 0.6rem;
+      border-top: 1px solid color-mix(in srgb, var(--line, rgba(255, 255, 255, 0.12)) 88%, transparent);
+    }
+    .hero-calendar-breakdown-wrap .hero-breakdown-panels {
+      margin: 0.45rem 0 0.65rem;
+    }
+
     /* ── Hero verse rich breakdown panels ── */
     .hero-breakdown-panels {
       display: grid;
@@ -2151,6 +2161,7 @@
     .verse-card.is-loading .hero-daily-bread-line,
     .verse-card.is-loading .breakdown,
     .verse-card.is-loading .hero-breakdown-panels,
+    .verse-card.is-loading .hero-calendar-breakdown-wrap,
     .verse-card.is-loading .application,
     .verse-card.is-loading .verse-note { display: none; }
 
@@ -5778,6 +5789,11 @@
             <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
           </div>
         </div>
+        <div class="hero-calendar-breakdown-wrap" role="region" aria-label="Today’s calendar verse — gentle breakdown">
+        <ul class="breakdown" id="heroBreakdown"></ul>
+        <div class="hero-breakdown-panels" id="heroBreakdownPanels"></div>
+        <p class="application" id="heroApplication"></p>
+        </div>
         <p class="hero-daily-welcome">Joy, rest, questions&mdash;you are welcome here.</p>
         <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen slow for a quiet hear-through of today&rsquo;s verse and breakdown. Keyboard: Tab to Listen slow, then Space.</p>
         <p class="hero-word-study-wrap">
@@ -5821,9 +5837,6 @@
           <span id="heroStreakBadge" class="hero-streak-badge" hidden></span>
         </div>
         <div id="streak-milestone-card" class="streak-milestone-card hidden" role="status" aria-live="polite" aria-label="Streak milestone"></div>
-        <ul class="breakdown" id="heroBreakdown"></ul>
-        <div class="hero-breakdown-panels" id="heroBreakdownPanels"></div>
-        <p class="application" id="heroApplication"></p>
         <p class="verse-note" id="verseNote" hidden></p>
         <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
       </section>

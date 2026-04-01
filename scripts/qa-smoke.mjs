@@ -97,7 +97,6 @@ try {
 
   const prayBtn = page.locator('#quick-pray-btn, #silentAmenBtn').first();
   if (await prayBtn.count()) {
-    await page.locator('#prayer-wall').first().scrollIntoViewIfNeeded().catch(() => {});
     await page.waitForTimeout(300);
     const prayerBadge = page.locator('#prayer-history-badge, #prayerTodayBadge');
     const before = ((await prayerBadge.first().textContent().catch(() => '')) || '').replace(/\s+/g, ' ').trim();

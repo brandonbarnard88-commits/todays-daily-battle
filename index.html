@@ -13,6 +13,8 @@
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260327theme" fetchpriority="low"></script>
+  <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
+  <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
 
   <title>Today&rsquo;s Verse &mdash; A Quiet Place | KJV &amp; calm search &middot; Today&rsquo;s Daily Battle</title>
@@ -6187,18 +6189,6 @@
           <button type="button" id="newsletter-submit" class="btn btn-primary" aria-label="Subscribe">Subscribe</button>
         </div>
         <p id="newsletter-status" class="section-note" aria-live="polite"></p>
-      </section>
-
-      <!-- ── Prayer wall (full experience: prayer-wall.html) ── -->
-      <section class="card prayer-wall-card prayer-wall-teaser" id="prayer-wall" aria-labelledby="prayer-wall-room-title">
-        <h2 id="prayer-wall-room-title" class="prayer-wall-room-title">A quiet room</h2>
-        <p class="prayer-wall-room-lead">Name one line for God. No feed, no performance&mdash;the same humble wall as before, now on its own page so verse search and tools stay up top on home.</p>
-        <p class="prayer-wall-privacy-note landing-privacy-teaser section-note">What you post stays anonymous on this device unless you sign in and choose otherwise. <a href="privacy.html">Privacy policy</a>.</p>
-        <p class="prayer-wall-community-line section-note">Want to read others or post with an account? <a href="message.html#message-board" hreflang="en" aria-label="Open the community prayer board">Community board</a>&mdash;separate from this quiet room.</p>
-        <div class="cta-group util-mt-1">
-          <a class="btn btn-primary" href="prayer-wall.html">Open the quiet room</a>
-          <a class="btn btn-secondary" href="/">Back to search</a>
-        </div>
       </section>
 
       <!-- ── Revival & Outreach (nav anchors) ── -->

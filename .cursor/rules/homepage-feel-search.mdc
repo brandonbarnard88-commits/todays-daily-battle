@@ -20,6 +20,7 @@ The homepage **“How’re you feeling?”** flow is intentionally split:
 ## Always do this when touching search
 
 - Route homepage results through **`getSearchOutputElement()`** (prefers `#feel-results`, then `#output` on tool pages).
+- **`#quickTopics`** may use **category pickers** + in-page expanded chip panels; keep **one** delegated `click` / `touchend` path on `#quickTopics` for `.quick-topic[data-topic]` (via `wireSmartSearch` gate + `feelSuggestDropdown`).
 - After changes, run **`npm run test`** (includes `scripts/verify-homepage-search-wiring.mjs`) and **`npm run test:site`**.
 
 ## Verification

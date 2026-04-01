@@ -15094,6 +15094,88 @@ try {
   window.tdbRunHomeMoodShuffleAndWelcome = tdbRunHomeMoodShuffleAndWelcome;
 } catch (eTdbWin) {}
 
+/** Homepage only: four category cards → expand one band of chips (progressive disclosure). */
+function wireFeelTopicProgressive() {
+  var root = document.getElementById('quickTopics');
+  if (!root || root.getAttribute('data-tdb-feel-progressive') === '1') return;
+  var pickers = document.getElementById('feelTopicPickers');
+  var expanded = document.getElementById('feelTopicExpanded');
+  var backBtn = document.getElementById('feelBandBack');
+  if (!pickers || !expanded || !backBtn) return;
+  root.setAttribute('data-tdb-feel-progressive', '1');
+  var bandButtons = pickers.querySelectorAll('.feel-category-card[data-feel-band]');
+  var panels = expanded.querySelectorAll('.feel-band-panel[data-feel-band]');
+  if (!bandButtons.length || !panels.length) return;
+  var lastBand = null;
+  function setExpandedOnButtons(isOpen, activeBand) {
+    for (var i = 0; i < bandButtons.length; i++) {
+      var b = bandButtons[i];
+      var bb = b.getAttribute('data-feel-band');
+      b.setAttribute('aria-expanded', isOpen && bb === activeBand ? 'true' : 'false');
+    }
+  }
+  function openBand(band) {
+    lastBand = band;
+    pickers.hidden = true;
+    pickers.setAttribute('aria-hidden', 'true');
+    expanded.removeAttribute('hidden');
+    expanded.setAttribute('aria-hidden', 'false');
+    for (var p = 0; p < panels.length; p++) {
+      var el = panels[p];
+      var match = el.getAttribute('data-feel-band') === band;
+      if (match) {
+        el.removeAttribute('hidden');
+        el.setAttribute('aria-hidden', 'false');
+      } else {
+        el.setAttribute('hidden', '');
+        el.setAttribute('aria-hidden', 'true');
+      }
+    }
+    setExpandedOnButtons(true, band);
+    backBtn.focus();
+    try {
+      var reduceMotion = false;
+      try {
+        reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      } catch (eM) {}
+      expanded.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+    } catch (eScroll) {}
+  }
+  function closeBand() {
+    expanded.setAttribute('hidden', '');
+    expanded.setAttribute('aria-hidden', 'true');
+    for (var p = 0; p < panels.length; p++) {
+      panels[p].setAttribute('hidden', '');
+      panels[p].setAttribute('aria-hidden', 'true');
+    }
+    pickers.removeAttribute('hidden');
+    pickers.setAttribute('aria-hidden', 'false');
+    setExpandedOnButtons(false, null);
+    if (lastBand) {
+      var backFocus = pickers.querySelector('.feel-category-card[data-feel-band="' + lastBand + '"]');
+      if (backFocus && typeof backFocus.focus === 'function') backFocus.focus();
+      lastBand = null;
+    }
+  }
+  for (var bi = 0; bi < bandButtons.length; bi++) {
+    bandButtons[bi].addEventListener('click', function () {
+      var band = this.getAttribute('data-feel-band');
+      if (band) openBand(band);
+    });
+  }
+  backBtn.addEventListener('click', closeBand);
+  document.addEventListener('keydown', function feelBandEsc(ev) {
+    if (!ev || ev.key !== 'Escape') return;
+    if (expanded.hasAttribute('hidden')) return;
+    closeBand();
+    ev.preventDefault();
+  });
+  try {
+    window.tdbCloseFeelTopicBand = closeBand;
+    window.tdbOpenFeelTopicBand = openBand;
+  } catch (eW) {}
+}
+
 function stemWord(word) {
   if (!word || word.length <= 3) return word;
   const rules = [/ing$/, /ed$/, /es$/, /s$/];
@@ -21626,7 +21708,7 @@ async function tdbInitImpl() {
     })();
   } catch (_) {}
 
-  /* Wire search - #quickTopics chips in HTML (never empty); after fill, tdbRunHomeMoodShuffleAndWelcome() (also on DOMContentLoaded + bfcache pageshow). Accordion from TDB_TOPICS. */
+  /* Wire search - #quickTopics hosts category pickers + chip panels (all chips in HTML); after fill, shuffle + wireFeelTopicProgressive. Accordion from TDB_TOPICS. */
   try {
     renderQuickTopicButtons('quick-actions-accordion', false);
     var heroContainer = document.getElementById('quick-actions-hero');
@@ -21636,6 +21718,7 @@ async function tdbInitImpl() {
       chipCount = heroContainer.querySelectorAll('.topic-chip, .quick-topic, [data-topic]').length;
     }
     tdbRunHomeMoodShuffleAndWelcome();
+    wireFeelTopicProgressive();
   } catch (renderErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: renderQuickTopicButtons', renderErr); }
 
   try {

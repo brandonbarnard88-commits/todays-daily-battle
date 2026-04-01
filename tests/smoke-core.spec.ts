@@ -18,8 +18,14 @@ test.describe('core smoke (dist)', () => {
   test('home: Hope topic shows verse cards', async ({ page }) => {
     await page.goto('/');
     await dismissFirstVisitIfPresent(page);
-    /* Chip can sit below the fold on mobile viewports — scroll before click so the tap hits Hope, not chrome. */
-    const hopeBtn = page.locator('#quickTopics .quick-topic[data-topic="hope"]');
+    /* Progressive disclosure: open steadiness band, then tap Hope (second hope chip is the labeled Hope). */
+    const steadyCard = page.locator('#quickTopics .feel-category-card[data-feel-band="steady"]');
+    if (await steadyCard.count()) {
+      await steadyCard.first().scrollIntoViewIfNeeded();
+      await steadyCard.first().click();
+      await page.waitForTimeout(200);
+    }
+    const hopeBtn = page.locator('#quickTopics .quick-topic[data-topic="hope"]').last();
     await hopeBtn.scrollIntoViewIfNeeded();
     await hopeBtn.click();
     /* Inline wireFeelSearch debounces (~300ms) into #feelCards .feel-verse-card; script.js may also use #feel-results .smart-card */

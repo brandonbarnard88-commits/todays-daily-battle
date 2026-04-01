@@ -109,7 +109,7 @@ async function runMobileSmokeTest() {
       
       const searchInput = page.locator('#feel-search');
       const searchButton = page.locator('#feel-search-btn');
-      const quickTopicArea = page.locator('#quickTopics, .quick-grid');
+      const quickTopicArea = page.locator('#quickTopics, .feel-quick-topics-root');
       
       const searchExists = await searchInput.count() > 0;
       const buttonExists = await searchButton.count() > 0;
@@ -148,8 +148,13 @@ async function runMobileSmokeTest() {
       await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await waitForSearchReady(page);
       await scrollFeelSectionIntoView(page);
-      const quickTopicButton = page.locator('#quickTopics .quick-topic, .quick-grid .quick-topic').first();
-      const buttonCount = await page.locator('#quickTopics .quick-topic, .quick-grid .quick-topic').count();
+      const categoryOpen = page.locator('#quickTopics .feel-category-card[data-feel-band="heavy"]').first();
+      if (await categoryOpen.count() > 0) {
+        await categoryOpen.click();
+        await page.waitForTimeout(350);
+      }
+      const quickTopicButton = page.locator('#quickTopics .quick-topic').first();
+      const buttonCount = await page.locator('#quickTopics .quick-topic').count();
       
       if (buttonCount === 0) {
         results.steps.push({ step: 2, status: 'FAIL', issue: 'No quick topic buttons found' });

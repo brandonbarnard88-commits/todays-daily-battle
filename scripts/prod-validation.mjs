@@ -219,8 +219,17 @@ async function validateQuickTopic(page) {
 
     let chipName = '';
     let chip = null;
+    const topicBands = { hope: 'steady', fear: 'heavy', peace: 'steady' };
     for (const topic of ['hope', 'fear', 'peace']) {
-      const loc = page.locator(`#quickTopics button.quick-topic[data-topic="${topic}"], .quick-grid button.quick-topic[data-topic="${topic}"]`).first();
+      const band = topicBands[topic];
+      const cat = page.locator(`#quickTopics .feel-category-card[data-feel-band="${band}"]`).first();
+      if (await cat.count() > 0) {
+        await cat.click().catch(() => {});
+        await page.waitForTimeout(280);
+      }
+      const loc = page
+        .locator(`#quickTopics button.quick-topic[data-topic="${topic}"], .feel-quick-topics-root button.quick-topic[data-topic="${topic}"]`)
+        .first();
       if (await loc.count() > 0) {
         chip = loc;
         chipName = topic;
@@ -229,7 +238,7 @@ async function validateQuickTopic(page) {
     }
 
     if (!chip) {
-      fail('No quick-topic buttons found in #quickTopics / .quick-grid');
+      fail('No quick-topic buttons found in #quickTopics / .feel-quick-topics-root');
       return { success: false, reason: 'No chips found' };
     }
 

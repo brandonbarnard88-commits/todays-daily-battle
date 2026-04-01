@@ -1835,7 +1835,7 @@
       #heroApplication   { font-size: 1.15rem; }
       .quick-topic       { font-size: 1.05rem !important; padding: 0.9rem 0.75rem !important; }
       #feel-search       { font-size: 1.1rem; padding: 0.95rem 1.1rem; }
-      #feel-section .quick-grid {
+      #feel-section .feel-quick-topics-root {
         gap: 2.7rem;
       }
       .quick-topic-group-chips {
@@ -2579,7 +2579,8 @@
       outline: none;
     }
     #feel-search,
-    .quick-grid .quick-topic,
+    .feel-category-card,
+    .feel-quick-topics-root .quick-topic,
     .quick-topic-group-chips .quick-topic {
       touch-action: manipulation;
       -webkit-tap-highlight-color: rgba(212, 175, 55, 0.2);
@@ -4145,21 +4146,6 @@
       line-height: 1.55;
       max-width: 38rem;
     }
-    #feel-section .mood-directive {
-      margin: 0 auto 0.85rem;
-      padding: 0 0.25rem;
-      max-width: 34rem;
-      font-size: 0.86rem;
-      line-height: 1.5;
-      font-weight: 600;
-      text-align: center;
-      color: color-mix(in srgb, var(--muted) 72%, var(--gold-soft) 28%);
-      letter-spacing: 0.01em;
-    }
-    :root[data-theme="light"] #feel-section .mood-directive {
-      color: rgba(75, 62, 42, 0.88);
-    }
-
     /* Hero daily verse doorway — welcoming any day */
     .hero-daily-headline {
       margin: 0 0 0.35rem;
@@ -5291,23 +5277,135 @@
     .topic-plans-hint a { color: var(--gold-soft, #c9a84c); }
     .topic-plans-hint a:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.65); outline-offset: 2px; }
 
-    /* ── Quick-topic grid — grouped rows; chips use same cell sizing as before ── */
-    .quick-grid {
+    /* ── Feel quick topics: category pickers + in-place chip panels ── */
+    .feel-quick-topics-root {
       display: flex !important;
       flex-direction: column;
       gap: 2.15rem;
       margin: 0.65rem 0 0;
     }
-    /* One calm beat after intro copy before chip panels */
-    #feel-section .quick-grid {
+    #feel-section .feel-quick-topics-root {
       margin-top: 0.4rem;
       padding-top: 1.2rem;
       border-top: 1px solid color-mix(in srgb, var(--line) 74%, var(--gold) 22%);
       box-shadow: inset 0 1px 0 color-mix(in srgb, var(--gold) 7%, transparent);
     }
-    :root[data-theme="light"] #feel-section .quick-grid {
+    :root[data-theme="light"] #feel-section .feel-quick-topics-root {
       border-top-color: color-mix(in srgb, var(--line) 68%, #9e7625 26%);
       box-shadow: inset 0 1px 0 color-mix(in srgb, #9e7625 6%, transparent);
+    }
+    .feel-topic-pickers {
+      margin: 0;
+    }
+    .feel-category-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.78rem;
+    }
+    @media (min-width: 640px) {
+      .feel-category-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.85rem;
+      }
+    }
+    .feel-category-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.28rem;
+      width: 100%;
+      margin: 0;
+      padding: 1rem 1.05rem 1.05rem;
+      min-height: 3.25rem;
+      box-sizing: border-box;
+      text-align: left;
+      font-family: inherit;
+      cursor: pointer;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--line) 78%, var(--gold) 18%);
+      background: linear-gradient(
+        165deg,
+        color-mix(in srgb, var(--card) 93%, var(--bg-soft) 7%) 0%,
+        color-mix(in srgb, var(--card) 86%, var(--gold) 5%) 100%
+      );
+      box-shadow:
+        inset 0 1px 0 color-mix(in srgb, var(--gold) 9%, transparent),
+        0 1px 0 color-mix(in srgb, var(--line) 55%, transparent);
+      color: var(--text);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+    .feel-category-card:hover,
+    .feel-category-card:focus-visible {
+      border-color: color-mix(in srgb, var(--gold) 48%, var(--line) 52%);
+      box-shadow:
+        inset 0 1px 0 color-mix(in srgb, var(--gold) 14%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--gold) 22%, transparent);
+      outline: none;
+    }
+    .feel-category-title {
+      font-size: clamp(0.98rem, 2.6vw, 1.12rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: color-mix(in srgb, var(--gold-soft) 38%, var(--text) 62%);
+      line-height: 1.3;
+    }
+    .feel-category-hint {
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    :root[data-theme="light"] .feel-category-card {
+      background: linear-gradient(165deg, rgba(255, 253, 248, 0.98), rgba(250, 246, 238, 0.99));
+      border-color: color-mix(in srgb, var(--line) 72%, #9e7625 20%);
+    }
+    :root[data-theme="light"] .feel-category-title {
+      color: rgba(58, 48, 28, 0.94);
+    }
+    .feel-topic-expanded {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin: 0;
+      padding: 0;
+    }
+    .feel-topic-expanded[hidden] {
+      display: none !important;
+    }
+    .feel-band-back {
+      align-self: flex-start;
+      margin: 0 0 0.15rem;
+      padding: 0.55rem 1.15rem;
+      min-height: 44px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--line) 82%, var(--gold) 14%);
+      background: color-mix(in srgb, var(--bg-soft) 42%, var(--card) 58%);
+      color: color-mix(in srgb, var(--text) 90%, var(--gold-soft) 10%);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .feel-band-back:hover,
+    .feel-band-back:focus-visible {
+      border-color: color-mix(in srgb, var(--gold) 50%, var(--line) 50%);
+      color: var(--gold-soft);
+      background: color-mix(in srgb, var(--gold) 8%, var(--card) 92%);
+      outline: none;
+    }
+    :root[data-theme="light"] .feel-band-back {
+      background: rgba(255, 252, 246, 0.95);
+      border-color: color-mix(in srgb, var(--line) 78%, #9e7625 16%);
+      color: rgba(42, 38, 32, 0.92);
+    }
+    .feel-band-panel[hidden] {
+      display: none !important;
+    }
+    .feel-band-panel:not([hidden]) .quick-topic-group {
+      margin-top: 0;
     }
     .quick-topic-group {
       margin: 0;
@@ -5364,7 +5462,7 @@
         inset 0 -1px 0 color-mix(in srgb, var(--line) 55%, #9e7625 10%),
         0 1px 5px rgba(64, 48, 22, 0.06);
     }
-    .quick-grid .quick-topic,
+    .feel-quick-topics-root .quick-topic,
     .quick-topic-group-chips .quick-topic {
       min-height: 48px;
       font-size: 0.88rem;
@@ -5377,8 +5475,8 @@
       color: color-mix(in srgb, var(--text) 94%, var(--muted) 6%);
       transition: border-color 0.15s, color 0.15s, background 0.15s;
     }
-    .quick-grid .quick-topic:hover,
-    .quick-grid .quick-topic:focus-visible,
+    .feel-quick-topics-root .quick-topic:hover,
+    .feel-quick-topics-root .quick-topic:focus-visible,
     .quick-topic-group-chips .quick-topic:hover,
     .quick-topic-group-chips .quick-topic:focus-visible {
       border-color: color-mix(in srgb, var(--gold) 55%, var(--line) 45%);
@@ -5398,7 +5496,7 @@
       color: #5c410f;
     }
     @media (min-width: 900px) {
-      .quick-grid .quick-topic,
+      .feel-quick-topics-root .quick-topic,
       .quick-topic-group-chips .quick-topic {
         font-size: 1rem;
         padding: 0.88rem 0.62rem;
@@ -5406,10 +5504,10 @@
       }
     }
     @media (max-width: 480px) {
-      .quick-grid {
+      .feel-quick-topics-root {
         gap: 1.65rem;
       }
-      #feel-section .quick-grid {
+      #feel-section .feel-quick-topics-root {
         padding-top: 1rem;
       }
       .quick-topic-group {
@@ -6261,13 +6359,12 @@
       <p class="tdb-hero-search-priority-hint">On a phone, today&rsquo;s verse lands first; this search and the rest of the page follow&mdash;no rush.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
       <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>
-        <p class="first-visit-text">In your own words, say how it feels (grateful, quiet, tired, heavy&hellip;) or tap a topic chip below.</p>
+        <p class="first-visit-text">In your own words, say how it feels (grateful, quiet, tired, heavy&hellip;) or pick a calm category below to open the topic chips.</p>
         <button type="button" class="first-visit-dismiss" id="firstVisitDismiss" aria-label="Dismiss welcome tip">Understood</button>
       </div>
       <section class="card" id="feel-section" aria-label="How are you feeling verse search">
         <h2 class="mood-title">What are you carrying today?</h2>
-        <p class="mood-subtitle section-note" id="feelSectionSubtitle">Tap any chip below to search verses and take a gentle next step. Type a feeling above if you prefer&mdash;your words stay on this device.</p>
-        <p class="mood-directive" id="feelSectionDirective">Tap what&rsquo;s on your heart. A gentle verse and next step will open.</p>
+        <p class="mood-subtitle section-note" id="feelSectionSubtitle">Tap a category to open its chips&mdash;then tap one to search verses and see a gentle next step. Or type a feeling above; your words stay on this device.</p>
         <div class="feel-search-wrap">
           <label for="feel-search" class="sr-only">How are you feeling?</label>
           <input
@@ -6294,62 +6391,93 @@
           <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions">
           </div>
         </div>
-        <p class="topic-plans-hint section-note" id="topicPlansHint">Tap a chip to search verses. <span class="topic-plans-hint-detail">Alt-click (desktop) or long-press (phone) on a chip opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
-        <div class="quick-grid" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Order may change each visit. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
-          <div class="quick-topic-group" role="group" aria-labelledby="qtg-heavy">
-            <h3 class="quick-topic-group-title" id="qtg-heavy">When it feels heavy</h3>
-            <div class="quick-topic-group-chips">
-              <button type="button" class="quick-topic" data-topic="anxiety" aria-label="Restless"><span aria-hidden="true">🌊</span> Restless</button>
-              <button type="button" class="quick-topic" data-topic="overwhelmed" aria-label="Heavy"><span aria-hidden="true">⛰️</span> Heavy</button>
-              <button type="button" class="quick-topic" data-topic="fear" aria-label="Fear"><span aria-hidden="true">🌧️</span> Fear</button>
-              <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief"><span aria-hidden="true">🕯️</span> Grief</button>
-              <button type="button" class="quick-topic" data-topic="heartache" aria-label="Heartache"><span aria-hidden="true">💔</span> Heartache</button>
-              <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger"><span aria-hidden="true">🔥</span> Anger</button>
-              <button type="button" class="quick-topic" data-topic="guilt" aria-label="Guilt"><span aria-hidden="true">💭</span> Guilt</button>
-              <button type="button" class="quick-topic" data-topic="loneliness" aria-label="Loneliness"><span aria-hidden="true">🤗</span> Loneliness</button>
-              <button type="button" class="quick-topic" data-topic="trauma" aria-label="Trauma"><span aria-hidden="true">🕊️</span> Trauma</button>
-              <button type="button" class="quick-topic" data-topic="addiction" aria-label="Addiction"><span aria-hidden="true">🔗</span> Addiction</button>
-              <button type="button" class="quick-topic" data-topic="cancer" aria-label="Cancer"><span aria-hidden="true">🎗️</span> Cancer</button>
+        <p class="topic-plans-hint section-note" id="topicPlansHint">Inside a category: tap a chip to search verses. <span class="topic-plans-hint-detail">Alt-click (desktop) or long-press (phone) on a chip opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
+        <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Pick a category first; chip order may change each visit. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
+          <div id="feelTopicPickers" class="feel-topic-pickers" role="group" aria-label="Topic categories">
+            <div class="feel-category-grid">
+              <button type="button" class="feel-category-card" data-feel-band="heavy" aria-expanded="false" aria-controls="feelTopicExpanded" id="feelCatHeavy">
+                <span class="feel-category-title">When it feels heavy</span>
+                <span class="feel-category-hint">Restless, grief, heavy days</span>
+              </button>
+              <button type="button" class="feel-category-card" data-feel-band="steady" aria-expanded="false" aria-controls="feelTopicExpanded" id="feelCatSteady">
+                <span class="feel-category-title">When you need steadiness</span>
+                <span class="feel-category-hint">Peace, rest, wonder</span>
+              </button>
+              <button type="button" class="feel-category-card" data-feel-band="home" aria-expanded="false" aria-controls="feelTopicExpanded" id="feelCatHome">
+                <span class="feel-category-title">Home and relationships</span>
+                <span class="feel-category-hint">Family, marriage, money</span>
+              </button>
+              <button type="button" class="feel-category-card" data-feel-band="faith" aria-expanded="false" aria-controls="feelTopicExpanded" id="feelCatFaith">
+                <span class="feel-category-title">Faith and calling</span>
+                <span class="feel-category-hint">Forgiveness, purpose, calling</span>
+              </button>
             </div>
           </div>
-          <div class="quick-topic-group" role="group" aria-labelledby="qtg-steady">
-            <h3 class="quick-topic-group-title" id="qtg-steady">When you need steadiness</h3>
-            <div class="quick-topic-group-chips">
-              <button type="button" class="quick-topic" data-topic="peace" aria-label="Peace"><span aria-hidden="true">🕊️</span> Peace</button>
-              <button type="button" class="quick-topic" data-topic="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙌</span> Gratitude</button>
-              <button type="button" class="quick-topic" data-topic="hope" aria-label="Wonder"><span aria-hidden="true">✨</span> Wonder</button>
-              <button type="button" class="quick-topic" data-topic="strength" aria-label="Tired"><span aria-hidden="true">😮‍💨</span> Tired</button>
-              <button type="button" class="quick-topic" data-topic="joy" aria-label="Joy"><span aria-hidden="true">☀️</span> Joy</button>
-              <button type="button" class="quick-topic" data-topic="love" aria-label="Love"><span aria-hidden="true">❤️</span> Love</button>
-              <button type="button" class="quick-topic" data-topic="faith" aria-label="Faith"><span aria-hidden="true">🌱</span> Faith</button>
-              <button type="button" class="quick-topic" data-topic="courage" aria-label="Courage"><span aria-hidden="true">🛡️</span> Courage</button>
-              <button type="button" class="quick-topic" data-topic="patience" aria-label="Patience"><span aria-hidden="true">⏳</span> Patience</button>
-              <button type="button" class="quick-topic" data-topic="wisdom" aria-label="Wisdom"><span aria-hidden="true">📖</span> Wisdom</button>
-              <button type="button" class="quick-topic" data-topic="hope" aria-label="Hope"><span aria-hidden="true">♥️</span> Hope</button>
-              <button type="button" class="quick-topic" data-topic="rest" aria-label="Rest"><span aria-hidden="true">🌙</span> Rest</button>
-              <button type="button" class="quick-topic" data-topic="sleep" aria-label="Sleep"><span aria-hidden="true">😴</span> Sleep</button>
+          <div id="feelTopicExpanded" class="feel-topic-expanded" hidden aria-hidden="true" role="region" aria-label="Topic chips for the category you opened">
+            <button type="button" class="feel-band-back" id="feelBandBack" aria-label="Back to topic categories">Back to categories</button>
+            <div class="feel-band-panel" data-feel-band="heavy" hidden aria-hidden="true">
+              <div class="quick-topic-group" role="group" aria-labelledby="qtg-heavy">
+                <h3 class="quick-topic-group-title" id="qtg-heavy">When it feels heavy</h3>
+                <div class="quick-topic-group-chips">
+                  <button type="button" class="quick-topic" data-topic="anxiety" aria-label="Restless"><span aria-hidden="true">🌊</span> Restless</button>
+                  <button type="button" class="quick-topic" data-topic="overwhelmed" aria-label="Heavy"><span aria-hidden="true">⛰️</span> Heavy</button>
+                  <button type="button" class="quick-topic" data-topic="fear" aria-label="Fear"><span aria-hidden="true">🌧️</span> Fear</button>
+                  <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief"><span aria-hidden="true">🕯️</span> Grief</button>
+                  <button type="button" class="quick-topic" data-topic="heartache" aria-label="Heartache"><span aria-hidden="true">💔</span> Heartache</button>
+                  <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger"><span aria-hidden="true">🔥</span> Anger</button>
+                  <button type="button" class="quick-topic" data-topic="guilt" aria-label="Guilt"><span aria-hidden="true">💭</span> Guilt</button>
+                  <button type="button" class="quick-topic" data-topic="loneliness" aria-label="Loneliness"><span aria-hidden="true">🤗</span> Loneliness</button>
+                  <button type="button" class="quick-topic" data-topic="trauma" aria-label="Trauma"><span aria-hidden="true">🕊️</span> Trauma</button>
+                  <button type="button" class="quick-topic" data-topic="addiction" aria-label="Addiction"><span aria-hidden="true">🔗</span> Addiction</button>
+                  <button type="button" class="quick-topic" data-topic="cancer" aria-label="Cancer"><span aria-hidden="true">🎗️</span> Cancer</button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="quick-topic-group" role="group" aria-labelledby="qtg-home">
-            <h3 class="quick-topic-group-title" id="qtg-home">Home and relationships</h3>
-            <div class="quick-topic-group-chips">
-              <button type="button" class="quick-topic" data-topic="family" aria-label="Family"><span aria-hidden="true">🏠</span> Family</button>
-              <button type="button" class="quick-topic" data-topic="parenting" aria-label="Parenting"><span aria-hidden="true">👨‍👩‍👧</span> Parenting</button>
-              <button type="button" class="quick-topic" data-topic="marriage" aria-label="Marriage"><span aria-hidden="true">💍</span> Marriage</button>
-              <button type="button" class="quick-topic" data-topic="relationships" aria-label="Relationships"><span aria-hidden="true">🤝</span> Relationships</button>
-              <button type="button" class="quick-topic" data-topic="finances" aria-label="Money"><span aria-hidden="true">💰</span> Money</button>
+            <div class="feel-band-panel" data-feel-band="steady" hidden aria-hidden="true">
+              <div class="quick-topic-group" role="group" aria-labelledby="qtg-steady">
+                <h3 class="quick-topic-group-title" id="qtg-steady">When you need steadiness</h3>
+                <div class="quick-topic-group-chips">
+                  <button type="button" class="quick-topic" data-topic="peace" aria-label="Peace"><span aria-hidden="true">🕊️</span> Peace</button>
+                  <button type="button" class="quick-topic" data-topic="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙌</span> Gratitude</button>
+                  <button type="button" class="quick-topic" data-topic="hope" aria-label="Wonder"><span aria-hidden="true">✨</span> Wonder</button>
+                  <button type="button" class="quick-topic" data-topic="strength" aria-label="Tired"><span aria-hidden="true">😮‍💨</span> Tired</button>
+                  <button type="button" class="quick-topic" data-topic="joy" aria-label="Joy"><span aria-hidden="true">☀️</span> Joy</button>
+                  <button type="button" class="quick-topic" data-topic="love" aria-label="Love"><span aria-hidden="true">❤️</span> Love</button>
+                  <button type="button" class="quick-topic" data-topic="faith" aria-label="Faith"><span aria-hidden="true">🌱</span> Faith</button>
+                  <button type="button" class="quick-topic" data-topic="courage" aria-label="Courage"><span aria-hidden="true">🛡️</span> Courage</button>
+                  <button type="button" class="quick-topic" data-topic="patience" aria-label="Patience"><span aria-hidden="true">⏳</span> Patience</button>
+                  <button type="button" class="quick-topic" data-topic="wisdom" aria-label="Wisdom"><span aria-hidden="true">📖</span> Wisdom</button>
+                  <button type="button" class="quick-topic" data-topic="hope" aria-label="Hope"><span aria-hidden="true">♥️</span> Hope</button>
+                  <button type="button" class="quick-topic" data-topic="rest" aria-label="Rest"><span aria-hidden="true">🌙</span> Rest</button>
+                  <button type="button" class="quick-topic" data-topic="sleep" aria-label="Sleep"><span aria-hidden="true">😴</span> Sleep</button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="quick-topic-group" role="group" aria-labelledby="qtg-faith">
-            <h3 class="quick-topic-group-title" id="qtg-faith">Faith and calling</h3>
-            <div class="quick-topic-group-chips">
-              <button type="button" class="quick-topic" data-topic="forgiveness" aria-label="Forgiveness"><span aria-hidden="true">✝️</span> Forgiveness</button>
-              <button type="button" class="quick-topic" data-topic="obedience" aria-label="Obey"><span aria-hidden="true">✨</span> Obey</button>
-              <button type="button" class="quick-topic" data-topic="jesus said" aria-label="Jesus said"><span aria-hidden="true">💬</span> Jesus said</button>
-              <button type="button" class="quick-topic" data-topic="spiritualwarfare" aria-label="Spiritual warfare"><span aria-hidden="true">📜</span> Spiritual warfare</button>
-              <button type="button" class="quick-topic" data-topic="identity" aria-label="Identity"><span aria-hidden="true">🪞</span> Identity</button>
-              <button type="button" class="quick-topic" data-topic="purpose" aria-label="Purpose"><span aria-hidden="true">🎯</span> Purpose</button>
-              <button type="button" class="quick-topic" data-topic="free will" aria-label="Free will"><span aria-hidden="true">∞</span> FREE WILL</button>
+            <div class="feel-band-panel" data-feel-band="home" hidden aria-hidden="true">
+              <div class="quick-topic-group" role="group" aria-labelledby="qtg-home">
+                <h3 class="quick-topic-group-title" id="qtg-home">Home and relationships</h3>
+                <div class="quick-topic-group-chips">
+                  <button type="button" class="quick-topic" data-topic="family" aria-label="Family"><span aria-hidden="true">🏠</span> Family</button>
+                  <button type="button" class="quick-topic" data-topic="parenting" aria-label="Parenting"><span aria-hidden="true">👨‍👩‍👧</span> Parenting</button>
+                  <button type="button" class="quick-topic" data-topic="marriage" aria-label="Marriage"><span aria-hidden="true">💍</span> Marriage</button>
+                  <button type="button" class="quick-topic" data-topic="relationships" aria-label="Relationships"><span aria-hidden="true">🤝</span> Relationships</button>
+                  <button type="button" class="quick-topic" data-topic="finances" aria-label="Money"><span aria-hidden="true">💰</span> Money</button>
+                </div>
+              </div>
+            </div>
+            <div class="feel-band-panel" data-feel-band="faith" hidden aria-hidden="true">
+              <div class="quick-topic-group" role="group" aria-labelledby="qtg-faith">
+                <h3 class="quick-topic-group-title" id="qtg-faith">Faith and calling</h3>
+                <div class="quick-topic-group-chips">
+                  <button type="button" class="quick-topic" data-topic="forgiveness" aria-label="Forgiveness"><span aria-hidden="true">✝️</span> Forgiveness</button>
+                  <button type="button" class="quick-topic" data-topic="obedience" aria-label="Obey"><span aria-hidden="true">✨</span> Obey</button>
+                  <button type="button" class="quick-topic" data-topic="jesus said" aria-label="Jesus said"><span aria-hidden="true">💬</span> Jesus said</button>
+                  <button type="button" class="quick-topic" data-topic="spiritualwarfare" aria-label="Spiritual warfare"><span aria-hidden="true">📜</span> Spiritual warfare</button>
+                  <button type="button" class="quick-topic" data-topic="identity" aria-label="Identity"><span aria-hidden="true">🪞</span> Identity</button>
+                  <button type="button" class="quick-topic" data-topic="purpose" aria-label="Purpose"><span aria-hidden="true">🎯</span> Purpose</button>
+                  <button type="button" class="quick-topic" data-topic="free will" aria-label="Free will"><span aria-hidden="true">∞</span> FREE WILL</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

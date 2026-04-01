@@ -1835,9 +1835,12 @@
       #heroApplication   { font-size: 1.15rem; }
       .quick-topic       { font-size: 1.05rem !important; padding: 0.9rem 0.75rem !important; }
       #feel-search       { font-size: 1.1rem; padding: 0.95rem 1.1rem; }
+      #feel-section .quick-grid {
+        gap: 2.7rem;
+      }
       .quick-topic-group-chips {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
-        gap: 0.55rem !important;
+        grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)) !important;
+        gap: 0.78rem !important;
       }
     }
 
@@ -5295,6 +5298,17 @@
       gap: 2.15rem;
       margin: 0.65rem 0 0;
     }
+    /* One calm beat after intro copy before chip panels */
+    #feel-section .quick-grid {
+      margin-top: 0.4rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid color-mix(in srgb, var(--line) 74%, var(--gold) 22%);
+      box-shadow: inset 0 1px 0 color-mix(in srgb, var(--gold) 7%, transparent);
+    }
+    :root[data-theme="light"] #feel-section .quick-grid {
+      border-top-color: color-mix(in srgb, var(--line) 68%, #9e7625 26%);
+      box-shadow: inset 0 1px 0 color-mix(in srgb, #9e7625 6%, transparent);
+    }
     .quick-topic-group {
       margin: 0;
       padding: 1rem 0.75rem 1.1rem;
@@ -5311,7 +5325,12 @@
     }
     .quick-topic-group-title {
       margin: 0 0 0.75rem;
-      padding: 0.55rem 0.7rem 0.65rem;
+      padding: 0.68rem 0.8rem 0.78rem;
+      min-height: 2.75rem;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: clamp(0.95rem, 2.5vw, 1.08rem);
       font-weight: 800;
       letter-spacing: 0.018em;
@@ -5321,11 +5340,15 @@
       border-radius: 10px;
       border-bottom: 1px solid color-mix(in srgb, var(--line) 62%, var(--gold) 30%);
       background: color-mix(in srgb, var(--bg-soft) 48%, var(--card) 52%);
+      box-shadow:
+        inset 0 1px 0 color-mix(in srgb, var(--gold) 14%, transparent),
+        inset 0 -1px 0 color-mix(in srgb, var(--line) 38%, transparent),
+        0 2px 6px rgba(0, 0, 0, 0.08);
     }
     .quick-topic-group-chips {
       display: grid !important;
       grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)) !important;
-      gap: 0.55rem;
+      gap: 0.65rem;
     }
     :root[data-theme="light"] .quick-topic-group {
       background: linear-gradient(165deg, rgba(255, 253, 248, 0.97), rgba(250, 246, 238, 0.99));
@@ -5336,6 +5359,10 @@
       color: rgba(58, 48, 28, 0.94);
       background: rgba(255, 250, 240, 0.95);
       border-bottom-color: color-mix(in srgb, var(--line) 65%, #9e7625 28%);
+      box-shadow:
+        inset 0 1px 0 color-mix(in srgb, #9e7625 11%, transparent),
+        inset 0 -1px 0 color-mix(in srgb, var(--line) 55%, #9e7625 10%),
+        0 1px 5px rgba(64, 48, 22, 0.06);
     }
     .quick-grid .quick-topic,
     .quick-topic-group-chips .quick-topic {
@@ -5380,14 +5407,17 @@
     }
     @media (max-width: 480px) {
       .quick-grid {
-        gap: 1.75rem;
+        gap: 1.65rem;
+      }
+      #feel-section .quick-grid {
+        padding-top: 1rem;
       }
       .quick-topic-group {
         padding: 0.85rem 0.6rem 0.95rem;
       }
       .quick-topic-group-chips {
         grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)) !important;
-        gap: 0.48rem;
+        gap: 0.52rem;
       }
       .quick-topic-group-chips .quick-topic {
         font-size: 0.82rem;

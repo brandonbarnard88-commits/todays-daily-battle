@@ -899,11 +899,16 @@
       color: var(--gold-soft, #f2dc98);
       border-color: color-mix(in srgb, var(--gold) 42%, transparent);
       background: color-mix(in srgb, var(--gold) 12%, transparent);
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+      text-decoration-thickness: 2px;
+      text-decoration-color: color-mix(in srgb, var(--gold) 70%, transparent);
     }
     :root[data-theme="light"] .tdb-sticky-wayfind a.is-wayfind-active {
       color: #5c410f;
       border-color: color-mix(in srgb, #7a5818 40%, transparent);
       background: color-mix(in srgb, #9e7625 12%, transparent);
+      text-decoration-color: color-mix(in srgb, #7a5818 55%, transparent);
     }
     :root[data-theme="light"] .tdb-sticky-wayfind {
       background: color-mix(in srgb, var(--card) 96%, #fff 4%);
@@ -1818,6 +1823,7 @@
       .pwa-nudge,
       .offline-pill,
       .tdb-install-reassurance-stack,
+      .tdb-back-to-today--footer,
       .quick-links       { grid-column: 1 / -1 !important; }
       main > .card:not(#verseCard):not(#plan-progress-card):not(#feel-section) {
         grid-column: 1 / -1 !important;
@@ -2788,6 +2794,24 @@
       outline: 2px solid rgba(227, 188, 103, 0.65);
       outline-offset: 2px;
     }
+    .tdb-back-to-today--footer {
+      margin: 1.25rem auto 0.25rem;
+      padding: 0 0.5rem;
+    }
+    .tdb-back-to-today--footer a {
+      min-height: 44px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.65rem;
+      border-color: color-mix(in srgb, var(--line) 70%, var(--gold) 22%);
+      background: color-mix(in srgb, var(--card) 94%, transparent);
+      color: color-mix(in srgb, var(--muted) 75%, var(--gold-soft) 25%);
+    }
+    .tdb-back-to-today--footer a:hover,
+    .tdb-back-to-today--footer a:focus-visible {
+      color: var(--gold-soft);
+      border-color: color-mix(in srgb, var(--gold) 38%, transparent);
+    }
     .tdb-hero-search-priority-hint {
       display: none;
       margin: 0 0 0.35rem;
@@ -3472,19 +3496,55 @@
     .calm-cta-wrap { margin-bottom: 0.45rem; }
     .calm-cta-note { margin: 0.35rem 0 0; font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
     .tdb-page-orientation {
-      margin: 0 auto 0.55rem;
+      margin: 0 auto 0.35rem;
       padding: 0 0.35rem;
       max-width: 38rem;
-      font-size: 0.84rem;
-      line-height: 1.5;
+      font-size: 0.82rem;
+      line-height: 1.45;
       text-align: center;
       color: color-mix(in srgb, var(--muted) 93%, var(--text) 7%);
     }
     .tdb-install-reassurance-stack {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
-      margin: 0.2rem 0 0.4rem;
+      gap: 0.3rem;
+      margin: 0.15rem 0 0.35rem;
+    }
+    .tdb-calm-doorway-teaser {
+      margin: 0.5rem auto 0.35rem;
+      padding: 0.55rem 0.75rem;
+      max-width: 36rem;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      text-align: center;
+      color: color-mix(in srgb, var(--muted) 90%, var(--text) 10%);
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--line) 78%, var(--gold) 14%);
+      background: color-mix(in srgb, var(--card) 88%, var(--gold) 5%);
+    }
+    .tdb-calm-doorway-teaser a {
+      color: var(--gold-soft, #c9a84c);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+    }
+    .tdb-calm-doorway-teaser a:hover,
+    .tdb-calm-doorway-teaser a:focus-visible {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+      outline: none;
+    }
+    .tdb-calm-doorway-teaser a:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.55);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    :root[data-theme="light"] .tdb-calm-doorway-teaser {
+      background: color-mix(in srgb, #fff 92%, #f7f2e8 8%);
+      color: rgba(45, 52, 68, 0.88);
+    }
+    :root[data-theme="light"] .tdb-calm-doorway-teaser a {
+      color: #6b4f16;
     }
     .calm-crisis-card {
       display: flex; align-items: center; gap: 0.6rem;
@@ -4068,11 +4128,19 @@
 
     /* ── Mood title (feel search heading) ── */
     .mood-title {
-      margin: 0 0 10px;
-      font-size: 1rem;
-      font-weight: 600;
+      margin: 0 0 0.45rem;
+      font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+      font-weight: 700;
       color: var(--gold-soft);
-      letter-spacing: 0.01em;
+      letter-spacing: 0.015em;
+      line-height: 1.35;
+      text-wrap: balance;
+    }
+    #feel-section .mood-subtitle.section-note {
+      margin: 0 0 0.85rem;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      max-width: 38rem;
     }
 
     /* Hero daily verse doorway — welcoming any day */
@@ -5210,33 +5278,54 @@
     .quick-grid {
       display: flex !important;
       flex-direction: column;
-      gap: 1rem;
-      margin: 0.55rem 0 0;
+      gap: 2.15rem;
+      margin: 0.65rem 0 0;
     }
     .quick-topic-group {
       margin: 0;
+      padding: 1rem 0.75rem 1.1rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--line) 82%, var(--gold) 14%);
+      background: linear-gradient(
+        165deg,
+        color-mix(in srgb, var(--card) 94%, var(--bg-soft) 6%) 0%,
+        color-mix(in srgb, var(--card) 88%, var(--gold) 4%) 100%
+      );
+      box-shadow:
+        inset 0 1px 0 color-mix(in srgb, var(--gold) 10%, transparent),
+        0 1px 0 color-mix(in srgb, var(--line) 60%, transparent);
     }
     .quick-topic-group-title {
-      margin: 0 0 0.4rem;
-      padding: 0;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: color-mix(in srgb, var(--muted) 92%, var(--gold) 8%);
+      margin: 0 0 0.75rem;
+      padding: 0.5rem 0.65rem 0.6rem;
+      font-size: clamp(0.82rem, 2.2vw, 0.95rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: color-mix(in srgb, var(--text) 82%, var(--gold-soft) 18%);
       text-align: center;
+      border-radius: 10px;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, var(--gold) 22%);
+      background: color-mix(in srgb, var(--bg-soft) 55%, var(--card) 45%);
     }
     .quick-topic-group-chips {
       display: grid !important;
       grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)) !important;
-      gap: 0.5rem;
+      gap: 0.55rem;
+    }
+    :root[data-theme="light"] .quick-topic-group {
+      background: linear-gradient(165deg, rgba(255, 253, 248, 0.97), rgba(250, 246, 238, 0.99));
+      border-color: color-mix(in srgb, var(--line) 75%, #9e7625 18%);
+      box-shadow: inset 0 1px 0 color-mix(in srgb, #9e7625 8%, transparent);
     }
     :root[data-theme="light"] .quick-topic-group-title {
-      color: rgba(90, 72, 40, 0.78);
+      color: rgba(35, 40, 52, 0.92);
+      background: rgba(255, 252, 245, 0.9);
+      border-bottom-color: color-mix(in srgb, var(--line) 72%, #9e7625 20%);
     }
     .quick-grid .quick-topic,
     .quick-topic-group-chips .quick-topic {
-      min-height: 52px;
+      min-height: 48px;
       font-size: 0.88rem;
       padding: 0.65rem 0.4rem;
       text-align: center;
@@ -5262,6 +5351,23 @@
         font-size: 1rem;
         padding: 0.8rem 0.6rem;
         min-height: 54px;
+      }
+    }
+    @media (max-width: 480px) {
+      .quick-grid {
+        gap: 1.75rem;
+      }
+      .quick-topic-group {
+        padding: 0.85rem 0.6rem 0.95rem;
+      }
+      .quick-topic-group-chips {
+        grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)) !important;
+        gap: 0.48rem;
+      }
+      .quick-topic-group-chips .quick-topic {
+        font-size: 0.82rem;
+        min-height: 48px;
+        padding: 0.52rem 0.3rem;
       }
     }
     /* ── Share verse row ────────────────────────── */
@@ -6026,6 +6132,9 @@
         <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
       </section>
       </div><!-- /#hero-verse-wrap -->
+      <p class="tdb-calm-doorway-teaser" id="tdbCalmDoorwayTeaser">
+        <a href="calm.html">In a heavy moment?</a> Calm opens one gentle verse in a tap&mdash;no topic pick required.
+      </p>
       <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Spring 2026)</span> &mdash; Clearer <a href="explore.html#start-here">Start here</a> flow on Explore, family and mission tools alongside the daily rhythm, new reading-plan paths for hard weeks. <a href="explore.html#whats-new-spring-2026">Spring notes</a> · <a href="explore.html#first-visit-tour">Optional five-minute tour</a> · <a href="about.html#whats-new-study">Study tools</a>.</p>
       <!-- ── Daily Verse Image Card (shareable preview under today’s verse) ── -->
       <div class="verse-img-card" id="verseImgCard" role="region" aria-label="Today’s verse as a shareable image preview">
@@ -6101,8 +6210,8 @@
         <button type="button" class="first-visit-dismiss" id="firstVisitDismiss" aria-label="Dismiss welcome tip">Understood</button>
       </div>
       <section class="card" id="feel-section" aria-label="How are you feeling verse search">
-        <h2 class="mood-title">What&rsquo;s on your heart today?</h2>
-        <p class="mood-subtitle section-note" id="feelSectionSubtitle">Search or tap a topic for verses; open a lane below for a seven-day plan. Your words stay on this device.</p>
+        <h2 class="mood-title">What are you carrying today?</h2>
+        <p class="mood-subtitle section-note" id="feelSectionSubtitle">Tap any chip below to search verses and take a gentle next step. Type a feeling above if you prefer&mdash;your words stay on this device.</p>
         <div class="feel-search-wrap">
           <label for="feel-search" class="sr-only">How are you feeling?</label>
           <input
@@ -6406,6 +6515,8 @@
         <p class="section-note">Sing, pray, and remember.</p>
         <div id="patriotic-hymns-grid" class="patriotic-hymns-layout"></div>
       </section>
+
+      <p class="tdb-back-to-today tdb-back-to-today--footer"><a href="#hero-verse-wrap">Back to today&rsquo;s verse</a></p>
 
     </main>
 

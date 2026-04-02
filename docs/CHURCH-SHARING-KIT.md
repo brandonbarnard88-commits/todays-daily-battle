@@ -30,6 +30,7 @@ npm run build:church-qr
 | Battle Plans (full library) | https://todaysdailybattle.com/plans.html |
 | Bible Studies hub | https://todaysdailybattle.com/bible-study.html |
 | Family hub | https://todaysdailybattle.com/family.html |
+| Year-round rhythm (homeschool / school year) | https://todaysdailybattle.com/yearly-rhythm.html |
 | For pastors & teachers (tool index) | https://todaysdailybattle.com/for-pastors.html |
 | Pastor resources | https://todaysdailybattle.com/resources.html |
 
@@ -162,6 +163,8 @@ Free calm KJV studies & short plans (kids options too): **todaysdailybattle.com/
 - **Multi-age:** Same story, different plan levels; discuss at dinner or end of week.
 - **Week shape:** Mon–Fri one day each; weekend light review. Missing a day is normal.
 
+**Year-round (August–July) & summer:** See **[yearly-rhythm.html](https://todaysdailybattle.com/yearly-rhythm.html)** for pacing, lighter June–July weeks, holiday doors, and a printable month grid. On the live kit: **`#csk-homeschool-year-round`**.
+
 ---
 
 ## Printable homeschool week tracker
@@ -200,7 +203,7 @@ On **church-sharing-kit.html** (`#csk-homesch-tracker`): a Mon–Fri table (plan
 
 *(Full layout with anchors: **church-sharing-kit.html#csk-children-ministry**.)*
 
-**Also on the kit page:** `#csk-lesson-outlines` (Sunday/midweek A–C), `#csk-vbs-ideas`, `#csk-children-print-leader`, `#csk-vbs-print-leader`, `#csk-vbs-schedule-template`, `#csk-vbs-crafts`, `#csk-vbs-prayer-activities`, `#csk-vbs-worship-songs`, `#csk-volunteer-training`, `#csk-vbs-announcements`, `#csk-family-devotion-expanded`.
+**Also on the kit page:** `#csk-lesson-outlines` (Sunday/midweek A–C), `#csk-vbs-ideas`, `#csk-children-print-leader`, `#csk-vbs-print-leader`, `#csk-vbs-schedule-template`, `#csk-vbs-crafts`, `#csk-vbs-prayer-activities`, `#csk-vbs-worship-songs`, `#csk-volunteer-training`, `#csk-vbs-announcements`, `#csk-family-devotion-expanded`, `#csk-homeschool-year-round` (year-round homeschool & private school).
 
 ---
 
@@ -305,7 +308,7 @@ We’ve been using **Parable of the Sower for Kids** at the table — short, KJV
 | Conflict / relationships theme | Peacemakers | `?plan=peacemakers` |
 | “Big picture” Jesus teaching | Sermon on Mount intro on plans page | `#sermon-on-mount-intro` |
 | Women’s / men’s / mixed Bible study | Beatitudes or Lord’s Prayer (adult) | `?plan=beatitudes` or `?plan=lordsprayer` |
-| Homeschool / co-op | Morning basket: Lord’s Prayer for Kids or Beatitudes for Kids; printable week on kit page | `?plan=lordsprayer-kids` · `#csk-homesch-tracker` |
+| Homeschool / co-op | Morning basket: Lord’s Prayer for Kids or Beatitudes for Kids; printable week on kit page; August–July pacing on year-round page | `?plan=lordsprayer-kids` · `#csk-homesch-tracker` · [yearly-rhythm.html](https://todaysdailybattle.com/yearly-rhythm.html) |
 | Sunday school / children’s ministry | Opening quiet or rotation; integration ideas on kit page | `#csk-children-ministry` · `kids/corner.html#kids-corner-grown-up-plans` |
 | VBS / 5-day camp | Quiet Place minute-by-minute, crafts, prayer, worship ideas, volunteer huddle, blank grid | `#csk-vbs-quiet-place-expanded` · `#csk-vbs-crafts` · `#csk-vbs-prayer-activities` · `#csk-vbs-worship-songs` · `#csk-volunteer-training` · `#csk-vbs-schedule-blank` |
 

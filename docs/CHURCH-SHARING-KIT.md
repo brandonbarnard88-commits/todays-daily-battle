@@ -200,6 +200,47 @@ On **church-sharing-kit.html** (`#csk-homesch-tracker`): a Mon–Fri table (plan
 
 *(Full layout with anchors: **church-sharing-kit.html#csk-children-ministry**.)*
 
+**Also on the kit page:** `#csk-lesson-outlines` (Sunday/midweek A–C), `#csk-vbs-ideas`, `#csk-vbs-print-leader`, `#csk-vbs-schedule-template`, `#csk-vbs-announcements`.
+
+---
+
+## Lesson outlines — Sunday school or midweek
+
+**Outline A — “Jesus’ happy promises”** (`beatitudes-kids`): Nine weeks at one beatitude per week, or combine days for older kids. Flow: quiet open (~3m) → read verse + reflection on screen (5–7m) → step together (5–8m) → plan prayer (2m) → take-home (1m) → short hymn or 30s silence. Optional: crayons + verse ref on drawings.
+
+**Outline B — “Talking to God like Jesus”** (`lordsprayer-kids`): Seven sessions. Open (2m) → read (6m) → practice step (5m) → group prayer + optional one sentence (3m) → take-home. Younger (6–8): phrase + picture only.
+
+**Outline C — “What kind of soil is my heart?”** (`sower-kids`): Story intro (3m) → read (6m) → draw soil / one sentence (7m) → prayer (2m) → take-home.
+
+---
+
+## Vacation Bible School — three gentle themes
+
+Default block **~45–60 min**: quiet open (~8m) → reflection (~10m) → draw/kindness response → plan prayer → optional craft/game.
+
+On `plans.html`, volunteers use **Start Free** on the plan card; no login required to read.
+
+**Theme 1 — A quiet place with Jesus:** Day 1 Beatitudes 1–3 · Day 2 Lord’s Prayer 1–4 · Day 3 Sower 1–3 · Day 4 Beatitudes 4–7 (optional: one Peacemakers day for strong readers only, with leader preview) · Day 5 Lord’s Prayer 5–7 + review.
+
+**Theme 2 — Seeds & Hearts:** Walk **Sower for Kids** in order; Day 5 = Matthew 13:9 (KJV) + review. Bonus: seed cups; four-panel “heart soil” poster with tiny KJV ref. Sound: one hymn verse your church knows, or Psalm 100:1–2 KJV slowly.
+
+**Theme 3 — Jesus teaches us:** One day each from Beatitudes for Kids, Lord’s Prayer for Kids, Sower for Kids → favorite day vote → family share night with **family.html** for progress on a shared device.
+
+**VBS leader tips:** Pre-load tablets; text volunteers exact URLs; kids plans for most, adult Sower/Beatitudes for interested 10–12 with a leader; pickup slip + QR; listening/drawing/silent prayer all welcome.
+
+---
+
+## Printable leader one-page & VBS schedule
+
+- **One-page leader reference:** `#csk-vbs-print-leader` — print/PDF from the browser.
+- **Five-day grid:** `#csk-vbs-schedule-template` — theme, plan/day #s, room, optional craft columns.
+
+---
+
+## VBS announcements & parent notes
+
+Copy blocks on `#csk-vbs-announcements`: bulletin blurb, parent email, SMS, take-home slip.
+
 ---
 
 ## Printable card / insert (fits a half-page or 4×6)
@@ -254,12 +295,13 @@ We’ve been using **Parable of the Sower for Kids** at the table — short, KJV
 | Women’s / men’s / mixed Bible study | Beatitudes or Lord’s Prayer (adult) | `?plan=beatitudes` or `?plan=lordsprayer` |
 | Homeschool / co-op | Morning basket: Lord’s Prayer for Kids or Beatitudes for Kids; printable week on kit page | `?plan=lordsprayer-kids` · `#csk-homesch-tracker` |
 | Sunday school / children’s ministry | Opening quiet or rotation; integration ideas on kit page | `#csk-children-ministry` · `kids/corner.html#kids-corner-grown-up-plans` |
+| VBS / 5-day camp | Three calm themes; printable schedule | `#csk-vbs-ideas` · `#csk-vbs-schedule-template` |
 
 ---
 
 ## Audience tweaks (same facts, different door)
 
-**Children’s ministry coordinator** — Emphasize **read beside a parent**, **KJV on screen**, **one short day**, and links to **kids** plans. Integration rhythms: **#csk-children-ministry** on the live kit page.
+**Children’s ministry coordinator** — Emphasize **read beside a parent**, **KJV on screen**, **one short day**, and links to **kids** plans. **#csk-children-ministry** · **#csk-lesson-outlines** · **#csk-vbs-ideas** on the live kit page.
 
 **Youth pastor** — Emphasize **quiet journaling**, **Peacemakers**, **Sermon on the Mount** intro, and **no performance**.
 
@@ -276,4 +318,4 @@ We’ve been using **Parable of the Sower for Kids** at the table — short, KJV
 
 ---
 
-*Last updated: 2026-04-02 — youth, homeschool, children’s ministry sections; keep in sync with `church-sharing-kit.html` when URLs or plan slugs change.*
+*Last updated: 2026-04-02 — youth, homeschool, children’s ministry, lesson outlines, VBS; keep in sync with `church-sharing-kit.html` when URLs or plan slugs change.*

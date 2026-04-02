@@ -82,6 +82,34 @@
       background: #fff;
     }
     .csk-qr-card figcaption { margin-top: 0.5rem; }
+    .csk-h3 {
+      font-size: 0.95rem;
+      font-weight: 650;
+      margin: 1.15rem 0 0.45rem;
+      color: var(--gold-soft, #e3bc67);
+      letter-spacing: 0.02em;
+    }
+    .csk-tracker-wrap { overflow-x: auto; margin: 0.65rem 0; -webkit-overflow-scrolling: touch; }
+    .csk-tracker-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      min-width: 280px;
+    }
+    .csk-tracker-table th, .csk-tracker-table td {
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 0.45rem 0.5rem;
+      vertical-align: top;
+      min-height: 2.25rem;
+    }
+    .csk-tracker-table th { background: rgba(0, 0, 0, 0.18); font-weight: 600; text-align: left; }
+    .csk-tracker-table .csk-tracker-write { height: 2.6rem; background: transparent; }
+    :root[data-theme="light"] .csk-tracker-table th { background: #e2e8f0; }
+    @media print {
+      .csk-tracker-print-zone { break-inside: avoid; }
+      .csk-tracker-table { font-size: 11pt; }
+      .csk-tracker-table th { background: #eee !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page church-sharing-kit-page">
@@ -192,6 +220,9 @@
             <li><a href="#csk-bulletin">Bulletin &amp; newsletter</a></li>
             <li><a href="#csk-app">Church app one-liners</a></li>
             <li><a href="#csk-groups">Small group ideas</a></li>
+            <li><a href="#csk-youth">Youth group rhythms</a></li>
+            <li><a href="#csk-homesch">Homeschool guide &amp; ideas</a></li>
+            <li><a href="#csk-homesch-tracker">Homeschool week tracker (print)</a></li>
             <li><a href="#csk-print">Printable card</a></li>
             <li><a href="#csk-qr">Printable QR images</a></li>
             <li><a href="#csk-social">Social posts</a></li>
@@ -304,6 +335,84 @@ Blessings,
           </ol>
         </section>
 
+        <section class="glass" id="csk-youth" aria-labelledby="csk-youth-title">
+          <h2 class="section-divider" id="csk-youth-title">Youth group &mdash; more quiet rhythms</h2>
+          <p class="section-note">Ways to weave the site in without extra prep, homework pressure, or performance. Teens keep personal time with Scripture at the center.</p>
+
+          <h3 class="csk-h3" id="csk-youth-quiet-day">Weekly &ldquo;One Quiet Day&rdquo;</h3>
+          <p class="section-note">Pick one short plan (<a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a>, <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a>, or adult <a href="plans.html?plan=peacemakers">Peacemakers</a>) and assign <strong>one day per week</strong>. During group, each person opens the link on their phone, reads the verse and reflection quietly for 3&ndash;4 minutes, then shares <strong>one sentence</strong> about the small step. No homework required&mdash;the site remembers their place on the device.</p>
+
+          <h3 class="csk-h3" id="csk-youth-quiet-corner">&ldquo;Quiet corner&rdquo; to open the meeting</h3>
+          <p class="section-note">Reserve the first 8&ndash;10 minutes for silent personal reading. Project the day&rsquo;s verse from any kids or adult plan. Teens use their own screens to read the full day and jot the step in a notebook or follow along in the plan. Close with one volunteer reading a favorite prayer line aloud. <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a> works well here&mdash;short phrases, easy to hear.</p>
+
+          <h3 class="csk-h3" id="csk-youth-sermon-series">Themed series around the Sermon on the Mount</h3>
+          <p class="section-note">Run 4&ndash;6 weeks anchored to <a href="plans.html#sermon-on-mount-intro">the Sermon intro on Battle Plans</a>. Suggested arc: week 1 <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> (heart-level blessings); weeks 2&ndash;3 <a href="plans.html?plan=peacemakers">Peacemakers</a> or adult <a href="plans.html?plan=beatitudes">Beatitudes</a>; week 4 <a href="plans.html?plan=sower">Parable of the Sower</a> or <a href="plans.html?plan=sower-kids">Sower for Kids</a> (&ldquo;what kind of soil is my heart right now?&rdquo;). Use the expandable <strong>Deeper themes in the Sermon</strong> panel on the plans page for discussion prompts without writing your own curriculum.</p>
+
+          <h3 class="csk-h3" id="csk-youth-breakouts">Breakouts and shared devices</h3>
+          <p class="section-note">Groups of 4&ndash;6 pick one plan (<a href="plans.html?plan=sower-kids">Sower for Kids</a> for younger teens, adult <a href="plans.html?plan=sower">Sower</a> for older). Read the <strong>current day</strong> together on one phone or tablet, then agree on the step as a group challenge for the week (for example: &ldquo;soft words like day 3 of Peacemakers&rdquo;).</p>
+
+          <h3 class="csk-h3" id="csk-youth-events">Lock-ins, service nights, summer</h3>
+          <ul class="section-note" style="margin-top:0">
+            <li><strong>Retreat / lock-in:</strong> A &ldquo;quiet place&rdquo; station with printed <a href="#csk-qr">QR codes to plans</a> and dim lighting.</li>
+            <li><strong>Service or mission week:</strong> Lead with <a href="plans.html?plan=peacemakers">Peacemakers</a> the week before&mdash;calm words in hard situations.</li>
+            <li><strong>Summer:</strong> &ldquo;One verse, one step&rdquo;&mdash;teens screenshot a favorite day and drop it in the group chat (optional, no streak tracking).</li>
+          </ul>
+        </section>
+
+        <section class="glass" id="csk-homesch" aria-labelledby="csk-homesch-title">
+          <h2 class="section-divider" id="csk-homesch-title">Homeschool parent guide</h2>
+          <p class="section-note"><strong>Homeschool parent guide (short):</strong> Today&rsquo;s Daily Battle is built for flexible, device-friendly Scripture without forcing accounts. Open one plan, do <strong>one day</strong>, let progress stay on the tablet or phone. Pair <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> or <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a> with morning time; older students can use adult tracks or read the <a href="plans.html#sermon-on-mount-intro">Sermon on the Mount</a> themes on the same screen. The site caches readings for spotty internet&mdash;see <a href="family.html">Family hub</a> for how progress shows across plans on one device.</p>
+
+          <h3 class="csk-h3" id="csk-homesch-morning">Morning basket or circle (about ages 8&ndash;12)</h3>
+          <p class="section-note">Five to seven minutes on <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a> or <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a>. Read the day together (or one child reads aloud). Each person shares the step, or draws if the day suggests it.</p>
+
+          <h3 class="csk-h3" id="csk-homesch-independent">Independent &ldquo;Bible block&rdquo;</h3>
+          <p class="section-note">Assign one plan day as solo work. Students open the link, finish the day, and write one takeaway in their school journal. Parents can skim progress cues on <a href="family.html">family.html</a> without hovering over every tap.</p>
+
+          <h3 class="csk-h3" id="csk-homesch-coop">Co-op and family table</h3>
+          <p class="section-note"><a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a> and <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> read well in a group. One parent leads; kids follow on tablets. The <strong>With a grown-up</strong> strip on <a href="kids/corner.html">Kids Corner</a> reminds everyone these trails are meant to be read beside someone older.</p>
+
+          <h3 class="csk-h3" id="csk-homesch-units">Simple unit pairings</h3>
+          <ul class="section-note" style="margin-top:0">
+            <li><strong>Character / heart:</strong> <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> or <a href="plans.html?plan=peacemakers">Peacemakers</a> (teens).</li>
+            <li><strong>Prayer:</strong> <a href="plans.html?plan=lordsprayer">Lord&rsquo;s Prayer</a> (adult) or <a href="plans.html?plan=lordsprayer-kids">kids</a> track.</li>
+            <li><strong>Parables / kingdom:</strong> <a href="plans.html?plan=sower">Sower</a> and <a href="plans.html?plan=sower-kids">Sower for Kids</a>&mdash;same soil, different reading level.</li>
+            <li><strong>Older students wanting context:</strong> Add <a href="plans.html#sermon-on-mount-intro">Sermon on the Mount deeper themes</a> for discussion after the day&rsquo;s reading.</li>
+          </ul>
+
+          <h3 class="csk-h3" id="csk-homesch-pacing">Multi-age pacing</h3>
+          <p class="section-note">Younger children: kids plans with drawing or simple steps. Teens: mix adult and kids versions. Everyone on the <strong>same story</strong> but different plans if needed; discuss together at dinner or end of week.</p>
+
+          <h3 class="csk-h3" id="csk-homesch-weekly-rhythm">Suggested week shape</h3>
+          <p class="section-note">Monday&ndash;Friday: one day from your chosen plan each school day. Weekend: review prayers or steps as a family. Keep it light&mdash;missing a day does not reset the good work already done.</p>
+        </section>
+
+        <section class="glass csk-tracker-print-zone" id="csk-homesch-tracker" aria-labelledby="csk-homesch-tracker-title">
+          <h2 class="section-divider" id="csk-homesch-tracker-title">Printable homeschool week tracker</h2>
+          <p class="section-note">Print this section from your browser (or save as PDF). Write in plan names and day numbers by hand&mdash;the site does not need a separate login to track reading; this sheet is only for your table or portfolio.</p>
+          <p class="section-note"><strong>Sample &ldquo;kingdom living&rdquo; week</strong> (edit freely): Mon <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> day 1 &middot; Tue day 2 &middot; Wed <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a> day 1 &middot; Thu <a href="plans.html?plan=sower-kids">Sower for Kids</a> day 1 &middot; Fri review or <a href="plans.html#sermon-on-mount-intro">Sermon intro</a> + one verse you remember.</p>
+          <div class="csk-tracker-wrap">
+            <table class="csk-tracker-table" aria-label="Weekly homeschool tracker, five school days">
+              <thead>
+                <tr>
+                  <th scope="col">Day</th>
+                  <th scope="col">Plan &amp; day #</th>
+                  <th scope="col">Verse or takeaway</th>
+                  <th scope="col">Step to practice</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Mon</th><td class="csk-tracker-write" aria-label="Write plan and day"></td><td class="csk-tracker-write" aria-label="Write takeaway"></td><td class="csk-tracker-write" aria-label="Write step"></td></tr>
+                <tr><th scope="row">Tue</th><td class="csk-tracker-write" aria-label="Write plan and day"></td><td class="csk-tracker-write" aria-label="Write takeaway"></td><td class="csk-tracker-write" aria-label="Write step"></td></tr>
+                <tr><th scope="row">Wed</th><td class="csk-tracker-write" aria-label="Write plan and day"></td><td class="csk-tracker-write" aria-label="Write takeaway"></td><td class="csk-tracker-write" aria-label="Write step"></td></tr>
+                <tr><th scope="row">Thu</th><td class="csk-tracker-write" aria-label="Write plan and day"></td><td class="csk-tracker-write" aria-label="Write takeaway"></td><td class="csk-tracker-write" aria-label="Write step"></td></tr>
+                <tr><th scope="row">Fri</th><td class="csk-tracker-write" aria-label="Write plan and day"></td><td class="csk-tracker-write" aria-label="Write takeaway"></td><td class="csk-tracker-write" aria-label="Write step"></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="section-note">Plans library: <a href="https://todaysdailybattle.com/plans.html">todaysdailybattle.com/plans.html</a></p>
+        </section>
+
         <section class="glass" id="csk-print" aria-labelledby="csk-print-title">
           <h2 class="section-divider" id="csk-print-title">Printable card / insert</h2>
           <pre class="csk-pre" tabindex="0">Today's Daily Battle
@@ -365,6 +474,7 @@ Kids & family tracks available · No login</pre>
                 <tr><td>Relationships / peace theme</td><td>Peacemakers</td><td><code>?plan=peacemakers</code></td></tr>
                 <tr><td>Jesus&rsquo; teaching (overview)</td><td>Sermon on the Mount intro</td><td><code>plans.html#sermon-on-mount-intro</code></td></tr>
                 <tr><td>Mixed adult Bible study</td><td>Beatitudes or Lord&rsquo;s Prayer</td><td><code>?plan=beatitudes</code> or <code>?plan=lordsprayer</code></td></tr>
+                <tr><td>Homeschool / co-op</td><td>Morning basket: Lord&rsquo;s Prayer for Kids or Beatitudes for Kids; see tracker below</td><td><code>?plan=lordsprayer-kids</code> &middot; <a href="#csk-homesch-tracker">printable week</a></td></tr>
               </tbody>
             </table>
           </div>

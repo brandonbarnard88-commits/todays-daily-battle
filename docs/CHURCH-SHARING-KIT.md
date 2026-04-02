@@ -137,6 +137,41 @@ Free calm KJV studies & short plans (kids options too): **todaysdailybattle.com/
 
 ---
 
+## Youth group — more quiet rhythms
+
+**Weekly “One Quiet Day”** — Pick one short plan (Lord’s Prayer for Kids, Beatitudes for Kids, or adult Peacemakers) and assign **one day per week**. In group, teens read quietly 3–4 minutes, then share **one sentence** about the step. No homework; progress stays on the device.
+
+**“Quiet corner” to open the meeting** — First 8–10 minutes: project the day’s verse; teens use their phones to read the full day and journal the step. Close with one volunteer reading a favorite prayer line. Lord’s Prayer for Kids works well (short phrases).
+
+**Themed series (Sermon on the Mount)** — 4–6 weeks anchored to `plans.html#sermon-on-mount-intro`. Example arc: week 1 Beatitudes for Kids; weeks 2–3 Peacemakers or adult Beatitudes; week 4 Parable of the Sower (adult or kids). Use the expandable **Deeper themes in the Sermon** block on the plans page for prompts.
+
+**Breakouts** — Groups of 4–6 read the **current day** together on one device; turn the step into a group challenge for the week.
+
+**Events** — Lock-in: quiet station + QR to plans. Service week: Peacemakers the week before. Summer: optional “one verse, one step” screenshots in chat.
+
+---
+
+## Homeschool parent guide
+
+**Short guide:** One plan, **one day**, progress on the tablet or phone—no required account. Pair Beatitudes for Kids or Lord’s Prayer for Kids with morning time; older students use adult tracks or the Sermon on the Mount intro. The site caches for spotty internet; see **family.html** for progress across plans on one device.
+
+- **Morning basket (ages ~8–12):** 5–7 minutes on Lord’s Prayer for Kids or Beatitudes for Kids; read together; share the step or draw.
+- **Independent Bible block:** Assign one plan day; student journals one takeaway; parents glance at family hub progress cues.
+- **Co-op / table:** Sower for Kids or Beatitudes for Kids; one parent leads; **Kids Corner** “With a grown-up” strip sets expectations.
+- **Unit pairings:** Character → Beatitudes for Kids or Peacemakers (teens). Prayer → Lord’s Prayer (adult or kids). Kingdom / parables → Sower and Sower for Kids. Older students → Sermon deeper themes after the day’s reading.
+- **Multi-age:** Same story, different plan levels; discuss at dinner or end of week.
+- **Week shape:** Mon–Fri one day each; weekend light review. Missing a day is normal.
+
+---
+
+## Printable homeschool week tracker
+
+On **church-sharing-kit.html** (`#csk-homesch-tracker`): a Mon–Fri table (plan & day #, takeaway, step). Print from the browser or save as PDF.
+
+**Sample “kingdom living” week:** Mon–Tue Beatitudes for Kids days 1–2 · Wed Lord’s Prayer for Kids day 1 · Thu Sower for Kids day 1 · Fri review or Sermon intro + one remembered verse.
+
+---
+
 ## Printable card / insert (fits a half-page or 4×6)
 
 **Today’s Daily Battle**  
@@ -187,6 +222,7 @@ We’ve been using **Parable of the Sower for Kids** at the table — short, KJV
 | Conflict / relationships theme | Peacemakers | `?plan=peacemakers` |
 | “Big picture” Jesus teaching | Sermon on Mount intro on plans page | `#sermon-on-mount-intro` |
 | Women’s / men’s / mixed Bible study | Beatitudes or Lord’s Prayer (adult) | `?plan=beatitudes` or `?plan=lordsprayer` |
+| Homeschool / co-op | Morning basket: Lord’s Prayer for Kids or Beatitudes for Kids; printable week on kit page | `?plan=lordsprayer-kids` · `#csk-homesch-tracker` |
 
 ---
 
@@ -209,4 +245,4 @@ We’ve been using **Parable of the Sower for Kids** at the table — short, KJV
 
 ---
 
-*Last updated: 2026-04-02 — keep in sync with `church-sharing-kit.html` when URLs or plan slugs change.*
+*Last updated: 2026-04-02 — youth + homeschool sections and tracker added; keep in sync with `church-sharing-kit.html` when URLs or plan slugs change.*

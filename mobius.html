@@ -81,16 +81,16 @@
       border-color: rgba(227, 188, 103, 0.65);
     }
     .mobius-viz-wrap {
-      width: 96%;
-      max-width: 1120px;
-      height: min(78vh, 720px);
-      min-height: clamp(360px, 52vw, 520px);
+      width: 98%;
+      max-width: 1240px;
+      height: min(84vh, 820px);
+      min-height: clamp(400px, 58vw, 600px);
       display: flex;
       align-items: center;
       justify-content: center;
       flex: 1;
       margin: 0 auto 2rem;
-      padding: 0.35rem 0.25rem;
+      padding: 0.5rem 0.35rem;
       box-sizing: border-box;
     }
     .mobius-viz-wrap svg { max-width: 100%; max-height: 100%; object-fit: contain; }
@@ -100,7 +100,7 @@
     }
     #mobius-universal-viz svg {
       transform-origin: 50% 50%;
-      animation: mobius-universal-viz-slow-spin 36s linear infinite;
+      animation: mobius-universal-viz-slow-spin 180s linear infinite;
     }
     .mobius-node.mobius-start-node circle { stroke: var(--tool-gold); stroke-width: 3; }
     .mobius-node.mobius-pivot-node circle { stroke: rgba(227, 188, 103, 0.7); stroke-width: 2; }
@@ -327,7 +327,7 @@
     }
     #mobius-universal-viz .mobius-viz-ribbon-shimmer {
       stroke-dasharray: 10 72;
-      animation: mobius-viz-shimmer-travel 22s linear infinite;
+      animation: mobius-viz-shimmer-travel 48s linear infinite;
     }
     @keyframes mobius-slot-shimmer-travel {
       to { stroke-dashoffset: -72; }
@@ -341,7 +341,7 @@
       50% { opacity: 1; }
     }
     #mobius-universal-viz line.mobius-link-pivot-arm {
-      animation: mobius-pivot-arm-breathe 6s ease-in-out infinite;
+      animation: mobius-pivot-arm-breathe 14s ease-in-out infinite;
     }
     .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) .mobius-pivot-jewel {
       animation: mobius-pivot-jewel-lume 8.5s ease-in-out infinite;
@@ -1179,7 +1179,7 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
-  <script src="mobius-universal.js?v=20260402viz-orbit" defer></script>
+  <script src="mobius-universal.js?v=20260403viz-linear" defer></script>
   <script src="tdb-mobius-journal.js?v=20260330mlj1" defer></script>
   <script src="mobius-text-v2.js?v=20260413audio-lazy" defer></script>
   <script src="share-page.js?v=20260402shareattrs" defer></script>

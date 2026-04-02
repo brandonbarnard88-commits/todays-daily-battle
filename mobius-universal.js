@@ -268,7 +268,7 @@
 
   function applyLayout(simNodes, width, height) {
     var cx = width / 2, cy = height / 2;
-    var radius = Math.min(width, height) / 2.28;
+    var radius = Math.min(width, height) / 1.92;
     var n = simNodes.length;
     var circleCount = 0;
     for (var i = 0; i < n; i++) {
@@ -408,10 +408,7 @@
 
     applyLayout(simNodes, width, height);
     var pts = simNodes.map(function (d) { return [d.x, d.y]; });
-    pts.push([simNodes[0].x, simNodes[0].y]);
-
-    var curveClosed = d3.curveCatmullRomClosed;
-    var lineGen = d3.line().curve(typeof curveClosed.alpha === 'function' ? curveClosed.alpha(0.5) : curveClosed);
+    var lineGen = d3.line().curve(d3.curveLinearClosed);
     var ribbonD = lineGen(pts);
     var pathGroup = svg.append('g').attr('class', 'mobius-path');
     var traceGoldNow = !!window.__mobiusTraceGold;
@@ -419,7 +416,7 @@
     if (!traceGoldNow) {
       pathGroup.append('path').attr('class', 'mobius-ribbon mobius-viz-ribbon-halo')
         .attr('fill', 'none').attr('stroke', 'rgba(227,188,103,0.08)')
-        .attr('stroke-width', 18).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
+        .attr('stroke-width', 11).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
         .attr('pointer-events', 'none').attr('d', ribbonD);
     }
     pathGroup.append('path').attr('class', ribbonClass)

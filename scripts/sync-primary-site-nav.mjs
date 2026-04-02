@@ -140,6 +140,13 @@ function main() {
       );
     }
 
+    if (rel === 'yearly-rhythm.html' && touched) {
+      next = next.replace(
+        /<a href="\/yearly-rhythm\.html" id="nav-year-round"/,
+        '<a href="/yearly-rhythm.html" id="nav-year-round" aria-current="page"'
+      );
+    }
+
     if (touched && next !== html) {
       fs.writeFileSync(full, next, 'utf8');
       console.log('updated', rel);

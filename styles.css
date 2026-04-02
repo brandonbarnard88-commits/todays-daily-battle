@@ -18726,6 +18726,10 @@ body.tdb-kjv-dict-open {
   margin: 1.5rem 0;
 }
 
+.memory-verse-actions .memory-verse-btn-touch {
+  min-height: 48px;
+}
+
 /* Year-round hub memory grid + any .memory-table (dark-first; light theme via data-theme) */
 .memory-table {
   width: 100%;

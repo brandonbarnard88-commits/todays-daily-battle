@@ -170,6 +170,15 @@
       .csk-mv-card { border: 1px solid #444; page-break-inside: avoid; }
       .csk-tracker-table { font-size: 11pt; }
       .csk-tracker-table th { background: #eee !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .church-sharing-kit-page .top-bar .tdb-lang-switcher-header-wrap,
+      .church-sharing-kit-page .top-bar .header-nav,
+      .church-sharing-kit-page .top-bar .tdb-header-account-nudge,
+      .church-sharing-kit-page .top-bar #sidebar-toggle,
+      .church-sharing-kit-page .top-bar #auth-section,
+      .church-sharing-kit-page #sidebar,
+      .church-sharing-kit-page #csk-print-page-btn,
+      .church-sharing-kit-page #csk-print-hint { display: none !important; }
+      .church-sharing-kit-page .app-content { max-width: none; padding: 0; }
     }
   </style>
 </head>
@@ -211,6 +220,7 @@
         <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
         <a href="/memorize.html">Memorize</a>
         <a href="/kids/corner.html">Kids &amp; Family</a>
+        <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round</a>
         <a href="/explore.html">Explore</a>
         <a href="/about.html">About</a>
         <details class="tdb-nav-more">
@@ -268,7 +278,9 @@
             <a class="btn btn-primary" href="plans.html">Open Battle Plans</a>
             <a class="btn btn-secondary" href="bible-study.html">Bible Studies hub</a>
             <a class="btn btn-secondary" href="family.html">Family hub</a>
+            <button type="button" class="btn btn-secondary" id="csk-print-page-btn" aria-label="Print or save this page as PDF from your browser">Print this page</button>
           </div>
+          <p class="section-note util-mt-0_5" id="csk-print-hint" style="margin-bottom:0">Uses your browser&rsquo;s print dialog&mdash;choose &ldquo;Save as PDF&rdquo; if you want one file. Sidebar and sign-in strip hide automatically when printing.</p>
         </header>
 
         <section class="glass" aria-labelledby="csk-toc-title">
@@ -1529,6 +1541,18 @@ Kids & family tracks available · No login</pre>
   </div>
 
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script nonce="tdb2025s">
+    (function () {
+      var b = document.getElementById('csk-print-page-btn');
+      if (!b) return;
+      b.addEventListener('click', function () {
+        try {
+          if (typeof trackEvent === 'function') trackEvent('church_kit_print_page', { source: 'header' });
+        } catch (e) {}
+        window.print();
+      });
+    })();
+  </script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
 </body>

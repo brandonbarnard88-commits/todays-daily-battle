@@ -32,7 +32,49 @@
     .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
     main { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
     h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.75rem; font-weight: 800; }
-    .lead { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.5rem; }
+    .lead { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.25rem; }
+    .yr-month-glance {
+      margin: 0 0 1.35rem;
+      padding: 0.8rem 0.9rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid rgba(139, 166, 217, 0.28);
+      background: rgba(12, 18, 30, 0.5);
+    }
+    .yr-month-glance-h {
+      margin: 0 0 0.55rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(200, 210, 225, 0.92);
+      line-height: 1.45;
+    }
+    .yr-month-glance-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.35rem;
+    }
+    @media (max-width: 400px) {
+      .yr-month-glance-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    .yr-month-glance-grid a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      color: rgba(226, 232, 240, 0.92);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(8, 12, 20, 0.55);
+    }
+    .yr-month-glance-grid a:hover,
+    .yr-month-glance-grid a:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold);
+      outline: none;
+    }
     section { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
     section:last-of-type { border-bottom: none; }
     h2 { font-size: 1.05rem; color: var(--gold); margin: 0 0 0.65rem; font-weight: 700; }
@@ -182,6 +224,7 @@
       <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
       <a href="/memorize.html">Memorize</a>
       <a href="/kids/corner.html">Kids &amp; Family</a>
+      <a href="/yearly-rhythm.html" id="nav-year-round" aria-current="page" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round</a>
       <a href="/explore.html">Explore</a>
       <a href="/about.html">About</a>
       <details class="tdb-nav-more">
@@ -216,12 +259,50 @@
   <main id="main" class="yearly-rhythm-hub">
     <h1>Year-round rhythm</h1>
     <p class="lead">For homeschool, private-school Bible class, co-op, church kids club, or the family table: <strong>one gentle day at a time</strong>. No account is required to read; progress stays on each device and works offline after the first visit.</p>
+    <nav class="yr-month-glance" aria-labelledby="yr-month-glance-l">
+      <p class="yr-month-glance-h" id="yr-month-glance-l">School-year months (August first)&mdash;tap a month to jump to the memory grid and spotlight cards below.</p>
+      <div class="yr-month-glance-grid">
+        <a href="#yr-memory">Aug</a>
+        <a href="#yr-memory">Sep</a>
+        <a href="#yr-memory">Oct</a>
+        <a href="#yr-memory">Nov</a>
+        <a href="#yr-memory">Dec</a>
+        <a href="#yr-memory">Jan</a>
+        <a href="#yr-memory">Feb</a>
+        <a href="#yr-memory">Mar</a>
+        <a href="#yr-memory">Apr</a>
+        <a href="#yr-memory">May</a>
+        <a href="#yr-memory">Jun</a>
+        <a href="#yr-memory">Jul</a>
+      </div>
+    </nav>
     <div class="cta-row">
       <a class="btn" href="family.html">Family hub</a>
       <a class="btn btn-secondary" href="plans.html">Battle Plans</a>
       <a class="btn btn-secondary" href="seasonal.html">Seasonal paths</a>
       <a class="btn btn-secondary" href="church-sharing-kit.html#csk-homeschool-year-round">Church kit &mdash; homeschool &amp; school</a>
     </div>
+
+    <section id="yr-memory" class="yearly-rhythm-section" aria-labelledby="yr-memory-h">
+      <h2 id="yr-memory-h">Memory verses (calendar year)</h2>
+      <p>One anchor verse per month in the KJV&mdash;gentle review on <strong>this device</strong> only. Mark &ldquo;learning&rdquo; or celebrate &ldquo;memorized&rdquo; on the <a href="family.html#family-year-round-memory">Family hub</a>; this grid lists the same verses. <strong>Weekly:</strong> say one aloud. <strong>Summer (June&ndash;July):</strong> one or two a week is plenty.</p>
+      <p class="section-note yr-memory-calm-note" style="margin-top:0">Printable cut-out cards: <a href="church-sharing-kit.html#csk-memory-verse-cards">Church kit &mdash; Memory Verse Cards</a>. One-page monthly tracker + year rhythm: <a href="#yr-print-planners">Printable planners</a> (also <a href="church-sharing-kit.html#csk-print-planners">church kit</a>).</p>
+      <div id="yr-memory-spotlight" class="yr-memory-spotlight" aria-label="This month and season"></div>
+      <div class="yr-table-wrap">
+        <table class="yr-table yr-mv-table memory-table" aria-label="Monthly memory verses">
+          <thead>
+            <tr>
+              <th scope="col">Month</th>
+              <th scope="col">Reference</th>
+              <th scope="col">Verse (short)</th>
+              <th scope="col">Status on device</th>
+            </tr>
+          </thead>
+          <tbody id="yr-memory-tbody"></tbody>
+        </table>
+      </div>
+      <p class="section-note" style="margin-top:0.75rem">Pin any Battle Plan day to this list: open <a href="plans.html">Battle Plans</a> and tap <strong>Pin to Memory Verses</strong> on a day card.</p>
+    </section>
 
     <section id="yr-philosophy" aria-labelledby="yr-philosophy-h">
       <h2 id="yr-philosophy-h">How to use this page</h2>
@@ -283,27 +364,6 @@
     <section id="yr-school-chapel" aria-labelledby="yr-school-chapel-h">
       <h2 id="yr-school-chapel-h">Private school, chapel, or Bible class</h2>
       <p>One fifteen-minute block weekly: open the day on a projector or tablet, read the <abbr title="King James Version">KJV</abbr> verse aloud, read the short reflection, do the small step (whisper, draw, or kindness), pray the printed prayer. Leader notes and copy for families: <a href="church-sharing-kit.html#csk-children-print-leader">Children&rsquo;s ministry leader guide</a> and <a href="church-sharing-kit.html#csk-volunteer-training">Volunteer training</a> on the Church Sharing Kit.</p>
-    </section>
-
-    <section id="yr-memory" class="yearly-rhythm-section" aria-labelledby="yr-memory-h">
-      <h2 id="yr-memory-h">Memory verses (calendar year)</h2>
-      <p>One anchor verse per month in the KJV&mdash;gentle review on <strong>this device</strong> only. Mark &ldquo;learning&rdquo; or celebrate &ldquo;memorized&rdquo; on the <a href="family.html#family-year-round-memory">Family hub</a>; this grid lists the same verses. <strong>Weekly:</strong> say one aloud. <strong>Summer (June&ndash;July):</strong> one or two a week is plenty.</p>
-      <p class="section-note yr-memory-calm-note" style="margin-top:0">Printable cut-out cards: <a href="church-sharing-kit.html#csk-memory-verse-cards">Church kit &mdash; Memory Verse Cards</a>. One-page monthly tracker + year rhythm: <a href="#yr-print-planners">Printable planners</a> (also <a href="church-sharing-kit.html#csk-print-planners">church kit</a>).</p>
-      <div id="yr-memory-spotlight" class="yr-memory-spotlight" aria-label="This month and season"></div>
-      <div class="yr-table-wrap">
-        <table class="yr-table yr-mv-table memory-table" aria-label="Monthly memory verses">
-          <thead>
-            <tr>
-              <th scope="col">Month</th>
-              <th scope="col">Reference</th>
-              <th scope="col">Verse (short)</th>
-              <th scope="col">Status on device</th>
-            </tr>
-          </thead>
-          <tbody id="yr-memory-tbody"></tbody>
-        </table>
-      </div>
-      <p class="section-note" style="margin-top:0.75rem">Pin any Battle Plan day to this list: open <a href="plans.html">Battle Plans</a> and tap <strong>Pin to Memory Verses</strong> on a day card.</p>
     </section>
 
     <section class="yr-print-zone" id="yearly-rhythm-planner" aria-labelledby="yearly-rhythm-planner-h">

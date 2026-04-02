@@ -393,6 +393,7 @@
         rm.type = 'button';
         rm.className = 'link-button';
         rm.textContent = 'Remove';
+        rm.setAttribute('aria-label', 'Remove pinned verse ' + (p.ref || '') + ' from this device');
         rm.addEventListener('click', (function (pid) {
           return function () {
             removePin(pid);

@@ -359,6 +359,80 @@
     .plan-badge-easter { background: color-mix(in srgb, #e3bc67 20%, transparent); border-color: color-mix(in srgb, var(--gold) 50%, transparent); }
     .plan-row-easter { border-color: color-mix(in srgb, var(--gold) 35%, transparent); }
 
+    .plans-homeschool-banner {
+      margin: 0 0 1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold) 24%, var(--line));
+      background: color-mix(in srgb, var(--card) 93%, var(--gold));
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--text) 90%, var(--muted));
+    }
+    .plans-homeschool-banner a {
+      color: var(--gold-soft);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+    }
+    .plans-homeschool-banner a:hover,
+    .plans-homeschool-banner a:focus-visible { color: var(--gold); outline: none; }
+
+    .plans-plan-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.55rem;
+      margin: 0 0 1.15rem;
+      align-items: center;
+    }
+    .plans-plan-filter-label {
+      width: 100%;
+      margin: 0 0 0.1rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .plans-plan-filter-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .plans-plan-filter-chip:hover,
+    .plans-plan-filter-chip:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold);
+      outline: none;
+    }
+
+    .plan-row[data-plan$="-kids"] .plan-badge,
+    .plan-row[data-plan="summer-seeds"] .plan-badge {
+      font-size: 0.74rem;
+      padding: 4px 11px;
+      border-radius: 999px;
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 28%, transparent);
+    }
+
+    .plans-bible-studies-section .study-card-btn,
+    .study-card-btn {
+      min-height: 48px;
+      padding: 0.55rem 1.15rem;
+    }
+
+    .plan-row[id^="plans-anchor"] {
+      scroll-margin-top: 5.5rem;
+    }
+
     .easter-banner {
       display: flex; align-items: flex-start; justify-content: space-between; gap: 0.65rem;
       background: color-mix(in srgb, var(--card) 96%, var(--gold));
@@ -952,6 +1026,7 @@
       <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
       <a href="/memorize.html">Memorize</a>
       <a href="/kids/corner.html">Kids &amp; Family</a>
+      <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round</a>
       <a href="/explore.html">Explore</a>
       <a href="/about.html">About</a>
       <details class="tdb-nav-more">
@@ -997,6 +1072,14 @@
         <p class="plans-url-hint">Your notes, progress, and printable bundle stay on this device. Links with <code class="plans-code">?plan=id&amp;day=N</code> open day <em>N</em> when you&rsquo;ve already unlocked it; otherwise we land you on the latest day you can open.</p>
         <p class="plans-hero-hint">Brand-new to faith? <a href="first-steps.html">Calm doorway</a> · <a href="plans.html?plan=firststeps">14-day plan</a>. Who God says you are: <a href="identity-in-christ.html">calm hub</a> or <a href="plans.html?plan=identityinchrist">7-day plan</a>. A month of thanks: <a href="plans.html?plan=praisethanks30">Praise &amp; Thanksgiving</a>. <a href="plans.html?plan=armorofgod">Armor of God</a>, <a href="plans.html?plan=fearnot14">Fear Not (14)</a>, <a href="plans.html?plan=dailylabor">work &amp; labor</a>, <a href="family-home.html">family hub</a>. Resurrection: <a href="he-is-risen.html">He is risen</a> (readings anytime) · <a href="plans.html?plan=easter">Resurrection Hope</a> (7 days). Holidays: <a href="seasonal.html">Seasonal paths</a> · <a href="plans.html?plan=christmas7">Christmas week</a> · <a href="plans.html?plan=newyear7">New Year week</a>. Use <strong>Listen</strong> on any day card to hear the verse plus the day&rsquo;s plain words and prayer (device TTS).</p>
       </div>
+      <p class="plans-homeschool-banner" role="region" aria-label="Homeschool and private school"><strong>For homeschool &amp; private-school Bible class:</strong> one screen maps August&ndash;July, summer weeks, holidays, and the same monthly memory verses you can mark on this device &mdash; <a href="yearly-rhythm.html">Year-round rhythm</a>. Printables: <a href="yearly-rhythm.html#yr-print-planners">planners</a> · <a href="church-sharing-kit.html#csk-homeschool-year-round">Church kit</a>.</p>
+      <nav class="plans-plan-filter-bar" aria-label="Jump to plan groups in the list below">
+        <span class="plans-plan-filter-label">Quick jump</span>
+        <a class="plans-plan-filter-chip" href="#all-plans">All plans</a>
+        <a class="plans-plan-filter-chip" href="#plans-lane-family">Kids &amp; family</a>
+        <a class="plans-plan-filter-chip" href="#plans-anchor-seasonal-school">Seasonal &amp; school year</a>
+        <a class="plans-plan-filter-chip" href="#plans-anchor-summer-spine">Summer</a>
+      </nav>
       <section class="plans-start-here" aria-labelledby="plans-start-here-title">
         <h2 class="plans-start-here-title" id="plans-start-here-title">Start here</h2>
         <p class="plans-start-here-lead">If choosing feels like too much, start with the lane that fits today. Each link opens the same plan you will see in the full list below.</p>
@@ -1330,7 +1413,7 @@
           <div class="plan-row-info"><h2>The Beatitudes</h2><p>Jesus&rsquo; portrait of the blessed—poor in spirit through joy when persecuted for His sake. One beatitude per day.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">9 days</span><span class="plan-progress-pill" id="planPill-beatitudes">Not started</span></div>
         </a>
-        <a href="plans.html?plan=beatitudes-kids" class="plan-row" data-plan="beatitudes-kids" role="listitem" aria-label="The Beatitudes for Kids — 9 days">
+        <a href="plans.html?plan=beatitudes-kids" class="plan-row" id="plans-anchor-kids-family" data-plan="beatitudes-kids" role="listitem" aria-label="The Beatitudes for Kids — 9 days">
           <span class="plan-row-icon" aria-hidden="true">🌟</span>
           <div class="plan-row-info"><h2>The Beatitudes for Kids</h2><p>Jesus&rsquo; happy promises—nine KJV days with simple words and easy steps; best beside a parent.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">9 days</span><span class="plan-progress-pill" id="planPill-beatitudes-kids">Not started</span></div>
@@ -1355,12 +1438,12 @@
           <div class="plan-row-info"><h2>Parable of the Sower for Kids</h2><p>Same KJV story, simpler words and steps&mdash;read beside a child (about ages 8&ndash;12).</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-sower-kids">Not started</span></div>
         </a>
-        <a href="plans.html?plan=summer-seeds" class="plan-row" data-plan="summer-seeds" role="listitem" aria-label="Summer Seeds for Kids — 8 weeks">
+        <a href="plans.html?plan=summer-seeds" class="plan-row" id="plans-anchor-summer-spine" data-plan="summer-seeds" role="listitem" aria-label="Summer Seeds for Kids — 8 weeks">
           <span class="plan-row-icon" aria-hidden="true">☀️</span>
           <div class="plan-row-info"><h2>Summer Seeds for Kids</h2><p>Eight lighter summer weeks in the KJV&mdash;one short anchor day per week beside a grown-up. Matches the Summer Seeds pace on the year-round rhythm page (linked from Family and Seasonal).</p></div>
           <div class="plan-row-meta"><span class="plan-badge">8 weeks</span><span class="plan-progress-pill" id="planPill-summer-seeds">Not started</span></div>
         </a>
-        <a href="plans.html?plan=schoolcourage" class="plan-row" data-plan="schoolcourage" role="listitem" aria-label="Back-to-School Courage — 7 days">
+        <a href="plans.html?plan=schoolcourage" class="plan-row" id="plans-anchor-seasonal-school" data-plan="schoolcourage" role="listitem" aria-label="Back-to-School Courage — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🎒</span>
           <div class="plan-row-info"><h2>Back-to-School Courage</h2><p>Seven KJV days when routines return&mdash;God with you, light, prayer, trust. For table, classroom, or homeschool.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-schoolcourage">Not started</span></div>

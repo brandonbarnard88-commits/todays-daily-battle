@@ -2176,6 +2176,26 @@
       font-size: clamp(1.02rem, 2.9vw, 1.22rem);
     }
 
+    /* Patriotic bundle — closed by default; same grids inside */
+    .tdb-home-patriotic-disclosure { padding: 0.85rem 1rem 1rem; }
+    .tdb-home-patriotic-summary {
+      cursor: pointer;
+      list-style: none;
+      display: block;
+      padding: 0.15rem 0 0.25rem;
+    }
+    .tdb-home-patriotic-summary::-webkit-details-marker { display: none; }
+    .tdb-home-patriotic-summary-label {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text, #e2e8f0);
+      letter-spacing: 0.02em;
+    }
+    .tdb-home-patriotic-summary-sub { display: block; margin: 0.35rem 0 0; max-width: 40rem; line-height: 1.5; }
+    .tdb-home-patriotic-inner { margin-top: 0.85rem; padding-top: 0.35rem; border-top: 1px solid rgba(148, 163, 184, 0.22); }
+    .tdb-home-patriotic-inner .card { margin-bottom: 1rem; }
+    .tdb-home-patriotic-inner .card:last-child { margin-bottom: 0; }
     /* Patriotic Scriptures & Hymns — index does not load styles.css; utils.js fills #patriotic-*-grid */
     #patriotic-scriptures { padding-top: 1rem; }
     #patriotic-scriptures h2:hover .section-divider-icon,
@@ -6373,6 +6393,7 @@
           <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
           <a href="/memorize.html">Memorize</a>
           <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round</a>
           <a href="/explore.html">Explore</a>
           <a href="/about.html">About</a>
           <details class="tdb-nav-more">
@@ -6537,6 +6558,7 @@
         <span class="hero-daily-path-links">
           <a href="my-verses.html">My Verses</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="family.html">Family hub</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="yearly-rhythm.html">Year-round rhythm</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="/kids/">Kids Battle</a>
         </span>
       </nav>
@@ -7040,17 +7062,27 @@
         <p id="newsletter-status" class="section-note" aria-live="polite"></p>
       </section>
 
-      <!-- ── Revival & Outreach (nav anchors) ── -->
-      <section class="card" id="patriotic-scriptures" aria-label="Patriotic Scriptures">
-        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>Patriotic Scriptures</h2>
-        <p class="section-note">Verses for our nation—pray, share, stand.</p>
-        <div id="patriotic-scriptures-grid" class="patriotic-scriptures-layout"></div>
-      </section>
-      <section class="card" id="patriotic-hymns" aria-label="Patriotic Hymns">
-        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Patriotic Hymns</h2>
-        <p class="section-note">Sing, pray, and remember.</p>
-        <div id="patriotic-hymns-grid" class="patriotic-hymns-layout"></div>
-      </section>
+      <!-- ── Patriotic bundle: collapsed by default so the home page stays calm; content unchanged inside ── -->
+      <details class="card tdb-home-patriotic-disclosure" id="patriotic-home-bundle">
+        <summary class="tdb-home-patriotic-summary">
+          <span class="tdb-home-patriotic-summary-label">Patriotic Scriptures &amp; hymns</span>
+          <span class="tdb-home-patriotic-summary-sub section-note">Optional &mdash; open when you want prayer for nation and service songs. Everything inside is the same as before.</span>
+        </summary>
+        <div class="tdb-home-patriotic-inner">
+          <section class="card" id="patriotic-scriptures" aria-label="Patriotic Scriptures">
+            <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>Patriotic Scriptures</h2>
+            <p class="section-note">Verses for our nation—pray, share, stand.</p>
+            <div id="patriotic-scriptures-grid" class="patriotic-scriptures-layout"></div>
+          </section>
+          <section class="card" id="patriotic-hymns" aria-label="Patriotic Hymns">
+            <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Patriotic Hymns</h2>
+            <p class="section-note">Sing, pray, and remember.</p>
+            <div id="patriotic-hymns-grid" class="patriotic-hymns-layout"></div>
+          </section>
+        </div>
+      </details>
+
+      <p class="tdb-home-year-round-nudge section-note" style="margin:1rem 0 0;text-align:center;max-width:36rem;margin-left:auto;margin-right:auto;line-height:1.55">Homeschool, private-school Bible class, or the family table: <a href="yearly-rhythm.html">one gentle year-round rhythm</a> (August&ndash;July, summer seeds, holidays, monthly memory grid).</p>
 
       <p class="tdb-back-to-today tdb-back-to-today--footer"><a href="#hero-verse-wrap">Back to today&rsquo;s verse</a></p>
 
@@ -7079,6 +7111,7 @@
     <a href="/kids-corner.html">Kids Corner</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/coloring.html">Color &amp; Tell</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/yearly-rhythm.html">Year-round</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/message.html">Prayer Wall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/mystudy.html">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>

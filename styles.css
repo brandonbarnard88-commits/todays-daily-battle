@@ -18721,3 +18721,47 @@ body.tdb-kjv-dict-open {
   color: rgba(51, 65, 85, 0.95);
 }
 
+/* Memory verses — comfortable tap targets on small phones (family hub; yearly-rhythm.html mirrors in page CSS) */
+.memory-verses-shell.memory-section {
+  margin: 1.5rem 0;
+}
+
+/* Year-round hub memory grid + any .memory-table (dark-first; light theme via data-theme) */
+.memory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.memory-table th,
+.memory-table td {
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+}
+
+:root[data-theme="light"] .memory-table th,
+:root[data-theme="light"] .memory-table td {
+  border-bottom-color: rgba(148, 163, 184, 0.42);
+}
+
+@media (max-width: 480px) {
+  .memory-verse-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .memory-verse-actions .memory-verse-btn-touch,
+  .memory-verse-actions .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .memory-table th,
+  .memory-table td {
+    padding: 0.65rem 0.4rem;
+    font-size: 0.95rem;
+  }
+}
+

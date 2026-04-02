@@ -125,6 +125,40 @@
       line-height: 1.5;
     }
     :root[data-theme="light"] .csk-mv-card { background: #f8fafc; }
+    .csk-print-planner-zone { margin-top: 0.25rem; }
+    .csk-planner-sheet {
+      margin: 0.75rem 0 1.25rem;
+      padding: 1rem 1.1rem 1.15rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(0, 0, 0, 0.18);
+    }
+    :root[data-theme="light"] .csk-planner-sheet { background: #f8fafc; border-color: rgba(148, 163, 184, 0.45); }
+    .csk-planner-sheet-title { margin: 0 0 0.65rem; font-size: 0.95rem; font-weight: 700; color: var(--gold-soft, #e3bc67); }
+    .csk-planner-sheet p { margin: 0 0 0.5rem; font-size: 0.86rem; line-height: 1.55; }
+    .csk-planner-sheet .csk-planner-checklist { margin: 0.35rem 0 0.65rem; padding-left: 1.15rem; }
+    .csk-planner-sheet .csk-planner-checklist li { margin: 0.25rem 0; }
+    .csk-planner-verse-lines { min-height: 3.2rem; border-bottom: 1px dashed rgba(148, 163, 184, 0.4); margin-bottom: 0.35rem; }
+    .csk-plain-planner-wrap { margin-top: 0.75rem; }
+    .csk-plain-planner-wrap summary {
+      cursor: pointer;
+      color: var(--gold-soft, #e3bc67);
+      font-weight: 600;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      list-style-position: outside;
+    }
+    .csk-plain-planner-wrap summary:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.55);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+    .csk-plain-planner-wrap[open] summary { margin-bottom: 0.35rem; }
+    @media print {
+      .csk-print-planner-zone { break-inside: avoid; }
+      .csk-planner-sheet { break-inside: avoid; page-break-inside: avoid; }
+    }
     .csk-mv-card h3 { margin: 0 0 0.45rem; font-size: 0.88rem; font-weight: 700; color: var(--gold-soft, #e3bc67); }
     .csk-mv-card .csk-mv-kjv { margin: 0 0 0.5rem; font-style: italic; color: var(--text, #e2e8f0); }
     .csk-mv-card .csk-mv-back { margin: 0.55rem 0 0; padding-top: 0.55rem; border-top: 1px dashed rgba(148, 163, 184, 0.35); font-size: 0.78rem; }
@@ -253,6 +287,7 @@
             <li><a href="#csk-homeschool-year-round">Homeschool &amp; private school (year-round)</a></li>
             <li><a href="#csk-homesch-tracker">Homeschool week tracker (print)</a></li>
             <li><a href="#csk-memory-verse-cards">Printable Memory Verse Cards</a></li>
+            <li><a href="#csk-print-planners">Printable planners (memory verse &amp; year rhythm)</a></li>
             <li><a href="#csk-children-ministry">Children&rsquo;s ministry ideas</a></li>
             <li><a href="#csk-lesson-outlines">Lesson outlines (Sunday / midweek)</a></li>
             <li><a href="#csk-vbs-ideas">VBS &mdash; three gentle themes</a></li>
@@ -432,6 +467,7 @@ Blessings,
         <section class="glass" id="csk-homeschool-year-round" aria-labelledby="csk-homeschool-year-round-title">
           <h2 class="section-divider" id="csk-homeschool-year-round-title">Homeschool &amp; private school (year-round)</h2>
           <p class="section-note" style="margin-top:0">Co-ops, micro-schools, and church classrooms can treat the site as a <strong>quiet yearly companion</strong>&mdash;not a full curriculum replacement. One short day at a time; progress stays on each device; offline after first load.</p>
+          <p class="section-note"><strong>Seasons &amp; memory in one place:</strong> Every named seasonal Battle Plan track and the gentle monthly memory verse system are linked from <a href="yearly-rhythm.html">Year-round rhythm</a>&mdash;treat it as the calm table of contents for the school year and breaks.</p>
           <p class="section-note"><strong>Start here:</strong> <a href="yearly-rhythm.html">Year-round rhythm for families</a> &mdash; August&ndash;July pacing, summer &ldquo;Summer Seeds,&rdquo; holiday links, unit-style bundles, chapel block outline, and a printable month grid.</p>
           <h3 class="csk-h3" id="csk-homeschool-year-classroom">Classroom or chapel (about 15 minutes)</h3>
           <ol class="section-note" style="margin-top:0; line-height:1.6; padding-left:1.2rem">
@@ -566,6 +602,132 @@ BACK
 Review: say aloud once &middot; write once &middot; draw &middot; pray it back
 Track (optional): plans.html?plan=___________
 todaysdailybattle.com</pre>
+        </section>
+
+        <section class="glass csk-print-planner-zone" id="csk-print-planners" aria-labelledby="csk-print-planners-title">
+          <h2 class="section-divider" id="csk-print-planners-title">Printable planners (memory verse &amp; year rhythm)</h2>
+          <p class="section-note" style="margin-top:0">One-page sheets for the fridge or a binder&mdash;gentle, no grades. Print this section or save as PDF. The same planners live on <a href="yearly-rhythm.html#yr-print-planners">Year-round rhythm</a> for families who start there.</p>
+
+          <h3 class="csk-h3" id="csk-print-planner-monthly-mv">Monthly Memory Verse Planner</h3>
+          <div class="csk-planner-sheet" aria-label="Monthly memory verse planner worksheet">
+            <p class="csk-planner-sheet-title">Today&rsquo;s Daily Battle &mdash; Memory Verse Planner</p>
+            <p><strong>Month:</strong> _______________________</p>
+            <p><strong>Verse to Hide in My Heart:</strong></p>
+            <div class="csk-planner-verse-lines" aria-hidden="true"></div>
+            <div class="csk-planner-verse-lines" aria-hidden="true"></div>
+            <p class="section-note" style="margin:0.15rem 0 0.5rem;font-size:0.8rem">(<abbr title="King James Version">KJV</abbr>)</p>
+            <p style="margin-top:0.5rem"><strong>Review ideas</strong> (check when done):</p>
+            <ul class="csk-planner-checklist">
+              <li>&#9744; Say it aloud each morning</li>
+              <li>&#9744; Write it three times</li>
+              <li>&#9744; Draw a picture about the verse</li>
+              <li>&#9744; Pray the verse back to God</li>
+              <li>&#9744; Share it with someone in my family</li>
+            </ul>
+            <div class="csk-tracker-wrap" style="margin-top:0.65rem">
+              <table class="csk-tracker-table" aria-label="Weekly check-in dates for this verse">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Reviewed?</th>
+                    <th scope="col">Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>&#9744;</td><td class="csk-tracker-write" aria-label="Notes week one"></td></tr>
+                  <tr><td>8</td><td>&#9744;</td><td class="csk-tracker-write" aria-label="Notes week two"></td></tr>
+                  <tr><td>15</td><td>&#9744;</td><td class="csk-tracker-write" aria-label="Notes week three"></td></tr>
+                  <tr><td>22</td><td>&#9744;</td><td class="csk-tracker-write" aria-label="Notes week four"></td></tr>
+                  <tr><td>29</td><td>&#9744;</td><td class="csk-tracker-write" aria-label="Notes week five"></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:0.75rem; font-size:0.82rem; font-style:italic">&ldquo;Thy word have I hid in mine heart&hellip;&rdquo; (Psalm 119:11)</p>
+          </div>
+
+          <h3 class="csk-h3" id="csk-print-planner-yearly-rhythm">Year-round rhythm overview (printable)</h3>
+          <p class="section-note">Homeschool-friendly pattern: August&ndash;May steady, June&ndash;July lighter. Mark lightly&mdash;no pressure.</p>
+          <div class="csk-planner-sheet" aria-label="Year-round rhythm planner worksheet">
+            <p class="csk-planner-sheet-title">Year-Round Rhythm &mdash; One Gentle Day at a Time</p>
+            <p><strong>School Year (Aug&ndash;May)</strong></p>
+            <ul class="csk-planner-checklist">
+              <li>Mon&ndash;Fri: One day from current study</li>
+              <li>Wednesday: Family devotion on <a href="https://todaysdailybattle.com/family.html">family.html</a></li>
+              <li>Friday: Light review or dramatization</li>
+            </ul>
+            <p><strong>Summer (June&ndash;July)</strong></p>
+            <ul class="csk-planner-checklist">
+              <li>3 days per week: <a href="https://todaysdailybattle.com/plans.html?plan=summer-seeds">Summer Seeds</a> track or free choice</li>
+              <li>Use <a href="https://todaysdailybattle.com/yearly-rhythm.html">yearly-rhythm.html</a> for ideas</li>
+            </ul>
+            <p><strong>Seasonal Highlights</strong></p>
+            <ul class="csk-planner-checklist">
+              <li>Back-to-School Courage (Aug/Sep) &mdash; <a href="https://todaysdailybattle.com/plans.html?plan=schoolcourage">schoolcourage</a></li>
+              <li>Harvest Gratitude (Nov) &mdash; <a href="https://todaysdailybattle.com/plans.html?plan=harvestthanks">harvestthanks</a></li>
+              <li>Advent Quiet (Dec) &mdash; <a href="https://todaysdailybattle.com/plans.html?plan=adventquiet">adventquiet</a></li>
+              <li>New Year Reset (Jan) &mdash; <a href="https://todaysdailybattle.com/plans.html?plan=gentleyear">gentleyear</a> / <a href="https://todaysdailybattle.com/plans.html?plan=newyear7">newyear7</a></li>
+              <li>Easter Resurrection Hope (Mar/Apr) &mdash; <a href="https://todaysdailybattle.com/plans.html?plan=easter">easter</a></li>
+              <li>Summer Stillness (Jun/Jul) &mdash; <a href="https://todaysdailybattle.com/plans.html?plan=summerstill">summerstill</a></li>
+            </ul>
+            <p><strong>Memory Verse Goal:</strong> One gentle verse per month</p>
+            <p style="margin-bottom:0; font-size:0.82rem">Print and keep in a folder or on the fridge. Mark lightly&mdash;no pressure.</p>
+          </div>
+          <details class="csk-plain-planner-wrap">
+            <summary>Plain text for copy or print-to-PDF</summary>
+            <pre class="csk-pre" tabindex="0" aria-label="Plain text planners">Today&apos;s Daily Battle – Memory Verse Planner
+
+Month: _______________________
+
+Verse to Hide in My Heart:
+________________________________________________
+________________________________________________
+(KJV)
+
+Review ideas (check when done):
+□ Say it aloud each morning
+□ Write it three times
+□ Draw a picture about the verse
+□ Pray the verse back to God
+□ Share it with someone in my family
+
+Date       Reviewed?     Notes
+---------- -----------   ---------------------------------
+1         □             _________________________________
+8         □             _________________________________
+15        □             _________________________________
+22        □             _________________________________
+29        □             _________________________________
+
+"Thy word have I hid in mine heart..." (Psalm 119:11)
+
+---
+
+Year-Round Rhythm – One Gentle Day at a Time
+
+School Year (Aug–May)
+• Mon–Fri: One day from current study
+• Wednesday: Family devotion on family.html
+• Friday: Light review or dramatization
+
+Summer (June–July)
+• 3 days per week: Summer Seeds track or free choice
+• Use yearly-rhythm.html for ideas
+
+Seasonal Highlights
+• Back-to-School Courage (Aug/Sep)
+• Harvest Gratitude (Nov)
+• Advent Quiet (Dec)
+• New Year Reset (Jan)
+• Easter Resurrection Hope (Mar/Apr)
+• Summer Stillness (Jun/Jul)
+
+Memory Verse Goal: One gentle verse per month
+
+Print and keep in a folder or on the fridge. Mark lightly — no pressure.
+
+https://todaysdailybattle.com/church-sharing-kit.html#csk-print-planners
+https://todaysdailybattle.com/yearly-rhythm.html#yr-print-planners</pre>
+          </details>
         </section>
 
         <section class="glass" id="csk-children-ministry" aria-labelledby="csk-children-ministry-title">

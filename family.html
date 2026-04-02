@@ -113,6 +113,45 @@
     }
     .family-parent-at-a-glance__list li { margin-bottom: 0.45rem; }
     .family-parent-at-a-glance__list a { color: var(--gold-soft); font-weight: 600; }
+    .family-year-round-tools-card {
+      border-radius: 16px;
+      padding: 1rem 1.1rem 1.05rem;
+      margin-bottom: 1.15rem;
+      background: rgba(12, 18, 30, 0.58);
+      border: 1px solid rgba(139, 166, 217, 0.26);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 235, 0.035),
+        0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    .family-year-round-tools-eyebrow {
+      margin: 0 0 0.3rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(139, 166, 217, 0.85);
+    }
+    .family-year-round-tools-title {
+      margin: 0 0 0.45rem;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .family-year-round-tools-desc {
+      margin: 0 0 0.65rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .family-year-round-tools-links {
+      margin: 0;
+      padding-left: 1.15rem;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: rgba(200, 210, 225, 0.94);
+    }
+    .family-year-round-tools-links li { margin-bottom: 0.4rem; }
+    .family-year-round-tools-links a { color: var(--gold-soft); font-weight: 600; }
     .family-parent-quick-dash {
       border-radius: 16px;
       padding: 1rem 1.1rem 1.05rem;
@@ -183,6 +222,10 @@
       font-style: italic;
     }
     @media (max-width: 480px) {
+      .family-year-round-tools-card {
+        padding: 1.15rem 1rem 1.2rem;
+        margin-bottom: 1.35rem;
+      }
       .family-parent-quick-dash,
       .family-parent-quick-start {
         padding: 1.15rem 1rem 1.2rem;
@@ -359,8 +402,20 @@
       margin-bottom: 0;
     }
     .memory-verse-calm-note { color: rgba(245, 247, 251, 0.88); }
-    .memory-verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; align-items: center; }
+    .memory-verse-card-header { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.45rem; }
+    .memory-verse-card-month { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(227, 188, 103, 0.82); }
+    .memory-verse-card-track { font-size: 0.88rem; font-weight: 500; color: rgba(226, 232, 240, 0.9); line-height: 1.45; }
+    .memory-verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.65rem; align-items: stretch; }
     .memory-verse-actions .btn { min-height: 44px; }
+    .memory-verse-btn-touch { flex: 1 1 100%; min-height: 44px; padding: 0.55rem 0.9rem; }
+    @media (min-width: 480px) {
+      .memory-verse-btn-touch { flex: 1 1 calc(50% - 0.35rem); min-width: 0; }
+    }
+    @media (max-width: 479px) {
+      .memory-verse-actions { flex-direction: column; align-items: stretch; }
+      .memory-verse-actions .memory-verse-btn-touch,
+      .memory-verse-actions .btn { width: 100%; min-height: 48px; }
+    }
     .family-memory-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(227, 188, 103, 0.75); margin: 0 0 0.35rem; }
     .family-memory-ref { font-weight: 700; color: var(--gold-soft); margin: 0 0 0.35rem; font-size: 0.95rem; }
     .family-memory-text { margin: 0 0 0.65rem; line-height: 1.55; font-size: 0.93rem; color: rgba(245, 247, 251, 0.92); }
@@ -607,6 +662,19 @@
       </ul>
     </section>
 
+    <section class="family-year-round-tools-card family-hub-animate family-hub-d2" id="family-year-round-tools" aria-labelledby="family-year-round-tools-heading">
+      <p class="family-year-round-tools-eyebrow">Year-round tools</p>
+      <h2 class="family-year-round-tools-title" id="family-year-round-tools-heading">School year, summer, and memory</h2>
+      <p class="family-year-round-tools-desc">One page maps August through July, lighter summer weeks, holiday doorways, and printables&mdash;the same gentle memory verses you review on this device live there too.</p>
+      <ul class="family-year-round-tools-links">
+        <li><a href="yearly-rhythm.html">Year-round rhythm</a> &mdash; pacing, summer, chapel block, bundles</li>
+        <li><a href="yearly-rhythm.html#yr-memory">Monthly memory grid</a> &mdash; matches the cards below</li>
+        <li><a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> &mdash; eight one-day weeks</li>
+        <li><a href="yearly-rhythm.html#yearly-rhythm-planner">Printable year-at-a-glance</a> &middot; <a href="yearly-rhythm.html#yr-print-planners">planners</a> &middot; <a href="church-sharing-kit.html#csk-homeschool-year-round">Church &amp; school kit</a></li>
+        <li><a href="seasonal.html">Seasonal paths</a> for Advent, Easter, harvest, and more</li>
+      </ul>
+    </section>
+
     <section class="family-parent-quick-dash family-hub-animate family-hub-d2" aria-labelledby="family-parent-dash-heading">
       <h2 class="family-parent-quick-dash__title" id="family-parent-dash-heading">Tonight&rsquo;s gentle path</h2>
       <p class="family-parent-quick-dash__lead">Three calm stops you can repeat any evening—nothing posts; it stays on this device until you share on purpose.</p>
@@ -642,8 +710,8 @@
 
     <section class="family-section-block family-hub-animate family-hub-d2 family-memory-section" id="family-year-round-memory" aria-labelledby="family-memory-heading">
       <h2 class="family-section-title" id="family-memory-heading">Year-round &amp; Memory Verses</h2>
-      <p class="section-lead">Gentle review on this device only&mdash;no account. Mark what you&rsquo;re learning or celebrate what you&rsquo;ve hidden in your heart. <a href="seasonal.html">Seasonal paths</a> &middot; <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a> (month grid). Leaders: printable cards in the <a href="church-sharing-kit.html#csk-memory-verse-cards">Church sharing kit</a>.</p>
-      <div id="memory-verses" class="memory-verses-shell">
+      <p class="section-lead">Gentle review on this device only&mdash;no account. Mark what you&rsquo;re learning or celebrate what you&rsquo;ve hidden in your heart. <a href="seasonal.html">Seasonal paths</a> &middot; <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a> (month grid). Printables: <a href="church-sharing-kit.html#csk-memory-verse-cards">cut-out cards</a>, <a href="yearly-rhythm.html#yr-print-planners">one-page planners</a> (also <a href="church-sharing-kit.html#csk-print-planners">church kit</a>).</p>
+      <div id="memory-verses" class="memory-verses-shell memory-section">
       <div id="family-memory-verses-root" class="family-memory-verses-root"></div>
       </div>
       <p class="section-note" id="family-seasonal-plans-links">Seasonal Battle Plans (same day-count as the main plans page): <a href="plans.html?plan=schoolcourage">Back-to-School Courage</a> &middot; <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a> &middot; <a href="plans.html?plan=adventquiet">Advent Quiet</a> &middot; <a href="plans.html?plan=gentleyear">Gentle New Year Reset</a> &middot; <a href="plans.html?plan=summerstill">Summer Stillness</a> &middot; <a href="plans.html?plan=easter">Resurrection Hope</a>.</p>

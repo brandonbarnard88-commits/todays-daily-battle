@@ -232,10 +232,19 @@
     art.className = 'memory-verse-card family-memory-card' + (compact ? ' memory-verse-card--compact' : '');
     art.setAttribute('data-mv-id', entry.id);
 
-    var lab = document.createElement('p');
-    lab.className = 'family-memory-eyebrow';
-    lab.textContent = isSeason ? ('Season: ' + (entry.label || '')) : (entry.label || '');
-    art.appendChild(lab);
+    var header = document.createElement('div');
+    header.className = 'memory-verse-card-header';
+    var mo = document.createElement('span');
+    mo.className = 'memory-verse-card-month';
+    mo.textContent = (entry.label && String(entry.label).trim()) ? entry.label : (isSeason ? 'This season' : 'This month');
+    header.appendChild(mo);
+    if (entry.track) {
+      var trk = document.createElement('span');
+      trk.className = 'memory-verse-card-track';
+      trk.textContent = entry.track;
+      header.appendChild(trk);
+    }
+    art.appendChild(header);
 
     var refp = document.createElement('p');
     refp.className = 'family-memory-ref';
@@ -247,10 +256,12 @@
     tx.textContent = '\u201c' + entry.text + '\u201d';
     art.appendChild(tx);
 
-    var track = document.createElement('p');
-    track.className = 'section-note memory-verse-track';
-    track.textContent = entry.track + (entry.planUrl && !compact ? ' \u00b7 More days in the plan when you want them.' : '');
-    art.appendChild(track);
+    if (entry.planUrl && !compact) {
+      var more = document.createElement('p');
+      more.className = 'section-note memory-verse-track';
+      more.textContent = 'More days in the matching plan when you want them.';
+      art.appendChild(more);
+    }
 
     if (entry.planUrl) {
       var pa = document.createElement('a');
@@ -266,8 +277,9 @@
     var st = statusMap[entry.id] || '';
     var btnLearn = document.createElement('button');
     btnLearn.type = 'button';
-    btnLearn.className = 'btn btn-secondary';
-    btnLearn.textContent = st === 'learning' ? 'Still learning (saved here)' : 'I\u2019m working on this verse';
+    btnLearn.className = 'btn btn-secondary memory-verse-btn-touch';
+    btnLearn.textContent = st === 'learning' ? 'Still learning' : 'Working on it';
+    btnLearn.setAttribute('aria-label', st === 'learning' ? 'Still learning this verse; saved on this device' : 'Mark this verse as in progress; saves on this device');
     btnLearn.setAttribute('aria-pressed', st === 'learning' ? 'true' : 'false');
     btnLearn.addEventListener('click', function () {
       setStatus(entry.id, 'learning');
@@ -277,8 +289,9 @@
 
     var btnMem = document.createElement('button');
     btnMem.type = 'button';
-    btnMem.className = 'btn btn-primary';
-    btnMem.textContent = st === 'memorized' ? 'Memorized (saved here)' : 'I can say it from memory';
+    btnMem.className = 'btn btn-primary memory-verse-btn-touch';
+    btnMem.textContent = st === 'memorized' ? 'Memorized' : 'Know it!';
+    btnMem.setAttribute('aria-label', st === 'memorized' ? 'Marked as memorized on this device' : 'Celebrate; mark as memorized on this device');
     btnMem.setAttribute('aria-pressed', st === 'memorized' ? 'true' : 'false');
     btnMem.addEventListener('click', function () {
       setStatus(entry.id, 'memorized');

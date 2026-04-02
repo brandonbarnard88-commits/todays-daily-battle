@@ -89,6 +89,24 @@
       white-space: pre-wrap; font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace; overflow-x: auto;
     }
     table.yr-mv-table td.yr-mv-text { font-size: 0.78rem; color: rgba(245, 247, 251, 0.85); max-width: 12rem; }
+    #yr-memory.yearly-rhythm-section {
+      padding: 1.25rem 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      background: rgba(12, 16, 26, 0.42);
+    }
+    .memory-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    .memory-table th,
+    .memory-table td {
+      padding: 0.75rem 0.5rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(136, 150, 176, 0.35);
+    }
     .yr-memory-spotlight { margin: 0.75rem 0 1rem; }
     .yr-memory-spotlight-lead { margin: 0 0 0.65rem !important; }
     .memory-verse-grid {
@@ -102,13 +120,50 @@
     .memory-verse-card { border-radius: 14px; border: 1px solid rgba(227, 188, 103, 0.22); background: rgba(12, 16, 26, 0.45); padding: 1rem 1.1rem; }
     .memory-verse-card--compact { padding: 0.85rem 1rem; }
     .memory-verse-card--compact .family-memory-text { font-size: 0.88rem; }
-    .memory-verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; align-items: center; }
+    .memory-verse-card-header { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.45rem; }
+    .memory-verse-card-month { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(227, 188, 103, 0.82); }
+    .memory-verse-card-track { font-size: 0.88rem; font-weight: 500; color: rgba(226, 232, 240, 0.9); line-height: 1.45; }
+    .memory-verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.65rem; align-items: stretch; }
     .memory-verse-actions .btn { min-height: 44px; }
+    .memory-verse-btn-touch { flex: 1 1 100%; min-height: 44px; padding: 0.55rem 0.9rem; }
+    @media (min-width: 480px) {
+      .memory-verse-btn-touch { flex: 1 1 calc(50% - 0.35rem); min-width: 0; }
+    }
     .memory-verse-calm-note { color: rgba(245, 247, 251, 0.88); }
+    .yr-planner-sheet {
+      margin: 0.75rem 0 1.25rem;
+      padding: 1rem 1.1rem 1.15rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(12, 16, 26, 0.65);
+    }
+    .yr-planner-sheet-title { margin: 0 0 0.65rem; font-size: 0.95rem; font-weight: 700; color: var(--gold); }
+    .yr-planner-sheet p { margin: 0 0 0.5rem; font-size: 0.86rem; line-height: 1.55; color: rgba(245, 247, 251, 0.92); }
+    .yr-planner-sheet .yr-planner-checklist { margin: 0.35rem 0 0.65rem; padding-left: 1.15rem; color: rgba(245, 247, 251, 0.9); }
+    .yr-planner-sheet .yr-planner-checklist li { margin: 0.25rem 0; }
+    .yr-planner-verse-lines { min-height: 3.2rem; border-bottom: 1px dashed rgba(136, 150, 176, 0.45); margin-bottom: 0.35rem; }
+    .yr-print-planners-zone { margin-top: 0.25rem; }
+    .yr-print-planners-zone .yr-planner-sheet { margin-bottom: 1.1rem; }
+    @media (max-width: 480px) {
+      .memory-verse-actions { flex-direction: column; }
+      .memory-verse-actions .memory-verse-btn-touch,
+      .memory-verse-actions .btn { width: 100%; min-height: 48px; }
+      .yr-planner-sheet { padding: 1.15rem 1rem; }
+      .yr-table-wrap { margin-left: -0.15rem; margin-right: -0.15rem; }
+      .memory-table th,
+      .memory-table td {
+        padding: 0.65rem 0.4rem;
+        font-size: 0.95rem;
+      }
+      #yr-memory-tbody tr {
+        border-bottom: 1px solid rgba(136, 150, 176, 0.28);
+      }
+    }
     @media print {
       .tdb-global-nav, .tdb-global-subnav { position: static; }
       .yr-print-zone { break-inside: avoid; }
       .yr-plain-planner-wrap, .yr-planner-plain { break-inside: avoid; }
+      .yr-print-planners-zone, .yr-planner-sheet { break-inside: avoid; page-break-inside: avoid; }
     }
   </style>
 </head>
@@ -158,7 +213,7 @@
     <a href="/#feel-section">Feel &amp; topics</a>
     <a href="/kids/?v=hub20260321">Kids</a>
   </nav>
-  <main id="main">
+  <main id="main" class="yearly-rhythm-hub">
     <h1>Year-round rhythm</h1>
     <p class="lead">For homeschool, private-school Bible class, co-op, church kids club, or the family table: <strong>one gentle day at a time</strong>. No account is required to read; progress stays on each device and works offline after the first visit.</p>
     <div class="cta-row">
@@ -192,6 +247,7 @@
       <h2 id="yr-summer-h">Summer Seeds (lighter weeks)</h2>
       <p><strong>Quiet summer with Jesus</strong> &mdash; aim for three short visits a week (about 3&ndash;5 minutes), not seven.</p>
       <p><strong>Eight-week spine:</strong> <a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> &mdash; one KJV anchor day per week beside a grown-up; progress saves on this device like your other Battle Plans.</p>
+      <p class="section-note" style="margin-top:0.5rem">Optional second habit: whisper one phrase from each week&rsquo;s verse at breakfast. The <a href="#yr-memory">monthly memory grid</a> below lists a full verse per month if you want a gentle parallel track&mdash;never required.</p>
       <p><strong>Optional deeper rotation</strong> (same summer, if you want more pages open):</p>
       <ul>
         <li><strong>Weeks 1&ndash;2:</strong> <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> at half pace.</li>
@@ -229,13 +285,13 @@
       <p>One fifteen-minute block weekly: open the day on a projector or tablet, read the <abbr title="King James Version">KJV</abbr> verse aloud, read the short reflection, do the small step (whisper, draw, or kindness), pray the printed prayer. Leader notes and copy for families: <a href="church-sharing-kit.html#csk-children-print-leader">Children&rsquo;s ministry leader guide</a> and <a href="church-sharing-kit.html#csk-volunteer-training">Volunteer training</a> on the Church Sharing Kit.</p>
     </section>
 
-    <section id="yr-memory" aria-labelledby="yr-memory-h">
+    <section id="yr-memory" class="yearly-rhythm-section" aria-labelledby="yr-memory-h">
       <h2 id="yr-memory-h">Memory verses (calendar year)</h2>
       <p>One anchor verse per month in the KJV&mdash;gentle review on <strong>this device</strong> only. Mark &ldquo;learning&rdquo; or celebrate &ldquo;memorized&rdquo; on the <a href="family.html#family-year-round-memory">Family hub</a>; this grid lists the same verses. <strong>Weekly:</strong> say one aloud. <strong>Summer (June&ndash;July):</strong> one or two a week is plenty.</p>
-      <p class="section-note yr-memory-calm-note" style="margin-top:0">Printable cut-out cards for class or home: <a href="church-sharing-kit.html#csk-memory-verse-cards">Church sharing kit &mdash; Memory Verse Cards</a>.</p>
+      <p class="section-note yr-memory-calm-note" style="margin-top:0">Printable cut-out cards: <a href="church-sharing-kit.html#csk-memory-verse-cards">Church kit &mdash; Memory Verse Cards</a>. One-page monthly tracker + year rhythm: <a href="#yr-print-planners">Printable planners</a> (also <a href="church-sharing-kit.html#csk-print-planners">church kit</a>).</p>
       <div id="yr-memory-spotlight" class="yr-memory-spotlight" aria-label="This month and season"></div>
       <div class="yr-table-wrap">
-        <table class="yr-table yr-mv-table" aria-label="Monthly memory verses">
+        <table class="yr-table yr-mv-table memory-table" aria-label="Monthly memory verses">
           <thead>
             <tr>
               <th scope="col">Month</th>
@@ -300,9 +356,138 @@ June      Summer Seeds for Kids weeks 1–4 (plans.html?plan=summer-seeds) + opt
 July      Summer Seeds for Kids weeks 5–8 or Peace days (plans.html?plan=peace)
 
 Weekly printable tracker:
-https://todaysdailybattle.com/church-sharing-kit.html#csk-homesch-tracker</pre>
+https://todaysdailybattle.com/church-sharing-kit.html#csk-homesch-tracker
+
+One-page memory + rhythm planners:
+https://todaysdailybattle.com/yearly-rhythm.html#yr-print-planners
+https://todaysdailybattle.com/church-sharing-kit.html#csk-print-planners</pre>
       </details>
       <p>Weekly detail sheet: <a href="church-sharing-kit.html#csk-homesch-tracker">Homeschool week tracker</a> on the Church Sharing Kit.</p>
+    </section>
+
+    <section class="yr-print-planners-zone yr-print-zone" id="yr-print-planners" aria-labelledby="yr-print-planners-h">
+      <h2 id="yr-print-planners-h">Printable planners (memory verse &amp; year rhythm)</h2>
+      <p>Same gentle one-pagers as the <a href="church-sharing-kit.html#csk-print-planners">Church sharing kit</a>&mdash;duplicated here so families who live on this page can print without hunting.</p>
+
+      <h3 id="yr-print-planner-mv-h">Monthly Memory Verse Planner</h3>
+      <div class="yr-planner-sheet" aria-label="Monthly memory verse planner worksheet">
+        <p class="yr-planner-sheet-title">Today&rsquo;s Daily Battle &mdash; Memory Verse Planner</p>
+        <p><strong>Month:</strong> _______________________</p>
+        <p><strong>Verse to Hide in My Heart:</strong></p>
+        <div class="yr-planner-verse-lines" aria-hidden="true"></div>
+        <div class="yr-planner-verse-lines" aria-hidden="true"></div>
+        <p style="margin:0.15rem 0 0.5rem;font-size:0.8rem;color:rgba(245,247,251,0.75)">(<abbr title="King James Version">KJV</abbr>)</p>
+        <p style="margin-top:0.5rem"><strong>Review ideas</strong> (check when done):</p>
+        <ul class="yr-planner-checklist">
+          <li>&#9744; Say it aloud each morning</li>
+          <li>&#9744; Write it three times</li>
+          <li>&#9744; Draw a picture about the verse</li>
+          <li>&#9744; Pray the verse back to God</li>
+          <li>&#9744; Share it with someone in my family</li>
+        </ul>
+        <div class="yr-table-wrap" style="margin-top:0.65rem">
+          <table class="yr-table" aria-label="Weekly check-in dates for this verse">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Reviewed?</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>&#9744;</td><td class="yr-write" aria-label="Notes week one"></td></tr>
+              <tr><td>8</td><td>&#9744;</td><td class="yr-write" aria-label="Notes week two"></td></tr>
+              <tr><td>15</td><td>&#9744;</td><td class="yr-write" aria-label="Notes week three"></td></tr>
+              <tr><td>22</td><td>&#9744;</td><td class="yr-write" aria-label="Notes week four"></td></tr>
+              <tr><td>29</td><td>&#9744;</td><td class="yr-write" aria-label="Notes week five"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:0.75rem; font-size:0.82rem; font-style:italic">&ldquo;Thy word have I hid in mine heart&hellip;&rdquo; (Psalm 119:11)</p>
+      </div>
+
+      <h3 id="yr-print-planner-rhythm-h">Year-round rhythm overview (printable)</h3>
+      <div class="yr-planner-sheet" aria-label="Year-round rhythm planner worksheet">
+        <p class="yr-planner-sheet-title">Year-Round Rhythm &mdash; One Gentle Day at a Time</p>
+        <p><strong>School Year (Aug&ndash;May)</strong></p>
+        <ul class="yr-planner-checklist">
+          <li>Mon&ndash;Fri: One day from current study</li>
+          <li>Wednesday: Family devotion on <a href="family.html">family.html</a></li>
+          <li>Friday: Light review or dramatization</li>
+        </ul>
+        <p><strong>Summer (June&ndash;July)</strong></p>
+        <ul class="yr-planner-checklist">
+          <li>3 days per week: <a href="plans.html?plan=summer-seeds">Summer Seeds</a> track or free choice</li>
+          <li>Use <a href="#yr-summer">this page &mdash; summer ideas</a> when you want a gentle nudge</li>
+        </ul>
+        <p><strong>Seasonal Highlights</strong></p>
+        <ul class="yr-planner-checklist">
+          <li>Back-to-School Courage (Aug/Sep) &mdash; <a href="plans.html?plan=schoolcourage">schoolcourage</a></li>
+          <li>Harvest Gratitude (Nov) &mdash; <a href="plans.html?plan=harvestthanks">harvestthanks</a></li>
+          <li>Advent Quiet (Dec) &mdash; <a href="plans.html?plan=adventquiet">adventquiet</a></li>
+          <li>New Year Reset (Jan) &mdash; <a href="plans.html?plan=gentleyear">gentleyear</a> / <a href="plans.html?plan=newyear7">newyear7</a></li>
+          <li>Easter Resurrection Hope (Mar/Apr) &mdash; <a href="plans.html?plan=easter">easter</a></li>
+          <li>Summer Stillness (Jun/Jul) &mdash; <a href="plans.html?plan=summerstill">summerstill</a></li>
+        </ul>
+        <p><strong>Memory Verse Goal:</strong> One gentle verse per month</p>
+        <p style="margin-bottom:0; font-size:0.82rem">Print and keep in a folder or on the fridge. Mark lightly&mdash;no pressure.</p>
+      </div>
+      <details class="yr-plain-planner-wrap">
+        <summary>Plain text for copy or print-to-PDF</summary>
+        <pre class="yr-planner-plain" id="yr-print-planners-plain">Today&apos;s Daily Battle – Memory Verse Planner
+
+Month: _______________________
+
+Verse to Hide in My Heart:
+________________________________________________
+________________________________________________
+(KJV)
+
+Review ideas (check when done):
+□ Say it aloud each morning
+□ Write it three times
+□ Draw a picture about the verse
+□ Pray the verse back to God
+□ Share it with someone in my family
+
+Date       Reviewed?     Notes
+---------- -----------   ---------------------------------
+1         □             _________________________________
+8         □             _________________________________
+15        □             _________________________________
+22        □             _________________________________
+29        □             _________________________________
+
+"Thy word have I hid in mine heart..." (Psalm 119:11)
+
+---
+
+Year-Round Rhythm – One Gentle Day at a Time
+
+School Year (Aug–May)
+• Mon–Fri: One day from current study
+• Wednesday: Family devotion on family.html
+• Friday: Light review or dramatization
+
+Summer (June–July)
+• 3 days per week: Summer Seeds track or free choice
+• Use yearly-rhythm.html for ideas
+
+Seasonal Highlights
+• Back-to-School Courage (Aug/Sep)
+• Harvest Gratitude (Nov)
+• Advent Quiet (Dec)
+• New Year Reset (Jan)
+• Easter Resurrection Hope (Mar/Apr)
+• Summer Stillness (Jun/Jul)
+
+Memory Verse Goal: One gentle verse per month
+
+Print and keep in a folder or on the fridge. Mark lightly — no pressure.
+
+https://todaysdailybattle.com/yearly-rhythm.html#yr-print-planners
+https://todaysdailybattle.com/church-sharing-kit.html#csk-print-planners</pre>
+      </details>
     </section>
 
     <section id="yr-more" aria-labelledby="yr-more-h">

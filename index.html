@@ -1054,13 +1054,13 @@
     }
 
     .tdb-home-votm {
-      max-width: 34rem;
-      margin: 1rem auto 1.15rem;
-      padding: 1rem 1.15rem 1.15rem;
-      border-radius: 16px;
-      border: 1px solid rgba(227, 188, 103, 0.28);
-      background: linear-gradient(165deg, rgba(20, 26, 38, 0.92), rgba(12, 16, 26, 0.88));
-      box-shadow: var(--shadow);
+      max-width: min(38rem, calc(100vw - 1.35rem));
+      margin: 1rem auto 1.25rem;
+      padding: 1.1rem 1.2rem 1.25rem;
+      border-radius: 18px;
+      border: 1px solid rgba(227, 188, 103, 0.38);
+      background: linear-gradient(165deg, rgba(22, 28, 42, 0.96), rgba(10, 14, 24, 0.92));
+      box-shadow: var(--shadow), 0 0 0 1px rgba(227, 188, 103, 0.06);
     }
     :root[data-theme="light"] .tdb-home-votm {
       background: linear-gradient(165deg, color-mix(in srgb, var(--card) 92%, #fff 8%), var(--bg-soft));
@@ -1068,9 +1068,9 @@
     }
     .tdb-home-votm-h {
       margin: 0 0 0.35rem;
-      font-size: 1.05rem;
+      font-size: clamp(1.08rem, 2.8vw, 1.18rem);
       font-weight: 600;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
       color: var(--gold-soft);
     }
     :root[data-theme="light"] .tdb-home-votm-h {
@@ -1093,8 +1093,54 @@
     .tdb-home-votm-listen-row .btn {
       min-height: 48px;
     }
+    .tdb-home-votm-review-hint {
+      margin: 0 0 0.75rem !important;
+      padding: 0.55rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      background: color-mix(in srgb, var(--gold) 7%, transparent);
+      font-size: 0.91rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--text) 88%, var(--gold) 12%);
+      text-align: left;
+      max-width: none !important;
+    }
+    :root[data-theme="light"] .tdb-home-votm-review-hint {
+      background: color-mix(in srgb, var(--gold) 10%, var(--card));
+      color: color-mix(in srgb, var(--text) 92%, #5c4a1c 8%);
+    }
     #tdb-home-votm-card .tdb-home-votm-card-inner {
       margin-top: 0;
+    }
+    #tdb-home-votm .memory-verse-card {
+      border-radius: 14px;
+      border: 1px solid rgba(227, 188, 103, 0.32);
+      background: rgba(6, 10, 18, 0.55);
+      padding: 0.95rem 1rem 1.05rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+    :root[data-theme="light"] #tdb-home-votm .memory-verse-card {
+      background: color-mix(in srgb, var(--card) 88%, #fff 12%);
+      border-color: color-mix(in srgb, var(--gold) 28%, var(--line));
+    }
+    #tdb-home-votm .memory-verse-btn-touch {
+      min-height: 48px;
+    }
+    @media (max-width: 420px) {
+      .tdb-home-votm {
+        margin-left: max(0.5rem, env(safe-area-inset-left));
+        margin-right: max(0.5rem, env(safe-area-inset-right));
+        padding: 1rem 0.95rem 1.1rem;
+      }
+      .tdb-home-votm-listen-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .tdb-home-votm-listen-row .btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     /* ── Sticky on-page wayfinding (below header) ── */
@@ -6499,6 +6545,7 @@
     <nav class="tdb-sticky-wayfind" id="tdb-sticky-wayfind" aria-label="Jump on this page">
       <a href="#hero-verse-wrap" data-tdb-wayfind="verse" aria-label="Today's verse">Verse</a>
       <a href="#tdb-home-votm" data-tdb-wayfind="memory" aria-label="Verse of the month">Memory</a>
+      <a href="yearly-rhythm.html" class="tdb-sticky-wayfind-rhythm" aria-label="Year-round rhythm — memory verses, seasons, and printable planner">Rhythm</a>
       <a href="#feel-section" data-tdb-wayfind="feel" aria-label="Search by how you feel">Feel</a>
       <a href="plans.html" aria-label="Battle Plans — KJV reading plans">Plans</a>
       <a href="calm.html" aria-label="Calm — one-tap verse">Calm</a>
@@ -6567,7 +6614,7 @@
         <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
       </div>
 
-      <p class="tdb-page-orientation" id="tdb-page-orientation">Today&rsquo;s verse is up first on your phone; right below it, a gentle <strong>verse of the month</strong> card (same KJV anchor as Family hub). The calm doorway and feel search sit next when you want them.</p>
+      <p class="tdb-page-orientation" id="tdb-page-orientation">Today&rsquo;s verse is up first on your phone; right below it, a gentle <strong>verse of the month</strong> card (same KJV anchor as Family hub). The sticky bar&rsquo;s <strong>Rhythm</strong> link opens the full year-round page anytime. The calm doorway and feel search sit next when you want them.</p>
 
       <div class="tdb-install-reassurance-stack" aria-label="Offline status and add to home screen">
       <!-- ── Offline banner (reassuring message when offline) ── -->
@@ -6731,6 +6778,7 @@
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
       <section class="tdb-home-votm" id="tdb-home-votm" aria-labelledby="tdb-home-votm-heading">
+        <span id="verse-of-the-month" class="sr-only" tabindex="-1"></span>
         <h2 class="tdb-home-votm-h" id="tdb-home-votm-heading">Verse of the month</h2>
         <p class="tdb-home-votm-lead section-note">Right after today&rsquo;s verse: the same KJV anchor you can mark on <a href="family.html#family-year-round-memory">Family hub</a>&mdash;review gently, no quiz. <a href="yearly-rhythm.html">Year-round rhythm</a> has the full grid; <a href="year-at-a-glance.html">Year at a glance</a> prints verses, seasons, and calm activity reminders on one page.</p>
         <p class="section-note tdb-home-memory-activities-teaser" id="tdb-home-memory-activities-teaser" style="margin-top:0.35rem">Gentle ways to hide God&rsquo;s Word in your heart&mdash;see <a href="church-sharing-kit.html#csk-memory-verse-activities">Memory Verse Activities</a> in the Church Sharing Kit (no quizzes; works with this month&rsquo;s verse).</p>
@@ -6738,6 +6786,7 @@
           <button type="button" class="btn btn-secondary" id="tdb-votm-read-aloud" aria-label="Listen to this month’s memory verse read aloud">Listen (this verse)</button>
           <a class="btn btn-secondary" href="year-at-a-glance.html" aria-label="Open printable year at a glance with verses, seasons, and activities">Print full year pack</a>
         </div>
+        <p class="tdb-home-votm-review-hint" id="tdb-home-votm-review-hint">Review gently: say the verse once when you can. Use <strong>Mark reviewed</strong> below so this device remembers&mdash;no streak pressure.</p>
         <div id="tdb-home-votm-card" class="tdb-home-votm-card-host" aria-live="polite"></div>
       </section>
       <nav class="hero-daily-path tdb-home-spotlight-deeper" aria-label="Saves and family on this device">

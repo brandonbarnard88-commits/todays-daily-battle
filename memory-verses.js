@@ -396,7 +396,7 @@
       learnButtonLabel: 'Mark reviewed',
       learnButtonLabelActive: 'Still reviewing',
       memButtonLabel: 'Know it by heart',
-      reviewPrompt: 'No quiz\u2014say it once together or alone. Progress stays on this device.'
+      reviewPrompt: 'Progress stays on this device\u2014clear anytime with the link below the buttons.'
     });
     cardRoot.replaceChildren(art);
   }

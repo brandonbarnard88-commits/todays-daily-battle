@@ -6,8 +6,8 @@
   <script defer src="analytics-loader.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Memory verse activities (print) • Today&apos;s Daily Battle</title>
-  <meta name="description" content="One printable page of gentle, no-quiz memory verse activity ideas for families, homeschool, private school, and church—pairs with Year-round rhythm and the Church Sharing Kit.">
+  <title>Memory Verse Teaching Methods &amp; Activities (print) • Today&apos;s Daily Battle</title>
+  <meta name="description" content="One printable page: peaceful teaching methods, seasonal KJV anchors, and no-quiz activity reminders for families, homeschool, private school, and church.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/memory-verse-activities-print.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -62,6 +62,60 @@
     }
     .mva-foot { margin-top: 1.25rem; font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
     .mva-foot a { color: var(--gold); }
+    .mva-subh {
+      margin: 1.35rem 0 0.55rem;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      font-weight: 800;
+      color: var(--gold);
+      scroll-margin-top: 4.5rem;
+    }
+    .mva-subh:first-of-type { margin-top: 0.35rem; }
+    .mva-method-grid {
+      display: grid;
+      gap: 0.55rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 520px) {
+      .mva-method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .mva-seasonal-wrap {
+      margin: 0.5rem 0 1rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 10px;
+      border: 1px solid rgba(227, 188, 103, 0.22);
+    }
+    .mva-seasonal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+      min-width: 260px;
+    }
+    .mva-seasonal-table th, .mva-seasonal-table td {
+      border: 1px solid var(--line);
+      padding: 0.4rem 0.45rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .mva-seasonal-table th { background: rgba(227, 188, 103, 0.12); color: var(--gold); font-weight: 700; }
+    .mva-seasonal-note { margin: 0.45rem 0 0; font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+    .mva-reminder-ul {
+      margin: 0.35rem 0 0;
+      padding-left: 1.15rem;
+      font-size: 0.78rem;
+      line-height: 1.48;
+      color: rgba(245, 247, 251, 0.92);
+    }
+    .mva-reminder-ul li { margin: 0.28rem 0; break-inside: avoid; }
+    .mva-reminder-ul strong { color: var(--gold); font-weight: 650; }
+    .mva-byline {
+      margin-top: 2.5rem;
+      font-style: italic;
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .mva-byline a { color: var(--gold); font-style: normal; }
     @media print {
       .tdb-global-nav, .mva-actions { display: none !important; }
       body { background: #fff; color: #111; }
@@ -75,6 +129,13 @@
       h1 { color: #111; font-size: 14pt; }
       .lead { color: #333; font-size: 9pt; }
       .mva-pre, .mva-foot { display: none !important; }
+      .mva-byline { color: #333; margin-top: 1rem; font-size: 9pt; }
+      .mva-byline a { color: #1a1a1a; text-decoration: underline; }
+      .mva-seasonal-table { font-size: 7pt; }
+      .mva-seasonal-table th, .mva-seasonal-table td { padding: 0.2rem 0.25rem; }
+      .mva-method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.35rem; }
+      .mva-reminder-ul { font-size: 7.5pt; column-count: 2; column-gap: 0.65rem; }
+      .mva-reminder-ul strong { color: #1a1a1a; }
     }
   </style>
 </head>
@@ -86,59 +147,132 @@
     <a href="/yearly-rhythm.html">Year-round rhythm</a>
     <a href="/family.html">Family hub</a>
     <a href="/church-sharing-kit.html#csk-memory-verse-activities">Full guide</a>
+    <a href="#mva-teaching-methods">Methods</a>
+    <a href="#mva-seasonal-kjv">KJV by season</a>
   </nav>
   <main id="main">
-    <h1>Gentle memory verse activities</h1>
-    <p class="lead">Short reminders for fridge, binder, or leader packet&mdash;no quizzes. Full explanations and links: <a href="church-sharing-kit.html#csk-memory-verse-activities">Church Sharing Kit</a>. Verses: <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a> &middot; <a href="family.html#family-year-round-memory">Family hub</a> (this device).</p>
+    <h1>Memory Verse Teaching Methods &amp; Activities</h1>
+    <p class="lead">Peaceful ways to hide God&rsquo;s Word in your heart &mdash; one gentle verse at a time.</p>
+    <p class="lead" style="margin-top:0.35rem;font-size:0.86rem">No quizzes. Full guide: <a href="church-sharing-kit.html#csk-memory-verse-activities">Church Sharing Kit</a>. Live month list: <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a> &middot; <a href="family.html#family-year-round-memory">Family hub</a>.</p>
     <div class="mva-actions">
       <button type="button" class="btn" id="mva-print-btn" aria-label="Print or save this page as PDF">Print this page</button>
       <button type="button" class="btn btn-secondary" id="mva-copy-btn" aria-label="Copy plain text to clipboard">Copy plain text</button>
     </div>
-    <div class="mva-grid" id="mva-cards" aria-label="Activity ideas">
-      <article class="mva-card"><h3>Morning whisper</h3><p>Say the month&rsquo;s verse aloud together or alone&mdash;20&ndash;30 seconds at breakfast or before school.</p></article>
-      <article class="mva-card"><h3>Evening review</h3><p>Say the verse once; one gentle question: what does it make you think about God?</p></article>
-      <article class="mva-card"><h3>Verse journal</h3><p>Write or draw the verse; young children sketch, older ones add one honest sentence.</p></article>
-      <article class="mva-card"><h3>Verse walk</h3><p>On a walk, repeat a phrase every few steps; fits summer or nature study.</p></article>
-      <article class="mva-card"><h3>Verse art cards</h3><p>Verse on one side, small drawing on the other; rotate one card per week.</p></article>
-      <article class="mva-card"><h3>Verse in motion</h3><p>Gentle acting (e.g. stand steady for courage verses); good for active kids.</p></article>
-      <article class="mva-card"><h3>Song or chant</h3><p>Soft chant or familiar tune rhythm; keep it reverent, not a performance.</p></article>
-      <article class="mva-card"><h3>Fridge or mirror</h3><p>Sticky note on fridge, mirror, or dashboard; read when you notice it.</p></article>
-      <article class="mva-card"><h3>Family round</h3><p>Each person one phrase around the table; split long verses.</p></article>
-      <article class="mva-card"><h3>Hide God&rsquo;s Word box</h3><p>Decorated box of month cards; draw one weekly to review together.</p></article>
-      <article class="mva-card"><h3>Prayer verse</h3><p>Turn the verse into one short prayer in plain words.</p></article>
-      <article class="mva-card"><h3>Verse sharing night</h3><p>Monthly: favorite phrase and why&mdash;short, kind, no debate.</p></article>
-      <article class="mva-card"><h3>Back-to-school card</h3><p>Small verse card in lunchbox or backpack.</p></article>
-      <article class="mva-card"><h3>Harvest gratitude</h3><p>Verse plus thankful list or gratitude jar.</p></article>
-      <article class="mva-card"><h3>Advent quiet</h3><p>Verse card near wreath or nativity.</p></article>
-      <article class="mva-card"><h3>Easter hope</h3><p>Say the verse while coloring eggs or after a calm walk.</p></article>
-      <article class="mva-card"><h3>Summer stillness</h3><p>Once outdoors: porch, park, or yard&mdash;say the verse quietly.</p></article>
-      <article class="mva-card"><h3>Porch or shade</h3><p>After play, sit in shade; say the verse once. No discussion needed.</p></article>
-      <article class="mva-card"><h3>VBS send-home whisper</h3><p>Leaders and kids whisper the verse at the door; add a printed slip.</p></article>
-      <article class="mva-card"><h3>Road-trip phrases</h3><p>Each stop, add the next phrase of the verse.</p></article>
-      <article class="mva-card"><h3>Rainy-day walk</h3><p>Hallway verse walk: one phrase per doorway.</p></article>
-      <article class="mva-card"><h3>Buddy up (VBS)</h3><p>Older helper half the verse, younger repeats; swap tomorrow.</p></article>
-      <article class="mva-card"><h3>Cool-down circle</h3><p>After games: breathe once, verse softly, one sentence of thanks.</p></article>
-      <article class="mva-card"><h3>Younger (about 6&ndash;9)</h3><p>Say, draw, short prayers; use kids&rsquo; study tracks when they help.</p></article>
-      <article class="mva-card"><h3>Older (about 10&ndash;12+)</h3><p>Own words or one real-life connection; no grading.</p></article>
-      <article class="mva-card"><h3>School setting</h3><p>One verse per month as class anchor; pair with yearly-rhythm.html.</p></article>
-      <article class="mva-card"><h3>Church / VBS</h3><p>Closing prayer verse or card with craft; optional with kit take-home slip.</p></article>
-      <article class="mva-card"><h3>Opt-out okay</h3><p>If someone skips a day, that is fine&mdash;seeds, not perfection.</p></article>
+
+    <h2 class="mva-subh" id="mva-teaching-methods">Teaching Methods</h2>
+    <p class="lead" style="margin-top:0;font-size:0.86rem">Pick a few; no performance.</p>
+    <div class="mva-method-grid" id="mva-method-cards" aria-label="Teaching method categories">
+      <article class="mva-card"><h3>Daily &amp; weekly</h3><p>Whisper &amp; repeat (morning or bedtime). Verse echo. Verse in motion.</p></article>
+      <article class="mva-card"><h3>Creative &amp; visual</h3><p>Verse art. Verse journal (one line). Fridge or mirror verse.</p></article>
+      <article class="mva-card"><h3>Family &amp; group</h3><p>Round the table (optional phrases). Buddy pairs. Family prayer verse.</p></article>
+      <article class="mva-card"><h3>Active &amp; experiential</h3><p>Verse walk. Verse in nature. Rainy-day hallway walk.</p></article>
+      <article class="mva-card"><h3>Review &amp; celebration</h3><p>Monthly review circle. Verse box. Send-home whisper.</p></article>
+    </div>
+
+    <h2 class="mva-subh" id="mva-seasonal-kjv">KJV Verses by Season</h2>
+    <p class="lead" style="margin-top:0;font-size:0.86rem">Key anchors aligned with the site&rsquo;s year; all twelve months: <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a>.</p>
+    <div class="mva-seasonal-wrap">
+      <table class="mva-seasonal-table" aria-label="Seasonal KJV memory hooks">
+        <thead>
+          <tr><th scope="col">Season / when</th><th scope="col">Verse (KJV hook)</th><th scope="col">Reference</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">New year</th><td>His compassions fail not; great is thy faithfulness</td><td>Lam 3:22-23</td></tr>
+          <tr><th scope="row">Winter / trust</th><td>All things work together for good to them that love God</td><td>Rom 8:28</td></tr>
+          <tr><th scope="row">Spring</th><td>The LORD is my shepherd; I shall not want</td><td>Ps 23:1</td></tr>
+          <tr><th scope="row">Easter</th><td>He is not here: for he is risen, as he said</td><td>Matt 28:6</td></tr>
+          <tr><th scope="row">Late spring</th><td>I can do all things through Christ which strengtheneth me</td><td>Phil 4:13</td></tr>
+          <tr><th scope="row">Early summer</th><td>Come unto me&hellip; I will give you rest</td><td>Matt 11:28</td></tr>
+          <tr><th scope="row">Mid-summer</th><td>Be still, and know that I am God</td><td>Ps 46:10</td></tr>
+          <tr><th scope="row">Advent / Christmas</th><td>Fear not&hellip; Christ the Lord</td><td>Luke 2:10-11</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mva-seasonal-note">Seasonal doors on the site also highlight <cite>Isaiah 9:6</cite> (Advent), <cite>Psalm 23:2</cite> (summer still waters), and <cite>Joshua 1:9</cite> with <cite>Proverbs 3:5-6</cite> for back-to-school &mdash; see <a href="yearly-rhythm.html">yearly-rhythm.html</a>.</p>
+
+    <h2 class="mva-subh" id="mva-activity-reminders">Activity Reminders</h2>
+    <div id="mva-cards" aria-label="Activity ideas">
+      <ul class="mva-reminder-ul">
+        <li><strong>Morning whisper</strong> &mdash; Say the month&rsquo;s verse aloud together or alone; 20&ndash;30 seconds at breakfast or before school.</li>
+        <li><strong>Evening review</strong> &mdash; Say the verse once; one gentle question: what does it make you think about God?</li>
+        <li><strong>Verse journal</strong> &mdash; Write or draw the verse; young children sketch, older ones add one honest sentence.</li>
+        <li><strong>Verse walk</strong> &mdash; On a walk, repeat a phrase every few steps; fits summer or nature study.</li>
+        <li><strong>Verse art cards</strong> &mdash; Verse on one side, small drawing on the other; rotate one card per week.</li>
+        <li><strong>Verse in motion</strong> &mdash; Gentle acting (e.g. stand steady for courage verses); good for active kids.</li>
+        <li><strong>Song or chant</strong> &mdash; Soft chant or familiar tune rhythm; keep it reverent, not a performance.</li>
+        <li><strong>Fridge or mirror</strong> &mdash; Sticky note on fridge, mirror, or dashboard; read when you notice it.</li>
+        <li><strong>Family round</strong> &mdash; Each person one phrase around the table; split long verses.</li>
+        <li><strong>Hide God&rsquo;s Word box</strong> &mdash; Decorated box of month cards; draw one weekly to review together.</li>
+        <li><strong>Prayer verse</strong> &mdash; Turn the verse into one short prayer in plain words.</li>
+        <li><strong>Verse sharing night</strong> &mdash; Monthly: favorite phrase and why; short, kind, no debate.</li>
+        <li><strong>Back-to-school card</strong> &mdash; Small verse card in lunchbox or backpack.</li>
+        <li><strong>Harvest gratitude</strong> &mdash; Verse plus thankful list or gratitude jar.</li>
+        <li><strong>Advent quiet</strong> &mdash; Verse card near wreath or nativity.</li>
+        <li><strong>Easter hope</strong> &mdash; Say the verse while coloring eggs or after a calm walk.</li>
+        <li><strong>Summer stillness</strong> &mdash; Porch, park, or yard; say the verse quietly.</li>
+        <li><strong>Porch or shade</strong> &mdash; After play, sit in shade; say the verse once. No discussion needed.</li>
+        <li><strong>VBS send-home whisper</strong> &mdash; Leaders and kids whisper the verse at the door; add a printed slip.</li>
+        <li><strong>Road-trip phrases</strong> &mdash; Each stop, add the next phrase of the verse.</li>
+        <li><strong>Rainy-day walk</strong> &mdash; Hallway verse walk: one phrase per doorway.</li>
+        <li><strong>Buddy up (VBS)</strong> &mdash; Older helper half the verse, younger repeats; swap tomorrow.</li>
+        <li><strong>Cool-down circle</strong> &mdash; After games: breathe once, verse softly, one sentence of thanks.</li>
+        <li><strong>Younger (about 6&ndash;9)</strong> &mdash; Say, draw, short prayers; kids&rsquo; study tracks when they help.</li>
+        <li><strong>Older (about 10&ndash;12+)</strong> &mdash; Own words or one real-life connection; no grading.</li>
+        <li><strong>School setting</strong> &mdash; One verse per month as class anchor; pair with yearly-rhythm.html.</li>
+        <li><strong>Church / VBS</strong> &mdash; Closing prayer verse or card with craft; optional kit take-home slip.</li>
+        <li><strong>Opt-out okay</strong> &mdash; If someone skips a day, that is fine; seeds, not perfection.</li>
+      </ul>
     </div>
     <pre class="mva-pre" id="mva-plain-pre" aria-label="Plain text for copy"></pre>
+    <p class="mva-byline">From Today&rsquo;s Daily Battle &mdash; a quiet place with Scripture.<br><a href="https://todaysdailybattle.com/yearly-rhythm.html">todaysdailybattle.com/yearly-rhythm.html</a></p>
     <p class="mva-foot" role="note">Today&rsquo;s Daily Battle &middot; KJV &middot; <a href="https://todaysdailybattle.com/memory-verse-activities-print.html">todaysdailybattle.com/memory-verse-activities-print.html</a></p>
   </main>
   <script nonce="tdb2025s">
   (function () {
     function syncPlain() {
       var pre = document.getElementById('mva-plain-pre');
-      var cards = document.querySelectorAll('#mva-cards .mva-card');
-      if (!pre || !cards.length) return;
-      var out = ['Gentle memory verse activities — Today\'s Daily Battle', 'https://todaysdailybattle.com/memory-verse-activities-print.html', 'Full guide: https://todaysdailybattle.com/church-sharing-kit.html#csk-memory-verse-activities', ''];
-      for (var i = 0; i < cards.length; i++) {
-        var h = cards[i].querySelector('h3');
-        var p = cards[i].querySelector('p');
-        if (h && p) out.push(h.textContent.trim() + ' — ' + p.textContent.trim());
+      if (!pre) return;
+      var out = [
+        'Memory Verse Teaching Methods & Activities — Today\'s Daily Battle',
+        'https://todaysdailybattle.com/memory-verse-activities-print.html',
+        'Full guide: https://todaysdailybattle.com/church-sharing-kit.html#csk-memory-verse-activities',
+        'Year-round rhythm: https://todaysdailybattle.com/yearly-rhythm.html',
+        '',
+        '--- Teaching methods ---',
+        ''
+      ];
+      function appendCards(containerSel) {
+        var root = document.querySelector(containerSel);
+        if (!root) return;
+        var cards = root.querySelectorAll('.mva-card');
+        for (var i = 0; i < cards.length; i++) {
+          var h = cards[i].querySelector('h3');
+          var p = cards[i].querySelector('p');
+          if (h && p) out.push(h.textContent.trim() + ' — ' + p.textContent.trim());
+        }
       }
+      function appendActivityList() {
+        var root = document.getElementById('mva-cards');
+        if (!root) return;
+        var lis = root.querySelectorAll('ul li');
+        for (var i = 0; i < lis.length; i++) {
+          out.push(lis[i].textContent.replace(/\s+/g, ' ').trim());
+        }
+      }
+      appendCards('#mva-method-cards');
+      out.push('', '--- KJV by season (key verses) ---', '');
+      var tbody = document.querySelector('.mva-seasonal-table tbody');
+      if (tbody) {
+        var rows = tbody.querySelectorAll('tr');
+        for (var r = 0; r < rows.length; r++) {
+          var cells = rows[r].querySelectorAll('th, td');
+          if (cells.length >= 3) {
+            out.push(cells[0].textContent.trim() + ' | ' + cells[1].textContent.trim() + ' | ' + cells[2].textContent.trim());
+          }
+        }
+      }
+      out.push('', '--- Activity reminders ---', '');
+      appendActivityList();
       pre.textContent = out.join('\n');
     }
     function init() {

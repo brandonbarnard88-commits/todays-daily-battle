@@ -79,6 +79,17 @@
       text-align: center;
       color: rgba(226, 232, 240, 0.9);
     }
+    @media (max-width: 400px) {
+      .yag-cal-grid { gap: 0.5rem; }
+      .yag-cal-cell {
+        min-height: 56px;
+        padding: 0.45rem 0.25rem;
+        font-size: 0.68rem;
+      }
+      .yag-cal-ic { font-size: 1.2rem; }
+      .yag-table th, .yag-table td { padding: 0.65rem 0.45rem; font-size: 0.78rem; }
+      .yag-page main { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+    }
     .yag-cal-ic { font-size: 1.1rem; line-height: 1; }
     .yag-act-lead { color: var(--muted); font-size: 0.88rem; margin: 0 0 0.65rem; line-height: 1.55; }
     .yag-act-list { margin: 0; padding-left: 1.15rem; color: rgba(245, 247, 251, 0.9); font-size: 0.84rem; line-height: 1.55; }

@@ -54,25 +54,41 @@
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <span class="brand-subtitle">Bible Studies</span>
       </div>
-      <nav class="header-nav tdb-global-nav" aria-label="Main">
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
         <a href="/">Home</a>
-        <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Plans</a>
-        <a href="/kids/?v=hub20260321">Kids</a>
+        <a href="/verse.html">Today&rsquo;s Verse</a>
+        <a href="/plans.html">Battle Plans</a>
+        <a href="/prayer-wall.html">Prayer Wall</a>
         <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
-        <a href="/calm.html">Calm</a>
-        <a href="/story.html">Story</a>
-        <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
-        <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>
-        <a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>
+        <a href="/memorize.html">Memorize</a>
+        <a href="/kids/corner.html">Kids &amp; Family</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/about.html">About</a>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More</summary>
-          <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
-            <a href="/explore.html">Explore</a>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <a href="/mobius.html">Möbius</a>
+            <a href="/calm.html">Calm</a>
+            <a href="/story.html">Story</a>
+            <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+            <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">My Verses</a>
+            <a href="/message.html" aria-label="Community prayer requests on the message board">Message board</a>
             <a href="/#feel-section">Feel search &amp; topics</a>
+            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
           </div>
         </details>
-      </nav>
+      </div>
+    </nav>
+      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+        <a href="/my-verses.html" class="tdb-header-account-nudge__link">My Verses</a>
+      </div>
+
       <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <div id="auth-section" class="auth-inline auth-compact">
         <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">

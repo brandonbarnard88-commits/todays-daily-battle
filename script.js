@@ -436,14 +436,93 @@ function wireEarlySearchFallbacks() {
     return false;
   }, true);
 }
+/** Mobile “Site” menu + dim backdrop; desktop unchanged. Sidebar ☰ relabeled “Tools” where present. */
+function wireTdbPrimarySiteNav() {
+  if (typeof window === 'undefined' || window.__tdbPrimarySiteNavWired) return;
+  window.__tdbPrimarySiteNavWired = true;
+
+  function setFlyoutTop(navEl) {
+    try {
+      var r = navEl.getBoundingClientRect();
+      document.documentElement.style.setProperty('--tdb-flyout-top', Math.round(r.bottom) + 'px');
+    } catch (_) {}
+  }
+
+  function closeAllOpen() {
+    document.querySelectorAll('.tdb-primary-site-nav.is-open').forEach(function (nav) {
+      nav.classList.remove('is-open');
+      var t = nav.querySelector('.tdb-nav-flyout-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+    var bd = document.getElementById('tdb-nav-flyout-backdrop');
+    if (bd && bd.parentNode) bd.parentNode.removeChild(bd);
+  }
+
+  function openNav(navEl, toggleBtn) {
+    closeAllOpen();
+    navEl.classList.add('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    setFlyoutTop(navEl);
+    var bd = document.createElement('div');
+    bd.id = 'tdb-nav-flyout-backdrop';
+    bd.className = 'tdb-nav-flyout-backdrop';
+    bd.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bd);
+  }
+
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    var btn = t && t.closest && t.closest('.tdb-nav-flyout-toggle');
+    if (btn) {
+      e.preventDefault();
+      e.stopPropagation();
+      var nav = btn.closest('.tdb-primary-site-nav');
+      if (!nav) return;
+      if (nav.classList.contains('is-open')) closeAllOpen();
+      else openNav(nav, btn);
+      return;
+    }
+    if (t && t.id === 'tdb-nav-flyout-backdrop') {
+      closeAllOpen();
+      return;
+    }
+    if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
+      var link = t && t.closest && t.closest('.tdb-primary-nav-panel a');
+      if (link && link.closest('.tdb-primary-site-nav')) closeAllOpen();
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeAllOpen();
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.matchMedia && window.matchMedia('(min-width: 769px)').matches) closeAllOpen();
+    try {
+      document.documentElement.style.removeProperty('--tdb-flyout-top');
+    } catch (_) {}
+  });
+
+  try {
+    document.querySelectorAll('#sidebar-toggle .menu-text').forEach(function (el) {
+      el.textContent = 'Tools';
+    });
+    document.querySelectorAll('#sidebar-toggle').forEach(function (el) {
+      el.setAttribute('aria-label', 'Open full tools menu');
+    });
+  } catch (_) {}
+}
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', wireEarlySearchFallbacks);
   document.addEventListener('DOMContentLoaded', normalizeHomeMainOrder);
   document.addEventListener('DOMContentLoaded', wireTdbSoftRetry);
+  document.addEventListener('DOMContentLoaded', wireTdbPrimarySiteNav);
 } else {
   wireEarlySearchFallbacks();
   normalizeHomeMainOrder();
   wireTdbSoftRetry();
+  wireTdbPrimarySiteNav();
 }
 
 /** One consistent “Try again” for pages that use .tdb-soft-retry-btn (reload). CSP-safe — no inline handlers. */
@@ -9879,6 +9958,12 @@ function wirePrayThisWithMe() {
   var versePageShare = document.getElementById('verse-page-share');
   if (versePageShare) {
     versePageShare.addEventListener('click', function () { shareDailyBattle(); });
+  }
+  var verseFloatShare = document.getElementById('tdb-float-share-verse-page');
+  if (verseFloatShare && versePageShare) {
+    verseFloatShare.addEventListener('click', function () {
+      versePageShare.click();
+    });
   }
   var versePageShareEncourage = document.getElementById('verse-page-share-encourage');
   if (versePageShareEncourage) {
@@ -22857,6 +22942,12 @@ async function tdbInitImpl() {
     heroShareBtn.addEventListener('click', function () {
       if (typeof shareDailyBattle === 'function') shareDailyBattle();
       if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
+    });
+  }
+  var heroFloatShare = document.getElementById('tdb-float-share-verse-home');
+  if (heroFloatShare && heroShareBtn) {
+    heroFloatShare.addEventListener('click', function () {
+      heroShareBtn.click();
     });
   }
   wireWeeklyRecapNudge();

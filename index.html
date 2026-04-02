@@ -825,16 +825,128 @@
       background: color-mix(in srgb, var(--card) 94%, #fff 6%);
       border-color: color-mix(in srgb, var(--gold) 28%, var(--line));
     }
+    /* Home: matches styles.css primary-site flyout (index does not load styles.css) */
+    .tdb-home-main-nav.tdb-primary-site-nav {
+      position: relative;
+      align-items: center;
+      gap: 0.2rem 0.35rem;
+    }
+    .tdb-home-main-nav .tdb-nav-flyout-toggle {
+      display: none;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 0 0.25rem 0 0;
+      padding: 0.35rem 0.6rem;
+      min-height: 44px;
+      border-radius: 8px;
+      border: 1px solid rgba(227, 188, 103, 0.35);
+      background: rgba(12, 18, 30, 0.78);
+      color: rgba(226, 232, 240, 0.92);
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tdb-home-main-nav .tdb-nav-flyout-toggle:hover,
+    .tdb-home-main-nav .tdb-nav-flyout-toggle:focus-visible {
+      color: #e3bc67;
+      background: rgba(227, 188, 103, 0.12);
+      outline: none;
+    }
+    .tdb-home-main-nav .tdb-nav-flyout-toggle:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.65);
+      outline-offset: 2px;
+    }
+    .tdb-home-main-nav .tdb-nav-flyout-toggle__bars {
+      display: inline-block;
+      width: 1.05rem;
+      height: 0.65rem;
+      background:
+        linear-gradient(currentColor, currentColor) 0 0 / 100% 2px no-repeat,
+        linear-gradient(currentColor, currentColor) 0 50% / 100% 2px no-repeat,
+        linear-gradient(currentColor, currentColor) 0 100% / 100% 2px no-repeat;
+      opacity: 0.88;
+    }
+    .tdb-home-main-nav .tdb-primary-nav-panel { display: contents; }
+    :root[data-theme="light"] .tdb-home-main-nav .tdb-nav-flyout-toggle {
+      background: rgba(255, 252, 245, 0.92);
+      color: rgba(30, 41, 59, 0.9);
+      border-color: rgba(180, 140, 60, 0.35);
+    }
+    :root[data-theme="light"] .tdb-home-main-nav.tdb-primary-site-nav .tdb-primary-nav-panel {
+      background: rgba(255, 252, 248, 0.98);
+      border-bottom-color: rgba(180, 140, 60, 0.28);
+    }
+    .tdb-nav-flyout-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 350;
+      background: rgba(2, 6, 14, 0.42);
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+    }
     @media (max-width: 768px) {
       .tdb-global-nav { overflow-x: auto; overflow-y: hidden; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0.3rem 0.55rem; gap: 0.15rem; }
       .tdb-global-nav::-webkit-scrollbar { display: none; }
       .tdb-global-nav a { flex-shrink: 0; padding: 0.35rem 0.55rem; }
+      .tdb-home-main-nav.tdb-primary-site-nav .tdb-nav-flyout-toggle { display: inline-flex; }
+      .tdb-home-main-nav.tdb-primary-site-nav {
+        overflow-x: visible;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0.5rem 0.6rem;
+      }
+      .tdb-home-main-nav.tdb-primary-site-nav .tdb-primary-nav-panel {
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: var(--tdb-flyout-top, 3.25rem);
+        max-height: min(74vh, 540px);
+        overflow-y: auto;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: 0.12rem;
+        padding: 0.55rem 0.85rem 1rem;
+        margin: 0;
+        background: rgba(10, 14, 24, 0.98);
+        border-bottom: 1px solid rgba(227, 188, 103, 0.28);
+        box-shadow: 0 14px 44px rgba(0, 0, 0, 0.48);
+        z-index: 400;
+        -webkit-overflow-scrolling: touch;
+      }
+      .tdb-home-main-nav.tdb-primary-site-nav.is-open .tdb-primary-nav-panel { display: flex; }
+      .tdb-home-main-nav.tdb-primary-site-nav .tdb-primary-nav-panel > a {
+        width: 100%;
+        flex-shrink: 0;
+        padding: 0.52rem 0.65rem;
+        min-height: 48px;
+        box-sizing: border-box;
+        border-radius: 8px;
+      }
+      .tdb-home-main-nav.tdb-primary-site-nav .tdb-primary-nav-panel > details.tdb-nav-more { width: 100%; flex-shrink: 0; }
+      .tdb-home-main-nav.tdb-primary-site-nav .tdb-primary-nav-panel .tdb-nav-more-panel {
+        position: static;
+        transform: none;
+        left: auto;
+        right: auto;
+        min-width: 0;
+        margin-top: 0.2rem;
+        box-shadow: none;
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(8, 12, 20, 0.92);
+      }
+    }
+    @media (min-width: 769px) {
       .tdb-home-main-nav {
         overflow-x: auto; overflow-y: hidden; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none;
         padding: 0.45rem 0.55rem; gap: 0.15rem;
       }
       .tdb-home-main-nav::-webkit-scrollbar { display: none; }
-      .tdb-home-main-nav a { flex-shrink: 0; padding: 0.35rem 0.55rem; }
+      .tdb-home-main-nav .tdb-primary-nav-panel > a { flex-shrink: 0; padding: 0.35rem 0.55rem; }
       .tdb-home-main-nav:has(details.tdb-nav-more[open]) { overflow: visible; }
       .tdb-home-main-nav .tdb-nav-more-panel {
         right: auto;
@@ -850,6 +962,58 @@
           max-width: calc(100dvi - 2rem);
         }
       }
+    }
+
+    /* Mobile: keep verse text + toolbar visible while scrolling the breakdown */
+    @media (max-width: 768px) {
+      .tdb-home-verse-sticky-shell {
+        position: sticky;
+        top: 2.6rem;
+        z-index: 26;
+        margin: 0 -0.25rem;
+        padding: 0.35rem 0.35rem 0.5rem;
+        border-radius: 0 0 14px 14px;
+        background: linear-gradient(180deg, rgba(8, 12, 22, 0.94) 0%, rgba(8, 12, 22, 0.88) 100%);
+        border-bottom: 1px solid rgba(227, 188, 103, 0.18);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      :root[data-theme="light"] .tdb-home-verse-sticky-shell {
+        background: linear-gradient(180deg, color-mix(in srgb, var(--card) 96%, #fff 4%) 0%, color-mix(in srgb, var(--bg-soft) 92%, var(--card) 8%) 100%);
+        border-bottom-color: color-mix(in srgb, var(--gold) 22%, var(--line));
+      }
+      .tdb-float-share-verse {
+        display: inline-flex;
+        position: fixed;
+        right: max(0.75rem, env(safe-area-inset-right));
+        bottom: max(1rem, env(safe-area-inset-bottom));
+        z-index: 420;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0.55rem 1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(227, 188, 103, 0.45);
+        background: linear-gradient(165deg, rgba(27, 33, 45, 0.96), rgba(15, 18, 28, 0.98));
+        color: #e3bc67;
+        font-weight: 600;
+        font-size: 0.82rem;
+        letter-spacing: 0.03em;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.42);
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .tdb-float-share-verse:focus-visible {
+        outline: 2px solid rgba(227, 188, 103, 0.75);
+        outline-offset: 3px;
+      }
+      :root[data-theme="light"] .tdb-float-share-verse {
+        background: linear-gradient(165deg, color-mix(in srgb, var(--card) 94%, #fff 6%), var(--bg-soft));
+        color: color-mix(in srgb, var(--gold) 70%, #5c4a1e 30%);
+      }
+    }
+    @media (min-width: 769px) {
+      .tdb-float-share-verse { display: none !important; }
     }
 
     /* ── Sticky on-page wayfinding (below header) ── */
@@ -6067,29 +6231,40 @@
         <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
         <a href="terms.html" aria-label="Terms of service">Terms</a>
       </nav>
-      <nav class="tdb-home-main-nav" aria-label="Main site navigation">
-        <a href="/" aria-current="page">Home</a>
-        <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Plans</a>
-        <a href="/kids/?v=hub20260321">Kids</a>
-        <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
-        <a href="/calm.html">Calm</a>
-        <a href="/story.html">Story</a>
-        <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
-        <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">Verses</a>
-        <a href="/message.html" aria-label="Prayer wall — community requests">Prayer</a>
-        <details class="tdb-nav-more">
-          <summary aria-haspopup="true">More</summary>
-          <div class="tdb-nav-more-panel" role="group" aria-label="More pages">
-            <a href="/explore.html">Explore</a>
-            <a href="/#feel-section">Feel search &amp; topics</a>
-            <a href="/progress.html">Progress</a>
-            <a href="/sos.html">Steady now (three KJV)</a>
-            <a href="/family.html">Family</a>
-            <a href="/printables.html#print-family-h2">Printables &amp; coloring</a>
-            <a href="/what-god-has-done.html">What God has done</a>
-          </div>
-        </details>
+      <nav class="tdb-home-main-nav tdb-primary-site-nav" aria-label="Main site navigation">
+        <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-home" id="tdb-primary-nav-toggle-home">
+          <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+          <span class="tdb-nav-flyout-toggle__label">Site</span>
+        </button>
+        <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-home">
+          <a href="/" aria-current="page">Home</a>
+          <a href="/verse.html">Today&rsquo;s Verse</a>
+          <a href="/plans.html">Battle Plans</a>
+          <a href="/prayer-wall.html">Prayer Wall</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
+          <a href="/memorize.html">Memorize</a>
+          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/explore.html">Explore</a>
+          <a href="/about.html">About</a>
+          <details class="tdb-nav-more">
+            <summary aria-haspopup="true">More</summary>
+            <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+              <a href="/mobius.html">Möbius</a>
+              <a href="/calm.html">Calm</a>
+              <a href="/story.html">Story</a>
+              <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+              <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">My Verses</a>
+              <a href="/message.html" aria-label="Community prayer requests on the message board">Message board</a>
+              <a href="/#feel-section">Feel search &amp; topics</a>
+              <a href="/progress.html">Progress</a>
+              <a href="/sos.html">Steady now (three KJV)</a>
+              <a href="/family.html">Family hub</a>
+              <a href="/printables.html#print-family-h2">Printables &amp; coloring</a>
+              <a href="/what-god-has-done.html">What God has done</a>
+              <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+            </div>
+          </details>
+        </div>
       </nav>
     </header>
 
@@ -6231,6 +6406,7 @@
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
           <div class="verse-skeleton-box"></div>
         </div>
+        <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
         <p class="verse-ref hero-daily-ref-above" id="heroRef">Isaiah 40:31 (KJV)</p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
@@ -6263,6 +6439,7 @@
             <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse (copy or device share)">Share</button>
             <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
           </div>
+        </div>
         </div>
         <div class="hero-calendar-breakdown-wrap" role="region" aria-label="Today’s calendar verse — gentle breakdown">
         <ul class="breakdown" id="heroBreakdown"></ul>
@@ -6315,6 +6492,7 @@
         <p class="verse-note" id="verseNote" hidden></p>
         <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
       </section>
+      <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
       <p class="tdb-calm-doorway-teaser" id="tdbCalmDoorwayTeaser">
         <a href="calm.html">In a heavy moment?</a> Calm opens one gentle verse in a tap&mdash;no topic pick required.

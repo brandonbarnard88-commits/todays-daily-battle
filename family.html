@@ -342,13 +342,25 @@
     .family-memory-section .family-memory-verses-root { margin-top: 0.5rem; }
     .family-memory-verses-title { font-size: 1.02rem; margin: 0 0 0.5rem; color: var(--text); }
     .family-memory-hint { margin-bottom: 1rem !important; }
+    .memory-verse-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .memory-verse-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .memory-verse-card,
     .family-memory-card {
       border-radius: 14px;
       border: 1px solid rgba(227, 188, 103, 0.22);
       background: rgba(12, 16, 26, 0.45);
       padding: 1rem 1.1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0;
     }
+    .memory-verse-calm-note { color: rgba(245, 247, 251, 0.88); }
+    .memory-verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; align-items: center; }
+    .memory-verse-actions .btn { min-height: 44px; }
     .family-memory-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(227, 188, 103, 0.75); margin: 0 0 0.35rem; }
     .family-memory-ref { font-weight: 700; color: var(--gold-soft); margin: 0 0 0.35rem; font-size: 0.95rem; }
     .family-memory-text { margin: 0 0 0.65rem; line-height: 1.55; font-size: 0.93rem; color: rgba(245, 247, 251, 0.92); }
@@ -630,8 +642,10 @@
 
     <section class="family-section-block family-hub-animate family-hub-d2 family-memory-section" id="family-year-round-memory" aria-labelledby="family-memory-heading">
       <h2 class="family-section-title" id="family-memory-heading">Year-round &amp; Memory Verses</h2>
-      <p class="section-lead">Gentle review on this device only&mdash;no account. Mark what you&rsquo;re learning or celebrate what you&rsquo;ve hidden in your heart. <a href="seasonal.html">Seasonal paths</a> &middot; <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a> (month grid).</p>
+      <p class="section-lead">Gentle review on this device only&mdash;no account. Mark what you&rsquo;re learning or celebrate what you&rsquo;ve hidden in your heart. <a href="seasonal.html">Seasonal paths</a> &middot; <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a> (month grid). Leaders: printable cards in the <a href="church-sharing-kit.html#csk-memory-verse-cards">Church sharing kit</a>.</p>
+      <div id="memory-verses" class="memory-verses-shell">
       <div id="family-memory-verses-root" class="family-memory-verses-root"></div>
+      </div>
       <p class="section-note" id="family-seasonal-plans-links">Seasonal Battle Plans (same day-count as the main plans page): <a href="plans.html?plan=schoolcourage">Back-to-School Courage</a> &middot; <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a> &middot; <a href="plans.html?plan=adventquiet">Advent Quiet</a> &middot; <a href="plans.html?plan=gentleyear">Gentle New Year Reset</a> &middot; <a href="plans.html?plan=summerstill">Summer Stillness</a> &middot; <a href="plans.html?plan=easter">Resurrection Hope</a>.</p>
     </section>
 

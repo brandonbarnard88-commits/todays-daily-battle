@@ -105,9 +105,35 @@
     .csk-tracker-table th { background: rgba(0, 0, 0, 0.18); font-weight: 600; text-align: left; }
     .csk-tracker-table .csk-tracker-write { height: 2.6rem; background: transparent; }
     :root[data-theme="light"] .csk-tracker-table th { background: #e2e8f0; }
+    .csk-mv-print-zone { margin-top: 0.5rem; }
+    .csk-mv-card-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+      margin-top: 0.75rem;
+    }
+    @media (min-width: 720px) {
+      .csk-mv-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .csk-mv-card {
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+      background: rgba(0, 0, 0, 0.14);
+      break-inside: avoid;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    :root[data-theme="light"] .csk-mv-card { background: #f8fafc; }
+    .csk-mv-card h3 { margin: 0 0 0.45rem; font-size: 0.88rem; font-weight: 700; color: var(--gold-soft, #e3bc67); }
+    .csk-mv-card .csk-mv-kjv { margin: 0 0 0.5rem; font-style: italic; color: var(--text, #e2e8f0); }
+    .csk-mv-card .csk-mv-back { margin: 0.55rem 0 0; padding-top: 0.55rem; border-top: 1px dashed rgba(148, 163, 184, 0.35); font-size: 0.78rem; }
+    .csk-mv-card ul { margin: 0.35rem 0 0; padding-left: 1.1rem; }
     @media print {
       .csk-tracker-print-zone { break-inside: avoid; }
       .csk-vbs-print-zone { break-inside: avoid; }
+      .csk-mv-print-zone { break-inside: avoid; }
+      .csk-mv-card { border: 1px solid #444; page-break-inside: avoid; }
       .csk-tracker-table { font-size: 11pt; }
       .csk-tracker-table th { background: #eee !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
@@ -226,6 +252,7 @@
             <li><a href="#csk-homesch">Homeschool guide &amp; ideas</a></li>
             <li><a href="#csk-homeschool-year-round">Homeschool &amp; private school (year-round)</a></li>
             <li><a href="#csk-homesch-tracker">Homeschool week tracker (print)</a></li>
+            <li><a href="#csk-memory-verse-cards">Printable Memory Verse Cards</a></li>
             <li><a href="#csk-children-ministry">Children&rsquo;s ministry ideas</a></li>
             <li><a href="#csk-lesson-outlines">Lesson outlines (Sunday / midweek)</a></li>
             <li><a href="#csk-vbs-ideas">VBS &mdash; three gentle themes</a></li>
@@ -442,6 +469,103 @@ Blessings,
             </table>
           </div>
           <p class="section-note">Plans library: <a href="https://todaysdailybattle.com/plans.html">todaysdailybattle.com/plans.html</a></p>
+        </section>
+
+        <section class="glass csk-mv-print-zone" id="csk-memory-verse-cards" aria-labelledby="csk-memory-verse-cards-title">
+          <h2 class="section-divider" id="csk-memory-verse-cards-title">Printable Memory Verse Cards</h2>
+          <p class="section-note" style="margin-top:0"><strong>KJV only.</strong> Print this section (or save as PDF), cut on the dashed guides, and keep a small stack at home, in a classroom, or on the fridge. Four to six cards fit a letter page if you print at 100% and trim margins as you like. The site also tracks gentle &ldquo;learning&rdquo; / &ldquo;memorized&rdquo; status on each device: <a href="family.html#family-year-round-memory">Family hub</a> &middot; <a href="yearly-rhythm.html#yr-memory">Year-round rhythm grid</a>.</p>
+          <p class="section-note">Each card: <strong>front</strong> = month or season + reference + full verse. <strong>back</strong> = simple review ideas + optional seasonal Battle Plan track. Copy the pattern for the other months using the same verses as the site&rsquo;s memory list.</p>
+          <div class="csk-mv-card-grid" aria-label="Sample memory verse cards">
+            <article class="csk-mv-card">
+              <h3>September &middot; Back-to-School Courage</h3>
+              <p class="csk-mv-kjv"><strong>Joshua 1:9</strong> &mdash; &ldquo;Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.&rdquo;</p>
+              <div class="csk-mv-back">
+                <strong>Review ideas</strong>
+                <ul>
+                  <li>Say it aloud once each morning.</li>
+                  <li>Write it in a journal line.</li>
+                  <li>Draw a small picture that fits the verse.</li>
+                  <li>Pray the verse back to God in your own words.</li>
+                </ul>
+                <p style="margin:0.5rem 0 0">Track: <a href="https://todaysdailybattle.com/plans.html?plan=schoolcourage">Back-to-School Courage</a> &middot; todaysdailybattle.com</p>
+              </div>
+            </article>
+            <article class="csk-mv-card">
+              <h3>October &middot; Harvest gratitude</h3>
+              <p class="csk-mv-kjv"><strong>Psalm 100:4</strong> &mdash; &ldquo;Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name.&rdquo;</p>
+              <div class="csk-mv-back">
+                <strong>Review ideas</strong>
+                <ul>
+                  <li>Thank God for three real things before dinner.</li>
+                  <li>Say the first half, then finish from memory.</li>
+                  <li>Share the verse with one person at church or home.</li>
+                </ul>
+                <p style="margin:0.5rem 0 0">Track: <a href="https://todaysdailybattle.com/plans.html?plan=harvestthanks">Harvest Gratitude</a> &middot; todaysdailybattle.com</p>
+              </div>
+            </article>
+            <article class="csk-mv-card">
+              <h3>December &middot; Advent / Christmas</h3>
+              <p class="csk-mv-kjv"><strong>Luke 2:10&ndash;11</strong> &mdash; &ldquo;And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.&rdquo;</p>
+              <div class="csk-mv-back">
+                <strong>Review ideas</strong>
+                <ul>
+                  <li>Read slowly by candlelight or a window.</li>
+                  <li>Whisper &ldquo;Christ the Lord&rdquo; when worry gets loud.</li>
+                  <li>Pair with <a href="https://todaysdailybattle.com/plans.html?plan=adventquiet">Advent Quiet</a> or <a href="https://todaysdailybattle.com/plans.html?plan=christmas7">Christmas Week</a>.</li>
+                </ul>
+                <p style="margin:0.5rem 0 0">todaysdailybattle.com</p>
+              </div>
+            </article>
+            <article class="csk-mv-card">
+              <h3>Spring &middot; Resurrection hope</h3>
+              <p class="csk-mv-kjv"><strong>Matthew 28:6</strong> &mdash; &ldquo;He is not here: for he is risen, as he said. Come, see the place where the Lord lay.&rdquo;</p>
+              <div class="csk-mv-back">
+                <strong>Review ideas</strong>
+                <ul>
+                  <li>Say it on Easter morning or any hard Monday.</li>
+                  <li>Walk outside once while repeating the second sentence.</li>
+                  <li>Open <a href="https://todaysdailybattle.com/plans.html?plan=easter">Resurrection Hope</a> for a seven-day path.</li>
+                </ul>
+                <p style="margin:0.5rem 0 0">todaysdailybattle.com</p>
+              </div>
+            </article>
+            <article class="csk-mv-card">
+              <h3>June &middot; Summer stillness</h3>
+              <p class="csk-mv-kjv"><strong>Matthew 11:28</strong> &mdash; &ldquo;Come unto me, all ye that labour and are heavy laden, and I will give you rest.&rdquo;</p>
+              <div class="csk-mv-back">
+                <strong>Review ideas</strong>
+                <ul>
+                  <li>One slow read by a window or porch.</li>
+                  <li>Name one heavy thing you hand to Jesus.</li>
+                  <li>Light weeks: <a href="https://todaysdailybattle.com/plans.html?plan=summerstill">Summer Stillness</a> (five days).</li>
+                </ul>
+                <p style="margin:0.5rem 0 0">todaysdailybattle.com</p>
+              </div>
+            </article>
+            <article class="csk-mv-card">
+              <h3>January &middot; Fresh mercies</h3>
+              <p class="csk-mv-kjv"><strong>Lamentations 3:22&ndash;23</strong> &mdash; &ldquo;It is of the LORD&rsquo;s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.&rdquo;</p>
+              <div class="csk-mv-back">
+                <strong>Review ideas</strong>
+                <ul>
+                  <li>Say &ldquo;new every morning&rdquo; when you wake.</li>
+                  <li>Write one mercy you saw yesterday.</li>
+                  <li>Track: <a href="https://todaysdailybattle.com/plans.html?plan=gentleyear">Gentle New Year Reset</a>.</li>
+                </ul>
+                <p style="margin:0.5rem 0 0">todaysdailybattle.com</p>
+              </div>
+            </article>
+          </div>
+          <p class="section-note">Blank template (copy onto index cards or a doc):</p>
+          <pre class="csk-pre" tabindex="0" aria-label="Memory verse card template">FRONT
+Month / season: ___________
+Reference (KJV): ___________
+Verse: &ldquo; &hellip; &rdquo;
+
+BACK
+Review: say aloud once &middot; write once &middot; draw &middot; pray it back
+Track (optional): plans.html?plan=___________
+todaysdailybattle.com</pre>
         </section>
 
         <section class="glass" id="csk-children-ministry" aria-labelledby="csk-children-ministry-title">

@@ -89,6 +89,22 @@
       white-space: pre-wrap; font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace; overflow-x: auto;
     }
     table.yr-mv-table td.yr-mv-text { font-size: 0.78rem; color: rgba(245, 247, 251, 0.85); max-width: 12rem; }
+    .yr-memory-spotlight { margin: 0.75rem 0 1rem; }
+    .yr-memory-spotlight-lead { margin: 0 0 0.65rem !important; }
+    .memory-verse-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .memory-verse-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .memory-verse-card { border-radius: 14px; border: 1px solid rgba(227, 188, 103, 0.22); background: rgba(12, 16, 26, 0.45); padding: 1rem 1.1rem; }
+    .memory-verse-card--compact { padding: 0.85rem 1rem; }
+    .memory-verse-card--compact .family-memory-text { font-size: 0.88rem; }
+    .memory-verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; align-items: center; }
+    .memory-verse-actions .btn { min-height: 44px; }
+    .memory-verse-calm-note { color: rgba(245, 247, 251, 0.88); }
     @media print {
       .tdb-global-nav, .tdb-global-subnav { position: static; }
       .yr-print-zone { break-inside: avoid; }
@@ -216,6 +232,8 @@
     <section id="yr-memory" aria-labelledby="yr-memory-h">
       <h2 id="yr-memory-h">Memory verses (calendar year)</h2>
       <p>One anchor verse per month in the KJV&mdash;gentle review on <strong>this device</strong> only. Mark &ldquo;learning&rdquo; or celebrate &ldquo;memorized&rdquo; on the <a href="family.html#family-year-round-memory">Family hub</a>; this grid lists the same verses. <strong>Weekly:</strong> say one aloud. <strong>Summer (June&ndash;July):</strong> one or two a week is plenty.</p>
+      <p class="section-note yr-memory-calm-note" style="margin-top:0">Printable cut-out cards for class or home: <a href="church-sharing-kit.html#csk-memory-verse-cards">Church sharing kit &mdash; Memory Verse Cards</a>.</p>
+      <div id="yr-memory-spotlight" class="yr-memory-spotlight" aria-label="This month and season"></div>
       <div class="yr-table-wrap">
         <table class="yr-table yr-mv-table" aria-label="Monthly memory verses">
           <thead>
@@ -460,6 +478,9 @@ https://todaysdailybattle.com/church-sharing-kit.html#csk-homesch-tracker</pre>
   <script src="memory-verses.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      if (window.TDB_memoryVerses && typeof window.TDB_memoryVerses.mountYearlyMemorySpotlight === 'function') {
+        window.TDB_memoryVerses.mountYearlyMemorySpotlight('#yr-memory-spotlight');
+      }
       if (window.TDB_memoryVerses && typeof window.TDB_memoryVerses.mountYearlyTable === 'function') {
         window.TDB_memoryVerses.mountYearlyTable('#yr-memory-tbody');
       }

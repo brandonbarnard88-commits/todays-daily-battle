@@ -57,18 +57,23 @@
     }
     .yr-month-glance-grid a {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      font-size: 0.72rem;
+      gap: 0.2rem;
+      min-height: 52px;
+      padding: 0.35rem 0.2rem;
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-decoration: none;
       color: rgba(226, 232, 240, 0.92);
-      border-radius: 8px;
+      border-radius: 10px;
       border: 1px solid var(--line);
       background: rgba(8, 12, 20, 0.55);
     }
+    .yr-mg-ic { font-size: 1.05rem; line-height: 1; }
+    .yr-mg-lbl { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.06em; }
     .yr-month-glance-grid a:hover,
     .yr-month-glance-grid a:focus-visible {
       border-color: var(--gold);
@@ -113,6 +118,27 @@
     .seasonal-easter-spotlight p { margin: 0 0 0.65rem; }
     .seasonal-easter-spotlight p:last-child { margin-bottom: 0; }
     .yr-table-wrap { overflow-x: auto; margin: 0.75rem 0 0; -webkit-overflow-scrolling: touch; }
+    .yr-table-wrap--mv {
+      margin: 1rem 0 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(227, 188, 103, 0.2);
+      padding: 0.15rem;
+      background: rgba(8, 12, 20, 0.35);
+    }
+    .yr-mv-table th:first-child,
+    .yr-mv-table td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: rgba(13, 17, 23, 0.97);
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.18);
+      min-width: 3.2rem;
+    }
+    .yr-mv-table thead th:first-child { z-index: 3; background: rgba(20, 24, 32, 0.98); }
+    .yr-mv-table th, .yr-mv-table td { padding: 0.65rem 0.55rem; }
+    @media (max-width: 480px) {
+      .yr-mv-table th, .yr-mv-table td { font-size: 0.88rem; padding: 0.7rem 0.5rem; }
+    }
     table.yr-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 280px; }
     .yr-table th, .yr-table td { border: 1px solid var(--line); padding: 0.45rem 0.5rem; text-align: left; vertical-align: top; }
     .yr-table th { color: var(--gold); font-weight: 700; background: rgba(227, 188, 103, 0.08); }
@@ -144,10 +170,37 @@
     }
     .memory-table th,
     .memory-table td {
-      padding: 0.75rem 0.5rem;
+      padding: 0.85rem 0.55rem;
       text-align: left;
       vertical-align: top;
       border-bottom: 1px solid rgba(136, 150, 176, 0.35);
+      font-size: 0.9rem;
+    }
+    .memory-table thead th {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(227, 188, 103, 0.95);
+    }
+    .yr-copy-plain-btn {
+      margin: 0.35rem 0 0.5rem;
+      min-height: 48px;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: rgba(12, 16, 26, 0.55);
+      color: rgba(226, 232, 240, 0.92);
+      font-family: inherit;
+    }
+    .yr-copy-plain-btn:hover,
+    .yr-copy-plain-btn:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold);
+      outline: 2px solid rgba(227, 188, 103, 0.45);
+      outline-offset: 2px;
     }
     .yr-memory-spotlight { margin: 0.75rem 0 1rem; }
     .yr-memory-spotlight-lead { margin: 0 0 0.65rem !important; }
@@ -224,7 +277,7 @@
       <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
       <a href="/memorize.html">Memorize</a>
       <a href="/kids/corner.html">Kids &amp; Family</a>
-      <a href="/yearly-rhythm.html" id="nav-year-round" aria-current="page" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round</a>
+      <a href="/yearly-rhythm.html" id="nav-year-round" aria-current="page" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round rhythm</a>
       <a href="/explore.html">Explore</a>
       <a href="/about.html">About</a>
       <details class="tdb-nav-more">
@@ -252,7 +305,7 @@
     <a href="/daily-quiet-time.html">Daily quiet</a>
     <a href="/psalms.html">Psalms</a>
     <a href="/seasonal.html">Seasonal</a>
-    <a href="/yearly-rhythm.html" aria-current="page">Year-round</a>
+    <a href="/yearly-rhythm.html" aria-current="page">Year-round rhythm</a>
     <a href="/#feel-section">Feel &amp; topics</a>
     <a href="/kids/?v=hub20260321">Kids</a>
   </nav>
@@ -260,20 +313,20 @@
     <h1>Year-round rhythm</h1>
     <p class="lead">For homeschool, private-school Bible class, co-op, church kids club, or the family table: <strong>one gentle day at a time</strong>. No account is required to read; progress stays on each device and works offline after the first visit.</p>
     <nav class="yr-month-glance" aria-labelledby="yr-month-glance-l">
-      <p class="yr-month-glance-h" id="yr-month-glance-l">School-year months (August first)&mdash;tap a month to jump to the memory grid and spotlight cards below.</p>
+      <p class="yr-month-glance-h" id="yr-month-glance-l">School-year months (August first)&mdash;each tile is a calm hint for the season; tap any month to jump to the memory grid and cards below.</p>
       <div class="yr-month-glance-grid">
-        <a href="#yr-memory">Aug</a>
-        <a href="#yr-memory">Sep</a>
-        <a href="#yr-memory">Oct</a>
-        <a href="#yr-memory">Nov</a>
-        <a href="#yr-memory">Dec</a>
-        <a href="#yr-memory">Jan</a>
-        <a href="#yr-memory">Feb</a>
-        <a href="#yr-memory">Mar</a>
-        <a href="#yr-memory">Apr</a>
-        <a href="#yr-memory">May</a>
-        <a href="#yr-memory">Jun</a>
-        <a href="#yr-memory">Jul</a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🎒</span><span class="yr-mg-lbl">Aug</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">📚</span><span class="yr-mg-lbl">Sep</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🌾</span><span class="yr-mg-lbl">Oct</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🙏</span><span class="yr-mg-lbl">Nov</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">✨</span><span class="yr-mg-lbl">Dec</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">⭐</span><span class="yr-mg-lbl">Jan</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">💧</span><span class="yr-mg-lbl">Feb</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🌿</span><span class="yr-mg-lbl">Mar</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">✝️</span><span class="yr-mg-lbl">Apr</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">☀️</span><span class="yr-mg-lbl">May</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🌊</span><span class="yr-mg-lbl">Jun</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🌱</span><span class="yr-mg-lbl">Jul</span></a>
       </div>
     </nav>
     <div class="cta-row">
@@ -286,10 +339,9 @@
     <section id="yr-memory" class="yearly-rhythm-section" aria-labelledby="yr-memory-h">
       <h2 id="yr-memory-h">Memory verses (calendar year)</h2>
       <p>One anchor verse per month in the KJV&mdash;gentle review on <strong>this device</strong> only. Mark &ldquo;learning&rdquo; or celebrate &ldquo;memorized&rdquo; on the <a href="family.html#family-year-round-memory">Family hub</a>; this grid lists the same verses. <strong>Weekly:</strong> say one aloud. <strong>Summer (June&ndash;July):</strong> one or two a week is plenty.</p>
-      <p class="section-note yr-memory-calm-note" style="margin-top:0">Printable cut-out cards: <a href="church-sharing-kit.html#csk-memory-verse-cards">Church kit &mdash; Memory Verse Cards</a>. One-page monthly tracker + year rhythm: <a href="#yr-print-planners">Printable planners</a> (also <a href="church-sharing-kit.html#csk-print-planners">church kit</a>).</p>
-      <div id="yr-memory-spotlight" class="yr-memory-spotlight" aria-label="This month and season"></div>
-      <div class="yr-table-wrap">
-        <table class="yr-table yr-mv-table memory-table" aria-label="Monthly memory verses">
+      <p class="section-note yr-memory-calm-note" style="margin-top:0">Printable cut-out cards: <a href="church-sharing-kit.html#csk-memory-verse-cards">Church kit &mdash; Memory Verse Cards</a>. <strong>One-page print:</strong> <a href="year-at-a-glance.html">Year at a glance</a> (all months + seasonal doors + gentle activity reminders). <strong>Activity ideas (no quizzes):</strong> <a href="church-sharing-kit.html#csk-memory-verse-activities">Gentle Memory Verse Activities</a> &middot; <a href="memory-verse-activities-print.html">print sheet</a>. Trackers: <a href="#yr-print-planners">Printable planners</a> (also <a href="church-sharing-kit.html#csk-print-planners">church kit</a>).</p>
+      <div class="yr-table-wrap yr-table-wrap--mv">
+        <table class="yr-table yr-mv-table memory-table" aria-label="Monthly memory verses — full year grid">
           <thead>
             <tr>
               <th scope="col">Month</th>
@@ -301,6 +353,7 @@
           <tbody id="yr-memory-tbody"></tbody>
         </table>
       </div>
+      <div id="yr-memory-spotlight" class="yr-memory-spotlight" aria-label="This month and season"></div>
       <p class="section-note" style="margin-top:0.75rem">Pin any Battle Plan day to this list: open <a href="plans.html">Battle Plans</a> and tap <strong>Pin to Memory Verses</strong> on a day card.</p>
     </section>
 
@@ -397,6 +450,7 @@
       </div>
       <details class="yr-plain-planner-wrap">
         <summary>Plain text for copy or print-to-PDF</summary>
+        <button type="button" class="yr-copy-plain-btn" id="yr-copy-planner-plain-btn" aria-label="Copy year-at-a-glance plain text to clipboard">Copy plain text</button>
         <pre class="yr-planner-plain" id="yearly-rhythm-planner-plain">Today&apos;s Daily Battle — Year-at-a-glance (August through July)
 https://todaysdailybattle.com/yearly-rhythm.html
 
@@ -494,6 +548,7 @@ https://todaysdailybattle.com/church-sharing-kit.html#csk-print-planners</pre>
       </div>
       <details class="yr-plain-planner-wrap">
         <summary>Plain text for copy or print-to-PDF</summary>
+        <button type="button" class="yr-copy-plain-btn" id="yr-copy-print-planners-plain-btn" aria-label="Copy printable planners plain text to clipboard">Copy plain text</button>
         <pre class="yr-planner-plain" id="yr-print-planners-plain">Today&apos;s Daily Battle – Memory Verse Planner
 
 Month: _______________________
@@ -729,6 +784,23 @@ https://todaysdailybattle.com/church-sharing-kit.html#csk-print-planners</pre>
       if (window.TDB_memoryVerses && typeof window.TDB_memoryVerses.mountYearlyTable === 'function') {
         window.TDB_memoryVerses.mountYearlyTable('#yr-memory-tbody');
       }
+      function wireCopy(btnId, preId) {
+        var btn = document.getElementById(btnId);
+        var pre = document.getElementById(preId);
+        if (!btn || !pre || !navigator.clipboard || !navigator.clipboard.writeText) {
+          if (btn) btn.hidden = true;
+          return;
+        }
+        btn.addEventListener('click', function () {
+          navigator.clipboard.writeText(pre.textContent || '').then(function () {
+            var t = btn.textContent;
+            btn.textContent = 'Copied';
+            setTimeout(function () { btn.textContent = t; }, 2000);
+          }).catch(function () {});
+        });
+      }
+      wireCopy('yr-copy-planner-plain-btn', 'yearly-rhythm-planner-plain');
+      wireCopy('yr-copy-print-planners-plain-btn', 'yr-print-planners-plain');
     });
   </script>
 </body>

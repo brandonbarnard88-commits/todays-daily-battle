@@ -361,13 +361,27 @@
 
     .plans-homeschool-banner {
       margin: 0 0 1rem;
-      padding: 0.8rem 1rem;
-      border-radius: 12px;
-      border: 1px solid color-mix(in srgb, var(--gold) 24%, var(--line));
-      background: color-mix(in srgb, var(--card) 93%, var(--gold));
-      font-size: 0.88rem;
+      padding: 0.85rem 1rem 0.85rem 2.65rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 32%, var(--line));
+      background: linear-gradient(115deg, color-mix(in srgb, var(--gold) 14%, transparent), color-mix(in srgb, var(--card) 92%, var(--gold)));
+      font-size: 0.9rem;
       line-height: 1.55;
       color: color-mix(in srgb, var(--text) 90%, var(--muted));
+      position: relative;
+    }
+    .plans-homeschool-banner::before {
+      content: '';
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, rgba(255, 248, 220, 0.92), color-mix(in srgb, var(--gold) 55%, transparent) 58%, color-mix(in srgb, var(--accent) 35%, transparent));
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 40%, transparent);
+      pointer-events: none;
     }
     .plans-homeschool-banner a {
       color: var(--gold-soft);
@@ -1026,7 +1040,7 @@
       <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
       <a href="/memorize.html">Memorize</a>
       <a href="/kids/corner.html">Kids &amp; Family</a>
-      <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round</a>
+      <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round rhythm</a>
       <a href="/explore.html">Explore</a>
       <a href="/about.html">About</a>
       <details class="tdb-nav-more">
@@ -1072,12 +1086,14 @@
         <p class="plans-url-hint">Your notes, progress, and printable bundle stay on this device. Links with <code class="plans-code">?plan=id&amp;day=N</code> open day <em>N</em> when you&rsquo;ve already unlocked it; otherwise we land you on the latest day you can open.</p>
         <p class="plans-hero-hint">Brand-new to faith? <a href="first-steps.html">Calm doorway</a> · <a href="plans.html?plan=firststeps">14-day plan</a>. Who God says you are: <a href="identity-in-christ.html">calm hub</a> or <a href="plans.html?plan=identityinchrist">7-day plan</a>. A month of thanks: <a href="plans.html?plan=praisethanks30">Praise &amp; Thanksgiving</a>. <a href="plans.html?plan=armorofgod">Armor of God</a>, <a href="plans.html?plan=fearnot14">Fear Not (14)</a>, <a href="plans.html?plan=dailylabor">work &amp; labor</a>, <a href="family-home.html">family hub</a>. Resurrection: <a href="he-is-risen.html">He is risen</a> (readings anytime) · <a href="plans.html?plan=easter">Resurrection Hope</a> (7 days). Holidays: <a href="seasonal.html">Seasonal paths</a> · <a href="plans.html?plan=christmas7">Christmas week</a> · <a href="plans.html?plan=newyear7">New Year week</a>. Use <strong>Listen</strong> on any day card to hear the verse plus the day&rsquo;s plain words and prayer (device TTS).</p>
       </div>
-      <p class="plans-homeschool-banner" role="region" aria-label="Homeschool and private school"><strong>For homeschool &amp; private-school Bible class:</strong> one screen maps August&ndash;July, summer weeks, holidays, and the same monthly memory verses you can mark on this device &mdash; <a href="yearly-rhythm.html">Year-round rhythm</a>. Printables: <a href="yearly-rhythm.html#yr-print-planners">planners</a> · <a href="church-sharing-kit.html#csk-homeschool-year-round">Church kit</a>.</p>
+      <p class="plans-homeschool-banner" role="region" aria-label="Homeschool and private school"><strong>For homeschool &amp; private-school Bible class:</strong> one screen maps August&ndash;July, summer weeks, holidays, and the same monthly memory verses you can mark on this device &mdash; <a href="yearly-rhythm.html">Year-round rhythm</a>. Printables: <a href="year-at-a-glance.html">Year at a glance</a> · <a href="yearly-rhythm.html#yr-print-planners">planners</a> · <a href="church-sharing-kit.html#csk-homeschool-year-round">Church kit</a>.</p>
+      <p class="section-note plans-memory-activities-teaser" id="plans-memory-activities-teaser" style="margin:0.5rem 0 0;font-size:0.88rem;line-height:1.55;color:rgba(203,213,225,0.92)">Gentle ways to hide God&rsquo;s Word in your heart (no quizzes)&mdash;see <a href="church-sharing-kit.html#csk-memory-verse-activities">Memory Verse Activities</a> in the Church Sharing Kit.</p>
       <nav class="plans-plan-filter-bar" aria-label="Jump to plan groups in the list below">
         <span class="plans-plan-filter-label">Quick jump</span>
-        <a class="plans-plan-filter-chip" href="#all-plans">All plans</a>
+        <a class="plans-plan-filter-chip" href="#all-plans">All</a>
         <a class="plans-plan-filter-chip" href="#plans-lane-family">Kids &amp; family</a>
-        <a class="plans-plan-filter-chip" href="#plans-anchor-seasonal-school">Seasonal &amp; school year</a>
+        <a class="plans-plan-filter-chip" href="#plans-anchor-seasonal-holidays">Seasonal &amp; holidays</a>
+        <a class="plans-plan-filter-chip" href="#plans-anchor-school-year">School year</a>
         <a class="plans-plan-filter-chip" href="#plans-anchor-summer-spine">Summer</a>
       </nav>
       <section class="plans-start-here" aria-labelledby="plans-start-here-title">
@@ -1443,12 +1459,12 @@
           <div class="plan-row-info"><h2>Summer Seeds for Kids</h2><p>Eight lighter summer weeks in the KJV&mdash;one short anchor day per week beside a grown-up. Matches the Summer Seeds pace on the year-round rhythm page (linked from Family and Seasonal).</p></div>
           <div class="plan-row-meta"><span class="plan-badge">8 weeks</span><span class="plan-progress-pill" id="planPill-summer-seeds">Not started</span></div>
         </a>
-        <a href="plans.html?plan=schoolcourage" class="plan-row" id="plans-anchor-seasonal-school" data-plan="schoolcourage" role="listitem" aria-label="Back-to-School Courage — 7 days">
+        <a href="plans.html?plan=schoolcourage" class="plan-row" id="plans-anchor-school-year" data-plan="schoolcourage" role="listitem" aria-label="Back-to-School Courage — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🎒</span>
           <div class="plan-row-info"><h2>Back-to-School Courage</h2><p>Seven KJV days when routines return&mdash;God with you, light, prayer, trust. For table, classroom, or homeschool.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-schoolcourage">Not started</span></div>
         </a>
-        <a href="plans.html?plan=harvestthanks" class="plan-row" data-plan="harvestthanks" role="listitem" aria-label="Harvest Gratitude — 7 days">
+        <a href="plans.html?plan=harvestthanks" class="plan-row" id="plans-anchor-seasonal-holidays" data-plan="harvestthanks" role="listitem" aria-label="Harvest Gratitude — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🌽</span>
           <div class="plan-row-info"><h2>Harvest Gratitude</h2><p>Seven days of thanksgiving language in the KJV&mdash;gates, gifts, praise, and God&rsquo;s will in Christ.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-harvestthanks">Not started</span></div>

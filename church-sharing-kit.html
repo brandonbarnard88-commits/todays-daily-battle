@@ -160,6 +160,38 @@
       .csk-planner-sheet { break-inside: avoid; page-break-inside: avoid; }
     }
     .csk-mv-card h3 { margin: 0 0 0.45rem; font-size: 0.88rem; font-weight: 700; color: var(--gold-soft, #e3bc67); }
+    .csk-mva-intro { margin: 0.5rem 0 0.85rem; line-height: 1.6; }
+    .csk-mva-block { margin: 1rem 0 0; }
+    .csk-mva-block:first-of-type { margin-top: 0.65rem; }
+    .csk-mva-block h3 {
+      margin: 0 0 0.5rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--gold-soft, #e3bc67);
+      letter-spacing: 0.02em;
+    }
+    .csk-mva-list {
+      margin: 0;
+      padding-left: 1.15rem;
+      line-height: 1.65;
+      font-size: 0.86rem;
+    }
+    .csk-mva-list li { margin: 0.5rem 0; }
+    .csk-mva-list li strong { font-weight: 650; color: rgba(226, 232, 240, 0.98); }
+    :root[data-theme="light"] .csk-mva-list li strong { color: #1e293b; }
+    .csk-mva-tips {
+      margin: 0.85rem 0 0;
+      padding: 0.75rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: rgba(0, 0, 0, 0.12);
+      font-size: 0.84rem;
+      line-height: 1.6;
+    }
+    :root[data-theme="light"] .csk-mva-tips { background: #f1f5f9; }
+    .csk-mva-closing { margin: 1rem 0 0 !important; padding: 0.75rem 0.85rem; border-radius: 10px; border-left: 3px solid rgba(227, 188, 103, 0.45); background: rgba(227, 188, 103, 0.06); }
+    .csk-mva-print-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.65rem 0 0; align-items: center; }
+    .csk-mva-print-actions .btn { min-height: 48px; }
     .csk-mv-card .csk-mv-kjv { margin: 0 0 0.5rem; font-style: italic; color: var(--text, #e2e8f0); }
     .csk-mv-card .csk-mv-back { margin: 0.55rem 0 0; padding-top: 0.55rem; border-top: 1px dashed rgba(148, 163, 184, 0.35); font-size: 0.78rem; }
     .csk-mv-card ul { margin: 0.35rem 0 0; padding-left: 1.1rem; }
@@ -177,7 +209,8 @@
       .church-sharing-kit-page .top-bar #auth-section,
       .church-sharing-kit-page #sidebar,
       .church-sharing-kit-page #csk-print-page-btn,
-      .church-sharing-kit-page #csk-print-hint { display: none !important; }
+      .church-sharing-kit-page #csk-print-hint,
+      .church-sharing-kit-page .csk-mva-print-actions { display: none !important; }
       .church-sharing-kit-page .app-content { max-width: none; padding: 0; }
     }
   </style>
@@ -220,7 +253,7 @@
         <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
         <a href="/memorize.html">Memorize</a>
         <a href="/kids/corner.html">Kids &amp; Family</a>
-        <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round</a>
+        <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round rhythm</a>
         <a href="/explore.html">Explore</a>
         <a href="/about.html">About</a>
         <details class="tdb-nav-more">
@@ -278,9 +311,10 @@
             <a class="btn btn-primary" href="plans.html">Open Battle Plans</a>
             <a class="btn btn-secondary" href="bible-study.html">Bible Studies hub</a>
             <a class="btn btn-secondary" href="family.html">Family hub</a>
-            <button type="button" class="btn btn-secondary" id="csk-print-page-btn" aria-label="Print or save this page as PDF from your browser">Print this page</button>
+            <button type="button" class="btn btn-primary" id="csk-print-page-btn" aria-label="Print or save the entire church kit as PDF from your browser">Print entire kit</button>
           </div>
           <p class="section-note util-mt-0_5" id="csk-print-hint" style="margin-bottom:0">Uses your browser&rsquo;s print dialog&mdash;choose &ldquo;Save as PDF&rdquo; if you want one file. Sidebar and sign-in strip hide automatically when printing.</p>
+          <p class="section-note util-mt-0_5" style="margin-bottom:0"><strong>Homeschool &amp; private school:</strong> <a href="yearly-rhythm.html">Year-round rhythm</a> (August&ndash;July map), <a href="yearly-rhythm.html#yr-print-planners">memory verse planners</a>, and a one-page <a href="year-at-a-glance.html">year at a glance</a> (print-friendly).</p>
         </header>
 
         <section class="glass" aria-labelledby="csk-toc-title">
@@ -298,6 +332,7 @@
             <li><a href="#csk-homesch">Homeschool guide &amp; ideas</a></li>
             <li><a href="#csk-homeschool-year-round">Homeschool &amp; private school (year-round)</a></li>
             <li><a href="#csk-homesch-tracker">Homeschool week tracker (print)</a></li>
+            <li><a href="#csk-memory-verse-activities">Gentle Memory Verse Activities</a></li>
             <li><a href="#csk-memory-verse-cards">Printable Memory Verse Cards</a></li>
             <li><a href="#csk-print-planners">Printable planners (memory verse &amp; year rhythm)</a></li>
             <li><a href="#csk-children-ministry">Children&rsquo;s ministry ideas</a></li>
@@ -478,6 +513,7 @@ Blessings,
 
         <section class="glass" id="csk-homeschool-year-round" aria-labelledby="csk-homeschool-year-round-title">
           <h2 class="section-divider" id="csk-homeschool-year-round-title">Homeschool &amp; private school (year-round)</h2>
+          <p class="section-note util-mt-0_5" style="margin-bottom:0.85rem"><strong>Start in one place:</strong> <a href="yearly-rhythm.html">Year-round rhythm</a> &mdash; school-year week, summer seeds, holiday doors, and the monthly memory grid. <strong>Print:</strong> <a href="year-at-a-glance.html">Year at a glance</a> (all twelve verses + seasonal doors on one page) &middot; <a href="yearly-rhythm.html#yr-print-planners">Planner worksheets</a> &middot; <a href="church-sharing-kit.html#csk-print-planners">This kit&rsquo;s planners</a>. <strong>Low-pressure practice:</strong> <a href="#csk-memory-verse-activities">Gentle Memory Verse Activities</a>.</p>
           <p class="section-note" style="margin-top:0">Co-ops, micro-schools, and church classrooms can treat the site as a <strong>quiet yearly companion</strong>&mdash;not a full curriculum replacement. One short day at a time; progress stays on each device; offline after first load.</p>
           <p class="section-note"><strong>Seasons &amp; memory in one place:</strong> Every named seasonal Battle Plan track and the gentle monthly memory verse system are linked from <a href="yearly-rhythm.html">Year-round rhythm</a>&mdash;treat it as the calm table of contents for the school year and breaks.</p>
           <p class="section-note"><strong>Start here:</strong> <a href="yearly-rhythm.html">Year-round rhythm for families</a> &mdash; August&ndash;July pacing, summer &ldquo;Summer Seeds,&rdquo; holiday links, unit-style bundles, chapel block outline, and a printable month grid.</p>
@@ -519,9 +555,84 @@ Blessings,
           <p class="section-note">Plans library: <a href="https://todaysdailybattle.com/plans.html">todaysdailybattle.com/plans.html</a></p>
         </section>
 
+        <section class="glass csk-mv-print-zone" id="csk-memory-verse-activities" aria-labelledby="csk-memory-verse-activities-title">
+          <h2 class="section-divider" id="csk-memory-verse-activities-title">Gentle Memory Verse Activities</h2>
+          <p class="section-note csk-mva-intro" style="margin-top:0">Here are simple, peaceful ways to hide God&rsquo;s Word in your heart&mdash;one gentle verse at a time. No pressure, no quizzes. Choose what feels right for your family or group. Everything works with the memory verse system on <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a> and <a href="family.html#family-year-round-memory">Family hub</a>.</p>
+          <p class="section-note" style="margin-top:0"><strong>One-page print:</strong> <a href="memory-verse-activities-print.html" id="csk-mva-print-sheet-link">Memory verse activities &mdash; print sheet</a> (titles and short lines for a binder, fridge, or leader packet).</p>
+          <div class="csk-mva-print-actions">
+            <a class="btn btn-primary" href="memory-verse-activities-print.html" id="csk-mva-print-activities-only">Print Memory Verse Activities</a>
+          </div>
+
+          <div class="csk-mva-block">
+            <h3 id="csk-mva-daily-weekly">Daily &amp; weekly (everyday use)</h3>
+            <ul class="csk-mva-list">
+              <li><strong>Morning whisper.</strong> Start the day by whispering or saying the current memory verse aloud together (or alone). About 20&ndash;30 seconds. Fits homeschool breakfast or before leaving for private school.</li>
+              <li><strong>Evening review.</strong> At bedtime or family devotion, say the verse once. Then one gentle question: &ldquo;What does this verse make you think about God?&rdquo; No right or wrong answers.</li>
+              <li><strong>Verse-of-the-day journal.</strong> Write or draw the verse in a simple notebook. Younger children can sketch something the verse brings to mind; older ones can add one honest sentence about what it means to them.</li>
+              <li><strong>Verse walk.</strong> On a walk (summer, recess, or nature study), say the verse together. Pause every few steps and repeat a phrase. Pairs well with <a href="plans.html?plan=summerstill">Summer Stillness</a> or <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a>.</li>
+            </ul>
+          </div>
+
+          <div class="csk-mva-block">
+            <h3 id="csk-mva-creative">Creative &amp; hands-on</h3>
+            <ul class="csk-mva-list">
+              <li><strong>Verse art cards.</strong> Index cards or folded paper: verse on one side, a small drawing on the other. Keep them in a box or on the fridge; rotate one card per week.</li>
+              <li><strong>Verse in motion.</strong> Act out the verse with gentle movements (for example, <cite>Joshua 1:9</cite>&mdash;stand steady, arms open, like the Lord is with you). Works well for active kids and church classrooms.</li>
+              <li><strong>Verse song or chant.</strong> A simple chant or a familiar tune&rsquo;s rhythm (many families use something like &ldquo;Jesus Loves Me&rdquo;). Keep it soft and reverent.</li>
+              <li><strong>Fridge or mirror verse.</strong> Sticky note on the fridge, bathroom mirror, or dashboard. Read it together when you notice it.</li>
+            </ul>
+          </div>
+
+          <div class="csk-mva-block">
+            <h3 id="csk-mva-family-group">Family &amp; small group</h3>
+            <ul class="csk-mva-list">
+              <li><strong>Family round.</strong> Around the table, each person says one phrase. Longer verses can be split into parts. Listening matters more than perfect recitation.</li>
+              <li><strong>&ldquo;Hide God&rsquo;s Word&rdquo; box.</strong> A small decorated box holds the month&rsquo;s verse cards. Once a week, draw one and review it together.</li>
+              <li><strong>Prayer verse.</strong> Turn the verse into a short prayer (for example, <cite>Psalm 46:10</cite>&mdash;&ldquo;Lord, help me be still and know that thou art God.&rdquo;).</li>
+              <li><strong>Verse sharing night (about once a month).</strong> Each person shares a favorite phrase from the current verse and why&mdash;short, kind, no debate.</li>
+            </ul>
+          </div>
+
+          <div class="csk-mva-block">
+            <h3 id="csk-mva-seasonal">Seasonal &amp; special</h3>
+            <ul class="csk-mva-list">
+              <li><strong>Back-to-School Courage.</strong> Write the verse on a small card for a lunchbox or backpack (<a href="plans.html?plan=schoolcourage">plan</a>).</li>
+              <li><strong>Harvest gratitude.</strong> Pair the verse with a thankful list or gratitude jar (<a href="plans.html?plan=harvestthanks">Harvest Gratitude</a>).</li>
+              <li><strong>Advent quiet.</strong> Place the verse card near an Advent wreath or nativity (<a href="plans.html?plan=adventquiet">Advent Quiet</a>).</li>
+              <li><strong>Easter resurrection hope.</strong> Say the verse while coloring eggs or after a calm sunrise walk (<a href="plans.html?plan=easter">Resurrection Hope</a>).</li>
+              <li><strong>Summer stillness.</strong> Review the verse during a quiet outdoor moment&mdash;porch, park, or backyard (<a href="plans.html?plan=summerstill">Summer Stillness</a>).</li>
+            </ul>
+          </div>
+
+          <div class="csk-mva-block">
+            <h3 id="csk-mva-summer-vbs">Summer break &amp; VBS extras</h3>
+            <ul class="csk-mva-list">
+              <li><strong>Porch or shade review.</strong> After play, sit in the shade and say the verse once. No discussion required.</li>
+              <li><strong>VBS send-home whisper.</strong> At the door, leaders and children whisper the verse together; pair with a printed slip or <a href="#csk-vbs-takehome-slip">take-home slip</a> from this kit.</li>
+              <li><strong>Road-trip phrases.</strong> Each rest stop or mile marker, add the next phrase of the verse.</li>
+              <li><strong>Rainy-day hallway walk.</strong> When you cannot go outside, walk the hall and repeat a phrase at each doorway&mdash;same calm pace as a verse walk.</li>
+              <li><strong>Buddy up (VBS).</strong> An older helper says half the verse; a younger child repeats the other half. Swap roles the next day.</li>
+              <li><strong>Cool-down circle.</strong> After games, sit in a circle, breathe once, say the verse softly, then pray one sentence of thanks.</li>
+            </ul>
+          </div>
+
+          <div class="csk-mva-block">
+            <h3 id="csk-mva-tips-ages">Tips for ages &amp; settings</h3>
+            <div class="csk-mva-tips">
+              <p style="margin:0 0 0.5rem"><strong>Younger kids (about 6&ndash;9):</strong> Focus on saying the verse, drawing, and short prayers. Use kids&rsquo; versions of studies when they help.</p>
+              <p style="margin:0 0 0.5rem"><strong>Older kids (about 10&ndash;12+):</strong> Invite them to explain the verse in their own words or connect it to the day&mdash;no grading.</p>
+              <p style="margin:0 0 0.5rem"><strong>Homeschool / private school:</strong> Use one verse per month as your class memory anchor; pair with <a href="yearly-rhythm.html">Year-round rhythm</a> and <a href="year-at-a-glance.html">Year at a glance</a>.</p>
+              <p style="margin:0 0 0.5rem"><strong>Church kids ministry / VBS:</strong> Close with the verse or send home a small card with the week&rsquo;s craft. See also <a href="#csk-vbs-ideas">VBS themes</a> in this kit.</p>
+              <p style="margin:0"><strong>General rule:</strong> If someone does not want to join in today, that is okay. The goal is planting seeds, not perfection.</p>
+            </div>
+          </div>
+
+          <p class="section-note csk-mva-closing" role="note">All activities work with the memory verse system already on the site. Progress saves on each device&mdash;no pressure to finish or perform. The aim is simply to hide God&rsquo;s Word gently in your heart.</p>
+        </section>
+
         <section class="glass csk-mv-print-zone" id="csk-memory-verse-cards" aria-labelledby="csk-memory-verse-cards-title">
           <h2 class="section-divider" id="csk-memory-verse-cards-title">Printable Memory Verse Cards</h2>
-          <p class="section-note" style="margin-top:0"><strong>KJV only.</strong> Print this section (or save as PDF), cut on the dashed guides, and keep a small stack at home, in a classroom, or on the fridge. Four to six cards fit a letter page if you print at 100% and trim margins as you like. The site also tracks gentle &ldquo;learning&rdquo; / &ldquo;memorized&rdquo; status on each device: <a href="family.html#family-year-round-memory">Family hub</a> &middot; <a href="yearly-rhythm.html#yr-memory">Year-round rhythm grid</a>.</p>
+          <p class="section-note" style="margin-top:0"><strong>KJV only.</strong> Print this section (or save as PDF), cut on the dashed guides, and keep a small stack at home, in a classroom, or on the fridge. Four to six cards fit a letter page if you print at 100% and trim margins as you like. For calm, no-quiz ways to use the verses day to day, see <a href="#csk-memory-verse-activities">Gentle Memory Verse Activities</a> above. The site also tracks gentle &ldquo;learning&rdquo; / &ldquo;memorized&rdquo; status on each device: <a href="family.html#family-year-round-memory">Family hub</a> &middot; <a href="yearly-rhythm.html#yr-memory">Year-round rhythm grid</a>.</p>
           <p class="section-note">Each card: <strong>front</strong> = month or season + reference + full verse. <strong>back</strong> = simple review ideas + optional seasonal Battle Plan track. Copy the pattern for the other months using the same verses as the site&rsquo;s memory list.</p>
           <div class="csk-mv-card-grid" aria-label="Sample memory verse cards">
             <article class="csk-mv-card">

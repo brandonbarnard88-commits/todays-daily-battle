@@ -221,7 +221,7 @@
    * @param {boolean} isSeason
    * @param {Record<string,string>} statusMap
    * @param {function():void} afterChange
-   * @param {{compact?:boolean, planLinkLabel?:string}} opts
+   * @param {{compact?:boolean, planLinkLabel?:string, learnButtonLabel?:string, memButtonLabel?:string, reviewPrompt?:string}} opts
    */
   function fillMemoryCard(art, entry, isSeason, statusMap, afterChange, opts) {
     opts = opts || {};
@@ -275,11 +275,13 @@
     row.className = 'family-memory-actions memory-verse-actions';
 
     var st = statusMap[entry.id] || '';
+    var defaultLearn = st === 'learning' ? 'Still learning' : 'Working on it';
+    var learnText = opts.learnButtonLabel != null ? (st === 'learning' ? (opts.learnButtonLabelActive || 'Still reviewing') : opts.learnButtonLabel) : defaultLearn;
     var btnLearn = document.createElement('button');
     btnLearn.type = 'button';
     btnLearn.className = 'btn btn-secondary memory-verse-btn-touch';
-    btnLearn.textContent = st === 'learning' ? 'Still learning' : 'Working on it';
-    btnLearn.setAttribute('aria-label', st === 'learning' ? 'Still learning this verse; saved on this device' : 'Mark this verse as in progress; saves on this device');
+    btnLearn.textContent = learnText;
+    btnLearn.setAttribute('aria-label', st === 'learning' ? 'Still learning this verse; saved on this device' : 'Mark this verse as reviewed or in progress; saves on this device');
     btnLearn.setAttribute('aria-pressed', st === 'learning' ? 'true' : 'false');
     btnLearn.addEventListener('click', function () {
       setStatus(entry.id, 'learning');
@@ -287,10 +289,12 @@
       afterChange();
     });
 
+    var memDefault = st === 'memorized' ? 'Memorized' : 'Know it!';
+    var memText = opts.memButtonLabel != null ? (st === 'memorized' ? 'Memorized' : opts.memButtonLabel) : memDefault;
     var btnMem = document.createElement('button');
     btnMem.type = 'button';
     btnMem.className = 'btn btn-primary memory-verse-btn-touch';
-    btnMem.textContent = st === 'memorized' ? 'Memorized' : 'Know it!';
+    btnMem.textContent = memText;
     btnMem.setAttribute('aria-label', st === 'memorized' ? 'Marked as memorized on this device' : 'Celebrate; mark as memorized on this device');
     btnMem.setAttribute('aria-pressed', st === 'memorized' ? 'true' : 'false');
     btnMem.addEventListener('click', function () {
@@ -314,14 +318,87 @@
     row.appendChild(btnLearn);
     row.appendChild(btnMem);
     art.appendChild(row);
+
+    if (opts.readAloud && typeof window !== 'undefined' && window.speechSynthesis && typeof SpeechSynthesisUtterance !== 'undefined') {
+      var listenRow = document.createElement('div');
+      listenRow.className = 'memory-verse-actions memory-verse-actions--listen';
+      var btnListen = document.createElement('button');
+      btnListen.type = 'button';
+      btnListen.className = 'btn btn-secondary memory-verse-btn-touch memory-verse-listen-btn';
+      btnListen.textContent = 'Listen';
+      btnListen.setAttribute('aria-label', 'Listen to ' + entry.ref + ' read aloud');
+      btnListen.addEventListener('click', function () {
+        try {
+          window.speechSynthesis.cancel();
+        } catch (e) {}
+        var u = new SpeechSynthesisUtterance(entry.ref + ' (KJV). ' + entry.text);
+        u.rate = 0.9;
+        window.speechSynthesis.speak(u);
+        try {
+          if (typeof global.trackEvent === 'function') {
+            global.trackEvent('memory_verse_listen', { mv_id: String(entry.id || '') });
+          }
+        } catch (te) {}
+      });
+      listenRow.appendChild(btnListen);
+      art.appendChild(listenRow);
+    }
+
     art.appendChild(btnClear);
 
     var prompt = document.createElement('p');
     prompt.className = 'section-note family-memory-prompt';
-    prompt.textContent = compact
+    prompt.textContent = opts.reviewPrompt != null ? opts.reviewPrompt : (compact
       ? 'Say it aloud once when you can.'
-      : 'Review: say the verse aloud once today\u2014together or alone.';
+      : 'Review: say the verse aloud once today\u2014together or alone.');
     art.appendChild(prompt);
+  }
+
+  function mountFamilyYearRoundLine(el) {
+    if (!el) return;
+    var m = getMonthlyForDate(new Date());
+    if (!m) {
+      el.hidden = true;
+      el.textContent = '';
+      return;
+    }
+    el.hidden = false;
+    el.replaceChildren();
+    var strong = document.createElement('strong');
+    strong.textContent = 'This month\u2019s memory verse: ';
+    el.appendChild(strong);
+    el.appendChild(document.createTextNode(m.ref + ' (KJV) \u2014 '));
+    var span = document.createElement('span');
+    span.className = 'family-yrt-votm-snippet';
+    span.textContent = m.text.length > 140 ? m.text.slice(0, 137) + '\u2026' : m.text;
+    el.appendChild(span);
+  }
+
+  function mountHomeVerseOfMonth(host) {
+    var cardRoot = typeof host === 'string' ? document.querySelector(host) : host;
+    if (!cardRoot) return;
+    var d = new Date();
+    var monthly = getMonthlyForDate(d);
+    if (!monthly) {
+      cardRoot.replaceChildren();
+      cardRoot.setAttribute('hidden', '');
+      return;
+    }
+    cardRoot.removeAttribute('hidden');
+    function after() {
+      refreshMemoryFromStatusChange();
+    }
+    var art = document.createElement('article');
+    art.className = 'tdb-home-votm-card-inner memory-verse-card';
+    fillMemoryCard(art, monthly, false, readStatusMap(), after, {
+      compact: true,
+      planLinkLabel: 'Open the matching plan',
+      learnButtonLabel: 'Mark reviewed',
+      learnButtonLabelActive: 'Still reviewing',
+      memButtonLabel: 'Know it by heart',
+      reviewPrompt: 'No quiz\u2014say it once together or alone. Progress stays on this device.'
+    });
+    cardRoot.replaceChildren(art);
   }
 
   function mountFamilySection() {
@@ -356,13 +433,13 @@
     if (monthly) {
       var a1 = document.createElement('article');
       a1.setAttribute('role', 'listitem');
-      fillMemoryCard(a1, monthly, false, readStatusMap(), refreshMemoryFromStatusChange, {});
+      fillMemoryCard(a1, monthly, false, readStatusMap(), refreshMemoryFromStatusChange, { readAloud: true });
       grid.appendChild(a1);
     }
     for (var si = 0; si < seasonal.length; si++) {
       var a2 = document.createElement('article');
       a2.setAttribute('role', 'listitem');
-      fillMemoryCard(a2, seasonal[si], true, readStatusMap(), refreshMemoryFromStatusChange, {});
+      fillMemoryCard(a2, seasonal[si], true, readStatusMap(), refreshMemoryFromStatusChange, { readAloud: true });
       grid.appendChild(a2);
     }
     root.appendChild(grid);
@@ -454,7 +531,7 @@
     el.replaceChildren();
     var lead = document.createElement('p');
     lead.className = 'section-note yr-memory-spotlight-lead';
-    lead.textContent = 'This month on this device\u2014mark status here or on the Family hub; everything stays local.';
+    lead.textContent = 'This month on this device\u2014Listen reads the verse aloud; mark status here or on Family hub. Everything stays local.';
     el.appendChild(lead);
     var grid = document.createElement('div');
     grid.className = 'memory-verse-grid memory-verse-grid--spotlight';
@@ -462,13 +539,13 @@
     if (monthly) {
       var a1 = document.createElement('article');
       a1.setAttribute('role', 'listitem');
-      fillMemoryCard(a1, monthly, false, sm, refreshMemoryFromStatusChange, { compact: true, planLinkLabel: 'Open plan' });
+      fillMemoryCard(a1, monthly, false, sm, refreshMemoryFromStatusChange, { compact: true, planLinkLabel: 'Open plan', readAloud: true });
       grid.appendChild(a1);
     }
     for (var yi = 0; yi < seasonal.length; yi++) {
       var a2 = document.createElement('article');
       a2.setAttribute('role', 'listitem');
-      fillMemoryCard(a2, seasonal[yi], true, sm, refreshMemoryFromStatusChange, { compact: true, planLinkLabel: 'Open plan' });
+      fillMemoryCard(a2, seasonal[yi], true, sm, refreshMemoryFromStatusChange, { compact: true, planLinkLabel: 'Open plan', readAloud: true });
       grid.appendChild(a2);
     }
     el.appendChild(grid);
@@ -479,6 +556,10 @@
     var spot = document.querySelector('#yr-memory-spotlight');
     if (spot) mountYearlyMemorySpotlight(spot);
     if (document.getElementById('family-memory-verses-root')) mountFamilySection();
+    var hvc = document.getElementById('tdb-home-votm-card');
+    if (hvc) mountHomeVerseOfMonth(hvc);
+    var famLine = document.getElementById('family-yrt-votm-line');
+    if (famLine) mountFamilyYearRoundLine(famLine);
   }
 
   global.TDB_memoryVerses = {
@@ -495,6 +576,22 @@
     mountFamilySection: mountFamilySection,
     mountYearlyTable: mountYearlyTable,
     mountYearlyMemorySpotlight: mountYearlyMemorySpotlight,
+    mountHomeVerseOfMonth: mountHomeVerseOfMonth,
+    mountFamilyYearRoundLine: mountFamilyYearRoundLine,
     refreshMemoryFromStatusChange: refreshMemoryFromStatusChange
   };
+
+  function bootHomeAndFamilyMemoryUi() {
+    try {
+      var hvc = document.getElementById('tdb-home-votm-card');
+      if (hvc) mountHomeVerseOfMonth(hvc);
+      var famLine = document.getElementById('family-yrt-votm-line');
+      if (famLine) mountFamilyYearRoundLine(famLine);
+    } catch (e) {}
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootHomeAndFamilyMemoryUi);
+  } else {
+    bootHomeAndFamilyMemoryUi();
+  }
 })(typeof window !== 'undefined' ? window : globalThis);

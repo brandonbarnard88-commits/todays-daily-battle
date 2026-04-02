@@ -1014,9 +1014,87 @@
         background: linear-gradient(165deg, color-mix(in srgb, var(--card) 94%, #fff 6%), var(--bg-soft));
         color: color-mix(in srgb, var(--gold) 70%, #5c4a1e 30%);
       }
+      .tdb-float-memory-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        left: max(0.75rem, env(safe-area-inset-left));
+        bottom: max(1rem, env(safe-area-inset-bottom));
+        z-index: 419;
+        min-height: 48px;
+        padding: 0.5rem 0.95rem;
+        border-radius: 999px;
+        border: 1px solid rgba(139, 166, 217, 0.42);
+        background: linear-gradient(165deg, rgba(22, 28, 40, 0.96), rgba(12, 16, 26, 0.98));
+        color: #c5d4ef;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        box-shadow: 0 8px 26px rgba(0, 0, 0, 0.38);
+        -webkit-tap-highlight-color: transparent;
+      }
+      .tdb-float-memory-pill:focus-visible {
+        outline: 2px solid rgba(227, 188, 103, 0.75);
+        outline-offset: 3px;
+      }
+      .tdb-float-memory-pill[hidden] {
+        display: none !important;
+      }
+      :root[data-theme="light"] .tdb-float-memory-pill {
+        background: linear-gradient(165deg, color-mix(in srgb, var(--card) 94%, #fff 6%), var(--bg-soft));
+        color: color-mix(in srgb, var(--accent) 55%, #1e2a3d 45%);
+        border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+      }
     }
     @media (min-width: 769px) {
       .tdb-float-share-verse { display: none !important; }
+      .tdb-float-memory-pill { display: none !important; }
+    }
+
+    .tdb-home-votm {
+      max-width: 34rem;
+      margin: 1rem auto 1.15rem;
+      padding: 1rem 1.15rem 1.15rem;
+      border-radius: 16px;
+      border: 1px solid rgba(227, 188, 103, 0.28);
+      background: linear-gradient(165deg, rgba(20, 26, 38, 0.92), rgba(12, 16, 26, 0.88));
+      box-shadow: var(--shadow);
+    }
+    :root[data-theme="light"] .tdb-home-votm {
+      background: linear-gradient(165deg, color-mix(in srgb, var(--card) 92%, #fff 8%), var(--bg-soft));
+      border-color: color-mix(in srgb, var(--gold) 25%, var(--line));
+    }
+    .tdb-home-votm-h {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--gold-soft);
+    }
+    :root[data-theme="light"] .tdb-home-votm-h {
+      color: color-mix(in srgb, var(--gold) 75%, #3d3518 25%);
+    }
+    .tdb-home-votm-lead {
+      margin: 0 0 0.75rem !important;
+      text-align: left !important;
+      max-width: none !important;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .tdb-home-votm-listen-row {
+      margin: 0 0 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .tdb-home-votm-listen-row .btn {
+      min-height: 48px;
+    }
+    #tdb-home-votm-card .tdb-home-votm-card-inner {
+      margin-top: 0;
     }
 
     /* ── Sticky on-page wayfinding (below header) ── */
@@ -6393,7 +6471,7 @@
           <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
           <a href="/memorize.html">Memorize</a>
           <a href="/kids/corner.html">Kids &amp; Family</a>
-          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — memory verses, seasonal plans, printable year at a glance">Year-round rhythm</a>
           <a href="/explore.html">Explore</a>
           <a href="/about.html">About</a>
           <details class="tdb-nav-more">
@@ -6420,6 +6498,7 @@
 
     <nav class="tdb-sticky-wayfind" id="tdb-sticky-wayfind" aria-label="Jump on this page">
       <a href="#hero-verse-wrap" data-tdb-wayfind="verse" aria-label="Today's verse">Verse</a>
+      <a href="#tdb-home-votm" data-tdb-wayfind="memory" aria-label="Verse of the month">Memory</a>
       <a href="#feel-section" data-tdb-wayfind="feel" aria-label="Search by how you feel">Feel</a>
       <a href="plans.html" aria-label="Battle Plans — KJV reading plans">Plans</a>
       <a href="calm.html" aria-label="Calm — one-tap verse">Calm</a>
@@ -6488,7 +6567,7 @@
         <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
       </div>
 
-      <p class="tdb-page-orientation" id="tdb-page-orientation">Today&rsquo;s verse is up first on your phone; the calm doorway and feel search sit just below when you want them.</p>
+      <p class="tdb-page-orientation" id="tdb-page-orientation">Today&rsquo;s verse is up first on your phone; right below it, a gentle <strong>verse of the month</strong> card (same KJV anchor as Family hub). The calm doorway and feel search sit next when you want them.</p>
 
       <div class="tdb-install-reassurance-stack" aria-label="Offline status and add to home screen">
       <!-- ── Offline banner (reassuring message when offline) ── -->
@@ -6545,6 +6624,7 @@
         <span class="hero-daily-path-label">Today</span>
         <span class="hero-daily-path-links">
           <a href="#hero-verse-wrap">Verse</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="#tdb-home-votm">Memory month</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="#plan-progress-card">Plan progress</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="calm.html">Calm</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="plans.html">Plans</a>
@@ -6553,15 +6633,6 @@
       </div>
       <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
       <p class="tdb-new-here-hint" id="tdbNewHereHint"><span class="tdb-new-here-muted">New here?</span> <a href="explore.html#start-here">A calm order for your first few minutes</a> &mdash; glance when you like. No rush.</p>
-      <nav class="hero-daily-path tdb-home-spotlight-deeper" aria-label="Saves and family on this device">
-        <span class="hero-daily-path-label">Also here</span>
-        <span class="hero-daily-path-links">
-          <a href="my-verses.html">My Verses</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
-          <a href="family.html">Family hub</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
-          <a href="yearly-rhythm.html">Year-round rhythm</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
-          <a href="/kids/">Kids Battle</a>
-        </span>
-      </nav>
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
@@ -6656,8 +6727,28 @@
         <p class="verse-note" id="verseNote" hidden></p>
         <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
       </section>
+      <a href="#tdb-home-votm" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Jump to verse of the month">Memory</a>
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
+      <section class="tdb-home-votm" id="tdb-home-votm" aria-labelledby="tdb-home-votm-heading">
+        <h2 class="tdb-home-votm-h" id="tdb-home-votm-heading">Verse of the month</h2>
+        <p class="tdb-home-votm-lead section-note">Right after today&rsquo;s verse: the same KJV anchor you can mark on <a href="family.html#family-year-round-memory">Family hub</a>&mdash;review gently, no quiz. <a href="yearly-rhythm.html">Year-round rhythm</a> has the full grid; <a href="year-at-a-glance.html">Year at a glance</a> prints verses, seasons, and calm activity reminders on one page.</p>
+        <p class="section-note tdb-home-memory-activities-teaser" id="tdb-home-memory-activities-teaser" style="margin-top:0.35rem">Gentle ways to hide God&rsquo;s Word in your heart&mdash;see <a href="church-sharing-kit.html#csk-memory-verse-activities">Memory Verse Activities</a> in the Church Sharing Kit (no quizzes; works with this month&rsquo;s verse).</p>
+        <div class="tdb-home-votm-listen-row">
+          <button type="button" class="btn btn-secondary" id="tdb-votm-read-aloud" aria-label="Listen to this month’s memory verse read aloud">Listen (this verse)</button>
+          <a class="btn btn-secondary" href="year-at-a-glance.html" aria-label="Open printable year at a glance with verses, seasons, and activities">Print full year pack</a>
+        </div>
+        <div id="tdb-home-votm-card" class="tdb-home-votm-card-host" aria-live="polite"></div>
+      </section>
+      <nav class="hero-daily-path tdb-home-spotlight-deeper" aria-label="Saves and family on this device">
+        <span class="hero-daily-path-label">Also here</span>
+        <span class="hero-daily-path-links">
+          <a href="my-verses.html">My Verses</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="family.html">Family hub</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="yearly-rhythm.html">Year-round rhythm</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="/kids/">Kids Battle</a>
+        </span>
+      </nav>
       <p class="tdb-calm-doorway-teaser" id="tdbCalmDoorwayTeaser">
         <a href="calm.html">In a heavy moment?</a> Calm opens one gentle verse in a tap&mdash;no topic pick required.
       </p>
@@ -7111,7 +7202,7 @@
     <a href="/kids-corner.html">Kids Corner</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/coloring.html">Color &amp; Tell</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/yearly-rhythm.html">Year-round</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/yearly-rhythm.html">Year-round rhythm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/message.html">Prayer Wall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/mystudy.html">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -11445,6 +11536,8 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <!-- Study stack: defer + low priority so document can finish parsing; runs before modules (document order). -->
+  <script nonce="tdb2025s" defer fetchpriority="low" src="memory-verses.js"></script>
+  <script nonce="tdb2025s" defer fetchpriority="low" src="home-votm.js?v=20260402homevotm"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="word-study.js?v=20260329pass2off"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>

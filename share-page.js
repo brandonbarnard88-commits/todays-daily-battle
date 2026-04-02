@@ -1,6 +1,7 @@
 /**
  * Reusable "Share this page" — Web Share API or clipboard fallback.
  * Wire any element with id="share-page" or class="share-page-btn".
+ * Optional: data-share-url, data-share-title, data-share-text on the button.
  * No dependencies. Vanilla JS only.
  */
 (function () {
@@ -68,7 +69,14 @@
       if (btn.dataset.shareWired === '1') return;
       btn.dataset.shareWired = '1';
       btn.addEventListener('click', function () {
-        sharePage({ url: window.location.href, title: document.title });
+        var customUrl = btn.getAttribute('data-share-url');
+        var customTitle = btn.getAttribute('data-share-title');
+        var customText = btn.getAttribute('data-share-text');
+        sharePage({
+          url: (customUrl && customUrl.trim()) || window.location.href,
+          title: (customTitle && customTitle.trim()) || document.title,
+          text: (customText && customText.trim()) || undefined
+        });
       });
     });
   }

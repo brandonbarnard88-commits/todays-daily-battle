@@ -880,6 +880,9 @@
     var tdef = TEMPLATES[tk];
     var isTpl = tdef && tk !== 'custom';
 
+    var refStr = String(ref || '');
+    var refDisplay = /\bkjv\b|\(kjv\)/i.test(refStr) ? refStr : refStr + (refStr ? ' \u2014 KJV' : 'KJV');
+
     var bg = (opts && opts.bg) || 'dawn';
     var layout = (opts && opts.layout) || 'classic';
     drawSceneBackground(ctx, w, h, bg);
@@ -927,7 +930,7 @@
       var refY = isTpl ? pad + Math.round(refPx * 0.82) : 108;
       ctx.fillStyle = tc.main;
       ctx.font = refFont;
-      ctx.fillText(ref, cx, refY);
+      ctx.fillText(refDisplay, cx, refY);
 
       ctx.fillStyle = tc.main;
       ctx.font = bodyFont;
@@ -972,7 +975,7 @@
 
     ctx.fillStyle = tc.main;
     ctx.font = refFont;
-    ctx.fillText(ref, pad, 88);
+    ctx.fillText(refDisplay, pad, 88);
 
     ctx.fillStyle = tc.main;
     ctx.font = bodyFont;

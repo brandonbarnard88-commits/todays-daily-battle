@@ -212,7 +212,7 @@ function trustedScript(s) {
     loaded = true;
     inject('/analytics-loader.js');
     inject('/gsc-verify.js');
-    inject('/share-page.js');
+    inject('/share-page.js?v=20260402shareattrs');
     inject('/utils.js');
   }
   function onTrigger() {
@@ -513,17 +513,353 @@ function wireTdbPrimarySiteNav() {
   } catch (_) {}
 }
 
+/** Set aria-current="page" on primary nav links from location (all hubs using .tdb-primary-site-nav). */
+function highlightCurrentNav() {
+  try {
+    var rawPath = (window.location && window.location.pathname) || '/';
+    var path = rawPath;
+    try {
+      path = decodeURIComponent(path);
+    } catch (_) {}
+    path = String(path).replace(/\/index\.html$/i, '/');
+    path = path.replace(/\/+$/, '') || '/';
+
+    var sel = '.tdb-primary-site-nav .tdb-primary-nav-panel a[href], .tdb-primary-site-nav .tdb-nav-more-panel a[href]';
+    document.querySelectorAll(sel).forEach(function (a) {
+      a.removeAttribute('aria-current');
+    });
+
+    function parsedLink(href) {
+      try {
+        var u = new URL(href, window.location.origin);
+        var p = u.pathname.replace(/\/index\.html$/i, '/').replace(/\/+$/, '') || '/';
+        return { pathname: p, hash: u.hash || '' };
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function pathMatches(linkPathname) {
+      if (linkPathname === '/') {
+        return path === '/' || path === '';
+      }
+      if (linkPathname === '/kids/corner.html') {
+        return /^\/kids\//i.test(path) || path === '/kids/corner.html';
+      }
+      if (linkPathname === '/bible-tool.html') {
+        return path === '/bible-tool.html' || path.indexOf('/bible-tool') === 0;
+      }
+      if (linkPathname === '/give') {
+        return path === '/give' || /\/give\.html$/i.test(path);
+      }
+      return path === linkPathname;
+    }
+
+    var best = null;
+    var bestLen = -1;
+    document.querySelectorAll(sel).forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      if (!href || href.charAt(0) === '#') return;
+      var lp = parsedLink(href);
+      if (!lp) return;
+      if (lp.pathname === '/' && lp.hash) return;
+      if (!pathMatches(lp.pathname)) return;
+      var len = lp.pathname.length;
+      if (len > bestLen) {
+        bestLen = len;
+        best = a;
+      }
+    });
+    if (best) best.setAttribute('aria-current', 'page');
+  } catch (_) {}
+}
+
+var TDB_TOUR_SEEN_KEY = 'tdb-tour-seen';
+
+function getWelcomeTourPageTag() {
+  try {
+    var p = (window.location && window.location.pathname) || '';
+    var path = p.replace(/\/index\.html$/i, '/');
+    if (path === '/' || path === '') return 'home';
+    if (/\/verse\.html$/i.test(path)) return 'verse';
+    if (/\/explore\.html$/i.test(path)) return 'explore';
+  } catch (_) {}
+  return 'other';
+}
+
+function openTdbWelcomeTour(opts) {
+  opts = opts || {};
+  var manual = opts.manual === true;
+  if (!manual) {
+    try {
+      if (localStorage.getItem(TDB_TOUR_SEEN_KEY) === '1') return false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  var existingOv = document.getElementById('tdb-welcome-tour-overlay');
+  if (existingOv) {
+    if (!manual) return false;
+    try {
+      if (existingOv.parentNode) existingOv.parentNode.removeChild(existingOv);
+    } catch (_) {}
+  }
+
+  var pageTag = getWelcomeTourPageTag();
+  var steps = [
+    {
+      title: 'Welcome',
+      body: 'Spring 2026 steadied the phone menu, clarified the welcome on home, verse, and explore, and added short parent summaries beside family rooms. Scripture stays first\u2014no feed, no hype. You can reopen this anytime from \u201cSite tour\u201d in the header.'
+    },
+    {
+      title: 'Today\u2019s Verse',
+      body: 'Read today\u2019s KJV verse, listen, save it to My Verses, or share it. Text size and chapter reading stay close when you need them.'
+    },
+    {
+      title: 'Save and rhythm',
+      body: 'My Verses keeps what you need near. Battle Plans offer a gentle day-by-day rhythm for hard weeks\u2014and Explore lists every door without hiding anything.'
+    },
+    {
+      title: 'Prayer Wall',
+      body: 'One honest line can rest on the wall\u2014private on this device\u2014or you can read quiet lines from others when you are ready.'
+    },
+    {
+      title: 'Kids, family, support',
+      body: 'Kids & Family holds stories and lighter tools for little ones; parents get calm summaries alongside. If this place helped you, the Support page explains giving before you choose an amount.'
+    }
+  ];
+
+  function injectTourCssOnce() {
+    if (document.getElementById('tdb-welcome-tour-style')) return;
+    var st = document.createElement('style');
+    st.id = 'tdb-welcome-tour-style';
+    st.textContent =
+      '#tdb-welcome-tour-overlay{position:fixed;inset:0;z-index:100050;background:rgba(6,8,14,.58);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1rem;box-sizing:border-box}' +
+      '#tdb-welcome-tour-dialog{max-width:22rem;width:100%;border-radius:16px;border:1px solid rgba(227,188,103,.28);background:linear-gradient(165deg,rgba(14,18,28,.97),rgba(8,11,18,.98));box-shadow:0 24px 64px rgba(0,0,0,.45),0 0 48px rgba(227,188,103,.06);padding:1.15rem 1.2rem 1rem;color:#e8edf5;font-family:Inter,system-ui,sans-serif}' +
+      '#tdb-welcome-tour-dialog h2{margin:0 0 .5rem;font-size:1.05rem;font-weight:700;color:#f2f4f8;letter-spacing:.02em}' +
+      '#tdb-welcome-tour-body{margin:0 0 .85rem;font-size:.92rem;line-height:1.55;color:rgba(200,210,225,.95)}' +
+      '#tdb-welcome-tour-step{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:rgba(227,188,103,.72);margin:0 0 .35rem;font-weight:600}' +
+      '.tdb-welcome-tour-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:.25rem}' +
+      '.tdb-welcome-tour-actions button{min-height:44px;padding:.45rem .95rem;border-radius:10px;font-size:.88rem;font-weight:600;cursor:pointer;border:1px solid rgba(227,188,103,.35);background:rgba(227,188,103,.12);color:#f8f3e6}' +
+      '.tdb-welcome-tour-actions button:focus-visible{outline:2px solid rgba(227,188,103,.75);outline-offset:2px}' +
+      '.tdb-welcome-tour-skip{background:transparent!important;color:rgba(200,210,225,.88)!important;border-color:rgba(148,163,184,.35)!important}' +
+      '#tdb-welcome-tour-dont-row{display:flex;align-items:flex-start;gap:.5rem;margin:.65rem 0 .15rem;font-size:.84rem;color:rgba(200,210,225,.9);line-height:1.4}' +
+      '#tdb-welcome-tour-dont-row input{margin-top:.2rem;flex-shrink:0;width:1rem;height:1rem}' +
+      '@media (prefers-reduced-motion:reduce){#tdb-welcome-tour-overlay{backdrop-filter:none}}';
+    document.head.appendChild(st);
+  }
+
+  function markSeen() {
+    try {
+      localStorage.setItem(TDB_TOUR_SEEN_KEY, '1');
+    } catch (_) {}
+  }
+
+  function mountTourDialog() {
+    injectTourCssOnce();
+    var overlay = document.createElement('div');
+    overlay.id = 'tdb-welcome-tour-overlay';
+    overlay.setAttribute('role', 'presentation');
+
+    var dialog = document.createElement('div');
+    dialog.id = 'tdb-welcome-tour-dialog';
+    dialog.setAttribute('role', 'dialog');
+    dialog.setAttribute('aria-modal', 'true');
+    dialog.setAttribute('aria-labelledby', 'tdb-welcome-tour-title');
+    dialog.setAttribute('aria-describedby', 'tdb-welcome-tour-body');
+
+    var stepEl = document.createElement('p');
+    stepEl.className = 'tdb-welcome-tour-step';
+    stepEl.id = 'tdb-welcome-tour-step-label';
+
+    var h2 = document.createElement('h2');
+    h2.id = 'tdb-welcome-tour-title';
+
+    var body = document.createElement('p');
+    body.id = 'tdb-welcome-tour-body';
+    body.className = 'section-note';
+    body.style.marginBottom = '0.85rem';
+
+    var dontRow = document.createElement('label');
+    dontRow.id = 'tdb-welcome-tour-dont-row';
+    var dontCb = document.createElement('input');
+    dontCb.type = 'checkbox';
+    dontCb.id = 'tdb-welcome-tour-dont-again';
+    var dontTxt = document.createElement('span');
+    dontTxt.textContent = 'Don\u2019t show this welcome again';
+    dontRow.appendChild(dontCb);
+    dontRow.appendChild(dontTxt);
+
+    var actions = document.createElement('div');
+    actions.className = 'tdb-welcome-tour-actions';
+
+    var nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.id = 'tdb-welcome-tour-next';
+
+    var skipBtn = document.createElement('button');
+    skipBtn.type = 'button';
+    skipBtn.className = 'tdb-welcome-tour-skip';
+    skipBtn.textContent = 'Skip';
+
+    actions.appendChild(nextBtn);
+    actions.appendChild(skipBtn);
+
+    dialog.appendChild(stepEl);
+    dialog.appendChild(h2);
+    dialog.appendChild(body);
+    dialog.appendChild(dontRow);
+    dialog.appendChild(actions);
+    overlay.appendChild(dialog);
+    document.body.appendChild(overlay);
+
+    var idx = 0;
+    var trap = null;
+
+    function applyStep() {
+      var s = steps[idx];
+      stepEl.textContent = 'Step ' + (idx + 1) + ' of ' + steps.length;
+      h2.textContent = s.title;
+      body.textContent = s.body;
+      nextBtn.textContent = idx >= steps.length - 1 ? 'Done' : 'Next';
+    }
+
+    function closeTour(forceSeen) {
+      if (trap) {
+        document.removeEventListener('keydown', trap);
+        trap = null;
+      }
+      if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      if (forceSeen) markSeen();
+    }
+
+    function onSkip() {
+      try {
+        if (dontCb.checked) markSeen();
+      } catch (_) {}
+      closeTour(false);
+    }
+
+    function onNext() {
+      if (idx >= steps.length - 1) {
+        markSeen();
+        closeTour(false);
+        return;
+      }
+      idx += 1;
+      applyStep();
+      try {
+        nextBtn.focus();
+      } catch (_) {}
+    }
+
+    nextBtn.addEventListener('click', onNext);
+    skipBtn.addEventListener('click', onSkip);
+
+    trap = function (e) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onSkip();
+        return;
+      }
+      if (e.key !== 'Tab' || !dialog) return;
+      var focusables = dialog.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      var list = Array.prototype.slice.call(focusables).filter(function (el) {
+        return el.offsetParent !== null || el === dontCb;
+      });
+      if (list.length === 0) return;
+      var first = list[0];
+      var last = list[list.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', trap);
+
+    overlay.addEventListener('click', function (ev) {
+      if (ev.target === overlay) onSkip();
+    });
+
+    applyStep();
+    try {
+      nextBtn.focus();
+    } catch (_) {}
+
+    if (typeof trackEvent === 'function') {
+      trackEvent('welcome_tour_open', { page: pageTag, source: manual ? 'manual' : 'auto' });
+    }
+  }
+
+  mountTourDialog();
+  return true;
+}
+
+function wireWelcomeTour() {
+  if (typeof window === 'undefined' || window.__tdbWelcomeTourWired) return;
+  window.__tdbWelcomeTourWired = true;
+
+  window.openTdbWelcomeTour = function (o) {
+    try {
+      return openTdbWelcomeTour(o && typeof o === 'object' ? o : { manual: true });
+    } catch (_) {
+      return false;
+    }
+  };
+
+  document.addEventListener(
+    'click',
+    function (e) {
+      var t = e.target && e.target.closest && e.target.closest('#tdb-tour-open-btn, .tdb-tour-open-btn');
+      if (!t) return;
+      e.preventDefault();
+      openTdbWelcomeTour({ manual: true });
+    },
+    true
+  );
+
+  function shouldAutoTour() {
+    try {
+      if (localStorage.getItem(TDB_TOUR_SEEN_KEY) === '1') return false;
+    } catch (_) {
+      return false;
+    }
+    var tag = getWelcomeTourPageTag();
+    return tag === 'home' || tag === 'verse' || tag === 'explore';
+  }
+
+  if (shouldAutoTour()) {
+    window.setTimeout(function () {
+      openTdbWelcomeTour({ manual: false });
+    }, 1500);
+  }
+}
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', wireEarlySearchFallbacks);
   document.addEventListener('DOMContentLoaded', normalizeHomeMainOrder);
   document.addEventListener('DOMContentLoaded', wireTdbSoftRetry);
   document.addEventListener('DOMContentLoaded', wireTdbPrimarySiteNav);
+  document.addEventListener('DOMContentLoaded', highlightCurrentNav);
 } else {
   wireEarlySearchFallbacks();
   normalizeHomeMainOrder();
   wireTdbSoftRetry();
   wireTdbPrimarySiteNav();
+  highlightCurrentNav();
 }
+
+try {
+  window.addEventListener('pageshow', function (ev) {
+    if (ev.persisted) highlightCurrentNav();
+  });
+} catch (_) {}
 
 /** One consistent “Try again” for pages that use .tdb-soft-retry-btn (reload). CSP-safe — no inline handlers. */
 function wireTdbSoftRetry() {
@@ -5621,6 +5957,8 @@ function renderSmartResult(query) {
   }
   if (!verse) verse = ROTATING_HERO_VERSES[0];
 
+  container.classList.add('tdb-loading');
+  try {
   container.innerHTML = '';
 
   var card = document.createElement('div');
@@ -5774,6 +6112,9 @@ function renderSmartResult(query) {
     container.appendChild(crisisNote);
   }
   container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } finally {
+    container.classList.remove('tdb-loading');
+  }
 }
 
 function mountRotatingHeroVerse() {
@@ -9037,14 +9378,21 @@ function wireFooterFridaySignup() {
   btn.addEventListener('click', function () {
     var email = String((input && input.value) || '').trim().toLowerCase();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      if (status) status.textContent = 'Enter a valid email.';
+      if (status) status.textContent = 'Use a full email (name@domain.com).';
+      try {
+        input.setAttribute('aria-invalid', 'true');
+        input.setAttribute('aria-describedby', status && status.id ? status.id : '');
+      } catch (eInv) {}
       return;
     }
+    try {
+      input.removeAttribute('aria-invalid');
+    } catch (eRm) {}
     btn.disabled = true;
     if (status) status.textContent = 'Adding you…';
     var client = supabaseClient || (typeof window.__tdbSupabaseClient !== 'undefined' ? window.__tdbSupabaseClient : null);
     if (!client) {
-      if (status) status.textContent = 'Try again in a moment.';
+      if (status) status.textContent = 'Connection is not ready. Try again in a moment.';
       btn.disabled = false;
       return;
     }
@@ -9054,15 +9402,15 @@ function wireFooterFridaySignup() {
     } catch (e) {}
     client.from('newsletter_signups').insert(payload).then(function (res) {
       if (res && res.error) {
-        if (status) status.textContent = 'Try again or use the weekly opt-in above.';
+        if (status) status.textContent = 'Could not save just now. Try again, or use the newsletter box on the home page.';
         btn.disabled = false;
         return;
       }
       try { localStorage.setItem(doneKey, '1'); } catch (e) {}
-      if (status) status.textContent = 'You\'re in. One verse + prayer every Friday.';
+      if (status) status.textContent = 'You are in. One verse and a short prayer land on Fridays—nothing noisy.';
       input.disabled = true;
     }).catch(function () {
-      if (status) status.textContent = 'Try again in a moment.';
+      if (status) status.textContent = 'Network hiccup. Try again in a moment.';
       btn.disabled = false;
     });
   });
@@ -14099,20 +14447,22 @@ async function saveNewsletterSignup(email, prefs, name) {
   local.unshift(entry);
   saveNewsletterSignups(local);
   bumpStat('newsletterSignups');
+  var cloudOk = false;
   if (isSupabaseConfigured()) {
     try {
       // RLS: anon INSERT only on newsletter_signups; no SELECT (see supabase-newsletter-anon-insert.sql).
-      await supabaseClient.from('newsletter_signups').insert({
+      var ins = await supabaseClient.from('newsletter_signups').insert({
         email: safeEmail,
         daily_opt_in: Boolean(prefs?.daily),
         weekly_opt_in: Boolean(prefs?.weekly),
         preferred_time: prefs?.preferredTime || null
       });
+      cloudOk = !(ins && ins.error);
     } catch {
-      // Table may not exist or missing column; local storage acts as fallback.
+      cloudOk = false;
     }
   }
-  return entry;
+  return Object.assign({}, entry, { cloudOk: cloudOk });
 }
 
 function renderMessages(items, previewLimit) {
@@ -21439,6 +21789,10 @@ function sanitizeNudgeElements() {
 
 async function tdbInitImpl() {
   if (!document.body) return;
+  try {
+    highlightCurrentNav();
+  } catch (_) {}
+  wireWelcomeTour();
   ensureDailyNudgeToast();
   (function initPrayerWallEarly() {
     var listEl = document.getElementById('prayer-wall-list');
@@ -21707,11 +22061,35 @@ async function tdbInitImpl() {
     // ── Add handler (delegation on #prayer-wall + live input lookup — survives odd init order / automation)
     function postPrayerWallFromInput() {
       var inp = document.getElementById('prayer-wall-input');
+      var errEl = document.getElementById('prayer-wall-input-error');
+      var okEl = document.getElementById('prayer-wall-post-success');
       if (!inp) return;
+      if (errEl) {
+        errEl.textContent = '';
+        errEl.setAttribute('hidden', '');
+      }
+      if (okEl) {
+        okEl.textContent = '';
+        okEl.setAttribute('hidden', '');
+      }
       var raw = typeof sanitizeUserInput === 'function'
         ? sanitizeUserInput((inp.value || '').trim())
         : String((inp.value || '').trim()).slice(0, 120);
-      if (!raw) return;
+      if (!raw || raw.length < 2) {
+        if (errEl) {
+          errEl.textContent = 'Add a few honest words (at least two) so the wall knows how to pray with you.';
+          errEl.removeAttribute('hidden');
+        }
+        try {
+          inp.setAttribute('aria-invalid', 'true');
+          if (errEl && errEl.id) inp.setAttribute('aria-describedby', errEl.id);
+        } catch (eA) {}
+        if (typeof showEliteToast === 'function') showEliteToast('Type a little more, then share.');
+        return;
+      }
+      try {
+        inp.removeAttribute('aria-invalid');
+      } catch (eR) {}
       var core = raw.slice(0, 106);
       var text = ('Facing ' + core + ' today').slice(0, 120);
       var items = getItems();
@@ -21729,7 +22107,17 @@ async function tdbInitImpl() {
       if (typeof dismissPrayerWallGrace === 'function') dismissPrayerWallGrace();
       var isSynced = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
       updateNoteEl(isSynced);
-      if (typeof showEliteToast === 'function') showEliteToast(isSynced ? 'Prayer added—synced.' : 'Prayer added—saved locally.');
+      if (typeof showEliteToast === 'function') showEliteToast(isSynced ? 'Prayer added—synced.' : 'Prayer added—saved on this device.');
+      if (okEl) {
+        okEl.textContent =
+          'Shared quietly. No name is shown with this line—just hearts and gentle company. You can post again anytime.';
+        okEl.removeAttribute('hidden');
+        window.setTimeout(function () {
+          try {
+            okEl.setAttribute('hidden', '');
+          } catch (_) {}
+        }, 14000);
+      }
       if (typeof trackEvent === 'function') trackEvent('prayer_wall_add', { battle_prompt: true });
       var ul = document.getElementById('prayer-wall-list') || listEl;
       if (ul && ul.lastElementChild) ul.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -23676,25 +24064,47 @@ async function tdbInitImpl() {
       const weeklyEl = document.getElementById('newsletter-weekly');
       const dailyEl = document.getElementById('newsletter-daily');
       const chosenName = truncateForDb((nameEl && nameEl.value ? nameEl.value.trim() : '') || getPreferredIdentityName(), MAX_DISPLAY_NAME_LENGTH);
-      const email = emailEl ? emailEl.value.trim() : '';
+      const email = emailEl ? emailEl.value.trim().toLowerCase() : '';
       const weekly = weeklyEl ? weeklyEl.checked : true;
       const daily = dailyEl ? dailyEl.checked : false;
-      if (!email || !email.includes('@')) {
-        if (statusEl) statusEl.textContent = 'Enter a valid email to subscribe.';
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailOk) {
+        if (statusEl) statusEl.textContent = 'Use a complete email (name@domain.com).';
+        if (emailEl) {
+          emailEl.setAttribute('aria-invalid', 'true');
+          if (statusEl && statusEl.id) emailEl.setAttribute('aria-describedby', statusEl.id);
+        }
         return;
       }
+      if (emailEl) emailEl.removeAttribute('aria-invalid');
       if (!weekly && !daily) {
-        if (statusEl) statusEl.textContent = 'Select weekly or daily reminders.';
+        if (statusEl) statusEl.textContent = 'Pick at least one: weekly recap or daily verse.';
         return;
       }
       const timeEl = document.getElementById('newsletter-time');
       const preferredTime = timeEl && timeEl.value ? timeEl.value : '';
       if (chosenName) saveMessageDisplayName(chosenName);
-      await saveNewsletterSignup(email, { weekly, daily, preferredTime }, chosenName);
+      newsletterBtn.disabled = true;
+      if (statusEl) statusEl.textContent = 'Saving your preferences…';
+      let result = null;
+      try {
+        result = await saveNewsletterSignup(email, { weekly, daily, preferredTime }, chosenName);
+      } catch {
+        result = null;
+      }
+      newsletterBtn.disabled = false;
       if (emailEl) emailEl.value = '';
       if (nameEl && chosenName) nameEl.value = chosenName;
-      if (statusEl) statusEl.textContent = 'Thanks! You are signed up.';
-      if (typeof showEliteToast === 'function') showEliteToast("Signed up.");
+      if (statusEl) {
+        if (result && result.cloudOk) {
+          statusEl.textContent = 'You are on the list. Watch your inbox—calm rhythm, easy unsubscribe anytime.';
+        } else if (result) {
+          statusEl.textContent = 'Saved here on this device. If email does not arrive, check spam or try again when you are online.';
+        } else {
+          statusEl.textContent = 'Something blocked that save. Try again in a moment.';
+        }
+      }
+      if (typeof showEliteToast === 'function') showEliteToast(result && result.cloudOk ? 'You are signed up.' : 'Preferences saved locally.');
     });
   }
 

@@ -972,3 +972,33 @@
   white-space: normal;
   line-height: 1.35;
 }
+
+/* Battle Plans index: gentle spinner while routing/rendering */
+@keyframes tdb-lux-plan-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.plan-list.tdb-loading {
+  position: relative;
+  min-height: 12rem;
+  pointer-events: none;
+}
+.plan-list.tdb-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 2px solid rgba(136, 150, 176, 0.35);
+  border-top-color: rgba(227, 188, 103, 0.9);
+  border-radius: 50%;
+  animation: tdb-lux-plan-loading-spin 0.75s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .plan-list.tdb-loading::after {
+    animation: none;
+    opacity: 0.55;
+  }
+}

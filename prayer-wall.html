@@ -19,7 +19,7 @@
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/prayer-wall.html">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
   <meta property="og:title" content="Quiet prayer room &mdash; Today&rsquo;s Daily Battle">
-  <meta property="og:description" content="One line for God. No feed, no performance &mdash; just honesty before Him. Optional community board when you are ready.">
+  <meta property="og:description" content="KJV-first quiet room: one honest line for God on this device, silent amens, no performance. Optional community board when you are ready.">
   <meta property="og:url" content="https://todaysdailybattle.com/prayer-wall.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
@@ -91,6 +91,7 @@
       </div>
     </nav>
       <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
         <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
         <a href="/my-verses.html" class="tdb-header-account-nudge__link">My Verses</a>
       </div>
@@ -196,6 +197,8 @@
               placeholder="e.g. anxiety, caregiving, chronic pain" aria-label="Name your battle in a few words (posts anonymously)" autocomplete="off">
             <button type="button" id="prayer-wall-add" class="prayer-wall-add-btn" aria-label="Share anonymously on the prayer wall">Share anonymously</button>
           </div>
+          <p id="prayer-wall-input-error" class="prayer-wall-input-error section-note" role="alert" hidden></p>
+          <p id="prayer-wall-post-success" class="prayer-wall-post-success section-note" role="status" aria-live="polite" hidden></p>
           <div class="prayer-wall-alive" role="region" aria-label="Your prayers on this device">
             <div class="today-count" id="prayer-device-today-block">
               <span id="prayer-device-quiet" class="prayer-device-quiet">Quiet on this device today—Silent Amen still counts.</span>
@@ -284,8 +287,8 @@
   </p>
 
   <p class="site-footer-support-nudge" role="note">
-    If this quiet place helped you, you can <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — you choose the amount">support the work here</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
-    <span class="site-footer-support-nudge-alt"> Or use <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support via Buy Me a Coffee">Buy Me a Coffee</a>.</span>
+    If this quiet place helped you, read <a href="/give.html">how support works</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Or open <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support via Buy Me a Coffee">Buy Me a Coffee</a> directly.</span>
   </p>
 
   <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
@@ -417,7 +420,7 @@
 
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260431idle" data-cfasync="false"></script>
-  <script src="share-page.js" defer></script>
+  <script type="module" src="script.js?v=20260402punch" data-cfasync="false"></script>
+  <script src="share-page.js?v=20260402shareattrs" defer></script>
 </body>
 </html>

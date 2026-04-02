@@ -440,6 +440,39 @@
       text-align: center;
       line-height: 1.4;
     }
+    .kids-parent-today-strip {
+      font-family: 'Nunito', sans-serif;
+      border-radius: 14px;
+      border: 2px solid rgba(250, 204, 21, 0.35);
+      background: rgba(15, 23, 42, 0.65);
+      padding: 0.75rem 1rem;
+      margin: 0 0 1rem;
+      max-width: 36rem;
+    }
+    .kids-parent-today-strip h2 {
+      margin: 0 0 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fde68a;
+    }
+    .kids-parent-today-strip p {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: #e2e8f0;
+    }
+    .kids-parent-today-strip a { color: #fde68a; font-weight: 700; }
+    .kids-parent-rhythm-list {
+      margin: 0.55rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.84rem;
+      line-height: 1.45;
+      color: #cbd5e1;
+    }
+    .kids-parent-rhythm-list li { margin-bottom: 0.28rem; }
+    .kids-parent-rhythm-list a { color: #fde68a; font-weight: 700; }
   </style>
 </head>
 <body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful">
@@ -509,6 +542,15 @@
           <span class="kids-bc-sep" aria-hidden="true">›</span>
           <span aria-current="page">Story library</span>
         </nav>
+        <aside class="kids-parent-today-strip" aria-labelledby="kids-parent-today-heading">
+          <h2 id="kids-parent-today-heading">What your child sees here</h2>
+          <p>Cartoon story cards, optional quizzes, and KJV verse hooks—fun first, short sessions. For filters, journey buttons, and calm controls, open the <a href="parent.html">Parent Dashboard</a>. You can sit together on this same page or hand off the device; nothing posts without you.</p>
+          <ul class="kids-parent-rhythm-list" aria-label="Simple rhythm you can repeat">
+            <li><a href="/verse.html">One verse</a> from the whole site (KJV)</li>
+            <li><a href="#kids-library-grid">One story card</a> on this page</li>
+            <li><a href="prayer-activities.html">One short prayer habit</a> when you have a minute</li>
+          </ul>
+        </aside>
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Bible Story Library</h1>
           <p class="kids-battle-tagline">Read Bible adventures at your pace—pictures, optional video, and quizzes that help you think (hints when you need them). Pick a story and go.</p>
@@ -738,7 +780,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
   <script src="kids-story-fuse-search.js?v=20260331fuse" defer></script>
   <script src="kids-corner.js?v=20260326kidsflow" defer></script>
-  <script type="module" src="../script.js?v=20260328feelwire" data-cfasync="false" defer></script>
+  <script type="module" src="../script.js?v=20260402punch" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->
   <div id="kid-lock-modal" class="kid-lock-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="kid-lock-title" aria-describedby="kid-lock-hint">

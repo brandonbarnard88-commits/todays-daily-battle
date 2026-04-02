@@ -94,7 +94,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260431idle">
+  <link rel="modulepreload" href="script.js?v=20260402punch">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -710,6 +710,9 @@
     :root[data-theme="light"] .site-top-links .header-auth-welcome,
     :root[data-theme="light"] .site-top-links .header-auth-sep {
       color: rgba(55, 62, 78, 0.82);
+    }
+    :root[data-theme="light"] .site-top-links .tdb-tour-open-btn {
+      color: rgba(45, 52, 68, 0.88);
     }
     /* Cream page (sky hidden): tagline must read like body text, not faint sky-muted */
     :root[data-theme="light"] .site-tagline {
@@ -1327,6 +1330,75 @@
       color: rgba(70, 62, 48, 0.82);
       border-bottom-color: color-mix(in srgb, var(--line, #2a3344) 65%, #9e7625 18%);
     }
+    .tdb-whats-new-spring {
+      margin: 0.85rem auto 0;
+      max-width: 46rem;
+      padding: 0.85rem 1rem 0.95rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line) 78%, var(--gold-soft, #c9a84c) 22%);
+      background: color-mix(in srgb, var(--card, #161b22) 94%, rgba(227, 188, 103, 0.06));
+      text-align: center;
+    }
+    .tdb-whats-new-spring__title {
+      margin: 0 0 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-soft, #c9a84c);
+    }
+    .tdb-whats-new-spring__body {
+      margin: 0 0 0.45rem;
+      font-size: clamp(0.88rem, 2.3vw, 0.95rem);
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--text) 90%, var(--muted) 10%);
+      text-wrap: pretty;
+    }
+    .tdb-whats-new-spring__body a {
+      color: var(--gold-soft, #c9a84c);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+    .tdb-whats-new-spring__foot {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .tdb-whats-new-spring__foot a {
+      color: color-mix(in srgb, var(--gold-soft, #c9a84c) 85%, var(--text) 15%);
+      font-weight: 600;
+    }
+    :root[data-theme="light"] .tdb-whats-new-spring {
+      background: color-mix(in srgb, #fff 92%, #f7f0e0 8%);
+      border-color: color-mix(in srgb, #d4c4a8 55%, #cbd5e1 45%);
+    }
+    :root[data-theme="light"] .tdb-whats-new-spring__body {
+      color: rgba(40, 48, 62, 0.9);
+    }
+    .tdb-share-quiet-place-cta {
+      max-width: min(100%, 38rem);
+      margin: 0.65rem auto 0.25rem;
+      padding: 0.85rem 1rem 1rem;
+      text-align: center;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      background: color-mix(in srgb, var(--card) 90%, rgba(227, 188, 103, 0.06));
+      box-sizing: border-box;
+    }
+    .tdb-share-quiet-place-cta__text {
+      margin: 0 0 0.65rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .tdb-share-quiet-place-btn {
+      min-height: 44px;
+    }
+    :root[data-theme="light"] .tdb-share-quiet-place-cta {
+      background: color-mix(in srgb, #fff 94%, #f7f0e0 6%);
+      border-color: color-mix(in srgb, #d4c4a8 45%, #cbd5e1 55%);
+    }
     :root[data-theme="light"] .tdb-moat-banner-link:hover {
       color: #5c410f;
       border-bottom-color: color-mix(in srgb, #5c410f 45%, transparent);
@@ -1346,7 +1418,8 @@
       .site-tagline { font-size: 0.6rem; letter-spacing: 0.14em; }
       .site-title-underline { width: 110px; }
       .site-top-links { font-size: 0.8rem; margin-top: 0.45rem; padding: 0.35rem 0.5rem; }
-      .site-top-links a { margin: 0 0.28rem; }
+      .site-top-links a,
+      .site-top-links .tdb-tour-open-btn { margin: 0 0.28rem; }
       .tdb-moat-banner { padding: 0.85rem 0.9rem 1rem; }
       .tdb-moat-banner-kicker { letter-spacing: 0.03em; margin-top: 0.85rem; }
       .tdb-moat-banner-plans { gap: 0.38rem; }
@@ -1418,6 +1491,28 @@
       color: rgba(234, 179, 8, 0.9);
     }
     .site-top-links a:focus-visible {
+      outline: 2px solid rgba(234, 179, 8, 0.6);
+      outline-offset: 2px;
+    }
+    .site-top-links .tdb-tour-open-btn {
+      color: #c5ced9;
+      text-decoration: none;
+      margin: 0 0.35rem;
+      padding: 0.2rem 0.45rem;
+      font: inherit;
+      font-weight: 600;
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .site-top-links .tdb-tour-open-btn:hover {
+      color: rgba(234, 179, 8, 0.9);
+      background: rgba(234, 179, 8, 0.08);
+    }
+    .site-top-links .tdb-tour-open-btn:focus-visible {
       outline: 2px solid rgba(234, 179, 8, 0.6);
       outline-offset: 2px;
     }
@@ -6225,6 +6320,8 @@
           <span aria-hidden="true"> · </span>
           <a href="login.html?mode=signup" aria-label="Sign Up">Sign Up</a>
         </span>
+        <span aria-hidden="true"> · </span>
+        <button type="button" class="tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
         <a href="about.html" aria-label="About Today's Daily Battle">About</a>
         <a href="faq.html" aria-label="FAQ">FAQ</a>
         <a href="why-not-ai.html" aria-label="Why we are not an AI chat tool">Why not AI?</a>
@@ -6237,7 +6334,7 @@
           <span class="tdb-nav-flyout-toggle__label">Site</span>
         </button>
         <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-home">
-          <a href="/" aria-current="page">Home</a>
+          <a href="/">Home</a>
           <a href="/verse.html">Today&rsquo;s Verse</a>
           <a href="/plans.html">Battle Plans</a>
           <a href="/prayer-wall.html">Prayer Wall</a>
@@ -6301,6 +6398,17 @@
         <p id="tdb-moat-plans-note" class="tdb-moat-banner-footnote">Each link opens a seven-day KJV plan unless the plan name says otherwise.</p>
       </div>
     </details>
+
+    <section class="tdb-whats-new-spring" id="whats-new-spring-2026" aria-labelledby="tdb-whats-new-spring-heading">
+      <h2 class="tdb-whats-new-spring__title" id="tdb-whats-new-spring-heading">What&rsquo;s new &mdash; Spring 2026</h2>
+      <p class="tdb-whats-new-spring__body">A steadier site menu on phones, a gentle first-visit welcome on home, verse, and explore, clearer prayer-wall feedback, and a calmer <a href="give.html">support</a> page before you give. Family and kids hubs include a short parent-facing summary so you always know what the room is for.</p>
+      <p class="tdb-whats-new-spring__foot"><a href="about.html#whats-new-study">Study tools</a> &middot; <a href="about.html#whats-new-family-mission">Family and mission</a></p>
+    </section>
+
+    <div class="tdb-share-quiet-place-cta" role="region" aria-labelledby="tdb-share-quiet-heading">
+      <p class="tdb-share-quiet-place-cta__text" id="tdb-share-quiet-heading">Know someone who needs a calmer feed than a feed? Send them the same quiet room you found.</p>
+      <button type="button" class="share-page-btn tdb-share-quiet-place-btn" data-share-url="https://todaysdailybattle.com/" data-share-title="Today&#39;s Daily Battle" data-share-text="Today&#39;s Daily Battle &mdash; one KJV verse, gentle search, and prayer tools. No hype, works offline on your phone when you need it.">Share this quiet place</button>
+    </div>
 
     <!-- Hidden search plumbing for script.js compatibility -->
     <!-- DO NOT REMOVE: #main-search, #quick-actions-hero are protected core tools — build fails if missing -->
@@ -6948,8 +7056,8 @@
   </p>
 
   <p class="site-footer-support-nudge" role="note">
-    If this quiet place helped you, you can <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — you choose the amount">support the work here</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
-    <span class="site-footer-support-nudge-alt"> Or use <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support via Buy Me a Coffee">Buy Me a Coffee</a>.</span>
+    If this quiet place helped you, read <a href="/give.html">how support works</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Or open <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support via Buy Me a Coffee">Buy Me a Coffee</a> directly.</span>
   </p>
 
   <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
@@ -11271,7 +11379,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260431idle" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260402punch" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>
   <!-- Sync: following inline calls TDB_EASTER_SEASON on parse; defer would run too late. -->

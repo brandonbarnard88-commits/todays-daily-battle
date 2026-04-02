@@ -1722,6 +1722,37 @@ body.spacing-level-4 { --tdb-spacing-scale: 1.2; }
 @keyframes tdb-spin {
   to { transform: rotate(360deg); }
 }
+
+/* Section-level loading (feel search, shared buckets) */
+.tdb-loading {
+  position: relative;
+  min-height: 3.25rem;
+  pointer-events: none;
+}
+.tdb-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 1.65rem;
+  height: 1.65rem;
+  border: 2px solid rgba(148, 163, 184, 0.32);
+  border-top-color: rgba(227, 188, 103, 0.88);
+  border-radius: 50%;
+  animation: tdb-spin 0.75s linear infinite;
+  opacity: 0.95;
+}
+#feel-results.tdb-loading {
+  min-height: 6rem;
+  border-radius: 12px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tdb-loading::after {
+    animation: none;
+    opacity: 0.5;
+    border-top-color: rgba(227, 188, 103, 0.55);
+  }
+}
 .tdb-error-message {
   color: var(--text-muted);
   font-size: 0.95rem;
@@ -2467,6 +2498,15 @@ body {
 .tdb-header-account-nudge__link:focus-visible {
   outline: 2px solid rgba(227, 188, 103, 0.65);
   outline-offset: 2px;
+}
+button.tdb-header-account-nudge__link {
+  font: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
 @media (max-width: 768px) {
   .tdb-primary-site-nav.tdb-global-nav .tdb-nav-flyout-toggle,
@@ -5979,6 +6019,17 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .prayer-wall-item.prayer-wall-seed .prayer-wall-heart { opacity: 0.4; pointer-events: none; cursor: default; }
 .prayer-wall-item.prayer-wall-seed .prayer-wall-count { opacity: 0.6; }
 .prayer-wall-note { font-size: 0.9rem; margin-top: 0.5rem; }
+.prayer-wall-input-error {
+  color: #fca5a5;
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+}
+.prayer-wall-post-success {
+  color: rgba(167, 243, 208, 0.95);
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
 
 .prayer-wall-alive {
   margin: 1.5rem 0;

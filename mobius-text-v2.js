@@ -246,15 +246,19 @@
 
     if (!start) return;
 
-    if (typeof fetch === 'function' && breatheVoiceWrap) {
-      fetch('/audio/mobius-breathe-human.mp3', { method: 'HEAD', cache: 'no-store' })
-        .then(function (r) {
-          if (r.ok) {
-            window.__tdbMobiusBreatheHumanOk = true;
-            breatheVoiceWrap.hidden = false;
-          }
-        })
-        .catch(function () {});
+    if (typeof fetch === 'function' && breatheVoiceWrap && breatheHumanAud) {
+      var bu = breatheHumanAud.getAttribute('data-tdb-src');
+      if (bu) {
+        fetch(bu, { method: 'HEAD', cache: 'no-store' })
+          .then(function (r) {
+            if (r.ok) {
+              breatheHumanAud.src = bu;
+              window.__tdbMobiusBreatheHumanOk = true;
+              breatheVoiceWrap.hidden = false;
+            }
+          })
+          .catch(function () {});
+      }
     }
 
     if (breatheHumanChk) {

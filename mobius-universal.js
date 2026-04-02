@@ -1224,6 +1224,16 @@
       var studioAud = document.getElementById('mobius-guided-audio');
       var humanAud = document.getElementById('mobius-guided-audio-human');
       var activeGuidedAudio = null;
+      (function initMobiusStudioGuidedSrc() {
+        if (!studioAud || typeof fetch !== 'function') return;
+        var su = studioAud.getAttribute('data-tdb-src');
+        if (!su) return;
+        fetch(su, { method: 'HEAD', cache: 'no-store' })
+          .then(function (r) {
+            if (r.ok) studioAud.src = su;
+          })
+          .catch(function () {});
+      })();
       function resolveGuidedAudio() {
         var wantHuman = false;
         try {
@@ -1252,9 +1262,12 @@
           });
         });
         if (typeof fetch === 'function') {
-          fetch('/audio/mobius-guided-human.mp3', { method: 'HEAD', cache: 'no-store' })
+          var hu = humanAud && humanAud.getAttribute('data-tdb-src');
+          if (!hu) return;
+          fetch(hu, { method: 'HEAD', cache: 'no-store' })
             .then(function (r) {
-              if (r.ok) {
+              if (r.ok && humanAud) {
+                humanAud.src = hu;
                 window.__tdbMobiusHumanGuidedOk = true;
                 wrap.hidden = false;
               }

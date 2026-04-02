@@ -1,5 +1,7 @@
 # Offline Verse Audio (MP3)
 
+Möbius loads **`mobius-guided-10min.mp3`**, **`mobius-guided-human.mp3`**, and **`mobius-breathe-human.mp3`** only after a **`HEAD` check** succeeds (`data-tdb-src` in `mobius.html`), so missing files do not cause load-time **404** noise in the console. Drop real files into `audio/` and deploy to enable playback.
+
 ## Möbius human narration (highest-leverage polish)
 
 Two files drive the **premium** Möbius experience. Replace the bundled placeholders (often macOS “Samantha” / system TTS renders) with **your own calm human studio reads** when ready—same filenames, same paths:

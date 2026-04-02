@@ -992,13 +992,10 @@
 
   </main>
 
-  <audio id="mobius-guided-audio" src="/audio/mobius-guided-10min.mp3" preload="metadata" aria-label="10-minute guided meditation"></audio>
-  <audio id="mobius-guided-audio-human" preload="none" aria-label="Spoken alternate guided meditation (10 minutes)">
-    <source src="/audio/mobius-guided-human.mp3" type="audio/mpeg">
-  </audio>
-  <audio id="mobius-breathe-human-audio" preload="none" playsinline aria-label="Spoken breathing guide for calm path">
-    <source src="/audio/mobius-breathe-human.mp3" type="audio/mpeg">
-  </audio>
+  <!-- No src until HEAD confirms file exists — avoids console 404 when tracks are not deployed yet -->
+  <audio id="mobius-guided-audio" preload="none" data-tdb-src="/audio/mobius-guided-10min.mp3" aria-label="10-minute guided meditation"></audio>
+  <audio id="mobius-guided-audio-human" preload="none" data-tdb-src="/audio/mobius-guided-human.mp3" aria-label="Spoken alternate guided meditation (10 minutes)"></audio>
+  <audio id="mobius-breathe-human-audio" preload="none" playsinline data-tdb-src="/audio/mobius-breathe-human.mp3" aria-label="Spoken breathing guide for calm path"></audio>
 
   <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -1170,9 +1167,9 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
-  <script src="mobius-universal.js?v=20260330mobius-title" defer></script>
+  <script src="mobius-universal.js?v=20260413audio-lazy" defer></script>
   <script src="tdb-mobius-journal.js?v=20260330mlj1" defer></script>
-  <script src="mobius-text-v2.js?v=20260330breathe-human" defer></script>
+  <script src="mobius-text-v2.js?v=20260413audio-lazy" defer></script>
   <script src="share-page.js?v=20260402shareattrs" defer></script>
   <script src="easter-eggs.js" defer></script>
   <script nonce="tdb2025s">

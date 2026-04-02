@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260330plansmeta -->
+<!-- tdb build 20260404plans-bible-studies -->
 <html lang="en">
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
@@ -257,6 +257,52 @@
       text-underline-offset: 3px;
       outline: none;
     }
+
+    /* Bible Studies — free grid (same save rhythm; some open in 7-day reader) */
+    .plans-bible-studies-section {
+      margin: 2.25rem 0 1.5rem;
+      padding: 1.5rem 1.15rem 1.65rem;
+      background: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid var(--tdb-surface-panel-border);
+      border-radius: var(--tdb-surface-radius, 18px);
+      box-shadow: var(--tdb-surface-panel-shadow);
+    }
+    .plans-bible-studies-heading {
+      font-size: clamp(1.25rem, 4vw, 1.45rem);
+      margin: 0 0 0.35rem;
+      color: var(--gold);
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+    .plans-bible-studies-lead {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .plans-bible-studies-lead-detail {
+      margin: 0.5rem 0 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .plans-bible-studies-section .study-grid {
+      margin-top: 1.1rem;
+    }
+    .plans-bible-studies-foot {
+      margin: 1.2rem 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .plans-bible-studies-foot a {
+      color: var(--gold-soft, #c9a84c);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .plans-bible-studies-foot a:hover { color: var(--gold); }
 
     .plans-all-heading {
       font-size: 0.78rem;
@@ -954,6 +1000,7 @@
         <h2 class="plans-start-here-title" id="plans-start-here-title">Start here</h2>
         <p class="plans-start-here-lead">If choosing feels like too much, start with the lane that fits today. Each link opens the same plan you will see in the full list below.</p>
         <div class="plans-lane-quick" role="navigation" aria-label="Jump to a plan lane">
+          <a class="plans-lane-chip" href="#bible-studies-free">Bible Studies</a>
           <a class="plans-lane-chip" href="#plans-lane-foundations">Foundations</a>
           <a class="plans-lane-chip" href="#plans-lane-fear">Fear &amp; worry</a>
           <a class="plans-lane-chip" href="#plans-lane-grief">Grief</a>
@@ -1083,6 +1130,79 @@
         </div>
         <a class="plans-start-here-see-all" href="#all-plans">Browse every plan</a>
       </section>
+
+      <section class="plans-bible-studies-section" id="bible-studies-free" aria-labelledby="bible-studies-free-title">
+        <h2 class="plans-bible-studies-heading" id="bible-studies-free-title">Bible Studies — Free for All</h2>
+        <p class="plans-bible-studies-lead">Short, daily dives. No login, no guilt—just faith.</p>
+        <p class="plans-bible-studies-lead-detail">Pick a topic. <strong>Start Free</strong> opens the right track—progress saves on this device (or syncs when you sign in). Three rows below are full <strong>Battle Plans</strong> on this page; the others use the same gentle day-by-day reader with curated verses.</p>
+        <div class="study-grid" aria-label="Bible study tracks">
+          <article class="study-card">
+            <h3 class="study-card-title">Armor of God</h3>
+            <span class="study-card-topic">Spiritual warfare</span>
+            <p class="study-card-desc">A 7-day look at Ephesians 6:10–18. Belt of truth, breastplate of righteousness, shield of faith—one piece per day.</p>
+            <span class="study-card-days">7 days · Battle Plan</span>
+            <a class="btn btn-primary study-card-btn" href="plans.html?plan=armorofgod">Start Free</a>
+          </article>
+          <article class="study-card">
+            <h3 class="study-card-title">Peace in the Storm</h3>
+            <span class="study-card-topic">Anxiety &amp; peace</span>
+            <p class="study-card-desc">Short daily verses and reflections on finding calm when life is chaotic.</p>
+            <span class="study-card-days">5 days · Reader</span>
+            <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=peace-in-storm">Start Free</a>
+          </article>
+          <article class="study-card">
+            <h3 class="study-card-title">Fruit of the Spirit</h3>
+            <span class="study-card-topic">Character &amp; growth</span>
+            <p class="study-card-desc">Galatians 5:22–23—love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance. One fruit per day.</p>
+            <span class="study-card-days">9 days · Reader</span>
+            <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=fruit-of-spirit">Start Free</a>
+          </article>
+          <article class="study-card">
+            <h3 class="study-card-title">Forgiveness Flow</h3>
+            <span class="study-card-topic">Forgiveness</span>
+            <p class="study-card-desc">Matthew 18, Psalm 51, and more. Let go, move on, and receive God&rsquo;s mercy.</p>
+            <span class="study-card-days">7 days · Battle Plan</span>
+            <a class="btn btn-primary study-card-btn" href="plans.html?plan=forgiveness">Start Free</a>
+          </article>
+          <article class="study-card">
+            <h3 class="study-card-title">Psalms of Comfort</h3>
+            <span class="study-card-topic">Comfort &amp; refuge</span>
+            <p class="study-card-desc">Psalm 23, 27, 46, 91, and more. When you need a refuge, these verses meet you there.</p>
+            <span class="study-card-days">7 days · Battle Plan</span>
+            <a class="btn btn-primary study-card-btn" href="plans.html?plan=psalmscomfort">Start Free</a>
+          </article>
+          <article class="study-card">
+            <h3 class="study-card-title">Faith Over Fear</h3>
+            <span class="study-card-topic">Courage</span>
+            <p class="study-card-desc">2 Timothy 1:7, Isaiah 41:10, Joshua 1:9—replace fear with faith.</p>
+            <span class="study-card-days">5 days · Reader</span>
+            <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=faith-over-fear">Start Free</a>
+          </article>
+          <article class="study-card">
+            <h3 class="study-card-title">Hope in Hard Times</h3>
+            <span class="study-card-topic">Hope</span>
+            <p class="study-card-desc">Psalms and Romans—find light when it&rsquo;s dark. God of hope fills you with joy and peace.</p>
+            <span class="study-card-days">5 days · Reader</span>
+            <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=hope-in-hard-times">Start Free</a>
+          </article>
+          <article class="study-card">
+            <h3 class="study-card-title">Love One Another</h3>
+            <span class="study-card-topic">Love</span>
+            <p class="study-card-desc">John 13:34, 1 John 4—how to love as Christ loved.</p>
+            <span class="study-card-days">5 days · Reader</span>
+            <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=love-one-another">Start Free</a>
+          </article>
+          <article class="study-card">
+            <h3 class="study-card-title">The Beatitudes</h3>
+            <span class="study-card-topic">Blessed life</span>
+            <p class="study-card-desc">Matthew 5:3–11—Jesus&rsquo; portrait of the blessed. Poor in spirit, meek, merciful, peacemakers.</p>
+            <span class="study-card-days">9 days · Reader</span>
+            <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=beatitudes">Start Free</a>
+          </article>
+        </div>
+        <p class="plans-bible-studies-foot">All Scripture on screen is <abbr title="King James Version">KJV</abbr>. Battle Plans keep their day keys in this library; reader tracks match <a href="bible-study.html">the Bible Studies hub</a>. Nothing here is a performance—open any day you need it.</p>
+      </section>
+
       <div class="easter-banner hidden" id="easterBanner" role="region" aria-labelledby="easterBannerHeading" hidden>
         <div class="easter-banner-text">
           <p class="easter-banner-eyebrow" id="easterBannerHeading">Around Easter</p>

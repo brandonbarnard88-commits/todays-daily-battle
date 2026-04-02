@@ -75,9 +75,24 @@
     .yr-table th, .yr-table td { border: 1px solid var(--line); padding: 0.45rem 0.5rem; text-align: left; vertical-align: top; }
     .yr-table th { color: var(--gold); font-weight: 700; background: rgba(227, 188, 103, 0.08); }
     .yr-table .yr-write { min-height: 2rem; background: transparent; }
+    .yr-plain-planner-wrap { margin-top: 1rem; }
+    .yr-plain-planner-wrap summary {
+      cursor: pointer; color: var(--gold); font-weight: 600; min-height: 44px;
+      display: flex; align-items: center; list-style-position: outside;
+    }
+    .yr-plain-planner-wrap summary:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 3px; border-radius: 6px; }
+    .yr-plain-planner-wrap[open] summary { margin-bottom: 0.35rem; }
+    .yr-planner-plain {
+      margin: 0; padding: 0.75rem 1rem;
+      font-size: 0.78rem; line-height: 1.5; color: rgba(245, 247, 251, 0.9);
+      background: rgba(12, 16, 26, 0.65); border: 1px solid var(--line); border-radius: 10px;
+      white-space: pre-wrap; font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace; overflow-x: auto;
+    }
+    table.yr-mv-table td.yr-mv-text { font-size: 0.78rem; color: rgba(245, 247, 251, 0.85); max-width: 12rem; }
     @media print {
       .tdb-global-nav, .tdb-global-subnav { position: static; }
       .yr-print-zone { break-inside: avoid; }
+      .yr-plain-planner-wrap, .yr-planner-plain { break-inside: avoid; }
     }
   </style>
 </head>
@@ -160,6 +175,8 @@
     <section id="yr-summer" aria-labelledby="yr-summer-h">
       <h2 id="yr-summer-h">Summer Seeds (lighter weeks)</h2>
       <p><strong>Quiet summer with Jesus</strong> &mdash; aim for three short visits a week (about 3&ndash;5 minutes), not seven.</p>
+      <p><strong>Eight-week spine:</strong> <a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> &mdash; one KJV anchor day per week beside a grown-up; progress saves on this device like your other Battle Plans.</p>
+      <p><strong>Optional deeper rotation</strong> (same summer, if you want more pages open):</p>
       <ul>
         <li><strong>Weeks 1&ndash;2:</strong> <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> at half pace.</li>
         <li><strong>Weeks 3&ndash;4:</strong> <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a>.</li>
@@ -173,11 +190,12 @@
       <h2 id="yr-holidays-h">Holidays &amp; seasonal doors</h2>
       <p>More context and alternates: <a href="seasonal.html">Seasonal paths</a>.</p>
       <ul>
-        <li><strong>Back to school:</strong> <a href="plans.html?plan=peace">7-Day Peace</a>, <a href="plans.html?plan=worrytrust">Worry to Trust</a>, <a href="seasonal.html#back-to-school">Seasonal &mdash; back to school</a>.</li>
-        <li><strong>Harvest / thanks:</strong> open any week inside <a href="plans.html?plan=praisethanks30">30-Day Praise &amp; Thanksgiving</a> in November (or whenever you teach gratitude).</li>
-        <li><strong>Advent / Christmas:</strong> <a href="plans.html?plan=christmas7">Christmas Week</a> &mdash; Christ the Light (seven days).</li>
-        <li><strong>New Year:</strong> <a href="plans.html?plan=newyear7">New Year Week &mdash; Steady Mercies</a>.</li>
-        <li><strong>Easter:</strong> <a href="he-is-risen.html">He is risen</a> readings &middot; <a href="plans.html?plan=easter">Resurrection Hope</a> (seven-day plan).</li>
+        <li><strong>Back to school:</strong> <a href="plans.html?plan=schoolcourage">Back-to-School Courage</a> (seven days) &middot; <a href="plans.html?plan=peace">7-Day Peace</a> &middot; <a href="plans.html?plan=worrytrust">Worry to Trust</a> &middot; <a href="seasonal.html#back-to-school">Seasonal &mdash; back to school</a>.</li>
+        <li><strong>Harvest / thanks:</strong> <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a> (seven days) &middot; any week in <a href="plans.html?plan=praisethanks30">30-Day Praise &amp; Thanksgiving</a>.</li>
+        <li><strong>Advent / Christmas:</strong> <a href="plans.html?plan=adventquiet">Advent Quiet</a> (seven days) &middot; <a href="plans.html?plan=christmas7">Christmas Week</a> &mdash; Christ the Light.</li>
+        <li><strong>New Year:</strong> <a href="plans.html?plan=newyear7">New Year Week &mdash; Steady Mercies</a> &middot; <a href="plans.html?plan=gentleyear">Gentle New Year Reset</a> (five short days).</li>
+        <li><strong>Easter:</strong> <a href="he-is-risen.html">He is risen</a> readings &middot; <a href="plans.html?plan=easter">Resurrection Hope</a> (seven-day plan) &mdash; prominent doorway in spring.</li>
+        <li><strong>Summer:</strong> <a href="plans.html?plan=summerstill">Summer Stillness</a> (five days) &middot; <a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> (eight-week spine).</li>
       </ul>
     </section>
 
@@ -193,6 +211,25 @@
     <section id="yr-school-chapel" aria-labelledby="yr-school-chapel-h">
       <h2 id="yr-school-chapel-h">Private school, chapel, or Bible class</h2>
       <p>One fifteen-minute block weekly: open the day on a projector or tablet, read the <abbr title="King James Version">KJV</abbr> verse aloud, read the short reflection, do the small step (whisper, draw, or kindness), pray the printed prayer. Leader notes and copy for families: <a href="church-sharing-kit.html#csk-children-print-leader">Children&rsquo;s ministry leader guide</a> and <a href="church-sharing-kit.html#csk-volunteer-training">Volunteer training</a> on the Church Sharing Kit.</p>
+    </section>
+
+    <section id="yr-memory" aria-labelledby="yr-memory-h">
+      <h2 id="yr-memory-h">Memory verses (calendar year)</h2>
+      <p>One anchor verse per month in the KJV&mdash;gentle review on <strong>this device</strong> only. Mark &ldquo;learning&rdquo; or celebrate &ldquo;memorized&rdquo; on the <a href="family.html#family-year-round-memory">Family hub</a>; this grid lists the same verses. <strong>Weekly:</strong> say one aloud. <strong>Summer (June&ndash;July):</strong> one or two a week is plenty.</p>
+      <div class="yr-table-wrap">
+        <table class="yr-table yr-mv-table" aria-label="Monthly memory verses">
+          <thead>
+            <tr>
+              <th scope="col">Month</th>
+              <th scope="col">Reference</th>
+              <th scope="col">Verse (short)</th>
+              <th scope="col">Status on device</th>
+            </tr>
+          </thead>
+          <tbody id="yr-memory-tbody"></tbody>
+        </table>
+      </div>
+      <p class="section-note" style="margin-top:0.75rem">Pin any Battle Plan day to this list: open <a href="plans.html">Battle Plans</a> and tap <strong>Pin to Memory Verses</strong> on a day card.</p>
     </section>
 
     <section class="yr-print-zone" id="yearly-rhythm-planner" aria-labelledby="yearly-rhythm-planner-h">
@@ -219,11 +256,34 @@
             <tr><th scope="row">March</th><td>Lenten quiet optional &middot; <a href="plans.html?plan=easter">Resurrection Hope</a> before Easter</td><td class="yr-write"></td><td class="yr-write"></td></tr>
             <tr><th scope="row">April</th><td>Easter season &middot; <a href="he-is-risen.html">He is risen</a></td><td class="yr-write"></td><td class="yr-write"></td></tr>
             <tr><th scope="row">May</th><td>Finish a kids track or <a href="plans.html?plan=psalmscomfortfamily">Psalms of Comfort (Family)</a></td><td class="yr-write"></td><td class="yr-write"></td></tr>
-            <tr><th scope="row">June</th><td>Summer Seeds &mdash; weeks 1&ndash;4 (see above)</td><td class="yr-write"></td><td class="yr-write"></td></tr>
-            <tr><th scope="row">July</th><td>Summer Seeds &mdash; weeks 5&ndash;8 or <a href="plans.html?plan=peace">Peace</a> days</td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">June</th><td><a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> &mdash; weeks 1&ndash;4 spine + optional rotation (see above)</td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">July</th><td><a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> &mdash; weeks 5&ndash;8 spine <em>or</em> <a href="plans.html?plan=peace">Peace</a> days</td><td class="yr-write"></td><td class="yr-write"></td></tr>
           </tbody>
         </table>
       </div>
+      <details class="yr-plain-planner-wrap">
+        <summary>Plain text for copy or print-to-PDF</summary>
+        <pre class="yr-planner-plain" id="yearly-rhythm-planner-plain">Today&apos;s Daily Battle — Year-at-a-glance (August through July)
+https://todaysdailybattle.com/yearly-rhythm.html
+
+Month     Suggested focus
+--------  ----------------------------------------------------------
+August    Back to school calm — Peace (plans.html?plan=peace)
+September Lord&apos;s Prayer for Kids starts (plans.html?plan=lordsprayer-kids)
+October   Continue prayer kids or Beatitudes for Kids
+November  Praise &amp; Thanksgiving, any 7–14 days (plans.html?plan=praisethanks30)
+December  Christmas Week (plans.html?plan=christmas7)
+January   New Year Week (plans.html?plan=newyear7)
+February  Sower for Kids (plans.html?plan=sower-kids)
+March     Lenten quiet optional; Resurrection Hope before Easter (plans.html?plan=easter)
+April     Easter season — He is risen (he-is-risen.html)
+May       Finish a kids track or Psalms of Comfort Family (plans.html?plan=psalmscomfortfamily)
+June      Summer Seeds for Kids weeks 1–4 (plans.html?plan=summer-seeds) + optional rotation
+July      Summer Seeds for Kids weeks 5–8 or Peace days (plans.html?plan=peace)
+
+Weekly printable tracker:
+https://todaysdailybattle.com/church-sharing-kit.html#csk-homesch-tracker</pre>
+      </details>
       <p>Weekly detail sheet: <a href="church-sharing-kit.html#csk-homesch-tracker">Homeschool week tracker</a> on the Church Sharing Kit.</p>
     </section>
 
@@ -397,5 +457,13 @@
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <script defer src="/language-switcher.js"></script>
 </footer>
+  <script src="memory-verses.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.TDB_memoryVerses && typeof window.TDB_memoryVerses.mountYearlyTable === 'function') {
+        window.TDB_memoryVerses.mountYearlyTable('#yr-memory-tbody');
+      }
+    });
+  </script>
 </body>
 </html>

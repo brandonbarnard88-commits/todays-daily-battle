@@ -709,6 +709,49 @@
   action: 'Ask God to help your heart listen and grow—one quiet question is enough.',
   prayer: 'Jesus, help my heart hear You and grow good fruit. Amen.' }
   ];
+  // Summer Seeds for Kids — 8 anchor days (one per lighter summer week); plans id summer-seeds; key tdb-plan-summer-seeds-day
+  var summerSeeds8 = [
+{ title: 'Summer Seeds — Week 1: Blessed when you know you need God', ref: 'Matthew 5:3', text: 'Blessed are the poor in spirit: for theirs is the kingdom of heaven.',
+  speaker: 'Jesus on the mount', plain: 'Jesus blesses honest hearts that know they need God—not proud show-offs, but children who say, "Father, I need You." Heaven\'s kingdom belongs to people like that.',
+  today: 'Where could you admit you need God instead of pretending you have it all together?',
+  action: 'Whisper, "God, I need You," once today before a meal or at bedtime.',
+  prayer: 'Father, I need You. Thank You that Your kingdom welcomes hearts like mine. Amen.' },
+{ title: 'Summer Seeds — Week 2: Comfort when your heart feels heavy', ref: 'Matthew 5:4', text: 'Blessed are they that mourn: for they shall be comforted.',
+  speaker: 'Jesus on the mount', plain: 'Jesus sees tears. He blesses people who grieve and promises comfort—not a quick fix, but His gentle nearness.',
+  today: 'What sadness has been sitting on your heart lately?',
+  action: 'Tell Jesus about one sad thing in a short, honest sentence.',
+  prayer: 'Jesus, You see my tears. Please comfort me today. Amen.' },
+{ title: 'Summer Seeds — Week 3: Talking to Father God', ref: 'Matthew 6:9', text: 'After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.',
+  speaker: 'Jesus teaching His disciples to pray', plain: 'Jesus shows us how to pray. We start with "Our Father"—God is family to us—and we honor His holy name.',
+  today: 'Does prayer feel far away, or like coming home?',
+  action: 'Say slowly: "Our Father in heaven, hallowed be Your name."',
+  prayer: 'Our Father in heaven, holy is Your name. I love that I may come to You. Amen.' },
+{ title: 'Summer Seeds — Week 4: Asking for today\'s bread', ref: 'Matthew 6:11', text: 'Give us this day our daily bread.',
+  speaker: 'Jesus teaching His disciples to pray', plain: 'Jesus teaches us to ask God for what we need today—not hoarding worry for every tomorrow, just today\'s bread.',
+  today: 'What is one "daily bread" need you can hand to God?',
+  action: 'Name one thing you need today and ask God for it out loud or in a whisper.',
+  prayer: 'Father, give us this day our daily bread. Thank You for caring for today. Amen.' },
+{ title: 'Summer Seeds — Week 5: God\'s Word is like seed', ref: 'Matthew 13:3-4', text: 'And he spake many things unto them in parables, saying, Behold, a sower went forth to sow; And when he sowed, some seeds fell by the way side, and the fowls came and devoured them up:',
+  speaker: 'Jesus by the sea', plain: 'Jesus tells a story about a farmer sowing seed. The seed is like God\'s Word—truth He wants to plant in your heart.',
+  today: 'When does God\'s Word bounce off instead of sinking in?',
+  action: 'Ask someone you trust to read Matthew 13:3-9 with you—or listen quietly while they read.',
+  prayer: 'Jesus, plant Your Word deep in my heart this summer. Amen.' },
+{ title: 'Summer Seeds — Week 6: Good soil grows fruit', ref: 'Matthew 13:8', text: 'But other fell into good ground, and brought forth fruit, some an hundredfold, some sixtyfold, some thirtyfold.',
+  speaker: 'Jesus in the parable of the sower', plain: 'Some seed lands in soft, good dirt. It grows and makes fruit—lots more than what was planted. God loves when our hearts receive His Word that way.',
+  today: 'How have you seen kindness or patience grow from something you learned in Scripture?',
+  action: 'Thank God out loud for one small way His Word has helped you grow.',
+  prayer: 'Lord, make my heart good soil and help me bear fruit for You. Amen.' },
+{ title: 'Summer Seeds — Week 7: Be still with God', ref: 'Psalm 46:10', text: 'Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.',
+  speaker: 'The psalmist', plain: 'Summer noise can get loud. God invites us to be still long enough to remember He is God—and He is in charge.',
+  today: 'What usually keeps your mind running when you could be still?',
+  action: 'Sit quietly for one minute. Breathe slowly and think: He is God.',
+  prayer: 'God, I am still with You. Help me know that You are God. Amen.' },
+{ title: 'Summer Seeds — Week 8: He cares for you', ref: 'Matthew 6:26', text: 'Behold the fowls of the air: for they sow not, neither do they reap, nor gather into barns; yet your heavenly Father feedeth them. Are ye not much better than they?',
+  speaker: 'Jesus on the mount', plain: 'Birds do not plant farms or fill barns, yet God feeds them. Jesus says we matter more to the Father than birds do—so we can rest from worry.',
+  today: 'What worry about "tomorrow" can you leave with God this week?',
+  action: 'Look for a bird or a flower today. Thank God that He notices you even more.',
+  prayer: 'Father, if You care for birds and flowers, I trust You to care for me. Amen.' }
+  ];
   // Bitterness & letting go (7 days)—roots, release, kindness; pairs with forgiveness/anger plans; plans id lettinggo
   var lettingGo7 = [
 { title: 'Root of bitterness', ref: 'Hebrews 12:15', text: 'Looking diligently lest any man fail of the grace of God; lest any root of bitterness springing up trouble you, and thereby many be defiled;',
@@ -1046,6 +1089,7 @@
     peacemakers7: peacemakers7,
     sower7: sower7,
     sowerKids7: sowerKids7,
+    summerSeeds8: summerSeeds8,
     longIllness7: longIllness7
   };
 })(typeof window !== 'undefined' ? window : globalThis);

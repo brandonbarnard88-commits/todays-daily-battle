@@ -41,6 +41,8 @@
       white-space: pre-wrap;
       word-break: break-word;
       color: var(--text, #e2e8f0);
+      -webkit-user-select: all;
+      user-select: all;
     }
     :root[data-theme="light"] .csk-pre {
       background: #f1f5f9;
@@ -54,6 +56,32 @@
     .csk-matrix th, .csk-matrix td { border: 1px solid rgba(148, 163, 184, 0.25); padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
     .csk-matrix th { background: rgba(0, 0, 0, 0.2); color: var(--gold-soft, #e3bc67); font-weight: 600; }
     .csk-matrix code { font-size: 0.8em; word-break: break-all; }
+    .csk-qr-grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 0.75rem;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    @media (min-width: 520px) {
+      .csk-qr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+    }
+    .csk-qr-card {
+      margin: 0;
+      text-align: center;
+      max-width: 300px;
+    }
+    .csk-qr-card img {
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: #fff;
+    }
+    .csk-qr-card figcaption { margin-top: 0.5rem; }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page church-sharing-kit-page">
@@ -159,11 +187,13 @@
             <li><a href="#csk-links">Key links</a></li>
             <li><a href="#csk-principles">Keep it gentle</a></li>
             <li><a href="#csk-email">Email templates</a></li>
+            <li><a href="#csk-email-children">Email &mdash; children&rsquo;s ministry</a></li>
             <li><a href="#csk-sms">Text / SMS</a></li>
             <li><a href="#csk-bulletin">Bulletin &amp; newsletter</a></li>
             <li><a href="#csk-app">Church app one-liners</a></li>
             <li><a href="#csk-groups">Small group ideas</a></li>
             <li><a href="#csk-print">Printable card</a></li>
+            <li><a href="#csk-qr">Printable QR images</a></li>
             <li><a href="#csk-social">Social posts</a></li>
             <li><a href="#csk-lobby">Lobby / table tent</a></li>
             <li><a href="#csk-testimonial">Testimonial style</a></li>
@@ -223,6 +253,23 @@ Start here: https://todaysdailybattle.com/plans.html
 Browse studies: https://todaysdailybattle.com/bible-study.html
 
 Use it alongside your church's teaching — a gentle rhythm at home between Sundays.</pre>
+
+          <h3 class="section-divider util-mt-2" id="csk-email-children">Email &mdash; children&rsquo;s / family ministry</h3>
+          <p class="section-note">Subject: A gentle KJV resource for families (no login)</p>
+          <pre class="csk-pre" tabindex="0" aria-label="Email for children's ministry leaders">Hi [Name],
+
+I'm passing along Today's Daily Battle — free, calm KJV reading plans with simple "one day at a time" steps. There's no login required to read; progress stays on each family's phone unless they choose to sign in for sync.
+
+For take-home or "read with a parent" nights, the kids' tracks pair well with Sundays: Lord's Prayer for Kids, Beatitudes for Kids, and Parable of the Sower for Kids — all KJV, meant to be read beside a grown-up.
+
+Plans: https://todaysdailybattle.com/plans.html
+Bible studies hub: https://todaysdailybattle.com/bible-study.html
+
+If you want bulletin blurbs or printable QR images for the lobby, everything is gathered here:
+https://todaysdailybattle.com/church-sharing-kit.html
+
+Blessings,
+[Your name]</pre>
         </section>
 
         <section class="glass" id="csk-sms" aria-labelledby="csk-sms-title">
@@ -265,6 +312,21 @@ KJV · Short plans · Kids & family options
 todaysdailybattle.com/plans.html</pre>
         </section>
 
+        <section class="glass" id="csk-qr" aria-labelledby="csk-qr-title">
+          <h2 class="section-divider" id="csk-qr-title">Printable QR images</h2>
+          <p class="section-note">Black on white, 280&times;280 &mdash; save or screenshot for bulletins, slides, or table tents. Regenerate anytime: <code>npm run build:church-qr</code> (see <code>scripts/generate-church-share-qr.cjs</code>).</p>
+          <div class="csk-qr-grid">
+            <figure class="csk-qr-card">
+              <img src="/assets/share/tdb-plans-qr.png" width="280" height="280" alt="QR code that opens Today&#39;s Daily Battle Battle Plans" loading="lazy" decoding="async">
+              <figcaption class="section-note">Opens <a href="https://todaysdailybattle.com/plans.html">todaysdailybattle.com/plans.html</a></figcaption>
+            </figure>
+            <figure class="csk-qr-card">
+              <img src="/assets/share/tdb-church-sharing-kit-qr.png" width="280" height="280" alt="QR code that opens the Church sharing kit page" loading="lazy" decoding="async">
+              <figcaption class="section-note">Opens <a href="https://todaysdailybattle.com/church-sharing-kit.html">this sharing kit</a> (copy-paste blurbs)</figcaption>
+            </figure>
+          </div>
+        </section>
+
         <section class="glass" id="csk-social" aria-labelledby="csk-social-title">
           <h2 class="section-divider" id="csk-social-title">Social posts</h2>
           <p class="section-note">Short (X / Threads)</p>
@@ -280,7 +342,7 @@ todaysdailybattle.com/plans.html</pre>
           <pre class="csk-pre" tabindex="0">Quiet KJV plans for home
 Scan or type: todaysdailybattle.com/plans.html
 Kids & family tracks available · No login</pre>
-          <p class="section-note">Add a QR code to <strong>https://todaysdailybattle.com/plans.html</strong> on your tent or card.</p>
+          <p class="section-note">Use the ready-made PNG above (<a href="#csk-qr">Printable QR images</a>) or point any generator at <strong>https://todaysdailybattle.com/plans.html</strong>.</p>
         </section>
 
         <section class="glass" id="csk-testimonial" aria-labelledby="csk-testimonial-title">

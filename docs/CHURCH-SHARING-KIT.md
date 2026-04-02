@@ -6,6 +6,21 @@ Use this file and that page together: the HTML page is what most pastors open on
 
 **Tone:** Quiet, respectful of time, no guilt, no hype. Offer the site as a **supplement** to the local church—not a replacement. Emphasize **no required login**, **KJV Scripture on the page**, and **progress saved on the user’s device** (optional sign-in for sync).
 
+## Printable QR images (repo)
+
+Black-on-white PNGs (280×280) ship in `assets/share/`:
+
+- `tdb-plans-qr.png` → `https://todaysdailybattle.com/plans.html`
+- `tdb-church-sharing-kit-qr.png` → `https://todaysdailybattle.com/church-sharing-kit.html`
+
+Regenerate after changing those URLs:
+
+```bash
+npm run build:church-qr
+```
+
+(`scripts/generate-church-share-qr.cjs` — requires devDependency `qrcode`.)
+
 ---
 
 ## Quick links to hand people
@@ -63,6 +78,27 @@ Start here: **https://todaysdailybattle.com/plans.html**
 Browse studies: **https://todaysdailybattle.com/bible-study.html**
 
 Use it alongside your church’s teaching — a gentle rhythm at home between Sundays.
+
+---
+
+## Email — children’s / family ministry
+
+Subject: A gentle KJV resource for families (no login)
+
+Hi [Name],
+
+I'm passing along **Today’s Daily Battle** — free, calm **KJV** reading plans with simple “one day at a time” steps. There’s **no login required** to read; progress stays on each family’s phone unless they choose to sign in for sync.
+
+For take-home or “read with a parent” nights, the kids’ tracks pair well with Sundays: **Lord’s Prayer for Kids**, **Beatitudes for Kids**, and **Parable of the Sower for Kids** — all KJV, meant to be read beside a grown-up.
+
+Plans: https://todaysdailybattle.com/plans.html  
+Bible studies hub: https://todaysdailybattle.com/bible-study.html  
+
+If you want bulletin blurbs or printable QR images for the lobby:  
+https://todaysdailybattle.com/church-sharing-kit.html
+
+Blessings,  
+[Your name]
 
 ---
 

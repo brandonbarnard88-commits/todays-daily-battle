@@ -200,7 +200,7 @@ On **church-sharing-kit.html** (`#csk-homesch-tracker`): a Mon–Fri table (plan
 
 *(Full layout with anchors: **church-sharing-kit.html#csk-children-ministry**.)*
 
-**Also on the kit page:** `#csk-lesson-outlines` (Sunday/midweek A–C), `#csk-vbs-ideas`, `#csk-vbs-print-leader`, `#csk-vbs-schedule-template`, `#csk-vbs-announcements`.
+**Also on the kit page:** `#csk-lesson-outlines` (Sunday/midweek A–C), `#csk-vbs-ideas`, `#csk-children-print-leader`, `#csk-vbs-print-leader`, `#csk-vbs-schedule-template`, `#csk-vbs-announcements`, `#csk-family-devotion-expanded`.
 
 ---
 
@@ -230,16 +230,24 @@ On `plans.html`, volunteers use **Start Free** on the plan card; no login requir
 
 ---
 
-## Printable leader one-page & VBS schedule
+## Printable leader guides & VBS schedule
 
-- **One-page leader reference:** `#csk-vbs-print-leader` — print/PDF from the browser.
-- **Five-day grid:** `#csk-vbs-schedule-template` — theme, plan/day #s, room, optional craft columns.
+- **Quick leader guide (children’s ministry):** `#csk-children-print-leader` — 30–45 min flow, tips, age suggestions; print the `<pre>` block.
+- **Compact reference (VBS + outline map):** `#csk-vbs-print-compact` inside `#csk-vbs-print-leader`.
+- **Expanded 5-day “A Quiet Place with Jesus”:** `#csk-vbs-quiet-place-expanded` — minute-by-minute days 1–5 + general VBS tips.
+- **Blank five-day grid:** `#csk-vbs-schedule-blank` — theme, plan/day #s, room, craft columns.
 
 ---
 
 ## VBS announcements & parent notes
 
-Copy blocks on `#csk-vbs-announcements`: bulletin blurb, parent email, SMS, take-home slip.
+Copy blocks on `#csk-vbs-announcements`: generic bulletin, **“A Quiet Place with Jesus”** bulletin/social (`#csk-vbs-bull-social-quiet`), email before VBS, **parent note after the week** (`#csk-vbs-parent-after-week`), SMS, take-home slip.
+
+---
+
+## Family devotion rhythm (for parents)
+
+On `#csk-family-devotion-expanded`: 10–15 min rhythm, weekly shape, age adjustments. **family.html** includes the same ideas for families on-site (`#family-devotion-rhythm-heading`).
 
 ---
 
@@ -295,7 +303,7 @@ We’ve been using **Parable of the Sower for Kids** at the table — short, KJV
 | Women’s / men’s / mixed Bible study | Beatitudes or Lord’s Prayer (adult) | `?plan=beatitudes` or `?plan=lordsprayer` |
 | Homeschool / co-op | Morning basket: Lord’s Prayer for Kids or Beatitudes for Kids; printable week on kit page | `?plan=lordsprayer-kids` · `#csk-homesch-tracker` |
 | Sunday school / children’s ministry | Opening quiet or rotation; integration ideas on kit page | `#csk-children-ministry` · `kids/corner.html#kids-corner-grown-up-plans` |
-| VBS / 5-day camp | Three calm themes; printable schedule | `#csk-vbs-ideas` · `#csk-vbs-schedule-template` |
+| VBS / 5-day camp | Quiet Place minute-by-minute + blank grid | `#csk-vbs-quiet-place-expanded` · `#csk-vbs-schedule-blank` |
 
 ---
 

@@ -21594,14 +21594,14 @@ function triggerResultsFade(el) {
 function getDefaultBibleStudies() {
   return [
     { id: 'armor-of-god', title: 'Armor of God', topic: 'Spiritual warfare', description: 'A 7-day look at Ephesians 6:10–18. Belt of truth, breastplate of righteousness, shield of faith—one piece per day.', days: 7 },
-    { id: 'peace-in-storm', title: 'Peace in the Storm', topic: 'Anxiety & peace', description: 'Short daily verses and reflections on finding calm when life is chaotic. 5 days.', days: 5 },
+    { id: 'peace-in-storm', title: 'Peace in the Storm', topic: 'Anxiety & peace', description: 'Short daily verses and reflections on finding calm when life is chaotic.', days: 5 },
     { id: 'fruit-of-spirit', title: 'Fruit of the Spirit', topic: 'Character & growth', description: 'Galatians 5:22–23—love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance. One fruit per day.', days: 9 },
-    { id: 'forgiveness-flow', title: 'Forgiveness Flow', topic: 'Forgiveness', description: 'Matthew 18, Psalm 51, and more. Let go, move on, and receive God\'s mercy. 7 days.', days: 7 },
-    { id: 'psalms-of-comfort', title: 'Psalms of Comfort', topic: 'Comfort & refuge', description: 'Psalm 23, 27, 46, 91, and more. When you need a refuge, these verses meet you there. 7 days.', days: 7 },
-    { id: 'faith-over-fear', title: 'Faith Over Fear', topic: 'Courage', description: '2 Timothy 1:7, Isaiah 41:10, Joshua 1:9—replace fear with faith. 5 days.', days: 5 },
-    { id: 'hope-in-hard-times', title: 'Hope in Hard Times', topic: 'Hope', description: 'Psalms and Romans—find light when it\'s dark. God of hope fills you with joy and peace. 5 days.', days: 5 },
-    { id: 'love-one-another', title: 'Love One Another', topic: 'Love', description: 'John 13:34, 1 John 4—how to love as Christ loved. 5 days.', days: 5 },
-    { id: 'beatitudes', title: 'The Beatitudes', topic: 'Blessed life', description: 'Matthew 5:3–11—Jesus\' portrait of the blessed. Poor in spirit, meek, merciful, peacemakers. 9 days.', days: 9 }
+    { id: 'forgiveness-flow', title: 'Forgiveness Flow', topic: 'Forgiveness', description: 'Matthew 18, Psalm 51, and more. Let go, move on, and receive God\'s mercy.', days: 7 },
+    { id: 'psalms-of-comfort', title: 'Psalms of Comfort', topic: 'Comfort & refuge', description: 'Psalm 23, 27, 46, 91, and more. When you need a refuge, these verses meet you there.', days: 7 },
+    { id: 'faith-over-fear', title: 'Faith Over Fear', topic: 'Courage', description: '2 Timothy 1:7, Isaiah 41:10, Joshua 1:9—replace fear with faith.', days: 5 },
+    { id: 'hope-in-hard-times', title: 'Hope in Hard Times', topic: 'Hope', description: 'Psalms and Romans—find light when it\'s dark. God of hope fills you with joy and peace.', days: 5 },
+    { id: 'love-one-another', title: 'Love One Another', topic: 'Love', description: 'John 13:34, 1 John 4—how to love as Christ loved.', days: 5 },
+    { id: 'beatitudes', title: 'The Beatitudes', topic: 'Blessed life', description: 'Matthew 5:3–11—Jesus\' portrait of the blessed. Poor in spirit, meek, merciful, peacemakers.', days: 9 }
   ];
 }
 
@@ -21637,7 +21637,7 @@ async function loadStudies() {
     var data = getDefaultBibleStudies();
     grid.innerHTML = '';
     data.forEach(function (study) {
-      var card = document.createElement('div');
+      var card = document.createElement('article');
       card.className = 'study-card';
       card.innerHTML =
         '<h3 class="study-card-title">' + escapeHtml(study.title) + '</h3>' +
@@ -21669,7 +21669,7 @@ async function loadStudies() {
     }
     grid.innerHTML = '';
     data.forEach(function (study) {
-      var card = document.createElement('div');
+      var card = document.createElement('article');
       card.className = 'study-card';
       card.innerHTML =
         '<h3 class="study-card-title">' + escapeHtml(study.title) + '</h3>' +
@@ -21696,7 +21696,7 @@ async function loadStudies() {
     var data = getDefaultBibleStudies();
     grid.innerHTML = '';
     data.forEach(function (study) {
-      var card = document.createElement('div');
+      var card = document.createElement('article');
       card.className = 'study-card';
       card.innerHTML =
         '<h3 class="study-card-title">' + escapeHtml(study.title) + '</h3>' +

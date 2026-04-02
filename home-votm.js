@@ -17,6 +17,7 @@
         btn.disabled = true;
         btn.setAttribute('aria-disabled', 'true');
         btn.title = 'Read-aloud is not available in this browser.';
+        btn.textContent = 'Read aloud unavailable';
       } else {
         btn.addEventListener('click', function () {
           var T = window.TDB_memoryVerses;

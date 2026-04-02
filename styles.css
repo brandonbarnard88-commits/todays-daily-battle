@@ -1856,7 +1856,10 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.75rem 1.25rem;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding-top: calc(var(--spacing-sm) + env(safe-area-inset-top, 0px));
+  padding-bottom: var(--spacing-sm);
+  padding-left: max(var(--spacing-md), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--spacing-md), env(safe-area-inset-right, 0px));
   min-height: 56px;
   min-width: 0;
   overflow-x: clip;
@@ -1872,7 +1875,10 @@ body {
 }
 .top-bar.top-bar-minimal {
   gap: 0.45rem 0.7rem;
-  padding: 0.45rem 0.85rem;
+  padding-top: calc(0.45rem + env(safe-area-inset-top, 0px));
+  padding-bottom: 0.45rem;
+  padding-left: max(0.85rem, env(safe-area-inset-left, 0px));
+  padding-right: max(0.85rem, env(safe-area-inset-right, 0px));
   position: static;
   top: auto;
 }
@@ -2456,10 +2462,12 @@ body {
   /* verse-of-day: keep heading + verse block handy on long scroll */
   .tdb-vod-sticky-mobile {
     position: sticky;
-    top: 3.15rem;
+    top: max(3.15rem, calc(env(safe-area-inset-top, 0px) + 2.85rem));
     z-index: 38;
     padding-top: 0.4rem;
     padding-bottom: 0.35rem;
+    padding-left: max(0px, env(safe-area-inset-left, 0px));
+    padding-right: max(0px, env(safe-area-inset-right, 0px));
     margin-bottom: 0.25rem;
     border-radius: 0 0 14px 14px;
     background: linear-gradient(180deg, color-mix(in srgb, var(--card, #1b212d) 94%, transparent) 0%, color-mix(in srgb, var(--bg-soft, #171c25) 92%, var(--card)) 100%);

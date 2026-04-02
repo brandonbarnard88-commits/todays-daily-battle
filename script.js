@@ -635,8 +635,8 @@ function openTdbWelcomeTour(opts) {
     var st = document.createElement('style');
     st.id = 'tdb-welcome-tour-style';
     st.textContent =
-      '#tdb-welcome-tour-overlay{position:fixed;inset:0;z-index:100050;background:rgba(6,8,14,.58);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1rem;box-sizing:border-box}' +
-      '#tdb-welcome-tour-dialog{max-width:22rem;width:100%;border-radius:16px;border:1px solid rgba(227,188,103,.28);background:linear-gradient(165deg,rgba(14,18,28,.97),rgba(8,11,18,.98));box-shadow:0 24px 64px rgba(0,0,0,.45),0 0 48px rgba(227,188,103,.06);padding:1.15rem 1.2rem 1rem;color:#e8edf5;font-family:Inter,system-ui,sans-serif}' +
+      '#tdb-welcome-tour-overlay{position:fixed;inset:0;z-index:100050;background:rgba(6,8,14,.58);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:max(1rem,env(safe-area-inset-top,0px)) max(1rem,env(safe-area-inset-right,0px)) max(1rem,env(safe-area-inset-bottom,0px)) max(1rem,env(safe-area-inset-left,0px));box-sizing:border-box}' +
+      '#tdb-welcome-tour-dialog{max-width:22rem;width:100%;max-height:min(88dvh,calc(100vh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 2rem));overflow-y:auto;border-radius:16px;border:1px solid rgba(227,188,103,.28);background:linear-gradient(165deg,rgba(14,18,28,.97),rgba(8,11,18,.98));box-shadow:0 24px 64px rgba(0,0,0,.45),0 0 48px rgba(227,188,103,.06);padding:1.15rem 1.2rem 1rem;color:#e8edf5;font-family:Inter,system-ui,sans-serif;-webkit-overflow-scrolling:touch}' +
       '#tdb-welcome-tour-dialog h2{margin:0 0 .5rem;font-size:1.05rem;font-weight:700;color:#f2f4f8;letter-spacing:.02em}' +
       '#tdb-welcome-tour-body{margin:0 0 .85rem;font-size:.92rem;line-height:1.55;color:rgba(200,210,225,.95)}' +
       '#tdb-welcome-tour-step{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:rgba(227,188,103,.72);margin:0 0 .35rem;font-weight:600}' +

@@ -1002,3 +1002,10 @@
     opacity: 0.55;
   }
 }
+
+/* Narrow phones: slightly roomier inscription + hub card copy (plans / memorize shells) */
+@media screen and (max-width: 480px) {
+  .tdb-lux-inscription {
+    line-height: 1.42;
+  }
+}

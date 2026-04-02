@@ -51,7 +51,7 @@ After editing shared partials in `partials/` or when shell chrome drifts, re-run
 - **`npm run sync:primary-nav`** — primary flyout nav block.
 - **`npm run sync:header`** / **`sync:lang-header`** — global header and language row when those partials change.
 
-Then bump any page-specific cache query strings if needed and run `npm run build` plus `npm run test`, `npm run test:site`, `npm run test:security`.
+Then bump any page-specific cache query strings if needed (keep `script.js`, `styles.css`, and `tdb-quiet-luxury.css` query params in sync across shells; update `test-site.js` / `test-site.py` when those tokens change) and run `npm run build` plus `npm run test`, `npm run test:site`, `npm run test:security`.
 
 ## Operations & launch
 

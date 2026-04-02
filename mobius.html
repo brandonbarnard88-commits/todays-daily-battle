@@ -80,7 +80,19 @@
       outline-offset: 2px;
       border-color: rgba(227, 188, 103, 0.65);
     }
-    .mobius-viz-wrap { width: 90%; max-width: 900px; height: 70vh; min-height: 320px; display: flex; align-items: center; justify-content: center; flex: 1; margin: 0 auto 1.5rem; }
+    .mobius-viz-wrap {
+      width: 96%;
+      max-width: 1120px;
+      height: min(78vh, 720px);
+      min-height: clamp(360px, 52vw, 520px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      margin: 0 auto 2rem;
+      padding: 0.35rem 0.25rem;
+      box-sizing: border-box;
+    }
     .mobius-viz-wrap svg { max-width: 100%; max-height: 100%; object-fit: contain; }
     @keyframes mobius-universal-viz-slow-spin {
       from { transform: rotate(0deg); }
@@ -88,7 +100,7 @@
     }
     #mobius-universal-viz svg {
       transform-origin: 50% 50%;
-      animation: mobius-universal-viz-slow-spin 5s linear infinite;
+      animation: mobius-universal-viz-slow-spin 36s linear infinite;
     }
     .mobius-node.mobius-start-node circle { stroke: var(--tool-gold); stroke-width: 3; }
     .mobius-node.mobius-pivot-node circle { stroke: rgba(227, 188, 103, 0.7); stroke-width: 2; }
@@ -1167,7 +1179,7 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
-  <script src="mobius-universal.js?v=20260413audio-lazy" defer></script>
+  <script src="mobius-universal.js?v=20260402viz-orbit" defer></script>
   <script src="tdb-mobius-journal.js?v=20260330mlj1" defer></script>
   <script src="mobius-text-v2.js?v=20260413audio-lazy" defer></script>
   <script src="share-page.js?v=20260402shareattrs" defer></script>

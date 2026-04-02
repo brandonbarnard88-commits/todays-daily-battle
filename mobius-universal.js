@@ -268,7 +268,7 @@
 
   function applyLayout(simNodes, width, height) {
     var cx = width / 2, cy = height / 2;
-    var radius = Math.min(width, height) / 2.6;
+    var radius = Math.min(width, height) / 2.28;
     var n = simNodes.length;
     var circleCount = 0;
     for (var i = 0; i < n; i++) {

@@ -1451,12 +1451,21 @@
           var file = new File([blob], 'verse.png', { type: 'image/png' });
           var go = function () {
             if (!navigator.share) return Promise.reject(new Error('no share'));
+            var title = "Today's Daily Battle";
+            var text = ref + ' (KJV)';
+            var pageUrl = window.location.href;
             try {
               if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                return navigator.share({ title: "Today's Daily Battle", text: ref + ' (KJV)', files: [file] });
+                var withUrl = { title: title, text: text, files: [file], url: pageUrl };
+                if (navigator.canShare(withUrl)) {
+                  return navigator.share(withUrl).catch(function () {
+                    return navigator.share({ title: title, text: text, files: [file] });
+                  });
+                }
+                return navigator.share({ title: title, text: text, files: [file] });
               }
-            } catch (e) {}
-            return navigator.share({ title: "Today's Daily Battle", text: ref + ' (KJV)', url: window.location.href });
+            } catch (e) { /* fall through */ }
+            return navigator.share({ title: title, text: text, url: pageUrl });
           };
           go()
             .then(function () {

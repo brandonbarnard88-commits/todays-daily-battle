@@ -2569,7 +2569,8 @@ button.tdb-header-account-nudge__link {
     flex-wrap: nowrap;
     align-items: stretch;
     gap: 0.12rem;
-    padding: 0.55rem 0.85rem 1rem;
+    padding: 0.55rem max(0.85rem, env(safe-area-inset-right, 0px)) max(1rem, env(safe-area-inset-bottom, 0px))
+      max(0.85rem, env(safe-area-inset-left, 0px));
     margin: 0;
     background: rgba(10, 14, 24, 0.98);
     border-bottom: 1px solid rgba(227, 188, 103, 0.28);

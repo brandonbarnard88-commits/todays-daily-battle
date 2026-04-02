@@ -14,6 +14,7 @@ Use this before or after each deploy to keep the site healthy and ready for real
   `curl -sSL https://todaysdailybattle.com/mobius.html | grep mobius-kjv-banner` → should find the hero banner line.  
   `curl -sS "https://todaysdailybattle.com/script.js?v=THAT_VERSION" | grep 'readChapterLink'` → should show the early-return guard in `mountRotatingHeroVerse` (script URL returns **200**; both `?v=20260320a` and `?v=20260320b` may still exist while caches roll forward).  
   If HTML is new but behavior is old, purge Cloudflare cache (`npm run purge:cloudflare` with `CF_API_TOKEN`) or **Purge Everything** in the dashboard.
+- **Targeted purge list:** keep `scripts/cloudflare-purge.mjs` in sync when you bump shared query tokens (`script.js`, `styles.css`, `tdb-quiet-luxury.css`, OG image `?v=` on `verse-share.jpg`, etc.) so a scripted purge hits the URLs edges still cache. After mobile or shell fixes, run **`npm run build`**, deploy, then **`npm run purge:cloudflare`** once `CF_API_TOKEN` is set.
 
 ### 2. “Prayed by X warriors today” (optional)
 - Run `supabase-get-prayers-today-count.sql` in Supabase SQL Editor (creates `get_prayers_today_count` RPC).

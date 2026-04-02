@@ -7,6 +7,7 @@
     "sync:header": "node scripts/sync-global-header-nav.mjs",
     "sync:primary-nav": "node scripts/sync-primary-site-nav.mjs",
     "sync:account-nudge-restart": "node scripts/sync-account-nudge-restart.mjs",
+    "sync:shell-parity": "node scripts/sync-shell-parity.mjs",
     "sync:lang-header": "node scripts/sync-language-switcher-header.mjs",
     "render:fr-es-moods": "node scripts/render-fr-es-mood-pages.mjs",
     "scaffold:id-pilot": "node scripts/scaffold-id-pilot.mjs",

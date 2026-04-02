@@ -2473,6 +2473,17 @@ body {
     -webkit-backdrop-filter: none;
   }
 }
+/* Strip below standalone primary nav (plans, mobius, memorize) */
+.tdb-shell-account-strip {
+  padding: 0.3rem 0.65rem 0.45rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  background: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(15, 23, 42, 0.92)) 96%, transparent);
+}
+.tdb-shell-account-strip .tdb-header-account-nudge {
+  margin: 0;
+  justify-content: flex-end;
+}
+
 .tdb-header-account-nudge {
   display: flex;
   flex-wrap: wrap;

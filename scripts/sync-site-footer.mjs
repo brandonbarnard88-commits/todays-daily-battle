@@ -14,7 +14,6 @@ const partialPath = path.join(root, 'partials', 'site-footer.html');
 const EXCLUDE = new Set([
   '404.html',
   '404-admin.html',
-  'mobius.html',
   'node_modules',
   'dist',
   '.git',

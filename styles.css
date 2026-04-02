@@ -1746,6 +1746,11 @@ body.spacing-level-4 { --tdb-spacing-scale: 1.2; }
   min-height: 6rem;
   border-radius: 12px;
 }
+#output.tdb-loading,
+.results.tdb-loading {
+  min-height: 7rem;
+  border-radius: 12px;
+}
 @media (prefers-reduced-motion: reduce) {
   .tdb-loading::after {
     animation: none;
@@ -7714,6 +7719,24 @@ body:has(.pricing-grid) .section-divider {
 }
 :root[data-theme="light"] .site-footer-ess-support {
   color: color-mix(in srgb, #7a6228 78%, #1e293b 22%);
+}
+.site-footer-share-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
+  margin: 0.55rem 0 0;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+.site-footer-share-wrap .site-footer-share-sep {
+  color: rgba(148, 163, 184, 0.5);
+  user-select: none;
+}
+.site-footer-share-wrap .share-page-btn,
+.site-footer-share-wrap .site-footer-tour-restart {
+  min-height: 44px;
 }
 .site-footer-trust-hook {
   margin-top: 0.65rem !important;

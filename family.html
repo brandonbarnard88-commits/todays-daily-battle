@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="KJV family hub: verse, plans, printables, teen journal—saved on your device until you print.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260402punch">
+  <link rel="stylesheet" href="styles.css?v=20260408consistency">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,6 +143,38 @@
     .family-parent-quick-dash__steps li { margin-bottom: 0.4rem; }
     .family-parent-quick-dash__steps a { color: var(--gold-soft); font-weight: 600; }
     .family-parent-quick-dash__note { margin: 0.65rem 0 0; font-size: 0.84rem; }
+    .family-parent-quick-start {
+      border-radius: 16px;
+      padding: 1rem 1.1rem 1.05rem;
+      margin-bottom: 1.15rem;
+      background: rgba(12, 16, 26, 0.55);
+      border: 1px solid rgba(139, 166, 217, 0.2);
+    }
+    .family-parent-quick-start__title {
+      margin: 0 0 0.35rem;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .family-parent-quick-start__lead {
+      margin: 0 0 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .family-parent-quick-start__ref {
+      margin: 0 0 0.45rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold-soft);
+    }
+    .family-parent-quick-start__question {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: rgba(200, 210, 225, 0.95);
+      font-style: italic;
+    }
     .family-month-stat {
       border-radius: 16px;
       padding: 0.95rem 1.05rem 1rem;
@@ -530,6 +562,13 @@
         <li><a href="calm.html">Pray one sentence in plain words</a>, or add a name on <a href="#family-prayer-wall">your family prayer list</a>.</li>
       </ol>
       <p class="family-parent-quick-dash__note section-note">Later, simple plan marks here could mirror what you already complete in Battle Plans—today this block is just a steady map.</p>
+    </section>
+
+    <section class="family-parent-quick-start family-hub-animate family-hub-d2" aria-labelledby="family-quick-start-heading">
+      <h2 class="family-parent-quick-start__title" id="family-quick-start-heading">Today&rsquo;s family quick start</h2>
+      <p class="family-parent-quick-start__lead">Same verse as below—read it together, then pause on one gentle question. No quiz; just listening.</p>
+      <p class="family-parent-quick-start__ref" id="family-quick-start-ref" aria-live="polite">&nbsp;</p>
+      <p class="family-parent-quick-start__question" id="family-quick-start-question" aria-live="polite"></p>
     </section>
 
     <p class="family-month-stat family-hub-animate family-hub-d2" id="family-month-stat" role="status" aria-live="polite"></p>
@@ -926,7 +965,7 @@
     window.TDB_DAILY_VERSE_TEXT_ID = 'family-daily-verse-text';
     window.TDB_DAILY_VERSE_REF_ID = 'family-daily-verse-ref';
   </script>
-  <script type="module" src="script.js?v=20260402punch" data-cfasync="false"></script>
-  <script src="kids-corner-daily-verse.js?v=3" defer></script>
+  <script type="module" src="script.js?v=20260408guided" data-cfasync="false"></script>
+  <script src="kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
 </body>
 </html>

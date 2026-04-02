@@ -932,10 +932,21 @@
       ctx.font = refFont;
       ctx.fillText(refDisplay, cx, refY);
 
+      var maxW = isTpl ? w - pad * 2 : w - 160;
+      ctx.save();
+      ctx.strokeStyle = tc.key === 'paper' ? 'rgba(71, 85, 105, 0.42)' : 'rgba(148, 163, 184, 0.32)';
+      ctx.lineWidth = Math.max(1, Math.round(refPx * 0.035));
+      var lineY = refY + Math.round(refPx * 0.28);
+      var halfLine = Math.min(maxW * 0.4, isTpl ? w * 0.24 : 155);
+      ctx.beginPath();
+      ctx.moveTo(cx - halfLine, lineY);
+      ctx.lineTo(cx + halfLine, lineY);
+      ctx.stroke();
+      ctx.restore();
+
       ctx.fillStyle = tc.main;
       ctx.font = bodyFont;
-      var maxW = isTpl ? w - pad * 2 : w - 160;
-      var bodyStart = isTpl ? refY + Math.round(lh * 1.2) : 168;
+      var bodyStart = isTpl ? lineY + Math.round(lh * 0.95) : lineY + Math.round(lh * 0.88);
       wrapCanvasTextCentered(ctx, body, cx, bodyStart, maxW, lh);
 
       if (opts && opts.footerStyle === 'site') {

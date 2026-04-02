@@ -35,6 +35,9 @@
     var r = byId(refId());
     if (t) t.textContent = msg || 'Could not load today\u2019s verse. Try again when you\u2019re online.';
     if (r) r.textContent = '';
+    fillFamilyQuickStart('');
+    var kpq = byId('kids-parent-quick-line');
+    if (kpq) kpq.textContent = '';
   }
 
   function plainVerse(raw) {
@@ -42,6 +45,39 @@
       .replace(/<[^>]+>/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
+  }
+
+  var FAMILY_QUESTIONS = [
+    'What is one word from this verse you want God to make real at home today?',
+    'Where do you feel that truth touching your day—school, work, or somewhere else?',
+    'Who might need a gentle word from this verse before bedtime?',
+    'If you had to say this verse in your own short sentence, how would you say it?',
+    'What part of this verse feels kind—and what part feels challenging?'
+  ];
+
+  function pickQuestionForKey(dayKey) {
+    var s = String(dayKey || 'today');
+    var n = s.split('').reduce(function (a, c) {
+      return a + c.charCodeAt(0);
+    }, 0);
+    return FAMILY_QUESTIONS[n % FAMILY_QUESTIONS.length];
+  }
+
+  function fillFamilyQuickStart(battleRef) {
+    var qsRef = byId('family-quick-start-ref');
+    var qsQ = byId('family-quick-start-question');
+    if (!qsRef && !qsQ) return;
+    if (qsRef) {
+      qsRef.textContent = battleRef ? battleRef + ' (KJV)' : '';
+    }
+    if (qsQ) {
+      try {
+        var key = typeof window.getDailyKey === 'function' ? window.getDailyKey() : '';
+        qsQ.textContent = pickQuestionForKey(key);
+      } catch (e) {
+        qsQ.textContent = FAMILY_QUESTIONS[0];
+      }
+    }
   }
 
   async function resolveBattle() {
@@ -72,21 +108,42 @@
   async function paint() {
     var t = byId(textId());
     var r = byId(refId());
-    if (!t || !r) return;
+    var kpq = byId('kids-parent-quick-line');
+    if ((!t || !r) && !kpq) return;
     try {
       var battle = await resolveBattle();
       if (!battle || !battle.ref) {
-        showError();
+        if (t && r) showError();
+        else {
+          fillFamilyQuickStart('');
+          if (kpq) kpq.textContent = '';
+        }
         return;
       }
       var verse = plainVerse(window.getBibleVerseText(battle.ref) || battle.verse || '');
-      if (!verse) {
-        t.textContent = 'Verse text is still loading. Wait a moment and refresh\u2014or open the full verse page.';
-        r.textContent = battle.ref + ' (KJV)';
-        return;
+      if (t && r) {
+        if (!verse) {
+          t.textContent = 'Verse text is still loading. Wait a moment and refresh\u2014or open the full verse page.';
+          r.textContent = battle.ref + ' (KJV)';
+        } else {
+          t.textContent = '\u201c' + verse + '\u201d';
+          r.textContent = battle.ref + ' (KJV)';
+        }
       }
-      t.textContent = '\u201c' + verse + '\u201d';
-      r.textContent = battle.ref + ' (KJV)';
+      fillFamilyQuickStart(battle.ref);
+      if (kpq && battle.ref) {
+        try {
+          var dk = typeof window.getDailyKey === 'function' ? window.getDailyKey() : '';
+          kpq.textContent =
+            'Quick start: read ' +
+            battle.ref +
+            ' (KJV) together, then ask one quiet question—\u201c' +
+            pickQuestionForKey(dk) +
+            '\u201d';
+        } catch (e4) {
+          kpq.textContent = '';
+        }
+      }
       if (typeof window.trackEvent === 'function') {
         try {
           var ev = rootId() === 'family-daily-verse-root' ? 'family_hub_daily_verse' : 'kids_corner_daily_verse';
@@ -94,12 +151,13 @@
         } catch (e3) { /* ignore */ }
       }
     } catch (e) {
-      showError();
+      if (t && r) showError();
+      else if (kpq) kpq.textContent = '';
     }
   }
 
   function tick() {
-    if (!byId(rootId())) return;
+    if (!byId(rootId()) && !byId('kids-parent-quick-line')) return;
     if (ready()) {
       paint();
       return;

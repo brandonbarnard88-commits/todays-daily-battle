@@ -577,6 +577,8 @@ console.log('\n--- Offense (vulnerability patterns) ---');
 const innerHtmlFindings = [];
 for (const absPath of runtimeJsFiles) {
   const rel = relPath(absPath);
+  // Vendor bundles (e.g. d3) use innerHTML patterns we do not control; app code is the security surface.
+  if (rel.startsWith('vendor/')) continue;
   const src = fs.readFileSync(absPath, 'utf8');
   const lines = src.split('\n');
   for (let i = 0; i < lines.length; i++) {

@@ -816,7 +816,7 @@ function wireWelcomeTour() {
   document.addEventListener(
     'click',
     function (e) {
-      var t = e.target && e.target.closest && e.target.closest('#tdb-tour-open-btn, .tdb-tour-open-btn');
+      var t = e.target && e.target.closest && e.target.closest('#tdb-tour-open-btn, .tdb-tour-open-btn, .tdb-tour-restart-btn');
       if (!t) return;
       e.preventDefault();
       openTdbWelcomeTour({ manual: true });
@@ -837,7 +837,7 @@ function wireWelcomeTour() {
   if (shouldAutoTour()) {
     window.setTimeout(function () {
       openTdbWelcomeTour({ manual: false });
-    }, 1500);
+    }, 1200);
   }
 }
 
@@ -22320,6 +22320,7 @@ async function tdbInitImpl() {
         var loadingEl = document.getElementById('loading');
         if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.classList.remove('hidden'); }
         if (outputEl) {
+          outputEl.classList.add('tdb-loading');
           outputEl.innerHTML = '<p class="empty" style="text-align:center;padding:1.5rem;">Finding verses…</p>';
           outputEl.style.display = 'grid';
         }
@@ -22425,6 +22426,8 @@ async function tdbInitImpl() {
             if (typeof console !== 'undefined' && console.error) console.error('TDB search error:', err);
           } finally {
             if (loadingEl) { loadingEl.style.display = 'none'; loadingEl.classList.add('hidden'); }
+            var outDone = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
+            if (outDone) outDone.classList.remove('tdb-loading');
           }
         }, 150);
       }

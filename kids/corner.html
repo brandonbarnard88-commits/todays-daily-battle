@@ -473,6 +473,16 @@
     }
     .kids-parent-rhythm-list li { margin-bottom: 0.28rem; }
     .kids-parent-rhythm-list a { color: #fde68a; font-weight: 700; }
+    .kids-parent-quick-line {
+      margin: 0.6rem 0 0;
+      padding-top: 0.55rem;
+      border-top: 1px solid rgba(250, 204, 21, 0.22);
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: #e2e8f0;
+      font-style: italic;
+      text-align: left;
+    }
   </style>
 </head>
 <body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful">
@@ -550,6 +560,7 @@
             <li><a href="#kids-library-grid">One story card</a> on this page</li>
             <li><a href="prayer-activities.html">One short prayer habit</a> when you have a minute</li>
           </ul>
+          <p class="kids-parent-quick-line" id="kids-parent-quick-line" aria-live="polite"></p>
         </aside>
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Bible Story Library</h1>
@@ -780,7 +791,8 @@
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
   <script src="kids-story-fuse-search.js?v=20260331fuse" defer></script>
   <script src="kids-corner.js?v=20260326kidsflow" defer></script>
-  <script type="module" src="../script.js?v=20260402punch" data-cfasync="false" defer></script>
+  <script type="module" src="../script.js?v=20260408guided" data-cfasync="false" defer></script>
+  <script src="../kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
 
   <!-- ── Parent code lock ── -->
   <div id="kid-lock-modal" class="kid-lock-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="kid-lock-title" aria-describedby="kid-lock-hint">

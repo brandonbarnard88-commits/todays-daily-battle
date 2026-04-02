@@ -633,6 +633,44 @@
   action: 'Quietly ask God which kind of soil best describes your heart right now, and invite Him to help.',
   prayer: 'Jesus, help my heart receive Your Word and bear good fruit. Amen.' }
   ];
+  // Parable of the Sower for Kids — same KJV as sower7; calm voice beside a grown-up; plans id sower-kids; key tdb-plan-sower-kids-day
+  var sowerKids7 = [
+{ title: 'Jesus\' farmer story', ref: 'Matthew 13:3', text: 'And he spake many things unto them in parables, saying, Behold, a sower went forth to sow;',
+  speaker: 'Jesus by the sea', plain: 'Jesus told a story beside the water. A farmer tossed seed everywhere. The seed is like God\'s Word—truth He wants your heart to keep.',
+  today: 'What is one Bible story you remember?',
+  action: 'Ask someone you love to read Matthew 13:3-9 with you today—or listen quietly while they read.',
+  prayer: 'Jesus, help me hear Your Word with an open heart. Amen.' },
+{ title: 'Seed on the hard path', ref: 'Matthew 13:19', text: 'When any one heareth the word of the kingdom, and understandeth it not, then cometh the wicked one, and catcheth away that which was sown in his heart. This is he which received seed by the way side.',
+  speaker: 'Jesus explaining the parable', plain: 'Some seed lands on a hard path where feet walk. It cannot sink in, and the enemy snatches it away like a hungry bird.',
+  today: 'When do Bible words bounce away before they stick?',
+  action: 'Whisper, "Jesus, soften my heart," before school or bedtime.',
+  prayer: 'Lord, soften my heart so Your Word can stay. Amen.' },
+{ title: 'Seed on rocky ground', ref: 'Matthew 13:20-21', text: 'But he that received the seed into stony places, the same is he that heareth the word, and anon with joy receiveth it; Yet hath he not root in himself, but dureth for a while: for when tribulation or persecution ariseth because of the word, by and by he is offended.',
+  speaker: 'Jesus explaining the parable', plain: 'Some seed lands on shallow rocks. A plant pops up fast and happy, but it has no deep roots. When trouble comes, it dries up.',
+  today: 'What kind of day makes faith feel wobbly?',
+  action: 'Tell Jesus you want roots that go deep when things get hard.',
+  prayer: 'Jesus, give me deep roots so I can stand strong. Amen.' },
+{ title: 'Seed in thorny weeds', ref: 'Matthew 13:22', text: 'He also that received seed among the thorns is he that heareth the word; and the care of this world, and the deceitfulness of riches, choke the word, and he becometh unfruitful.',
+  speaker: 'Jesus explaining the parable', plain: 'Some seed lands where weeds grow. Worries and wanting too much stuff crowd out God\'s Word—like thorns choking a plant.',
+  today: 'What worry or "I want" thought got loud today?',
+  action: 'Give one worry or noisy want to God in a quiet sentence.',
+  prayer: 'Father, clear the thorns so Your Word can grow in me. Amen.' },
+{ title: 'Good soil', ref: 'Matthew 13:23', text: 'But he that received seed into the good ground is he that heareth the word, and understandeth it; which also beareth fruit, and bringeth forth, some an hundredfold, some sixty, some thirty.',
+  speaker: 'Jesus explaining the parable', plain: 'Some seed lands in soft, good dirt. It listens, understands, and grows fruit—lots more than what was planted.',
+  today: 'How has God\'s Word helped you do something kind?',
+  action: 'Thank Jesus out loud for one small way His Word is growing in you.',
+  prayer: 'Lord, make my heart good soil that grows fruit for You. Amen.' },
+{ title: 'The farmer keeps sowing', ref: 'Matthew 13:3', text: 'And he spake many things unto them in parables, saying, Behold, a sower went forth to sow;',
+  speaker: 'Jesus by the sea', plain: 'The farmer keeps throwing seed—even toward ground that looks so-so. Jesus keeps sharing His Word with love and patience. He does not give up on you.',
+  today: 'When did someone give you another chance?',
+  action: 'Remember today that God is patient and kind to you.',
+  prayer: 'Thank You, Jesus, for never running out of seed for my heart. Amen.' },
+{ title: 'Ears to hear', ref: 'Matthew 13:9', text: 'Who hath ears to hear, let him hear.',
+  speaker: 'Jesus closing the parable', plain: 'Jesus ends with a gentle hush: "Who hath ears to hear, let him hear." He invites us to ask God to make our hearts ready soil.',
+  today: 'What kind of heart-soil feels most like yours today?',
+  action: 'Ask God to help your heart listen and grow—one quiet question is enough.',
+  prayer: 'Jesus, help my heart hear You and grow good fruit. Amen.' }
+  ];
   // Bitterness & letting go (7 days)—roots, release, kindness; pairs with forgiveness/anger plans; plans id lettinggo
   var lettingGo7 = [
 { title: 'Root of bitterness', ref: 'Hebrews 12:15', text: 'Looking diligently lest any man fail of the grace of God; lest any root of bitterness springing up trouble you, and thereby many be defiled;',
@@ -968,6 +1006,7 @@
     teenFaith7: teenFaith7,
     peacemakers7: peacemakers7,
     sower7: sower7,
+    sowerKids7: sowerKids7,
     longIllness7: longIllness7
   };
 })(typeof window !== 'undefined' ? window : globalThis);

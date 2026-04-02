@@ -266,15 +266,13 @@
     return window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
   }
 
-  function applyLayout(simNodes, width, height) {
-    var cx = width / 2, cy = height / 2;
-    var radius = Math.min(width, height) / 1.92;
+  function applyLayout(simNodes, cx, cy, radius) {
     var n = simNodes.length;
     var circleCount = 0;
-    for (var i = 0; i < n; i++) {
-      if (simNodes[i].id === '2tim') circleCount++;
+    var i;
+    for (i = 0; i < n; i++) {
+      if (simNodes[i].id !== '2tim') circleCount++;
     }
-    circleCount = n - circleCount;
     var circleIdx = 0;
     for (var j = 0; j < n; j++) {
       if (simNodes[j].id === '2tim') {
@@ -387,11 +385,40 @@
     var width = w;
     var height = h;
     var isTouch = isTouchDevice();
+    var maxNodeRDefault = isTouch ? 22 : 18;
+    var pivotRadiusBase = 26;
+    var nCircle = 0;
+    var ni;
+    for (ni = 0; ni < simNodes.length; ni++) {
+      if (simNodes[ni].id !== '2tim') nCircle++;
+    }
+    var gapChord = 18;
+    var minChord = 2 * maxNodeRDefault + gapChord;
+    var sinHalf = Math.sin(Math.PI / Math.max(nCircle, 1));
+    var minRingR = minChord / (2 * sinHalf);
+    var ringR = Math.max(minRingR, Math.min(w, h) * 0.36);
+    var labelMargin = 46;
+    var vbExtent = Math.ceil(ringR + pivotRadiusBase + labelMargin);
+    var cx = vbExtent;
+    var cy = vbExtent;
+    var vbSize = vbExtent * 2;
+
+    applyLayout(simNodes, cx, cy, ringR);
+
+    var scalePx = Math.min(w, h) / vbSize;
+    var chordPx = 2 * ringR * sinHalf * scalePx;
+    var visNodeR = Math.min(maxNodeRDefault, Math.max(10, Math.floor((chordPx - 10) / 2)));
+    if (nCircle <= 12) visNodeR = maxNodeRDefault;
+    var hitR = isTouch ? Math.max(visNodeR, 22) : Math.max(visNodeR, 18);
+    var halfChordPx = chordPx / 2 - 6;
+    if (hitR > halfChordPx && halfChordPx > visNodeR) hitR = Math.max(Math.floor(halfChordPx), visNodeR);
+    var visPivotR = nCircle > 22 ? Math.min(pivotRadiusBase, visNodeR + 5) : pivotRadiusBase;
+    var pivotHitR = Math.max(visPivotR, isTouch ? 22 : 18);
 
     safeSetHTML(container, '');
     var svg = d3.select(container).append('svg')
       .attr('width', width).attr('height', height)
-      .attr('viewBox', [0, 0, width, height])
+      .attr('viewBox', [0, 0, vbSize, vbSize].join(' '))
       .attr('aria-hidden', 'true');
 
     var defs = svg.append('defs');
@@ -405,8 +432,6 @@
     twistGrad.append('stop').attr('offset', '0%').attr('stop-color', '#e3bc67');
     twistGrad.append('stop').attr('offset', '50%').attr('stop-color', '#f2dc98');
     twistGrad.append('stop').attr('offset', '100%').attr('stop-color', '#8b9dc3');
-
-    applyLayout(simNodes, width, height);
     var pts = simNodes.map(function (d) { return [d.x, d.y]; });
     var lineGen = d3.line().curve(d3.curveLinearClosed);
     var ribbonD = lineGen(pts);
@@ -465,8 +490,6 @@
       })
       .attr('stroke-dasharray', function (d) { return d.isRedeemed ? '5 5' : 'none'; });
 
-    var nodeRadius = isTouch ? 22 : 18;
-    var pivotRadius = 26;
     var nodeGroup = svg.append('g').attr('class', 'mobius-nodes');
     var nodeEls = nodeGroup.selectAll('g').data(simNodes).join('g')
       .attr('class', function (d) {
@@ -481,7 +504,14 @@
       .style('touch-action', 'manipulation');
 
     nodeEls.append('circle')
-      .attr('r', function (d) { return d.id === '2tim' ? pivotRadius : nodeRadius; })
+      .attr('class', 'mobius-node-hit')
+      .attr('r', function (d) { return d.id === '2tim' ? pivotHitR : hitR; })
+      .attr('fill', 'transparent')
+      .attr('pointer-events', 'all');
+
+    nodeEls.append('circle')
+      .attr('class', 'mobius-node-face')
+      .attr('r', function (d) { return d.id === '2tim' ? visPivotR : visNodeR; })
       .attr('fill', function (d) { return d.color || '#8b9dc3'; })
       .attr('stroke', 'rgba(255,255,255,0.3)').attr('stroke-width', 2);
 

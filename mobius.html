@@ -82,9 +82,9 @@
     }
     .mobius-viz-wrap {
       width: 98%;
-      max-width: 1240px;
-      height: min(84vh, 820px);
-      min-height: clamp(400px, 58vw, 600px);
+      max-width: min(96vw, 1320px);
+      height: min(88vh, 920px);
+      min-height: clamp(440px, 62vw, 680px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -100,11 +100,11 @@
     }
     #mobius-universal-viz svg {
       transform-origin: 50% 50%;
-      animation: mobius-universal-viz-slow-spin 180s linear infinite;
+      animation: mobius-universal-viz-slow-spin 480s linear infinite;
     }
-    .mobius-node.mobius-start-node circle { stroke: var(--tool-gold); stroke-width: 3; }
-    .mobius-node.mobius-pivot-node circle { stroke: rgba(227, 188, 103, 0.7); stroke-width: 2; }
-    .mobius-node.mobius-preferred-node circle { stroke: var(--tool-gold); filter: drop-shadow(0 0 6px rgba(227, 188, 103, 0.5)); }
+    .mobius-node.mobius-start-node .mobius-node-face { stroke: var(--tool-gold); stroke-width: 3; }
+    .mobius-node.mobius-pivot-node .mobius-node-face { stroke: rgba(227, 188, 103, 0.7); stroke-width: 2; }
+    .mobius-node.mobius-preferred-node .mobius-node-face { stroke: var(--tool-gold); filter: drop-shadow(0 0 6px rgba(227, 188, 103, 0.5)); }
     .mobius-link-redeemed { stroke-opacity: 0.8; animation: mobius-redeemed-pulse 3s ease-in-out infinite; }
     @keyframes mobius-redeemed-pulse { 0%, 100% { stroke-opacity: 0.7; } 50% { stroke-opacity: 1; } }
     .mobius-card-container { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); width: min(92%, 400px); max-height: 260px; overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 10; }
@@ -137,7 +137,7 @@
     @keyframes mobius-teaser-in { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
     @keyframes mobius-teaser-out { from { opacity: 1; } to { opacity: 0; } }
     .mobius-tracer-toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); padding: 0.5rem 1rem; font-size: 0.85rem; color: var(--tool-gold-soft); background: var(--tool-bg-soft); border: 1px solid var(--tool-gold); border-radius: 8px; z-index: 60; animation: mobius-teaser-in 0.3s ease; }
-    .mobius-node-seen circle { filter: drop-shadow(0 0 8px var(--tool-gold)); }
+    .mobius-node-seen .mobius-node-face { filter: drop-shadow(0 0 8px var(--tool-gold)); }
     .mobius-tracer-toast-fade { opacity: 0; transition: opacity 0.4s; }
     .mobius-section { margin-top: 2rem; max-width: 560px; text-align: center; padding: 1.5rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-line); border-radius: 12px; }
     .mobius-section h2 { font-size: 1.25rem; margin: 0 0 1rem; color: var(--tool-gold-soft); font-weight: 600; }
@@ -1179,7 +1179,7 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
-  <script src="mobius-universal.js?v=20260403viz-linear" defer></script>
+  <script src="mobius-universal.js?v=20260403full-cycle-ring" defer></script>
   <script src="tdb-mobius-journal.js?v=20260330mlj1" defer></script>
   <script src="mobius-text-v2.js?v=20260413audio-lazy" defer></script>
   <script src="share-page.js?v=20260402shareattrs" defer></script>

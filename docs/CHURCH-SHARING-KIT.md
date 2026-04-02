@@ -172,6 +172,36 @@ On **church-sharing-kit.html** (`#csk-homesch-tracker`): a Mon–Fri table (plan
 
 ---
 
+## Children’s ministry — integration ideas
+
+**Core:** One short day + one gentle action. Use Beatitudes for Kids, Lord’s Prayer for Kids, or Parable of the Sower for Kids (KJV on screen, age-appropriate steps). Progress saves on the device for the next week.
+
+**Sunday morning**
+
+- **Opening quiet (5–8 min):** Current day from Beatitudes or Lord’s Prayer for Kids on tablet/projector; read verse; whisper or draw the step; pray the day’s prayer together. No forced discussion.
+- **“With a grown-up” rotation:** Use the strip on **Kids Corner** (`kids/corner.html#kids-corner-grown-up-plans`) — pair helpers with small groups through Sower for Kids.
+- **After the Bible story:** One day from Sower or Beatitudes for Kids; light question: “How does today’s verse connect to the story?”
+
+**Mid-week (club / AWANA-style)**
+
+- **Take-home:** One study link; one day at home; next week, voluntary share only (prayer or drawing).
+- **Prayer night:** Lord’s Prayer for Kids, 1–2 days slowly, then small-circle prayer.
+- **Character series (4–6 weeks):** Beatitudes for Kids — one beatitude per week; weekly challenge from the step.
+
+**Family night / Easter / summer**
+
+- **Stations:** Beatitudes for Kids, Sower for Kids, Lord’s Prayer for Kids — families rotate.
+- **Holy Week / Easter:** **Resurrection Hope** (`?plan=easter`, seven days) for older kids/families; younger rooms stay with Sower for Kids (“good soil”) + optional **He is risen** short readings.
+- **Post-VBS:** Point to Battle Plans as one-day-a-week “keep going.”
+
+**Leader tips:** Prep = open `plans.html?plan=beatitudes-kids` (or chosen plan) before class. Mixed ages: kids plans for young; older may try adult Sower beside Sower for Kids. Parents: **family.html** for shared-device progress. Culture: listening, drawing, silent prayer all count. Spotty Wi-Fi: cache after first load; QR from kit for lobby.
+
+**Starters:** Beatitudes for Kids · Lord’s Prayer for Kids · Parable of the Sower for Kids.
+
+*(Full layout with anchors: **church-sharing-kit.html#csk-children-ministry**.)*
+
+---
+
 ## Printable card / insert (fits a half-page or 4×6)
 
 **Today’s Daily Battle**  
@@ -223,12 +253,13 @@ We’ve been using **Parable of the Sower for Kids** at the table — short, KJV
 | “Big picture” Jesus teaching | Sermon on Mount intro on plans page | `#sermon-on-mount-intro` |
 | Women’s / men’s / mixed Bible study | Beatitudes or Lord’s Prayer (adult) | `?plan=beatitudes` or `?plan=lordsprayer` |
 | Homeschool / co-op | Morning basket: Lord’s Prayer for Kids or Beatitudes for Kids; printable week on kit page | `?plan=lordsprayer-kids` · `#csk-homesch-tracker` |
+| Sunday school / children’s ministry | Opening quiet or rotation; integration ideas on kit page | `#csk-children-ministry` · `kids/corner.html#kids-corner-grown-up-plans` |
 
 ---
 
 ## Audience tweaks (same facts, different door)
 
-**Children’s ministry coordinator** — Emphasize **read beside a parent**, **KJV on screen**, **one short day**, and links to **kids** plans.
+**Children’s ministry coordinator** — Emphasize **read beside a parent**, **KJV on screen**, **one short day**, and links to **kids** plans. Integration rhythms: **#csk-children-ministry** on the live kit page.
 
 **Youth pastor** — Emphasize **quiet journaling**, **Peacemakers**, **Sermon on the Mount** intro, and **no performance**.
 
@@ -245,4 +276,4 @@ We’ve been using **Parable of the Sower for Kids** at the table — short, KJV
 
 ---
 
-*Last updated: 2026-04-02 — youth + homeschool sections and tracker added; keep in sync with `church-sharing-kit.html` when URLs or plan slugs change.*
+*Last updated: 2026-04-02 — youth, homeschool, children’s ministry sections; keep in sync with `church-sharing-kit.html` when URLs or plan slugs change.*

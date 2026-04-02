@@ -1,5 +1,15 @@
 @import url("tdb-quiet-luxury.css");
 
+/* Narrow phones: prevent stray horizontal scroll from wide children; clip is gentler than hidden for sticky */
+html {
+  overflow-x: clip;
+}
+@supports not (overflow: clip) {
+  html {
+    overflow-x: hidden;
+  }
+}
+
 :root {
   /* Purple — Easter, royalty, Jesus */
   --primary: #6d28d9;
@@ -2482,6 +2492,15 @@ body {
 .tdb-shell-account-strip .tdb-header-account-nudge {
   margin: 0;
   justify-content: flex-end;
+}
+@media (max-width: 480px) {
+  .tdb-shell-account-strip {
+    padding-left: max(0.65rem, env(safe-area-inset-left));
+    padding-right: max(0.65rem, env(safe-area-inset-right));
+  }
+  .site-footer.site-footer--canonical {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
 }
 
 .tdb-header-account-nudge {

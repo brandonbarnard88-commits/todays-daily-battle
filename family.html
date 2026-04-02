@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="KJV family hub: verse, plans, printables, teen journal—saved on your device until you print.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260408consistency">
+  <link rel="stylesheet" href="styles.css?v=20260410launch">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -168,12 +168,35 @@
       font-weight: 600;
       color: var(--gold-soft);
     }
+    .family-parent-quick-start__verse {
+      margin: 0 0 0.55rem;
+      font-size: 0.94rem;
+      line-height: 1.58;
+      color: rgba(218, 226, 238, 0.96);
+      font-style: normal;
+    }
     .family-parent-quick-start__question {
       margin: 0;
       font-size: 0.92rem;
       line-height: 1.5;
       color: rgba(200, 210, 225, 0.95);
       font-style: italic;
+    }
+    @media (max-width: 480px) {
+      .family-parent-quick-dash,
+      .family-parent-quick-start {
+        padding: 1.15rem 1rem 1.2rem;
+        margin-bottom: 1.35rem;
+      }
+      .family-parent-quick-start__ref,
+      .family-parent-quick-start__verse {
+        font-size: clamp(0.94rem, 3.9vw, 1.04rem);
+      }
+      .family-parent-quick-start__question {
+        font-size: clamp(0.9rem, 3.6vw, 1rem);
+        line-height: 1.55;
+      }
+      .family-parent-quick-dash__steps { padding-left: 1.25rem; }
     }
     .family-month-stat {
       border-radius: 16px;
@@ -566,8 +589,9 @@
 
     <section class="family-parent-quick-start family-hub-animate family-hub-d2" aria-labelledby="family-quick-start-heading">
       <h2 class="family-parent-quick-start__title" id="family-quick-start-heading">Today&rsquo;s family quick start</h2>
-      <p class="family-parent-quick-start__lead">Same verse as below—read it together, then pause on one gentle question. No quiz; just listening.</p>
+      <p class="family-parent-quick-start__lead">A one-glance line: today&rsquo;s reference, a short KJV line from the same pick as home, then one gentle question. No quiz; just listening.</p>
       <p class="family-parent-quick-start__ref" id="family-quick-start-ref" aria-live="polite">&nbsp;</p>
+      <p class="family-parent-quick-start__verse" id="family-quick-start-verse" aria-live="polite"></p>
       <p class="family-parent-quick-start__question" id="family-quick-start-question" aria-live="polite"></p>
     </section>
 

@@ -35,7 +35,7 @@
     var r = byId(refId());
     if (t) t.textContent = msg || 'Could not load today\u2019s verse. Try again when you\u2019re online.';
     if (r) r.textContent = '';
-    fillFamilyQuickStart('');
+    fillFamilyQuickStart('', '');
     var kpq = byId('kids-parent-quick-line');
     if (kpq) kpq.textContent = '';
   }
@@ -63,12 +63,27 @@
     return FAMILY_QUESTIONS[n % FAMILY_QUESTIONS.length];
   }
 
-  function fillFamilyQuickStart(battleRef) {
+  /** Short on-screen line for family hub (full text still lives in the card below). */
+  function clipVerseSnippet(raw, maxLen) {
+    var s = plainVerse(raw);
+    var n = typeof maxLen === 'number' ? maxLen : 200;
+    if (!s || s.length <= n) return s;
+    var cut = s.slice(0, n);
+    var sp = cut.lastIndexOf(' ');
+    if (sp > n * 0.55) cut = cut.slice(0, sp);
+    return cut + '\u2026';
+  }
+
+  function fillFamilyQuickStart(battleRef, verseSnippet) {
     var qsRef = byId('family-quick-start-ref');
+    var qsVerse = byId('family-quick-start-verse');
     var qsQ = byId('family-quick-start-question');
-    if (!qsRef && !qsQ) return;
+    if (!qsRef && !qsQ && !qsVerse) return;
     if (qsRef) {
       qsRef.textContent = battleRef ? battleRef + ' (KJV)' : '';
+    }
+    if (qsVerse) {
+      qsVerse.textContent = verseSnippet ? '\u201c' + verseSnippet + '\u201d' : '';
     }
     if (qsQ) {
       try {
@@ -115,7 +130,7 @@
       if (!battle || !battle.ref) {
         if (t && r) showError();
         else {
-          fillFamilyQuickStart('');
+          fillFamilyQuickStart('', '');
           if (kpq) kpq.textContent = '';
         }
         return;
@@ -130,7 +145,7 @@
           r.textContent = battle.ref + ' (KJV)';
         }
       }
-      fillFamilyQuickStart(battle.ref);
+      fillFamilyQuickStart(battle.ref, verse ? clipVerseSnippet(verse, 200) : '');
       if (kpq && battle.ref) {
         try {
           var dk = typeof window.getDailyKey === 'function' ? window.getDailyKey() : '';
@@ -152,7 +167,10 @@
       }
     } catch (e) {
       if (t && r) showError();
-      else if (kpq) kpq.textContent = '';
+      else {
+        fillFamilyQuickStart('', '');
+        if (kpq) kpq.textContent = '';
+      }
     }
   }
 

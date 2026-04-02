@@ -881,7 +881,8 @@
     var isTpl = tdef && tk !== 'custom';
 
     var refStr = String(ref || '');
-    var refDisplay = /\bkjv\b|\(kjv\)/i.test(refStr) ? refStr : refStr + (refStr ? ' \u2014 KJV' : 'KJV');
+    var hasKjvSuffix = /\bkjv\b|\(kjv\)|\u2014\s*KJV\s*$/i.test(refStr);
+    var refDisplay = hasKjvSuffix ? refStr : refStr + (refStr ? ' \u2014 KJV' : 'KJV');
 
     var bg = (opts && opts.bg) || 'dawn';
     var layout = (opts && opts.layout) || 'classic';

@@ -41,6 +41,18 @@ Static web app for scripture-first daily encouragement, prayer, and study toolin
   - `source ~/.zshrc`
 - Verify with: `npm config get devdir` (should return `undefined`).
 
+## HTML partial sync scripts
+
+After editing shared partials in `partials/` or when shell chrome drifts, re-run the matching sync (from repo root):
+
+- **`npm run sync:footer`** — canonical site footer + build stamp wiring on tool/shell pages.
+- **`npm run sync:shell-parity`** — aligns account nudge (with Restart tour), `styles.css` / `script.js` cache tokens, and related shell assets on calm, plans, memorize, verse-image, mobius, reader, etc. (see `scripts/sync-shell-parity.mjs`).
+- **`npm run sync:account-nudge-restart`** — account strip / nudge copy only.
+- **`npm run sync:primary-nav`** — primary flyout nav block.
+- **`npm run sync:header`** / **`sync:lang-header`** — global header and language row when those partials change.
+
+Then bump any page-specific cache query strings if needed and run `npm run build` plus `npm run test`, `npm run test:site`, `npm run test:security`.
+
 ## Operations & launch
 
 - **Deploy cache, Supabase forms, cron verification, shop launch, Lighthouse:** `docs/SITE-OPS-RUNBOOK.md`

@@ -15,8 +15,8 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
-const SCRIPT_VER = '20260409shellparity';
-const STYLES_VER = '20260409shellparity';
+const SCRIPT_VER = '20260410launch';
+const STYLES_VER = '20260410launch';
 const SHARE_VER = '20260402shareattrs';
 const STAMP_VER = '20260329fdbuild';
 

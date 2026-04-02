@@ -837,7 +837,7 @@ function wireWelcomeTour() {
   if (shouldAutoTour()) {
     window.setTimeout(function () {
       openTdbWelcomeTour({ manual: false });
-    }, 1200);
+    }, 1500);
   }
 }
 

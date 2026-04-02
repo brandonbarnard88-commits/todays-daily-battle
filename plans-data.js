@@ -595,6 +595,44 @@
   action: 'Praise God for one big thing about Him before you finish the day.',
   prayer: 'For thine is the kingdom, and the power, and the glory, for ever. Amen.' }
   ];
+  // The Lord\'s Prayer for Kids — same KJV as lordsPrayer7; calm voice beside a grown-up; plans id lordsprayer-kids; key tdb-plan-lordsprayer-kids-day
+  var lordsPrayerKids7 = [
+{ title: 'Our Father', ref: 'Matthew 6:9', text: 'After this manner therefore pray ye: Our Father which art in heaven,',
+  speaker: 'Jesus teaching His disciples to pray', plain: 'Jesus starts by calling God "Our Father." That means God is close and loves us the way a good father loves his children.',
+  today: 'Does it feel good to know God is your Father?',
+  action: 'Quietly say "Our Father" and smile because God is glad to hear from you.',
+  prayer: 'Our Father in heaven, thank You for loving me like a good Father. Amen.' },
+{ title: 'Hallowed be thy name', ref: 'Matthew 6:9', text: 'Hallowed be thy name.',
+  speaker: 'Jesus teaching His disciples to pray', plain: 'We tell God His name is special and holy. It is like saying "You are wonderful!"',
+  today: 'What about God feels wonderful to you today?',
+  action: 'Tell God one thing you think is wonderful about Him.',
+  prayer: 'Hallowed be Thy name. You are wonderful, God. Amen.' },
+{ title: 'Thy kingdom come', ref: 'Matthew 6:10', text: 'Thy kingdom come. Thy will be done in earth, as it is in heaven.',
+  speaker: 'Jesus teaching His disciples to pray', plain: 'We ask for God\'s good and kind ways to happen here, just like they do in heaven.',
+  today: 'Where could God\'s kindness show up today?',
+  action: 'Pray for God\'s kindness in one part of your day—at home, school, or play.',
+  prayer: 'Thy kingdom come. Thy will be done. Amen.' },
+{ title: 'Daily bread', ref: 'Matthew 6:11', text: 'Give us this day our daily bread.',
+  speaker: 'Jesus teaching His disciples to pray', plain: 'We ask God to take care of what we need today—food, help, or a peaceful heart.',
+  today: 'What good gift has He already given you today?',
+  action: 'Thank God for one thing He gave you today, like food or a friend.',
+  prayer: 'Give us this day our daily bread. Thank You for taking care of me. Amen.' },
+{ title: 'Forgiveness', ref: 'Matthew 6:12', text: 'And forgive us our debts, as we forgive our debtors.',
+  speaker: 'Jesus teaching His disciples to pray', plain: 'We ask God to forgive us when we mess up, and we choose to forgive others too.',
+  today: 'What small hurt could you hand to Him today?',
+  action: 'Quietly forgive one small thing and ask God to forgive you.',
+  prayer: 'Forgive us when we do wrong, as we forgive others. Amen.' },
+{ title: 'Keep us safe', ref: 'Matthew 6:13', text: 'And lead us not into temptation, but deliver us from evil.',
+  speaker: 'Jesus teaching His disciples to pray', plain: 'We ask God to help us make good choices and keep us safe from anything that would pull us away from Him.',
+  today: 'Where do you want help to choose well?',
+  action: 'Ask God to help you make one good choice today.',
+  prayer: 'Keep me safe and help me choose what\'s right. Amen.' },
+{ title: 'God is the greatest', ref: 'Matthew 6:13', text: 'For thine is the kingdom, and the power, and the glory, for ever. Amen.',
+  speaker: 'Jesus teaching His disciples to pray', plain: 'We end by remembering God has the greatest kingdom, all power, and all the glory—forever.',
+  today: 'What big thing do you love about God tonight?',
+  action: 'Tell God one big thing you like about Him before you go to sleep.',
+  prayer: 'For thine is the kingdom, and the power, and the glory, for ever. Amen.' }
+  ];
   // Parable of the Sower — 7 days (Matthew 13); plans id sower; key tdb-plan-sower-day
   var sower7 = [
 { title: 'The story Jesus told', ref: 'Matthew 13:3', text: 'And he spake many things unto them in parables, saying, Behold, a sower went forth to sow;',
@@ -991,6 +1029,7 @@
     beatitudesKids9: beatitudesKids9,
     lettingGo7: lettingGo7,
     lordsPrayer7: lordsPrayer7,
+    lordsPrayerKids7: lordsPrayerKids7,
     fearNot14: fearNot14,
     workLabor7: workLabor7,
     christmas7: christmas7,

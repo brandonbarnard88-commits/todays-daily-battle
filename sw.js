@@ -1,4 +1,4 @@
 // SW entrypoint alias (bump this comment/version to force update checks if needed).
 // Keeps registration path simple while reusing the main worker logic.
-// version: 20260402-sw-fetch-guard (keep aligned with repo SW-VERSION / service-worker CACHE_NAME)
+// version: 20260403-home-cache-bust (keep aligned with repo SW-VERSION / service-worker CACHE_NAME)
 self.importScripts('/service-worker.js');

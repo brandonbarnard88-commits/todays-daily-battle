@@ -5,7 +5,20 @@ Constructive feedback from a full-site pass—tracked here so shipped work stays
 ## Shipped in-repo (this pass)
 
 - Primary nav: **Site guide** + **Print hub** (More).
-- **Battle Plans**: second filter row (feel / calm doorways), **Recommended for right now** band, clearer **signed-in vs on-device** copy (plans hero), **44px** day selector chips and lane chips.
+- **Battle Plans**: second filter row (feel / calm doorways), **Recommended for right now** band (including a separated **Still in the works** note for upcoming tracks), clearer **signed-in vs on-device** copy (plans hero), **44px** day selector chips and lane chips.
+
+## Live HTML + CDN cache
+
+`build-copy-static.js` copies root `plans.html` and `index.html` into `dist/` on every `npm run build`. If **production** still shows older markup (missing nav or Plans sections), usual causes are **edge cache** or a **deploy that did not include the latest build output**.
+
+**After a push that changes static HTML:**
+
+1. Confirm CI/Vercel finished and the deployment is the expected commit (`view-source:` on `https://todaysdailybattle.com/plans.html` and search for a string you just added).
+2. Purge Cloudflare (if the zone sits in front of the host): from the repo, with `CF_API_TOKEN` in `.env`:
+   - `npm run purge:cloudflare:social` — purges `/`, `/index.html`, `/plans.html`, `/site-guide.html`, and related URLs (see `scripts/cloudflare-purge.mjs`).
+   - Or targeted: `CF_PURGE_FILES=https://todaysdailybattle.com/plans.html,https://todaysdailybattle.com/index.html npm run purge:cloudflare`
+   - Full zone: `npm run purge:cloudflare`
+3. Hard-refresh or incognito to bypass the browser cache.
 
 ## Search & discoverability
 

@@ -21,6 +21,9 @@
  *
  * Share images: HTML uses og:image …/file.jpg?v=SHARE_OG_V — bump SHARE_OG_V here when you
  * bump ?v= in index/calm/mobius/shop/testimonials so :social purges both bare and versioned URLs.
+ *
+ * Nav or plans.html copy updates: run `npm run purge:cloudflare:social` after deploy so
+ * /plans.html, /index.html, /site-guide.html are not stale at the edge.
  */
 import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';

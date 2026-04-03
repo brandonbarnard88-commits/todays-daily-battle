@@ -32,6 +32,7 @@
     "release:check": "npm run build && npm run verify:mobius-audio && npm run test && npm run test:site && npm run test:security",
     "deploy:reminder": "node scripts/post-deploy-reminder.mjs",
     "verify:live-key-html": "node scripts/verify-live-key-html.mjs",
+    "verify:live-key-html:retry": "node scripts/verify-live-retry.mjs",
     "test:authz-smoke": "bash scripts/authz-smoke.sh",
     "test:search-torture": "node scripts/search-torture-test.mjs",
     "test:search-torture-live": "node scripts/search-torture-live.mjs",

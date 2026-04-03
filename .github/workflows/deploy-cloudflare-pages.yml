@@ -5,7 +5,11 @@
 #   CLOUDFLARE_ACCOUNT_ID  — Cloudflare Dashboard → Workers & Pages → Overview → Account ID (right column).
 #   CF_PAGES_PROJECT_NAME  — Workers & Pages → your project → Settings → General → Project name (exact slug, not the public hostname).
 #
-# After a green run, purge CDN cache (Dashboard → Caching, or repo purge workflow) so /coloring.html and assets update everywhere.
+# Optional (recommended if a Cloudflare zone proxies in front of Pages):
+#   CF_API_TOKEN           — separate token, "Edit zone cache", zone: todaysdailybattle.com — triggers post-deploy purge below.
+#   CF_ZONE_ID             — optional; purge script can auto-discover zone.
+#
+# After a green run, optional purge clears stale HTML at the zone edge. Manual: Actions → "Purge Cloudflare Cache".
 #
 # Do not use alongside another auto-prod deploy to the same domain without a plan.
 name: Deploy Cloudflare Pages (manual)
@@ -62,3 +66,23 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=${{ secrets.CF_PAGES_PROJECT_NAME }}
+
+      - name: Purge zone cache (optional — custom hostname in front of Pages)
+        env:
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::notice::Optional: add CF_API_TOKEN (Edit zone cache) to purge the zone after Pages deploy."
+            exit 0
+          fi
+          npm run purge:cloudflare:social
+
+      - name: Verify live markers (optional, best-effort)
+        continue-on-error: true
+        env:
+          LIVE_BASE_URL: https://todaysdailybattle.com
+          LIVE_VERIFY_ATTEMPTS: '4'
+          LIVE_VERIFY_SLEEP_MS: '25000'
+        run: npm run verify:live-key-html:retry

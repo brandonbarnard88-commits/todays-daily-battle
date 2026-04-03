@@ -1,5 +1,12 @@
-# After each push to main, purge the full Cloudflare zone cache (Dashboard equivalent: Caching → Purge Everything).
-# Requires repo secrets CF_ZONE_ID and CF_API_TOKEN (Edit zone cache). If secrets are missing, the step is skipped without failing the workflow.
+# After each push to main, purge the full Cloudflare zone cache (same as Dashboard → Purge Everything).
+#
+# Required for stale HTML to clear when origin (e.g. Vercel) already has a fresh deploy:
+#   Settings → Secrets and variables → Actions → New repository secret
+#     CF_API_TOKEN — Cloudflare → API Tokens → Create → "Edit zone cache" (zone: todaysdailybattle.com)
+#     CF_ZONE_ID   — optional; script auto-discovers zone for todaysdailybattle.com if omitted
+#
+# If CF_API_TOKEN is missing, this workflow still succeeds and prints a notice (does not fail CI).
+# If CF_API_TOKEN is set but purge fails, the workflow fails so you notice a bad token or zone.
 name: Purge Cloudflare cache on push
 
 on:
@@ -10,14 +17,28 @@ on:
 jobs:
   purge:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Purge entire zone (npm run purge:cloudflare)
-        continue-on-error: true
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Purge Cloudflare zone cache
         env:
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-        run: npm run purge:cloudflare
+        run: |
+          set -euo pipefail
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::notice title=Cloudflare purge skipped::Add repository secret CF_API_TOKEN (Edit zone cache) so each push to main clears stale CDN HTML. Optional: CF_ZONE_ID."
+            exit 0
+          fi
+          if echo "$CF_API_TOKEN" | grep -qiE 'your_token|placeholder|changeme|paste_your'; then
+            echo "::error::CF_API_TOKEN looks like a placeholder. Replace with a real Cloudflare API token."
+            exit 1
+          fi
+          npm run purge:cloudflare

@@ -1,0 +1,39 @@
+# Manual: confirm production has latest nav, plans honesty block, site search + JSON.
+# Run after deploy + purge (or use npm run verify:live-key-html:retry locally).
+name: Verify live key HTML
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: 'Origin to test (apex or www)'
+        required: false
+        default: 'https://todaysdailybattle.com'
+        type: string
+      retry:
+        description: 'Retry up to 6 times (deploy/CDN lag)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify production markers
+        env:
+          LIVE_BASE_URL: ${{ inputs.base_url }}
+        run: |
+          if ${{ inputs.retry }}; then
+            npm run verify:live-key-html:retry
+          else
+            npm run verify:live-key-html
+          fi

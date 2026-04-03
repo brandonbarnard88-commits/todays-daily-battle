@@ -38,10 +38,15 @@ if (existsSync(envPath)) {
     const idx = line.indexOf('=');
     if (idx < 0) continue;
     const key = line.slice(0, idx).trim();
-    if (!key.startsWith('CF_') || process.env[key]) continue;
+    if ((!key.startsWith('CF_') && key !== 'CLOUDFLARE_API_TOKEN') || process.env[key]) continue;
     let val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
     process.env[key] = val;
   }
+}
+
+// Wrangler / GitHub Actions often set CLOUDFLARE_API_TOKEN; cache purge API accepts the same bearer.
+if (!process.env.CF_API_TOKEN && process.env.CLOUDFLARE_API_TOKEN) {
+  process.env.CF_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 }
 
 const DOMAIN = process.env.CF_DOMAIN || 'todaysdailybattle.com';
@@ -60,8 +65,10 @@ const headers = {
 };
 
 if (!headers.Authorization && !headers['X-Auth-Email']) {
-  console.error('Missing CF_API_TOKEN. Add to project .env (gitignored):');
-  console.error('  CF_API_TOKEN=<token from Cloudflare → My Profile → API Tokens → Create → use "Edit zone cache" template, zone: todaysdailybattle.com>');
+  console.error('Missing cache purge token. Set one of:');
+  console.error('  CF_API_TOKEN — API token with "Edit zone cache" for zone todaysdailybattle.com');
+  console.error('  CLOUDFLARE_API_TOKEN — same bearer (e.g. wrangler/Pages token) if it includes Cache Purge');
+  console.error('GitHub Actions: add repository secret CF_API_TOKEN and/or ensure CLOUDFLARE_API_TOKEN includes zone cache purge.');
   process.exit(1);
 }
 if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder|changeme|replace_me/i.test(API_TOKEN) || API_TOKEN.length < 30)) {

@@ -1,21 +1,26 @@
-# Deploy dist/ to Cloudflare Pages (manual workflow_dispatch only).
+# Build dist/ and deploy to Cloudflare Pages.
 #
-# Required repository secrets (Settings → Secrets and variables → Actions):
-#   CLOUDFLARE_API_TOKEN   — Cloudflare → My Profile → API Tokens → Create → use "Edit Cloudflare Pages" template (or custom with Pages Edit).
-#   CLOUDFLARE_ACCOUNT_ID  — Cloudflare Dashboard → Workers & Pages → Overview → Account ID (right column).
-#   CF_PAGES_PROJECT_NAME  — Workers & Pages → your project → Settings → General → Project name (exact slug, not the public hostname).
+# Triggers: manual (workflow_dispatch) OR every push to main (when a Pages-capable token exists).
 #
-# Optional (recommended if a Cloudflare zone proxies in front of Pages):
-#   CF_API_TOKEN           — separate token, "Edit zone cache", zone: todaysdailybattle.com — triggers post-deploy purge below.
-#   CF_ZONE_ID             — optional; purge script can auto-discover zone.
+# Repository secrets (Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_ACCOUNT_ID   — Workers & Pages → Overview → Account ID
+#   CF_PAGES_PROJECT_NAME   — Pages project → Settings → General → Project name (slug)
 #
-# After a green run, optional purge clears stale HTML at the zone edge. Manual: Actions → "Purge Cloudflare Cache".
+# At least ONE bearer with Cloudflare Pages — Edit (and ideally Zone — Cache Purge):
+#   CLOUDFLARE_API_TOKEN    — "Edit Cloudflare Pages" template (recommended)
+#   CF_API_TOKEN            — fallback if it includes Pages deploy permission
 #
-# Do not use alongside another auto-prod deploy to the same domain without a plan.
-name: Deploy Cloudflare Pages (manual)
+# Optional: CF_ZONE_ID (purge auto-discovers if omitted)
+#
+# Push to main: if both tokens are empty, the workflow succeeds with a notice (no deploy).
+# workflow_dispatch: fails clearly if Pages token missing (so a manual run is never a silent no-op).
+name: Deploy Cloudflare Pages
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 concurrency:
   group: deploy-cf-pages
@@ -25,6 +30,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    if: ${{ github.event.repository.fork == false }}
     steps:
       - uses: actions/checkout@v4
 
@@ -39,47 +45,69 @@ jobs:
           npm run build
 
       - name: Require Cloudflare Pages secrets
+        id: req
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CF_PAGES_PROJECT_NAME: ${{ secrets.CF_PAGES_PROJECT_NAME }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
           set -euo pipefail
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          if [ -n "${CLOUDFLARE_API_TOKEN:-}" ]; then
+            PAGES_TOK="$CLOUDFLARE_API_TOKEN"
+          else
+            PAGES_TOK="${CF_API_TOKEN:-}"
+          fi
+          if [ "$EVENT_NAME" = "push" ]; then
+            if [ -z "$PAGES_TOK" ]; then
+              echo "::notice title=Pages auto-deploy skipped::Add CLOUDFLARE_API_TOKEN (Pages Edit) or CF_API_TOKEN with Pages permission to deploy on each main push."
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
           missing=0
-          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
-            echo "::error::Missing repository secret CLOUDFLARE_API_TOKEN (Cloudflare API token with Cloudflare Pages — Edit)."
+          if [ -z "$PAGES_TOK" ]; then
+            echo "::error::Set CLOUDFLARE_API_TOKEN or CF_API_TOKEN with Cloudflare Pages — Edit."
             missing=1
           fi
-          if [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "::error::Missing repository secret CLOUDFLARE_ACCOUNT_ID (Workers & Pages → Overview → Account ID)."
+          if [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+            echo "::error::Missing CLOUDFLARE_ACCOUNT_ID."
             missing=1
           fi
-          if [ -z "$CF_PAGES_PROJECT_NAME" ]; then
-            echo "::error::Missing repository secret CF_PAGES_PROJECT_NAME (exact Pages project slug from project Settings → General)."
+          if [ -z "${CF_PAGES_PROJECT_NAME:-}" ]; then
+            echo "::error::Missing CF_PAGES_PROJECT_NAME."
             missing=1
           fi
           exit $missing
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages (CLOUDFLARE_API_TOKEN)
+        if: ${{ steps.req.outputs.skip != 'true' && secrets.CLOUDFLARE_API_TOKEN != '' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=${{ secrets.CF_PAGES_PROJECT_NAME }}
 
-      - name: Purge zone cache (optional — custom hostname in front of Pages)
+      - name: Deploy to Cloudflare Pages (CF_API_TOKEN)
+        if: ${{ steps.req.outputs.skip != 'true' && secrets.CLOUDFLARE_API_TOKEN == '' && secrets.CF_API_TOKEN != '' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ secrets.CF_PAGES_PROJECT_NAME }}
+
+      - name: Purge zone cache after deploy
+        if: ${{ steps.req.outputs.skip != 'true' }}
         env:
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-        run: |
-          set -euo pipefail
-          if [ -z "${CF_API_TOKEN:-}" ]; then
-            echo "::notice::Optional: add CF_API_TOKEN (Edit zone cache) to purge the zone after Pages deploy."
-            exit 0
-          fi
-          npm run purge:cloudflare:social
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npm run purge:cloudflare:social
 
-      - name: Verify live markers (optional, best-effort)
+      - name: Verify live markers (best-effort)
+        if: ${{ steps.req.outputs.skip != 'true' }}
         continue-on-error: true
         env:
           LIVE_BASE_URL: https://todaysdailybattle.com

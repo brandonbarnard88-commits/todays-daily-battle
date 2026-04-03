@@ -55,6 +55,25 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.035);
       --tdb-surface-radius: 18px;
     }
+    /* Light appearance: global theme sets --text; this page must lift --card/--bg or rows stay dark with wrong copy colors. */
+    html[data-theme="light"] {
+      --bg: #f6f1e3;
+      --card: #fffdf7;
+      --text: #1e293b;
+      --muted: #5a6578;
+      --line: #e2e8f0;
+      --shadow: 0 2px 16px rgba(15, 23, 42, 0.08);
+      --tdb-surface-card-bg: color-mix(in srgb, var(--card) 96%, rgba(201, 162, 39, 0.06));
+      --tdb-surface-card-border: color-mix(in srgb, rgba(15, 23, 42, 0.1) 80%, rgba(201, 162, 39, 0.2));
+      --tdb-surface-card-shadow: 0 8px 28px rgba(64, 41, 8, 0.08),
+        0 0 0 1px color-mix(in srgb, rgba(201, 162, 39, 0.22) 45%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      --tdb-surface-panel-bg: color-mix(in srgb, var(--card) 98%, rgba(0, 102, 204, 0.04));
+      --tdb-surface-panel-border: rgba(15, 23, 42, 0.1);
+      --tdb-surface-panel-shadow: 0 5px 20px rgba(64, 41, 8, 0.06),
+        0 0 0 1px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    }
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; width: 100%; background: var(--bg); color: var(--text); font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; font-size: 1rem; line-height: 1.6; }
 
@@ -343,6 +362,11 @@
     .plan-row-info { flex: 1; min-width: 0; }
     .plan-row-info h2 { font-size: 1rem; font-weight: 700; margin: 0 0 0.2rem; color: var(--text); }
     .plan-row-info p  { font-size: 0.84rem; color: var(--muted); margin: 0; line-height: 1.5; }
+    /* Dark rows: --muted alone is slightly dim on --card (axe). */
+    html[data-theme="dark"] .plan-row-info p,
+    html:not([data-theme]) .plan-row-info p {
+      color: rgba(203, 213, 225, 0.9);
+    }
     .plan-row-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
     .plan-badge {
       font-size: 0.7rem; font-weight: 700;
@@ -354,10 +378,39 @@
       font-size: 0.68rem; color: var(--muted);
       background: var(--line); padding: 2px 7px; border-radius: 20px;
     }
+    html[data-theme="dark"] .plan-progress-pill:not(.active):not(.done),
+    html:not([data-theme]) .plan-progress-pill:not(.active):not(.done) {
+      color: #e2e8f0 !important;
+      background: rgba(30, 41, 59, 0.92) !important;
+    }
+    html[data-theme="light"] .plan-progress-pill:not(.active):not(.done),
+    :root[data-theme="light"] .plan-progress-pill:not(.active):not(.done) {
+      color: #1e293b !important;
+      background: rgba(241, 245, 249, 0.95) !important;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+    }
     .plan-progress-pill.active { color: var(--green); background: color-mix(in srgb, var(--green) 12%, transparent); }
     .plan-progress-pill.done   { color: var(--gold);  background: color-mix(in srgb, var(--gold)  12%, transparent); }
     .plan-badge-easter { background: color-mix(in srgb, #e3bc67 20%, transparent); border-color: color-mix(in srgb, var(--gold) 50%, transparent); }
     .plan-row-easter { border-color: color-mix(in srgb, var(--gold) 35%, transparent); }
+    html[data-theme="light"] .plan-badge {
+      color: #3d2f12;
+      background: rgba(122, 88, 24, 0.12);
+      border-color: rgba(122, 88, 24, 0.38);
+    }
+    html[data-theme="light"] .plan-badge-easter {
+      color: #3d2f12;
+      background: rgba(122, 88, 24, 0.14);
+      border-color: rgba(92, 72, 26, 0.42);
+    }
+    html[data-theme="light"] .plan-progress-pill.done {
+      color: #5c481a;
+      background: rgba(122, 88, 24, 0.12);
+    }
+    html[data-theme="light"] .plan-progress-pill.active {
+      color: #166534;
+      background: color-mix(in srgb, #22c55e 14%, #fff 86%);
+    }
 
     .plans-homeschool-banner {
       margin: 0 0 1rem;
@@ -497,6 +550,24 @@
       max-width: 34rem;
       margin: 0;
     }
+    /* Light shell: gold-on-cream in this band fails WCAG AA (axe). */
+    html[data-theme="light"] .plans-recommended-today__h {
+      color: #5c481a;
+    }
+    html[data-theme="light"] .plans-recommended-today__note-label strong {
+      color: #6b4f1a;
+    }
+    html[data-theme="light"] .plans-lane-chip {
+      color: #5c481a;
+      border-color: color-mix(in srgb, #7a5818 50%, transparent);
+      background: color-mix(in srgb, #fff 94%, #7a5818 6%);
+    }
+    html[data-theme="light"] .plans-lane-chip:hover,
+    html[data-theme="light"] .plans-lane-chip:focus-visible {
+      color: #3d2f12;
+      background: color-mix(in srgb, #fff 88%, #7a5818 12%);
+      outline-color: #7a5818;
+    }
 
     .plan-row[data-plan$="-kids"] .plan-badge,
     .plan-row[data-plan="summer-seeds"] .plan-badge {
@@ -548,6 +619,14 @@
     .easter-banner-body a:focus-visible {
       color: var(--gold);
       outline: none;
+    }
+    html[data-theme="light"] .easter-banner-body a {
+      color: #6b4f1a;
+      border-bottom-color: color-mix(in srgb, #7a5818 42%, transparent);
+    }
+    html[data-theme="light"] .easter-banner-body a:hover,
+    html[data-theme="light"] .easter-banner-body a:focus-visible {
+      color: #5c481a;
     }
     .easter-banner-dismiss {
       flex-shrink: 0;

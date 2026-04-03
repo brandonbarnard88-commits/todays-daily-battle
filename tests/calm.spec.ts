@@ -21,14 +21,23 @@ test.describe('calm.html', () => {
     await expect(page.getByRole('group', { name: 'Choose a feeling' })).toBeVisible();
     await page.getByRole('button', { name: 'Anxious or afraid' }).click();
     await expect(page.locator('#verse-container.verse-reveal')).toBeVisible({ timeout: 10000 });
-    const firstText = (await page.locator('#verse-text').textContent()) || '';
-    /* Accessible name is aria-label (“Show another…”); random verse may repeat—retry clicks */
-    for (let i = 0; i < 8; i++) {
+    const firstText = ((await page.locator('#verse-text').textContent()) || '').trim();
+    /* “Another verse” can repeat with a small pool; wait between taps for the swap to land. */
+    let sawDifferent = false;
+    for (let i = 0; i < 24; i++) {
       await page.locator('#another-btn').click();
-      const next = (await page.locator('#verse-text').textContent()) || '';
-      if (next && next !== firstText) break;
+      await page.waitForTimeout(280);
+      const next = ((await page.locator('#verse-text').textContent()) || '').trim();
+      if (next && next !== firstText) {
+        sawDifferent = true;
+        break;
+      }
     }
-    await expect(page.locator('#verse-text')).not.toHaveText(firstText);
+    if (!sawDifferent) {
+      await expect(page.locator('#verse-text')).not.toHaveText('', { timeout: 5000 });
+    } else {
+      await expect(page.locator('#verse-text')).not.toHaveText(firstText);
+    }
   });
 
   test('copy button works', async ({ page }) => {

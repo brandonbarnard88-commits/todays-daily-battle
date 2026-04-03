@@ -984,7 +984,9 @@ html[data-theme="light"] .side-nav a:hover {
   color: #0f172a;
 }
 
-button, .btn {
+/* Generic button shell only — do not flatten .btn-primary / .btn-secondary (they need their own contrast). */
+button:not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary):not(.tdb-appearance-opt):not(.footer-appearance-link):not(.share-page-btn):not(.link-button),
+.btn:not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary) {
   background: #1a1a1a !important;
   color: #e5e5e5 !important;
   border-color: #2a2a2a !important;
@@ -993,8 +995,8 @@ button, .btn {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-html[data-theme="light"] button:not(.tdb-appearance-opt):not(.footer-appearance-link):not(.share-page-btn):not(.link-button),
-html[data-theme="light"] .btn {
+html[data-theme="light"] button:not(.tdb-appearance-opt):not(.footer-appearance-link):not(.share-page-btn):not(.link-button):not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary),
+html[data-theme="light"] .btn:not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary) {
   background: #fffdf7 !important;
   color: #2f2f2f !important;
   border-color: #e6dcc1 !important;
@@ -6815,6 +6817,24 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   transform: translateY(-2px);
 }
 
+/* Light theme: default secondary on cream pages (dawn heroes override below with higher specificity). */
+html[data-theme="light"] .btn-secondary {
+  background: rgba(15, 23, 42, 0.07);
+  color: #1e293b;
+  border-color: rgba(15, 23, 42, 0.18);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 2px 10px rgba(15, 23, 42, 0.06);
+}
+
+html[data-theme="light"] .btn-secondary:hover,
+html[data-theme="light"] .btn-secondary:focus-visible {
+  background: rgba(15, 23, 42, 0.11);
+  border-color: rgba(15, 23, 42, 0.26);
+}
+
+html[data-theme="light"] .btn-primary {
+  color: #fff;
+}
+
 .btn:hover,
 .btn:focus-visible {
   outline: none;
@@ -8279,6 +8299,18 @@ body:has(.pricing-grid) .section-divider {
   outline: 2px solid var(--border-focus, #3b82f6);
   outline-offset: 1px;
 }
+
+/* Light theme: field must not keep dark input bg with dark body text (fails contrast). */
+html[data-theme="light"] .footer-friday-email {
+  background: #fffdf7 !important;
+  color: #2f2f2f !important;
+  border-color: rgba(15, 23, 42, 0.22) !important;
+}
+
+html[data-theme="light"] .footer-friday-email::placeholder {
+  color: #4d525c;
+  opacity: 1;
+}
 .footer-friday-submit {
   font-size: 0.9rem;
   padding: 0.5rem 1rem;
@@ -8359,6 +8391,21 @@ body:has(.pricing-grid) .section-divider {
   border-color: var(--elite-gold, #e3bc67);
   box-shadow: 0 0 12px rgba(227, 188, 103, 0.35);
   outline: none;
+}
+
+/* Light theme: gold outline on cream fails AA — use deep umber text/border. */
+html[data-theme="light"] .share-page-btn,
+:root[data-theme="light"] .share-page-btn {
+  color: #5c481a;
+  border-color: #7a5818;
+}
+html[data-theme="light"] .share-page-btn:hover,
+html[data-theme="light"] .share-page-btn:focus-visible,
+:root[data-theme="light"] .share-page-btn:hover,
+:root[data-theme="light"] .share-page-btn:focus-visible {
+  color: #3d2f12;
+  border-color: #5c481a;
+  box-shadow: 0 0 12px rgba(92, 72, 26, 0.18);
 }
 .share-toast {
   position: fixed;
@@ -8468,6 +8515,15 @@ body:has(.pricing-grid) .section-divider {
 
 .link-button:hover {
   color: #bfdbfe;
+}
+
+html[data-theme="light"] .link-button,
+:root[data-theme="light"] .link-button {
+  color: var(--link-content, #0066cc);
+}
+html[data-theme="light"] .link-button:hover,
+:root[data-theme="light"] .link-button:hover {
+  color: var(--link-content-hover, #004a99);
 }
 
 .newsletter {

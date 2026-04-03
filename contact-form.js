@@ -34,10 +34,34 @@
     window.location.href = url;
   }
 
+  function parseTopicFromQuery() {
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      return String(params.get('topic') || '').trim().toLowerCase();
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function applyTopicPrefill() {
+    var topic = parseTopicFromQuery();
+    if (!topic) return '';
+    var msgEl = document.getElementById('contact-message');
+    if (!msgEl) return topic;
+    if (topic === 'safety' || topic === 'moderation') {
+      var lead = 'Safety / moderation concern:\n';
+      if (!String(msgEl.value || '').trim()) msgEl.value = lead;
+      msgEl.setAttribute('aria-label', 'Message (safety or moderation concern)');
+      msgEl.placeholder = 'Share the page, what happened, and what needs removal or review...';
+    }
+    return topic;
+  }
+
   function run() {
     var form = document.getElementById('contact-form');
     var status = document.getElementById('contact-status');
     if (!form) return;
+    var currentTopic = applyTopicPrefill();
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -57,6 +81,9 @@
       var name = nameEl ? nameEl.value.trim() : '';
       var email = emailEl ? emailEl.value.trim() : '';
       var msg = msgEl ? msgEl.value.trim() : '';
+      if (currentTopic && msg && msg.indexOf('Topic:') !== 0) {
+        msg = 'Topic: ' + currentTopic + '\n\n' + msg;
+      }
       if (!email || !msg) {
         if (status) status.textContent = 'Please enter your email and a message.';
         return;
@@ -127,10 +154,15 @@
         var nameEl = document.getElementById('contact-name');
         var emailEl = document.getElementById('contact-email');
         var msgEl = document.getElementById('contact-message');
+        var rawMsg = msgEl ? msgEl.value.trim() : '';
+        var mailMsg = rawMsg;
+        if (currentTopic && rawMsg && rawMsg.indexOf('Topic:') !== 0) {
+          mailMsg = 'Topic: ' + currentTopic + '\n\n' + rawMsg;
+        }
         openMailto(
           nameEl ? nameEl.value.trim() : '',
           emailEl ? emailEl.value.trim() : '',
-          msgEl ? msgEl.value.trim() : ''
+          mailMsg
         );
       });
     }

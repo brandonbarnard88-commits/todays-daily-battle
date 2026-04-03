@@ -14,6 +14,7 @@ const checks = [
     path: '/plans.html',
     needles: [
       'id="plans-still-in-the-works"',
+      'depression-only heaviness',
       'plans-recommended-today__note-body',
       'By feel &amp; length',
       'Quick jump',
@@ -23,6 +24,10 @@ const checks = [
   {
     path: '/',
     needles: ['id="nav-site-guide"', 'href="/site-guide.html"', 'id="nav-site-search"', 'href="/search.html"'],
+  },
+  {
+    path: '/search.html',
+    needles: ['id="tdb-site-search-input"', '/site-search-index.json', 'Search the site'],
   },
 ];
 
@@ -43,9 +48,35 @@ async function fetchText(url) {
 
 async function main() {
   let failed = false;
+  try {
+    const jUrl = base + '/site-search-index.json';
+    const jr = await fetch(jUrl, {
+      headers: {
+        'User-Agent': 'TDB-verify-live-key-html/1.0 (+https://todaysdailybattle.com)',
+        'Cache-Control': 'no-cache',
+      },
+    });
+    if (!jr.ok) {
+      console.error('verify-live-key-html: MISSING or blocked', jUrl, 'HTTP', jr.status);
+      failed = true;
+    } else {
+      const data = await jr.json();
+      if (!data || !Array.isArray(data.entries) || data.entries.length < 5) {
+        console.error('verify-live-key-html: site-search-index.json shape wrong or too few entries');
+        failed = true;
+      } else {
+        console.log('verify-live-key-html: OK', jUrl, '(' + data.entries.length + ' entries)');
+      }
+    }
+  } catch (e) {
+    console.error('verify-live-key-html: site-search-index.json fetch failed', e.message || e);
+    failed = true;
+  }
+
   for (const { path, needles } of checks) {
     const url = base + path;
     let body;
+    let pageOk = true;
     try {
       body = await fetchText(url);
     } catch (e) {
@@ -57,9 +88,10 @@ async function main() {
       if (!body.includes(n)) {
         console.error('verify-live-key-html: MISSING on', url, '→', n);
         failed = true;
+        pageOk = false;
       }
     }
-    if (!failed) {
+    if (pageOk) {
       console.log('verify-live-key-html: OK', url);
     }
   }

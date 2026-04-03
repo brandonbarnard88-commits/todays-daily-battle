@@ -312,9 +312,9 @@
   }
 
   var _tracerRafId = null;
-  var _tracerDuration = 15000;
+  var _tracerDuration = 26000;
   var _lastSvg = null;
-  var _tracerSpeeds = [15000, 10000, 6000, 15000];
+  var _tracerSpeeds = [32000, 26000, 20000, 15000];
   var _tracerSpeedIdx = 0;
   var _tracerReverse = false;
   var _tracerReverseStart = 0;
@@ -385,19 +385,19 @@
     var width = w;
     var height = h;
     var isTouch = isTouchDevice();
-    var maxNodeRDefault = isTouch ? 22 : 18;
+    var maxNodeRDefault = isTouch ? 24 : 20;
     var pivotRadiusBase = 26;
     var nCircle = 0;
     var ni;
     for (ni = 0; ni < simNodes.length; ni++) {
       if (simNodes[ni].id !== '2tim') nCircle++;
     }
-    var gapChord = 18;
+    var gapChord = 26;
     var minChord = 2 * maxNodeRDefault + gapChord;
     var sinHalf = Math.sin(Math.PI / Math.max(nCircle, 1));
     var minRingR = minChord / (2 * sinHalf);
-    var ringR = Math.max(minRingR, Math.min(w, h) * 0.36);
-    var labelMargin = 46;
+    var ringR = Math.max(minRingR, Math.min(w, h) * 0.42);
+    var labelMargin = 58;
     var vbExtent = Math.ceil(ringR + pivotRadiusBase + labelMargin);
     var cx = vbExtent;
     var cy = vbExtent;
@@ -407,8 +407,9 @@
 
     var scalePx = Math.min(w, h) / vbSize;
     var chordPx = 2 * ringR * sinHalf * scalePx;
-    var visNodeR = Math.min(maxNodeRDefault, Math.max(10, Math.floor((chordPx - 10) / 2)));
+    var visNodeR = Math.min(maxNodeRDefault, Math.max(12, Math.floor((chordPx - 12) / 2)));
     if (nCircle <= 12) visNodeR = maxNodeRDefault;
+    var denseLabelMode = nCircle > 14;
     var hitR = isTouch ? Math.max(visNodeR, 22) : Math.max(visNodeR, 18);
     var halfChordPx = chordPx / 2 - 6;
     if (hitR > halfChordPx && halfChordPx > visNodeR) hitR = Math.max(Math.floor(halfChordPx), visNodeR);
@@ -517,11 +518,17 @@
 
     nodeEls.append('text')
       .attr('text-anchor', 'middle').attr('dy', 4)
-      .attr('fill', 'rgba(248, 250, 252, 0.94)').attr('font-size', function (d) { return d.id === '2tim' ? (isTouch ? '8px' : '7px') : (isTouch ? '9px' : '8px'); })
+      .attr('fill', 'rgba(248, 250, 252, 0.94)').attr('font-size', function (d) { return d.id === '2tim' ? (isTouch ? '10px' : '9px') : (isTouch ? '10px' : '9px'); })
       .attr('font-weight', '600')
+      .attr('display', function (d) {
+        if (!denseLabelMode) return null;
+        return (d.id === '2tim' || d.data.isStart || d.data.isPreferred) ? null : 'none';
+      })
       .text(function (d) {
         var lbl = d.label;
         if (d.id === '2tim') return '2 Tim 1:7';
+        if (d.data && d.data.isStart) return 'Start';
+        if (d.data && d.data.isPreferred) return 'You';
         return lbl.length > 8 ? lbl.slice(0, 6) + '…' : lbl;
       });
 
@@ -534,8 +541,12 @@
     function showCard(d) {
       renderNodeCard(d.data, cardContainer);
       cardContainer.classList.add('visible');
+      container.classList.add('mobius-viz-paused');
     }
-    function hideCard() { cardContainer.classList.remove('visible'); }
+    function hideCard() {
+      cardContainer.classList.remove('visible');
+      container.classList.remove('mobius-viz-paused');
+    }
     nodeEls.on('mouseenter', function (ev, d) {
       if (hoverTimer) clearTimeout(hoverTimer);
       hoverTimer = setTimeout(function () { showCard(d); hoverTimer = null; }, 120);
@@ -1153,7 +1164,7 @@
     var traceClickCount = 0;
     var traceLastClick = 0;
     if (traceBtn) {
-      traceBtn.title = 'Alt + Right Arrow for faster trace';
+      traceBtn.title = 'Alt + Right Arrow to change trace pace';
       traceBtn.addEventListener('click', function (e) {
       if (e.shiftKey) {
         window.__mobiusTraceGold = true;
@@ -1169,12 +1180,12 @@
       traceLastClick = now;
       if (traceClickCount >= 3) {
         traceClickCount = 0;
-        _tracerDuration = 4000;
-        _tracerSpeedIdx = 2;
+        _tracerDuration = 15000;
+        _tracerSpeedIdx = 3;
         if (_lastSvg && !_lastSvg.empty()) runTracer(_lastSvg, _tracerDuration);
         var t = document.createElement('div');
         t.className = 'mobius-tracer-toast';
-        t.textContent = 'You\'re tracing faster now.';
+        t.textContent = 'Tracer set to readable speed.';
         t.setAttribute('role', 'status');
         document.body.appendChild(t);
         setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 2500);

@@ -81,16 +81,16 @@
       border-color: rgba(227, 188, 103, 0.65);
     }
     .mobius-viz-wrap {
-      width: 98%;
-      max-width: min(96vw, 1320px);
-      height: min(88vh, 920px);
-      min-height: clamp(440px, 62vw, 680px);
+      width: 100%;
+      max-width: min(98vw, 1680px);
+      height: min(90vh, 1060px);
+      min-height: clamp(560px, 72vw, 860px);
       display: flex;
       align-items: center;
       justify-content: center;
       flex: 1;
       margin: 0 auto 2rem;
-      padding: 0.5rem 0.35rem;
+      padding: 0.35rem 0.25rem;
       box-sizing: border-box;
     }
     .mobius-viz-wrap svg { max-width: 100%; max-height: 100%; object-fit: contain; }
@@ -100,14 +100,22 @@
     }
     #mobius-universal-viz svg {
       transform-origin: 50% 50%;
-      animation: mobius-universal-viz-slow-spin 480s linear infinite;
+      animation: mobius-universal-viz-slow-spin 1800s linear infinite;
+    }
+    #mobius-universal-viz.mobius-viz-paused svg {
+      animation-play-state: paused;
+    }
+    @media (hover: none), (pointer: coarse) {
+      #mobius-universal-viz svg {
+        animation: none;
+      }
     }
     .mobius-node.mobius-start-node .mobius-node-face { stroke: var(--tool-gold); stroke-width: 3; }
     .mobius-node.mobius-pivot-node .mobius-node-face { stroke: rgba(227, 188, 103, 0.7); stroke-width: 2; }
     .mobius-node.mobius-preferred-node .mobius-node-face { stroke: var(--tool-gold); filter: drop-shadow(0 0 6px rgba(227, 188, 103, 0.5)); }
     .mobius-link-redeemed { stroke-opacity: 0.8; animation: mobius-redeemed-pulse 3s ease-in-out infinite; }
     @keyframes mobius-redeemed-pulse { 0%, 100% { stroke-opacity: 0.7; } 50% { stroke-opacity: 1; } }
-    .mobius-card-container { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); width: min(92%, 400px); max-height: 260px; overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 10; }
+    .mobius-card-container { position: fixed; bottom: 1.1rem; left: 50%; transform: translateX(-50%); width: min(94%, 560px); max-height: min(42vh, 360px); overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 10; }
     .mobius-card-container.visible { opacity: 1; pointer-events: auto; }
     .mobius-node-card { padding: 1rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-line); border-radius: 12px; font-size: 0.9rem; color: #e0e0e0; }
     .mobius-card-title { margin: 0 0 0.5rem; font-size: 1rem; color: var(--tool-gold-soft); }

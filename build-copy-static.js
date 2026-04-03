@@ -236,6 +236,10 @@ for (const f of rootFiles) {
     console.warn('build-copy-static.js: kjv.json not found in root — verse search and daily verse may fail until it is added or served from origin.');
   }
 }
+if (fs.existsSync(path.join(root, 'kjv.json'))) {
+  copyFile(path.join(root, 'kjv.json'), path.join(dist, 'assets', 'data', 'kjv.json'));
+  console.log('Copied kjv.json fallback to dist/assets/data/kjv.json');
+}
 for (const f of scriptFiles) {
   const src = path.join(root, f);
   if (fs.existsSync(src)) {

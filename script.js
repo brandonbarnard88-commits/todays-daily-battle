@@ -1718,7 +1718,16 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 (function preloadBibleWhenIdle() {
   if (typeof window === 'undefined') return;
   var bust = 'v=' + encodeURIComponent('20260403bible');
-  var urls = ['/kjv.json', '/kjv.json?' + bust, 'https://todaysdailybattle.com/kjv.json', 'https://todaysdailybattle.com/kjv.json?' + bust];
+  var urls = [
+    '/assets/data/kjv.json',
+    '/assets/data/kjv.json?' + bust,
+    '/kjv.json',
+    '/kjv.json?' + bust,
+    'https://todaysdailybattle.com/assets/data/kjv.json',
+    'https://todaysdailybattle.com/assets/data/kjv.json?' + bust,
+    'https://todaysdailybattle.com/kjv.json',
+    'https://todaysdailybattle.com/kjv.json?' + bust
+  ];
   var started = false;
 
   function canPreloadNow() {
@@ -12109,7 +12118,7 @@ const templates = [
 ];
 
 const versionFiles = {
-  KJV: '/kjv.json',
+  KJV: '/assets/data/kjv.json',
   NIV: '/niv.json',
   ESV: '/esv.json',
   NLT: '/nlt.json',
@@ -15112,14 +15121,24 @@ async function loadBible(version = currentVersion) {
   const isFileProtocol = typeof location !== 'undefined' && location.protocol === 'file:';
   const rootPath = file.startsWith('/') ? file : '/' + file;
   const urlsToTry = [];
+  const kjvFallbacks = version === 'KJV'
+    ? ['/kjv.json', '/kjv.json?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST)]
+    : [];
   if (isFileProtocol) {
     urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath);
     urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
+    kjvFallbacks.forEach(function (u) {
+      urlsToTry.push(BIBLE_DATA_ORIGIN + u);
+    });
   } else {
     urlsToTry.push(rootPath);
     urlsToTry.push(rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
+    kjvFallbacks.forEach(function (u) { urlsToTry.push(u); });
     urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath);
     urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
+    kjvFallbacks.forEach(function (u) {
+      urlsToTry.push(BIBLE_DATA_ORIGIN + u);
+    });
   }
   const seenUrls = {};
   const dedupedUrls = urlsToTry.filter(function (u) {

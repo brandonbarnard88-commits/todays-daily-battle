@@ -55,10 +55,15 @@ jobs:
         run: |
           set -euo pipefail
           echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "token_source=none" >> "$GITHUB_OUTPUT"
           if [ -n "${CLOUDFLARE_API_TOKEN:-}" ]; then
             PAGES_TOK="$CLOUDFLARE_API_TOKEN"
+            echo "token_source=cloudflare" >> "$GITHUB_OUTPUT"
           else
             PAGES_TOK="${CF_API_TOKEN:-}"
+            if [ -n "$PAGES_TOK" ]; then
+              echo "token_source=cf" >> "$GITHUB_OUTPUT"
+            fi
           fi
           if [ "$EVENT_NAME" = "push" ]; then
             if [ -z "$PAGES_TOK" ]; then
@@ -83,7 +88,7 @@ jobs:
           exit $missing
 
       - name: Deploy to Cloudflare Pages (CLOUDFLARE_API_TOKEN)
-        if: ${{ steps.req.outputs.skip != 'true' && secrets.CLOUDFLARE_API_TOKEN != '' }}
+        if: ${{ steps.req.outputs.skip != 'true' && steps.req.outputs.token_source == 'cloudflare' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -91,7 +96,7 @@ jobs:
           command: pages deploy dist --project-name=${{ secrets.CF_PAGES_PROJECT_NAME }}
 
       - name: Deploy to Cloudflare Pages (CF_API_TOKEN)
-        if: ${{ steps.req.outputs.skip != 'true' && secrets.CLOUDFLARE_API_TOKEN == '' && secrets.CF_API_TOKEN != '' }}
+        if: ${{ steps.req.outputs.skip != 'true' && steps.req.outputs.token_source == 'cf' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}

@@ -1180,6 +1180,68 @@
   color: #f5e3aa;
 }
 
+.bible-tools-lanes {
+  margin: 0 0 1.1rem;
+  padding: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.bible-tools-lanes-grid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 840px) {
+  .bible-tools-lanes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.bible-tools-lane-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: 44px;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.52);
+  text-decoration: none;
+  color: inherit;
+}
+
+.bible-tools-lane-card:hover,
+.bible-tools-lane-card:focus-visible {
+  border-color: var(--bible-gold);
+  outline: none;
+}
+
+.bible-tools-lane-step {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.95);
+}
+
+.bible-tools-lane-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.bible-tools-lane-copy {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: rgba(226, 232, 240, 0.86);
+}
+
 .bible-tools-overview-shell {
   margin: 0 0 2.5rem;
   padding: 1.15rem 1rem 1.25rem;

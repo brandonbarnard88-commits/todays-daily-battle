@@ -1206,14 +1206,69 @@
         });
       }
 
-      var urlQ = typeof URLSearchParams !== 'undefined' && location.search
-        ? new URLSearchParams(location.search).get('q')
+      var params = typeof URLSearchParams !== 'undefined' && location.search
+        ? new URLSearchParams(location.search)
         : null;
+      var urlQ = params ? params.get('q') : null;
+      var urlPlace = params ? params.get('place') : null;
+      var urlBook = params ? params.get('book') : null;
+      var urlTool = params ? params.get('tool') : null;
       if (urlQ && searchInput) {
         searchInput.value = String(urlQ).trim();
         doSearch();
         var concSec = document.getElementById('concordance-section');
         if (concSec) concSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (urlPlace && vmInput) {
+        vmInput.value = String(urlPlace).trim();
+        showVerseMaps(vmInput.value);
+        var mapSec = document.getElementById('verse-maps-section');
+        if (mapSec) mapSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (urlBook) {
+        var introSel = document.getElementById('hub-book-intro-select');
+        if (introSel) {
+          setTimeout(function () {
+            var wanted = String(urlBook).trim().toLowerCase();
+            var options = introSel.options || [];
+            var picked = '';
+            for (var oi = 0; oi < options.length; oi++) {
+              var val = String(options[oi].value || '');
+              if (val && val.toLowerCase() === wanted) {
+                picked = val;
+                break;
+              }
+            }
+            if (picked) {
+              introSel.value = picked;
+              introSel.dispatchEvent(new Event('change'));
+              var introSec = document.getElementById('book-intros');
+              if (introSec) introSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 90);
+        }
+      }
+      if (urlTool) {
+        var tool = String(urlTool).trim().toLowerCase();
+        if (tool === 'memory') {
+          var memSec = document.getElementById('verse-memory-section');
+          if (memSec) memSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setTimeout(function () {
+            if (memBtn && !memBtn.disabled) openMemoryModal();
+          }, 120);
+        } else if (tool === 'quiz') {
+          var quizSec = document.getElementById('bible-quiz-section');
+          if (quizSec) quizSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setTimeout(function () {
+            if (takeQuizBtn && !takeQuizBtn.disabled) openQuizModal();
+          }, 120);
+        } else if (tool === 'maps') {
+          var mapsSec = document.getElementById('verse-maps-section');
+          if (mapsSec) mapsSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (tool === 'concordance') {
+          var cSec = document.getElementById('concordance-section');
+          if (cSec) cSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
 
       var highlightBtn = document.getElementById('concordance-highlight-btn');

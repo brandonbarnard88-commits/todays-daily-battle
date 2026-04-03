@@ -542,6 +542,47 @@
     });
   }
 
+  function getUrlParams() {
+    try {
+      return new URLSearchParams(window.location.search || '');
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function runSearchFromInput() {
+    var searchInput = document.getElementById('bible-study-search-input');
+    if (!searchInput) return;
+    var q = searchInput.value.trim();
+    if (!q) {
+      renderResults([]);
+      var hint = document.getElementById('bible-study-hint');
+      if (hint) {
+        hint.classList.remove('hidden');
+        hint.textContent = 'Type a word above to find verses.';
+      }
+      return;
+    }
+    var hint2 = document.getElementById('bible-study-hint');
+    if (hint2) hint2.classList.add('hidden');
+    renderResults(searchVerses(q));
+  }
+
+  function wireQuickTopics() {
+    var searchInput = document.getElementById('bible-study-search-input');
+    if (!searchInput) return;
+    document.querySelectorAll('.bible-study-quick-topic-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var q = (btn.getAttribute('data-q') || '').trim();
+        if (!q) return;
+        searchInput.value = q;
+        runSearchFromInput();
+        var results = document.getElementById('bible-study-results');
+        if (results) results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
   function init() {
     loadBible().then(function () {
       renderHighlights();
@@ -549,20 +590,28 @@
 
     var searchInput = document.getElementById('bible-study-search-input');
     var searchBtn = document.getElementById('bible-study-search-btn');
-    function doSearch() {
-      var q = searchInput ? searchInput.value.trim() : '';
-      if (!q) {
-        renderResults([]);
-        document.getElementById('bible-study-hint').classList.remove('hidden');
-        document.getElementById('bible-study-hint').textContent = 'Type a word above to find verses.';
-        return;
-      }
-      document.getElementById('bible-study-hint').classList.add('hidden');
-      renderResults(searchVerses(q));
-    }
-    if (searchBtn) searchBtn.addEventListener('click', doSearch);
+    if (searchBtn) searchBtn.addEventListener('click', runSearchFromInput);
     if (searchInput) {
-      searchInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') doSearch(); });
+      searchInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') runSearchFromInput(); });
+    }
+    wireQuickTopics();
+
+    var params = getUrlParams();
+    if (params) {
+      var qParam = (params.get('q') || '').trim();
+      var focusResults = params.get('focus') === 'results';
+      if (qParam && searchInput) {
+        searchInput.value = qParam;
+        runSearchFromInput();
+      }
+      if (focusResults) {
+        var results = document.getElementById('bible-study-results');
+        if (results) {
+          setTimeout(function () {
+            results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 80);
+        }
+      }
     }
 
     var saveBtn = document.getElementById('bible-study-note-save');

@@ -9,6 +9,15 @@
  */
 const base = (process.env.LIVE_BASE_URL || 'https://todaysdailybattle.com').replace(/\/$/, '');
 
+/** Browser-like UA so fewer edges treat this as a bot probe. */
+const FETCH_UA =
+  'Mozilla/5.0 (compatible; TDB-verify-live/1.0; +https://todaysdailybattle.com) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+
+function extractBuildStamp(html) {
+  const m = html.match(/<!--\s*tdb build\s+([^>]+?)\s*-->/i);
+  return m ? m[1].trim() : null;
+}
+
 const checks = [
   {
     path: '/plans.html',
@@ -35,7 +44,8 @@ async function fetchText(url) {
   const res = await fetch(url, {
     redirect: 'follow',
     headers: {
-      'User-Agent': 'TDB-verify-live-key-html/1.0 (+https://todaysdailybattle.com)',
+      'User-Agent': FETCH_UA,
+      Accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
       'Cache-Control': 'no-cache',
       Pragma: 'no-cache',
     },
@@ -52,7 +62,8 @@ async function main() {
     const jUrl = base + '/site-search-index.json';
     const jr = await fetch(jUrl, {
       headers: {
-        'User-Agent': 'TDB-verify-live-key-html/1.0 (+https://todaysdailybattle.com)',
+        'User-Agent': FETCH_UA,
+        Accept: 'application/json,*/*;q=0.8',
         'Cache-Control': 'no-cache',
       },
     });
@@ -93,13 +104,19 @@ async function main() {
     }
     if (pageOk) {
       console.log('verify-live-key-html: OK', url);
+    } else if (path.includes('plans') && body) {
+      const stamp = extractBuildStamp(body);
+      if (stamp) {
+        console.error('verify-live-key-html: live Battle Plans build stamp:', stamp, '— if this predates your deploy, origin is stale.');
+      }
     }
   }
   if (failed) {
     console.error(
       '\nverify-live-key-html: Production looks stale or markers were removed.\n' +
         '  • Confirm Vercel (or host) deployed latest commit and uses outputDirectory dist.\n' +
-        '  • Purge Cloudflare: npm run purge:cloudflare:social\n' +
+        '  • Purge Cloudflare (needs CF_API_TOKEN in .env): CF_PURGE_FILES=https://todaysdailybattle.com/plans.html,... npm run purge:cloudflare\n' +
+        '     or: npm run purge:cloudflare:social\n' +
         '  • Local dist check: grep plans-still-in-the-works dist/plans.html\n'
     );
     process.exit(1);

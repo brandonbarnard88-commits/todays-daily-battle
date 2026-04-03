@@ -52,7 +52,9 @@ test.describe('core smoke (dist)', () => {
 
   test('message board shell visible', async ({ page }) => {
     await page.goto('/message.html');
-    await expect(page.getByRole('heading', { name: /message board/i }).first()).toBeVisible({ timeout: 15000 });
+    await expect(
+      page.getByRole('heading', { name: /community prayer board|community board/i }).first()
+    ).toBeVisible({ timeout: 15000 });
     await expect(page.locator('#message-list-wrap, #message-board').first()).toBeVisible();
   });
 });

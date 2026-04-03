@@ -12,7 +12,7 @@ Today's Daily Battle — after deploy
    Or targeted:
      CF_PURGE_FILES=https://todaysdailybattle.com/plans.html,https://todaysdailybattle.com/index.html,https://todaysdailybattle.com/search.html,https://todaysdailybattle.com/site-search-index.json npm run purge:cloudflare
 
-   GitHub Actions: use **repository** secrets (not environment-only unless the job sets `environment:`).
+   GitHub Actions: use **repository** secrets (not environment-only unless the job sets \`environment:\`).
    • CF_API_TOKEN — Edit zone cache (zone: todaysdailybattle.com), or
    • CLOUDFLARE_API_TOKEN — if your Pages/wrangler token also has **Cache Purge**, purge uses it automatically.
    If Actions logs show an empty token line, open the secret in GitHub and **re-paste** the value (empty secrets look "set" but deploy no-ops).

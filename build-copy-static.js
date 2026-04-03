@@ -390,6 +390,14 @@ if (fs.existsSync(path.join(root, 'data'))) {
   copyDir(path.join(root, 'data'), path.join(dist, 'data'));
   console.log('Copied data/ folder (KJV dictionary and future JSON)');
 }
+// Some production edges do not serve /data/*; mirror index at root (same pattern as kjv-lexicon.json).
+const siteSearchIdx = path.join(dist, 'data', 'site-search-index.json');
+if (fs.existsSync(siteSearchIdx)) {
+  copyFile(siteSearchIdx, path.join(dist, 'site-search-index.json'));
+  console.log('Copied site-search-index.json to dist/ root for search.html fetch');
+} else {
+  console.warn('build-copy-static.js: data/site-search-index.json missing in dist — run scripts/build-site-search-index.mjs before copy.');
+}
 if (fs.existsSync(path.join(root, 'coloring-pages'))) {
   copyDir(path.join(root, 'coloring-pages'), path.join(dist, 'coloring-pages'));
   console.log('Copied coloring-pages/ (digital coloring book line art)');

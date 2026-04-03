@@ -213,7 +213,9 @@
 /buymeacoffee https://buymeacoffee.com/todaysdailybattle 301
 /coffee https://buymeacoffee.com/todaysdailybattle 301
 /premium /pricing.html 301
-/search /#quick-search-hero 301
+# Site-wide hand-built page list (search.html). Legacy /search used to send people to home Feel search.
+/search /search.html 200!
+/search/ /search.html 302
 /prayer-wall /prayer-wall.html 301
 /prayer-wall/ /prayer-wall.html 301
 /index.html / 301

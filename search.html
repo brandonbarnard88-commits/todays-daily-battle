@@ -121,7 +121,7 @@
     });
   }
 
-  fetch('/data/site-search-index.json', { credentials: 'same-origin' })
+  fetch('/site-search-index.json', { credentials: 'same-origin' })
     .then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();

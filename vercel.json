@@ -68,6 +68,11 @@
       "permanent": true
     },
     {
+      "source": "/search",
+      "destination": "/search.html",
+      "permanent": true
+    },
+    {
       "source": "/calm",
       "destination": "/calm.html",
       "permanent": true

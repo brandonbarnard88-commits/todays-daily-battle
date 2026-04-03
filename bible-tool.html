@@ -719,7 +719,7 @@
         <!-- Kids Bible stories — full index (same breakdown fields as verse tool: Scripture, Who, To, For you) -->
         <section class="verse-card glass border-gold" aria-label="Bible stories library" id="bible-story-tool-section">
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><circle cx="12" cy="9" r="1"/><path d="M10 14h4"/></svg>Bible stories</h2>
-          <p id="bible-story-tool-lead-ok" class="section-note util-mb-0_5">Quick breakdowns of <span id="bible-story-tool-lead-count" class="bible-story-tool-lead-count">—</span> timeless Bible stories — key Scripture, who it is for, and how it applies today. Tap a title for the full story, comics, and quiz in Kids Corner.</p>
+          <p id="bible-story-tool-lead-ok" class="section-note util-mb-0_5">Quick breakdowns of <span id="bible-story-tool-lead-count" class="bible-story-tool-lead-count">—</span> timeless Bible stories — key Scripture, who it is for, and how it applies today. Tap a title for the full story, comics, and quiz in Bible Story Library.</p>
           <p id="bible-story-tool-lead-err" class="section-note util-mb-0_5 hidden" role="alert"></p>
           <p class="section-note util-mb-0_5" style="font-size:0.95rem;opacity:0.88;">Same scannable shape as verse cards above: <strong>Scripture</strong>, <strong>Who</strong>, <strong>To</strong>, <strong>For you</strong>, plus theme.</p>
           <aside class="bible-story-tool-featured" aria-labelledby="bible-story-tool-featured-heading">
@@ -727,7 +727,7 @@
             <p class="bible-story-tool-featured-ref bible-story-tool-line"><span class="bible-story-tool-k">Scripture:</span> 1 Samuel 17</p>
             <p class="bible-story-tool-featured-meta">Theme: <span class="bible-story-tool-theme-badge bible-story-tool-theme-badge--protection">Protection</span></p>
             <p class="util-mb-0">
-              <a id="bible-story-tool-featured-link" href="/kids/corner.html?story=davidGoliath" class="bible-tool-gold-link">Open read-along, comics, and quiz in Kids Corner</a>
+              <a id="bible-story-tool-featured-link" href="/kids/corner.html?story=davidGoliath" class="bible-tool-gold-link">Open read-along, comics, and quiz in Bible Story Library</a>
             </p>
           </aside>
           <div class="lookup-controls bible-story-tool-controls">
@@ -748,7 +748,7 @@
             Nothing here yet. When a verse touches your heart, try a different word or phrase from the KJV—or widen the theme.<br />
             The Lord meets you right where you are.
           </div>
-          <p class="section-note util-mt-1 util-mb-0"><a href="/kids/corner.html" class="bible-tool-gold-link">Open Kids Story Library</a> for the full experience.</p>
+          <p class="section-note util-mt-1 util-mb-0"><a href="/kids/corner.html" class="bible-tool-gold-link">Open Bible Story Library</a> for the full experience.</p>
         </section>
 
         <!-- Daily verse -->
@@ -2473,7 +2473,7 @@
         var a = document.createElement('a');
         a.href = '/kids/corner.html?story=' + encodeURIComponent(r.key);
         a.textContent = r.title;
-        a.setAttribute('aria-label', 'Open ' + r.title + ' in Kids Story Library');
+        a.setAttribute('aria-label', 'Open ' + r.title + ' in Bible Story Library');
         var hint = shortTitleHint(r);
         if (hint) a.title = hint;
         h3.appendChild(a);
@@ -2535,14 +2535,14 @@
         if (leadOk) leadOk.classList.add('hidden');
         if (leadErr) {
           leadErr.classList.remove('hidden');
-          leadErr.textContent = 'Stories are temporarily unavailable — check back soon, or open Kids Corner below for the full Story Library.';
+          leadErr.textContent = 'Stories are temporarily unavailable — check back soon, or open Bible Story Library below for the full experience.';
         }
         if (ul) {
           ul.classList.remove('hidden');
           while (ul.firstChild) ul.removeChild(ul.firstChild);
           var li = document.createElement('li');
           li.className = 'bible-story-tool-empty';
-          li.textContent = 'Stories list did not load. Try again when you are online, or use Kids Story Library in Kids Corner.';
+          li.textContent = 'Stories list did not load. Try again when you are online, or use Bible Story Library.';
           ul.appendChild(li);
         }
         if (noRes) noRes.classList.add('hidden');

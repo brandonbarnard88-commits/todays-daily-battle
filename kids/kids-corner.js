@@ -152,8 +152,28 @@
   var COLORING_OUTLINES = (function () {
     /* Shared helper: returns a full SVG string at 400×300 */
     function svg(body) {
-      return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">' +
-        '<rect width="400" height="300" fill="white"/>' + body + '</svg>';
+      return (
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">' +
+        '<defs>' +
+        '<pattern id="tdb-halftone" patternUnits="userSpaceOnUse" width="10" height="10">' +
+        '<circle cx="2" cy="2" r="1" fill="#b5b5b5" opacity="0.35"/>' +
+        '</pattern>' +
+        '</defs>' +
+        '<rect width="400" height="300" fill="white"/>' +
+        /* old-newsprint corners (light so kids can still color clearly) */
+        '<rect x="12" y="56" width="54" height="42" fill="url(#tdb-halftone)"/>' +
+        '<rect x="334" y="56" width="54" height="42" fill="url(#tdb-halftone)"/>' +
+        '<rect x="12" y="236" width="54" height="42" fill="url(#tdb-halftone)"/>' +
+        '<rect x="334" y="236" width="54" height="42" fill="url(#tdb-halftone)"/>' +
+        /* comic/newspaper frame */
+        '<rect x="4" y="4" width="392" height="292" rx="9" fill="none" stroke="#111" stroke-width="4"/>' +
+        '<rect x="12" y="12" width="376" height="276" rx="7" fill="none" stroke="#111" stroke-width="2"/>' +
+        /* masthead strip */
+        '<rect x="26" y="18" width="348" height="26" rx="4" fill="white" stroke="#111" stroke-width="2.5"/>' +
+        '<text x="200" y="35" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.9" font-family="Arial, Helvetica, sans-serif" fill="#111">TODAY&apos;S DAILY BATTLE FUNNY CLIPS</text>' +
+        body +
+        '</svg>'
+      );
     }
     var s = 'stroke="#111" stroke-linecap="round" stroke-linejoin="round" fill="none"';
     var sf = 'stroke="#111" stroke-linecap="round" stroke-linejoin="round"';
@@ -2860,7 +2880,7 @@
     coloringState.storyTitle = storyTitle || storyKey;
     coloringState.undoStack = [];
 
-    if (titleEl) titleEl.textContent = tdbPlainTextForUi(storyTitle || 'Color Me!');
+    if (titleEl) titleEl.textContent = tdbPlainTextForUi((storyTitle || 'Color Me!') + ' - Funny Clips');
 
     overlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';

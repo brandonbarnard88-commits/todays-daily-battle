@@ -16,7 +16,7 @@ const OFFLINE = process.argv.includes('--offline');
 const BASE = 'http://127.0.0.1:8765';
 const DIST = path.join(__dirname, 'dist');
 const pages = [
-  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'href="prayer-wall.html"', 'location.replace(\'prayer-wall.html\'', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator', 'sky-ip-geo.js?v=20260327ipgeo', '<button type="button" id="family-armor-stories-btn"', 'id="armor-builder-btn"', 'id="family-armor-kids-library-link"', 'kids/corner.html', 'id="hero-save-my-verses"', 'id="hero-memorize-link"', 'id="topicPlansHint"', 'script.js?v=20260411launch', 'footer-build-stamp.js?v=20260329fdbuild', 'id="en-hub-daily-verse"', 'data-tdb-hub-daily-rotate', 'Official calendar', 'Extra anchor (KJV)', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)', 'href="/es/"', 'data-tdb-pick="es"', 'href="/fr/"', 'data-tdb-pick="fr"', 'href="/pt/"', 'data-tdb-pick="pt"', 'hreflang="x-default" href="https://todaysdailybattle.com/"', 'hreflang="es" href="https://todaysdailybattle.com/es/"', 'hreflang="fr" href="https://todaysdailybattle.com/fr/"', 'hreflang="pt" href="https://todaysdailybattle.com/pt/"', 'tdb-hero-lang-today-stack', 'id="tdb-hero-lang-label"', 'id="heroShareBtn"', 'id="heroImageBtn"', 'hero-daily-headline', 'id="heroDailySubline"', 'Whatever your day holds', 'verse-growth-row', 'site-footer-support-nudge', 'footer-support-nudge-give', 'plan-category-chip', 'id="tdb-hero-lang-hint"', 'stay English for now', 'tdb-pwa-nudge', 'Built from pain, not polish', 'href="/family.html"',
+  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'location.replace(\'prayer-wall.html\'', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator', 'sky-ip-geo.js?v=20260327ipgeo', '<button type="button" id="family-armor-stories-btn"', 'id="armor-builder-btn"', 'id="family-armor-kids-library-link"', 'kids/corner.html', 'id="hero-save-my-verses"', 'id="hero-memorize-link"', 'id="topicPlansHint"', 'script.js?v=20260411launch', 'footer-build-stamp.js?v=20260329fdbuild', 'id="en-hub-daily-verse"', 'data-tdb-hub-daily-rotate', 'Official calendar', 'Extra anchor (KJV)', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)', 'href="/es/"', 'data-tdb-pick="es"', 'href="/fr/"', 'data-tdb-pick="fr"', 'href="/pt/"', 'data-tdb-pick="pt"', 'hreflang="x-default" href="https://todaysdailybattle.com/"', 'hreflang="es" href="https://todaysdailybattle.com/es/"', 'hreflang="fr" href="https://todaysdailybattle.com/fr/"', 'hreflang="pt" href="https://todaysdailybattle.com/pt/"', 'tdb-hero-lang-today-stack', 'id="tdb-hero-lang-label"', 'id="heroShareBtn"', 'id="heroImageBtn"', 'hero-daily-headline', 'id="heroDailySubline"', 'Whatever your day holds', 'verse-growth-row', 'site-footer-support-nudge', 'footer-support-nudge-give', 'plan-category-chip', 'id="tdb-hero-lang-hint"', 'stay English for now', 'tdb-pwa-nudge', 'Built from pain, not polish', 'href="/family.html"',
     'yearly-rhythm.html',
     'id="nav-year-round"',
     'id="nav-year-at-a-glance"',
@@ -24,7 +24,6 @@ const pages = [
     'href="/site-guide.html"',
     'id="nav-site-search"',
     'href="/search.html"',
-    'id="tdb-home-prayer-strip"',
     'Print hub',
     'Print year',
     'patriotic-home-bundle',

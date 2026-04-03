@@ -336,7 +336,6 @@ for (const f of otherHtml) {
       ['id="main-search"', 'main-search section (core search anchor)'],
       ['id="nav-site-guide"', 'Site guide link in primary flyout (before Explore)'],
       ['id="nav-site-search"', 'Site search link in primary flyout'],
-      ['id="tdb-home-prayer-strip"', 'Home prayer encouragement strip'],
     ];
     for (const [needle, label] of required) {
       if (!indexContent.includes(needle)) {

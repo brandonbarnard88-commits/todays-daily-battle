@@ -38,6 +38,22 @@ const checks = [
     path: '/search.html',
     needles: ['id="tdb-site-search-input"', '/site-search-index.json', 'Search the site'],
   },
+  {
+    path: '/story',
+    needles: ['Hi, I\'m Brandon.', 'Built solo by Brandon', 'hospital season'],
+  },
+  {
+    path: '/where-support-goes.html',
+    needles: ['Where support goes', 'Built solo by Brandon', 'Privacy-first', 'KJV only'],
+  },
+  {
+    path: '/journal/',
+    needles: ['KJV journal for real battles', 'anxiety-before-tomorrow', 'forgiveness-when-you-replay-it'],
+  },
+  {
+    path: '/journal/anxiety-before-tomorrow.html',
+    needles: ['anxiety before tomorrow', 'Philippians 4:6-7 (KJV)', 'One next step'],
+  },
 ];
 
 async function fetchText(url) {
@@ -114,7 +130,8 @@ async function main() {
   if (failed) {
     console.error(
       '\nverify-live-key-html: Production looks stale or markers were removed.\n' +
-        '  • Confirm Vercel (or host) deployed latest commit and uses outputDirectory dist.\n' +
+        '  • Confirm Cloudflare Pages custom domain points to the active Pages project for this repo.\n' +
+        '  • Confirm Cloudflare Pages is serving the current deployment (not a stale origin).\n' +
         '  • Purge Cloudflare (needs CF_API_TOKEN in .env): CF_PURGE_FILES=https://todaysdailybattle.com/plans.html,... npm run purge:cloudflare\n' +
         '     or: npm run purge:cloudflare:social\n' +
         '  • Local dist check: grep plans-still-in-the-works dist/plans.html\n'

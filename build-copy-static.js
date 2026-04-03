@@ -486,6 +486,10 @@ if (fs.existsSync(path.join(root, 'verse-cards'))) {
   copyDir(path.join(root, 'verse-cards'), path.join(dist, 'verse-cards'));
   console.log('Copied verse-cards/ folder (Pinterest verse images)');
 }
+if (fs.existsSync(path.join(root, 'journal'))) {
+  copyDir(path.join(root, 'journal'), path.join(dist, 'journal'));
+  console.log('Copied journal/ folder (SEO battle posts)');
+}
 
 const activeBibleMedia = path.join(root, 'media', 'active-bible');
 if (fs.existsSync(activeBibleMedia)) {
@@ -689,6 +693,10 @@ if (!sitemapBody.includes('testimonials.html') || !sitemapBody.includes('calm.ht
 }
 if (!fs.existsSync(path.join(dist, 'verse-cards', 'index.html'))) {
   console.error('BUILD FAIL: verse-cards/index.html missing in dist/. Pinterest gallery will 404 on /verse-cards/.');
+  process.exit(1);
+}
+if (!fs.existsSync(path.join(dist, 'journal', 'index.html'))) {
+  console.error('BUILD FAIL: journal/index.html missing in dist/. Journal hub will 404 on /journal/.');
   process.exit(1);
 }
 const SHARE_OG = ['home-og.jpg', 'calm-og.jpg', 'mobius-og.jpg', 'shop-og.jpg', 'testimonials-og.jpg', 'verse-share.jpg', 'kids-loop-og.jpg', 'kids-story-library-og.jpg'];

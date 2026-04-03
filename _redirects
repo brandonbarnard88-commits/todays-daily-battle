@@ -216,6 +216,14 @@
 # Site-wide hand-built page list (search.html). Legacy /search used to send people to home Feel search.
 /search /search.html 200!
 /search/ /search.html 302
+/where-support-goes /where-support-goes.html 200!
+/where-support-goes/ /where-support-goes.html 200!
+/journal /journal/index.html 200!
+/journal/ /journal/index.html 200!
+/journal/anxiety-before-tomorrow /journal/anxiety-before-tomorrow.html 200!
+/journal/forgiveness-when-you-replay-it /journal/forgiveness-when-you-replay-it.html 200!
+/journal/loneliness-at-night /journal/loneliness-at-night.html 200!
+/journal/peace-when-your-mind-runs /journal/peace-when-your-mind-runs.html 200!
 /prayer-wall /prayer-wall.html 301
 /prayer-wall/ /prayer-wall.html 301
 /index.html / 301

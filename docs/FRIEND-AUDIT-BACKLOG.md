@@ -13,12 +13,14 @@ Constructive feedback from a full-site pass—tracked here so shipped work stays
 
 **After a push that changes static HTML:**
 
-1. Confirm CI/Vercel finished and the deployment is the expected commit (`view-source:` on `https://todaysdailybattle.com/plans.html` and search for a string you just added).
-2. Purge Cloudflare (if the zone sits in front of the host): from the repo, with `CF_API_TOKEN` in `.env`:
+1. Local proof: `npm run build` then search **`dist/plans.html`** for `plans-still-in-the-works` and **`dist/index.html`** for `nav-site-guide`. The build **fails** if those markers are missing (guards in `build-copy-static.js`).
+2. Confirm the host finished deploy (`view-source:` on live `plans.html` → find `Still in the works` or `id="plans-still-in-the-works"`).
+3. Purge Cloudflare (if the zone sits in front of the host): from the repo, with `CF_API_TOKEN` in `.env`:
    - `npm run purge:cloudflare:social` — purges `/`, `/index.html`, `/plans.html`, `/site-guide.html`, and related URLs (see `scripts/cloudflare-purge.mjs`).
-   - Or targeted: `CF_PURGE_FILES=https://todaysdailybattle.com/plans.html,https://todaysdailybattle.com/index.html npm run purge:cloudflare`
+   - **Minimal URLs only:**  
+     `CF_PURGE_FILES=https://todaysdailybattle.com/plans.html,https://todaysdailybattle.com/index.html,https://todaysdailybattle.com/site-guide.html npm run purge:cloudflare`
    - Full zone: `npm run purge:cloudflare`
-3. Hard-refresh or incognito to bypass the browser cache.
+4. Hard-refresh or incognito to bypass the browser cache.
 
 ## Search & discoverability
 

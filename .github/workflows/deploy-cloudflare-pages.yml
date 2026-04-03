@@ -77,10 +77,6 @@ jobs:
             echo "::error::Set CLOUDFLARE_API_TOKEN or CF_API_TOKEN with Cloudflare Pages — Edit."
             missing=1
           fi
-          if [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
-            echo "::error::Missing CLOUDFLARE_ACCOUNT_ID."
-            missing=1
-          fi
           if [ -z "${CF_PAGES_PROJECT_NAME:-}" ]; then
             echo "::error::Missing CF_PAGES_PROJECT_NAME."
             missing=1
@@ -98,18 +94,42 @@ jobs:
           set -euo pipefail
           deploy_with_token() {
             local token="$1"
-            CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME"
+            local mode="${2:-with_account}"
+            if [ "$mode" = "without_account" ]; then
+              env -u CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME"
+            else
+              CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME"
+            fi
+          }
+          deploy_with_fallbacks() {
+            local token="$1"
+            local label="$2"
+            if [ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+              echo "Trying Pages deploy with $label and CLOUDFLARE_ACCOUNT_ID..."
+              if deploy_with_token "$token" "with_account"; then
+                echo "Pages deploy succeeded with $label (with account id)."
+                return 0
+              fi
+              echo "::warning::Pages deploy failed with $label + account id. Retrying without account id..."
+            else
+              echo "CLOUDFLARE_ACCOUNT_ID not set; trying deploy with $label and implicit account."
+            fi
+            if deploy_with_token "$token" "without_account"; then
+              echo "Pages deploy succeeded with $label (without account id)."
+              return 0
+            fi
+            return 1
           }
           if [ -n "${CLOUDFLARE_API_TOKEN:-}" ]; then
             echo "Trying Pages deploy with CLOUDFLARE_API_TOKEN..."
-            if deploy_with_token "$CLOUDFLARE_API_TOKEN"; then
+            if deploy_with_fallbacks "$CLOUDFLARE_API_TOKEN" "CLOUDFLARE_API_TOKEN"; then
               echo "Pages deploy succeeded with CLOUDFLARE_API_TOKEN."
               exit 0
             fi
             echo "::warning::Pages deploy failed with CLOUDFLARE_API_TOKEN. Trying CF_API_TOKEN fallback if available..."
           fi
           if [ -n "${CF_API_TOKEN:-}" ]; then
-            deploy_with_token "$CF_API_TOKEN"
+            deploy_with_fallbacks "$CF_API_TOKEN" "CF_API_TOKEN"
             echo "Pages deploy succeeded with CF_API_TOKEN."
             exit 0
           fi

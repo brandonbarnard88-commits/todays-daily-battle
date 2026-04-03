@@ -8,6 +8,25 @@
   var STORAGE_PREFIX = 'tdb-cat-v1:';
   var JPEG_QUALITY = 0.82;
   var AUTOPLAY_MS = 4500;
+  var STORY_QUERY_ALIASES = {
+    'baby-jesus': 'nativity',
+    babyjesus: 'nativity',
+    resurrection: 'empty-tomb',
+    emptytomb: 'empty-tomb',
+    prodigal: 'prodigal-son',
+    prodigalson: 'prodigal-son',
+    samaritan: 'good-samaritan',
+    goodsamaritan: 'good-samaritan',
+    storm: 'jesus-storm',
+    jesusstorm: 'jesus-storm',
+    daniel: 'daniel-lions',
+    daniellions: 'daniel-lions',
+    moses: 'moses-red-sea',
+    mosesredsea: 'moses-red-sea',
+    redsea: 'moses-red-sea',
+    babymoses: 'baby-moses',
+    jesus: 'jesus-children'
+  };
 
   var PALETTE = [
     'rgba(220, 38, 38, 0.95)',
@@ -3605,7 +3624,32 @@
     }
   }
 
+  function normalizeStoryQuery(raw) {
+    if (!raw) return '';
+    var val = String(raw).trim().toLowerCase();
+    if (!val) return '';
+    if (STORY_QUERY_ALIASES[val]) return STORY_QUERY_ALIASES[val];
+    var compact = val.replace(/[^a-z0-9]+/g, '');
+    if (STORY_QUERY_ALIASES[compact]) return STORY_QUERY_ALIASES[compact];
+    for (var i = 0; i < STORIES.length; i++) {
+      if (STORIES[i].id === val) return val;
+    }
+    for (var j = 0; j < STORIES.length; j++) {
+      if (STORIES[j].id.replace(/[^a-z0-9]+/g, '') === compact) return STORIES[j].id;
+    }
+    return '';
+  }
+
   function init() {
+    var requestedStoryId = '';
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      requestedStoryId = normalizeStoryQuery(params.get('story'));
+    } catch (e) {
+      requestedStoryId = '';
+    }
+    var requestedStorySection = null;
+
     var mount = document.getElementById('tdb-cat-root');
     if (!mount) return;
 
@@ -3677,6 +3721,9 @@
         section.setAttribute('data-tdb-story', story.id);
         if (STORIES[0] && story.id === STORIES[0].id) {
           section.id = 'tdb-cat-story-start';
+        }
+        if (requestedStoryId && story.id === requestedStoryId) {
+          requestedStorySection = section;
         }
 
         var h2 = document.createElement('h2');
@@ -3850,6 +3897,13 @@
     }
 
     refreshAllProgress();
+    if (requestedStorySection && typeof requestedStorySection.scrollIntoView === 'function') {
+      requestedStorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      try {
+        var requestedTitle = requestedStorySection.querySelector('.tdb-cat-story-title');
+        if (requestedTitle && typeof requestedTitle.focus === 'function') requestedTitle.focus({ preventScroll: true });
+      } catch (e) {}
+    }
   }
 
   if (document.readyState === 'loading') {

@@ -91,7 +91,7 @@
   }
 
   /**
-   * Maps Bible Story Library keys to coloring.html ?story= ids (see script.js coloringStories).
+   * Maps Bible Story Library keys to coloring.html ?story= ids (Color & Tell story ids).
    * Returns '' when no close match — avoids sending kids to the wrong outline.
    */
   function tdbColoringSlugForLibraryKey(storyKey) {
@@ -112,31 +112,33 @@
       noah: 'noah',
       jonah: 'jonah',
       jonahVine: 'jonah',
-      daniel: 'daniel',
-      danielLionsDen: 'daniel',
-      danielPray: 'daniel',
-      jesus: 'jesus',
-      jesusCalmsStorm: 'storm',
-      jesusCallingDisciples: 'storm',
-      moses: 'moses',
-      redSea: 'moses',
-      redSeaCrossing: 'moses',
-      mosesBush: 'moses',
-      mosesBaby: 'moses',
+      daniel: 'daniel-lions',
+      danielLionsDen: 'daniel-lions',
+      danielPray: 'daniel-lions',
+      jesus: 'jesus-children',
+      jesusCalmsStorm: 'jesus-storm',
+      jesusCallingDisciples: 'fishers-of-men',
+      moses: 'moses-red-sea',
+      redSea: 'moses-red-sea',
+      redSeaCrossing: 'moses-red-sea',
+      mosesBush: 'moses-red-sea',
+      mosesBaby: 'baby-moses',
       creation: 'creation',
-      goodSamaritan: 'samaritan'
+      goodSamaritan: 'good-samaritan'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
     if (low.indexOf('david') >= 0 || low.indexOf('goliath') >= 0) return 'david';
     if (low.indexOf('noah') >= 0) return 'noah';
     if (low.indexOf('jonah') >= 0) return 'jonah';
-    if (low.indexOf('daniel') >= 0) return 'daniel';
-    if (low.indexOf('jesus') >= 0) return 'jesus';
-    if (low.indexOf('moses') >= 0 || low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses';
+    if (low.indexOf('daniel') >= 0) return 'daniel-lions';
+    if (low.indexOf('storm') >= 0 || low.indexOf('calms') >= 0) return 'jesus-storm';
+    if (low.indexOf('disciple') >= 0 || low.indexOf('fisher') >= 0) return 'fishers-of-men';
+    if (low.indexOf('jesus') >= 0) return 'jesus-children';
+    if (low.indexOf('moses') >= 0) return low.indexOf('baby') >= 0 ? 'baby-moses' : 'moses-red-sea';
+    if (low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses-red-sea';
     if (low.indexOf('creation') >= 0 || low.indexOf('adam') >= 0) return 'creation';
-    if (low.indexOf('samaritan') >= 0) return 'samaritan';
-    if (low.indexOf('storm') >= 0 || low.indexOf('calms') >= 0) return 'storm';
+    if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
 

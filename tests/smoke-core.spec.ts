@@ -43,6 +43,18 @@ test.describe('core smoke (dist)', () => {
     await expect(result).toBeVisible({ timeout: 25000 });
   });
 
+  test('home: question search shows answer + verses', async ({ page }) => {
+    await page.goto('/');
+    await dismissFirstVisitIfPresent(page);
+    const input = page.locator('#feel-search');
+    await expect(input).toBeVisible();
+    await input.fill('Who is Jesus?');
+    await page.locator('#feel-search-btn').click();
+    await expect(page.locator('#homeQaResult')).toBeVisible({ timeout: 25000 });
+    await expect(page.locator('#homeQaAnswer')).not.toHaveText('', { timeout: 25000 });
+    await expect(page.locator('#feel-results .verse-card, #feel-results .smart-card').first()).toBeVisible({ timeout: 25000 });
+  });
+
   test('bible-tool.html loads lookup UI', async ({ page }) => {
     await page.goto('/bible-tool.html');
     await expect(page.getByRole('heading', { name: /bible tool/i })).toBeVisible({ timeout: 15000 });

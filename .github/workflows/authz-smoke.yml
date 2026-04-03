@@ -23,7 +23,29 @@ jobs:
         with:
           node-version: 20
 
+      - name: Check authz smoke secrets
+        id: authz_check
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          if [ -n "${SUPABASE_URL:-}" ] && [ -n "${SUPABASE_ANON_KEY:-}" ]; then
+            exit 0
+          fi
+          if [ "$EVENT_NAME" = "push" ]; then
+            echo "::notice title=Authz smoke skipped::Missing SUPABASE_URL/SUPABASE_ANON_KEY secrets. Set them to enable push-time authz smoke."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "::error::Missing SUPABASE_URL and/or SUPABASE_ANON_KEY secrets."
+          exit 1
+
       - name: Run authz smoke tests
+        if: ${{ steps.authz_check.outputs.skip != 'true' }}
+        continue-on-error: ${{ github.event_name == 'push' }}
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}

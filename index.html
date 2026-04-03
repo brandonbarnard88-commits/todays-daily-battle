@@ -7091,7 +7091,7 @@
       </div>
       <section class="card" id="feel-section" aria-label="How are you feeling verse search">
         <h2 class="mood-title">What are you carrying today?</h2>
-        <p class="mood-subtitle section-note" id="feelSectionSubtitle">Tap a category to open its chips&mdash;then tap one to search verses and see a gentle next step. Or type a feeling above; your words stay on this device.</p>
+        <p class="mood-subtitle section-note" id="feelSectionSubtitle">Tap a category to open its chips&mdash;then tap one to search verses and see a gentle next step. Or ask a Bible question like "Who is Jesus?" and get a Scripture-grounded answer with verses.</p>
         <p class="feel-first-action-assurance" id="feelFirstActionAssurance">No account needed. Works offline after first load. <abbr title="King James Version">KJV</abbr> only.</p>
         <div class="feel-search-wrap">
           <label for="feel-search" class="sr-only">How are you feeling?</label>
@@ -7101,8 +7101,8 @@
             autocomplete="off"
             autocorrect="off"
             spellcheck="false"
-            placeholder="Peace, gratitude, wonder&mdash;or restless, tired, heavy. Your words stay here."
-            aria-label="How are you feeling right now?"
+            placeholder="How are you feeling, or ask a Bible question (Who is Jesus?). Your words stay here."
+            aria-label="Search by feeling, verse, or Bible question"
             aria-autocomplete="list"
             aria-controls="feelSuggestDropdown"
             aria-haspopup="listbox"
@@ -7119,6 +7119,7 @@
           <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions">
           </div>
         </div>
+        <p class="section-note util-mt-0_5 util-mb-0">You can ask questions here too: "Who is Jesus?", "What is salvation?", "How do I forgive?"</p>
         <p class="topic-plans-hint section-note" id="topicPlansHint">Inside a category: tap a chip to search verses. <span class="topic-plans-hint-detail">Alt-click (desktop) or long-press (phone) on a chip opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
         <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Pick a category first; chip order may change each visit. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
           <div id="feelTopicPickers" class="feel-topic-pickers" role="group" aria-label="Topic categories">
@@ -7247,6 +7248,12 @@
           <a href="mobius.html" class="mobius-loop-full-link" aria-label="Enter the Möbius Loop">Enter the Möbius →</a>
         </span>
         <div id="feel-results" aria-live="polite"></div>
+        <section id="homeQaResult" class="home-qa-result hidden" role="region" aria-live="polite" aria-label="Bible question answer" hidden>
+          <h3 class="home-qa-title">Answer from Scripture</h3>
+          <p id="homeQaAnswer" class="home-qa-answer"></p>
+          <p id="homeQaSources" class="home-qa-sources hidden" hidden></p>
+          <p class="home-qa-note section-note util-mb-0">Then keep scrolling for matching KJV verses below.</p>
+        </section>
         <p class="warm-intro" id="feelWelcome" aria-live="polite"></p>
         <div class="feel-cards" id="feelCards" aria-live="polite"></div>
         <div id="tdbFeelPlanCta" class="tdb-feel-plan-cta hidden" role="region" aria-label="Related Battle Plan" hidden>

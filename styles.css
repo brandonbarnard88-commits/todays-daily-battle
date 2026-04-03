@@ -16574,6 +16574,41 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   -webkit-overflow-scrolling: touch;
 }
 
+.home-qa-result {
+  margin: 0.85rem 0 0.35rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(125, 149, 191, 0.36);
+  border-radius: 12px;
+  background: rgba(20, 28, 40, 0.55);
+}
+
+.home-qa-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.96rem;
+  letter-spacing: 0.01em;
+}
+
+.home-qa-answer {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.home-qa-sources {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.home-qa-note {
+  margin-top: 0.45rem;
+}
+
+html[data-theme="light"] .home-qa-result {
+  background: #f2f6ff;
+  border-color: #b8c7e8;
+}
+
 .quick-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));

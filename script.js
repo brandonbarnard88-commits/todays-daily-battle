@@ -22345,8 +22345,123 @@ async function tdbInitImpl() {
         out.innerHTML = html;
         out.style.display = 'grid';
       }
+      function isBibleQuestionQuery(input) {
+        var q = String(input || '').trim().toLowerCase();
+        if (!q) return false;
+        if (q.indexOf('?') !== -1) return true;
+        return /^(who|what|why|how|where|when|is|are|can|does|do|did|should|will)\b/.test(q) ||
+          /\b(who is jesus|what is salvation|how do i pray|what does the bible say|what does god say)\b/.test(q);
+      }
+      function getHomeQaElements() {
+        return {
+          wrap: document.getElementById('homeQaResult'),
+          answer: document.getElementById('homeQaAnswer'),
+          sources: document.getElementById('homeQaSources')
+        };
+      }
+      function hideHomeQaResult() {
+        var els = getHomeQaElements();
+        if (!els.wrap) return;
+        els.wrap.classList.add('hidden');
+        els.wrap.setAttribute('hidden', '');
+        if (els.answer) els.answer.textContent = '';
+        if (els.sources) {
+          els.sources.classList.add('hidden');
+          els.sources.setAttribute('hidden', '');
+          els.sources.textContent = '';
+        }
+      }
+      function showHomeQaLoading() {
+        var els = getHomeQaElements();
+        if (!els.wrap || !els.answer) return;
+        els.wrap.classList.remove('hidden');
+        els.wrap.removeAttribute('hidden');
+        els.answer.textContent = 'Searching Scripture for your question...';
+        if (els.sources) {
+          els.sources.classList.add('hidden');
+          els.sources.setAttribute('hidden', '');
+          els.sources.textContent = '';
+        }
+      }
+      function renderHomeQaResult(data) {
+        var els = getHomeQaElements();
+        if (!els.wrap || !els.answer || !data) return;
+        var answerText = '';
+        if (typeof window.tdbCleanForPlainDisplay === 'function') answerText = window.tdbCleanForPlainDisplay(data.answer || '');
+        if (!answerText) answerText = String(data.answer || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+        if (!answerText) {
+          hideHomeQaResult();
+          return;
+        }
+        els.wrap.classList.remove('hidden');
+        els.wrap.removeAttribute('hidden');
+        els.answer.textContent = answerText;
+        if (els.sources && Array.isArray(data.sources) && data.sources.length) {
+          els.sources.textContent = 'Sources: ' + data.sources.slice(0, 5).join(', ');
+          els.sources.classList.remove('hidden');
+          els.sources.removeAttribute('hidden');
+        } else if (els.sources) {
+          els.sources.classList.add('hidden');
+          els.sources.setAttribute('hidden', '');
+          els.sources.textContent = '';
+        }
+      }
+      async function getHomeQaResponse(query, tier) {
+        var q = String(query || '').trim();
+        if (!q) return null;
+        var cacheKey = 'tdb_home_qa_' + normalizeInput(q);
+        try {
+          var cachedRaw = localStorage.getItem(cacheKey);
+          if (cachedRaw) {
+            var cached = JSON.parse(cachedRaw);
+            if (cached && cached.answer && Date.now() - (cached.ts || 0) < (24 * 60 * 60 * 1000)) return cached;
+          }
+        } catch (_) {}
+        var cfg = window.TDB_CONFIG || {};
+        var supabaseUrl = String(cfg.SUPABASE_URL || '').replace(/\/$/, '');
+        var anon = String(cfg.SUPABASE_ANON_KEY || '');
+        if (supabaseUrl && anon) {
+          try {
+            var res = await fetch(supabaseUrl + '/functions/v1/bible-qa', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + anon },
+              body: JSON.stringify({ query: q })
+            });
+            if (res.ok) {
+              var payload = await res.json();
+              if (payload && payload.answer) {
+                var apiData = { answer: payload.answer, sources: Array.isArray(payload.sources) ? payload.sources : [], ts: Date.now() };
+                try { localStorage.setItem(cacheKey, JSON.stringify(apiData)); } catch (_) {}
+                return apiData;
+              }
+            }
+          } catch (_) {}
+        }
+        var filters = { testament: 'all', book: '' };
+        var parsed = parseQuery(q);
+        var fallback = executeQuery(parsed, tier || 'adult', filters) || {};
+        var verses = Array.isArray(fallback.verses) ? fallback.verses.slice(0, 3) : [];
+        if (!verses.length) {
+          return { answer: 'I could not find a strong match yet. Try a shorter question, then review the verses below.', sources: [] };
+        }
+        var answer = verses.map(function (v) {
+          var txt = String((v && v.text) || '').replace(/\s+/g, ' ').trim();
+          if (txt.length > 130) txt = txt.slice(0, 130).replace(/\s+\S*$/, '') + '...';
+          return txt;
+        }).join(' ');
+        var result = {
+          answer: 'From Scripture: ' + answer,
+          sources: verses.map(function (v) { return v.ref; }).filter(Boolean),
+          ts: Date.now()
+        };
+        try { localStorage.setItem(cacheKey, JSON.stringify(result)); } catch (_) {}
+        return result;
+      }
       function runSearchWithInput(inputStr) {
         var input = (inputStr != null && inputStr !== '') ? String(inputStr).trim() : '';
+        var questionMode = isBibleQuestionQuery(input);
+        if (questionMode) showHomeQaLoading();
+        else hideHomeQaResult();
         ensureBattleSearchVisible();
         var outputEl = ensureOutputElement();
         if (outputEl) outputEl.style.display = 'grid';
@@ -22368,6 +22483,16 @@ async function tdbInitImpl() {
             if (Object.keys(bible).length === 0) {
               await loadBible(currentVersion);
               try { if (typeof refreshBibleView === 'function') refreshBibleView(); } catch (_) {}
+            }
+            if (questionMode) {
+              getHomeQaResponse(input, tier).then(function (qaData) {
+                renderHomeQaResult(qaData);
+              }).catch(function () {
+                renderHomeQaResult({
+                  answer: 'I could not load a full answer right now. Keep reading the verses below and try again in a moment.',
+                  sources: []
+                });
+              });
             }
             var out = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
             if (Object.keys(bible).length === 0) {

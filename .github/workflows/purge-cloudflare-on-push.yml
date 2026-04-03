@@ -35,15 +35,18 @@ jobs:
         run: |
           set -euo pipefail
           if [ -z "${CF_API_TOKEN:-}" ] && [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
-            echo "::error::Add CF_API_TOKEN and/or CLOUDFLARE_API_TOKEN (must include Cache Purge for the zone). See scripts/cloudflare-purge.mjs header."
-            exit 1
+            echo "::warning::Skipping cache purge: missing CF_API_TOKEN/CLOUDFLARE_API_TOKEN."
+            exit 0
           fi
           if [ -n "${CF_API_TOKEN:-}" ] && echo "$CF_API_TOKEN" | grep -qiE 'your_token|placeholder|changeme|paste_your'; then
-            echo "::error::CF_API_TOKEN looks like a placeholder."
-            exit 1
+            echo "::warning::Skipping cache purge: CF_API_TOKEN looks like a placeholder."
+            exit 0
           fi
           if [ -n "${CLOUDFLARE_API_TOKEN:-}" ] && echo "$CLOUDFLARE_API_TOKEN" | grep -qiE 'your_token|placeholder|changeme|paste_your'; then
-            echo "::error::CLOUDFLARE_API_TOKEN looks like a placeholder."
-            exit 1
+            echo "::warning::Skipping cache purge: CLOUDFLARE_API_TOKEN looks like a placeholder."
+            exit 0
           fi
-          npm run purge:cloudflare
+          npm run purge:cloudflare || {
+            echo "::warning::Cloudflare cache purge failed (non-blocking). Check CF token permissions and zone id.";
+            exit 0;
+          }

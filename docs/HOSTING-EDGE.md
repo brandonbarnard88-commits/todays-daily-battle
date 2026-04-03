@@ -6,6 +6,12 @@ The site is **static output in `dist/`** (`npm run build`). Authoritative securi
 
 If **Cloudflare proxies (orange cloud)** an origin that is **not** Cloudflare Pages (e.g. Vercel), you can get **two caching layers** plus dashboard rules. `_headers` already sets **`no-cache`** on high-churn HTML paths; a zone **Purge Everything** (or `npm run purge:cloudflare`) fixes edge mismatch when it happens.
 
+## Console errors: `email-decode.min.js` / `getAttribute is not a function`
+
+That file is **not** from this repo. Cloudflare injects it when **Scrape Shield → Email Address Obfuscation** is on. It rewrites `mailto:` links at the edge; the decoder sometimes throws because `childNodes[0]` is a **text node** (no `getAttribute`), especially with normal markup like `<a href="mailto:…">text</a>`.
+
+**Fix (recommended):** Cloudflare Dashboard → **Scrape Shield** → **Email Address Obfuscation** → **Off** for `todaysdailybattle.com`. Policy and contact pages already publish **support@todaysdailybattle.com** plainly; obfuscation adds little and pollutes the console.
+
 ## Option A — Single host: **Cloudflare Pages** (recommended for this repo)
 
 1. In Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → Connect the **same Git repo** you use today.
@@ -33,7 +39,7 @@ Workers (Turnstile, geo, etc.) stay on Cloudflare; align routes with your Pages 
 
 ## Optional: GitHub → Pages deploy
 
-Workflow **`.github/workflows/deploy-cloudflare-pages.yml`** runs **manually** (`workflow_dispatch`). Add secrets:
+Workflow **`.github/workflows/deploy-cloudflare-pages.yml`** runs on **`workflow_dispatch`** and on **push to `main`** when a Pages-capable token is set. Add secrets:
 
 - `CLOUDFLARE_API_TOKEN` — Pages write (or broader account token you trust)
 - `CLOUDFLARE_ACCOUNT_ID`

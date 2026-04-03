@@ -643,6 +643,12 @@
             <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
             <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
           </div>
+          <p class="section-note util-mt-0_5 util-mb-0_5">Quick start: if blank pages freeze your mind, tap one and we will load it for you.</p>
+          <div class="lookup-controls" role="group" aria-label="Quick-start searches">
+            <button type="button" class="btn btn-secondary bible-tool-quick-query" data-query="anxiety">I feel anxious</button>
+            <button type="button" class="btn btn-secondary bible-tool-quick-query" data-query="grief">I am grieving</button>
+            <button type="button" class="btn btn-secondary bible-tool-quick-query" data-query="John 3:16">Show John 3:16</button>
+          </div>
           <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
           <div class="quick-actions quick-actions-hero" id="quick-actions-hero" role="region" aria-label="Quick topic search"></div>
           <details class="home-accordion util-mt-0_5">
@@ -651,6 +657,26 @@
           </details>
           <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
         </section>
+        <script>
+          (function wireBibleToolQuickStart() {
+            var root = document.getElementById('search-hero');
+            if (!root) return;
+            root.addEventListener('click', function (event) {
+              var btn = event.target && event.target.closest ? event.target.closest('.bible-tool-quick-query[data-query]') : null;
+              if (!btn) return;
+              var q = String(btn.getAttribute('data-query') || '').trim();
+              if (!q) return;
+              var input = document.getElementById('query');
+              if (input) input.value = q;
+              if (typeof window.runSearchWithInput === 'function') {
+                window.runSearchWithInput(q);
+              } else {
+                var searchBtn = document.getElementById('search-btn');
+                if (searchBtn && typeof searchBtn.click === 'function') searchBtn.click();
+              }
+            });
+          }());
+        </script>
 
         <!-- Ask the Word — Bible Q&A (standalone, runs before main script) -->
         <section class="bible-qa" id="ask-the-word-section" aria-label="Ask the Word" role="search">

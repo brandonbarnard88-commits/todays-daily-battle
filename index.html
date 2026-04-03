@@ -3253,6 +3253,31 @@
     }
     .tdb-feel-plan-cta.hidden { display: none !important; }
     .tdb-feel-plan-cta .btn { min-height: 44px; }
+    .tdb-search-next-step {
+      margin-top: 0.85rem;
+      padding: 0.72rem 0.82rem 0.8rem;
+      border-radius: 11px;
+      border: 1px solid color-mix(in srgb, var(--line) 86%, rgba(227, 188, 103, 0.16));
+      background: color-mix(in srgb, var(--card) 96%, rgba(227, 188, 103, 0.04));
+      text-align: left;
+    }
+    .tdb-search-next-step[hidden],
+    .tdb-search-next-step.hidden { display: none !important; }
+    .tdb-search-next-step-lead {
+      margin: 0 0 0.52rem;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .tdb-search-next-step-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .tdb-search-next-step-actions .btn {
+      min-height: 44px;
+      flex: 1 1 180px;
+    }
 
     @keyframes feel-card-in {
       from { opacity: 0; transform: translateY(10px); }
@@ -4871,6 +4896,9 @@
     .smart-action-btn {
       flex: 1;
       min-width: 100px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: color-mix(in srgb, var(--gold) 10%, transparent);
       border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
       border-radius: 10px;
@@ -4881,6 +4909,8 @@
       cursor: pointer;
       transition: background 0.15s ease;
       text-align: center;
+      text-decoration: none;
+      box-sizing: border-box;
     }
     .fvc-action-btn:hover,
     .smart-action-btn:hover {
@@ -5850,6 +5880,13 @@
     }
     .topic-plans-hint a { color: var(--gold-soft, #c9a84c); }
     .topic-plans-hint a:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.65); outline-offset: 2px; }
+    .feel-first-action-assurance {
+      margin: 0.2rem 0 0.28rem;
+      font-size: 0.8rem;
+      line-height: 1.42;
+      color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
+      max-width: 42rem;
+    }
 
     /* ── Feel quick topics: category pickers + in-place chip panels ── */
     .feel-quick-topics-root {
@@ -7077,6 +7114,7 @@
       <section class="card" id="feel-section" aria-label="How are you feeling verse search">
         <h2 class="mood-title">What are you carrying today?</h2>
         <p class="mood-subtitle section-note" id="feelSectionSubtitle">Tap a category to open its chips&mdash;then tap one to search verses and see a gentle next step. Or type a feeling above; your words stay on this device.</p>
+        <p class="feel-first-action-assurance" id="feelFirstActionAssurance">No account needed. Works offline after first load. <abbr title="King James Version">KJV</abbr> only.</p>
         <div class="feel-search-wrap">
           <label for="feel-search" class="sr-only">How are you feeling?</label>
           <input
@@ -7235,6 +7273,14 @@
         <div class="feel-cards" id="feelCards" aria-live="polite"></div>
         <div id="tdbFeelPlanCta" class="tdb-feel-plan-cta hidden" role="region" aria-label="Related Battle Plan" hidden>
           <a href="plans.html?plan=peace" class="btn btn-secondary" id="tdbFeelPlanCtaLink">Start related Battle Plan</a>
+        </div>
+        <div id="tdbSearchNextStep" class="tdb-search-next-step hidden" role="region" aria-label="Choose a next step" hidden>
+          <p class="tdb-search-next-step-lead" id="tdbSearchNextStepLead">Choose one small next step: save this verse, pray it in one line, or keep walking with a short plan.</p>
+          <div class="tdb-search-next-step-actions">
+            <button type="button" class="btn btn-secondary" id="tdbSearchNextStepSave">Save this verse</button>
+            <a href="prayer-wall.html" class="btn btn-secondary" id="tdbSearchNextStepPray">Pray this in one line</a>
+            <a href="plans.html" class="btn btn-primary" id="tdbSearchNextStepPlan">Start a short plan</a>
+          </div>
         </div>
         <a class="feel-view-more" href="bible-tool.html" aria-label="Search more verses in the Bible Tool">More verses →</a>
         <p class="feel-no-match" id="feelNoMatch">Try "peace" or "rest" — or tap a topic above.</p>
@@ -8535,7 +8581,12 @@
       const noMatch  = document.getElementById("feelNoMatch");
       const planCta = document.getElementById("tdbFeelPlanCta");
       const planCtaLink = document.getElementById("tdbFeelPlanCtaLink");
+      const nextStepWrap = document.getElementById("tdbSearchNextStep");
+      const nextStepSave = document.getElementById("tdbSearchNextStepSave");
+      const nextStepPray = document.getElementById("tdbSearchNextStepPray");
+      const nextStepPlan = document.getElementById("tdbSearchNextStepPlan");
       if (!input) return;
+      let currentFeelEntry = null;
 
       const TDB_TOPIC_TO_PLAN = {
         peace: "peace", fear: "fearnot14", strength: "strength", anxiety: "worrytrust",
@@ -8576,6 +8627,32 @@
         if (!planCta) return;
         planCta.classList.add("hidden");
         planCta.setAttribute("hidden", "");
+      }
+      function hideSearchNextStep() {
+        currentFeelEntry = null;
+        if (!nextStepWrap) return;
+        nextStepWrap.classList.add("hidden");
+        nextStepWrap.setAttribute("hidden", "");
+      }
+      function updateSearchNextStep(topicOrQuery, topEntry) {
+        if (!nextStepWrap || !nextStepPlan || !nextStepPray) return;
+        currentFeelEntry = topEntry || null;
+        if (!topEntry || !topEntry.ref || !topEntry.text) {
+          hideSearchNextStep();
+          return;
+        }
+        const t = String(topicOrQuery || "").trim().toLowerCase();
+        let planId = TDB_TOPIC_TO_PLAN[t];
+        if (!planId) {
+          const mood = resolveFeelMoodKey(topicOrQuery);
+          if (mood && FEEL_MOOD_TO_PLAN[mood]) planId = FEEL_MOOD_TO_PLAN[mood];
+        }
+        nextStepPlan.href = planId ? ("plans.html?plan=" + encodeURIComponent(planId)) : "plans.html";
+        const oneLine = "Lord, meet me in " + sanitizeText(topEntry.ref) + " today. Amen.";
+        nextStepPray.href = "prayer-wall.html";
+        nextStepPray.setAttribute("data-prayer-seed", oneLine);
+        nextStepWrap.classList.remove("hidden");
+        nextStepWrap.removeAttribute("hidden");
       }
 
       function updateFeelPlanCta(topicOrQuery) {
@@ -8683,7 +8760,19 @@
           if (typeof showEncouragementNudge === 'function') setTimeout(showEncouragementNudge, 800);
         });
 
-        actions.append(saveBtn, shareBtn);
+        const prayBtn = document.createElement("a");
+        prayBtn.className = "fvc-action-btn";
+        prayBtn.textContent = "Pray this";
+        prayBtn.href = "prayer-wall.html";
+        prayBtn.setAttribute("aria-label", "Open Prayer Wall and pray from " + sanitizeText(entry.ref));
+        prayBtn.addEventListener("click", function () {
+          try {
+            var seed = "Lord, carry me through " + sanitizeText(entry.ref) + " today. Amen.";
+            sessionStorage.setItem("tdb_prayer_seed_from_search", seed);
+          } catch (_) {}
+        });
+
+        actions.append(saveBtn, shareBtn, prayBtn);
         article.appendChild(actions);
 
         return article;
@@ -8701,6 +8790,8 @@
         (group.verses || []).forEach((entry, idx) => {
           cards.appendChild(buildVerseCard(entry, idx));
         });
+        const topEntry = group && Array.isArray(group.verses) && group.verses.length ? group.verses[0] : null;
+        updateSearchNextStep(rawQuery || (group && group.label) || "", topEntry);
         // View More button
         const moreKey = group.label;
         const moreVerses = (FEEL_MORE[moreKey] || []);
@@ -8736,6 +8827,7 @@
 
       function showNoMatch() {
         hideFeelPlanCta();
+        hideSearchNextStep();
         cards.replaceChildren();
         cards.classList.remove("has-results");
         if (welcome) { welcome.classList.remove("show"); welcome.textContent = ""; }
@@ -8744,6 +8836,7 @@
 
       function clearResult() {
         hideFeelPlanCta();
+        hideSearchNextStep();
         cards.replaceChildren();
         cards.classList.remove("has-results");
         if (welcome) { welcome.classList.remove("show"); welcome.textContent = ""; }
@@ -8886,6 +8979,38 @@
         input.scrollIntoView({ behavior: 'smooth', block: 'center' });
         try { input.focus(); } catch (err) {}
       });
+      if (nextStepSave) {
+        nextStepSave.addEventListener("click", function () {
+          if (!currentFeelEntry || !currentFeelEntry.ref || !currentFeelEntry.text) return;
+          const ref = currentFeelEntry.ref;
+          const text = currentFeelEntry.text;
+          nextStepSave.disabled = true;
+          const done = (ok, already) => {
+            nextStepSave.textContent = ok ? (already ? "Already saved ✓" : "Saved ✓") : "Save failed";
+            nextStepSave.classList.add("confirmed");
+            setTimeout(function () {
+              nextStepSave.textContent = "Save this verse";
+              nextStepSave.classList.remove("confirmed");
+              nextStepSave.disabled = false;
+            }, 1500);
+            if (ok && typeof showEncouragementNudge === "function") setTimeout(showEncouragementNudge, 600);
+          };
+          const run = window.tdbSaveDailyVerseToMyVerses;
+          if (typeof run === "function") {
+            run(ref, text).then(function (res) { done(res && res.ok, res && res.already); }).catch(function () { done(false); });
+          } else {
+            done(false);
+          }
+        });
+      }
+      if (nextStepPray) {
+        nextStepPray.addEventListener("click", function () {
+          try {
+            var seed = nextStepPray.getAttribute("data-prayer-seed") || "";
+            if (seed) sessionStorage.setItem("tdb_prayer_seed_from_search", seed);
+          } catch (_) {}
+        });
+      }
     }());
 
     // ── Quick-topic button click → trigger feel search ──
@@ -11379,7 +11504,14 @@
     initTheme();
     updateStreak();
     updatePlanStreak();
-    wirePrayerWall();
+    // Quiet room is its own page (prayer-wall.html); do not mount wall behavior on home.
+    if (
+      document.getElementById('prayer-wall') ||
+      document.getElementById('prayer-wall-input') ||
+      document.getElementById('silentAmenBtn')
+    ) {
+      wirePrayerWall();
+    }
     registerServiceWorker();
     wireVoiceSearch();
     wireHeroClickMenu();

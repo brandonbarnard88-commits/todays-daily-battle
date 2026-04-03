@@ -430,6 +430,28 @@
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
+  <script>
+    (function hydratePrayerSeedFromSearch() {
+      var key = 'tdb_prayer_seed_from_search';
+      var input = document.getElementById('prayer-wall-input');
+      if (!input) return;
+      var seed = '';
+      try {
+        seed = sessionStorage.getItem(key) || '';
+      } catch (_) {
+        seed = '';
+      }
+      if (!seed) return;
+      if (!String(input.value || '').trim()) input.value = seed;
+      input.focus();
+      try {
+        input.setSelectionRange(input.value.length, input.value.length);
+      } catch (_) {}
+      try {
+        sessionStorage.removeItem(key);
+      } catch (_) {}
+    }());
+  </script>
   <script src="share-page.js?v=20260402shareattrs" defer></script>
 </body>
 </html>

@@ -241,12 +241,43 @@
     .yr-planner-verse-lines { min-height: 3.2rem; border-bottom: 1px dashed rgba(136, 150, 176, 0.45); margin-bottom: 0.35rem; }
     .yr-print-planners-zone { margin-top: 0.25rem; }
     .yr-print-planners-zone .yr-planner-sheet { margin-bottom: 1.1rem; }
+    .yr-week-launch-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.65rem 0 0; }
+    .yr-week-launch-row .btn { min-height: 44px; }
+    .yr-teacher-pack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .yr-teacher-pack-card {
+      border: 1px solid rgba(136, 150, 176, 0.4);
+      border-radius: 10px;
+      padding: 0.75rem 0.85rem;
+      background: rgba(15, 23, 42, 0.45);
+    }
+    .yr-teacher-pack-card h3 { margin: 0 0 0.35rem; font-size: 0.95rem; color: var(--gold); }
+    .yr-teacher-pack-card p { margin: 0; font-size: 0.86rem; line-height: 1.5; color: rgba(245, 247, 251, 0.9); }
+    .yr-handoff-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .yr-handoff-card {
+      border: 1px dashed rgba(227, 188, 103, 0.45);
+      border-radius: 10px;
+      padding: 0.75rem 0.85rem;
+      background: rgba(10, 14, 22, 0.48);
+    }
+    .yr-handoff-card h3 { margin: 0 0 0.3rem; font-size: 0.9rem; color: var(--gold); }
+    .yr-handoff-card p { margin: 0; font-size: 0.84rem; line-height: 1.5; color: rgba(245, 247, 251, 0.88); }
     @media (max-width: 480px) {
       .memory-verse-actions { flex-direction: column; }
       .memory-verse-actions .memory-verse-btn-touch,
       .memory-verse-actions .btn { width: 100%; min-height: 48px; }
       .yr-planner-sheet { padding: 1.15rem 1rem; }
       .yr-table-wrap { margin-left: -0.15rem; margin-right: -0.15rem; }
+      .yr-week-launch-row .btn { width: 100%; }
       .memory-table th,
       .memory-table td {
         padding: 0.65rem 0.4rem;
@@ -415,6 +446,68 @@
         </table>
       </div>
       <p class="section-note">Multi-age class tip: keep everyone on the same weekly theme, then split response time by age (draw, discuss, journal). Printable support: <a href="church-sharing-kit.html#csk-homesch-tracker">week tracker</a> and <a href="#yr-print-planners">planner worksheets</a>.</p>
+    </section>
+
+    <section id="yr-teacher-pack" class="yr-print-zone" aria-labelledby="yr-teacher-pack-h">
+      <h2 id="yr-teacher-pack-h">Teacher Pack — one-page scope and sequence</h2>
+      <p>Run one coherent flow across classroom, co-op, or church team in 45&ndash;60 minutes. Keep Scripture central, then scale the response by age. Print this section or save to PDF.</p>
+      <div class="yr-table-wrap">
+        <table class="yr-table" aria-label="Teacher scope and sequence by lesson block">
+          <thead>
+            <tr>
+              <th scope="col">Lesson block</th>
+              <th scope="col">Timing</th>
+              <th scope="col">What to do</th>
+              <th scope="col">Age adjustment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Warm start</th><td>5 min</td><td>Open with one KJV verse and one short story hook.</td><td>5&ndash;10: echo phrase; 11&ndash;18: read full verse aloud.</td></tr>
+            <tr><th scope="row">Understanding</th><td>12&ndash;15 min</td><td>Read day card, then ask one observation and one meaning question.</td><td>5&ndash;10: picture response; 11&ndash;18: one journal line.</td></tr>
+            <tr><th scope="row">Practice step</th><td>10 min</td><td>Choose one concrete action (kindness, apology, gratitude, service).</td><td>5&ndash;10: group action; 11&ndash;18: individual commitment.</td></tr>
+            <tr><th scope="row">Prayer close</th><td>5 min</td><td>Pray one sentence from the verse and one intercession.</td><td>Younger: repeat-after-leader; older: volunteer prayers.</td></tr>
+            <tr><th scope="row">Home handoff</th><td>3 min</td><td>Send verse + one practice line to caregivers.</td><td>Use printable cards in <a href="#yr-parent-handoff-cards" data-teacher-resource="handoff_cards_anchor">handoff cards</a>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="yr-week-launch-row" role="group" aria-label="Weekly quick launch buttons">
+        <a class="btn btn-primary" href="plans.html?plan=lordsprayer-kids" data-teacher-resource="week1_launch">Week 1 launch</a>
+        <a class="btn btn-secondary" href="plans.html?plan=beatitudes-kids" data-teacher-resource="week2_launch">Week 2 launch</a>
+        <a class="btn btn-secondary" href="plans.html?plan=sower-kids" data-teacher-resource="week3_launch">Week 3 launch</a>
+        <a class="btn btn-secondary" href="plans.html?plan=peacemakers" data-teacher-resource="week4_launch">Week 4 launch</a>
+      </div>
+      <p class="section-note" style="margin-top:0.65rem">Need leader scripting and classroom variants? Open <a href="church-sharing-kit.html#csk-children-print-leader" data-teacher-resource="leader_guide_open">Quick leader guide</a> and <a href="church-sharing-kit.html#csk-homeschool-year-round" data-teacher-resource="church_school_lane_open">Church &amp; school lane</a>.</p>
+    </section>
+
+    <section id="yr-monthly-lesson-sheets" class="yr-print-zone" aria-labelledby="yr-monthly-lesson-sheets-h">
+      <h2 id="yr-monthly-lesson-sheets-h">Monthly lesson sheets (12-month set)</h2>
+      <p>Each month gives one focus verse, one teaching aim, one activity, and one prayer close. Use these as a repeatable spine for private Christian schools, co-ops, or church teams.</p>
+      <div class="yr-teacher-pack-grid">
+        <article class="yr-teacher-pack-card"><h3>August</h3><p>Focus: courage in transition (Joshua 1:9). Activity: backpack prayer tags. Close: courage prayer before school starts.</p></article>
+        <article class="yr-teacher-pack-card"><h3>September</h3><p>Focus: Lord's Prayer phrases. Activity: line-by-line echo prayer. Close: one sentence thanksgiving.</p></article>
+        <article class="yr-teacher-pack-card"><h3>October</h3><p>Focus: gratitude rhythms (Psalm 100:4). Activity: thankful table cards. Close: family thank-you prayer.</p></article>
+        <article class="yr-teacher-pack-card"><h3>November</h3><p>Focus: praise and remembrance. Activity: gratitude chain links. Close: spoken praise around the room.</p></article>
+        <article class="yr-teacher-pack-card"><h3>December</h3><p>Focus: Advent hope (Luke 2:10-11). Activity: simple nativity verse card. Close: Christ-centered peace prayer.</p></article>
+        <article class="yr-teacher-pack-card"><h3>January</h3><p>Focus: new mercies (Lamentations 3:22-23). Activity: reset journal line. Close: prayer for steady beginnings.</p></article>
+        <article class="yr-teacher-pack-card"><h3>February</h3><p>Focus: heart soil (Sower). Activity: four soils visual chart. Close: ask God for receptive hearts.</p></article>
+        <article class="yr-teacher-pack-card"><h3>March</h3><p>Focus: repentance and trust. Activity: one turn-back-to-God step. Close: humble confession prayer.</p></article>
+        <article class="yr-teacher-pack-card"><h3>April</h3><p>Focus: resurrection hope. Activity: empty-tomb reading prompts. Close: prayer of hope and joy.</p></article>
+        <article class="yr-teacher-pack-card"><h3>May</h3><p>Focus: family encouragement. Activity: blessing words for home. Close: prayer for parents and caregivers.</p></article>
+        <article class="yr-teacher-pack-card"><h3>June</h3><p>Focus: summer stillness. Activity: verse walk outdoors. Close: be-still breath prayer.</p></article>
+        <article class="yr-teacher-pack-card"><h3>July</h3><p>Focus: perseverance in heat and travel. Activity: one-verse memory check. Close: keep-us-steady prayer.</p></article>
+      </div>
+      <p class="section-note" style="margin-top:0.65rem">Full print companion: <a href="church-sharing-kit.html#csk-print-planners" data-teacher-resource="monthly_print_companion_open">Church kit planner sheets</a>.</p>
+    </section>
+
+    <section id="yr-parent-handoff-cards" class="yr-print-zone" aria-labelledby="yr-parent-handoff-cards-h">
+      <h2 id="yr-parent-handoff-cards-h">Parent handoff cards (printable)</h2>
+      <p>Cut and send these home so caregivers can reinforce the same verse and step in one minute. Keep wording short and calm.</p>
+      <div class="yr-handoff-cards-grid" aria-label="Parent handoff cards">
+        <article class="yr-handoff-card"><h3>Card 1 — What we learned</h3><p>This week: God is with us in fear. Verse: Joshua 1:9. Ask your child to say one phrase they remember.</p></article>
+        <article class="yr-handoff-card"><h3>Card 2 — One small step</h3><p>Practice this week: speak one kind sentence before dinner each day. Keep it simple and specific.</p></article>
+        <article class="yr-handoff-card"><h3>Card 3 — Prayer line</h3><p>Pray together: &ldquo;Lord, help our family trust Thee this week. Amen.&rdquo;</p></article>
+        <article class="yr-handoff-card"><h3>Card 4 — Keep going</h3><p>Next week opens here: <a href="plans.html?plan=beatitudes-kids" data-teacher-resource="parent_next_week_open">Beatitudes for Kids</a>. One short day is enough.</p></article>
+      </div>
     </section>
 
     <section id="yr-school-year" aria-labelledby="yr-school-year-h">
@@ -680,7 +773,7 @@ https://todaysdailybattle.com/church-sharing-kit.html#csk-print-planners</pre>
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/kids-corner.html">Kids Corner</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/kids-corner.html">Bible Loop Library</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/coloring.html">Color &amp; Tell</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/message.html">Prayer Wall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -852,6 +945,18 @@ https://todaysdailybattle.com/church-sharing-kit.html#csk-print-planners</pre>
       }
       wireCopy('yr-copy-planner-plain-btn', 'yearly-rhythm-planner-plain');
       wireCopy('yr-copy-print-planners-plain-btn', 'yr-print-planners-plain');
+      document.addEventListener('click', function (event) {
+        var link = event.target && event.target.closest ? event.target.closest('[data-teacher-resource]') : null;
+        if (!link) return;
+        try {
+          if (typeof window.trackEvent === 'function') {
+            window.trackEvent('teacher_resource_open', {
+              resource_id: String(link.getAttribute('data-teacher-resource') || '').slice(0, 80),
+              source_page: 'yearly_rhythm'
+            });
+          }
+        } catch (_) {}
+      });
     });
   </script>
 </body>

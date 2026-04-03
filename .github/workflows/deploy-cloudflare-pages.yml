@@ -87,21 +87,34 @@ jobs:
           fi
           exit $missing
 
-      - name: Deploy to Cloudflare Pages (CLOUDFLARE_API_TOKEN)
-        if: ${{ steps.req.outputs.skip != 'true' && steps.req.outputs.token_source == 'cloudflare' }}
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=${{ secrets.CF_PAGES_PROJECT_NAME }}
-
-      - name: Deploy to Cloudflare Pages (CF_API_TOKEN)
-        if: ${{ steps.req.outputs.skip != 'true' && steps.req.outputs.token_source == 'cf' }}
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=${{ secrets.CF_PAGES_PROJECT_NAME }}
+      - name: Deploy to Cloudflare Pages (wrangler, token fallback)
+        if: ${{ steps.req.outputs.skip != 'true' }}
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_PAGES_PROJECT_NAME: ${{ secrets.CF_PAGES_PROJECT_NAME }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          deploy_with_token() {
+            local token="$1"
+            CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME"
+          }
+          if [ -n "${CLOUDFLARE_API_TOKEN:-}" ]; then
+            echo "Trying Pages deploy with CLOUDFLARE_API_TOKEN..."
+            if deploy_with_token "$CLOUDFLARE_API_TOKEN"; then
+              echo "Pages deploy succeeded with CLOUDFLARE_API_TOKEN."
+              exit 0
+            fi
+            echo "::warning::Pages deploy failed with CLOUDFLARE_API_TOKEN. Trying CF_API_TOKEN fallback if available..."
+          fi
+          if [ -n "${CF_API_TOKEN:-}" ]; then
+            deploy_with_token "$CF_API_TOKEN"
+            echo "Pages deploy succeeded with CF_API_TOKEN."
+            exit 0
+          fi
+          echo "::error::No usable deploy token found. Set CLOUDFLARE_API_TOKEN (preferred) or CF_API_TOKEN with Pages deploy permission."
+          exit 1
 
       - name: Purge zone cache after deploy
         if: ${{ steps.req.outputs.skip != 'true' }}

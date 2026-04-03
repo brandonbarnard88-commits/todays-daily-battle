@@ -2,12 +2,12 @@
 # Cloudflare Pages: https://developers.cloudflare.com/pages/configuration/headers/
 # Netlify: https://docs.netlify.com/routing/headers/
 
-# HTML: no-store prevents BFCache; use no-cache so back/forward cache works
+# Home + plans: stronger anti-stale for shared CDNs (s-maxage=0, no-store). Slightly weaker BFCache vs ghost deploys.
 /
-  Cache-Control: no-cache, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate, max-age=0, s-maxage=0
   Pragma: no-cache
 /index.html
-  Cache-Control: no-cache, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate, max-age=0, s-maxage=0
   Pragma: no-cache
 
 # High-churn tool HTML (inline copy + scripts): must not stick at CDN — users saw stale Spanish after en copy shipped
@@ -38,10 +38,10 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 /plans.html
-  Cache-Control: no-cache, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate, max-age=0, s-maxage=0
   Pragma: no-cache
 /plans
-  Cache-Control: no-cache, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate, max-age=0, s-maxage=0
   Pragma: no-cache
 /my-verses.html
   Cache-Control: no-cache, must-revalidate

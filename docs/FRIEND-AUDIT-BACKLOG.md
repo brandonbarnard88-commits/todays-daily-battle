@@ -21,6 +21,10 @@ Constructive feedback from a full-site pass—tracked here so shipped work stays
      `CF_PURGE_FILES=https://todaysdailybattle.com/plans.html,https://todaysdailybattle.com/index.html,https://todaysdailybattle.com/site-guide.html npm run purge:cloudflare`
    - Full zone: `npm run purge:cloudflare`
 4. Hard-refresh or incognito to bypass the browser cache.
+5. **Optional network proof** (after purge): `npm run verify:live-key-html`  
+   (uses `LIVE_BASE_URL`, default `https://todaysdailybattle.com`; fails if `plans-still-in-the-works` or `nav-site-guide` are missing on live).
+
+**Headers note:** `/`, `/index.html`, `/plans.html`, and `/plans` now send `no-store` and `s-maxage=0` so shared CDNs are less likely to serve ghost HTML (see root `_headers`). Path-specific rules apply where `_headers` is honored (e.g. Cloudflare Pages); `vercel.json` still derives only the global `/*` security block—so **a missing deploy** (old `dist` on the host) can still look like “CDN cache” until production is rebuilt from this repo.
 
 ## Search & discoverability
 

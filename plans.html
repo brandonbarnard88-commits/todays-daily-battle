@@ -471,20 +471,31 @@
       text-align: center;
     }
     .plans-recommended-today__note {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
       font-size: 0.88rem;
       line-height: 1.58;
-      margin: 0 auto;
+      margin: 1.1rem auto 0;
       max-width: 38rem;
       text-align: center;
-      padding: 0.85rem 1rem;
+      padding: 1rem 1.05rem 1.05rem;
       border-radius: 12px;
       border: 1px dashed color-mix(in srgb, var(--gold) 42%, var(--line));
       background: color-mix(in srgb, var(--card) 88%, var(--gold));
       color: color-mix(in srgb, var(--text) 90%, var(--muted));
     }
-    .plans-recommended-today__note strong {
+    .plans-recommended-today__note-label strong {
       color: var(--gold-soft);
       font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+    .plans-recommended-today__note-body {
+      max-width: 34rem;
+      margin: 0;
     }
 
     .plan-row[data-plan$="-kids"] .plan-badge,
@@ -1180,7 +1191,10 @@
           <a class="plans-lane-chip" href="plans.html?plan=peace">Need a quiet pace</a>
         </div>
         <p class="plans-recommended-today__more">More lanes: <a href="topic-anxiety.html">Anxiety topic</a> &middot; <a href="topic-loneliness.html">Loneliness</a> &middot; <a href="plans.html?plan=hopeuncertain">Hope feels thin</a> &middot; <a href="plans.html?plan=caregiverrest">Caregiver rest</a> &middot; <a href="reading-plan.html?study=hope-in-hard-times">Hope in hard times (read-along)</a>.</p>
-        <p class="plans-recommended-today__note" id="plans-still-in-the-works" role="note"><strong>Still in the works</strong> &mdash; Dedicated tracks for depression-only heaviness, singleness or after divorce, sleep when the body will not settle, kids&rsquo; anxiety, and ministry burnout are being written with the same one-verse-a-day care.</p>
+        <p class="plans-recommended-today__note" id="plans-still-in-the-works" role="note">
+          <span class="plans-recommended-today__note-label"><strong>Still in the works</strong></span>
+          <span class="plans-recommended-today__note-body">Dedicated tracks for depression-only heaviness, singleness or after divorce, sleep when the body will not settle, kids&rsquo; anxiety, and ministry burnout are being written with the same one-verse-a-day care.</span>
+        </p>
       </section>
       <section class="plans-start-here" aria-labelledby="plans-start-here-title">
         <h2 class="plans-start-here-title" id="plans-start-here-title">Start here</h2>

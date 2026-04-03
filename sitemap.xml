@@ -207,6 +207,12 @@
   <!-- Public engagement + loop entry points (index.html lists same home as /; canonical on-page is /) -->
   <url><loc>https://todaysdailybattle.com/wins.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.78</priority></url>
   <url><loc>https://todaysdailybattle.com/progress.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://todaysdailybattle.com/where-support-goes.html</loc><lastmod>2026-04-03</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://todaysdailybattle.com/journal/</loc><lastmod>2026-04-03</lastmod><changefreq>weekly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://todaysdailybattle.com/journal/anxiety-before-tomorrow.html</loc><lastmod>2026-04-03</lastmod><changefreq>monthly</changefreq><priority>0.66</priority></url>
+  <url><loc>https://todaysdailybattle.com/journal/forgiveness-when-you-replay-it.html</loc><lastmod>2026-04-03</lastmod><changefreq>monthly</changefreq><priority>0.66</priority></url>
+  <url><loc>https://todaysdailybattle.com/journal/loneliness-at-night.html</loc><lastmod>2026-04-03</lastmod><changefreq>monthly</changefreq><priority>0.66</priority></url>
+  <url><loc>https://todaysdailybattle.com/journal/peace-when-your-mind-runs.html</loc><lastmod>2026-04-03</lastmod><changefreq>monthly</changefreq><priority>0.66</priority></url>
   <url><loc>https://todaysdailybattle.com/kids-corner.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.82</priority></url>
   <url><loc>https://todaysdailybattle.com/mobius-minimal.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://todaysdailybattle.com/index.html</loc><lastmod>2026-03-24</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>

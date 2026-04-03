@@ -151,6 +151,24 @@
     <p style="text-align:center; margin-top:2rem;">
       <a href="plans.html" style="color:var(--gold);">Pick a plan →</a>
     </p>
+
+    <section class="wins-card" aria-labelledby="wins-share-story-heading">
+      <h2 id="wins-share-story-heading">Share a battle win (optional)</h2>
+      <p class="section-note" style="margin-top:0;">Permission-first: your note is reviewed before anything is shared.</p>
+      <label for="wins-story-name" class="section-note">First name or initials (optional)</label>
+      <input id="wins-story-name" type="text" maxlength="40" style="width:100%;margin:0.35rem 0 0.8rem;padding:0.6rem;border-radius:8px;border:1px solid var(--line);background:#0f1520;color:var(--text);" aria-label="First name or initials for your shared battle win">
+      <label for="wins-story-text" class="section-note">Your win</label>
+      <textarea id="wins-story-text" rows="4" maxlength="700" style="width:100%;margin:0.35rem 0 0.8rem;padding:0.6rem;border-radius:8px;border:1px solid var(--line);background:#0f1520;color:var(--text);" aria-label="Your battle win story"></textarea>
+      <label class="section-note" style="display:flex;gap:0.5rem;align-items:flex-start;">
+        <input id="wins-story-permission" type="checkbox" style="margin-top:0.2rem;">
+        <span>I give permission to share this note publicly in edited form.</span>
+      </label>
+      <div class="wins-actions" style="justify-content:flex-start;margin-top:1rem;">
+        <button type="button" id="wins-story-submit" class="wins-btn" aria-label="Copy story and open email to submit battle win">Submit by email</button>
+        <a href="/testimonials.html" class="wins-btn secondary" style="text-decoration:none;display:inline-flex;align-items:center;">Read reader stories</a>
+      </div>
+      <p id="wins-story-status" class="section-note" role="status" aria-live="polite"></p>
+    </section>
   </main>
 
   <div id="toast-container" aria-live="polite"></div>
@@ -274,6 +292,33 @@
         showToast('Copy not available');
       }
     });
+
+    var storySubmitBtn = document.getElementById('wins-story-submit');
+    if (storySubmitBtn) {
+      storySubmitBtn.addEventListener('click', function () {
+        var nameEl = document.getElementById('wins-story-name');
+        var storyEl = document.getElementById('wins-story-text');
+        var permissionEl = document.getElementById('wins-story-permission');
+        var statusEl = document.getElementById('wins-story-status');
+        var story = storyEl && storyEl.value ? storyEl.value.trim() : '';
+        if (!story) {
+          if (statusEl) statusEl.textContent = 'Please add your win before submitting.';
+          return;
+        }
+        var displayName = nameEl && nameEl.value ? nameEl.value.trim() : 'Anonymous';
+        var permission = permissionEl && permissionEl.checked ? 'yes' : 'no';
+        var payload = 'Battle Win Submission\nName: ' + displayName + '\nPermission to share publicly: ' + permission + '\n\nWin:\n' + story;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(payload).catch(function () {});
+        }
+
+        var subject = encodeURIComponent('Battle Win Submission');
+        var body = encodeURIComponent(payload);
+        window.location.href = 'mailto:support@todaysdailybattle.com?subject=' + subject + '&body=' + body;
+        if (statusEl) statusEl.textContent = 'Email draft opened. Your win text was copied as backup.';
+      });
+    }
 
     loadWins();
   })();

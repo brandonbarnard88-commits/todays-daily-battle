@@ -1717,7 +1717,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 /* Preload Bible data after first paint/idle so startup stays fast; loadBible() still falls back normally. */
 (function preloadBibleWhenIdle() {
   if (typeof window === 'undefined') return;
-  var urls = ['/kjv.json', 'https://todaysdailybattle.com/kjv.json'];
+  var bust = 'v=' + encodeURIComponent('20260403bible');
+  var urls = ['/kjv.json', '/kjv.json?' + bust, 'https://todaysdailybattle.com/kjv.json', 'https://todaysdailybattle.com/kjv.json?' + bust];
   var started = false;
 
   function canPreloadNow() {
@@ -1730,7 +1731,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 
   function tryNext(i) {
     if (i >= urls.length) return;
-    fetch(urls[i]).then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    fetch(urls[i], { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : Promise.reject(); })
       .then(function (d) {
         if (d && typeof window !== 'undefined' && !window.kjvData) window.kjvData = d;
       })
@@ -12115,6 +12116,7 @@ const versionFiles = {
   NKJV: '/nkjv.json'
 };
 const BIBLE_DATA_ORIGIN = 'https://todaysdailybattle.com';
+const BIBLE_DATA_CACHE_BUST = '20260403bible';
 
 var READER_BOOKS_ORDER = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
 var READER_CHAPTER_COUNTS = { 'Genesis':50,'Exodus':40,'Leviticus':27,'Numbers':36,'Deuteronomy':34,'Joshua':24,'Judges':21,'Ruth':4,'1 Samuel':31,'2 Samuel':24,'1 Kings':22,'2 Kings':25,'1 Chronicles':29,'2 Chronicles':36,'Ezra':10,'Nehemiah':13,'Esther':10,'Job':42,'Psalm':150,'Proverbs':31,'Ecclesiastes':12,'Song of Solomon':8,'Isaiah':66,'Jeremiah':52,'Lamentations':5,'Ezekiel':48,'Daniel':12,'Hosea':14,'Joel':3,'Amos':9,'Obadiah':1,'Jonah':4,'Micah':7,'Nahum':3,'Habakkuk':3,'Zephaniah':3,'Haggai':2,'Zechariah':14,'Malachi':4,'Matthew':28,'Mark':16,'Luke':24,'John':21,'Acts':28,'Romans':16,'1 Corinthians':16,'2 Corinthians':13,'Galatians':6,'Ephesians':6,'Philippians':4,'Colossians':4,'1 Thessalonians':5,'2 Thessalonians':3,'1 Timothy':6,'2 Timothy':4,'Titus':3,'Philemon':1,'Hebrews':13,'James':5,'1 Peter':5,'2 Peter':3,'1 John':5,'2 John':1,'3 John':1,'Jude':1,'Revelation':22 };
@@ -15109,14 +15111,46 @@ async function loadBible(version = currentVersion) {
   const file = versionFiles[version] || versionFiles.KJV;
   const isFileProtocol = typeof location !== 'undefined' && location.protocol === 'file:';
   const rootPath = file.startsWith('/') ? file : '/' + file;
-  const urlsToTry = isFileProtocol
-    ? [BIBLE_DATA_ORIGIN + rootPath]
-    : [rootPath, BIBLE_DATA_ORIGIN + rootPath];
-  for (let i = 0; i < urlsToTry.length; i++) {
+  const urlsToTry = [];
+  if (isFileProtocol) {
+    urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath);
+    urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
+  } else {
+    urlsToTry.push(rootPath);
+    urlsToTry.push(rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
+    urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath);
+    urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
+  }
+  const seenUrls = {};
+  const dedupedUrls = urlsToTry.filter(function (u) {
+    if (!u || seenUrls[u]) return false;
+    seenUrls[u] = true;
+    return true;
+  });
+  async function fetchBibleJsonWithRetry(url) {
+    var lastErr = null;
+    for (var attempt = 0; attempt < 2; attempt++) {
+      try {
+        const response = await fetch(url, { cache: 'no-store' });
+        if (!response.ok) throw new Error('status ' + response.status);
+        return await response.json();
+      } catch (err) {
+        lastErr = err;
+        var msg = String((err && err.message) || '').toLowerCase();
+        var transient =
+          msg.indexOf('load failed') !== -1 ||
+          msg.indexOf('failed to fetch') !== -1 ||
+          msg.indexOf('networkerror') !== -1 ||
+          msg.indexOf('service worker') !== -1;
+        if (!transient || attempt >= 1) break;
+        await new Promise(function (resolve) { setTimeout(resolve, 250); });
+      }
+    }
+    throw lastErr || new Error('load failed');
+  }
+  for (let i = 0; i < dedupedUrls.length; i++) {
     try {
-      const response = await fetch(urlsToTry[i]);
-      if (!response.ok) throw new Error('status ' + response.status);
-      var raw = await response.json();
+      var raw = await fetchBibleJsonWithRetry(dedupedUrls[i]);
       bible = normalizeBibleData(raw);
       if (version === 'KJV' && typeof window !== 'undefined') window.kjvData = bible;
       bibleVersions[version] = bible;
@@ -15132,7 +15166,7 @@ async function loadBible(version = currentVersion) {
       if (i === 0 && version !== 'KJV') {
         return loadBible('KJV');
       }
-      if (i < urlsToTry.length - 1) continue;
+      if (i < dedupedUrls.length - 1) continue;
       if (typeof console !== 'undefined' && console.error) {
         console.error('Error loading Bible data:', err.message);
       }

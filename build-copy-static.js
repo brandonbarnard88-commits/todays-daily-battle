@@ -278,6 +278,10 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include When Pain Won\'t Quit plan (painwontquit / tdb-plan-painwontquit-day).');
       process.exit(1);
     }
+    if (!content.includes('heavyhope') || !content.includes('tdb-plan-heavyhope-day')) {
+      console.error('BUILD FAIL: plans.html must include When the Mind Lies Heavy plan (heavyhope / tdb-plan-heavyhope-day).');
+      process.exit(1);
+    }
     if (!content.includes('cancercomfort') || !content.includes('tdb-plan-cancercomfort-day')) {
       console.error('BUILD FAIL: plans.html must include Cancer Comfort plan (cancercomfort / tdb-plan-cancercomfort-day).');
       process.exit(1);
@@ -331,6 +335,8 @@ for (const f of otherHtml) {
       // DO NOT REMOVE: core search IDs — build fails if quick-search is missing
       ['id="main-search"', 'main-search section (core search anchor)'],
       ['id="nav-site-guide"', 'Site guide link in primary flyout (before Explore)'],
+      ['id="nav-site-search"', 'Site search link in primary flyout'],
+      ['id="tdb-home-prayer-strip"', 'Home prayer encouragement strip'],
     ];
     for (const [needle, label] of required) {
       if (!indexContent.includes(needle)) {
@@ -350,6 +356,7 @@ for (const f of otherHtml) {
     const corePages = [
       'pastor-toolkit.html', 'team-toolkit.html', 'study.html',
       'bible-study.html', 'message.html', 'coloring.html',
+      'search.html',
     ];
     for (const page of corePages) {
       if (!fs.existsSync(path.join(root, page))) {

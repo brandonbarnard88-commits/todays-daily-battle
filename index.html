@@ -12,7 +12,7 @@
   <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260327theme" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260402a11y" fetchpriority="low"></script>
   <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
@@ -2158,6 +2158,64 @@
     :root[data-theme="light"] .tdb-morning-doorway-hint {
       background: color-mix(in srgb, var(--card) 96%, #fff);
       border-color: color-mix(in srgb, var(--line) 92%, var(--gold) 8%);
+    }
+    .tdb-home-prayer-strip {
+      max-width: 52rem;
+      margin: 0.85rem auto 0;
+      padding: 1rem 1.1rem 1.15rem;
+      align-self: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .tdb-home-prayer-strip-title {
+      font-family: var(--font-display, Georgia, serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 0.35rem;
+      color: var(--text);
+    }
+    .tdb-home-prayer-strip-lead {
+      margin: 0 0 0.85rem;
+      font-size: 0.92rem;
+    }
+    .tdb-home-prayer-strip-scroll {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .tdb-home-prayer-card {
+      flex: 0 0 min(100%, 17rem);
+      scroll-snap-align: start;
+      margin: 0;
+      padding: 0.85rem 0.95rem;
+      border-radius: var(--radius-sm, 14px);
+      border: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.18));
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+    }
+    .tdb-home-prayer-card-text {
+      margin: 0 0 0.65rem;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: var(--text);
+      font-style: italic;
+    }
+    .tdb-home-prayer-card-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .tdb-home-prayer-card-link:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      border-radius: 4px;
     }
     /* One-line discovery for study-depth upgrades (dated; link to About for detail) */
     .tdb-whats-new-hint {
@@ -6597,6 +6655,7 @@
           <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
           <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
           <a href="/site-guide.html" id="nav-site-guide" aria-label="Site guide — calm map of where to start">Site guide</a>
+          <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
           <a href="/explore.html">Explore</a>
           <a href="/about.html">About</a>
           <details class="tdb-nav-more">
@@ -6950,6 +7009,25 @@
       </div>
 
       <p class="tdb-morning-doorway-hint" id="tdbMorningDoorwayHint">Morning doorway: <a href="daily-quiet-time.html">Daily quiet time</a> &mdash; Scripture, one-tap calm, <a href="daily-quiet-time.html#dqt-prayer-tools">prayer tools</a>, one Battle Plan.</p>
+
+      <section class="glass tdb-home-prayer-strip" id="tdb-home-prayer-strip" aria-labelledby="tdb-home-prayer-strip-title">
+        <h2 class="tdb-home-prayer-strip-title" id="tdb-home-prayer-strip-title">Pray with someone else in mind</h2>
+        <p class="section-note tdb-home-prayer-strip-lead">Short prayers you can borrow—then leave an anonymous line on the <a href="prayer-wall.html">Prayer Wall</a> if you want. Weekly verse email (no spam): use the signup in the footer. Daily text alerts are not here yet; the morning reminder in Settings is the gentlest built-in nudge.</p>
+        <div class="tdb-home-prayer-strip-scroll" role="list">
+          <blockquote class="tdb-home-prayer-card" role="listitem">
+            <p class="tdb-home-prayer-card-text">&ldquo;Lord, be near the one who feels alone today. Let them hear You before the noise does.&rdquo;</p>
+            <a class="tdb-home-prayer-card-link" href="prayer-wall.html">Open Prayer Wall</a>
+          </blockquote>
+          <blockquote class="tdb-home-prayer-card" role="listitem">
+            <p class="tdb-home-prayer-card-text">&ldquo;Father, give quiet sleep to the body that will not settle—and peace to the mind that replays yesterday.&rdquo;</p>
+            <a class="tdb-home-prayer-card-link" href="plans.html?plan=peace">7-Day Peace plan</a>
+          </blockquote>
+          <blockquote class="tdb-home-prayer-card" role="listitem">
+            <p class="tdb-home-prayer-card-text">&ldquo;Jesus, hold the parent who is running on fumes. Small mercies, obvious ones, today.&rdquo;</p>
+            <a class="tdb-home-prayer-card-link" href="plans.html?plan=parenting">Parenting in faith</a>
+          </blockquote>
+        </div>
+      </section>
 
       <!-- ── Feel Search (nav anchor: #quick-search-hero) — below Why not AI teaser, above Battle Plans ── -->
       <div id="quick-search-hero">
@@ -10258,13 +10336,42 @@
         ttsToggle.checked = savedTts === 'true';
       }
 
+      var largeTextToggle = document.getElementById('settings-large-text');
+      var highContrastToggle = document.getElementById('settings-high-contrast');
+      function syncA11yTogglesFromDom() {
+        if (largeTextToggle) {
+          largeTextToggle.checked = document.documentElement.dataset.tdbTextScale === 'large';
+        }
+        if (highContrastToggle) {
+          highContrastToggle.checked = document.documentElement.dataset.tdbContrast === 'high';
+        }
+      }
+      syncA11yTogglesFromDom();
+      if (largeTextToggle) {
+        largeTextToggle.addEventListener('change', function () {
+          if (typeof window.tdbApplyTextScale === 'function') {
+            window.tdbApplyTextScale(largeTextToggle.checked ? 'large' : 'normal');
+          }
+        });
+      }
+      if (highContrastToggle) {
+        highContrastToggle.addEventListener('change', function () {
+          if (typeof window.tdbApplyContrast === 'function') {
+            window.tdbApplyContrast(highContrastToggle.checked ? 'high' : 'normal');
+          }
+        });
+      }
+
       // Toggle popover open/close
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
         var isOpen = !popover.hidden;
         popover.hidden = isOpen;
         btn.setAttribute('aria-expanded', String(!isOpen));
-        if (!isOpen) refreshNotifStatus();
+        if (!isOpen) {
+          syncA11yTogglesFromDom();
+          refreshNotifStatus();
+        }
       });
       if (closeBtn) closeBtn.addEventListener('click', function () {
         popover.hidden = true;
@@ -10277,6 +10384,7 @@
           e.stopPropagation();
           popover.hidden = false;
           btn.setAttribute('aria-expanded', 'true');
+          syncA11yTogglesFromDom();
           var themeBtn = document.getElementById('settings-theme-btn');
           if (themeBtn) setTimeout(function () { themeBtn.focus(); }, 50);
         });
@@ -11595,6 +11703,22 @@
     <div class="settings-row settings-row--journal">
       <span class="settings-label-text">📓 Verse Journal</span>
       <button type="button" id="journal-export" class="journal-export-btn" aria-label="Export your saved verses as a journal PDF or text file">Export Journal</button>
+    </div>
+
+    <div class="settings-row">
+      <label class="settings-label" for="settings-large-text">
+        <span class="settings-label-text">🔠 Larger text</span>
+        <span class="settings-label-sub">Slightly bigger type across the page</span>
+      </label>
+      <input type="checkbox" id="settings-large-text" class="settings-toggle" aria-label="Use larger text site-wide" role="switch">
+    </div>
+
+    <div class="settings-row">
+      <label class="settings-label" for="settings-high-contrast">
+        <span class="settings-label-text">◐ Higher contrast</span>
+        <span class="settings-label-sub">Stronger borders and link contrast on dark</span>
+      </label>
+      <input type="checkbox" id="settings-high-contrast" class="settings-toggle" aria-label="Use higher contrast colors" role="switch">
     </div>
 
     <div class="settings-row">

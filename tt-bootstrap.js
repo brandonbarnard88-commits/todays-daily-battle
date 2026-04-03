@@ -332,3 +332,59 @@
     onDomReady();
   }
 })();
+
+/** Readable text + calmer contrast: localStorage + html[data-tdb-text-scale] / [data-tdb-contrast]. */
+(function tdbA11yPrefsEarly() {
+  if (typeof document === 'undefined') return;
+
+  function tdbReadTextScale() {
+    try {
+      if (localStorage.getItem('tdb-text-scale') === 'large') return 'large';
+    } catch (e) {}
+    return 'normal';
+  }
+
+  function tdbReadContrast() {
+    try {
+      if (localStorage.getItem('tdb-contrast') === 'high') return 'high';
+    } catch (e) {}
+    return 'normal';
+  }
+
+  function tdbApplyTextScale(v) {
+    var large = v === 'large';
+    try {
+      if (large) localStorage.setItem('tdb-text-scale', 'large');
+      else localStorage.removeItem('tdb-text-scale');
+    } catch (e) {}
+    if (large) document.documentElement.dataset.tdbTextScale = 'large';
+    else delete document.documentElement.dataset.tdbTextScale;
+  }
+
+  function tdbApplyContrast(v) {
+    var high = v === 'high';
+    try {
+      if (high) localStorage.setItem('tdb-contrast', 'high');
+      else localStorage.removeItem('tdb-contrast');
+    } catch (e) {}
+    if (high) document.documentElement.dataset.tdbContrast = 'high';
+    else delete document.documentElement.dataset.tdbContrast;
+  }
+
+  function tdbInitA11yFromStorage() {
+    tdbApplyTextScale(tdbReadTextScale());
+    tdbApplyContrast(tdbReadContrast());
+  }
+
+  try {
+    tdbInitA11yFromStorage();
+  } catch (eInit) {}
+
+  if (typeof window !== 'undefined') {
+    window.tdbReadTextScale = tdbReadTextScale;
+    window.tdbReadContrast = tdbReadContrast;
+    window.tdbApplyTextScale = tdbApplyTextScale;
+    window.tdbApplyContrast = tdbApplyContrast;
+    window.tdbInitA11yFromStorage = tdbInitA11yFromStorage;
+  }
+})();

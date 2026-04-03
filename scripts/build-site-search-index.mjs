@@ -1,0 +1,76 @@
+/**
+ * Writes data/site-search-index.json for search.html (static filter, no server).
+ * Run from repo root: node scripts/build-site-search-index.mjs
+ * Invoked from npm run build before build-copy-static.js.
+ */
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const root = path.join(__dirname, '..');
+const outDir = path.join(root, 'data');
+const outFile = path.join(outDir, 'site-search-index.json');
+
+/** @type {{ t: string, u: string, k?: string }[]} */
+const ENTRIES = [
+  { t: "Home — Today's Daily Battle", u: '/', k: 'verse feel search daily' },
+  { t: "Today's Verse", u: '/verse.html', k: 'kjv daily listen' },
+  { t: 'Battle Plans library', u: '/plans.html', k: 'reading plan 7 day 30' },
+  { t: 'When the Mind Lies Heavy (7 days)', u: '/plans.html?plan=heavyhope', k: 'depression heavy fog hope psalm' },
+  { t: "When Pain Won't Quit", u: '/plans.html?plan=painwontquit', k: 'pain illness body' },
+  { t: 'Psalms of Comfort', u: '/plans.html?plan=psalmscomfort', k: 'grief fear psalm' },
+  { t: 'Site guide — where to start', u: '/site-guide.html', k: 'map help new' },
+  { t: 'Explore full site map', u: '/explore.html', k: 'topics tools languages' },
+  { t: 'Site search (this page)', u: '/search.html', k: 'find page tool' },
+  { t: 'Prayer Wall', u: '/prayer-wall.html', k: 'pray request community' },
+  { t: 'Bible Tool', u: '/bible-tool.html', k: 'lookup chapter reader verse image' },
+  { t: 'My Verses — saved KJV', u: '/my-verses.html', k: 'saved list memorize' },
+  { t: 'My Study — notes & highlights', u: '/mystudy.html', k: 'private notes prayer' },
+  { t: 'Study workspace', u: '/study.html', k: 'collections export workshop' },
+  { t: 'Memorize', u: '/memorize.html', k: 'cards review' },
+  { t: 'Kids Corner', u: '/kids/corner.html', k: 'family children' },
+  { t: 'Year-round rhythm', u: '/yearly-rhythm.html', k: 'memory homeschool' },
+  { t: 'Year at a glance printable', u: '/year-at-a-glance.html', k: 'calendar print' },
+  { t: 'Calm', u: '/calm.html', k: 'breathe anxiety' },
+  { t: 'Möbius loops', u: '/mobius.html', k: 'audio journal' },
+  { t: 'Message board', u: '/message.html', k: 'prayer requests' },
+  { t: 'Pastor toolkit', u: '/pastor-toolkit.html', k: 'sermon prep' },
+  { t: 'Team toolkit', u: '/team-toolkit.html', k: 'group' },
+  { t: 'Sermon builder', u: '/sermon.html', k: 'preach' },
+  { t: 'Printables hub', u: '/printables.html', k: 'sheets cards' },
+  { t: 'Topic: Anxiety', u: '/topic-anxiety.html', k: 'worry fear' },
+  { t: 'Topic: Grief', u: '/topic-grief.html', k: 'loss mourning' },
+  { t: 'Topic: Hope', u: '/topic-hope.html', k: 'discouragement' },
+  { t: 'Topic: Loneliness', u: '/topic-loneliness.html', k: 'alone' },
+  { t: 'Topic: Fear', u: '/topic-fear.html', k: 'scared' },
+  { t: 'Topic: Overwhelmed', u: '/topic-overwhelmed.html', k: 'too much' },
+  { t: 'Topic: Forgiveness', u: '/topic-forgiveness.html', k: 'bitterness' },
+  { t: 'Topic: Strength', u: '/topic-strength.html', k: 'weak tired' },
+  { t: 'Topic: Guilt', u: '/topic-guilt.html', k: 'shame' },
+  { t: 'Topic: Parenting', u: '/topic-parenting.html', k: 'kids family' },
+  { t: 'Topic: Worth / identity', u: '/topic-worthless.html', k: 'value' },
+  { t: 'Reading plan (7-day read-along)', u: '/reading-plan.html', k: 'habit' },
+  { t: 'Chapter reader', u: '/reader.html', k: 'bible book' },
+  { t: 'Progress / dashboard', u: '/progress.html', k: 'streak plans' },
+  { t: 'Family hub', u: '/family.html', k: 'home marriage' },
+  { t: 'Church sharing kit', u: '/church-sharing-kit.html', k: 'bulletin qr' },
+  { t: 'Give / support', u: '/give', k: 'donate gift' },
+  { t: 'Privacy', u: '/privacy.html', k: 'data' },
+  { t: 'About', u: '/about.html', k: 'story mission' },
+];
+
+function main() {
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+  const payload = {
+    v: 1,
+    generatedAt: new Date().toISOString(),
+    entries: ENTRIES.map(function (e) {
+      return { t: e.t, u: e.u, k: e.k || '' };
+    }),
+  };
+  fs.writeFileSync(outFile, JSON.stringify(payload, null, 2), 'utf8');
+  console.log('Wrote', path.relative(root, outFile), '(' + payload.entries.length + ' entries)');
+}
+
+main();

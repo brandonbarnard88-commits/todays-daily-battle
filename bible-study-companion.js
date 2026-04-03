@@ -670,6 +670,48 @@
     return true;
   }
 
+  function downloadStudyLocalBackup() {
+    var keyMap = {
+      tdb_bible_tool_notes: NOTES_KEY,
+      tdb_study_notes_meta_v1: META_KEY,
+      tdb_reader_recent_chapters_v1: RECENT_KEY,
+      tdb_reader_bookmarks_v1: BOOKMARKS_KEY,
+      tdb_reader_resume_v1: RESUME_KEY,
+      tdb_memorize_lite_v1: MEM_KEY
+    };
+    var data = {};
+    Object.keys(keyMap).forEach(function (logical) {
+      try {
+        data[logical] = localStorage.getItem(keyMap[logical]);
+      } catch (e) {
+        data[logical] = null;
+      }
+    });
+    var payload = {
+      v: 2,
+      exportedAt: new Date().toISOString(),
+      source: 'todaysdailybattle-mystudy-backup',
+      data: data
+    };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'tdb-mystudy-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      try {
+        URL.revokeObjectURL(url);
+      } catch (e) {}
+      try {
+        a.remove();
+      } catch (e2) {}
+    }, 1500);
+    return true;
+  }
+
   global.TDBStudyCompanion = {
     normRef: normRef,
     getTags: getTags,
@@ -693,6 +735,7 @@
     collectAllTags: collectAllTags,
     getDashboardStats: getDashboardStats,
     openPrintableNotes: openPrintableNotes,
-    openPrintableStudyBundle: openPrintableStudyBundle
+    openPrintableStudyBundle: openPrintableStudyBundle,
+    downloadStudyLocalBackup: downloadStudyLocalBackup
   };
 })(typeof window !== 'undefined' ? window : this);

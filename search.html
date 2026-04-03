@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search the Site • Today's Daily Battle</title>
+  <meta name="description" content="Find plans, topics, and tools on Today's Daily Battle—quiet filter over a hand-built list. No query leaves your device except loading this page.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/search.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode tdb-inner-page tdb-search-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/">Home</a>
+      <a href="/verse.html">Today&rsquo;s Verse</a>
+      <a href="/plans.html">Battle Plans</a>
+      <a href="/prayer-wall.html">Prayer Wall</a>
+      <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
+      <a href="/memorize.html">Memorize</a>
+      <a href="/kids/corner.html">Kids &amp; Family</a>
+      <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+      <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+      <a href="/site-guide.html" id="nav-site-guide" aria-label="Site guide — calm map of where to start">Site guide</a>
+      <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/about.html">About</a>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/mobius.html">Möbius</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/story.html">Story</a>
+          <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+          <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">My Verses</a>
+          <a href="/message.html" aria-label="Community prayer requests on the message board">Message board</a>
+          <a href="/#feel-section">Feel search &amp; topics</a>
+          <a href="/year-at-a-glance.html" aria-label="Year at a glance — printable twelve-month calendar">Year at a glance</a>
+          <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main id="main-content" class="content-inner tdb-search-main" role="main">
+    <header class="hero-banner util-mb-1 tdb-search-hero" aria-labelledby="tdb-search-page-title">
+      <p class="section-note util-mb-0_5">Hand-built list — not a live crawl. Your filter stays in the browser.</p>
+      <h1 id="tdb-search-page-title">Search the site</h1>
+      <p class="privacy-line">Type a word: plan names, topics, tools. For verse-first help by mood, use <a href="/#feel-section">Feel search on Home</a> or open <a href="explore.html">Explore</a>.</p>
+    </header>
+
+    <section class="glass tdb-search-panel" aria-labelledby="tdb-site-search-label">
+      <label id="tdb-site-search-label" class="tdb-search-label" for="tdb-site-search-input">Filter pages</label>
+      <input type="search" id="tdb-site-search-input" class="tdb-site-search-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="e.g. anxiety, plans, memorize, pastor…" aria-describedby="tdb-site-search-status">
+      <p id="tdb-site-search-status" class="section-note util-mb-0" role="status" aria-live="polite">Loading list…</p>
+      <ul id="tdb-site-search-results" class="tdb-site-search-results" role="list" aria-label="Matching pages"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+    <nav class="site-footer-essentials" aria-label="Key pages">
+      <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+      <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+      <a href="/plans.html">Plans</a>
+    </nav>
+    <p class="site-footer-copy site-footer-legal-line util-mt-1 util-mb-0">© 2026 Today&rsquo;s Daily Battle. Scripture <abbr title="King James Version">KJV</abbr>.</p>
+    <script defer src="/language-switcher.js"></script>
+  </footer>
+
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
+  <script nonce="tdb2025s">
+(function () {
+  var input = document.getElementById('tdb-site-search-input');
+  var list = document.getElementById('tdb-site-search-results');
+  var status = document.getElementById('tdb-site-search-status');
+  if (!input || !list || !status) return;
+
+  var entries = [];
+
+  function render(q) {
+    list.replaceChildren();
+    var needle = String(q || '').trim().toLowerCase();
+    var hits = !needle
+      ? entries.slice()
+      : entries.filter(function (e) {
+          var blob = (e.t + ' ' + (e.k || '') + ' ' + e.u).toLowerCase();
+          return blob.indexOf(needle) !== -1;
+        });
+    status.textContent = hits.length
+      ? (needle ? hits.length + ' match' + (hits.length === 1 ? '' : 'es') : 'Showing all ' + hits.length + ' doors — type to narrow.')
+      : 'No matches — try another word or open Explore.';
+    hits.forEach(function (e) {
+      var li = document.createElement('li');
+      li.setAttribute('role', 'listitem');
+      var a = document.createElement('a');
+      a.href = e.u;
+      a.textContent = e.t;
+      li.appendChild(a);
+      var span = document.createElement('span');
+      span.className = 'tdb-site-search-results__url';
+      span.textContent = e.u;
+      li.appendChild(span);
+      list.appendChild(li);
+    });
+  }
+
+  fetch('/data/site-search-index.json', { credentials: 'same-origin' })
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      entries = (data && data.entries) || [];
+      render(input.value);
+    })
+    .catch(function () {
+      entries = [
+        { t: "Home", u: '/' },
+        { t: 'Battle Plans', u: '/plans.html' },
+        { t: 'Explore', u: '/explore.html' },
+        { t: 'Bible Tool', u: '/bible-tool.html' }
+      ];
+      status.textContent = 'Offline or list unavailable — showing a few core links.';
+      render('');
+    });
+
+  input.addEventListener('input', function () {
+    render(input.value);
+  });
+})();
+  </script>
+</body>
+</html>

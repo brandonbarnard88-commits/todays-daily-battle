@@ -768,6 +768,10 @@
         window.showEliteToast('Allow pop-ups to print, or use Export JSON on the Bible Tool.');
       }
     });
+    byId('mystudy-export-json')?.addEventListener('click', function () {
+      if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.downloadStudyLocalBackup !== 'function') return;
+      window.TDBStudyCompanion.downloadStudyLocalBackup();
+    });
     byId('mystudy-print-bundle')?.addEventListener('click', function () {
       if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.openPrintableStudyBundle !== 'function') return;
       var ok = window.TDBStudyCompanion.openPrintableStudyBundle();

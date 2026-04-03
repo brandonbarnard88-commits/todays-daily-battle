@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Verses • Today's Daily Battle</title>
-  <meta name="description" content="Verses you saved from search and the Bible Tool—KJV text on your device. Collections and export live in Study workspace.">
+  <meta name="description" content="Verses you saved from search and the Bible Tool—KJV text on your device. Download a JSON backup here; collections and print export also live in Study workspace.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/my-verses.html">
   <meta property="og:title" content="My Verses • Today's Daily Battle">
@@ -50,6 +50,7 @@
       <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
       <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
       <a href="/site-guide.html" id="nav-site-guide" aria-label="Site guide — calm map of where to start">Site guide</a>
+      <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
       <a href="/explore.html">Explore</a>
       <a href="/about.html">About</a>
       <details class="tdb-nav-more">
@@ -79,6 +80,7 @@
         <a class="btn btn-secondary" href="memorize.html">Memorize</a>
         <a class="btn btn-secondary" href="/#quick-search-hero">Search topics</a>
         <a class="btn btn-secondary" href="study.html#study-tools">Collections &amp; export</a>
+        <button type="button" class="btn btn-secondary" id="my-verses-export-json" aria-label="Download saved verses and collections as a JSON file">Download JSON backup</button>
       </div>
     </header>
 
@@ -261,5 +263,43 @@
   <script src="verse-study.js?v=20260328pass4vs"></script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
+  <script nonce="tdb2025s">
+(function () {
+  var btn = document.getElementById('my-verses-export-json');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var keys = ['savedCollections', 'savedCollectionItems', 'tdb-saved-notes-migrated-v1'];
+    var localKeys = {};
+    keys.forEach(function (k) {
+      try {
+        localKeys[k] = localStorage.getItem(k);
+      } catch (e) {
+        localKeys[k] = null;
+      }
+    });
+    var payload = {
+      v: 1,
+      exportedAt: new Date().toISOString(),
+      source: 'todaysdailybattle-my-verses-backup',
+      localKeys: localKeys
+    };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'tdb-my-verses-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      try {
+        URL.revokeObjectURL(url);
+      } catch (e) {}
+      try {
+        a.remove();
+      } catch (e2) {}
+    }, 1500);
+  });
+})();
+  </script>
 </body>
 </html>

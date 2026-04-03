@@ -22,7 +22,7 @@ const checks = [
   },
   {
     path: '/',
-    needles: ['id="nav-site-guide"', 'href="/site-guide.html"'],
+    needles: ['id="nav-site-guide"', 'href="/site-guide.html"', 'id="nav-site-search"', 'href="/search.html"'],
   },
 ];
 

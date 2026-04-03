@@ -18769,3 +18769,85 @@ body.tdb-kjv-dict-open {
   }
 }
 
+/* ── Accessibility: larger base text + higher contrast (tt-bootstrap data attrs) ── */
+html[data-tdb-text-scale="large"] body {
+  font-size: 1.125rem;
+}
+html[data-tdb-text-scale="large"] .tdb-primary-nav-panel a,
+html[data-tdb-text-scale="large"] .settings-label-text,
+html[data-tdb-text-scale="large"] .btn {
+  font-size: 1.05em;
+}
+html[data-tdb-contrast="high"] {
+  --text: #f8fafc;
+  --muted: #e2e8f0;
+  --muted-readable: #e8eef5;
+  --link-content: #93c5fd;
+  --link-content-hover: #bfdbfe;
+  --border-subtle: rgba(255, 255, 255, 0.22);
+  --line: rgba(255, 255, 255, 0.28);
+}
+html[data-tdb-contrast="high"] .glass,
+html[data-tdb-contrast="high"] .card {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+/* ── Site search page ── */
+.tdb-search-main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem 1.1rem 2.5rem;
+}
+.tdb-search-label {
+  display: block;
+  font-family: var(--font-ui, sans-serif);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.45rem;
+  color: var(--text);
+}
+.tdb-site-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm, 12px);
+  border: 1px solid var(--line, rgba(148, 163, 184, 0.35));
+  background: rgba(15, 20, 30, 0.85);
+  color: var(--text);
+  font-family: var(--font-ui, sans-serif);
+  font-size: 1rem;
+}
+.tdb-site-search-input:focus-visible {
+  outline: 2px solid var(--tdb-focus-ring, #e3bc67);
+  outline-offset: 2px;
+}
+.tdb-site-search-results {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.tdb-site-search-results li {
+  border-bottom: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.14));
+  padding: 0.75rem 0;
+}
+.tdb-site-search-results a {
+  display: block;
+  font-weight: 600;
+  color: var(--link-content);
+  text-decoration: none;
+  margin-bottom: 0.2rem;
+}
+.tdb-site-search-results a:hover,
+.tdb-site-search-results a:focus-visible {
+  color: var(--link-content-hover);
+  text-decoration: underline;
+}
+.tdb-site-search-results__url {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: var(--font-ui, sans-serif);
+  word-break: break-all;
+}
+

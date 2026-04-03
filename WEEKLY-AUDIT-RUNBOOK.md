@@ -23,7 +23,7 @@ Run this once per week or before major releases.
 ## 4) Legacy level-up rule
 
 - For every area touched this week, improve nearby weak UX/copy/visual quality in the same pass.
-- Do not defer known rough edges as "later" without explicit issue tracking.
+- Do not defer known issues as "later" without explicit issue tracking.
 
 ## 5) Release note template
 

@@ -8939,7 +8939,7 @@
       var doReg = function () {
         if (window.__tdbSwRegisterStarted) return;
         window.__tdbSwRegisterStarted = true;
-        navigator.serviceWorker.register("/sw.js?v=20260401-precache-lenient", { scope: "/" }).catch(function () {
+        navigator.serviceWorker.register("/sw.js?v=20260402-sw-fetch-guard", { scope: "/" }).catch(function () {
           window.__tdbSwRegisterStarted = false;
         });
       };

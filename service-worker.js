@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v213-20260413-mobius-audio-lazy';
+const CACHE_NAME = 'tdb-v214-20260402-sw-fetch-guard';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -250,7 +250,8 @@ function precacheUrlsLenient(cache, urls) {
     urls.map(function (path) {
       if (!path || typeof path !== 'string') return Promise.resolve();
       var p = path.trim();
-      if (!p || p === '.') return Promise.resolve();
+      /* WebKit sometimes surfaces "." / "./" in precache paths and logs "Cannot load ." — skip quietly. */
+      if (!p || p === '.' || p === './') return Promise.resolve();
       return cache.add(p).catch(function () {});
     })
   );
@@ -385,18 +386,39 @@ self.addEventListener('notificationclick', (event) => {
   else if (url !== '/' && !url.startsWith('/') && !/^https:\/\//i.test(url)) url = '/';
   event.waitUntil(
     clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
-      if (list.length) list[0].focus().then(() => list[0].navigate(url));
-      else if (clients.openWindow) clients.openWindow(url);
+      function openTarget() {
+        return clients.openWindow ? clients.openWindow(url) : Promise.resolve();
+      }
+      if (!list.length) return openTarget();
+      var client = list[0];
+      return client.focus().then(function () {
+        if (typeof client.navigate === 'function') {
+          return client.navigate(url).catch(function () {
+            return openTarget();
+          });
+        }
+        return openTarget();
+      }).catch(function () {
+        return openTarget();
+      });
     })
   );
 });
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+  var rawReq = event.request.url;
+  /* Safari/WebKit: bogus "." requests during SW update or precache show "Cannot load ." — do not intercept. */
+  if (!rawReq || rawReq === '.' || /^\s*\.\s*$/.test(String(rawReq))) {
+    return;
+  }
   let url;
   try {
     url = new URL(event.request.url);
   } catch (e) {
+    return;
+  }
+  if (url.pathname === '.' || url.pathname === '/.') {
     return;
   }
   const sameOrigin = url.origin === self.location.origin;

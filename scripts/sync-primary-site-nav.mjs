@@ -147,6 +147,13 @@ function main() {
       );
     }
 
+    if (rel === 'year-at-a-glance.html' && touched) {
+      next = next.replace(
+        /<a href="\/year-at-a-glance\.html" id="nav-year-at-a-glance"/,
+        '<a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-current="page"'
+      );
+    }
+
     if (touched && next !== html) {
       fs.writeFileSync(full, next, 'utf8');
       console.log('updated', rel);

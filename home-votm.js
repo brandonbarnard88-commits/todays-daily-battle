@@ -16,8 +16,12 @@
       if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
         btn.disabled = true;
         btn.setAttribute('aria-disabled', 'true');
-        btn.title = 'Read-aloud is not available in this browser.';
-        btn.textContent = 'Read aloud unavailable';
+        btn.title = 'Listen is not available in this browser.';
+        var ic = btn.querySelector('.tdb-votm-read-aloud__ic');
+        var lbl = btn.querySelector('.tdb-votm-read-aloud__label');
+        if (ic) ic.setAttribute('hidden', '');
+        if (lbl) lbl.textContent = 'Listen unavailable';
+        else btn.textContent = 'Listen unavailable';
       } else {
         btn.addEventListener('click', function () {
           var T = window.TDB_memoryVerses;

@@ -1054,23 +1054,23 @@
     }
 
     .tdb-home-votm {
-      max-width: min(38rem, calc(100vw - 1.35rem));
-      margin: 1rem auto 1.25rem;
-      padding: 1.1rem 1.2rem 1.25rem;
-      border-radius: 18px;
-      border: 1px solid rgba(227, 188, 103, 0.38);
-      background: linear-gradient(165deg, rgba(22, 28, 42, 0.96), rgba(10, 14, 24, 0.92));
-      box-shadow: var(--shadow), 0 0 0 1px rgba(227, 188, 103, 0.06);
+      max-width: min(40rem, calc(100vw - 1.35rem));
+      margin: 1.15rem auto 1.35rem;
+      padding: 1.25rem 1.35rem 1.35rem;
+      border-radius: 20px;
+      border: 1px solid rgba(227, 188, 103, 0.32);
+      background: linear-gradient(168deg, rgba(24, 30, 44, 0.97), rgba(8, 12, 22, 0.94));
+      box-shadow: var(--shadow), 0 0 0 1px rgba(227, 188, 103, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.03);
     }
     :root[data-theme="light"] .tdb-home-votm {
       background: linear-gradient(165deg, color-mix(in srgb, var(--card) 92%, #fff 8%), var(--bg-soft));
       border-color: color-mix(in srgb, var(--gold) 25%, var(--line));
     }
     .tdb-home-votm-h {
-      margin: 0 0 0.35rem;
-      font-size: clamp(1.08rem, 2.8vw, 1.18rem);
-      font-weight: 600;
-      letter-spacing: 0.03em;
+      margin: 0 0 0.4rem;
+      font-size: clamp(1.12rem, 3vw, 1.22rem);
+      font-weight: 650;
+      letter-spacing: 0.04em;
       color: var(--gold-soft);
     }
     :root[data-theme="light"] .tdb-home-votm-h {
@@ -1084,14 +1084,61 @@
       line-height: 1.55;
     }
     .tdb-home-votm-listen-row {
-      margin: 0 0 0.85rem;
+      margin: 0 0 0.9rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.55rem;
       align-items: center;
     }
     .tdb-home-votm-listen-row .btn {
       min-height: 48px;
+    }
+    .tdb-home-votm-listen-row .tdb-votm-read-aloud--primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      font-weight: 650;
+      border-color: rgba(227, 188, 103, 0.55);
+      background: rgba(227, 188, 103, 0.16);
+      color: var(--gold-soft);
+    }
+    .tdb-votm-read-aloud__ic {
+      flex-shrink: 0;
+      display: inline-flex;
+      opacity: 0.95;
+    }
+    .tdb-votm-read-aloud__ic svg {
+      display: block;
+    }
+    .tdb-votm-read-aloud__label {
+      letter-spacing: 0.02em;
+    }
+    .tdb-home-votm-listen-row .tdb-votm-read-aloud--primary:hover,
+    .tdb-home-votm-listen-row .tdb-votm-read-aloud--primary:focus-visible {
+      background: rgba(227, 188, 103, 0.26);
+      color: #f5e6c8;
+    }
+    :root[data-theme="light"] .tdb-home-votm-listen-row .tdb-votm-read-aloud--primary {
+      background: color-mix(in srgb, var(--gold) 18%, var(--card));
+      color: color-mix(in srgb, var(--gold) 55%, #2a2410 45%);
+      border-color: color-mix(in srgb, var(--gold) 40%, var(--line));
+    }
+    #tdb-home-votm .family-memory-ref {
+      font-size: clamp(0.98rem, 2.6vw, 1.08rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem !important;
+    }
+    #tdb-home-votm .family-memory-text {
+      font-size: clamp(1.12rem, 3.5vw, 1.45rem);
+      line-height: 1.58;
+      font-weight: 500;
+      letter-spacing: 0.015em;
+      color: color-mix(in srgb, var(--text) 94%, var(--gold) 6%);
+    }
+    :root[data-theme="light"] #tdb-home-votm .family-memory-text {
+      color: color-mix(in srgb, var(--text) 96%, #5c4a1c 4%);
     }
     .tdb-home-votm-review-hint {
       margin: 0 0 0.75rem !important;
@@ -1114,11 +1161,11 @@
       margin-top: 0;
     }
     #tdb-home-votm .memory-verse-card {
-      border-radius: 14px;
-      border: 1px solid rgba(227, 188, 103, 0.32);
-      background: rgba(6, 10, 18, 0.55);
-      padding: 0.95rem 1rem 1.05rem;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      border: 1px solid rgba(227, 188, 103, 0.28);
+      background: rgba(5, 9, 16, 0.62);
+      padding: 1.05rem 1.15rem 1.15rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
     }
     :root[data-theme="light"] #tdb-home-votm .memory-verse-card {
       background: color-mix(in srgb, var(--card) 88%, #fff 12%);
@@ -1136,10 +1183,20 @@
       .tdb-home-votm-listen-row {
         flex-direction: column;
         align-items: stretch;
+        gap: 0.72rem;
+        margin-top: 0.35rem;
+        margin-bottom: 1rem;
       }
       .tdb-home-votm-listen-row .btn {
         width: 100%;
         justify-content: center;
+        padding-top: 0.62rem;
+        padding-bottom: 0.62rem;
+      }
+    }
+    @media (max-width: 360px) {
+      .tdb-home-votm-listen-row {
+        gap: 0.82rem;
       }
     }
 
@@ -1519,6 +1576,23 @@
       text-decoration: underline;
       text-underline-offset: 0.15em;
     }
+    .tdb-whats-new-spring__year-round {
+      margin: 0 0 0.5rem;
+      font-size: clamp(0.87rem, 2.25vw, 0.94rem);
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--text) 89%, var(--muted) 11%);
+      text-wrap: pretty;
+    }
+    .tdb-whats-new-spring__year-round a {
+      color: var(--gold-soft, #c9a84c);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+    .tdb-whats-new-spring__year-round strong {
+      color: color-mix(in srgb, var(--gold-soft, #c9a84c) 88%, var(--text) 12%);
+      font-weight: 650;
+    }
     :root[data-theme="light"] .tdb-whats-new-spring {
       background: color-mix(in srgb, #fff 92%, #f7f0e0 8%);
       border-color: color-mix(in srgb, #d4c4a8 55%, #cbd5e1 45%);
@@ -1530,6 +1604,9 @@
       color: rgba(40, 48, 62, 0.88);
     }
     :root[data-theme="light"] .tdb-whats-new-spring__studies {
+      color: rgba(40, 48, 62, 0.88);
+    }
+    :root[data-theme="light"] .tdb-whats-new-spring__year-round {
       color: rgba(40, 48, 62, 0.88);
     }
     .tdb-share-quiet-place-cta {
@@ -6517,12 +6594,15 @@
           <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
           <a href="/memorize.html">Memorize</a>
           <a href="/kids/corner.html">Kids &amp; Family</a>
-          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — memory verses, seasonal plans, printable year at a glance">Year-round rhythm</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
           <a href="/explore.html">Explore</a>
+          <a href="/site-guide.html" aria-label="Site guide — calm map of where to start">Site guide</a>
           <a href="/about.html">About</a>
           <details class="tdb-nav-more">
             <summary aria-haspopup="true">More</summary>
             <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+              <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
               <a href="/mobius.html">Möbius</a>
               <a href="/calm.html">Calm</a>
               <a href="/story.html">Story</a>
@@ -6533,6 +6613,7 @@
               <a href="/progress.html">Progress</a>
               <a href="/sos.html">Steady now (three KJV)</a>
               <a href="/family.html">Family hub</a>
+              <a href="/year-at-a-glance.html" aria-label="Year at a glance — printable twelve-month sheet">Year at a glance</a>
               <a href="/printables.html#print-family-h2">Printables &amp; coloring</a>
               <a href="/what-god-has-done.html">What God has done</a>
               <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
@@ -6580,6 +6661,7 @@
 
     <section class="tdb-whats-new-spring" id="whats-new-spring-2026" aria-labelledby="tdb-whats-new-spring-heading">
       <h2 class="tdb-whats-new-spring__title" id="tdb-whats-new-spring-heading">What&rsquo;s new &mdash; Spring 2026</h2>
+      <p class="tdb-whats-new-spring__year-round" id="tdb-whats-new-spring-year-round"><strong>Year-round rhythm &amp; memory:</strong> the site menu now lifts up <strong>Year-round</strong> and <strong>Print year</strong>; the home <a href="#tdb-home-votm">verse of the month</a> has a clearer listen control; print sheets gently remind you how to get a clean page.</p>
       <p class="tdb-whats-new-spring__body">A steadier site menu on phones, a gentle first-visit welcome on home, verse, and explore, clearer prayer-wall feedback, and a calmer <a href="give.html">support</a> page before you give. Family and kids hubs include a short parent-facing summary so you always know what the room is for.</p>
       <p class="tdb-whats-new-spring__studies"><strong>Bible Studies — free for all:</strong> nine short tracks (Armor of God, peace, fruit of the Spirit, and more) now sit on <a href="plans.html#bible-studies-free">Battle Plans</a> with the same on-device save—or open the <a href="bible-study.html">full hub</a>.</p>
       <p class="tdb-whats-new-spring__easter">Holy Week or Easter morning? <a href="seasonal.html#easter">Seasonal paths</a> points to <a href="he-is-risen.html">He is risen</a> and the seven-day <a href="plans.html?plan=easter">Resurrection Hope</a> plan&mdash;same quiet KJV pace as the rest of the site.</p>
@@ -6781,13 +6863,16 @@
         <span id="verse-of-the-month" class="sr-only" tabindex="-1"></span>
         <h2 class="tdb-home-votm-h" id="tdb-home-votm-heading">Verse of the month</h2>
         <p class="tdb-home-votm-lead section-note" id="tdb-home-votm-lead">The same KJV memory anchor as <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a>&mdash;mark progress on <a href="family.html#family-year-round-memory">Family hub</a> (this device). No quiz; review when you can. <a href="year-at-a-glance.html">Year at a glance</a> prints all twelve verses, seasons, and calm activity reminders on one page.</p>
-        <p class="section-note tdb-home-memory-activities-teaser" id="tdb-home-memory-activities-teaser" style="margin-top:0.35rem">Teaching ideas and printables: <a href="church-sharing-kit.html#csk-memory-verse-activities">Gentle Memory Verse Teaching Methods</a> in the Church Sharing Kit.</p>
+        <div id="tdb-home-votm-card" class="tdb-home-votm-card-host" aria-live="polite"></div>
         <div class="tdb-home-votm-listen-row">
-          <button type="button" class="btn btn-secondary" id="tdb-votm-read-aloud" aria-label="Read this month’s KJV memory verse aloud using your device">Read aloud (KJV)</button>
+          <button type="button" class="btn tdb-votm-read-aloud--primary" id="tdb-votm-read-aloud" aria-label="Listen to this month’s KJV memory verse with your device speakers">
+            <span class="tdb-votm-read-aloud__ic" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" focusable="false"><path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></span>
+            <span class="tdb-votm-read-aloud__label">Listen (KJV)</span>
+          </button>
           <a class="btn btn-secondary" href="year-at-a-glance.html" aria-label="Open printable year at a glance with verses, seasons, and activities">Print full year pack</a>
         </div>
         <p class="tdb-home-votm-review-hint" id="tdb-home-votm-review-hint">Review gently: say the verse once when you can. Use <strong>Mark reviewed</strong> below so this device remembers&mdash;no streak pressure.</p>
-        <div id="tdb-home-votm-card" class="tdb-home-votm-card-host" aria-live="polite"></div>
+        <p class="section-note tdb-home-memory-activities-teaser" id="tdb-home-memory-activities-teaser" style="margin-top:0.35rem">Teaching ideas and printables: <a href="church-sharing-kit.html#csk-memory-verse-activities">Gentle Memory Verse Teaching Methods</a> in the Church Sharing Kit.</p>
       </section>
       <nav class="hero-daily-path tdb-home-spotlight-deeper" aria-label="Saves and family on this device">
         <span class="hero-daily-path-label">Also here</span>
@@ -11586,7 +11671,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <!-- Study stack: defer + low priority so document can finish parsing; runs before modules (document order). -->
   <script nonce="tdb2025s" defer fetchpriority="low" src="memory-verses.js"></script>
-  <script nonce="tdb2025s" defer fetchpriority="low" src="home-votm.js?v=20260402homevotm2"></script>
+  <script nonce="tdb2025s" defer fetchpriority="low" src="home-votm.js?v=20260402homevotm4"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="word-study.js?v=20260329pass2off"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>

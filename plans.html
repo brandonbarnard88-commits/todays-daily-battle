@@ -428,6 +428,48 @@
       color: var(--gold);
       outline: none;
     }
+    .plans-plan-filter-bar--secondary {
+      margin-top: -0.45rem;
+      margin-bottom: 1rem;
+    }
+
+    .plans-recommended-today {
+      margin: 0 0 1.5rem;
+      padding: 1.05rem 1rem 1.15rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      background: color-mix(in srgb, var(--card) 94%, var(--gold));
+    }
+    .plans-recommended-today__h {
+      font-size: clamp(1rem, 2.5vw, 1.12rem);
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 0.35rem;
+      text-align: center;
+    }
+    .plans-recommended-today__lead {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0 auto 0.85rem;
+      max-width: 36rem;
+      text-align: center;
+    }
+    .plans-recommended-today__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.65rem;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .plans-recommended-today__more {
+      font-size: 0.8rem;
+      color: color-mix(in srgb, var(--text) 82%, var(--muted));
+      line-height: 1.55;
+      margin: 0 auto;
+      max-width: 40rem;
+      text-align: center;
+    }
 
     .plan-row[data-plan$="-kids"] .plan-badge,
     .plan-row[data-plan="summer-seeds"] .plan-badge {
@@ -594,11 +636,11 @@
 
     /* Day pills */
     .day-pills {
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
       margin-bottom: 1.5rem;
     }
     .day-pill {
-      width: 38px; height: 38px; border-radius: 50%;
+      width: 44px; height: 44px; border-radius: 50%;
       border: 2px solid var(--line);
       background: var(--card);
       font-size: 0.78rem; font-weight: 700;
@@ -668,7 +710,7 @@
     .plans-lane-chip {
       display: inline-flex;
       align-items: center;
-      min-height: 40px;
+      min-height: 44px;
       padding: 0.35rem 0.85rem;
       font-size: 0.86rem;
       border-radius: 999px;
@@ -1040,12 +1082,15 @@
       <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
       <a href="/memorize.html">Memorize</a>
       <a href="/kids/corner.html">Kids &amp; Family</a>
-      <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round rhythm</a>
+      <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+      <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
       <a href="/explore.html">Explore</a>
+      <a href="/site-guide.html" aria-label="Site guide — calm map of where to start">Site guide</a>
       <a href="/about.html">About</a>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
           <a href="/mobius.html">Möbius</a>
           <a href="/calm.html">Calm</a>
           <a href="/story.html">Story</a>
@@ -1053,6 +1098,7 @@
           <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">My Verses</a>
           <a href="/message.html" aria-label="Community prayer requests on the message board">Message board</a>
           <a href="/#feel-section">Feel search &amp; topics</a>
+          <a href="/year-at-a-glance.html" aria-label="Year at a glance — printable twelve-month calendar">Year at a glance</a>
           <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
         </div>
       </details>
@@ -1083,7 +1129,7 @@
         <p class="plans-hero-hint">Paper-friendly index: <a href="printables.html">Printables hub</a> — He is risen, family packs, verse cards, Calm, and more.</p>
         <p class="plans-hero-hint">Morning doorway: <a href="daily-quiet-time.html">Daily quiet time</a> (verse, Calm, one plan day, My Study, prayer). Scripture-first Psalms: <a href="psalms.html">Psalms hub</a>.</p>
         <p class="plans-hero-hint" id="plans-year-round-rhythm-hint">Homeschool &amp; families pacing the whole year: <a href="yearly-rhythm.html">Year-round rhythm</a> (August&ndash;July grid, summer &ldquo;Summer Seeds,&rdquo; holiday links). <a href="family.html#family-year-round-memory">Memory Verses</a> stay on this device; seasonal tracks: <a href="plans.html?plan=schoolcourage">Back-to-School Courage</a>, <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a>, <a href="plans.html?plan=adventquiet">Advent Quiet</a>, <a href="plans.html?plan=gentleyear">Gentle New Year Reset</a>, <a href="plans.html?plan=summerstill">Summer Stillness</a>.</p>
-        <p class="plans-url-hint">Your notes, progress, and printable bundle stay on this device. Links with <code class="plans-code">?plan=id&amp;day=N</code> open day <em>N</em> when you&rsquo;ve already unlocked it; otherwise we land you on the latest day you can open.</p>
+        <p class="plans-url-hint"><strong>Plan day checkmarks</strong> stay in this browser (offline-friendly). <strong>Signed in?</strong> Saved verses and collections can sync across devices; your daily streak, prayer list, and badges can too&mdash;see <a href="privacy.html">Privacy</a> for what crosses devices. <a href="mystudy.html">My Study</a> can still print a full bundle when you want paper. Links with <code class="plans-code">?plan=id&amp;day=N</code> open day <em>N</em> when you&rsquo;ve already unlocked it; otherwise we land you on the latest day you can open.</p>
         <p class="plans-hero-hint">Brand-new to faith? <a href="first-steps.html">Calm doorway</a> · <a href="plans.html?plan=firststeps">14-day plan</a>. Who God says you are: <a href="identity-in-christ.html">calm hub</a> or <a href="plans.html?plan=identityinchrist">7-day plan</a>. A month of thanks: <a href="plans.html?plan=praisethanks30">Praise &amp; Thanksgiving</a>. <a href="plans.html?plan=armorofgod">Armor of God</a>, <a href="plans.html?plan=fearnot14">Fear Not (14)</a>, <a href="plans.html?plan=dailylabor">work &amp; labor</a>, <a href="family-home.html">family hub</a>. Resurrection: <a href="he-is-risen.html">He is risen</a> (readings anytime) · <a href="plans.html?plan=easter">Resurrection Hope</a> (7 days). Holidays: <a href="seasonal.html">Seasonal paths</a> · <a href="plans.html?plan=christmas7">Christmas week</a> · <a href="plans.html?plan=newyear7">New Year week</a>. Use <strong>Listen</strong> on any day card to hear the verse plus the day&rsquo;s plain words and prayer (device TTS).</p>
       </div>
       <p class="plans-homeschool-banner" role="region" aria-label="Homeschool and private school"><strong>For homeschool &amp; private-school Bible class:</strong> one screen maps August&ndash;July, summer weeks, holidays, and the same monthly memory verses you can mark on this device &mdash; <a href="yearly-rhythm.html">Year-round rhythm</a>. Printables: <a href="year-at-a-glance.html">Year at a glance</a> · <a href="yearly-rhythm.html#yr-print-planners">planners</a> · <a href="church-sharing-kit.html#csk-homeschool-year-round">Church kit</a>.</p>
@@ -1096,6 +1142,29 @@
         <a class="plans-plan-filter-chip" href="#plans-anchor-school-year">School year</a>
         <a class="plans-plan-filter-chip" href="#plans-anchor-summer-spine">Summer</a>
       </nav>
+      <nav class="plans-plan-filter-bar plans-plan-filter-bar--secondary" aria-label="Browse plans by feel, length, and calm doorways">
+        <span class="plans-plan-filter-label">By feel &amp; length</span>
+        <a class="plans-plan-filter-chip" href="#plans-editorial-picks">Hand-picked</a>
+        <a class="plans-plan-filter-chip" href="#plans-lane-grief">Grief</a>
+        <a class="plans-plan-filter-chip" href="#plans-lane-fear">Fear &amp; worry</a>
+        <a class="plans-plan-filter-chip" href="#plans-lane-pain">Pain &amp; trials</a>
+        <a class="plans-plan-filter-chip" href="#plans-lane-family">Family</a>
+        <a class="plans-plan-filter-chip" href="index.html#feel-section">Homepage topics</a>
+        <a class="plans-plan-filter-chip" href="sos.html">When now is too much</a>
+        <a class="plans-plan-filter-chip" href="calm.html">Calm room</a>
+      </nav>
+      <section class="plans-recommended-today" id="plans-recommended-today" aria-labelledby="plans-recommended-today-heading">
+        <h2 class="plans-recommended-today__h" id="plans-recommended-today-heading">Recommended for right now</h2>
+        <p class="plans-recommended-today__lead">No popularity scores&mdash;only calm doorways. Match the weight you feel, or open the homepage <strong>Feel</strong> chips for verse-first search.</p>
+        <div class="plans-recommended-today__chips" role="navigation" aria-label="Gentle starting paths">
+          <a class="plans-lane-chip" href="index.html#feel-section">Feel search on home</a>
+          <a class="plans-lane-chip" href="plans.html?plan=fearfaith">Fear is loud</a>
+          <a class="plans-lane-chip" href="plans.html?plan=worrytrust">Mind won&rsquo;t stop</a>
+          <a class="plans-lane-chip" href="plans.html?plan=griefhope">Grief is heavy</a>
+          <a class="plans-lane-chip" href="plans.html?plan=peace">Need a quiet pace</a>
+        </div>
+        <p class="plans-recommended-today__more">More lanes: <a href="topic-anxiety.html">Anxiety topic</a> &middot; <a href="topic-loneliness.html">Loneliness</a> &middot; <a href="plans.html?plan=hopeuncertain">Hope feels thin</a> &middot; <a href="plans.html?plan=caregiverrest">Caregiver rest</a> &middot; <a href="reading-plan.html?study=hope-in-hard-times">Hope in hard times (read-along)</a>. Dedicated tracks for depression-only heaviness, singleness or after divorce, sleep when the body will not settle, kids&rsquo; anxiety, and ministry burnout are still being written with the same one-verse-a-day care.</p>
+      </section>
       <section class="plans-start-here" aria-labelledby="plans-start-here-title">
         <h2 class="plans-start-here-title" id="plans-start-here-title">Start here</h2>
         <p class="plans-start-here-lead">If choosing feels like too much, start with the lane that fits today. Each link opens the same plan you will see in the full list below.</p>

@@ -27434,6 +27434,22 @@ function wireRandomBattleVerseHero() {
     } catch (eHumF) {}
   })();
 
+  (function addSitewideTrustFooterNote() {
+    try {
+      var footers = document.querySelectorAll('.site-footer');
+      if (!footers || !footers.length) return;
+      footers.forEach(function (footer) {
+        if (!footer || footer.querySelector('.footer-trust-note')) return;
+        var note = document.createElement('p');
+        note.className = 'footer-trust-note section-note';
+        note.innerHTML = 'Built solo by Brandon · Privacy-first · KJV only · <a href="/contact.html?topic=safety">Report a safety concern</a> · <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>';
+        var anchor = footer.querySelector('.site-footer-copy, .site-footer-legal-line, .site-footer-updated, p');
+        if (anchor) footer.insertBefore(note, anchor);
+        else footer.appendChild(note);
+      });
+    } catch (eTrustF) {}
+  })();
+
   /** Footer “Appearance” on tool pages: dialog to match home theme (localStorage tdb-theme). */
   (function wireFooterAppearanceModal() {
     var footerBtn = document.getElementById('footer-open-settings');

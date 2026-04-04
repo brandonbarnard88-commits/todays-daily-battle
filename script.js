@@ -21487,9 +21487,15 @@ function isAskTheWordSingleWordTopic(queryText, results) {
   );
 }
 
-function getAskTheWordHeading(queryText, results) {
+function getAskTheWordHeading(queryText, results, response) {
   if (isAskTheWordSingleWordTopic(queryText, results)) {
     return 'Verses about ' + titleCaseHomeTopic(getHomeSearchDisplayQuery(queryText) || queryText || '');
+  }
+  if (response && response.answer_mode === 'key_scriptures') {
+    return 'Key Scriptures';
+  }
+  if (response && response.answer_mode === 'closest_principles') {
+    return 'Closest Scriptural anchors';
   }
   return 'Strongest verses for this battle';
 }
@@ -22045,7 +22051,7 @@ function renderHomeSearchResults(results, output, queryText) {
 
   var title = document.createElement('h3');
   title.className = 'home-search-response-title';
-  title.textContent = getAskTheWordHeading(queryText, results);
+  title.textContent = getAskTheWordHeading(queryText, results, askResponse);
   header.appendChild(title);
 
   var lead = document.createElement('p');
@@ -23686,6 +23692,8 @@ async function tdbInitImpl() {
                   answer: payload.answer || '',
                   sources: Array.isArray(payload.sources) ? payload.sources : [],
                   prayer_prompt: payload.prayer_prompt || '',
+                  answer_mode: payload.answer_mode || '',
+                  query_kind: payload.query_kind || '',
                   ts: Date.now()
                 };
                 try { localStorage.setItem(cacheKey, JSON.stringify(apiData)); } catch (_) {}
@@ -23708,6 +23716,8 @@ async function tdbInitImpl() {
           answer: buildAskTheWordLocalLead(q, fallback),
           sources: verses.map(function (v) { return v.ref; }).filter(Boolean),
           prayer_prompt: getHomeSearchPrayerText(verses[0]),
+          answer_mode: isAskTheWordSingleWordTopic(q, fallback) ? 'strong_verses' : '',
+          query_kind: (q.indexOf('?') !== -1 || /\b(who|what|when|where|why|how|is|are|can|should|does|do|did|will|would|could)\b/i.test(q)) ? 'question' : '',
           ts: Date.now()
         };
         try { localStorage.setItem(cacheKey, JSON.stringify(result)); } catch (_) {}

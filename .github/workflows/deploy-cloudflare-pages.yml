@@ -86,6 +86,7 @@ jobs:
       - name: Deploy to Cloudflare Pages (wrangler, token fallback)
         if: ${{ steps.req.outputs.skip != 'true' }}
         env:
+          DEPLOY_BRANCH: ${{ github.ref_name }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CF_PAGES_PROJECT_NAME: ${{ secrets.CF_PAGES_PROJECT_NAME }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -96,9 +97,9 @@ jobs:
             local token="$1"
             local mode="${2:-with_account}"
             if [ "$mode" = "without_account" ]; then
-              env -u CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME"
+              env -u CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" --branch="${DEPLOY_BRANCH:-main}"
             else
-              CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME"
+              CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" --branch="${DEPLOY_BRANCH:-main}"
             fi
           }
           deploy_with_fallbacks() {
@@ -138,6 +139,7 @@ jobs:
 
       - name: Purge zone cache after deploy
         if: ${{ steps.req.outputs.skip != 'true' }}
+        continue-on-error: true
         env:
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

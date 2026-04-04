@@ -140,7 +140,6 @@ jobs:
         if: ${{ steps.req.outputs.skip != 'true' }}
         env:
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npm run purge:cloudflare:social
 

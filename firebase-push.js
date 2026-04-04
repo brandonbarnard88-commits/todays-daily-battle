@@ -18,7 +18,7 @@
 
   function getReg() {
     if (!('serviceWorker' in navigator)) return Promise.resolve(null);
-    return navigator.serviceWorker.register('/sw.js?v=20260402-sw-fetch-guard').then(function (reg) { return reg; }).catch(function () { return null; });
+    return navigator.serviceWorker.register('/sw.js?v=20260404-sw-stability', { updateViaCache: 'none' }).then(function (reg) { return reg; }).catch(function () { return null; });
   }
 
   function requestPermission() {

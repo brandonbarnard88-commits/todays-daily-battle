@@ -9144,7 +9144,7 @@
       var doReg = function () {
         if (window.__tdbSwRegisterStarted) return;
         window.__tdbSwRegisterStarted = true;
-        navigator.serviceWorker.register("/sw.js?v=20260403-home-cache-bust", { scope: "/" }).catch(function () {
+        navigator.serviceWorker.register("/sw.js?v=20260404-sw-stability", { scope: "/", updateViaCache: "none" }).catch(function () {
           window.__tdbSwRegisterStarted = false;
         });
       };

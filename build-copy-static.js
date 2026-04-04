@@ -91,6 +91,7 @@ const rootFiles = [
   'hero-daily-365-data.js',
   'hero-hero-pools.js',
   'hero-daily-first-paint.js',
+  'tdb-home-mobius-week.js',
   'inline-bootstrap.js',
   'ga-config.js',
   'tt-bootstrap.js',

@@ -71,6 +71,7 @@ const rootFiles = [
   'apple-touch-icon.png',
   'logo-shield-600.png',
   'logo-crest.jpg',
+  'hero-sunrise-bible.png',
   'world-map-source.svg',
   'styles.css',
   'tdb-quiet-luxury.css',

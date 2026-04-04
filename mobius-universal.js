@@ -289,6 +289,15 @@
     }
   }
 
+  function getOuterNodeLabel(d) {
+    if (!d) return '';
+    if (d.id === '2tim') return '2 Tim 1:7';
+    if (d.id === 'power') return 'Power';
+    if (d.id === 'soundmind') return 'Sound mind';
+    if (d.id === 'faith') return 'Faith';
+    return d.label || '';
+  }
+
   function renderNodeCard(node, container) {
     safeSetHTML(container, '');
     var card = document.createElement('div');
@@ -392,12 +401,13 @@
     for (ni = 0; ni < simNodes.length; ni++) {
       if (simNodes[ni].id !== '2tim') nCircle++;
     }
+    var denseLabelMode = nCircle > 14;
     var gapChord = 26;
     var minChord = 2 * maxNodeRDefault + gapChord;
     var sinHalf = Math.sin(Math.PI / Math.max(nCircle, 1));
     var minRingR = minChord / (2 * sinHalf);
     var ringR = Math.max(minRingR, Math.min(w, h) * 0.42);
-    var labelMargin = 58;
+    var labelMargin = denseLabelMode ? 98 : 84;
     var vbExtent = Math.ceil(ringR + pivotRadiusBase + labelMargin);
     var cx = vbExtent;
     var cy = vbExtent;
@@ -409,7 +419,6 @@
     var chordPx = 2 * ringR * sinHalf * scalePx;
     var visNodeR = Math.min(maxNodeRDefault, Math.max(12, Math.floor((chordPx - 12) / 2)));
     if (nCircle <= 12) visNodeR = maxNodeRDefault;
-    var denseLabelMode = nCircle > 14;
     var hitR = isTouch ? Math.max(visNodeR, 22) : Math.max(visNodeR, 18);
     var halfChordPx = chordPx / 2 - 6;
     if (hitR > halfChordPx && halfChordPx > visNodeR) hitR = Math.max(Math.floor(halfChordPx), visNodeR);
@@ -461,6 +470,14 @@
       .attr('fill', 'none').attr('stroke', 'transparent').attr('stroke-width', 1)
       .attr('d', ribbonD);
 
+    var pivotNode = null;
+    for (i = 0; i < simNodes.length; i++) {
+      if (simNodes[i].id === '2tim') {
+        pivotNode = simNodes[i];
+        break;
+      }
+    }
+
     var links = [];
     for (var i = 0; i < simNodes.length; i++) {
       var tgt = simNodes[(i + 1) % simNodes.length];
@@ -490,6 +507,21 @@
         return 1.15;
       })
       .attr('stroke-dasharray', function (d) { return d.isRedeemed ? '5 5' : 'none'; });
+
+    if (pivotNode) {
+      linkGroup.selectAll('line.mobius-wheel-spoke')
+        .data(simNodes.filter(function (d) { return d.id !== '2tim'; }))
+        .join('line')
+        .attr('class', 'mobius-wheel-spoke')
+        .attr('x1', pivotNode.x)
+        .attr('y1', pivotNode.y)
+        .attr('x2', function (d) { return d.x; })
+        .attr('y2', function (d) { return d.y; })
+        .attr('stroke', 'rgba(227, 188, 103, 0.18)')
+        .attr('stroke-width', function (d) { return d.data && d.data.isStart ? 1.8 : 1.2; })
+        .attr('stroke-linecap', 'round')
+        .attr('pointer-events', 'none');
+    }
 
     var nodeGroup = svg.append('g').attr('class', 'mobius-nodes');
     var nodeEls = nodeGroup.selectAll('g').data(simNodes).join('g')
@@ -521,16 +553,50 @@
       .attr('fill', 'rgba(248, 250, 252, 0.94)').attr('font-size', function (d) { return d.id === '2tim' ? (isTouch ? '10px' : '9px') : (isTouch ? '10px' : '9px'); })
       .attr('font-weight', '600')
       .attr('display', function (d) {
-        if (!denseLabelMode) return null;
-        return (d.id === '2tim' || d.data.isStart || d.data.isPreferred) ? null : 'none';
+        return d.id === '2tim' ? null : 'none';
       })
       .text(function (d) {
-        var lbl = d.label;
-        if (d.id === '2tim') return '2 Tim 1:7';
-        if (d.data && d.data.isStart) return 'Start';
-        if (d.data && d.data.isPreferred) return 'You';
-        return lbl.length > 8 ? lbl.slice(0, 6) + '…' : lbl;
+        return '2 Tim 1:7';
       });
+
+    svg.append('g')
+      .attr('class', 'mobius-node-labels')
+      .selectAll('text')
+      .data(simNodes.filter(function (d) { return d.id !== '2tim'; }))
+      .join('text')
+      .attr('class', function (d) {
+        var c = 'mobius-node-label';
+        if (d.data && d.data.isStart) c += ' mobius-node-label-start';
+        if (d.data && d.data.isPreferred) c += ' mobius-node-label-preferred';
+        return c;
+      })
+      .attr('x', function (d) {
+        var dx = d.x - cx;
+        var dy = d.y - cy;
+        var len = Math.sqrt(dx * dx + dy * dy) || 1;
+        var labelR = ringR + visNodeR + (denseLabelMode ? 30 : 22);
+        return cx + (dx / len) * labelR;
+      })
+      .attr('y', function (d) {
+        var dx = d.x - cx;
+        var dy = d.y - cy;
+        var len = Math.sqrt(dx * dx + dy * dy) || 1;
+        var labelR = ringR + visNodeR + (denseLabelMode ? 30 : 22);
+        return cy + (dy / len) * labelR;
+      })
+      .attr('text-anchor', function (d) {
+        var dx = d.x - cx;
+        if (Math.abs(dx) < 20) return 'middle';
+        return dx > 0 ? 'start' : 'end';
+      })
+      .attr('dominant-baseline', 'middle')
+      .attr('fill', function (d) {
+        return d.data && d.data.isStart ? '#f2dc98' : 'rgba(226, 232, 240, 0.94)';
+      })
+      .attr('font-size', denseLabelMode ? (isTouch ? '10px' : '11px') : (isTouch ? '11px' : '12px'))
+      .attr('font-weight', function (d) { return d.data && (d.data.isStart || d.data.isPreferred) ? '700' : '600'; })
+      .attr('pointer-events', 'none')
+      .text(function (d) { return getOuterNodeLabel(d); });
 
     var cardContainer = document.createElement('div');
     cardContainer.className = 'mobius-card-container';

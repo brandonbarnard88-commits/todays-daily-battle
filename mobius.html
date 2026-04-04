@@ -113,6 +113,16 @@
     .mobius-node.mobius-start-node .mobius-node-face { stroke: var(--tool-gold); stroke-width: 3; }
     .mobius-node.mobius-pivot-node .mobius-node-face { stroke: rgba(227, 188, 103, 0.7); stroke-width: 2; }
     .mobius-node.mobius-preferred-node .mobius-node-face { stroke: var(--tool-gold); filter: drop-shadow(0 0 6px rgba(227, 188, 103, 0.5)); }
+    .mobius-wheel-spoke { stroke-opacity: 1; }
+    .mobius-node-label {
+      paint-order: stroke;
+      stroke: rgba(6, 8, 14, 0.92);
+      stroke-width: 3px;
+      stroke-linejoin: round;
+      letter-spacing: 0.01em;
+    }
+    .mobius-node-label-start,
+    .mobius-node-label-preferred { fill: #f2dc98; }
     .mobius-link-redeemed { stroke-opacity: 0.8; animation: mobius-redeemed-pulse 3s ease-in-out infinite; }
     @keyframes mobius-redeemed-pulse { 0%, 100% { stroke-opacity: 0.7; } 50% { stroke-opacity: 1; } }
     .mobius-card-container { position: fixed; bottom: 1.1rem; left: 50%; transform: translateX(-50%); width: min(94%, 560px); max-height: min(42vh, 360px); overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 10; }

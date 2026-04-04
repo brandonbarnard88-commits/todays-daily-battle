@@ -18,41 +18,72 @@ function extractBuildStamp(html) {
   return m ? m[1].trim() : null;
 }
 
+const jsonChecks = [
+  {
+    path: '/data/site-search-index.json',
+    label: 'site search index',
+    validate(data) {
+      return data && Array.isArray(data.entries) && data.entries.length >= 5;
+    },
+  },
+];
+
 const checks = [
   {
-    path: '/plans.html',
+    path: '/',
     needles: [
-      'id="plans-still-in-the-works"',
-      'depression-only heaviness',
-      'plans-recommended-today__note-body',
-      'By feel &amp; length',
-      'Quick jump',
-      'Plan day checkmarks',
+      'Save to My Study',
+      'href="/mystudy?tab=library#saved-verses"',
+      'href="/prayer-wall.html"',
+    ],
+    forbidden: [
+      'Save to My Verses',
+      'href="/my-verses.html"',
     ],
   },
   {
-    path: '/',
-    needles: ['id="nav-site-guide"', 'href="/site-guide.html"', 'id="nav-site-search"', 'href="/search.html"'],
+    path: '/prayer-wall.html',
+    needles: [
+      'Pray privately',
+      'Pray with others',
+      'My Study',
+    ],
+    forbidden: [
+      'Community board',
+      'quiet room',
+      'Message Board',
+    ],
   },
   {
-    path: '/search.html',
-    needles: ['id="tdb-site-search-input"', '/site-search-index.json', 'Search the site'],
+    path: '/mystudy',
+    needles: [
+      'My Study — your private place for verses, notes, and progress.',
+      'Everything stays on this device unless you sign in.',
+    ],
+    forbidden: [
+      'Message Board',
+      'My Verses shows the same saves',
+    ],
   },
   {
-    path: '/story',
-    needles: ['Hi, I\'m Brandon.', 'Built solo by Brandon', 'hospital season'],
+    path: '/my-verses.html',
+    needles: [
+      'Saved verses now live inside',
+      'This page forwards there automatically.',
+      'href="/mystudy?tab=library#saved-verses"',
+    ],
   },
   {
-    path: '/where-support-goes.html',
-    needles: ['Where support goes', 'Built solo by Brandon', 'Privacy-first', 'KJV only'],
-  },
-  {
-    path: '/journal/',
-    needles: ['KJV journal for real battles', 'anxiety-before-tomorrow', 'forgiveness-when-you-replay-it'],
-  },
-  {
-    path: '/journal/anxiety-before-tomorrow.html',
-    needles: ['anxiety before tomorrow', 'Philippians 4:6-7 (KJV)', 'One next step'],
+    path: '/explore.html',
+    needles: [
+      'Five calm minutes (optional)',
+      'Home, Calm, plans, My Study, prayer',
+      'My Study — saved verses, notes, highlights, and progress in one place.',
+    ],
+    forbidden: [
+      'My Verses',
+      'Message Board',
+    ],
   },
 ];
 
@@ -74,33 +105,35 @@ async function fetchText(url) {
 
 async function main() {
   let failed = false;
-  try {
-    const jUrl = base + '/site-search-index.json';
-    const jr = await fetch(jUrl, {
-      headers: {
-        'User-Agent': FETCH_UA,
-        Accept: 'application/json,*/*;q=0.8',
-        'Cache-Control': 'no-cache',
-      },
-    });
-    if (!jr.ok) {
-      console.error('verify-live-key-html: MISSING or blocked', jUrl, 'HTTP', jr.status);
-      failed = true;
-    } else {
-      const data = await jr.json();
-      if (!data || !Array.isArray(data.entries) || data.entries.length < 5) {
-        console.error('verify-live-key-html: site-search-index.json shape wrong or too few entries');
+  for (const { path, label, validate } of jsonChecks) {
+    const jUrl = base + path;
+    try {
+      const jr = await fetch(jUrl, {
+        headers: {
+          'User-Agent': FETCH_UA,
+          Accept: 'application/json,*/*;q=0.8',
+          'Cache-Control': 'no-cache',
+        },
+      });
+      if (!jr.ok) {
+        console.error('verify-live-key-html: MISSING or blocked', jUrl, 'HTTP', jr.status);
         failed = true;
-      } else {
-        console.log('verify-live-key-html: OK', jUrl, '(' + data.entries.length + ' entries)');
+        continue;
       }
+      const data = await jr.json();
+      if (!validate(data)) {
+        console.error('verify-live-key-html:', label, 'shape wrong or too few entries');
+        failed = true;
+        continue;
+      }
+      console.log('verify-live-key-html: OK', jUrl);
+    } catch (e) {
+      console.error('verify-live-key-html:', label, 'fetch failed', e.message || e);
+      failed = true;
     }
-  } catch (e) {
-    console.error('verify-live-key-html: site-search-index.json fetch failed', e.message || e);
-    failed = true;
   }
 
-  for (const { path, needles } of checks) {
+  for (const { path, needles, forbidden } of checks) {
     const url = base + path;
     let body;
     let pageOk = true;
@@ -118,12 +151,19 @@ async function main() {
         pageOk = false;
       }
     }
+    for (const n of forbidden || []) {
+      if (body.includes(n)) {
+        console.error('verify-live-key-html: STALE marker still present on', url, '→', n);
+        failed = true;
+        pageOk = false;
+      }
+    }
     if (pageOk) {
       console.log('verify-live-key-html: OK', url);
-    } else if (path.includes('plans') && body) {
+    } else {
       const stamp = extractBuildStamp(body);
       if (stamp) {
-        console.error('verify-live-key-html: live Battle Plans build stamp:', stamp, '— if this predates your deploy, origin is stale.');
+        console.error('verify-live-key-html: live build stamp on', url + ':', stamp);
       }
     }
   }
@@ -132,9 +172,10 @@ async function main() {
       '\nverify-live-key-html: Production looks stale or markers were removed.\n' +
         '  • Confirm Cloudflare Pages custom domain points to the active Pages project for this repo.\n' +
         '  • Confirm Cloudflare Pages is serving the current deployment (not a stale origin).\n' +
-        '  • Purge Cloudflare (needs CF_API_TOKEN in .env): CF_PURGE_FILES=https://todaysdailybattle.com/plans.html,... npm run purge:cloudflare\n' +
+        '  • Confirm CF_API_TOKEN / CLOUDFLARE_API_TOKEN has Zone Cache Purge permission for todaysdailybattle.com.\n' +
+        '  • Purge Cloudflare (needs CF_API_TOKEN in .env): CF_PURGE_FILES=https://todaysdailybattle.com/,https://todaysdailybattle.com/prayer-wall.html,... npm run purge:cloudflare\n' +
         '     or: npm run purge:cloudflare:social\n' +
-        '  • Local dist check: grep plans-still-in-the-works dist/plans.html\n'
+        '  • Local dist spot-check: confirm index/prayer-wall/mystudy/my-verses/explore contain current My Study + Prayer copy.\n'
     );
     process.exit(1);
   }

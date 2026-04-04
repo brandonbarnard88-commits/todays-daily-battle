@@ -138,16 +138,14 @@ jobs:
 
       - name: Purge zone cache after deploy
         if: ${{ steps.req.outputs.skip != 'true' }}
-        continue-on-error: true
         env:
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npm run purge:cloudflare:social
 
-      - name: Verify live markers (best-effort)
+      - name: Verify live markers
         if: ${{ steps.req.outputs.skip != 'true' }}
-        continue-on-error: true
         env:
           LIVE_BASE_URL: https://todaysdailybattle.com
           LIVE_VERIFY_ATTEMPTS: '4'

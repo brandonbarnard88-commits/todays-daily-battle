@@ -21444,6 +21444,95 @@ function getHomeSearchPrayerText(verse) {
   return prayer;
 }
 
+var lastHomeAskTheWordResponse = { key: '', data: null };
+
+function getHomeAskTheWordKey(queryText) {
+  return normalizeInput(String(queryText || ''));
+}
+
+function setHomeAskTheWordResponse(queryText, data) {
+  lastHomeAskTheWordResponse = {
+    key: getHomeAskTheWordKey(queryText),
+    data: data || null
+  };
+}
+
+function getHomeAskTheWordResponse(queryText) {
+  var key = getHomeAskTheWordKey(queryText);
+  if (!key || !lastHomeAskTheWordResponse || lastHomeAskTheWordResponse.key !== key) return null;
+  return lastHomeAskTheWordResponse.data || null;
+}
+
+function clearHomeAskTheWordResponse(queryText) {
+  if (!queryText || lastHomeAskTheWordResponse.key === getHomeAskTheWordKey(queryText)) {
+    lastHomeAskTheWordResponse = { key: '', data: null };
+  }
+}
+
+function getAskTheWordTokenCount(queryText) {
+  return normalizeInput(String(queryText || '')).split(/\s+/).filter(Boolean).length;
+}
+
+function isAskTheWordSingleWordTopic(queryText, results) {
+  var count = getAskTheWordTokenCount(queryText);
+  if (count !== 1) return false;
+  var normalized = getHomeAskTheWordKey(queryText);
+  return !!(
+    normalized &&
+    (
+      (results && results.intent === 'topic') ||
+      (results && results.semanticTopic) ||
+      (typeof resolveTopicFromToken === 'function' && resolveTopicFromToken(normalized))
+    )
+  );
+}
+
+function getAskTheWordHeading(queryText, results) {
+  if (isAskTheWordSingleWordTopic(queryText, results)) {
+    return 'Verses about ' + titleCaseHomeTopic(getHomeSearchDisplayQuery(queryText) || queryText || '');
+  }
+  return 'Strongest verses for this battle';
+}
+
+function buildAskTheWordLocalLead(queryText, results) {
+  var heartfelt = typeof getHeartfeltMessageForQuery === 'function' ? getHeartfeltMessageForQuery(queryText, results) : '';
+  if (isAskTheWordSingleWordTopic(queryText, results)) {
+    var title = getAskTheWordHeading(queryText, results);
+    return heartfelt
+      ? (title + '. ' + heartfelt)
+      : (title + '. God meets real life with real truth, not fake calm. Start with these KJV verses.');
+  }
+  if (heartfelt) return heartfelt + ' The Bible does not dodge this. Start with these KJV verses.';
+  return 'This battle is real, and Scripture does not pretend otherwise. Start with these KJV verses.';
+}
+
+function buildAskTheWordFooterCopy(queryText, results) {
+  if (isAskTheWordSingleWordTopic(queryText, results)) {
+    return 'What stands out, stings, or steadies you here?';
+  }
+  return 'Name what hit hardest, then bring it to the Lord plainly.';
+}
+
+function getAskTheWordSources(queryText, results, response) {
+  if (response && Array.isArray(response.sources) && response.sources.length) return response.sources.slice(0, 6);
+  if (results && Array.isArray(results.verses) && results.verses.length) {
+    return results.verses.slice(0, 6).map(function (verse) { return verse && verse.ref; }).filter(Boolean);
+  }
+  return [];
+}
+
+function shouldFetchHomeQa(queryText, parsed) {
+  var raw = String(queryText || '').trim();
+  if (!raw) return false;
+  if (parsed && parsed.intent === 'reference') return false;
+  if (raw.indexOf('?') !== -1) return true;
+  var normalized = normalizeInput(raw);
+  var tokenCount = normalized.split(/\s+/).filter(Boolean).length;
+  if (tokenCount >= 3) return true;
+  if (tokenCount === 1 && typeof resolveTopicFromToken === 'function' && resolveTopicFromToken(normalized)) return false;
+  return /\b(i|im|i'm|me|my|mine|boss|coworker|colleague|marriage|family|kids|angry|anger|exhausted|tired|toxic|doubt|forgive|grief|hurt|hurting|work|why|how|what|who|when)\b/i.test(raw);
+}
+
 function getHomeSearchDetailHost(output) {
   if (!output) return null;
   var host = output.querySelector('.home-search-detail-host');
@@ -21750,16 +21839,24 @@ function buildHomeVerseCard(output, verse, queryText) {
 
   var versePreview = document.createElement('p');
   versePreview.className = 'home-search-card-copy';
-  appendHighlightedText(versePreview, truncateWords(verse.text || '', 28), buildHomeSearchHighlightRegex(queryText));
+  appendHighlightedText(versePreview, stripHtmlToPlainText(verse.text || ''), buildHomeSearchHighlightRegex(queryText));
   card.appendChild(versePreview);
+
+  var plainMeaning = typeof getPlainMeaning === 'function' ? getPlainMeaning(verse.ref) : '';
+  if (plainMeaning) {
+    var plainMeaningEl = document.createElement('p');
+    plainMeaningEl.className = 'verse-plain-meaning home-search-card-plain';
+    plainMeaningEl.textContent = PLAIN_MEANING_LABEL + ' ' + plainMeaning;
+    card.appendChild(plainMeaningEl);
+  }
 
   var teaser = document.createElement('p');
   teaser.className = 'home-search-card-teaser';
   teaser.textContent = getHomeSearchNextStepTeaser(verse);
   card.appendChild(teaser);
 
-  var actions = document.createElement('div');
-  actions.className = 'home-search-card-actions';
+  var breakdownRow = document.createElement('div');
+  breakdownRow.className = 'home-search-card-actions';
   var breakdownBtn = document.createElement('button');
   breakdownBtn.type = 'button';
   breakdownBtn.className = 'home-search-inline-link';
@@ -21767,8 +21864,123 @@ function buildHomeVerseCard(output, verse, queryText) {
   breakdownBtn.addEventListener('click', function () {
     renderHomeSearchDetail(output, verse, queryText);
   });
-  actions.appendChild(breakdownBtn);
-  card.appendChild(actions);
+  breakdownRow.appendChild(breakdownBtn);
+  card.appendChild(breakdownRow);
+
+  var actionBar = document.createElement('div');
+  actionBar.className = 'ask-word-action-bar';
+
+  function buildActionGroup(label) {
+    var group = document.createElement('div');
+    group.className = 'ask-word-action-group';
+    group.setAttribute('role', 'group');
+    group.setAttribute('aria-label', label);
+    return group;
+  }
+
+  function buildActionButton(text, ariaLabel, onClick) {
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'btn btn-secondary ask-word-action-btn';
+    button.textContent = text;
+    button.setAttribute('aria-label', ariaLabel);
+    button.addEventListener('click', onClick);
+    return button;
+  }
+
+  function readerShareUrl() {
+    try {
+      return new URL(buildReaderUrl(verse.ref), window.location.origin).href;
+    } catch (_) {
+      return window.location.href;
+    }
+  }
+
+  var verseText = stripHtmlToPlainText(verse.text || '');
+  var verseWords = verseText.split(/\s+/).filter(Boolean);
+
+  var quickGroup = buildActionGroup('Quick actions');
+  quickGroup.appendChild(buildActionButton('📋 Copy', 'Copy ' + verse.ref, function () {
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(verse.ref + ': ' + verseText).catch(function () {});
+  }));
+  quickGroup.appendChild(buildActionButton('🔊 Listen', 'Listen to ' + verse.ref, function () {
+    speakVerse(verse.ref, verseText);
+  }));
+  quickGroup.appendChild(buildActionButton('🙏 Pray This', 'Copy a prayer from ' + verse.ref, function (event) {
+    var btn = event.currentTarget;
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(getHomeSearchPrayerText(verse)).then(function () {
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = '🙏 Pray This'; }, 1800);
+    }).catch(function () {});
+  }));
+  actionBar.appendChild(quickGroup);
+
+  var growGroup = buildActionGroup('Save and grow');
+  growGroup.appendChild(buildActionButton('📝 Add to Notes', 'Save ' + verse.ref + ' to your notes on this device', function (event) {
+    var btn = event.currentTarget;
+    if (btn.disabled) return;
+    btn.disabled = true;
+    saveDailyVerseToMyVerses(verse.ref, verseText).then(function () {
+      btn.textContent = 'Saved';
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = 'Try again';
+      setTimeout(function () { btn.textContent = '📝 Add to Notes'; }, 1800);
+    });
+  }));
+  growGroup.appendChild(buildActionButton('🧠 Memory', 'Toggle memory mode for ' + verse.ref, function (event) {
+    var btn = event.currentTarget;
+    if (versePreview.classList.contains('memory-mode')) {
+      versePreview.classList.remove('memory-mode');
+      appendHighlightedText(versePreview, verseText, buildHomeSearchHighlightRegex(queryText));
+      btn.textContent = '🧠 Memory';
+      return;
+    }
+    versePreview.classList.add('memory-mode');
+    versePreview.textContent = '';
+    verseWords.forEach(function (word, index) {
+      var span = document.createElement('span');
+      span.className = 'memory-word';
+      span.setAttribute('tabindex', '0');
+      span.setAttribute('role', 'button');
+      span.textContent = word;
+      span.addEventListener('click', function () { span.classList.add('revealed'); });
+      span.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          span.classList.add('revealed');
+        }
+      });
+      versePreview.appendChild(span);
+      if (index < verseWords.length - 1) versePreview.appendChild(document.createTextNode(' '));
+    });
+    btn.textContent = 'Show all';
+  }));
+  growGroup.appendChild(buildActionButton('🖼️ Card', 'Create a verse card for ' + verse.ref, function () {
+    createVerseCardImage(verse.ref, verseText);
+  }));
+  actionBar.appendChild(growGroup);
+
+  var shareGroup = buildActionGroup('Share');
+  shareGroup.appendChild(buildActionButton('𝕏 Share', 'Share ' + verse.ref + ' on X', function () {
+    window.open(buildTweetShareUrl(verse.ref, verseText), '_blank', 'noopener,noreferrer');
+  }));
+  shareGroup.appendChild(buildActionButton('📘 FB', 'Share ' + verse.ref + ' on Facebook', function () {
+    window.open(buildFacebookShareUrl(verse.ref), '_blank', 'noopener,noreferrer');
+  }));
+  shareGroup.appendChild(buildActionButton('🔗 Link', 'Copy a link to ' + verse.ref, function (event) {
+    var btn = event.currentTarget;
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(readerShareUrl()).then(function () {
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = '🔗 Link'; }, 1800);
+    }).catch(function () {});
+  }));
+  actionBar.appendChild(shareGroup);
+
+  card.appendChild(actionBar);
 
   return card;
 }
@@ -21818,22 +22030,33 @@ function renderHomeSearchResults(results, output, queryText) {
   var planMatches = buildHomeSearchPlanMatches(results, queryText);
   var resourceMatches = buildHomeSearchResourceMatches(results, queryText);
   var activeTopics = getHomeSearchActiveTopics(results, queryText);
-  var heartfeltMsg = getHeartfeltMessageForQuery(queryText, results);
+  var askResponse = getHomeAskTheWordResponse(queryText);
+  var askLead = askResponse && askResponse.answer
+    ? tdbPlainTextForUi(askResponse.answer)
+    : buildAskTheWordLocalLead(queryText, results);
 
   var header = document.createElement('div');
   header.className = 'home-search-header';
+
+  var kicker = document.createElement('p');
+  kicker.className = 'home-search-kicker';
+  kicker.textContent = 'Ask The Word';
+  header.appendChild(kicker);
+
+  var title = document.createElement('h3');
+  title.className = 'home-search-response-title';
+  title.textContent = getAskTheWordHeading(queryText, results);
+  header.appendChild(title);
+
+  var lead = document.createElement('p');
+  lead.className = 'home-search-response-lead';
+  lead.textContent = askLead;
+  header.appendChild(lead);
 
   var eyebrow = document.createElement('p');
   eyebrow.className = 'home-search-count-line';
   eyebrow.textContent = buildHomeSearchCountLine(results, planMatches, resourceMatches, queryText);
   header.appendChild(eyebrow);
-
-  if (heartfeltMsg) {
-    var lead = document.createElement('p');
-    lead.className = 'home-search-heartfelt';
-    lead.textContent = heartfeltMsg;
-    header.appendChild(lead);
-  }
 
   var availableSections = [];
   if (results && results.verses && results.verses.length) availableSections.push('verses');
@@ -21864,11 +22087,11 @@ function renderHomeSearchResults(results, output, queryText) {
     versesSection.setAttribute('data-home-search-section', 'verses');
     var versesHeading = document.createElement('h3');
     versesHeading.className = 'home-search-section-heading';
-    versesHeading.textContent = 'Verses (' + results.verses.length + ')';
+    versesHeading.textContent = 'Strongest KJV verses';
     versesSection.appendChild(versesHeading);
     var verseList = document.createElement('div');
     verseList.className = 'home-search-card-grid';
-    var initialLimit = (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 6 : 8;
+    var initialLimit = (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 4 : 6;
     var expanded = false;
     function paintVerseCards() {
       verseList.textContent = '';
@@ -21930,7 +22153,7 @@ function renderHomeSearchResults(results, output, queryText) {
 
   var footerNote = document.createElement('p');
   footerNote.className = 'home-search-note';
-  footerNote.textContent = 'Take one small next step. Save the verse, open the full chapter, or start a short plan when you need rhythm.';
+  footerNote.textContent = 'Stay with the verse that hits hardest. Save it, pray it, open the full chapter, or take a short plan when you need a steadier path.';
   shell.appendChild(footerNote);
 
   output.appendChild(shell);
@@ -23319,7 +23542,9 @@ async function tdbInitImpl() {
         return {
           wrap: document.getElementById('homeQaResult'),
           answer: document.getElementById('homeQaAnswer'),
-          sources: document.getElementById('homeQaSources')
+          prayer: document.getElementById('homeQaPrayer'),
+          sources: document.getElementById('homeQaSources'),
+          helpful: document.getElementById('homeQaHelpful')
         };
       }
       function hideHomeQaResult() {
@@ -23328,10 +23553,20 @@ async function tdbInitImpl() {
         els.wrap.classList.add('hidden');
         els.wrap.setAttribute('hidden', '');
         if (els.answer) els.answer.textContent = '';
+        if (els.prayer) {
+          els.prayer.classList.add('hidden');
+          els.prayer.setAttribute('hidden', '');
+          els.prayer.textContent = '';
+        }
         if (els.sources) {
           els.sources.classList.add('hidden');
           els.sources.setAttribute('hidden', '');
           els.sources.textContent = '';
+        }
+        if (els.helpful) {
+          els.helpful.classList.add('hidden');
+          els.helpful.setAttribute('hidden', '');
+          els.helpful.textContent = '';
         }
       }
       function showHomeQaLoading() {
@@ -23339,28 +23574,49 @@ async function tdbInitImpl() {
         if (!els.wrap || !els.answer) return;
         els.wrap.classList.remove('hidden');
         els.wrap.removeAttribute('hidden');
-        els.answer.textContent = 'Searching Scripture for your question...';
+        els.answer.textContent = 'Ask The Word is searching Scripture...';
+        if (els.prayer) {
+          els.prayer.classList.add('hidden');
+          els.prayer.setAttribute('hidden', '');
+          els.prayer.textContent = '';
+        }
         if (els.sources) {
           els.sources.classList.add('hidden');
           els.sources.setAttribute('hidden', '');
           els.sources.textContent = '';
         }
+        if (els.helpful) {
+          els.helpful.classList.add('hidden');
+          els.helpful.setAttribute('hidden', '');
+          els.helpful.textContent = '';
+        }
       }
-      function renderHomeQaResult(data) {
+      function renderHomeQaResult(data, queryText, results) {
         var els = getHomeQaElements();
-        if (!els.wrap || !els.answer || !data) return;
-        var answerText = '';
-        if (typeof window.tdbCleanForPlainDisplay === 'function') answerText = window.tdbCleanForPlainDisplay(data.answer || '');
-        if (!answerText) answerText = String(data.answer || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-        if (!answerText) {
+        if (!els.wrap || !els.answer) return;
+        if (!queryText || !results || results.intent === 'reference' || results.intent === 'empty' || !results.verses || !results.verses.length) {
           hideHomeQaResult();
           return;
         }
+        var answerText = buildAskTheWordFooterCopy(queryText, results);
+        var prayerText = data && data.prayer_prompt
+          ? tdbPlainTextForUi(data.prayer_prompt)
+          : getHomeSearchPrayerText(results.verses[0]);
+        var sources = getAskTheWordSources(queryText, results, data);
         els.wrap.classList.remove('hidden');
         els.wrap.removeAttribute('hidden');
         els.answer.textContent = answerText;
-        if (els.sources && Array.isArray(data.sources) && data.sources.length) {
-          els.sources.textContent = 'Sources: ' + data.sources.slice(0, 5).join(', ');
+        if (els.prayer && prayerText) {
+          els.prayer.textContent = 'Quick Prayer: ' + prayerText;
+          els.prayer.classList.remove('hidden');
+          els.prayer.removeAttribute('hidden');
+        } else if (els.prayer) {
+          els.prayer.classList.add('hidden');
+          els.prayer.setAttribute('hidden', '');
+          els.prayer.textContent = '';
+        }
+        if (els.sources && sources.length) {
+          els.sources.textContent = 'KJV anchors: ' + sources.join(' • ');
           els.sources.classList.remove('hidden');
           els.sources.removeAttribute('hidden');
         } else if (els.sources) {
@@ -23368,8 +23624,41 @@ async function tdbInitImpl() {
           els.sources.setAttribute('hidden', '');
           els.sources.textContent = '';
         }
+        if (els.helpful) {
+          var helpfulKey = 'tdb_ask_word_helpful_' + getHomeAskTheWordKey(queryText);
+          var saved = '';
+          try { saved = localStorage.getItem(helpfulKey) || ''; } catch (_) {}
+          els.helpful.textContent = '';
+          els.helpful.classList.remove('hidden');
+          els.helpful.removeAttribute('hidden');
+          if (saved === 'yes' || saved === 'no') {
+            els.helpful.textContent = 'Thanks for the feedback.';
+          } else {
+            var label = document.createElement('span');
+            label.className = 'home-qa-helpful-label';
+            label.textContent = 'Was this helpful? ';
+            var yesBtn = document.createElement('button');
+            yesBtn.type = 'button';
+            yesBtn.className = 'btn-link home-qa-helpful-btn';
+            yesBtn.textContent = '👍';
+            var noBtn = document.createElement('button');
+            noBtn.type = 'button';
+            noBtn.className = 'btn-link home-qa-helpful-btn';
+            noBtn.textContent = '👎';
+            function markHelpful(value) {
+              try { localStorage.setItem(helpfulKey, value); } catch (_) {}
+              els.helpful.textContent = 'Thanks for the feedback.';
+            }
+            yesBtn.addEventListener('click', function () { markHelpful('yes'); });
+            noBtn.addEventListener('click', function () { markHelpful('no'); });
+            els.helpful.appendChild(label);
+            els.helpful.appendChild(yesBtn);
+            els.helpful.appendChild(document.createTextNode(' '));
+            els.helpful.appendChild(noBtn);
+          }
+        }
       }
-      async function getHomeQaResponse(query, tier) {
+      async function getHomeQaResponse(query, tier, results) {
         var q = String(query || '').trim();
         if (!q) return null;
         var cacheKey = 'tdb_home_qa_' + normalizeInput(q);
@@ -23377,7 +23666,7 @@ async function tdbInitImpl() {
           var cachedRaw = localStorage.getItem(cacheKey);
           if (cachedRaw) {
             var cached = JSON.parse(cachedRaw);
-            if (cached && cached.answer && Date.now() - (cached.ts || 0) < (24 * 60 * 60 * 1000)) return cached;
+            if (cached && (cached.answer || cached.prayer_prompt) && Date.now() - (cached.ts || 0) < (24 * 60 * 60 * 1000)) return cached;
           }
         } catch (_) {}
         var cfg = window.TDB_CONFIG || {};
@@ -23392,29 +23681,33 @@ async function tdbInitImpl() {
             });
             if (res.ok) {
               var payload = await res.json();
-              if (payload && payload.answer) {
-                var apiData = { answer: payload.answer, sources: Array.isArray(payload.sources) ? payload.sources : [], ts: Date.now() };
+              if (payload && (payload.answer || payload.prayer_prompt)) {
+                var apiData = {
+                  answer: payload.answer || '',
+                  sources: Array.isArray(payload.sources) ? payload.sources : [],
+                  prayer_prompt: payload.prayer_prompt || '',
+                  ts: Date.now()
+                };
                 try { localStorage.setItem(cacheKey, JSON.stringify(apiData)); } catch (_) {}
                 return apiData;
               }
             }
           } catch (_) {}
         }
-        var filters = { testament: 'all', book: '' };
-        var parsed = parseQuery(q);
-        var fallback = executeQuery(parsed, tier || 'adult', filters) || {};
-        var verses = Array.isArray(fallback.verses) ? fallback.verses.slice(0, 3) : [];
+        var fallback = results || {};
+        var verses = Array.isArray(fallback.verses) ? fallback.verses.slice(0, 6) : [];
         if (!verses.length) {
-          return { answer: 'I could not find a strong match yet. Try a shorter question, then review the verses below.', sources: [] };
+          return {
+            answer: 'I could not find a strong match yet. Shorten the search a little and let Scripture meet you there.',
+            prayer_prompt: 'Lord, meet me in what I cannot sort out yet, and guide me into truth. Amen.',
+            sources: [],
+            ts: Date.now()
+          };
         }
-        var answer = verses.map(function (v) {
-          var txt = String((v && v.text) || '').replace(/\s+/g, ' ').trim();
-          if (txt.length > 130) txt = txt.slice(0, 130).replace(/\s+\S*$/, '') + '...';
-          return txt;
-        }).join(' ');
         var result = {
-          answer: 'From Scripture: ' + answer,
+          answer: buildAskTheWordLocalLead(q, fallback),
           sources: verses.map(function (v) { return v.ref; }).filter(Boolean),
+          prayer_prompt: getHomeSearchPrayerText(verses[0]),
           ts: Date.now()
         };
         try { localStorage.setItem(cacheKey, JSON.stringify(result)); } catch (_) {}
@@ -23422,9 +23715,6 @@ async function tdbInitImpl() {
       }
       function runSearchWithInput(inputStr) {
         var input = (inputStr != null && inputStr !== '') ? String(inputStr).trim() : '';
-        var questionMode = isBibleQuestionQuery(input);
-        if (questionMode) showHomeQaLoading();
-        else hideHomeQaResult();
         ensureBattleSearchVisible();
         var outputEl = ensureOutputElement();
         if (outputEl) outputEl.style.display = 'grid';
@@ -23446,16 +23736,6 @@ async function tdbInitImpl() {
             if (Object.keys(bible).length === 0) {
               await loadBible(currentVersion);
               try { if (typeof refreshBibleView === 'function') refreshBibleView(); } catch (_) {}
-            }
-            if (questionMode) {
-              getHomeQaResponse(input, tier).then(function (qaData) {
-                renderHomeQaResult(qaData);
-              }).catch(function () {
-                renderHomeQaResult({
-                  answer: 'I could not load a full answer right now. Keep reading the verses below and try again in a moment.',
-                  sources: []
-                });
-              });
             }
             var out = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
             if (Object.keys(bible).length === 0) {
@@ -23494,6 +23774,27 @@ async function tdbInitImpl() {
               searchResults.queryText = normalizeInput(input || '');
               if (cacheKey) searchCache.set(cacheKey, searchResults);
               renderResults(searchResults);
+            }
+            if (parsed.intent === 'reference' || parsed.intent === 'empty') {
+              clearHomeAskTheWordResponse(input);
+              hideHomeQaResult();
+            } else {
+              renderHomeQaResult(getHomeAskTheWordResponse(input), input, searchResults);
+              if (shouldFetchHomeQa(input, parsed)) {
+                getHomeQaResponse(input, tier, searchResults).then(function (qaData) {
+                  if (normalizeInput(lastQueryInput || '') !== normalizeInput(input || '')) return;
+                  setHomeAskTheWordResponse(input, qaData);
+                  renderResults(searchResults);
+                  renderHomeQaResult(qaData, input, searchResults);
+                }).catch(function () {
+                  if (normalizeInput(lastQueryInput || '') !== normalizeInput(input || '')) return;
+                  clearHomeAskTheWordResponse(input);
+                  renderHomeQaResult(null, input, searchResults);
+                });
+              } else {
+                clearHomeAskTheWordResponse(input);
+                renderHomeQaResult(null, input, searchResults);
+              }
             }
             if (out && !hasSearchCards(out)) {
               renderEmergencySearchResults(input);

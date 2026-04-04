@@ -21,6 +21,37 @@ function jsonResponse(body: unknown, status: number) {
   });
 }
 
+function titleCaseTopic(value: string): string {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\b([a-z])/g, (match) => match.toUpperCase());
+}
+
+function buildFallbackAnswer(query: string): string {
+  const trimmed = String(query || "").trim();
+  const singleWord = /^[a-zA-Z]+$/.test(trimmed);
+  if (singleWord) {
+    return `Verses about ${titleCaseTopic(trimmed)}. God meets real life with real truth, not fake calm. Start with these KJV anchors and stay with the one that hits hardest.`;
+  }
+  return "This battle is real, and Scripture does not pretend otherwise. Start with these KJV anchors and let the Word meet you right where it hurts.";
+}
+
+function buildFallbackPrayer(): string {
+  return "Lord, meet me in this battle. Guard my heart, steady my mind, and help me obey You in the middle of it. Amen.";
+}
+
+function cleanGeneratedText(text: string | null): string | null {
+  if (!text) return null;
+  return String(text)
+    .replace(/^answer:\s*/i, "")
+    .replace(/^opener:\s*/i, "")
+    .replace(/^prayer:\s*/i, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^["']|["']$/g, "") || null;
+}
+
 async function generateText(prompt: string, maxTokens = 120): Promise<string | null> {
   if (!HF_TOKEN || !prompt.trim()) return null;
   try {
@@ -91,8 +122,9 @@ Deno.serve(async (req) => {
   const embedding = await embedText(query);
   if (!embedding || embedding.length !== 384) {
     return jsonResponse({
-      answer: "Not sure—try 'hope' or read John 14.",
+      answer: buildFallbackAnswer(query),
       sources: ["John 14:6", "John 3:16"],
+      prayer_prompt: buildFallbackPrayer(),
     }, 200);
   }
 
@@ -105,15 +137,17 @@ Deno.serve(async (req) => {
 
   if (error) {
     return jsonResponse({
-      answer: "Not sure—try 'hope' or read John 14.",
+      answer: buildFallbackAnswer(query),
       sources: ["John 14:6", "John 3:16"],
+      prayer_prompt: buildFallbackPrayer(),
     }, 200);
   }
 
   if (!rows || !rows.length) {
     return jsonResponse({
-      answer: "Not sure—try 'hope' or read John 14.",
+      answer: buildFallbackAnswer(query),
       sources: ["John 14:6", "John 3:16"],
+      prayer_prompt: buildFallbackPrayer(),
     }, 200);
   }
 
@@ -129,21 +163,43 @@ Deno.serve(async (req) => {
   let prayerPrompt: string | null = null;
 
   if (HF_TOKEN && versesBlock) {
-    const answerPrompt = `You are Ask the Word, a KJV Bible helper. Answer ONLY using KJV verses. Be short, honest, cite exact references. If unsure or off-topic, say "I don't know—talk to a pastor." Keep replies 1-3 sentences max. Examples: "What is love?" → "Love is patient, love is kind..." (1 Corinthians 13:4-7). "Why did God create us?" → "For His glory..." (Isaiah 43:7).
+    const answerPrompt = `You are "Ask The Word" — the main search voice on todaysdailybattle.com.
+
+Meet people exactly where they are in the trenches: anger, exhaustion, toxic people, difficult bosses, family mess, spiritual battles, doubt, and questions that hurt. Be honest, direct, and human. Never sugarcoat. Never use cheap platitudes like "just pray about it" or "God has a plan." Acknowledge the real pain first, then point them to the KJV with practical hope in Christ.
+
+Task:
+- Write ONLY the empathetic opener and short transition that will appear above the verse list.
+- Do NOT quote or summarize the verses line by line; the frontend already shows the full KJV verses below.
+- Keep it to 2-4 sentences max.
+- If the query is a single-word topic, start exactly with "Verses about ${titleCaseTopic(query)}."
+- If the user used strong language, you may match some of that honesty, but do not become crude for shock value.
+- Keep the overall spirit peaceful, grounded, and hopeful in Christ.
+- Return plain text only.
 
 Verses:\n${versesBlock}
 
 Question: ${query}`;
-    const genAnswer = await generateText(answerPrompt, 150);
+    const genAnswer = cleanGeneratedText(await generateText(answerPrompt, 170));
     if (genAnswer) answer = genAnswer;
 
-    const prayerPromptText = `From these KJV verses, write ONE short, honest prayer someone could pray right now. No opinion, no fluff. Just the prayer, nothing else.\n\nVerses:\n${versesBlock}`;
-    prayerPrompt = await generateText(prayerPromptText, 80);
+    const prayerPromptText = `You are Ask The Word.
+
+From these KJV verses, write ONE short, honest prayer someone could pray right now.
+- Raw and practical is fine, but keep it reverent.
+- No fluff.
+- No sermon.
+- 2-4 short sentences.
+- Return the prayer only.
+
+Query: ${query}
+
+Verses:\n${versesBlock}`;
+    prayerPrompt = cleanGeneratedText(await generateText(prayerPromptText, 90));
   }
 
   return jsonResponse({
-    answer: answer.startsWith("The Word says") || answer.startsWith("I don't know") ? answer : "The Word says: " + answer,
+    answer: answer || buildFallbackAnswer(query),
     sources,
-    prayer_prompt: prayerPrompt || undefined,
+    prayer_prompt: prayerPrompt || buildFallbackPrayer(),
   }, 200);
 });

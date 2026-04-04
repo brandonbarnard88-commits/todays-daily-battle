@@ -16579,33 +16579,52 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
 }
 
 .home-qa-result {
-  margin: 0.85rem 0 0.35rem;
-  padding: 0.9rem 1rem;
-  border: 1px solid rgba(125, 149, 191, 0.36);
-  border-radius: 12px;
-  background: rgba(20, 28, 40, 0.55);
+  margin: 0.95rem 0 0.35rem;
+  padding: 1rem 1rem 1.05rem;
+  border: 1px solid rgba(125, 149, 191, 0.34);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(20, 28, 40, 0.78) 0%, rgba(10, 15, 27, 0.92) 100%);
+}
+
+.home-qa-kicker {
+  margin: 0 0 0.35rem;
+  color: var(--gold-soft, #e3bc67);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .home-qa-title {
-  margin: 0 0 0.35rem;
-  font-size: 0.96rem;
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
   letter-spacing: 0.01em;
 }
 
 .home-qa-answer {
   margin: 0;
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.65;
+}
+
+.home-qa-prayer {
+  margin: 0.7rem 0 0;
+  color: var(--text, #e2e8f0);
+  line-height: 1.65;
 }
 
 .home-qa-sources {
-  margin: 0.5rem 0 0;
+  margin: 0.7rem 0 0;
   color: var(--muted);
   font-size: 0.86rem;
 }
 
-.home-qa-note {
-  margin-top: 0.45rem;
+.home-qa-helpful {
+  margin-top: 0.7rem;
+  color: var(--text-muted, #cbd5e1);
+}
+
+.home-qa-helpful-btn {
+  font-size: 1rem;
 }
 
 html[data-theme="light"] .home-qa-result {
@@ -16712,6 +16731,27 @@ html[data-theme="light"] .home-qa-result {
   gap: 0.65rem;
 }
 
+.home-search-kicker {
+  margin: 0;
+  color: var(--gold-soft, #e3bc67);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-search-response-title {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+  line-height: 1.25;
+}
+
+.home-search-response-lead {
+  margin: 0;
+  color: var(--text, #e2e8f0);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
 .home-search-count-line {
   margin: 0;
   color: var(--gold-soft, #e3bc67);
@@ -16719,7 +16759,6 @@ html[data-theme="light"] .home-qa-result {
   letter-spacing: 0.01em;
 }
 
-.home-search-heartfelt,
 .home-search-note {
   margin: 0;
   color: var(--text-muted, #cbd5e1);
@@ -16801,6 +16840,10 @@ html[data-theme="light"] .home-qa-result {
   color: var(--text, #e2e8f0);
 }
 
+.home-search-card-plain {
+  margin: 0;
+}
+
 .home-search-card-teaser {
   margin: 0;
   color: var(--text-muted, #cbd5e1);
@@ -16838,6 +16881,25 @@ html[data-theme="light"] .home-qa-result {
 
 .home-search-show-more {
   justify-self: start;
+}
+
+.ask-word-action-bar {
+  display: grid;
+  gap: 0.7rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.ask-word-action-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.ask-word-action-btn {
+  min-height: 44px;
+  padding: 0.62rem 0.85rem;
+  font-size: 0.94rem;
 }
 
 .home-search-link-badge {
@@ -17012,9 +17074,14 @@ html[data-theme="light"] .home-search-related-btn {
 
 html[data-theme="light"] .home-search-card-teaser,
 html[data-theme="light"] .home-search-note,
-html[data-theme="light"] .home-search-heartfelt,
 html[data-theme="light"] .home-search-accordion-body {
   color: #475569;
+}
+
+html[data-theme="light"] .home-search-response-lead,
+html[data-theme="light"] .home-qa-answer,
+html[data-theme="light"] .home-qa-prayer {
+  color: #0f172a;
 }
 
 html[data-theme="light"] .home-search-link-title a,

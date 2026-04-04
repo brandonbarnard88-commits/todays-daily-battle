@@ -7085,20 +7085,20 @@
         <p class="first-visit-text">In your own words, say how it feels (grateful, quiet, tired, heavy&hellip;) or pick a calm category below to open the topic chips.</p>
         <button type="button" class="first-visit-dismiss" id="firstVisitDismiss" aria-label="Dismiss welcome tip">Understood</button>
       </div>
-      <section class="card" id="feel-section" aria-label="How are you feeling verse search">
-        <h2 class="mood-title">What are you carrying today?</h2>
-        <p class="mood-subtitle section-note" id="feelSectionSubtitle">Tap a category to open its chips&mdash;then tap one to search verses and see a gentle next step. You can also ask a Bible question (like "Who is Jesus?") and get a Scripture-grounded answer with verses.</p>
-        <p class="feel-first-action-assurance" id="feelFirstActionAssurance">No account needed. Works offline after first load. <abbr title="King James Version">KJV</abbr> only.</p>
+      <section class="card" id="feel-section" aria-label="Ask The Word search">
+        <h2 class="mood-title">Ask The Word</h2>
+        <p class="mood-subtitle section-note" id="feelSectionSubtitle">What&rsquo;s on your heart today? Search the trench-level stuff honestly&mdash;anger, exhaustion, toxic people, doubt, family mess, spiritual battles&mdash;and get straight <abbr title="King James Version">KJV</abbr> help without fake polish.</p>
+        <p class="feel-first-action-assurance" id="feelFirstActionAssurance">No account needed. Works offline after first load. <abbr title="King James Version">KJV</abbr> only. Your words stay on this device whenever possible.</p>
         <div class="feel-search-wrap">
-          <label for="feel-search" class="sr-only">How are you feeling?</label>
+          <label for="feel-search" class="sr-only">Ask The Word</label>
           <input
             id="feel-search"
             type="search"
             autocomplete="off"
             autocorrect="off"
             spellcheck="false"
-            placeholder="How are you feeling, or ask a Bible question (Who is Jesus?). Your words stay here."
-            aria-label="Search by feeling, verse, or Bible question"
+            placeholder="Type a question, a battle, or how you're really feeling... (e.g. &quot;I work with an asshole&quot; or &quot;joy&quot;)"
+            aria-label="Ask The Word by question, battle, feeling, or verse"
             aria-autocomplete="list"
             aria-controls="feelSuggestDropdown"
             aria-haspopup="listbox"
@@ -7115,8 +7115,8 @@
           <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions">
           </div>
         </div>
-        <p class="section-note util-mt-0_5 util-mb-0">Question examples: "Who is Jesus?", "What is salvation?", "How do I forgive?"</p>
-        <p class="topic-plans-hint section-note" id="topicPlansHint">Inside a category: tap a chip to search verses. <span class="topic-plans-hint-detail">Alt-click (desktop) or long-press (phone) on a chip opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
+        <p class="section-note util-mt-0_5 util-mb-0">Try: "Who is Jesus?", "I work with an asshole", "Toxic people", "Anger at work", "Exhaustion", or "joy".</p>
+        <p class="topic-plans-hint section-note" id="topicPlansHint">Inside a category: tap a chip to search verses fast. <span class="topic-plans-hint-detail">Alt-click (desktop) or long-press (phone) on a chip opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
         <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Pick a category first; chip order may change each visit. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
           <div id="feelTopicPickers" class="feel-topic-pickers" role="group" aria-label="Topic categories">
             <div class="feel-category-grid">
@@ -7150,6 +7150,8 @@
                   <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief"><span aria-hidden="true">🕯️</span> Grief</button>
                   <button type="button" class="quick-topic" data-topic="heartache" aria-label="Heartache"><span aria-hidden="true">💔</span> Heartache</button>
                   <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger"><span aria-hidden="true">🔥</span> Anger</button>
+                  <button type="button" class="quick-topic" data-topic="difficult person" aria-label="Toxic people"><span aria-hidden="true">🧱</span> Toxic People</button>
+                  <button type="button" class="quick-topic" data-topic="difficult boss" aria-label="Anger at work"><span aria-hidden="true">💼</span> Anger at Work</button>
                   <button type="button" class="quick-topic" data-topic="guilt" aria-label="Guilt"><span aria-hidden="true">💭</span> Guilt</button>
                   <button type="button" class="quick-topic" data-topic="loneliness" aria-label="Loneliness"><span aria-hidden="true">🤗</span> Loneliness</button>
                   <button type="button" class="quick-topic" data-topic="trauma" aria-label="Trauma"><span aria-hidden="true">🕊️</span> Trauma</button>
@@ -7166,6 +7168,7 @@
                   <button type="button" class="quick-topic" data-topic="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙌</span> Gratitude</button>
                   <button type="button" class="quick-topic" data-topic="hope" aria-label="Wonder"><span aria-hidden="true">✨</span> Wonder</button>
                   <button type="button" class="quick-topic" data-topic="strength" aria-label="Tired"><span aria-hidden="true">😮‍💨</span> Tired</button>
+                  <button type="button" class="quick-topic" data-topic="exhaustion" aria-label="Exhaustion"><span aria-hidden="true">🪫</span> Exhaustion</button>
                   <button type="button" class="quick-topic" data-topic="joy" aria-label="Joy"><span aria-hidden="true">☀️</span> Joy</button>
                   <button type="button" class="quick-topic" data-topic="love" aria-label="Love"><span aria-hidden="true">❤️</span> Love</button>
                   <button type="button" class="quick-topic" data-topic="faith" aria-label="Faith"><span aria-hidden="true">🌱</span> Faith</button>
@@ -7244,11 +7247,13 @@
           <a href="mobius.html" class="mobius-loop-full-link" aria-label="Enter the Möbius Loop">Enter the Möbius →</a>
         </span>
         <div id="feel-results" aria-live="polite"></div>
-        <section id="homeQaResult" class="home-qa-result hidden" role="region" aria-live="polite" aria-label="Bible question answer" hidden>
-          <h3 class="home-qa-title">Answer from Scripture</h3>
+        <section id="homeQaResult" class="home-qa-result hidden" role="region" aria-live="polite" aria-label="Ask The Word follow-up" hidden>
+          <p class="home-qa-kicker">Ask The Word</p>
+          <h3 class="home-qa-title">How does this hit you today?</h3>
           <p id="homeQaAnswer" class="home-qa-answer"></p>
+          <p id="homeQaPrayer" class="home-qa-prayer hidden" hidden></p>
           <p id="homeQaSources" class="home-qa-sources hidden" hidden></p>
-          <p class="home-qa-note section-note util-mb-0">Then keep scrolling for matching KJV verses below.</p>
+          <div id="homeQaHelpful" class="home-qa-helpful hidden" hidden></div>
         </section>
         <p class="warm-intro" id="feelWelcome" aria-live="polite"></p>
         <div class="feel-cards" id="feelCards" aria-live="polite"></div>

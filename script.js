@@ -841,23 +841,68 @@ function wireWelcomeTour() {
   }
 }
 
+function normalizeLegacyShellLinks() {
+  if (typeof document === 'undefined') return;
+  var prayerHref = '/prayer-wall.html?tab=with-others';
+  var myStudyHref = '/mystudy?tab=library#saved-verses';
+  var links = document.querySelectorAll('a[href]');
+  Array.prototype.forEach.call(links, function (link) {
+    var rawHref = String(link.getAttribute('href') || '').trim();
+    if (!rawHref) return;
+    if (/^(?:\/)?message(?:\.html)?(?:[?#].*)?$/i.test(rawHref)) {
+      link.setAttribute('href', prayerHref);
+      if (/^(message board|prayer wall)$/i.test((link.textContent || '').trim())) {
+        link.textContent = 'Prayer';
+      }
+      var aria = link.getAttribute('aria-label');
+      if (aria) {
+        link.setAttribute(
+          'aria-label',
+          aria
+            .replace(/message board/gi, 'Prayer')
+            .replace(/prayer wall/gi, 'Prayer')
+        );
+      }
+      if (link.getAttribute('data-section') === 'message-board') {
+        link.setAttribute('data-section', 'prayer');
+      }
+      return;
+    }
+    if (/^(?:\/)?my-verses(?:\.html)?(?:[?#].*)?$/i.test(rawHref)) {
+      link.setAttribute('href', myStudyHref);
+      if (/^my verses$/i.test((link.textContent || '').trim())) {
+        link.textContent = 'My Study';
+      }
+      var myStudyAria = link.getAttribute('aria-label');
+      if (myStudyAria) {
+        link.setAttribute('aria-label', myStudyAria.replace(/my verses/gi, 'My Study'));
+      }
+    }
+  });
+}
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', wireEarlySearchFallbacks);
   document.addEventListener('DOMContentLoaded', normalizeHomeMainOrder);
   document.addEventListener('DOMContentLoaded', wireTdbSoftRetry);
   document.addEventListener('DOMContentLoaded', wireTdbPrimarySiteNav);
   document.addEventListener('DOMContentLoaded', highlightCurrentNav);
+  document.addEventListener('DOMContentLoaded', normalizeLegacyShellLinks);
 } else {
   wireEarlySearchFallbacks();
   normalizeHomeMainOrder();
   wireTdbSoftRetry();
   wireTdbPrimarySiteNav();
   highlightCurrentNav();
+  normalizeLegacyShellLinks();
 }
 
 try {
   window.addEventListener('pageshow', function (ev) {
-    if (ev.persisted) highlightCurrentNav();
+    if (ev.persisted) {
+      highlightCurrentNav();
+      normalizeLegacyShellLinks();
+    }
   });
 } catch (_) {}
 

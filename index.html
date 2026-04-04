@@ -4516,7 +4516,7 @@
       color: var(--gold-soft);
     }
 
-    /* ── Prayer Wall (standalone card) ── */
+    /* ── Prayer (standalone card) ── */
     .prayer-wall-quiet-room {
       border-color: color-mix(in srgb, var(--gold-soft, #c9a84c) 28%, var(--border, #334155));
       box-shadow:
@@ -6943,7 +6943,7 @@
           <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Isaiah 40:31" data-tdb-wordstudy-text="But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
         <p class="tdb-why-stay-line" id="tdb-why-stay-line">A steady place for Scripture&mdash;any kind of day.</p>
-        <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Verses">
+        <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Study">
           <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
           <a href="memorize.html" class="btn btn-secondary hero-memorize-link" id="hero-memorize-link" aria-label="Open gentle memorize tools for today’s verse">Memorize</a>
           <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/mystudy?tab=library#saved-verses">Open My Study</a>.</p>
@@ -8698,15 +8698,15 @@
         const saveBtn = document.createElement("button");
         saveBtn.type = "button";
         saveBtn.className = "fvc-action-btn";
-        saveBtn.textContent = "Save to My Verses";
-        saveBtn.setAttribute("aria-label", "Save " + sanitizeText(entry.ref) + " to My Verses");
+        saveBtn.textContent = "Save to My Study";
+        saveBtn.setAttribute("aria-label", "Save " + sanitizeText(entry.ref) + " to My Study");
         saveBtn.addEventListener("click", () => {
           saveBtn.disabled = true;
           const done = (ok, already) => {
             saveBtn.textContent = ok ? (already ? "Already saved \u2713" : "Saved \u2713") : "Save failed";
             saveBtn.classList.add("confirmed");
             setTimeout(() => {
-              saveBtn.textContent = "Save to My Verses";
+              saveBtn.textContent = "Save to My Study";
               saveBtn.classList.remove("confirmed");
               saveBtn.disabled = false;
             }, 1600);
@@ -11568,7 +11568,7 @@
       var downBtn = document.getElementById('verseFeedbackDown');
       if (upBtn) upBtn.addEventListener('click', function () { if (typeof recordVerseFeedback === 'function') recordVerseFeedback('up'); });
       if (downBtn) downBtn.addEventListener('click', function () { if (typeof recordVerseFeedback === 'function') recordVerseFeedback('down'); });
-      // Prayer wall: Invite a friend to pray with you
+      // Prayer: Invite a friend to pray with you
       var prayInvite = document.getElementById('prayer-invite-friend-btn');
       if (prayInvite) prayInvite.addEventListener('click', function () {
         var url = (window.location.origin || 'https://todaysdailybattle.com') + '/prayer-wall.html';

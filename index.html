@@ -1205,11 +1205,10 @@
       position: sticky;
       top: 0;
       z-index: 32;
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 0.3rem 0.45rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 0.34rem 0.42rem;
       padding: 0.42rem 0.6rem;
       margin: 0;
       list-style: none;
@@ -1219,27 +1218,20 @@
       border-bottom: 1px solid color-mix(in srgb, var(--line) 82%, var(--gold) 10%);
       font-size: 0.78rem;
       font-weight: 500;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      scroll-padding-inline: 0.6rem;
-    }
-    .tdb-sticky-wayfind::-webkit-scrollbar {
-      display: none;
     }
     .tdb-sticky-wayfind a {
       color: color-mix(in srgb, var(--muted) 90%, var(--text) 10%);
       text-decoration: none;
-      padding: 0.38rem 0.6rem;
-      border-radius: 999px;
+      padding: 0.45rem 0.58rem;
+      border-radius: 16px;
       min-height: 44px;
       box-sizing: border-box;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.34rem;
-      flex: 0 0 auto;
-      white-space: nowrap;
+      width: 100%;
+      text-align: center;
       border: 1px solid transparent;
       transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
     }
@@ -1284,6 +1276,11 @@
     :root[data-theme="light"] .tdb-sticky-wayfind a:hover,
     :root[data-theme="light"] .tdb-sticky-wayfind a:focus-visible {
       color: #5c410f;
+    }
+    @media (min-width: 780px) {
+      .tdb-sticky-wayfind {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
     }
 
     /* ── Moat banner (curated habit vs. endless chat) — below hero, glass band ── */

@@ -21450,6 +21450,15 @@ function getHomeAskTheWordKey(queryText) {
   return normalizeInput(String(queryText || ''));
 }
 
+function dedupeStickyWayfindBars() {
+  var bars = document.querySelectorAll('.tdb-sticky-wayfind');
+  if (!bars || bars.length <= 1) return;
+  for (var i = 1; i < bars.length; i += 1) {
+    var extra = bars[i];
+    if (extra && extra.parentNode) extra.parentNode.removeChild(extra);
+  }
+}
+
 function setHomeAskTheWordResponse(queryText, data) {
   lastHomeAskTheWordResponse = {
     key: getHomeAskTheWordKey(queryText),
@@ -23012,6 +23021,7 @@ function sanitizeNudgeElements() {
 
 async function tdbInitImpl() {
   if (!document.body) return;
+  dedupeStickyWayfindBars();
   try {
     highlightCurrentNav();
   } catch (_) {}

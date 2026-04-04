@@ -58,8 +58,9 @@ window.TDB_CONFIG.SUBMIT_PRAYER_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '
 // Post message via Edge Function (rate limit + server-side sanitization). When set, client uses this instead of direct insert.
 window.TDB_CONFIG.POST_MESSAGE_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/post-message';
 
-// Set to true after running supabase-get-prayers-today-count.sql so "Prayed by X warriors today" uses the RPC (avoids 404).
-window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED = true;
+// Enable only after running supabase-get-prayers-today-count.sql in production.
+// Keep this false until the RPC exists so the homepage does not spam 404s in the console.
+window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED = false;
 
 // .org = movement site; .com = product site. Same codebase, different messaging.
 window.TDB_IS_ORG = typeof location !== 'undefined' && location.hostname === 'todaysdailybattle.org';

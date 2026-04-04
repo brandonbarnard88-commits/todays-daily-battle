@@ -538,22 +538,26 @@
     container.appendChild(cardContainer);
 
     var hoverTimer = null;
-    function showCard(d) {
+    var pinnedNodeId = null;
+    function showCard(d, shouldPin) {
       renderNodeCard(d.data, cardContainer);
       cardContainer.classList.add('visible');
       container.classList.add('mobius-viz-paused');
+      if (shouldPin) pinnedNodeId = d.id;
     }
-    function hideCard() {
+    function hideCard(force) {
+      if (!force && pinnedNodeId) return;
+      pinnedNodeId = null;
       cardContainer.classList.remove('visible');
       container.classList.remove('mobius-viz-paused');
     }
     nodeEls.on('mouseenter', function (ev, d) {
       if (hoverTimer) clearTimeout(hoverTimer);
-      hoverTimer = setTimeout(function () { showCard(d); hoverTimer = null; }, 120);
+      hoverTimer = setTimeout(function () { showCard(d, false); hoverTimer = null; }, 120);
     });
     nodeEls.on('mouseleave', function () {
       if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
-      hideCard();
+      hideCard(false);
     });
     nodeEls.on('click', function (ev, d) {
       ev.stopPropagation();
@@ -575,7 +579,17 @@
         setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 2000);
         return;
       }
-      showCard(d);
+      if (pinnedNodeId === d.id) {
+        hideCard(true);
+        return;
+      }
+      showCard(d, true);
+    });
+    container.addEventListener('click', function () {
+      hideCard(true);
+    });
+    cardContainer.addEventListener('click', function (ev) {
+      ev.stopPropagation();
     });
 
     runTracer(svg, _tracerDuration);

@@ -11,8 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>My Study | Today's Daily Battle</title>
-  <meta name="description" content="Private verse, notes, and prayer study space with optional anonymous share code.">
-  <link rel="canonical" href="https://todaysdailybattle.com/mystudy.html">
+  <meta name="description" content="Your private place for saved verses, notes, prayer, highlights, and progress on this device.">
+  <link rel="canonical" href="https://todaysdailybattle.com/mystudy">
   <meta name="theme-color" content="#0a0c14">
   <link rel="stylesheet" href="styles.css?v=20260412launch">
   <link rel="stylesheet" href="mystudy.css?v=20260331surface-final">
@@ -25,7 +25,7 @@
     <a href="explore.html" class="mystudy-home-link">Explore</a>
     <section class="mystudy-card glass" aria-label="My Study">
       <h1 class="section-divider mystudy-title">My Study</h1>
-      <p class="section-note mystudy-subtitle">Private verse, notes, and prayer—your bundle stays on this device, including when you are offline. For a calm map of check-ins and plans, open <a href="progress.html">Progress</a> (same as <a href="/dashboard">/dashboard</a>).</p>
+      <p class="section-note mystudy-subtitle">My Study — your private place for verses, notes, and progress. Everything stays on this device unless you sign in. For a calm map of check-ins and plans, open <a href="progress.html">Progress</a>.</p>
       <p class="section-note tdb-kjv-dict-hint" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
       <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads this page if study data didn&rsquo;t appear.</span></div>
       <div id="mystudy-progress-summary" class="mystudy-progress-summary" role="region" aria-label="Your study rhythm on this device"></div>
@@ -36,7 +36,7 @@
 
       <div class="mystudy-tabs" role="tablist" aria-label="My Study tabs">
         <button id="tab-my-study" class="mystudy-tab active" role="tab" aria-selected="true" aria-controls="panel-my-study" type="button">My Study</button>
-        <button id="tab-note-library" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-note-library" type="button">Note library</button>
+        <button id="tab-note-library" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-note-library" type="button">Saved &amp; notes</button>
         <button id="tab-highlights" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-highlights" type="button">Highlights</button>
         <button id="tab-join-study" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-join-study" type="button">Join Study</button>
       </div>
@@ -83,7 +83,10 @@
       </section>
 
       <section id="panel-note-library" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-note-library">
-        <p class="section-note mystudy-library-lead">Verse notes saved from the <a href="bible-tool.html">Bible Tool</a> on this device. Open a row to keep studying that reference. When you have something to keep, use the print buttons below for a clean PDF—notes only, or the full bundle with memorize and recent chapters.</p>
+        <p class="section-note mystudy-library-lead">Saved verses, Bible Tool notes, memorize rhythm, and recent chapters all stay together here on this device. Open a row to keep studying that reference, then use the print buttons below for a clean PDF when you need one.</p>
+        <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Saved verses</h2>
+        <p class="section-note">Verses you saved from Home, search, or the Bible Tool. Tap a reference to reopen it, or keep moving with memorize and notes right here.</p>
+        <div id="saved-verses" class="list my-verses-saved-list" role="list" aria-label="Saved verses" aria-live="polite" aria-relevant="additions text"></div>
         <div class="mystudy-library-actions" role="group" aria-label="Library actions">
           <button type="button" id="mystudy-print-notes" class="btn btn-secondary mystudy-print-btn">Print notes (PDF via browser)</button>
           <button type="button" id="mystudy-print-bundle" class="btn btn-secondary mystudy-print-btn">Print full bundle (notes + memorize + recent chapters)</button>
@@ -103,7 +106,7 @@
         <h2 class="section-divider mystudy-h2">Recent chapters</h2>
         <p class="section-note">Chapters you opened in the <a href="reader.html">chapter reader</a> (this device).</p>
         <ul id="mystudy-recent-chapters" class="mystudy-library-list mystudy-recent-list" aria-label="Recent chapters"></ul>
-        <p class="section-note util-mt-1 util-mb-0">To leave a brief anonymous note for the community, use the <a href="message.html">Message Board</a>.</p>
+        <p class="section-note util-mt-1 util-mb-0">Need prayer next? Open <a href="prayer-wall.html">Prayer</a> for a private line or the shared wall.</p>
       </section>
 
       <section id="panel-join-study" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-join-study">

@@ -18,10 +18,9 @@ test.describe('Möbius Loop', () => {
 
   test('node click shows card with verse and prayer', async ({ page }) => {
     await page.goto('/mobius.html');
-    const nodes = page.locator('#mobius-universal-viz .mobius-node');
-    await expect(nodes.first()).toBeVisible({ timeout: 10000 });
-    const firstNode = nodes.first();
-    await firstNode.click();
+    const firstNodeHit = page.locator('#mobius-universal-viz .mobius-node .mobius-node-hit').first();
+    await expect(firstNodeHit).toBeVisible({ timeout: 10000 });
+    await firstNodeHit.click({ force: true });
     await expect(page.locator('.mobius-card-container.visible')).toBeVisible({ timeout: 8000 });
     await expect(page.locator('.mobius-node-card')).toBeVisible();
     await expect(page.locator('.mobius-node-card')).toContainText(/Pray:/i);

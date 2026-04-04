@@ -614,14 +614,14 @@ function openTdbWelcomeTour(opts) {
     },
     {
       title: 'Today\u2019s Verse',
-      body: 'Read today\u2019s KJV verse, listen, save it to My Verses, or share it. Text size and chapter reading stay close when you need them.'
+      body: 'Read today\u2019s KJV verse, listen, save it to My Study, or share it. Text size and chapter reading stay close when you need them.'
     },
     {
       title: 'Save and rhythm',
-      body: 'My Verses keeps what you need near. Battle Plans offer a gentle day-by-day rhythm for hard weeks\u2014and Explore lists every door without hiding anything.'
+      body: 'My Study keeps what you need near. Battle Plans offer a gentle day-by-day rhythm for hard weeks\u2014and Explore lists every door without hiding anything.'
     },
     {
-      title: 'Prayer Wall',
+      title: 'Prayer',
       body: 'One honest line can rest on the wall\u2014private on this device\u2014or you can read quiet lines from others when you are ready.'
     },
     {
@@ -6017,20 +6017,20 @@ function renderSmartResult(query) {
   var saveBtn = document.createElement('button');
   saveBtn.type = 'button';
   saveBtn.className = 'smart-action-btn';
-  saveBtn.textContent = 'Save to My Verses';
+  saveBtn.textContent = 'Save to My Study';
   saveBtn.addEventListener('click', function() {
     saveBtn.disabled = true;
     saveDailyVerseToMyVerses(verse.ref, verse.text).then(function (res) {
       saveBtn.textContent = res && res.ok ? (res.already ? 'Already saved \u2713' : 'Saved \u2713') : 'Save failed';
       saveBtn.classList.add('confirmed');
       setTimeout(function () {
-        saveBtn.textContent = 'Save to My Verses';
+        saveBtn.textContent = 'Save to My Study';
         saveBtn.classList.remove('confirmed');
         saveBtn.disabled = false;
       }, 1600);
     }).catch(function () {
       saveBtn.textContent = 'Save failed';
-      setTimeout(function () { saveBtn.textContent = 'Save to My Verses'; saveBtn.disabled = false; }, 1600);
+      setTimeout(function () { saveBtn.textContent = 'Save to My Study'; saveBtn.disabled = false; }, 1600);
     });
   });
 
@@ -7226,10 +7226,10 @@ function wireCommunityAmenSignal() {
     wrap.appendChild(aPriv);
     wrap.appendChild(document.createTextNode(' count only). '));
     var aWall = document.createElement('a');
-    aWall.href = 'message.html';
+    aWall.href = 'prayer-wall.html?tab=with-others';
     aWall.className = 'prayer-amen-signal-link';
-    aWall.textContent = 'Prayer wall';
-    aWall.setAttribute('aria-label', 'Open prayer wall');
+    aWall.textContent = 'Prayer';
+    aWall.setAttribute('aria-label', 'Open prayer');
     wrap.appendChild(aWall);
     wrap.appendChild(document.createTextNode('.'));
     wrap.classList.remove('hidden');
@@ -10380,11 +10380,11 @@ function wirePrayThisWithMe() {
       if (exists) {
         btn.textContent = 'Saved';
         btn.disabled = true;
-        btn.setAttribute('aria-label', 'This verse is already in My Verses');
+        btn.setAttribute('aria-label', 'This verse is already in My Study');
       } else {
-        btn.textContent = 'Save to My Verses';
+        btn.textContent = 'Save to My Study';
         btn.disabled = false;
-        btn.setAttribute('aria-label', 'Save today\'s verse to My Verses on this device');
+        btn.setAttribute('aria-label', 'Save today\'s verse to My Study on this device');
       }
     }
     versePageSave.addEventListener('click', function () {
@@ -10394,15 +10394,15 @@ function wirePrayThisWithMe() {
       versePageSave.disabled = true;
       saveDailyVerseToMyVerses(v.ref, v.text).then(function (res) {
         if (res.ok && res.already) {
-          if (statusEl) statusEl.textContent = 'Already in My Verses.';
+          if (statusEl) statusEl.textContent = 'Already in My Study.';
           versePageSave.textContent = 'Saved';
           versePageSave.disabled = true;
-          versePageSave.setAttribute('aria-label', 'This verse is already in My Verses');
+          versePageSave.setAttribute('aria-label', 'This verse is already in My Study');
         } else if (res.ok) {
           if (statusEl) statusEl.textContent = 'Saved privately on this device.';
           versePageSave.textContent = 'Saved';
           versePageSave.disabled = true;
-          versePageSave.setAttribute('aria-label', 'Verse saved to My Verses');
+          versePageSave.setAttribute('aria-label', 'Verse saved to My Study');
           if (typeof trackEvent === 'function') trackEvent('verse_page_save_my_verses', {});
         } else {
           versePageSave.disabled = false;
@@ -10710,16 +10710,16 @@ function wireHeroSaveToMyVerses() {
     if (heroBtn) {
       if (!v.ref || !v.text) {
         heroBtn.disabled = true;
-        heroBtn.textContent = 'Save to My Verses';
+        heroBtn.textContent = 'Save to My Study';
         heroBtn.setAttribute('aria-label', 'Verse still loading');
       } else if (exists) {
         heroBtn.textContent = 'Saved';
         heroBtn.disabled = true;
-        heroBtn.setAttribute('aria-label', 'This verse is already in My Verses');
+        heroBtn.setAttribute('aria-label', 'This verse is already in My Study');
       } else {
-        heroBtn.textContent = 'Save to My Verses';
+        heroBtn.textContent = 'Save to My Study';
         heroBtn.disabled = false;
-        heroBtn.setAttribute('aria-label', 'Save today\'s verse to My Verses on this device');
+        heroBtn.setAttribute('aria-label', 'Save today\'s verse to My Study on this device');
       }
     }
     var heroMem = document.getElementById('hero-memorize-link');
@@ -10742,11 +10742,11 @@ function wireHeroSaveToMyVerses() {
     targets.forEach(function (b) { b.disabled = true; });
     saveDailyVerseToMyVerses(v.ref, v.text).then(function (res) {
       if (res.ok && res.already) {
-        if (statusEl) statusEl.textContent = 'Already in My Verses — still on this device.';
+        if (statusEl) statusEl.textContent = 'Already in My Study — still on this device.';
         updateHeroSaveButtons();
         if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
       } else if (res.ok) {
-        if (statusEl) statusEl.textContent = 'Verse saved to My Verses — stays on this device.';
+        if (statusEl) statusEl.textContent = 'Verse saved to My Study — stays on this device.';
         if (typeof trackEvent === 'function') trackEvent('hero_save_my_verses', {});
         updateHeroSaveButtons();
         if (typeof window.tdbRefreshHomeResume === 'function') window.tdbRefreshHomeResume();
@@ -18568,7 +18568,7 @@ async function saveDailyVerseToMyVerses(refRaw, textRaw) {
     } catch (eMv) { /* non-fatal */ }
     if (typeof window.tdbRefreshHomeResume === 'function') window.tdbRefreshHomeResume();
     if (typeof showEliteToast === 'function') {
-      showEliteToast('Saved to My Verses — stays on your device.', { duration: 2000 });
+      showEliteToast('Saved to My Study — stays on your device.', { duration: 2000 });
     }
     return { ok: true, already: false };
   } catch (e) {
@@ -21000,6 +21000,897 @@ try {
   window.tdbScrollSearchResultsIntoView = scrollTdbSearchResultsIntoView;
 } catch (_) {}
 
+var HOME_SEARCH_PLAN_LIBRARY = [
+  {
+    id: 'fearfaith',
+    title: 'Fear to Faith',
+    href: 'plans.html?plan=fearfaith',
+    days: 7,
+    description: 'When the what-ifs will not stop, walk from panic toward peace one KJV verse at a time.',
+    topics: ['fear', 'anxiety', 'worry', 'courage', 'strength']
+  },
+  {
+    id: 'worrytrust',
+    title: 'Worry to Trust',
+    href: 'plans.html?plan=worrytrust',
+    days: 7,
+    description: 'Seven honest KJV days to cast care, pray plainly, and stop borrowing tomorrow’s trouble.',
+    topics: ['anxiety', 'worry', 'peace', 'rest', 'sleep']
+  },
+  {
+    id: 'peace',
+    title: '7-Day Peace',
+    href: 'plans.html?plan=peace',
+    days: 7,
+    description: 'A short plan for quieting the heart and holding steady in God’s peace.',
+    topics: ['peace', 'rest', 'sleep', 'anxiety', 'overwhelmed']
+  },
+  {
+    id: 'psalmscomfort',
+    title: 'Psalms of Comfort',
+    href: 'plans.html?plan=psalmscomfort',
+    days: 7,
+    description: 'Seven Psalms for grief, fear, weariness, and the days when you need refuge more than noise.',
+    topics: ['grief', 'heartache', 'loneliness', 'fear', 'hope', 'overwhelmed']
+  },
+  {
+    id: 'heavyhope',
+    title: 'When the Mind Lies Heavy',
+    href: 'plans.html?plan=heavyhope',
+    days: 7,
+    description: 'For foggy, heavy-thinking days when hope needs to come before your feelings catch up.',
+    topics: ['grief', 'loneliness', 'overwhelmed', 'hope', 'anxiety']
+  },
+  {
+    id: 'hopeuncertain',
+    title: 'Hope in Uncertainty',
+    href: 'plans.html?plan=hopeuncertain',
+    days: 7,
+    description: 'Hope that anchors, waits, and steadies the soul when tomorrow will not sit still.',
+    topics: ['hope', 'fear', 'anxiety', 'worry', 'grief']
+  },
+  {
+    id: 'moneyworry',
+    title: 'When Money Won’t Quiet',
+    href: 'plans.html?plan=moneyworry',
+    days: 7,
+    description: 'Seven steady KJV days for the nights when numbers and mailboxes keep preaching fear.',
+    topics: ['finances', 'worry', 'anxiety', 'overwhelmed']
+  },
+  {
+    id: 'caregiverrest',
+    title: 'Caregiver Rest',
+    href: 'plans.html?plan=caregiverrest',
+    days: 7,
+    description: 'A gentle plan for the one carrying someone else’s pain and trying not to disappear in it.',
+    topics: ['grief', 'strength', 'overwhelmed', 'family', 'rest']
+  },
+  {
+    id: 'familyworship',
+    title: 'Family Worship in the Trenches',
+    href: 'plans.html?plan=familyworship',
+    days: 7,
+    description: 'Short KJV days for real homes with one simple family prayer, one step, and no performance.',
+    topics: ['family', 'parenting', 'marriage', 'relationships']
+  },
+  {
+    id: 'psalmscomfortfamily',
+    title: 'Psalms of Comfort (Family Edition)',
+    href: 'plans.html?plan=psalmscomfortfamily',
+    days: 7,
+    description: 'The same comfort Psalms reframed for the table with shorter explanations and family discussion.',
+    topics: ['family', 'parenting', 'grief', 'loneliness']
+  },
+  {
+    id: 'galatiansfreedom',
+    title: 'Galatians: Freedom in Christ',
+    href: 'plans.html?plan=galatiansfreedom',
+    days: 7,
+    description: 'Grace, freedom, and walking in the Spirit when guilt, striving, or identity questions get loud.',
+    topics: ['forgiveness', 'identity', 'purpose', 'free will', 'faith']
+  },
+  {
+    id: 'gospeljohn',
+    title: 'Gospel of John Sampler',
+    href: 'plans.html?plan=gospeljohn',
+    days: 7,
+    description: 'Seven days in John for Jesus’ identity, belief, living water, and life through His name.',
+    topics: ['jesus', 'salvation', 'gospel', 'faith', 'hope']
+  },
+  {
+    id: 'firststeps',
+    title: 'New Believer — First Steps',
+    href: 'plans.html?plan=firststeps',
+    days: 14,
+    description: 'Gentle first steps for grace, prayer, Scripture, and starting again without hype.',
+    topics: ['jesus', 'salvation', 'faith', 'purpose']
+  }
+];
+
+var HOME_SEARCH_RESOURCE_LIBRARY = [
+  {
+    id: 'topic-anxiety',
+    kind: 'Topic',
+    title: 'Anxiety topic page',
+    href: 'topic-anxiety.html',
+    description: 'A quiet doorway with key verses, gentle guidance, and next steps for anxious days.',
+    topics: ['anxiety', 'worry', 'fear']
+  },
+  {
+    id: 'topic-fear',
+    kind: 'Topic',
+    title: 'Fear topic page',
+    href: 'topic-fear.html',
+    description: 'A calmer, deeper page for fear with verses, courage, and steady next steps.',
+    topics: ['fear', 'courage', 'anxiety']
+  },
+  {
+    id: 'topic-grief',
+    kind: 'Topic',
+    title: 'Grief topic page',
+    href: 'topic-grief.html',
+    description: 'For loss, mourning, and the slow ache that needs Scripture without pressure.',
+    topics: ['grief', 'heartache', 'loneliness']
+  },
+  {
+    id: 'topic-forgiveness',
+    kind: 'Topic',
+    title: 'Forgiveness topic page',
+    href: 'topic-forgiveness.html',
+    description: 'Verses and a steady doorway for the days when you have to release it again.',
+    topics: ['forgiveness', 'guilt', 'anger']
+  },
+  {
+    id: 'topic-loneliness',
+    kind: 'Topic',
+    title: 'Loneliness topic page',
+    href: 'topic-loneliness.html',
+    description: 'A quiet lane for alone-at-night thoughts and the need for nearness.',
+    topics: ['loneliness', 'grief', 'heartache']
+  },
+  {
+    id: 'topic-parenting',
+    kind: 'Topic',
+    title: 'Parenting topic page',
+    href: 'topic-parenting.html',
+    description: 'A family-focused doorway when home feels tender, loud, or stretched thin.',
+    topics: ['family', 'parenting', 'relationships']
+  },
+  {
+    id: 'journal-anxiety-before-tomorrow',
+    kind: 'Journal',
+    title: 'Anxiety before tomorrow',
+    href: '/journal/anxiety-before-tomorrow.html',
+    description: 'Three KJV anchors and one calm next step for tonight when tomorrow is loud.',
+    topics: ['anxiety', 'worry', 'peace']
+  },
+  {
+    id: 'journal-forgiveness-when-you-replay-it',
+    kind: 'Journal',
+    title: 'Forgiveness when you replay it',
+    href: '/journal/forgiveness-when-you-replay-it.html',
+    description: 'When forgiveness is daily surrender again and again, not one clean moment.',
+    topics: ['forgiveness', 'guilt', 'anger']
+  },
+  {
+    id: 'journal-loneliness-at-night',
+    kind: 'Journal',
+    title: 'Loneliness at night',
+    href: '/journal/loneliness-at-night.html',
+    description: 'Nighttime loneliness, three KJV anchors, and one quiet step before sleep.',
+    topics: ['loneliness', 'grief', 'rest']
+  },
+  {
+    id: 'journal-peace-when-your-mind-runs',
+    kind: 'Journal',
+    title: 'Peace when your mind runs',
+    href: '/journal/peace-when-your-mind-runs.html',
+    description: 'Peace without pretending life is easy: verses and one practical step for the day.',
+    topics: ['peace', 'rest', 'anxiety', 'worry']
+  },
+  {
+    id: 'family-hub',
+    kind: 'Family',
+    title: 'Family hub',
+    href: 'family.html',
+    description: 'Verse rhythm, plans, printables, and steady helps for home and the table.',
+    topics: ['family', 'parenting', 'marriage', 'relationships']
+  }
+];
+
+function getHomeSearchDisplayQuery(queryText) {
+  var raw = String(lastQueryInput || queryText || '').trim();
+  if (!raw) return '';
+  return raw.replace(/\s+/g, ' ');
+}
+
+function getHomeSearchQueryTokens(queryText) {
+  var norm = normalizeInput(String(queryText || ''));
+  if (!norm) return [];
+  return norm.split(/\s+/).filter(function (token) {
+    if (!token || token.length < 3) return false;
+    if (typeof STOP_WORDS !== 'undefined' && STOP_WORDS && typeof STOP_WORDS.has === 'function' && STOP_WORDS.has(token)) return false;
+    return true;
+  });
+}
+
+function uniqueList(values) {
+  var out = [];
+  (values || []).forEach(function (value) {
+    var v = String(value || '').trim();
+    if (!v || out.indexOf(v) !== -1) return;
+    out.push(v);
+  });
+  return out;
+}
+
+function titleCaseHomeTopic(topic) {
+  var t = String(topic || '').trim();
+  if (!t) return '';
+  var labels = {
+    anxiety: 'Anxiety',
+    worry: 'Worry',
+    fear: 'Fear',
+    grief: 'Grief',
+    loneliness: 'Loneliness',
+    peace: 'Peace',
+    rest: 'Rest',
+    sleep: 'Sleep',
+    hope: 'Hope',
+    family: 'Family',
+    parenting: 'Parenting',
+    relationships: 'Relationships',
+    marriage: 'Marriage',
+    forgiveness: 'Forgiveness',
+    guilt: 'Guilt',
+    finances: 'Finances',
+    strength: 'Strength',
+    identity: 'Identity',
+    purpose: 'Purpose',
+    jesus: 'Jesus',
+    salvation: 'Salvation',
+    faith: 'Faith',
+    courage: 'Courage'
+  };
+  if (labels[t]) return labels[t];
+  return t.split(/\s+/).map(function (part) {
+    return part ? part.charAt(0).toUpperCase() + part.slice(1) : '';
+  }).join(' ');
+}
+
+function getHomeSearchActiveTopics(results, queryText) {
+  var tokens = getHomeSearchQueryTokens(queryText);
+  var topicsFound = [];
+  if (results && results.topic) topicsFound.push(results.topic);
+  if (results && results.semanticTopic) topicsFound.push(results.semanticTopic);
+  if (results && Array.isArray(results.semanticBlendedTopics)) {
+    results.semanticBlendedTopics.forEach(function (topic) { topicsFound.push(topic); });
+  }
+  tokens.forEach(function (token) {
+    if (typeof resolveTopicFromToken === 'function') {
+      var resolved = resolveTopicFromToken(token);
+      if (resolved) topicsFound.push(resolved);
+    }
+    if (typeof topics !== 'undefined' && topics && topics[token]) topicsFound.push(token);
+    if (token === 'jesus' || token === 'salvation') topicsFound.push(token);
+  });
+  return uniqueList(topicsFound);
+}
+
+function scoreHomeSearchEntry(entry, activeTopics, queryTokens) {
+  if (!entry) return 0;
+  var score = 0;
+  var tags = Array.isArray(entry.topics) ? entry.topics : [];
+  var blob = normalizeInput([entry.title, entry.description, tags.join(' ')].join(' '));
+  activeTopics.forEach(function (topic) {
+    if (tags.indexOf(topic) !== -1) score += 8;
+  });
+  queryTokens.forEach(function (token) {
+    if (tags.indexOf(token) !== -1) score += 4;
+    if (blob.indexOf(token) !== -1) score += 1;
+  });
+  return score;
+}
+
+function pickHomeSearchEntries(library, results, queryText, limit, fallbackIds) {
+  var activeTopics = getHomeSearchActiveTopics(results, queryText);
+  var queryTokens = getHomeSearchQueryTokens(queryText);
+  var ranked = (library || []).map(function (entry) {
+    return { entry: entry, score: scoreHomeSearchEntry(entry, activeTopics, queryTokens) };
+  }).sort(function (a, b) {
+    if (b.score !== a.score) return b.score - a.score;
+    return String(a.entry.title || '').localeCompare(String(b.entry.title || ''));
+  });
+  var picked = ranked.filter(function (row) { return row.score > 0; }).slice(0, limit).map(function (row) { return row.entry; });
+  if (picked.length < limit && Array.isArray(fallbackIds)) {
+    fallbackIds.forEach(function (id) {
+      if (picked.length >= limit) return;
+      var match = (library || []).find(function (entry) { return entry.id === id; });
+      if (match && picked.indexOf(match) === -1) picked.push(match);
+    });
+  }
+  return picked.slice(0, limit);
+}
+
+function buildHomeSearchPlanMatches(results, queryText) {
+  return pickHomeSearchEntries(
+    HOME_SEARCH_PLAN_LIBRARY,
+    results,
+    queryText,
+    3,
+    ['psalmscomfort', 'peace', 'hopeuncertain']
+  );
+}
+
+function buildHomeSearchResourceMatches(results, queryText) {
+  return pickHomeSearchEntries(
+    HOME_SEARCH_RESOURCE_LIBRARY,
+    results,
+    queryText,
+    3,
+    []
+  );
+}
+
+function stripHtmlToPlainText(text) {
+  return String(text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function truncateWords(text, maxWords) {
+  var words = stripHtmlToPlainText(text).split(/\s+/).filter(Boolean);
+  if (!words.length) return '';
+  if (!maxWords || words.length <= maxWords) return words.join(' ');
+  return words.slice(0, maxWords).join(' ') + '...';
+}
+
+function buildHomeSearchHighlightRegex(queryText) {
+  var tokens = getHomeSearchQueryTokens(queryText);
+  if (!tokens.length) return null;
+  var uniq = uniqueList(tokens).sort(function (a, b) { return b.length - a.length; });
+  if (!uniq.length) return null;
+  try {
+    return new RegExp('(' + uniq.map(function (token) { return escapeRegExp(token); }).join('|') + ')', 'ig');
+  } catch (_) {
+    return null;
+  }
+}
+
+function appendHighlightedText(el, text, regex) {
+  if (!el) return;
+  var value = String(text || '');
+  el.textContent = '';
+  if (!regex || !value) {
+    el.textContent = value;
+    return;
+  }
+  regex.lastIndex = 0;
+  var lastIndex = 0;
+  var match;
+  while ((match = regex.exec(value))) {
+    if (match.index > lastIndex) {
+      el.appendChild(document.createTextNode(value.slice(lastIndex, match.index)));
+    }
+    var mark = document.createElement('mark');
+    mark.className = 'home-search-highlight';
+    mark.textContent = match[0];
+    el.appendChild(mark);
+    lastIndex = match.index + match[0].length;
+    if (match[0].length === 0) regex.lastIndex += 1;
+  }
+  if (lastIndex < value.length) {
+    el.appendChild(document.createTextNode(value.slice(lastIndex)));
+  }
+}
+
+function getHomeSearchNextStepTeaser(verse) {
+  var ctx = verse && verse.ref && typeof getVerseContext === 'function' ? getVerseContext(verse.ref) : null;
+  var line = ctx && ctx.application ? String(ctx.application).trim() : '';
+  if (!line && verse && verse.plain_meaning) line = String(verse.plain_meaning).trim();
+  if (!line) line = 'Stay with this verse for one slow minute, then take the next faithful step in front of you.';
+  if (line.length > 110) line = line.slice(0, 107).replace(/\s+\S*$/, '') + '...';
+  return line;
+}
+
+function getHomeSearchPrayerText(verse) {
+  var ctx = verse && verse.ref && typeof getVerseContext === 'function' ? getVerseContext(verse.ref) : null;
+  var prayer = ctx && ctx.prayer ? String(ctx.prayer).trim() : '';
+  if (!prayer) prayer = buildPrayerFromVerse(verse.ref, stripHtmlToPlainText(verse.text || ''));
+  if (prayer.length > 170) prayer = prayer.slice(0, 167).replace(/\s+\S*$/, '') + '...';
+  return prayer;
+}
+
+function getHomeSearchDetailHost(output) {
+  if (!output) return null;
+  var host = output.querySelector('.home-search-detail-host');
+  if (host) return host;
+  host = document.createElement('div');
+  host.className = 'home-search-detail-host';
+  host.hidden = true;
+  output.appendChild(host);
+  return host;
+}
+
+function clearHomeSearchDetail(output) {
+  var host = getHomeSearchDetailHost(output);
+  if (!host) return;
+  host.hidden = true;
+  host.textContent = '';
+}
+
+function updateHomeSearchSaveButton(button, verse) {
+  if (!button || !verse || !verse.ref) return;
+  var exists = loadSavedCollectionItems().some(function (item) {
+    return item && item.ref === verse.ref;
+  });
+  if (exists) {
+    button.textContent = 'Saved';
+    button.disabled = true;
+    button.setAttribute('aria-label', verse.ref + ' is already in My Study');
+  } else {
+    button.textContent = 'Save to My Study';
+    button.disabled = false;
+    button.setAttribute('aria-label', 'Save ' + verse.ref + ' to My Study on this device');
+  }
+}
+
+function buildHomeSearchInfoAccordion(summaryText, rows, href) {
+  var details = document.createElement('details');
+  details.className = 'home-search-accordion';
+  var summary = document.createElement('summary');
+  summary.textContent = summaryText;
+  details.appendChild(summary);
+  var body = document.createElement('div');
+  body.className = 'home-search-accordion-body';
+  if (Array.isArray(rows) && rows.length) {
+    var list = document.createElement('ul');
+    list.className = 'home-search-accordion-list';
+    rows.forEach(function (row) {
+      if (!row || !row.label || !row.value) return;
+      var li = document.createElement('li');
+      var strong = document.createElement('strong');
+      strong.textContent = row.label + ' ';
+      li.appendChild(strong);
+      li.appendChild(document.createTextNode(String(row.value)));
+      list.appendChild(li);
+    });
+    body.appendChild(list);
+  }
+  if (href) {
+    var link = document.createElement('a');
+    link.className = 'home-search-inline-link';
+    link.href = href;
+    link.textContent = 'Open the full chapter';
+    body.appendChild(link);
+  }
+  details.appendChild(body);
+  return details;
+}
+
+function renderHomeSearchDetail(output, verse, queryText) {
+  if (!output || !verse || !verse.ref) return;
+  var host = getHomeSearchDetailHost(output);
+  if (!host) return;
+  host.hidden = false;
+  host.textContent = '';
+
+  var panel = document.createElement('article');
+  panel.className = 'home-search-detail-panel';
+  panel.setAttribute('aria-label', 'Verse breakdown for ' + verse.ref);
+
+  var topActions = document.createElement('div');
+  topActions.className = 'home-search-detail-top-actions';
+
+  var backTop = document.createElement('button');
+  backTop.type = 'button';
+  backTop.className = 'btn btn-secondary home-search-back-btn';
+  backTop.textContent = 'Back to quiet place';
+  backTop.addEventListener('click', function () {
+    clearHomeSearchDetail(output);
+    tdbScrollIntoView(output, 'start', 'nearest');
+  });
+  topActions.appendChild(backTop);
+
+  var listenBtn = document.createElement('button');
+  listenBtn.type = 'button';
+  listenBtn.className = 'btn btn-secondary';
+  listenBtn.textContent = 'Listen';
+  listenBtn.setAttribute('aria-label', 'Listen to ' + verse.ref);
+  listenBtn.addEventListener('click', function () {
+    speakVerse(verse.ref, stripHtmlToPlainText(verse.text || ''));
+  });
+  topActions.appendChild(listenBtn);
+
+  var saveBtn = document.createElement('button');
+  saveBtn.type = 'button';
+  saveBtn.className = 'btn btn-primary';
+  updateHomeSearchSaveButton(saveBtn, verse);
+  saveBtn.addEventListener('click', function () {
+    if (saveBtn.disabled) return;
+    saveBtn.disabled = true;
+    saveDailyVerseToMyVerses(verse.ref, stripHtmlToPlainText(verse.text || '')).then(function () {
+      updateHomeSearchSaveButton(saveBtn, verse);
+    }).catch(function () {
+      saveBtn.textContent = 'Try again';
+      saveBtn.disabled = false;
+    });
+  });
+  topActions.appendChild(saveBtn);
+
+  panel.appendChild(topActions);
+
+  var verseSection = document.createElement('section');
+  verseSection.className = 'home-search-detail-section home-search-detail-section--verse';
+  var verseHeading = document.createElement('h3');
+  verseHeading.className = 'home-search-detail-heading';
+  verseHeading.textContent = 'The Verse';
+  verseSection.appendChild(verseHeading);
+  var verseRef = document.createElement('p');
+  verseRef.className = 'home-search-detail-ref';
+  verseRef.textContent = verse.ref + ' (KJV)';
+  verseSection.appendChild(verseRef);
+  var verseBody = document.createElement('p');
+  verseBody.className = 'home-search-detail-text';
+  appendHighlightedText(verseBody, stripHtmlToPlainText(verse.text || ''), buildHomeSearchHighlightRegex(queryText));
+  verseSection.appendChild(verseBody);
+  panel.appendChild(verseSection);
+
+  var nextStepSection = document.createElement('section');
+  nextStepSection.className = 'home-search-detail-section';
+  var nextStepHeading = document.createElement('h3');
+  nextStepHeading.className = 'home-search-detail-heading';
+  nextStepHeading.textContent = 'One Next Step';
+  nextStepSection.appendChild(nextStepHeading);
+  var nextStepBody = document.createElement('p');
+  nextStepBody.className = 'home-search-detail-copy';
+  nextStepBody.textContent = getHomeSearchNextStepTeaser(verse);
+  nextStepSection.appendChild(nextStepBody);
+  panel.appendChild(nextStepSection);
+
+  var prayerSection = document.createElement('section');
+  prayerSection.className = 'home-search-detail-section';
+  var prayerHeading = document.createElement('h3');
+  prayerHeading.className = 'home-search-detail-heading';
+  prayerHeading.textContent = 'A Simple Prayer';
+  prayerSection.appendChild(prayerHeading);
+  var prayerBody = document.createElement('p');
+  prayerBody.className = 'home-search-detail-copy';
+  prayerBody.textContent = getHomeSearchPrayerText(verse);
+  prayerSection.appendChild(prayerBody);
+  panel.appendChild(prayerSection);
+
+  var accordions = document.createElement('div');
+  accordions.className = 'home-search-accordions';
+
+  var relatedRefs = typeof getRelatedRefs === 'function' ? getRelatedRefs(verse.ref, 3) : [];
+  if (relatedRefs && relatedRefs.length) {
+    var relatedDetails = document.createElement('details');
+    relatedDetails.className = 'home-search-accordion';
+    var relatedSummary = document.createElement('summary');
+    relatedSummary.textContent = 'Related verses';
+    relatedDetails.appendChild(relatedSummary);
+    var relatedBody = document.createElement('div');
+    relatedBody.className = 'home-search-accordion-body';
+    var relatedList = document.createElement('div');
+    relatedList.className = 'home-search-related-list';
+    relatedRefs.forEach(function (ref) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'home-search-related-btn';
+      btn.textContent = ref;
+      btn.addEventListener('click', function () {
+        if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(ref);
+      });
+      relatedList.appendChild(btn);
+    });
+    relatedBody.appendChild(relatedList);
+    relatedDetails.appendChild(relatedBody);
+    accordions.appendChild(relatedDetails);
+  }
+
+  var ctx = verse.ref && typeof getVerseContext === 'function' ? getVerseContext(verse.ref) : null;
+  var plainMeaning = typeof getPlainMeaning === 'function' ? getPlainMeaning(verse.ref) : '';
+  var contextRows = [];
+  if (ctx && ctx.speaker) contextRows.push({ label: 'Speaker:', value: ctx.speaker });
+  if (ctx && ctx.audience) contextRows.push({ label: 'To whom:', value: ctx.audience });
+  if (plainMeaning) contextRows.push({ label: 'Plain words:', value: plainMeaning });
+  if (ctx && ctx.application) contextRows.push({ label: 'Today:', value: ctx.application });
+  if (contextRows.length) {
+    accordions.appendChild(buildHomeSearchInfoAccordion('Word study / context', contextRows, ''));
+  }
+
+  accordions.appendChild(buildHomeSearchInfoAccordion('Full chapter link', [], buildReaderUrl(verse.ref)));
+  panel.appendChild(accordions);
+
+  var bottomActions = document.createElement('div');
+  bottomActions.className = 'home-search-detail-bottom-actions';
+  var backBottom = document.createElement('button');
+  backBottom.type = 'button';
+  backBottom.className = 'btn btn-secondary home-search-back-btn';
+  backBottom.textContent = 'Back to quiet place';
+  backBottom.addEventListener('click', function () {
+    clearHomeSearchDetail(output);
+    tdbScrollIntoView(output, 'start', 'nearest');
+  });
+  bottomActions.appendChild(backBottom);
+  panel.appendChild(bottomActions);
+
+  host.appendChild(panel);
+  tdbScrollIntoView(host, 'start', 'nearest');
+}
+
+function buildHomeSearchCountLine(results, planMatches, resourceMatches, queryText) {
+  var parts = [];
+  var verseCount = results && Array.isArray(results.verses) ? results.verses.length : 0;
+  if (verseCount) parts.push(verseCount + ' verse' + (verseCount === 1 ? '' : 's'));
+  if (planMatches.length) parts.push(planMatches.length + ' Battle Plan' + (planMatches.length === 1 ? '' : 's'));
+  if (resourceMatches.length) parts.push(resourceMatches.length + ' journal/topic door' + (resourceMatches.length === 1 ? '' : 's'));
+  var displayQuery = getHomeSearchDisplayQuery(queryText);
+  if (!parts.length) return displayQuery ? ('Search results for "' + displayQuery + '"') : 'Search results';
+  return parts.join(' • ') + (displayQuery ? (' for "' + displayQuery + '"') : '');
+}
+
+function setHomeSearchSectionFilter(output, filterValue) {
+  if (!output) return;
+  var cards;
+  var i;
+  var sections = output.querySelectorAll('[data-home-search-section]');
+  for (i = 0; i < sections.length; i++) {
+    var section = sections[i];
+    var show = filterValue === 'all' || section.getAttribute('data-home-search-section') === filterValue;
+    section.hidden = !show;
+  }
+  if (filterValue !== 'all' && filterValue !== 'verses') {
+    clearHomeSearchDetail(output);
+  }
+  cards = output.querySelectorAll('.home-search-filter-chip[data-filter-kind="section"]');
+  for (i = 0; i < cards.length; i++) {
+    var chip = cards[i];
+    var active = chip.getAttribute('data-filter-value') === filterValue;
+    chip.setAttribute('aria-pressed', active ? 'true' : 'false');
+    chip.classList.toggle('is-active', active);
+  }
+}
+
+function buildHomeSearchFilterRow(output, availableSections, activeTopics) {
+  var wrap = document.createElement('div');
+  wrap.className = 'home-search-filter-row';
+
+  if (availableSections.length > 1) {
+    ['all'].concat(availableSections).forEach(function (sectionKey) {
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'home-search-filter-chip';
+      chip.setAttribute('data-filter-kind', 'section');
+      chip.setAttribute('data-filter-value', sectionKey);
+      chip.setAttribute('aria-pressed', sectionKey === 'all' ? 'true' : 'false');
+      if (sectionKey === 'all') chip.classList.add('is-active');
+      chip.textContent = sectionKey === 'all'
+        ? 'All'
+        : sectionKey === 'verses'
+          ? 'Verses'
+          : sectionKey === 'plans'
+            ? 'Plans'
+            : 'Journal / Topics';
+      chip.addEventListener('click', function () {
+        setHomeSearchSectionFilter(output, sectionKey);
+      });
+      wrap.appendChild(chip);
+    });
+  }
+
+  activeTopics.slice(0, 4).forEach(function (topic) {
+    var chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'home-search-filter-chip home-search-filter-chip--topic';
+    chip.textContent = titleCaseHomeTopic(topic);
+    chip.setAttribute('aria-label', 'Refine this search to ' + titleCaseHomeTopic(topic));
+    chip.addEventListener('click', function () {
+      if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
+    });
+    wrap.appendChild(chip);
+  });
+
+  return wrap;
+}
+
+function buildHomeVerseCard(output, verse, queryText) {
+  var card = document.createElement('article');
+  card.className = 'verse-card home-search-card home-search-card--verse';
+  card.setAttribute('data-home-result-card', 'verse');
+
+  var ref = document.createElement('p');
+  ref.className = 'home-search-card-ref';
+  ref.textContent = verse.ref;
+  card.appendChild(ref);
+
+  var versePreview = document.createElement('p');
+  versePreview.className = 'home-search-card-copy';
+  appendHighlightedText(versePreview, truncateWords(verse.text || '', 28), buildHomeSearchHighlightRegex(queryText));
+  card.appendChild(versePreview);
+
+  var teaser = document.createElement('p');
+  teaser.className = 'home-search-card-teaser';
+  teaser.textContent = getHomeSearchNextStepTeaser(verse);
+  card.appendChild(teaser);
+
+  var actions = document.createElement('div');
+  actions.className = 'home-search-card-actions';
+  var breakdownBtn = document.createElement('button');
+  breakdownBtn.type = 'button';
+  breakdownBtn.className = 'home-search-inline-link';
+  breakdownBtn.textContent = 'Read full breakdown';
+  breakdownBtn.addEventListener('click', function () {
+    renderHomeSearchDetail(output, verse, queryText);
+  });
+  actions.appendChild(breakdownBtn);
+  card.appendChild(actions);
+
+  return card;
+}
+
+function buildHomeLinkCard(entry, sectionType) {
+  var card = document.createElement('article');
+  card.className = 'home-search-card home-search-card--link';
+  card.setAttribute('data-home-result-card', sectionType);
+
+  var meta = document.createElement('div');
+  meta.className = 'home-search-link-meta';
+  var badge = document.createElement('span');
+  badge.className = 'home-search-link-badge';
+  badge.textContent = sectionType === 'plans'
+    ? ((entry.days || 7) + ' days')
+    : (entry.kind || 'Link');
+  meta.appendChild(badge);
+  card.appendChild(meta);
+
+  var title = document.createElement('h4');
+  title.className = 'home-search-link-title';
+  var link = document.createElement('a');
+  link.href = entry.href;
+  link.textContent = entry.title;
+  title.appendChild(link);
+  card.appendChild(title);
+
+  var desc = document.createElement('p');
+  desc.className = 'home-search-card-teaser';
+  desc.textContent = entry.description;
+  card.appendChild(desc);
+
+  return card;
+}
+
+function renderHomeSearchResults(results, output, queryText) {
+  if (!output) return;
+  output.innerHTML = '';
+  output.classList.add('results');
+  output.setAttribute('role', 'region');
+  output.setAttribute('aria-live', 'polite');
+  output.setAttribute('aria-label', 'Search results');
+
+  var shell = document.createElement('div');
+  shell.className = 'home-search-results-shell';
+
+  var planMatches = buildHomeSearchPlanMatches(results, queryText);
+  var resourceMatches = buildHomeSearchResourceMatches(results, queryText);
+  var activeTopics = getHomeSearchActiveTopics(results, queryText);
+  var heartfeltMsg = getHeartfeltMessageForQuery(queryText, results);
+
+  var header = document.createElement('div');
+  header.className = 'home-search-header';
+
+  var eyebrow = document.createElement('p');
+  eyebrow.className = 'home-search-count-line';
+  eyebrow.textContent = buildHomeSearchCountLine(results, planMatches, resourceMatches, queryText);
+  header.appendChild(eyebrow);
+
+  if (heartfeltMsg) {
+    var lead = document.createElement('p');
+    lead.className = 'home-search-heartfelt';
+    lead.textContent = heartfeltMsg;
+    header.appendChild(lead);
+  }
+
+  var availableSections = [];
+  if (results && results.verses && results.verses.length) availableSections.push('verses');
+  if (planMatches.length) availableSections.push('plans');
+  if (resourceMatches.length) availableSections.push('resources');
+  if (availableSections.length) {
+    header.appendChild(buildHomeSearchFilterRow(output, availableSections, activeTopics));
+  }
+
+  shell.appendChild(header);
+
+  var detailHost = getHomeSearchDetailHost(output);
+  if (detailHost) {
+    clearHomeSearchDetail(output);
+    shell.appendChild(detailHost);
+  }
+
+  if (results && results.fallback) {
+    var fallback = document.createElement('p');
+    fallback.className = 'home-search-note';
+    fallback.textContent = 'No exact match yet, so these are the calmest Scripture doors that stay close to what you asked.';
+    shell.appendChild(fallback);
+  }
+
+  if (results && results.verses && results.verses.length) {
+    var versesSection = document.createElement('section');
+    versesSection.className = 'home-search-section';
+    versesSection.setAttribute('data-home-search-section', 'verses');
+    var versesHeading = document.createElement('h3');
+    versesHeading.className = 'home-search-section-heading';
+    versesHeading.textContent = 'Verses (' + results.verses.length + ')';
+    versesSection.appendChild(versesHeading);
+    var verseList = document.createElement('div');
+    verseList.className = 'home-search-card-grid';
+    var initialLimit = (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 6 : 8;
+    var expanded = false;
+    function paintVerseCards() {
+      verseList.textContent = '';
+      var list = expanded ? results.verses : results.verses.slice(0, initialLimit);
+      list.forEach(function (verse) {
+        verseList.appendChild(buildHomeVerseCard(output, verse, queryText));
+      });
+    }
+    paintVerseCards();
+    versesSection.appendChild(verseList);
+    if (results.verses.length > initialLimit) {
+      var moreBtn = document.createElement('button');
+      moreBtn.type = 'button';
+      moreBtn.className = 'view-more home-search-show-more';
+      moreBtn.textContent = 'Show more verses';
+      moreBtn.addEventListener('click', function () {
+        expanded = !expanded;
+        paintVerseCards();
+        moreBtn.textContent = expanded ? 'Show fewer verses' : 'Show more verses';
+      });
+      versesSection.appendChild(moreBtn);
+    }
+    shell.appendChild(versesSection);
+  }
+
+  if (planMatches.length) {
+    var plansSection = document.createElement('section');
+    plansSection.className = 'home-search-section';
+    plansSection.setAttribute('data-home-search-section', 'plans');
+    var plansHeading = document.createElement('h3');
+    plansHeading.className = 'home-search-section-heading';
+    plansHeading.textContent = 'Battle Plans (' + planMatches.length + ')';
+    plansSection.appendChild(plansHeading);
+    var planList = document.createElement('div');
+    planList.className = 'home-search-card-grid';
+    planMatches.forEach(function (entry) {
+      planList.appendChild(buildHomeLinkCard(entry, 'plans'));
+    });
+    plansSection.appendChild(planList);
+    shell.appendChild(plansSection);
+  }
+
+  if (resourceMatches.length) {
+    var resourcesSection = document.createElement('section');
+    resourcesSection.className = 'home-search-section';
+    resourcesSection.setAttribute('data-home-search-section', 'resources');
+    var resourcesHeading = document.createElement('h3');
+    resourcesHeading.className = 'home-search-section-heading';
+    resourcesHeading.textContent = 'Journal / Topics (' + resourceMatches.length + ')';
+    resourcesSection.appendChild(resourcesHeading);
+    var resourceList = document.createElement('div');
+    resourceList.className = 'home-search-card-grid';
+    resourceMatches.forEach(function (entry) {
+      resourceList.appendChild(buildHomeLinkCard(entry, 'resources'));
+    });
+    resourcesSection.appendChild(resourceList);
+    shell.appendChild(resourcesSection);
+  }
+
+  var footerNote = document.createElement('p');
+  footerNote.className = 'home-search-note';
+  footerNote.textContent = 'Take one small next step. Save the verse, open the full chapter, or start a short plan when you need rhythm.';
+  shell.appendChild(footerNote);
+
+  output.appendChild(shell);
+}
+
 function renderResults(results) {
   var output = getSearchOutputElement();
   if (!output) {
@@ -21039,6 +21930,11 @@ function renderResults(results) {
   updateNoteSelect(results);
   updateGroupPrompts(results);
   const queryText = (results && results.queryText) || normalizeInput(lastQueryInput || '');
+  if (output && output.id === 'feel-results') {
+    renderHomeSearchResults(results, output, queryText);
+    triggerResultsFade(output);
+    return;
+  }
   if (results.intent === 'empty') {
     output.innerHTML =
       '<p class="empty">Nothing here yet. Type a topic, a feeling, or a Bible reference to begin. The Lord meets you right where you are.</p>';
@@ -22027,7 +22923,10 @@ async function tdbInitImpl() {
         heartBtn.setAttribute('data-id', String(item.id));
         heartBtn.setAttribute('aria-label', 'Pray');
         heartBtn.textContent = '\u2665';
-        if (isSeed) heartBtn.setAttribute('aria-hidden', 'true');
+        if (isSeed) {
+          heartBtn.setAttribute('aria-hidden', 'true');
+          heartBtn.disabled = true;
+        }
         var countSpan = document.createElement('span');
         countSpan.className = 'prayer-wall-count';
         countSpan.textContent = String(item.hearts || 0);
@@ -23108,7 +24007,7 @@ async function tdbInitImpl() {
       'study-tools': 'Study Workspace',
       'kids-battle': 'Kids Battle Home',
       'kids-corner': 'Kids Coloring',
-      'message-board': 'Prayer & Message Board'
+      'message-board': 'Prayer'
     };
     document.querySelectorAll('.side-nav a[data-section]').forEach(function (link) {
       var section = link.getAttribute('data-section') || '';
@@ -23124,7 +24023,8 @@ async function tdbInitImpl() {
       '/kids/': 'Kids Battle Home',
       'coloring.html': 'Kids Coloring',
       'kids-corner.html': 'Family Activities',
-      'message.html': 'Prayer & Message Board',
+      'message.html': 'Prayer',
+      'prayer-wall.html': 'Prayer',
       '/church/': 'Church Join Hub',
       'church.html': 'Church Center',
       'sermon.html': 'Sermon Builder'
@@ -23148,9 +24048,9 @@ async function tdbInitImpl() {
       if (nextLabel) link.textContent = nextLabel;
     });
 
-    document.querySelectorAll('.mobile-quick-tools a[href="message.html"]').forEach(function (link) {
-      link.textContent = 'Message Board';
-      link.setAttribute('aria-label', 'Open Message Board');
+    document.querySelectorAll('.mobile-quick-tools a[href="message.html"], .mobile-quick-tools a[href="prayer-wall.html"]').forEach(function (link) {
+      link.textContent = 'Prayer';
+      link.setAttribute('aria-label', 'Open Prayer');
     });
   }
   normalizePrimaryNavLabels();

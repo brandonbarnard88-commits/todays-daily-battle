@@ -4,6 +4,7 @@ import { test, expect, type Page } from '@playwright/test';
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
     localStorage.removeItem('tdb_prayers_v1');
+    localStorage.setItem('tdb-tour-seen', '1');
     sessionStorage.setItem('tdb_welcome_intro_seen_session', '1');
     try {
       localStorage.setItem('tdb-theme', 'dark');
@@ -24,16 +25,16 @@ async function waitForPrayerWallSeeds(page: Page, testInfo?: { attach: (name: st
   await page.goto('/prayer-wall.html', { waitUntil: 'load', timeout: 60000 });
   const skipBtn = page.locator('#welcome-intro-skip');
   if (await skipBtn.isVisible({ timeout: 5000 }).catch(() => false)) await skipBtn.click();
-  await page.locator('#prayer-wall').scrollIntoViewIfNeeded().catch(() => {});
-
-  await page.waitForSelector('#prayer-wall-list', { state: 'attached', timeout: 10000 });
+  await page.locator('#prayer-panel-private').scrollIntoViewIfNeeded().catch(() => {});
+  await expect(page.locator('#prayer-panel-private')).toBeVisible({ timeout: 10000 });
+  await expect(page.locator('#prayer-panel-private #prayer-wall-list')).toBeVisible({ timeout: 10000 });
   /* Static HTML already has 23 <li> seeds; wait until initPrayerWall render() sets ready — otherwise add handlers never ran. */
   try {
-    await page.waitForSelector('#prayer-wall-list[data-prayer-wall-ready="1"]', {
+    await page.waitForSelector('#prayer-panel-private #prayer-wall-list[data-prayer-wall-ready="1"]', {
       state: 'attached',
       timeout: 25000,
     });
-    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23, { timeout: 10000 });
+    await expect(page.locator('#prayer-panel-private #prayer-wall-list li.prayer-wall-item')).toHaveCount(23, { timeout: 10000 });
   } catch (e) {
     const diag = await page.evaluate(() => {
       const list = document.getElementById('prayer-wall-list');
@@ -61,24 +62,24 @@ async function waitForPrayerWallSeeds(page: Page, testInfo?: { attach: (name: st
 test.describe('Prayer Wall seeds', () => {
   test('seeds render when localStorage is empty', async ({ page }) => {
     await waitForPrayerWallSeeds(page, test.info());
-    const items = page.locator('#prayer-wall-list li.prayer-wall-item');
+    const items = page.locator('#prayer-panel-private #prayer-wall-list li.prayer-wall-item');
     await expect(items).toHaveCount(23);
-    await expect(page.locator('#prayer-wall-list').getByText(/barely stand|hanging by a thread|won\u2019t let me sleep|money is tight|daddy\/husband|hurt me deep|never giving up on me|whatever today brings/i).first()).toBeVisible();
+    await expect(page.locator('#prayer-panel-private #prayer-wall-list').getByText(/barely stand|hanging by a thread|won\u2019t let me sleep|money is tight|daddy\/husband|hurt me deep|never giving up on me|whatever today brings/i).first()).toBeVisible();
     /* setPrayerTodayLabel(0) uses quiet copy, not "0 prayers today" */
     await expect(page.locator('#prayerTodayLabel')).toContainText(/Quiet today|0 prayers today/i);
   });
 
   test('seeds still listed after going offline (same session)', async ({ page, context }) => {
     await waitForPrayerWallSeeds(page, test.info());
-    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23);
+    await expect(page.locator('#prayer-panel-private #prayer-wall-list li.prayer-wall-item')).toHaveCount(23);
     await context.setOffline(true);
     /* Offline full reload is flaky in headless (uncached shell); keep user-respecting check */
-    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23);
+    await expect(page.locator('#prayer-panel-private #prayer-wall-list li.prayer-wall-item')).toHaveCount(23);
   });
 
   test('posting a prayer adds it to the list', async ({ page }) => {
     await waitForPrayerWallSeeds(page, test.info());
-    await page.locator('#prayer-wall').scrollIntoViewIfNeeded();
+    await page.locator('#prayer-panel-private').scrollIntoViewIfNeeded();
     const uniqueText = `E2E test prayer ${Date.now()}`;
     const input = page.locator('#prayer-wall-input');
     await input.waitFor({ state: 'visible', timeout: 15000 });
@@ -102,8 +103,8 @@ test.describe('Prayer Wall seeds', () => {
       uniqueText,
       { timeout: 20000 }
     );
-    await expect(page.locator('#prayer-wall-list')).toContainText(uniqueText, { timeout: 10000 });
-    await expect(page.locator('#prayer-wall-list li.prayer-wall-item:not(.prayer-wall-seed)')).toHaveCount(1);
+    await expect(page.locator('#prayer-panel-private #prayer-wall-list')).toContainText(uniqueText, { timeout: 10000 });
+    await expect(page.locator('#prayer-panel-private #prayer-wall-list li.prayer-wall-item:not(.prayer-wall-seed)')).toHaveCount(1);
     await expect(input).toHaveValue('');
   });
 });

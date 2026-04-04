@@ -5,6 +5,14 @@ async function dismissFirstVisitIfPresent(page: import('@playwright/test').Page)
   if (await btn.isVisible().catch(() => false)) {
     await btn.click().catch(() => {});
   }
+  const welcomeIntroSkip = page.locator('#welcome-intro-skip');
+  if (await welcomeIntroSkip.isVisible().catch(() => false)) {
+    await welcomeIntroSkip.click().catch(() => {});
+  }
+  const tourSkip = page.getByRole('button', { name: /^skip$/i });
+  if (await tourSkip.isVisible().catch(() => false)) {
+    await tourSkip.click().catch(() => {});
+  }
 }
 
 test.describe('core smoke (dist)', () => {
@@ -35,12 +43,18 @@ test.describe('core smoke (dist)', () => {
     const hopeBtn = page.locator('#quickTopics .quick-topic[data-topic="hope"]').last();
     await hopeBtn.scrollIntoViewIfNeeded();
     await hopeBtn.click();
-    /* Inline wireFeelSearch debounces (~300ms) into #feelCards .feel-verse-card; script.js may also use #feel-results .smart-card */
+    /* Inline wireFeelSearch debounces (~300ms); homepage search may render calm cards or fallback smart cards. */
     await page.waitForTimeout(450);
     const result = page.locator(
-      '#feel-results .smart-card, #feel-results .verse-card, #feelCards .feel-verse-card'
+      '#feel-results .home-search-card, #feel-results .smart-card, #feel-results .verse-card, #feelCards .feel-verse-card'
     ).first();
     await expect(result).toBeVisible({ timeout: 25000 });
+    const breakdown = page.getByRole('button', { name: /read full breakdown/i }).first();
+    if (await breakdown.isVisible().catch(() => false)) {
+      await breakdown.click({ force: true });
+      await expect(page.locator('.home-search-detail-panel')).toBeVisible({ timeout: 15000 });
+      await expect(page.getByRole('button', { name: /back to quiet place/i }).first()).toBeVisible();
+    }
   });
 
   test('home: question search shows answer + verses', async ({ page }) => {
@@ -52,7 +66,7 @@ test.describe('core smoke (dist)', () => {
     await page.locator('#feel-search-btn').click();
     await expect(page.locator('#homeQaResult')).toBeVisible({ timeout: 25000 });
     await expect(page.locator('#homeQaAnswer')).not.toHaveText('', { timeout: 25000 });
-    await expect(page.locator('#feel-results .verse-card, #feel-results .smart-card').first()).toBeVisible({ timeout: 25000 });
+    await expect(page.locator('#feel-results .home-search-card, #feel-results .verse-card, #feel-results .smart-card').first()).toBeVisible({ timeout: 25000 });
   });
 
   test('bible-tool.html loads lookup UI', async ({ page }) => {
@@ -63,10 +77,9 @@ test.describe('core smoke (dist)', () => {
   });
 
   test('message board shell visible', async ({ page }) => {
-    await page.goto('/message.html');
-    await expect(
-      page.getByRole('heading', { name: /community prayer board|community board/i }).first()
-    ).toBeVisible({ timeout: 15000 });
+    await page.goto('/prayer-wall.html');
+    await dismissFirstVisitIfPresent(page);
+    await page.getByRole('button', { name: /pray with others/i }).first().click();
     await expect(page.locator('#message-list-wrap, #message-board').first()).toBeVisible();
   });
 });

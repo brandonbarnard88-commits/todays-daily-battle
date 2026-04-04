@@ -9,18 +9,19 @@
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Verses • Today's Daily Battle</title>
-  <meta name="description" content="Verses you saved from search and the Bible Tool—KJV text on your device. Download a JSON backup here; collections and print export also live in Study workspace.">
+  <title>My Study • Today's Daily Battle</title>
+  <meta name="description" content="Saved verses now live inside My Study, alongside notes, highlights, memorize rhythm, and progress.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/my-verses.html">
-  <meta property="og:title" content="My Verses • Today's Daily Battle">
-  <meta property="og:description" content="Your saved KJV verses—private on this device unless you sign in to sync.">
-  <meta property="og:url" content="https://todaysdailybattle.com/my-verses.html">
+  <link rel="canonical" href="https://todaysdailybattle.com/mystudy">
+  <meta http-equiv="refresh" content="0; url=/mystudy?tab=library#saved-verses">
+  <meta property="og:title" content="My Study • Today's Daily Battle">
+  <meta property="og:description" content="Your saved KJV verses, notes, highlights, and progress now live together in My Study.">
+  <meta property="og:url" content="https://todaysdailybattle.com/mystudy">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="My Verses • Today's Daily Battle">
-  <meta name="twitter:description" content="Your saved KJV verses—same data as Study workspace, calmer view.">
+  <meta name="twitter:title" content="My Study • Today's Daily Battle">
+  <meta name="twitter:description" content="Your saved KJV verses, notes, highlights, and progress now live together in My Study.">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260412launch">
   <link rel="manifest" href="manifest.json">
@@ -29,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script nonce="tdb2025s" type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"My Verses • Today's Daily Battle","url":"https://todaysdailybattle.com/my-verses.html","description":"Saved KJV verses from search and Bible Tool—stored on your device.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
+  {"@context":"https://schema.org","@type":"WebPage","name":"My Study • Today's Daily Battle","url":"https://todaysdailybattle.com/mystudy","description":"Saved verses, notes, and progress now live together in My Study.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
 </head>
 <body class="dark-mode tdb-inner-page my-verses-page">
@@ -40,30 +41,29 @@
       <span class="tdb-nav-flyout-toggle__label">Site</span>
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
-      <a href="/">Home</a>
       <a href="/verse.html">Today&rsquo;s Verse</a>
-      <a href="/plans.html">Battle Plans</a>
-      <a href="/prayer-wall.html">Prayer Wall</a>
-      <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Tools</a>
-      <a href="/memorize.html">Memorize</a>
-      <a href="/kids/corner.html">Kids &amp; Family</a>
-      <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
-      <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
-      <a href="/site-guide.html" id="nav-site-guide" aria-label="Site guide — calm map of where to start">Site guide</a>
-      <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
-      <a href="/explore.html">Explore</a>
-      <a href="/about.html">About</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/prayer-wall.html">Pray</a>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/explore.html">Explore</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/plans.html">Battle Plans</a>
+          <a href="/memorize.html">Memorize</a>
+          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/site-guide.html" id="nav-site-guide" aria-label="Site guide — calm map of where to start">Site guide</a>
+          <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+          <a href="/about.html">About</a>
           <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
           <a href="/mobius.html">Möbius</a>
           <a href="/calm.html">Calm</a>
           <a href="/story.html">Story</a>
           <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
-          <a href="/my-verses.html" aria-label="My Verses — saved KJV verses">My Verses</a>
-          <a href="/message.html" aria-label="Community prayer requests on the message board">Message board</a>
-          <a href="/#feel-section">Feel search &amp; topics</a>
           <a href="/year-at-a-glance.html" aria-label="Year at a glance — printable twelve-month calendar">Year at a glance</a>
           <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
         </div>
@@ -73,20 +73,20 @@
 
   <main id="main-content" class="my-verses-main content-inner" role="main">
     <header class="hero-banner util-mb-1 my-verses-hero--soar-dawn" aria-labelledby="my-verses-hero-heading">
-      <h1 id="my-verses-hero-heading">My Verses</h1>
-      <p class="privacy-line">Same list as <a href="study.html#study-tools">Study workspace</a>&mdash;just the verses, less clutter. Stays on this device unless you sign in to sync; we don&rsquo;t use your list for ads. <a href="privacy.html">Privacy</a> has the short version.</p>
+      <h1 id="my-verses-hero-heading">My Study</h1>
+      <p class="privacy-line">Saved verses now live inside <a href="/mystudy?tab=library#saved-verses">My Study</a>, alongside notes, highlights, memorize rhythm, and progress. This page forwards there automatically.</p>
       <div class="cta-group util-mt-1">
-        <a class="btn btn-primary" href="bible-tool.html">Bible Tool</a>
+        <a class="btn btn-primary" href="/mystudy?tab=library#saved-verses">Open My Study</a>
+        <a class="btn btn-secondary" href="bible-tool.html">Bible Tool</a>
         <a class="btn btn-secondary" href="memorize.html">Memorize</a>
         <a class="btn btn-secondary" href="/#quick-search-hero">Search topics</a>
-        <a class="btn btn-secondary" href="study.html#study-tools">Collections &amp; export</a>
         <button type="button" class="btn btn-secondary" id="my-verses-export-json" aria-label="Download saved verses and collections as a JSON file">Download JSON backup</button>
       </div>
     </header>
 
     <section id="my-verses-panel" class="glass my-verses-panel" aria-labelledby="my-verses-heading">
-      <h2 id="my-verses-heading" class="section-divider">Saved here</h2>
-      <p class="section-note util-mb-1">Tap a reference to open it in the Bible Tool. Each card also has <strong>Memorize</strong> for a private flip card and gentle review. Copy or remove with the buttons on each card. Need a new verse? Use search or the Bible Tool, then save from there.</p>
+      <h2 id="my-verses-heading" class="section-divider">Saved verses</h2>
+      <p class="section-note util-mb-1">This thin page remains only as a bridge. Your saved verses still load below, but the full home for them is <a href="/mystudy?tab=library#saved-verses">My Study</a>.</p>
       <div id="saved-verses" class="list my-verses-saved-list" role="list" aria-label="Saved verses" aria-live="polite" aria-relevant="additions text"></div>
     </section>
   </main>
@@ -109,14 +109,13 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Verse</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/kids-corner.html">Kids Corner</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/coloring.html">Color &amp; Tell</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/message.html">Prayer Wall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/mystudy.html">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
 
@@ -199,7 +198,7 @@
         <a href="/reader.html">Chapter reader</a>
         <a href="/bible/tools.html">Study workshop</a>
         <a href="/bible-tool.html">Bible tool</a>
-        <a href="/my-verses.html">My Verses</a>
+        <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
         <a href="/plans.html">Battle plans</a>
@@ -222,7 +221,7 @@
       </div>
       <div class="footer-sitemap-col">
         <h3>More</h3>
-        <a href="/message.html">Prayer wall</a>
+        <a href="/prayer-wall.html">Prayer</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
         <a href="/story.html">Story</a>

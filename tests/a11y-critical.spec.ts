@@ -10,6 +10,14 @@ async function dismissFirstVisitIfPresent(page: import('@playwright/test').Page)
   if (await btn.isVisible().catch(() => false)) {
     await btn.click().catch(() => {});
   }
+  const welcomeIntroSkip = page.locator('#welcome-intro-skip');
+  if (await welcomeIntroSkip.isVisible().catch(() => false)) {
+    await welcomeIntroSkip.click().catch(() => {});
+  }
+  const tourSkip = page.getByRole('button', { name: /^skip$/i });
+  if (await tourSkip.isVisible().catch(() => false)) {
+    await tourSkip.click().catch(() => {});
+  }
 }
 
 test.describe('axe — critical pages', () => {
@@ -30,8 +38,9 @@ test.describe('axe — critical pages', () => {
     expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
   });
 
-  test('message.html', async ({ page }) => {
-    await page.goto('/message.html');
+  test('prayer-wall.html', async ({ page }) => {
+    await page.goto('/prayer-wall.html');
+    await dismissFirstVisitIfPresent(page);
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
       .analyze();

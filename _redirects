@@ -11,8 +11,12 @@
 /stats /blocked.html 404
 /secrets.html /blocked.html 404
 /secrets /blocked.html 404
-/mystudy.html /blocked.html 404
-/mystudy /blocked.html 404
+/mystudy /mystudy.html 200!
+/mystudy/ /mystudy.html 200!
+/mystudy.html /mystudy 301
+/message /prayer-wall.html?tab=with-others 302
+/message/ /prayer-wall.html?tab=with-others 302
+/message.html /prayer-wall.html?tab=with-others 302
 /kids/kids-beta.html /blocked.html 404
 /kids/kids-beta /blocked.html 404
 /debug /blocked.html 404
@@ -49,6 +53,10 @@
 /esperanza/ /esperanza.html?tdb_cb=20260328esNav 302
 /planes /planes.html?tdb_cb=20260328esNav 302
 /planes/ /planes.html?tdb_cb=20260328esNav 302
+/verso /verso.html?tdb_cb=20260403esTools 302
+/verso/ /verso.html?tdb_cb=20260403esTools 302
+/biblia /biblia.html?tdb_cb=20260403esTools 302
+/biblia/ /biblia.html?tdb_cb=20260403esTools 302
 /muro /muro.html?tdb_cb=20260328esNav 302
 /muro/ /muro.html?tdb_cb=20260328esNav 302
 /lector /lector.html?tdb_cb=20260328esNav 302

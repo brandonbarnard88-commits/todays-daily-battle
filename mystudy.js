@@ -70,6 +70,31 @@
     try { localStorage.setItem(SHARED_KEY, JSON.stringify(items)); } catch (e) {}
   }
 
+  function getRequestedTab() {
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      var requested = String(params.get('tab') || '').trim().toLowerCase();
+      if (requested === 'library' || requested === 'highlights' || requested === 'join' || requested === 'my') {
+        return requested;
+      }
+      var hash = String(window.location.hash || '').trim().toLowerCase();
+      if (hash === '#saved-verses' || hash === '#panel-note-library') return 'library';
+      if (hash === '#panel-highlights') return 'highlights';
+      if (hash === '#panel-join-study') return 'join';
+    } catch (e) {}
+    return 'my';
+  }
+
+  function syncTabQuery(tabName) {
+    try {
+      if (!window.history || typeof window.history.replaceState !== 'function') return;
+      var url = new URL(window.location.href);
+      if (tabName && tabName !== 'my') url.searchParams.set('tab', tabName);
+      else url.searchParams.delete('tab');
+      window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+    } catch (e) {}
+  }
+
   function getMemorizeQueueSnapshot(comp) {
     var q = typeof comp.listMemorizeQueue === 'function' ? comp.listMemorizeQueue() : [];
     var now = Date.now();
@@ -174,6 +199,7 @@
     if (libPanel) libPanel.classList.toggle('hidden', !isLib);
     highlightsPanel.classList.toggle('hidden', !isHighlights);
     joinPanel.classList.toggle('hidden', !isJoin);
+    syncTabQuery(tabName);
     if (isLib) renderNoteLibrary();
     updateMemorizePill();
   }
@@ -570,6 +596,7 @@
         });
       }
     }
+    setTab(getRequestedTab());
     updateMemorizePill();
   }
 

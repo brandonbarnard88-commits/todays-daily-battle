@@ -334,7 +334,7 @@ for (const f of otherHtml) {
       // DO NOT REMOVE: protected core tools — workspace rule "Core tools (DO NOT REMOVE)"
       ['pastor-toolkit.html', 'Pastor Toolkit link'],
       ['team-toolkit.html', 'Team Toolkit link'],
-      ['message.html', 'Message Board link'],
+      ['prayer-wall.html', 'Prayer link'],
       ['coloring.html', 'Kids Coloring / Coloring page link'],
       // DO NOT REMOVE: core search IDs — build fails if quick-search is missing
       ['id="main-search"', 'main-search section (core search anchor)'],

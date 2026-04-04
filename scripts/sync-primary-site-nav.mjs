@@ -97,6 +97,9 @@ const RE_STANDALONE =
 const RE_NUDGE_SLOT =
   /(<\/nav>\s*)(<a href="#sidebar" class="header-menu-link" id="sidebar-toggle")/;
 
+const RE_INLINE_AUTH =
+  /\s*<div id="auth-section" class="auth-inline auth-compact">[\s\S]*?<\/div>\s*/gi;
+
 function main() {
   const topbarNav = extractNav(path.join(root, 'partials', 'site-global-nav-topbar.html'));
   const standaloneNav = extractNav(path.join(root, 'partials', 'site-global-nav-standalone.html'));
@@ -132,6 +135,8 @@ function main() {
         `$1${nudgeTrim}\n      $2`
       );
     }
+
+    next = next.replace(RE_INLINE_AUTH, '\n');
 
     if (rel === 'family-armor.html' && touched) {
       next = next.replace(

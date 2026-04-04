@@ -392,40 +392,54 @@
     container.appendChild(cardContainer);
 
     var hoverTimer = null;
-    function showCard(d) {
+    var pinnedNodeId = null;
+    function showCard(d, shouldPin) {
       renderNodeCard(d.data, cardContainer);
       cardContainer.classList.add('visible');
+      if (shouldPin) pinnedNodeId = d.id;
     }
-    function hideCard() {
+    function hideCard(force) {
+      if (!force && pinnedNodeId) return;
+      pinnedNodeId = null;
       cardContainer.classList.remove('visible');
     }
     nodeEls.on('mouseover', function (event, d) {
       if (hoverTimer) clearTimeout(hoverTimer);
-      hoverTimer = setTimeout(function () { showCard(d); hoverTimer = null; }, 100);
+      hoverTimer = setTimeout(function () { showCard(d, false); hoverTimer = null; }, 100);
     });
     nodeEls.on('mouseout', function () {
       if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
-      hideCard();
+      hideCard(false);
     });
     nodeEls.on('click', function (event, d) {
       event.stopPropagation();
       if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
-      showCard(d);
+      if (pinnedNodeId === d.id) {
+        hideCard(true);
+        return;
+      }
+      showCard(d, true);
     });
     nodeEls.select('.mobius-node-hit')
       .on('touchend', function (event, d) {
         event.preventDefault();
         event.stopPropagation();
         if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
-        showCard(d);
+        showCard(d, true);
       })
       .on('pointerdown', function (event, d) {
         if (event.pointerType === 'touch') {
           event.preventDefault();
           if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
-          showCard(d);
+          showCard(d, true);
         }
       });
+    container.addEventListener('click', function () {
+      hideCard(true);
+    });
+    cardContainer.addEventListener('click', function (event) {
+      event.stopPropagation();
+    });
 
     function dragStarted(event) {
       if (!event.active) simulation.alphaTarget(0.3).restart();

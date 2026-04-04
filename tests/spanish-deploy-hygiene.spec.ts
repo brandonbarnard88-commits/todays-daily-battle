@@ -10,7 +10,7 @@ test.describe('Spanish pages + footer (dist)', () => {
       await expect(masSection).toBeVisible({ timeout: 15000 });
       await expect(masSection.getByRole('link', { name: 'Verso del día' })).toBeVisible();
       await expect(masSection.getByRole('link', { name: 'Calm' })).toBeVisible();
-      await expect(masSection.getByRole('link', { name: 'Herramienta Biblia' })).toBeVisible();
+      await expect(masSection.getByRole('link', { name: 'Biblia' })).toBeVisible();
     });
   }
 

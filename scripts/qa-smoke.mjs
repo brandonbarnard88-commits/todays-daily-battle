@@ -95,19 +95,43 @@ try {
     await page.waitForTimeout(200);
   }
 
-  const prayBtn = page.locator('#quick-pray-btn, #silentAmenBtn').first();
-  if (await prayBtn.count()) {
+  await page.goto(origin + '/prayer-wall.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForTimeout(1200);
+  const prayerInput = page.locator('#prayer-wall-input').first();
+  const prayBtn = page.locator('#prayer-wall-add').first();
+  if (await prayerInput.count() && await prayBtn.count()) {
     await page.waitForTimeout(300);
-    const prayerBadge = page.locator('#prayer-history-badge, #prayerTodayBadge');
-    const before = ((await prayerBadge.first().textContent().catch(() => '')) || '').replace(/\s+/g, ' ').trim();
+    const beforeState = await page.evaluate(() => ({
+      label: ((document.querySelector('#prayerTodayLabel')?.textContent) || '').replace(/\s+/g, ' ').trim(),
+      deviceCount: ((document.querySelector('#prayer-count-today')?.textContent) || '').replace(/\s+/g, ' ').trim(),
+      success: ((document.querySelector('#prayer-wall-post-success')?.textContent) || '').replace(/\s+/g, ' ').trim(),
+      recentCount: document.querySelectorAll('#recent-prayers .recent-prayer-item').length
+    }));
+    await prayerInput.fill('Smoke test prayer ' + Date.now());
     await prayBtn.first().click();
-    await page.waitForTimeout(2400);
-    const after = ((await prayerBadge.first().textContent().catch(() => '')) || '').replace(/\s+/g, ' ').trim();
-    const ok = before !== after || /prayer|amen|1/i.test(after);
-    mark('Pray counter increments', ok, 'before=' + before + ' | after=' + after);
+    await page.waitForTimeout(1400);
+    const afterState = await page.evaluate(() => ({
+      label: ((document.querySelector('#prayerTodayLabel')?.textContent) || '').replace(/\s+/g, ' ').trim(),
+      deviceCount: ((document.querySelector('#prayer-count-today')?.textContent) || '').replace(/\s+/g, ' ').trim(),
+      success: ((document.querySelector('#prayer-wall-post-success')?.textContent) || '').replace(/\s+/g, ' ').trim(),
+      recentCount: document.querySelectorAll('#recent-prayers .recent-prayer-item').length
+    }));
+    const ok =
+      beforeState.label !== afterState.label ||
+      beforeState.deviceCount !== afterState.deviceCount ||
+      beforeState.success !== afterState.success ||
+      beforeState.recentCount !== afterState.recentCount;
+    mark(
+      'Pray counter increments',
+      ok,
+      'before=' + JSON.stringify(beforeState) + ' | after=' + JSON.stringify(afterState)
+    );
   } else {
-    mark('Pray counter increments', false, 'Pray button (#quick-pray-btn or #silentAmenBtn) not found.');
+    mark('Pray counter increments', false, 'Prayer input/button (#prayer-wall-input, #prayer-wall-add) not found on prayer wall.');
   }
+
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForTimeout(1200);
 
   const battleTab = page.locator('#tab-battle');
   if (await battleTab.count()) {

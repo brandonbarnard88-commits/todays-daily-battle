@@ -1,6 +1,6 @@
 # Admin route guard (Cloudflare Worker)
 
-**Note:** Production static hosting maps `/admin` and `/admin.html` to **404** via `_redirects` (no public admin HTML). Use Supabase Dashboard for moderation. Deploy this Worker only if you **re-enable** a protected admin route and need header-based access on top of Cloudflare Access.
+**Note:** Production now rewrites `/admin` to `admin.html` in `_redirects`, but that route is meant to stay protected by this Worker plus Cloudflare Access. Do not expose `/admin` without both the edge gate and the in-page Supabase admin-role check.
 
 Protects `/admin` and `/admin.html` so only requests that include the secret header are allowed.
 
@@ -32,3 +32,15 @@ Protects `/admin` and `/admin.html` so only requests that include the secret hea
 
 - Requests to paths starting with `/admin` without the correct `X-TDB-Admin` header receive **403 Forbidden**.
 - All other requests are passed through unchanged.
+
+## Recommended final shape
+
+- Layer 1: **Cloudflare Access** only allows your email(s) onto `/admin*`.
+- Layer 2: **This Worker** requires the matching `X-TDB-Admin` secret header.
+- Layer 3: **`admin.html`** still checks `app_metadata.role === 'admin'` in Supabase before showing operator controls.
+
+## Quick verification
+
+1. Open `/admin` without the Access/header gate: you should get **403**.
+2. Open `/admin` with Access/header but while signed out of Supabase: the page may load, but the operator controls should stay unavailable until admin auth is present.
+3. Sign in with your real admin user: the dashboard should render and the deploy/browser diagnostics should populate.

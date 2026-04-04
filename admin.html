@@ -96,16 +96,42 @@
           <p id="admin-access-warning" class="section-note hidden">
             This area is available to the master account only.
           </p>
+          <p class="admin-eyebrow">Owner command center</p>
+          <p class="admin-lead">
+            One place to check whether the site is healthy, whether live and Pages builds match, what this browser is caching, and what needs your attention first.
+          </p>
+          <div class="admin-actions">
+            <button id="admin-refresh-dashboard" class="btn btn-secondary" type="button">Refresh Dashboard</button>
+            <button id="admin-copy-report" class="btn btn-secondary" type="button">Copy Debug Report</button>
+            <button id="admin-refresh-browser" class="btn btn-secondary" type="button">Refresh Browser Health</button>
+            <button id="admin-clear-browser-cache" class="btn btn-secondary" type="button">Clear This Browser Cache</button>
+            <span id="admin-ops-status" class="section-note admin-status-inline" aria-live="polite"></span>
+          </div>
           <h2 class="section-divider">Site Health</h2>
           <div id="admin-health" class="admin-grid"></div>
           <div class="admin-actions">
             <button id="admin-health-run" class="btn btn-secondary" type="button">Run Quick Checks</button>
           </div>
           <div id="admin-health-checks" class="list"></div>
+          <h2 class="section-divider">Deployment Match</h2>
+          <p class="admin-subsection-note">Checks the public domain and the Pages domain so you can spot stale deploys fast.</p>
+          <div id="admin-deployment" class="admin-grid"></div>
+          <div id="admin-deployment-notes" class="list admin-list"></div>
+          <h2 class="section-divider">Browser &amp; Offline Health</h2>
+          <p class="admin-subsection-note">Shows what this device is doing with service workers, caches, storage, and notifications.</p>
+          <div id="admin-browser" class="admin-grid"></div>
+          <div id="admin-browser-notes" class="list admin-list"></div>
           <h2 class="section-divider">Growth Stats</h2>
           <div id="admin-stats" class="admin-grid"></div>
           <h2 class="section-divider">Content Overview</h2>
           <div id="admin-overview" class="admin-grid"></div>
+          <h2 class="section-divider">Operator Shortcuts</h2>
+          <div class="admin-actions">
+            <a class="admin-action-link" href="/security.html">Security Page</a>
+            <a class="admin-action-link" href="/prayer-wall.html?tab=with-others">Prayer Wall</a>
+            <a class="admin-action-link" href="/mystudy">My Study</a>
+            <a class="admin-action-link" href="/explore.html">Explore</a>
+          </div>
           <div class="admin-actions">
             <button id="newsletter-export" class="btn btn-secondary" type="button">Export Newsletter CSV</button>
             <span class="section-note">Exports signups saved on this browser.</span>

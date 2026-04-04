@@ -1,6 +1,6 @@
 /**
- * Strict client-side auth guard for sensitive routes.
- * - Redirects guests from /admin, /debug, ?debug=true, ?wipe=1 to /login.html
+ * Strict client-side auth guard for login/session flows.
+ * - Sensitive params still redirect through login when appropriate
  * - Handles login page sign-in (and optional signup mode)
  * - Provides secure logout: signOut + storage + cookie clear + redirect
  */
@@ -82,7 +82,8 @@
   }
 
   function isSensitiveRoute() {
-    // /admin* and /debug* are hard-blocked at the edge (blocked.html). Do not redirect guests to login — that leaked recon text.
+    // /admin* is edge-protected by Cloudflare Access + admin-guard; /debug* stays blocked.
+    // Do not redirect here and advertise the route from the client.
     return false;
   }
 

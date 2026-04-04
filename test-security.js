@@ -358,12 +358,16 @@ if (!securityTxt.includes('Contact:') || !securityTxt.includes('Expires:')) {
   ok('security.txt present with Contact and Expires');
 }
 
-// 3b. Internal routes blocked at the edge (Cloudflare Pages _redirects)
+// 3b. Admin route must either stay blocked or be explicitly edge-protected.
 const redirects = read('_redirects');
-if (!redirects.includes('/admin /blocked.html') || !redirects.includes('/admin.html /blocked.html')) {
-  fail('_redirects: production must map /admin and /admin.html to blocked.html (404, minimal body — see SECURITY.md)');
+const adminBlocked = redirects.includes('/admin /blocked.html') && redirects.includes('/admin.html /blocked.html');
+const adminGuarded = redirects.includes('/admin /admin.html 200!') && redirects.includes('/admin/ /admin.html 200!');
+const adminGuardWorker = read('workers/admin-guard.js');
+const adminGuardReadme = read('workers/README-ADMIN-GUARD.md');
+if (!adminBlocked && !(adminGuarded && adminGuardWorker.includes('X-TDB-Admin') && adminGuardReadme.includes('Cloudflare Access'))) {
+  fail('_redirects: /admin must either stay blocked, or be paired with admin-guard + Cloudflare Access documentation before it is served live');
 } else {
-  ok('_redirects: admin URLs return minimal blocked.html in production');
+  ok(adminBlocked ? '_redirects: admin URLs return minimal blocked.html in production' : '_redirects: admin route is re-enabled only with documented edge protection');
 }
 
 if (

@@ -1,10 +1,8 @@
 # Test 20260309
-# --- Production: block internal / dev HTML (minimal body — blocked.html, no auth hints) ---
-# Use Supabase Dashboard + RLS for moderation; optional Worker: workers/admin-guard.js
-/admin /blocked.html 404
-/admin/ /blocked.html 404
-/admin/* /blocked.html 404
-/admin.html /blocked.html 404
+# --- Production: internal / dev HTML ---
+# /admin is intentionally re-enabled only behind Cloudflare Access + workers/admin-guard.js.
+/admin /admin.html 200!
+/admin/ /admin.html 200!
 /test-search-diagnosis.html /blocked.html 404
 /test-search-diagnosis /blocked.html 404
 /stats.html /blocked.html 404

@@ -18199,6 +18199,446 @@ async function loadMessageReports() {
   return local;
 }
 
+let lastAdminOwnerReport = {
+  generatedAt: '',
+  deployment: null,
+  browser: null,
+  summary: null
+};
+
+function getAdminCardToneClass(tone) {
+  if (tone === 'ok') return 'admin-card admin-card-ok';
+  if (tone === 'warn') return 'admin-card admin-card-warn';
+  if (tone === 'bad') return 'admin-card admin-card-bad';
+  return 'admin-card';
+}
+
+function buildAdminCardHtml(item) {
+  if (!item || typeof item !== 'object') return '';
+  const value = item.value == null || item.value === '' ? '—' : String(item.value);
+  const detail = item.detail ? '<small>' + escapeHtml(String(item.detail)) + '</small>' : '';
+  return '<div class="' + getAdminCardToneClass(item.tone) + '"><strong>' + escapeHtml(String(item.label || '')) + '</strong><p>' + escapeHtml(value) + '</p>' + detail + '</div>';
+}
+
+function renderAdminCardGrid(container, items) {
+  if (!container) return;
+  const safeItems = Array.isArray(items) ? items.filter(Boolean) : [];
+  container.innerHTML = safeItems.map(buildAdminCardHtml).join('');
+}
+
+function renderAdminNoteList(container, items, emptyText) {
+  if (!container) return;
+  const safeItems = Array.isArray(items) ? items.filter(Boolean) : [];
+  if (!safeItems.length) {
+    container.innerHTML = emptyText ? '<div class="list-item"><div><strong>Nothing urgent</strong><p>' + escapeHtml(emptyText) + '</p></div></div>' : '';
+    return;
+  }
+  container.innerHTML = safeItems.map(function (item) {
+    const title = escapeHtml(String(item.title || 'Note'));
+    const body = escapeHtml(String(item.body || ''));
+    const meta = item.meta ? '<p class="admin-mini-note">' + escapeHtml(String(item.meta)) + '</p>' : '';
+    return '<div class="list-item"><div><strong>' + title + '</strong><p>' + body + '</p>' + meta + '</div></div>';
+  }).join('');
+}
+
+function setAdminOpsStatus(message) {
+  const status = document.getElementById('admin-ops-status');
+  if (status) status.textContent = message || '';
+}
+
+function adminFormatBytes(bytes) {
+  const value = Number(bytes);
+  if (!Number.isFinite(value) || value <= 0) return '0 B';
+  const units = ['B', 'KB', 'MB', 'GB'];
+  let size = value;
+  let idx = 0;
+  while (size >= 1024 && idx < units.length - 1) {
+    size /= 1024;
+    idx += 1;
+  }
+  return (size >= 10 || idx === 0 ? size.toFixed(0) : size.toFixed(1)) + ' ' + units[idx];
+}
+
+function adminEscapeRegex(raw) {
+  return String(raw || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+async function fetchAdminTextResource(url) {
+  const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  const timer = controller ? setTimeout(function () { controller.abort(); }, 9000) : null;
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      cache: 'no-store',
+      headers: { 'Cache-Control': 'no-cache' },
+      signal: controller ? controller.signal : undefined
+    });
+    const text = await response.text();
+    return { ok: response.ok, status: response.status, text: text };
+  } catch (error) {
+    return { ok: false, status: 'ERR', text: '', error: error && error.message ? error.message : 'Request failed' };
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
+
+async function fetchAdminAssetStatus(url) {
+  const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  const timer = controller ? setTimeout(function () { controller.abort(); }, 9000) : null;
+  try {
+    const response = await fetch(url, {
+      method: 'HEAD',
+      cache: 'no-store',
+      headers: { 'Cache-Control': 'no-cache' },
+      signal: controller ? controller.signal : undefined
+    });
+    return { ok: response.ok, status: response.status };
+  } catch (error) {
+    return { ok: false, status: 'ERR', error: error && error.message ? error.message : 'Request failed' };
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
+
+function extractAdminVersionToken(html, assetName) {
+  const pattern = new RegExp(adminEscapeRegex(assetName) + '\\?v=([^"\'\\s>]+)', 'i');
+  const match = String(html || '').match(pattern);
+  return match && match[1] ? match[1] : '';
+}
+
+function extractAdminBuildStamp(html) {
+  const match = String(html || '').match(/id=["']footer-date["'][^>]*>([^<]+)</i);
+  return match && match[1] ? match[1].trim() : '';
+}
+
+function extractAdminConfigFlag(text, flagName) {
+  const pattern = new RegExp(adminEscapeRegex(flagName) + '\\s*=\\s*(true|false)', 'i');
+  const match = String(text || '').match(pattern);
+  return match && match[1] ? match[1].toLowerCase() : '';
+}
+
+function getAdminSupabaseProjectId() {
+  const supabaseUrl = window.TDB_CONFIG && window.TDB_CONFIG.SUPABASE_URL ? String(window.TDB_CONFIG.SUPABASE_URL) : '';
+  const match = supabaseUrl.match(/^https:\/\/([a-z0-9-]+)\.supabase\.co/i);
+  return match && match[1] ? match[1] : '';
+}
+
+async function buildAdminDeploymentReport() {
+  const targets = [
+    { key: 'custom', label: 'Custom domain', origin: 'https://todaysdailybattle.com' },
+    { key: 'pages', label: 'Pages domain', origin: 'https://todaysdailybattle-site.pages.dev' }
+  ];
+  const results = {};
+  await Promise.all(targets.map(async function (target) {
+    const homeUrl = target.origin + '/';
+    const configUrl = target.origin + '/config.js';
+    const assetChecks = await Promise.all([
+      fetchAdminAssetStatus(target.origin + '/hero-sunrise-bible.png'),
+      fetchAdminAssetStatus(target.origin + '/tdb-home-mobius-week.js'),
+      fetchAdminAssetStatus(target.origin + '/config.js')
+    ]);
+    const home = await fetchAdminTextResource(homeUrl);
+    const config = await fetchAdminTextResource(configUrl);
+    results[target.key] = {
+      label: target.label,
+      origin: target.origin,
+      home: home,
+      config: config,
+      buildStamp: extractAdminBuildStamp(home.text),
+      scriptVersion: extractAdminVersionToken(home.text, 'script.js'),
+      styleVersion: extractAdminVersionToken(home.text, 'styles.css'),
+      prayersFlag: extractAdminConfigFlag(config.text, 'PRAYERS_TODAY_COUNT_ENABLED'),
+      hasAskTheWord: home.ok && /Ask The Word/i.test(home.text),
+      hasMobiusShortcut: home.ok && /M(?:&ouml;|ö)bius/i.test(home.text),
+      assetChecks: assetChecks
+    };
+  }));
+  const custom = results.custom || {};
+  const pages = results.pages || {};
+  const scriptMatch = Boolean(custom.scriptVersion && pages.scriptVersion && custom.scriptVersion === pages.scriptVersion);
+  const styleMatch = Boolean(custom.styleVersion && pages.styleVersion && custom.styleVersion === pages.styleVersion);
+  const prayerFlagMatch = Boolean(custom.prayersFlag && pages.prayersFlag && custom.prayersFlag === pages.prayersFlag);
+  const buildStampMatch = Boolean(custom.buildStamp && pages.buildStamp && custom.buildStamp === pages.buildStamp);
+  const issues = [];
+  if (!custom.home || !custom.home.ok) issues.push({ title: 'Custom domain homepage check failed', body: 'The live domain did not return a healthy homepage response.', meta: 'Status: ' + String(custom.home && custom.home.status != null ? custom.home.status : 'ERR') });
+  if (!pages.home || !pages.home.ok) issues.push({ title: 'Pages domain homepage check failed', body: 'The Pages deployment did not return a healthy homepage response.', meta: 'Status: ' + String(pages.home && pages.home.status != null ? pages.home.status : 'ERR') });
+  if (custom.home && custom.home.ok && pages.home && pages.home.ok && !scriptMatch) issues.push({ title: 'Homepage script versions do not match', body: 'Live and Pages are serving different script bundles, which usually means stale cache or wrong project/domain routing.', meta: 'Custom: ' + (custom.scriptVersion || 'unknown') + ' | Pages: ' + (pages.scriptVersion || 'unknown') });
+  if (custom.home && custom.home.ok && pages.home && pages.home.ok && !styleMatch) issues.push({ title: 'Homepage style versions do not match', body: 'The public domain and Pages domain are not on the same CSS build.', meta: 'Custom: ' + (custom.styleVersion || 'unknown') + ' | Pages: ' + (pages.styleVersion || 'unknown') });
+  if (custom.config && custom.config.ok && pages.config && pages.config.ok && !prayerFlagMatch) issues.push({ title: 'Config mismatch on prayers flag', body: 'The public domain and Pages domain disagree on whether the prayers count RPC is enabled.', meta: 'Custom: ' + (custom.prayersFlag || 'unknown') + ' | Pages: ' + (pages.prayersFlag || 'unknown') });
+  if (custom.home && custom.home.ok && pages.home && pages.home.ok && !buildStampMatch) issues.push({ title: 'Footer build stamps do not match', body: 'The build stamp differs between the custom domain and Pages deployment.', meta: 'Custom: ' + (custom.buildStamp || 'unknown') + ' | Pages: ' + (pages.buildStamp || 'unknown') });
+  [custom, pages].forEach(function (entry) {
+    if (!entry || !Array.isArray(entry.assetChecks)) return;
+    const failed = entry.assetChecks.filter(function (item) { return !item.ok; }).length;
+    if (failed) {
+      issues.push({
+        title: entry.label + ' has missing assets',
+        body: 'One or more key assets failed to load during the deploy check.',
+        meta: 'Failed checks: ' + String(failed) + ' of ' + String(entry.assetChecks.length)
+      });
+    }
+  });
+  return {
+    generatedAt: new Date().toISOString(),
+    custom: custom,
+    pages: pages,
+    issues: issues,
+    scriptMatch: scriptMatch,
+    styleMatch: styleMatch,
+    prayerFlagMatch: prayerFlagMatch,
+    buildStampMatch: buildStampMatch
+  };
+}
+
+async function renderAdminDeploymentDiagnostics() {
+  const grid = document.getElementById('admin-deployment');
+  const notes = document.getElementById('admin-deployment-notes');
+  if (!grid || !notes) return null;
+  renderAdminCardGrid(grid, [
+    { label: 'Checking live deploy', value: 'Running...', detail: 'Comparing custom domain and Pages domain now.' }
+  ]);
+  renderAdminNoteList(notes, [], '');
+  const report = await buildAdminDeploymentReport();
+  const customAssetsOk = report.custom && Array.isArray(report.custom.assetChecks) ? report.custom.assetChecks.filter(function (item) { return item.ok; }).length : 0;
+  const pagesAssetsOk = report.pages && Array.isArray(report.pages.assetChecks) ? report.pages.assetChecks.filter(function (item) { return item.ok; }).length : 0;
+  renderAdminCardGrid(grid, [
+    {
+      label: 'Custom script version',
+      value: report.custom && report.custom.scriptVersion ? report.custom.scriptVersion : 'Unavailable',
+      tone: report.custom && report.custom.home && report.custom.home.ok ? '' : 'bad',
+      detail: report.custom && report.custom.buildStamp ? 'Build stamp: ' + report.custom.buildStamp : 'Could not read footer build stamp.'
+    },
+    {
+      label: 'Pages script version',
+      value: report.pages && report.pages.scriptVersion ? report.pages.scriptVersion : 'Unavailable',
+      tone: report.pages && report.pages.home && report.pages.home.ok ? '' : 'bad',
+      detail: report.pages && report.pages.buildStamp ? 'Build stamp: ' + report.pages.buildStamp : 'Could not read footer build stamp.'
+    },
+    {
+      label: 'Script bundles match',
+      value: report.scriptMatch ? 'Yes' : 'No',
+      tone: report.scriptMatch ? 'ok' : 'bad',
+      detail: 'Best early warning for live-vs-dev mismatch.'
+    },
+    {
+      label: 'Styles match',
+      value: report.styleMatch ? 'Yes' : 'No',
+      tone: report.styleMatch ? 'ok' : 'bad',
+      detail: 'Compares stylesheet version tokens on both homepages.'
+    },
+    {
+      label: 'Prayers flag match',
+      value: report.prayerFlagMatch ? 'Yes' : 'No',
+      tone: report.prayerFlagMatch ? 'ok' : 'warn',
+      detail: 'Custom: ' + ((report.custom && report.custom.prayersFlag) || 'unknown') + ' | Pages: ' + ((report.pages && report.pages.prayersFlag) || 'unknown')
+    },
+    {
+      label: 'Custom assets healthy',
+      value: report.custom && report.custom.assetChecks ? customAssetsOk + '/' + report.custom.assetChecks.length : '0/0',
+      tone: report.custom && report.custom.assetChecks && customAssetsOk === report.custom.assetChecks.length ? 'ok' : 'warn',
+      detail: 'Checks `hero-sunrise-bible.png`, `tdb-home-mobius-week.js`, and `config.js`.'
+    },
+    {
+      label: 'Pages assets healthy',
+      value: report.pages && report.pages.assetChecks ? pagesAssetsOk + '/' + report.pages.assetChecks.length : '0/0',
+      tone: report.pages && report.pages.assetChecks && pagesAssetsOk === report.pages.assetChecks.length ? 'ok' : 'warn',
+      detail: 'Confirms the Pages deployment has the expected static files.'
+    },
+    {
+      label: 'Ask The Word visible',
+      value: (report.custom && report.custom.hasAskTheWord ? 'Live yes' : 'Live no') + ' | ' + (report.pages && report.pages.hasAskTheWord ? 'Pages yes' : 'Pages no'),
+      tone: report.custom && report.custom.hasAskTheWord && report.pages && report.pages.hasAskTheWord ? 'ok' : 'warn',
+      detail: 'Sanity check that the main homepage search branding exists.'
+    }
+  ]);
+  renderAdminNoteList(notes, report.issues, 'The public domain and Pages deployment look aligned right now.');
+  lastAdminOwnerReport.generatedAt = report.generatedAt;
+  lastAdminOwnerReport.deployment = report;
+  return report;
+}
+
+async function buildAdminBrowserReport() {
+  const report = {
+    generatedAt: new Date().toISOString(),
+    online: typeof navigator !== 'undefined' ? navigator.onLine !== false : true,
+    swSupported: typeof navigator !== 'undefined' && 'serviceWorker' in navigator,
+    controller: typeof navigator !== 'undefined' && navigator.serviceWorker ? Boolean(navigator.serviceWorker.controller) : false,
+    registrationScope: '',
+    notifications: typeof Notification !== 'undefined' ? Notification.permission : 'unsupported',
+    localStorageItems: 0,
+    sessionStorageItems: 0,
+    cacheNames: [],
+    storageUsage: 0,
+    storageQuota: 0
+  };
+  try { report.localStorageItems = localStorage.length; } catch (_) {}
+  try { report.sessionStorageItems = sessionStorage.length; } catch (_) {}
+  if (report.swSupported) {
+    try {
+      const registration = await navigator.serviceWorker.getRegistration('/');
+      report.registrationScope = registration && registration.scope ? registration.scope : '';
+    } catch (_) {}
+  }
+  if (typeof caches !== 'undefined' && caches && typeof caches.keys === 'function') {
+    try { report.cacheNames = await caches.keys(); } catch (_) {}
+  }
+  if (navigator.storage && typeof navigator.storage.estimate === 'function') {
+    try {
+      const estimate = await navigator.storage.estimate();
+      report.storageUsage = estimate && estimate.usage ? estimate.usage : 0;
+      report.storageQuota = estimate && estimate.quota ? estimate.quota : 0;
+    } catch (_) {}
+  }
+  const issues = [];
+  if (!report.online) issues.push({ title: 'Browser is offline', body: 'This device is currently offline, so live checks may fail even when the site is healthy.', meta: 'Offline mode is still useful for cache checks.' });
+  if (report.swSupported && !report.controller) issues.push({ title: 'No active service worker controller', body: 'This page is not currently controlled by a service worker.', meta: 'A hard refresh or first load after deploy can cause this.' });
+  if (!report.swSupported) issues.push({ title: 'Service workers unsupported', body: 'This browser does not support service workers, so offline behavior will be limited.', meta: 'Some admin browser checks will be unavailable.' });
+  if (report.cacheNames.length > 8) issues.push({ title: 'High cache count on this device', body: 'There are many site caches stored here. Old caches can contribute to stale behavior during deploy debugging.', meta: 'Caches detected: ' + String(report.cacheNames.length) });
+  report.issues = issues;
+  return report;
+}
+
+async function renderAdminBrowserHealth() {
+  const grid = document.getElementById('admin-browser');
+  const notes = document.getElementById('admin-browser-notes');
+  if (!grid || !notes) return null;
+  renderAdminCardGrid(grid, [
+    { label: 'Checking browser health', value: 'Running...', detail: 'Inspecting caches, storage, and service worker state.' }
+  ]);
+  renderAdminNoteList(notes, [], '');
+  const report = await buildAdminBrowserReport();
+  renderAdminCardGrid(grid, [
+    {
+      label: 'Online now',
+      value: report.online ? 'Yes' : 'No',
+      tone: report.online ? 'ok' : 'warn',
+      detail: report.online ? 'Live checks can reach the network.' : 'Remote checks may fail until this device reconnects.'
+    },
+    {
+      label: 'Service worker support',
+      value: report.swSupported ? 'Supported' : 'Not supported',
+      tone: report.swSupported ? 'ok' : 'warn',
+      detail: report.registrationScope ? 'Scope: ' + report.registrationScope : 'No active registration scope detected.'
+    },
+    {
+      label: 'Service worker controlling page',
+      value: report.controller ? 'Yes' : 'No',
+      tone: report.controller ? 'ok' : 'warn',
+      detail: 'Helps explain stale assets or missing updates on a single device.'
+    },
+    {
+      label: 'Notification permission',
+      value: report.notifications || 'unknown',
+      tone: report.notifications === 'granted' ? 'ok' : report.notifications === 'denied' ? 'warn' : '',
+      detail: 'Useful if reminder flows or device prompts feel off.'
+    },
+    {
+      label: 'Named caches',
+      value: String(report.cacheNames.length),
+      tone: report.cacheNames.length <= 4 ? 'ok' : report.cacheNames.length <= 8 ? 'warn' : 'bad',
+      detail: report.cacheNames.length ? report.cacheNames.join(', ') : 'No named caches found.'
+    },
+    {
+      label: 'Storage estimate',
+      value: adminFormatBytes(report.storageUsage),
+      detail: report.storageQuota ? 'Quota: ' + adminFormatBytes(report.storageQuota) : 'Storage quota not available.'
+    },
+    {
+      label: 'Local storage items',
+      value: String(report.localStorageItems),
+      detail: 'Saved notes, stats, cached results, and other browser-held data.'
+    },
+    {
+      label: 'Session storage items',
+      value: String(report.sessionStorageItems),
+      detail: 'Short-lived data currently held for this tab/session.'
+    }
+  ]);
+  renderAdminNoteList(notes, report.issues, 'This browser looks healthy for offline support and deploy debugging.');
+  lastAdminOwnerReport.browser = report;
+  return report;
+}
+
+function buildAdminOwnerReportText() {
+  const lines = [];
+  lines.push('Today\'s Daily Battle admin report');
+  lines.push('Generated: ' + (lastAdminOwnerReport.generatedAt || new Date().toISOString()));
+  lines.push('Signed in as: ' + (currentUserEmail || 'Unknown'));
+  lines.push('Supabase configured: ' + (isSupabaseConfigured() ? 'yes' : 'no'));
+  lines.push('Supabase project: ' + (getAdminSupabaseProjectId() || 'unknown'));
+  lines.push('');
+  if (lastAdminOwnerReport.deployment) {
+    const deployment = lastAdminOwnerReport.deployment;
+    lines.push('[Deployment]');
+    lines.push('Custom script version: ' + ((deployment.custom && deployment.custom.scriptVersion) || 'unavailable'));
+    lines.push('Pages script version: ' + ((deployment.pages && deployment.pages.scriptVersion) || 'unavailable'));
+    lines.push('Script match: ' + (deployment.scriptMatch ? 'yes' : 'no'));
+    lines.push('Style match: ' + (deployment.styleMatch ? 'yes' : 'no'));
+    lines.push('Prayers flag match: ' + (deployment.prayerFlagMatch ? 'yes' : 'no'));
+    lines.push('Build stamp match: ' + (deployment.buildStampMatch ? 'yes' : 'no'));
+    if (Array.isArray(deployment.issues) && deployment.issues.length) {
+      lines.push('Issues:');
+      deployment.issues.forEach(function (issue) {
+        lines.push('- ' + String(issue.title || 'Issue') + ': ' + String(issue.body || ''));
+      });
+    }
+    lines.push('');
+  }
+  if (lastAdminOwnerReport.browser) {
+    const browser = lastAdminOwnerReport.browser;
+    lines.push('[Browser]');
+    lines.push('Online: ' + (browser.online ? 'yes' : 'no'));
+    lines.push('Service worker supported: ' + (browser.swSupported ? 'yes' : 'no'));
+    lines.push('Service worker controlling page: ' + (browser.controller ? 'yes' : 'no'));
+    lines.push('Notification permission: ' + String(browser.notifications || 'unknown'));
+    lines.push('Named caches: ' + String(Array.isArray(browser.cacheNames) ? browser.cacheNames.length : 0));
+    lines.push('Local storage items: ' + String(browser.localStorageItems || 0));
+    lines.push('Session storage items: ' + String(browser.sessionStorageItems || 0));
+    lines.push('Storage usage: ' + adminFormatBytes(browser.storageUsage || 0));
+    lines.push('');
+  }
+  return lines.join('\n');
+}
+
+async function copyAdminOwnerReport() {
+  const reportText = buildAdminOwnerReportText();
+  if (!reportText) {
+    setAdminOpsStatus('No report data yet.');
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(reportText);
+    setAdminOpsStatus('Debug report copied.');
+  } catch (_) {
+    setAdminOpsStatus('Could not copy report on this browser.');
+  }
+}
+
+async function clearAdminBrowserCaches() {
+  if (!isMasterUser) {
+    setAdminOpsStatus('Master account required.');
+    return;
+  }
+  setAdminOpsStatus('Clearing service workers and caches on this browser...');
+  try {
+    if ('serviceWorker' in navigator && typeof navigator.serviceWorker.getRegistrations === 'function') {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(registrations.map(function (registration) {
+        return registration.unregister().catch(function () { return false; });
+      }));
+    }
+    if (typeof caches !== 'undefined' && caches && typeof caches.keys === 'function') {
+      const names = await caches.keys();
+      await Promise.all(names.map(function (name) {
+        return caches.delete(name).catch(function () { return false; });
+      }));
+    }
+    setAdminOpsStatus('Service workers and caches cleared for this browser.');
+    await renderAdminBrowserHealth();
+  } catch (_) {
+    setAdminOpsStatus('Unable to clear browser caches.');
+  }
+}
+
 async function renderAdminPanel() {
   const adminRoot = document.getElementById('admin-panel');
   if (!adminRoot) return;
@@ -18215,33 +18655,38 @@ async function renderAdminPanel() {
   if (health) {
     const bibleCount = Object.keys(bible).length;
     const items = [
-      { label: 'Supabase configured', value: isSupabaseConfigured() ? 'Yes' : 'No' },
-      { label: 'Auth ready', value: supabaseClient ? 'Yes' : 'No' },
-      { label: 'Bible loaded', value: bibleCount ? `Yes (${bibleCount})` : 'No' },
-      { label: 'Current version', value: currentVersion || 'KJV' },
-      { label: 'Signed in as', value: currentUserEmail || 'Unknown' }
+      { label: 'Supabase configured', value: isSupabaseConfigured() ? 'Yes' : 'No', tone: isSupabaseConfigured() ? 'ok' : 'warn', detail: isSupabaseConfigured() ? 'Remote sync and auth are available.' : 'Local-only fallback will be used.' },
+      { label: 'Auth ready', value: supabaseClient ? 'Yes' : 'No', tone: supabaseClient ? 'ok' : 'warn', detail: supabaseClient ? 'Supabase client loaded in this session.' : 'Client is still loading or unavailable.' },
+      { label: 'Bible loaded', value: bibleCount ? `Yes (${bibleCount})` : 'No', tone: bibleCount ? 'ok' : 'bad', detail: bibleCount ? 'KJV dataset is available in this session.' : 'Bible data did not load yet.' },
+      { label: 'Current version', value: currentVersion || 'KJV', detail: 'Current Bible/version context on this device.' },
+      { label: 'Signed in as', value: currentUserEmail || 'Unknown', detail: isMasterUser ? 'Master account detected.' : 'Non-admin users cannot operate this page.' }
     ];
-    health.innerHTML = items.map(item => (
-      '<div class="admin-card"><strong>' + escapeHtml(item.label) + '</strong><p>' + escapeHtml(String(item.value != null ? item.value : '')) + '</p></div>'
-    )).join('');
+    renderAdminCardGrid(health, items);
     if (supabaseClient && isSupabaseConfigured()) {
       var todayStart = new Date();
       todayStart.setUTCHours(0, 0, 0, 0);
       var todayEnd = new Date(Date.UTC(todayStart.getUTCFullYear(), todayStart.getUTCMonth(), todayStart.getUTCDate() + 1, 0, 0, 0, 0));
       supabaseClient.from('prayers').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()).lt('created_at', todayEnd.toISOString()).then(function (r) {
         var count = (r && r.count != null) ? r.count : (r && r.error ? '—' : '0');
-        var card = document.createElement('div');
-        card.className = 'admin-card';
-        card.innerHTML = '<strong>Prayers today</strong><p>' + escapeHtml(String(count)) + '</p>';
-        health.appendChild(card);
+        health.insertAdjacentHTML('beforeend', buildAdminCardHtml({
+          label: 'Prayers today',
+          value: String(count),
+          tone: r && !r.error ? 'ok' : 'warn',
+          detail: 'Direct count from the `prayers` table for today.'
+        }));
       }).catch(function () {
-        var card = document.createElement('div');
-        card.className = 'admin-card';
-        card.innerHTML = '<strong>Prayers today</strong><p>—</p>';
-        health.appendChild(card);
+        health.insertAdjacentHTML('beforeend', buildAdminCardHtml({
+          label: 'Prayers today',
+          value: '—',
+          tone: 'warn',
+          detail: 'Could not read the `prayers` table right now.'
+        }));
       });
     }
   }
+
+  await renderAdminDeploymentDiagnostics();
+  await renderAdminBrowserHealth();
 
   const overview = document.getElementById('admin-overview');
   if (overview) {
@@ -18265,35 +18710,31 @@ async function renderAdminPanel() {
     const churchSermonCount = Object.values(localSermons || {})
       .reduce((sum, list) => sum + (Array.isArray(list) ? list.length : 0), 0);
     const items = [
-      { label: 'Saved notes', value: notes.length },
-      { label: 'Saved verses', value: verses.length },
-      { label: 'Collections', value: collections.length },
-      { label: 'Collection items', value: collectionItems.length },
-      { label: 'Lesson plans', value: lessons.length },
-      { label: 'Sermon draft', value: draftCount },
-      { label: 'Newsletter signups', value: newsletterCount },
-      { label: 'Supporter waitlist', value: waitlistCount },
-      { label: 'Church sermons', value: churchSermonCount }
+      { label: 'Saved notes', value: notes.length, detail: 'Personal note entries on this device.' },
+      { label: 'Saved verses', value: verses.length, detail: 'Standalone verse saves outside collections.' },
+      { label: 'Collections', value: collections.length, detail: 'Verse collection groups available.' },
+      { label: 'Collection items', value: collectionItems.length, detail: 'Total saved verses across collections.' },
+      { label: 'Lesson plans', value: lessons.length, detail: 'Study or lesson drafts currently saved.' },
+      { label: 'Sermon draft', value: draftCount, detail: 'Local sermon draft presence.' },
+      { label: 'Newsletter signups', value: newsletterCount, detail: 'Browser-stored newsletter records.' },
+      { label: 'Supporter waitlist', value: waitlistCount, detail: isSupabaseConfigured() ? 'Supabase count when available; local fallback otherwise.' : 'Local waitlist count on this browser.' },
+      { label: 'Church sermons', value: churchSermonCount, detail: 'Locally saved church/team sermon entries.' }
     ];
-    overview.innerHTML = items.map(item => (
-      '<div class="admin-card"><strong>' + escapeHtml(item.label) + '</strong><p>' + escapeHtml(String(item.value != null ? item.value : '')) + '</p></div>'
-    )).join('');
+    renderAdminCardGrid(overview, items);
   }
 
   const statsWrap = document.getElementById('admin-stats');
   if (statsWrap) {
     const stats = loadStats();
     const items = [
-      { label: 'Searches', value: stats.searches || 0 },
-      { label: 'Message posts', value: stats.messagePosts || 0 },
-      { label: 'Logins', value: stats.logins || 0 },
-      { label: 'Signups', value: stats.signups || 0 },
-      { label: 'Password resets', value: stats.passwordResets || 0 },
-      { label: 'Last activity', value: stats.lastActivity ? new Date(stats.lastActivity).toLocaleString() : '—' }
+      { label: 'Searches', value: stats.searches || 0, detail: 'Browser-level count for search actions.' },
+      { label: 'Message posts', value: stats.messagePosts || 0, detail: 'Posts sent from this device or local fallback.' },
+      { label: 'Logins', value: stats.logins || 0, detail: 'Successful auth events recorded here.' },
+      { label: 'Signups', value: stats.signups || 0, detail: 'Account creation attempts from this browser.' },
+      { label: 'Password resets', value: stats.passwordResets || 0, detail: 'Reset requests tracked locally.' },
+      { label: 'Last activity', value: stats.lastActivity ? new Date(stats.lastActivity).toLocaleString() : '—', detail: 'Most recent recorded activity on this device.' }
     ];
-    statsWrap.innerHTML = items.map(item => (
-      '<div class="admin-card"><strong>' + escapeHtml(item.label) + '</strong><p>' + escapeHtml(String(item.value != null ? item.value : '')) + '</p></div>'
-    )).join('');
+    renderAdminCardGrid(statsWrap, items);
   }
 
   const messageMap = new Map();
@@ -18303,49 +18744,49 @@ async function renderAdminPanel() {
     messages.forEach(item => messageMap.set(item.id, item));
     if (!messages.length) {
       messagesWrap.innerHTML = '<p class="empty">No messages to review.</p>';
-      return;
+    } else {
+      messagesWrap.innerHTML = '';
+      messages.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'list-item';
+        const wrap = document.createElement('div');
+        const strong = document.createElement('strong');
+        strong.textContent = item.user_id || 'Member';
+        const p = document.createElement('p');
+        p.textContent = item.text || '';
+        wrap.appendChild(strong);
+        wrap.appendChild(p);
+        row.appendChild(wrap);
+        const actions = document.createElement('div');
+        actions.className = 'item-actions';
+        const hideBtn = document.createElement('button');
+        hideBtn.textContent = item.hidden ? 'Unhide' : 'Hide';
+        hideBtn.onclick = async () => {
+          const ok = item.hidden ? await unhideMessageItem(item) : await hideMessageItem(item);
+          if (ok) {
+            item.hidden = !item.hidden;
+            hideBtn.textContent = item.hidden ? 'Unhide' : 'Hide';
+            row.style.opacity = item.hidden ? '0.6' : '1';
+          } else {
+            alert('Unable to hide message. Check permissions.');
+          }
+        };
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.onclick = async () => {
+          const ok = await deleteMessageItem(item);
+          if (ok) {
+            row.remove();
+          } else {
+            alert('Unable to delete message. Check permissions.');
+          }
+        };
+        actions.appendChild(hideBtn);
+        actions.appendChild(delBtn);
+        row.appendChild(actions);
+        messagesWrap.appendChild(row);
+      });
     }
-    messagesWrap.innerHTML = '';
-    messages.forEach(item => {
-      const row = document.createElement('div');
-      row.className = 'list-item';
-      const wrap = document.createElement('div');
-      const strong = document.createElement('strong');
-      strong.textContent = item.user_id || 'Member';
-      const p = document.createElement('p');
-      p.textContent = item.text || '';
-      wrap.appendChild(strong);
-      wrap.appendChild(p);
-      row.appendChild(wrap);
-      const actions = document.createElement('div');
-      actions.className = 'item-actions';
-      const hideBtn = document.createElement('button');
-      hideBtn.textContent = item.hidden ? 'Unhide' : 'Hide';
-      hideBtn.onclick = async () => {
-        const ok = item.hidden ? await unhideMessageItem(item) : await hideMessageItem(item);
-        if (ok) {
-          item.hidden = !item.hidden;
-          hideBtn.textContent = item.hidden ? 'Unhide' : 'Hide';
-          row.style.opacity = item.hidden ? '0.6' : '1';
-        } else {
-          alert('Unable to hide message. Check permissions.');
-        }
-      };
-      const delBtn = document.createElement('button');
-      delBtn.textContent = 'Delete';
-      delBtn.onclick = async () => {
-        const ok = await deleteMessageItem(item);
-        if (ok) {
-          row.remove();
-        } else {
-          alert('Unable to delete message. Check permissions.');
-        }
-      };
-      actions.appendChild(hideBtn);
-      actions.appendChild(delBtn);
-      row.appendChild(actions);
-      messagesWrap.appendChild(row);
-    });
   }
 
   const reportsWrap = document.getElementById('admin-reports');
@@ -18353,56 +18794,62 @@ async function renderAdminPanel() {
     const reports = await loadMessageReports();
     if (!reports.length) {
       reportsWrap.innerHTML = '<p class="empty">No reports submitted yet.</p>';
-      return;
+    } else {
+      reportsWrap.innerHTML = '';
+      reports.forEach(report => {
+        const row = document.createElement('div');
+        row.className = 'list-item';
+        const wrap = document.createElement('div');
+        const strong = document.createElement('strong');
+        strong.textContent = 'Report';
+        const p1 = document.createElement('p');
+        p1.textContent = report.text || '';
+        const p2 = document.createElement('p');
+        p2.className = 'section-note';
+        p2.textContent = 'Message ID: ' + String(report.message_id || report.id || '');
+        wrap.appendChild(strong);
+        wrap.appendChild(p1);
+        wrap.appendChild(p2);
+        row.appendChild(wrap);
+        const actions = document.createElement('div');
+        actions.className = 'item-actions';
+        const target = messageMap.get(report.message_id);
+        if (target) {
+          const hideBtn = document.createElement('button');
+          hideBtn.textContent = target.hidden ? 'Unhide' : 'Hide';
+          hideBtn.onclick = async () => {
+            const ok = target.hidden ? await unhideMessageItem(target) : await hideMessageItem(target);
+            if (ok) {
+              target.hidden = !target.hidden;
+              hideBtn.textContent = target.hidden ? 'Unhide' : 'Hide';
+            } else {
+              alert('Unable to update message.');
+            }
+          };
+          const delBtn = document.createElement('button');
+          delBtn.textContent = 'Delete';
+          delBtn.onclick = async () => {
+            const ok = await deleteMessageItem(target);
+            if (ok) {
+              row.remove();
+            } else {
+              alert('Unable to delete message.');
+            }
+          };
+          actions.appendChild(hideBtn);
+          actions.appendChild(delBtn);
+          row.appendChild(actions);
+        }
+        reportsWrap.appendChild(row);
+      });
     }
-    reportsWrap.innerHTML = '';
-    reports.forEach(report => {
-      const row = document.createElement('div');
-      row.className = 'list-item';
-      const wrap = document.createElement('div');
-      const strong = document.createElement('strong');
-      strong.textContent = 'Report';
-      const p1 = document.createElement('p');
-      p1.textContent = report.text || '';
-      const p2 = document.createElement('p');
-      p2.className = 'section-note';
-      p2.textContent = 'Message ID: ' + String(report.message_id || report.id || '');
-      wrap.appendChild(strong);
-      wrap.appendChild(p1);
-      wrap.appendChild(p2);
-      row.appendChild(wrap);
-      const actions = document.createElement('div');
-      actions.className = 'item-actions';
-      const target = messageMap.get(report.message_id);
-      if (target) {
-        const hideBtn = document.createElement('button');
-        hideBtn.textContent = target.hidden ? 'Unhide' : 'Hide';
-        hideBtn.onclick = async () => {
-          const ok = target.hidden ? await unhideMessageItem(target) : await hideMessageItem(target);
-          if (ok) {
-            target.hidden = !target.hidden;
-            hideBtn.textContent = target.hidden ? 'Unhide' : 'Hide';
-          } else {
-            alert('Unable to update message.');
-          }
-        };
-        const delBtn = document.createElement('button');
-        delBtn.textContent = 'Delete';
-        delBtn.onclick = async () => {
-          const ok = await deleteMessageItem(target);
-          if (ok) {
-            row.remove();
-          } else {
-            alert('Unable to delete message.');
-          }
-        };
-        actions.appendChild(hideBtn);
-        actions.appendChild(delBtn);
-        row.appendChild(actions);
-      }
-      reportsWrap.appendChild(row);
-    });
   }
+
+  lastAdminOwnerReport.summary = {
+    signedInAs: currentUserEmail || 'Unknown',
+    supabaseConfigured: isSupabaseConfigured(),
+    bibleLoaded: Object.keys(bible).length > 0
+  };
 }
 
 function wireDailyBattleSeedForm() {
@@ -26019,6 +26466,47 @@ async function tdbInitImpl() {
   if (adminHealthRun) {
     adminHealthRun.addEventListener('click', () => {
       runAdminHealthChecks();
+    });
+  }
+
+  const adminRefreshDashboard = document.getElementById('admin-refresh-dashboard');
+  if (adminRefreshDashboard) {
+    adminRefreshDashboard.addEventListener('click', async () => {
+      if (!isMasterUser) {
+        setAdminOpsStatus('Master account required.');
+        return;
+      }
+      setAdminOpsStatus('Refreshing dashboard...');
+      await renderAdminPanel();
+      await runAdminHealthChecks();
+      setAdminOpsStatus('Dashboard refreshed.');
+    });
+  }
+
+  const adminCopyReport = document.getElementById('admin-copy-report');
+  if (adminCopyReport) {
+    adminCopyReport.addEventListener('click', async () => {
+      await copyAdminOwnerReport();
+    });
+  }
+
+  const adminRefreshBrowser = document.getElementById('admin-refresh-browser');
+  if (adminRefreshBrowser) {
+    adminRefreshBrowser.addEventListener('click', async () => {
+      if (!isMasterUser) {
+        setAdminOpsStatus('Master account required.');
+        return;
+      }
+      setAdminOpsStatus('Refreshing browser health...');
+      await renderAdminBrowserHealth();
+      setAdminOpsStatus('Browser health refreshed.');
+    });
+  }
+
+  const adminClearBrowserCache = document.getElementById('admin-clear-browser-cache');
+  if (adminClearBrowserCache) {
+    adminClearBrowserCache.addEventListener('click', async () => {
+      await clearAdminBrowserCaches();
     });
   }
 

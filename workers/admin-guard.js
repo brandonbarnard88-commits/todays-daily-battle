@@ -1,5 +1,5 @@
 /**
- * Cloudflare Worker: protect /admin and /admin.html so only requests with the
+ * Cloudflare Worker: protect the live admin route so only requests with the
  * secret header are allowed. Deploy to your zone and add a route e.g.
  * todaysdailybattle.com/admin*
  *
@@ -14,12 +14,14 @@
  *      uses an extension to add the header, or a separate auth step).
  *
  * Without the header, response is 403.
+ * The repo-level _redirects file rewrites /admin -> /admin.html after this gate.
  */
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname.toLowerCase();
-    if (!path.startsWith('/admin')) {
+    const isAdminRoute = path === '/admin' || path === '/admin/' || path === '/admin.html';
+    if (!isAdminRoute) {
       return fetch(request);
     }
     const secret = env.TDB_ADMIN_SECRET || '';

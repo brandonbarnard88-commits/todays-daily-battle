@@ -20,7 +20,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260412launch">
-  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsrollout">
+  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="manifest" href="../manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -178,26 +178,54 @@
           <p class="kids-path-picker-desc">Same Jesus—friendly doors. Loops for a quick replay, full stories when you have a few minutes, coloring when little hands want to make something, and calm prayer habits when you want screen-light time with God.</p>
           <div class="kids-path-picker-grid">
             <a href="../kids-corner.html" class="kids-path-card kids-path-card-loops">
+              <span class="kids-path-card-age">Best for ages 5-8</span>
+              <img src="panel-david.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
               <span class="kids-path-card-emoji" aria-hidden="true">🎬</span>
               <span class="kids-path-card-label">Quick Bible loops</span>
               <span class="kids-path-card-hint">Short, bouncy cartoons—replay-safe when little hearts need calm.</span>
             </a>
             <a href="corner.html" class="kids-path-card kids-path-card-stories">
+              <span class="kids-path-card-age">Best for ages 7-11</span>
+              <img src="panel-noah.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
               <span class="kids-path-card-emoji" aria-hidden="true">📚</span>
               <span class="kids-path-card-label">Full Bible stories</span>
               <span class="kids-path-card-hint">Read-along words, comic panels, and gentle quizzes live in the Library. Some stories add a short YouTube preview.</span>
             </a>
             <a href="../coloring.html" class="kids-path-card kids-path-card-color">
+              <span class="kids-path-card-age">Best for ages 5-10</span>
+              <img src="panel-jesus.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
               <span class="kids-path-card-emoji" aria-hidden="true">🖍️</span>
               <span class="kids-path-card-label">Color &amp; create</span>
               <span class="kids-path-card-hint">Tap a big picture, paint on the page, print for the fridge—KJV line on each sheet.</span>
             </a>
             <a href="prayer-activities.html" class="kids-path-card kids-path-card-prayer">
+              <span class="kids-path-card-age">Best for any age with a grown-up</span>
+              <img src="panel-daniel.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
               <span class="kids-path-card-emoji" aria-hidden="true">🙏</span>
               <span class="kids-path-card-label">Calm prayer habits</span>
               <span class="kids-path-card-hint">Five-finger prayer, thank-you slips, paper chains—screen-light, ties to today&rsquo;s verse. Printable sheet inside.</span>
             </a>
           </div>
+        </section>
+
+        <section class="kids-first-win glass" role="region" aria-label="Starter path for first wins">
+          <h2 class="kids-section-title">First Win Path</h2>
+          <p class="section-note">If you are brand new, start here: one story, one response, one small finish. Zechariah 4:10 reminds us not to despise the day of small things.</p>
+          <div class="kids-first-win-steps" role="list" aria-label="Three first-win steps">
+            <a href="corner.html?story=david" class="kids-first-win-step" role="listitem">
+              <strong>1. Open David &amp; Goliath</strong>
+              <span>Read one brave story and earn your Little Explorer start.</span>
+            </a>
+            <a href="../coloring.html?story=david" class="kids-first-win-step" role="listitem">
+              <strong>2. Color one scene</strong>
+              <span>Little hands can answer the verse without needing more talking.</span>
+            </a>
+            <button type="button" id="kids-first-win-finish" class="kids-first-win-step kids-first-win-step-button" role="listitem">
+              <strong>3. Mark today as done</strong>
+              <span>One small finish is enough for today.</span>
+            </button>
+          </div>
+          <p id="kids-first-win-status" class="kids-first-win-status section-note" aria-live="polite">Start with one story and your first gentle badge will land here.</p>
         </section>
 
         <section class="glass" role="region" aria-label="Classroom and church team path">
@@ -317,6 +345,7 @@
         <section class="kids-battle-verse glass" role="region" aria-label="Today's verse for kids">
           <div class="speech-bubble verse-bubble">
             <h2 class="kids-section-title kids-verse-title-row">Today's Verse <button type="button" id="kids-verse-speak" class="kids-speak-btn" aria-label="Listen to verse">🔊 Tap to hear</button></h2>
+            <p id="kids-home-verse-bridge" class="kids-home-verse-bridge">Kid-friendly version of the same verse the whole site is carrying today.</p>
             <p class="kids-verse-ref" id="kids-verse-ref">Psalm 23:1</p>
             <p class="kids-verse-text" id="kids-verse-text">The Lord is my shepherd; I shall not want.</p>
             <div id="kids-verse-context" class="kids-verse-context hidden" role="complementary"></div>
@@ -399,6 +428,7 @@
             <button type="submit" class="btn kids-btn-primary">Connect</button>
           </form>
           <p class="section-note kids-family-code-foot">Need the grown-up side first? Open the <a href="parent.html">Parent Dashboard</a> for the guide, invite code, and a calm explanation of how to use wins gently.</p>
+          <p class="section-note kids-family-code-foot">Want something printable? The Parent Dashboard now includes a one-page gentle guide you can print before you connect.</p>
         </section>
 
         <section class="kids-battle-badges glass" role="region" aria-label="Badges">
@@ -792,7 +822,7 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="kids-verses-365.js?v=20260325kidsmeans" defer></script>
-  <script src="kids-battle.js?v=20260405kidsrollout" defer></script>
+  <script src="kids-battle.js?v=20260405kidsfollowup" defer></script>
   <script src="kids-read-quiz-data.js?v=20260330kidslib" defer></script>
   <script src="kids-corner.js?v=20260405kidsrollout" defer></script>
   <script type="module" src="../script.js?v=20260328feelwire" data-cfasync="false"></script>

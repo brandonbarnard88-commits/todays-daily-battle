@@ -692,6 +692,13 @@
     return phrases[Math.abs(index) % phrases.length];
   }
 
+  function kidsPrayerForRef(ref, kjvText) {
+    var idx = getVerseIndex(ref);
+    if (idx >= 0) return kidsPrayerForIndex(idx);
+    var safeRef = String(ref || 'Your verse today').trim();
+    return 'Jesus, thank You for ' + safeRef + '. Help me trust what You say and take one small brave step today. Amen.';
+  }
+
   const BADGES = [
     { id: 'faith-fighter', label: 'Faith Fighter', days: 1 },
     { id: 'bible-boss', label: 'Bible Boss', days: 3 },
@@ -5305,21 +5312,8 @@
         index = 0;
         v = KIDS_VERSES[0];
       }
-      var p = kidsPrayerForIndex(index);
-      var refEl = document.getElementById('kids-verse-ref');
-      var textEl = document.getElementById('kids-verse-text');
-      var prayerEl = document.getElementById('kids-prayer-text');
       var kidText = getKidText(v.ref) || v.text;
-      if (refEl) refEl.textContent = v.ref;
-      if (textEl) textEl.textContent = kidText;
-      if (prayerEl) prayerEl.textContent = p != null ? p : '';
-      var ctx = getKidContext(v.ref, kidText || v.text, v.text);
-      renderKidContext(v.ref, kidText || v.text, v.text);
-      renderKidsVerseAction(v.ref, ctx);
-      var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
-      var container = document.getElementById('kids-cartoon-container');
-      if (!container) return;
-      fillKidsCartoonContainer(container, cartoon);
+      applyKidsVersePayload(v.ref, kidText, kidsPrayerForIndex(index), v.text, index, false);
       if (!q) {
         try {
           localStorage.setItem(KIDS_VERSE_INDEX_KEY, String((index + 1) % KIDS_VERSES.length));
@@ -5411,6 +5405,17 @@
     const list = document.getElementById('kids-badges-list');
     if (!list) return;
     tdbClearHtml(list);
+    try {
+      var storyState = tdbComputeStoryMasterState();
+      var starterUnlocked = storyState && storyState.effective > 0;
+      var starter = document.createElement('span');
+      starter.className = 'kids-badge little-explorer' + (starterUnlocked ? '' : ' locked');
+      starter.textContent = (starterUnlocked ? '★ ' : '☆ ') + 'Little Explorer';
+      starter.title = starterUnlocked
+        ? 'Unlocked after your first story.'
+        : 'Unlock after your first story.';
+      list.appendChild(starter);
+    } catch (e) {}
     BADGES.forEach(function (b) {
       const wasLocked = (prevStreak || 0) < b.days;
       const nowUnlocked = streak >= b.days;
@@ -5869,14 +5874,7 @@
       saveKidReflection();
       var reflectionText = (document.getElementById('kid-reflection') || {}).value || '';
       var reflectionBonus = reflectionText.trim().length > 10;
-      var prevStreak = getCurrentStreak();
-      markTodayDone(reflectionBonus);
-      renderStreak();
-      renderDoneState();
-      renderComeBackNudge();
-      renderBadges(Math.ceil(prevStreak));
-      renderFaithTrail();
-      syncKidStreak();
+      completeKidsDay(reflectionBonus);
     });
   }
 
@@ -6748,25 +6746,42 @@
     }
   }
 
+  function renderKidsHomeVerseBridge(ref, syncedToHome) {
+    var bridgeEl = document.getElementById('kids-home-verse-bridge');
+    if (!bridgeEl) return;
+    var safeRef = String(ref || '').trim();
+    if (syncedToHome && safeRef) {
+      bridgeEl.textContent = 'Same verse as home today: ' + safeRef + '. The line below keeps that same Scripture in kid-ready words.';
+      return;
+    }
+    bridgeEl.textContent = 'Kid-friendly version of the same verse the whole site is carrying today.';
+  }
+
+  function applyKidsVersePayload(ref, kidText, prayerText, kjvText, cartoonSeed, syncedToHome) {
+    var refEl = document.getElementById('kids-verse-ref');
+    var textEl = document.getElementById('kids-verse-text');
+    var prayerEl = document.getElementById('kids-prayer-text');
+    if (refEl) refEl.textContent = ref || '';
+    if (textEl) textEl.textContent = kidText || kjvText || '';
+    if (prayerEl) prayerEl.textContent = prayerText != null ? prayerText : '';
+    renderKidsHomeVerseBridge(ref, !!syncedToHome);
+    var ctx = getKidContext(ref, kidText || kjvText, kjvText || kidText);
+    renderKidContext(ref, kidText || kjvText, kjvText || kidText);
+    renderKidsVerseAction(ref, ctx);
+    var idx = getVerseIndex(ref);
+    var safeSeed = idx >= 0 ? idx : Math.max(0, Number(cartoonSeed || 0));
+    var cartoon = resolveKidsCartoon(getCartoonForVerse(ref, kjvText || kidText, safeSeed), safeSeed);
+    var container = document.getElementById('kids-cartoon-container');
+    if (container) fillKidsCartoonContainer(container, cartoon);
+  }
+
   function setMainVerse(index) {
     if (!KIDS_VERSES.length || index < 0 || index >= KIDS_VERSES.length) return;
     var v = KIDS_VERSES[index];
     if (!v) return;
     try {
-      var p = kidsPrayerForIndex(index);
       var kidText = getKidText(v.ref) || v.text;
-      var refEl = document.getElementById('kids-verse-ref');
-      var textEl = document.getElementById('kids-verse-text');
-      var prayerEl = document.getElementById('kids-prayer-text');
-      if (refEl) refEl.textContent = v.ref;
-      if (textEl) textEl.textContent = kidText;
-      if (prayerEl) prayerEl.textContent = p != null ? p : '';
-      var ctx = getKidContext(v.ref, kidText || v.text, v.text);
-      renderKidContext(v.ref, kidText || v.text, v.text);
-      renderKidsVerseAction(v.ref, ctx);
-      var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
-      var container = document.getElementById('kids-cartoon-container');
-      if (container) fillKidsCartoonContainer(container, cartoon);
+      applyKidsVersePayload(v.ref, kidText, kidsPrayerForIndex(index), v.text, index, false);
     } catch (err) {
       if (typeof console !== 'undefined' && console.warn) {
         console.warn('Kids Battle setMainVerse:', err);
@@ -6777,6 +6792,30 @@
           appendKidsCartoonFallbackMsg(ctn, 'Could not update the comic area. Try a refresh.');
         } catch (e2) {}
       }
+    }
+  }
+
+  function syncKidsVerseWithMainDailyVerse() {
+    try {
+      if (typeof window.getDailyVerseRef !== 'function') return false;
+      var ref = String(window.getDailyVerseRef() || '').trim();
+      if (!ref) return false;
+      var kjvText = '';
+      if (typeof window.getBibleVerseText === 'function') {
+        kjvText = tdbPlainTextForUi(window.getBibleVerseText(ref) || '');
+      }
+      if (!kjvText) {
+        var existingTextEl = document.getElementById('kids-verse-text');
+        kjvText = existingTextEl ? String(existingTextEl.textContent || '').trim() : '';
+      }
+      var kidText = getKidText(ref) || kjvText;
+      applyKidsVersePayload(ref, kidText || kjvText, kidsPrayerForRef(ref, kjvText || kidText), kjvText || kidText, 0, true);
+      return true;
+    } catch (err) {
+      if (typeof console !== 'undefined' && console.warn) {
+        console.warn('Kids Battle syncKidsVerseWithMainDailyVerse:', err);
+      }
+      return false;
     }
   }
 
@@ -7350,6 +7389,7 @@
     if (gentleEl) {
       gentleEl.textContent = st.gentleStart || 'Story progress stays local to this device. One story is enough for today.';
     }
+    renderFirstWinPanel(st);
     var badgeEl = document.getElementById('tier-badge');
     if (badgeEl) {
       badgeEl.textContent = labels[tier] || st.tierLabel;
@@ -7526,6 +7566,68 @@
     }
   }
 
+  function renderFirstWinPanel(state) {
+    var statusEl = document.getElementById('kids-first-win-status');
+    var finishBtn = document.getElementById('kids-first-win-finish');
+    if (!statusEl && !finishBtn) return;
+    var st = state || tdbComputeStoryMasterState();
+    var streak = Math.ceil(getCurrentStreak());
+    var doneToday = isDoneToday();
+    if (finishBtn) {
+      finishBtn.disabled = doneToday;
+      finishBtn.setAttribute('aria-disabled', doneToday ? 'true' : 'false');
+      finishBtn.querySelector('strong').textContent = doneToday ? '3. Today is marked done' : '3. Mark today as done';
+      finishBtn.querySelector('span').textContent = doneToday
+        ? 'Nice work. Your trail is started for today.'
+        : 'One small finish is enough for today.';
+    }
+    if (!statusEl) return;
+    if (st.effective > 0) {
+      statusEl.textContent = streak > 0
+        ? 'First win earned: Little Explorer is unlocked, and your Battle Trail is moving. Keep it light and keep going.'
+        : 'First win earned: Little Explorer is unlocked. If you want one more gentle step, mark today as done and start your trail.';
+      return;
+    }
+    if (doneToday) {
+      statusEl.textContent = 'Today is already marked done. Open one starter story next and Little Explorer will unlock after your first story.';
+      return;
+    }
+    statusEl.textContent = 'Start with David, color one brave scene, then mark today as done. Your first story unlocks Little Explorer with no pressure and no rush.';
+  }
+
+  function completeKidsDay(reflectionBonus) {
+    var prevStreak = getCurrentStreak();
+    markTodayDone(reflectionBonus);
+    renderStreak();
+    renderDoneState();
+    renderComeBackNudge();
+    renderBadges(Math.ceil(prevStreak));
+    renderFaithTrail();
+    renderFirstWinPanel();
+    syncKidStreak();
+  }
+
+  function wireFirstWinFinish() {
+    var btn = document.getElementById('kids-first-win-finish');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (isDoneToday()) return;
+      completeKidsDay(false);
+    });
+  }
+
+  function wireKidsVerseSync() {
+    window.addEventListener('tdb-daily-verse-updated', function () {
+      syncKidsVerseWithMainDailyVerse();
+    });
+    setTimeout(function () {
+      syncKidsVerseWithMainDailyVerse();
+    }, 300);
+    setTimeout(function () {
+      syncKidsVerseWithMainDailyVerse();
+    }, 1500);
+  }
+
   function wireKidNameModal() {
     var modal = document.getElementById('kids-name-modal');
     var input = document.getElementById('kids-name-input');
@@ -7561,6 +7663,7 @@
       function () { renderBadges(); },
       function () { renderStoryOfDay(); },
       function () { renderKidsCornerHomeExtras(); },
+      function () { renderFirstWinPanel(); },
       function () { updateKidGreeting(); },
       function () { showKidNameModalIfNeeded(); },
       function () { wireKidNameModal(); },
@@ -7572,6 +7675,7 @@
       function () { wireQuiz(); },
       function () { wireMemory(); },
       function () { wireMarkDone(); },
+      function () { wireFirstWinFinish(); },
       function () { wireRemindBtn(); },
       function () { wireFamilyCodeForm(); },
       function () { wireDoodle(); },
@@ -7580,7 +7684,8 @@
       function () { wireShareStreak(); },
       function () { wireSidebar(); },
       function () { wireVideoModal(); },
-      function () { wireKidsBottomNavTripleConfetti(); }
+      function () { wireKidsBottomNavTripleConfetti(); },
+      function () { wireKidsVerseSync(); }
     ];
     for (var si = 0; si < steps.length; si++) {
       try {

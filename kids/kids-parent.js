@@ -221,6 +221,10 @@
     const streak = getCurrentStreak();
     const viewedCount = getViewedStories().length;
     list.innerHTML = '';
+    const starter = document.createElement('span');
+    starter.className = 'kids-badge little-explorer' + (viewedCount > 0 ? '' : ' locked');
+    starter.textContent = (viewedCount > 0 ? '★ ' : '☆ ') + 'Little Explorer';
+    list.appendChild(starter);
     BADGES.forEach(function (b) {
       const span = document.createElement('span');
       span.className = 'kids-badge ' + b.id + (streak >= b.days ? '' : ' locked');
@@ -362,6 +366,14 @@
     });
   }
 
+  function wirePrintGuide() {
+    const btn = document.getElementById('parent-print-guide');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      window.print();
+    });
+  }
+
   function init() {
     renderParentCode();
     renderStreak();
@@ -369,6 +381,7 @@
     renderBadges();
     renderFavorites();
     renderLibraryBadges();
+    wirePrintGuide();
   }
 
   if (document.readyState === 'loading') {

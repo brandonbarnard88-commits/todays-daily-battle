@@ -562,6 +562,51 @@
   color: rgba(226, 232, 240, 0.88);
 }
 
+.kids-first-win {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.kids-first-win-steps {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.kids-first-win-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.95rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 217, 61, 0.22);
+  background: rgba(15, 23, 42, 0.62);
+  text-decoration: none;
+  color: inherit;
+}
+
+.kids-first-win-step strong {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.98rem;
+  color: #fff7e2;
+}
+
+.kids-first-win-step span {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.kids-first-win-step-button {
+  text-align: left;
+  cursor: pointer;
+}
+
+.kids-first-win-step-button strong,
+.kids-first-win-step-button span {
+  pointer-events: none;
+}
+
 .kids-weekly-paths {
   margin-bottom: 1.25rem;
   padding: 1rem 1.25rem 1.25rem;
@@ -602,6 +647,10 @@
   .kids-preview-strip,
   .kids-weekly-path-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .kids-first-win-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -679,6 +728,29 @@
   font-size: 1.15rem;
   letter-spacing: 0.03em;
   color: var(--kids-yellow);
+}
+
+.kids-path-card-age {
+  align-self: flex-start;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f8fafc;
+}
+
+.kids-path-card-thumb {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 10 / 7;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
 }
 .kids-path-card-loops .kids-path-card-label {
   color: #a7f3d0;
@@ -1856,6 +1928,14 @@
   font-size: 1.1rem;
   color: var(--kids-orange);
   margin: 0 0 0.5rem;
+}
+
+.kids-home-verse-bridge {
+  margin: 0 0 0.55rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(203, 213, 225, 0.96);
 }
 
 .kids-verse-text {

@@ -58,11 +58,11 @@ Run in **incognito** + **hard refresh** (Ctrl+Shift+R). Test on desktop and mobi
   Result / Notes: ______________________________
 
 - [ ] 13. secrets.html — 1st visit  
-  Expected: Tier 1 (20 hints) + "Return later for more"  
+  Expected: Tier 1 quick-door breadcrumbs + progress panel + "Return later" copy  
   Result / Notes: ______________________________
 
 - [ ] 14. secrets.html — 3rd visit  
-  Expected: All 57 hints + "All hints revealed." + confetti + final message  
+  Expected: Full breadcrumb map (including family/kids + legendary sections) + confetti + final message  
   Result / Notes: ______________________________
 
 ## Phase 4: Suggest Form & Analytics

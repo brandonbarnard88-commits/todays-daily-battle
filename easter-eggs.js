@@ -73,6 +73,7 @@
   var EGG_STUDY_SAVES_KEY = 'tdb_eg_study_session_saves_v1';
   var EGG_ARMOR_PROGRESS_KEY = 'tdb_eg_armor_progress_v1';
   var EGG_LAST_HOME_RIBBON_KEY = 'tdb_eg_home_ribbon_seen_v1';
+  var EGG_SECRETS_UNLOCK_KEY = 'tdb_secrets_unlocked_v1';
   var HOME_PAGE_IDS = ['home', 'calm', 'prayer', 'plans', 'mystudy', 'family', 'kids', 'explore'];
   var QUIET_ROUTE_PHRASE = 'show the quiet paths';
   var LEGENDARY_PHRASE = 'we battle he wins';
@@ -917,6 +918,7 @@
       try {
         if (sessionStorage.getItem('konamiFound') !== '1') return false;
         sessionStorage.setItem('tdb_secretsUnlocked', '1');
+        localStorage.setItem(EGG_SECRETS_UNLOCK_KEY, '1');
       } catch (x) { return false; }
       if (inp) inp.value = '';
       window.location.href = '/secrets.html';
@@ -1770,15 +1772,15 @@
       if (document.getElementById(EGG_BADGE_ID)) return;
       var footer = document.querySelector('.site-footer, .tool-page-footer, footer[role="contentinfo"]') || document.querySelector('footer');
       if (!footer) return;
-      var unlocked = sessionStorage.getItem('tdb_secretsUnlocked') === '1';
+      var unlocked = sessionStorage.getItem('tdb_secretsUnlocked') === '1' || localStorage.getItem(EGG_SECRETS_UNLOCK_KEY) === '1';
       var badge = document.createElement(unlocked ? 'a' : 'p');
       badge.id = EGG_BADGE_ID;
       badge.className = 'easter-egg-badge';
-      badge.textContent = '58 hidden moments';
-      badge.setAttribute('aria-label', unlocked ? 'View hints for 58 hidden moments' : '58 hidden moments to discover');
+      badge.textContent = 'Hidden moments';
+      badge.setAttribute('aria-label', unlocked ? 'View hints for hidden moments' : 'Hidden moments to discover');
       if (unlocked) {
         badge.href = '/secrets.html';
-        badge.title = '58 hidden moments discovered';
+        badge.title = 'View hidden moments';
       }
       footer.appendChild(badge);
       if (pulseFirst && !reducedMotion()) {

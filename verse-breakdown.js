@@ -23,7 +23,7 @@
   };
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
-  var RELATIONS_DICT_URL = 'relations-dict.json';
+  var RELATIONS_DICT_URL = '/relations-dict.json';
   var KJV_DICT_URLS = ['/kjv.json'];
   var INLINE_SUMMARY = 'Break it down';
   var INLINE_SUMMARY_ARIA = 'Open a plain-language breakdown under this verse';

@@ -200,8 +200,8 @@
 /our-approach /about.html 301
 /contract /faq.html 301
 
-# Donation/support (301). /give = quiet-place CTA (Stripe PWYW when STRIPE_QUIET_PLACE_URL is set at build time; else Buy Me a Coffee).
-/give https://buymeacoffee.com/todaysdailybattle 301
+# Donation/support (301). /give now lands on the calm explainer page before the external payment page.
+/give /give.html 301
 /donate https://buymeacoffee.com/todaysdailybattle 301
 /stripe https://buymeacoffee.com/todaysdailybattle 301
 /support https://buymeacoffee.com/todaysdailybattle 301

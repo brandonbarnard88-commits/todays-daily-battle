@@ -99,7 +99,7 @@
     },
     {
       "source": "/give",
-      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "destination": "/give.html",
       "permanent": true
     },
     {

@@ -220,13 +220,7 @@ const CORE_ASSETS = [
 
 const CDN_FUSE_JS = 'https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js';
 
-var AUDIO_ASSETS = [
-  '/audio/psalm-23-1.mp3',
-  '/audio/john-3-16.mp3',
-  '/audio/philippians-4-6.mp3',
-  '/audio/joshua-1-9.mp3',
-  '/audio/isaiah-41-10.mp3'
-];
+var AUDIO_ASSETS = [];
 
 /**
  * Cache lookup: exact request URL first, then pathname-only for .js/.css so

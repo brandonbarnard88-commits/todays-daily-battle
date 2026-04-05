@@ -722,7 +722,7 @@ if (!fs.existsSync(amenSignalPath)) {
   process.exit(1);
 }
 
-// Verify donation redirects in _redirects (required for bot-probe cleanup)
+// Verify donation/support routes in _redirects (required for bot-probe cleanup)
 const redirectsPath = path.join(dist, '_redirects');
 if (!fs.existsSync(redirectsPath)) {
   console.error('BUILD FAIL: _redirects missing from dist/. Donation redirects required.');
@@ -730,7 +730,6 @@ if (!fs.existsSync(redirectsPath)) {
 }
 const redirectsContent = fs.readFileSync(redirectsPath, 'utf8');
 const DONATION_REDIRECTS = [
-  { path: '/give', desc: '/give → support destination (quiet-place CTA)' },
   { path: '/donate', desc: '/donate → Buy Me a Coffee' },
   { path: '/stripe', desc: '/stripe → Buy Me a Coffee' },
   { path: '/support', desc: '/support → Buy Me a Coffee' },
@@ -738,6 +737,11 @@ const DONATION_REDIRECTS = [
   { path: '/donations/*', desc: '/donations/* wildcard → Buy Me a Coffee' }
 ];
 const buymeacoffee = 'https://buymeacoffee.com/todaysdailybattle';
+const givePageMatch = /^\/give\s+\/give\.html\s+301/m;
+if (!givePageMatch.test(redirectsContent)) {
+  console.error('BUILD FAIL: _redirects must map /give → /give.html (301) for the calm support page.');
+  process.exit(1);
+}
 const missingRedirects = DONATION_REDIRECTS.filter(function (r) {
   const lineMatch = new RegExp('^' + r.path.replace(/\*/g, '\\*') + '\\s+' + buymeacoffee.replace(/\./g, '\\.') + '\\s+301', 'm');
   return !lineMatch.test(redirectsContent);
@@ -768,7 +772,7 @@ for (let i = 0; i < LOCALE_HUB_REDIRECTS.length; i++) {
     process.exit(1);
   }
 }
-console.log('Verified: donation redirects (/donate, /stripe, /support, /donations*) present in _redirects.');
+console.log('Verified: /give support page route + donation redirects (/donate, /stripe, /support, /donations*) present in _redirects.');
 console.log('Verified: RU / ZH / HI hub index.html + _redirects 200! rules in dist/.');
 
 // Trusted Types: every shipped HTML must load sync DOMPurify + tt-bootstrap before deferred scripts
@@ -785,13 +789,20 @@ if (ttPatched) {
   console.log('ensureTrustedTypesBootstrap: patched ' + ttPatched + ' HTML file(s) under dist/');
 }
 
-// Verify vercel.json has donation redirects (Vercel deploy parity)
+// Verify vercel.json has support + donation redirects (Vercel deploy parity)
 const vercelPath = path.join(root, 'vercel.json');
 if (fs.existsSync(vercelPath)) {
   const vercel = JSON.parse(fs.readFileSync(vercelPath, 'utf8'));
   const redirects = vercel.redirects || [];
-  const requiredSources = ['/give', '/donate', '/stripe', '/support', '/donations', '/donations/:path*'];
+  const requiredSources = ['/donate', '/stripe', '/support', '/donations', '/donations/:path*'];
   const dest = 'https://buymeacoffee.com/todaysdailybattle';
+  const hasGivePageRedirect = redirects.some(function (r) {
+    return r.source === '/give' && r.destination === '/give.html' && r.permanent === true;
+  });
+  if (!hasGivePageRedirect) {
+    console.error('BUILD FAIL: vercel.json missing /give → /give.html redirect.');
+    process.exit(1);
+  }
   const missingVercel = requiredSources.filter(function (src) {
     return !redirects.some(function (r) {
       return r.source === src && r.destination === dest && r.permanent === true;
@@ -801,7 +812,7 @@ if (fs.existsSync(vercelPath)) {
     console.error('BUILD FAIL: vercel.json missing donation redirects: ' + missingVercel.join(', '));
     process.exit(1);
   }
-  console.log('Verified: vercel.json donation redirects present.');
+  console.log('Verified: vercel.json /give support page redirect + donation redirects present.');
 }
 
 console.log('build-copy-static.js: copied all static files to dist/ (including topic-*.html).');

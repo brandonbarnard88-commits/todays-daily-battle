@@ -1764,10 +1764,10 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (typeof window === 'undefined') return;
   var bust = 'v=' + encodeURIComponent('20260403bible');
   var urls = [
-    '/assets/data/kjv.json',
-    '/assets/data/kjv.json?' + bust,
     '/kjv.json',
     '/kjv.json?' + bust,
+    '/assets/data/kjv.json',
+    '/assets/data/kjv.json?' + bust,
     'https://todaysdailybattle.com/assets/data/kjv.json',
     'https://todaysdailybattle.com/assets/data/kjv.json?' + bust,
     'https://todaysdailybattle.com/kjv.json',
@@ -12163,7 +12163,7 @@ const templates = [
 ];
 
 const versionFiles = {
-  KJV: '/assets/data/kjv.json',
+  KJV: '/kjv.json',
   NIV: '/niv.json',
   ESV: '/esv.json',
   NLT: '/nlt.json',

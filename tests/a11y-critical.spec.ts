@@ -5,6 +5,17 @@ import AxeBuilder from '@axe-core/playwright';
  * WCAG 2.0 A + AA automated scan on critical templates (built dist).
  * Includes color-contrast and meta-viewport (zoom-capable viewport, AA contrast).
  */
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    try {
+      localStorage.setItem('tdb-tour-seen', '1');
+    } catch (e) {}
+    try {
+      sessionStorage.setItem('tdb_welcome_intro_seen_session', '1');
+    } catch (e) {}
+  });
+});
+
 async function dismissFirstVisitIfPresent(page: import('@playwright/test').Page) {
   const btn = page.locator('#firstVisitDismiss');
   if (await btn.isVisible().catch(() => false)) {

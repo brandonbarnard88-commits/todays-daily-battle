@@ -11001,6 +11001,18 @@ body.kids-corner-page.tdb-inner-page .app-shell .content-inner.loop-library-page
   max-width: min(52rem, 100%);
 }
 
+@media (max-width: 768px) {
+  body.kids-corner-page.tdb-inner-page .app-shell .content-inner.loop-library-page {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  body.tdb-kids-coloring-page .app-shell .content-inner {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
 /* Parent dashboard — footnote matches hub surface whisper */
 body.kids-battle-page.kids-parent-dashboard .kids-parent-note {
   font-family: var(--font-ui);

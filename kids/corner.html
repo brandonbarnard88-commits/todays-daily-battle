@@ -100,6 +100,38 @@
       margin: 0 0 0.5rem;
       line-height: 1.2;
     }
+    .kids-library-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.35rem;
+      width: 100%;
+      margin: 0 0 0.65rem;
+    }
+    .kids-library-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.06);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: #e2e8f0;
+      text-transform: uppercase;
+    }
+    .kids-library-card-desc {
+      margin: 0 0 0.75rem;
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: rgba(226, 232, 240, 0.9);
+    }
     .kids-library-card-btn {
       font-family: 'Nunito', sans-serif;
       font-size: 0.9rem;
@@ -159,6 +191,13 @@
       background: var(--kids-bg);
       color: #e2e8f0;
       min-width: 140px;
+    }
+    .kids-library-filter-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+      align-items: center;
     }
     .kids-library-story-master {
       font-family: 'Bangers', cursive;
@@ -384,6 +423,38 @@
       line-height: 1.5;
       color: #e2e8f0;
       margin: 0.5rem 0 0;
+    }
+    .kids-live-it-out {
+      margin-top: 0.95rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+    .kids-live-it-out-card {
+      padding: 0.8rem 0.9rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 217, 61, 0.16);
+      background: rgba(255,255,255,0.03);
+    }
+    .kids-live-it-out-card strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--kids-yellow);
+    }
+    .kids-live-it-out-card p {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #e2e8f0;
+    }
+    @media (min-width: 820px) {
+      .kids-live-it-out {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
     .kids-read-quiz-unavailable .kids-read-quiz-unavailable-msg {
       font-family: 'Nunito', sans-serif;
@@ -693,6 +764,27 @@
               <option value="Protection">Protection</option>
             </select>
           </div>
+          <div class="kids-library-filter-cluster" role="group" aria-label="Extra story filters">
+            <label for="kids-library-age" class="kids-library-theme-label">Age</label>
+            <select id="kids-library-age" class="kids-library-theme-select" aria-label="Filter by age">
+              <option value="">All ages</option>
+              <option value="littles">Littles 5-7</option>
+              <option value="middles">Middles 8-10</option>
+              <option value="older">Older 11+</option>
+            </select>
+            <label for="kids-library-length" class="kids-library-theme-label">Length</label>
+            <select id="kids-library-length" class="kids-library-theme-select" aria-label="Filter by reading length">
+              <option value="">Any length</option>
+              <option value="quick">Quick read</option>
+              <option value="medium">Read-along</option>
+              <option value="long">Longer sit-down</option>
+            </select>
+            <label for="kids-library-book" class="kids-library-theme-label">Book</label>
+            <select id="kids-library-book" class="kids-library-theme-select" aria-label="Filter by Bible book">
+              <option value="">Any book</option>
+            </select>
+          </div>
+          <p class="section-note util-mb-0_5">Use age, length, and book if you need a quicker fit for littles, older readers, homeschool, or bedtime.</p>
           <p id="kids-library-story-master" class="kids-library-story-master hidden">🏆 Story Master — you finished 7+ read-and-quiz stories (or stories without a quiz yet)!</p>
           <div class="kids-library-filters" role="region" aria-label="Story journey">
             <span class="kids-library-theme-label">Bible Stories</span>

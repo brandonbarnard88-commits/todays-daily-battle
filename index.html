@@ -6493,6 +6493,105 @@
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
     }
     .trust-badge { font-size: 0.75rem; color: var(--muted); margin: 0.5rem 0 0; opacity: 0.85; }
+    .hero-family-mode {
+      margin: 1rem 0 0.9rem;
+      padding: 0.95rem 1rem 1rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 24%, var(--line));
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card) 94%, #1a2230) 0%, color-mix(in srgb, var(--bg-soft) 74%, var(--card)) 100%);
+      box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 6%, transparent);
+    }
+    .hero-family-mode-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem 1rem;
+      margin-bottom: 0.7rem;
+    }
+    .hero-family-mode-title {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 80%, var(--gold) 20%);
+    }
+    .hero-family-mode-ref {
+      margin: 0.3rem 0 0;
+      font-size: 0.88rem;
+      color: var(--gold-soft);
+      font-weight: 600;
+    }
+    .hero-family-mode-grid {
+      display: grid;
+      gap: 0.7rem;
+      grid-template-columns: 1fr;
+    }
+    .hero-family-mode-card {
+      padding: 0.8rem 0.85rem;
+      border-radius: 14px;
+      background: rgba(8, 12, 22, 0.42);
+      border: 1px solid color-mix(in srgb, var(--line) 85%, var(--gold) 15%);
+    }
+    .hero-family-mode-card strong {
+      display: block;
+      margin-bottom: 0.28rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 76%, var(--gold) 24%);
+    }
+    .hero-family-mode-card p {
+      margin: 0;
+      font-size: 0.96rem;
+      line-height: 1.55;
+      color: rgba(245, 247, 251, 0.95);
+    }
+    .hero-family-mode-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+    .hero-family-mode-links a,
+    .hero-family-mode-links button {
+      min-height: 44px;
+    }
+    .hero-family-mode-ages {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+      grid-template-columns: 1fr;
+    }
+    .hero-family-mode-age-card {
+      padding: 0.8rem 0.85rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+    }
+    .hero-family-mode-age-card strong {
+      display: block;
+      margin-bottom: 0.28rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 72%, var(--gold) 28%);
+    }
+    .hero-family-mode-age-card p {
+      margin: 0;
+      font-size: 0.94rem;
+      line-height: 1.55;
+      color: rgba(245, 247, 251, 0.95);
+    }
+    @media (min-width: 720px) {
+      .hero-family-mode-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .hero-family-mode-ages {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
   </style>
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
   <script nonce="tdb2025s" type="application/ld+json">
@@ -6937,6 +7036,52 @@
           <p class="hero-my-verses-privacy-note" id="hero-my-verses-privacy-line">Saves stay here on this device unless you sign in.</p>
         </div>
         <p id="hero-save-my-verses-status" class="hero-save-my-verses-status-line" role="status" aria-live="polite"></p>
+        <section class="hero-family-mode" id="tdbFamilyModeBridge" aria-labelledby="tdbFamilyModeTitle">
+          <div class="hero-family-mode-head">
+            <div>
+              <h2 class="hero-family-mode-title" id="tdbFamilyModeTitle">Family Mode</h2>
+              <p class="hero-family-mode-ref" id="tdbFamilyModeRef">Today&rsquo;s verse for the whole household</p>
+            </div>
+            <button type="button" class="btn btn-secondary" id="tdbFamilyModeToggle" aria-pressed="false">Turn on Family Mode</button>
+          </div>
+          <div id="tdbFamilyModeBody" hidden>
+            <div class="hero-family-mode-grid">
+              <div class="hero-family-mode-card">
+                <strong>Kid line</strong>
+                <p id="tdbFamilyModeKidLine">A child-sized line from the same KJV verse will show here.</p>
+              </div>
+              <div class="hero-family-mode-card">
+                <strong>Do this together</strong>
+                <p id="tdbFamilyModeAction">One calm family step from today&rsquo;s verse will show here.</p>
+              </div>
+              <div class="hero-family-mode-card">
+                <strong>Pray</strong>
+                <p id="tdbFamilyModePrayer">One short family prayer from today&rsquo;s verse will show here.</p>
+              </div>
+            </div>
+            <div class="hero-family-mode-ages" aria-label="Live it out by age">
+              <div class="hero-family-mode-age-card">
+                <strong>Littles 5-7</strong>
+                <p id="tdbFamilyModeAgeLittles">A simple next step for littles will show here.</p>
+              </div>
+              <div class="hero-family-mode-age-card">
+                <strong>Middles 8-10</strong>
+                <p id="tdbFamilyModeAgeMiddles">A simple next step for middles will show here.</p>
+              </div>
+              <div class="hero-family-mode-age-card">
+                <strong>Older 11+</strong>
+                <p id="tdbFamilyModeAgeOlder">A simple next step for older kids will show here.</p>
+              </div>
+            </div>
+            <div class="hero-family-mode-links">
+              <button type="button" class="btn btn-secondary" id="tdbFamilyModeListen">Read this with kids</button>
+              <a class="btn btn-primary" id="tdbFamilyModeStory" href="/kids/corner.html">Matching story</a>
+              <a class="btn btn-secondary" id="tdbFamilyModeColor" href="/coloring.html">Color it</a>
+              <a class="btn btn-secondary" id="tdbFamilyModePrayerLink" href="/kids/prayer-activities.html">Prayer habit</a>
+              <a class="btn btn-secondary" id="tdbFamilyModeFamily" href="/family.html#family-daily-verse-root">Open Family hub</a>
+            </div>
+          </div>
+        </section>
         <p class="hero-daily-bread-line" role="text">Daily bread for today&mdash;one verse at a time.</p>
         <div class="en-hub-daily-companion" id="en-hub-daily-verse" lang="en" aria-labelledby="en-hub-daily-heading">
           <h2 class="en-hub-daily-companion-title" id="en-hub-daily-heading">Verse of the day — same rhythm as every hub</h2>
@@ -11993,6 +12138,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="word-study.js?v=20260329pass2off"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
+  <script nonce="tdb2025s" defer fetchpriority="low" src="family-verse-bridge.js?v=20260405familybridge1"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260411launch" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->

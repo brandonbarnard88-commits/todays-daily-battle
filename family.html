@@ -577,6 +577,43 @@
     .family-prayer-remove:focus-visible { color: var(--gold-soft); border-color: rgba(227, 188, 103, 0.4); outline: none; }
     .family-prayer-foot { font-size: 0.82rem; color: var(--muted); margin: 0.75rem 0 0; line-height: 1.45; }
     .family-prayer-foot a { color: var(--gold-soft); font-weight: 600; }
+    .family-dashboard-grid {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 0.9rem;
+    }
+    .family-dashboard-card {
+      border-radius: 16px;
+      padding: 0.95rem 1rem 1rem;
+      background: rgba(10, 14, 22, 0.52);
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      box-shadow: inset 0 1px 0 rgba(255, 248, 235, 0.04);
+    }
+    .family-dashboard-card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+    .family-dashboard-card p {
+      margin: 0 0 0.45rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: rgba(226, 232, 240, 0.94);
+    }
+    .family-dashboard-card strong { color: var(--gold-soft); }
+    .family-dashboard-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+    }
+    .family-dashboard-links a,
+    .family-dashboard-links button { min-height: 44px; }
+    @media (min-width: 760px) {
+      .family-dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
     .family-kids-tie { font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(227, 188, 103, 0.1); }
     .family-kids-tie a { color: var(--gold-soft); font-weight: 600; }
     @media (max-width: 430px) {
@@ -753,6 +790,49 @@
     </section>
 
     <p class="family-month-stat family-hub-animate family-hub-d2" id="family-month-stat" role="status" aria-live="polite"></p>
+
+    <section class="family-section-block family-hub-animate family-hub-d2" id="family-household-dashboard" aria-labelledby="family-dashboard-heading">
+      <h2 class="family-section-title" id="family-dashboard-heading">Family dashboard</h2>
+      <p class="section-lead">A local-first household snapshot: same device, no cloud required. Use it to see the next gentle step, not to build pressure.</p>
+      <div class="family-dashboard-grid">
+        <article class="family-dashboard-card">
+          <h3>Today&rsquo;s verse, family-sized</h3>
+          <p id="family-dashboard-verse-line">Waiting on today&rsquo;s family verse&hellip;</p>
+          <p id="family-dashboard-verse-step">One simple next step from today&rsquo;s verse will land here.</p>
+          <div class="family-dashboard-links">
+            <a class="btn btn-primary" id="family-dashboard-verse-link" href="#family-daily-verse-root">Open today&rsquo;s verse</a>
+            <button type="button" class="btn btn-secondary" id="family-dashboard-verse-speak">Read aloud</button>
+          </div>
+        </article>
+        <article class="family-dashboard-card">
+          <h3>Kids Battle on this device</h3>
+          <p id="family-dashboard-kids-line">Kids progress will show here when one story or streak starts.</p>
+          <p id="family-dashboard-kids-note">Stories, badges, and doodles stay mercy-first and local on this device.</p>
+          <div class="family-dashboard-links">
+            <a class="btn btn-secondary" href="kids/parent.html">Parent Dashboard</a>
+            <a class="btn btn-secondary" href="kids/corner.html">Story Library</a>
+          </div>
+        </article>
+        <article class="family-dashboard-card">
+          <h3>Prayer + journal shelf</h3>
+          <p id="family-dashboard-prayer-line">Household prayer and gratitude notes will show here.</p>
+          <p id="family-dashboard-journal-line">What God has done stays private unless you export or print it yourself.</p>
+          <div class="family-dashboard-links">
+            <a class="btn btn-secondary" href="#family-prayer-wall">Household prayer list</a>
+            <a class="btn btn-secondary" href="what-god-has-done.html">What God has done</a>
+          </div>
+        </article>
+        <article class="family-dashboard-card">
+          <h3>Next gentle family step</h3>
+          <p id="family-dashboard-plan-line">Your next family plan step will show here.</p>
+          <p id="family-dashboard-plan-note">If nothing is started yet, this will point you to the gentlest first path.</p>
+          <div class="family-dashboard-links">
+            <a class="btn btn-primary" id="family-dashboard-plan-link" href="plans.html?plan=familyworship">Start Family Worship</a>
+            <a class="btn btn-secondary" href="printables.html#print-kids-offline-kit">Offline kit</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <section class="family-verse-card family-hub-animate family-hub-d2" id="family-daily-verse-root" aria-labelledby="family-daily-verse-heading">
       <h2 id="family-daily-verse-heading">Today&rsquo;s family verse</h2>
@@ -1226,5 +1306,6 @@
   </script>
   <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
   <script src="kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
+  <script src="family-dashboard.js?v=20260405familydash1" defer></script>
 </body>
 </html>

@@ -3277,6 +3277,9 @@
   var randomBtn = document.getElementById('kids-library-random-btn');
   var pdfExportBtn = document.getElementById('pdf-export');
   var themeSelect = document.getElementById('kids-library-theme');
+  var ageSelect = document.getElementById('kids-library-age');
+  var lengthSelect = document.getElementById('kids-library-length');
+  var bookSelect = document.getElementById('kids-library-book');
   var storyMasterEl = document.getElementById('kids-library-story-master');
   var libraryCountEl = document.getElementById('kids-library-count');
   var prevStoryBtn = document.getElementById('kids-story-prev-btn');
@@ -3301,9 +3304,86 @@
   var kidsStorySpeakBtn = null;
   var readQuizRetryInflight = false;
 
+  function normalizeBibleBook(ref) {
+    var safe = tdbPlainTextForUi(ref || '');
+    if (!safe) return '';
+    var match = safe.match(/^((?:[1-3]\s+)?[A-Za-z]+(?:\s+[A-Za-z]+)?)\s+\d/);
+    return match ? tdbPlainTextForUi(match[1]) : '';
+  }
+
+  function storyLengthBand(s) {
+    var panels = Array.isArray(s && s.panels) ? s.panels.length : 0;
+    var narration = s && s.narration ? String(s.narration).trim() : '';
+    var words = narration ? narration.split(/\s+/).length : 0;
+    if (words <= 55 && panels <= 2) return { key: 'quick', label: 'Quick read' };
+    if (words <= 150 && panels <= 5) return { key: 'medium', label: 'Read-along' };
+    return { key: 'long', label: 'Longer read' };
+  }
+
+  function storyAgeBand(key, s, theme) {
+    var title = tdbPlainTextForUi((s && s.title) || key).toLowerCase();
+    var ref = normalizeBibleBook((s && s.kjvRef) || '').toLowerCase();
+    var themeLower = String(theme || '').toLowerCase();
+    if (
+      /creation|noah|jonah|david|daniel|zacchaeus|children|good shepherd|lost sheep|good samaritan|feeding|storm|baby moses|jesus/.test(title) ||
+      (themeLower === 'love' && !/romans|corinthians|galatians|ephesians|revelation/.test(ref))
+    ) {
+      return { key: 'littles', label: 'Littles 5-7' };
+    }
+    if (
+      /revelation|paul|stephen|pharisee|talents|persistent widow|transfiguration|great commission|rich young ruler|armor|commandments/.test(title) ||
+      /romans|corinthians|galatians|ephesians|philippians|colossians|thessalonians|timothy|hebrews|james|peter|jude|revelation/.test(ref)
+    ) {
+      return { key: 'older', label: 'Older 11+' };
+    }
+    return { key: 'middles', label: 'Middles 8-10' };
+  }
+
+  function storyMeta(key, s, themes) {
+    var theme = themes[key] || '';
+    return {
+      age: storyAgeBand(key, s, theme),
+      length: storyLengthBand(s),
+      book: normalizeBibleBook((s && s.kjvRef) || ''),
+      theme: theme,
+      hasAudio: !!(s && s.narration && String(s.narration).trim())
+    };
+  }
+
+  function populateBookFilterOptions() {
+    if (!bookSelect) return;
+    var stories = getStories();
+    var keys = getStoryKeys();
+    var books = [];
+    var seen = {};
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+      var s = stories[key];
+      var book = normalizeBibleBook(s && s.kjvRef);
+      if (!book || seen[book]) continue;
+      seen[book] = 1;
+      books.push(book);
+    }
+    books.sort(function (a, b) { return a.localeCompare(b); });
+    for (var j = 0; j < books.length; j++) {
+      var opt = document.createElement('option');
+      opt.value = books[j];
+      opt.textContent = books[j];
+      bookSelect.appendChild(opt);
+    }
+  }
+
+  function selectedFilterLabel(selectEl) {
+    if (!selectEl || !selectEl.options || selectEl.selectedIndex < 0) return '';
+    return tdbPlainTextForUi(selectEl.options[selectEl.selectedIndex].textContent || '');
+  }
+
   function applyQuickStoryFilter(query, theme, label) {
     if (searchInput) searchInput.value = String(query || '');
     if (themeSelect) themeSelect.value = String(theme || '');
+    if (ageSelect) ageSelect.value = '';
+    if (lengthSelect) lengthSelect.value = '';
+    if (bookSelect) bookSelect.value = '';
     renderGrid(applyFilters());
     if (quickFilterStatusEl) {
       if (!query && !theme) {
@@ -4907,10 +4987,17 @@
     var qRaw = (query || '').trim();
     var qLower = qRaw.toLowerCase();
     var themeVal = (theme || '').trim();
+    var ageVal = ageSelect ? String(ageSelect.value || '').trim() : '';
+    var lengthVal = lengthSelect ? String(lengthSelect.value || '').trim() : '';
+    var bookVal = bookSelect ? String(bookSelect.value || '').trim() : '';
     var themed = keys.filter(function (key) {
       var s = stories[key];
       if (!s) return false;
       if (themeVal && themes[key] !== themeVal) return false;
+      var meta = storyMeta(key, s, themes);
+      if (ageVal && meta.age.key !== ageVal) return false;
+      if (lengthVal && meta.length.key !== lengthVal) return false;
+      if (bookVal && meta.book !== bookVal) return false;
       return true;
     });
     if (!qRaw) return themed;
@@ -4947,6 +5034,7 @@
 
   function renderGrid(keys) {
     var stories = getStories();
+    var themes = getStoryThemes();
     if (!grid) return;
     currentVisibleKeys = Array.isArray(keys) ? keys.slice() : [];
     tdbClearHtml(grid);
@@ -4960,6 +5048,8 @@
       var plainTitle = tdbPlainTextForUi(s.title || key);
       var altRaw = panels[0] && panels[0].alt != null ? String(panels[0].alt) : String(s.title || key);
       var plainAlt = tdbPlainTextForUi(altRaw);
+      var meta = storyMeta(key, s, themes);
+      var descText = tdbPlainTextForUi((s.caption || (s.kidContext && s.kidContext.apply) || '').trim());
 
       var card = document.createElement('div');
       card.className = 'kids-library-card';
@@ -4973,6 +5063,23 @@
       titleSpan.className = 'kids-library-card-title';
       titleSpan.textContent = plainTitle;
       card.appendChild(titleSpan);
+
+      var metaRow = document.createElement('div');
+      metaRow.className = 'kids-library-card-meta';
+      [meta.age.label, meta.length.label, meta.book || 'Bible story', meta.hasAudio ? 'Read aloud' : 'Read quietly'].forEach(function (label) {
+        var chip = document.createElement('span');
+        chip.className = 'kids-library-meta-chip';
+        chip.textContent = label;
+        metaRow.appendChild(chip);
+      });
+      card.appendChild(metaRow);
+
+      if (descText) {
+        var desc = document.createElement('p');
+        desc.className = 'kids-library-card-desc';
+        desc.textContent = descText;
+        card.appendChild(desc);
+      }
 
       var btnRow = document.createElement('div');
       btnRow.style.display = 'flex';
@@ -5021,9 +5128,15 @@
     var shown = Number(visibleCount || 0);
     var query = searchInput ? String(searchInput.value || '').trim() : '';
     var theme = themeSelect ? String(themeSelect.value || '').trim() : '';
+    var age = ageSelect ? String(ageSelect.value || '').trim() : '';
+    var length = lengthSelect ? String(lengthSelect.value || '').trim() : '';
+    var book = bookSelect ? String(bookSelect.value || '').trim() : '';
     var context = [];
     if (query) context.push('search: "' + query + '"');
     if (theme) context.push('theme: ' + theme);
+    if (age) context.push('age: ' + selectedFilterLabel(ageSelect));
+    if (length) context.push('length: ' + selectedFilterLabel(lengthSelect));
+    if (book) context.push('book: ' + selectedFilterLabel(bookSelect));
     libraryCountEl.textContent = 'Showing ' + shown + ' of ' + total + ' Bible stories' + (context.length ? ' (' + context.join(' • ') + ')' : '') + '.';
   }
 
@@ -5037,6 +5150,41 @@
       return;
     }
     el.textContent = total + ' titles in this PDF • full library (ignores search/filter)';
+  }
+
+  function buildLiveItOutCards(key, storyObj, pack) {
+    var wrap = document.createElement('div');
+    wrap.className = 'kids-live-it-out';
+    wrap.setAttribute('aria-label', 'Live it out for different ages');
+    var apply = tdbPlainTextForUi((storyObj && storyObj.kidContext && storyObj.kidContext.apply) || (pack && pack.takeaway) || '');
+    var prayer = tdbPlainTextForUi((pack && pack.prayer) || '');
+    var storyTitle = tdbPlainTextForUi((storyObj && storyObj.title) || key || 'this story');
+    var cards = [
+      {
+        label: 'Littles 5-7',
+        text: (apply || 'Hold the big truth in one simple line.') + ' Then draw one part of ' + storyTitle + ' and say one thank-You prayer.'
+      },
+      {
+        label: 'Middles 8-10',
+        text: 'Tell a grown-up what happened in ' + storyTitle + ', then choose one small act of obedience or kindness to do before bed.'
+      },
+      {
+        label: 'Older 11+',
+        text: 'Say what this story shows you about God, where it meets real life, and answer it with one honest step today.' + (prayer ? ' Prayer idea: ' + prayer : '')
+      }
+    ];
+    for (var i = 0; i < cards.length; i++) {
+      var card = document.createElement('div');
+      card.className = 'kids-live-it-out-card';
+      var strong = document.createElement('strong');
+      strong.textContent = cards[i].label;
+      var body = document.createElement('p');
+      body.textContent = cards[i].text;
+      card.appendChild(strong);
+      card.appendChild(body);
+      wrap.appendChild(card);
+    }
+    return wrap;
   }
 
   function updateDocumentStoryMeta(storyKey, storyObj) {
@@ -5184,6 +5332,10 @@
     if (modalContext) {
       var ctx = s.kidContext;
       var ref = s.kjvRef;
+      var pack = (window.TDB_KIDS_READ_QUIZ || {})[key];
+      if (!pack || !pack.questions || !pack.questions.length) {
+        pack = buildRuntimeReadQuizPack(key);
+      }
       tdbClearHtml(modalContext);
       if (ctx && (ctx.who || ctx.to || ctx.apply)) {
         if (ctx.who) {
@@ -5209,6 +5361,7 @@
         pr.textContent = tdbPlainTextForUi(ref);
         modalContext.appendChild(pr);
       }
+      modalContext.appendChild(buildLiveItOutCards(key, s, pack));
       if (modalContext.childNodes.length) {
         modalContext.classList.remove('hidden');
       } else {
@@ -5667,6 +5820,7 @@
         pendingStoryUrlParam = String(storyParamRaw).trim();
       }
     } catch (e) {}
+    populateBookFilterOptions();
     renderGrid(applyFilters());
     if (pendingStoryUrlParam) {
       var deepTries = 0;
@@ -5838,6 +5992,13 @@
         scheduleLibrarySearchSuggest();
       });
     }
+    [ageSelect, lengthSelect, bookSelect].forEach(function (selectEl) {
+      if (!selectEl) return;
+      selectEl.addEventListener('change', function () {
+        renderGrid(applyFilters());
+        scheduleLibrarySearchSuggest();
+      });
+    });
 
     var quickFilterButtons = document.querySelectorAll('.kids-story-quick-filter');
     if (quickFilterButtons && quickFilterButtons.length) {

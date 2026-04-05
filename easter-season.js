@@ -44,6 +44,45 @@
     return now >= start && now <= end;
   }
 
+  function isEasterSunday(when) {
+    var now = when ? new Date(when) : new Date();
+    now.setHours(12, 0, 0, 0);
+    var sun = easterSunday(now.getFullYear());
+    sun.setHours(12, 0, 0, 0);
+    return now.getTime() === sun.getTime();
+  }
+
+  function resetBannerCopy(banner) {
+    if (!banner || banner.getAttribute('data-easter-copy-reset') === '1') return;
+    var eyebrow = banner.querySelector('.easter-banner-eyebrow, .easter-banner-vod-eyebrow');
+    var body = banner.querySelector('.easter-banner-body, .easter-banner-vod-body');
+    if (eyebrow) banner.setAttribute('data-easter-copy-default-eyebrow', eyebrow.textContent || '');
+    if (body) banner.setAttribute('data-easter-copy-default-body', body.innerHTML || '');
+    banner.setAttribute('data-easter-copy-reset', '1');
+  }
+
+  function applyEasterSundayCopy(banner) {
+    if (!banner) return;
+    resetBannerCopy(banner);
+    var eyebrow = banner.querySelector('.easter-banner-eyebrow, .easter-banner-vod-eyebrow');
+    var body = banner.querySelector('.easter-banner-body, .easter-banner-vod-body');
+    if (eyebrow) eyebrow.textContent = 'Happy Easter';
+    if (body) {
+      body.innerHTML = 'He is risen. Today, open <a href="he-is-risen.html">He is risen</a> for short KJV readings, or walk through <a href="plans.html?plan=easter">Resurrection Hope</a> at a gentle pace. <a href="seasonal.html">Seasonal paths</a>.';
+    }
+  }
+
+  function restoreDefaultCopy(banner) {
+    if (!banner) return;
+    resetBannerCopy(banner);
+    var eyebrow = banner.querySelector('.easter-banner-eyebrow, .easter-banner-vod-eyebrow');
+    var body = banner.querySelector('.easter-banner-body, .easter-banner-vod-body');
+    var defaultEyebrow = banner.getAttribute('data-easter-copy-default-eyebrow');
+    var defaultBody = banner.getAttribute('data-easter-copy-default-body');
+    if (eyebrow && defaultEyebrow != null) eyebrow.textContent = defaultEyebrow;
+    if (body && defaultBody != null) body.innerHTML = defaultBody;
+  }
+
   function hideBanner(banner) {
     banner.classList.add('hidden');
     banner.setAttribute('hidden', '');
@@ -76,6 +115,8 @@
     var banner = document.getElementById(bannerId);
     var dismiss = dismissId ? document.getElementById(dismissId) : null;
     if (!banner) return;
+    if (isEasterSunday()) applyEasterSundayCopy(banner);
+    else restoreDefaultCopy(banner);
 
     if (!inEasterWindow() || (typeof global.localStorage !== 'undefined' && global.localStorage.getItem(key) === '1')) {
       hideBanner(banner);
@@ -98,6 +139,7 @@
 
   global.TDB_EASTER_SEASON = {
     easterSunday: easterSunday,
+    isEasterSunday: isEasterSunday,
     inEasterWindow: inEasterWindow,
     initEasterBanner: initEasterBanner,
     DEFAULT_STORAGE_KEY: DEFAULT_KEY

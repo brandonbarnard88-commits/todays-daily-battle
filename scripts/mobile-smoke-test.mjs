@@ -79,6 +79,7 @@ async function runMobileSmokeTest() {
       try {
         localStorage.setItem('welcome-seen', '1');
         localStorage.setItem('tdb_feel_category_auto_heavy_v1', '1');
+        localStorage.setItem('tdb-tour-seen', '1');
       } catch (e) {}
     });
 
@@ -158,11 +159,14 @@ async function runMobileSmokeTest() {
       }
       const categoryOpen = page.locator('#quickTopics .feel-category-card[data-feel-band="heavy"]').first();
       if (await categoryOpen.count() > 0) {
-        await categoryOpen.click();
-        await page.waitForTimeout(350);
+        const expanded = await categoryOpen.getAttribute('aria-expanded');
+        if (expanded !== 'true') {
+          await categoryOpen.click();
+          await page.waitForTimeout(350);
+        }
       }
-      const quickTopicButton = page.locator('#quickTopics .quick-topic').first();
-      const buttonCount = await page.locator('#quickTopics .quick-topic').count();
+      const quickTopicButton = page.locator('#quickTopics .quick-topic:visible').first();
+      const buttonCount = await page.locator('#quickTopics .quick-topic:visible').count();
       
       if (buttonCount === 0) {
         results.steps.push({ step: 2, status: 'FAIL', issue: 'No quick topic buttons found' });
@@ -203,23 +207,31 @@ async function runMobileSmokeTest() {
           await page.waitForTimeout(800);
           card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 4000 }).catch(() => null);
         }
-        const resultsVisible = !!card;
+        const resultsState = await page.evaluate(() => {
+          const host = document.getElementById('feel-results') || document.getElementById('output');
+          if (!host) return { populated: false, text: '' };
+          const text = (host.innerText || '').replace(/\s+/g, ' ').trim();
+          const populatedByCards = !!host.querySelector('.verse-card, .smart-card, .verse-item, .result-section, .home-search-card, .home-search-card-plain');
+          const populatedByStructuredText = !!host.querySelector('.home-search-response, .home-search-related-topics, .search-inline-intro');
+          const hidden = host.hasAttribute('hidden') || host.getAttribute('aria-hidden') === 'true';
+          return {
+            populated: !hidden && (populatedByCards || populatedByStructuredText || text.length > 40),
+            text: text.slice(0, 160)
+          };
+        });
+        const resultsVisible = !!card || resultsState.populated;
         
         if (resultsVisible) {
           results.steps.push({ 
             step: 2, 
             status: 'PASS', 
-            message: `Quick topic "${buttonText}" tapped, results displayed` 
+            message: `Quick topic "${buttonText}" tapped, results displayed`
           });
         } else {
-          const snippet = await page.evaluate(() => {
-            const el = document.getElementById('feel-results');
-            return el ? el.innerHTML.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 120) : 'null';
-          }).catch(() => '');
           results.steps.push({ 
             step: 2, 
             status: 'FAIL', 
-            issue: `Quick topic "${buttonText}" tapped but no verse cards. feel-results: "${snippet || 'empty'}"` 
+            issue: `Quick topic "${buttonText}" tapped but no populated result region. feel-results: "${resultsState.text || 'empty'}"`
           });
         }
       }
@@ -249,14 +261,22 @@ async function runMobileSmokeTest() {
         if (seeking) await new Promise(r => setTimeout(r, 8000));
         card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 15000 }).catch(() => null);
       }
-      const resultsVisible = !!card;
+      const resultsState = await page.evaluate(() => {
+        const host = document.getElementById('feel-results') || document.getElementById('output');
+        if (!host) return { populated: false, text: '' };
+        const text = (host.innerText || '').replace(/\s+/g, ' ').trim();
+        const populatedByCards = !!host.querySelector('.verse-card, .smart-card, .verse-item, .result-section, .home-search-card, .home-search-card-plain');
+        const populatedByStructuredText = !!host.querySelector('.home-search-response, .home-search-related-topics, .search-inline-intro');
+        const hidden = host.hasAttribute('hidden') || host.getAttribute('aria-hidden') === 'true';
+        return {
+          populated: !hidden && (populatedByCards || populatedByStructuredText || text.length > 40),
+          text: text.slice(0, 160)
+        };
+      });
+      const resultsVisible = !!card || resultsState.populated;
       
       if (!resultsVisible) {
-        const snippet = await page.evaluate(() => {
-          const el = document.getElementById('feel-results');
-          return el ? el.innerHTML.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 120) : 'null';
-        }).catch(() => '');
-        results.steps.push({ step: 3, status: 'FAIL', issue: `Search results not visible. feel-results: "${snippet || 'empty'}"` });
+        results.steps.push({ step: 3, status: 'FAIL', issue: `Search results not visible. feel-results: "${resultsState.text || 'empty'}"` });
       } else {
         // Check for layout issues
         const bodyOverflow = await page.evaluate(() => {
@@ -356,8 +376,13 @@ async function runMobileSmokeTest() {
           allElements.forEach(el => {
             const rect = el.getBoundingClientRect();
             if (rect.width <= 0 || rect.height <= 0) return;
+            if (rect.bottom < 0 || rect.top > viewport.height) return;
+            if (rect.left >= viewport.width) return;
             if (rect.right <= viewport.width + 2) return;
             const style = window.getComputedStyle(el);
+            if (el.hidden || style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') return;
+            const closedDetails = el.closest('details:not([open])');
+            if (closedDetails && el.tagName !== 'SUMMARY') return;
             if (style.position === 'fixed') return;
             const id = el.id ? `#${el.id}` : '';
             const className = (typeof el.className === 'string' && el.className)

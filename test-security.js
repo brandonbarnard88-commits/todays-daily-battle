@@ -40,7 +40,7 @@ function walkJsFiles(dir, out) {
     const name = entry.name;
     const full = path.join(dir, name);
     if (entry.isDirectory()) {
-      if (name === 'node_modules' || name === '.git' || name === '.cursor' || name === 'dist' || name === 'playwright-report' || name === 'test-results') continue;
+      if (name === 'node_modules' || name === '.git' || name === '.cursor' || name === 'dist' || name === 'playwright-report' || name === 'test-results' || name === '.pw-browsers') continue;
       walkJsFiles(full, out);
       continue;
     }

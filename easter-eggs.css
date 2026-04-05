@@ -90,3 +90,10 @@
 @keyframes easter-badge-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 a.easter-egg-badge { text-decoration: none; color: inherit; }
 a.easter-egg-badge:hover { text-decoration: underline; opacity: 1; }
+.easter-inline-note { margin-top: 0.75rem; padding: 0.7rem 0.9rem; border-radius: 12px; border: 1px solid rgba(227,188,103,0.25); background: rgba(227,188,103,0.08); color: var(--gold-soft); font-size: 0.92rem; line-height: 1.5; }
+.easter-secret-panel { margin-top: 1rem; padding: 1rem 1.1rem; border: 1px solid rgba(227,188,103,0.28); border-radius: 14px; background: rgba(8,12,24,0.78); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+.easter-secret-panel strong { display: block; color: var(--gold); margin-bottom: 0.35rem; }
+.easter-secret-panel p { margin: 0; color: var(--text); line-height: 1.55; }
+.easter-home-ribbon-glow { box-shadow: 0 0 0 1px rgba(227,188,103,0.45), 0 0 20px rgba(227,188,103,0.18) !important; transition: box-shadow 0.3s ease; }
+.easter-midnight-watch { background: linear-gradient(180deg, rgba(86, 114, 184, 0.18) 0%, rgba(12, 20, 44, 0.06) 42%, transparent 100%) !important; transition: background 0.5s ease; }
+.easter-legendary-mode { filter: saturate(1.05) brightness(1.04); transition: filter 0.5s ease; }

@@ -62,6 +62,396 @@
     else el.innerHTML = html;
   }
 
+  var EGG_STATE_KEY = 'tdb_eg_seen_v1';
+  var EGG_COUNTS_KEY = 'tdb_eg_counts_v1';
+  var EGG_LAST_VISIT_KEY = 'tdb_eg_last_visit_v1';
+  var EGG_SEARCH_HISTORY_KEY = 'tdb_eg_search_history_v1';
+  var EGG_ROUTE_CHAIN_KEY = 'tdb_eg_route_chain_v1';
+  var EGG_SESSION_KEY = 'tdb_eg_session_v1';
+  var EGG_FAMILY_MODE_DAYS_KEY = 'tdb_eg_family_mode_days_v1';
+  var EGG_PRAYER_ACTIONS_KEY = 'tdb_eg_prayer_actions_v1';
+  var EGG_STUDY_SAVES_KEY = 'tdb_eg_study_session_saves_v1';
+  var EGG_ARMOR_PROGRESS_KEY = 'tdb_eg_armor_progress_v1';
+  var EGG_LAST_HOME_RIBBON_KEY = 'tdb_eg_home_ribbon_seen_v1';
+  var HOME_PAGE_IDS = ['home', 'calm', 'prayer', 'plans', 'mystudy', 'family', 'kids', 'explore'];
+  var QUIET_ROUTE_PHRASE = 'show the quiet paths';
+  var LEGENDARY_PHRASE = 'we battle he wins';
+
+  function storageAvailable(kind) {
+    try {
+      var box = kind === 'session' ? sessionStorage : localStorage;
+      var key = '__tdb_egg_probe__';
+      box.setItem(key, '1');
+      box.removeItem(key);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function readJson(key, fallback, kind) {
+    try {
+      var box = kind === 'session' ? sessionStorage : localStorage;
+      var raw = box.getItem(key);
+      if (!raw) return fallback;
+      var parsed = JSON.parse(raw);
+      return parsed && typeof parsed === 'object' ? parsed : fallback;
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  function writeJson(key, value, kind) {
+    try {
+      var box = kind === 'session' ? sessionStorage : localStorage;
+      box.setItem(key, JSON.stringify(value));
+    } catch (e) {}
+  }
+
+  function pageIdForPath(pathname) {
+    var path = String(pathname || window.location.pathname || '').toLowerCase();
+    if (!path || path === '/' || path === '/index.html') return 'home';
+    if (path.indexOf('calm') !== -1) return 'calm';
+    if (path.indexOf('prayer-wall') !== -1 || path.indexOf('message') !== -1) return 'prayer';
+    if (path.indexOf('mystudy') !== -1) return 'mystudy';
+    if (path.indexOf('explore') !== -1) return 'explore';
+    if (path.indexOf('family-armor') !== -1) return 'familyArmor';
+    if (path.indexOf('family') !== -1) return 'family';
+    if (path.indexOf('coloring') !== -1) return 'coloring';
+    if (path.indexOf('/kids/corner') !== -1 || path.indexOf('kids/corner') !== -1) return 'kidsLibrary';
+    if (path.indexOf('/kids/') !== -1 || path.indexOf('/kids') !== -1) return 'kids';
+    if (path.indexOf('plans') !== -1) return 'plans';
+    if (path.indexOf('mobius') !== -1) return 'mobius';
+    if (path.indexOf('verse') !== -1) return 'verse';
+    if (path.indexOf('contact') !== -1) return 'contact';
+    return 'other';
+  }
+
+  function getEggState() {
+    return readJson(EGG_STATE_KEY, {}, 'local');
+  }
+
+  function setEggSeen(id, meta) {
+    var state = getEggState();
+    if (state[id]) return false;
+    state[id] = Object.assign({ seenAt: new Date().toISOString() }, meta || {});
+    writeJson(EGG_STATE_KEY, state, 'local');
+    return true;
+  }
+
+  function hasEggSeen(id) {
+    var state = getEggState();
+    return !!state[id];
+  }
+
+  function getSessionEggState() {
+    return readJson(EGG_SESSION_KEY, {}, 'session');
+  }
+
+  function setSessionEggSeen(id) {
+    var state = getSessionEggState();
+    if (state[id]) return false;
+    state[id] = Date.now();
+    writeJson(EGG_SESSION_KEY, state, 'session');
+    return true;
+  }
+
+  function hasSessionEggSeen(id) {
+    var state = getSessionEggState();
+    return !!state[id];
+  }
+
+  function bumpCount(key, step) {
+    var counts = readJson(EGG_COUNTS_KEY, {}, 'local');
+    counts[key] = Number(counts[key] || 0) + Number(step || 1);
+    writeJson(EGG_COUNTS_KEY, counts, 'local');
+    return counts[key];
+  }
+
+  function setCount(key, value) {
+    var counts = readJson(EGG_COUNTS_KEY, {}, 'local');
+    counts[key] = value;
+    writeJson(EGG_COUNTS_KEY, counts, 'local');
+  }
+
+  function normalizePhrase(raw) {
+    return String(raw || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  }
+
+  function trackEgg(eventName, payload) {
+    try {
+      if (typeof window.trackEvent === 'function') {
+        window.trackEvent(eventName, payload || {});
+      }
+    } catch (e) {}
+  }
+
+  function registerEgg(id, opts) {
+    opts = opts || {};
+    var tier = opts.tier || 'quick';
+    var page = opts.page || pageIdForPath();
+    var triggerType = opts.triggerType || 'manual';
+    var sessionOnly = opts.sessionOnly === true;
+    var isRepeat = 0;
+    if (sessionOnly) {
+      if (!setSessionEggSeen(id)) return false;
+    } else {
+      if (!setEggSeen(id, { tier: tier, page: page })) {
+        isRepeat = 1;
+        if (opts.allowRepeat !== true) return false;
+      }
+    }
+    trackEgg('easter_egg_triggered', {
+      egg_id: id,
+      egg_tier: tier,
+      page: page,
+      trigger_type: triggerType,
+      session_only: sessionOnly ? 1 : 0,
+      is_repeat: isRepeat
+    });
+    try {
+      document.dispatchEvent(new CustomEvent('tdb:egg-triggered', {
+        detail: { id: id, shown: true, tier: tier, page: page }
+      }));
+    } catch (e) {}
+    try { markEggTriggered(); } catch (e2) {}
+    return true;
+  }
+
+  function markEggAction(id, page, triggerType) {
+    trackEgg('easter_egg_action_taken', {
+      egg_id: id,
+      egg_tier: 'interaction',
+      page: page || pageIdForPath(),
+      trigger_type: triggerType || 'action'
+    });
+  }
+
+  function createToast(message, className, duration) {
+    var toast = document.createElement('div');
+    toast.className = className || 'easter-triple-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(function () {
+      toast.classList.add('easter-triple-fade');
+      setTimeout(function () { if (toast.parentNode) toast.remove(); }, 450);
+    }, duration || 3800);
+    return toast;
+  }
+
+  function addInlineNote(parent, id, text, className) {
+    if (!parent) return null;
+    var existing = document.getElementById(id);
+    if (existing) {
+      existing.textContent = text;
+      return existing;
+    }
+    var note = document.createElement('p');
+    note.id = id;
+    note.className = className || 'easter-inline-note';
+    note.textContent = text;
+    parent.appendChild(note);
+    return note;
+  }
+
+  function recordSearchTerm(term) {
+    var value = normalizePhrase(term);
+    if (!value) return;
+    var history = readJson(EGG_SEARCH_HISTORY_KEY, [], 'session');
+    history.push(value);
+    if (history.length > 8) history = history.slice(history.length - 8);
+    writeJson(EGG_SEARCH_HISTORY_KEY, history, 'session');
+  }
+
+  function matchesRecentTerms(sequence) {
+    var history = readJson(EGG_SEARCH_HISTORY_KEY, [], 'session');
+    if (!Array.isArray(history) || history.length < sequence.length) return false;
+    var start = history.length - sequence.length;
+    for (var i = 0; i < sequence.length; i++) {
+      if (history[start + i] !== sequence[i]) return false;
+    }
+    return true;
+  }
+
+  function recordRouteVisit(pageId) {
+    if (!pageId) return;
+    var chain = readJson(EGG_ROUTE_CHAIN_KEY, [], 'session');
+    chain.push(pageId);
+    if (chain.length > 16) chain = chain.slice(chain.length - 16);
+    writeJson(EGG_ROUTE_CHAIN_KEY, chain, 'session');
+    var visits = readJson(EGG_LAST_VISIT_KEY, {}, 'local');
+    visits[pageId] = new Date().toISOString();
+    writeJson(EGG_LAST_VISIT_KEY, visits, 'local');
+  }
+
+  function routeEndsWith(sequence) {
+    var chain = readJson(EGG_ROUTE_CHAIN_KEY, [], 'session');
+    if (!Array.isArray(chain) || chain.length < sequence.length) return false;
+    var start = chain.length - sequence.length;
+    for (var i = 0; i < sequence.length; i++) {
+      if (chain[start + i] !== sequence[i]) return false;
+    }
+    return true;
+  }
+
+  function wasLastVisitOlderThan(pageId, days) {
+    var visits = readJson(EGG_LAST_VISIT_KEY, {}, 'local');
+    var iso = visits[pageId];
+    if (!iso) return false;
+    var when = new Date(iso).getTime();
+    if (!when) return false;
+    return Date.now() - when >= days * 86400000;
+  }
+
+  function currentDayKey() {
+    var now = new Date();
+    return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+  }
+
+  function rememberDistinctDay(key, storeKey) {
+    var data = readJson(storeKey, [], 'local');
+    if (!Array.isArray(data)) data = [];
+    if (data.indexOf(key) === -1) data.push(key);
+    writeJson(storeKey, data, 'local');
+    return data.length;
+  }
+
+  function getRandomPlanHref() {
+    var hrefs = [];
+    document.querySelectorAll('a[href*="plans.html?plan="]').forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      if (href && hrefs.indexOf(href) === -1) hrefs.push(href);
+    });
+    if (!hrefs.length) {
+      hrefs = [
+        '/plans.html?plan=familyworship',
+        '/plans.html?plan=peace',
+        '/plans.html?plan=hope',
+        '/plans.html?plan=lordsprayer-kids',
+        '/plans.html?plan=beatitudes-kids'
+      ];
+    }
+    return hrefs[Math.floor(Math.random() * hrefs.length)];
+  }
+
+  function wireLongPress(el, holdMs, callback) {
+    if (!el || el.getAttribute('data-tdb-longpress') === '1') return;
+    el.setAttribute('data-tdb-longpress', '1');
+    var timer = null;
+    function clear() {
+      if (timer) clearTimeout(timer);
+      timer = null;
+    }
+    function start(event) {
+      clear();
+      timer = setTimeout(function () {
+        timer = null;
+        callback(event);
+      }, holdMs || 550);
+    }
+    el.addEventListener('mousedown', start);
+    el.addEventListener('touchstart', start, { passive: true });
+    ['mouseup', 'mouseleave', 'touchend', 'touchcancel'].forEach(function (type) {
+      el.addEventListener(type, clear, { passive: true });
+    });
+  }
+
+  function revealQuietRoutes() {
+    var host = document.getElementById('explore-quick-doors') || document.querySelector('.explore-page');
+    if (!host) return false;
+    var note = document.getElementById('tdb-egg-quiet-routes');
+    if (!note) {
+      note = document.createElement('div');
+      note.id = 'tdb-egg-quiet-routes';
+      note.className = 'easter-secret-panel';
+      setHtml(note, '<strong>Quiet paths</strong><p>Try one of these calm routes: Home → Calm → Prayer, or Home → Battle Plans → My Study, or Kids → Family → Printables for a lighter household rhythm.</p>');
+      host.appendChild(note);
+    }
+    note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return true;
+  }
+
+  function handleSecretPhrase(raw) {
+    var phrase = normalizePhrase(raw);
+    if (!phrase) return false;
+    if (phrase === QUIET_ROUTE_PHRASE && pageIdForPath() === 'explore') {
+      if (!registerEgg('exploreQuietPathsPhrase', { tier: 'discovery', page: 'explore', triggerType: 'phrase' })) return false;
+      revealQuietRoutes();
+      createToast('Here are the quiet paths through the site.', 'easter-triple-toast', 4200);
+      trackEgg('easter_egg_phrase_unlock', { egg_id: 'exploreQuietPathsPhrase', page: 'explore', trigger_type: 'phrase' });
+      return true;
+    }
+    if (phrase === LEGENDARY_PHRASE) {
+      if (!registerEgg('legendaryPhraseWeBattleHeWins', { tier: 'legendary', page: pageIdForPath(), triggerType: 'phrase', sessionOnly: true })) return false;
+      document.body.classList.add('easter-legendary-mode');
+      setTimeout(function () { document.body.classList.remove('easter-legendary-mode'); }, 6000);
+      createToast('Legendary mode unlocked for this session. Grace was here first.', 'easter-triple-toast easter-toast-large', 5200);
+      trackEgg('easter_egg_phrase_unlock', { egg_id: 'legendaryPhraseWeBattleHeWins', page: pageIdForPath(), trigger_type: 'phrase' });
+      return true;
+    }
+    return false;
+  }
+
+  function initPhraseListener() {
+    if (document.body.getAttribute('data-tdb-phrase-listener') === '1') return;
+    document.body.setAttribute('data-tdb-phrase-listener', '1');
+    var buffer = '';
+    var lastTypeAt = 0;
+    document.addEventListener('keydown', function (e) {
+      if (!enabled()) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      var target = e.target;
+      var isField = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable);
+      if (isField) return;
+      if (typeof e.key !== 'string' || e.key.length !== 1) return;
+      var now = Date.now();
+      if (now - lastTypeAt > 2500) buffer = '';
+      lastTypeAt = now;
+      buffer = (buffer + e.key.toLowerCase()).slice(-48);
+      if (buffer.indexOf(QUIET_ROUTE_PHRASE) !== -1) {
+        buffer = '';
+        handleSecretPhrase(QUIET_ROUTE_PHRASE);
+      } else if (buffer.indexOf(LEGENDARY_PHRASE) !== -1) {
+        buffer = '';
+        handleSecretPhrase(LEGENDARY_PHRASE);
+      }
+    });
+  }
+
+  function bindEasterEngineApi() {
+    window.TDBEasterEggs = window.TDBEasterEggs || {};
+    window.TDBEasterEggs.trigger = function (eggId, payload) {
+      var page = pageIdForPath();
+      var opts = payload || {};
+      if (!registerEgg(String(eggId || 'customEgg'), {
+        tier: opts.tier || 'interaction',
+        page: opts.page || page,
+        triggerType: opts.triggerType || 'event',
+        sessionOnly: opts.sessionOnly === true,
+        allowRepeat: opts.allowRepeat === true
+      })) return false;
+      if (opts.message) createToast(String(opts.message), 'easter-triple-toast', opts.duration || 3400);
+      return true;
+    };
+    window.TDBEasterEggs.maybeActionEgg = function (action, payload) {
+      if (action === 'note_saved') {
+        markEggAction('note_saved', pageIdForPath(), 'event');
+        return true;
+      }
+      return false;
+    };
+    try {
+      var queue = Array.isArray(window.__tdbEggQueue) ? window.__tdbEggQueue.slice() : [];
+      window.__tdbEggQueue = [];
+      queue.forEach(function (item) {
+        if (!item || !item.id) return;
+        window.TDBEasterEggs.trigger(item.id, item.payload || {});
+      });
+    } catch (e) {}
+  }
+
   var PRAISE_VERSES = [
     { ref: 'Psalm 150:6', text: 'Let every thing that hath breath praise the LORD. Praise ye the LORD.' },
     { ref: 'Revelation 19:6', text: 'Alleluia: for the Lord God omnipotent reigneth.' },
@@ -73,6 +463,10 @@
   function initIndex() {
     wrapRunSearch();
     if (!enabled() || !document.getElementById('verseCard')) return;
+    wireHomeBattlePlanEgg();
+    wireHomeHeroRefTripleTap();
+    wireHomeDaypartEggs();
+    wireFamilyModeHomeEgg();
 
     // 1. 7 clicks on verse ref (reset daily)
     var heroRef = document.getElementById('heroRef');
@@ -105,6 +499,84 @@
         wrap.classList.add('easter-seven-fade');
         setTimeout(function () { wrap.remove(); }, 400);
       }, 4000);
+    }
+
+    function wireHomeHeroRefTripleTap() {
+      var heroRefEl = document.getElementById('heroRef');
+      if (!heroRefEl || heroRefEl.getAttribute('data-tdb-hero-ref-tapped') === '1') return;
+      heroRefEl.setAttribute('data-tdb-hero-ref-tapped', '1');
+      var taps = 0;
+      var lastTap = 0;
+      heroRefEl.addEventListener('click', function () {
+        var now = Date.now();
+        if (now - lastTap > 700) taps = 0;
+        taps++;
+        lastTap = now;
+        if (taps >= 3) {
+          taps = 0;
+          if (!registerEgg('homeHeroRefTripleTap', { tier: 'quick', page: 'home', triggerType: 'tap', sessionOnly: true })) return;
+          var verseCard = document.getElementById('verseCard');
+          if (verseCard) {
+            addClasses(verseCard, 'easter-home-ribbon-glow');
+            setTimeout(function () { removeClasses(verseCard, 'easter-home-ribbon-glow'); }, 3200);
+          }
+          createToast('Carry this one gently today.', 'easter-triple-toast', 3400);
+        }
+      });
+    }
+
+    function wireHomeBattlePlanEgg() {
+      var anchors = Array.prototype.slice.call(document.querySelectorAll('a[href="/plans.html"], a[href="plans.html"], a[href^="/plans.html?"], a[href^="plans.html?"]'));
+      if (!anchors.length) return;
+      anchors.forEach(function (anchor) {
+        wireLongPress(anchor, 650, function (event) {
+          if (!enabled()) return;
+          if (!registerEgg('homeBattlePlanLongPress', { tier: 'quick', page: 'home', triggerType: 'long_press', sessionOnly: true })) return;
+          event.preventDefault();
+          createToast('Shortcut opened: one gentle plan, chosen for you.', 'easter-triple-toast', 3200);
+          markEggAction('homeBattlePlanLongPress', 'home', 'navigate');
+          window.location.href = getRandomPlanHref();
+        });
+      });
+    }
+
+    function wireHomeDaypartEggs() {
+      var ribbonDay = currentDayKey();
+      if (localStorage.getItem(EGG_LAST_HOME_RIBBON_KEY) === ribbonDay) return;
+      var hour = new Date().getHours();
+      if (hour >= 5 && hour < 8) {
+        if (registerEgg('homeMorningMercyRibbon', { tier: 'quick', page: 'home', triggerType: 'daypart', sessionOnly: true })) {
+          localStorage.setItem(EGG_LAST_HOME_RIBBON_KEY, ribbonDay);
+          document.body.classList.add('easter-sunrise-bg');
+          createToast('Morning mercy is on the porch already.', 'easter-triple-toast', 3600);
+          setTimeout(function () { document.body.classList.remove('easter-sunrise-bg'); }, 5200);
+        }
+      } else if (hour >= 0 && hour < 2) {
+        if (registerEgg('homeMidnightWatch', { tier: 'seasonal', page: 'home', triggerType: 'daypart', sessionOnly: true })) {
+          localStorage.setItem(EGG_LAST_HOME_RIBBON_KEY, ribbonDay);
+          document.body.classList.add('easter-midnight-watch');
+          createToast('Midnight watch: the Lord keepeth Israel. (Psalm 121:4)', 'easter-triple-toast', 4500);
+          setTimeout(function () { document.body.classList.remove('easter-midnight-watch'); }, 5200);
+        }
+      }
+    }
+
+    function wireFamilyModeHomeEgg() {
+      var toggle = document.getElementById('tdbFamilyModeToggle');
+      var body = document.getElementById('tdbFamilyModeBody');
+      if (!toggle || !body) return;
+      function noteFamilyModeDay() {
+        var enabledNow = !body.hidden || toggle.getAttribute('aria-pressed') === 'true' || localStorage.getItem('tdb_family_mode_enabled_v1') === '1';
+        if (!enabledNow) return;
+        var totalDays = rememberDistinctDay(currentDayKey(), EGG_FAMILY_MODE_DAYS_KEY);
+        if (totalDays >= 3 && registerEgg('homeFamilyModeThreeDays', { tier: 'family', page: 'home', triggerType: 'habit' })) {
+          createToast('Three family-mode mornings. Tiny faithfulness still counts.', 'easter-triple-toast', 4200);
+        }
+      }
+      toggle.addEventListener('click', function () {
+        setTimeout(noteFamilyModeDay, 140);
+      });
+      noteFamilyModeDay();
     }
 
     // 3. hallelujah in search — wire feel-search + wrap runSearchWithInput
@@ -151,6 +623,8 @@
       window.__tdbHallelujahWrapped = true;
       window.runSearchWithInput = function (inputStr) {
         var val = String(inputStr || '').trim().toLowerCase();
+        recordSearchTerm(val);
+        if (handleSecretPhrase(val)) return;
         if (val === 'hallelujah' && tryHallelujah(null)) return;
         if (val === 'still' && tryStill(inputStr)) return;
         if (val === 'amen' && tryAmen(inputStr)) return;
@@ -158,6 +632,8 @@
         if (val === 'grace' && tryGraceSearch(inputStr, orig)) return;
         if (val === 'forgive' && tryForgiveSearch(inputStr, orig)) return;
         if (val === 'mercy' && tryMercySearch(inputStr, orig)) return;
+        if (val === 'peace' && tryPeaceSearch(inputStr, orig)) return;
+        if (val === 'armor' && tryArmorSearch(inputStr, orig)) return;
         if (val === 'shabbat' && tryShabbatSearch(inputStr, orig)) return;
         if (val === 'risen' && tryRisenSearch(inputStr)) return;
         if (val === 'lamb' && tryLambSearch(inputStr, orig)) return;
@@ -267,6 +743,43 @@
       document.body.appendChild(toast);
       setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
       if (orig) orig.apply(null, ['mercy']);
+      if (inp) inp.value = '';
+      var prayerLine = document.getElementById('tdbFamilyModePrayer') || document.getElementById('heroBreakdownPrayer') || document.getElementById('heroVersePrayer');
+      if (prayerLine) addInlineNote(prayerLine.parentNode || prayerLine, 'tdb-egg-mercy-note', 'Mercy met you here too.', 'easter-inline-note');
+      if (matchesRecentTerms(['fear', 'peace', 'hope']) && registerEgg('homeFearPeaceHopeChain', { tier: 'discovery', page: 'home', triggerType: 'route_chain', sessionOnly: true })) {
+        createToast('Fear to peace to hope. That is a holy little route.', 'easter-triple-toast', 4200);
+      }
+      return true;
+    }
+
+    function tryPeaceSearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'peace') return false;
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
+      if (orig) orig.apply(null, ['peace']);
+      if (out) {
+        out.classList.add('easter-peace-ripple');
+        addInlineNote(out, 'tdb-egg-peace-inline', 'The Prince of Peace still meets people in real storms. (Isaiah 9:6)', 'easter-inline-note');
+        setTimeout(function () { out.classList.remove('easter-peace-ripple'); }, 4500);
+      }
+      createToast('Peace, be still. (Mark 4:39)', 'easter-triple-toast', 3600);
+      if (inp) inp.value = '';
+      return true;
+    }
+
+    function tryArmorSearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'armor') return false;
+      if (orig) orig.apply(null, ['faith']);
+      var nextSteps = document.getElementById('tdbGentleNextSteps') || document.getElementById('tdbSearchNextStepPlan') || document.getElementById('feel-section');
+      addInlineNote(nextSteps && nextSteps.parentNode ? nextSteps.parentNode : nextSteps, 'tdb-egg-armor-inline', 'Battle Plan idea: pair today\'s verse with Family Armor when the house feels loud.', 'easter-inline-note');
+      createToast('Put on the whole armour of God. (Ephesians 6:11)', 'easter-triple-toast', 4200);
       if (inp) inp.value = '';
       return true;
     }
@@ -1145,6 +1658,12 @@
 
   function initGlobal() {
     if (!enabled()) return;
+    recordRouteVisit(pageIdForPath());
+    bindEasterEngineApi();
+    initPhraseListener();
+    wirePilgrimageEgg();
+    wireStudySaveEgg();
+    wireSundayDawnEgg();
     var verses = (window.ROTATING_HERO_VERSES || []);
     if (!verses.length) verses = [{ ref: 'Psalm 23:1', text: 'The LORD is my shepherd; I shall not want.' }];
     var konamiCodes = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
@@ -1193,6 +1712,42 @@
         stillFooter.appendChild(dove);
         setTimeout(function () { if (dove.parentNode) dove.remove(); }, 2500);
       });
+    }
+
+    function wirePilgrimageEgg() {
+      if (!routeEndsWith(HOME_PAGE_IDS)) return;
+      if (!registerEgg('legendaryWholeSitePilgrimage', { tier: 'legendary', page: pageIdForPath(), triggerType: 'route_chain', sessionOnly: true })) return;
+      document.body.classList.add('easter-legendary-mode');
+      createToast('You walked the whole quiet path. Nothing was hidden from you.', 'easter-triple-toast easter-toast-large', 5200);
+      setTimeout(function () { document.body.classList.remove('easter-legendary-mode'); }, 6500);
+    }
+
+    function wireStudySaveEgg() {
+      if (window.__tdbStudySaveEggBound) return;
+      window.__tdbStudySaveEggBound = true;
+      window.addEventListener('tdb-my-verses-updated', function () {
+        var total = bumpCount(EGG_STUDY_SAVES_KEY, 1);
+        if (total >= 3 && !hasSessionEggSeen('mystudyThreeSavesSession')) {
+          setSessionEggSeen('mystudyThreeSavesSession');
+          trackEgg('easter_egg_progress', {
+            egg_id: 'mystudyThreeSavesSession',
+            egg_tier: 'core',
+            page: 'mystudy',
+            trigger_type: 'event',
+            progress: total
+          });
+        }
+      });
+    }
+
+    function wireSundayDawnEgg() {
+      var now = new Date();
+      if (now.getDay() !== 0) return;
+      if (now.getHours() < 5 || now.getHours() > 8) return;
+      if (!registerEgg('sundayDawnWatch', { tier: 'seasonal', page: pageIdForPath(), triggerType: 'daypart', sessionOnly: true })) return;
+      document.body.classList.add('easter-sunday-bg', 'easter-sunday-morning');
+      createToast('Sunday dawn. Mercy is already awake.', 'easter-triple-toast easter-toast-large', 4600);
+      setTimeout(function () { removeClasses(document.body, 'easter-sunday-bg', 'easter-sunday-morning'); }, 6000);
     }
   }
 
@@ -1254,6 +1809,7 @@
   }
 
   function init() {
+    if (!storageAvailable('local') || !storageAvailable('session')) return;
     initGlobal();
     initIndex();
     if (window.location.pathname !== '/' && window.location.pathname !== '/index.html' && window.location.pathname !== '') {
@@ -1263,7 +1819,7 @@
     wireEggBadgeObserver();
   }
 
-  var EGG_TERMS = ['still', 'hallelujah', 'amen', 'grace', 'forgive', 'mercy', 'shabbat', 'risen', 'lamb', 'resurrection', 'secrets', 'abide'];
+  var EGG_TERMS = ['still', 'hallelujah', 'amen', 'grace', 'forgive', 'mercy', 'peace', 'armor', 'shabbat', 'risen', 'lamb', 'resurrection', 'secrets', 'abide', QUIET_ROUTE_PHRASE, LEGENDARY_PHRASE];
   var EGG_TERM_NOTHING = /^nothing can stop (you|me|us)$/;
 
   function isEasterEggTerm(val) {
@@ -1323,7 +1879,7 @@
     if (path.indexOf('bible-tool') !== -1 || path.indexOf('bible/tools') !== -1) {
       wireStillInBibleSearch();
     }
-    if (path.indexOf('message') !== -1) {
+    if (path.indexOf('message') !== -1 || path.indexOf('prayer-wall') !== -1) {
       wirePrayerWallEgg();
     }
     if (path.indexOf('mobius') !== -1) {
@@ -1331,6 +1887,26 @@
     }
     if (path.indexOf('contact') !== -1) {
       wireSuggestFormEgg();
+    }
+    if (path.indexOf('calm') !== -1) {
+      wireCalmEggs();
+    }
+    if (path.indexOf('mystudy') !== -1) {
+      wireMyStudyEggs();
+    }
+    if (path.indexOf('explore') !== -1) {
+      wireExploreEggs();
+    }
+    if (path.indexOf('coloring') !== -1) {
+      wireColoringEggs();
+    }
+    if (path.indexOf('family-armor') !== -1) {
+      wireFamilyArmorEggs();
+    } else if (path.indexOf('family') !== -1) {
+      wireFamilyEggs();
+    }
+    if (path.indexOf('/kids/') !== -1 || path.indexOf('/kids') !== -1) {
+      wireKidsEggs();
     }
   }
 
@@ -1380,17 +1956,232 @@
   }
 
   function wirePrayerWallEgg() {
-    var postBtn = document.getElementById('post-message');
-    if (!postBtn) return;
-    var clickCount = 0;
-    postBtn.addEventListener('dblclick', function () {
-      if (!enabled()) return;
-      var t = document.createElement('div');
-      t.className = 'easter-triple-toast';
-      t.textContent = 'He hears the unspoken.';
-      t.setAttribute('role', 'status');
-      document.body.appendChild(t);
-      setTimeout(function () { t.classList.add('easter-triple-fade'); setTimeout(function () { t.remove(); }, 400); }, 3000);
+    var addBtn = document.getElementById('prayer-wall-add') || document.getElementById('post-message');
+    var privateTab = document.getElementById('prayer-tab-private');
+    var othersTab = document.getElementById('prayer-tab-with-others');
+    var quietLabel = document.getElementById('prayer-device-quiet') || document.getElementById('prayerTodayLabel');
+    var graceMsg = document.getElementById('prayerWallGraceMsg') || document.getElementById('prayer-wall-post-success');
+    var shareBtns = document.querySelectorAll('.prayer-wall-share');
+    if (wasLastVisitOlderThan('prayer', 3) && registerEgg('prayerMercyReturn', { tier: 'core', page: 'prayer', triggerType: 'return' })) {
+      addInlineNote(graceMsg && graceMsg.parentNode ? graceMsg.parentNode : document.getElementById('prayer-panel-private'), 'tdb-egg-prayer-return', 'Welcome back. Mercy kept the room warm while you were away.', 'easter-inline-note');
+    }
+    function prayerAction(type) {
+      var total = bumpCount(EGG_PRAYER_ACTIONS_KEY, 1);
+      trackEgg('easter_egg_progress', {
+        egg_id: 'prayerActionTrail',
+        egg_tier: 'core',
+        page: 'prayer',
+        trigger_type: type,
+        progress: total
+      });
+      if (total >= 3 && registerEgg('prayerThreeActions', { tier: 'core', page: 'prayer', triggerType: 'action', sessionOnly: true })) {
+        createToast('Knock, seek, ask. Heaven is not annoyed with you.', 'easter-triple-toast', 4200);
+      }
+    }
+    if (addBtn) {
+      addBtn.addEventListener('dblclick', function () {
+        if (!enabled()) return;
+        if (!registerEgg('prayerUnspokenDoubleTap', { tier: 'quick', page: 'prayer', triggerType: 'dblclick', sessionOnly: true })) return;
+        createToast('He hears the unspoken.', 'easter-triple-toast', 3200);
+      });
+      addBtn.addEventListener('click', function () {
+        prayerAction('add');
+        if (quietLabel && quietLabel.textContent && quietLabel.textContent.toLowerCase().indexOf('quiet') !== -1 && registerEgg('prayerQuietFirstStep', { tier: 'quick', page: 'prayer', triggerType: 'empty_state', sessionOnly: true })) {
+          addInlineNote(quietLabel.parentNode || quietLabel, 'tdb-egg-prayer-quiet', 'Quiet does not mean empty. One honest line is enough tonight.', 'easter-inline-note');
+        }
+      });
+    }
+    [privateTab, othersTab].forEach(function (btn) {
+      if (!btn) return;
+      btn.addEventListener('click', function () { prayerAction('tab'); });
+    });
+    shareBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () { prayerAction('share'); }, true);
+    });
+  }
+
+  function wireCalmEggs() {
+    var oneVerseBtn = document.getElementById('calm-one-verse-now');
+    var nightBtn = document.getElementById('calm-night-prayer');
+    var intro = document.getElementById('calm-intro');
+    var prayerLink = document.querySelector('.calm-prayer-wall-nudge a');
+    if (oneVerseBtn) {
+      var taps = 0;
+      var lastTap = 0;
+      oneVerseBtn.addEventListener('click', function () {
+        var now = Date.now();
+        if (now - lastTap > 900) taps = 0;
+        taps++;
+        lastTap = now;
+        if (taps >= 2 && registerEgg('calmDoubleTapDoor', { tier: 'core', page: 'calm', triggerType: 'tap', sessionOnly: true })) {
+          taps = 0;
+          addInlineNote(intro, 'tdb-egg-calm-door', 'Quiet door found: one verse is enough when the day feels loud.', 'easter-inline-note');
+          createToast('One verse can carry more than you think.', 'easter-triple-toast', 3400);
+        }
+      });
+    }
+    if (nightBtn) {
+      wireLongPress(nightBtn, 650, function () {
+        if (!registerEgg('calmNightPrayerLongPress', { tier: 'core', page: 'calm', triggerType: 'long_press', sessionOnly: true })) return;
+        document.body.classList.add('easter-midnight-watch');
+        createToast('In peace I will both lay me down and sleep. (Psalm 4:8)', 'easter-triple-toast', 4200);
+        setTimeout(function () { document.body.classList.remove('easter-midnight-watch'); }, 4800);
+      });
+    }
+    if (prayerLink) {
+      wireLongPress(prayerLink, 650, function () {
+        if (!registerEgg('calmPrayerBridgeLongPress', { tier: 'core', page: 'calm', triggerType: 'long_press', sessionOnly: true })) return;
+        createToast('Prayer stays one tap away when the verse needs company.', 'easter-triple-toast', 3600);
+      });
+    }
+  }
+
+  function wireMyStudyEggs() {
+    var host = document.querySelector('.mystudy-subtitle') || document.getElementById('panel-my-study');
+    var library = document.getElementById('saved-verses');
+    var exportBtn = document.getElementById('mystudy-export-json');
+    var totalSessionSaves = Number(readJson(EGG_COUNTS_KEY, {}, 'local')[EGG_STUDY_SAVES_KEY] || 0);
+    if (routeEndsWith(['home', 'mystudy']) && registerEgg('mystudyHomeToStudyRibbon', { tier: 'core', page: 'mystudy', triggerType: 'route_chain', sessionOnly: true })) {
+      addInlineNote(host && host.parentNode ? host.parentNode : host, 'tdb-egg-mystudy-home-ribbon', 'You brought today\'s verse with you. That counts as real study.', 'easter-inline-note');
+    }
+    window.addEventListener('tdb-my-verses-updated', function () {
+      var count = Number(readJson(EGG_COUNTS_KEY, {}, 'local')[EGG_STUDY_SAVES_KEY] || 0);
+      if (count >= 3 && registerEgg('mystudyThreeSavesSession', { tier: 'core', page: 'mystudy', triggerType: 'event', sessionOnly: true })) {
+        createToast('Three verses held close this session. A small shelf is becoming a library.', 'easter-triple-toast', 4200);
+      }
+      if (library && library.children && library.children.length >= 100 && registerEgg('mystudyHundredVerses', { tier: 'discovery', page: 'mystudy', triggerType: 'library' })) {
+        addInlineNote(library.parentNode || library, 'tdb-egg-study-hundred', 'A hundred verses live on this device now. Quiet accumulation is still growth.', 'easter-inline-note');
+      }
+    });
+    if (library && library.children && library.children.length >= 100 && registerEgg('mystudyHundredVerses', { tier: 'discovery', page: 'mystudy', triggerType: 'library' })) {
+      addInlineNote(library.parentNode || library, 'tdb-egg-study-hundred', 'A hundred verses live on this device now. Quiet accumulation is still growth.', 'easter-inline-note');
+    }
+    if (exportBtn) {
+      wireLongPress(exportBtn, 700, function () {
+        if (!registerEgg('mystudyBackupWitness', { tier: 'quick', page: 'mystudy', triggerType: 'long_press', sessionOnly: true })) return;
+        createToast('Keeping a witness matters too.', 'easter-triple-toast', 3200);
+      });
+    }
+  }
+
+  function wireExploreEggs() {
+    var quickDoors = document.querySelectorAll('.explore-quick-door');
+    var hero = document.querySelector('.explore-hero') || document.querySelector('.explore-page');
+    if (routeEndsWith(['home', 'family', 'explore']) && registerEgg('exploreFamilyToMap', { tier: 'discovery', page: 'explore', triggerType: 'route_chain', sessionOnly: true })) {
+      addInlineNote(hero, 'tdb-egg-explore-map', 'You came here from Family. The calm routes are opening in order.', 'easter-inline-note');
+    }
+    if (routeEndsWith(['home', 'kids', 'explore']) && registerEgg('exploreKidsToMap', { tier: 'discovery', page: 'explore', triggerType: 'route_chain', sessionOnly: true })) {
+      addInlineNote(hero, 'tdb-egg-explore-kids-map', 'You found the map through Kids. That is exactly what this page is for.', 'easter-inline-note');
+    }
+    quickDoors.forEach(function (door) {
+      door.addEventListener('click', function () {
+        var seen = readJson('tdb_eg_explore_doors_v1', [], 'session');
+        var href = door.getAttribute('href') || door.textContent || '';
+        if (seen.indexOf(href) === -1) seen.push(href);
+        writeJson('tdb_eg_explore_doors_v1', seen, 'session');
+        if (seen.length >= 5 && registerEgg('exploreFiveDoors', { tier: 'discovery', page: 'explore', triggerType: 'click', sessionOnly: true })) {
+          createToast('Five calm doors touched. The map is working.', 'easter-triple-toast', 3600);
+        }
+      }, true);
+    });
+  }
+
+  function wireKidsEggs() {
+    var badge = document.getElementById('kids-greeting-badge');
+    var firstWinStatus = document.getElementById('kids-first-win-status');
+    var homeStoryMaster = document.getElementById('kids-home-story-master');
+    if (badge) {
+      var count = 0;
+      var resetAt = 0;
+      badge.addEventListener('click', function () {
+        var now = Date.now();
+        if (now > resetAt) count = 0;
+        count++;
+        resetAt = now + 3000;
+        if (count >= 5 && registerEgg('kidsBattleTrailTap', { tier: 'family', page: 'kids', triggerType: 'tap', sessionOnly: true })) {
+          count = 0;
+          createToast('Battle Trail says small brave steps count too.', 'easter-triple-toast', 3400);
+        }
+      });
+    }
+    function maybeCelebrateLittleExplorer(sourceEl) {
+      if (!sourceEl) return;
+      var text = normalizePhrase(sourceEl.textContent);
+      if (text.indexOf('little explorer') === -1) return;
+      if (!registerEgg('kidsLittleExplorerReveal', { tier: 'family', page: pageIdForPath(), triggerType: 'progress' })) return;
+      createToast('Little Explorer unlocked. Heaven is not bored by beginnings.', 'easter-triple-toast', 4000);
+    }
+    if (firstWinStatus) {
+      maybeCelebrateLittleExplorer(firstWinStatus);
+      new MutationObserver(function () { maybeCelebrateLittleExplorer(firstWinStatus); }).observe(firstWinStatus, { childList: true, subtree: true, characterData: true });
+    }
+    if (homeStoryMaster) {
+      maybeCelebrateLittleExplorer(homeStoryMaster);
+      new MutationObserver(function () { maybeCelebrateLittleExplorer(homeStoryMaster); }).observe(homeStoryMaster, { childList: true, subtree: true, characterData: true });
+    }
+  }
+
+  function wireColoringEggs() {
+    var root = document.getElementById('tdb-cat-root');
+    if (!root) return;
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('button') : null;
+      if (!btn) return;
+      var text = normalizePhrase(btn.textContent);
+      if (text.indexOf('save this scene') === -1 && text.indexOf('watch my story') === -1) return;
+      if (text.indexOf('save this scene') !== -1) {
+        var total = bumpCount('tdb_eg_coloring_scene_saves_v1', 1);
+        if (total >= 4 && registerEgg('coloringFourSceneSaves', { tier: 'family', page: 'coloring', triggerType: 'save', sessionOnly: true })) {
+          createToast('Four scenes saved. The story is starting to look back at you.', 'easter-triple-toast', 4200);
+        }
+      }
+      if (text.indexOf('watch my story') !== -1 && registerEgg('coloringWatchMyStory', { tier: 'family', page: 'coloring', triggerType: 'watch', sessionOnly: true })) {
+        createToast('Your colored story became a testimony on this device.', 'easter-triple-toast', 3600);
+      }
+    }, true);
+  }
+
+  function wireFamilyEggs() {
+    var addBtn = document.getElementById('family-prayer-add');
+    var status = document.getElementById('family-prayer-status');
+    var verseRoot = document.getElementById('family-daily-verse-root');
+    if (routeEndsWith(['kids', 'family']) && registerEgg('familyFromKidsBridge', { tier: 'family', page: 'family', triggerType: 'route_chain', sessionOnly: true })) {
+      addInlineNote(verseRoot, 'tdb-egg-family-kids-bridge', 'You came from Kids. One verse and one family prayer is enough for tonight.', 'easter-inline-note');
+    }
+    if (addBtn) {
+      wireLongPress(addBtn, 650, function () {
+        if (!registerEgg('familyPrayerLongPress', { tier: 'family', page: 'family', triggerType: 'long_press', sessionOnly: true })) return;
+        createToast('Household prayer list: no pressure, just names before God.', 'easter-triple-toast', 3600);
+      });
+      addBtn.addEventListener('click', function () {
+        var total = bumpCount('tdb_eg_family_prayer_adds_v1', 1);
+        if (total >= 3 && registerEgg('familyPrayerThreeAdds', { tier: 'family', page: 'family', triggerType: 'add', sessionOnly: true })) {
+          addInlineNote(status && status.parentNode ? status.parentNode : verseRoot, 'tdb-egg-family-prayer-three', 'Three prayer lines have landed here. This list is a mercy shelf, not a burden board.', 'easter-inline-note');
+        }
+      });
+    }
+  }
+
+  function wireFamilyArmorEggs() {
+    var cards = document.querySelectorAll('#family-armor-foundation .family-armor-lux-card');
+    var host = document.getElementById('family-armor-foundation');
+    if (!cards.length) return;
+    cards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        var title = normalizePhrase(card.querySelector('.family-armor-lux-card-title') ? card.querySelector('.family-armor-lux-card-title').textContent : '');
+        if (!title) return;
+        var seen = readJson(EGG_ARMOR_PROGRESS_KEY, [], 'local');
+        if (seen.indexOf(title) === -1) {
+          seen.push(title);
+          writeJson(EGG_ARMOR_PROGRESS_KEY, seen, 'local');
+        }
+        card.classList.add('easter-home-ribbon-glow');
+        setTimeout(function () { card.classList.remove('easter-home-ribbon-glow'); }, 2200);
+        if (seen.length >= 7 && registerEgg('familyArmorWholeSet', { tier: 'family', page: 'familyArmor', triggerType: 'progress' })) {
+          addInlineNote(host, 'tdb-egg-armor-whole-set', 'Whole armor touched: truth, righteousness, peace, faith, salvation, Scripture, and prayer. No scoreboard. Just remembrance.', 'easter-inline-note');
+          createToast('Whole armor remembered. That counts.', 'easter-triple-toast', 4200);
+        }
+      });
     });
   }
 

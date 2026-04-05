@@ -41,7 +41,7 @@
   <script nonce="tdb2025s">window.TDB_PANEL_RASTER = false;</script>
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
   <link rel="stylesheet" href="../styles.css?v=20260412launch">
-  <link rel="stylesheet" href="kids-battle.css?v=20260331edge">
+  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsrollout">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="stylesheet" href="canvas.css?v=1">
   <style>
@@ -483,6 +483,59 @@
       font-style: italic;
       text-align: left;
     }
+    .kids-library-start-lanes {
+      margin-bottom: 1rem;
+    }
+    .kids-library-start-grid {
+      display: grid;
+      gap: 0.8rem;
+    }
+    .kids-library-start-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(250, 204, 21, 0.22);
+      background: rgba(15, 23, 42, 0.62);
+    }
+    .kids-library-start-kicker {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fde68a;
+    }
+    .kids-library-start-card h3 {
+      margin: 0;
+      font-family: 'Bangers', cursive;
+      font-size: 1.18rem;
+      letter-spacing: 0.03em;
+      color: #fde68a;
+    }
+    .kids-library-start-card p:last-of-type {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.94rem;
+      line-height: 1.5;
+      color: #e2e8f0;
+    }
+    .kids-library-quick-picks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0 0 0.75rem;
+    }
+    .kids-library-quick-picks .btn {
+      min-height: 44px;
+    }
+    @media (min-width: 860px) {
+      .kids-library-start-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
   </style>
 </head>
 <body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful">
@@ -584,8 +637,44 @@
           <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
         </header>
 
+        <section class="glass kids-library-start-lanes" role="region" aria-label="Age-aware ways to begin in the Bible Story Library">
+          <h2 class="kids-section-title">Pick your starting lane</h2>
+          <p class="section-note">Use these when you want a first story without thinking too hard. Search and theme filters still stay below for everything else.</p>
+          <div class="kids-library-start-grid" role="list" aria-label="Starting lanes">
+            <article class="kids-library-start-card" role="listitem">
+              <p class="kids-library-start-kicker">Littles · ages 5-7</p>
+              <h3>Start with comfort and care</h3>
+              <p>Noah, Jesus with children, and the Good Shepherd are gentle openers for bedtime or anxious moments.</p>
+              <button type="button" class="btn kids-btn-primary kids-story-quick-filter" data-story-filter-query="jesus noah shepherd" data-story-filter-theme="Love">Show comfort starters</button>
+            </article>
+            <article class="kids-library-start-card" role="listitem">
+              <p class="kids-library-start-kicker">Middles · ages 8-10</p>
+              <h3>Start with brave stories</h3>
+              <p>David, Daniel, Esther, and Moses work well when a child wants courage, action, and one clear truth to carry.</p>
+              <button type="button" class="btn kids-btn-primary kids-story-quick-filter" data-story-filter-query="david daniel esther moses" data-story-filter-theme="Protection">Show brave starters</button>
+            </article>
+            <article class="kids-library-start-card" role="listitem">
+              <p class="kids-library-start-kicker">Older kids · ages 11+</p>
+              <h3>Start with one story, then keep going</h3>
+              <p>Use one story card here, then bridge into a kids plan, Family hub, or Family Armor with a grown-up.</p>
+              <div class="cta-group">
+                <a class="btn kids-btn-primary" href="/plans.html?plan=beatitudes-kids">Open a kids plan</a>
+                <a class="btn btn-secondary" href="/family.html">Family hub</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section class="kids-search-section glass" role="region" aria-label="Search stories">
           <h2 class="kids-section-title">Find a story</h2>
+          <div class="kids-library-quick-picks" role="group" aria-label="Guided starter story buttons">
+            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="" data-story-filter-theme="">All stories</button>
+            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="david daniel esther jonah" data-story-filter-theme="Protection">Brave</button>
+            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="jesus noah sheep children" data-story-filter-theme="Love">Comfort</button>
+            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="miracle jesus water bread storm" data-story-filter-theme="Miracles">Miracles</button>
+            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="obey obeyed jonah noah moses" data-story-filter-theme="Obedience">Obedience</button>
+          </div>
+          <p id="kids-library-quick-filter-status" class="section-note util-mb-0_5" aria-live="polite">Starter buttons set the search and theme boxes for you.</p>
           <form id="kids-library-search-form" class="kids-search-form kids-library-search-form-wrap" action="#" novalidate>
             <input type="search" id="kids-library-search-input" class="kids-search-input" placeholder="Type story, character, or theme (typos ok!)" autocomplete="off" aria-describedby="kids-library-search-hint" aria-autocomplete="list" aria-controls="kids-library-search-suggest" aria-expanded="false">
             <button type="submit" class="btn kids-btn-primary kids-search-btn">Search</button>
@@ -806,7 +895,7 @@
   <script src="kids-read-quiz-data.js?v=20260330kidslib"></script>
   <script src="kids-read-quiz-loop-posters.js"></script>
   <script src="kids-verses-365.js?v=20260325kidsmeans" defer></script>
-  <script src="kids-battle.js?v=20260326kidsflow" defer></script>
+  <script src="kids-battle.js?v=20260405kidsrollout" defer></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
@@ -834,8 +923,8 @@
     }
   });
   </script>
-  <script src="kids-corner.js?v=20260326kidsflow" defer></script>
-  <script type="module" src="../script.js?v=20260408guided" data-cfasync="false" defer></script>
+  <script src="kids-corner.js?v=20260405kidsrollout" defer></script>
+  <script type="module" src="../script.js?v=20260405kidsrollout" data-cfasync="false" defer></script>
   <script src="../kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
 
   <!-- ── Parent code lock ── -->

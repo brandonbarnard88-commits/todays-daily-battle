@@ -1068,6 +1068,62 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var allLoops = [];
   var unlockedLoops = [];
   var currentLoop = null;
+  var activeLoopFilter = 'all';
+
+  function loopTitleLower(loop) {
+    return String(loop && loop.title ? loop.title : '').toLowerCase();
+  }
+
+  function loopMatchesFilter(loop, filterName) {
+    var name = String(filterName || 'all').toLowerCase();
+    if (!loop || name === 'all') return true;
+    var title = loopTitleLower(loop);
+    if (name === 'starter') return Number(loop.week) === 0;
+    if (name === 'comfort') {
+      return /noah|jesus calms|good shepherd|lost sheep|jesus blesses|baby moses|jairus|lazarus|widow|hannah|ruth|elijah fed by ravens|heals the leper|heals the blind|centurion/.test(title);
+    }
+    if (name === 'brave') {
+      return /david|daniel|esther|gideon|jericho|moses|jonah|samson|shadrach|abednego|joshua|deborah|elijah|paul/.test(title);
+    }
+    if (name === 'jesus') {
+      return /jesus|samaritan|prodigal|lost sheep|mustard|sower|talents|widow|emmaus|baptized|empty tomb|shepherd|cana/.test(title);
+    }
+    return true;
+  }
+
+  function getVisibleLoops() {
+    return unlockedLoops.filter(function (loop) {
+      return loopMatchesFilter(loop, activeLoopFilter);
+    });
+  }
+
+  function describeLoopFilter(filterName, count) {
+    if (filterName === 'starter') return 'Showing the Starter 12 loops for first visits and quick wins.';
+    if (filterName === 'comfort') return 'Showing comfort loops for worried, sad, or bedtime moments.';
+    if (filterName === 'brave') return 'Showing brave loops for courage, standing firm, and trusting God.';
+    if (filterName === 'jesus') return 'Showing Jesus-centered loops for His care, teaching, and miracles.';
+    return 'Showing every unlocked loop on this device' + (count ? ' (' + count + ')' : '') + '.';
+  }
+
+  function syncLoopFilterUi(count) {
+    var chips = document.querySelectorAll('.loop-filter-chip[data-loop-filter]');
+    chips.forEach(function (chip) {
+      chip.classList.toggle('is-active', String(chip.getAttribute('data-loop-filter') || '') === activeLoopFilter);
+    });
+    var status = document.getElementById('loop-filter-status');
+    if (status) status.textContent = describeLoopFilter(activeLoopFilter, count);
+  }
+
+  function wireLoopFilters() {
+    var chips = document.querySelectorAll('.loop-filter-chip[data-loop-filter]');
+    if (!chips || !chips.length) return;
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        activeLoopFilter = String(chip.getAttribute('data-loop-filter') || 'all').trim() || 'all';
+        renderGrid();
+      });
+    });
+  }
 
   function readState() {
     var fallback = { starredIds: [], watchCounts: {}, sundayRefreshTag: '' };
@@ -1325,16 +1381,26 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   function renderGrid() {
     while (grid.firstChild) grid.removeChild(grid.firstChild);
     var fragment = document.createDocumentFragment();
-    unlockedLoops.forEach(function (loop, idx) {
+    var visibleLoops = getVisibleLoops();
+    visibleLoops.forEach(function (loop, idx) {
       fragment.appendChild(buildCard(loop, idx === 0));
     });
+    if (!visibleLoops.length) {
+      var empty = document.createElement('p');
+      empty.className = 'section-note';
+      empty.textContent = 'No unlocked loops match this view yet. Try another starter lane or switch back to All unlocked.';
+      fragment.appendChild(empty);
+    }
     grid.appendChild(fragment);
     var staticStarter = document.getElementById('loop-static-starter');
     if (staticStarter && allLoops.length > 0) staticStarter.classList.add('hidden');
+    syncLoopFilterUi(visibleLoops.length);
     updateProgress();
     if (unlockStatus) {
       if (state.starredIds.length >= STAR_GOAL) {
         unlockStatus.textContent = 'You have ' + STAR_GOAL + ' gold stars—next week’s loops are open early. New drops most Sundays.';
+      } else if (state.starredIds.length === 1) {
+        unlockStatus.textContent = 'You earned your first gold star. Keep going one loop at a time to unlock next week early.';
       } else {
         unlockStatus.textContent = 'Watch a loop to the end to earn a gold star. Collect ' + STAR_GOAL + ' stars to unlock next week early.';
       }
@@ -1345,8 +1411,9 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     var el = document.getElementById('loop-pdf-export-count-hint');
     if (!el) return;
     var starCount = state.starredIds.length;
+    var visibleCount = getVisibleLoops().length;
     var unlockedCount = unlockedLoops.length;
-    el.textContent = starCount + ' gold stars · ' + unlockedCount + '/' + TOTAL_LOOPS + ' loops unlocked — PDF matches this screen';
+    el.textContent = starCount + ' gold stars · ' + visibleCount + ' showing · ' + unlockedCount + '/' + TOTAL_LOOPS + ' unlocked total';
   }
 
   function getLoopWatchCount(loopId) {
@@ -1371,8 +1438,14 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     var unlockedCount = unlockedLoops.length;
     var starCount = state.starredIds.length;
     var pct = Math.round((Math.min(TOTAL_LOOPS, unlockedCount) / TOTAL_LOOPS) * 100);
+    var gentleNote = document.getElementById('loop-progress-gentle-note');
     if (progressText) {
       progressText.textContent = starCount + ' gold star' + (starCount === 1 ? '' : 's') + ' · ' + unlockedCount + '/' + TOTAL_LOOPS + ' loops unlocked';
+    }
+    if (gentleNote) {
+      gentleNote.textContent = starCount > 0
+        ? 'You already have a start. Keep it light and revisit one loop when you need it.'
+        : 'First visit? Your first gold star matters. One finished loop is a real start.';
     }
     if (progressFill) progressFill.style.width = pct + '%';
     if (progressMeter) {
@@ -1402,14 +1475,15 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         var y = margin;
         var now = new Date();
         var starCount = state.starredIds.length;
-        var unlockedCount = unlockedLoops.length;
+        var visibleLoops = getVisibleLoops();
+        var unlockedCount = visibleLoops.length;
         doc.setFontSize(15);
         doc.setFont('helvetica', 'bold');
         doc.text('My Bible Loops Progress', pageW / 2, y, { align: 'center' });
         y += 8;
         doc.setFontSize(10);
         doc.setFont('helvetica', 'normal');
-        var summary = 'Generated ' + now.toLocaleString() + ' · ' + unlockedCount + '/' + TOTAL_LOOPS + ' loops unlocked · ' + starCount + ' gold stars';
+        var summary = 'Generated ' + now.toLocaleString() + ' · ' + unlockedCount + ' loops in this view · ' + state.starredIds.length + ' gold stars on this device';
         var sumLines = doc.splitTextToSize(summary, pageW - margin * 2);
         for (var si = 0; si < sumLines.length; si++) {
           doc.text(sumLines[si], pageW / 2, y, { align: 'center' });
@@ -1424,7 +1498,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         y += 6;
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(9);
-        unlockedLoops.forEach(function (loop) {
+        visibleLoops.forEach(function (loop) {
           var line;
           if (includeCounts) {
             var wc = getLoopWatchCount(loop.id);
@@ -1682,6 +1756,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   document.addEventListener('tdb:loop-kid-changed', function (e) {
     loadStateForSelection(e.detail && e.detail.kidId ? e.detail.kidId : null);
   });
+
+  wireLoopFilters();
 
   loadLoops(false).then(function () {
     var now = new Date();

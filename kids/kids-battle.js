@@ -5313,7 +5313,9 @@
       if (refEl) refEl.textContent = v.ref;
       if (textEl) textEl.textContent = kidText;
       if (prayerEl) prayerEl.textContent = p != null ? p : '';
+      var ctx = getKidContext(v.ref, kidText || v.text, v.text);
       renderKidContext(v.ref, kidText || v.text, v.text);
+      renderKidsVerseAction(v.ref, ctx);
       var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
       var container = document.getElementById('kids-cartoon-container');
       if (!container) return;
@@ -6732,6 +6734,20 @@
     fillKidsVerseContextEl(ctxEl, ctx);
   }
 
+  function renderKidsVerseAction(ref, ctx) {
+    var stepEl = document.getElementById('kids-verse-action-step');
+    var noteEl = document.getElementById('kids-verse-parent-note');
+    if (!stepEl && !noteEl) return;
+    var safeCtx = ctx || getKidContext(ref || '', '', '');
+    var apply = String((safeCtx && safeCtx.apply) || '').trim();
+    if (stepEl) {
+      stepEl.textContent = apply || 'Try one small brave step with this verse today.';
+    }
+    if (noteEl) {
+      noteEl.textContent = 'Grown-ups: ask, "What does this show you about God?" then pray one line together. Keep it gentle.';
+    }
+  }
+
   function setMainVerse(index) {
     if (!KIDS_VERSES.length || index < 0 || index >= KIDS_VERSES.length) return;
     var v = KIDS_VERSES[index];
@@ -6745,7 +6761,9 @@
       if (refEl) refEl.textContent = v.ref;
       if (textEl) textEl.textContent = kidText;
       if (prayerEl) prayerEl.textContent = p != null ? p : '';
+      var ctx = getKidContext(v.ref, kidText || v.text, v.text);
       renderKidContext(v.ref, kidText || v.text, v.text);
+      renderKidsVerseAction(v.ref, ctx);
       var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
       var container = document.getElementById('kids-cartoon-container');
       if (container) fillKidsCartoonContainer(container, cartoon);
@@ -7259,9 +7277,22 @@
     var effective = Math.min(total, list.length + bonus);
     var tier = tdbTierFromEffectiveCount(effective, total);
     var pct = Math.min(100, Math.round((effective / total) * 1000) / 10);
-    var labels = { none: 'Getting started', bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
+    var labels = {
+      none: effective > 0 ? 'Little Explorer' : 'Ready to begin',
+      bronze: 'Bronze',
+      silver: 'Silver',
+      gold: 'Gold',
+      platinum: 'Platinum'
+    };
     var next = '';
-    if (effective < 7) next = ' Next tier: Bronze at 7.';
+    var gentleStart = '';
+    if (effective === 0) {
+      next = ' First badge: Little Explorer after your first story.';
+      gentleStart = 'Open one starter story like David, Noah, or Jesus and you will earn your first gentle milestone right away.';
+    } else if (effective < 7) {
+      next = ' Gentle next step: Bronze at 7.';
+      gentleStart = 'You already started. Keep going with one story at a time; Bronze comes at 7 without rushing.';
+    }
     else if (effective < 30) next = ' Next tier: Silver at 30.';
     else if (effective < 100) next = ' Next tier: Gold at 100.';
     else if (effective < total) next = ' Next tier: Platinum when you finish all ' + total + '.';
@@ -7275,6 +7306,7 @@
       tier: tier,
       tierLabel: labels[tier] || tier,
       pct: pct,
+      gentleStart: gentleStart,
       summaryLine: 'Story Master: ' + labels[tier] + ' • ' + pct + '% (' + effective + '/' + total + ').' + next
     };
   }
@@ -7302,6 +7334,7 @@
     var total = (window.TDB_BIBLE_STORY_KEYS && window.TDB_BIBLE_STORY_KEYS.length) || Object.keys(stories).length;
     if (!total) return;
     var countBadge = document.getElementById('kids-home-story-count-badge');
+    var gentleEl = document.getElementById('kids-story-master-gentle-start');
     if (countBadge) countBadge.textContent = total + ' Bible stories';
     var st = tdbComputeStoryMasterState();
     var done = st.list;
@@ -7310,9 +7343,12 @@
     var n = st.effective;
     var pct = st.pct;
     var tier = st.tier;
-    var labels = { none: 'Getting started', bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
+    var labels = { none: st.effective > 0 ? 'Little Explorer' : 'Ready to begin', bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
     if (panel) {
       panel.textContent = st.summaryLine;
+    }
+    if (gentleEl) {
+      gentleEl.textContent = st.gentleStart || 'Story progress stays local to this device. One story is enough for today.';
     }
     var badgeEl = document.getElementById('tier-badge');
     if (badgeEl) {

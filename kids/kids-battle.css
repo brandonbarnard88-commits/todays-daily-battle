@@ -455,6 +455,156 @@
   margin: 0;
 }
 
+.kids-first-steps {
+  margin-bottom: 1.25rem;
+  padding: 1.1rem 1.25rem 1.25rem;
+}
+
+.kids-first-steps-copy {
+  margin-bottom: 1rem;
+}
+
+.kids-first-steps-lead,
+.kids-weekly-paths-lead {
+  margin: 0.35rem 0 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.kids-age-lanes,
+.kids-preview-strip,
+.kids-weekly-path-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.kids-age-lane,
+.kids-weekly-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 217, 61, 0.2);
+  background: rgba(15, 23, 42, 0.68);
+}
+
+.kids-age-lane-kicker,
+.kids-weekly-card-kicker,
+.kids-offline-kit-title,
+.kids-verse-action-kicker {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fde68a;
+}
+
+.kids-age-lane h3 {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+  color: var(--kids-yellow);
+}
+
+.kids-age-lane p,
+.kids-weekly-card span:last-child {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.kids-age-lane-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.kids-preview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.85rem;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.62);
+  text-decoration: none;
+  color: inherit;
+}
+
+.kids-preview-card img {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.kids-preview-card-label {
+  font-family: 'Bangers', cursive;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  color: var(--kids-yellow);
+}
+
+.kids-preview-card-copy {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(226, 232, 240, 0.88);
+}
+
+.kids-weekly-paths {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.kids-weekly-card {
+  text-decoration: none;
+}
+
+.kids-weekly-card strong {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: #f8fafc;
+}
+
+.kids-offline-kit {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 217, 61, 0.16);
+}
+
+@media (min-width: 700px) {
+  .kids-age-lanes,
+  .kids-weekly-path-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kids-preview-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .kids-age-lanes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .kids-preview-strip,
+  .kids-weekly-path-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 /* Hub: loops vs full-story library */
 .kids-path-picker {
   margin-bottom: 1.25rem;
@@ -1744,6 +1894,28 @@
   color: var(--kids-blue) !important;
 }
 
+.kids-verse-action {
+  margin-top: 1rem;
+  padding: 0.95rem 1rem 0;
+  border-top: 1px solid rgba(255, 217, 61, 0.2);
+}
+
+.kids-verse-action-step {
+  margin: 0.35rem 0 0;
+  font-family: 'Comic Neue', cursive;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #f8fafc;
+}
+
+.kids-verse-parent-note {
+  margin: 0.5rem 0 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(203, 213, 225, 0.92);
+}
+
 .kids-prayer-text {
   font-family: 'Comic Neue', cursive;
   font-size: 1.1rem;
@@ -2762,6 +2934,13 @@
   color: #e2e8f0;
   margin: 0.5rem 0 0.35rem;
   line-height: 1.4;
+}
+
+.kids-story-master-gentle-start {
+  margin: 0 0 0.85rem;
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.5;
+  color: rgba(203, 213, 225, 0.94);
 }
 .kids-home-story-master-bar {
   height: 10px;

@@ -3286,6 +3286,7 @@
   var journeyNextBtn = document.getElementById('kids-journey-next-btn');
   var journeyResetBtn = document.getElementById('kids-journey-reset-btn');
   var journeyStatusEl = document.getElementById('kids-journey-status');
+  var quickFilterStatusEl = document.getElementById('kids-library-quick-filter-status');
   var staticFallbackHidden = false;
 
   var LIBRARY_VIEWED_KEY = 'kidsLibraryViewedStories';
@@ -3299,6 +3300,24 @@
   var modalFocusTrapHandler = null;
   var kidsStorySpeakBtn = null;
   var readQuizRetryInflight = false;
+
+  function applyQuickStoryFilter(query, theme, label) {
+    if (searchInput) searchInput.value = String(query || '');
+    if (themeSelect) themeSelect.value = String(theme || '');
+    renderGrid(applyFilters());
+    if (quickFilterStatusEl) {
+      if (!query && !theme) {
+        quickFilterStatusEl.textContent = 'Showing the full library again.';
+      } else {
+        var parts = [];
+        if (label) parts.push(label);
+        if (theme) parts.push('theme: ' + theme);
+        if (query) parts.push('search: ' + query);
+        quickFilterStatusEl.textContent = 'Starter view applied — ' + parts.join(' · ') + '.';
+      }
+    }
+    if (searchInput && typeof searchInput.focus === 'function') searchInput.focus();
+  }
 
   function clearStoryVideoContainer(el) {
     if (!el) return;
@@ -5817,6 +5836,19 @@
       themeSelect.addEventListener('change', function () {
         renderGrid(applyFilters());
         scheduleLibrarySearchSuggest();
+      });
+    }
+
+    var quickFilterButtons = document.querySelectorAll('.kids-story-quick-filter');
+    if (quickFilterButtons && quickFilterButtons.length) {
+      quickFilterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var query = btn.getAttribute('data-story-filter-query') || '';
+          var theme = btn.getAttribute('data-story-filter-theme') || '';
+          var label = (btn.textContent || '').trim();
+          hideLibrarySearchSuggest();
+          applyQuickStoryFilter(query, theme, label);
+        });
       });
     }
 

@@ -34,7 +34,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260412launch">
   <link rel="stylesheet" href="kids/kids-page-sky.css?v=20260326playful">
-  <link rel="stylesheet" href="kids-corner.css?v=10">
+  <link rel="stylesheet" href="kids-corner.css?v=11">
   <link rel="stylesheet" href="loop-player.css?v=20260331edge">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -198,6 +198,36 @@
           </div>
         </header>
 
+        <section class="glass card-gold loop-quick-start" aria-label="Start here fast in the loop library">
+          <div class="loop-quick-start-copy">
+            <h2 class="section-divider kids-section-divider">Start here in under 2 minutes</h2>
+            <p class="section-note util-mb-0_5">Pick one lane, watch one loop, then stop while it still feels calm. This page is for quick joy, not pressure.</p>
+          </div>
+          <div class="loop-quick-start-grid" role="list" aria-label="Quick-start choices for kids">
+            <article class="loop-quick-start-card" role="listitem">
+              <p class="loop-quick-start-kicker">Littles · ages 5-7</p>
+              <h3>Start with comfort</h3>
+              <p>Use a short caring loop like Jesus calming the storm or Noah. Replay it once, then say one line together.</p>
+              <button type="button" class="btn btn-primary loop-filter-chip" data-loop-filter="comfort">Show comfort loops</button>
+            </article>
+            <article class="loop-quick-start-card" role="listitem">
+              <p class="loop-quick-start-kicker">Middles · ages 8-10</p>
+              <h3>Start with brave stories</h3>
+              <p>Pick David, Daniel, Moses, or Esther when a child wants courage without a long sit-down lesson.</p>
+              <button type="button" class="btn btn-primary loop-filter-chip" data-loop-filter="brave">Show brave loops</button>
+            </article>
+            <article class="loop-quick-start-card" role="listitem">
+              <p class="loop-quick-start-kicker">Older kids · ages 11+</p>
+              <h3>Bridge into stories or Family Armor</h3>
+              <p>Use one loop as the opener, then jump to the story library, a kids plan, or Family Armor with a grown-up.</p>
+              <div class="cta-group">
+                <a class="btn btn-primary" href="/kids/corner.html">Story Library</a>
+                <a class="btn btn-secondary" href="/family-armor.html">Family Armor</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section class="glass card-gold kids-family-hub-banner" aria-label="Family hub for parents and teens">
           <h2 class="section-divider kids-section-divider">For parents &amp; teens</h2>
           <p class="section-note util-mb-0_5">This page is the loop library for younger kids. The <strong>Family hub</strong> is the quiet place for family worship plans, printable activity packs, and a teen journal sheet (KJV, saved on this device).</p>
@@ -252,6 +282,7 @@
             <div id="loop-progress-fill" class="loop-progress-fill"></div>
           </div>
           <p class="section-note">Up to 160 loops over time—keep watching and praying through each story. Gold stars track what you have finished.</p>
+          <p id="loop-progress-gentle-note" class="section-note loop-progress-gentle-note" aria-live="polite">First visit? Your first gold star matters. One finished loop is a real start.</p>
           <p id="loop-weekly-status" class="section-note" aria-live="polite">Weekly drop checks every Sunday for fresh loops.</p>
           <div class="loop-pdf-export-wrap">
             <div class="loop-pdf-option">
@@ -266,6 +297,14 @@
 
         <section class="glass card-gold loop-library-wrap" aria-label="Bible Loop Library infinite grid">
           <p class="section-note loop-quick-calm-kicker util-mb-0_5"><strong>Quick calm loops</strong> — 10–15s cartoons with verse audio (no quizzes here). For read-aloud words, comic panels, and gentle quizzes, open the <a href="/kids/corner.html">Bible Story Library</a>.</p>
+          <div class="loop-filter-bar" role="group" aria-label="Filter loop cards by starter view">
+            <button type="button" class="btn btn-secondary loop-filter-chip is-active" data-loop-filter="all">All unlocked</button>
+            <button type="button" class="btn btn-secondary loop-filter-chip" data-loop-filter="starter">Starter 12</button>
+            <button type="button" class="btn btn-secondary loop-filter-chip" data-loop-filter="comfort">Comfort</button>
+            <button type="button" class="btn btn-secondary loop-filter-chip" data-loop-filter="brave">Brave</button>
+            <button type="button" class="btn btn-secondary loop-filter-chip" data-loop-filter="jesus">Jesus stories</button>
+          </div>
+          <p id="loop-filter-status" class="section-note loop-filter-status" aria-live="polite">Showing every unlocked loop on this device.</p>
           <h2 class="section-divider kids-section-divider">Starter 12 Loops</h2>
           <div id="loop-static-starter" class="loop-static-starter" aria-label="First twelve cartoon loops in the roadmap">
             <p class="section-note loop-static-starter-lead">These twelve ship in week 0 of the library—short cartoons, KJV verse audio, no quizzes here. For read-and-quiz <strong>stories</strong>, open <a href="/kids/corner.html">Bible Story Library</a>.</p>
@@ -472,7 +511,7 @@
   <script type="module" src="config.js"></script>
   <script src="loop-feedback-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer crossorigin></script>
-  <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260405kidsrollout" data-cfasync="false"></script>
   <script src="kids-corner-daily-verse.js?v=4" defer></script>
   <script src="sky-ip-geo.js?v=20260327ipgeo" defer></script>
   <script src="kids/kids-page-sky.js?v=20260327ipgeo" defer></script>

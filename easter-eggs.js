@@ -33,6 +33,28 @@
     var s = String(str);
     return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
+  function normalizeClassTokens(argsLike) {
+    var tokens = [];
+    for (var i = 0; i < argsLike.length; i++) {
+      var value = argsLike[i];
+      if (typeof value !== 'string') continue;
+      var parts = value.split(/\s+/);
+      for (var j = 0; j < parts.length; j++) {
+        if (parts[j]) tokens.push(parts[j]);
+      }
+    }
+    return tokens;
+  }
+  function addClasses(el) {
+    if (!el || !el.classList) return;
+    var tokens = normalizeClassTokens(arguments.length > 1 ? Array.prototype.slice.call(arguments, 1) : []);
+    if (tokens.length) el.classList.add.apply(el.classList, tokens);
+  }
+  function removeClasses(el) {
+    if (!el || !el.classList) return;
+    var tokens = normalizeClassTokens(arguments.length > 1 ? Array.prototype.slice.call(arguments, 1) : []);
+    if (tokens.length) el.classList.remove.apply(el.classList, tokens);
+  }
   /** CSP require-trusted-types-for: use default policy (tt-bootstrap tdbSetHtml). */
   function setHtml(el, html) {
     if (!el) return;
@@ -1108,9 +1130,9 @@
       } catch (x) { return; }
       var h = new Date().getHours();
       var isEasterMorning = (h >= 6 && h < 12);
-      document.body.classList.add('easter-sunday-bg');
-      if (isEasterMorning) document.body.classList.add('easter-sunday-morning');
-      setTimeout(function () { document.body.classList.remove('easter-sunday-bg', 'easter-sunday-morning'); }, isEasterMorning ? 8000 : 6000);
+      addClasses(document.body, 'easter-sunday-bg');
+      if (isEasterMorning) addClasses(document.body, 'easter-sunday-morning');
+      setTimeout(function () { removeClasses(document.body, 'easter-sunday-bg', 'easter-sunday-morning'); }, isEasterMorning ? 8000 : 6000);
       var toast = document.createElement('div');
       toast.className = 'easter-triple-toast' + (isEasterMorning ? ' easter-toast-large' : '');
       toast.setAttribute('role', 'status');

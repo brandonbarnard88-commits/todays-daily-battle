@@ -5383,7 +5383,7 @@
           localStorage.setItem(KIDS_REMIND_OPTED_KEY, '1');
           renderComeBackNudge();
           if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js?v=20260404-sw-stability', { updateViaCache: 'none' }).then(function () {
+            navigator.serviceWorker.register('/sw.js?v=20260405-sw-refresh', { updateViaCache: 'none' }).then(function () {
               return navigator.serviceWorker.ready;
             }).then(function (reg) {
               if (reg.pushManager && window.TDB_CONFIG && window.TDB_CONFIG.VAPID_PUBLIC_KEY) {

@@ -24666,7 +24666,7 @@ async function tdbInitImpl() {
             return;
           }
           if (typeof window !== 'undefined') window.__tdbSwRegisterStarted = true;
-          navigator.serviceWorker.register('/sw.js?v=20260404-sw-stability', { scope: '/', updateViaCache: 'none' })
+          navigator.serviceWorker.register('/sw.js?v=20260405-sw-refresh', { scope: '/', updateViaCache: 'none' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

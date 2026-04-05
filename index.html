@@ -9204,7 +9204,7 @@
       var doReg = function () {
         if (window.__tdbSwRegisterStarted) return;
         window.__tdbSwRegisterStarted = true;
-        navigator.serviceWorker.register("/sw.js?v=20260404-sw-stability", { scope: "/", updateViaCache: "none" }).catch(function () {
+        navigator.serviceWorker.register("/sw.js?v=20260405-sw-refresh", { scope: "/", updateViaCache: "none" }).catch(function () {
           window.__tdbSwRegisterStarted = false;
         });
       };

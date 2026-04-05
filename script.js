@@ -22480,6 +22480,7 @@ function buildHomeLinkCard(entry, sectionType) {
 
 function renderHomeSearchResults(results, output, queryText) {
   if (!output) return;
+  output.removeAttribute('hidden');
   output.innerHTML = '';
   output.classList.add('results');
   output.setAttribute('role', 'region');

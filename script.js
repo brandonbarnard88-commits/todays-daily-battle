@@ -29208,6 +29208,20 @@ function wireRandomBattleVerseHero() {
     } catch (eHumF) {}
   })();
 
+  (function hydrateSupportEmailLinks() {
+    try {
+      var supportEmail = 'support@todaysdailybattle.com';
+      document.querySelectorAll('a.tdb-support-email').forEach(function (link) {
+        if (!link) return;
+        var query = link.getAttribute('data-email-query') || '';
+        link.setAttribute('href', 'mailto:' + supportEmail + query);
+        if (link.getAttribute('data-email-display') === 'address') {
+          link.textContent = supportEmail;
+        }
+      });
+    } catch (eSupportEmail) {}
+  })();
+
   (function addSitewideTrustFooterNote() {
     try {
       var footers = document.querySelectorAll('.site-footer');
@@ -29216,10 +29230,15 @@ function wireRandomBattleVerseHero() {
         if (!footer || footer.querySelector('.footer-trust-note')) return;
         var note = document.createElement('p');
         note.className = 'footer-trust-note section-note';
-        note.innerHTML = 'Human-curated · Built solo by Brandon · Privacy-first · KJV only · Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> · <a href="mailto:support@todaysdailybattle.com?subject=Moderation%20%2F%20Safety%20Concern">support@todaysdailybattle.com</a>';
+        note.innerHTML = 'Human-curated · Built solo by Brandon · Privacy-first · KJV only · Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> · <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>';
         var anchor = footer.querySelector('.site-footer-copy, .site-footer-legal-line, .site-footer-updated, p');
         if (anchor) footer.insertBefore(note, anchor);
         else footer.appendChild(note);
+        var hydratedLink = note.querySelector('a.tdb-support-email');
+        if (hydratedLink) {
+          hydratedLink.setAttribute('href', 'mailto:support@todaysdailybattle.com?subject=Moderation%20%2F%20Safety%20Concern');
+          hydratedLink.textContent = 'support@todaysdailybattle.com';
+        }
       });
     } catch (eTrustF) {}
   })();

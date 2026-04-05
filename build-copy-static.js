@@ -58,6 +58,25 @@ function copyDir(srcDir, destDir) {
   }
 }
 
+function removeDistDuplicateArtifacts(dir) {
+  if (!fs.existsSync(dir)) return 0;
+  let removed = 0;
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (let i = 0; i < entries.length; i++) {
+    const entry = entries[i];
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      removed += removeDistDuplicateArtifacts(fullPath);
+      continue;
+    }
+    if (/ 2\.[^/]+$/.test(entry.name)) {
+      fs.unlinkSync(fullPath);
+      removed += 1;
+    }
+  }
+  return removed;
+}
+
 // Single files to copy (root)
 const rootFiles = [
   'config.js',
@@ -208,6 +227,10 @@ const topics = [
   'topic-worry.html'
 ];
 mkdir(dist);
+const removedDistDuplicates = removeDistDuplicateArtifacts(dist);
+if (removedDistDuplicates) {
+  console.log('Removed stale duplicate dist artifacts: ' + removedDistDuplicates);
+}
 function formatBuildDate() {
   const d = new Date();
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

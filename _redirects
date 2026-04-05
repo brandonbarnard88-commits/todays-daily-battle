@@ -7,8 +7,7 @@
 /test-search-diagnosis /blocked.html 404
 /stats.html /blocked.html 404
 /stats /blocked.html 404
-/secrets.html /blocked.html 404
-/secrets /blocked.html 404
+/secrets /secrets.html 200!
 /mystudy /mystudy.html 200!
 /mystudy/ /mystudy.html 200!
 /mystudy.html /mystudy 301

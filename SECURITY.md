@@ -25,7 +25,8 @@
 - **Admin / moderation** — Production serves `/admin` only behind an **edge gate**. `_redirects` rewrites `/admin` to `admin.html`, but that route is intended to be protected by **Cloudflare Access** plus the Worker in `workers/admin-guard.js`, which requires the `X-TDB-Admin` secret header before the HTML is served. The page itself still requires `app_metadata.role === 'admin'` before showing any operator controls, so the browser UI is not the primary protection. `auth.js` does **not** redirect guests to `login.html` from `/admin`; the edge gate handles first-pass protection without advertising the route.  
   - **Required for live admin:** deploy `workers/admin-guard.js`, set `TDB_ADMIN_SECRET`, and put Cloudflare Access in front of `/admin*` (see `workers/README-ADMIN-GUARD.md`).  
   - **Roles:** `app_metadata.role === 'admin'` is still set only in Supabase Dashboard, never from client input. Do not ship admin email allowlists in `config.js` or HTML.
-  - **Other internal pages:** `stats.html`, `secrets.html`, `debug`, and other non-user routes remain blocked at the edge unless they are given their own equivalent protection.
+  - **Other internal pages:** `stats.html`, `debug`, and other non-user routes remain blocked at the edge unless they are given their own equivalent protection.
+  - **Exception: `secrets.html`** is intentionally public, but it stays **`noindex, nofollow`** and only reveals the full breadcrumb experience after the local/session unlock checks in the page itself. The direct-view fallback is a harmless locked state, so this route is not treated as a sensitive operator surface.
 
 ### Client-side hardening
 

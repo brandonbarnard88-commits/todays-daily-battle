@@ -1,8 +1,8 @@
 /**
- * Homepage hero: deterministic daily verse + breakdown (runs after sync hero-hero-pools.js; this file is defer).
+ * Homepage hero: deterministic daily verse + breakdown (runs after sync hero-hero-pools.js and hero-daily-365-data.js).
  * Production dist/: build injects today’s verse into index.html (data-tdb-hero-prebuilt) so HTML can
- *   paint before JS; until hero-daily-365-data.js loads we read that DOM verse to avoid legacy-pool drift.
- * Primary: 365-verse UTC day-of-year (__TDB_HERO_DAILY_YEAR) once hero-daily-365-data.js loads (idle).
+ *   paint before JS; if the 365 calendar is not present we read that DOM verse to avoid legacy-pool drift.
+ * Primary: 365-verse UTC day-of-year (__TDB_HERO_DAILY_YEAR) when hero-daily-365-data.js is available.
  * Pools: hero-hero-pools.js (OFFLINE_PACK + VERSES) for normalizeVerse + legacy rotation fallback.
  */
 (function () {
@@ -46,13 +46,13 @@
     var excerpt = body.length > 110 ? body.slice(0, 107).trim() + '\u2026' : body;
     return {
       lines: [
-        'Let the words land gently\u2014God is kind toward you in what He said.',
+        'Let the words land gently\u2014God is steady in what He said.',
         excerpt,
         'Thank Him for one true thing in this verse; let gratitude lift the next step.'
       ],
       app: 'Read it twice, slowly. Smile once on purpose\u2014then tell God thank you for something specific in the verse.',
       speaker: '',
-      plain: 'Nothing here is against you; Scripture is light for your path and food for today.',
+      plain: 'Scripture meets you plainly here: light for the path and food for today.',
       today: 'You can receive this as encouragement without earning it\u2014that is how His words work.',
       action: 'Share one line with someone you love (text or voice)\u2014blessing travels both ways.'
     };
@@ -234,7 +234,7 @@
 
   window.__TDB_reapplyHeroFirstPaint = applyHeroFirstPaint;
 
-  /** Load 365 calendar list after idle so first paint uses the small fallback pool only. */
+  /** Backstop only: load the 365 calendar after idle if the page did not include it up front. */
   function scheduleHero365Hydrate() {
     if (window.__TDB_HERO365_LOAD_SCHEDULED) return;
     if (window.__TDB_HERO_DAILY_YEAR && window.__TDB_HERO_DAILY_YEAR.length) return;

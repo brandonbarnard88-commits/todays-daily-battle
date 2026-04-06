@@ -8,6 +8,10 @@
 
   function byId(id) { return document.getElementById(id); }
   function nowIso() { return new Date().toISOString(); }
+  function clearNode(el) {
+    if (!el) return;
+    while (el.firstChild) el.removeChild(el.firstChild);
+  }
 
   function escapeHtml(str) {
     return String(str || '')
@@ -235,6 +239,7 @@
       err.className = 'mystudy-progress-summary-line';
       err.textContent = 'Study tools did not load. Refresh the page.';
       el.appendChild(err);
+      renderStreakBadges();
       return;
     }
     var s = comp.getDashboardStats();
@@ -296,7 +301,7 @@
     if (!lines.length) {
       var p = document.createElement('p');
       p.className = 'mystudy-progress-summary-line mystudy-progress-summary-line--lead';
-      p.appendChild(document.createTextNode('Quiet start—nothing here is against you. When you are ready, add a verse note in the '));
+      p.appendChild(document.createTextNode('Quiet start. When you are ready, add a verse note in the '));
       var aBt = document.createElement('a');
       aBt.href = 'bible-tool.html';
       aBt.className = 'mystudy-inline-tool-link';
@@ -320,6 +325,7 @@
         )
       );
       el.appendChild(p);
+      renderStreakBadges();
       return;
     }
     lines.forEach(function (line) {
@@ -328,6 +334,111 @@
       lineEl.textContent = line;
       el.appendChild(lineEl);
     });
+    renderStreakBadges();
+  }
+
+  function renderStreakBadges() {
+    var featuredEl = byId('mystudy-streak-badge-featured');
+    var progressEl = byId('mystudy-streak-badge-progress');
+    var railEl = byId('mystudy-streak-badge-rail');
+    if (!featuredEl || !progressEl || !railEl) return;
+    clearNode(featuredEl);
+    clearNode(railEl);
+    if (!window.TDBStreakBadges || typeof window.TDBStreakBadges.getState !== 'function') {
+      progressEl.textContent = 'Quiet markers will appear here when your study rhythm is ready.';
+      return;
+    }
+    var state = window.TDBStreakBadges.getState();
+    var featured = state && state.featuredBadge ? state.featuredBadge : null;
+    if (!featured) {
+      progressEl.textContent = 'Quiet markers will appear here when your study rhythm is ready.';
+      return;
+    }
+    var featuredCard = document.createElement('article');
+    featuredCard.className =
+      'mystudy-streak-badge-featured-card' +
+      (state.unlockedBadges && state.unlockedBadges.length ? '' : ' mystudy-streak-badge-featured-card--locked');
+
+    var figure = document.createElement('div');
+    figure.className = 'mystudy-streak-badge-figure';
+    figure.setAttribute(
+      'aria-label',
+      (featured.unlocked ? 'Earned ' : 'Preview ') + featured.label + ' badge: ' + featured.title
+    );
+    var featuredSvg = window.TDBStreakBadges.buildSvg(featured.id, { size: 72 });
+    if (featuredSvg) figure.appendChild(featuredSvg);
+
+    var copy = document.createElement('div');
+    copy.className = 'mystudy-streak-badge-featured-copy';
+    var eyebrow = document.createElement('p');
+    eyebrow.className = 'mystudy-streak-badge-eyebrow';
+    eyebrow.textContent = featured.unlocked ? 'Latest earned' : 'First quiet marker';
+    var title = document.createElement('h3');
+    title.className = 'mystudy-streak-badge-title';
+    title.textContent = featured.title;
+    var note = document.createElement('p');
+    note.className = 'mystudy-streak-badge-note';
+    note.textContent = featured.unlocked ? featured.unlockCopy : featured.previewCopy;
+    copy.appendChild(eyebrow);
+    copy.appendChild(title);
+    copy.appendChild(note);
+    if (featured.unlocked && featured.unlockDate) {
+      var date = document.createElement('p');
+      date.className = 'mystudy-streak-badge-date';
+      date.textContent = 'Unlocked ' + featured.unlockDate;
+      copy.appendChild(date);
+    }
+    featuredCard.appendChild(figure);
+    featuredCard.appendChild(copy);
+    featuredEl.appendChild(featuredCard);
+
+    if (state.allUnlocked) {
+      progressEl.textContent = 'Still walking. Your quiet rhythm is holding.';
+    } else if (state.nextBadge) {
+      var current = Math.max(0, Math.min(state.streakCount || 0, state.nextBadge.days));
+      progressEl.textContent =
+        (state.unlockedBadges && state.unlockedBadges.length
+          ? current + ' of ' + state.nextBadge.days + ' days toward ' + state.nextBadge.title + '.'
+          : current + ' of ' + state.nextBadge.days + ' days toward your first badge.');
+    } else {
+      progressEl.textContent = '';
+    }
+
+    (state.badges || []).forEach(function (badge) {
+      var chip = document.createElement('div');
+      chip.className =
+        'mystudy-streak-badge-chip' + (badge.unlocked ? ' mystudy-streak-badge-chip--earned' : ' mystudy-streak-badge-chip--locked');
+      chip.setAttribute('role', 'listitem');
+      chip.setAttribute(
+        'aria-label',
+        (badge.unlocked ? 'Earned ' : 'Locked ') + badge.label + ' badge: ' + badge.title
+      );
+
+      var chipFigure = document.createElement('div');
+      chipFigure.className = 'mystudy-streak-badge-figure';
+      var chipSvg = window.TDBStreakBadges.buildSvg(badge.id, { size: 44 });
+      if (chipSvg) chipFigure.appendChild(chipSvg);
+
+      var chipCopy = document.createElement('div');
+      chipCopy.className = 'mystudy-streak-badge-chip-copy';
+      var chipLabel = document.createElement('p');
+      chipLabel.className = 'mystudy-streak-badge-label';
+      chipLabel.textContent = badge.title;
+      var chipMeta = document.createElement('p');
+      chipMeta.className = 'mystudy-streak-badge-meta';
+      chipMeta.textContent = badge.unlocked
+        ? (badge.unlockDate ? 'Unlocked ' + badge.unlockDate : badge.label + ' earned')
+        : 'Unlock at ' + badge.days + ' days';
+      chipCopy.appendChild(chipLabel);
+      chipCopy.appendChild(chipMeta);
+      chip.appendChild(chipFigure);
+      chip.appendChild(chipCopy);
+      railEl.appendChild(chip);
+    });
+
+    if (typeof window.TDBStreakBadges.consumePendingUnlock === 'function') {
+      window.TDBStreakBadges.consumePendingUnlock();
+    }
   }
 
   function renderMemorizePanel(comp) {
@@ -947,6 +1058,8 @@
     }
 
     updateMemorizePill();
+    window.addEventListener('load', renderStreakBadges, { once: true });
+    window.addEventListener('tdb-streak-badges-updated', renderStreakBadges);
   }
 
   if (document.readyState === 'loading') {

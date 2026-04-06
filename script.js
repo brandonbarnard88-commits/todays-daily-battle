@@ -618,9 +618,29 @@ function getTdbNextTheme(theme) {
 }
 
 function getTdbThemeCopy(theme) {
-  if (theme === 'light') return { current: 'Calm cream', next: 'Dawn parchment' };
-  if (theme === 'sepia') return { current: 'Dawn parchment', next: 'Quiet night' };
-  return { current: 'Quiet night', next: 'Calm cream' };
+  if (theme === 'light') return { current: 'Daylight', next: 'Parchment' };
+  if (theme === 'sepia') return { current: 'Parchment', next: 'Night' };
+  return { current: 'Night', next: 'Daylight' };
+}
+
+function ensureVisibleThemeShortcut() {
+  if (typeof document === 'undefined') return;
+  var groups = document.querySelectorAll('.tdb-header-account-nudge');
+  Array.prototype.forEach.call(groups, function (group) {
+    if (!group || group.querySelector('[data-tdb-theme-toggle="header_nudge"]')) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tdb-header-account-nudge__link';
+    btn.setAttribute('data-tdb-theme-toggle', 'header_nudge');
+    btn.setAttribute('aria-label', 'Switch appearance');
+    var text = document.createElement('span');
+    text.setAttribute('data-tdb-theme-toggle-text', '');
+    text.textContent = 'Appearance';
+    btn.appendChild(text);
+    var beforeEl = group.querySelector('a[href*="login"], a[href*="/login"]');
+    if (beforeEl) group.insertBefore(btn, beforeEl);
+    else group.appendChild(btn);
+  });
 }
 
 function syncThemeToggleButtons() {
@@ -630,14 +650,14 @@ function syncThemeToggleButtons() {
   var themeCopy = getTdbThemeCopy(theme);
   document.querySelectorAll('[data-tdb-theme-toggle]').forEach(function (btn) {
     btn.setAttribute('aria-pressed', theme !== 'dark' ? 'true' : 'false');
-    btn.setAttribute('aria-label', 'Current appearance: ' + themeCopy.current + '. Switch to ' + themeCopy.next);
-    btn.setAttribute('title', 'Current appearance: ' + themeCopy.current + '. Switch to ' + themeCopy.next);
+    btn.setAttribute('aria-label', 'Appearance: ' + themeCopy.current + '. Switch to ' + themeCopy.next + '.');
+    btn.setAttribute('title', 'Appearance: ' + themeCopy.current + '. Switch to ' + themeCopy.next + '.');
     btn.setAttribute('data-next-theme', nextTheme);
     var textEl = btn.querySelector('[data-tdb-theme-toggle-text]');
     if (textEl) {
-      textEl.textContent = themeCopy.next;
+      textEl.textContent = 'Appearance: ' + themeCopy.current;
     } else {
-      btn.textContent = themeCopy.next;
+      btn.textContent = 'Appearance: ' + themeCopy.current;
     }
   });
 }
@@ -653,6 +673,8 @@ function toggleTdbTheme(source) {
       localStorage.setItem('tdb-theme', nextTheme);
     } catch (_) {}
   }
+  ensureVisibleThemeShortcut();
+  ensureVisibleThemeShortcut();
   syncThemeToggleButtons();
   if (typeof trackEvent === 'function') {
     trackEvent('appearance_theme_select', { theme: nextTheme, source: source || 'quick_toggle' });
@@ -940,6 +962,7 @@ function wireWelcomeTour() {
     prompt.hidden = !shouldAutoTour();
   }
 
+  ensureVisibleThemeShortcut();
   syncThemeToggleButtons();
   syncWelcomeTourPrompt();
   window.addEventListener('tdb-theme-change', syncThemeToggleButtons);
@@ -2897,11 +2920,11 @@ function getTdbPlansLaneHashForTopic(topicRaw) {
     .toLowerCase()
     .replace(/\s+/g, ' ');
   if (!t) return null;
-  var fear = ['peace', 'anxiety', 'fear', 'sleep', 'rest'];
+  var fear = ['peace', 'anxiety', 'fear', 'sleep', 'rest', 'exhaustion'];
   var grief = ['grief', 'heartache'];
   var pain = ['cancer', 'trauma'];
   var money = ['finances', 'addiction'];
-  var anger = ['anger', 'forgiveness'];
+  var anger = ['anger', 'forgiveness', 'difficult person', 'difficult boss'];
   var uncertainty = [
     'hope',
     'strength',
@@ -11888,6 +11911,263 @@ var STREAK_BADGES = [
 ];
 var BADGES_STORAGE_KEY = 'tdb_unlocked_badges';
 var BADGES_DATES_KEY = 'tdb_badge_dates';
+var MYSTUDY_STREAK_BADGES = [
+  {
+    id: 'streak-7',
+    days: 7,
+    label: '7-day',
+    title: 'Week of faithfulness',
+    unlockCopy: 'Seven days. A quiet rhythm is forming.',
+    previewCopy: 'Seven quiet days in the Word unlock your first olive branch marker.',
+    legacyIds: ['hope-hero'],
+    numberText: '7',
+    numberClass: 'badge-number--single'
+  },
+  {
+    id: 'streak-30',
+    days: 30,
+    label: '30-day',
+    title: 'Month of steady walk',
+    unlockCopy: 'Thirty days. Faithfulness adds up.',
+    previewCopy: 'Thirty days gathers a fuller branch around your study rhythm.',
+    legacyIds: ['battle-master'],
+    numberText: '30',
+    numberClass: 'badge-number--double'
+  },
+  {
+    id: 'streak-365',
+    days: 365,
+    label: '365-day',
+    title: 'Year of abiding',
+    unlockCopy: 'One year. Grace carried you here.',
+    previewCopy: 'A year in the Word fills out the quiet arc without turning it into a trophy.',
+    legacyIds: [],
+    numberText: '365',
+    numberClass: 'badge-number--triple'
+  }
+];
+var MYSTUDY_STREAK_PENDING_BADGE_KEY = 'tdb_mystudy_streak_pending_badge';
+
+function getMyStudyStreakBadgeById(id) {
+  for (var i = 0; i < MYSTUDY_STREAK_BADGES.length; i++) {
+    if (MYSTUDY_STREAK_BADGES[i].id === id) return MYSTUDY_STREAK_BADGES[i];
+  }
+  return null;
+}
+
+function getCurrentDailyBattleStreakCount() {
+  if (typeof window !== 'undefined' && typeof window.__currentStreakCount === 'number') {
+    return Math.max(0, window.__currentStreakCount);
+  }
+  try {
+    var raw = localStorage.getItem(DAILY_BATTLE_STREAK_KEY);
+    var data = raw ? JSON.parse(raw) : {};
+    if (data && typeof data.count === 'number' && data.count >= 0) return data.count;
+    var dates = data && Array.isArray(data.dates) ? data.dates : [];
+    var anchor = data && typeof data.lastKey === 'string' && data.lastKey ? data.lastKey : getDailyKey();
+    return dates.length ? calculateStreak(dates, anchor) : 0;
+  } catch (e) {
+    return 0;
+  }
+}
+
+function isLegacyMyStudyBadgeUnlocked(badge, unlocked) {
+  if (!badge || !Array.isArray(badge.legacyIds) || !badge.legacyIds.length) return false;
+  return badge.legacyIds.some(function (id) { return unlocked.indexOf(id) >= 0; });
+}
+
+function isMyStudyBadgeUnlocked(badge, unlocked) {
+  if (!badge) return false;
+  if (unlocked.indexOf(badge.id) >= 0) return true;
+  return isLegacyMyStudyBadgeUnlocked(badge, unlocked);
+}
+
+function getMyStudyBadgeUnlockDate(badge, dates) {
+  if (!badge) return '';
+  if (dates && dates[badge.id]) return dates[badge.id];
+  if (Array.isArray(badge.legacyIds)) {
+    for (var i = 0; i < badge.legacyIds.length; i++) {
+      if (dates && dates[badge.legacyIds[i]]) return dates[badge.legacyIds[i]];
+    }
+  }
+  return '';
+}
+
+function getMyStudyBadgeState() {
+  var streakCount = getCurrentDailyBattleStreakCount();
+  var unlocked = getUnlockedBadges();
+  var dates = getBadgeUnlockDates();
+  var badges = MYSTUDY_STREAK_BADGES.map(function (badge) {
+    return Object.assign({}, badge, {
+      unlocked: isMyStudyBadgeUnlocked(badge, unlocked),
+      unlockDate: getMyStudyBadgeUnlockDate(badge, dates)
+    });
+  });
+  var unlockedBadges = badges.filter(function (badge) { return badge.unlocked; }).sort(function (a, b) {
+    return b.days - a.days;
+  });
+  var nextBadge = badges.find(function (badge) { return !badge.unlocked; }) || null;
+  return {
+    streakCount: streakCount,
+    badges: badges,
+    unlockedBadges: unlockedBadges,
+    featuredBadge: unlockedBadges[0] || badges[0] || null,
+    nextBadge: nextBadge,
+    allUnlocked: !nextBadge
+  };
+}
+
+function createTdbBadgeSvgNode(name, attrs) {
+  var el = document.createElementNS('http://www.w3.org/2000/svg', name);
+  Object.keys(attrs || {}).forEach(function (key) {
+    if (attrs[key] != null) el.setAttribute(key, String(attrs[key]));
+  });
+  return el;
+}
+
+function buildTdbStreakBadgeSvg(badgeId, options) {
+  if (typeof document === 'undefined') return null;
+  var badge = getMyStudyStreakBadgeById(badgeId) || MYSTUDY_STREAK_BADGES[0];
+  var design = {
+    stem: 'M18 42 C22 34 26 27 34 22',
+    leaves: [
+      'M21 37 C17 34 16 31 18 28 C21 30 23 33 21 37',
+      'M27 30 C24 27 23 23 25 20 C29 22 30 26 27 30',
+      'M33 24 C31 20 31 17 33 14 C36 16 37 20 33 24',
+      'M36 33 C40 31 43 28 44 24 C40 24 37 27 36 33'
+    ]
+  };
+  if (badge.id === 'streak-30') {
+    design = {
+      stem: 'M14 43 C18 36 23 28 31 22 C38 17 45 16 50 20',
+      leaves: [
+        'M18 39 C14 36 13 33 15 29 C19 31 21 35 18 39',
+        'M24 31 C21 28 20 24 22 21 C26 23 27 27 24 31',
+        'M30 24 C28 20 28 17 30 14 C34 16 35 20 30 24',
+        'M37 20 C38 16 41 14 45 14 C44 18 42 21 37 20',
+        'M40 31 C44 29 47 26 48 22 C44 22 41 25 40 31',
+        'M31 39 C35 38 38 40 39 44 C35 44 32 43 31 39'
+      ]
+    };
+  } else if (badge.id === 'streak-365') {
+    design = {
+      stem: 'M14 44 C17 35 22 25 30 19 C38 13 47 13 53 20 C56 24 57 29 55 34',
+      leaves: [
+        'M18 40 C14 37 13 33 15 29 C19 31 21 35 18 40',
+        'M23 32 C20 29 19 25 21 22 C25 24 27 28 23 32',
+        'M28 24 C26 20 26 17 28 14 C32 16 33 20 28 24',
+        'M35 18 C36 14 39 12 43 12 C42 16 40 19 35 18',
+        'M44 18 C48 18 51 20 53 23 C49 24 46 23 44 18',
+        'M45 29 C49 28 52 25 53 21 C49 21 46 24 45 29',
+        'M38 37 C42 38 44 41 44 45 C40 44 38 42 38 37',
+        'M28 41 C31 43 32 47 30 50 C27 48 26 45 28 41'
+      ]
+    };
+  }
+  var svg = createTdbBadgeSvgNode('svg', {
+    viewBox: '0 0 64 64',
+    class: 'tdb-streak-badge-svg',
+    'aria-hidden': 'true',
+    focusable: 'false'
+  });
+  if (options && options.size) {
+    svg.setAttribute('width', String(options.size));
+    svg.setAttribute('height', String(options.size));
+  }
+  var halo = createTdbBadgeSvgNode('circle', {
+    class: 'badge-halo',
+    cx: '32',
+    cy: '32',
+    r: badge.id === 'streak-365' ? '27' : '26'
+  });
+  svg.appendChild(halo);
+  var stem = createTdbBadgeSvgNode('path', {
+    class: 'badge-stem',
+    d: design.stem,
+    fill: 'none',
+    'stroke-linecap': 'round',
+    'stroke-linejoin': 'round'
+  });
+  svg.appendChild(stem);
+  design.leaves.forEach(function (pathD) {
+    svg.appendChild(createTdbBadgeSvgNode('path', {
+      class: 'badge-leaf',
+      d: pathD,
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round'
+    }));
+  });
+  var number = createTdbBadgeSvgNode('text', {
+    class: 'badge-number ' + badge.numberClass,
+    x: '32',
+    y: badge.id === 'streak-365' ? '34' : '35'
+  });
+  number.textContent = badge.numberText;
+  svg.appendChild(number);
+  return svg;
+}
+
+function maybeStorePendingMyStudyBadgeUnlock(newBadges) {
+  if (!Array.isArray(newBadges) || !newBadges.length) return;
+  var highest = newBadges.slice().sort(function (a, b) { return b.days - a.days; })[0];
+  try {
+    localStorage.setItem(MYSTUDY_STREAK_PENDING_BADGE_KEY, highest.id);
+  } catch (_) {}
+}
+
+function playMyStudyBadgeChimeIfEnabled() {
+  try {
+    if (localStorage.getItem(SACRED_SILENCE_KEY) === 'true') return;
+    if (localStorage.getItem(GOD_MODE_SOUND_ENABLED_KEY) !== 'true') return;
+    var AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    var ctx = new AudioCtx();
+    var now = ctx.currentTime;
+    var oscA = ctx.createOscillator();
+    var oscB = ctx.createOscillator();
+    var gain = ctx.createGain();
+    oscA.type = 'sine';
+    oscB.type = 'triangle';
+    oscA.frequency.setValueAtTime(622.25, now);
+    oscB.frequency.setValueAtTime(830.61, now + 0.08);
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.045, now + 0.03);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.52);
+    oscA.connect(gain);
+    oscB.connect(gain);
+    gain.connect(ctx.destination);
+    oscA.start(now);
+    oscB.start(now + 0.08);
+    oscA.stop(now + 0.44);
+    oscB.stop(now + 0.52);
+    setTimeout(function () {
+      try { ctx.close(); } catch (_) {}
+    }, 700);
+  } catch (_) {}
+}
+
+function consumePendingMyStudyBadgeUnlock() {
+  var badgeId = safeGetItem(MYSTUDY_STREAK_PENDING_BADGE_KEY);
+  if (!badgeId) return null;
+  try { localStorage.removeItem(MYSTUDY_STREAK_PENDING_BADGE_KEY); } catch (_) {}
+  var badge = getMyStudyStreakBadgeById(badgeId);
+  if (!badge) return null;
+  if (typeof showEliteToast === 'function') {
+    showEliteToast(badge.unlockCopy, { gold: true, duration: 3400 });
+  }
+  trackEvent('streak_badge_unlocked', { badge_id: badge.id, days: badge.days, source: 'mystudy' });
+  playMyStudyBadgeChimeIfEnabled();
+  return badge;
+}
+
+function dispatchMyStudyStreakBadgesUpdated() {
+  if (typeof window === 'undefined' || typeof window.dispatchEvent !== 'function') return;
+  try {
+    window.dispatchEvent(new CustomEvent('tdb-streak-badges-updated', {
+      detail: getMyStudyBadgeState()
+    }));
+  } catch (_) {}
+}
 
 function getUnlockedBadges() {
   try { return JSON.parse(localStorage.getItem(BADGES_STORAGE_KEY) || '[]'); } catch (e) { return []; }
@@ -11905,6 +12185,7 @@ function updateUnlockedBadges(streakCount) {
   }
   var dates = getBadgeUnlockDates();
   var changed = false;
+  var newMyStudyBadges = [];
   var todayStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   STREAK_BADGES.forEach(function (b) {
     if (streakCount >= b.days && unlocked.indexOf(b.id) === -1) {
@@ -11913,13 +12194,34 @@ function updateUnlockedBadges(streakCount) {
       changed = true;
     }
   });
+  MYSTUDY_STREAK_BADGES.forEach(function (badge) {
+    if (streakCount < badge.days || unlocked.indexOf(badge.id) >= 0) return;
+    var hadLegacy = isLegacyMyStudyBadgeUnlocked(badge, unlocked);
+    unlocked.push(badge.id);
+    if (!dates[badge.id]) {
+      dates[badge.id] = getMyStudyBadgeUnlockDate(badge, dates) || todayStr;
+    }
+    changed = true;
+    if (!hadLegacy) newMyStudyBadges.push(badge);
+  });
   if (changed) {
     localStorage.setItem(BADGES_STORAGE_KEY, JSON.stringify(unlocked));
     localStorage.setItem(BADGES_DATES_KEY, JSON.stringify(dates));
     setSyncData('badges', unlocked);
     setSyncData('badge_dates', dates);
   }
+  maybeStorePendingMyStudyBadgeUnlock(newMyStudyBadges);
   renderBadgesSection();
+  dispatchMyStudyStreakBadgesUpdated();
+}
+
+if (typeof window !== 'undefined') {
+  window.TDBStreakBadges = {
+    getState: getMyStudyBadgeState,
+    buildSvg: buildTdbStreakBadgeSvg,
+    consumePendingUnlock: consumePendingMyStudyBadgeUnlock
+  };
+  dispatchMyStudyStreakBadgesUpdated();
 }
 
 function renderBadgesSection() {

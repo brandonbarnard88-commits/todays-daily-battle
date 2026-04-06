@@ -201,11 +201,11 @@
 
 # Donation/support (301). Legacy support paths now land on the calm support page.
 /give /give.html 301
-/donate /give.html 301
-/stripe /give.html 301
-/support /give.html 301
-/donations /give.html 301
-/donations/* /give.html 301
+/donate https://buymeacoffee.com/todaysdailybattle 301
+/stripe https://buymeacoffee.com/todaysdailybattle 301
+/support https://buymeacoffee.com/todaysdailybattle 301
+/donations https://buymeacoffee.com/todaysdailybattle 301
+/donations/* https://buymeacoffee.com/todaysdailybattle 301
 
 # Payment bot probes and old support guesses → support page (reduces 4xx noise)
 /donate/* /give.html 301

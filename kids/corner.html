@@ -33,8 +33,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/bangers-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- First comic thumb (SVG) — matches common grid lead; raster AVIF/JPG preloads when files exist + TDB_PANEL_RASTER -->
-  <link rel="preload" href="/kids/panel-david-1.svg" as="image" type="image/svg+xml">
+  <!-- Common lead art remains /kids/panel-david-1.svg; we do not preload it because the library grid may not paint it immediately. -->
   <!-- Optional rasters (uncomment after upload to /assets/panels/):
        <link rel="preload" href="/assets/panels/panel-david-1.avif" as="image" type="image/avif">
        <link rel="preload" href="/assets/panels/panel-david-1.jpg" as="image"> -->

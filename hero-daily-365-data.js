@@ -388,7 +388,7 @@
   },
   {
     "ref": "Proverbs 14:30",
-    "text": "A sound heart is the life of the flesh."
+    "text": "A sound heart is the life of the flesh: but envy the rottenness of the bones."
   },
   {
     "ref": "Proverbs 15:1",

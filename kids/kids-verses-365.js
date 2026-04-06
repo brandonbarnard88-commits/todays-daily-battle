@@ -105,7 +105,7 @@
   { ref: 'Proverbs 2:6', text: 'The Lord giveth wisdom: out of his mouth cometh knowledge.' },
   { ref: 'Proverbs 4:23', text: 'Keep thy heart with all diligence; for out of it are the issues of life.' },
   { ref: 'Proverbs 12:25', text: 'Heaviness in the heart of man maketh it stoop: but a good word maketh it glad.' },
-  { ref: 'Proverbs 14:30', text: 'A sound heart is the life of the flesh.' },
+  { ref: 'Proverbs 14:30', text: 'A sound heart is the life of the flesh: but envy the rottenness of the bones.' },
   { ref: 'Proverbs 15:1', text: 'A soft answer turneth away wrath.' },
   { ref: 'Proverbs 15:3', text: 'The eyes of the Lord are in every place.' },
   { ref: 'Proverbs 16:9', text: 'A man\'s heart deviseth his way: but the Lord directeth his steps.' },

@@ -6286,6 +6286,34 @@
     }
     .topic-plans-hint a { color: var(--gold-soft, #c9a84c); }
     .topic-plans-hint a:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.65); outline-offset: 2px; }
+    .feel-topic-action-strip,
+    .feel-topic-expanded-hint {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem 0.55rem;
+      margin: 0.6rem 0 0;
+      padding: 0.72rem 0.85rem;
+      border: 1px solid color-mix(in srgb, var(--line) 76%, var(--gold) 16%);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--card) 92%, rgba(227, 188, 103, 0.06));
+      color: var(--text);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .feel-topic-action-strip strong,
+    .feel-topic-expanded-hint strong {
+      color: var(--gold-soft, #c9a84c);
+      letter-spacing: 0.01em;
+    }
+    .feel-topic-action-strip-detail,
+    .feel-topic-expanded-hint a {
+      color: var(--muted);
+    }
+    .feel-topic-expanded-hint {
+      margin-top: 0;
+      margin-bottom: 0.25rem;
+    }
     .feel-first-action-assurance {
       margin: 0.2rem 0 0.28rem;
       font-size: 0.8rem;
@@ -6448,6 +6476,23 @@
       background: rgba(255, 252, 246, 0.95);
       border-color: color-mix(in srgb, var(--line) 78%, #9e7625 16%);
       color: rgba(42, 38, 32, 0.92);
+    }
+    :root[data-theme="light"] .feel-topic-action-strip,
+    :root[data-theme="light"] .feel-topic-expanded-hint {
+      background: linear-gradient(165deg, rgba(255, 253, 248, 0.99), rgba(252, 247, 236, 0.99));
+      border-color: color-mix(in srgb, var(--line) 76%, #9e7625 20%);
+      color: rgba(44, 36, 19, 0.94);
+    }
+    :root[data-theme="light"] .feel-topic-action-strip-detail,
+    :root[data-theme="light"] .feel-topic-expanded-hint a {
+      color: rgba(92, 74, 37, 0.9);
+    }
+    @media (max-width: 767px) {
+      .feel-topic-action-strip,
+      .feel-topic-expanded-hint {
+        font-size: 0.82rem;
+        padding: 0.68rem 0.78rem;
+      }
     }
     .feel-band-panel[hidden] {
       display: none !important;
@@ -7216,7 +7261,7 @@
         </span>
         <span aria-hidden="true"> · </span>
         <button type="button" class="tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" data-tdb-theme-toggle="home_header" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <button type="button" data-tdb-theme-toggle="home_header" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
         <a href="about.html" aria-label="About Today's Daily Battle">About</a>
         <a href="faq.html" aria-label="FAQ">FAQ</a>
         <a href="why-not-ai.html" aria-label="Why we are not an AI chat tool">Why not AI?</a>
@@ -7271,7 +7316,7 @@
       <a class="tdb-home-quickbar-link" href="/mystudy">My Study</a>
       <a class="tdb-home-quickbar-link" href="/family.html">Family</a>
       <a class="tdb-home-quickbar-link" href="/give">Give</a>
-      <button type="button" class="tdb-home-quickbar-btn" data-tdb-theme-toggle="home_quickbar" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+      <button type="button" class="tdb-home-quickbar-btn" data-tdb-theme-toggle="home_quickbar" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
     </nav>
 
     <button type="button" class="tdb-wayfind-toggle" id="tdb-wayfind-toggle" aria-expanded="false" aria-controls="tdb-sticky-wayfind">
@@ -7743,7 +7788,8 @@
           </div>
         </div>
         <p class="section-note util-mt-0_5 util-mb-0">Try: "Who is Jesus?", "angry at work", "overwhelmed as a parent", "caring for aging parents", or "joy".</p>
-        <p class="topic-plans-hint section-note" id="topicPlansHint">Short phrases work well. Press <strong>Search</strong> or Enter for the fuller KJV lookup. <span class="topic-plans-hint-detail">Inside a category: tap a chip to search verses fast. Alt-click (desktop) or long-press (phone) on a chip opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
+        <p class="topic-plans-hint section-note" id="topicPlansHint">Short phrases work well. Press <strong>Search</strong> or Enter for the fuller KJV lookup. <span class="topic-plans-hint-detail">Inside a category: tap a chip to search verses fast. Alt-click (desktop) or long-press (phone) opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
+        <p class="feel-topic-action-strip" id="feelTopicActionStrip"><strong>Quick tip:</strong> Pick a category, then tap a chip for verses. <span class="feel-topic-action-strip-detail">On phone, hold for the matching plan.</span></p>
         <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Pick a category first; chip order may change each visit. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
           <div id="feelTopicPickers" class="feel-topic-pickers" role="group" aria-label="Topic categories">
             <div class="feel-category-grid">
@@ -7767,6 +7813,7 @@
           </div>
           <div id="feelTopicExpanded" class="feel-topic-expanded" hidden aria-hidden="true" role="region" aria-label="Topic chips for the category you opened">
             <button type="button" class="feel-band-back" id="feelBandBack" aria-label="Back to topic categories">Back to categories</button>
+            <p class="feel-topic-expanded-hint" id="feelTopicExpandedHint"><strong>Tap</strong> for verses. <strong>Hold</strong> on phone for a matching plan, or <a href="plans.html">open all Battle Plans</a>.</p>
             <div class="feel-band-panel" data-feel-band="heavy" hidden aria-hidden="true">
               <div class="quick-topic-group" role="group" aria-labelledby="qtg-heavy">
                 <h3 class="quick-topic-group-title" id="qtg-heavy">When it feels heavy</h3>
@@ -8371,9 +8418,10 @@
   <!-- ── First-visit Read-Aloud Modal ── -->
   
 
-  <!-- Hero pools: sync immediately before inline block (needs __TDB_HERO_*). First-paint script defer; 365 data still idle-loaded from hero-daily-first-paint.js. -->
+  <!-- Hero verse: load the 365 calendar before the first-paint helper so first paint uses the real daily verse. -->
   <script nonce="tdb2025s" src="hero-hero-pools.js?v=20260328pools" fetchpriority="low"></script>
-  <script nonce="tdb2025s" defer src="hero-daily-first-paint.js?v=20260328pools" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="hero-daily-365-data.js?v=20260325b" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260328pools" fetchpriority="low"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="tdb-home-mobius-week.js?v=20260330home"></script>
   <script nonce="tdb2025s" src="/sky-ip-geo.js?v=20260327ipgeo" fetchpriority="low"></script>
   <script nonce="tdb2025s">
@@ -8787,9 +8835,9 @@
 
     function renderVerseContent(data) {
       const v = normalizeVerse(data);
-      heroVerse.classList.remove("is-visible");
       heroVerse.textContent = "\u201c" + v.text + "\u201d";
       heroRef.textContent = v.ref + " (KJV)";
+      heroVerse.classList.add("is-visible");
 
       // ── Update "Read full chapter" deep-link ──
       (function() {
@@ -8876,8 +8924,6 @@
         heroApplication.textContent = v.app;
         heroApplication.style.display = '';
       }
-
-      requestAnimationFrame(() => heroVerse.classList.add("is-visible"));
 
       try {
         if (typeof window.dispatchEvent === 'function') {

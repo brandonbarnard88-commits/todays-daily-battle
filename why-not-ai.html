@@ -44,12 +44,36 @@
       margin-bottom: 0.5rem;
       color: var(--text, #f5f7fb);
     }
+    .tdb-compare-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.75rem;
+      margin: 0.9rem 0 1rem;
+    }
+    .tdb-compare-pill {
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      border-radius: 14px;
+      padding: 0.85rem 0.95rem;
+      background: rgba(255, 255, 255, 0.025);
+    }
+    .tdb-compare-pill strong {
+      display: block;
+      margin-bottom: 0.28rem;
+      color: var(--gold-soft, #c9a84c);
+      letter-spacing: 0.01em;
+    }
+    .tdb-compare-pill span {
+      color: var(--muted, #94a3b8);
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
     .tdb-compare-table th,
     .tdb-compare-table td {
       border: 1px solid color-mix(in srgb, var(--line, #2a3344) 80%, transparent);
       padding: 0.65rem 0.75rem;
       vertical-align: top;
       text-align: left;
+      line-height: 1.55;
     }
     .tdb-compare-table thead th {
       background: color-mix(in srgb, var(--card, #1b212d) 92%, var(--gold, #e3bc67));
@@ -86,6 +110,36 @@
     .hero-banner .hero-tagline {
       text-wrap: pretty;
     }
+    .tdb-next-steps {
+      display: grid;
+      gap: 0.75rem;
+      margin: 0.9rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tdb-next-steps li {
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      border-radius: 14px;
+      padding: 0.85rem 0.95rem;
+      background: rgba(255, 255, 255, 0.025);
+    }
+    .tdb-next-steps strong {
+      color: var(--gold-soft, #c9a84c);
+    }
+    @media (max-width: 720px) {
+      .tdb-compare-wrap {
+        margin-top: 0.75rem;
+      }
+      .tdb-compare-table {
+        min-width: 0;
+        font-size: 0.9rem;
+      }
+      .tdb-compare-table th,
+      .tdb-compare-table td,
+      .tdb-compare-table tbody th[scope="row"] {
+        white-space: normal;
+      }
+    }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page">
@@ -111,7 +165,7 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">Honest comparison—not a rant</span>
+        <span class="brand-subtitle">A calm answer, plainly put</span>
       </div>
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
@@ -122,7 +176,7 @@
         <a href="/verse.html">Today&rsquo;s Verse</a>
         <a href="/#feel-section">How I Feel</a>
         <a href="/prayer-wall.html">Pray</a>
-        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -176,7 +230,7 @@
         <header class="hero-banner">
           <h1>Why not AI?</h1>
           <p class="privacy-line">No ads. No profiling. Your prayers and personal progress stay on your device unless you choose to sync.</p>
-          <p class="hero-tagline">Plenty of tools can answer fast.<br />We built for something quieter: one trustworthy KJV rhythm, one clear next step, and real people gathering in <a href="/prayer-wall.html?tab=with-others">Prayer</a> &mdash; not a pretend conversation.</p>
+          <p class="hero-tagline">Plenty of tools can answer fast.<br />We built for quieter ground: one trustworthy KJV rhythm, one clear next step, and real people gathering in <a href="/prayer-wall.html?tab=with-others">Prayer</a> when you want company.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/">Today&rsquo;s verse</a>
             <a class="btn btn-secondary" href="plans.html">Battle plans</a>
@@ -193,7 +247,12 @@
 
         <section class="glass">
           <h2 class="section-divider">Honest comparison</h2>
-          <p class="section-note">Typical AI chat experiences vary by product. The column below describes common patterns, not one named app.</p>
+          <p class="section-note">Typical AI chat experiences vary by product. The table below names the common pattern plainly, then shows the lane this site chose instead.</p>
+          <div class="tdb-compare-summary" aria-label="Quick comparison highlights">
+            <div class="tdb-compare-pill"><strong>KJV stays fixed</strong><span>No blended verse text, no smoothing, no made-up Scripture.</span></div>
+            <div class="tdb-compare-pill"><strong>Privacy stays local</strong><span>Offline-friendly by design, with sync only when you choose it.</span></div>
+            <div class="tdb-compare-pill"><strong>People stay human</strong><span>Prayer and quiet stories keep real readers in view.</span></div>
+          </div>
           <div class="tdb-compare-wrap">
             <table class="tdb-compare-table">
               <caption>Today&rsquo;s Daily Battle vs. typical AI Bible chat</caption>
@@ -207,27 +266,27 @@
               <tbody>
                 <tr>
                   <th scope="row">Scripture</th>
-                  <td>May blend translations, smooth edges, or fill gaps with generated text. Quality depends on the model and prompt.</td>
-                  <td><strong>KJV only</strong>, with a fixed daily verse and human-edited breakdown fields where provided&mdash;no &ldquo;invented&rdquo; verse text.</td>
+                  <td>May blend translations, smooth rough edges, or fill gaps with generated wording. Quality depends on the model and prompt.</td>
+                  <td><strong>KJV only</strong>, with a fixed daily verse and human-edited breakdown fields where provided.</td>
                 </tr>
                 <tr>
                   <th scope="row">Privacy</th>
-                  <td>Often needs the internet; prompts may be stored or used for training by the provider. Policies differ.</td>
-                  <td>No ads. No tracking. Your prayers and data stay on your device. Just you and God. Optional sign-in syncs with your choice; details in <a href="privacy.html">Privacy</a>. <a href="offline.html">Offline</a>-capable as a PWA.</td>
+                  <td>Usually online first; prompts may be stored or retained by the provider. Policies differ.</td>
+                  <td>No ads. No profiling. Your prayers and progress stay on your device unless you choose sync; details live in <a href="privacy.html">Privacy</a>. <a href="offline.html">Offline</a> works after first load.</td>
                 </tr>
                 <tr>
                   <th scope="row">Community</th>
-                  <td>Feels personal, but it is still you and code&mdash;not another believer beside you.</td>
-                  <td><a href="/prayer-wall.html?tab=with-others">Prayer</a> and anonymous Amens: real people, aggregate signals only (see <a href="faq.html">FAQ</a>).</td>
+                  <td>Can feel personal, but it is still you and software.</td>
+                  <td><a href="/prayer-wall.html?tab=with-others">Prayer</a> and anonymous Amens keep real people in view without turning the page into a feed.</td>
                 </tr>
                 <tr>
                   <th scope="row">Pace</th>
-                  <td>Open-ended: you can chase endless threads and tabs.</td>
-                  <td><strong>Daily bread, not a buffet</strong>: one verse rhythm plus <a href="plans.html">7&ndash;40 day battle plans</a> with progress saved on-device.</td>
+                  <td>Easy to keep asking without ever settling anywhere.</td>
+                  <td><strong>Daily bread, not a buffet</strong>: one verse rhythm plus <a href="plans.html">7&ndash;40 day battle plans</a> when you need more than one screen.</td>
                 </tr>
                 <tr>
                   <th scope="row">Crisis use</th>
-                  <td>When the network drops or you distrust data collection, the tool may not feel safe.</td>
+                  <td>If the signal drops or privacy feels thin, the tool may stop feeling safe enough.</td>
                   <td>Built for airplane mode, waiting rooms, and hard nights&mdash;see the home page offline banner and <a href="calm.html">Calm</a>.</td>
                 </tr>
               </tbody>
@@ -255,11 +314,11 @@
 
         <section class="glass">
           <h2 class="section-divider">Where to go next</h2>
-          <ul class="section-note" style="margin-left:1.25rem;">
-            <li><a href="/prayer-wall.html?tab=with-others">Prayer</a> &mdash; post or read requests; Amens stay anonymous.</li>
-            <li><a href="plans.html">Battle plans</a> &mdash; structured days instead of an endless chat.</li>
-            <li><a href="privacy.html">Privacy policy</a> &mdash; what we collect and what we never put in analytics.</li>
-            <li><a href="testimonials.html">Reader stories</a> &mdash; real words from the field.</li>
+          <ul class="tdb-next-steps">
+            <li><strong><a href="/prayer-wall.html?tab=with-others">Prayer</a></strong> &mdash; read or post quiet requests; Amens stay anonymous.</li>
+            <li><strong><a href="plans.html">Battle plans</a></strong> &mdash; take a structured next step instead of another open tab.</li>
+            <li><strong><a href="privacy.html">Privacy policy</a></strong> &mdash; see what we collect, and what never enters analytics.</li>
+            <li><strong><a href="testimonials.html">Reader stories</a></strong> &mdash; hear how this lane lands in real life.</li>
           </ul>
         </section>
       </div>

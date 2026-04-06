@@ -1,26 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js"></script>
-
-  <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wins Report • Today's Daily Battle</title>
-  <meta name="description" content="Your 2026 Wins—streak, verses, and growth. Share your progress. Part of Battle Pro.">
+  <title>Media &amp; Description Guide • Today's Daily Battle</title>
+  <meta name="description" content="Best-of-the-best descriptions for Today's Daily Battle: one-line pitch, short blurb, directory version, full write-up, and founder-voice copy.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/wins-report.html">
+  <link rel="canonical" href="https://todaysdailybattle.com/media.html">
+  <meta property="og:title" content="Media &amp; Description Guide • Today's Daily Battle">
+  <meta property="og:description" content="One-line pitch, short blurb, directory version, full description, and founder-voice copy for Today's Daily Battle.">
+  <meta property="og:url" content="https://todaysdailybattle.com/media.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Media &amp; Description Guide • Today's Daily Battle">
+  <meta name="twitter:description" content="Press-ready and platform-ready descriptions for Today's Daily Battle.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260412launch">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
-  <script type="module" src="config.js"></script>
+  <style nonce="tdb2025s">
+    .media-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .media-copy-card {
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      border-radius: 16px;
+      padding: 1rem 1.05rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .media-copy-card h2 {
+      margin-top: 0;
+    }
+    .media-copy-card pre {
+      margin: 0.65rem 0 0;
+      white-space: pre-wrap;
+      font: 500 0.95rem/1.65 Inter, system-ui, sans-serif;
+      color: var(--text);
+    }
+    .media-copy-label {
+      display: inline-block;
+      margin-bottom: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(227, 188, 103, 0.78);
+    }
+    .media-notes-list {
+      margin: 0.5rem 0 0;
+      padding-left: 1.15rem;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body class="dark-mode tdb-inner-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -29,7 +68,7 @@
       <div class="tdb-lang-switcher-header-wrap">
         <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
           <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
-                    <span class="tdb-lang-switcher-inner">
+          <span class="tdb-lang-switcher-inner">
             <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
             <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
@@ -42,53 +81,90 @@
           </span>
         </nav>
       </div>
-
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">Your 2026 Wins</span>
+        <span class="brand-subtitle">Media and description guide</span>
       </div>
-      <a href="/" class="header-menu-link">Home</a>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+        <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+          <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+          <span class="tdb-nav-flyout-toggle__label">Site</span>
+        </button>
+        <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+          <a href="/verse.html">Today&rsquo;s Verse</a>
+          <a href="/#feel-section">How I Feel</a>
+          <a href="/prayer-wall.html">Pray</a>
+          <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+          <details class="tdb-nav-more">
+            <summary aria-haspopup="true">More</summary>
+            <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+              <a href="/">Home</a>
+              <a href="/explore.html">Explore</a>
+              <a href="/mystudy">My Study</a>
+              <a href="/bible-tool.html#bible-tool-hub">Bible Tool</a>
+              <a href="/plans.html">Battle Plans</a>
+              <a href="/memorize.html">Memorize</a>
+              <a href="/kids/corner.html">Kids &amp; Family</a>
+              <a href="/site-guide.html">Start here</a>
+              <a href="/about.html">About</a>
+              <a href="/story.html">Story</a>
+              <a href="/give">Support</a>
+            </div>
+          </details>
+        </div>
+      </nav>
     </header>
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>Your 2026 Wins</h1>
-          <p class="hero-tagline">A look at your daily battle habit — streak, days read, and how you've shown up. Share it if you want.</p>
+          <h1>Media &amp; description guide</h1>
+          <p class="hero-tagline">Five polished ways to describe Today&rsquo;s Daily Battle, each written for a different place: headline, about box, directory listing, fuller write-up, and founder-voice story.</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="/">Daily Battle</a>
-            <a class="btn btn-secondary" href="pricing.html">Battle Pro</a>
+            <a class="btn btn-primary" href="/">Open the site</a>
+            <a class="btn btn-secondary" href="/about.html">About</a>
+            <a class="btn btn-secondary" href="/story.html">Story</a>
           </div>
         </header>
 
-        <div id="wins-report-locked" class="glass wins-report-locked" role="region" aria-label="Premium feature — Battle Pro required" style="display: none;">
-          <h2 class="section-divider">Wins Report</h2>
-          <p class="section-note">Your streak graphic, shareable summary, and year-end report are part of Battle Pro.</p>
-          <p class="section-note" style="margin-top: 0.5rem;">Unlock Wins Report, offline devotional PDFs, and premium devotionals with a Supporter or Church plan.</p>
-          <a href="pricing.html" class="btn btn-primary" aria-label="Upgrade to Battle Pro">Unlock with Battle Pro</a>
-        </div>
+        <section class="glass media-grid" aria-labelledby="media-copy-heading">
+          <h2 class="section-divider" id="media-copy-heading">Ready-to-use versions</h2>
 
-        <section id="wins-report-pro-content" class="glass wins-report-section">
-          <h2 class="section-divider">This year so far</h2>
-          <div id="wins-stats" class="wins-stats" aria-live="polite" aria-label="Your wins summary">
-            <p class="section-note" aria-live="polite">Loading your wins…</p>
-          </div>
-          <div id="wins-graphic-wrap" class="wins-graphic-wrap" style="display: none;">
-            <p class="section-note">Shareable graphic</p>
-            <canvas id="wins-graphic-canvas" width="800" height="400" aria-hidden="true"></canvas>
-          </div>
-          <div class="cta-group" id="wins-actions" style="display: none;">
-            <button type="button" id="wins-copy-btn" class="btn btn-primary" aria-label="Copy your wins summary to clipboard">Copy my Wins</button>
-            <button type="button" id="wins-copy-short-btn" class="btn btn-secondary" aria-label="Copy short share text">Copy short share</button>
-            <button type="button" id="wins-download-btn" class="btn btn-secondary" aria-label="Download wins graphic as image">Download image</button>
-            <a href="/" class="btn btn-secondary">Back to Daily Battle</a>
-          </div>
-          <p id="wins-copy-status" class="section-note" style="margin-top: 0.5rem; display: none;" role="status"></p>
+          <article class="media-copy-card">
+            <span class="media-copy-label">1 sentence pitch</span>
+            <pre>Today's Daily Battle is a calm, ad-free KJV Bible web app that helps people meet God in real battles through a daily verse, quiet search, battle plans, prayer, and offline-first privacy.</pre>
+          </article>
+
+          <article class="media-copy-card">
+            <span class="media-copy-label">Short blurb</span>
+            <pre>Today's Daily Battle is a calm, privacy-respecting KJV Bible companion for anxiety, grief, fear, parenting strain, and ordinary hard days. It offers a daily verse, topic search, battle plans, prayer, memorization tools, and family resources without ads, noise, or pressure. Most features work without an account, and verses, notes, prayers, and progress stay on your device unless you choose to sync across devices.</pre>
+          </article>
+
+          <article class="media-copy-card">
+            <span class="media-copy-label">Directory / press blurb</span>
+            <pre>Today's Daily Battle is a thoughtful Christian web app built around the King James Version Bible and designed to feel like a quiet place for real battles. Instead of ads, aggressive signups, or gamified pressure, it offers a daily verse, feeling-based Scripture search, short battle plans, prayer, memorization tools, family resources, and a full Bible reader in a calm, mobile-first experience. Most core features work entirely in the browser, so verses, notes, prayers, and progress stay private on your device unless you opt in to sync. Built solo by Brandon after a life-changing hospital season, the site stands out for its offline-first design, privacy-first posture, and humble, Scripture-first tone.</pre>
+          </article>
+
+          <article class="media-copy-card">
+            <span class="media-copy-label">Full description</span>
+            <pre>Today's Daily Battle (todaysdailybattle.com) is a calm, ad-free Christian web app centered on the King James Version Bible. It is built for real battles: anxiety, grief, fear, anger, parenting strain, exhaustion, loneliness, and the ordinary days when someone simply needs strength and hope. The experience is intentionally quiet and user-paced. There are no ads, no competitive streak culture, and no pressure to create an account just to receive help. Instead, the site opens with a daily verse, gentle search by feeling or topic, short battle plans, prayer tools, memorization help, family resources, and a full KJV reader designed to work well on phones and keep functioning offline after first use. Most data stays on the user's device through local storage, so verses, notes, prayers, and progress remain private unless the user chooses to sign in for sync. Built solo by Brandon from a personal hospital-season need, Today's Daily Battle is a rare mix of practical Scripture help, privacy-first design, and human-scale honesty.</pre>
+          </article>
+
+          <article class="media-copy-card">
+            <span class="media-copy-label">Founder voice</span>
+            <pre>I built Today's Daily Battle because I needed a quiet place in Scripture when life was loud. A hospital season made that plain to me. I did not need more hype, more scrolling, or more generic advice. I needed the Word of God near, clear, and steady. So I built what I still use every day: a calm KJV place for real battles. One verse. One prayer. One next step. No ads, no pressure, and no pretending people are okay when they are not. If the site feels simple, that is deliberate. I want people to find help here without feeling watched, crowded, or sold to.</pre>
+          </article>
         </section>
 
-        <section class="glass">
-          <h2 class="section-divider">Battle Pro</h2>
-          <p class="section-note">The full Wins Report at year’s end—shareable graphic, verses engaged, topics that helped most—is part of <a href="pricing.html">Battle Pro</a>. This page gives you a quick shareable summary today.</p>
+        <section class="glass" aria-labelledby="media-notes-heading">
+          <h2 class="section-divider" id="media-notes-heading">Best-use notes</h2>
+          <ul class="media-notes-list section-note">
+            <li>Use the <strong>1 sentence pitch</strong> for app cards, intros, and quick replies.</li>
+            <li>Use the <strong>short blurb</strong> for about sections, footer notes, and short platform listings.</li>
+            <li>Use the <strong>directory / press blurb</strong> for newsletters, Christian directories, partner blurbs, or media mentions.</li>
+            <li>Use the <strong>full description</strong> when someone wants the whole shape of the product in one place.</li>
+            <li>Use the <strong>founder voice</strong> when you want the tone to sound personal instead of institutional.</li>
+          </ul>
         </section>
       </div>
     </main>
@@ -263,168 +339,8 @@
   <script defer src="/language-switcher.js"></script>
 </footer>
   </div>
-
-  <script nonce="tdb2025s">
-    (function() {
-      var isPro = false;
-      try { isPro = localStorage.getItem('tdb_battle_pro') === '1'; } catch (e) {}
-      var lockedEl = document.getElementById('wins-report-locked');
-      var proContentEl = document.getElementById('wins-report-pro-content');
-      if (lockedEl && proContentEl) {
-        if (isPro) {
-          lockedEl.style.display = 'none';
-          proContentEl.style.display = 'block';
-        } else {
-          lockedEl.style.display = 'block';
-          proContentEl.style.display = 'none';
-        }
-      }
-
-      var STREAK_KEY = 'dailyBattleStreak';
-      var PRAYER_KEY = 'tdb_prayer_list';
-      var statsEl = document.getElementById('wins-stats');
-      var actionsEl = document.getElementById('wins-actions');
-      var copyBtn = document.getElementById('wins-copy-btn');
-      var copyStatus = document.getElementById('wins-copy-status');
-
-      var winsData = { streakCount: 0, lastKey: '', prayerCount: 0 };
-
-      function loadWins() {
-        try {
-          var streakRaw = localStorage.getItem(STREAK_KEY);
-          if (streakRaw) {
-            var data = JSON.parse(streakRaw);
-            winsData.streakCount = Number(data.count) || 0;
-            winsData.lastKey = data.lastKey || '';
-          }
-          var listRaw = localStorage.getItem(PRAYER_KEY);
-          if (listRaw) {
-            var list = JSON.parse(listRaw);
-            winsData.prayerCount = Array.isArray(list) ? list.length : 0;
-          }
-        } catch (e) {}
-
-        var sc = winsData.streakCount;
-        var lastKey = winsData.lastKey;
-        var prayerCount = winsData.prayerCount;
-
-        var html = '<p class="section-note"><strong>Current streak:</strong> ' + sc + ' day' + (sc === 1 ? '' : 's') + '</p>';
-        if (lastKey) {
-          // Escape for HTML (matches script.js escapeHtml: & < > " ')
-          var safeKey = String(lastKey).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-          html += '<p class="section-note"><strong>Last verse day:</strong> ' + safeKey + '</p>';
-        }
-        if (prayerCount > 0) html += '<p class="section-note"><strong>Prayer list:</strong> ' + prayerCount + ' item' + (prayerCount === 1 ? '' : 's') + '</p>';
-        if (sc === 0 && !lastKey) html = '<p class="section-note">No streak recorded yet. Start your first day on the <a href="/">Daily Battle</a> page - one verse, one moment, every day.</p>';
-
-        if (statsEl) statsEl.innerHTML = html;
-        if (sc > 0 || prayerCount > 0) {
-          actionsEl.style.display = 'flex';
-          var wrap = document.getElementById('wins-graphic-wrap');
-          if (wrap) {
-            wrap.style.display = 'block';
-            drawWinsGraphic(winsData);
-          }
-        }
-      }
-
-      function drawWinsGraphic(data) {
-        var canvas = document.getElementById('wins-graphic-canvas');
-        if (!canvas) return;
-        var ctx = canvas.getContext('2d');
-        var w = canvas.width;
-        var h = canvas.height;
-
-        var grad = ctx.createLinearGradient(0, 0, w, h);
-        grad.addColorStop(0, '#0f172a');
-        grad.addColorStop(0.5, '#1e293b');
-        grad.addColorStop(1, '#0f172a');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, w, h);
-
-        ctx.fillStyle = 'rgba(76, 175, 80, 0.15)';
-        ctx.fillRect(0, h * 0.6, w, h * 0.4);
-
-        ctx.fillStyle = '#e2e8f0';
-        ctx.font = 'bold 72px Georgia, serif';
-        ctx.textAlign = 'center';
-        ctx.fillText(String(data.streakCount), w / 2, h * 0.38);
-        ctx.font = '28px Georgia, serif';
-        ctx.fillStyle = 'rgba(226, 232, 240, 0.9)';
-        ctx.fillText('day streak', w / 2, h * 0.48);
-        ctx.font = '22px Georgia, serif';
-        ctx.fillStyle = 'rgba(226, 232, 240, 0.75)';
-        ctx.fillText('Less scroll, more soul.', w / 2, h * 0.58);
-        ctx.font = '18px Georgia, serif';
-        ctx.fillStyle = 'rgba(148, 163, 184, 0.9)';
-        ctx.fillText('Today\'s Daily Battle • 2026', w / 2, h * 0.72);
-      }
-
-      function buildShareText() {
-        var sc = winsData.streakCount;
-        return 'My 2026 Wins: ' + sc + ' day streak on Today\'s Daily Battle. Less scroll, more soul. https://todaysdailybattle.com #TodaysDailyBattle';
-      }
-
-      function buildShortShareText() {
-        var sc = winsData.streakCount;
-        return sc + ' day streak @ TodaysDailyBattle • https://todaysdailybattle.com';
-      }
-
-      function doCopy(text, successMsg) {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(function() {
-            copyStatus.textContent = successMsg || 'Copied!';
-            copyStatus.style.display = 'block';
-            setTimeout(function() { copyStatus.style.display = 'none'; }, 3000);
-            if (window.gtag) window.gtag('event', 'wins_copy', {});
-          }).catch(function() {
-            copyStatus.textContent = 'Copy failed. Please select and copy manually.';
-            copyStatus.style.display = 'block';
-          });
-        } else {
-          copyStatus.textContent = 'Select the text below and copy.';
-          copyStatus.style.display = 'block';
-        }
-      }
-
-      if (copyBtn) {
-        copyBtn.addEventListener('click', function() {
-          doCopy(buildShareText(), 'Copied! Paste anywhere to share.');
-        });
-      }
-
-      var copyShortBtn = document.getElementById('wins-copy-short-btn');
-      if (copyShortBtn) {
-        copyShortBtn.addEventListener('click', function() {
-          doCopy(buildShortShareText(), 'Short share copied!');
-        });
-      }
-
-      var downloadBtn = document.getElementById('wins-download-btn');
-      if (downloadBtn) {
-        downloadBtn.addEventListener('click', function() {
-          drawWinsGraphic(winsData);
-          var canvas = document.getElementById('wins-graphic-canvas');
-          if (!canvas) return;
-          try {
-            var link = document.createElement('a');
-            link.download = 'my-wins-todaysdailybattle.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-            if (window.gtag) window.gtag('event', 'wins_download', {});
-          } catch (e) {
-            copyStatus.textContent = 'Image download is not supported in this browser.';
-            copyStatus.style.display = 'block';
-          }
-        });
-      }
-
-      loadWins();
-
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'wins_report_view', { page_path: '/wins-report.html' });
-      }
-    })();
-  </script>
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
 </body>
 </html>

@@ -1261,6 +1261,44 @@
       color: rgba(40, 45, 60, 0.92);
       border-color: color-mix(in srgb, var(--gold) 24%, var(--line));
     }
+    .tdb-wayfind-toggle {
+      display: none;
+      width: calc(100% - 1.2rem);
+      margin: 0.5rem auto 0;
+      padding: 0.72rem 0.9rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--line) 86%, var(--gold) 14%);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card) 94%, transparent) 0%, color-mix(in srgb, var(--bg-soft) 84%, var(--card) 16%) 100%);
+      color: var(--text);
+      text-align: left;
+      min-height: 44px;
+      box-sizing: border-box;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 4%, transparent);
+    }
+    .tdb-wayfind-toggle strong {
+      display: block;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .tdb-wayfind-toggle span {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .tdb-wayfind-toggle:hover,
+    .tdb-wayfind-toggle:focus-visible {
+      border-color: color-mix(in srgb, var(--gold) 36%, transparent);
+      color: var(--gold-soft);
+      outline: none;
+    }
+    .tdb-wayfind-toggle:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.65);
+      outline-offset: 2px;
+    }
     .tdb-sticky-wayfind {
       position: static;
       z-index: 32;
@@ -1340,6 +1378,17 @@
       .tdb-sticky-wayfind {
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
+    }
+    @media (max-width: 899px) {
+      .tdb-home-quickbar-btn { display: none; }
+      .tdb-wayfind-toggle { display: block; }
+      .tdb-sticky-wayfind {
+        display: none;
+        width: calc(100% - 1.2rem);
+        margin: 0.45rem auto 0;
+        border-radius: 16px;
+      }
+      .tdb-sticky-wayfind.is-open { display: grid; }
     }
 
     /* ── Moat banner (curated habit vs. endless chat) — below hero, glass band ── */
@@ -3763,6 +3812,34 @@
       text-decoration: underline;
       outline: none;
     }
+    .tdb-home-reader-stories-title {
+      margin: 0;
+      font-size: clamp(1.02rem, 2.4vw, 1.25rem);
+      line-height: 1.3;
+      color: var(--text);
+    }
+    .tdb-home-reader-stories-lead {
+      margin: 0 0 0.8rem;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 46rem;
+    }
+    .tdb-home-reader-stories-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.75rem;
+      margin: 0 0 0.85rem;
+    }
+    .tdb-home-reader-stories-links a {
+      color: var(--gold-soft);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
     .tdb-home-reader-stories-grid {
       display: grid;
       gap: 0.7rem;
@@ -3812,6 +3889,18 @@
       font-size: 0.78rem;
       line-height: 1.45;
       color: var(--muted);
+    }
+    .hero-family-mode-note {
+      margin: 0.85rem 0 0;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .hero-family-mode-note a {
+      color: var(--gold-soft);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
     .hero-save-my-verses-status-line {
       margin: 0.4rem 0 0;
@@ -7185,6 +7274,11 @@
       <button type="button" class="tdb-home-quickbar-btn" data-tdb-theme-toggle="home_quickbar" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
     </nav>
 
+    <button type="button" class="tdb-wayfind-toggle" id="tdb-wayfind-toggle" aria-expanded="false" aria-controls="tdb-sticky-wayfind">
+      <strong>More tools and rooms</strong>
+      <span>Open Bible Tool, Study, Kids, Family, Cards, and more without crowding the top of the page.</span>
+    </button>
+
     <nav class="tdb-sticky-wayfind" id="tdb-sticky-wayfind" aria-label="Homepage tool shortcuts">
       <a href="#hero-verse-wrap" data-tdb-wayfind="verse" aria-label="Today's verse"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">☀️</span><span>Today</span></a>
       <a href="#feel-section" data-tdb-wayfind="feel" aria-label="Ask The Word search"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">💬</span><span>Ask</span></a>
@@ -7226,7 +7320,7 @@
         <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
       </div>
 
-      <p class="tdb-page-orientation" id="tdb-page-orientation">Today&rsquo;s verse is up first on your phone; right below it, a gentle <strong>verse of the month</strong> card (same KJV anchor as Family hub). The sticky bar&rsquo;s <strong>Rhythm</strong> link opens the full year-round page anytime. The calm doorway and feel search sit next when you want them.</p>
+      <p class="tdb-page-orientation" id="tdb-page-orientation">Today&rsquo;s verse stays first, and the gentle <strong>verse of the month</strong> card still sits close by. The top bar holds the main doors, <strong>More tools and rooms</strong> opens the bigger tool map when you want it, and the calm doorway plus feel search sit next.</p>
 
       <div class="tdb-install-reassurance-stack" role="group" aria-label="Offline status and add to home screen">
       <!-- ── Offline banner (reassuring message when offline) ── -->
@@ -7289,7 +7383,7 @@
       </nav>
       </div>
       <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
-      <p class="tdb-new-here-hint" id="tdbNewHereHint"><span class="tdb-new-here-muted">New here?</span> If you only need one path, start with <a href="#hero-verse-wrap">today&rsquo;s verse</a>, then <a href="#feel-section">Ask The Word</a> if you need something more specific. Want the fuller map? <a href="explore.html#start-here">Start here</a>.</p>
+      <p class="tdb-new-here-hint" id="tdbNewHereHint"><span class="tdb-new-here-muted">New here?</span> If you only have a minute, start with <a href="#hero-verse-wrap">today&rsquo;s verse</a>. Need Scripture for a more specific pain? Open <a href="#feel-section">Ask The Word</a>. Want the fuller map? <a href="explore.html#start-here">Start here</a>.</p>
       <div class="tdb-home-proof-strip" role="list" aria-label="Why people trust this quiet place">
         <p class="tdb-home-proof-pill" role="listitem"><strong>KJV only</strong><span> Scripture stays plain and steady.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>Offline after first load</strong><span> Verses and progress stay close.</span></p>
@@ -7301,6 +7395,14 @@
           <p class="tdb-home-reader-stories-kicker" id="tdb-home-reader-stories-heading">Quiet proof</p>
           <a class="tdb-home-reader-stories-link" href="/testimonials.html">Reader stories</a>
         </div>
+        <h2 class="tdb-home-reader-stories-title">If you are deciding whether to trust this place, start here.</h2>
+        <p class="tdb-home-reader-stories-lead">This stays small on purpose: KJV-first, no ads, private by default, and built by one person who still uses it in real life. If you want the plain facts before you stay, open the story, privacy, or security pages first.</p>
+        <p class="tdb-home-reader-stories-links">
+          <a href="/story.html">Why this exists</a>
+          <a href="/privacy.html">Privacy promise</a>
+          <a href="/security.html">Security notes</a>
+          <a href="/testimonials.html">What readers said</a>
+        </p>
         <div class="tdb-home-reader-stories-grid">
           <article class="tdb-home-reader-story">
             <p>&ldquo;I did not need a lecture. I needed one verse that matched the ache.&rdquo;</p>
@@ -7425,6 +7527,7 @@
               <a class="btn btn-secondary" id="tdbFamilyModePrayerLink" href="/kids/prayer-activities.html">Prayer habit</a>
               <a class="btn btn-secondary" id="tdbFamilyModeFamily" href="/family.html#family-daily-verse-root">Open Family hub</a>
             </div>
+            <p class="hero-family-mode-note">Family Mode here is the same verse on this device. If you need a trusted invite link for household prayer lines and family-plan progress, open <a href="/family.html#family-invite-share">invite-only family sharing</a>.</p>
           </div>
         </section>
         <p class="hero-daily-bread-line" role="text">Daily bread for today&mdash;one verse at a time.</p>
@@ -7986,11 +8089,11 @@
     <details class="tdb-moat-banner" id="tdb-moat-details">
       <summary class="tdb-moat-summary">
         <span class="tdb-moat-summary-main">No ads &middot; verses and notes stay on this device unless you sync</span>
-        <span class="tdb-moat-summary-more">Why not AI, privacy, and sample plans &mdash; expand</span>
+        <span class="tdb-moat-summary-more">Why not AI, privacy, security, and sample plans &mdash; expand</span>
       </summary>
       <div class="tdb-moat-banner-inner">
         <div class="moat-banner" role="note">
-          No ads, no data sold&mdash;anonymous page stats only, not for profiling. Verses, plans, and notes stay on this device unless you sign in to sync.
+          No ads, no data sold&mdash;anonymous page stats only, not for profiling. Verses, plans, and notes stay on this device unless you sign in to sync. Read the <a href="/privacy.html">privacy promise</a> or the <a href="/security.html">security notes</a>.
         </div>
         <div class="tdb-moat-banner-top">
           <p id="tdb-moat-lead" class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</p>

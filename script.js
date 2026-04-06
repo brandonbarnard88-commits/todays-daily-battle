@@ -22217,6 +22217,36 @@ function dedupeStickyWayfindBars() {
   }
 }
 
+(function wireHomeWayfindToggle() {
+  var toggle = document.getElementById('tdb-wayfind-toggle');
+  var bar = document.getElementById('tdb-sticky-wayfind');
+  if (!toggle || !bar) return;
+
+  function syncForViewport() {
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 899px)').matches;
+    if (!mobile) {
+      bar.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      return;
+    }
+    if (!bar.classList.contains('is-open')) {
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  toggle.addEventListener('click', function () {
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 899px)').matches;
+    if (!mobile) return;
+    var next = !bar.classList.contains('is-open');
+    bar.classList.toggle('is-open', next);
+    toggle.setAttribute('aria-expanded', next ? 'true' : 'false');
+  });
+
+  window.addEventListener('resize', syncForViewport, { passive: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncForViewport);
+  else syncForViewport();
+})();
+
 function setHomeAskTheWordResponse(queryText, data) {
   lastHomeAskTheWordResponse = {
     key: getHomeAskTheWordKey(queryText),
@@ -22390,7 +22420,7 @@ function renderHomeSearchDetail(output, verse, queryText) {
   var backTop = document.createElement('button');
   backTop.type = 'button';
   backTop.className = 'btn btn-secondary home-search-back-btn';
-  backTop.textContent = 'Back to quiet place';
+  backTop.textContent = 'Back to results';
   backTop.addEventListener('click', function () {
     clearHomeSearchDetail(output);
     tdbScrollIntoView(output, 'start', 'nearest');
@@ -22445,7 +22475,7 @@ function renderHomeSearchDetail(output, verse, queryText) {
   nextStepSection.className = 'home-search-detail-section';
   var nextStepHeading = document.createElement('h3');
   nextStepHeading.className = 'home-search-detail-heading';
-  nextStepHeading.textContent = 'One Next Step';
+  nextStepHeading.textContent = 'Why this can help today';
   nextStepSection.appendChild(nextStepHeading);
   var nextStepBody = document.createElement('p');
   nextStepBody.className = 'home-search-detail-copy';
@@ -22457,7 +22487,7 @@ function renderHomeSearchDetail(output, verse, queryText) {
   prayerSection.className = 'home-search-detail-section';
   var prayerHeading = document.createElement('h3');
   prayerHeading.className = 'home-search-detail-heading';
-  prayerHeading.textContent = 'A Simple Prayer';
+  prayerHeading.textContent = 'Pray it back to God';
   prayerSection.appendChild(prayerHeading);
   var prayerBody = document.createElement('p');
   prayerBody.className = 'home-search-detail-copy';
@@ -22513,7 +22543,7 @@ function renderHomeSearchDetail(output, verse, queryText) {
   var backBottom = document.createElement('button');
   backBottom.type = 'button';
   backBottom.className = 'btn btn-secondary home-search-back-btn';
-  backBottom.textContent = 'Back to quiet place';
+  backBottom.textContent = 'Back to results';
   backBottom.addEventListener('click', function () {
     clearHomeSearchDetail(output);
     tdbScrollIntoView(output, 'start', 'nearest');
@@ -22633,7 +22663,7 @@ function buildHomeVerseCard(output, verse, queryText) {
   var breakdownBtn = document.createElement('button');
   breakdownBtn.type = 'button';
   breakdownBtn.className = 'home-search-inline-link';
-  breakdownBtn.textContent = 'Read full breakdown';
+  breakdownBtn.textContent = 'Why this verse today';
   breakdownBtn.addEventListener('click', function () {
     renderHomeSearchDetail(output, verse, queryText);
   });
@@ -22768,7 +22798,7 @@ function buildHomeLinkCard(entry, sectionType) {
   var badge = document.createElement('span');
   badge.className = 'home-search-link-badge';
   badge.textContent = sectionType === 'plans'
-    ? ((entry.days || 7) + ' days')
+    ? ((entry.featured ? 'Best fit · ' : '') + ((entry.days || 7) + ' days'))
     : (entry.kind || 'Link');
   meta.appendChild(badge);
   card.appendChild(meta);
@@ -22786,7 +22816,69 @@ function buildHomeLinkCard(entry, sectionType) {
   desc.textContent = entry.description;
   card.appendChild(desc);
 
+  if (entry.matchNote) {
+    var note = document.createElement('p');
+    note.className = 'home-search-note';
+    note.textContent = entry.matchNote;
+    card.appendChild(note);
+  }
+
   return card;
+}
+
+function buildHomeSearchGuideLine(planMatches, resourceMatches) {
+  var lines = [
+    'Verses first. Tap one for the fuller breakdown, plain meaning, and a simple prayer.'
+  ];
+  if (planMatches && planMatches.length) {
+    lines.push('If this battle needs more than one day, start with the first Battle Plan below.');
+  } else if (resourceMatches && resourceMatches.length) {
+    lines.push('If you need a quieter side door, use one of the related topic pages below.');
+  }
+  return lines.join(' ');
+}
+
+function buildHomeSearchRelatedAnglesSection(activeTopics, queryText) {
+  var normalizedQuery = getHomeAskTheWordKey(queryText);
+  var seen = Object.create(null);
+  var options = [];
+  (activeTopics || []).forEach(function (topic) {
+    var normalized = normalizeInput(topic);
+    if (!normalized || normalized === normalizedQuery || seen[normalized]) return;
+    seen[normalized] = true;
+    options.push(normalized);
+  });
+  if (!options.length) return null;
+
+  var section = document.createElement('section');
+  section.className = 'home-search-section';
+
+  var heading = document.createElement('h3');
+  heading.className = 'home-search-section-heading';
+  heading.textContent = 'Also try these angles';
+  section.appendChild(heading);
+
+  var note = document.createElement('p');
+  note.className = 'home-search-note';
+  note.textContent = 'Shorter angles often sharpen the verses and the plan fit.';
+  section.appendChild(note);
+
+  var chips = document.createElement('div');
+  chips.className = 'home-search-filter-row';
+  options.slice(0, 4).forEach(function (topic) {
+    var chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'home-search-filter-chip home-search-filter-chip--topic';
+    chip.textContent = titleCaseHomeTopic(topic);
+    chip.setAttribute('aria-label', 'Search for ' + titleCaseHomeTopic(topic));
+    chip.addEventListener('click', function () {
+      if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
+    });
+    chips.appendChild(chip);
+  });
+  section.appendChild(chips);
+
+  return section;
 }
 
 function renderHomeSearchResults(results, output, queryText) {
@@ -22832,6 +22924,11 @@ function renderHomeSearchResults(results, output, queryText) {
   eyebrow.textContent = buildHomeSearchCountLine(results, planMatches, resourceMatches, queryText);
   header.appendChild(eyebrow);
 
+  var guide = document.createElement('p');
+  guide.className = 'home-search-note';
+  guide.textContent = buildHomeSearchGuideLine(planMatches, resourceMatches);
+  header.appendChild(guide);
+
   var availableSections = [];
   if (results && results.verses && results.verses.length) availableSections.push('verses');
   if (planMatches.length) availableSections.push('plans');
@@ -22863,6 +22960,10 @@ function renderHomeSearchResults(results, output, queryText) {
     versesHeading.className = 'home-search-section-heading';
     versesHeading.textContent = 'Strongest KJV verses';
     versesSection.appendChild(versesHeading);
+    var versesNote = document.createElement('p');
+    versesNote.className = 'home-search-note';
+    versesNote.textContent = 'Start with the verse that catches hardest, not all of them at once.';
+    versesSection.appendChild(versesNote);
     var verseList = document.createElement('div');
     verseList.className = 'home-search-card-grid';
     var initialLimit = (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 4 : 6;
@@ -22891,17 +22992,34 @@ function renderHomeSearchResults(results, output, queryText) {
     shell.appendChild(versesSection);
   }
 
+  var relatedAnglesSection = buildHomeSearchRelatedAnglesSection(activeTopics, queryText);
+  if (relatedAnglesSection) shell.appendChild(relatedAnglesSection);
+
   if (planMatches.length) {
+    var rankedPlans = planMatches.map(function (entry, index) {
+      var nextEntry = Object.assign({}, entry);
+      if (index === 0) {
+        nextEntry.featured = true;
+        nextEntry.matchNote = 'Best first plan if the verses feel right but you need a steadier path than one screen.';
+      }
+      return nextEntry;
+    });
     var plansSection = document.createElement('section');
     plansSection.className = 'home-search-section';
     plansSection.setAttribute('data-home-search-section', 'plans');
     var plansHeading = document.createElement('h3');
     plansHeading.className = 'home-search-section-heading';
-    plansHeading.textContent = 'Battle Plans (' + planMatches.length + ')';
+    plansHeading.textContent = 'Battle Plans if you need a steadier path';
     plansSection.appendChild(plansHeading);
+    var plansNote = document.createElement('p');
+    plansNote.className = 'home-search-note';
+    plansNote.textContent = planMatches.length === 1
+      ? 'One matched plan showed up for this search.'
+      : (planMatches.length + ' matched plans showed up for this search. Start with the first one.');
+    plansSection.appendChild(plansNote);
     var planList = document.createElement('div');
     planList.className = 'home-search-card-grid';
-    planMatches.forEach(function (entry) {
+    rankedPlans.forEach(function (entry) {
       planList.appendChild(buildHomeLinkCard(entry, 'plans'));
     });
     plansSection.appendChild(planList);
@@ -22914,8 +23032,12 @@ function renderHomeSearchResults(results, output, queryText) {
     resourcesSection.setAttribute('data-home-search-section', 'resources');
     var resourcesHeading = document.createElement('h3');
     resourcesHeading.className = 'home-search-section-heading';
-    resourcesHeading.textContent = 'Journal / Topics (' + resourceMatches.length + ')';
+    resourcesHeading.textContent = 'Related doors to keep going';
     resourcesSection.appendChild(resourcesHeading);
+    var resourcesNote = document.createElement('p');
+    resourcesNote.className = 'home-search-note';
+    resourcesNote.textContent = 'Open one if you want a fuller topic page, journal lane, or calmer study doorway.';
+    resourcesSection.appendChild(resourcesNote);
     var resourceList = document.createElement('div');
     resourceList.className = 'home-search-card-grid';
     resourceMatches.forEach(function (entry) {
@@ -22927,7 +23049,7 @@ function renderHomeSearchResults(results, output, queryText) {
 
   var footerNote = document.createElement('p');
   footerNote.className = 'home-search-note';
-  footerNote.textContent = 'Stay with the verse that hits hardest. Save it, pray it, open the full chapter, or take a short plan when you need a steadier path.';
+  footerNote.textContent = 'Stay with the verse that hits hardest. Save it, pray it, open the full chapter, or take one short plan when you need a steadier next step.';
   shell.appendChild(footerNote);
 
   output.appendChild(shell);

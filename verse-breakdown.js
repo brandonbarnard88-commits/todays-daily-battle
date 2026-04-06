@@ -23,7 +23,6 @@
   };
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
-  var RELATIONS_DICT_URL = '/relations-dict.json';
   var KJV_DICT_URLS = ['/kjv.json'];
   var INLINE_SUMMARY = 'Break it down';
   var INLINE_SUMMARY_ARIA = 'Open a plain-language breakdown under this verse';
@@ -157,20 +156,11 @@
   function loadRelationsDict() {
     if (relationsDictCache) return Promise.resolve(relationsDictCache);
     if (relationsDictPromise) return relationsDictPromise;
-    relationsDictPromise = fetch(RELATIONS_DICT_URL)
-      .then(function (res) {
-        if (!res.ok) throw new Error('relations_dict_failed');
-        return res.json();
-      })
-      .then(function (json) {
-        var data = (json && typeof json === 'object') ? json : {};
-        relationsDictCache = Object.assign({}, RELATIONS_FALLBACK, data);
-        return relationsDictCache;
-      })
-      .catch(function () {
-        relationsDictCache = Object.assign({}, RELATIONS_FALLBACK);
-        return relationsDictCache;
-      });
+    relationsDictPromise = Promise.resolve().then(function () {
+      // Keep breakdown copy self-contained so optional companion JSON never creates noisy 404s.
+      relationsDictCache = Object.assign({}, RELATIONS_FALLBACK);
+      return relationsDictCache;
+    });
     return relationsDictPromise;
   }
 

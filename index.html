@@ -3706,6 +3706,107 @@
       text-decoration: underline;
       text-underline-offset: 2px;
     }
+    .tdb-home-proof-strip {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.3rem 0 0.85rem;
+    }
+    .tdb-home-proof-pill {
+      margin: 0;
+      padding: 0.72rem 0.85rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line) 90%, var(--gold) 10%);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card) 95%, transparent) 0%, color-mix(in srgb, var(--bg-soft) 84%, var(--card) 16%) 100%);
+      box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 4%, transparent);
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .tdb-home-proof-pill strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+    .tdb-home-proof-pill span {
+      color: var(--muted);
+    }
+    .tdb-home-reader-stories {
+      margin: 0 0 0.95rem;
+      padding: 0.95rem 1rem 1rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      background: linear-gradient(160deg, color-mix(in srgb, var(--gold) 6%, var(--card) 94%) 0%, color-mix(in srgb, var(--bg-soft) 86%, var(--card) 14%) 100%);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12), inset 0 1px 0 color-mix(in srgb, #fff 5%, transparent);
+    }
+    .tdb-home-reader-stories-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.45rem 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .tdb-home-reader-stories-kicker {
+      margin: 0;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 78%, var(--gold) 22%);
+      font-weight: 700;
+    }
+    .tdb-home-reader-stories-link {
+      color: var(--gold-soft);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .tdb-home-reader-stories-link:hover,
+    .tdb-home-reader-stories-link:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+    .tdb-home-reader-stories-grid {
+      display: grid;
+      gap: 0.7rem;
+    }
+    .tdb-home-reader-story {
+      margin: 0;
+      padding: 0.8rem 0.85rem;
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--card) 94%, transparent);
+      border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+    }
+    .tdb-home-reader-story p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .tdb-home-reader-story cite {
+      display: block;
+      margin-top: 0.45rem;
+      font-size: 0.8rem;
+      font-style: normal;
+      color: var(--gold-soft);
+    }
+    .tdb-home-reader-story-foot {
+      margin: 0.78rem 0 0;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .tdb-home-reader-story-foot a {
+      color: var(--gold-soft);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    @media (min-width: 760px) {
+      .tdb-home-proof-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .tdb-home-reader-stories-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
     .hero-my-verses-privacy-note {
       margin: 0.35rem 0 0;
       font-size: 0.78rem;
@@ -7188,13 +7289,34 @@
       </nav>
       </div>
       <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
-      <p class="tdb-new-here-hint" id="tdbNewHereHint"><span class="tdb-new-here-muted">New here?</span> <a href="explore.html#start-here">A calm order for your first few minutes</a> &mdash; glance when you like. No rush.</p>
+      <p class="tdb-new-here-hint" id="tdbNewHereHint"><span class="tdb-new-here-muted">New here?</span> If you only need one path, start with <a href="#hero-verse-wrap">today&rsquo;s verse</a>, then <a href="#feel-section">Ask The Word</a> if you need something more specific. Want the fuller map? <a href="explore.html#start-here">Start here</a>.</p>
       <div class="tdb-home-proof-strip" role="list" aria-label="Why people trust this quiet place">
         <p class="tdb-home-proof-pill" role="listitem"><strong>KJV only</strong><span> Scripture stays plain and steady.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>Offline after first load</strong><span> Verses and progress stay close.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>No ads. No data sold.</strong><span> Privacy is part of the ministry.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>Built solo by Brandon</strong><span> For real hard days, not performance.</span></p>
       </div>
+      <section class="tdb-home-reader-stories" aria-labelledby="tdb-home-reader-stories-heading">
+        <div class="tdb-home-reader-stories-head">
+          <p class="tdb-home-reader-stories-kicker" id="tdb-home-reader-stories-heading">Quiet proof</p>
+          <a class="tdb-home-reader-stories-link" href="/testimonials.html">Reader stories</a>
+        </div>
+        <div class="tdb-home-reader-stories-grid">
+          <article class="tdb-home-reader-story">
+            <p>&ldquo;I did not need a lecture. I needed one verse that matched the ache.&rdquo;</p>
+            <cite>Parent of three, 2025</cite>
+          </article>
+          <article class="tdb-home-reader-story">
+            <p>&ldquo;Offline mattered. Rural signal, long night, sick kid, and the verse was already there.&rdquo;</p>
+            <cite>Night-shift worker, 2024</cite>
+          </article>
+          <article class="tdb-home-reader-story">
+            <p>&ldquo;One minute in Calm was enough to unclench my jaw before a hard conversation.&rdquo;</p>
+            <cite>Reader in the Midwest, 2025</cite>
+          </article>
+        </div>
+        <p class="tdb-home-reader-story-foot">Short anonymized notes only. No hype, no names, no polished success stories. <a href="/testimonials.html">Read the full page</a>.</p>
+      </section>
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
@@ -7245,7 +7367,7 @@
         </div>
         <p class="hero-daily-welcome">Joy, rest, questions&mdash;you are welcome here.</p>
         <p class="section-note" id="heroBuilderLine">A quiet place for real battles &mdash; built solo by Brandon, who is still fighting them too.</p>
-        <p class="section-note">Read the <a href="/story.html">story</a>, see <a href="/where-support-goes.html">where support goes</a>, or start with this week&rsquo;s <a href="/journal/">journal posts</a>.</p>
+        <p class="section-note">Read the <a href="/story.html">story</a>, see <a href="/where-support-goes.html">where support goes</a>, hear from <a href="/testimonials.html">readers</a>, or start with this week&rsquo;s <a href="/journal/">journal posts</a>.</p>
         <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen slow for a quiet hear-through of today&rsquo;s verse and breakdown. Keyboard: Tab to Listen slow, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
@@ -7386,19 +7508,17 @@
       </div><!-- /#main-content -->
 
       <nav class="hero-daily-path tdb-start-here-nav" aria-label="Start here — core tools">
-        <span class="hero-daily-path-label">Start here</span>
+        <span class="hero-daily-path-label">After today</span>
         <span class="hero-daily-path-links">
           <a href="#quick-search-hero">Ask The Word</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="calm.html">Calm</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="plans.html">Battle Plans</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
-          <a href="verse.html">Verse of the Day</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="/mystudy">My Study</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
-          <a href="sermon.html">Sermon Builder</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="explore.html">Site map</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="site-guide.html">Start here guide</a>
         </span>
         <p class="hero-daily-path-support">
-          <a href="/give" id="heroSupportQuietPlace" aria-label="Support the ministry — optional gift; you choose the amount">Support the ministry</a>
+          Want the wider picture first? <a href="/testimonials.html">Reader stories</a> · <a href="/about.html">About</a> · <a href="/give" id="heroSupportQuietPlace" aria-label="Support the ministry — optional gift; you choose the amount">Support the ministry</a>
         </p>
         <p id="tdbHomeMobiusWeek" class="tdb-home-mobius-week" role="status" aria-live="polite" hidden></p>
       </nav>
@@ -7486,7 +7606,7 @@
       <p class="tdb-hero-search-priority-hint">On a phone, today&rsquo;s verse lands first; this search and the rest of the page follow&mdash;no rush.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
       <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>
-        <p class="first-visit-text">In your own words, say how it feels (grateful, quiet, tired, heavy&hellip;) or pick a calm category below to open the topic chips.</p>
+        <p class="first-visit-text">Short honest phrases work best here: &ldquo;I feel numb,&rdquo; &ldquo;angry at work,&rdquo; &ldquo;overwhelmed as a parent.&rdquo; You can also open a calm category below, then press Search when you want the fuller lookup.</p>
         <button type="button" class="first-visit-dismiss" id="firstVisitDismiss" aria-label="Dismiss welcome tip">Understood</button>
       </div>
       <section class="card" id="feel-section" aria-label="Ask The Word search">
@@ -7519,8 +7639,8 @@
           <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions">
           </div>
         </div>
-        <p class="section-note util-mt-0_5 util-mb-0">Try: "Who is Jesus?", "Toxic people", "Why am I so angry at work?", "Exhaustion", or "joy".</p>
-        <p class="topic-plans-hint section-note" id="topicPlansHint">Inside a category: tap a chip to search verses fast. <span class="topic-plans-hint-detail">Alt-click (desktop) or long-press (phone) on a chip opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
+        <p class="section-note util-mt-0_5 util-mb-0">Try: "Who is Jesus?", "angry at work", "overwhelmed as a parent", "caring for aging parents", or "joy".</p>
+        <p class="topic-plans-hint section-note" id="topicPlansHint">Short phrases work well. Press <strong>Search</strong> or Enter for the fuller KJV lookup. <span class="topic-plans-hint-detail">Inside a category: tap a chip to search verses fast. Alt-click (desktop) or long-press (phone) on a chip opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
         <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Pick a category first; chip order may change each visit. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
           <div id="feelTopicPickers" class="feel-topic-pickers" role="group" aria-label="Topic categories">
             <div class="feel-category-grid">
@@ -7673,7 +7793,7 @@
           </div>
         </div>
         <a class="feel-view-more" href="bible-tool.html" aria-label="Search more verses in the Bible Tool">More verses →</a>
-        <p class="feel-no-match" id="feelNoMatch">Try "peace" or "rest" — or tap a topic above.</p>
+        <p class="feel-no-match" id="feelNoMatch">Try a shorter phrase like &ldquo;peace,&rdquo; &ldquo;angry at work,&rdquo; or &ldquo;overwhelmed as a parent&rdquo; — or tap a topic above, then press Search for the fuller lookup.</p>
       </section>
       </div><!-- /#quick-search-hero -->
 

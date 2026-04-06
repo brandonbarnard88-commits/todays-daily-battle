@@ -1201,6 +1201,66 @@
     }
 
     /* ── Sticky on-page wayfinding (below header) ── */
+    .tdb-home-quickbar {
+      position: sticky;
+      top: 0;
+      z-index: 62;
+      display: flex;
+      align-items: center;
+      gap: 0.38rem;
+      overflow-x: auto;
+      padding: 0.48rem 0.7rem;
+      margin: 0;
+      background: linear-gradient(180deg, rgba(8, 12, 22, 0.96) 0%, rgba(8, 12, 22, 0.9) 100%);
+      border-bottom: 1px solid rgba(227, 188, 103, 0.18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      scrollbar-width: none;
+    }
+    .tdb-home-quickbar::-webkit-scrollbar { display: none; }
+    .tdb-home-quickbar-link,
+    .tdb-home-quickbar-btn {
+      flex: 0 0 auto;
+      min-height: 44px;
+      padding: 0.48rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      background: rgba(16, 22, 36, 0.72);
+      color: rgba(226, 232, 240, 0.96);
+      text-decoration: none;
+      font: inherit;
+      font-size: 0.84rem;
+      font-weight: 600;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .tdb-home-quickbar-link:hover,
+    .tdb-home-quickbar-link:focus-visible,
+    .tdb-home-quickbar-btn:hover,
+    .tdb-home-quickbar-btn:focus-visible {
+      color: var(--gold-soft, #f2dc98);
+      border-color: rgba(227, 188, 103, 0.38);
+      background: rgba(227, 188, 103, 0.1);
+      outline: none;
+    }
+    .tdb-home-quickbar-btn:focus-visible,
+    .tdb-home-quickbar-link:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.65);
+      outline-offset: 2px;
+    }
+    :root[data-theme="light"] .tdb-home-quickbar {
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card) 97%, #fff 3%) 0%, color-mix(in srgb, var(--bg-soft) 92%, var(--card) 8%) 100%);
+      border-bottom-color: color-mix(in srgb, var(--gold) 26%, var(--line));
+    }
+    :root[data-theme="light"] .tdb-home-quickbar-link,
+    :root[data-theme="light"] .tdb-home-quickbar-btn {
+      background: rgba(255, 252, 246, 0.9);
+      color: rgba(40, 45, 60, 0.92);
+      border-color: color-mix(in srgb, var(--gold) 24%, var(--line));
+    }
     .tdb-sticky-wayfind {
       position: static;
       z-index: 32;
@@ -1745,17 +1805,163 @@
       transition: color 0.2s ease, background 0.2s ease;
       -webkit-tap-highlight-color: transparent;
     }
+    .site-top-links [data-tdb-theme-toggle] {
+      color: #c5ced9;
+      text-decoration: none;
+      margin: 0 0.15rem;
+      padding: 0.2rem 0.55rem;
+      font: inherit;
+      font-weight: 600;
+      background: rgba(227, 188, 103, 0.08);
+      border: 1px solid rgba(227, 188, 103, 0.16);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
     .site-top-links .tdb-tour-open-btn:hover {
       color: rgba(234, 179, 8, 0.9);
       background: rgba(234, 179, 8, 0.08);
     }
+    .site-top-links [data-tdb-theme-toggle]:hover {
+      color: rgba(234, 179, 8, 0.95);
+      background: rgba(234, 179, 8, 0.12);
+      border-color: rgba(234, 179, 8, 0.32);
+    }
     .site-top-links .tdb-tour-open-btn:focus-visible {
+      outline: 2px solid rgba(234, 179, 8, 0.6);
+      outline-offset: 2px;
+    }
+    .site-top-links [data-tdb-theme-toggle]:focus-visible {
       outline: 2px solid rgba(234, 179, 8, 0.6);
       outline-offset: 2px;
     }
     .site-top-links .header-auth-welcome { color: #b4c0d0; margin-right: 0.25rem; display: inline-flex; align-items: center; gap: 0.35rem; }
     .site-top-links .header-auth-sep { color: rgba(180, 192, 208, 0.75); margin: 0 0.25rem; }
     .site-top-links .auth-avatar { background: rgba(234, 179, 8, 0.35); color: rgba(255,255,255,0.95); border-radius: 50%; width: 26px; height: 26px; line-height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; vertical-align: middle; margin-right: 0.5rem; }
+    .tdb-first-tour-prompt {
+      position: fixed;
+      right: max(0.8rem, env(safe-area-inset-right));
+      bottom: max(4.8rem, calc(env(safe-area-inset-bottom) + 4.8rem));
+      z-index: 58;
+      min-height: 48px;
+      padding: 0.72rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(227, 188, 103, 0.36);
+      background: linear-gradient(180deg, rgba(15, 22, 36, 0.96), rgba(10, 14, 24, 0.92));
+      color: #f6ecd2;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+      cursor: pointer;
+    }
+    .tdb-first-tour-prompt:hover,
+    .tdb-first-tour-prompt:focus-visible {
+      background: linear-gradient(180deg, rgba(28, 36, 54, 0.98), rgba(16, 22, 34, 0.95));
+      border-color: rgba(227, 188, 103, 0.55);
+      outline: none;
+    }
+    .tdb-first-tour-prompt:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.68);
+      outline-offset: 2px;
+    }
+    :root[data-theme="light"] .tdb-first-tour-prompt {
+      background: linear-gradient(180deg, rgba(255, 252, 246, 0.98), rgba(249, 244, 233, 0.96));
+      color: #3f2f12;
+      border-color: color-mix(in srgb, var(--gold) 32%, var(--line));
+    }
+    .tdb-home-chain-of-hope {
+      margin: 0.9rem auto 1rem;
+      padding: 1rem 1.05rem 1.05rem;
+      border-radius: 18px;
+      border: 1px solid rgba(139, 166, 217, 0.2);
+      background:
+        radial-gradient(circle at top right, rgba(139, 166, 217, 0.12), transparent 42%),
+        linear-gradient(165deg, rgba(10, 14, 22, 0.82), rgba(13, 18, 28, 0.72));
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+    }
+    .tdb-home-chain-of-hope h2 {
+      margin-bottom: 0.45rem;
+    }
+    .tdb-home-chain-of-hope-lead {
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .tdb-home-chain-of-hope-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+      gap: 0.6rem;
+    }
+    .tdb-home-chain-of-hope-link {
+      display: block;
+      padding: 0.85rem 0.95rem;
+      border-radius: 14px;
+      border: 1px solid rgba(227, 188, 103, 0.16);
+      background: rgba(8, 12, 22, 0.44);
+      text-decoration: none;
+      color: var(--text);
+    }
+    .tdb-home-chain-of-hope-link strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--gold-soft);
+    }
+    .tdb-home-chain-of-hope-link span {
+      display: block;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .tdb-home-chain-of-hope-link:hover,
+    .tdb-home-chain-of-hope-link:focus-visible {
+      border-color: rgba(227, 188, 103, 0.35);
+      background: rgba(227, 188, 103, 0.08);
+      outline: none;
+    }
+    :root[data-theme="light"] .tdb-home-chain-of-hope {
+      background:
+        radial-gradient(circle at top right, rgba(139, 166, 217, 0.14), transparent 42%),
+        linear-gradient(165deg, color-mix(in srgb, var(--card) 97%, #fff 3%), color-mix(in srgb, var(--bg-soft) 92%, var(--card) 8%));
+      border-color: color-mix(in srgb, var(--accent) 20%, var(--line));
+    }
+    :root[data-theme="light"] .tdb-home-chain-of-hope-link {
+      background: rgba(255, 252, 246, 0.8);
+      border-color: color-mix(in srgb, var(--gold) 20%, var(--line));
+    }
+    .tdb-home-more-rooms {
+      margin-top: 1rem;
+    }
+    .tdb-home-more-rooms > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.95rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      background: rgba(10, 14, 22, 0.52);
+      font-weight: 600;
+    }
+    .tdb-home-more-rooms > summary::-webkit-details-marker { display: none; }
+    .tdb-home-more-rooms > summary span:last-child {
+      font-weight: 500;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .tdb-home-more-rooms[open] > summary {
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      margin-bottom: 0.75rem;
+    }
+    .tdb-home-more-rooms-inner > *:first-child { margin-top: 0; }
+    :root[data-theme="light"] .tdb-home-more-rooms > summary {
+      background: color-mix(in srgb, var(--card) 95%, #fff 5%);
+      border-color: color-mix(in srgb, var(--gold) 26%, var(--line));
+    }
     .landing-privacy-teaser {
       text-align: center;
       margin: 0.35rem auto 0.25rem;
@@ -6820,6 +7026,7 @@
         </span>
         <span aria-hidden="true"> · </span>
         <button type="button" class="tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" data-tdb-theme-toggle="home_header" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
         <a href="about.html" aria-label="About Today's Daily Battle">About</a>
         <a href="faq.html" aria-label="FAQ">FAQ</a>
         <a href="why-not-ai.html" aria-label="Why we are not an AI chat tool">Why not AI?</a>
@@ -6866,6 +7073,16 @@
         </div>
       </nav>
     </header>
+
+    <nav class="tdb-home-quickbar" aria-label="Persistent site navigation">
+      <a class="tdb-home-quickbar-link" href="/">Home</a>
+      <a class="tdb-home-quickbar-link" href="/plans.html">Battle Plans</a>
+      <a class="tdb-home-quickbar-link" href="/explore.html">Explore</a>
+      <a class="tdb-home-quickbar-link" href="/mystudy">My Study</a>
+      <a class="tdb-home-quickbar-link" href="/family.html">Family</a>
+      <a class="tdb-home-quickbar-link" href="/give">Give</a>
+      <button type="button" class="tdb-home-quickbar-btn" data-tdb-theme-toggle="home_quickbar" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+    </nav>
 
     <nav class="tdb-sticky-wayfind" id="tdb-sticky-wayfind" aria-label="Homepage tool shortcuts">
       <a href="#hero-verse-wrap" data-tdb-wayfind="verse" aria-label="Today's verse"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">☀️</span><span>Today</span></a>
@@ -7212,6 +7429,28 @@
           </a>
         </div>
       </section>
+      <section class="tdb-home-chain-of-hope" aria-labelledby="tdb-home-chain-of-hope-heading">
+        <h2 class="section-divider" id="tdb-home-chain-of-hope-heading">Chain of Hope</h2>
+        <p class="tdb-home-chain-of-hope-lead">When one hard week blends into the next, keep moving through a quiet chain instead of starting from scratch: fear to trust, grief to hope, then steadier praise.</p>
+        <div class="tdb-home-chain-of-hope-links">
+          <a class="tdb-home-chain-of-hope-link" href="plans.html?plan=fearfaith">
+            <strong>Fear → Faith</strong>
+            <span>When the what-ifs are loud and you need a first steady step.</span>
+          </a>
+          <a class="tdb-home-chain-of-hope-link" href="plans.html?plan=worrytrust">
+            <strong>Worry → Trust</strong>
+            <span>When tomorrow keeps reaching into today.</span>
+          </a>
+          <a class="tdb-home-chain-of-hope-link" href="plans.html?plan=griefhope">
+            <strong>Grief → Hope</strong>
+            <span>When sorrow is real and you still need a place to stand.</span>
+          </a>
+          <a class="tdb-home-chain-of-hope-link" href="plans.html?plan=psalmspraise">
+            <strong>Hope → Praise</strong>
+            <span>When you are ready to end the week with thanks instead of noise.</span>
+          </a>
+        </div>
+      </section>
 
       <section class="glass tdb-home-todays-battle-card util-mb-1" aria-labelledby="tdb-todays-battle-heading">
         <h2 id="tdb-todays-battle-heading" class="section-divider">Today&rsquo;s Battle</h2>
@@ -7553,6 +7792,9 @@
       </section>
       </div><!-- /.quick-links -->
 
+      <details class="tdb-home-more-rooms" id="tdb-home-more-rooms">
+        <summary><span>More rooms when you want them</span><span>Family hooks, a 30-day restart, sharing, and email.</span></summary>
+        <div class="tdb-home-more-rooms-inner">
       <section class="card armor-builder-card" id="armor-builder-btn" aria-label="Family Armor &amp; Stories">
         <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Family Armor &amp; Stories</h2>
         <p class="section-note">Link your household, track progress, share stories. Each story adds a piece to your armor.</p>
@@ -7592,6 +7834,8 @@
         </div>
         <p id="newsletter-status" class="section-note" aria-live="polite"></p>
       </section>
+        </div>
+      </details>
 
       <!-- ── Patriotic bundle: collapsed by default so the home page stays calm; content unchanged inside ── -->
       <details class="card tdb-home-patriotic-disclosure" id="patriotic-home-bundle">
@@ -7650,6 +7894,8 @@
       <p class="tdb-whats-new-spring__easter">Holy Week or Easter morning? <a href="seasonal.html#easter">Seasonal paths</a> points to <a href="he-is-risen.html">He is risen</a> and the seven-day <a href="plans.html?plan=easter">Resurrection Hope</a> plan&mdash;same quiet KJV pace as the rest of the site.</p>
       <p class="tdb-whats-new-spring__foot"><a href="about.html#whats-new-study">Study tools</a> &middot; <a href="about.html#whats-new-family-mission">Family and mission</a> &middot; <a href="seasonal.html">All seasonal doors</a></p>
     </section>
+
+    <button type="button" class="tdb-first-tour-prompt tdb-tour-open-btn" id="tdb-first-tour-prompt" hidden aria-label="First time? Take the 60-second site tour">First time? Take the 60-second tour</button>
 
     <!-- ── Footer ── -->
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">

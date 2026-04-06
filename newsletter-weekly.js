@@ -8,6 +8,7 @@
   var SYNC_KEY = 'weekly_newsletter_summary_v1';
   var POLL_PRAYER_KEY = 'prayer-count';
   var STREAK_KEY = 'dailyBattleStreak';
+  var PLAN_USAGE_KEY = 'tdb_weekly_plan_usage_v1';
 
   var state = {
     supabaseClient: null,
@@ -92,13 +93,57 @@
     return 'Tomorrow\'s battle is waiting: one verse, one prayer, one steady step.';
   }
 
+  function getTopPlan7d() {
+    var usage = {};
+    try {
+      usage = JSON.parse(localStorage.getItem(PLAN_USAGE_KEY) || '{}') || {};
+    } catch (e) {
+      usage = {};
+    }
+    var counts = {};
+    for (var i = 0; i < 7; i++) {
+      var d = new Date();
+      d.setDate(d.getDate() - i);
+      var row = usage[dayKey(d)] || {};
+      Object.keys(row).forEach(function (planId) {
+        counts[planId] = (counts[planId] || 0) + safeNum(row[planId]);
+      });
+    }
+    var bestId = '';
+    var bestCount = 0;
+    Object.keys(counts).forEach(function (planId) {
+      if (counts[planId] > bestCount) {
+        bestId = planId;
+        bestCount = counts[planId];
+      }
+    });
+    if (!bestId) return null;
+    var labels = {
+      fearfaith: 'Fear to Faith',
+      worrytrust: 'Worry to Trust',
+      griefhope: 'Grief to Hope',
+      familyworship: 'Family Worship in the Trenches',
+      psalmscomfortfamily: 'Psalms of Comfort (Family Edition)',
+      psalmspraise: 'Psalms of Praise'
+    };
+    return {
+      id: bestId,
+      label: labels[bestId] || bestId.replace(/-/g, ' ').replace(/\b\w/g, function (m) { return m.toUpperCase(); }),
+      starts: bestCount
+    };
+  }
+
   function buildWeeklyPayload() {
     var s = getLast7DaysSummary();
+    var topPlan = getTopPlan7d();
     return {
       subject: "This Week's Battle - You Showed Up",
       prayers7d: s.prayers,
       verses7d: s.verses,
       eggs7d: s.eggs,
+      top_plan_id: topPlan ? topPlan.id : '',
+      top_plan_label: topPlan ? topPlan.label : '',
+      top_plan_starts_7d: topPlan ? topPlan.starts : 0,
       catchupMercy: readCatchupMercy(),
       nextDayTease: nextDayTease(),
       generated_at: new Date().toISOString()

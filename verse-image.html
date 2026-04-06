@@ -198,6 +198,7 @@
         <a href="/verse.html">Today&rsquo;s Verse</a>
         <a href="/#feel-section">How I Feel</a>
         <a href="/prayer-wall.html">Pray</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -356,6 +357,13 @@
               <span>Include scan link (QR) on the card</span>
             </label>
             <p id="verse-image-qr-hint" class="section-note" style="flex: 1 1 100%; margin: 0.25rem 0 0;">Points to a short link on this site so people can open the verse after a meeting. Handouts work best when someone has opened the site once before (cache helps).</p>
+          </div>
+          <div class="verse-image-controls" style="margin-top: 0.2rem; align-items: center;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; min-height: 44px; margin: 0;">
+              <input type="checkbox" id="verse-image-include-watermark" checked />
+              <span>Include “Made on Today&rsquo;s Daily Battle” mark</span>
+            </label>
+            <p class="section-note" style="flex: 1 1 100%; margin: 0.25rem 0 0;">Leave it on for story shares and handouts; turn it off if you need a cleaner print-ready card.</p>
           </div>
 
           <div class="cta-group verse-image-actions" style="margin-top: 1rem; flex-wrap: wrap;">

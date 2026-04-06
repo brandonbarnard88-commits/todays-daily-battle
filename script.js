@@ -576,6 +576,53 @@ function highlightCurrentNav() {
 
 var TDB_TOUR_SEEN_KEY = 'tdb-tour-seen';
 
+function getTdbCurrentTheme() {
+  if (typeof window !== 'undefined' && typeof window.tdbReadTheme === 'function') {
+    return window.tdbReadTheme();
+  }
+  try {
+    return (document.documentElement && document.documentElement.dataset && document.documentElement.dataset.theme) || 'dark';
+  } catch (_) {}
+  return 'dark';
+}
+
+function syncThemeToggleButtons() {
+  if (typeof document === 'undefined') return;
+  var theme = getTdbCurrentTheme();
+  var nextTheme = theme === 'light' ? 'dark' : 'light';
+  var label = theme === 'light' ? 'Quiet night' : 'Calm cream';
+  document.querySelectorAll('[data-tdb-theme-toggle]').forEach(function (btn) {
+    btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+    btn.setAttribute('aria-label', 'Switch to ' + label);
+    btn.setAttribute('title', 'Switch to ' + label);
+    btn.setAttribute('data-next-theme', nextTheme);
+    var textEl = btn.querySelector('[data-tdb-theme-toggle-text]');
+    if (textEl) {
+      textEl.textContent = theme === 'light' ? 'Quiet night' : 'Calm cream';
+    } else {
+      btn.textContent = theme === 'light' ? '☾ Quiet night' : '☀ Calm cream';
+    }
+  });
+}
+
+function toggleTdbTheme(source) {
+  var current = getTdbCurrentTheme();
+  var nextTheme = current === 'light' ? 'dark' : 'light';
+  if (typeof window !== 'undefined' && typeof window.tdbApplyTheme === 'function') {
+    window.tdbApplyTheme(nextTheme);
+  } else {
+    try {
+      document.documentElement.dataset.theme = nextTheme;
+      localStorage.setItem('tdb-theme', nextTheme);
+    } catch (_) {}
+  }
+  syncThemeToggleButtons();
+  if (typeof trackEvent === 'function') {
+    trackEvent('appearance_theme_select', { theme: nextTheme, source: source || 'quick_toggle' });
+  }
+  return nextTheme;
+}
+
 function getWelcomeTourPageTag() {
   try {
     var p = (window.location && window.location.pathname) || '';
@@ -653,6 +700,11 @@ function openTdbWelcomeTour(opts) {
   function markSeen() {
     try {
       localStorage.setItem(TDB_TOUR_SEEN_KEY, '1');
+    } catch (_) {}
+    try {
+      if (typeof window !== 'undefined' && window.dispatchEvent) {
+        window.dispatchEvent(new CustomEvent('tdb-welcome-tour-seen'));
+      }
     } catch (_) {}
   }
 
@@ -824,6 +876,17 @@ function wireWelcomeTour() {
     true
   );
 
+  document.addEventListener(
+    'click',
+    function (e) {
+      var t = e.target && e.target.closest && e.target.closest('[data-tdb-theme-toggle]');
+      if (!t) return;
+      e.preventDefault();
+      toggleTdbTheme(t.getAttribute('data-tdb-theme-toggle') || 'quick_toggle');
+    },
+    true
+  );
+
   function shouldAutoTour() {
     try {
       if (localStorage.getItem(TDB_TOUR_SEEN_KEY) === '1') return false;
@@ -834,10 +897,21 @@ function wireWelcomeTour() {
     return tag === 'home' || tag === 'verse' || tag === 'explore';
   }
 
+  function syncWelcomeTourPrompt() {
+    var prompt = document.getElementById('tdb-first-tour-prompt');
+    if (!prompt) return;
+    prompt.hidden = !shouldAutoTour();
+  }
+
+  syncThemeToggleButtons();
+  syncWelcomeTourPrompt();
+  window.addEventListener('tdb-theme-change', syncThemeToggleButtons);
+  window.addEventListener('tdb-welcome-tour-seen', syncWelcomeTourPrompt);
+
   if (shouldAutoTour()) {
     window.setTimeout(function () {
       openTdbWelcomeTour({ manual: false });
-    }, 1500);
+    }, 1800);
   }
 }
 
@@ -23354,6 +23428,9 @@ function getDefaultBibleStudies() {
     { id: 'fruit-of-spirit', title: 'Fruit of the Spirit', topic: 'Character & growth', description: 'Galatians 5:22–23—love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance. One fruit per day.', days: 9 },
     { id: 'forgiveness-flow', title: 'Forgiveness Flow', topic: 'Forgiveness', description: 'Matthew 18, Psalm 51, and more. Let go, move on, and receive God\'s mercy.', days: 7 },
     { id: 'psalms-of-comfort', title: 'Psalms of Comfort', topic: 'Comfort & refuge', description: 'Psalm 23, 27, 46, 91, and more. When you need a refuge, these verses meet you there.', days: 7 },
+    { id: 'psalms-anxious-heart', title: 'Psalms for the Anxious Heart', topic: 'Anxiety & quiet trust', description: 'Seven short Psalms when your chest is tight and your thoughts will not sit still. Honest refuge, not forced calm.', days: 7 },
+    { id: 'gentle-obedience', title: 'Gentle Obedience in Busy Seasons', topic: 'Faithfulness in ordinary days', description: 'Seven days for crowded calendars, tired hands, and the next right step with God. Quiet obedience over pressure.', days: 7 },
+    { id: 'feel-forgotten', title: 'When You Feel Forgotten', topic: 'Seen by God', description: 'Seven Scriptures for the days you feel overlooked, delayed, or left behind. God still sees, knows, and keeps.', days: 7 },
     { id: 'faith-over-fear', title: 'Faith Over Fear', topic: 'Courage', description: '2 Timothy 1:7, Isaiah 41:10, Joshua 1:9—replace fear with faith.', days: 5 },
     { id: 'hope-in-hard-times', title: 'Hope in Hard Times', topic: 'Hope', description: 'Psalms and Romans—find light when it\'s dark. God of hope fills you with joy and peace.', days: 5 },
     { id: 'love-one-another', title: 'Love One Another', topic: 'Love', description: 'John 13:34, 1 John 4—how to love as Christ loved.', days: 5 },
@@ -27875,6 +27952,9 @@ async function tdbInitImpl() {
       'fruit-of-spirit': { title: 'Fruit of the Spirit', items: [{ ref: 'Galatians 5:22', theme: 'Love' }, { ref: 'Galatians 5:22', theme: 'Joy' }, { ref: 'Galatians 5:22', theme: 'Peace' }, { ref: 'Galatians 5:22', theme: 'Longsuffering' }, { ref: 'Galatians 5:22', theme: 'Gentleness' }, { ref: 'Galatians 5:22', theme: 'Goodness' }, { ref: 'Galatians 5:22', theme: 'Faith' }, { ref: 'Galatians 5:22', theme: 'Meekness' }, { ref: 'Galatians 5:22', theme: 'Temperance' }] },
       'forgiveness-flow': { title: 'Forgiveness Flow', items: [{ ref: 'Matthew 18:21', theme: 'How oft shall my brother sin' }, { ref: 'Matthew 18:22', theme: 'Seventy times seven' }, { ref: 'Psalm 51:10', theme: 'Create in me a clean heart' }, { ref: 'Colossians 3:13', theme: 'Forgiving one another' }, { ref: 'Ephesians 4:32', theme: 'Kind one to another' }, { ref: 'Matthew 6:14', theme: 'Forgive men their trespasses' }, { ref: '1 John 1:9', theme: 'He is faithful to forgive' }] },
       'psalms-of-comfort': { title: 'Psalms of Comfort', items: [{ ref: 'Psalm 23:1', theme: 'The Lord is my shepherd' }, { ref: 'Psalm 27:1', theme: 'The Lord is my light' }, { ref: 'Psalm 46:1', theme: 'God is our refuge' }, { ref: 'Psalm 91:1', theme: 'He that dwelleth in the secret place' }, { ref: 'Psalm 34:4', theme: 'Delivered from fears' }, { ref: 'Psalm 121:1', theme: 'I will lift up mine eyes' }, { ref: 'Psalm 139:23', theme: 'Search me, O God' }] },
+      'psalms-anxious-heart': { title: 'Psalms for the Anxious Heart', items: [{ ref: 'Psalm 61:2', theme: 'Lead me to the rock' }, { ref: 'Psalm 56:3', theme: 'What time I am afraid' }, { ref: 'Psalm 94:19', theme: 'Thy comforts delight my soul' }, { ref: 'Psalm 131:2', theme: 'Quieted like a child' }, { ref: 'Psalm 46:10', theme: 'Be still, and know' }, { ref: 'Psalm 62:8', theme: 'Pour out your heart' }, { ref: 'Psalm 27:14', theme: 'Wait on the Lord' }] },
+      'gentle-obedience': { title: 'Gentle Obedience in Busy Seasons', items: [{ ref: 'Micah 6:8', theme: 'Do justly, love mercy, walk humbly' }, { ref: 'Luke 10:41-42', theme: 'One thing is needful' }, { ref: 'Colossians 3:23', theme: 'Heartily, as to the Lord' }, { ref: 'Galatians 6:9', theme: 'Be not weary in well doing' }, { ref: 'James 1:22', theme: 'Be ye doers of the word' }, { ref: 'John 14:15', theme: 'If ye love me, keep my commandments' }, { ref: 'Psalm 119:105', theme: 'A lamp unto my feet' }] },
+      'feel-forgotten': { title: 'When You Feel Forgotten', items: [{ ref: 'Isaiah 49:15-16', theme: 'I have graven thee upon my palms' }, { ref: 'Genesis 16:13', theme: 'Thou God seest me' }, { ref: 'Psalm 27:10', theme: 'The Lord will take me up' }, { ref: 'Luke 12:6-7', theme: 'You are of more value' }, { ref: 'Hebrews 6:10', theme: 'God is not unrighteous to forget' }, { ref: 'Deuteronomy 31:8', theme: 'He will not fail thee' }, { ref: 'Lamentations 3:24', theme: 'Therefore will I hope in him' }] },
       'faith-over-fear': { title: 'Faith Over Fear', items: [{ ref: '2 Timothy 1:7', theme: 'Spirit of power and love' }, { ref: 'Isaiah 41:10', theme: 'Fear not, I am with thee' }, { ref: 'Joshua 1:9', theme: 'Be strong and courageous' }, { ref: 'Psalm 27:1', theme: 'The Lord is my light' }, { ref: 'Psalm 56:3', theme: 'What time I am afraid' }] },
       'hope-in-hard-times': { title: 'Hope in Hard Times', items: [{ ref: 'Romans 15:13', theme: 'God of hope' }, { ref: 'Jeremiah 29:11', theme: 'Thoughts of peace' }, { ref: 'Romans 5:5', theme: 'Hope maketh not ashamed' }, { ref: 'Psalm 42:11', theme: 'Hope thou in God' }, { ref: 'Lamentations 3:22', theme: 'His mercies are new every morning' }] },
       'love-one-another': { title: 'Love One Another', items: [{ ref: 'John 13:34', theme: 'Love one another' }, { ref: '1 John 4:7', theme: 'Love is of God' }, { ref: '1 John 4:18', theme: 'Perfect love casteth out fear' }, { ref: '1 Corinthians 13:4', theme: 'Charity suffereth long' }, { ref: 'Romans 12:10', theme: 'Be kindly affectioned' }] },
@@ -27882,7 +27962,7 @@ async function tdbInitImpl() {
     };
     var plan = STUDY_PLANS[studyId] || STUDY_PLANS[String(studyId)];
     if (!plan) {
-      var numMap = { '1': 'armor-of-god', '2': 'peace-in-storm', '3': 'fruit-of-spirit', '4': 'forgiveness-flow', '5': 'psalms-of-comfort', '6': 'faith-over-fear', '7': 'hope-in-hard-times', '8': 'love-one-another', '9': 'beatitudes' };
+      var numMap = { '1': 'armor-of-god', '2': 'peace-in-storm', '3': 'fruit-of-spirit', '4': 'forgiveness-flow', '5': 'psalms-of-comfort', '6': 'psalms-anxious-heart', '7': 'gentle-obedience', '8': 'feel-forgotten', '9': 'faith-over-fear', '10': 'hope-in-hard-times', '11': 'love-one-another', '12': 'beatitudes' };
       plan = STUDY_PLANS[numMap[String(studyId)]];
     }
     if (!plan || !plan.items || !plan.items.length) return;

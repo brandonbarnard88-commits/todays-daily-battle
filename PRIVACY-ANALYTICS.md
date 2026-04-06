@@ -123,6 +123,15 @@ Do **not** add verse reference or verse text to these calls.
 | `church_verse_viewed` | `{}` |
 | `church_verse_set` | `{}` |
 
+### Plans / studies / verse images
+
+| Event | Params (allowed) |
+|-------|------------------|
+| `battle_plan_start` | `{ plan_id: string, source: 'plans_index' \| 'plans' \| 'home' }` (plan slug only, no free text) |
+| `bible_study_start` | `{ study_id: string }` |
+| `verse_image_downloaded` | `{ ref_len: number, qr: 0 \| 1, branding: 0 \| 1 }` |
+| `verse_image_shared` | `{ ref_len: number, method: string, qr?: 0 \| 1, branding?: 0 \| 1 }` |
+
 ### Kids / family daily verse strip (`kids-corner-daily-verse.js`)
 
 | Event | Params (allowed) |

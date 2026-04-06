@@ -7,6 +7,7 @@
 
   var API_BASE = 'https://bible-api.com';
   var CACHE_KEY = 'tdb_verse_image_cache';
+  var WATERMARK_PREF_KEY = 'tdb_verse_image_branding_v1';
   var PROMPT_KEY = 'tdb_vi_upgrade_prompted';
   var DB_NAME = 'tdb_verse_image_v1';
   var STORE = 'verseGens';
@@ -950,7 +951,7 @@
       var bodyStart = isTpl ? lineY + Math.round(lh * 0.95) : lineY + Math.round(lh * 0.88);
       wrapCanvasTextCentered(ctx, body, cx, bodyStart, maxW, lh);
 
-      if (opts && opts.footerStyle === 'site') {
+      if (opts && opts.footerStyle === 'site' && opts.includeBranding !== false) {
         var sf2 = Math.min(w, h) / 1080;
         if (sf2 < 0.5) sf2 = 0.5;
         if (sf2 > 1.12) sf2 = 1.12;
@@ -973,9 +974,11 @@
           ctx.fillText('Memorize & Share', cx, y);
         }
       } else {
-        ctx.fillStyle = footMuted;
-        ctx.font = '600 24px Inter, system-ui, sans-serif';
-        ctx.fillText("Today's Verse \u2014 A Quiet Place", cx, h - 48);
+        if (opts.includeBranding !== false) {
+          ctx.fillStyle = footMuted;
+          ctx.font = '600 24px Inter, system-ui, sans-serif';
+          ctx.fillText('Made on Today\'s Daily Battle', cx, h - 48);
+        }
         ctx.fillStyle = '#d4af37';
         ctx.font = '600 20px Inter, system-ui, sans-serif';
         ctx.fillText('KJV', cx, h - 22);
@@ -993,9 +996,11 @@
     ctx.font = bodyFont;
     wrapCanvasText(ctx, body, pad, 150, w - pad * 2, lh);
 
-    ctx.fillStyle = footMuted;
-    ctx.font = '600 24px Inter, system-ui, sans-serif';
-    ctx.fillText("Today's Verse \u2014 A Quiet Place", pad, h - 48);
+    if (opts.includeBranding !== false) {
+      ctx.fillStyle = footMuted;
+      ctx.font = '600 24px Inter, system-ui, sans-serif';
+      ctx.fillText('Made on Today\'s Daily Battle', pad, h - 48);
+    }
     ctx.fillStyle = '#d4af37';
     ctx.font = '600 20px Inter, system-ui, sans-serif';
     ctx.fillText('KJV', pad, h - 22);
@@ -1070,11 +1075,11 @@
     );
   }
 
-  function saveCache(ref, text, includeQr) {
+  function saveCache(ref, text, includeQr, includeBranding) {
     try {
       localStorage.setItem(
         CACHE_KEY,
-        JSON.stringify({ ref: ref, text: text, includeQr: !!includeQr, ts: Date.now() })
+        JSON.stringify({ ref: ref, text: text, includeQr: !!includeQr, includeBranding: includeBranding !== false, ts: Date.now() })
       );
     } catch (e) {}
   }
@@ -1161,6 +1166,7 @@
     var fontEl = document.getElementById('verse-image-font');
     var colorEl = document.getElementById('verse-image-text-color');
     var qrEl = document.getElementById('verse-image-include-qr');
+    var watermarkEl = document.getElementById('verse-image-include-watermark');
     var layoutEl = document.getElementById('verse-image-layout');
     var statusEl = document.getElementById('verse-image-status');
     var recentWrap = document.getElementById('recent-gens');
@@ -1205,7 +1211,8 @@
       var base = {
         templateKey: tk,
         font: fontEl ? fontEl.value : 'serif',
-        includeQr: qrEl ? qrEl.checked : true
+        includeQr: qrEl ? qrEl.checked : true,
+        includeBranding: watermarkEl ? watermarkEl.checked : true
       };
       if (!tdef || tk === 'custom') {
         return Object.assign(base, {
@@ -1279,6 +1286,7 @@
               if (fontEl && row.font) fontEl.value = row.font;
               if (colorEl) colorEl.value = row.textColor || 'ink';
               if (qrEl) qrEl.checked = row.includeQr !== false;
+              if (watermarkEl) watermarkEl.checked = row.includeBranding !== false;
               if (layoutEl && row.layout) layoutEl.value = row.layout;
               renderCardWithQr(
                 canvas,
@@ -1315,7 +1323,7 @@
       var opts = getCardOpts();
       setStatus('Updating preview…');
       renderCardWithQr(canvas, ref, body, opts, function () {
-        saveCache(ref, body, opts.includeQr);
+        saveCache(ref, body, opts.includeQr, opts.includeBranding);
 
         var dataURL = canvas.toDataURL('image/png');
         var rec = {
@@ -1328,6 +1336,7 @@
           font: opts.font,
           textColor: opts.textColor,
           includeQr: opts.includeQr,
+          includeBranding: opts.includeBranding !== false,
           layout: opts.layout || 'classic',
           templateKey: opts.templateKey || 'custom'
         };
@@ -1415,7 +1424,7 @@
               a0.download = base;
               a0.href = canvas.toDataURL('image/png');
               a0.click();
-              trackEvent('verse_image_downloaded', { ref_len: ref.length, qr: optsDl.includeQr ? 1 : 0 });
+              trackEvent('verse_image_downloaded', { ref_len: ref.length, qr: optsDl.includeQr ? 1 : 0, branding: optsDl.includeBranding === false ? 0 : 1 });
             } catch (e) {
               setStatus('Download failed in this browser.');
             }
@@ -1427,7 +1436,7 @@
           a.href = URL.createObjectURL(blob);
           a.click();
           URL.revokeObjectURL(a.href);
-          trackEvent('verse_image_downloaded', { ref_len: ref.length, qr: optsDl.includeQr ? 1 : 0 });
+          trackEvent('verse_image_downloaded', { ref_len: ref.length, qr: optsDl.includeQr ? 1 : 0, branding: optsDl.includeBranding === false ? 0 : 1 });
           setStatus('Download started.');
         }, 'image/png');
       });
@@ -1472,7 +1481,8 @@
               trackEvent('verse_image_shared', {
                 ref_len: ref.length,
                 method: 'native_share',
-                qr: optsSh.includeQr ? 1 : 0
+                qr: optsSh.includeQr ? 1 : 0,
+                branding: optsSh.includeBranding === false ? 0 : 1
               });
               setStatus('Shared.');
             })
@@ -1501,7 +1511,17 @@
       refEl.value = cache.ref;
       bodyEl.value = cache.text;
       if (qrEl && cache.includeQr === false) qrEl.checked = false;
+      if (watermarkEl && cache.includeBranding === false) watermarkEl.checked = false;
     }
+    try {
+      if (watermarkEl) {
+        var storedBranding = localStorage.getItem(WATERMARK_PREF_KEY);
+        if (storedBranding === '0') watermarkEl.checked = false;
+        watermarkEl.addEventListener('change', function () {
+          try { localStorage.setItem(WATERMARK_PREF_KEY, watermarkEl.checked ? '1' : '0'); } catch (e) {}
+        });
+      }
+    } catch (e) {}
     migrateLegacyTemplateKeysInIdb().then(function () {
       applyTemplateUi(templateEl ? templateEl.value : 'custom');
       renderRecentGens();

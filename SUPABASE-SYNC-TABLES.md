@@ -93,6 +93,8 @@ After running the SQL, the site will sync these when users are logged in and per
 
 **Feeling suggestions:** Run `supabase-feeling-suggestions.sql`. Creates `feeling_suggestions` (phrase, created_at). Anon INSERT only; no anon SELECT. Used by "Suggest a feeling" form on contact.html for crowdsourcing new search phrases.
 
+**Plan suggestions:** Run `supabase-plan-suggestions.sql`. Creates `plan_suggestions` (phrase, created_at). Anon INSERT only; no anon SELECT. Used by the "Suggest a 7-day plan" form on `plans.html` for quiet topic requests without collecting email.
+
 ---
 
 ### Verify RLS (anon key test)

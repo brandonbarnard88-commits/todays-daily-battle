@@ -11,18 +11,18 @@
   <script defer src="analytics-loader.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Battle Plans • Today's Daily Battle</title>
-  <meta name="description" content="Short KJV plans (7–40 days) for days you can only carry one verse: plain talk, a small step, and a prayer. Progress stays on your device—offline, no login.">
+  <title>KJV Battle Plans for Anxiety, Grief, Hope, and Family • Today's Daily Battle</title>
+  <meta name="description" content="Short KJV battle plans for anxiety, grief, hope, family, and hard weeks: one verse a day, plain talk, a small step, and a prayer. Offline, no login.">
   <link rel="canonical" href="https://todaysdailybattle.com/plans.html">
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/plans.html">
   <link rel="alternate" hreflang="pt" href="https://todaysdailybattle.com/pt/planos.html">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
-  <meta property="og:title" content="Battle Plans • Today's Daily Battle">
-  <meta property="og:description" content="Short KJV plans when one verse a day is enough—gentle structure, saved on your device, works offline. No login.">
+  <meta property="og:title" content="KJV Battle Plans for Anxiety, Grief, Hope, and Family">
+  <meta property="og:description" content="Short KJV plans for anxiety, grief, hope, family, and hard weeks—gentle structure, saved on your device, works offline.">
   <meta property="og:url" content="https://todaysdailybattle.com/plans.html">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
-  <meta name="twitter:title" content="Battle Plans • Today's Daily Battle">
-  <meta name="twitter:description" content="Short KJV plans when one verse a day is enough—saved on your device, offline, no login.">
+  <meta name="twitter:title" content="KJV Battle Plans for Anxiety, Grief, Hope, and Family">
+  <meta name="twitter:description" content="Short KJV plans for anxiety, grief, hope, family, and hard weeks—saved on your device, offline, no login.">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
@@ -1183,6 +1183,7 @@
       <a href="/verse.html">Today&rsquo;s Verse</a>
       <a href="/#feel-section">How I Feel</a>
       <a href="/prayer-wall.html">Pray</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -1480,6 +1481,27 @@
             <a class="btn btn-primary study-card-btn" href="plans.html?plan=psalmscomfort">Start Free</a>
           </article>
           <article class="study-card">
+            <h3 class="study-card-title">Psalms for the Anxious Heart</h3>
+            <span class="study-card-topic">Anxiety &amp; quiet trust</span>
+            <p class="study-card-desc">Seven short Psalms when your chest is tight and your thoughts will not sit still. Honest refuge, not forced calm.</p>
+            <span class="study-card-days">7 days · Reader</span>
+            <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=psalms-anxious-heart">Start Free</a>
+          </article>
+          <article class="study-card">
+            <h3 class="study-card-title">Gentle Obedience in Busy Seasons</h3>
+            <span class="study-card-topic">Faithfulness in ordinary days</span>
+            <p class="study-card-desc">Seven days for crowded calendars, tired hands, and the next right step with God. Quiet obedience over pressure.</p>
+            <span class="study-card-days">7 days · Reader</span>
+            <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=gentle-obedience">Start Free</a>
+          </article>
+          <article class="study-card">
+            <h3 class="study-card-title">When You Feel Forgotten</h3>
+            <span class="study-card-topic">Seen by God</span>
+            <p class="study-card-desc">Seven Scriptures for the days you feel overlooked, delayed, or left behind. God still sees, knows, and keeps.</p>
+            <span class="study-card-days">7 days · Reader</span>
+            <a class="btn btn-primary study-card-btn" href="reading-plan.html?study=feel-forgotten">Start Free</a>
+          </article>
+          <article class="study-card">
             <h3 class="study-card-title">Faith Over Fear</h3>
             <span class="study-card-topic">Courage</span>
             <p class="study-card-desc">2 Timothy 1:7, Isaiah 41:10, Joshua 1:9—replace fear with faith.</p>
@@ -1574,6 +1596,20 @@
           <a class="plans-editorial-pick" href="plans.html?plan=moneyworry"><span class="plans-editorial-pick-icon" aria-hidden="true">📋</span> When money worry shouts</a>
           <a class="plans-editorial-pick" href="plans.html?plan=caregiverrest"><span class="plans-editorial-pick-icon" aria-hidden="true">🫶</span> Caregiver rest</a>
         </div>
+      </section>
+      <section class="plans-editorial-picks" id="plan-suggestions" aria-labelledby="plan-suggestions-title">
+        <h2 class="plans-editorial-picks-title" id="plan-suggestions-title">Suggest a 7-day plan</h2>
+        <p class="plans-editorial-picks-lead">Anonymous and simple. Tell me the battle you are facing, and I can review it for a future plan without turning this into a noisy public feed.</p>
+        <form class="contact-form" id="plan-suggest-form" aria-label="Suggest a Battle Plan topic">
+          <label for="plan-suggest-phrase">What battle are you fighting?</label>
+          <textarea id="plan-suggest-phrase" name="phrase" rows="3" maxlength="200" placeholder="Examples: caring for aging parents, waiting on test results, feeling forgotten at work" aria-label="Suggest a Battle Plan topic"></textarea>
+          <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+            <label for="plan-suggest-website">Website (leave blank)</label>
+            <input type="text" id="plan-suggest-website" name="website" autocomplete="off" tabindex="-1" />
+          </div>
+          <button type="submit" class="btn btn-secondary" aria-label="Submit plan suggestion">Send suggestion</button>
+        </form>
+        <p id="plan-suggest-status" class="section-note" style="margin-top:0.6rem;min-height:1.5em;" aria-live="polite"></p>
       </section>
       <div class="recent-plans-carousel" id="recentPlansCarousel" role="region" aria-label="Recently viewed plans" style="display:none;"></div>
       <h2 id="all-plans" class="plans-all-heading">Every plan</h2>
@@ -3192,6 +3228,41 @@
     // ── Detail view ───────────────────────────────────────────────────────────
     var RECENT_PLANS_KEY = 'tdb_recent_plans_v1';
     var RECENT_PLANS_MAX = 5;
+    var PLAN_START_TRACK_KEY = 'tdb_plan_start_events_v1';
+    var WEEKLY_PLAN_USAGE_KEY = 'tdb_weekly_plan_usage_v1';
+    function tdbTodayStamp() {
+      var d = new Date();
+      var y = d.getFullYear();
+      var m = String(d.getMonth() + 1).padStart(2, '0');
+      var day = String(d.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + day;
+    }
+    function trackPlanStart(plan, source) {
+      if (!plan || !plan.id) return;
+      try {
+        var today = tdbTodayStamp();
+        var starts = JSON.parse(localStorage.getItem(PLAN_START_TRACK_KEY) || '{}');
+        if (starts && starts[plan.id] === today) return;
+        starts = starts && typeof starts === 'object' ? starts : {};
+        starts[plan.id] = today;
+        tdbPlansSafeSetItem(PLAN_START_TRACK_KEY, JSON.stringify(starts));
+        var usage = JSON.parse(localStorage.getItem(WEEKLY_PLAN_USAGE_KEY) || '{}');
+        usage = usage && typeof usage === 'object' ? usage : {};
+        var dayRow = usage[today] && typeof usage[today] === 'object' ? usage[today] : {};
+        dayRow[plan.id] = (parseInt(dayRow[plan.id] || '0', 10) || 0) + 1;
+        usage[today] = dayRow;
+        var usageKeys = Object.keys(usage).sort();
+        while (usageKeys.length > 14) {
+          delete usage[usageKeys.shift()];
+        }
+        tdbPlansSafeSetItem(WEEKLY_PLAN_USAGE_KEY, JSON.stringify(usage));
+      } catch (e) {}
+      try {
+        if (typeof window.trackEvent === 'function') {
+          window.trackEvent('battle_plan_start', { plan_id: plan.id, source: source || 'plans' });
+        }
+      } catch (e2) {}
+    }
     function pushRecentPlan(id) {
       try {
         var raw = localStorage.getItem(RECENT_PLANS_KEY) || '[]';
@@ -3212,8 +3283,9 @@
     function openPlan(id) {
       currentPlan = PLANS[id];
       if (!currentPlan) return;
-      pushRecentPlan(id);
       var progress = getDayProgress(currentPlan);
+      pushRecentPlan(id);
+      if (progress === 0) trackPlanStart(currentPlan, 'plans_index');
       // default to first incomplete day, or last if all done
       currentDay = Math.min(Math.max(progress, 0), currentPlan.max - 1);
 
@@ -4892,6 +4964,7 @@
 
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
+  <script src="plan-suggest-form.js" defer></script>
   <script src="share-page.js?v=20260402shareattrs" defer></script>
   <script defer src="footer-build-stamp.js?v=20260329fdbuild"></script>
 

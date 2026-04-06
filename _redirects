@@ -199,24 +199,24 @@
 /our-approach /about.html 301
 /contract /faq.html 301
 
-# Donation/support (301). /give now lands on the calm explainer page before the external payment page.
+# Donation/support (301). Legacy support paths now land on the calm support page.
 /give /give.html 301
-/donate https://buymeacoffee.com/todaysdailybattle 301
-/stripe https://buymeacoffee.com/todaysdailybattle 301
-/support https://buymeacoffee.com/todaysdailybattle 301
-/donations https://buymeacoffee.com/todaysdailybattle 301
-/donations/* https://buymeacoffee.com/todaysdailybattle 301
+/donate /give.html 301
+/stripe /give.html 301
+/support /give.html 301
+/donations /give.html 301
+/donations/* /give.html 301
 
-# Payment bot probes → Buy Me a Coffee (reduces 4xx noise)
-/donate/* https://buymeacoffee.com/todaysdailybattle 301
-/stripe/* https://buymeacoffee.com/todaysdailybattle 301
-/checkout https://buymeacoffee.com/todaysdailybattle 301
-/checkout/* https://buymeacoffee.com/todaysdailybattle 301
-/payment https://buymeacoffee.com/todaysdailybattle 301
-/payment/* https://buymeacoffee.com/todaysdailybattle 301
-/billing https://buymeacoffee.com/todaysdailybattle 301
-/buymeacoffee https://buymeacoffee.com/todaysdailybattle 301
-/coffee https://buymeacoffee.com/todaysdailybattle 301
+# Payment bot probes and old support guesses → support page (reduces 4xx noise)
+/donate/* /give.html 301
+/stripe/* /give.html 301
+/checkout /give.html 301
+/checkout/* /give.html 301
+/payment /give.html 301
+/payment/* /give.html 301
+/billing /give.html 301
+/buymeacoffee /give.html 301
+/coffee /give.html 301
 /premium /pricing.html 301
 # Site-wide hand-built page list (search.html). Legacy /search used to send people to home Feel search.
 /search /search.html 200!

@@ -19490,3 +19490,135 @@ html[data-tdb-contrast="high"] .card {
   word-break: break-all;
 }
 
+/* Home trust + doorways */
+.tdb-home-proof-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.7rem;
+  margin: 0.85rem 0 1rem;
+}
+.tdb-home-proof-pill {
+  margin: 0;
+  padding: 0.85rem 0.95rem;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 18%, var(--line, rgba(148, 163, 184, 0.28)));
+  background: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 94%, rgba(227, 188, 103, 0.06));
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  color: var(--muted-readable, var(--muted));
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.tdb-home-proof-pill strong {
+  display: block;
+  margin-bottom: 0.18rem;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.tdb-home-doorways {
+  margin-bottom: 1rem;
+}
+.tdb-home-doorway-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+.tdb-home-doorway-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-height: 100%;
+  padding: 1rem 1.05rem;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--tdb-surface-card-border, rgba(148, 163, 184, 0.22)) 80%, rgba(227, 188, 103, 0.32));
+  background: color-mix(in srgb, var(--tdb-surface-card-bg, rgba(12, 18, 30, 0.94)) 94%, rgba(139, 166, 217, 0.06));
+  box-shadow: var(--tdb-surface-card-shadow, 0 10px 32px rgba(0, 0, 0, 0.32));
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.tdb-home-doorway-card:hover,
+.tdb-home-doorway-card:focus-visible {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 38%, var(--tdb-surface-card-border, rgba(148, 163, 184, 0.22)));
+  box-shadow: var(--tdb-surface-card-shadow-hover, 0 14px 40px rgba(0, 0, 0, 0.38));
+  outline: none;
+}
+.tdb-home-doorway-card strong {
+  font-size: 1.02rem;
+  line-height: 1.3;
+}
+.tdb-home-doorway-card span:last-child {
+  color: var(--muted-readable, var(--muted));
+  line-height: 1.55;
+}
+.tdb-home-doorway-eyebrow {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold, #e3bc67);
+}
+
+/* Support page refresh */
+.tdb-support-waitlist {
+  margin-top: 1rem;
+}
+.tdb-support-waitlist-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+.tdb-support-waitlist-row input {
+  flex: 1 1 16rem;
+  min-height: 48px;
+  padding: 0.75rem 0.9rem;
+  border-radius: 14px;
+  border: 1px solid var(--line, rgba(148, 163, 184, 0.35));
+  background: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 96%, rgba(255, 255, 255, 0.03));
+  color: var(--text);
+  font: inherit;
+}
+.tdb-support-waitlist-row input::placeholder {
+  color: var(--muted);
+}
+.tdb-support-waitlist-row input:focus-visible {
+  outline: 2px solid var(--gold, #e3bc67);
+  outline-offset: 2px;
+}
+.tdb-support-ways-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0 0.5rem;
+}
+.tdb-support-way-card {
+  padding: 1rem 1.05rem;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--tdb-surface-card-border, rgba(148, 163, 184, 0.22)) 85%, rgba(227, 188, 103, 0.22));
+  background: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(12, 18, 30, 0.94)) 96%, rgba(227, 188, 103, 0.04));
+}
+.tdb-support-way-card h3 {
+  margin: 0 0 0.45rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+.tdb-support-way-card p {
+  margin: 0;
+  color: var(--muted-readable, var(--muted));
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .tdb-home-proof-strip,
+  .tdb-home-doorway-grid,
+  .tdb-support-ways-grid {
+    grid-template-columns: 1fr;
+  }
+  .tdb-support-waitlist-row .btn,
+  .tdb-support-waitlist-row input {
+    width: 100%;
+  }
+}
+

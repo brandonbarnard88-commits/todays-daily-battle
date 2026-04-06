@@ -104,27 +104,27 @@
     },
     {
       "source": "/donate",
-      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "destination": "/give.html",
       "permanent": true
     },
     {
       "source": "/stripe",
-      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "destination": "/give.html",
       "permanent": true
     },
     {
       "source": "/support",
-      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "destination": "/give.html",
       "permanent": true
     },
     {
       "source": "/donations",
-      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "destination": "/give.html",
       "permanent": true
     },
     {
       "source": "/donations/:path*",
-      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "destination": "/give.html",
       "permanent": true
     },
     {

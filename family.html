@@ -577,6 +577,75 @@
     .family-prayer-remove:focus-visible { color: var(--gold-soft); border-color: rgba(227, 188, 103, 0.4); outline: none; }
     .family-prayer-foot { font-size: 0.82rem; color: var(--muted); margin: 0.75rem 0 0; line-height: 1.45; }
     .family-prayer-foot a { color: var(--gold-soft); font-weight: 600; }
+    .family-share-shell {
+      border-radius: 16px;
+      padding: 1.1rem 1.15rem 1.2rem;
+      background: rgba(10, 14, 22, 0.55);
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 235, 0.04),
+        0 14px 38px rgba(0, 0, 0, 0.26),
+        0 0 36px rgba(227, 188, 103, 0.04);
+    }
+    .family-share-grid {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 0.85rem;
+    }
+    .family-share-card {
+      border-radius: 14px;
+      padding: 0.95rem 1rem 1rem;
+      background: rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(227, 188, 103, 0.14);
+    }
+    .family-share-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+    .family-share-card p {
+      margin: 0 0 0.7rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .family-share-label { display: block; font-size: 0.88rem; color: var(--muted); margin-bottom: 0.35rem; }
+    .family-share-input {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 44px;
+      padding: 0.7rem 0.78rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.22);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+    .family-share-input:focus {
+      outline: 3px solid rgba(227, 188, 103, 0.45);
+      outline-offset: 2px;
+      border-color: rgba(227, 188, 103, 0.4);
+    }
+    .family-share-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .family-share-code {
+      margin: 0 0 0.65rem;
+      color: rgba(226, 232, 240, 0.94);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .family-share-code strong,
+    .family-share-includes strong { color: var(--gold-soft); }
+    .family-share-includes {
+      margin: 0.8rem 0 0;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    @media (min-width: 760px) {
+      .family-share-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     .family-dashboard-grid {
       display: grid;
       gap: 0.9rem;
@@ -967,8 +1036,36 @@
         <li>Use <a href="/mystudy?tab=join#panel-join-study">My Study share codes</a> when one trusted person needs the same verse and note trail.</li>
         <li>Use <a href="family-armor.html">Family Armor</a> when you want one household-facing doorway instead of a public space.</li>
         <li>Print the <a href="family-discussion-guide.html">discussion guide</a> or <a href="family-activity-packs.html">family packs</a> when paper is calmer than another screen.</li>
-        <li>Want a fuller invite-only family path later? It lives on the public <a href="/roadmap.html">roadmap</a> so the idea stays visible without rushing the privacy side.</li>
+        <li>The invite flow below shares only what you choose on purpose: family name, household prayer lines, and local family-plan progress.</li>
       </ul>
+    </section>
+
+    <section class="family-share-shell family-hub-animate family-hub-d4" id="family-invite-share" aria-labelledby="family-invite-share-heading">
+      <h2 class="family-section-title" id="family-invite-share-heading">Invite-only family sharing</h2>
+      <p class="section-lead">Send one private link or code to a trusted person. No public listing. No family feed. Nothing is uploaded just because you open this panel.</p>
+      <div class="family-share-grid">
+        <article class="family-share-card" aria-labelledby="family-invite-send-heading">
+          <h3 id="family-invite-send-heading">Send an invite</h3>
+          <label class="family-share-label" for="family-share-name">Household name</label>
+          <input id="family-share-name" class="family-share-input" type="text" maxlength="48" autocomplete="off" placeholder="e.g., The Johnson home">
+          <p class="family-share-code">Private household code: <strong id="family-share-code">Loading…</strong></p>
+          <div class="family-share-actions">
+            <button type="button" class="btn btn-primary" id="family-share-copy-link">Copy invite link</button>
+            <button type="button" class="btn btn-secondary" id="family-share-copy-code">Copy invite code</button>
+          </div>
+          <p class="family-share-includes"><strong>Includes:</strong> household name, prayer list, and saved progress for the family plans on this device. The other person still chooses whether to import it.</p>
+        </article>
+        <article class="family-share-card" aria-labelledby="family-invite-join-heading">
+          <h3 id="family-invite-join-heading">Join from an invite</h3>
+          <label class="family-share-label" for="family-share-join-input">Paste the invite link or code</label>
+          <textarea id="family-share-join-input" class="family-share-input" rows="4" spellcheck="false" placeholder="Paste a trusted family invite here"></textarea>
+          <div class="family-share-actions">
+            <button type="button" class="btn btn-primary" id="family-share-join-btn">Join this household</button>
+          </div>
+          <p class="family-share-includes">Joining merges in the shared prayer lines and the family-plan progress from that invite. Your private notes elsewhere stay on this device.</p>
+        </article>
+      </div>
+      <p class="section-note" id="family-share-status" role="status" aria-live="polite"></p>
     </section>
 
     <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-wins-gently-heading">
@@ -1036,6 +1133,7 @@
 
     <p class="family-kids-tie"><a href="kids-corner.html">Kids Corner</a> stays the younger-child space (loops &amp; stories). <a href="plans.html?plan=beatitudes-kids">The Beatitudes for Kids</a> is nine gentle KJV days with simple words&mdash;read beside them. <a href="plans.html?plan=lordsprayer-kids">The Lord&rsquo;s Prayer for Kids</a> walks Matthew 6 phrase by phrase in the same calm voice (seven days, pray together). Try <a href="plans.html?plan=sower">the Parable of the Sower</a> together, too: a calm story about how our hearts receive God&rsquo;s Word; younger children may prefer <a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a> (same verses, simpler steps). <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a> pairs well with teens. Coloring: <a href="coloring.html">coloring pages</a>.</p>
   </main>
+  <script src="family-hierarchy.js"></script>
   <script src="memory-verses.js"></script>
   <script nonce="tdb2025s">
     (function () {
@@ -1316,6 +1414,229 @@
         });
       }
       render();
+    })();
+  </script>
+  <script nonce="tdb2025s">
+    (function () {
+      var PRAYER_KEY = 'tdb-family-prayer-wall-v1';
+      var FAMILY_NAME_KEY = 'tdb_family_name';
+      var MAX_PRAYER_ITEMS = 18;
+      var PLAN_KEYS = [
+        { key: 'tdb-plan-familyworship-day', max: 7 },
+        { key: 'tdb-plan-psalmscomfortfamily-day', max: 7 },
+        { key: 'tdb-plan-parenting-day', max: 7 },
+        { key: 'tdb-plan-beatitudes-kids-day', max: 9 },
+        { key: 'tdb-plan-lordsprayer-kids-day', max: 7 },
+        { key: 'tdb-plan-sower-kids-day', max: 7 },
+        { key: 'tdb-plan-sower-day', max: 7 },
+        { key: 'tdb-plan-galatiansfreedom-day', max: 7 },
+        { key: 'tdb-plan-psalmscomfort-day', max: 7 }
+      ];
+      var nameInput = document.getElementById('family-share-name');
+      var codeEl = document.getElementById('family-share-code');
+      var copyLinkBtn = document.getElementById('family-share-copy-link');
+      var copyCodeBtn = document.getElementById('family-share-copy-code');
+      var joinInput = document.getElementById('family-share-join-input');
+      var joinBtn = document.getElementById('family-share-join-btn');
+      var statusEl = document.getElementById('family-share-status');
+      if (!nameInput || !codeEl || !copyLinkBtn || !copyCodeBtn || !joinInput || !joinBtn || !statusEl) return;
+
+      function setStatus(msg) {
+        statusEl.textContent = msg || '';
+      }
+      function readText(key) {
+        try { return String(localStorage.getItem(key) || '').trim(); } catch (e) { return ''; }
+      }
+      function writeText(key, value) {
+        try {
+          if (value) localStorage.setItem(key, value);
+          else localStorage.removeItem(key);
+        } catch (e) {}
+      }
+      function readPrayerList() {
+        try {
+          var parsed = JSON.parse(localStorage.getItem(PRAYER_KEY) || '[]');
+          if (!Array.isArray(parsed)) return [];
+          return parsed
+            .filter(function (item) { return typeof item === 'string' && item.trim(); })
+            .map(function (item) { return item.trim().replace(/\s+/g, ' '); })
+            .slice(0, MAX_PRAYER_ITEMS);
+        } catch (e) {
+          return [];
+        }
+      }
+      function writePrayerList(items) {
+        try { localStorage.setItem(PRAYER_KEY, JSON.stringify((items || []).slice(0, MAX_PRAYER_ITEMS))); } catch (e) {}
+      }
+      function readPlanProgress() {
+        var out = {};
+        PLAN_KEYS.forEach(function (plan) {
+          var raw = 0;
+          try { raw = parseInt(localStorage.getItem(plan.key) || '0', 10) || 0; } catch (e) {}
+          var safe = Math.max(0, Math.min(plan.max, raw));
+          if (safe > 0) out[plan.key] = safe;
+        });
+        return out;
+      }
+      function mergePlanProgress(progress) {
+        if (!progress || typeof progress !== 'object') return;
+        PLAN_KEYS.forEach(function (plan) {
+          var incoming = Math.max(0, Math.min(plan.max, Number(progress[plan.key] || 0)));
+          if (!incoming) return;
+          var current = 0;
+          try { current = parseInt(localStorage.getItem(plan.key) || '0', 10) || 0; } catch (e) {}
+          if (incoming > current) {
+            try { localStorage.setItem(plan.key, String(incoming)); } catch (e2) {}
+          }
+        });
+      }
+      function getHouseholdCode() {
+        if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getFamilyCode === 'function') {
+          return window.TDBFamilyHierarchy.getFamilyCode();
+        }
+        return readText('tdb_family_link_code') || 'household-local';
+      }
+      function setHouseholdCode(code) {
+        var clean = String(code || '').trim();
+        if (!clean) return;
+        if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.setFamilyCode === 'function') {
+          window.TDBFamilyHierarchy.setFamilyCode(clean);
+          if (typeof window.TDBFamilyHierarchy.ensureMember === 'function') {
+            window.TDBFamilyHierarchy.ensureMember(clean, 0, 0, { name: nameInput.value || readText(FAMILY_NAME_KEY) || '' });
+          }
+          return;
+        }
+        writeText('tdb_family_link_code', clean);
+      }
+      function encodePayload(payload) {
+        var json = JSON.stringify(payload || {});
+        if (typeof TextEncoder !== 'undefined') {
+          var bytes = new TextEncoder().encode(json);
+          var binary = '';
+          bytes.forEach(function (b) { binary += String.fromCharCode(b); });
+          return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+        }
+        return btoa(unescape(encodeURIComponent(json))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+      }
+      function decodePayload(raw) {
+        var value = String(raw || '').trim();
+        if (!value) throw new Error('Paste an invite link or code first.');
+        if (/^https?:\/\//i.test(value)) {
+          try {
+            var url = new URL(value);
+            value = url.searchParams.get('invite') || '';
+          } catch (e) {
+            throw new Error('That link could not be read.');
+          }
+        }
+        value = value.replace(/-/g, '+').replace(/_/g, '/');
+        while (value.length % 4) value += '=';
+        var binary = atob(value);
+        var json = '';
+        if (typeof TextDecoder !== 'undefined') {
+          var bytes = new Uint8Array(binary.length);
+          for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+          json = new TextDecoder().decode(bytes);
+        } else {
+          json = decodeURIComponent(escape(binary));
+        }
+        var parsed = JSON.parse(json);
+        if (!parsed || parsed.type !== 'family-invite' || parsed.v !== 1) {
+          throw new Error('That invite code is not valid for this family page.');
+        }
+        return parsed;
+      }
+      function copyText(value, successMessage) {
+        var text = String(value || '');
+        if (!text) {
+          setStatus('Nothing was ready to copy yet.');
+          return;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            setStatus(successMessage);
+          }).catch(function () {
+            setStatus('Copy failed here. Press and hold to copy manually.');
+          });
+          return;
+        }
+        setStatus('Copy is not available here. Press and hold to copy manually.');
+      }
+      function buildInvitePayload() {
+        var name = (nameInput.value || '').trim().slice(0, 48);
+        if (name) writeText(FAMILY_NAME_KEY, name);
+        return {
+          v: 1,
+          type: 'family-invite',
+          familyName: name || readText(FAMILY_NAME_KEY) || '',
+          code: getHouseholdCode(),
+          prayerList: readPrayerList(),
+          planProgress: readPlanProgress(),
+          createdAt: Date.now()
+        };
+      }
+      function refreshCode() {
+        codeEl.textContent = getHouseholdCode();
+        if (!nameInput.value) nameInput.value = readText(FAMILY_NAME_KEY);
+      }
+      function mergeUniquePrayerLines(incoming) {
+        var current = readPrayerList();
+        var seen = {};
+        current.forEach(function (item) { seen[item] = true; });
+        (incoming || []).forEach(function (item) {
+          var clean = String(item || '').trim().replace(/\s+/g, ' ');
+          if (!clean || seen[clean]) return;
+          seen[clean] = true;
+          current.push(clean);
+        });
+        writePrayerList(current.slice(0, MAX_PRAYER_ITEMS));
+      }
+
+      nameInput.value = readText(FAMILY_NAME_KEY);
+      refreshCode();
+      nameInput.addEventListener('change', function () {
+        var clean = (nameInput.value || '').trim().slice(0, 48);
+        nameInput.value = clean;
+        writeText(FAMILY_NAME_KEY, clean);
+        setStatus(clean ? 'Household name saved on this device.' : 'Household name cleared on this device.');
+      });
+      copyLinkBtn.addEventListener('click', function () {
+        var payload = buildInvitePayload();
+        var code = encodePayload(payload);
+        var link = window.location.origin.replace(/\/$/, '') + '/family.html?invite=' + encodeURIComponent(code);
+        copyText(link, 'Invite link copied. Send it only to someone you trust.');
+      });
+      copyCodeBtn.addEventListener('click', function () {
+        var code = encodePayload(buildInvitePayload());
+        copyText(code, 'Invite code copied. It carries the shared family bundle.');
+      });
+      joinBtn.addEventListener('click', function () {
+        try {
+          var payload = decodePayload(joinInput.value);
+          if (payload.familyName) {
+            writeText(FAMILY_NAME_KEY, String(payload.familyName).trim().slice(0, 48));
+          }
+          if (payload.code) setHouseholdCode(payload.code);
+          mergeUniquePrayerLines(Array.isArray(payload.prayerList) ? payload.prayerList : []);
+          mergePlanProgress(payload.planProgress);
+          setStatus('Invite joined. Reloading this family page with the shared household data.');
+          setTimeout(function () { window.location.href = '/family.html'; }, 450);
+        } catch (err) {
+          setStatus(err && err.message ? err.message : 'That invite could not be joined.');
+        }
+      });
+
+      try {
+        var inviteFromUrl = new URL(window.location.href).searchParams.get('invite');
+        if (inviteFromUrl) {
+          joinInput.value = inviteFromUrl;
+          setStatus('Invite loaded from the link. Press “Join this household” when you are ready.');
+          var box = document.getElementById('family-invite-share');
+          if (box && typeof box.scrollIntoView === 'function') {
+            box.scrollIntoView({ block: 'start', behavior: 'smooth' });
+          }
+        }
+      } catch (e) {}
     })();
   </script>
   <script nonce="tdb2025s">

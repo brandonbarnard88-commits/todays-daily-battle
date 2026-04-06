@@ -3511,6 +3511,9 @@ const PHRASE_TO_TOKENS = {
   'marriage problems': ['marriage', 'love', 'patience'],
   'relationship problems': ['relationships', 'love', 'forgiveness'],
   'struggling in marriage': ['marriage', 'love', 'patience'],
+  'marriage feels cold': ['marriage', 'love', 'hope', 'patience'],
+  'my marriage feels cold': ['marriage', 'love', 'hope', 'patience'],
+  'i feel distant from my spouse': ['marriage', 'love', 'hope', 'patience'],
   // difficult people / workplace / coworkers
   'work with a piece of shit': ['forgiveness', 'patience', 'love', 'enemy', 'bless', 'pray'],
   'piece of shit': ['forgiveness', 'patience', 'love', 'enemy', 'bless'],
@@ -3527,6 +3530,10 @@ const PHRASE_TO_TOKENS = {
   'difficult boss': ['patience', 'forgiveness', 'love'],
   'love your enemies': ['forgiveness', 'love', 'enemy', 'bless', 'pray'],
   'dealing with difficult people': ['patience', 'forgiveness', 'love', 'bless'],
+  'burned out at work': ['strength', 'peace', 'forgiveness', 'rest'],
+  'burnt out at work': ['strength', 'peace', 'forgiveness', 'rest'],
+  'overwhelmed at work': ['peace', 'strength', 'forgiveness', 'rest'],
+  'my job is crushing me': ['strength', 'peace', 'forgiveness', 'rest'],
   // crisis / suicidal — surface hope, life, comfort verses immediately
   'gonna kms': ['hope', 'life', 'comfort', 'despair'],
   'im gonna kms': ['hope', 'life', 'comfort', 'despair'],
@@ -3627,6 +3634,17 @@ const PHRASE_TO_TOKENS = {
   'bad habit': ['addiction', 'strength', 'faith'],
   'bad habits': ['addiction', 'strength', 'freedom'],
   'tired all the time': ['strength', 'rest', 'peace'],
+  'overwhelmed as a parent': ['parenting', 'family', 'caregiver', 'peace', 'strength'],
+  'i feel overwhelmed as a parent': ['parenting', 'family', 'caregiver', 'peace', 'strength'],
+  'parenting feels heavy': ['parenting', 'family', 'grace', 'peace'],
+  'burned out parent': ['parenting', 'caregiver', 'strength', 'rest'],
+  'single mom overwhelmed': ['caregiver', 'parenting', 'strength', 'hope'],
+  'single dad overwhelmed': ['caregiver', 'parenting', 'strength', 'hope'],
+  'caring for aging parents': ['caregiver', 'family', 'strength', 'peace', 'grief'],
+  'taking care of aging parents': ['caregiver', 'family', 'strength', 'peace', 'grief'],
+  'caregiver and grief': ['caregiver', 'grief', 'strength', 'hope'],
+  'caregiving for my mom': ['caregiver', 'family', 'strength', 'peace'],
+  'caregiving for my dad': ['caregiver', 'family', 'strength', 'peace'],
   'always tired': ['strength', 'rest', 'anxiety'],
   'crying all day': ['grief', 'comfort', 'hope'],
   'cant stop crying': ['grief', 'comfort', 'hope'],
@@ -10889,6 +10907,56 @@ function wireVersePageListen() {
   });
 }
 
+function wireVersePageNarrationPrefs() {
+  var block = document.getElementById('verse-listen-options');
+  if (!block) return;
+  var N = window.TDBVerseNarration;
+  if (!N) {
+    block.hidden = true;
+    return;
+  }
+  var rate = document.getElementById('verse-listen-rate');
+  var phrasePause = document.getElementById('verse-listen-phrase-pause');
+  var repeat = document.getElementById('verse-listen-repeat');
+  var ambient = document.getElementById('verse-listen-ambient');
+  var ambientGain = document.getElementById('verse-listen-ambient-gain');
+  if (!rate || !phrasePause || !repeat || !ambient || !ambientGain) return;
+
+  function syncUi() {
+    var preset = typeof N.getRatePreset === 'function' ? N.getRatePreset() : 'slow';
+    rate.value = N.RATE_PRESETS && N.RATE_PRESETS[preset] != null ? preset : 'slow';
+    phrasePause.checked = typeof N.getPhrasePause === 'function' ? N.getPhrasePause() : true;
+    repeat.checked = typeof N.getRepeat === 'function' ? N.getRepeat() : false;
+    ambient.checked = typeof N.getAmbient === 'function' ? N.getAmbient() === 'soft' : false;
+    if (typeof N.getAmbientLevel === 'function') ambientGain.value = String(N.getAmbientLevel());
+    ambientGain.disabled = !ambient.checked;
+    ambientGain.setAttribute('aria-disabled', ambient.checked ? 'false' : 'true');
+  }
+
+  rate.addEventListener('change', function () {
+    if (typeof N.setRatePreset === 'function') N.setRatePreset(rate.value);
+  });
+  phrasePause.addEventListener('change', function () {
+    if (typeof N.setPhrasePause === 'function') N.setPhrasePause(!!phrasePause.checked);
+  });
+  repeat.addEventListener('change', function () {
+    if (typeof N.setRepeat === 'function') N.setRepeat(!!repeat.checked);
+  });
+  ambient.addEventListener('change', function () {
+    if (typeof N.setAmbient === 'function') N.setAmbient(ambient.checked ? 'soft' : 'off');
+    ambientGain.disabled = !ambient.checked;
+    ambientGain.setAttribute('aria-disabled', ambient.checked ? 'false' : 'true');
+  });
+  ambientGain.addEventListener('input', function () {
+    if (typeof N.setAmbientLevel === 'function') N.setAmbientLevel(ambientGain.value);
+  });
+  ambientGain.addEventListener('change', function () {
+    if (typeof N.setAmbientLevel === 'function') N.setAmbientLevel(ambientGain.value);
+  });
+
+  syncUi();
+}
+
 /** Homepage hero: save today’s verse to My Verses (same storage path as verse.html / Bible tool). */
 function wireHeroSaveToMyVerses() {
   var heroBtn = document.getElementById('hero-save-my-verses');
@@ -16149,6 +16217,14 @@ var PHRASE_SEMANTIC_MAP = {
   // Divorce / marriage ending pain
   'divorce pain': 'grief', 'divorce hurts bible': 'grief', 'going through divorce': 'grief',
   'divorced and alone': 'loneliness', 'marriage ended god why': 'grief',
+  'overwhelmed as a parent': 'parenting', 'i feel overwhelmed as a parent': 'parenting',
+  'parenting feels heavy': 'parenting', 'burned out parent': 'parenting',
+  'single mom overwhelmed': 'caregiver', 'single dad overwhelmed': 'caregiver',
+  'caring for aging parents': 'caregiver', 'taking care of aging parents': 'caregiver',
+  'caregiver and grief': 'caregiver', 'caregiving for my mom': 'caregiver', 'caregiving for my dad': 'caregiver',
+  'burned out at work': 'forgiveness', 'burnt out at work': 'forgiveness', 'overwhelmed at work': 'forgiveness',
+  'my job is crushing me': 'forgiveness', 'marriage feels cold': 'marriage',
+  'my marriage feels cold': 'marriage', 'i feel distant from my spouse': 'marriage',
   // Pet loss / animal grief
   'pet died': 'grief', 'pet died sad': 'grief', 'dog died bible': 'grief',
   'cat died heartbroken': 'grief', 'lost my pet': 'grief', 'pet loss bible verse': 'grief'
@@ -16327,6 +16403,58 @@ function getSemanticMatchesAboveThreshold(input) {
   return collected
     .sort(function (a, b) { return b.score - a.score; })
     .slice(0, SEMANTIC_BLEND_CAP);
+}
+
+function extractIntentDetailsFromLongQuery(input) {
+  var q = normalizeInput(String(input || ''));
+  var detail = { tokens: [], topic: null, score: 0 };
+  if (!q || q.length < 3) return detail;
+  var seenTokens = {};
+  function addToken(token) {
+    var clean = normalizeInput(String(token || ''));
+    if (!clean || seenTokens[clean]) return;
+    seenTokens[clean] = true;
+    detail.tokens.push(clean);
+  }
+  if (typeof PHRASE_TO_TOKENS !== 'undefined') {
+    var phraseKeys = Object.keys(PHRASE_TO_TOKENS).sort(function (a, b) { return b.length - a.length; });
+    for (var i = 0; i < phraseKeys.length; i++) {
+      var phrase = phraseKeys[i];
+      var pnorm = normalizeInput(phrase);
+      if (pnorm.length < 4 || q.indexOf(pnorm) === -1) continue;
+      (PHRASE_TO_TOKENS[phrase] || []).forEach(addToken);
+      if (!detail.topic && PHRASE_TO_TOKENS[phrase] && topics && topics[PHRASE_TO_TOKENS[phrase][0]]) {
+        detail.topic = PHRASE_TO_TOKENS[phrase][0];
+        detail.score = Math.max(detail.score, 0.85);
+      }
+      if (detail.tokens.length >= 8) break;
+    }
+  }
+  if (!detail.topic && typeof resolveSemanticWithScore === 'function') {
+    var semantic = resolveSemanticWithScore(q);
+    if (semantic && semantic.topic && semantic.score >= 0.6) {
+      detail.topic = semantic.topic;
+      detail.score = semantic.score;
+      addToken(semantic.topic);
+      if (topics[semantic.topic] && Array.isArray(topics[semantic.topic].synonyms)) {
+        topics[semantic.topic].synonyms.slice(0, 3).forEach(addToken);
+      }
+    }
+  }
+  if (typeof getSemanticMatchesAboveThreshold === 'function') {
+    var matches = getSemanticMatchesAboveThreshold(q);
+    matches.slice(0, 2).forEach(function (match, idx) {
+      addToken(match.topic);
+      if (topics[match.topic] && Array.isArray(topics[match.topic].synonyms)) {
+        topics[match.topic].synonyms.slice(0, idx === 0 ? 3 : 2).forEach(addToken);
+      }
+      if (!detail.topic) {
+        detail.topic = match.topic;
+        detail.score = match.score;
+      }
+    });
+  }
+  return detail;
 }
 
 function expandKeywords(keywords) {
@@ -21038,6 +21166,10 @@ function parseQuery(input) {
   // Always do full-text search: understand the phrase, word, or question and find matching verses.
   var keywords = tokens.length > 0 ? tokens : rawTokens;
   var phraseTokens = [];
+  var semanticTopic = null;
+  var semanticScore = 0;
+  var semanticBlendedTopics = [];
+  var semanticBlendedMatches = null;
   // Question-style queries: "What does God say about anxiety?" → extract topic and search
   var questionPrefixes = [
     'what does god say about ', 'what does the bible say about ', 'what does scripture say about ',
@@ -21050,6 +21182,7 @@ function parseQuery(input) {
     'god help me with ', 'prayer for ', 'prayers for ', 'comfort for ', 'hope for ',
     'encouraging verses for ', 'scripture on ', 'what the bible says about ',
     'help me pray for ', 'lord give me ', 'god i need ', 'jesus help me with ',
+    'i feel like ', 'i feel ', 'im feeling ', 'i am feeling ',
     'find peace in ', 'find hope when ', 'verses when i feel ', 'verses for when '
   ];
   for (var qi = 0; qi < questionPrefixes.length && phraseTokens.length === 0; qi++) {
@@ -21062,9 +21195,28 @@ function parseQuery(input) {
         if (topic && topics[topic]) {
           phraseTokens = [topic].concat((topics[topic].synonyms || []).slice(0, 3));
         } else {
-          phraseTokens = rest.split(/\s+/).filter(function (t) { return t.length > 2 && !STOP_WORDS.has(t); });
+          var restIntent = extractIntentDetailsFromLongQuery(rest);
+          if (restIntent.tokens.length) {
+            phraseTokens = restIntent.tokens.slice();
+            if (restIntent.topic && topics[restIntent.topic]) {
+              semanticTopic = restIntent.topic;
+              semanticScore = restIntent.score || 0.75;
+            }
+          } else {
+            phraseTokens = rest.split(/\s+/).filter(function (t) { return t.length > 2 && !STOP_WORDS.has(t); });
+          }
         }
         break;
+      }
+    }
+  }
+  if (phraseTokens.length === 0) {
+    var longIntent = extractIntentDetailsFromLongQuery(normalized);
+    if (longIntent.tokens.length) {
+      phraseTokens = longIntent.tokens.slice();
+      if (longIntent.topic && topics[longIntent.topic]) {
+        semanticTopic = longIntent.topic;
+        semanticScore = longIntent.score || 0.75;
       }
     }
   }
@@ -21079,10 +21231,6 @@ function parseQuery(input) {
       }
     }
   }
-  var semanticTopic = null;
-  var semanticScore = 0;
-  var semanticBlendedTopics = [];
-  var semanticBlendedMatches = null;
   // When PHRASE_TO_TOKENS matches, first token is often the primary topic—set semanticTopic so executeQuery can use topic.verses
   if (phraseTokens.length > 0 && !semanticTopic && phraseTokens[0] && topics && topics[phraseTokens[0]]) {
     semanticTopic = phraseTokens[0];
@@ -24922,6 +25070,7 @@ async function tdbInitImpl() {
   wireQuickPrayAutocomplete();
   wirePrayThisWithMe();
   wireVersePageListen();
+  wireVersePageNarrationPrefs();
   wireHeroSaveToMyVerses();
   if (isHome) wireHomeContinueLoopCard();
   wireDawnDuskQuickPrayLabel();

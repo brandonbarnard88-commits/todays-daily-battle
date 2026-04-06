@@ -97,6 +97,51 @@
       line-height: 1.5;
       color: var(--muted, #8b949e);
     }
+    .verse-listen-options {
+      margin: 0;
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.18);
+      padding: 0.1rem 0.8rem 0.8rem;
+    }
+    .verse-listen-options summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text);
+      padding: 0.65rem 0;
+    }
+    .verse-listen-options-grid {
+      display: grid;
+      gap: 0.65rem;
+    }
+    .verse-listen-options-grid label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.88rem;
+      color: var(--muted, #8b949e);
+    }
+    .verse-listen-options-grid select,
+    .verse-listen-options-grid input[type="range"] {
+      width: 100%;
+    }
+    .verse-listen-toggle-row {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .verse-listen-toggle-row label {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text);
+    }
+    .verse-listen-note {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--muted, #8b949e);
+    }
     .tdb-verse-page #daily-verse-card #daily-verse-text.tdb-tts-highlight-active,
     .tdb-verse-page #daily-verse-card p.tdb-tts-highlight-active,
     .tdb-verse-page #daily-verse-card.tdb-tts-highlight-active {
@@ -318,6 +363,27 @@
             <div class="verse-listen-wrap tdb-verse-listen-porch" id="verse-listen-porch">
               <p id="verse-listen-hint" class="hint">KJV loads on this device—tap Listen slow for a calm read-through. When cloud audio is enabled on the site, that plays first; offline, your device reads aloud.</p>
               <button type="button" id="verse-listen-btn" class="btn btn-secondary tdb-verse-listen-btn" aria-describedby="verse-listen-hint" aria-label="Listen slow to this verse on your device" aria-pressed="false">Listen slow</button>
+              <details class="verse-listen-options" id="verse-listen-options">
+                <summary>Natural voice options</summary>
+                <div class="verse-listen-options-grid">
+                  <label for="verse-listen-rate">Pace
+                    <select id="verse-listen-rate" aria-label="Verse narration pace">
+                      <option value="slower">Slower</option>
+                      <option value="slow">Slow</option>
+                      <option value="steady">Steady</option>
+                    </select>
+                  </label>
+                  <div class="verse-listen-toggle-row">
+                    <label><input type="checkbox" id="verse-listen-phrase-pause"> Pause gently between phrases</label>
+                    <label><input type="checkbox" id="verse-listen-repeat"> Repeat until stopped</label>
+                    <label><input type="checkbox" id="verse-listen-ambient"> Soft undertone behind device audio</label>
+                  </div>
+                  <label for="verse-listen-ambient-gain">Undertone strength
+                    <input type="range" id="verse-listen-ambient-gain" min="1" max="10" value="5" step="1" aria-label="Undertone strength from 1 quietest to 10 stronger">
+                  </label>
+                  <p class="verse-listen-note">These settings shape on-device narration and the offline fallback. If cloud audio is available first, the same button still uses that before falling back to your device.</p>
+                </div>
+              </details>
             </div>
             <button type="button" id="verse-page-share" class="btn btn-primary">Share this verse</button>
             <button type="button" id="verse-page-share-encourage" class="btn btn-secondary">Share with someone who needs it</button>

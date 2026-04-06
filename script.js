@@ -436,17 +436,42 @@ function wireEarlySearchFallbacks() {
     return false;
   }, true);
 }
+function setTdbNavFlyoutTop(navEl) {
+  if (!navEl || typeof document === 'undefined') return;
+  try {
+    var r = navEl.getBoundingClientRect();
+    document.documentElement.style.setProperty('--tdb-flyout-top', Math.round(r.bottom) + 'px');
+  } catch (_) {}
+}
+
+function syncTdbStickyHeaderOffset() {
+  if (typeof document === 'undefined') return;
+  var root = document.documentElement;
+  if (!root) return;
+  var topBar = document.querySelector('.top-bar');
+  var nextOffset = 80;
+  if (topBar) {
+    var measured = 0;
+    try {
+      var rect = topBar.getBoundingClientRect();
+      measured = Math.max(topBar.offsetHeight || 0, Math.round(rect.height || 0));
+    } catch (_) {}
+    if (measured > 0) nextOffset = measured;
+  }
+  try {
+    root.style.setProperty('--tdb-header-offset', nextOffset + 'px');
+  } catch (_) {}
+  try {
+    document.querySelectorAll('.tdb-primary-site-nav.is-open').forEach(function (nav) {
+      setTdbNavFlyoutTop(nav);
+    });
+  } catch (_) {}
+}
+
 /** Mobile “Site” menu + dim backdrop; desktop unchanged. Sidebar ☰ relabeled “Tools” where present. */
 function wireTdbPrimarySiteNav() {
   if (typeof window === 'undefined' || window.__tdbPrimarySiteNavWired) return;
   window.__tdbPrimarySiteNavWired = true;
-
-  function setFlyoutTop(navEl) {
-    try {
-      var r = navEl.getBoundingClientRect();
-      document.documentElement.style.setProperty('--tdb-flyout-top', Math.round(r.bottom) + 'px');
-    } catch (_) {}
-  }
 
   function closeAllOpen() {
     document.querySelectorAll('.tdb-primary-site-nav.is-open').forEach(function (nav) {
@@ -462,7 +487,7 @@ function wireTdbPrimarySiteNav() {
     closeAllOpen();
     navEl.classList.add('is-open');
     toggleBtn.setAttribute('aria-expanded', 'true');
-    setFlyoutTop(navEl);
+    setTdbNavFlyoutTop(navEl);
     var bd = document.createElement('div');
     bd.id = 'tdb-nav-flyout-backdrop';
     bd.className = 'tdb-nav-flyout-backdrop';
@@ -498,9 +523,7 @@ function wireTdbPrimarySiteNav() {
 
   window.addEventListener('resize', function () {
     if (window.matchMedia && window.matchMedia('(min-width: 769px)').matches) closeAllOpen();
-    try {
-      document.documentElement.style.removeProperty('--tdb-flyout-top');
-    } catch (_) {}
+    syncTdbStickyHeaderOffset();
   });
 
   try {
@@ -511,6 +534,7 @@ function wireTdbPrimarySiteNav() {
       el.setAttribute('aria-label', 'Open full tools menu');
     });
   } catch (_) {}
+  syncTdbStickyHeaderOffset();
 }
 
 /** Set aria-current="page" on primary nav links from location (all hubs using .tdb-primary-site-nav). */
@@ -973,21 +997,29 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', normalizeHomeMainOrder);
   document.addEventListener('DOMContentLoaded', wireTdbSoftRetry);
   document.addEventListener('DOMContentLoaded', wireTdbPrimarySiteNav);
+  document.addEventListener('DOMContentLoaded', wireCollapsedTopBar);
+  document.addEventListener('DOMContentLoaded', syncTdbStickyHeaderOffset);
   document.addEventListener('DOMContentLoaded', highlightCurrentNav);
+  document.addEventListener('DOMContentLoaded', ensureTdbCookieNotice);
   document.addEventListener('DOMContentLoaded', normalizeLegacyShellLinks);
 } else {
   wireEarlySearchFallbacks();
   normalizeHomeMainOrder();
   wireTdbSoftRetry();
   wireTdbPrimarySiteNav();
+  wireCollapsedTopBar();
+  syncTdbStickyHeaderOffset();
   highlightCurrentNav();
+  ensureTdbCookieNotice();
   normalizeLegacyShellLinks();
 }
 
 try {
   window.addEventListener('pageshow', function (ev) {
     if (ev.persisted) {
+      syncTdbStickyHeaderOffset();
       highlightCurrentNav();
+      ensureTdbCookieNotice();
       normalizeLegacyShellLinks();
     }
   });
@@ -2003,6 +2035,196 @@ function safeSessionGet(key) {
   }
 }
 
+var TDB_COOKIE_CONSENT_KEY = 'tdb_cookie_consent_v1';
+var TDB_COOKIE_CONSENT_SNOOZE_MS = 24 * 60 * 60 * 1000;
+
+function readTdbCookieConsentState() {
+  var raw = safeGetItem(TDB_COOKIE_CONSENT_KEY);
+  if (!raw) return null;
+  try {
+    var parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return null;
+    var status = parsed.status === 'accepted' ? 'accepted' : (parsed.status === 'later' ? 'later' : '');
+    return {
+      status: status,
+      updatedAt: Number(parsed.updatedAt) > 0 ? Number(parsed.updatedAt) : 0
+    };
+  } catch (_) {
+    return null;
+  }
+}
+
+function getTdbCookieConsentStatus() {
+  var state = readTdbCookieConsentState();
+  return state && state.status ? state.status : '';
+}
+
+function hasTdbAnalyticsConsent() {
+  return getTdbCookieConsentStatus() === 'accepted';
+}
+
+function dispatchTdbAnalyticsConsentChange(status) {
+  if (typeof window === 'undefined' || typeof window.dispatchEvent !== 'function') return;
+  try {
+    window.dispatchEvent(new CustomEvent('tdb-analytics-consent-change', {
+      detail: { status: status || '' }
+    }));
+  } catch (_) {}
+}
+
+function writeTdbCookieConsentState(status) {
+  var normalized = status === 'accepted' ? 'accepted' : 'later';
+  safeSetItem(TDB_COOKIE_CONSENT_KEY, JSON.stringify({
+    status: normalized,
+    updatedAt: Date.now()
+  }));
+  dispatchTdbAnalyticsConsentChange(normalized);
+}
+
+function shouldShowTdbCookieNotice() {
+  var state = readTdbCookieConsentState();
+  if (!state || !state.status) return true;
+  if (state.status === 'accepted') return false;
+  if (!state.updatedAt) return true;
+  return (Date.now() - state.updatedAt) >= TDB_COOKIE_CONSENT_SNOOZE_MS;
+}
+
+function ensureTdbCookieNoticeStyles() {
+  if (typeof document === 'undefined' || !document.head || document.getElementById('tdb-cookie-notice-style')) return;
+  var style = document.createElement('style');
+  style.id = 'tdb-cookie-notice-style';
+  style.textContent =
+    'body.tdb-cookie-notice-visible{padding-bottom:clamp(7rem,22vw,10rem);}' +
+    '#tdb-cookie-notice{position:fixed;left:50%;bottom:max(0.75rem,env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(calc(100% - 1rem),40rem);max-height:calc(100vh - 1.5rem);overflow-y:auto;padding:0.95rem 1rem;background:rgba(8,12,22,0.97);color:#f5f7fb;border:1px solid rgba(227,188,103,0.28);border-radius:18px;box-shadow:0 18px 42px rgba(0,0,0,0.42);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);z-index:450;}' +
+    '#tdb-cookie-notice[hidden]{display:none!important;}' +
+    '#tdb-cookie-notice .tdb-cookie-notice__title{margin:0 0 0.3rem;font:600 1rem/1.3 var(--font-ui,Inter,sans-serif);color:#fcfcfd;}' +
+    '#tdb-cookie-notice .tdb-cookie-notice__copy{margin:0;font:500 0.96rem/1.55 var(--font-ui,Inter,sans-serif);color:rgba(245,247,251,0.88);}' +
+    '#tdb-cookie-notice .tdb-cookie-notice__actions{display:flex;flex-wrap:wrap;gap:0.65rem;margin-top:0.85rem;align-items:center;}' +
+    '#tdb-cookie-notice .tdb-cookie-notice__btn,#tdb-cookie-notice .tdb-cookie-notice__link{min-height:44px;border-radius:999px;padding:0.72rem 1rem;font:600 0.95rem/1 var(--font-ui,Inter,sans-serif);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;}' +
+    '#tdb-cookie-notice .tdb-cookie-notice__btn{border:1px solid rgba(227,188,103,0.3);cursor:pointer;}' +
+    '#tdb-cookie-notice .tdb-cookie-notice__btn{flex:1 1 0;}' +
+    '#tdb-cookie-notice .tdb-cookie-notice__btn--primary{background:linear-gradient(180deg,rgba(227,188,103,0.98) 0%,rgba(212,166,58,0.94) 100%);color:#120e18;}' +
+    '#tdb-cookie-notice .tdb-cookie-notice__btn--secondary{background:rgba(255,255,255,0.04);color:#f5f7fb;}' +
+    '#tdb-cookie-notice .tdb-cookie-notice__link{flex:1 1 100%;color:#f5f7fb;border:1px solid rgba(148,163,184,0.2);background:rgba(148,163,184,0.08);}' +
+    '#tdb-cookie-notice .tdb-cookie-notice__status{margin:0.55rem 0 0;font:500 0.88rem/1.4 var(--font-ui,Inter,sans-serif);color:rgba(227,188,103,0.92);}' +
+    'html[data-theme="light"] #tdb-cookie-notice{background:rgba(255,250,242,0.98);color:#2f2f2f;border-color:rgba(158,118,37,0.24);box-shadow:0 18px 42px rgba(64,41,8,0.18);}' +
+    'html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__title{color:#2f2f2f;}' +
+    'html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__copy{color:#4d525c;}' +
+    'html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__btn--secondary,html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__link{color:#2f2f2f;background:rgba(64,41,8,0.04);border-color:rgba(64,41,8,0.12);}' +
+    '@media (max-width:640px){#tdb-cookie-notice{width:calc(100% - 0.8rem);padding:0.9rem 0.85rem;}#tdb-cookie-notice .tdb-cookie-notice__actions{gap:0.55rem;}#tdb-cookie-notice .tdb-cookie-notice__btn{flex:1 1 calc(50% - 0.3rem);}#tdb-cookie-notice .tdb-cookie-notice__link{flex:1 1 100%;}}';
+  document.head.appendChild(style);
+}
+
+function setTdbCookieNoticeVisibility(banner, visible) {
+  if (!banner || typeof document === 'undefined' || !document.body) return;
+  banner.hidden = !visible;
+  banner.setAttribute('aria-hidden', visible ? 'false' : 'true');
+  document.body.classList.toggle('tdb-cookie-notice-visible', !!visible);
+}
+
+function ensureTdbCookieNotice() {
+  if (typeof document === 'undefined' || !document.body) return;
+  ensureTdbCookieNoticeStyles();
+  var banner = document.getElementById('tdb-cookie-notice');
+  if (!banner) {
+    banner = document.createElement('aside');
+    banner.id = 'tdb-cookie-notice';
+    banner.className = 'tdb-cookie-notice';
+    banner.setAttribute('role', 'region');
+    banner.setAttribute('aria-label', 'Privacy and cookies notice');
+    banner.setAttribute('aria-live', 'polite');
+
+    var title = document.createElement('p');
+    title.className = 'tdb-cookie-notice__title';
+    title.textContent = 'Privacy first, even here.';
+
+    var copy = document.createElement('p');
+    copy.className = 'tdb-cookie-notice__copy';
+    copy.textContent = 'We use a small amount of cookie and on-device storage to keep this quiet place working well and to understand anonymous usage. No targeted ads. No selling your data.';
+
+    var actions = document.createElement('div');
+    actions.className = 'tdb-cookie-notice__actions';
+
+    var acceptBtn = document.createElement('button');
+    acceptBtn.type = 'button';
+    acceptBtn.className = 'tdb-cookie-notice__btn tdb-cookie-notice__btn--primary';
+    acceptBtn.textContent = 'Accept';
+
+    var laterBtn = document.createElement('button');
+    laterBtn.type = 'button';
+    laterBtn.className = 'tdb-cookie-notice__btn tdb-cookie-notice__btn--secondary';
+    laterBtn.textContent = 'Not now';
+
+    var link = document.createElement('a');
+    link.className = 'tdb-cookie-notice__link';
+    link.href = '/privacy.html';
+    link.textContent = 'Privacy';
+
+    var status = document.createElement('p');
+    status.className = 'tdb-cookie-notice__status';
+    status.hidden = true;
+
+    acceptBtn.addEventListener('click', function () {
+      writeTdbCookieConsentState('accepted');
+      status.hidden = false;
+      status.textContent = 'Anonymous analytics are now allowed on this device.';
+      if (typeof window !== 'undefined' && typeof window.__tdbLoadAnalyticsNow === 'function') {
+        window.__tdbLoadAnalyticsNow();
+      }
+      setTdbCookieNoticeVisibility(banner, false);
+    });
+    laterBtn.addEventListener('click', function () {
+      writeTdbCookieConsentState('later');
+      setTdbCookieNoticeVisibility(banner, false);
+    });
+
+    actions.appendChild(acceptBtn);
+    actions.appendChild(laterBtn);
+    actions.appendChild(link);
+    banner.appendChild(title);
+    banner.appendChild(copy);
+    banner.appendChild(actions);
+    banner.appendChild(status);
+    document.body.appendChild(banner);
+  }
+  setTdbCookieNoticeVisibility(banner, shouldShowTdbCookieNotice());
+}
+
+function wireCollapsedTopBar() {
+  if (typeof window === 'undefined' || window.__tdbCollapsedTopBarWired) return;
+  window.__tdbCollapsedTopBarWired = true;
+  var topBar = document.querySelector('.top-bar');
+  if (!topBar) {
+    syncTdbStickyHeaderOffset();
+    return;
+  }
+  var ticking = false;
+  function applyState() {
+    ticking = false;
+    var shouldCollapse = window.scrollY > 36;
+    topBar.classList.toggle('top-bar-minimal', shouldCollapse);
+    document.documentElement.classList.toggle('tdb-header-collapsed', shouldCollapse);
+    syncTdbStickyHeaderOffset();
+  }
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    if (typeof window.requestAnimationFrame === 'function') {
+      window.requestAnimationFrame(applyState);
+    } else {
+      applyState();
+    }
+  }
+  applyState();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', applyState, { once: true });
+}
+
+if (typeof window !== 'undefined') {
+  window.__tdbHasAnalyticsConsent = hasTdbAnalyticsConsent;
+}
+
 var _tdbConfettiLoader = null;
 function ensureConfettiLoaded() {
   if (typeof window === 'undefined' || !document || !document.head) return Promise.resolve(false);
@@ -2610,6 +2832,7 @@ const CF_ANALYTICS_TOKEN = (typeof window !== 'undefined' && window.TDB_CONFIG &
 const GA_MEASUREMENT_ID = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.GA_MEASUREMENT_ID) || '';
 (function () {
   var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
+  var thirdPartyLoaded = false;
   if (cfg && cfg.GOOGLE_SITE_VERIFICATION) {
     var m = document.createElement('meta');
     m.name = 'google-site-verification';
@@ -2618,6 +2841,8 @@ const GA_MEASUREMENT_ID = (typeof window !== 'undefined' && window.TDB_CONFIG &&
   }
   // GA4: analytics-loader.js (lazy after interaction). Plausible + Cloudflare: deferred to window load.
   function loadDeferredThirdParty() {
+    if (thirdPartyLoaded || !hasTdbAnalyticsConsent()) return;
+    thirdPartyLoaded = true;
     var plausibleDomain = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.PLAUSIBLE_DOMAIN) || '';
     if (plausibleDomain) {
       var trusted = trustedScriptURL('https://plausible.io/js/script.js');
@@ -2636,6 +2861,9 @@ const GA_MEASUREMENT_ID = (typeof window !== 'undefined' && window.TDB_CONFIG &&
   } else {
     window.addEventListener('load', loadDeferredThirdParty);
   }
+  window.addEventListener('tdb-analytics-consent-change', function (ev) {
+    if (ev && ev.detail && ev.detail.status === 'accepted') loadDeferredThirdParty();
+  });
 })();
 const OFFLINE_BATTLE_KEY_PREFIX = 'tdb_offline_battle_';
 const OFFLINE_PREFETCH_LAST_KEY = 'tdb_offline_prefetch_last';
@@ -11807,6 +12035,20 @@ function withTimeout(promise, ms) {
   ]);
 }
 
+function isExpectedFetchFailure(err) {
+  if (!err) return false;
+  var message = String((err && err.message) || err || '').toLowerCase();
+  return (
+    message.indexOf('load failed') !== -1 ||
+    message.indexOf('failed to fetch') !== -1 ||
+    message.indexOf('networkerror') !== -1 ||
+    message.indexOf('network error') !== -1 ||
+    message.indexOf('the internet connection appears to be offline') !== -1 ||
+    message.indexOf('the operation was aborted') !== -1 ||
+    message.indexOf('aborterror') !== -1
+  );
+}
+
 function fetchDailyBattleRaw(dateKey) {
   if (!supabaseUrl || !supabaseKey) return Promise.resolve(null);
   var url = supabaseUrl.replace(/\/$/, '') + '/rest/v1/daily_battles?date=eq.' + encodeURIComponent(dateKey) + '&select=date,verse_ref,reflection,prayer&limit=1';
@@ -11824,7 +12066,9 @@ function fetchDailyBattleRaw(dateKey) {
   }).then(function (arr) {
     return Array.isArray(arr) && arr.length ? arr[0] : null;
   }).catch(function (e) {
-    if (typeof window.__tdb_reportError === 'function') window.__tdb_reportError('fetchDailyBattleRaw', e);
+    if (!isExpectedFetchFailure(e) && typeof window.__tdb_reportError === 'function') {
+      window.__tdb_reportError('fetchDailyBattleRaw', e);
+    }
     return null;
   });
 }
@@ -12111,7 +12355,7 @@ function trackSearchAnalytics(eventName, params) {
 
 function trackEvent(eventName, params) {
   bumpStat(eventName);
-  if (typeof window.gtag === 'function' && GA_MEASUREMENT_ID) {
+  if (hasTdbAnalyticsConsent() && typeof window.gtag === 'function' && GA_MEASUREMENT_ID) {
     window.gtag('event', eventName, params || {});
   }
 }

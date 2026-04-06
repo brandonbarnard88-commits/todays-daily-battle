@@ -101,6 +101,17 @@ html {
   --tdb-inner-max: min(46rem, 100%);
   --tdb-inner-gap: clamp(1.35rem, 2.5vw, 2rem);
   --tdb-inner-section-pad: clamp(1.15rem, 2.2vw, 1.65rem);
+  --tdb-header-offset: 5rem;
+  --tdb-fluid-shell-space-x: clamp(1rem, 2.2vw, 1.5rem);
+  --tdb-fluid-topbar-gap-col: clamp(0.55rem, 1vw, 0.9rem);
+  --tdb-fluid-topbar-gap-row: clamp(0.8rem, 1.9vw, 1.25rem);
+  --tdb-fluid-topbar-pad-y: clamp(0.65rem, 1.1vw, 1rem);
+  --tdb-fluid-brand-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  --tdb-fluid-hero-pad-y: clamp(1.35rem, 2.9vw, 2.5rem);
+  --tdb-fluid-hero-pad-x: clamp(1rem, 2.5vw, 3rem);
+  --tdb-fluid-hero-title: clamp(2rem, 5vw, 4.5rem);
+  --tdb-fluid-hero-copy: clamp(1.05rem, 1.55vw, 1.22rem);
+  --tdb-fluid-section-note: clamp(1rem, 1.25vw, 1.08rem);
   /* Whisper grain — same family as tdb-quiet-luxury.css dial; raises baseline on every .tdb-surface-* */
   --tdb-surface-veil-subtle: var(--tdb-lux-guilloche);
 }
@@ -865,7 +876,7 @@ html {
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
   /* Anchor + scrollIntoView: keep targets clear of sticky header / chrome */
-  scroll-padding-top: 5rem;
+  scroll-padding-top: var(--tdb-header-offset, 5rem);
 }
 body {
   max-width: 100%;
@@ -1953,12 +1964,12 @@ body {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.75rem 1.25rem;
-  padding-top: calc(var(--spacing-sm) + env(safe-area-inset-top, 0px));
-  padding-bottom: var(--spacing-sm);
-  padding-left: max(var(--spacing-md), env(safe-area-inset-left, 0px));
-  padding-right: max(var(--spacing-md), env(safe-area-inset-right, 0px));
-  min-height: 56px;
+  gap: var(--tdb-fluid-topbar-gap-col) var(--tdb-fluid-topbar-gap-row);
+  padding-top: calc(var(--tdb-fluid-topbar-pad-y) + env(safe-area-inset-top, 0px));
+  padding-bottom: clamp(0.65rem, 1.1vw, 1rem);
+  padding-left: max(var(--tdb-fluid-shell-space-x), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--tdb-fluid-shell-space-x), env(safe-area-inset-right, 0px));
+  min-height: clamp(56px, 7vw, 76px);
   min-width: 0;
   overflow-x: clip;
   background: linear-gradient(180deg, rgba(8, 12, 22, 0.99) 0%, rgba(10, 14, 26, 0.98) 100%);
@@ -1970,15 +1981,24 @@ body {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   font-family: var(--font-display), Georgia, serif;
+  transition:
+    gap 0.22s ease,
+    padding 0.22s ease,
+    min-height 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
 }
 .top-bar.top-bar-minimal {
-  gap: 0.45rem 0.7rem;
+  gap: clamp(0.35rem, 0.85vw, 0.55rem) clamp(0.5rem, 1.1vw, 0.8rem);
   padding-top: calc(0.45rem + env(safe-area-inset-top, 0px));
   padding-bottom: 0.45rem;
   padding-left: max(0.85rem, env(safe-area-inset-left, 0px));
   padding-right: max(0.85rem, env(safe-area-inset-right, 0px));
-  position: static;
-  top: auto;
+  min-height: 52px;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, rgba(8, 12, 22, 0.995) 0%, rgba(10, 14, 26, 0.985) 100%);
+  box-shadow: 0 1px 0 rgba(227, 188, 103, 0.8), 0 6px 24px rgba(0, 0, 0, 0.28);
 }
 .top-bar.top-bar-minimal .brand {
   gap: 0.12rem;
@@ -4201,7 +4221,7 @@ button.tdb-header-account-nudge__link {
   text-decoration: none;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: var(--tdb-fluid-brand-size);
   letter-spacing: 0.06em;
   transition: color var(--transition-smooth);
   text-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -4390,7 +4410,7 @@ button.tdb-header-account-nudge__link {
 
 .app-content {
   grid-area: content;
-  padding: var(--space-xl) var(--spacing-lg) var(--space-2xl);
+  padding: clamp(1.5rem, 3vw, 3rem) var(--tdb-fluid-shell-space-x) var(--space-2xl);
   min-width: 0;
   overflow-x: hidden;
   max-width: 100%;
@@ -4407,7 +4427,7 @@ button.tdb-header-account-nudge__link {
 }
 
 .hero-banner {
-  padding: var(--space-2xl) var(--space-xl);
+  padding: var(--tdb-fluid-hero-pad-y) var(--tdb-fluid-hero-pad-x);
   border-radius: var(--radius-xl);
   background: linear-gradient(158deg, rgba(12, 18, 32, 0.97) 0%, rgba(22, 18, 48, 0.92) 48%, rgba(12, 18, 34, 0.96) 100%);
   border: 1px solid rgba(148, 163, 184, 0.14);
@@ -4553,7 +4573,7 @@ button.tdb-header-account-nudge__link {
 .hero-banner h1 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 5.5vw, 4.5rem);
+  font-size: var(--tdb-fluid-hero-title);
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 1.1;
@@ -4566,7 +4586,7 @@ button.tdb-header-account-nudge__link {
   margin: 0;
   color: var(--text-muted);
   font-family: var(--font-body);
-  font-size: 1.22rem;
+  font-size: var(--tdb-fluid-hero-copy);
   font-weight: 500;
   line-height: 1.6;
   max-width: 54ch;
@@ -4740,9 +4760,9 @@ body:has(.search-hero-home) #search-hero {
 }
 .search-hero:not(.glass) { background: transparent; }
 .search-hero.glass { padding: var(--space-xl) var(--space-lg); }
-#search-hero, #quick-search-hero { scroll-margin-top: 5rem; }
+#search-hero, #quick-search-hero { scroll-margin-top: calc(var(--tdb-header-offset, 5rem) + 0.25rem); }
 #feel-results { scroll-margin-top: 1rem; scroll-margin-bottom: 2rem; }
-#quick-search-hero { position: sticky; top: 0; z-index: 40; background: linear-gradient(180deg, rgba(10, 12, 20, 0.98) 0%, rgba(10, 12, 20, 0.95) 100%); padding-top: 0.5rem; padding-bottom: 0.75rem; margin-bottom: -0.25rem; }
+#quick-search-hero { position: sticky; top: var(--tdb-header-offset, 0px); z-index: 40; background: linear-gradient(180deg, rgba(10, 12, 20, 0.98) 0%, rgba(10, 12, 20, 0.95) 100%); padding-top: 0.5rem; padding-bottom: 0.75rem; margin-bottom: -0.25rem; }
 .quick-search-hero-wrap { text-align: center; margin: 20px 0; }
 .search-hero-input-inline { width: 80%; max-width: 500px; padding: 12px; border: 2px solid gold; border-radius: 8px; font-size: 16px; box-shadow: 0 0 8px rgba(212, 175, 55, 0.3); background: rgba(15, 20, 32, 0.95); color: #e2e8f0; }
 .search-hero-btn-mt { margin-top: 8px; }
@@ -10852,7 +10872,7 @@ body.red-letter-off .red-letter-card {
   color: #4a5568;
   margin: 0.6rem 0 1.25rem;
   font-family: var(--font-body);
-  font-size: 1.02rem;
+  font-size: var(--tdb-fluid-section-note);
   line-height: 1.55;
   letter-spacing: 0.01em;
 }

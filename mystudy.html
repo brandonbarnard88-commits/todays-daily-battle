@@ -128,7 +128,10 @@
               <button type="button" id="mystudy-print-notes" class="btn btn-secondary mystudy-print-btn">Print notes (PDF via browser)</button>
               <button type="button" id="mystudy-print-bundle" class="btn btn-secondary mystudy-print-btn">Print full bundle (notes + memorize + recent chapters)</button>
               <button type="button" id="mystudy-export-json" class="btn btn-secondary mystudy-print-btn" aria-label="Download My Study backup as JSON file">Download JSON backup</button>
+              <button type="button" id="mystudy-restore-json" class="btn btn-secondary mystudy-print-btn" aria-label="Restore My Study backup from a JSON file">Restore JSON backup</button>
+              <input type="file" id="mystudy-restore-file" accept="application/json,.json" hidden aria-hidden="true">
             </div>
+            <p id="mystudy-backup-status" class="section-note" aria-live="polite">Need to move this device or recover after a reset? Download a backup here, then restore it later from the same section.</p>
           </section>
 
           <section class="mystudy-section-card">

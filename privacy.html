@@ -192,6 +192,20 @@
           </ul>
         </section>
 
+        <section class="glass" aria-labelledby="privacy-dashboard-heading">
+          <h2 class="section-divider" id="privacy-dashboard-heading">My data on this device</h2>
+          <p class="section-note">This panel inspects what this browser is holding right now. Opening it does not upload anything.</p>
+          <ul id="privacy-device-data-list" class="pricing-list" style="margin:0.75rem 0 0 1rem;" aria-live="polite">
+            <li>Checking this browser…</li>
+          </ul>
+          <div class="cta-group" style="margin-top:1rem;">
+            <button type="button" class="btn btn-secondary" id="privacy-export-local">Download local data snapshot</button>
+            <button type="button" class="btn btn-secondary" id="privacy-clear-study">Clear study-only local data</button>
+            <button type="button" class="btn btn-secondary" id="privacy-clear-local">Clear all local site data on this browser</button>
+          </div>
+          <p id="privacy-device-data-status" class="section-note" style="margin-top:0.75rem;" aria-live="polite">Need full note + memorize restore later? Use <a href="/mystudy?tab=library#saved-verses">My Study</a> for backup and restore.</p>
+        </section>
+
         <section class="glass">
           <h2 class="section-divider">Contact form &amp; shop waitlist</h2>
           <p class="section-note">If you use the <a href="contact.html">contact form</a> or the <a href="shop.html#shop-waitlist">shop launch list</a>, we store your email and message or product interest in our database (Supabase) so we can reply or notify you—<strong>not</strong> for general marketing or resale. Email us anytime to request deletion of those rows.</p>
@@ -286,6 +300,7 @@
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
     <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
     <a href="/pricing.html">Pricing</a>
     <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
@@ -359,6 +374,7 @@
         <a href="/shop.html">Shop</a>
         <a href="/story.html">Story</a>
         <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
         <a href="/approach.html">How we respond</a>
         <a href="/why-not-ai.html">Why not AI?</a>
         <a href="/curriculum.html">Curriculum</a>
@@ -396,6 +412,7 @@
 
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <script src="privacy-tools.js" defer></script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
 </body>

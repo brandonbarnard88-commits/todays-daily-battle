@@ -7134,7 +7134,7 @@
       <!-- ── Offline pill badge ── -->
       <div id="offline-pill" class="offline-pill" role="status" aria-live="polite" aria-atomic="true">
         <span class="offline-pill-dot" aria-hidden="true"></span>
-        Offline
+        <span id="offline-pill-label">Offline</span>
       </div>
 
       <!-- ── PWA Install Nudge ── -->
@@ -7961,6 +7961,7 @@
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
     <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
     <a href="/pricing.html">Pricing</a>
     <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
@@ -8034,6 +8035,7 @@
         <a href="/shop.html">Shop</a>
         <a href="/story.html">Story</a>
         <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
         <a href="/approach.html">How we respond</a>
         <a href="/why-not-ai.html">Why not AI?</a>
         <a href="/curriculum.html">Curriculum</a>
@@ -9479,14 +9481,59 @@
     }());
 
     // ── Theme ──
-    function syncThemeBtn() {
-      var isLight = document.documentElement.dataset.theme === "light";
-      var settingsBtn = document.getElementById('settings-theme-btn');
-      if (settingsBtn) {
-        settingsBtn.textContent = isLight ? "☀️ Light" : "🌙 Dark";
-        settingsBtn.setAttribute('aria-pressed', isLight ? 'false' : 'true');
-        settingsBtn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+    function getHomeVoicePreference() {
+      try {
+        var pref = localStorage.getItem('tdb_voice_pref');
+        return pref === 'calm_female' || pref === 'calm_male' ? pref : 'auto';
+      } catch (e) {
+        return 'auto';
       }
+    }
+
+    function pickPreferredEnglishVoice(voices, preference) {
+      if (!voices || !voices.length) return null;
+      var en = function (v) { return ((v && v.lang) || '').toLowerCase().indexOf('en') === 0; };
+      var named = function (rx) {
+        return voices.find(function (v) { return en(v) && rx.test((v.name || '').toLowerCase()); });
+      };
+      if (preference === 'calm_female') {
+        return named(/(aria|jenny|sara|zira|samantha|victoria|ava|allison|karen|moira|susan|serena|salli|female|woman)/)
+          || voices.find(function (v) { return en(v) && v.localService; })
+          || voices.find(en)
+          || voices[0];
+      }
+      if (preference === 'calm_male') {
+        return named(/(guy|davis|daniel|alex|fred|male|man|matthew|christopher|ryan|aaron)/)
+          || voices.find(function (v) { return en(v) && v.localService; })
+          || voices.find(en)
+          || voices[0];
+      }
+      var natural = voices.filter(function (v) {
+        return en(v) && /(natural|neural|premium|enhanced|siri|google us english|microsoft (aria|jenny|sara))/i.test((v.name||''));
+      });
+      var warm = voices.filter(function (v) {
+        return en(v) && /(female|woman|zira|samantha|victoria|ava|allison|karen|moira|susan|aria|serena|salli|jenny|daniel|alex)/i.test((v.name||''));
+      });
+      return natural[0] || warm[0] || voices.find(function (v) { return en(v) && v.localService; }) || voices.find(en) || voices[0];
+    }
+
+    function syncThemeBtn() {
+      var theme = document.documentElement.dataset.theme;
+      if (theme !== 'light' && theme !== 'sepia') theme = 'dark';
+      var settingsBtn = document.getElementById('settings-theme-btn');
+      var nextTheme = theme === 'dark' ? 'light' : (theme === 'light' ? 'sepia' : 'dark');
+      var copy = {
+        dark: { label: 'Quiet night', next: 'Calm cream' },
+        light: { label: 'Calm cream', next: 'Dawn parchment' },
+        sepia: { label: 'Dawn parchment', next: 'Quiet night' }
+      };
+      if (settingsBtn) {
+        settingsBtn.textContent = copy[theme].label;
+        settingsBtn.setAttribute('aria-pressed', theme !== 'dark' ? 'true' : 'false');
+        settingsBtn.setAttribute('aria-label', 'Current appearance: ' + copy[theme].label + '. Switch to ' + copy[nextTheme].label);
+      }
+      var voicePref = document.getElementById('settings-voice-pref');
+      if (voicePref) voicePref.value = getHomeVoicePreference();
     }
 
     function applyTheme(theme) {
@@ -9498,6 +9545,7 @@
         if (document.body) {
           document.body.classList.toggle("light", theme === "light");
           document.body.classList.toggle("dark-mode", theme === "dark");
+          document.body.classList.toggle("sepia-mode", theme === "sepia");
         }
       }
       syncThemeBtn();
@@ -9517,8 +9565,13 @@
 
     // Settings popover theme button
     document.getElementById('settings-theme-btn')?.addEventListener('click', function () {
-      const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      var current = document.documentElement.dataset.theme;
+      const next = current === 'dark' ? 'light' : (current === 'light' ? 'sepia' : 'dark');
       applyTheme(next);
+    });
+    document.getElementById('settings-voice-pref')?.addEventListener('change', function (e) {
+      try { localStorage.setItem('tdb_voice_pref', e.target && e.target.value ? e.target.value : 'auto'); } catch (_) {}
+      if (typeof trackEvent === 'function') trackEvent('appearance_voice_preference_select', { voice_pref: getHomeVoicePreference() });
     });
 
     // ── Streak ──
@@ -9942,13 +9995,7 @@
             dailyUtterance.pitch = 1;
             dailyUtterance.lang  = 'en-US';
             const voices = refreshVoices();
-            let best = null;
-            if (voices.length) {
-              const en = v => ((v&&v.lang)||'').toLowerCase().indexOf('en')===0;
-              const natural = voices.filter(v => en(v) && /(natural|neural|premium|enhanced|siri|google us english|microsoft (aria|jenny|sara))/i.test((v.name||'')));
-              const warm = voices.filter(v => en(v) && /(female|woman|zira|samantha|victoria|ava|allison|karen|moira|susan|aria|serena|salli|jenny|daniel|alex)/i.test((v.name||'')));
-              best = natural[0] || warm[0] || voices.find(v => en(v) && v.localService) || voices.find(v => en(v)) || voices[0];
-            }
+            let best = pickPreferredEnglishVoice(voices, getHomeVoicePreference());
             if (best) dailyUtterance.voice = best;
             dailyUtterance.onstart = () => {
               if (highlightTarget) highlightTarget.classList.add('tdb-tts-highlight-active');
@@ -10014,9 +10061,18 @@
     }
 
     // ── Offline pill badge + online recovery ──
+    function setOfflinePillState(mode) {
+      const pill = document.getElementById('offline-pill');
+      const label = document.getElementById('offline-pill-label');
+      if (!pill || !label) return;
+      pill.classList.toggle('offline-cached', mode === 'ready');
+      label.textContent = mode === 'ready' ? 'Ready offline' : 'Offline now';
+    }
+
     function showOfflinePill(visible) {
       const pill = document.getElementById('offline-pill');
       if (pill) pill.classList.toggle('visible', visible);
+      if (visible) setOfflinePillState(navigator.onLine ? 'ready' : 'offline');
     }
 
     window.addEventListener('offline', () => {
@@ -10031,6 +10087,7 @@
     });
 
     window.addEventListener('online', () => {
+      setOfflinePillState('ready');
       showOfflinePill(false);
       const note = document.getElementById('verseNote');
       if (note) { note.hidden = true; note.textContent = ''; }
@@ -10379,8 +10436,7 @@
         var store = tx.objectStore('verses');
         ROTATING_HERO_VERSES.slice(0, 40).forEach(function (v) { try { store.put(v); } catch (_) {} });
         tx.oncomplete = function () {
-          var pill = document.getElementById('offline-pill');
-          if (pill) pill.classList.add('offline-cached');
+          setOfflinePillState('ready');
         };
       };
     }
@@ -10572,6 +10628,9 @@
           var u = new window.SpeechSynthesisUtterance(text);
           u.rate = 0.88;
           u.lang = 'en-US';
+          var storyVoices = window.speechSynthesis.getVoices() || [];
+          var storyBest = pickPreferredEnglishVoice(storyVoices, getHomeVoicePreference());
+          if (storyBest) u.voice = storyBest;
           u.onstart = function () {
             readBtn.textContent = 'Stop';
             readBtn.setAttribute('aria-pressed', 'true');
@@ -11256,8 +11315,7 @@
           var utt = new SpeechSynthesisUtterance(ttsText);
           utt.rate = 0.82; utt.pitch = 1;
           var voices = window.speechSynthesis.getVoices() || [];
-          var warm = voices.find(function (v) { return /(samantha|karen|daniel|moira)/i.test(v.name); })
-                     || voices.find(function (v) { return v.lang && v.lang.startsWith('en') && v.localService; });
+          var warm = pickPreferredEnglishVoice(voices, getHomeVoicePreference());
           if (warm) utt.voice = warm;
           window.speechSynthesis.speak(utt);
         }
@@ -11314,8 +11372,7 @@
         var utt = new SpeechSynthesisUtterance(greeting);
         utt.rate = 0.82; utt.pitch = 1;
         var voices = window.speechSynthesis.getVoices() || [];
-        var warm = voices.find(function (v) { return /(samantha|karen|daniel|moira)/i.test(v.name); })
-                   || voices.find(function (v) { return v.lang && v.lang.startsWith('en') && v.localService; });
+        var warm = pickPreferredEnglishVoice(voices, getHomeVoicePreference());
         if (warm) utt.voice = warm;
         utt.onend = function () { if (skipBtn) skipBtn.hidden = true; };
         window.speechSynthesis.speak(utt);
@@ -12344,9 +12401,21 @@
     <div class="settings-row">
       <label class="settings-label">
         <span class="settings-label-text">🌙 Appearance</span>
-        <span class="settings-label-sub">Switch between dark and light</span>
+        <span class="settings-label-sub">Quiet night, calm cream, or dawn parchment</span>
       </label>
-      <button type="button" id="settings-theme-btn" class="settings-theme-btn" aria-label="Toggle dark and light mode" aria-pressed="false">🌙 Dark</button>
+      <button type="button" id="settings-theme-btn" class="settings-theme-btn" aria-label="Cycle appearance mode" aria-pressed="false">Quiet night</button>
+    </div>
+
+    <div class="settings-row">
+      <label class="settings-label" for="settings-voice-pref">
+        <span class="settings-label-text">🗣️ Voice tone</span>
+        <span class="settings-label-sub">Prefer a calmer woman, calmer man, or the best local voice</span>
+      </label>
+      <select id="settings-voice-pref" class="settings-theme-btn" aria-label="Preferred audio voice tone">
+        <option value="auto">Best local voice</option>
+        <option value="calm_female">Calmer woman</option>
+        <option value="calm_male">Calmer man</option>
+      </select>
     </div>
   </div>
 

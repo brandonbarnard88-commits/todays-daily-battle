@@ -798,6 +798,42 @@
     byId('mystudy-export-json')?.addEventListener('click', function () {
       if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.downloadStudyLocalBackup !== 'function') return;
       window.TDBStudyCompanion.downloadStudyLocalBackup();
+      var backupStatus = byId('mystudy-backup-status');
+      if (backupStatus) backupStatus.textContent = 'Backup download started for this device.';
+    });
+    byId('mystudy-restore-json')?.addEventListener('click', function () {
+      byId('mystudy-restore-file')?.click();
+    });
+    byId('mystudy-restore-file')?.addEventListener('change', function (e) {
+      var file = e.target && e.target.files && e.target.files[0];
+      var backupStatus = byId('mystudy-backup-status');
+      if (!file) return;
+      if (backupStatus) backupStatus.textContent = 'Reading backup…';
+      var reader = new FileReader();
+      reader.onload = function () {
+        try {
+          if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.restoreStudyLocalBackup !== 'function') {
+            throw new Error('Restore is not available right now.');
+          }
+          var restored = window.TDBStudyCompanion.restoreStudyLocalBackup(reader.result);
+          if (backupStatus) {
+            backupStatus.textContent =
+              'Backup restored for this device. ' +
+              (restored ? restored + ' saved areas were refreshed.' : 'Saved areas were refreshed.') +
+              ' Reloading your library…';
+          }
+          setTimeout(function () {
+            window.location.reload();
+          }, 700);
+        } catch (err) {
+          if (backupStatus) backupStatus.textContent = err && err.message ? err.message : 'Could not restore that backup.';
+        }
+      };
+      reader.onerror = function () {
+        if (backupStatus) backupStatus.textContent = 'Could not read that file. Try again with a JSON backup from My Study.';
+      };
+      reader.readAsText(file);
+      try { e.target.value = ''; } catch (_) {}
     });
     byId('mystudy-print-bundle')?.addEventListener('click', function () {
       if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.openPrintableStudyBundle !== 'function') return;

@@ -712,6 +712,36 @@
     return true;
   }
 
+  function restoreStudyLocalBackup(payload) {
+    if (!payload) throw new Error('Backup file is empty.');
+    var parsed = payload;
+    if (typeof payload === 'string') {
+      parsed = JSON.parse(payload);
+    }
+    if (!parsed || typeof parsed !== 'object' || !parsed.data || parsed.source !== 'todaysdailybattle-mystudy-backup') {
+      throw new Error('That file is not a valid My Study backup.');
+    }
+    var keyMap = {
+      tdb_bible_tool_notes: NOTES_KEY,
+      tdb_study_notes_meta_v1: META_KEY,
+      tdb_reader_recent_chapters_v1: RECENT_KEY,
+      tdb_reader_bookmarks_v1: BOOKMARKS_KEY,
+      tdb_reader_resume_v1: RESUME_KEY,
+      tdb_memorize_lite_v1: MEM_KEY
+    };
+    var restored = 0;
+    Object.keys(keyMap).forEach(function (logical) {
+      if (!Object.prototype.hasOwnProperty.call(parsed.data, logical)) return;
+      var raw = parsed.data[logical];
+      try {
+        if (raw == null || raw === '') localStorage.removeItem(keyMap[logical]);
+        else localStorage.setItem(keyMap[logical], String(raw));
+        restored++;
+      } catch (e) {}
+    });
+    return restored;
+  }
+
   global.TDBStudyCompanion = {
     normRef: normRef,
     getTags: getTags,
@@ -736,6 +766,7 @@
     getDashboardStats: getDashboardStats,
     openPrintableNotes: openPrintableNotes,
     openPrintableStudyBundle: openPrintableStudyBundle,
-    downloadStudyLocalBackup: downloadStudyLocalBackup
+    downloadStudyLocalBackup: downloadStudyLocalBackup,
+    restoreStudyLocalBackup: restoreStudyLocalBackup
   };
 })(typeof window !== 'undefined' ? window : this);

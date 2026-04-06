@@ -1,145 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js"></script>
-
-  <!-- GA4 lazy-loaded after interaction -->
-  <script defer src="../analytics-loader.js"></script>
+  <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calm prayer habits • Kids Battle</title>
-  <meta name="description" content="Simple, screen-light prayer ideas for kids and families—five-finger prayer, thank-you jar, paper chain, and more. KJV-friendly, no competition, ties to Today&apos;s Daily Battle.">
+  <title>What&rsquo;s Next • Today&rsquo;s Daily Battle Roadmap</title>
+  <meta name="description" content="A quiet public roadmap for Today's Daily Battle: what is live now, what is next, and what may come later without breaking the site's privacy-first spirit.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/kids/prayer-activities.html">
-  <meta property="og:title" content="Calm prayer habits • Kids Battle">
-  <meta property="og:description" content="Gentle, printable-friendly ways to pray together—aligned with the site&apos;s daily verse and Story Library.">
-  <meta property="og:url" content="https://todaysdailybattle.com/kids/prayer-activities.html">
+  <link rel="canonical" href="https://todaysdailybattle.com/roadmap.html">
+  <meta property="og:title" content="What&rsquo;s Next • Today&rsquo;s Daily Battle Roadmap">
+  <meta property="og:description" content="A quiet public roadmap: what is live now, what is next, and what may come later without breaking the site's privacy-first spirit.">
+  <meta property="og:url" content="https://todaysdailybattle.com/roadmap.html">
   <meta property="og:type" content="website">
-  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What&rsquo;s Next • Today&rsquo;s Daily Battle Roadmap">
+  <meta name="twitter:description" content="A quiet public roadmap for Today's Daily Battle.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css?v=20260412launch">
-  <link rel="stylesheet" href="kids-battle.css?v=20260331edge">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode kids-battle-page kids-prayer-activities-page">
+<body class="dark-mode tdb-inner-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
-    <header class="top-bar kids-battle-header kids-header-unified kids-prayer-no-print">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+          <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle kids-subtitle">Kids Battle</span>
+        <span class="brand-subtitle">What&rsquo;s next, without noise</span>
       </div>
-      <nav class="kids-header-nav" aria-label="Kids Battle navigation">
-        <a href="/kids/">Kids Battle Home</a>
-        <a href="corner.html">Bible Story Library</a>
-        <a href="prayer-activities.html" aria-current="page">Prayer habits</a>
-        <a href="parent.html">Parent Dashboard</a>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+        <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+          <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+          <span class="tdb-nav-flyout-toggle__label">Site</span>
+        </button>
+        <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+          <a href="/verse.html">Today&rsquo;s Verse</a>
+          <a href="/#feel-section">How I Feel</a>
+          <a href="/prayer-wall.html">Pray</a>
+          <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+          <details class="tdb-nav-more">
+            <summary aria-haspopup="true">More</summary>
+            <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+              <a href="/">Home</a>
+              <a href="/explore.html">Explore</a>
+              <a href="/mystudy">My Study</a>
+              <a href="/bible-tool.html#bible-tool-hub">Bible Tool</a>
+              <a href="/plans.html">Battle Plans</a>
+              <a href="/memorize.html">Memorize</a>
+              <a href="/kids/corner.html">Kids &amp; Family</a>
+              <a href="/about.html">About</a>
+              <a href="/pricing.html">Pricing</a>
+              <a href="/give">Support</a>
+            </div>
+          </details>
+        </div>
       </nav>
     </header>
 
-    <main class="app-content" id="main-content" role="main">
-      <div class="content-inner kids-battle-inner">
-        <header class="kids-battle-hero kids-prayer-hero">
-          <h1 class="kids-battle-title">Calm prayer habits</h1>
-          <p class="kids-battle-tagline">Screen-light (or none), gentle words, and room to tie in today&rsquo;s verse from <a href="/kids/">Kids Battle</a> or a story in the <a href="corner.html">Library</a>. No scores—just talking to God.</p>
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner">
+          <h1>What&rsquo;s next</h1>
+          <p class="hero-tagline">A quiet roadmap for people who want to know where the site is headed without turning it into a noisy product feed.</p>
+          <p class="section-note">This page stays simple on purpose: what is live now, what is next, and what may come later if it still protects the site&rsquo;s privacy-first, Scripture-first heart.</p>
         </header>
 
-        <section class="glass kids-prayer-lead" role="region" aria-label="How to use this page">
-          <h2 class="kids-section-title">Before you start</h2>
-          <p class="kids-prayer-lead-p">Pick one idea and keep it short. Little hearts stay with you when it feels safe and unhurried. Scripture on this site is <strong>King James (KJV)</strong>—if you quote a phrase with kids, use the same words they hear on the site.</p>
-          <p class="kids-prayer-lead-p"><a href="/family-armor.html">Family Armor</a> is another quiet door if you want armor-themed prayer together.</p>
-        </section>
-
-        <article class="glass kids-prayer-card" id="five-finger">
-          <h2 class="kids-section-title">1. Five-finger prayer</h2>
-          <p class="kids-prayer-card-lead">Hold up one hand. Each finger is a gentle reminder—then close your hand like you are holding the prayer with care.</p>
-          <ul class="kids-prayer-steps">
-            <li><strong>Thumb</strong> — Praise God (thank Him for who He is).</li>
-            <li><strong>Pointer</strong> — Say sorry for wrong things; ask Him to wash the heart clean.</li>
-            <li><strong>Middle</strong> — Thank Him for good gifts: people, food, school, sunshine—whatever fits today.</li>
-            <li><strong>Ring</strong> — Pray for others: family, friends, teachers, someone who is sad.</li>
-            <li><strong>Pinky</strong> — Pray for yourself: help with school, courage, sleep, or the day&rsquo;s battle.</li>
+        <section class="glass">
+          <h2 class="section-divider">Already live</h2>
+          <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
+            <li>Quiet night, calm cream, and dawn parchment appearance modes, plus higher contrast and larger text.</li>
+            <li>Offline-first reading, prayer, battle plans, memorize tools, and installable PWA paths.</li>
+            <li>Family hub, printables, battle plans, My Study, and gentle memorize rhythm.</li>
+            <li>Public media copy, founder story, and clearer support/transparency pages.</li>
           </ul>
-          <p class="kids-prayer-tie-in"><span class="kids-prayer-tie-label">Tie-in:</span> After <a href="/kids/">today&rsquo;s kids verse</a>, ask, &ldquo;Which finger does this verse fit?&rdquo; Works in the car or at bedtime—no supplies.</p>
-        </article>
-
-        <article class="glass kids-prayer-card" id="thank-you-jar">
-          <h2 class="kids-section-title">2. Thank-you jar</h2>
-          <p class="kids-prayer-card-lead">Use a jar or small box. Each day (or a few times a week), write or draw one thank-you on a slip and drop it in. Once a week, pull a few and turn each into a short prayer: &ldquo;Thank You, God, for ________.&rdquo;</p>
-          <p class="kids-prayer-tie-in"><span class="kids-prayer-tie-label">Tie-in:</span> If the verse is about peace or courage, thank God for a moment that felt that way—even a small one.</p>
-          <p class="kids-prayer-tie-in"><a href="#print-slips">Printable slips</a> are below—cut and use anytime.</p>
-        </article>
-
-        <article class="glass kids-prayer-card" id="prayer-chain">
-          <h2 class="kids-section-title">3. Prayer chain</h2>
-          <p class="kids-prayer-card-lead">Cut strips of colored paper. On each strip: something to thank God for, someone to pray for, and a short request (like &ldquo;help me be kind&rdquo;). Tape or staple them into a loop chain and hang it where the family can see it. Each new link—pray it together.</p>
-          <p class="kids-prayer-tie-in"><span class="kids-prayer-tie-label">Möbius tie-in:</span> As the chain grows, you can say prayer keeps going—like one path that doesn&rsquo;t really end. Grown-ups: <a href="/mobius.html">Möbius Loop</a> on the main site is the slow, older-kid version of that picture.</p>
-        </article>
-
-        <article class="glass kids-prayer-card" id="draw-prayer">
-          <h2 class="kids-section-title">4. Draw or color your prayer</h2>
-          <p class="kids-prayer-card-lead">After a verse or a <a href="corner.html">library story</a>: draw how the words feel, draw what you want to pray about, or color a simple page. Then pray out loud while looking at the picture. No wrong way—quiet and honest is enough.</p>
-          <p class="kids-prayer-tie-in"><span class="kids-prayer-tie-label">Tie-in:</span> <a href="../coloring.html">Kids Coloring</a> pages carry a tiny KJV line—color, then pray one sentence that matches the picture.</p>
-        </article>
-
-        <article class="glass kids-prayer-card" id="prayer-stones">
-          <h2 class="kids-section-title">5. Prayer stones (or paper &ldquo;stones&rdquo;)</h2>
-          <p class="kids-prayer-card-lead">Smooth rocks with a short word or a tiny phrase from the day&rsquo;s verse—or words like Peace, Help, Thank You, Love. Keep them in a small bag. Morning or night, pick one and start prayer from that word. No rocks? Cut paper ovals and do the same.</p>
-          <p class="kids-prayer-tie-in"><span class="kids-prayer-tie-label">Tie-in:</span> Pairs well with <a href="/family-armor.html">Family Armor</a> when you want a tangible &ldquo;piece&rdquo; to hold while you pray.</p>
-        </article>
-
-        <article class="glass kids-prayer-card" id="acronym-prayers">
-          <h2 class="kids-section-title">6. Short acronym prayers</h2>
-          <p class="kids-prayer-card-lead">Write big letters: <strong>T</strong> thank You · <strong>S</strong> sorry · <strong>P</strong> please (or praise). Little ones can use: I love You · I&rsquo;m sorry · Please help · Thank You. Let kids draw or write under each letter.</p>
-        </article>
-
-        <article class="glass kids-prayer-card" id="paper-airplane">
-          <h2 class="kids-section-title">7. Paper airplane prayers</h2>
-          <p class="kids-prayer-card-lead">Write or draw a prayer on a small paper and fold a simple airplane. Toss it toward a towel or a paper &ldquo;target&rdquo; on the floor while saying the prayer out loud. Remind them: the plane may land crooked, but God hears every word.</p>
-          <p class="kids-prayer-safety" role="note"><strong>Safety:</strong> Some families use a balloon for a rolled-up prayer; with toddlers, skip balloons (choking risk) and stick to paper.</p>
-        </article>
-
-        <section class="glass kids-prayer-print-section" id="print-slips" aria-labelledby="print-slips-h">
-          <p class="kids-prayer-print-only-brand">Today&rsquo;s Daily Battle · Calm prayer habits — thank-you slips</p>
-          <h2 class="kids-section-title" id="print-slips-h">Printable thank-you slips</h2>
-          <p class="section-note kids-prayer-print-intro">Cut on the dashed lines. One thank-you per slip. KJV echo (tiny): <cite class="kids-prayer-kjv-tiny">1 Thessalonians 5:18</cite> — in every thing give thanks.</p>
-          <div class="kids-prayer-slips-sheet" aria-label="Six thank-you slips">
-            <div class="kids-prayer-slip">
-              <span class="kids-prayer-slip-line">Thank You, God, for</span>
-              <span class="kids-prayer-slip-blank" aria-hidden="true"></span>
-            </div>
-            <div class="kids-prayer-slip">
-              <span class="kids-prayer-slip-line">Thank You, God, for</span>
-              <span class="kids-prayer-slip-blank" aria-hidden="true"></span>
-            </div>
-            <div class="kids-prayer-slip">
-              <span class="kids-prayer-slip-line">Thank You, God, for</span>
-              <span class="kids-prayer-slip-blank" aria-hidden="true"></span>
-            </div>
-            <div class="kids-prayer-slip">
-              <span class="kids-prayer-slip-line">Thank You, God, for</span>
-              <span class="kids-prayer-slip-blank" aria-hidden="true"></span>
-            </div>
-            <div class="kids-prayer-slip">
-              <span class="kids-prayer-slip-line">Thank You, God, for</span>
-              <span class="kids-prayer-slip-blank" aria-hidden="true"></span>
-            </div>
-            <div class="kids-prayer-slip">
-              <span class="kids-prayer-slip-line">Thank You, God, for</span>
-              <span class="kids-prayer-slip-blank" aria-hidden="true"></span>
-            </div>
-          </div>
-          <p class="kids-prayer-print-hint kids-prayer-no-print"><strong>To print:</strong> Use Print in your browser (or Save as PDF). For a clean sheet, turn off headers and footers in the print dialog.</p>
         </section>
 
-        <nav class="kids-prayer-back kids-prayer-no-print" aria-label="More kids pages">
-          <a class="btn kids-btn-primary" href="/kids/">Back to Kids Battle</a>
-          <a class="btn btn-secondary" href="corner.html">Story Library</a>
-        </nav>
+        <section class="glass">
+          <h2 class="section-divider">Next</h2>
+          <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
+            <li>Calmer local voice preference, clearer offline readiness signals, and better restore/export flows.</li>
+            <li>A clearer privacy dashboard so people can see what is local, export it, and clear it.</li>
+            <li>More translated topic doorways and more calm hand-built study tracks.</li>
+            <li>Supporter extras that feel useful instead of noisy: more print-friendly helps, more careful devotional packs, and gentler share tools.</li>
+          </ul>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Later, if it still fits the mission</h2>
+          <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
+            <li>Invite-only family sharing that stays private by design and does not turn into a social network.</li>
+            <li>Broader language coverage for topic pages, plans, and key study helps.</li>
+            <li>Richer calm-audio options, as long as they remain optional, local-first where possible, and never become a gimmick.</li>
+          </ul>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">What will not change</h2>
+          <p class="section-note">No ads. No guilt-heavy gamification. No AI-generated filler. No pressure-first growth tricks. The site should keep feeling like a quiet place for real battles, not a dashboard that performs at you.</p>
+          <p class="section-note">If you want to help move the roadmap forward, the calmest way is still the same: <a href="/give">support this quiet place</a>, or share the page that helped you.</p>
+        </section>
       </div>
     </main>
 
@@ -315,5 +296,8 @@
   <script defer src="/language-switcher.js"></script>
 </footer>
   </div>
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
 </body>
 </html>

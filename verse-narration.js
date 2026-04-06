@@ -13,6 +13,7 @@
   var LS_PHRASE_PAUSE = 'tdb_verse_narr_phrase_pause';
   var LS_REPEAT = 'tdb_verse_narr_repeat';
   var LS_AMBIENT = 'tdb_verse_narr_ambient';
+  var LS_VOICE_PREF = 'tdb_voice_pref';
   /** 1–10 UI level; maps to undertone gain when ambient is on */
   var LS_AMBIENT_LEVEL = 'tdb_verse_narr_ambient_level';
   var AMBIENT_GAIN_MIN = 0.018;
@@ -84,6 +85,15 @@
     } catch (e) {}
   }
 
+  function getVoicePref() {
+    try {
+      var pref = localStorage.getItem(LS_VOICE_PREF);
+      return pref === 'calm_female' || pref === 'calm_male' ? pref : 'auto';
+    } catch (e) {
+      return 'auto';
+    }
+  }
+
   function clamp(n, lo, hi) {
     return Math.min(hi, Math.max(lo, n));
   }
@@ -143,9 +153,35 @@
   function pickVoice(synth) {
     var voices = synth.getVoices() || [];
     if (!voices.length) return null;
+    var pref = getVoicePref();
     var en = function (v) {
       return ((v && v.lang) || '').toLowerCase().indexOf('en') === 0;
     };
+    function findByName(rx) {
+      return voices.find(function (v) {
+        return en(v) && rx.test((v.name || '').toLowerCase());
+      });
+    }
+    if (pref === 'calm_female') {
+      return (
+        findByName(/(aria|jenny|sara|zira|samantha|victoria|ava|allison|karen|moira|susan|serena|salli|female|woman)/) ||
+        voices.find(function (v) {
+          return en(v) && v.localService;
+        }) ||
+        voices.find(en) ||
+        voices[0]
+      );
+    }
+    if (pref === 'calm_male') {
+      return (
+        findByName(/(guy|davis|daniel|alex|fred|male|man|matthew|christopher|ryan|aaron)/) ||
+        voices.find(function (v) {
+          return en(v) && v.localService;
+        }) ||
+        voices.find(en) ||
+        voices[0]
+      );
+    }
     var natural = voices.filter(function (v) {
       return (
         en(v) &&
@@ -456,6 +492,7 @@
     setAmbient: setAmbient,
     getAmbientLevel: getAmbientLevel,
     setAmbientLevel: setAmbientLevel,
+    getVoicePref: getVoicePref,
     RATE_PRESETS: RATE_PRESETS
   };
 })(typeof window !== 'undefined' ? window : this);

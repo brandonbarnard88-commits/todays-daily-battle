@@ -279,7 +279,7 @@
   function tdbReadTheme() {
     try {
       var saved = localStorage.getItem('tdb-theme');
-      if (saved === 'light' || saved === 'dark') return saved;
+      if (saved === 'light' || saved === 'dark' || saved === 'sepia') return saved;
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
     } catch (e) {}
     return 'dark';
@@ -288,14 +288,16 @@
   function tdbSyncBodyTheme() {
     if (!document.body) return;
     try {
-      var theme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+      var theme = document.documentElement.dataset.theme;
+      if (theme !== 'light' && theme !== 'sepia') theme = 'dark';
       document.body.classList.toggle('light', theme === 'light');
       document.body.classList.toggle('dark-mode', theme === 'dark');
+      document.body.classList.toggle('sepia-mode', theme === 'sepia');
     } catch (e) {}
   }
 
   function tdbApplyTheme(theme) {
-    if (theme !== 'light' && theme !== 'dark') theme = 'dark';
+    if (theme !== 'light' && theme !== 'dark' && theme !== 'sepia') theme = 'dark';
     try {
       document.documentElement.dataset.theme = theme;
       localStorage.setItem('tdb-theme', theme);

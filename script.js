@@ -581,33 +581,46 @@ function getTdbCurrentTheme() {
     return window.tdbReadTheme();
   }
   try {
-    return (document.documentElement && document.documentElement.dataset && document.documentElement.dataset.theme) || 'dark';
+    var theme = (document.documentElement && document.documentElement.dataset && document.documentElement.dataset.theme) || 'dark';
+    return theme === 'light' || theme === 'sepia' ? theme : 'dark';
   } catch (_) {}
   return 'dark';
+}
+
+function getTdbNextTheme(theme) {
+  if (theme === 'dark') return 'light';
+  if (theme === 'light') return 'sepia';
+  return 'dark';
+}
+
+function getTdbThemeCopy(theme) {
+  if (theme === 'light') return { current: 'Calm cream', next: 'Dawn parchment' };
+  if (theme === 'sepia') return { current: 'Dawn parchment', next: 'Quiet night' };
+  return { current: 'Quiet night', next: 'Calm cream' };
 }
 
 function syncThemeToggleButtons() {
   if (typeof document === 'undefined') return;
   var theme = getTdbCurrentTheme();
-  var nextTheme = theme === 'light' ? 'dark' : 'light';
-  var label = theme === 'light' ? 'Quiet night' : 'Calm cream';
+  var nextTheme = getTdbNextTheme(theme);
+  var themeCopy = getTdbThemeCopy(theme);
   document.querySelectorAll('[data-tdb-theme-toggle]').forEach(function (btn) {
-    btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
-    btn.setAttribute('aria-label', 'Switch to ' + label);
-    btn.setAttribute('title', 'Switch to ' + label);
+    btn.setAttribute('aria-pressed', theme !== 'dark' ? 'true' : 'false');
+    btn.setAttribute('aria-label', 'Current appearance: ' + themeCopy.current + '. Switch to ' + themeCopy.next);
+    btn.setAttribute('title', 'Current appearance: ' + themeCopy.current + '. Switch to ' + themeCopy.next);
     btn.setAttribute('data-next-theme', nextTheme);
     var textEl = btn.querySelector('[data-tdb-theme-toggle-text]');
     if (textEl) {
-      textEl.textContent = theme === 'light' ? 'Quiet night' : 'Calm cream';
+      textEl.textContent = themeCopy.next;
     } else {
-      btn.textContent = theme === 'light' ? '☾ Quiet night' : '☀ Calm cream';
+      btn.textContent = themeCopy.next;
     }
   });
 }
 
 function toggleTdbTheme(source) {
   var current = getTdbCurrentTheme();
-  var nextTheme = current === 'light' ? 'dark' : 'light';
+  var nextTheme = getTdbNextTheme(current);
   if (typeof window !== 'undefined' && typeof window.tdbApplyTheme === 'function') {
     window.tdbApplyTheme(nextTheme);
   } else {
@@ -29411,12 +29424,14 @@ function wireRandomBattleVerseHero() {
     var dialogEl = document.getElementById('tdb-appearance-dialog');
     var darkBtn;
     var lightBtn;
+    var sepiaBtn;
 
     function refreshPressed() {
-      if (!darkBtn || !lightBtn) return;
-      var t = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+      if (!darkBtn || !lightBtn || !sepiaBtn) return;
+      var t = getTdbCurrentTheme();
       darkBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
       lightBtn.setAttribute('aria-pressed', t === 'light' ? 'true' : 'false');
+      sepiaBtn.setAttribute('aria-pressed', t === 'sepia' ? 'true' : 'false');
     }
 
     function pickTheme(theme) {
@@ -29429,6 +29444,7 @@ function wireRandomBattleVerseHero() {
           if (document.body) {
             document.body.classList.toggle('light', theme === 'light');
             document.body.classList.toggle('dark-mode', theme === 'dark');
+            document.body.classList.toggle('sepia-mode', theme === 'sepia');
           }
         } catch (e) {}
       }
@@ -29449,7 +29465,7 @@ function wireRandomBattleVerseHero() {
 
       var lead = document.createElement('p');
       lead.className = 'tdb-appearance-lead';
-      lead.textContent = 'Calm cream or quiet night—saved on this device.';
+      lead.textContent = 'Quiet night, calm cream, or dawn parchment—saved on this device.';
 
       var row = document.createElement('div');
       row.className = 'tdb-appearance-toggle-row';
@@ -29468,6 +29484,13 @@ function wireRandomBattleVerseHero() {
       lightBtn.setAttribute('aria-pressed', 'false');
       lightBtn.textContent = 'Daylight';
 
+      sepiaBtn = document.createElement('button');
+      sepiaBtn.type = 'button';
+      sepiaBtn.className = 'tdb-appearance-opt';
+      sepiaBtn.setAttribute('data-theme-choice', 'sepia');
+      sepiaBtn.setAttribute('aria-pressed', 'false');
+      sepiaBtn.textContent = 'Dawn parchment';
+
       var actions = document.createElement('div');
       actions.className = 'tdb-appearance-dialog-actions';
       var closeBtn = document.createElement('button');
@@ -29477,6 +29500,7 @@ function wireRandomBattleVerseHero() {
 
       row.appendChild(darkBtn);
       row.appendChild(lightBtn);
+      row.appendChild(sepiaBtn);
       actions.appendChild(closeBtn);
 
       dialogEl.appendChild(h2);
@@ -29487,6 +29511,7 @@ function wireRandomBattleVerseHero() {
 
       darkBtn.addEventListener('click', function () { pickTheme('dark'); });
       lightBtn.addEventListener('click', function () { pickTheme('light'); });
+      sepiaBtn.addEventListener('click', function () { pickTheme('sepia'); });
       closeBtn.addEventListener('click', function () {
         if (typeof dialogEl.showModal === 'function' && dialogEl.open) dialogEl.close();
         else dialogEl.hidden = true;

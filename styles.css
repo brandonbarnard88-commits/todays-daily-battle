@@ -931,6 +931,100 @@ html[data-theme="light"] .app-shell {
     );
 }
 
+html[data-theme="sepia"] body,
+html[data-theme="sepia"] .app-shell {
+  background: radial-gradient(ellipse 105% 58% at 50% -10%, rgba(166, 124, 56, 0.13), transparent 52%),
+    radial-gradient(ellipse 85% 42% at 50% 108%, rgba(110, 79, 34, 0.08), transparent 45%), #efe3cd !important;
+  color: #33281d !important;
+}
+
+:root[data-theme="sepia"] {
+  --text: #33281d;
+  --color-text: #33281d;
+  --color-bg: #efe3cd;
+  --tdb-focus-ring: #7c4b12;
+  --link-content: #7a3f10;
+  --link-content-hover: #5e2f0c;
+  --muted: #6d5d49;
+  --muted-readable: #564938;
+  --input-placeholder-on-dark: #766754;
+  --card-light: rgba(250, 244, 235, 0.96);
+  --border-subtle: rgba(76, 55, 28, 0.15);
+  --tdb-surface-card-bg: color-mix(in srgb, #f8f0e2 96%, rgba(140, 92, 33, 0.11));
+  --tdb-surface-card-border: color-mix(in srgb, rgba(76, 55, 28, 0.24) 72%, rgba(173, 130, 69, 0.34));
+  --tdb-surface-card-shadow: 0 10px 30px rgba(68, 47, 22, 0.11),
+    0 0 0 1px color-mix(in srgb, rgba(166, 124, 56, 0.28) 45%, transparent),
+    inset 0 1px 0 rgba(255, 250, 242, 0.7);
+  --tdb-surface-card-shadow-hover: 0 14px 40px rgba(68, 47, 22, 0.14),
+    0 0 0 1px color-mix(in srgb, rgba(166, 124, 56, 0.38) 50%, transparent),
+    inset 0 1px 0 rgba(255, 250, 242, 0.78);
+  --tdb-surface-panel-bg: color-mix(in srgb, #fbf5eb 97%, rgba(120, 77, 32, 0.07));
+  --tdb-surface-panel-border: rgba(76, 55, 28, 0.12);
+  --tdb-surface-panel-shadow: 0 6px 24px rgba(68, 47, 22, 0.08),
+    0 0 0 1px rgba(76, 55, 28, 0.06),
+    inset 0 1px 0 rgba(255, 250, 242, 0.56);
+  --tdb-surface-veil-subtle: repeating-linear-gradient(
+      105deg,
+      transparent 0,
+      transparent 3px,
+      rgba(160, 120, 63, 0.04) 3px,
+      rgba(160, 120, 63, 0.04) 4px
+    ),
+    repeating-linear-gradient(
+      -105deg,
+      transparent 0,
+      transparent 3px,
+      rgba(120, 90, 48, 0.03) 3px,
+      rgba(120, 90, 48, 0.03) 4px
+    );
+}
+
+html[data-theme="sepia"] .app-shell::after {
+  background: linear-gradient(168deg, rgba(239, 227, 205, 0.97) 0%, rgba(247, 239, 227, 0.95) 45%, rgba(233, 219, 194, 0.96) 100%);
+}
+html[data-theme="sepia"] .app-shell::before {
+  opacity: 0.17;
+}
+html[data-theme="sepia"] .top-bar {
+  background: linear-gradient(180deg, rgba(250, 244, 235, 0.98) 0%, rgba(239, 227, 205, 0.96) 100%);
+  border-bottom-color: rgba(133, 95, 42, 0.34);
+  box-shadow: 0 1px 0 rgba(133, 95, 42, 0.18), 0 8px 28px rgba(68, 47, 22, 0.08);
+}
+html[data-theme="sepia"] .brand-title,
+html[data-theme="sepia"] .brand-subtitle,
+html[data-theme="sepia"] .header-nav a,
+html[data-theme="sepia"] .tdb-lang-switcher,
+html[data-theme="sepia"] .site-footer a,
+html[data-theme="sepia"] .site-footer-story,
+html[data-theme="sepia"] .section-note,
+html[data-theme="sepia"] .tdb-global-nav a,
+html[data-theme="sepia"] .site-top-links a {
+  color: var(--text, #33281d);
+}
+html[data-theme="sepia"] .site-footer a:hover,
+html[data-theme="sepia"] .site-footer a:focus-visible,
+html[data-theme="sepia"] .share-page-btn:hover,
+html[data-theme="sepia"] .share-page-btn:focus-visible,
+html[data-theme="sepia"] .btn-secondary:hover,
+html[data-theme="sepia"] .btn-secondary:focus-visible {
+  color: #5e2f0c;
+}
+html[data-theme="sepia"] .sidebar,
+html[data-theme="sepia"] .glass,
+html[data-theme="sepia"] .card,
+html[data-theme="sepia"] .tdb-global-nav,
+html[data-theme="sepia"] .tdb-primary-site-nav .tdb-primary-nav-panel,
+html[data-theme="sepia"] .tdb-home-main-nav.tdb-primary-site-nav .tdb-primary-nav-panel {
+  background-color: var(--tdb-surface-panel-bg);
+  border-color: var(--tdb-surface-panel-border);
+}
+html[data-theme="sepia"] .footer-friday-email,
+html[data-theme="sepia"] input,
+html[data-theme="sepia"] textarea,
+html[data-theme="sepia"] select {
+  color: #33281d;
+}
+
 /* Default keyboard focus — 3px ring; components with higher specificity may override */
 :focus-visible {
   outline: 3px solid var(--tdb-focus-ring);

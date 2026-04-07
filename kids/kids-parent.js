@@ -374,6 +374,193 @@
     });
   }
 
+  // Parent Dashboard - on-device, no auth
+  // Polished to god-tier: calm, warm, reverent. Big friendly cards, gold accents, accessible.
+  // Saves colorings associated with stories. Exports beautiful PDFs with verse and art.
+  function loadParentView() {
+    const savedStories = JSON.parse(localStorage.getItem('savedColorings') || '{}');
+    let progress = 0;
+    try {
+      const completed = JSON.parse(localStorage.getItem('completedStories') || '[]');
+      progress = Array.isArray(completed) ? completed.length : parseInt(localStorage.getItem('storyProgress') || '0', 10);
+    } catch (e) {
+      progress = 0;
+    }
+    const totalStories = 281;
+    const percent = Math.round((progress / totalStories) * 100);
+
+    const dashboard = document.createElement('div');
+    dashboard.id = 'parent-dash';
+    dashboard.className = 'glass parent-dashboard-snapshot';
+    dashboard.style.marginTop = '1.5rem';
+
+    let galleryHTML = '';
+    if (Object.keys(savedStories).length > 0) {
+      galleryHTML = Object.entries(savedStories).map(([id, data]) => {
+        const title = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        const thumbs = (data.scenes || []).map(src => 
+          `<img src="${src}" width="110" height="80" alt="${title} panel" style="border-radius:6px;margin:2px;border:2px solid #e3bc67;">`
+        ).join('');
+        const verseHint = data.verse ? `<small style="color:#a8b3c4;display:block;margin-top:6px;">${data.verse}</small>` : '';
+        return `
+          <div class="parent-card" style="border:3px solid #e3bc67;border-radius:16px;background:rgba(27,33,45,0.9);padding:1rem;margin-bottom:1rem;">
+            <h3 style="margin:0 0 0.5rem;color:#f2dc98;font-family:'Bangers',cursive;font-size:1.25rem;">${title}</h3>
+            <div class="thumbs" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:0.75rem;">${thumbs}</div>
+            ${verseHint}
+            <button onclick="exportStory('${id}');event.stopImmediatePropagation();" 
+                    style="background:linear-gradient(135deg,#e3bc67,#b8860b);color:#0f1218;border:none;padding:0.65rem 1.25rem;border-radius:9999px;font-weight:700;cursor:pointer;margin-top:0.5rem;min-height:44px;width:100%;">
+              Export Memory (PDF)
+            </button>
+          </div>
+        `;
+      }).join('');
+    } else {
+      galleryHTML = `<p style="color:#a8b3c4;text-align:center;padding:2rem 1rem;font-style:italic;">No colorings saved yet.<br>Open a story in the library, tap Color Me, and save your art.<br>Your family memories will appear here.</p>`;
+    }
+
+    const html = `
+      <h2 style="color:#f2dc98;margin:0 0 0.5rem;font-family:'Bangers',cursive;font-size:1.6rem;letter-spacing:0.02em;">Family Snapshot</h2>
+      <p style="color:#a8b3c4;margin:0 0 1.5rem;line-height:1.5;">${progress} stories explored • ${percent}% of the library. Bronze at 7 — well done.</p>
+      <div class="gallery" style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));">
+        ${galleryHTML}
+      </div>
+      <div style="margin-top:2rem;text-align:center;">
+        <button onclick="clearAll();event.stopImmediatePropagation();" 
+                style="background:transparent;border:2px solid #64748b;color:#a8b3c4;padding:0.75rem 1.5rem;border-radius:9999px;font-size:0.9rem;min-height:44px;cursor:pointer;">
+          Clear All Saves (if the device feels full)
+        </button>
+      </div>
+      <p style="color:#64748b;font-size:0.8rem;margin-top:1.5rem;text-align:center;">Everything stays on this device. No account needed. Share these memories together — talk about what God did in each story.</p>
+    `;
+
+    dashboard.innerHTML = html;
+    // Clean up old dashboards
+    const old = document.getElementById('parent-dash');
+    if (old && old.parentNode) old.parentNode.removeChild(old);
+
+    const mainContent = document.querySelector('.content-inner') || document.getElementById('main-content');
+    if (mainContent) {
+      mainContent.appendChild(dashboard);
+    } else {
+      document.body.appendChild(dashboard);
+    }
+  }
+
+  function exportStory(id) {
+    const saved = JSON.parse(localStorage.getItem('savedColorings') || '{}');
+    const data = saved[id];
+    if (!data) {
+      alert('No saved coloring found for this story.');
+      return;
+    }
+
+    const title = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    const JsPDF = window.jspdf && window.jspdf.jsPDF;
+    if (!JsPDF) {
+      alert('PDF library still loading — tap again in a moment.');
+      return;
+    }
+
+    try {
+      const doc = new JsPDF('p', 'mm', 'a4');
+      const pageW = doc.internal.pageSize.getWidth();
+      let y = 20;
+
+      // Title
+      doc.setFontSize(22);
+      doc.setTextColor(227, 188, 103);
+      doc.text(title, pageW / 2, y, { align: 'center' });
+      y += 15;
+
+      // Verse
+      if (data.verse) {
+        doc.setFontSize(12);
+        doc.setTextColor(168, 179, 196);
+        const verseLines = doc.splitTextToSize(data.verse, pageW - 30);
+        doc.text(verseLines, pageW / 2, y, { align: 'center' });
+        y += verseLines.length * 6 + 10;
+      }
+
+      // Encouraging note
+      doc.setFontSize(11);
+      doc.setTextColor(245, 247, 251);
+      doc.text('A quiet memory from your child’s time with God’s Word.', pageW / 2, y, { align: 'center' });
+      y += 15;
+
+      // Thumbs / scenes
+      const scenes = data.scenes || [];
+      if (scenes.length > 0) {
+        doc.setFontSize(10);
+        doc.setTextColor(168, 179, 196);
+        doc.text('The story panels they colored:', 20, y);
+        y += 8;
+
+        scenes.forEach((src, i) => {
+          if (y > 240) {
+            doc.addPage();
+            y = 20;
+          }
+          try {
+            doc.addImage(src, 'JPEG', 20, y, 80, 60);
+            y += 70;
+          } catch (_) {}
+        });
+      }
+
+      // If coloring dataUrl
+      if (data.coloring) {
+        if (y > 200) {
+          doc.addPage();
+          y = 20;
+        }
+        doc.setFontSize(10);
+        doc.setTextColor(227, 188, 103);
+        doc.text('Their coloring:', 20, y);
+        y += 8;
+        try {
+          doc.addImage(data.coloring, 'PNG', 20, y, 170, 120);
+          y += 130;
+        } catch (_) {}
+      }
+
+      // Closing
+      doc.setFontSize(13);
+      doc.setTextColor(227, 188, 103);
+      doc.text('God is faithful. Keep walking together.', pageW / 2, y + 10, { align: 'center' });
+
+      const safeTitle = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+      doc.save(`family-memory-${safeTitle}.pdf`);
+      // Track
+      if (typeof trackEvent === 'function') trackEvent('parent_export_pdf', { story: id });
+    } catch (err) {
+      console.error(err);
+      alert('Could not create the PDF. The image may be too large — try exporting from the coloring screen instead.');
+    }
+  }
+
+  function clearAll() {
+    if (!confirm('Clear all saved colorings and progress from this device?\n\nThis cannot be undone, but you can always start fresh with the stories.')) {
+      return;
+    }
+    try {
+      localStorage.removeItem('savedColorings');
+      localStorage.removeItem('completedStories');
+      localStorage.removeItem('storyProgress');
+      // Also clear doodles if desired
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith('kidsDoodle')) localStorage.removeItem(k);
+      }
+      alert('All saves cleared. The dashboard will refresh.');
+      // Reload the view
+      const dash = document.getElementById('parent-dash');
+      if (dash && dash.parentNode) dash.parentNode.removeChild(dash);
+      loadParentView();
+    } catch (e) {
+      alert('Could not clear saves.');
+    }
+  }
+
   function init() {
     renderParentCode();
     renderStreak();
@@ -382,6 +569,24 @@
     renderFavorites();
     renderLibraryBadges();
     wirePrintGuide();
+    // Parent Dashboard — on-device, no auth
+    if (typeof window.loadParentView !== 'function') {
+      window.loadParentView = loadParentView;
+    }
+    if (typeof window.exportStory !== 'function') {
+      window.exportStory = exportStory;
+    }
+    if (typeof window.clearAll !== 'function') {
+      window.clearAll = clearAll;
+    }
+    // Trigger Family Snapshot if this is the parent page
+    if (!document.getElementById('parent-dash')) {
+      setTimeout(() => {
+        try {
+          loadParentView();
+        } catch (e) {}
+      }, 400);
+    }
   }
 
   if (document.readyState === 'loading') {

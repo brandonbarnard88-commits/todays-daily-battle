@@ -153,6 +153,7 @@ const rootFiles = [
   'memorize.js',
   'highlights.js',
   'streak.js',
+  'family-dashboard.js',
   'family-hierarchy.js',
   'crest.js',
   'avatar-progress.js',

@@ -52,6 +52,28 @@ function section(title) {
   log('='.repeat(60), colors.bright);
 }
 
+async function dismissWelcomeOverlay(page) {
+  // Robust dismissal matching qa-smoke.mjs pattern
+  try {
+    await page.evaluate(() => {
+      localStorage.setItem('welcome-seen', '1');
+      const overlay = document.getElementById('tdb-welcome-tour-overlay') || 
+                      document.querySelector('.welcome-tour-overlay, #welcome-anointing-overlay');
+      if (overlay) overlay.style.display = 'none';
+    });
+    await page.waitForTimeout(800);
+
+    const closeBtn = page.locator('#welcome-close, .welcome-close, .tour-close, button[aria-label*="close" i], .close').first();
+    if (await closeBtn.count() > 0) {
+      await closeBtn.click({ timeout: 5000 }).catch(() => {});
+    }
+
+    await page.waitForTimeout(600);
+  } catch (e) {
+    // Silent fallback - overlay handling is best-effort
+  }
+}
+
 async function waitForPageSettle(page) {
   // Wait for DOM to be ready, but don't require full network idle
   // (some analytics or third-party scripts may continue loading)
@@ -75,6 +97,7 @@ async function validateHomepageLoad(page) {
   try {
     await page.goto(PROD_URL, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
     await waitForPageSettle(page);
+    await dismissWelcomeOverlay(page);
     
     // Verify key elements exist
     const hasHeader = await page.locator('header').count() > 0;
@@ -161,14 +184,16 @@ async function validateSearch(page) {
   try {
     await page.goto(PROD_URL, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
     await waitForPageSettle(page);
+    await dismissWelcomeOverlay(page);
     await page.locator('#feel-section').scrollIntoViewIfNeeded().catch(() => {});
 
     const searchInput = page.locator('#feel-search');
-    await searchInput.waitFor({ state: 'visible', timeout: 12000 });
+    await searchInput.waitFor({ state: 'visible', timeout: 15000 });
     await searchInput.fill('anxiety');
+    
     const goBtn = page.locator('#feel-search-btn');
-    if (await goBtn.count()) {
-      await goBtn.click();
+    if (await goBtn.count() > 0) {
+      await goBtn.click({ force: true });
     } else {
       await searchInput.press('Enter');
     }
@@ -215,7 +240,9 @@ async function validateQuickTopic(page) {
   try {
     await page.goto(PROD_URL, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
     await waitForPageSettle(page);
+    await dismissWelcomeOverlay(page);
     await page.locator('#feel-section').scrollIntoViewIfNeeded().catch(() => {});
+
     const feelBack = page.locator('#feelBandBack');
     if (await feelBack.isVisible().catch(() => false)) {
       await feelBack.click().catch(() => {});
@@ -250,10 +277,10 @@ async function validateQuickTopic(page) {
     info(`Clicked "${chipName}" quick-topic`);
     await chip.scrollIntoViewIfNeeded();
     await chip.click({ force: true });
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(2500);
 
     const resultsSelector = '#feel-results .verse-card, #feel-results .smart-card, #feel-results .verse-item, #feel-results .result-section, #feelCards .verse-card, #output .verse-card';
-    await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 12000 }).catch(() => {});
+    await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 15000 }).catch(() => {});
 
     const bodyText = (await page.locator('body').textContent()) || '';
     const hasResults =

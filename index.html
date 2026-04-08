@@ -3755,6 +3755,155 @@
       text-decoration: underline;
       text-underline-offset: 2px;
     }
+
+    /* New warmer first-time onboarding card (audit #1 + #2) — serene, family-first, God-tier quality */
+    .tdb-new-here-card {
+      margin: 0.75rem 0 1.1rem;
+      padding: 1.35rem 1.45rem;
+      border-radius: 20px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line));
+      background: linear-gradient(165deg, color-mix(in srgb, var(--card) 96%, transparent) 0%, color-mix(in srgb, var(--bg-soft) 94%, var(--card) 6%) 100%);
+      box-shadow: var(--shadow), inset 0 1px 0 color-mix(in srgb, #fff 8%, transparent);
+      position: relative;
+      overflow: hidden;
+    }
+    :root[data-theme="light"] .tdb-new-here-card {
+      background: linear-gradient(165deg, color-mix(in srgb, var(--card) 96%, #fff 4%) 0%, var(--bg-soft) 100%);
+      border-color: color-mix(in srgb, var(--gold) 35%, var(--line));
+      box-shadow: 0 10px 28px rgba(64,41,8,0.09), inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .new-here-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.95rem;
+    }
+    .new-here-crest {
+      font-size: 1.65rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(227,188,103,0.25));
+    }
+    .new-here-title {
+      margin: 0;
+      font-size: clamp(1.25rem, 4vw, 1.45rem);
+      font-weight: 600;
+      color: var(--gold-soft);
+      letter-spacing: 0.02em;
+    }
+    .new-here-lead {
+      margin: 0 0 1.25rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--muted);
+      text-wrap: balance;
+    }
+    .new-here-steps {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (min-width: 640px) {
+      .new-here-steps { grid-template-columns: repeat(3, 1fr); gap: 0.85rem; }
+    }
+    .new-here-step {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+    }
+    .step-number {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: color-mix(in srgb, var(--gold) 22%, transparent);
+      color: var(--gold-soft);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1;
+      border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+    }
+    :root[data-theme="light"] .step-number {
+      background: color-mix(in srgb, var(--gold) 18%, #fff 82%);
+      color: #5c410f;
+      border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+    }
+    .step-content strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.96rem;
+      margin-bottom: 0.15rem;
+    }
+    .step-desc {
+      font-size: 0.84rem;
+      line-height: 1.45;
+      color: var(--muted);
+      display: block;
+    }
+    .new-here-family-note {
+      margin: 0 0 1.25rem;
+      padding: 0.85rem 1rem;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
+      border-left: 3px solid var(--gold);
+      background: color-mix(in srgb, var(--gold) 4%, transparent);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    :root[data-theme="light"] .new-here-family-note {
+      color: color-mix(in srgb, #4d525c 92%, #2f2f2f 8%);
+      border-color: #9e7625;
+    }
+    .new-here-cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    @media (min-width: 480px) {
+      .new-here-cta-row { flex-direction: row; }
+    }
+    .new-here-cta {
+      min-height: 48px;
+      padding: 0.75rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.015em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .new-here-cta.primary {
+      background: linear-gradient(90deg, var(--gold), #f2dc98);
+      color: #0f1218;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(227,188,103,0.35);
+    }
+    .new-here-cta.primary:hover,
+    .new-here-cta.primary:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(227,188,103,0.45);
+    }
+    .new-here-cta.secondary {
+      background: transparent;
+      color: var(--gold-soft);
+      border-color: color-mix(in srgb, var(--gold) 45%, transparent);
+    }
+    .new-here-cta.secondary:hover,
+    .new-here-cta.secondary:focus-visible {
+      background: color-mix(in srgb, var(--gold) 12%, transparent);
+      border-color: var(--gold-soft);
+    }
+    :root[data-theme="light"] .new-here-cta.primary {
+      background: linear-gradient(90deg, #9e7625, #c4a15a);
+      color: #f6f1e3;
+    }
     .tdb-home-proof-strip {
       display: grid;
       gap: 0.55rem;
@@ -7428,7 +7577,51 @@
       </nav>
       </div>
       <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
-      <p class="tdb-new-here-hint" id="tdbNewHereHint"><span class="tdb-new-here-muted">New here?</span> If you only have a minute, start with <a href="#hero-verse-wrap">today&rsquo;s verse</a>. Need Scripture for a more specific pain? Open <a href="#feel-section">Ask The Word</a>. Want the fuller map? <a href="explore.html#start-here">Start here</a>.</p>
+
+      <!-- Stronger first-time onboarding — warm, clear, family-focused (audit #1) -->
+      <div class="tdb-new-here-card" id="tdbNewHereCard" role="region" aria-labelledby="new-here-title">
+        <div class="new-here-header">
+          <div class="new-here-crest">🕊️</div>
+          <h2 id="new-here-title" class="new-here-title">Welcome, friend</h2>
+        </div>
+        <p class="new-here-lead">A quiet place for real battles — anxiety, parenting, grief, fear, and the long days of raising little ones. Everything here is KJV only, private by default, and works completely offline after the first visit.</p>
+
+        <div class="new-here-steps">
+          <div class="new-here-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <strong>Read today’s verse</strong>
+              <span class="step-desc">One calm word from Scripture to carry with you through the day.</span>
+            </div>
+          </div>
+          <div class="new-here-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <strong>Tell us how you feel</strong>
+              <span class="step-desc">“Heavy.” “Afraid.” “Tired.” “Grateful.” The search listens without judgment.</span>
+            </div>
+          </div>
+          <div class="new-here-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <strong>Pick a gentle tool</strong>
+              <span class="step-desc">Kids Corner for the little ones, Battle Plans, Prayer Wall, or the full map on <a href="explore.html#start-here" style="color:inherit;text-decoration:underline">explore</a>.</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="new-here-family-note">
+          Especially written for parents like me — with three young girls who need the Word without pressure or performance. 
+          No streaks. No scores. Just habit through heart.
+        </p>
+
+        <div class="new-here-cta-row">
+          <a href="#hero-verse-wrap" class="new-here-cta primary">Begin with today’s verse →</a>
+          <button type="button" class="new-here-cta secondary" onclick="this.closest('.tdb-new-here-card').style.display='none';document.getElementById('tdbNewHereHint').style.display='block';">I know my way around</button>
+        </div>
+      </div>
+
+      <p class="tdb-new-here-hint" id="tdbNewHereHint" style="display:none"><span class="tdb-new-here-muted">New here?</span> If you only have a minute, start with <a href="#hero-verse-wrap">today’s verse</a>. Need Scripture for a more specific pain? Open <a href="#feel-section">Ask The Word</a>. Want the fuller map? <a href="explore.html#start-here">Start here</a>.</p>
       <div class="tdb-home-proof-strip" role="list" aria-label="Why people trust this quiet place">
         <p class="tdb-home-proof-pill" role="listitem"><strong>KJV only</strong><span> Scripture stays plain and steady.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>Offline after first load</strong><span> Verses and progress stay close.</span></p>

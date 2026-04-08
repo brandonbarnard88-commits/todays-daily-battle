@@ -648,6 +648,7 @@
 
 # Kids JS (story library): avoid year-long edge stickiness if a URL is fetched without ?v=; HTML still uses ?v= for fingerprinted copies.
 /kids/*.js
+  Content-Type: application/javascript; charset=utf-8
   Cache-Control: public, max-age=3600, must-revalidate
 
 # Loop Library (root) — same freshness as /kids/corner.html (clean URLs + .html)

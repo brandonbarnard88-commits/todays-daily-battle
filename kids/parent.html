@@ -39,9 +39,9 @@
 
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner">
-        <header class="kids-battle-hero">
-          <h1 class="kids-battle-title">Parent Dashboard</h1>
-          <p class="kids-battle-tagline">Your kid's progress — streak, doodles, and badges.</p>
+        <header class="kids-battle-hero kids-parent-hero">
+          <h1 class="kids-battle-title">Family Quiet View</h1>
+          <p class="kids-battle-tagline">A gentle place to notice what the Word is doing in your home</p>
         </header>
 
         <section id="kids-parent-code-section" class="kids-parent-code glass hidden" role="region" aria-label="Invite code">
@@ -63,34 +63,36 @@
           <button type="button" id="parent-print-guide" class="btn btn-secondary" style="margin-top:0.9rem;">Print gentle guide</button>
         </section>
 
-        <section class="kids-parent-streak glass" role="region" aria-label="Kid's streak">
-          <h2 class="kids-section-title">Current Streak</h2>
-          <p id="parent-streak-display" class="kids-streak-display">🔥 0 days</p>
-          <p id="parent-proud-badge" class="kids-proud-parent hidden">🏆 Proud Parent — 7+ day streak!</p>
+        <section class="kids-parent-notice glass" role="region" aria-label="Gentle notice">
+          <div class="gentle-notice" id="gentle-notice">
+            Your child spent time with David today.<br>
+            They gave him very brave eyes.<br><br>
+            <strong>Maybe ask them: What made David brave?</strong>
+          </div>
         </section>
 
-        <section class="kids-parent-doodles glass" role="region" aria-label="Doodles gallery">
-          <h2 class="kids-section-title">Doodles Gallery</h2>
-          <p class="kids-doodle-gallery-desc">Drawings from each day's battle.</p>
-          <!-- Empty state lives in HTML so Trusted Types never turns it into visible markup text -->
-          <p id="parent-doodles-empty-copy" class="kids-no-doodles">No doodles saved yet. Open Kids Battle and save a drawing to start your gallery.</p>
+        <section class="kids-parent-doodles glass" role="region" aria-label="Colorings gallery">
+          <h2 class="kids-section-title">Colorings They Loved</h2>
+          <p class="kids-doodle-gallery-desc">Moments they lingered with a story. Tap one to remember together.</p>
+          <p id="parent-doodles-empty-copy" class="kids-no-doodles">When your child colors a story in the Library, it will appear here gently.<br><br>No pressure. Just quiet moments with the Word.</p>
           <div id="parent-doodles-gallery" class="kids-doodles-gallery"></div>
         </section>
 
-        <section class="kids-parent-badges glass" role="region" aria-label="Badges earned">
-          <h2 class="kids-section-title">Badges Earned</h2>
-          <div id="parent-badges-list" class="kids-badges-list"></div>
-        </section>
+        <!-- Badges removed — replaced by gentle noticing. The heart of this page is conversation, not points. -->
 
-        <section class="kids-parent-favorites glass" role="region" aria-label="Kid's favorite stories">
-          <h2 class="kids-section-title">❤️ Your Kid's Favorites</h2>
-          <p class="kids-parent-favorites-desc">Stories they've explored in the Library — talk about them together!</p>
-          <p id="parent-favorites-empty-copy" class="kids-no-favorites">No stories viewed yet. Explore one together in <a href="corner.html">Kids Story Library</a> and it will show up here.</p>
+        <section class="kids-parent-favorites glass" role="region" aria-label="Stories worth noticing together">
+          <h2 class="kids-section-title">Stories Worth Noticing Together</h2>
+          <p class="kids-parent-favorites-desc">The ones that stayed with them. A quiet question is often enough.</p>
+          <p id="parent-favorites-empty-copy" class="kids-no-favorites">When your child opens a story in the Library, it will appear here.<br><br>Nothing to track — just gentle memories to talk about when the moment feels right.</p>
           <div id="parent-favorites-grid" class="kids-parent-favorites-grid"></div>
-          <div id="parent-library-badges" class="kids-badges-row" role="status" aria-live="polite"></div>
         </section>
 
-        <p class="kids-parent-note">Data is stored locally on this device. No login required.</p>
+        <div class="note-area">
+          <h3 style="margin-top:0; color:var(--earth);">A quiet note from today</h3>
+          <textarea id="family-note" placeholder="What touched your heart today? What did your child notice or say? Write it here if you like..."></textarea>
+        </div>
+
+        <p class="kids-parent-note">Everything stays on this device. No login. No cloud. Just for your family.</p>
       </div>
     </main>
 

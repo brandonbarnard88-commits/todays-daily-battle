@@ -146,6 +146,7 @@ const rootFiles = [
   'word-study.js',
   'verse-study.js',
   'verse-narration.js',
+  'family-verse-bridge.js',
   'kjv-lexicon.json',
   'mystudy.js',
   'what-god-has-done.js',

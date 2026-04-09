@@ -1,0 +1,235 @@
+# Test 20260309
+# --- Production: internal / dev HTML ---
+# /admin is intentionally re-enabled only behind Cloudflare Access + workers/admin-guard.js.
+/admin /admin.html 200!
+/admin/ /admin.html 200!
+/test-search-diagnosis.html /blocked.html 404
+/test-search-diagnosis /blocked.html 404
+/stats.html /blocked.html 404
+/stats /blocked.html 404
+/secrets /secrets.html 200!
+/mystudy /mystudy.html 200!
+/mystudy/ /mystudy.html 200!
+/mystudy.html /mystudy 301
+/message /prayer-wall.html?tab=with-others 302
+/message/ /prayer-wall.html?tab=with-others 302
+/message.html /prayer-wall.html?tab=with-others 302
+/kids/kids-beta.html /blocked.html 404
+/kids/kids-beta /blocked.html 404
+/debug /blocked.html 404
+/debug.html /blocked.html 404
+
+# Force clean URLs for topics (Cloudflare Pages: must be in dist/ root)
+/topic-anxiety /topic-anxiety.html 200!
+/topic-hope /topic-hope.html 200!
+/topic-strength /topic-strength.html 200!
+/topic-fear /topic-fear.html 200!
+/topic-forgiveness /topic-forgiveness.html 200!
+/topic-grief /topic-grief.html 200!
+/topic-parenting /topic-parenting.html 200!
+/topic-loneliness /topic-loneliness.html 200!
+/topic-worthless /topic-worthless.html 200!
+/topic-guilt /topic-guilt.html 200!
+/topic-overwhelmed /topic-overwhelmed.html 200!
+# Spanish topical: 302 → .html?tdb_cb=… (nuclear cache-bust at edge; canonical in HTML stays bare .html)
+/ansiedad /ansiedad.html?tdb_cb=20260328esNav 302
+/ansiedad/ /ansiedad.html?tdb_cb=20260328esNav 302
+/fuerza /fuerza.html?tdb_cb=20260328esNav 302
+/fuerza/ /fuerza.html?tdb_cb=20260328esNav 302
+/paz /paz.html?tdb_cb=20260328esNav 302
+/paz/ /paz.html?tdb_cb=20260328esNav 302
+/miedo /miedo.html?tdb_cb=20260328esNav 302
+/miedo/ /miedo.html?tdb_cb=20260328esNav 302
+/soledad /soledad.html?tdb_cb=20260328esNav 302
+/soledad/ /soledad.html?tdb_cb=20260328esNav 302
+/culpa /culpa.html?tdb_cb=20260328esNav 302
+/culpa/ /culpa.html?tdb_cb=20260328esNav 302
+/agobio /agobio.html?tdb_cb=20260328esNav 302
+/agobio/ /agobio.html?tdb_cb=20260328esNav 302
+/esperanza /esperanza.html?tdb_cb=20260328esNav 302
+/esperanza/ /esperanza.html?tdb_cb=20260328esNav 302
+/planes /planes.html?tdb_cb=20260328esNav 302
+/planes/ /planes.html?tdb_cb=20260328esNav 302
+/verso /verso.html?tdb_cb=20260403esTools 302
+/verso/ /verso.html?tdb_cb=20260403esTools 302
+/biblia /biblia.html?tdb_cb=20260403esTools 302
+/biblia/ /biblia.html?tdb_cb=20260403esTools 302
+/muro /muro.html?tdb_cb=20260328esNav 302
+/muro/ /muro.html?tdb_cb=20260328esNav 302
+/lector /lector.html?tdb_cb=20260328esNav 302
+/lector/ /lector.html?tdb_cb=20260328esNav 302
+/ninos /ninos.html?tdb_cb=20260328esNav 302
+/ninos/ /ninos.html?tdb_cb=20260328esNav 302
+/ira /ira.html?tdb_cb=20260328esNav 302
+/ira/ /ira.html?tdb_cb=20260328esNav 302
+/duelo /duelo.html?tdb_cb=20260328esNav 302
+/duelo/ /duelo.html?tdb_cb=20260328esNav 302
+/perdon /perdon.html?tdb_cb=20260328esNav 302
+/perdon/ /perdon.html?tdb_cb=20260328esNav 302
+# Kids Battle (reversible: everything in kids/ folder)
+/kids /kids/index.html 200!
+/kids/ /kids/index.html 200!
+/kids-battle /kids/ 302
+/kids-battle/parent /kids/parent.html 302
+# Library → Kids Corner (merge)
+/kids/library /kids/corner.html 301
+/kids/library.html /kids/corner.html 301
+# Root /corner.html → Kids Story Library (fix 404 when linked without /kids/)
+/corner.html /kids/corner.html 301
+
+# Pinterest / shareable KJV verse images
+/verse-cards /verse-cards/index.html 200!
+/verse-cards/ /verse-cards/index.html 200!
+
+# Short verse link (QR on verse cards)
+/v /v.html 200!
+/v/ /v.html 200!
+
+# Spanish hub (/es/ → index; pairs with root ansiedad/fuerza/paz pages)
+/es /es/index.html 200!
+/es/ /es/index.html 200!
+
+# French hub (/fr/ → index; avoids 404 on folder URL)
+/fr /fr/index.html 200!
+/fr/ /fr/index.html 200!
+
+# Indonesian hub (/id/ → index; pilots expand from here)
+/id /id/index.html 200!
+/id/ /id/index.html 200!
+
+# Russian hub (/ru/ → index)
+/ru /ru/index.html 200!
+/ru/ /ru/index.html 200!
+
+# Chinese hub (/zh/ → index)
+/zh /zh/index.html 200!
+/zh/ /zh/index.html 200!
+
+# Hindi hub (/hi/ → index)
+/hi /hi/index.html 200!
+/hi/ /hi/index.html 200!
+
+# Portuguese hub (/pt/ → index; avoids 404 on folder URL)
+/pt /pt/index.html 200!
+/pt/ /pt/index.html 200!
+# Portuguese topical + shells (clean URLs → .html in dist/pt/)
+/pt/ansiedade /pt/ansiedade.html 200!
+/pt/ansiedade/ /pt/ansiedade.html 200!
+/pt/esperanca /pt/esperanca.html 200!
+/pt/esperanca/ /pt/esperanca.html 200!
+/pt/medo /pt/medo.html 200!
+/pt/medo/ /pt/medo.html 200!
+/pt/forca /pt/forca.html 200!
+/pt/forca/ /pt/forca.html 200!
+/pt/paz /pt/paz.html 200!
+/pt/paz/ /pt/paz.html 200!
+/pt/solidao /pt/solidao.html 200!
+/pt/solidao/ /pt/solidao.html 200!
+/pt/culpa /pt/culpa.html 200!
+/pt/culpa/ /pt/culpa.html 200!
+/pt/sobrecarga /pt/sobrecarga.html 200!
+/pt/sobrecarga/ /pt/sobrecarga.html 200!
+/pt/planos /pt/planos.html 200!
+/pt/planos/ /pt/planos.html 200!
+/pt/mural /pt/mural.html 200!
+/pt/mural/ /pt/mural.html 200!
+/pt/leitor /pt/leitor.html 200!
+/pt/leitor/ /pt/leitor.html 200!
+/pt/criancas /pt/criancas.html 200!
+/pt/criancas/ /pt/criancas.html 200!
+/pt/privacy /pt/privacy.html 200!
+/pt/privacy/ /pt/privacy.html 200!
+/pt/terms /pt/terms.html 200!
+/pt/terms/ /pt/terms.html 200!
+
+# Bible Hub (combined Bible Study + Tools)
+/bible /bible/index.html 200!
+/bible/ /bible/index.html 200!
+
+# Pastor Hub
+/pastor /pastor/index.html 200!
+/pastor/ /pastor/index.html 200!
+
+# Church Hub
+/church /church/index.html 200!
+/church/ /church/index.html 200!
+/church/daily /church/daily.html 200!
+
+# Family Armor (dedicated page + workspace CTA on home)
+/family-armor /family-armor.html 200!
+/family-armor/ /family-armor.html 200!
+
+# Battle Plans
+/plans /plans.html 200!
+/plans/ /plans.html 200!
+
+# Why not AI (moat page — clean URL + trailing slash)
+/why-not-ai /why-not-ai.html 200!
+/why-not-ai/ /why-not-ai.html 200!
+
+# Auth routes
+/login /login.html 200!
+
+# Build stamp: prefer static file in dist (avoids SPA-style 404 HTML for /build-date.txt)
+/build-date.txt /build-date.txt 200!
+
+# Block package.json from public (security)
+/package.json  /404.html  404
+
+# Legacy loop URLs → Möbius Text Mode
+/morpheus-loop /mobius.html?mode=text 301
+/morpheus-loop.html /mobius.html?mode=text 301
+
+# Alternate spellings / short paths
+/moebius /mobius.html 301
+/moebius/ /mobius.html 301
+/moebius.html /mobius.html 301
+
+# Progress dashboard alias (same local streaks & plans UI)
+/dashboard /progress.html 302
+/dashboard/ /progress.html 302
+/dashboard.html /progress.html 302
+
+# Steady-now KJV sheet (not emergency services)
+/sos /sos.html 200!
+/sos/ /sos.html 302
+
+# 301 redirects for broken/legacy paths (enforce, no conflicts)
+/anxiety /about.html 301
+/our-approach /about.html 301
+/contract /faq.html 301
+
+# Donation/support (301). Legacy support paths now land on the calm support page.
+/give /give.html 301
+/donate https://buymeacoffee.com/todaysdailybattle 301
+/stripe https://buymeacoffee.com/todaysdailybattle 301
+/support https://buymeacoffee.com/todaysdailybattle 301
+/donations https://buymeacoffee.com/todaysdailybattle 301
+/donations/* https://buymeacoffee.com/todaysdailybattle 301
+
+# Payment bot probes and old support guesses → support page (reduces 4xx noise)
+/donate/* /give.html 301
+/stripe/* /give.html 301
+/checkout /give.html 301
+/checkout/* /give.html 301
+/payment /give.html 301
+/payment/* /give.html 301
+/billing /give.html 301
+/buymeacoffee /give.html 301
+/coffee /give.html 301
+/premium /pricing.html 301
+# Site-wide hand-built page list (search.html). Legacy /search used to send people to home Feel search.
+/search /search.html 200!
+/search/ /search.html 302
+/where-support-goes /where-support-goes.html 200!
+/where-support-goes/ /where-support-goes.html 200!
+/journal /journal/index.html 200!
+/journal/ /journal/index.html 200!
+/journal/anxiety-before-tomorrow /journal/anxiety-before-tomorrow.html 200!
+/journal/forgiveness-when-you-replay-it /journal/forgiveness-when-you-replay-it.html 200!
+/journal/loneliness-at-night /journal/loneliness-at-night.html 200!
+/journal/peace-when-your-mind-runs /journal/peace-when-your-mind-runs.html 200!
+/prayer-wall /prayer-wall.html 301
+/prayer-wall/ /prayer-wall.html 301
+/index.html / 301
+/index / 301

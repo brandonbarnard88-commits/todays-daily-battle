@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>365-Day Bible Curriculum • Today's Daily Battle</title>
+  <meta name="description" content="One character per day—Abraham, Moses, David, Jesus, and more. Pre-God, impact, post-God. Verse modes: Quick, Pastor, Kid, Teen. Armor progress, no paywalls.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/curriculum.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="manifest" href="manifest.json">
+  <script type="module" src="config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .curriculum-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .curriculum-tabs button { padding: 0.5rem 1rem; border-radius: var(--radius-sm); background: rgba(255,255,255,0.06); color: var(--text-dark); border: 1px solid var(--border-subtle); cursor: pointer; font: inherit; }
+    .curriculum-tabs button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .curriculum-tabs button:hover:not(.active) { background: rgba(255,255,255,0.1); }
+    .curriculum-panel { display: none; }
+    .curriculum-panel.active { display: block; }
+    .curriculum-controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
+    .curriculum-controls label { display: flex; align-items: center; gap: 0.5rem; }
+    .curriculum-controls select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); color: var(--text-dark); border: 1px solid var(--border-subtle); font: inherit; }
+    .curriculum-story { margin-bottom: 1.5rem; }
+    .curriculum-story h2 { font-family: var(--font-display); margin: 0 0 0.5rem; color: var(--elite-gold-solid); }
+    .curriculum-story .story-meta { font-size: 0.9rem; opacity: 0.85; margin-bottom: 1rem; }
+    .curriculum-story .story-block { margin-bottom: 1rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); border-left: 3px solid var(--primary); }
+    .curriculum-story .story-block strong { display: block; margin-bottom: 0.25rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.9; }
+    .curriculum-verse { padding: 1rem; background: rgba(212,175,55,0.08); border-radius: var(--radius-sm); border: 1px solid var(--elite-gold-dim); margin: 1rem 0; }
+    .curriculum-verse .verse-ref { font-weight: 600; color: var(--elite-gold-solid); }
+    .curriculum-verse .verse-text { font-style: italic; margin: 0.5rem 0; }
+    .curriculum-verse .verse-mode { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); font-size: 0.95rem; }
+    .curriculum-armor { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; }
+    .curriculum-avatar {
+      width: 126px;
+      height: 126px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      border: 1px solid rgba(248,250,252,0.22);
+      background:
+        radial-gradient(circle at 30% 18%, rgba(253,230,138,0.32), transparent 48%),
+        linear-gradient(160deg, rgba(30,41,59,0.94), rgba(15,23,42,0.96));
+      box-shadow:
+        0 14px 34px rgba(2,6,23,0.6),
+        0 0 0 1px rgba(255,255,255,0.05) inset;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .curriculum-avatar::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: conic-gradient(from 180deg, rgba(125,211,252,0.28), rgba(250,204,21,0.34), rgba(167,139,250,0.28), rgba(125,211,252,0.28));
+      opacity: 0.5;
+      filter: blur(0.8px);
+      animation: curriculumAvatarSpin 12s linear infinite;
+      z-index: -1;
+    }
+    .curriculum-avatar.helmet { box-shadow: 0 0 0 1px rgba(125,211,252,0.64) inset, 0 14px 34px rgba(2,6,23,0.62), 0 0 20px rgba(125,211,252,0.25); }
+    .curriculum-avatar.breastplate { box-shadow: 0 0 0 1px rgba(244,114,182,0.62) inset, 0 14px 34px rgba(2,6,23,0.62), 0 0 20px rgba(244,114,182,0.22); }
+    .curriculum-avatar.belt { box-shadow: 0 0 0 1px rgba(52,211,153,0.62) inset, 0 14px 34px rgba(2,6,23,0.62), 0 0 20px rgba(52,211,153,0.22); }
+    .curriculum-avatar.shield { box-shadow: 0 0 0 1px rgba(250,204,21,0.64) inset, 0 16px 36px rgba(2,6,23,0.64), 0 0 22px rgba(250,204,21,0.24); }
+    .curriculum-avatar.sword { box-shadow: 0 0 0 1px rgba(250,204,21,0.74) inset, 0 18px 40px rgba(2,6,23,0.7), 0 0 28px rgba(56,189,248,0.28), 0 0 26px rgba(250,204,21,0.28); }
+    @keyframes curriculumAvatarSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .curriculum-checkpoints { list-style: none; padding: 0; margin: 0; }
+    .curriculum-checkpoints li { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .curriculum-checkpoints .check { color: #4ade80; }
+    .curriculum-checkpoints .lock { color: rgba(255,255,255,0.4); }
+    .curriculum-map-teaser { padding: 1rem; background: rgba(212,175,55,0.06); border-radius: var(--radius-sm); border: 1px dashed var(--elite-gold-dim); margin-top: 1rem; }
+    .curriculum-map-teaser p { margin: 0; font-size: 0.95rem; }
+    .curriculum-nav { display: flex; gap: 0.5rem; margin-top: 1rem; }
+    .curriculum-nav button { padding: 0.5rem 1rem; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: var(--text-dark); cursor: pointer; font: inherit; }
+    .curriculum-nav button:hover { background: rgba(255,255,255,0.12); }
+    .curriculum-nav button:disabled { opacity: 0.5; cursor: not-allowed; }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">365-Day Curriculum</span>
+      </div>
+      <nav class="header-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="bible-study.html">Bible Studies</a>
+        <a href="bible-tool.html">Bible Tool</a>
+        <a href="/#quick-search-hero">Toolbox</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <section class="glass curriculum-section">
+          <h1 class="section-divider">365-Day Bible Curriculum</h1>
+          <p class="section-note">One character per day—Abraham, Moses, David, Jesus, then majors. Pre-God life, impact, post-God outcome. All KJV. No paywalls.</p>
+          <p class="section-note">Need school or church pacing? Open the <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 weekly + daily map</a> and the <a href="church-sharing-kit.html#csk-homeschool-year-round">Church sharing kit school lane</a>.</p>
+
+          <div class="curriculum-tabs" role="tablist" aria-label="Curriculum sections">
+            <button type="button" role="tab" aria-selected="true" data-curriculum-tab="story" class="active">Story</button>
+            <button type="button" role="tab" aria-selected="false" data-curriculum-tab="armor">Armor</button>
+            <button type="button" role="tab" aria-selected="false" data-curriculum-tab="map">Streets of Gold</button>
+          </div>
+
+          <div id="curriculum-story-panel" class="curriculum-panel active" role="tabpanel">
+            <div class="curriculum-controls">
+              <label>
+                Day <input type="number" id="curriculum-day-input" min="1" max="365" value="1" aria-label="Day number">
+                <span id="curriculum-day-of">of 365</span>
+              </label>
+              <label>
+                Verse Mode
+                <select id="curriculum-verse-mode" aria-label="Verse mode">
+                  <option value="quick">Quick (layman today-tie-in)</option>
+                  <option value="pastor">Pastor (context/sermon hook)</option>
+                  <option value="kid">Kid (red-letter, love/hope only)</option>
+                  <option value="teen">Teen (school/friends real-talk)</option>
+                </select>
+              </label>
+            </div>
+
+            <div id="curriculum-content" class="curriculum-story">
+              <p class="section-note">Loading…</p>
+            </div>
+
+            <div class="curriculum-nav">
+              <button type="button" id="curriculum-prev" aria-label="Previous day">← Prev</button>
+              <button type="button" id="curriculum-today" aria-label="Go to today's day">Today</button>
+              <button type="button" id="curriculum-next" aria-label="Next day">Next →</button>
+            </div>
+          </div>
+
+          <div id="curriculum-armor-panel" class="curriculum-panel" role="tabpanel">
+            <h2 class="section-divider">Armor Progress</h2>
+            <p class="section-note">Avatar starts plain iron. Complete days to unlock: Helmet (wisdom), Shield (Ten Commandments), Sword (faith/hope/love).</p>
+            <div class="curriculum-armor">
+              <div id="curriculum-avatar-wrap">
+                <div id="curriculum-avatar" class="curriculum-avatar" aria-label="Armor avatar">⚔</div>
+              </div>
+              <ul class="curriculum-checkpoints" aria-label="Armor checkpoints">
+                <li id="check-helmet"><span class="lock" aria-hidden="true">🔒</span> Helmet of Wisdom — Day 73</li>
+                <li id="check-breastplate"><span class="lock" aria-hidden="true">🔒</span> Breastplate of Righteousness — Day 146</li>
+                <li id="check-belt"><span class="lock" aria-hidden="true">🔒</span> Belt of Truth — Day 219</li>
+                <li id="check-shield"><span class="lock" aria-hidden="true">🔒</span> Shield (Ten Commandments slab) — Day 292</li>
+                <li id="check-sword"><span class="lock" aria-hidden="true">🔒</span> Sword (cross + faith/hope/love) — Day 365</li>
+              </ul>
+            </div>
+            <p class="section-note util-mt-1">Complete days to unlock pieces. Family links share progress.</p>
+          </div>
+
+          <div id="curriculum-map-panel" class="curriculum-panel" role="tabpanel">
+            <h2 class="section-divider">Streets of Gold</h2>
+            <p class="section-note">Family-linked avatars appear here. Complete the curriculum together—see your household on the map.</p>
+            <div class="curriculum-map-teaser">
+              <p>Link your household from <a href="/family-armor.html">Family Armor</a> to see avatars and progress on the streets of gold. No paywall—free for all.</p>
+            </div>
+          </div>
+        </section>
+        <p class="section-note util-mt-1"><a href="/">← Back to Home</a> · <a href="/#quick-search-hero">Toolbox</a> · <a href="bible-study.html">Bible Studies</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Verse</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, read <a href="/where-support-goes.html">where support goes</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Need the current support path? Use the <a href="/give" aria-label="Open the support page">support page</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/kids-corner.html">Kids corner</a>
+        <a href="/kids/?v=hub20260321">Kids battle</a>
+        <a href="/coloring.html">Kids coloring</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 9, 2026</span></p>
+  <script defer src="/language-switcher.js"></script>
+</footer>
+  </div>
+
+  <script src="verse-breakdown.js?v=20260405-relations-fix" defer></script>
+  <script src="curriculum.js?v=20260305"></script>
+</body>
+</html>

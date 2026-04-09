@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260402a11y"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team Toolkit • Today's Daily Battle</title>
+  <meta name="description" content="Ministry team tools: group calendar, attendance tracker, resource library, prayer chain, and verse packs. Built for churches and small groups.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/team-toolkit.html">
+  <meta property="og:title" content="Team Toolkit • Today's Daily Battle">
+  <meta property="og:description" content="Calendar, attendance, resource library, prayer chain, and verse packs for your church or small group.">
+  <meta property="og:url" content="https://todaysdailybattle.com/team-toolkit.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Team Toolkit • Today's Daily Battle">
+  <meta name="twitter:description" content="Calendar, attendance, resource library, prayer chain, and verse packs for your church or small group.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       TEAM TOOLKIT v2 — LOCAL STYLES
+    ═══════════════════════════════════════════════════════ */
+
+    /* ── Tabs ──────────────────────────────────────────── */
+    .tt-tabs {
+      display: flex; gap: 0.4rem; flex-wrap: wrap;
+      margin-bottom: 1.4rem;
+    }
+    .tt-tab {
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--line, rgba(255,255,255,0.12));
+      background: transparent;
+      color: var(--muted, #94a3b8);
+      font-size: 0.84rem; font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .tt-tab[aria-selected="true"] {
+      border-color: var(--gold, #e3bc67);
+      color: var(--gold, #e3bc67);
+      background: rgba(227,188,103,0.08);
+    }
+    .tt-panel { display: none; }
+    .tt-panel.active { display: block; }
+
+    /* ── Shared form helpers ──────────────────────────── */
+    .tt-form { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+    .tt-row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .tt-input {
+      flex: 1; min-width: 140px;
+      padding: 0.55rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--line, rgba(255,255,255,0.12));
+      background: var(--bg-soft, rgba(255,255,255,0.04));
+      color: var(--text, #e2e8f0);
+      font-size: 0.9rem;
+    }
+    .tt-input:focus { outline: none; border-color: var(--gold,#e3bc67); }
+    .tt-select {
+      padding: 0.55rem 0.6rem;
+      border-radius: 10px;
+      border: 1px solid var(--line, rgba(255,255,255,0.12));
+      background: var(--bg-soft, rgba(255,255,255,0.06));
+      color: var(--text, #e2e8f0);
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+    .tt-select:focus { outline: none; border-color: var(--gold,#e3bc67); }
+    .tt-btn {
+      padding: 0.55rem 1.1rem;
+      border-radius: 10px;
+      border: 1px solid var(--gold, #e3bc67);
+      background: rgba(227,188,103,0.1);
+      color: var(--gold, #e3bc67);
+      font-size: 0.88rem; font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .tt-btn:hover { background: rgba(227,188,103,0.2); }
+    .tt-btn:focus-visible { background: rgba(227,188,103,0.2); }
+    .tt-btn-sm { padding: 0.3rem 0.65rem; font-size: 0.78rem; border-radius: 7px; }
+    .tt-btn-danger { border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.08); color: #f87171; }
+    .tt-btn-danger:hover { background: rgba(239,68,68,0.16); }
+    .tt-btn-ghost { border-color: var(--line, rgba(255,255,255,0.12)); background: transparent; color: var(--muted, #94a3b8); }
+    .tt-btn-ghost:hover { border-color: var(--gold,#e3bc67); color: var(--text,#e2e8f0); }
+    .tt-btn-green { border-color: rgba(34,197,94,0.5); background: rgba(34,197,94,0.08); color: #4ade80; }
+
+    /* ── Mini-calendar picker ──────────────────────────── */
+    .mini-cal-wrap { position: relative; display: inline-block; }
+    .mini-cal-trigger {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--line, rgba(255,255,255,0.12));
+      background: var(--bg-soft, rgba(255,255,255,0.04));
+      color: var(--text, #e2e8f0);
+      font-size: 0.9rem;
+      cursor: pointer;
+      min-width: 140px;
+    }
+    .mini-cal-trigger:focus { outline: none; }
+    .mini-cal {
+      position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 50;
+      background: var(--card, #161b27);
+      border: 1px solid var(--line, rgba(255,255,255,0.12));
+      border-radius: 14px;
+      padding: 0.75rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      min-width: 260px;
+      user-select: none;
+    }
+    .mini-cal[hidden] { display: none; }
+    .mini-cal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .mini-cal-title { font-size: 0.9rem; font-weight: 700; color: var(--gold,#e3bc67); }
+    .mini-cal-nav {
+      background: none; border: none; color: var(--muted,#94a3b8);
+      cursor: pointer; font-size: 1.1rem; padding: 0.15rem 0.4rem;
+      border-radius: 6px;
+    }
+    .mini-cal-nav:hover { color: var(--text,#e2e8f0); background: rgba(255,255,255,0.07); }
+    .mini-cal-grid {
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+    .mini-cal-dow {
+      font-size: 0.65rem; color: var(--muted,#94a3b8);
+      text-align: center; padding: 0.15rem 0; text-transform: uppercase;
+    }
+    .mini-cal-day {
+      font-size: 0.82rem; text-align: center;
+      padding: 0.3rem 0.1rem;
+      border-radius: 7px;
+      cursor: pointer;
+      color: var(--text,#e2e8f0);
+      line-height: 1.4;
+    }
+    .mini-cal-day:hover { background: rgba(227,188,103,0.15); }
+    .mini-cal-day.today { border: 1px solid rgba(227,188,103,0.4); }
+    .mini-cal-day.selected { background: var(--gold,#e3bc67); color: #0a0e18; font-weight: 700; }
+    .mini-cal-day.other-month { color: var(--muted,#94a3b8); opacity: 0.45; }
+    .mini-cal-day.empty { cursor: default; }
+
+    /* ── Calendar v2 ───────────────────────────────────── */
+    .cal-group-label {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--muted,#94a3b8);
+      margin: 1rem 0 0.4rem;
+    }
+    .cal-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .cal-event {
+      border: 1px solid var(--line, rgba(255,255,255,0.1));
+      border-left-width: 4px;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      background: var(--bg-soft, rgba(255,255,255,0.03));
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      position: relative; overflow: hidden;
+      transition: transform 0.18s ease;
+    }
+    /* color border variants */
+    .cal-event[data-color="blue"]   { border-left-color: #60a5fa; }
+    .cal-event[data-color="green"]  { border-left-color: #4ade80; }
+    .cal-event[data-color="purple"] { border-left-color: #c084fc; }
+    .cal-event[data-color="orange"] { border-left-color: #fb923c; }
+    .cal-event[data-color="gray"]   { border-left-color: #94a3b8; }
+    /* swipe-delete reveal */
+    .cal-event .cal-swipe-del {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 72px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(239,68,68,0.85);
+      color: #fff; font-size: 0.8rem; font-weight: 700;
+      border-radius: 0 12px 12px 0;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.15s;
+    }
+    .cal-event.swiped-left .cal-swipe-del { opacity: 1; pointer-events: auto; }
+    .cal-event.swiped-left { transform: translateX(-72px); }
+    .cal-event-date {
+      flex-shrink: 0; text-align: center;
+      background: rgba(227,188,103,0.1);
+      border: 1px solid rgba(227,188,103,0.2);
+      border-radius: 10px;
+      padding: 0.3rem 0.55rem;
+      min-width: 44px;
+    }
+    .cal-event-month { font-size: 0.62rem; color: var(--gold,#e3bc67); text-transform: uppercase; letter-spacing: 0.06em; display: block; }
+    .cal-event-day { font-size: 1.25rem; font-weight: 700; color: var(--gold,#e3bc67); line-height: 1; }
+    .cal-event-body { flex: 1; min-width: 0; }
+    .cal-event-title { font-weight: 600; font-size: 0.95rem; color: var(--text,#e2e8f0); margin-bottom: 0.1rem; }
+    .cal-event-time { font-size: 0.77rem; color: var(--muted,#94a3b8); margin-bottom: 0.15rem; }
+    .cal-event-desc { font-size: 0.81rem; color: var(--muted,#94a3b8); }
+    .cal-event-recurring { font-size: 0.7rem; color: var(--muted,#64748b); margin-top: 0.15rem; }
+    .cal-event-actions { display: flex; gap: 0.35rem; margin-top: 0.45rem; flex-wrap: wrap; }
+    .cal-empty-state {
+      text-align: center; padding: 2.5rem 1rem;
+      color: var(--muted,#94a3b8);
+    }
+    .cal-empty-state-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .cal-empty-state p { font-size: 0.9rem; margin-bottom: 1rem; }
+    .cal-empty-add-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 12px;
+      border: 1px solid var(--gold,#e3bc67);
+      background: rgba(227,188,103,0.1);
+      color: var(--gold,#e3bc67);
+      font-size: 0.95rem; font-weight: 700;
+      cursor: pointer;
+    }
+    .cal-empty-add-btn:hover { background: rgba(227,188,103,0.2); }
+
+    /* ── Attendance v2 ─────────────────────────────────── */
+    .att-date-strip {
+      display: flex; gap: 0.4rem; flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .att-date-chip {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted,#94a3b8);
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .att-date-chip.active, .att-date-chip:hover {
+      border-color: var(--gold,#e3bc67);
+      color: var(--gold,#e3bc67);
+    }
+    .att-meta { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.8rem; }
+    .att-stats { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .att-stat {
+      padding: 0.45rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--bg-soft, rgba(255,255,255,0.03));
+      text-align: center; min-width: 72px;
+    }
+    .att-stat-val { font-size: 1.4rem; font-weight: 700; color: var(--gold,#e3bc67); }
+    .att-stat-lbl { font-size: 0.68rem; color: var(--muted,#94a3b8); text-transform: uppercase; letter-spacing: 0.05em; }
+    .att-table { width: 100%; border-collapse: collapse; }
+    .att-table th { font-size: 0.75rem; color: var(--muted,#94a3b8); text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--line); }
+    .att-table td { padding: 0.5rem 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+    .att-table tr:last-child td { border-bottom: none; }
+    .att-check {
+      width: 24px; height: 24px; border-radius: 7px;
+      border: 1px solid var(--line); background: var(--bg-soft);
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 0.88rem;
+      transition: background 0.12s, border-color 0.12s;
+    }
+    .att-check[data-checked="true"] { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.6); color: #4ade80; }
+    .att-streak { font-size: 0.72rem; color: #fb923c; margin-left: 0.35rem; white-space: nowrap; }
+    .att-remove { background: none; border: none; color: var(--muted,#94a3b8); cursor: pointer; font-size: 0.8rem; padding: 0; line-height: 1; }
+    .att-remove:hover { color: #f87171; }
+
+    /* ── Resource Library v2 ───────────────────────────── */
+    .lib-toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; align-items: center; }
+    .lib-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.75rem; margin-top: 0.5rem;
+    }
+    .lib-card {
+      border: 1px solid var(--line, rgba(255,255,255,0.1));
+      border-radius: 12px; padding: 0.8rem;
+      background: var(--bg-soft, rgba(255,255,255,0.03));
+      display: flex; flex-direction: column; gap: 0.35rem;
+    }
+    .lib-thumb { width: 100%; height: 80px; object-fit: cover; border-radius: 7px; margin-bottom: 0.25rem; }
+    .lib-icon { font-size: 2rem; text-align: center; }
+    .lib-name {
+      font-size: 0.82rem; font-weight: 600; color: var(--text,#e2e8f0);
+      word-break: break-word; text-align: center;
+      border-radius: 4px; padding: 1px 3px;
+    }
+    .lib-name[contenteditable="true"] {
+      outline: 1px solid rgba(227,188,103,0.5);
+      background: rgba(227,188,103,0.06);
+    }
+    .lib-size { font-size: 0.7rem; color: var(--muted,#94a3b8); text-align: center; }
+    .lib-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; justify-content: center; min-height: 22px; }
+    .lib-tag {
+      font-size: 0.65rem; font-weight: 600;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(227,188,103,0.3);
+      background: rgba(227,188,103,0.08);
+      color: var(--gold,#e3bc67);
+      cursor: pointer;
+    }
+    .lib-tag-del { opacity: 0.6; margin-left: 2px; cursor: pointer; }
+    .lib-tag-input {
+      font-size: 0.7rem; padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(227,188,103,0.3);
+      background: transparent; color: var(--muted,#94a3b8);
+      width: 80px;
+    }
+    .lib-actions { display: flex; gap: 0.3rem; justify-content: center; margin-top: 0.25rem; flex-wrap: wrap; }
+    .lib-progress { height: 4px; border-radius: 99px; background: var(--line); margin: 0.3rem 0; overflow: hidden; }
+    .lib-progress-bar { height: 100%; border-radius: 99px; background: var(--gold,#e3bc67); width: 0; transition: width 0.2s; }
+    .lib-quota { font-size: 0.75rem; color: var(--muted,#94a3b8); margin-bottom: 0.3rem; }
+    .lib-quota-bar { height: 4px; border-radius: 99px; background: var(--line); margin: 0.15rem 0 0.5rem; overflow: hidden; }
+    .lib-quota-fill { height: 100%; border-radius: 99px; background: rgba(227,188,103,0.6); transition: width 0.3s; }
+    .lib-empty { text-align: center; color: var(--muted,#94a3b8); padding: 2rem 0; font-size: 0.9rem; }
+
+    /* ── Prayer Chain v2 ───────────────────────────────── */
+    .chain-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .chain-card {
+      border: 1px solid rgba(239,68,68,0.2);
+      border-left-width: 4px;
+      border-left-color: rgba(239,68,68,0.5);
+      border-radius: 12px; padding: 0.75rem 1rem;
+      background: rgba(239,68,68,0.03);
+    }
+    .chain-card.urgency-medium {
+      border-left-color: rgba(251,146,60,0.7);
+      border-color: rgba(251,146,60,0.2);
+      background: rgba(251,146,60,0.03);
+    }
+    .chain-card.urgency-low {
+      border-left-color: rgba(148,163,184,0.5);
+      border-color: rgba(148,163,184,0.15);
+      background: rgba(148,163,184,0.03);
+    }
+    .chain-card.chain-answered {
+      border-left-color: rgba(34,197,94,0.5);
+      border-color: rgba(34,197,94,0.15);
+      background: rgba(34,197,94,0.03);
+      opacity: 0.75;
+    }
+    .chain-title { font-weight: 700; font-size: 0.95rem; color: var(--text,#e2e8f0); }
+    .chain-desc { font-size: 0.82rem; color: var(--muted,#94a3b8); margin: 0.2rem 0 0.4rem; }
+    .chain-meta { font-size: 0.71rem; color: var(--muted,#64748b); }
+    .chain-poster { font-size: 0.72rem; color: var(--muted,#94a3b8); margin-top: 0.1rem; }
+    .chain-prayed-by { font-size: 0.75rem; color: #4ade80; margin-top: 0.2rem; }
+    .chain-actions { display: flex; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap; }
+    .chain-answered-section { margin-top: 1.25rem; }
+    .chain-answered-toggle {
+      background: none; border: none; color: var(--muted,#94a3b8);
+      font-size: 0.8rem; cursor: pointer; padding: 0;
+    }
+    .chain-answered-toggle:hover { color: var(--text,#e2e8f0); }
+
+    /* ── Verse Packs ───────────────────────────────────── */
+    .vp-verse-today {
+      border: 1px solid rgba(227,188,103,0.3);
+      border-left: 4px solid var(--gold,#e3bc67);
+      border-radius: 12px; padding: 1rem 1.1rem;
+      background: rgba(227,188,103,0.05);
+      margin-bottom: 1rem;
+    }
+    .vp-verse-today-ref { font-size: 0.78rem; color: var(--gold,#e3bc67); font-weight: 700; margin-bottom: 0.3rem; }
+    .vp-verse-today-text { font-size: 0.95rem; color: var(--text,#e2e8f0); line-height: 1.6; font-style: italic; }
+    .vp-verse-today-pack { font-size: 0.72rem; color: var(--muted,#94a3b8); margin-top: 0.3rem; }
+    .vp-gate { max-width: 320px; }
+    .vp-pack-card {
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 0.75rem 1rem;
+      background: var(--bg-soft, rgba(255,255,255,0.03));
+      display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    .vp-pack-name { font-weight: 600; font-size: 0.92rem; color: var(--text,#e2e8f0); flex: 1; min-width: 100px; }
+    .vp-pack-count { font-size: 0.75rem; color: var(--muted,#94a3b8); }
+    .vp-pack-active { font-size: 0.7rem; font-weight: 700; color: #4ade80; text-transform: uppercase; letter-spacing: 0.06em; }
+    .vp-pack-actions { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+    .vp-import-row { margin-top: 0.5rem; }
+
+    /* ── Onboarding banner ─────────────────────────────── */
+    .tt-onboard {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      border: 1px solid rgba(227,188,103,0.3);
+      border-left: 4px solid var(--gold, #e3bc67);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      background: rgba(227,188,103,0.06);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .tt-onboard-icon { font-size: 1.6rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
+    .tt-onboard-body { flex: 1; min-width: 0; }
+    .tt-onboard-title { font-size: 0.92rem; font-weight: 700; color: var(--gold, #e3bc67); margin-bottom: 0.25rem; }
+    .tt-onboard-steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.25rem; }
+    .tt-onboard-steps li { font-size: 0.83rem; color: var(--muted, #94a3b8); padding-left: 1.2em; position: relative; }
+    .tt-onboard-steps li::before { content: "→"; position: absolute; left: 0; color: var(--gold, #e3bc67); font-size: 0.75rem; top: 0.05em; }
+    .tt-onboard-dismiss {
+      position: absolute; top: 0.6rem; right: 0.7rem;
+      background: none; border: none;
+      color: var(--muted, #94a3b8); cursor: pointer;
+      font-size: 0.9rem; padding: 0.2rem 0.35rem;
+      border-radius: 5px; line-height: 1;
+    }
+    .tt-onboard-dismiss:hover { color: var(--text, #e2e8f0); }
+
+    /* ── Privacy badge ──────────────────────────────────── */
+    .tt-privacy-badge {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.72rem; font-weight: 600;
+      color: #4ade80;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    /* ── Toast ─────────────────────────────────────────── */
+    .tt-toast {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      background: rgba(10,14,24,0.95);
+      border: 1px solid rgba(239,68,68,0.5);
+      color: #fca5a5;
+      padding: 0.6rem 1.2rem;
+      border-radius: 99px;
+      font-size: 0.85rem; font-weight: 600;
+      z-index: 500;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      pointer-events: none;
+      opacity: 1; transition: opacity 0.4s ease;
+      white-space: nowrap;
+    }
+    .tt-toast.fade-out { opacity: 0; }
+    .tt-toast.info {
+      border-color: rgba(227,188,103,0.4);
+      color: var(--gold,#e3bc67);
+    }
+
+    /* ── Layout / a11y utilities (no inline styles) ── */
+    .tt-is-hidden { display: none !important; }
+    .tt-glass-tight { margin-bottom: 1rem; }
+    .tt-flex-center-wrap { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .tt-label-field { font-size: 0.85rem; color: var(--muted, #94a3b8); white-space: nowrap; }
+    .tt-label-muted-row { font-size: 0.82rem; color: var(--muted, #94a3b8); white-space: nowrap; }
+    .tt-time-sep { color: var(--muted, #94a3b8); }
+    .tt-label-check-row {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--muted, #94a3b8); white-space: nowrap; cursor: pointer;
+    }
+    .tt-input-max220 { max-width: 220px; }
+    .tt-input-max200 { max-width: 200px; }
+    .tt-input-max180 { max-width: 180px; }
+    .tt-input-flex2 { flex: 2; min-width: 0; }
+    .tt-team-name-slot { font-size: 0.82rem; color: var(--gold, #e3bc67); }
+    .tt-note-micro { margin-top: 0.5rem; font-size: 0.78rem; }
+    .tt-row-actions { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .tt-row-mb { margin-bottom: 0.75rem; }
+    .att-th-present { width: 64px; text-align: center; }
+    .att-th-actions { width: 36px; }
+    .tt-upload-label { display: inline-flex; align-items: center; gap: 0.3rem; cursor: pointer; }
+    .tt-file-hidden { display: none !important; }
+    .chain-note-subtle { opacity: 0.55; font-size: 0.72rem; margin-top: 0.3rem; }
+    .chain-list-empty { color: var(--muted, #94a3b8); font-size: 0.88rem; padding: 1.5rem 0; text-align: center; }
+    .chain-answered-list-inner { margin-top: 0.6rem; }
+    .tt-table-empty td { color: var(--muted, #94a3b8); font-size: 0.85rem; padding: 1.2rem 0; }
+    .att-td-check { text-align: center; }
+    .lib-empty--full { grid-column: 1 / -1; }
+    .vp-gate-msg { margin-bottom: 0.5rem; }
+    .tt-vp-err { color: #f87171 !important; margin-top: 0.4rem !important; }
+    .vp-hint-foot { margin-top: 0.5rem; opacity: 0.6; font-size: 0.72rem; }
+    .vp-admin-panel { margin-top: 1.25rem; }
+    .vp-section-title { font-size: 0.9rem; font-weight: 700; color: var(--gold, #e3bc67); margin-bottom: 0.6rem; }
+    .vp-section-title--mt { margin: 1rem 0 0.6rem; }
+    .vp-pack-textarea { resize: vertical; font-family: inherit; min-height: 8rem; }
+    .tt-cursor-pointer { cursor: pointer; }
+    .vp-password-details { margin-top: 1rem; }
+    .vp-password-summary { font-size: 0.78rem; color: var(--muted, #94a3b8); cursor: pointer; }
+    .panel-comms-foot { margin-top: 1rem; }
+
+    .mini-cal-nav:focus-visible,
+    .tt-onboard-dismiss:focus-visible,
+    .tt-tab:focus-visible,
+    .tt-input:focus-visible,
+    .tt-select:focus-visible,
+    .mini-cal-trigger:focus-visible,
+    .tt-btn:focus-visible,
+    .tt-upload-label:focus-within,
+    .lib-tag-del:focus-visible,
+    .att-check:focus-visible,
+    .chain-answered-toggle:focus-visible {
+      outline: 3px solid rgba(227, 188, 103, 0.85);
+      outline-offset: 2px;
+    }
+    .vp-password-summary:focus-visible {
+      outline: 3px solid rgba(227, 188, 103, 0.85);
+      outline-offset: 2px;
+    }
+    @media (max-width: 480px) {
+      .content-inner .tt-tabs { gap: 0.3rem; margin-bottom: 1rem; }
+      .tt-tab { padding: 0.42rem 0.75rem; font-size: 0.8rem; }
+      .tt-form { gap: 0.5rem; margin-bottom: 0.85rem; }
+      .tt-row { gap: 0.4rem; }
+      .hero-banner .hero-tagline { margin-bottom: 0.65rem; }
+    }
+    @media (max-width: 430px) {
+      .content-inner {
+        min-width: 0;
+      }
+      .tt-flex-center-wrap {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.55rem;
+      }
+      .tt-input-max220,
+      .tt-input-max200,
+      .tt-input-max180 {
+        max-width: 100%;
+        width: 100%;
+      }
+      .mini-cal-trigger {
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+      }
+      .search-hero-row {
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+          </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Team Toolkit</span>
+          </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+        <a href="/verse.html">Today&rsquo;s Verse</a>
+        <a href="/#feel-section">How I Feel</a>
+        <a href="/prayer-wall.html">Pray</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <a href="/">Home</a>
+            <a href="/explore.html">Explore</a>
+            <a href="/mystudy">My Study</a>
+            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+            <a href="/plans.html">Battle Plans</a>
+            <a href="/memorize.html">Memorize</a>
+            <a href="/kids/corner.html">Kids &amp; Family</a>
+            <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+            <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+            <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+            <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+            <a href="/about.html">About</a>
+            <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            <a href="/mobius.html">Möbius</a>
+            <a href="/calm.html">Calm</a>
+            <a href="/story.html">Story</a>
+            <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+          </div>
+        </details>
+      </div>
+    </nav>
+      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+      </div>
+
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+</header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+            <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
+        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
+        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
+        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
+        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
+        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
+        <a href="/prayer-wall.html?tab=with-others" data-section="prayer" data-icon="MB">Prayer</a>
+        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
+        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      </nav>
+      <div class="sidebar-options">
+        <label class="inline-toggle">
+          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
+          Red letters
+        </label>
+          </div>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner">
+          <h1>Team Toolkit</h1>
+          <p class="hero-tagline">Calendar, attendance, files, prayer chain, verse packs — all on this device, all yours.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="church.html">Church Center</a>
+            <a class="btn btn-secondary" href="/prayer-wall.html?tab=with-others">Prayer</a>
+          </div>
+        </header>
+
+        <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
+          <label for="query" class="search-hero-label">Search by emotion or verse</label>
+          <div class="search-hero-row">
+            <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
+            <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
+          </div>
+          <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
+          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" role="region" aria-label="Quick topic search"></div>
+          <details class="home-accordion util-mt-0_5">
+            <summary class="home-accordion-summary">More topics</summary>
+            <div class="quick-actions" id="quick-actions-accordion" aria-label="All quick topics"></div>
+          </details>
+          <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
+        </section>
+
+        <!-- ── Onboarding banner (hidden once team is set) ────── -->
+        <div id="tt-onboard-banner" class="tt-onboard" role="status" aria-live="polite">
+          <div class="tt-onboard-icon" aria-hidden="true">⚔️</div>
+          <div class="tt-onboard-body">
+            <div class="tt-onboard-title">Give your group a shared name</div>
+            <ul class="tt-onboard-steps">
+              <li>Type a name for your group below and tap <strong>Set Team</strong> — use the same one on every phone.</li>
+              <li>Open <strong>Calendar</strong> to add your next meeting or study date.</li>
+              <li>Use <strong>Prayer Chain</strong> for urgent requests — visible on this device only.</li>
+              <li>Set a <strong>Verse Pack</strong> so your whole group reads the same verse each morning.</li>
+            </ul>
+          </div>
+          <button type="button" class="tt-onboard-dismiss" id="tt-onboard-dismiss" aria-label="Dismiss welcome message">✕</button>
+        </div>
+
+        <!-- ── Team ID ──────────────────────────────────────────── -->
+        <section class="glass tt-glass-tight">
+          <div class="tt-flex-center-wrap">
+            <label for="tt-team-id" class="tt-label-field">Team ID</label>
+            <input id="tt-team-id" class="tt-input tt-input-max220" placeholder="e.g. youth-group" aria-label="Team ID">
+            <button id="tt-set-team" class="tt-btn tt-btn-sm">Set Team</button>
+            <span id="tt-team-name" class="tt-team-name-slot"></span>
+            <span class="tt-privacy-badge" title="Nothing is sent to a server. All data stays in this browser.">🔒 Local only — this device</span>
+          </div>
+          <p class="section-note tt-note-micro">All data stays in this browser, under the name you set. Everyone on the same device who uses the same name shares the same workspace.</p>
+        </section>
+
+        <!-- ── Tool tabs ────────────────────────────────────────── -->
+        <section class="glass">
+          <div class="tt-tabs" role="tablist" aria-label="Team tools">
+            <button class="tt-tab" role="tab" aria-selected="true"  aria-controls="panel-calendar"    id="tab-calendar">📅 Calendar</button>
+            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-attendance"  id="tab-attendance">✅ Attendance</button>
+            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-library"     id="tab-library">📁 Files</button>
+            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-prayer"      id="tab-prayer">🔴 Prayer Chain</button>
+            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-verse-packs" id="tab-verse-packs">📖 Verse Packs</button>
+            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-comms"       id="tab-comms">🔗 More Tools</button>
+          </div>
+
+          <!-- ════════ CALENDAR ═══════════════════════════════════ -->
+          <div id="panel-calendar" class="tt-panel active" role="tabpanel" aria-labelledby="tab-calendar">
+            <h2 class="section-divider">Group Calendar</h2>
+            <p class="section-note">Schedule meetings, studies, and events. Saved locally to your team.</p>
+
+            <div class="tt-form" id="cal-form">
+              <div class="tt-row">
+                <input class="tt-input tt-input-flex2" id="cal-title" placeholder="Event title — e.g. Youth Bible Study" aria-label="Event title">
+                <!-- Mini-cal date picker -->
+                <div class="mini-cal-wrap" id="cal-date-wrap">
+                  <button type="button" class="mini-cal-trigger" id="cal-date-trigger" aria-label="Pick date" aria-haspopup="true" aria-expanded="false">
+                    <span>📅</span><span id="cal-date-display">Pick date</span>
+                  </button>
+                  <div class="mini-cal" id="cal-mini-cal" hidden role="dialog" aria-label="Date picker"></div>
+                  <input type="hidden" id="cal-date">
+                </div>
+              </div>
+              <div class="tt-row">
+                <!-- Hour / minute selects -->
+                <label for="cal-hour" class="tt-label-muted-row">Time</label>
+                <select class="tt-select" id="cal-hour" aria-label="Hour"></select>
+                <span class="tt-time-sep" aria-hidden="true">:</span>
+                <select class="tt-select" id="cal-min" aria-label="Minute">
+                  <option value="">--</option>
+                  <option value="00">00</option>
+                  <option value="15">15</option>
+                  <option value="30">30</option>
+                  <option value="45">45</option>
+                </select>
+                <!-- Color tag -->
+                <label for="cal-color" class="tt-label-muted-row">Color</label>
+                <select class="tt-select" id="cal-color" aria-label="Event color">
+                  <option value="blue">🔵 Blue</option>
+                  <option value="green">🟢 Green</option>
+                  <option value="purple">🟣 Purple</option>
+                  <option value="orange">🟠 Orange</option>
+                  <option value="gray">⚫ Gray</option>
+                </select>
+              </div>
+              <div class="tt-row">
+                <input class="tt-input" id="cal-desc" placeholder="Short description (optional)" aria-label="Description">
+                <label class="tt-label-check-row" for="cal-repeat">
+                  <input type="checkbox" id="cal-repeat"> Repeat weekly (4 weeks)
+                </label>
+                <button class="tt-btn" id="cal-add-btn" type="button">Add Event</button>
+              </div>
+            </div>
+
+            <div class="tt-row-actions">
+              <button class="tt-btn tt-btn-sm tt-btn-ghost" id="cal-export-btn" type="button">Export CSV</button>
+              <button class="tt-btn tt-btn-sm tt-btn-ghost" id="cal-clear-past-btn" type="button">Clear Past</button>
+            </div>
+
+            <div id="cal-list" aria-live="polite" aria-label="Upcoming events"></div>
+          </div>
+
+          <!-- ════════ ATTENDANCE ══════════════════════════════════ -->
+          <div id="panel-attendance" class="tt-panel" role="tabpanel" aria-labelledby="tab-attendance">
+            <h2 class="section-divider">Attendance Tracker</h2>
+            <p class="section-note">Mark who showed up. Saves per date. Export for reports.</p>
+
+            <div class="att-meta">
+              <label for="att-date-trigger" class="tt-label-muted-row">Meeting date</label>
+              <div class="mini-cal-wrap" id="att-date-wrap">
+                <button type="button" class="mini-cal-trigger" id="att-date-trigger" aria-label="Pick meeting date" aria-haspopup="true" aria-expanded="false">
+                  <span>📅</span><span id="att-date-display">Today</span>
+                </button>
+                <div class="mini-cal" id="att-mini-cal" hidden role="dialog" aria-label="Date picker"></div>
+                <input type="hidden" id="att-date">
+              </div>
+              <button class="tt-btn tt-btn-sm" id="att-export-btn" type="button">Export CSV</button>
+            </div>
+
+            <!-- Recent dates quick-nav -->
+            <div class="att-date-strip" id="att-date-strip"></div>
+
+            <div class="att-stats" id="att-stats"></div>
+
+            <div class="tt-row tt-row-mb">
+              <input class="tt-input" id="att-new-name" placeholder="Add member name" aria-label="New member name">
+              <button class="tt-btn tt-btn-sm" id="att-add-member" type="button">Add</button>
+            </div>
+
+            <div id="att-table-wrap">
+              <table class="att-table" aria-label="Attendance list">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th class="att-th-present" scope="col">Present</th>
+                    <th class="att-th-actions" scope="col"><span class="sr-only">Remove</span></th>
+                  </tr>
+                </thead>
+                <tbody id="att-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ════════ FILE LIBRARY ════════════════════════════════ -->
+          <div id="panel-library" class="tt-panel" role="tabpanel" aria-labelledby="tab-library">
+            <h2 class="section-divider">Resource Library</h2>
+            <p class="section-note">Upload sermon notes, song sheets, handouts. Stored locally — 100 MB per team.</p>
+
+            <div class="lib-toolbar">
+              <label class="tt-btn tt-upload-label" for="lib-file-input" aria-label="Upload file">
+                ＋ Upload
+              </label>
+              <input id="lib-file-input" class="tt-file-hidden" type="file" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.txt" multiple tabindex="-1" aria-hidden="true">
+              <input class="tt-input tt-input-max200" id="lib-search" placeholder="Search files…" aria-label="Search files">
+              <select class="tt-select" id="lib-sort" aria-label="Sort files">
+                <option value="newest">Newest first</option>
+                <option value="az">A – Z</option>
+                <option value="tag">By tag</option>
+              </select>
+            </div>
+
+            <div class="lib-quota-bar"><div class="lib-quota-fill" id="lib-quota-fill"></div></div>
+            <p class="lib-quota" id="lib-quota-text">0 KB used of 100 MB</p>
+
+            <div class="lib-progress tt-is-hidden" id="lib-progress-wrap" aria-hidden="true">
+              <div class="lib-progress-bar" id="lib-progress-bar"></div>
+            </div>
+
+            <div class="lib-grid" id="lib-grid" aria-live="polite" aria-label="Uploaded files">
+              <p class="lib-empty lib-empty--full">No files yet. Upload above.</p>
+            </div>
+          </div>
+
+          <!-- ════════ PRAYER CHAIN ════════════════════════════════ -->
+          <div id="panel-prayer" class="tt-panel" role="tabpanel" aria-labelledby="tab-prayer">
+            <h2 class="section-divider">Prayer Chain</h2>
+            <p class="section-note">Add urgent requests — mark when prayed. Expires after 30 days.</p>
+
+            <div class="tt-form">
+              <div class="tt-row">
+                <input class="tt-input" id="chain-title" placeholder="Request — e.g. Mike's surgery tomorrow" aria-label="Prayer request title">
+                <select class="tt-select" id="chain-urgency" aria-label="Urgency">
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">🔔 High</option>
+                </select>
+              </div>
+              <div class="tt-row">
+                <input class="tt-input tt-input-max180" id="chain-poster" placeholder="Your name (optional)" aria-label="Your name">
+                <input class="tt-input" id="chain-desc" placeholder="Details (optional)" aria-label="Details">
+                <button class="tt-btn" id="chain-add-btn" type="button">Add Request</button>
+                <p class="section-note chain-note-subtle">Requests expire after 30 days.</p>
+              </div>
+            </div>
+
+            <div class="chain-list" id="chain-list" aria-live="polite" aria-label="Prayer chain requests">
+              <p class="chain-list-empty">No active requests.</p>
+            </div>
+
+            <!-- Answered section -->
+            <div class="chain-answered-section tt-is-hidden" id="chain-answered-section">
+              <button class="chain-answered-toggle" id="chain-answered-toggle" type="button" aria-expanded="false">▸ Show answered prayers</button>
+              <div id="chain-answered-list" class="chain-answered-list-inner tt-is-hidden"></div>
+            </div>
+          </div>
+
+          <!-- ════════ VERSE PACKS ══════════════════════════════════ -->
+          <div id="panel-verse-packs" class="tt-panel" role="tabpanel" aria-labelledby="tab-verse-packs">
+            <h2 class="section-divider">Verse Packs</h2>
+            <p class="section-note">Paste in a series of verses, name the pack, set it active. Today's verse rotates daily through the active pack.</p>
+
+            <!-- Active verse display — always visible -->
+            <div id="vp-today-wrap"></div>
+
+            <!-- Password gate -->
+            <div id="vp-gate" class="vp-gate" aria-hidden="false">
+              <p class="section-note vp-gate-msg" id="vp-gate-msg">Enter the admin password to manage packs.</p>
+              <div class="tt-row">
+                <input class="tt-input tt-input-max200" id="vp-pw-input" type="password" placeholder="Password" aria-label="Admin password" autocomplete="current-password">
+                <button class="tt-btn tt-btn-sm" id="vp-unlock-btn" type="button">Unlock</button>
+              </div>
+              <p class="section-note tt-vp-err tt-is-hidden" id="vp-pw-err" role="alert" aria-hidden="true">Wrong password.</p>
+              <p class="section-note vp-hint-foot">Forgot it? Clear this site&#8217;s data in your browser settings to reset.</p>
+            </div>
+
+            <!-- Admin panel (hidden until unlocked) -->
+            <div id="vp-admin" class="vp-admin-panel tt-is-hidden" aria-hidden="true">
+
+              <h3 class="vp-section-title">Add a New Pack</h3>
+              <div class="tt-form">
+                <div class="tt-row">
+                  <input class="tt-input" id="vp-pack-name" placeholder='Pack name — e.g. "Sunday Hope Series"' aria-label="Pack name">
+                </div>
+                <textarea id="vp-pack-text" class="tt-input vp-pack-textarea" rows="6"
+                  placeholder="KJV text only. One verse per line. Format: Book Ch:Vs Verse text&#10;Example:&#10;John 3:16 For God so loved the world...&#10;Philippians 4:13 I can do all things..."
+                  aria-label="Verse list (KJV only)"></textarea>
+                <div class="tt-row">
+                  <button class="tt-btn" id="vp-save-btn" type="button">Save Pack</button>
+                  <label class="tt-btn tt-btn-ghost tt-cursor-pointer" for="vp-import-file">Import JSON</label>
+                  <input id="vp-import-file" class="tt-file-hidden" type="file" accept=".json" tabindex="-1" aria-hidden="true">
+                </div>
+              </div>
+
+              <h3 class="vp-section-title vp-section-title--mt">Saved Packs</h3>
+              <div id="vp-pack-list" aria-live="polite" aria-label="Saved verse packs"></div>
+
+              <!-- Change password -->
+              <details class="vp-password-details">
+                <summary class="vp-password-summary">Change admin password</summary>
+                <div class="tt-row tt-row-tight-mt">
+                  <input class="tt-input tt-input-max200" id="vp-new-pw" type="password" placeholder="New password" aria-label="New password" autocomplete="new-password">
+                  <button class="tt-btn tt-btn-sm tt-btn-ghost" id="vp-change-pw-btn" type="button">Save</button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- ════════ MORE TOOLS ══════════════════════════════════ -->
+          <div id="panel-comms" class="tt-panel" role="tabpanel" aria-labelledby="tab-comms">
+            <h2 class="section-divider">More Team Tools</h2>
+            <div class="list">
+              <div class="list-item"><div><strong><a href="church.html">Assign Reading</a></strong><p>Pastors assign a passage to a group — members see it under My assigned reading and mark complete.</p></div></div>
+              <div class="list-item"><div><strong><a href="/prayer-wall.html?tab=with-others">Prayer</a></strong><p>Post encouragements, prayer requests, or updates. Your team can reply and pray together.</p></div></div>
+              <div class="list-item"><div><strong><a href="church.html">Church Verse of the Day</a></strong><p>Leader sets one verse for the whole church. Great for daily focus and announcements.</p></div></div>
+              <div class="list-item"><div><strong><a href="reading-plan.html">7-Day Plan</a></strong><p>Share the plan link with your team so you're all on the same rhythm.</p></div></div>
+              <div class="list-item"><div><strong><a href="study.html">Shared Study Links</a></strong><p>Build a lesson in Study Workspace and share the link — team gets the same verses and notes.</p></div></div>
+              <div class="list-item"><div><strong><a href="sermon.html">Sermon Builder</a></strong><p>Build and share outlines with your congregation or co-leaders.</p></div></div>
+            </div>
+            <div class="section-note panel-comms-foot">
+              <strong>$49/month Church plan:</strong> team logins, shared notes library, and your church's verse sent to everyone's morning screen. <a href="pricing.html">See Pricing →</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- tdb: team packs UI is English; stale CDN/PWA cache can show old Spanish — purge / bump SW -->
+        <div class="toolkit-packs" role="region" aria-labelledby="toolkit-packs-heading">
+        <h2 id="toolkit-packs-heading">Ready-to-use packs</h2>
+        <p class="quiet-note">Download each pack as a <strong>print-ready PDF</strong> or <strong>plain text</strong>. Everything is generated on your device—no connection required.</p>
+
+        <div class="pack-grid">
+          <div class="pack-card">
+            <h3><span aria-hidden="true">📖</span> 7 Days of Grace in Pain</h3>
+            <p>Based on the plan &ldquo;When Pain Won&rsquo;t Quit.&rdquo; For anyone walking through physical suffering.</p>
+            <div class="pack-download-row" role="group" aria-label="7-day grace pack downloads">
+              <button type="button" class="download-btn" id="tt-pack-pain-grace-pdf" aria-label="Download 7-day grace pack as PDF">
+                PDF (print)
+              </button>
+              <button type="button" class="download-btn download-btn-secondary" id="tt-pack-pain-grace" aria-label="Download 7-day grace pack as text file">
+                Text (.txt)
+              </button>
+            </div>
+          </div>
+
+          <div class="pack-card">
+            <h3><span aria-hidden="true">⚔️</span> 14 Days of Spiritual Battle</h3>
+            <p>Strong KJV verses plus a daily focus—for men, spiritual warfare groups, or discipleship.</p>
+            <div class="pack-download-row" role="group" aria-label="14-day battle pack downloads">
+              <button type="button" class="download-btn" id="tt-pack-battle-14-pdf" aria-label="Download 14-day battle pack as PDF">
+                PDF (print)
+              </button>
+              <button type="button" class="download-btn download-btn-secondary" id="tt-pack-battle-14" aria-label="Download 14-day battle pack as text file">
+                Text (.txt)
+              </button>
+            </div>
+          </div>
+
+          <div class="pack-card">
+            <h3><span aria-hidden="true">🕊️</span> Cancer Comfort — 7 days</h3>
+            <p>Same plan as Battle Plans (honest fear, Christ near—not medical advice). For teams walking with someone in treatment.</p>
+            <div class="pack-download-row" role="group" aria-label="Cancer Comfort pack downloads">
+              <button type="button" class="download-btn" id="tt-pack-cancer-comfort-pdf" aria-label="Download Cancer Comfort pack as PDF">
+                PDF (print)
+              </button>
+              <button type="button" class="download-btn download-btn-secondary" id="tt-pack-cancer-comfort" aria-label="Download Cancer Comfort pack as text file">
+                Text (.txt)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <p class="note-small">PDF and text use KJV verses and simple steps, generated in your browser. No marketing watermark. No ads. No tracking.</p>
+        </div>
+          </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Verse</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, read <a href="/where-support-goes.html">where support goes</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Need the current support path? Use the <a href="/give" aria-label="Open the support page">support page</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/kids-corner.html">Kids corner</a>
+        <a href="/kids/?v=hub20260321">Kids battle</a>
+        <a href="/coloring.html">Kids coloring</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 9, 2026</span></p>
+  <script defer src="/language-switcher.js"></script>
+</footer>
+  </div>
+
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
+
+  <script nonce="tdb2025s">
+  (function () {
+    'use strict';
+
+    /* ════════════════════════════════════════════════════════════
+       SHARED HELPERS
+    ════════════════════════════════════════════════════════════ */
+    function teamKey(suffix) {
+      var id = (document.getElementById('tt-team-id') || {}).value || 'default';
+      return 'tdb_tt_' + id + '_' + suffix;
+    }
+    function lsGet(k) { try { return JSON.parse(localStorage.getItem(k)); } catch(_) { return null; } }
+    function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch(_) {} }
+    function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function fmtSize(bytes) {
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1048576) return (bytes/1024).toFixed(1) + ' KB';
+      return (bytes/1048576).toFixed(1) + ' MB';
+    }
+    function todayISO() { return new Date().toISOString().slice(0,10); }
+    function addDays(iso, n) {
+      var d = new Date(iso + 'T12:00:00');
+      d.setDate(d.getDate() + n);
+      return d.toISOString().slice(0,10);
+    }
+    function daysSinceEpoch(iso) {
+      return Math.floor(new Date(iso + 'T12:00:00').getTime() / 86400000);
+    }
+
+    /* ── Toast ──────────────────────────────────────────────── */
+    function showToast(msg, type) {
+      var t = document.createElement('div');
+      t.className = 'tt-toast' + (type === 'info' ? ' info' : '');
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(function() {
+        t.classList.add('fade-out');
+        setTimeout(function() { t.remove(); }, 420);
+      }, 2800);
+    }
+
+    /* ── CSV export ─────────────────────────────────────────── */
+    function exportCSV(filename, rows) {
+      var csv = rows.map(function(row) {
+        return row.map(function(cell) {
+          var s = String(cell == null ? '' : cell).replace(/"/g,'""');
+          return /[,"\n\r]/.test(s) ? '"' + s + '"' : s;
+        }).join(',');
+      }).join('\r\n');
+      var blob = new Blob([csv], { type: 'text/csv' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = filename;
+      document.body.appendChild(a); a.click();
+      setTimeout(function() { URL.revokeObjectURL(url); a.remove(); }, 1000);
+    }
+
+    /* ── Mini-calendar builder ──────────────────────────────── */
+    var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+
+    function buildMiniCal(opts) {
+      // opts: { triggerId, displayId, hiddenId, calId, onSelect }
+      var trigger  = document.getElementById(opts.triggerId);
+      var display  = document.getElementById(opts.displayId);
+      var hidden   = document.getElementById(opts.hiddenId);
+      var calEl    = document.getElementById(opts.calId);
+      if (!trigger || !calEl) return;
+
+      var curYear, curMonth;
+      var selectedISO = hidden ? hidden.value || todayISO() : todayISO();
+
+      function parseISO(iso) {
+        var p = iso.split('-');
+        return { y: parseInt(p[0]), m: parseInt(p[1])-1, d: parseInt(p[2]) };
+      }
+      function isoOf(y,m,d) {
+        return y + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+      }
+
+      function updateDisplay(iso) {
+        if (!display) return;
+        var p = parseISO(iso);
+        var dt = new Date(iso + 'T12:00:00');
+        display.textContent = dt.toLocaleDateString('default',{month:'short',day:'numeric',year:'numeric'});
+      }
+
+      function renderCal() {
+        var today = todayISO();
+        var p = parseISO(selectedISO);
+        if (curYear === undefined) { curYear = p.y; curMonth = p.m; }
+        calEl.innerHTML = '';
+        // Header
+        var hdr = document.createElement('div');
+        hdr.className = 'mini-cal-header';
+        var prev = document.createElement('button');
+        prev.type = 'button'; prev.className = 'mini-cal-nav'; prev.textContent = '‹';
+        prev.setAttribute('aria-label','Previous month');
+        var next = document.createElement('button');
+        next.type = 'button'; next.className = 'mini-cal-nav'; next.textContent = '›';
+        next.setAttribute('aria-label','Next month');
+        var title = document.createElement('span');
+        title.className = 'mini-cal-title';
+        title.textContent = MONTHS[curMonth] + ' ' + curYear;
+        hdr.appendChild(prev); hdr.appendChild(title); hdr.appendChild(next);
+        calEl.appendChild(hdr);
+        prev.addEventListener('click', function(e) {
+          e.stopPropagation();
+          curMonth--; if (curMonth < 0) { curMonth = 11; curYear--; }
+          renderCal();
+        });
+        next.addEventListener('click', function(e) {
+          e.stopPropagation();
+          curMonth++; if (curMonth > 11) { curMonth = 0; curYear++; }
+          renderCal();
+        });
+        // Day-of-week headers
+        var grid = document.createElement('div');
+        grid.className = 'mini-cal-grid';
+        DAYS.forEach(function(d) {
+          var span = document.createElement('div');
+          span.className = 'mini-cal-dow'; span.textContent = d;
+          grid.appendChild(span);
+        });
+        // Days
+        var firstDay = new Date(curYear, curMonth, 1).getDay();
+        var daysInMonth = new Date(curYear, curMonth+1, 0).getDate();
+        // Blank cells before first day
+        for (var i = 0; i < firstDay; i++) {
+          var blank = document.createElement('div');
+          blank.className = 'mini-cal-day empty'; grid.appendChild(blank);
+        }
+        for (var d = 1; d <= daysInMonth; d++) {
+          (function(day) {
+            var iso = isoOf(curYear, curMonth, day);
+            var cell = document.createElement('button');
+            cell.type = 'button'; cell.className = 'mini-cal-day';
+            cell.textContent = day;
+            cell.setAttribute('aria-label', iso);
+            if (iso === today) cell.classList.add('today');
+            if (iso === selectedISO) cell.classList.add('selected');
+            cell.addEventListener('click', function(e) {
+              e.stopPropagation();
+              selectedISO = iso;
+              if (hidden) hidden.value = iso;
+              updateDisplay(iso);
+              closeCal();
+              if (opts.onSelect) opts.onSelect(iso);
+            });
+            grid.appendChild(cell);
+          })(d);
+        }
+        calEl.appendChild(grid);
+      }
+
+      function openCal() {
+        var p = parseISO(selectedISO);
+        curYear = p.y; curMonth = p.m;
+        renderCal();
+        calEl.hidden = false;
+        trigger.setAttribute('aria-expanded','true');
+      }
+      function closeCal() {
+        calEl.hidden = true;
+        trigger.setAttribute('aria-expanded','false');
+      }
+      function toggleCal(e) { e.stopPropagation(); calEl.hidden ? openCal() : closeCal(); }
+
+      trigger.addEventListener('click', toggleCal);
+      document.addEventListener('click', function(e) {
+        if (!calEl.hidden && !calEl.contains(e.target) && e.target !== trigger) closeCal();
+      });
+      calEl.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeCal(); });
+
+      // Init display
+      if (hidden && hidden.value) {
+        selectedISO = hidden.value;
+      } else {
+        selectedISO = todayISO();
+        if (hidden) hidden.value = selectedISO;
+      }
+      updateDisplay(selectedISO);
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       TEAM ID
+    ════════════════════════════════════════════════════════════ */
+    var teamInput = document.getElementById('tt-team-id');
+    var teamLabel = document.getElementById('tt-team-name');
+    var setTeamBtn = document.getElementById('tt-set-team');
+    var onboardBanner  = document.getElementById('tt-onboard-banner');
+    var onboardDismiss = document.getElementById('tt-onboard-dismiss');
+    var ONBOARD_KEY = 'tdb_tt_onboard_seen';
+
+    // Hide banner if team already set, or user previously dismissed
+    try {
+      var savedTeam = localStorage.getItem('tdb_tt_active_team');
+      if (savedTeam && teamInput) { teamInput.value = savedTeam; teamLabel.textContent = 'Active: ' + savedTeam; }
+      if (savedTeam || localStorage.getItem(ONBOARD_KEY)) {
+        if (onboardBanner) onboardBanner.style.display = 'none';
+      }
+    } catch(_) {}
+
+    // Dismiss button
+    if (onboardDismiss) {
+      onboardDismiss.addEventListener('click', function() {
+        if (onboardBanner) onboardBanner.style.display = 'none';
+        try { localStorage.setItem(ONBOARD_KEY, '1'); } catch(_) {}
+      });
+    }
+
+    if (setTeamBtn) {
+      setTeamBtn.addEventListener('click', function() {
+        var raw = (teamInput.value || '').trim();
+        if (!raw) { showToast('Enter a group name first.'); return; }
+        var v = raw.replace(/[^a-zA-Z0-9_-]/g,'-').slice(0,40);
+        // Show feedback if normalization changed the value
+        if (v !== raw) showToast('Saved as: ' + v);
+        teamInput.value = v;
+        teamLabel.textContent = 'Active: ' + v;
+        try { localStorage.setItem('tdb_tt_active_team', v); } catch(_) {}
+        // Hide onboarding once they commit to a team
+        if (onboardBanner) onboardBanner.style.display = 'none';
+        try { localStorage.setItem(ONBOARD_KEY, '1'); } catch(_) {}
+        renderCalendar(); renderAttendance(); renderLibrary(); renderChain(); renderVersePacks();
+      });
+    }
+
+    /* ── Tabs ───────────────────────────────────────────────── */
+    var tabs = document.querySelectorAll('.tt-tab');
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        tabs.forEach(function(t) { t.setAttribute('aria-selected','false'); });
+        tab.setAttribute('aria-selected','true');
+        document.querySelectorAll('.tt-panel').forEach(function(p) { p.classList.remove('active'); });
+        var panel = document.getElementById(tab.getAttribute('aria-controls'));
+        if (panel) panel.classList.add('active');
+      });
+      tab.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          var arr = Array.from(tabs);
+          var idx = arr.indexOf(tab);
+          var next = e.key === 'ArrowRight' ? arr[idx+1] : arr[idx-1];
+          if (next) { next.click(); next.focus(); }
+        }
+      });
+    });
+
+    /* ════════════════════════════════════════════════════════════
+       GROUP CALENDAR v2
+    ════════════════════════════════════════════════════════════ */
+    function getEvents() { return lsGet(teamKey('cal')) || []; }
+    function saveEvents(ev) { lsSet(teamKey('cal'), ev); }
+
+    // Populate hour select
+    (function() {
+      var hourSel = document.getElementById('cal-hour');
+      if (!hourSel) return;
+      var opt0 = document.createElement('option');
+      opt0.value = ''; opt0.textContent = '--'; hourSel.appendChild(opt0);
+      for (var h = 0; h < 24; h++) {
+        var opt = document.createElement('option');
+        opt.value = String(h).padStart(2,'0');
+        opt.textContent = String(h).padStart(2,'0');
+        hourSel.appendChild(opt);
+      }
+    })();
+
+    // Init date picker
+    buildMiniCal({
+      triggerId: 'cal-date-trigger',
+      displayId: 'cal-date-display',
+      hiddenId:  'cal-date',
+      calId:     'cal-mini-cal',
+      onSelect:  function() {}
+    });
+    // Set hidden to today
+    var calDateHidden = document.getElementById('cal-date');
+    if (calDateHidden) calDateHidden.value = todayISO();
+
+    var calTitleInput = document.getElementById('cal-title');
+    var calHourSel    = document.getElementById('cal-hour');
+    var calMinSel     = document.getElementById('cal-min');
+    var calColorSel   = document.getElementById('cal-color');
+    var calDescInput  = document.getElementById('cal-desc');
+    var calRepeat     = document.getElementById('cal-repeat');
+    var calAddBtn     = document.getElementById('cal-add-btn');
+    var editingCalId  = null;
+
+    function calGetTime() {
+      var h = calHourSel ? calHourSel.value : '';
+      var m = calMinSel  ? calMinSel.value  : '';
+      if (!h || !m) return '';
+      return h + ':' + m;
+    }
+
+    function calSave() {
+      var title = (calTitleInput.value || '').trim();
+      var date  = calDateHidden ? calDateHidden.value : '';
+      if (!title || !date) { showToast('Title and date are required.'); return; }
+      var color = calColorSel ? calColorSel.value : 'blue';
+      var time  = calGetTime();
+      var desc  = calDescInput ? calDescInput.value.trim() : '';
+      var events = getEvents();
+
+      if (editingCalId) {
+        events = events.map(function(e) {
+          return e.id === editingCalId
+            ? Object.assign({}, e, { title: title, date: date, time: time, desc: desc, color: color })
+            : e;
+        });
+        editingCalId = null;
+        calAddBtn.textContent = 'Add Event';
+      } else {
+        var groupId = Date.now().toString();
+        var newEv = { id: groupId, title: title, date: date, time: time, desc: desc, color: color };
+        events.push(newEv);
+        if (calRepeat && calRepeat.checked) {
+          [7,14,21,28].forEach(function(n) {
+            events.push({
+              id: groupId + '_r' + n,
+              title: title, time: time, desc: desc, color: color,
+              date: addDays(date, n),
+              recurringGroup: groupId
+            });
+          });
+        }
+      }
+      saveEvents(events);
+      calTitleInput.value = ''; calDescInput.value = '';
+      if (calRepeat) calRepeat.checked = false;
+      renderCalendar();
+    }
+
+    if (calAddBtn) calAddBtn.addEventListener('click', calSave);
+    if (calTitleInput) calTitleInput.addEventListener('keydown', function(e){ if(e.key==='Enter') calSave(); });
+
+    function renderCalendar() {
+      var container = document.getElementById('cal-list');
+      if (!container) return;
+      var today = todayISO();
+      var events = getEvents().sort(function(a,b) { return a.date > b.date ? 1 : -1; });
+      container.innerHTML = '';
+
+      if (!events.length) {
+        var empty = document.createElement('div');
+        empty.className = 'cal-empty-state';
+        empty.innerHTML =
+          '<div class="cal-empty-state-icon">📅</div>' +
+          '<p>Nothing scheduled yet.<br>Add your first Bible study or prayer night.</p>' +
+          '<button class="cal-empty-add-btn" id="cal-empty-add" type="button">＋ Add an event</button>';
+        container.appendChild(empty);
+        var emptyAdd = document.getElementById('cal-empty-add');
+        if (emptyAdd) emptyAdd.addEventListener('click', function() {
+          if (calTitleInput) calTitleInput.focus();
+        });
+        return;
+      }
+
+      // Group into "This Week", "Later", "Past"
+      var endOfWeek = new Date();
+      endOfWeek.setDate(endOfWeek.getDate() + (7 - endOfWeek.getDay()));
+      var endOfWeekISO = endOfWeek.toISOString().slice(0,10);
+
+      var groups = { past: [], week: [], later: [] };
+      events.forEach(function(ev) {
+        if (ev.date < today) groups.past.push(ev);
+        else if (ev.date <= endOfWeekISO) groups.week.push(ev);
+        else groups.later.push(ev);
+      });
+
+      function renderGroup(label, evList) {
+        if (!evList.length) return;
+        var lbl = document.createElement('div');
+        lbl.className = 'cal-group-label'; lbl.textContent = label;
+        container.appendChild(lbl);
+        evList.forEach(function(ev) { container.appendChild(buildEventCard(ev)); });
+      }
+
+      renderGroup('This Week', groups.week);
+      renderGroup('Later', groups.later);
+      renderGroup('Past', groups.past);
+    }
+
+    function buildEventCard(ev) {
+      var d = new Date(ev.date + 'T12:00:00');
+      var month = d.toLocaleString('default',{month:'short'});
+      var day = d.getDate();
+      var card = document.createElement('div');
+      card.className = 'cal-event';
+      card.dataset.id = ev.id;
+      card.dataset.color = ev.color || 'blue';
+      card.innerHTML =
+        '<div class="cal-event-date">' +
+          '<span class="cal-event-month">' + escHtml(month) + '</span>' +
+          '<span class="cal-event-day">' + day + '</span>' +
+        '</div>' +
+        '<div class="cal-event-body">' +
+          '<div class="cal-event-title">' + escHtml(ev.title) + '</div>' +
+          (ev.time ? '<div class="cal-event-time">⏰ ' + escHtml(ev.time) + '</div>' : '') +
+          (ev.desc ? '<div class="cal-event-desc">' + escHtml(ev.desc) + '</div>' : '') +
+          (ev.recurringGroup ? '<div class="cal-event-recurring">↺ Recurring</div>' : '') +
+          '<div class="cal-event-actions">' +
+            '<button class="tt-btn tt-btn-sm tt-btn-ghost cal-edit-btn" data-id="' + ev.id + '" type="button" aria-label="Edit: ' + escHtml(ev.title) + '">Edit</button>' +
+            '<button class="tt-btn tt-btn-sm tt-btn-danger cal-del-btn" data-id="' + ev.id + '" type="button" aria-label="Delete: ' + escHtml(ev.title) + '">Delete</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="cal-swipe-del" data-id="' + ev.id + '">Delete</div>';
+
+      // Swipe-to-delete
+      var startX = 0;
+      card.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+      card.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - startX;
+        if (dx < -60) {
+          // Close any other swiped cards
+          document.querySelectorAll('.cal-event.swiped-left').forEach(function(c) {
+            if (c !== card) c.classList.remove('swiped-left');
+          });
+          card.classList.toggle('swiped-left');
+        } else if (dx > 20) {
+          card.classList.remove('swiped-left');
+        }
+      }, { passive: true });
+
+      return card;
+    }
+
+    // Calendar list click delegation (edit / delete / swipe-del)
+    var calList = document.getElementById('cal-list');
+    if (calList) {
+      calList.addEventListener('click', function(e) {
+        var delBtn = e.target.closest('.cal-del-btn');
+        var editBtn = e.target.closest('.cal-edit-btn');
+        var swipeDel = e.target.closest('.cal-swipe-del');
+
+        if (delBtn || swipeDel) {
+          var delId = (delBtn || swipeDel).dataset.id;
+          saveEvents(getEvents().filter(function(ev){ return ev.id !== delId; }));
+          renderCalendar();
+          return;
+        }
+        if (editBtn) {
+          var editId = editBtn.dataset.id;
+          var ev = getEvents().find(function(e){ return e.id === editId; });
+          if (!ev) return;
+          editingCalId = editId;
+          calTitleInput.value = ev.title;
+          if (calDateHidden) calDateHidden.value = ev.date;
+          var displayEl = document.getElementById('cal-date-display');
+          if (displayEl) {
+            var dt = new Date(ev.date + 'T12:00:00');
+            displayEl.textContent = dt.toLocaleDateString('default',{month:'short',day:'numeric',year:'numeric'});
+          }
+          if (ev.time) {
+            var parts = ev.time.split(':');
+            if (calHourSel) calHourSel.value = parts[0] || '';
+            if (calMinSel) calMinSel.value = parts[1] || '';
+          }
+          if (calColorSel) calColorSel.value = ev.color || 'blue';
+          calDescInput.value = ev.desc || '';
+          calAddBtn.textContent = 'Save Changes';
+          calTitleInput.focus();
+        }
+      });
+    }
+
+    document.getElementById('cal-export-btn') && document.getElementById('cal-export-btn').addEventListener('click', function() {
+      var events = getEvents().sort(function(a,b){ return a.date > b.date ? 1 : -1; });
+      var rows = [['Title','Date','Time','Description','Color','Recurring']].concat(events.map(function(e){
+        return [e.title, e.date, e.time||'', e.desc||'', e.color||'', e.recurringGroup ? 'Yes' : 'No'];
+      }));
+      exportCSV('calendar-' + todayISO() + '.csv', rows);
+      showToast('Calendar exported.', 'info');
+    });
+
+    document.getElementById('cal-clear-past-btn') && document.getElementById('cal-clear-past-btn').addEventListener('click', function() {
+      var today = todayISO();
+      var all = getEvents();
+      var kept = all.filter(function(e){ return e.date >= today; });
+      var removed = all.length - kept.length;
+      if (!removed) { showToast('No past events to remove.', 'info'); return; }
+      if (!confirm('Remove ' + removed + ' past event' + (removed===1?'':'s') + '?')) return;
+      saveEvents(kept); renderCalendar();
+    });
+
+    /* ════════════════════════════════════════════════════════════
+       ATTENDANCE TRACKER v2
+    ════════════════════════════════════════════════════════════ */
+    function attMembersKey() { return teamKey('att_members'); }
+    function attRecordKey(date) { return teamKey('att_rec_' + date); }
+    function getMembers() { return lsGet(attMembersKey()) || []; }
+    function saveMembers(m) { lsSet(attMembersKey(), m); }
+    function getRecord(date) { return lsGet(attRecordKey(date)) || {}; }
+    function saveRecord(date, rec) { lsSet(attRecordKey(date), rec); }
+
+    // Init attendance date picker
+    var attDateHidden = document.getElementById('att-date');
+    if (attDateHidden) attDateHidden.value = todayISO();
+    buildMiniCal({
+      triggerId: 'att-date-trigger',
+      displayId: 'att-date-display',
+      hiddenId:  'att-date',
+      calId:     'att-mini-cal',
+      onSelect:  function(iso) { renderAttendance(); renderAttDateStrip(); }
+    });
+
+    function getAttDate() {
+      return (attDateHidden && attDateHidden.value) ? attDateHidden.value : todayISO();
+    }
+
+    // Find all dates that have attendance records
+    function getRecordedDates() {
+      var dates = [];
+      try {
+        var prefix = teamKey('att_rec_');
+        for (var i = 0; i < localStorage.length; i++) {
+          var key = localStorage.key(i);
+          if (key && key.indexOf(prefix) === 0) {
+            var iso = key.slice(prefix.length);
+            if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) dates.push(iso);
+          }
+        }
+      } catch(_) {}
+      return dates.sort().reverse();
+    }
+
+    // Calculate streak for a member
+    function calcStreak(name) {
+      var dates = getRecordedDates().sort();
+      var streak = 0;
+      var prevDate = null;
+      dates.forEach(function(iso) {
+        var rec = getRecord(iso);
+        if (rec[name]) {
+          if (!prevDate) { streak = 1; }
+          else {
+            var prev = new Date(prevDate + 'T12:00:00');
+            var curr = new Date(iso + 'T12:00:00');
+            var diff = (curr - prev) / 86400000;
+            streak = (diff <= 7) ? streak + 1 : 1; // within a week counts
+          }
+          prevDate = iso;
+        }
+      });
+      return streak;
+    }
+
+    function renderAttDateStrip() {
+      var strip = document.getElementById('att-date-strip');
+      if (!strip) return;
+      var dates = getRecordedDates().slice(0, 5);
+      var current = getAttDate();
+      strip.innerHTML = '';
+      if (!dates.length) return;
+      dates.forEach(function(iso) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'att-date-chip' + (iso === current ? ' active' : '');
+        var dt = new Date(iso + 'T12:00:00');
+        btn.textContent = dt.toLocaleDateString('default',{month:'short',day:'numeric'});
+        btn.addEventListener('click', function() {
+          if (attDateHidden) attDateHidden.value = iso;
+          var dispEl = document.getElementById('att-date-display');
+          if (dispEl) dispEl.textContent = dt.toLocaleDateString('default',{month:'short',day:'numeric',year:'numeric'});
+          renderAttendance();
+          renderAttDateStrip();
+        });
+        strip.appendChild(btn);
+      });
+    }
+
+    function renderAttendance() {
+      var tbody = document.getElementById('att-tbody');
+      var statsEl = document.getElementById('att-stats');
+      if (!tbody) return;
+      var date = getAttDate();
+      var members = getMembers();
+      var record = getRecord(date);
+      tbody.innerHTML = '';
+
+      if (!members.length) {
+        tbody.innerHTML = '<tr class="tt-table-empty"><td colspan="3">No members yet. Add names above.</td></tr>';
+      } else {
+        members.forEach(function(name) {
+          var checked = !!record[name];
+          var streak = calcStreak(name);
+          var tr = document.createElement('tr');
+          tr.innerHTML =
+            '<td>' +
+              escHtml(name) +
+              (streak >= 2 ? '<span class="att-streak">🔥 ' + streak + '</span>' : '') +
+            '</td>' +
+            '<td class="att-td-check">' +
+              '<button class="att-check" data-name="' + escHtml(name) + '" data-checked="' + checked + '" type="button" ' +
+              'aria-label="' + (checked?'Present':'Absent') + ': ' + escHtml(name) + '">' +
+              (checked ? '✓' : '×') + '</button>' +
+            '</td>' +
+            '<td><button class="att-remove" data-name="' + escHtml(name) + '" type="button" aria-label="Remove ' + escHtml(name) + '">✕</button></td>';
+          tbody.appendChild(tr);
+        });
+      }
+
+      var total = members.length;
+      var present = members.filter(function(n){ return !!record[n]; }).length;
+      var pct = total ? Math.round(100 * present / total) : 0;
+      if (statsEl) {
+        if (total === 0) {
+          statsEl.innerHTML = '';
+        } else {
+          statsEl.innerHTML =
+            '<div class="att-stat"><div class="att-stat-val">' + present + '</div><div class="att-stat-lbl">Present</div></div>' +
+            '<div class="att-stat"><div class="att-stat-val">' + (total-present) + '</div><div class="att-stat-lbl">Absent</div></div>' +
+            '<div class="att-stat"><div class="att-stat-val">' + pct + '%</div><div class="att-stat-lbl">Rate</div></div>' +
+            '<div class="att-stat"><div class="att-stat-val">' + total + '</div><div class="att-stat-lbl">Total</div></div>';
+        }
+      }
+    }
+
+    var attTableWrap = document.getElementById('att-table-wrap');
+    if (attTableWrap) {
+      attTableWrap.addEventListener('click', function(e) {
+        var check  = e.target.closest('.att-check');
+        var remove = e.target.closest('.att-remove');
+        var date = getAttDate();
+        if (check) {
+          var checkName = check.dataset.name;
+          var rec = getRecord(date);
+          rec[checkName] = !rec[checkName];
+          saveRecord(date, rec);
+          renderAttendance();
+          renderAttDateStrip();
+        }
+        if (remove) {
+          var removeName = remove.dataset.name;
+          if (!confirm('Remove ' + removeName + ' from the list?')) return;
+          saveMembers(getMembers().filter(function(m){ return m !== removeName; }));
+          renderAttendance();
+        }
+      });
+    }
+
+    var attNewName   = document.getElementById('att-new-name');
+    var attAddMember = document.getElementById('att-add-member');
+    function addMember() {
+      var n = (attNewName.value || '').trim();
+      if (!n) return;
+      var m = getMembers();
+      if (m.includes(n)) { showToast(n + ' is already in the list.'); return; }
+      m.push(n);
+      saveMembers(m);
+      attNewName.value = '';
+      renderAttendance();
+    }
+    if (attAddMember) attAddMember.addEventListener('click', addMember);
+    if (attNewName)   attNewName.addEventListener('keydown', function(e){ if(e.key==='Enter') addMember(); });
+
+    // Pivoted CSV export (member rows, date columns)
+    document.getElementById('att-export-btn') && document.getElementById('att-export-btn').addEventListener('click', function() {
+      var members = getMembers();
+      var dates = getRecordedDates().slice(0, 30).reverse(); // oldest first
+      if (!dates.length) dates = [getAttDate()];
+      var header = ['Name'].concat(dates);
+      var rows = [header].concat(members.map(function(n) {
+        var row = [n];
+        dates.forEach(function(d) {
+          var rec = getRecord(d);
+          row.push(rec[n] ? '1' : '0');
+        });
+        return row;
+      }));
+      exportCSV('attendance-' + todayISO() + '.csv', rows);
+      showToast('Attendance exported.', 'info');
+    });
+
+    /* ════════════════════════════════════════════════════════════
+       RESOURCE LIBRARY v2  (IndexedDB)
+    ════════════════════════════════════════════════════════════ */
+    var LIB_MAX = 100 * 1024 * 1024; // 100 MB
+    var libDB   = null;
+
+    function openLibDB(callback) {
+      if (libDB) { callback(libDB); return; }
+      var req = indexedDB.open('tdb_lib', 2);
+      req.onupgradeneeded = function(e) {
+        var db = e.target.result;
+        if (!db.objectStoreNames.contains('files')) {
+          db.createObjectStore('files', { keyPath: 'id' });
+        }
+      };
+      req.onsuccess = function(e) { libDB = e.target.result; callback(libDB); };
+      req.onerror   = function()  { showToast('File storage unavailable — try a different browser or turn off private mode.'); };
+    }
+
+    function libTeamPrefix() {
+      var id = (document.getElementById('tt-team-id') || {}).value || 'default';
+      return 'team_' + id + '_';
+    }
+
+    function getLibFiles(callback) {
+      openLibDB(function(db) {
+        var tx    = db.transaction('files','readonly');
+        var store = tx.objectStore('files');
+        var req   = store.getAll();
+        req.onsuccess = function() {
+          var prefix = libTeamPrefix();
+          callback((req.result||[]).filter(function(f){ return f.id.indexOf(prefix)===0; }));
+        };
+      });
+    }
+
+    function addLibFile(file, callback) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var data = e.target.result;
+        openLibDB(function(db) {
+          var prefix = libTeamPrefix();
+          var id = prefix + Date.now() + '_' + file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
+          var tx = db.transaction('files','readwrite');
+          tx.objectStore('files').put({
+            id: id, name: file.name, size: file.size,
+            type: file.type, data: data,
+            added: Date.now(), tags: [], description: ''
+          });
+          tx.oncomplete = function() { callback && callback(); };
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function updateLibFile(id, patch) {
+      openLibDB(function(db) {
+        var tx = db.transaction('files','readwrite');
+        var store = tx.objectStore('files');
+        var req = store.get(id);
+        req.onsuccess = function() {
+          if (!req.result) return;
+          store.put(Object.assign({}, req.result, patch));
+          tx.oncomplete = function() { renderLibrary(); };
+        };
+      });
+    }
+
+    function deleteLibFile(id, callback) {
+      openLibDB(function(db) {
+        var tx = db.transaction('files','readwrite');
+        tx.objectStore('files').delete(id);
+        tx.oncomplete = callback;
+      });
+    }
+
+    function renderLibrary() {
+      var grid     = document.getElementById('lib-grid');
+      var search   = (document.getElementById('lib-search') || {}).value || '';
+      var sort     = (document.getElementById('lib-sort') || {}).value || 'newest';
+      if (!grid) return;
+
+      getLibFiles(function(files) {
+        // Quota — base64 storage is ~1.37× raw file size; reflect actual storage usage
+        var totalBytes = files.reduce(function(s,f){ return s+(f.size||0); }, 0);
+        var storedBytes = Math.round(totalBytes * 1.37);
+        var pct = Math.min(100, Math.round(100 * storedBytes / LIB_MAX));
+        var fill = document.getElementById('lib-quota-fill');
+        var text = document.getElementById('lib-quota-text');
+        if (fill) fill.style.width = pct + '%';
+        if (text) text.textContent = fmtSize(storedBytes) + ' used of 100 MB';
+
+        // Filter
+        var q = search.toLowerCase();
+        if (q) files = files.filter(function(f) {
+          return f.name.toLowerCase().includes(q) ||
+                 (f.description||'').toLowerCase().includes(q) ||
+                 (f.tags||[]).some(function(t){ return t.toLowerCase().includes(q); });
+        });
+
+        // Sort
+        if (sort === 'newest') files.sort(function(a,b){ return b.added - a.added; });
+        else if (sort === 'az') files.sort(function(a,b){ return a.name.localeCompare(b.name); });
+        else files.sort(function(a,b){
+          var ta = (a.tags||[]).join(','); var tb = (b.tags||[]).join(',');
+          return ta.localeCompare(tb);
+        });
+
+        if (!files.length) {
+          grid.innerHTML = '<p class="lib-empty lib-empty--full">' +
+            (q ? 'No files match your search.' : 'No files yet. Upload above.') + '</p>';
+          return;
+        }
+
+        grid.innerHTML = '';
+        files.forEach(function(f) {
+          var isPDF = /pdf/i.test(f.type);
+          var isImg = /image/i.test(f.type);
+          var icon  = isPDF ? '📄' : isImg ? '🖼' : /doc/i.test(f.type) ? '📝' : '📎';
+
+          var card = document.createElement('div');
+          card.className = 'lib-card';
+
+          // Thumbnail for images
+          var topHtml = '';
+          if (isImg) {
+            topHtml = '<img class="lib-thumb" src="' + escHtml(f.data) + '" alt="' + escHtml(f.name) + '" loading="lazy">';
+          } else {
+            topHtml = '<div class="lib-icon">' + icon + '</div>';
+          }
+
+          // Tag chips
+          var tagsHtml = (f.tags||[]).map(function(tag) {
+            return '<span class="lib-tag">' + escHtml(tag) +
+              '<span class="lib-tag-del" data-tag-del="' + escHtml(tag) + '" data-fid="' + escHtml(f.id) + '" title="Remove tag" role="button" tabindex="0" aria-label="Remove tag ' + escHtml(tag) + '"> ×</span></span>';
+          }).join('');
+          tagsHtml += '<input class="lib-tag-input" type="text" placeholder="＋tag" aria-label="Add tag" data-fid="' + escHtml(f.id) + '" maxlength="20">';
+
+          card.innerHTML = topHtml +
+            '<div class="lib-name" contenteditable="true" spellcheck="false" data-fid="' + escHtml(f.id) + '" title="Click to rename">' + escHtml(f.name) + '</div>' +
+            '<div class="lib-size">' + fmtSize(f.size) + '</div>' +
+            '<div class="lib-tags">' + tagsHtml + '</div>' +
+            '<div class="lib-actions">' +
+              '<a class="tt-btn tt-btn-sm" href="' + escHtml(f.data) + '" download="' + escHtml(f.name) + '" aria-label="Download ' + escHtml(f.name) + '">⬇ Get</a>' +
+              (f.data && f.data.startsWith('data:application/pdf')
+                ? '<a class="tt-btn tt-btn-sm tt-btn-ghost" href="' + escHtml(f.data) + '" target="_blank" rel="noopener" aria-label="Open ' + escHtml(f.name) + ' in new tab">Open</a>'
+                : '') +
+              '<button class="tt-btn tt-btn-sm tt-btn-danger lib-del-btn" data-id="' + escHtml(f.id) + '" type="button" aria-label="Delete ' + escHtml(f.name) + '">✕</button>' +
+            '</div>';
+
+          // Edit-title on blur
+          var nameEl = card.querySelector('.lib-name');
+          nameEl.addEventListener('blur', function() {
+            var newName = nameEl.textContent.trim();
+            if (newName && newName !== f.name) updateLibFile(f.id, { name: newName });
+          });
+          nameEl.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') { e.preventDefault(); nameEl.blur(); }
+          });
+
+          // Tag add on Enter
+          var tagInput = card.querySelector('.lib-tag-input');
+          tagInput.addEventListener('keydown', function(e) {
+            if (e.key !== 'Enter') return;
+            var val = tagInput.value.trim().toLowerCase().replace(/[^a-z0-9- ]/g,'');
+            if (!val) return;
+            var tags = (f.tags||[]).slice();
+            if (!tags.includes(val)) tags.push(val);
+            updateLibFile(f.id, { tags: tags });
+          });
+
+          // Tag delete
+          card.querySelectorAll('[data-tag-del]').forEach(function(btn) {
+            function removeTag(e) {
+              e.stopPropagation();
+              var tag = btn.dataset.tagDel;
+              var tags = (f.tags||[]).filter(function(t){ return t !== tag; });
+              updateLibFile(f.id, { tags: tags });
+            }
+            btn.addEventListener('click', removeTag);
+            btn.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); removeTag(e); }
+            });
+          });
+
+          // Delete file
+          var delBtn = card.querySelector('.lib-del-btn');
+          delBtn.addEventListener('click', function() {
+            if (!confirm('Delete ' + f.name + '?')) return;
+            deleteLibFile(f.id, function() { renderLibrary(); });
+          });
+
+          grid.appendChild(card);
+        });
+      });
+    }
+
+    var libInput       = document.getElementById('lib-file-input');
+    var libProgressBar = document.getElementById('lib-progress-bar');
+    var libProgressWrap= document.getElementById('lib-progress-wrap');
+    var libSearch      = document.getElementById('lib-search');
+    var libSort        = document.getElementById('lib-sort');
+
+    if (libSearch) libSearch.addEventListener('input', renderLibrary);
+    if (libSort)   libSort.addEventListener('change', renderLibrary);
+
+    if (libInput) {
+      libInput.addEventListener('change', function() {
+        var files = Array.from(libInput.files || []);
+        if (!files.length) return;
+        libInput.value = '';
+        getLibFiles(function(existing) {
+          var used = existing.reduce(function(s,f){ return s+(f.size||0); }, 0);
+          var adding = files.reduce(function(s,f){ return s+f.size; }, 0);
+          // Account for base64 overhead (~1.37×) when checking against quota
+          if (Math.round((used + adding) * 1.37) > LIB_MAX) {
+            showToast('Upload would exceed 100 MB. Delete some files first.');
+            return;
+          }
+          if (libProgressWrap) {
+            libProgressWrap.classList.remove('tt-is-hidden');
+            libProgressWrap.setAttribute('aria-hidden', 'false');
+          }
+          var done = 0;
+          files.forEach(function(file) {
+            addLibFile(file, function() {
+              done++;
+              if (libProgressBar) libProgressBar.style.width = Math.round(100*done/files.length) + '%';
+              if (done === files.length) {
+                setTimeout(function() {
+                  if (libProgressWrap) {
+                    libProgressWrap.classList.add('tt-is-hidden');
+                    libProgressWrap.setAttribute('aria-hidden', 'true');
+                  }
+                  if (libProgressBar) libProgressBar.style.width = '0';
+                }, 600);
+                renderLibrary();
+              }
+            });
+          });
+        });
+      });
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       PRAYER CHAIN v2
+    ════════════════════════════════════════════════════════════ */
+    var CHAIN_TTL = 30 * 24 * 3600 * 1000; // 30 days
+    var URGENCY_ORDER = { high: 0, medium: 1, low: 2 };
+
+    function getChain() {
+      var items = lsGet(teamKey('chain')) || [];
+      var now = Date.now();
+      return items.filter(function(i){ return (now - i.created) < CHAIN_TTL; });
+    }
+    function saveChain(items) { lsSet(teamKey('chain'), items); }
+
+    function renderChain() {
+      var list = document.getElementById('chain-list');
+      var answeredSection = document.getElementById('chain-answered-section');
+      var answeredList    = document.getElementById('chain-answered-list');
+      if (!list) return;
+
+      var all = getChain();
+      var active   = all.filter(function(i){ return !i.answeredAt; });
+      var answered = all.filter(function(i){ return !!i.answeredAt; });
+
+      // Sort active: urgency first, then created desc
+      active.sort(function(a,b) {
+        var ua = URGENCY_ORDER[a.urgency||'low'];
+        var ub = URGENCY_ORDER[b.urgency||'low'];
+        if (ua !== ub) return ua - ub;
+        return b.created - a.created;
+      });
+
+      list.innerHTML = '';
+      if (!active.length) {
+        list.innerHTML = '<p class="chain-list-empty">No active requests.</p>';
+      } else {
+        active.forEach(function(item) {
+          list.appendChild(buildChainCard(item, false));
+        });
+      }
+
+      // Answered section
+      if (answeredSection) {
+        answeredSection.classList.toggle('tt-is-hidden', answered.length === 0);
+        answeredSection.setAttribute('aria-hidden', answered.length ? 'false' : 'true');
+      }
+      if (answeredList && !answeredList.classList.contains('tt-is-hidden')) {
+        answeredList.innerHTML = '';
+        answered.forEach(function(item) { answeredList.appendChild(buildChainCard(item, true)); });
+      }
+    }
+
+    function buildChainCard(item, isAnswered) {
+      var card = document.createElement('div');
+      var urg  = item.urgency || 'low';
+      card.className = 'chain-card urgency-' + urg + (isAnswered ? ' chain-answered' : '');
+      var age    = Math.floor((Date.now() - item.created) / (1000*3600));
+      var expire = Math.ceil((CHAIN_TTL - (Date.now() - item.created)) / (1000*3600*24));
+      var urgIcon = urg === 'high' ? '🔔 ' : urg === 'medium' ? '🟠 ' : '';
+
+      card.innerHTML =
+        '<div class="chain-title">' + urgIcon + escHtml(item.title) + (isAnswered ? ' ✅' : '') + '</div>' +
+        (item.poster ? '<div class="chain-poster">— ' + escHtml(item.poster) + '</div>' : '') +
+        (item.desc   ? '<div class="chain-desc">' + escHtml(item.desc) + '</div>' : '') +
+        '<div class="chain-meta">Added ' + age + 'h ago · expires in ' + expire + 'd</div>' +
+        ((item.prayedBy && item.prayedBy.length) ? '<div class="chain-prayed-by">Prayed ' + item.prayedBy.length + ' time' + (item.prayedBy.length===1?'':'s') + '</div>' : '') +
+        '<div class="chain-actions">' +
+          (!isAnswered
+            ? '<button class="tt-btn tt-btn-sm" data-chain-pray="' + item.id + '" type="button" aria-label="I prayed for: ' + escHtml(item.title) + '">I Prayed ✓</button>' +
+              '<button class="tt-btn tt-btn-sm tt-btn-green" data-chain-answer="' + item.id + '" type="button" aria-label="Mark answered: ' + escHtml(item.title) + '">Mark Answered</button>'
+            : '') +
+          '<button class="tt-btn tt-btn-sm tt-btn-danger" data-chain-del="' + item.id + '" type="button" aria-label="Remove request: ' + escHtml(item.title) + '">Remove</button>' +
+        '</div>';
+      return card;
+    }
+
+    var chainTitleInput  = document.getElementById('chain-title');
+    var chainDescInput   = document.getElementById('chain-desc');
+    var chainPosterInput = document.getElementById('chain-poster');
+    var chainUrgency     = document.getElementById('chain-urgency');
+    var chainAddBtn      = document.getElementById('chain-add-btn');
+
+    if (chainAddBtn) chainAddBtn.addEventListener('click', function() {
+      var title = (chainTitleInput.value || '').trim();
+      if (!title) return;
+      var urg = chainUrgency ? chainUrgency.value : 'low';
+      var poster = chainPosterInput ? chainPosterInput.value.trim() : '';
+      var items = getChain();
+      items.unshift({
+        id: Date.now().toString(), title: title,
+        desc: chainDescInput.value.trim(), poster: poster,
+        urgency: urg, created: Date.now(),
+        prayed: false, prayedBy: [], answeredAt: null
+      });
+      saveChain(items);
+      chainTitleInput.value = ''; chainDescInput.value = '';
+      if (chainPosterInput) chainPosterInput.value = '';
+      if (chainUrgency) chainUrgency.value = 'low';
+      if (urg === 'high') {
+        showToast('🔔 Urgent: ' + title);
+        // console.info removed — prayer content is private
+      }
+      renderChain();
+    });
+
+    var chainListEl = document.getElementById('chain-list');
+    if (chainListEl) {
+      chainListEl.addEventListener('click', function(e) {
+        var prayBtn   = e.target.closest('[data-chain-pray]');
+        var ansBtn    = e.target.closest('[data-chain-answer]');
+        var delBtn    = e.target.closest('[data-chain-del]');
+        if (prayBtn) {
+          var prayId = prayBtn.dataset.chainPray;
+          var prayItems = getChain().map(function(i) {
+            if (i.id !== prayId) return i;
+            var pb = (i.prayedBy||[]).slice(); pb.push(Date.now());
+            return Object.assign({}, i, { prayed: true, prayedBy: pb });
+          });
+          saveChain(prayItems); renderChain();
+        }
+        if (ansBtn) {
+          var ansId = ansBtn.dataset.chainAnswer;
+          var ansItems = getChain().map(function(i) {
+            return i.id === ansId ? Object.assign({}, i, { answeredAt: Date.now() }) : i;
+          });
+          saveChain(ansItems); renderChain();
+          showToast('Marked answered. God is faithful. 🙏', 'info');
+        }
+        if (delBtn) {
+          if (!confirm('Remove this prayer request?')) return;
+          saveChain(getChain().filter(function(i){ return i.id !== delBtn.dataset.chainDel; }));
+          renderChain();
+        }
+      });
+    }
+
+    // Also wire answered panel event delegation
+    var answeredListEl = document.getElementById('chain-answered-list');
+    if (answeredListEl) {
+      answeredListEl.addEventListener('click', function(e) {
+        var delBtn = e.target.closest('[data-chain-del]');
+        if (delBtn) {
+          if (!confirm('Remove this prayer request?')) return;
+          saveChain(getChain().filter(function(i){ return i.id !== delBtn.dataset.chainDel; }));
+          renderChain();
+        }
+      });
+    }
+
+    var answeredToggle = document.getElementById('chain-answered-toggle');
+    var answeredListWrap = document.getElementById('chain-answered-list');
+    if (answeredToggle && answeredListWrap) {
+      answeredToggle.addEventListener('click', function() {
+        var wasOpen = !answeredListWrap.classList.contains('tt-is-hidden');
+        answeredListWrap.classList.toggle('tt-is-hidden', wasOpen);
+        answeredToggle.textContent = (wasOpen ? '▸' : '▾') + ' ' + (wasOpen ? 'Show' : 'Hide') + ' answered prayers';
+        answeredToggle.setAttribute('aria-expanded', wasOpen ? 'false' : 'true');
+        if (!wasOpen) {
+          answeredListWrap.innerHTML = '';
+          var answered = getChain().filter(function(i){ return !!i.answeredAt; });
+          answered.forEach(function(item) { answeredListWrap.appendChild(buildChainCard(item, true)); });
+        }
+      });
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       VERSE PACKS
+    ════════════════════════════════════════════════════════════ */
+    var VP_KEY_PACKS  = function() { return teamKey('vp_packs'); };
+    var VP_KEY_ACTIVE = function() { return teamKey('vp_active'); };
+    var VP_PW_KEY     = 'tdb_tt_vp_pw';
+    var vpUnlocked    = false;
+
+    function getPacks()     { return lsGet(VP_KEY_PACKS())  || []; }
+    function savePacks(p)   { lsSet(VP_KEY_PACKS(), p); }
+    function getActivePack(){ return lsGet(VP_KEY_ACTIVE()) || null; }
+    function setActivePack(id) { lsSet(VP_KEY_ACTIVE(), id); }
+
+    function parseVersePack(text) {
+      var lines = text.split(/\n/).map(function(l){ return l.trim(); }).filter(Boolean);
+      var refRe = /^([1-3]?\s*[A-Za-z]+\.?\s+\d+:\d+)\s+(.+)/;
+      return lines.map(function(line) {
+        var m = line.match(refRe);
+        return m ? { ref: m[1].trim(), text: m[2].trim() } : { ref: '', text: line };
+      }).filter(function(v){ return v.text; });
+    }
+
+    function getTodayPackVerse(pack) {
+      if (!pack || !pack.verses || !pack.verses.length) return null;
+      var epoch = daysSinceEpoch(todayISO());
+      return pack.verses[epoch % pack.verses.length];
+    }
+
+    function renderVpTodayVerse() {
+      var wrap = document.getElementById('vp-today-wrap');
+      if (!wrap) return;
+      var activeId = getActivePack();
+      var packs = getPacks();
+      var active = packs.find(function(p){ return p.id === activeId; });
+      if (!active) { wrap.innerHTML = ''; return; }
+      var verse = getTodayPackVerse(active);
+      if (!verse) { wrap.innerHTML = ''; return; }
+      wrap.innerHTML =
+        '<div class="vp-verse-today">' +
+          (verse.ref ? '<div class="vp-verse-today-ref">' + escHtml(verse.ref) + ' KJV</div>' : '') +
+          '<div class="vp-verse-today-text">"' + escHtml(verse.text) + '"</div>' +
+          '<div class="vp-verse-today-pack">From: ' + escHtml(active.name) + '</div>' +
+        '</div>';
+    }
+
+    function renderVersePacks() {
+      renderVpTodayVerse();
+      if (!vpUnlocked) return;
+      var list = document.getElementById('vp-pack-list');
+      if (!list) return;
+      var packs  = getPacks();
+      var active = getActivePack();
+      if (!packs.length) {
+        list.innerHTML = '<p class="section-note">No packs saved yet. Paste verses above and save.</p>';
+        return;
+      }
+      list.innerHTML = '';
+      packs.forEach(function(pack) {
+        var isActive = pack.id === active;
+        var div = document.createElement('div');
+        div.className = 'vp-pack-card';
+        div.innerHTML =
+          '<div>' +
+            '<div class="vp-pack-name">' + escHtml(pack.name) + '</div>' +
+            '<div class="vp-pack-count">' + pack.verses.length + ' verse' + (pack.verses.length===1?'':'s') + '</div>' +
+          '</div>' +
+          (isActive ? '<span class="vp-pack-active">● Active</span>' : '') +
+          '<div class="vp-pack-actions">' +
+            (!isActive ? '<button class="tt-btn tt-btn-sm tt-btn-green" data-vp-set="' + pack.id + '" type="button">Set Active</button>' : '') +
+            '<button class="tt-btn tt-btn-sm tt-btn-ghost" data-vp-export="' + pack.id + '" type="button">Export JSON</button>' +
+            '<button class="tt-btn tt-btn-sm tt-btn-danger" data-vp-del="' + pack.id + '" type="button">Delete</button>' +
+          '</div>';
+        list.appendChild(div);
+      });
+    }
+
+    // Pack list click delegation
+    var vpListEl = document.getElementById('vp-pack-list');
+    if (vpListEl) {
+      vpListEl.addEventListener('click', function(e) {
+        var setBtn = e.target.closest('[data-vp-set]');
+        var expBtn = e.target.closest('[data-vp-export]');
+        var delBtn = e.target.closest('[data-vp-del]');
+        if (setBtn) {
+          setActivePack(setBtn.dataset.vpSet);
+          renderVersePacks();
+          showToast('Active pack updated.', 'info');
+        }
+        if (expBtn) {
+          var pack = getPacks().find(function(p){ return p.id === expBtn.dataset.vpExport; });
+          if (!pack) return;
+          var blob = new Blob([JSON.stringify(pack, null, 2)], { type: 'application/json' });
+          var url  = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url; a.download = pack.name.replace(/[^a-z0-9]/gi,'_') + '.json';
+          document.body.appendChild(a); a.click();
+          setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 1000);
+        }
+        if (delBtn) {
+          if (!confirm('Delete this pack?')) return;
+          savePacks(getPacks().filter(function(p){ return p.id !== delBtn.dataset.vpDel; }));
+          renderVersePacks();
+        }
+      });
+    }
+
+    // Save new pack
+    var vpSaveBtn = document.getElementById('vp-save-btn');
+    if (vpSaveBtn) vpSaveBtn.addEventListener('click', function() {
+      var name  = (document.getElementById('vp-pack-name').value || '').trim();
+      var text  = (document.getElementById('vp-pack-text').value || '').trim();
+      if (!name || !text) { showToast('Pack name and verses are required.'); return; }
+      var verses = parseVersePack(text);
+      if (!verses.length) { showToast('No verses found. Check the format.'); return; }
+      var packs = getPacks();
+      packs.push({ id: Date.now().toString(), name: name, verses: verses });
+      savePacks(packs);
+      document.getElementById('vp-pack-name').value = '';
+      document.getElementById('vp-pack-text').value = '';
+      renderVersePacks();
+      showToast('Pack saved — ' + verses.length + ' verses.', 'info');
+    });
+
+    // Import JSON
+    var vpImportFile = document.getElementById('vp-import-file');
+    if (vpImportFile) vpImportFile.addEventListener('change', function() {
+      var file = vpImportFile.files[0];
+      if (!file) return;
+      vpImportFile.value = '';
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          var pack = JSON.parse(e.target.result);
+          if (!pack.name || !Array.isArray(pack.verses)) throw new Error('Invalid');
+          pack.id = Date.now().toString();
+          var packs = getPacks();
+          packs.push(pack);
+          savePacks(packs);
+          renderVersePacks();
+          showToast('Imported: ' + pack.name, 'info');
+        } catch(_) { showToast('Invalid JSON pack file.'); }
+      };
+      reader.readAsText(file);
+    });
+
+    // Password gate — no default password shipped in source
+    var vpUnlockBtn = document.getElementById('vp-unlock-btn');
+    var vpPwInput   = document.getElementById('vp-pw-input');
+    var vpPwErr     = document.getElementById('vp-pw-err');
+    var vpGateMsg   = document.getElementById('vp-gate-msg');
+    var vpGateEl    = document.getElementById('vp-gate');
+    var vpAdminEl   = document.getElementById('vp-admin');
+    function vpRevealAdmin() {
+      if (vpGateEl) {
+        vpGateEl.classList.add('tt-is-hidden');
+        vpGateEl.setAttribute('aria-hidden', 'true');
+      }
+      if (vpAdminEl) {
+        vpAdminEl.classList.remove('tt-is-hidden');
+        vpAdminEl.setAttribute('aria-hidden', 'false');
+      }
+    }
+    // If no password set yet, prompt the user to create one on first unlock
+    (function initVpGate() {
+      try {
+        var hasPassword = !!localStorage.getItem(VP_PW_KEY);
+        if (!hasPassword && vpGateMsg) {
+          vpGateMsg.textContent = 'No password set yet. Type one below and tap Unlock to create it.';
+        }
+      } catch(_) {}
+    })();
+    if (vpUnlockBtn) vpUnlockBtn.addEventListener('click', function() {
+      var pw = (vpPwInput.value || '').trim();
+      if (!pw) { showToast('Enter a password first.'); return; }
+      var stored;
+      try { stored = localStorage.getItem(VP_PW_KEY); } catch(_) { stored = null; }
+      if (!stored) {
+        // First time — set the password now
+        try { localStorage.setItem(VP_PW_KEY, pw); } catch(_) {}
+        vpUnlocked = true;
+        vpRevealAdmin();
+        if (vpPwErr) {
+          vpPwErr.classList.add('tt-is-hidden');
+          vpPwErr.setAttribute('aria-hidden', 'true');
+        }
+        renderVersePacks();
+        showToast('Password set. You\'re in.');
+      } else if (pw === stored) {
+        vpUnlocked = true;
+        vpRevealAdmin();
+        if (vpPwErr) {
+          vpPwErr.classList.add('tt-is-hidden');
+          vpPwErr.setAttribute('aria-hidden', 'true');
+        }
+        renderVersePacks();
+      } else {
+        if (vpPwErr) {
+          vpPwErr.classList.remove('tt-is-hidden');
+          vpPwErr.setAttribute('aria-hidden', 'false');
+        }
+      }
+    });
+    if (vpPwInput) vpPwInput.addEventListener('keydown', function(e){ if(e.key==='Enter') vpUnlockBtn.click(); });
+
+    // Change password
+    var vpChangePwBtn = document.getElementById('vp-change-pw-btn');
+    if (vpChangePwBtn) vpChangePwBtn.addEventListener('click', function() {
+      var newPw = (document.getElementById('vp-new-pw').value || '').trim();
+      if (!newPw || newPw.length < 4) { showToast('Password must be at least 4 characters.'); return; }
+      try { localStorage.setItem(VP_PW_KEY, newPw); } catch(_) {}
+      document.getElementById('vp-new-pw').value = '';
+      showToast('Password updated.', 'info');
+    });
+
+    /* ════════════════════════════════════════════════════════════
+       INITIAL RENDER
+    ════════════════════════════════════════════════════════════ */
+    renderCalendar();
+    renderAttendance();
+    renderAttDateStrip();
+    renderLibrary();
+    renderChain();
+    renderVpTodayVerse();
+
+  })();
+  </script>
+  <script defer src="plans-data.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" crossorigin="anonymous"></script>
+  <script defer src="team-toolkit-packs-pdf.js?v=20260324ttpdf2"></script>
+</body>
+</html>

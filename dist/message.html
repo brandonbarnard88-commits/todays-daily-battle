@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://cdn.jsdelivr.net https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://unpkg.com https://cdn.jsdelivr.net; frame-src 'self' https://challenges.cloudflare.com;">
+  <meta name="referrer" content="no-referrer">
+  <title>Prayer moved • Today's Daily Battle</title>
+  <meta name="description" content="Prayer now lives at one clear doorway with private prayer and prayer with others together.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/prayer-wall.html">
+  <meta http-equiv="refresh" content="0; url=/prayer-wall.html?tab=with-others">
+  <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/message.html">
+  <link rel="alternate" hreflang="pt" href="https://todaysdailybattle.com/pt/mural.html">
+  <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
+  <meta property="og:title" content="Prayer • Today's Daily Battle">
+  <meta property="og:description" content="Prayer now lives at one clear doorway with private prayer and prayer with others together.">
+  <meta property="og:url" content="https://todaysdailybattle.com/prayer-wall.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prayer • Today's Daily Battle">
+  <meta name="twitter:description" content="Prayer now lives at one clear doorway with private prayer and prayer with others together.">
+  <script>window.location.replace('/prayer-wall.html?tab=with-others');</script>
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260412launch" nonce="tdb2025s">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" nonce="tdb2025s" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" nonce="tdb2025s">
+  <style nonce="tdb2025s">
+    /* WCAG AA: form controls on glass card (axe contrast vs mid-gray glass) */
+    .message-board.glass .message-form input,
+    .message-board.glass .message-form textarea,
+    .message-board.glass .message-toolbar select {
+      background: #2a2e36;
+      color: #f1f5f9;
+      border: 1px solid #4b5563;
+      border-radius: 8px;
+    }
+    .message-board.glass .message-toolbar select {
+      padding: 0.35rem 0.5rem;
+    }
+    /* Calmer posting flow + mobile tap targets */
+    .message-board .message-form textarea#message-text {
+      min-height: 6.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      resize: vertical;
+    }
+    .message-board .message-form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .message-board .message-form-actions .btn {
+      min-height: 44px;
+    }
+    @media (max-width: 520px) {
+      .message-board .message-form-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .message-board .message-form-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    .message-list-empty {
+      padding: 1rem 0 0.25rem;
+      border-top: 1px solid color-mix(in srgb, var(--line, rgba(255,255,255,0.12)) 80%, transparent);
+      margin-top: 0.75rem;
+    }
+    .message-list-empty p {
+      margin: 0 0 0.5rem;
+      max-width: 38rem;
+    }
+    .message-list-empty .message-list-empty-lead {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: 1.05rem;
+      color: var(--text-dark, #f1f5f9);
+      line-height: 1.45;
+    }
+    details.message-page-verse-search {
+      margin-top: 1.75rem;
+      padding: 0.65rem 0.85rem;
+    }
+    details.message-page-verse-search summary {
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      padding: 0.35rem 0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      color: var(--gold-soft, #f2dc98);
+    }
+    details.message-page-verse-search summary::-webkit-details-marker { display: none; }
+    details.message-page-verse-search .search-hero {
+      margin-top: 0.5rem;
+      border: none;
+      padding: 0;
+      background: transparent;
+    }
+    details.message-loop-prayer-details {
+      margin-bottom: 1rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold-soft, #f2dc98) 35%, var(--line, #4b5563));
+      background: color-mix(in srgb, var(--card, #2a2e36) 94%, rgba(227, 188, 103, 0.06));
+    }
+    details.message-loop-prayer-details summary {
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      padding: 0.35rem 0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      color: var(--gold-soft, #f2dc98);
+    }
+    details.message-loop-prayer-details summary::-webkit-details-marker { display: none; }
+    .message-loop-prayer-fields label {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--muted, #94a3b8);
+      margin-bottom: 0.25rem;
+    }
+    .message-loop-prayer-fields input[type="text"] {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 0.65rem;
+      padding: 0.45rem 0.55rem;
+      border-radius: 8px;
+      border: 1px solid #4b5563;
+      background: #2a2e36;
+      color: #f1f5f9;
+      font-size: 1rem;
+    }
+    .message-loop-prayer-actions {
+      margin-top: 0.5rem;
+    }
+    .message-loop-prayer-actions .btn {
+      min-height: 44px;
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page message-board-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Prayer now lives here — private or shared, one clear doorway.</span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+        <a href="/verse.html">Today&rsquo;s Verse</a>
+        <a href="/#feel-section">How I Feel</a>
+        <a href="/prayer-wall.html">Pray</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <a href="/">Home</a>
+            <a href="/explore.html">Explore</a>
+            <a href="/mystudy">My Study</a>
+            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+            <a href="/plans.html">Battle Plans</a>
+            <a href="/memorize.html">Memorize</a>
+            <a href="/kids/corner.html">Kids &amp; Family</a>
+            <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+            <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+            <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+            <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+            <a href="/about.html">About</a>
+            <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            <a href="/mobius.html">Möbius</a>
+            <a href="/calm.html">Calm</a>
+            <a href="/story.html">Story</a>
+            <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+          </div>
+        </details>
+      </div>
+    </nav>
+      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+      </div>
+
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+</header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
+        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
+        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
+        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
+        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
+        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
+        <a href="/prayer-wall.html?tab=with-others" data-section="prayer" data-icon="MB">Prayer</a>
+        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
+        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      </nav>
+      <div class="sidebar-options">
+        <label class="inline-toggle">
+          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
+          Red letters
+        </label>
+      </div>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner tdb-dawn-hub--dusk">
+          <h1>Prayer moved</h1>
+          <p class="real-talk">Prayer now lives at one clear doorway. You are being sent to <a href="/prayer-wall.html?tab=with-others">Prayer</a>, where private prayer and prayer with others sit together.</p>
+          <p class="section-note message-prayer-quiet-feed-note" role="note">If the redirect does not fire, use the button below.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="/prayer-wall.html?tab=with-others">Open Prayer</a>
+            <a class="btn btn-secondary" href="/">Find a verse</a>
+          </div>
+        </header>
+
+        <section id="message-board" class="message-board glass" role="region" aria-labelledby="message-board-heading">
+          <h2 class="section-divider" id="message-board-heading">Pray with others</h2>
+          <p class="section-note" id="message-board-intro">This shared wall is for honesty, not polish. A name is optional. We never rank or feature one prayer over another. If you are not signed in yet, the page above will take you to the full Prayer doorway, where private prayer and prayer with others sit together.</p>
+          <p class="section-note" role="note">Safety note: keep private details out (full names, phone numbers, email, addresses). Short and anonymous is best.</p>
+          <p class="section-note" role="note">Human-curated and carefully moderated. All posts remain anonymous by default. Report concerns: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a></p>
+          <p class="section-note message-board-mobius-nudge">If a post&rsquo;s weight lands on you, try one slow breath—inhale the care, exhale a promise you&rsquo;re holding—and walk the <a href="/mobius.html">Möbius picture</a> in your mind: one path, no dead end.</p>
+          <p class="section-note tdb-privacy-whisper" id="message-board-privacy-note" role="note">We don&rsquo;t sell prayer posts or use them for ads. <strong>Before you post:</strong> see <a href="privacy.html">Privacy</a> for how messages are handled.</p>
+          <div id="message-board-note" class="section-note"></div>
+          <div class="message-toolbar">
+            <div class="daily-encouragement" id="daily-encouragement"></div>
+            <button class="btn btn-secondary" id="copy-daily-encouragement" type="button">Copy Daily Encouragement</button>
+            <label class="inline-toggle" for="message-sort">Sort</label>
+            <select id="message-sort" aria-label="Sort messages">
+              <option value="newest" selected>Newest</option>
+              <option value="popular">Popular</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
+          <div class="message-form">
+            <input id="message-name" type="text" placeholder="Your name (optional)" aria-label="Your display name">
+            <details class="message-loop-prayer-details" id="message-loop-prayer-details">
+              <summary>Loop prayer template (optional)</summary>
+              <p class="section-note util-mb-0_5">Same language as the Möbius room: lay down a weight, receive a promise. Fill the lines, tap <strong>Use in post</strong>, then edit—nothing posts until you choose.</p>
+              <div class="message-loop-prayer-fields">
+                <label for="loop-prayer-weight">I lay down (a weight, fear, or care)</label>
+                <input type="text" id="loop-prayer-weight" name="loop-prayer-weight" autocomplete="off" maxlength="500" aria-label="What you lay down before God">
+                <label for="loop-prayer-promise">I receive (a thanks or a promise you are holding to)</label>
+                <input type="text" id="loop-prayer-promise" name="loop-prayer-promise" autocomplete="off" maxlength="500" aria-label="What you receive from God">
+              </div>
+              <div class="message-loop-prayer-actions">
+                <button type="button" class="btn btn-secondary" id="loop-prayer-use-btn">Use in post</button>
+              </div>
+            </details>
+            <textarea id="message-text" rows="4" placeholder="A few honest lines are enough—prayer, thanks, or a verse that helped." aria-label="Your prayer or note" aria-describedby="message-board-intro message-board-privacy-note message-loop-prayer-hint"></textarea>
+            <p class="section-note sr-only" id="message-loop-prayer-hint">Optional: open Loop prayer template above to drop in a weight-and-promise pattern, then edit.</p>
+            <div class="message-form-actions">
+              <button type="button" id="post-message" class="btn btn-primary">Post to the wall</button>
+              <button type="button" id="voice-message-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your message"><span class="voice-pray-icon" aria-hidden="true">🎤</span> Speak</button>
+            </div>
+          </div>
+          <div id="message-featured-wrap" class="message-featured-wrap" hidden>
+            <h3 class="message-featured-heading">Lifted lately on this device</h3>
+            <p class="section-note message-featured-note">These are the three posts with the most <strong>Amen</strong> taps stored <em>on this phone or browser</em>—a quiet reminder of who you prayed with. Use sort <strong>Popular</strong> below for the full list.</p>
+            <div id="message-featured-strip" class="message-featured-strip" role="list" aria-label="Featured prayers by local Amen count"></div>
+          </div>
+          <div id="message-list-wrap" class="message-list-wrap" role="region" aria-live="polite" aria-relevant="additions" aria-busy="false" aria-label="Latest messages">
+            <div id="message-list-loading" class="message-list-loading" style="display:none;" role="status" aria-live="polite">
+              <span class="tdb-spinner" aria-hidden="true"></span>
+              <span>Loading messages…</span>
+            </div>
+            <div id="message-list" class="list"></div>
+            <button type="button" id="message-see-more" class="btn btn-secondary message-see-more" style="display:none;">See more</button>
+          </div>
+          <p id="message-added-announce" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+        </section>
+
+        <details class="message-page-verse-search tdb-surface-panel">
+          <summary>Looking for a verse before you write?</summary>
+          <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
+            <label for="query" class="search-hero-label">Search by feeling or reference</label>
+            <div class="search-hero-row">
+              <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
+              <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
+            </div>
+            <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
+            <div class="quick-actions quick-actions-hero" id="quick-actions-hero" role="region" aria-label="Quick topic search"></div>
+            <details class="home-accordion util-mt-0_5">
+              <summary class="home-accordion-summary">More topics</summary>
+              <div class="quick-actions" id="quick-actions-accordion" aria-label="All quick topics"></div>
+            </details>
+            <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
+          </section>
+        </details>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Verse</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, read <a href="/where-support-goes.html">where support goes</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Need the current support path? Use the <a href="/give" aria-label="Open the support page">support page</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/kids-corner.html">Kids corner</a>
+        <a href="/kids/?v=hub20260321">Kids battle</a>
+        <a href="/coloring.html">Kids coloring</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 9, 2026</span></p>
+  <script defer src="/language-switcher.js"></script>
+</footer>
+  </div>
+
+  <script src="inline-bootstrap.js"></script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260324mbseed" data-cfasync="false"></script>
+  <script src="voice-message.js"></script>
+  <script src="share-page.js?v=20260402shareattrs" defer></script>
+  <script>
+    (function () {
+      var btn = document.getElementById('loop-prayer-use-btn');
+      var wEl = document.getElementById('loop-prayer-weight');
+      var pEl = document.getElementById('loop-prayer-promise');
+      var ta = document.getElementById('message-text');
+      if (!btn || !wEl || !pEl || !ta) return;
+      btn.addEventListener('click', function () {
+        var w = (wEl.value || '').trim();
+        var p = (pEl.value || '').trim();
+        var weightPhrase = w || 'what I cannot carry alone';
+        var receivePhrase = p || 'what You have said is true';
+        var block = 'God, I lay down ' + weightPhrase + '. I receive ' + receivePhrase + '. Amen.';
+        if (!ta.value.trim()) {
+          ta.value = block;
+        } else {
+          ta.value = ta.value.trim() + '\n\n' + block;
+        }
+        ta.focus();
+        try {
+          if (typeof window.trackEvent === 'function') {
+            window.trackEvent('prayer_loop_template_use', { source: 'message_board' });
+          }
+        } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

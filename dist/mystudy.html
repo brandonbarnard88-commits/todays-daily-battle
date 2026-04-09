@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>My Study | Today's Daily Battle</title>
+  <meta name="description" content="Your private place for saved verses, notes, prayer, highlights, and progress on this device.">
+  <link rel="canonical" href="https://todaysdailybattle.com/mystudy">
+  <meta name="theme-color" content="#0a0c14">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="stylesheet" href="mystudy.css?v=20260331surface-final">
+</head>
+<body class="dark-mode tdb-inner-page mystudy-body">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="mystudy"><p class="offline-msg"></p></div>
+  <main id="main-content" class="mystudy-shell">
+    <nav class="mystudy-topbar" aria-label="My Study quick links">
+      <a href="/" class="mystudy-home-link">← Back to Home</a>
+      <a href="explore.html" class="mystudy-home-link">Explore</a>
+      <a href="bible-tool.html" class="mystudy-home-link">Bible Tool</a>
+      <a href="progress.html" class="mystudy-home-link">Progress</a>
+    </nav>
+    <section class="mystudy-card glass" aria-label="My Study">
+      <header class="mystudy-hero">
+        <div class="mystudy-hero-copy">
+          <p class="mystudy-kicker">Private on this device</p>
+          <h1 class="section-divider mystudy-title">My Study</h1>
+          <p class="section-note mystudy-subtitle">A calmer place for saved verses, notes, prayer, highlights, and steady progress. Everything stays on this device unless you sign in to sync.</p>
+        </div>
+        <div class="mystudy-hero-support">
+          <p class="section-note tdb-kjv-dict-hint mystudy-hint-card" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
+          <div class="tdb-soft-retry-row mystudy-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads this page if study data didn&rsquo;t appear.</span></div>
+        </div>
+        <div id="mystudy-progress-summary" class="mystudy-progress-summary" role="region" aria-label="Your study rhythm on this device"></div>
+        <section id="mystudy-streak-badges" class="mystudy-streak-badges" role="region" aria-labelledby="mystudy-streak-badges-heading">
+          <div class="mystudy-streak-badges-head">
+            <h2 id="mystudy-streak-badges-heading" class="section-divider mystudy-h2 mystudy-h2-tight">Quiet markers</h2>
+            <p class="section-note mystudy-streak-badges-copy">A quiet marker of faithfulness, not a public score. Stored on this device unless you choose to sync later.</p>
+          </div>
+          <div id="mystudy-streak-badge-featured" class="mystudy-streak-badge-featured" aria-live="polite"></div>
+          <p id="mystudy-streak-badge-progress" class="mystudy-streak-badge-progress" aria-live="polite"></p>
+          <div id="mystudy-streak-badge-rail" class="mystudy-streak-badge-rail" role="list" aria-label="Streak badges"></div>
+        </section>
+        <div id="mystudy-memorize-strip" class="mystudy-memorize-strip mystudy-memorize-strip--empty" role="region" aria-label="Memorize queue summary">
+          <p id="mystudy-memorize-pill" class="mystudy-memorize-pill" role="status" aria-live="polite"></p>
+          <button type="button" id="mystudy-memorize-review-next" class="btn btn-secondary mystudy-mem-review-next hidden">Mark next reviewed</button>
+        </div>
+      </header>
+
+      <div class="mystudy-tabs" role="tablist" aria-label="My Study tabs">
+        <button id="tab-my-study" class="mystudy-tab active" role="tab" aria-selected="true" aria-controls="panel-my-study" type="button">My Study</button>
+        <button id="tab-note-library" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-note-library" type="button">Saved &amp; notes</button>
+        <button id="tab-highlights" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-highlights" type="button">Highlights</button>
+        <button id="tab-join-study" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-join-study" type="button">Join Study</button>
+      </div>
+
+      <section id="panel-my-study" class="mystudy-panel" role="tabpanel" aria-labelledby="tab-my-study">
+        <div class="mystudy-panel-flow">
+          <section class="mystudy-section-card mystudy-section-card--search">
+            <div class="mystudy-section-head">
+              <h2 class="section-divider mystudy-h2">Start with a verse</h2>
+              <p class="section-note">Search for the verse you want to hold onto, then keep notes and prayer close by.</p>
+            </div>
+            <label for="mystudy-search" class="mystudy-label">Search verse</label>
+            <div class="mystudy-search-row">
+              <input id="mystudy-search" type="search" placeholder="Hope, fear, John 3:16..." autocomplete="off" aria-label="Search verse">
+              <button id="mystudy-search-btn" class="btn btn-primary" type="button">Search</button>
+            </div>
+            <p id="mystudy-search-status" class="section-note" aria-live="polite"></p>
+            <ul id="mystudy-results" class="mystudy-results" aria-label="Verse results"></ul>
+          </section>
+
+          <article class="mystudy-verse-card mystudy-section-card">
+            <h2 class="section-divider mystudy-h2">Selected verse</h2>
+            <p id="mystudy-verse-ref" class="mystudy-verse-ref">Nothing here yet. When a verse touches your heart, search on Home or open the Bible Tool. The Lord meets you right where you are.</p>
+            <p id="mystudy-verse-text" class="mystudy-verse-text section-note"></p>
+            <div class="mystudy-share-actions">
+              <button id="mystudy-highlight-selected" class="btn btn-secondary mystudy-highlight-btn" type="button">Highlight</button>
+            </div>
+          </article>
+
+          <div class="mystudy-writing-grid">
+            <section class="mystudy-section-card">
+              <div class="mystudy-section-head">
+                <h2 class="section-divider mystudy-h2">Study notes</h2>
+                <p class="section-note">Keep what stood out while it is still fresh.</p>
+              </div>
+              <label for="mystudy-notes" class="mystudy-label">Study notes</label>
+              <textarea id="mystudy-notes" rows="7" placeholder="Write your study notes..."></textarea>
+            </section>
+
+            <section class="mystudy-section-card">
+              <div class="mystudy-section-head">
+                <h2 class="section-divider mystudy-h2">Private prayer</h2>
+                <p class="section-note">This stays on this device and is never included in share code.</p>
+              </div>
+              <label for="mystudy-prayer" class="mystudy-label">Prayer (private)</label>
+              <textarea id="mystudy-prayer" rows="5" placeholder="Personal prayer stays private on this device..."></textarea>
+            </section>
+          </div>
+
+          <div class="mystudy-share-wrap mystudy-section-card">
+            <div class="mystudy-section-head">
+              <h2 class="section-divider mystudy-h2">Share Study</h2>
+              <p class="section-note">Share code includes verse and notes only. No prayer data is shared.</p>
+            </div>
+            <label class="mystudy-inline">
+              <input id="mystudy-show-name" type="checkbox">
+              Show name in shared label
+            </label>
+            <input id="mystudy-display-name" type="text" maxlength="40" placeholder="Optional display name" aria-label="Display name for shared study">
+            <div class="mystudy-share-actions">
+              <button id="mystudy-generate-code" class="btn btn-primary" type="button">Generate Share Code</button>
+              <button id="mystudy-copy-code" class="btn btn-secondary" type="button">Copy Code</button>
+            </div>
+            <textarea id="mystudy-share-code" rows="4" readonly placeholder="Share code appears here"></textarea>
+            <p id="mystudy-share-status" class="section-note" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="panel-note-library" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-note-library">
+        <div class="mystudy-panel-flow">
+          <section class="mystudy-section-card">
+            <p class="section-note mystudy-library-lead">Saved verses, Bible Tool notes, memorize rhythm, and recent chapters all stay together here on this device. Open a row to keep studying that reference, then use the print buttons below for a clean PDF when you need one.</p>
+            <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Saved verses</h2>
+            <p class="section-note">Verses you saved from Home, search, or the Bible Tool. Tap a reference to reopen it, or keep moving with memorize and notes right here.</p>
+            <div id="saved-verses" class="list my-verses-saved-list" role="list" aria-label="Saved verses" aria-live="polite" aria-relevant="additions text"></div>
+            <div class="mystudy-library-actions" role="group" aria-label="Library actions">
+              <button type="button" id="mystudy-print-notes" class="btn btn-secondary mystudy-print-btn">Print notes (PDF via browser)</button>
+              <button type="button" id="mystudy-print-bundle" class="btn btn-secondary mystudy-print-btn">Print full bundle (notes + memorize + recent chapters)</button>
+              <button type="button" id="mystudy-export-json" class="btn btn-secondary mystudy-print-btn" aria-label="Download My Study backup as JSON file">Download JSON backup</button>
+              <button type="button" id="mystudy-restore-json" class="btn btn-secondary mystudy-print-btn" aria-label="Restore My Study backup from a JSON file">Restore JSON backup</button>
+              <input type="file" id="mystudy-restore-file" accept="application/json,.json" hidden aria-hidden="true">
+            </div>
+            <p id="mystudy-backup-status" class="section-note" aria-live="polite">Need to move this device or recover after a reset? Download a backup here, then restore it later from the same section.</p>
+          </section>
+
+          <section class="mystudy-section-card">
+            <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Memorize (lite)</h2>
+            <p class="section-note">Verses you mark on the Bible Tool. Gentle spaced rhythm on this device: intervals stretch when you tap &ldquo;Remembered well&rdquo; and ease sooner when you need another pass&mdash;no scores.</p>
+            <ul id="mystudy-memorize-list" class="mystudy-memorize-list" aria-label="Memorize queue"></ul>
+            <label for="mystudy-library-filter" class="mystudy-label">Filter by reference, tag, or note text</label>
+            <div id="mystudy-tag-pills" class="mystudy-tag-pills" role="group" aria-label="Filter by tag"></div>
+            <input id="mystudy-library-filter" type="search" class="mystudy-library-filter" placeholder="e.g. Romans, fear, peace…" autocomplete="off" aria-label="Filter verse notes" />
+          </section>
+
+          <section class="mystudy-section-card">
+            <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Recently tagged</h2>
+            <p class="section-note mystudy-recent-tagged-lead">Verse notes that have tags, with the most recent tag edit first (this device).</p>
+            <ul id="mystudy-recent-tagged" class="mystudy-library-list mystudy-recent-tagged-list" aria-label="Recently tagged verse notes"></ul>
+            <p id="mystudy-library-status" class="section-note" aria-live="polite"></p>
+            <ul id="mystudy-library-list" class="mystudy-library-list" aria-label="Saved verse notes"></ul>
+          </section>
+
+          <section class="mystudy-section-card">
+            <h2 class="section-divider mystudy-h2">Recent chapters</h2>
+            <p class="section-note">Chapters you opened in the <a href="reader.html">chapter reader</a> (this device).</p>
+            <ul id="mystudy-recent-chapters" class="mystudy-library-list mystudy-recent-list" aria-label="Recent chapters"></ul>
+            <p class="section-note util-mt-1 util-mb-0">Need prayer next? Open <a href="prayer-wall.html">Prayer</a> for a private line or the shared wall.</p>
+          </section>
+        </div>
+      </section>
+
+      <section id="panel-join-study" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-join-study">
+        <div class="mystudy-panel-flow">
+          <section class="mystudy-section-card">
+            <div class="mystudy-section-head">
+              <h2 class="section-divider mystudy-h2">Join shared study</h2>
+              <p class="section-note">Paste a share code from someone you trust to view the verse and notes they chose to share.</p>
+            </div>
+            <label for="mystudy-join-code" class="mystudy-label">Paste share code</label>
+            <textarea id="mystudy-join-code" rows="4" placeholder="Paste code to view shared study"></textarea>
+            <div class="mystudy-share-actions">
+              <button id="mystudy-join-btn" class="btn btn-primary" type="button">Join Study</button>
+              <button id="mystudy-clear-joined" class="btn btn-secondary" type="button">Clear Joined</button>
+            </div>
+            <p id="mystudy-join-status" class="section-note" aria-live="polite"></p>
+            <div id="mystudy-shared-list" class="mystudy-shared-list" aria-label="Joined studies"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="panel-highlights" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-highlights">
+        <div class="mystudy-panel-flow">
+          <section class="mystudy-section-card">
+            <div class="mystudy-section-head">
+              <h2 class="section-divider mystudy-h2">Highlights</h2>
+              <p id="mystudy-highlights-status" class="section-note" aria-live="polite">When a verse touches your heart, open it and tap Highlight. Your marks stay gently on this device.</p>
+            </div>
+            <div id="mystudy-highlights-grid" class="mystudy-highlights-grid" aria-label="Saved highlights"></div>
+          </section>
+          <article id="mystudy-highlight-detail" class="mystudy-highlight-detail hidden mystudy-section-card" aria-live="polite">
+            <p id="mystudy-highlight-ref" class="mystudy-verse-ref"></p>
+            <p id="mystudy-highlight-text" class="mystudy-verse-text section-note"></p>
+            <p id="mystudy-highlight-note" class="section-note"></p>
+            <div class="mystudy-share-actions">
+              <button id="mystudy-share-church" class="btn btn-secondary" type="button">Share to Church</button>
+              <button id="mystudy-remove-highlight" class="btn btn-secondary" type="button">Remove Highlight</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+    <p class="section-note mystudy-privacy-foot util-mt-1 util-mb-0">Everything here stays on this device unless you sign in to sync.</p>
+  </main>
+
+  <script type="module" src="config.js"></script>
+  <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
+  <script src="verse-breakdown.js?v=20260405-relations-fix" defer></script>
+  <script src="highlights.js?v=20260305" defer></script>
+  <script src="bible-study-companion.js?v=20260328printpolish" defer></script>
+  <script src="word-study.js?v=20260329pass2off" defer></script>
+  <script src="verse-narration.js?v=20260329narr12" defer></script>
+  <script src="verse-study.js?v=20260328pass4vs" defer></script>
+  <script src="mystudy.js?v=20260430study-parity" defer></script>
+  <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
+  <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
+</body>
+</html>

@@ -1,0 +1,3030 @@
+{
+  "version": 2,
+  "about": "KJV word helps: short glosses + example refs. Hub concordance lists a growing subset of lemmas; each entry includes a concordance key for Search. See scripts/README-kjv-word-notes.md.",
+  "words": [
+    {
+      "word": "charity",
+      "note": "Often means self-giving love (caritas), not fundraising or a donation drive.",
+      "concordance": "charity",
+      "examples": [
+        "1 Corinthians 13:1",
+        "1 Corinthians 13:13",
+        "Colossians 3:14",
+        "1 Corinthians 16:14"
+      ],
+      "step": "In 1 Corinthians 13, read “charity” as steadfast love.",
+      "why": "When kindness feels out of reach, “charity” in the KJV points to steady, self-giving love—not how generous you look."
+    },
+    {
+      "word": "conversation",
+      "note": "Usually manner of life or citizenship, not small talk.",
+      "concordance": "heart",
+      "examples": [
+        "Philippians 1:27",
+        "Galatians 1:13",
+        "Philippians 3:20",
+        "Hebrews 13:5",
+        "James 3:13"
+      ],
+      "step": "Ask: “How is my walk?” when you see “conversation.”",
+      "why": "On days you feel scattered, remember “conversation” is often your whole walk with God, not your chat skills."
+    },
+    {
+      "word": "quick",
+      "note": "Often “living” or “alive,” not fast.",
+      "concordance": "word",
+      "examples": [
+        "Hebrews 4:12",
+        "Acts 10:42",
+        "2 Timothy 4:1",
+        "1 Peter 4:5"
+      ],
+      "step": "Pair “quick” with “dead” in context to see alive vs lifeless.",
+      "why": "If “the quick and the dead” confuses you, you are in good company: here “quick” means alive—God’s word speaks to living hearts."
+    },
+    {
+      "word": "peculiar",
+      "note": "Treasured possession or special people set apart, not “weird.”",
+      "concordance": "holy",
+      "examples": [
+        "Titus 2:14",
+        "1 Peter 2:9",
+        "Deuteronomy 14:2",
+        "Psalm 135:4"
+      ],
+      "step": "Hear “treasured” when you read peculiar in Titus 2:14.",
+      "why": "When you feel overlooked, the KJV “peculiar” people are treasures set apart—seen by God."
+    },
+    {
+      "word": "ghost",
+      "note": "Holy Ghost is the Holy Spirit — older English for the same Person.",
+      "concordance": "ghost",
+      "examples": [
+        "John 14:26",
+        "Acts 2:4",
+        "Romans 8:26",
+        "Matthew 28:19"
+      ],
+      "step": "Do not read “ghost” as a spooky figure; same Comforter Jesus promised.",
+      "why": "If the old word unsettles you, “Holy Ghost” is the same Comforter—the Spirit Jesus promised."
+    },
+    {
+      "word": "prevent",
+      "note": "Often “go before,” “meet,” or “come first,” not “stop.”",
+      "concordance": "come",
+      "examples": [
+        "1 Thessalonians 4:15",
+        "Matthew 17:11",
+        "Psalm 59:10",
+        "1 Samuel 10:3"
+      ],
+      "step": "In 1 Thessalonians 4:15, think “precede,” not “block.”",
+      "why": "When plans feel stuck, “prevent” in older English often meant “go before” or “meet”—God still goes ahead of you."
+    },
+    {
+      "word": "suffer",
+      "note": "Sometimes “allow” or “let,” not only “endure pain.”",
+      "concordance": "let",
+      "examples": [
+        "Matthew 19:14",
+        "Mark 10:14",
+        "Luke 18:16",
+        "Revelation 13:7"
+      ],
+      "step": "When children are named, “suffer” usually means “let them come.”",
+      "why": "When you read “suffer the little children,” hear gentle permission: let them come—not only pain language."
+    },
+    {
+      "word": "virtue",
+      "note": "Strength, power, or moral excellence going out from Christ — not only modesty.",
+      "concordance": "power",
+      "examples": [
+        "Luke 8:46",
+        "2 Peter 1:3",
+        "Philippians 4:8",
+        "2 Peter 1:5"
+      ],
+      "step": "In Luke 8:46, virtue is power that went out of Him.",
+      "why": "When you feel drained, “virtue” in the Gospels can mean power that went out from Christ—His strength, not yours alone."
+    },
+    {
+      "word": "meat",
+      "note": "Often solid food (teaching you chew on), not only animal flesh.",
+      "concordance": "strong",
+      "examples": [
+        "Hebrews 5:12",
+        "Hebrews 5:14",
+        "1 Corinthians 3:2",
+        "Romans 14:2"
+      ],
+      "step": "Contrast milk and meat when growth in doctrine is in view.",
+      "why": "Solid food for the mature — a reminder that growth comes slowly, one nourishing bite at a time."
+    },
+    {
+      "word": "corn",
+      "note": "Grain (wheat, barley), not maize.",
+      "concordance": "eat",
+      "examples": [
+        "Matthew 12:1",
+        "Mark 4:28",
+        "Genesis 41:49",
+        "Deuteronomy 23:25"
+      ],
+      "step": "Picture sheaves and harvest, not sweet corn on the cob.",
+      "why": "The grain that falls into the ground and dies — a picture of how new life often comes through surrender and waiting."
+    },
+    {
+      "word": "replenish",
+      "note": "Fill or populate the earth, not “refill an empty tank” only.",
+      "concordance": "fulness",
+      "examples": [
+        "Genesis 1:28",
+        "Genesis 9:1",
+        "Jeremiah 31:25",
+        "Ezekiel 26:2"
+      ],
+      "step": "In Genesis 1:28, God fills the earth with people and life.",
+      "why": "When life feels empty, replenish in Genesis is about filling and fruitfulness under God’s blessing."
+    },
+    {
+      "word": "comprehend",
+      "note": "Sometimes “overcome” or “take hold of,” not only “understand.”",
+      "concordance": "darkness",
+      "examples": [
+        "John 1:5",
+        "Ephesians 3:19",
+        "Romans 9:28"
+      ],
+      "step": "John 1:5: darkness did not overcome the light.",
+      "why": "When darkness feels winning, John reminds you light is not overcome—truth still stands."
+    },
+    {
+      "word": "closet",
+      "note": "Private inner room for prayer, not a clothes closet only.",
+      "concordance": "prayer",
+      "examples": [
+        "Matthew 6:6",
+        "Luke 12:3",
+        "Joel 2:16"
+      ],
+      "step": "Picture a shut door and secret speech to the Father.",
+      "why": "When prayer feels exposed, Jesus points to a shut door—quiet honesty with the Father."
+    },
+    {
+      "word": "bowels",
+      "note": "Deep affection or compassion — idiom for the seat of feeling.",
+      "concordance": "mercies",
+      "examples": [
+        "Philippians 2:1",
+        "Colossians 3:12",
+        "1 John 3:17",
+        "Jeremiah 4:19"
+      ],
+      "step": "Read as “tender compassion,” not anatomy lessons.",
+      "why": "When compassion feels cold, “bowels” is old idiom for deep tenderness—God-shaped affection, not anatomy."
+    },
+    {
+      "word": "careful",
+      "note": "Often “full of care” or anxious, not merely “attentive.”",
+      "concordance": "careful",
+      "examples": [
+        "Philippians 4:6",
+        "Luke 10:41",
+        "Matthew 6:25",
+        "Matthew 6:34"
+      ],
+      "step": "Philippians 4:6 pairs “careful for nothing” with prayer.",
+      "why": "When worry runs the day, Philippians’ “careful for nothing” is an invitation to carry it to God in prayer."
+    },
+    {
+      "word": "communicate",
+      "note": "Often “share” or give materially, not only “talk.”",
+      "concordance": "good",
+      "examples": [
+        "Hebrews 13:16",
+        "Galatians 6:6",
+        "Romans 12:13",
+        "1 Timothy 6:18"
+      ],
+      "step": "Hebrews 13:16 ties sharing with doing good.",
+      "why": "To communicate in Scripture often means to share generously — a call to open hands and open hearts."
+    },
+    {
+      "word": "flesh",
+      "note": "Body, human nature, kinship, or weakness — context decides.",
+      "concordance": "flesh",
+      "examples": [
+        "John 1:14",
+        "Romans 8:5",
+        "Galatians 5:17",
+        "Ephesians 2:15"
+      ],
+      "step": "Track whether “flesh” means body, self, or unredeemed appetite.",
+      "why": "When temptation is loud, “flesh” is not only your body—it can mean self-led desire that needs the Spirit’s lead."
+    },
+    {
+      "word": "hell",
+      "note": "Sheol, grave, or Gehenna by context — not one English place every time.",
+      "concordance": "death",
+      "examples": [
+        "Matthew 5:22",
+        "Matthew 10:28",
+        "Psalm 16:10",
+        "Acts 2:27"
+      ],
+      "step": "Let surrounding verses show whether grave, judgment, or imagery.",
+      "why": "When the word frightens you, let each verse show whether grave, judgment, or imagery—read with context, not panic."
+    },
+    {
+      "word": "heart",
+      "note": "Will, mind, and inner person — not only emotion.",
+      "concordance": "heart",
+      "examples": [
+        "Proverbs 23:7",
+        "Proverbs 4:23",
+        "Matthew 15:19",
+        "Romans 10:10"
+      ],
+      "step": "“As he thinketh in his heart” is orientation, not only mood.",
+      "why": "When emotions swing, “heart” in scripture is your inner direction—what you treasure and choose—not only feelings."
+    },
+    {
+      "word": "soul",
+      "note": "Life, self, appetite, or person — overlaps with heart and spirit.",
+      "concordance": "life",
+      "examples": [
+        "Matthew 16:26",
+        "Psalm 23:3",
+        "Hebrews 6:19",
+        "3 John 1:2"
+      ],
+      "step": "Ask whether the verse means life, inner life, or appetite.",
+      "why": "When you feel undone, “soul” often means your life before God—breath, appetite, self—He cares for the whole person."
+    },
+    {
+      "word": "spirit",
+      "note": "Breath, attitude, unclean spirit, or Holy Spirit — let the verse choose.",
+      "concordance": "spirit",
+      "examples": [
+        "John 4:24",
+        "Romans 8:16",
+        "2 Corinthians 3:17",
+        "Ephesians 4:30"
+      ],
+      "step": "Capitalization in print helps; in audio, context must.",
+      "why": "When you are spiritually tired, “spirit” might mean breath, attitude, evil spirit, or Holy Spirit—let the verse decide."
+    },
+    {
+      "word": "repent",
+      "note": "Change of mind that shows in turning — not mere regret.",
+      "concordance": "heart",
+      "examples": [
+        "Acts 26:20",
+        "Matthew 3:2",
+        "Luke 13:3",
+        "2 Corinthians 7:10"
+      ],
+      "step": "Look for fruit that matches the turning.",
+      "why": "When shame is loud, repentance is turning toward mercy—not wallowing."
+    },
+    {
+      "word": "justified",
+      "note": "Declared righteous before God by faith — not “earned by behavior first.”",
+      "concordance": "grace",
+      "examples": [
+        "Romans 5:1",
+        "Romans 5:9",
+        "Galatians 2:16",
+        "Titus 3:7"
+      ],
+      "step": "Distinguish standing before God from growth in holiness.",
+      "why": "When your mind replays failure, justification is God’s righteous verdict on everyone who trusts Christ."
+    },
+    {
+      "word": "sanctified",
+      "note": "Set apart for God; status and growth both appear.",
+      "concordance": "holy",
+      "examples": [
+        "1 Corinthians 6:11",
+        "Hebrews 10:10",
+        "John 17:17",
+        "1 Thessalonians 5:23"
+      ],
+      "step": "Note past tense “were sanctified” and ongoing “be holy.”",
+      "why": "When growth feels slow, sanctification is both God’s gift and daily becoming more His."
+    },
+    {
+      "word": "propitiation",
+      "note": "Wrath absorbed; mercy-seat reality — God’s justice and love meet.",
+      "concordance": "love",
+      "examples": [
+        "Romans 3:25",
+        "1 John 2:2",
+        "1 John 4:10",
+        "Hebrews 2:17"
+      ],
+      "step": "Think “satisfied justice,” not a cold word only.",
+      "why": "When guilt feels unbearable, this word quietly says God’s justice and love met in Christ—for you."
+    },
+    {
+      "word": "imputation",
+      "note": "Counted to your account — Abraham’s faith reckoned as righteousness (idea in Romans 4).",
+      "concordance": "faith",
+      "examples": [
+        "Romans 4:6",
+        "Romans 4:8",
+        "Romans 4:22",
+        "Psalm 32:2"
+      ],
+      "step": "Follow “reckon” and “impute” in Romans 4 in one sitting.",
+      "why": "When guilt says “not enough,” imputation is God counting faith to you for righteousness—His gift, not your résumé."
+    },
+    {
+      "word": "covenant",
+      "note": "Binding promise God makes and keeps; new covenant in Christ’s blood.",
+      "concordance": "blood",
+      "examples": [
+        "Hebrews 8:6",
+        "Hebrews 9:15",
+        "Luke 22:20",
+        "Genesis 15:18"
+      ],
+      "step": "Old and new contrast in Hebrews is about better promises.",
+      "why": "When promises feel fragile, covenant is God binding Himself—faithful when we are not."
+    },
+    {
+      "word": "tabernacle",
+      "note": "Tent of meeting; God dwelling with a moving people; shadow of Christ.",
+      "concordance": "cloud",
+      "examples": [
+        "Hebrews 9:2",
+        "John 1:14",
+        "Exodus 40:34",
+        "Revelation 21:3"
+      ],
+      "step": "John 1:14: “dwelt” is tabernacled among us.",
+      "why": "When church feels distant, remember God tabernacled among us—He draws near to sinners in Christ."
+    },
+    {
+      "word": "atonement",
+      "note": "Covering of sin; fulfilled in the one final sacrifice.",
+      "concordance": "blood",
+      "examples": [
+        "Romans 5:11",
+        "Leviticus 17:11",
+        "Hebrews 9:12",
+        "Hebrews 10:10"
+      ],
+      "step": "Hebrews shows one offering versus repeated shadows.",
+      "why": "When sin feels sticky, atonement is sin covered and answered—pointing to one final sacrifice."
+    },
+    {
+      "word": "redemption",
+      "note": "Bought back — a price paid, ownership changed.",
+      "concordance": "grace",
+      "examples": [
+        "Ephesians 1:7",
+        "Colossians 1:14",
+        "Romans 3:24",
+        "1 Peter 1:18"
+      ],
+      "step": "Tie redemption to ransom language without sensationalism.",
+      "why": "When life feels owned by fear or habit, redemption is being bought back—belonging to the Lord again."
+    },
+    {
+      "word": "grace",
+      "note": "God’s favor you did not earn — not permission to sin.",
+      "concordance": "grace",
+      "examples": [
+        "Ephesians 2:8",
+        "Romans 6:14",
+        "Titus 2:11",
+        "2 Corinthians 12:9"
+      ],
+      "step": "Pair Ephesians 2:8–9 with Romans 6 on new life.",
+      "why": "On days you feel you have to earn rest, grace is God’s favor meeting you before you proved anything."
+    },
+    {
+      "word": "faith",
+      "note": "Trust resting on God’s word; shows in obedience.",
+      "concordance": "faith",
+      "examples": [
+        "Hebrews 11:1",
+        "James 2:17",
+        "Romans 10:17",
+        "Galatians 2:20"
+      ],
+      "step": "Faith and works tensions resolve when faith is living.",
+      "why": "When you cannot see the next step, faith is trust anchored in what God has said."
+    },
+    {
+      "word": "works",
+      "note": "Deeds — not ground of salvation, yet faith without deeds is dead.",
+      "concordance": "work",
+      "examples": [
+        "Ephesians 2:9",
+        "James 2:20",
+        "Titus 3:8",
+        "Matthew 5:16"
+      ],
+      "step": "Ephesians 2:8–10 holds both grace and workmanship together.",
+      "why": "When you fear you are never doing enough, scripture still says true faith shows up in real love and obedience."
+    },
+    {
+      "word": "world",
+      "note": "Age, order, or people on earth — context narrows meaning.",
+      "concordance": "world",
+      "examples": [
+        "John 3:16",
+        "John 16:33",
+        "1 John 2:15",
+        "Romans 12:2"
+      ],
+      "step": "Ask: moral system, planet, or people?",
+      "why": "When headlines overwhelm, “world” can mean creation, age, or value-system—ask which one the verse targets."
+    },
+    {
+      "word": "church",
+      "note": "Assembly — local gathered body and Christ’s people overall.",
+      "concordance": "brethren",
+      "examples": [
+        "Matthew 16:18",
+        "Acts 2:47",
+        "1 Corinthians 1:2",
+        "Ephesians 5:25"
+      ],
+      "step": "Building metaphor is people, not brick idolatry.",
+      "why": "When fellowship hurts, “church” is the called-out assembly—people under Christ’s headship, still being sanctified."
+    },
+    {
+      "word": "bishop",
+      "note": "Overseer — pastoral office of care and sound teaching.",
+      "concordance": "man",
+      "examples": [
+        "1 Timothy 3:2",
+        "Titus 1:7",
+        "Philippians 1:1",
+        "Acts 20:28"
+      ],
+      "step": "Often overlaps elder; watch context for office vs gift.",
+      "why": "When leadership disappoints, bishop is overseer language—gifted care, answerable to the Chief Shepherd."
+    },
+    {
+      "word": "devils",
+      "note": "Demons, unclean spirits — Christ’s authority is absolute.",
+      "concordance": "devil",
+      "examples": [
+        "Matthew 8:31",
+        "Mark 1:34",
+        "James 2:19",
+        "Revelation 16:14"
+      ],
+      "step": "No fascination — flee to Christ’s word and presence.",
+      "why": "Even when darkness feels close, these words remind us that God's light has already overcome it."
+    },
+    {
+      "word": "wine",
+      "note": "Fermented drink in many uses; wisdom warns excess.",
+      "concordance": "drink",
+      "examples": [
+        "Proverbs 20:1",
+        "Ephesians 5:18",
+        "John 2:9",
+        "Psalm 104:15"
+      ],
+      "step": "Let context show celebration, medicine, or warning.",
+      "why": "Wine in Scripture often points to joy and celebration — a picture of the abundant life God wants to pour into our weary hearts."
+    },
+    {
+      "word": "winepress",
+      "note": "Judgment image — treading out God’s wrath in Scripture imagery.",
+      "concordance": "blood",
+      "examples": [
+        "Revelation 14:19",
+        "Revelation 19:15",
+        "Isaiah 63:3",
+        "Joel 3:13"
+      ],
+      "step": "Read as sobering picture, not glee.",
+      "why": "When judgment language sounds violent, the winepress is sober harvest imagery—God’s justice is real; let it move you toward Christ, not toward glee."
+    },
+    {
+      "word": "temple",
+      "note": "Building, Christ’s body, or believer — track the referent.",
+      "concordance": "spirit",
+      "examples": [
+        "John 2:21",
+        "1 Corinthians 6:19",
+        "Ephesians 2:21",
+        "2 Thessalonians 2:4"
+      ],
+      "step": "Paul’s “your body is the temple” is personal holiness.",
+      "why": "Your body is now the temple — a quiet reminder that God chooses to dwell with you, even on the hardest days."
+    },
+    {
+      "word": "let",
+      "note": "Often “allow” or “permit,” sometimes “leave off.”",
+      "concordance": "let",
+      "examples": [
+        "Romans 12:1",
+        "1 Corinthians 10:13",
+        "2 Thessalonians 2:7",
+        "Hebrews 12:1"
+      ],
+      "step": "When Paul says “I beseech you… let,” he means “allow this to be so.”",
+      "why": "When you read “let not,” hear permission to stop—God’s commands often free you from what binds."
+    },
+    {
+      "word": "ensample",
+      "note": "Pattern or example left for others to follow.",
+      "concordance": "christ",
+      "examples": [
+        "1 Peter 2:21",
+        "Philippians 3:17",
+        "1 Corinthians 10:6",
+        "2 Thessalonians 3:9"
+      ],
+      "step": "Christ’s steps are the template in 1 Peter 2:21.",
+      "why": "When you need a path to follow, ensample is pattern-language—copy Christ’s steps, not someone’s performance."
+    },
+    {
+      "word": "eschew",
+      "note": "Turn aside from; shun evil.",
+      "concordance": "evil",
+      "examples": [
+        "1 Peter 3:11",
+        "Job 1:1",
+        "Job 1:8"
+      ],
+      "step": "Pair with “seek peace” in the same verse.",
+      "why": "To turn away from evil is not about perfection; it's about choosing the next small step toward light."
+    },
+    {
+      "word": "lust",
+      "note": "Strong desire — not only sexual; can be craving generally.",
+      "concordance": "love",
+      "examples": [
+        "James 4:2",
+        "Romans 7:7",
+        "Exodus 20:17",
+        "1 John 2:16"
+      ],
+      "step": "Name the desire and bring it to God honestly.",
+      "why": "When desire misleads you, lust is craving that pulls away from God’s good—naming it is the first step toward freedom."
+    },
+    {
+      "word": "study",
+      "note": "Be diligent, strive rightly — not only “academic homework.”",
+      "concordance": "word",
+      "examples": [
+        "2 Timothy 2:15",
+        "Ezra 7:10",
+        "Proverbs 15:28"
+      ],
+      "step": "2 Timothy 2:15 is a workman approved, not proud.",
+      "why": "When the mind races, study is earnest care—to approve what is excellent, not anxious grinding."
+    },
+    {
+      "word": "strange",
+      "note": "Foreign, alien, or unusual — context decides.",
+      "concordance": "suffereth",
+      "examples": [
+        "1 Peter 4:12",
+        "Hebrews 13:9",
+        "Acts 7:6",
+        "Hebrews 11:9"
+      ],
+      "step": "“Strange trial” is unfamiliar testing, not oddness.",
+      "why": "When you feel like an outsider, strange can mean foreign fire or other gods—keep worship pure and near to God."
+    },
+    {
+      "word": "superstitious",
+      "note": "In Acts 17, “very religious” — devout, not “irrational” only.",
+      "concordance": "god",
+      "examples": [
+        "Acts 17:22",
+        "Acts 25:19",
+        "Acts 17:16"
+      ],
+      "step": "Paul bridges from their altar to the unknown God.",
+      "why": "When religion feels edgy, Paul used this word in Athens for deep devotion—then pointed seekers past superstition to the living God."
+    },
+    {
+      "word": "list",
+      "note": "To choose, desire, or please — archaic verb.",
+      "concordance": "will",
+      "examples": [
+        "Matthew 17:12",
+        "Mark 9:13",
+        "James 1:18",
+        "Hebrews 4:15"
+      ],
+      "step": "“Listed” can mean “was pleased” or “chose.”",
+      "why": "When old English trips you, list as a verb means to choose or please—swap in “desire” or “is pleased” mentally."
+    },
+    {
+      "word": "firmament",
+      "note": "Expanse or arch — heavens spread out, not modern “firm plate” debates.",
+      "concordance": "high",
+      "examples": [
+        "Genesis 1:6",
+        "Genesis 1:8",
+        "Psalm 19:1",
+        "Ezekiel 1:22"
+      ],
+      "step": "Read poetry as majesty, not modern science footnotes in the margin.",
+      "why": "When debates about science cloud worship, firmament in Genesis is the expanse of heavens—read majesty first, not modern footnotes."
+    },
+    {
+      "word": "sod",
+      "note": "Boiled or cooked — Jacob’s pottage.",
+      "concordance": "eat",
+      "examples": [
+        "Genesis 25:29",
+        "2 Chronicles 35:13",
+        "Haggai 2:12"
+      ],
+      "step": "“Sod pottage” is stew, not turf.",
+      "why": "When Jacob’s stew confuses you, sod means boiled—ordinary meal, extraordinary providence."
+    },
+    {
+      "word": "wist",
+      "note": "Knew — past of “wit” (to know).",
+      "concordance": "know",
+      "examples": [
+        "John 1:10",
+        "Luke 2:49",
+        "Acts 7:25",
+        "Mark 9:6"
+      ],
+      "step": "Swap in “knew” when it sounds wooden.",
+      "why": "When you hit “wist not,” read knew—archaic past tense, not “wistful.”"
+    },
+    {
+      "word": "wot",
+      "note": "Know — “we wot that” means “we know that.”",
+      "concordance": "know",
+      "examples": [
+        "Acts 10:26",
+        "2 Peter 2:12",
+        "Romans 11:2"
+      ],
+      "step": "Same root family as “wist.”",
+      "why": "When you read “we wot,” it simply means we know—older English, same truth."
+    },
+    {
+      "word": "verily",
+      "note": "Truly, amen — solemn emphasis.",
+      "concordance": "said",
+      "examples": [
+        "John 3:3",
+        "John 5:24",
+        "Matthew 5:18",
+        "John 8:51"
+      ],
+      "step": "When Jesus doubles “Verily, verily,” slow down and listen.",
+      "why": "This strong word means Jesus is speaking with absolute certainty — a rock we can stand on when everything else feels shaky."
+    },
+    {
+      "word": "haply",
+      "note": "Perhaps, maybe — not “happily.”",
+      "concordance": "present",
+      "examples": [
+        "Luke 14:8",
+        "Acts 17:18",
+        "Ruth 2:16"
+      ],
+      "step": "Think “perhaps,” not emotional happiness.",
+      "why": "When “haply” appears, think perhaps—maybe, not happiness."
+    },
+    {
+      "word": "anon",
+      "note": "At once, soon — immediacy.",
+      "concordance": "come",
+      "examples": [
+        "Mark 6:25",
+        "Matthew 13:20",
+        "Mark 1:30"
+      ],
+      "step": "Rhymes with “upon” in rhythm — sense is “right away.”",
+      "why": "When narrative races, anon means at once—story moving quickly toward Jesus’ work."
+    },
+    {
+      "word": "straightway",
+      "note": "Immediately — same idea as “forthwith” in places.",
+      "concordance": "come",
+      "examples": [
+        "Mark 1:10",
+        "Matthew 4:20",
+        "Acts 9:18"
+      ],
+      "step": "Narrative speed: obey without dragging feet.",
+      "why": "When disciples obey immediately, straightway is “right away”—faith with feet."
+    },
+    {
+      "word": "by and by",
+      "note": "Immediately or soon — not “eventually” in several texts.",
+      "concordance": "present",
+      "examples": [
+        "Matthew 13:21",
+        "Mark 6:25",
+        "Luke 17:7"
+      ],
+      "step": "Check context: sometimes “at once,” sometimes “later” in older English — compare translations carefully.",
+      "why": "When timing shifts verse to verse, by and by can mean soon or later—check context before assuming “eventually.”"
+    },
+    {
+      "word": "carriage",
+      "note": "Behavior or baggage — context decides (conduct vs what is carried).",
+      "concordance": "puffed",
+      "examples": [
+        "1 Samuel 17:22",
+        "Isaiah 10:28",
+        "Acts 21:15"
+      ],
+      "step": "In narrative, “carriage” can mean baggage train; in epistles, sometimes “walk.”",
+      "why": "When “carriage” confuses, it may mean baggage or behavior—context picks between stuff you carry and the way you walk."
+    },
+    {
+      "word": "curious",
+      "note": "Skilled, intricate, or prying — context picks.",
+      "concordance": "work",
+      "examples": [
+        "Exodus 35:32",
+        "Acts 19:19",
+        "Psalm 139:15"
+      ],
+      "step": "Craftsmanship vs forbidden arts — watch the verse.",
+      "why": "When skilled craft or forbidden arts appear, curious can mean intricate workmanship—or prying where you should not go."
+    },
+    {
+      "word": "meddle",
+      "note": "Busy oneself in what is not yours — warn trouble.",
+      "concordance": "man",
+      "examples": [
+        "1 Timothy 1:4",
+        "1 Peter 4:15",
+        "Proverbs 26:17"
+      ],
+      "step": "Ask: “Is this my lane?”",
+      "why": "Sometimes the most faithful thing we can do is mind our own calling and trust God with everyone else's story."
+    },
+    {
+      "word": "perfect",
+      "note": "Complete, mature, finished — not flawless in every modern sense.",
+      "concordance": "perfect",
+      "examples": [
+        "Matthew 5:48",
+        "Colossians 4:12",
+        "Hebrews 5:14",
+        "James 1:4"
+      ],
+      "step": "Hebrews maturity vs milk is a growth picture.",
+      "why": "When you fear you will never measure up, “perfect” often means complete or mature—not impossible personal polish."
+    },
+    {
+      "word": "comfortable",
+      "note": "Comforting words or strength — adjective of comfort.",
+      "concordance": "comfort",
+      "examples": [
+        "Isaiah 40:1",
+        "Job 6:10",
+        "Zechariah 1:13"
+      ],
+      "step": "“Comfort ye” goes with tender speech.",
+      "why": "When you need a steady word, “comfortable” in older English ties to strengthening speech—God speaking courage."
+    },
+    {
+      "word": "mortify",
+      "note": "Put to death — kill sin by the Spirit’s help.",
+      "concordance": "flesh",
+      "examples": [
+        "Romans 8:13",
+        "Colossians 3:5",
+        "Colossians 3:8"
+      ],
+      "step": "Not self-harm — Spirit-empowered putting off.",
+      "why": "When sin feels entrenched, mortify means putting deeds to death by the Spirit—kindness, not self-destruction."
+    },
+    {
+      "word": "simplicity",
+      "note": "Sincerity, single-mindedness — not “simple-minded.”",
+      "concordance": "god",
+      "examples": [
+        "2 Corinthians 1:12",
+        "Romans 12:8",
+        "Proverbs 2:7"
+      ],
+      "step": "Opposite of double-dealing.",
+      "why": "When you second-guess every motive, simplicity is sincere single-mindedness before God."
+    },
+    {
+      "word": "shamefacedness",
+      "note": "Modesty and reverence — especially in 1 Timothy 2.",
+      "concordance": "man",
+      "examples": [
+        "1 Timothy 2:9",
+        "Titus 2:7",
+        "1 Peter 3:2"
+      ],
+      "step": "Outward demeanor that matches godliness.",
+      "why": "When culture shouts exposure, shamefacedness is modest reverence—honor, not fear of being seen."
+    },
+    {
+      "word": "damnation",
+      "note": "Condemnation or judgment — legal outcome, not a curse word.",
+      "concordance": "death",
+      "examples": [
+        "John 5:29",
+        "Mark 3:29",
+        "Romans 13:2",
+        "2 Peter 2:3"
+      ],
+      "step": "Serious, not slang — let the text define which judgment.",
+      "why": "When the word sounds harsh, it is serious judgment language in court terms—let scripture define the verdict in view."
+    },
+    {
+      "word": "press",
+      "note": "Crowd pressing in — throng around Jesus.",
+      "concordance": "present",
+      "examples": [
+        "Luke 8:45",
+        "Mark 5:30",
+        "Luke 6:19"
+      ],
+      "step": "Physical crowd, not only “pressure” metaphor.",
+      "why": "When crowds surround Jesus in the text, press is a throng drawing near—physical nearness, hunger for Him."
+    },
+    {
+      "word": "multiply",
+      "note": "Increase, grow many — people, blessing, or trouble by context.",
+      "concordance": "abound",
+      "examples": [
+        "Genesis 1:22",
+        "Acts 6:7",
+        "Hosea 4:7",
+        "2 Timothy 3:13"
+      ],
+      "step": "Ask whether growth is godly or grievous.",
+      "why": "When life feels thin or loud, multiply tracks blessing or burden by context—ask which way the verse bends."
+    },
+    {
+      "word": "reins",
+      "note": "Kidneys — Hebrew idiom for inner affections; KJV uses “reins.”",
+      "concordance": "heart",
+      "examples": [
+        "Psalm 7:9",
+        "Psalm 26:2",
+        "Jeremiah 12:2",
+        "Revelation 2:23"
+      ],
+      "step": "Read as “deepest motives,” not biology quiz.",
+      "why": "When desire is hard to name, reins picture inner motives—God tries the heart, not only the face."
+    },
+    {
+      "word": "science",
+      "note": "Knowledge — “science falsely so called” is empty knowledge.",
+      "concordance": "know",
+      "examples": [
+        "1 Timothy 6:20",
+        "Daniel 1:4",
+        "2 Timothy 3:15"
+      ],
+      "step": "Not modern lab science by default — compare “knowledge.”",
+      "why": "When “science” appears in KJV, it often means knowledge claimed—compare with God’s truth, not modern labs only."
+    },
+    {
+      "word": "vain",
+      "note": "Empty, worthless, or idols — “in vain” is emptiness.",
+      "concordance": "nothing",
+      "examples": [
+        "Psalm 2:1",
+        "1 Corinthians 15:14",
+        "Jeremiah 2:5",
+        "Ecclesiastes 1:2"
+      ],
+      "step": "“Vanity” in Ecclesiastes is vapor-like emptiness.",
+      "why": "When efforts feel pointless, vain can mean empty or idol—ask what you are trusting besides the Lord."
+    },
+    {
+      "word": "subtil",
+      "note": "Crafty or shrewd — serpent in Eden, not a compliment.",
+      "concordance": "evil",
+      "examples": [
+        "Genesis 3:1",
+        "Job 5:12",
+        "Proverbs 1:4"
+      ],
+      "step": "Moral shade: discern good subtlety vs deception.",
+      "why": "When someone seems too smooth, subtil is crafty—watch serpent language and choose plain truth."
+    },
+    {
+      "word": "authority",
+      "note": "Power, right to command, or sphere — rulers, parents, Christ.",
+      "concordance": "power",
+      "examples": [
+        "Matthew 8:9",
+        "Matthew 28:18",
+        "Romans 13:1",
+        "Titus 2:15"
+      ],
+      "step": "All human authority is under God’s.",
+      "why": "When power scares you, authority in Scripture is ordered—Jesus has final say; earthly power is bounded."
+    },
+    {
+      "word": "blood",
+      "note": "Life, sacrifice, covenant — context shows meaning.",
+      "concordance": "blood",
+      "examples": [
+        "Hebrews 9:22",
+        "Matthew 26:28",
+        "Romans 5:9",
+        "1 John 1:7"
+      ],
+      "step": "Trace blood from altar to Christ once for all.",
+      "why": "The blood of Jesus speaks a better word than our failures ever could — it declares us clean."
+    },
+    {
+      "word": "cross",
+      "note": "Shameful death and glory — offense and power.",
+      "concordance": "christ",
+      "examples": [
+        "1 Corinthians 1:18",
+        "Galatians 6:14",
+        "Philippians 2:8",
+        "Colossians 2:15"
+      ],
+      "step": "Boast only in the Lord’s finished work.",
+      "why": "The cross is not just history — it is the place where your heaviest burdens were nailed once and for all."
+    },
+    {
+      "word": "gospel",
+      "note": "Good news of Christ’s kingdom, death, and resurrection.",
+      "concordance": "christ",
+      "examples": [
+        "Romans 1:16",
+        "1 Corinthians 15:1",
+        "Mark 1:1",
+        "Acts 20:24"
+      ],
+      "step": "Keep the core facts central when “gospel” is used broadly.",
+      "why": "When truth feels thin, the gospel is the good news of Christ’s finished work—keep the core facts central."
+    },
+    {
+      "word": "holiness",
+      "note": "Set-apartness unto God — moral and positional.",
+      "concordance": "holy",
+      "examples": [
+        "Hebrews 12:14",
+        "1 Peter 1:15",
+        "Romans 6:19",
+        "2 Corinthians 7:1"
+      ],
+      "step": "Pursue peace and holiness together.",
+      "why": "When you feel too ordinary for God, holiness is set-apartness—His gift and daily becoming more like Him."
+    },
+    {
+      "word": "mercy",
+      "note": "Steadfast love and compassion — not getting what you deserve.",
+      "concordance": "mercies",
+      "examples": [
+        "Lamentations 3:22",
+        "Ephesians 2:4",
+        "Titus 3:5",
+        "Psalm 103:17"
+      ],
+      "step": "Mercy grounds hope on hard days.",
+      "why": "In your hardest battles, mercy reminds you God’s kindness is not based on how well you performed today."
+    },
+    {
+      "word": "peace",
+      "note": "Shalom — wholeness, rest, reconciliation; not only feelings.",
+      "concordance": "peace",
+      "examples": [
+        "John 14:27",
+        "Philippians 4:7",
+        "Colossians 3:15",
+        "Romans 5:1"
+      ],
+      "step": "Distinguish Christ’s gift from the world’s distraction.",
+      "why": "Even when your body hurts or your mind won’t rest, God’s peace can still rule in your heart."
+    },
+    {
+      "word": "hope",
+      "note": "Confident expectation anchored in God, not wishfulness.",
+      "concordance": "hope",
+      "examples": [
+        "Romans 15:13",
+        "Hebrews 6:19",
+        "Romans 8:24",
+        "1 Peter 1:3"
+      ],
+      "step": "Hope is sure because the Promiser is faithful.",
+      "why": "When the future feels blank, biblical hope is steady expectation—because God keeps His word."
+    },
+    {
+      "word": "fear",
+      "note": "Reverence or terror — context shows holy fear vs panic.",
+      "concordance": "fear",
+      "examples": [
+        "Proverbs 9:10",
+        "Hebrews 12:28",
+        "1 John 4:18",
+        "Psalm 56:3"
+      ],
+      "step": "“Fear not” calms panic; “fear God” awakens reverence.",
+      "why": "When anxiety shouts and worship feels distant, the same Bible pairs “fear not” with holy reverence for God."
+    },
+    {
+      "word": "joy",
+      "note": "Deep gladness rooted in God — not hype.",
+      "concordance": "joy",
+      "examples": [
+        "Nehemiah 8:10",
+        "John 15:11",
+        "Philippians 4:4",
+        "Psalm 16:11"
+      ],
+      "step": "Joy can coexist with grief when hope holds.",
+      "why": "When happiness is gone, joy can still quietly root in Christ—even while you are sad."
+    },
+    {
+      "word": "longsuffering",
+      "note": "Patience, slow anger — fruit of the Spirit.",
+      "concordance": "patience",
+      "examples": [
+        "Galatians 5:22",
+        "Colossians 3:12",
+        "1 Timothy 1:16",
+        "2 Peter 3:15"
+      ],
+      "step": "God’s longsuffering is room to repent.",
+      "why": "When patience runs out, longsuffering is Spirit-given room—God patient with us first."
+    },
+    {
+      "word": "meek",
+      "note": "Strength under God’s hand — not weakness.",
+      "concordance": "blessed",
+      "examples": [
+        "Matthew 5:5",
+        "Psalm 37:11",
+        "Numbers 12:3",
+        "Zephaniah 3:12"
+      ],
+      "step": "Meekness trusts God with outcomes.",
+      "why": "When you feel pressed to fight every battle, meekness is strength steadied under God’s hand."
+    },
+    {
+      "word": "condemnation",
+      "note": "Judgment — guilty verdict; contrast “no condemnation” in Christ.",
+      "concordance": "death",
+      "examples": [
+        "Romans 8:1",
+        "John 3:17",
+        "Romans 5:16",
+        "James 5:12"
+      ],
+      "step": "Romans 8:1 is the anchor verse for assurance.",
+      "why": "When accusation rings in your head, “no condemnation” in Christ is the door back to peace."
+    },
+    {
+      "word": "election",
+      "note": "God’s choosing — comfort and humility, not arrogance.",
+      "concordance": "called",
+      "examples": [
+        "Romans 9:11",
+        "1 Thessalonians 1:4",
+        "2 Peter 1:10",
+        "Ephesians 1:4"
+      ],
+      "step": "Hold election with calling and holiness.",
+      "why": "You were chosen before you ever chose Him — this truth can bring deep rest when you feel unseen or unworthy."
+    },
+    {
+      "word": "predestination",
+      "note": "Foreordained purpose — unto conformity to Christ.",
+      "concordance": "purpose",
+      "examples": [
+        "Romans 8:29",
+        "Ephesians 1:5",
+        "Ephesians 1:11",
+        "Acts 4:28"
+      ],
+      "step": "Goal is Christlikeness, not fatalistic gloom.",
+      "why": "When the future scares you, predestination in Romans is unto Christlikeness—His purpose, your comfort."
+    },
+    {
+      "word": "adoption",
+      "note": "Placed as sons — privilege and Spirit witness.",
+      "concordance": "spirit",
+      "examples": [
+        "Romans 8:15",
+        "Galatians 4:5",
+        "Ephesians 1:5",
+        "Romans 9:4"
+      ],
+      "step": "Cry “Abba, Father” is Spirit-given confidence.",
+      "why": "You are not a servant on trial — you are a beloved child with full rights in the Father's house."
+    },
+    {
+      "word": "intercession",
+      "note": "Praying for another — Christ and the Spirit.",
+      "concordance": "prayer",
+      "examples": [
+        "Romans 8:34",
+        "Romans 8:26",
+        "Hebrews 7:25",
+        "1 Timothy 2:1"
+      ],
+      "step": "Christ’s priesthood is ongoing help.",
+      "why": "When words fail in prayer, the Spirit and the Son still speak for you—ongoing mercy."
+    },
+    {
+      "word": "temptation",
+      "note": "Trial or enticement — James distinguishes sources.",
+      "concordance": "temptation",
+      "examples": [
+        "James 1:13",
+        "1 Corinthians 10:13",
+        "Matthew 6:13",
+        "Hebrews 4:15"
+      ],
+      "step": "God does not tempt to evil; He provides escape.",
+      "why": "When you feel singled out in trial, God does not tempt to evil—He gives escape and faithful company."
+    },
+    {
+      "word": "resurrection",
+      "note": "Standing again — Christ first, then His own.",
+      "concordance": "life",
+      "examples": [
+        "1 Corinthians 15:20",
+        "John 11:25",
+        "Romans 6:5",
+        "Philippians 3:10"
+      ],
+      "step": "Hope is embodied — empty tomb matters.",
+      "why": "When death or loss shadows you, resurrection is God’s pledge—Christ’s victory is the church’s hope."
+    },
+    {
+      "word": "everlasting",
+      "note": "Age-enduring, eternal — God’s life and punishment both serious.",
+      "concordance": "everlasting",
+      "examples": [
+        "John 3:16",
+        "Matthew 25:46",
+        "Romans 6:22",
+        "Jude 1:7"
+      ],
+      "step": "Let context show gift of life or severity of judgment.",
+      "why": "When time feels cruel, everlasting life is quality and duration in God—not a rushed slogan."
+    },
+    {
+      "word": "hell fire",
+      "note": "Gehenna imagery — Jesus warns seriously.",
+      "concordance": "death",
+      "examples": [
+        "Matthew 5:22",
+        "Matthew 18:9",
+        "Mark 9:47",
+        "James 3:6"
+      ],
+      "step": "Read warnings with trembling mercy — flee to Christ.",
+      "why": "These words warn us, but they also highlight how seriously God takes sin — and how completely He offers rescue."
+    },
+    {
+      "word": "new birth",
+      "note": "Born again — Spirit’s work, not mere decision talk.",
+      "concordance": "spirit",
+      "examples": [
+        "John 3:3",
+        "John 3:7",
+        "1 Peter 1:23",
+        "James 1:18"
+      ],
+      "step": "Nicodemus needed Spirit, not only argument.",
+      "why": "You don't have to fix yourself first. A new birth means a fresh start is possible, right where you are."
+    },
+    {
+      "word": "baptism",
+      "note": "Immersion picture — union with Christ’s death and resurrection.",
+      "concordance": "lord",
+      "examples": [
+        "Romans 6:4",
+        "Colossians 2:12",
+        "Acts 2:38",
+        "1 Peter 3:21"
+      ],
+      "step": "Distinguish sign from saving work — faith in Christ saves.",
+      "why": "When identity feels shaky, baptism is union pictured in water—Christ’s, not human prestige."
+    },
+    {
+      "word": "communion",
+      "note": "Fellowship — often Lord’s supper sense in older usage.",
+      "concordance": "christ",
+      "examples": [
+        "1 Corinthians 10:16",
+        "2 Corinthians 13:14",
+        "Acts 2:42"
+      ],
+      "step": "1 Corinthians 10 ties cup and bread to one body.",
+      "why": "When you feel alone at the table, communion is fellowship—shared life in Christ with His people."
+    },
+    {
+      "word": "offence",
+      "note": "Stumbling block — trap or cause to fall.",
+      "concordance": "evil",
+      "examples": [
+        "Matthew 16:23",
+        "Romans 14:13",
+        "1 Corinthians 8:9",
+        "2 Corinthians 6:3"
+      ],
+      "step": "Love limits liberty when others stumble.",
+      "why": "When truth offends, “offence” can mean stumbling block—sometimes the issue is hardness, sometimes love warns."
+    },
+    {
+      "word": "alms",
+      "note": "Merciful giving to the poor — not a performance.",
+      "concordance": "gift",
+      "examples": [
+        "Matthew 6:2",
+        "Luke 11:41",
+        "Acts 3:3",
+        "Acts 10:4",
+        "Daniel 4:27"
+      ],
+      "step": "Pair secret giving (Matthew 6) with a generous heart.",
+      "why": "When you want to help quietly, alms is mercy shown in giving—without needing applause."
+    },
+    {
+      "word": "amen",
+      "note": "“So be it” — firm agreement and truth.",
+      "concordance": "said",
+      "examples": [
+        "Romans 1:25",
+        "1 Corinthians 14:16",
+        "Nehemiah 8:6",
+        "Psalm 41:13",
+        "Revelation 22:20"
+      ],
+      "step": "When Scripture stacks “amen,” treat it as sealed.",
+      "why": "When words run out, amen is “so be it”—agreement and trust sealed in prayer."
+    },
+    {
+      "word": "apostle",
+      "note": "Sent one — eyewitness ambassadors of Christ with authority.",
+      "concordance": "christ",
+      "examples": [
+        "Ephesians 2:20",
+        "Hebrews 3:1",
+        "2 Corinthians 11:13",
+        "Acts 1:2",
+        "Romans 1:1"
+      ],
+      "step": "Distinguish the Twelve/foundation from every “sent” task today.",
+      "why": "When leadership disappoints, apostle means sent one—authority tied to Christ’s mission, not ego."
+    },
+    {
+      "word": "array",
+      "note": "Dress, equip, or set in order — not only “arrange data.”",
+      "concordance": "set",
+      "examples": [
+        "Matthew 6:29",
+        "Luke 12:27",
+        "2 Chronicles 5:12",
+        "Isaiah 61:10",
+        "Judges 18:11"
+      ],
+      "step": "In poetry, array is clothing and dignity.",
+      "why": "When poetry dresses someone splendidly, array is clothing ordered with dignity—not “arrange data.”"
+    },
+    {
+      "word": "begat",
+      "note": "Fathered, brought forth — genealogy and incarnation language.",
+      "concordance": "begotten",
+      "examples": [
+        "Matthew 1:2",
+        "Hebrews 1:5",
+        "Genesis 5:3",
+        "Ruth 4:18",
+        "Luke 3:23"
+      ],
+      "step": "In Matthew 1, trace promise and fulfillment.",
+      "why": "When genealogies tire you, begat traces promise—names leading to Christ, not filler."
+    },
+    {
+      "word": "begotten",
+      "note": "Uniquely brought forth — “only begotten” points to the Son.",
+      "concordance": "begotten",
+      "examples": [
+        "John 1:14",
+        "John 1:18",
+        "John 3:16",
+        "Hebrews 1:5",
+        "1 John 4:9"
+      ],
+      "step": "Hold uniqueness without drifting into confusion about the eternal Son.",
+      "why": "When “only begotten” appears, it guards the Son’s uniqueness—eternal relation, not beginning in time."
+    },
+    {
+      "word": "beguiled",
+      "note": "Deceived, led astray — Eve and false teachers.",
+      "concordance": "evil",
+      "examples": [
+        "Genesis 3:13",
+        "2 Corinthians 11:3",
+        "Colossians 2:4",
+        "2 Peter 2:14"
+      ],
+      "step": "Name the lie; return to plain Scripture.",
+      "why": "When deception tempts, beguiled is led astray—name the lie; return to plain Scripture."
+    },
+    {
+      "word": "bewitched",
+      "note": "Deceived or fascinated — not stage magic.",
+      "concordance": "devil",
+      "examples": [
+        "Galatians 3:1",
+        "Acts 8:9",
+        "Acts 8:11"
+      ],
+      "step": "Paul’s point is gospel clarity stolen by confusion.",
+      "why": "When gospel clarity slips, Paul’s bewitched means fascinated away from truth—Christ crucified remains central."
+    },
+    {
+      "word": "bewray",
+      "note": "Expose, reveal, betray — older verb.",
+      "concordance": "evil",
+      "examples": [
+        "Proverbs 27:16",
+        "Proverbs 29:15",
+        "Isaiah 16:3",
+        "Matthew 26:73"
+      ],
+      "step": "Context shows whether betrayal or simple disclosure.",
+      "why": "When secrets surface, bewray means exposed—truth out, sometimes gently, sometimes hard."
+    },
+    {
+      "word": "bill",
+      "note": "Written certificate — often divorce writing in controversy texts.",
+      "concordance": "word",
+      "examples": [
+        "Deuteronomy 24:1",
+        "Deuteronomy 24:3",
+        "Mark 10:4",
+        "Luke 16:18"
+      ],
+      "step": "Jesus raises the heart, not paperwork tricks.",
+      "why": "When divorce passages hurt, bill is legal writing—Jesus cares about the heart behind the paper."
+    },
+    {
+      "word": "blasphemy",
+      "note": "Speech that dishonors God or claims what is His alone.",
+      "concordance": "evil",
+      "examples": [
+        "Matthew 12:31",
+        "Mark 3:28",
+        "James 2:7",
+        "Romans 2:24",
+        "Colossians 3:8"
+      ],
+      "step": "Distinguish rash words from the unforgivable hardness Jesus warns of.",
+      "why": "When speech dishonors God, blasphemy is serious—let reverence rule your tongue; distinguish rash words from hardness Jesus warns of."
+    },
+    {
+      "word": "blemish",
+      "note": "Spot or defect — purity for sacrifice and character.",
+      "concordance": "holy",
+      "examples": [
+        "Exodus 12:5",
+        "1 Peter 1:19",
+        "Ephesians 5:27",
+        "Song of Solomon 4:7",
+        "Leviticus 22:20"
+      ],
+      "step": "Christ is the spotless Lamb.",
+      "why": "When sacrifice language appears, blemish means spotless—Christ is the Lamb without defect."
+    },
+    {
+      "word": "blot out",
+      "note": "Erase debt, remove from record — God’s forgiveness language.",
+      "concordance": "word",
+      "examples": [
+        "Psalm 51:9",
+        "Psalm 69:28",
+        "Acts 3:19",
+        "Revelation 3:5",
+        "Exodus 32:32"
+      ],
+      "step": "Contrast with names kept in the book of life.",
+      "why": "When sin feels permanent, blot out is erase-forgive language—God can clean the record in real mercy."
+    },
+    {
+      "word": "brasen",
+      "note": "Brass or bronze — altar, serpent, sea (symbolic hardware).",
+      "concordance": "holy",
+      "examples": [
+        "Exodus 27:1",
+        "Numbers 21:9",
+        "2 Chronicles 4:2",
+        "1 Kings 8:64",
+        "Jeremiah 52:17"
+      ],
+      "step": "Read as appointed instruments, not lucky charms.",
+      "why": "When you read brasen altar, think bronze—appointed hardware, not lucky metal."
+    },
+    {
+      "word": "brazen",
+      "note": "Often brass/bronze — brazen altar, brazen serpent.",
+      "concordance": "holy",
+      "examples": [
+        "Numbers 16:37",
+        "2 Chronicles 1:5",
+        "Daniel 7:7",
+        "Ezekiel 40:6"
+      ],
+      "step": "The lifted serpent points to Christ — faith, not superstition.",
+      "why": "When serpent or altar is brazen, it is bronze imagery—faith looks to what God appointed."
+    },
+    {
+      "word": "breath",
+      "note": "Life-breath from God; also Spirit imagery.",
+      "concordance": "spirit",
+      "examples": [
+        "Genesis 2:7",
+        "Job 33:4",
+        "Ezekiel 37:5",
+        "Acts 17:25",
+        "Psalm 104:29"
+      ],
+      "step": "Every breath is borrowed — live gratefully.",
+      "why": "When you feel fragile, breath ties life to God’s gift—spirit and body held in His hand."
+    },
+    {
+      "word": "bridegroom",
+      "note": "Husband-to-be — Christ and the church imagery.",
+      "concordance": "christ",
+      "examples": [
+        "Matthew 9:15",
+        "John 3:29",
+        "Revelation 21:2",
+        "Isaiah 62:5",
+        "Mark 2:19"
+      ],
+      "step": "Joy and fidelity — not sentimental fluff.",
+      "why": "Jesus as the bridegroom means He pursues you with joy, not duty — even when you feel unlovable."
+    },
+    {
+      "word": "bruise",
+      "note": "Crush or wound — Genesis 3:15 and the suffering Servant.",
+      "concordance": "broken",
+      "examples": [
+        "Genesis 3:15",
+        "Isaiah 53:5",
+        "Romans 16:20",
+        "Psalm 94:5"
+      ],
+      "step": "Trace hope from the first promise to the cross.",
+      "why": "The promise that the serpent would bruise His heel, but He would crush the serpent's head — hope that evil will not have the last word."
+    },
+    {
+      "word": "buckler",
+      "note": "Small shield — God as protector.",
+      "concordance": "refuge",
+      "examples": [
+        "Psalm 18:2",
+        "Psalm 35:2",
+        "Proverbs 2:7",
+        "2 Samuel 22:31",
+        "Psalm 91:4"
+      ],
+      "step": "Pair with “shield” language in the same psalms.",
+      "why": "When battle Psalms shout, buckler is a small shield—God as your close defense."
+    },
+    {
+      "word": "burden",
+      "note": "Load, oracle, or heavy message — context picks.",
+      "concordance": "heavy",
+      "examples": [
+        "Galatians 6:2",
+        "Galatians 6:5",
+        "Malachi 1:1",
+        "Nahum 1:1",
+        "Isaiah 13:1"
+      ],
+      "step": "“Burden” can mean prophetic word, not only weight.",
+      "why": "Come to Me, all who are heavy laden — this invitation is for the exact kind of weariness you carry today."
+    },
+    {
+      "word": "burthen",
+      "note": "Older spelling of burden — same range of meaning.",
+      "concordance": "heavy",
+      "examples": [
+        "Exodus 23:5",
+        "Numbers 4:15",
+        "Isaiah 9:4",
+        "Matthew 20:12",
+        "2 Corinthians 8:13"
+      ],
+      "step": "Read smoothly as “burden.”",
+      "why": "When you see burthen, read burden—same load-language, older spelling."
+    },
+    {
+      "word": "bushel",
+      "note": "Measure — hide or reveal light imagery.",
+      "concordance": "light",
+      "examples": [
+        "Matthew 5:15",
+        "Mark 4:21",
+        "Luke 8:16",
+        "Luke 11:33"
+      ],
+      "step": "Let good works shine for God’s glory, not vanity.",
+      "why": "When light is hidden, bushel is a measure-basket—let good deeds shine for God’s glory, not vanity."
+    },
+    {
+      "word": "candlestick",
+      "note": "Lampstand — tabernacle and “light of the world” imagery.",
+      "concordance": "light",
+      "examples": [
+        "Exodus 25:31",
+        "Revelation 1:12",
+        "Matthew 5:15",
+        "2 Kings 4:10",
+        "Zechariah 4:2"
+      ],
+      "step": "Churches as lampstands is responsibility, not décor.",
+      "why": "When lampstands appear, candlestick is sacred light—responsibility to shine where God placed you."
+    },
+    {
+      "word": "carcase",
+      "note": "Dead body — ceremonial laws and sober pictures.",
+      "concordance": "death",
+      "examples": [
+        "Leviticus 11:24",
+        "Deuteronomy 28:26",
+        "Matthew 24:28",
+        "Hebrews 3:17",
+        "Jeremiah 16:18"
+      ],
+      "step": "Use reverence when reading death texts.",
+      "why": "When death laws sound graphic, carcase means dead body—read with reverence, not crudeness."
+    },
+    {
+      "word": "carnal",
+      "note": "Fleshly, unspiritual — oriented by fallen appetite.",
+      "concordance": "flesh",
+      "examples": [
+        "Romans 7:14",
+        "Romans 8:7",
+        "1 Corinthians 3:1",
+        "Hebrews 7:16",
+        "Hebrews 9:10"
+      ],
+      "step": "Not “body is bad,” but “self-run life” vs Spirit-led.",
+      "why": "When “carnal” stings, it means flesh-led living—not that your body is evil, but self on the throne needs the Spirit."
+    },
+    {
+      "word": "cast lots",
+      "note": "Providence over chance — used for decisions in narrative.",
+      "concordance": "casting",
+      "examples": [
+        "Jonah 1:7",
+        "Acts 1:26",
+        "Psalm 22:18",
+        "Matthew 27:35",
+        "Nehemiah 10:34"
+      ],
+      "step": "God rules what looks random.",
+      "why": "When choices look random, lots sat under God’s rule—trust His providence over what seems like chance."
+    },
+    {
+      "word": "chaste",
+      "note": "Pure in body and mind — modest love.",
+      "concordance": "holy",
+      "examples": [
+        "Titus 2:5",
+        "1 Peter 3:2",
+        "2 Corinthians 11:2",
+        "1 Timothy 5:2",
+        "Song of Solomon 4:1"
+      ],
+      "step": "Chastity is wholeness, not shame of being human.",
+      "why": "When purity is mocked, chaste is whole love—modesty and fidelity, not shame of being human."
+    },
+    {
+      "word": "chasten",
+      "note": "Discipline for good — Fatherly correction.",
+      "concordance": "son",
+      "examples": [
+        "Hebrews 12:6",
+        "Deuteronomy 8:5",
+        "Psalm 94:12",
+        "Job 5:17",
+        "Revelation 3:19"
+      ],
+      "step": "Receive discipline as love, not rejection.",
+      "why": "God's discipline is never punishment for a child He has already forgiven — it is loving training for our good."
+    },
+    {
+      "word": "chastise",
+      "note": "Correct sharply when needed — still purposeful.",
+      "concordance": "evil",
+      "examples": [
+        "Deuteronomy 22:18",
+        "Job 40:2",
+        "Jeremiah 30:14",
+        "Luke 23:16",
+        "1 Kings 12:11"
+      ],
+      "step": "Distinguish human abuse from God’s righteous rule.",
+      "why": "When correction comes, chastise is sharp purpose—distinguish abuse from God’s righteous rule."
+    },
+    {
+      "word": "cherubims",
+      "note": "Cherubim — heavenly guardians and throne imagery.",
+      "concordance": "holy",
+      "examples": [
+        "Genesis 3:24",
+        "Exodus 25:18",
+        "Psalm 18:10",
+        "Ezekiel 10:1",
+        "Hebrews 9:5"
+      ],
+      "step": "Holy presence is not casual.",
+      "why": "When cherubims guard the garden or ark, remember holy presence is not casual—approach God with awe."
+    },
+    {
+      "word": "cleave",
+      "note": "Cling fast or split apart — opposite meanings by context.",
+      "concordance": "heart",
+      "examples": [
+        "Genesis 2:24",
+        "Psalm 119:25",
+        "Acts 11:23",
+        "Luke 10:11",
+        "Romans 12:9"
+      ],
+      "step": "Marriage cleaving vs cursed cleaving — watch the verse.",
+      "why": "When cleave splits or clings, context decides—marriage cling vs tearing away; watch the verse."
+    },
+    {
+      "word": "clothed",
+      "note": "Put on — often moral or gospel clothing imagery.",
+      "concordance": "put",
+      "examples": [
+        "Romans 13:14",
+        "Colossians 3:12",
+        "Galatians 3:27",
+        "Revelation 3:5",
+        "Job 29:14"
+      ],
+      "step": "“Put on Christ” is daily dressing by faith.",
+      "why": "When Scripture says put on, clothed is dress-by-faith—daily wearing Christ and virtues He gives."
+    },
+    {
+      "word": "comely",
+      "note": "Beautiful, fitting, honorable.",
+      "concordance": "holy",
+      "examples": [
+        "Psalm 147:1",
+        "Song of Solomon 1:5",
+        "1 Timothy 2:10",
+        "Proverbs 30:29",
+        "Jeremiah 13:27"
+      ],
+      "step": "Modesty can still be comely — dignity without show.",
+      "why": "God sees beauty in places the world overlooks — including the quiet faithfulness of someone who keeps showing up in pain."
+    },
+    {
+      "word": "commend",
+      "note": "Entrust, commit, praise — several shades.",
+      "concordance": "commendeth",
+      "examples": [
+        "2 Corinthians 12:11",
+        "Psalm 22:8",
+        "Luke 23:46",
+        "Acts 20:32",
+        "Romans 16:1"
+      ],
+      "step": "Paul commends people to God’s grace — a tender charge.",
+      "why": "To commend something to God is to release it from our hands into His — a gentle act of trust."
+    },
+    {
+      "word": "communed",
+      "note": "Spoke closely, counseled — intimate talk.",
+      "concordance": "said",
+      "examples": [
+        "Genesis 17:22",
+        "Psalm 4:4",
+        "Mark 6:30",
+        "Luke 24:15",
+        "Micah 6:8"
+      ],
+      "step": "“Commune with your own heart” is honest self-talk before God.",
+      "why": "When hearts need honesty, communed is close counsel—talk plainly with God after talking with yourself."
+    },
+    {
+      "word": "concision",
+      "note": "Mutilation — Paul’s sharp word for fleshly confidence.",
+      "concordance": "flesh",
+      "examples": [
+        "Philippians 3:2",
+        "Galatians 5:12",
+        "Galatians 6:12"
+      ],
+      "step": "Contrast true circumcision of heart by the Spirit.",
+      "why": "When confidence in flesh rises, concision is Paul’s sharp warning—true circumcision is of the heart by the Spirit."
+    },
+    {
+      "word": "confound",
+      "note": "Confuse, shame, bring to nothing.",
+      "concordance": "devil",
+      "examples": [
+        "Genesis 11:7",
+        "Psalm 40:14",
+        "Acts 19:32",
+        "1 Corinthians 1:27",
+        "Isaiah 45:16"
+      ],
+      "step": "God frustrates proud schemes.",
+      "why": "God often confounds the wise and strong so that His power can shine through ordinary, tired people like us."
+    },
+    {
+      "word": "conscience",
+      "note": "Inner witness — trained by truth, not mere feelings.",
+      "concordance": "heart",
+      "examples": [
+        "Romans 2:15",
+        "Romans 9:1",
+        "1 Timothy 1:5",
+        "Hebrews 10:22",
+        "1 Peter 3:16"
+      ],
+      "step": "A seared conscience is dangerous — feed it Scripture.",
+      "why": "A clean conscience is a quiet gift; when it's troubled, God offers both forgiveness and the strength to make it right."
+    },
+    {
+      "word": "convert",
+      "note": "Turn back, restore — soul and direction.",
+      "concordance": "come",
+      "examples": [
+        "Psalm 19:7",
+        "James 5:19",
+        "Luke 22:32",
+        "Acts 3:19",
+        "Isaiah 60:5"
+      ],
+      "step": "Conversion is Godward turn, not a mood.",
+      "why": "When you feel stuck, convert is turn—God meets the turned heart with forgiveness and new direction."
+    },
+    {
+      "word": "couch",
+      "note": "Lie down, rest — sheep and sleep imagery.",
+      "concordance": "rest",
+      "examples": [
+        "Genesis 49:9",
+        "Job 11:19",
+        "Psalm 68:13",
+        "Ezekiel 34:14",
+        "Amos 6:4"
+      ],
+      "step": "Picture calm when the Lord makes His people lie down.",
+      "why": "When sheep lie down, couch is rest—picture calm when the Shepherd makes you lie down."
+    },
+    {
+      "word": "creeping",
+      "note": "Crawling things — creation categories and purity laws.",
+      "concordance": "evil",
+      "examples": [
+        "Genesis 1:26",
+        "Leviticus 11:29",
+        "Leviticus 11:41",
+        "Psalm 104:20",
+        "Hosea 2:18"
+      ],
+      "step": "Order in creation; humility before the Creator.",
+      "why": "When creation lists creatures, creeping humbles us—order and humility before the Maker."
+    },
+    {
+      "word": "cruel",
+      "note": "Harsh, fierce — character and consequences.",
+      "concordance": "evil",
+      "examples": [
+        "Proverbs 27:4",
+        "Proverbs 11:17",
+        "Jeremiah 6:23",
+        "Isaiah 19:13",
+        "Psalm 71:4"
+      ],
+      "step": "Cruel masters contrast the gentle yoke of Christ.",
+      "why": "When cruelty appears in story, contrast it with Christ’s gentle yoke—harsh masters vs the good Shepherd."
+    },
+    {
+      "word": "crucify",
+      "note": "Nail to a cross — old man, flesh, and Christ’s death.",
+      "concordance": "christ",
+      "examples": [
+        "Galatians 2:20",
+        "Galatians 5:24",
+        "Romans 6:6",
+        "Matthew 27:22",
+        "Hebrews 6:6"
+      ],
+      "step": "Union with Christ’s death is real, not metaphor only.",
+      "why": "When old self-language stings, crucify is union with Christ’s death—sin killed with Him, not self-hatred."
+    },
+    {
+      "word": "cup",
+      "note": "Cup of blessing or wrath — what you drink with God.",
+      "concordance": "drink",
+      "examples": [
+        "Psalm 23:5",
+        "Psalm 75:8",
+        "Matthew 26:39",
+        "1 Corinthians 10:21",
+        "Revelation 14:10"
+      ],
+      "step": "Jesus drank the bitter cup for us.",
+      "why": "When Jesus prays about the cup, it is what He drinks with the Father—blessing or bitter draught by context."
+    },
+    {
+      "word": "curseth",
+      "note": "Calls down curse — solemn, not slang.",
+      "concordance": "evil",
+      "examples": [
+        "Romans 12:14",
+        "James 3:9",
+        "Galatians 1:8",
+        "Proverbs 30:11",
+        "Leviticus 20:9"
+      ],
+      "step": "Bless those who curse you — Romans 12.",
+      "why": "When cursing is named solemnly, curseth is serious speech—not slang; align your mouth with blessing when you can."
+    },
+    {
+      "word": "custom",
+      "note": "Habit, tax, or ordinary practice — context decides.",
+      "concordance": "word",
+      "examples": [
+        "Luke 1:9",
+        "Luke 2:42",
+        "John 18:39",
+        "Acts 15:1",
+        "Acts 16:21"
+      ],
+      "step": "“After the custom” is routine — not necessarily holy.",
+      "why": "When “custom” recurs, it may be habit or tax—ordinary routine or civic toll; let context choose."
+    },
+    {
+      "word": "cut off",
+      "note": "Removed from covenant people or life — serious.",
+      "concordance": "death",
+      "examples": [
+        "Genesis 17:14",
+        "Leviticus 7:20",
+        "Galatians 5:12",
+        "Psalm 37:9",
+        "Proverbs 2:22"
+      ],
+      "step": "Let the weight point you to Christ’s sufficient sacrifice.",
+      "why": "When covenant warns cut off, it is removal—serious; let it point you to the sufficiency of Christ’s sacrifice."
+    },
+    {
+      "word": "defiled",
+      "note": "Made unclean — ceremonial or moral.",
+      "concordance": "holy",
+      "examples": [
+        "Titus 1:15",
+        "Hebrews 12:15",
+        "1 Corinthians 8:7",
+        "Daniel 1:8",
+        "Jude 1:8"
+      ],
+      "step": "Wash in confession and truth — 1 John 1:9.",
+      "why": "When shame whispers “unclean,” defiled is uncleanness needing washing—confession and truth restore."
+    },
+    {
+      "word": "deliver",
+      "note": "Rescue, hand over, or birth — track the sense.",
+      "concordance": "saved",
+      "examples": [
+        "Colossians 1:13",
+        "2 Timothy 4:18",
+        "Romans 8:32",
+        "Matthew 6:13",
+        "Psalm 34:17"
+      ],
+      "step": "Deliver us from evil is daily dependence.",
+      "why": "When trouble presses, deliver is rescue language—God as the One who draws you out, again and again."
+    },
+    {
+      "word": "deliverance",
+      "note": "Rescue realized — God’s help in trouble.",
+      "concordance": "saved",
+      "examples": [
+        "Psalm 32:7",
+        "Psalm 40:17",
+        "Luke 21:28",
+        "2 Corinthians 1:10",
+        "Micah 4:10"
+      ],
+      "step": "Remember past deliverances when new fears rise.",
+      "why": "When rescue lands, deliverance is God’s help remembered—name old deliverances when new fears rise."
+    },
+    {
+      "word": "deny",
+      "note": "Disown, refuse — Jesus warns and encourages.",
+      "concordance": "evil",
+      "examples": [
+        "Matthew 10:33",
+        "Matthew 16:24",
+        "2 Timothy 2:12",
+        "Titus 1:16",
+        "1 John 2:22"
+      ],
+      "step": "Self-denial follows Christ — not self-hatred."
+    },
+    {
+      "word": "depart",
+      "note": "Go away, remove, or die — gentle or solemn.",
+      "concordance": "go",
+      "examples": [
+        "Luke 2:29",
+        "Philippians 1:23",
+        "2 Timothy 4:6",
+        "Matthew 25:41",
+        "Genesis 49:10"
+      ],
+      "step": "“Depart from me” is sober when Jesus says it."
+    },
+    {
+      "word": "despise",
+      "note": "Treat as nothing — God, wisdom, or neighbor.",
+      "concordance": "evil",
+      "examples": [
+        "Proverbs 1:7",
+        "1 Samuel 2:30",
+        "Malachi 1:6",
+        "Hebrews 12:2",
+        "Job 5:17"
+      ],
+      "step": "Do not despise small beginnings of grace."
+    },
+    {
+      "word": "devour",
+      "note": "Consume — Satan as roaring lion; strife devours.",
+      "concordance": "eat",
+      "examples": [
+        "1 Peter 5:8",
+        "Galatians 5:15",
+        "Hebrews 10:27",
+        "2 Corinthians 2:7",
+        "Revelation 12:4"
+      ],
+      "step": "Stay sober; resist him steadfast in faith."
+    },
+    {
+      "word": "diligence",
+      "note": "Steady effort — faith and virtue.",
+      "concordance": "patience",
+      "examples": [
+        "2 Peter 1:5",
+        "Hebrews 6:11",
+        "Proverbs 4:23",
+        "Romans 12:8",
+        "2 Timothy 2:15"
+      ],
+      "step": "Diligence is quiet faithfulness, not panic.",
+      "why": "Diligence doesn't mean perfection; it means showing up again tomorrow, even when today was hard."
+    },
+    {
+      "word": "discreet",
+      "note": "Sensible, prudent — especially Titus 2 maturity.",
+      "concordance": "heart",
+      "examples": [
+        "Titus 2:5",
+        "Mark 7:24",
+        "Proverbs 19:11",
+        "1 Timothy 3:2",
+        "Proverbs 22:3"
+      ],
+      "step": "Discretion defuses many fires."
+    },
+    {
+      "word": "dissimulation",
+      "note": "Hypocrisy — hiding what you truly are.",
+      "concordance": "evil",
+      "examples": [
+        "Romans 12:9",
+        "Galatians 2:13",
+        "1 Peter 2:1",
+        "James 3:17"
+      ],
+      "step": "Love without dissimulation is sincere brotherly love."
+    },
+    {
+      "word": "divers",
+      "note": "Various — older spelling of diverse.",
+      "concordance": "all",
+      "examples": [
+        "Hebrews 1:1",
+        "Matthew 4:24",
+        "Mark 8:3",
+        "Acts 19:9",
+        "James 1:2"
+      ],
+      "step": "Read “divers” as “many kinds,” not scuba."
+    },
+    {
+      "word": "doctrine",
+      "note": "Teaching — sound words to build and guard.",
+      "concordance": "word",
+      "examples": [
+        "1 Timothy 4:16",
+        "2 Timothy 4:3",
+        "Titus 2:1",
+        "Hebrews 6:1",
+        "Revelation 2:14"
+      ],
+      "step": "Test all teaching by Christ and the apostles.",
+      "why": "Sound doctrine is not cold rules — it's a safe path that keeps our hearts anchored when feelings run wild."
+    },
+    {
+      "word": "draught",
+      "note": "Catch of fish; also drain — context picks.",
+      "concordance": "eat",
+      "examples": [
+        "Luke 5:4",
+        "Luke 5:9",
+        "John 21:8",
+        "Matthew 15:17",
+        "Mark 7:19"
+      ],
+      "step": "Miraculous draughts show who rules sea and heart."
+    },
+    {
+      "word": "dross",
+      "note": "Waste slag from metal — impurity to purge.",
+      "concordance": "evil",
+      "examples": [
+        "Psalm 119:119",
+        "Proverbs 25:4",
+        "Ezekiel 22:18",
+        "Isaiah 1:25",
+        "Jeremiah 6:29"
+      ],
+      "step": "Refining imagery: God purges, not to destroy you."
+    },
+    {
+      "word": "drunken",
+      "note": "Intoxicated — warning and watchfulness.",
+      "concordance": "drink",
+      "examples": [
+        "Ephesians 5:18",
+        "Luke 21:34",
+        "1 Thessalonians 5:7",
+        "Isaiah 29:9",
+        "Joel 1:5"
+      ],
+      "step": "Be filled with the Spirit instead — Ephesians 5."
+    },
+    {
+      "word": "dumb",
+      "note": "Mute, speechless — not modern insult.",
+      "concordance": "word",
+      "examples": [
+        "Matthew 9:33",
+        "Matthew 15:30",
+        "Psalm 38:13",
+        "Exodus 4:11",
+        "Habakkuk 2:18"
+      ],
+      "step": "Healing stories restore voice — picture gospel opening mouths."
+    },
+    {
+      "word": "durst",
+      "note": "Dared — older past of dare.",
+      "concordance": "afraid",
+      "examples": [
+        "Mark 12:34",
+        "Acts 7:32",
+        "Matthew 22:46",
+        "Mark 9:32",
+        "John 21:12"
+      ],
+      "step": "Swap “dared” mentally when you hit durst."
+    },
+    {
+      "word": "edify",
+      "note": "Build up — church speech and love.",
+      "concordance": "brethren",
+      "examples": [
+        "1 Corinthians 14:4",
+        "1 Corinthians 8:1",
+        "Romans 14:19",
+        "Ephesians 4:12",
+        "1 Thessalonians 5:11"
+      ],
+      "step": "Ask: does this word build or tear down?"
+    },
+    {
+      "word": "elder",
+      "note": "Older man; also office of oversight — context.",
+      "concordance": "men",
+      "examples": [
+        "1 Timothy 5:1",
+        "1 Timothy 5:17",
+        "Titus 1:5",
+        "Acts 14:23",
+        "James 5:14"
+      ],
+      "step": "Respect and honor where Scripture commands."
+    },
+    {
+      "word": "embrace",
+      "note": "Hold fast — wisdom, seasons, people.",
+      "concordance": "love",
+      "examples": [
+        "Ecclesiastes 3:5",
+        "Proverbs 4:8",
+        "Hebrews 11:13",
+        "Acts 20:1",
+        "Song of Solomon 2:6"
+      ],
+      "step": "Ecclesiastes pairs embrace with refraining — seasons."
+    },
+    {
+      "word": "end",
+      "note": "Goal, outcome, or final stop — teleology matters.",
+      "concordance": "end",
+      "examples": [
+        "1 Peter 1:9",
+        "Matthew 24:6",
+        "James 5:11",
+        "Philippians 3:19",
+        "Hebrews 6:11"
+      ],
+      "step": "“The end of your faith” is salvation of souls."
+    },
+    {
+      "word": "engender",
+      "note": "Begets, produces — James on lust.",
+      "concordance": "flesh",
+      "examples": [
+        "James 1:15",
+        "James 1:18",
+        "Galatians 4:24",
+        "2 Timothy 2:23"
+      ],
+      "step": "Trace sin’s birth to death; grace’s birth to life."
+    },
+    {
+      "word": "envious",
+      "note": "Jealous of another’s good — rots bones.",
+      "concordance": "evil",
+      "examples": [
+        "Proverbs 14:30",
+        "Psalm 106:16",
+        "Acts 7:9",
+        "Acts 17:5",
+        "Galatians 5:26"
+      ],
+      "step": "Rejoice with those who rejoice — kill envy."
+    },
+    {
+      "word": "epistle",
+      "note": "Letter — apostolic mail to churches.",
+      "concordance": "word",
+      "examples": [
+        "2 Thessalonians 3:14",
+        "Colossians 4:16",
+        "1 Corinthians 5:9",
+        "2 Peter 3:15",
+        "Acts 15:30"
+      ],
+      "step": "These letters are God-breathed rule for faith."
+    },
+    {
+      "word": "err",
+      "note": "Wander off course — morally and intellectually.",
+      "concordance": "evil",
+      "examples": [
+        "James 5:20",
+        "Psalm 119:67",
+        "Hebrews 3:10",
+        "Matthew 22:29",
+        "Isaiah 35:8"
+      ],
+      "step": "Gentle restoration for the erring — James 5."
+    },
+    {
+      "word": "espoused",
+      "note": "Betrothed — purity and expectation.",
+      "concordance": "christ",
+      "examples": [
+        "2 Corinthians 11:2",
+        "Matthew 1:18",
+        "Luke 2:5",
+        "Deuteronomy 20:7",
+        "Joel 1:8"
+      ],
+      "step": "Paul’s bridal language is devotion, not drama."
+    },
+    {
+      "word": "esteem",
+      "note": "Value, regard, or reckon — context picks.",
+      "concordance": "heart",
+      "examples": [
+        "Philippians 2:3",
+        "Isaiah 53:3",
+        "1 Thessalonians 5:13",
+        "Romans 14:5",
+        "Job 19:11"
+      ],
+      "step": "Esteem others better — humility in community."
+    },
+    {
+      "word": "exhort",
+      "note": "Strongly encourage — apostolic voice.",
+      "concordance": "comfort",
+      "examples": [
+        "1 Timothy 4:13",
+        "Hebrews 3:13",
+        "Titus 2:15",
+        "2 Thessalonians 3:12",
+        "Acts 2:40"
+      ],
+      "step": "Exhortation is love with backbone."
+    },
+    {
+      "word": "eyeservice",
+      "note": "Service only when watched — hollow obedience.",
+      "concordance": "lord",
+      "examples": [
+        "Ephesians 6:6",
+        "Colossians 3:22",
+        "Colossians 3:23"
+      ],
+      "step": "Serve as unto the Lord — heart, not performance."
+    },
+    {
+      "word": "faint",
+      "note": "Grow weak, lose heart — God strengthens.",
+      "concordance": "faint",
+      "examples": [
+        "Isaiah 40:29",
+        "Galatians 6:9",
+        "Luke 18:1",
+        "Deuteronomy 20:8",
+        "Jeremiah 51:46"
+      ],
+      "step": "Do not faint in well doing — season of reaping comes."
+    },
+    {
+      "word": "familiar spirit",
+      "note": "Forbidden spirit contact — witchcraft territory.",
+      "concordance": "spirit",
+      "examples": [
+        "Leviticus 19:31",
+        "Leviticus 20:6",
+        "1 Samuel 28:7",
+        "2 Kings 21:6",
+        "Isaiah 8:19"
+      ],
+      "step": "Seek the Lord, not the dead — sober warning."
+    },
+    {
+      "word": "fast",
+      "note": "Abstain food for prayer — not “quick.”",
+      "concordance": "fast",
+      "examples": [
+        "Matthew 6:16",
+        "Matthew 17:21",
+        "Acts 13:3",
+        "Joel 2:12",
+        "Esther 4:16"
+      ],
+      "step": "Fasting pairs with feasting on God’s word."
+    },
+    {
+      "word": "fat",
+      "note": "Rich, best portion — offerings and abundance.",
+      "concordance": "fat",
+      "examples": [
+        "Psalm 63:5",
+        "Genesis 45:18",
+        "Numbers 18:17",
+        "Psalm 22:29",
+        "Deuteronomy 31:20"
+      ],
+      "step": "“Fatness” can mean deep satisfaction in God."
+    },
+    {
+      "word": "fatlings",
+      "note": "Young fat cattle — feast and sacrifice imagery.",
+      "concordance": "fat",
+      "examples": [
+        "1 Samuel 15:9",
+        "Matthew 22:4",
+        "Isaiah 1:11",
+        "Amos 5:22",
+        "Psalm 66:15"
+      ],
+      "step": "Parables use feast language — come to the banquet."
+    },
+    {
+      "word": "fearfully",
+      "note": "Wonderfully — awe, not terror, in Psalm 139.",
+      "concordance": "fear",
+      "examples": [
+        "Psalm 139:14",
+        "Job 37:14",
+        "Psalm 65:5"
+      ],
+      "step": "You are fearfully set apart — dignity from the Maker."
+    },
+    {
+      "word": "fiends",
+      "note": "Fierce companions or mockers — rare word.",
+      "concordance": "devil",
+      "examples": [
+        "Job 30:29",
+        "Psalm 88:18",
+        "Psalm 88:8"
+      ],
+      "step": "Job’s loneliness language — read with compassion."
+    },
+    {
+      "word": "filthy",
+      "note": "Morally foul — rags, speech, lucre.",
+      "concordance": "evil",
+      "examples": [
+        "Isaiah 64:6",
+        "James 2:2",
+        "Titus 1:11",
+        "Revelation 22:11",
+        "Zechariah 3:3"
+      ],
+      "step": "Christ clothes the filthy with righteousness."
+    },
+    {
+      "word": "firstborn",
+      "note": "Preeminent heir — Israel, Christ, church.",
+      "concordance": "son",
+      "examples": [
+        "Colossians 1:15",
+        "Colossians 1:18",
+        "Hebrews 12:23",
+        "Romans 8:29",
+        "Exodus 4:22"
+      ],
+      "step": "Christ is firstborn among many brethren."
+    },
+    {
+      "word": "firstfruits",
+      "note": "First part of harvest — pledge of full crop.",
+      "concordance": "hope",
+      "examples": [
+        "1 Corinthians 15:20",
+        "Romans 8:23",
+        "James 1:18",
+        "Revelation 14:4",
+        "Romans 11:16"
+      ],
+      "step": "Resurrection is firstfruits — more glory coming."
+    },
+    {
+      "word": "flattery",
+      "note": "Smooth words that mislead — guard the naive.",
+      "concordance": "evil",
+      "examples": [
+        "Proverbs 26:28",
+        "Proverbs 29:5",
+        "Job 32:22",
+        "Psalm 12:2",
+        "1 Thessalonians 2:5"
+      ],
+      "step": "Love speaks truth with kindness."
+    },
+    {
+      "word": "fleshly",
+      "note": "According to the flesh — unspiritual mindset.",
+      "concordance": "flesh",
+      "examples": [
+        "2 Corinthians 1:12",
+        "Colossians 2:18",
+        "Romans 7:5",
+        "1 Peter 2:11",
+        "1 Corinthians 3:3"
+      ],
+      "step": "Not “body bad,” but “self on the throne.”"
+    },
+    {
+      "word": "fowls",
+      "note": "Birds — care of God and parable seed.",
+      "concordance": "eagles",
+      "examples": [
+        "Matthew 6:26",
+        "Matthew 13:4",
+        "Genesis 15:11",
+        "Job 28:21",
+        "Psalm 104:12"
+      ],
+      "step": "If God feeds fowls, He will sustain you."
+    },
+    {
+      "word": "frankincense",
+      "note": "Incense offering — prayer and worship aroma.",
+      "concordance": "sweet",
+      "examples": [
+        "Matthew 2:11",
+        "Leviticus 2:1",
+        "Song of Solomon 3:6",
+        "Revelation 18:13",
+        "Nehemiah 13:5"
+      ],
+      "step": "Picture tabernacle worship — Christ is better."
+    },
+    {
+      "word": "freewill",
+      "note": "Voluntary offering — glad heart.",
+      "concordance": "gift",
+      "examples": [
+        "Leviticus 22:18",
+        "Leviticus 22:23",
+        "Ezra 1:4",
+        "Ezra 8:28",
+        "Psalm 119:108"
+      ],
+      "step": "God loves a cheerful giver — 2 Corinthians 9."
+    },
+    {
+      "word": "gainsay",
+      "note": "Speak against, contradict — opposition.",
+      "concordance": "evil",
+      "examples": [
+        "Luke 21:15",
+        "Acts 19:9",
+        "Romans 10:21",
+        "Titus 1:9",
+        "Acts 4:14"
+      ],
+      "step": "Christ’s witnesses speak boldly when opposed."
+    },
+    {
+      "word": "gender",
+      "note": "Beget, produce — archaic verb “gendereth.”",
+      "concordance": "flesh",
+      "examples": [
+        "James 1:15",
+        "2 Timothy 2:23",
+        "Proverbs 30:33"
+      ],
+      "step": "James: lust conceives and sins when full grown."
+    },
+    {
+      "word": "gentiles",
+      "note": "Nations — non-Jewish peoples; grace to the world.",
+      "concordance": "world",
+      "examples": [
+        "Matthew 4:15",
+        "Romans 3:29",
+        "Ephesians 3:6",
+        "Acts 10:45",
+        "Galatians 2:12"
+      ],
+      "step": "One new man — Jew and Gentile in Christ."
+    },
+    {
+      "word": "gird",
+      "note": "Bind up — readiness and service.",
+      "concordance": "put",
+      "examples": [
+        "Luke 12:35",
+        "1 Peter 1:13",
+        "Job 38:3",
+        "John 21:18",
+        "Exodus 12:11"
+      ],
+      "step": "“Gird up the loins of your mind” is alert holiness."
+    },
+    {
+      "word": "girdle",
+      "note": "Belt — priestly dress and John the Baptist.",
+      "concordance": "put",
+      "examples": [
+        "Exodus 28:4",
+        "Matthew 3:4",
+        "2 Kings 1:8",
+        "Acts 21:11",
+        "Jeremiah 13:1"
+      ],
+      "step": "Symbol of strength and office — read visually."
+    },
+    {
+      "word": "glean",
+      "note": "Gather leftovers — mercy for the poor.",
+      "concordance": "eat",
+      "examples": [
+        "Ruth 2:2",
+        "Leviticus 19:10",
+        "Deuteronomy 24:19",
+        "Jeremiah 6:9",
+        "Micah 7:1"
+      ],
+      "step": "Boaz’s field is a picture of generous provision."
+    },
+    {
+      "word": "glede",
+      "note": "Bird of prey — eagle-like in prophecy.",
+      "concordance": "eagles",
+      "examples": [
+        "Deuteronomy 28:49",
+        "Job 39:27",
+        "Jeremiah 48:40"
+      ],
+      "step": "Rare word — read as swift destroying bird in judgment poetry."
+    },
+    {
+      "word": "harlot",
+      "note": "Prostitute — literal and covenant unfaithfulness imagery.",
+      "concordance": "evil",
+      "examples": [
+        "James 4:4",
+        "Revelation 17:1",
+        "Hosea 1:2",
+        "Isaiah 1:21",
+        "Leviticus 21:7"
+      ],
+      "step": "Spiritual adultery is chasing lovers that cannot save."
+    },
+    {
+      "word": "haste",
+      "note": "Hurry — sometimes wise, sometimes rash.",
+      "concordance": "patience",
+      "examples": [
+        "Proverbs 19:2",
+        "Proverbs 21:5",
+        "Exodus 12:33",
+        "Luke 19:5",
+        "2 Samuel 4:10"
+      ],
+      "step": "Wait on the Lord beats proud haste."
+    },
+    {
+      "word": "haughty",
+      "note": "Lifted up in pride — God resists.",
+      "concordance": "evil",
+      "examples": [
+        "Proverbs 16:18",
+        "Isaiah 10:33",
+        "Psalm 131:1",
+        "Proverbs 18:12",
+        "Isaiah 2:11"
+      ],
+      "step": "Humble yourself under God’s hand — 1 Peter 5:6."
+    },
+    {
+      "word": "hearken",
+      "note": "Listen and obey — covenant call.",
+      "concordance": "word",
+      "examples": [
+        "Isaiah 55:2",
+        "Deuteronomy 6:3",
+        "Psalm 81:8",
+        "Acts 7:2",
+        "James 2:5"
+      ],
+      "step": "Hearkening is more than ears — it is doing."
+    },
+    {
+      "word": "heaviness",
+      "note": "Grief, depression of spirit — God meets it.",
+      "concordance": "heavy",
+      "examples": [
+        "Psalm 69:20",
+        "Isaiah 61:3",
+        "Matthew 11:28",
+        "1 Peter 1:6",
+        "Psalm 119:28"
+      ],
+      "step": "Oil of joy for heaviness — Isaiah 61."
+    },
+    {
+      "word": "quit",
+      "note": "Conduct yourself, acquit yourself — “quit like men” is courage and integrity.",
+      "concordance": "quit",
+      "examples": [
+        "1 Corinthians 16:13",
+        "1 Samuel 4:9",
+        "Joshua 1:6",
+        "Joshua 1:9",
+        "Deuteronomy 31:6"
+      ],
+      "step": "In 1 Corinthians 16:13, read quit as “carry yourself like men of faith,” not “stop.”",
+      "why": "When “quit” sounds like giving up, the KJV often means how you carry yourself—stand, serve, and stay faithful."
+    },
+    {
+      "word": "compass",
+      "note": "Surround, encircle, go round — siege and prayer language.",
+      "concordance": "compassed",
+      "examples": [
+        "Psalm 118:10",
+        "Psalm 118:11",
+        "Psalm 118:12",
+        "Jonah 2:3",
+        "Luke 19:43"
+      ],
+      "step": "If trouble “compasses” you, picture being hemmed in—then remember who is nearer still.",
+      "why": "When enemies or fears “compass” you, the word is surround-language—honest pressure, and a reason to run to the Lord who holds the circle."
+    },
+    {
+      "word": "meet",
+      "note": "Fitting, suitable, right for the purpose — not always “encounter.”",
+      "concordance": "good",
+      "examples": [
+        "Genesis 2:18",
+        "Matthew 3:8",
+        "2 Timothy 2:21",
+        "Ephesians 5:27",
+        "Colossians 1:12"
+      ],
+      "step": "In Genesis 2:18, “help meet” means suitable helper—dignity, not inferiority.",
+      "why": "When “meet” feels like a calendar word, the KJV often means fitting—what matches God’s design for the moment."
+    },
+    {
+      "word": "leasing",
+      "note": "Lying, falsehood — old noun for empty words.",
+      "concordance": "evil",
+      "examples": [
+        "Psalm 4:2",
+        "Psalm 5:6",
+        "Psalm 31:18",
+        "Psalm 59:12",
+        "Isaiah 28:15"
+      ],
+      "step": "Pair leasing with vanity in Psalm 4—speech that cannot hold weight.",
+      "why": "When culture rewards smooth stories, “leasing” names lies that waste a life—truth is the narrow kindness."
+    },
+    {
+      "word": "mammon",
+      "note": "Riches as a rival master — loyalty, not mere money.",
+      "concordance": "world",
+      "examples": [
+        "Matthew 6:24",
+        "Luke 16:9",
+        "Luke 16:11",
+        "Luke 16:13",
+        "Matthew 6:21"
+      ],
+      "step": "Matthew 6:24 is about single-hearted service—God or competing trust.",
+      "why": "When money tugs your chest, mammon-language exposes where you look for safety—only one Master can hold you without crushing you."
+    },
+    {
+      "word": "reprobate",
+      "note": "Disapproved, rejected after testing — serious moral and covenant language.",
+      "concordance": "evil",
+      "examples": [
+        "Romans 1:28",
+        "2 Corinthians 13:5",
+        "2 Corinthians 13:6",
+        "2 Timothy 3:8",
+        "Titus 1:16"
+      ],
+      "step": "In 2 Corinthians 13:5, “reprobates” is examine yourselves—not name-calling neighbors.",
+      "why": "When “reprobate” stings, use it as a mirror first—God calls His people to honest self-examination, not smug labels."
+    },
+    {
+      "word": "lucre",
+      "note": "Gain, money — often “filthy lucre” when gain corrupts.",
+      "concordance": "evil",
+      "examples": [
+        "Titus 1:7",
+        "Titus 1:11",
+        "1 Timothy 3:3",
+        "1 Timothy 3:8",
+        "1 Peter 5:2"
+      ],
+      "step": "Office lists warn against greedy patterns—love people more than leverage.",
+      "why": "When ministry and money meet, “lucre” warns about appetite—serve for Christ’s sake, not for what you can squeeze out."
+    },
+    {
+      "word": "sundry",
+      "note": "Various, several — “sundry times” is many eras and ways.",
+      "concordance": "all",
+      "examples": [
+        "Hebrews 1:1",
+        "Numbers 12:6",
+        "Jeremiah 7:25",
+        "Amos 3:7",
+        "2 Peter 1:21"
+      ],
+      "step": "Hebrews 1:1 sets up the Son—God spoke piecemeal, then perfectly in Christ.",
+      "why": "When “sundry” sounds like a receipt word, here it is patient variety—God kept speaking until the Word became flesh."
+    },
+    {
+      "word": "concupiscence",
+      "note": "Strong desire, lust — inner pull toward wrong delight.",
+      "concordance": "flesh",
+      "examples": [
+        "Romans 7:8",
+        "Colossians 3:5",
+        "1 Thessalonians 4:5",
+        "2 Peter 2:18",
+        "James 1:14"
+      ],
+      "step": "Trace James 1:14–15 from desire to death—early kill the bud with truth and prayer.",
+      "why": "When desire flares, concupiscence names the inner pull—naming it is the first step to bringing it to Christ, not feeding it."
+    },
+    {
+      "word": "chambering",
+      "note": "Immoral bed-life — secret indulgence contrasted with daytime honor.",
+      "concordance": "evil",
+      "examples": [
+        "Romans 13:13",
+        "1 Thessalonians 4:3",
+        "1 Thessalonians 4:4",
+        "Hebrews 13:4",
+        "Ephesians 5:3"
+      ],
+      "step": "Romans 13:13 pairs chambering with public decency—whole-life integrity.",
+      "why": "When temptation whispers “private doesn’t count,” chambering reminds you: God sees the whole day and night—love purity in secret and in public."
+    },
+    {
+      "word": "riot",
+      "note": "Wild excess, wasteful uproar — not a modern “riot” only in streets.",
+      "concordance": "evil",
+      "examples": [
+        "1 Peter 4:4",
+        "Titus 1:6",
+        "Ephesians 5:18",
+        "Luke 15:13",
+        "Romans 13:13"
+      ],
+      "step": "Contrast riot with sober joy—celebration without drowning the soul.",
+      "why": "When “riot” sounds political, the KJV often means reckless excess—freedom that empties the wallet and the heart."
+    },
+    {
+      "word": "discretion",
+      "note": "Good judgment, prudence — moral taste and timing.",
+      "concordance": "understanding",
+      "examples": [
+        "Proverbs 2:11",
+        "Proverbs 5:2",
+        "Proverbs 11:22",
+        "Psalm 119:66",
+        "Job 6:14"
+      ],
+      "step": "Proverbs ties discretion to keeping paths—wisdom guards love.",
+      "why": "When you feel pulled in ten directions, discretion is Spirit-taught judgment—pause, pray, then choose the kind path."
+    },
+    {
+      "word": "sodden",
+      "note": "Boiled — food laws and ordinary kitchen English.",
+      "concordance": "eat",
+      "examples": [
+        "Exodus 12:9",
+        "Leviticus 6:28",
+        "1 Samuel 2:13",
+        "2 Chronicles 35:13",
+        "Ezekiel 46:20"
+      ],
+      "step": "Passover lamb was not sodden—God appointed roast; details teach obedience.",
+      "why": "When “sodden” looks odd, it simply means boiled—read the verse for what God asked, and let small obedience train a listening heart."
+    },
+    {
+      "word": "halting",
+      "note": "Limping, wavering between two ways — physical or spiritual.",
+      "concordance": "walk",
+      "examples": [
+        "Genesis 32:31",
+        "1 Kings 18:21",
+        "Micah 4:6",
+        "Zephaniah 3:19",
+        "Psalm 38:17"
+      ],
+      "step": "Elijah’s “halt ye between two opinions” is decide whom you will serve.",
+      "why": "When you limp between God and fear, halting names the wobble—Christ is strong enough for an honest “I believe; help thou mine unbelief.”"
+    },
+    {
+      "word": "fetch",
+      "note": "Go get, bring — plain narrative verb.",
+      "concordance": "go",
+      "examples": [
+        "Genesis 27:9",
+        "Genesis 27:13",
+        "1 Samuel 16:12",
+        "John 14:3",
+        "2 Kings 9:1"
+      ],
+      "step": "Swap “go get” mentally when fetch appears—story keeps moving.",
+      "why": "When old verbs slow you down, fetch is simple errand-language—keep reading; the point is usually obedience, not vocabulary."
+    },
+    {
+      "word": "convenient",
+      "note": "Suitable timing or opportunity — not merely “handy.”",
+      "concordance": "good",
+      "examples": [
+        "Mark 6:21",
+        "Mark 6:26",
+        "Acts 24:25",
+        "1 Corinthians 16:12"
+      ],
+      "step": "Herod’s “convenient day” is planned indulgence—watch when convenience serves sin.",
+      "why": "When someone says “not convenient,” Scripture often means timing—good for honest delay, dangerous as an excuse to dodge conscience."
+    },
+    {
+      "word": "turtle",
+      "note": "Turtledove — bird of the poets, not a reptile.",
+      "concordance": "sweet",
+      "examples": [
+        "Song of Solomon 2:12",
+        "Jeremiah 8:7",
+        "Leviticus 12:8",
+        "Luke 2:24",
+        "Leviticus 14:22"
+      ],
+      "step": "Song of Solomon 2:12 signals spring and return—creation praising with the singer.",
+      "why": "When “turtle” confuses modern ears, think turtledove—Scripture is hearing creation and seasons, not a zoo joke."
+    },
+    {
+      "word": "husbandman",
+      "note": "Farmer, cultivator — God and patience with the field.",
+      "concordance": "lord",
+      "examples": [
+        "James 5:7",
+        "2 Timothy 2:6",
+        "Genesis 9:20",
+        "Joel 1:11",
+        "Jeremiah 52:16"
+      ],
+      "step": "James 5:7: the husbandman waits for fruit—so wait on the Lord’s timing.",
+      "why": "When waiting grinds you, husbandman language honors slow growth—God is patient with soil, weather, and souls."
+    },
+    {
+      "word": "matrix",
+      "note": "Womb — where life begins under God’s numbering.",
+      "concordance": "life",
+      "examples": [
+        "Exodus 13:12",
+        "Exodus 13:15",
+        "Exodus 34:19",
+        "Numbers 3:12",
+        "Numbers 18:15"
+      ],
+      "step": "Firstborn and matrix texts show life belongs to God—read reverently.",
+      "why": "When “matrix” sounds sci-fi, the KJV means womb—life is framed as sacred, not disposable."
+    },
+    {
+      "word": "carefulness",
+      "note": "Earnest care, godly zeal — can be grief-born attention.",
+      "concordance": "careful",
+      "examples": [
+        "2 Corinthians 7:11",
+        "Ezekiel 12:18",
+        "Ezekiel 12:19"
+      ],
+      "step": "2 Corinthians 7:11 lists fruits of godly sorrow—carefulness is alert love.",
+      "why": "When worry masquerades as love, carefulness in Scripture is often holy attention—turn it into prayer and action, not spinning thoughts."
+    },
+    {
+      "word": "emulation",
+      "note": "Jealous rivalry, zealous contention — not modern “emulate a hero.”",
+      "concordance": "envieth",
+      "examples": [
+        "Galatians 5:20",
+        "2 Corinthians 12:20",
+        "Romans 13:13",
+        "James 3:14",
+        "Galatians 5:26"
+      ],
+      "step": "Works of the flesh include emulations—compare yourself less; bless more.",
+      "why": "When you itch to prove you are ahead, emulation warns about rivalry—let humility and honor cool the heat."
+    },
+    {
+      "word": "revellings",
+      "note": "Party excess, carousing — loud indulgence.",
+      "concordance": "drink",
+      "examples": [
+        "Galatians 5:21",
+        "1 Peter 4:3",
+        "Romans 13:13",
+        "Luke 15:13",
+        "Ephesians 5:18"
+      ],
+      "step": "Peter reminds former patterns—freedom in Christ is clean joy.",
+      "why": "When fun demands numbness, revellings name the empty kind—joy in Christ satisfies without stealing tomorrow."
+    },
+    {
+      "word": "variance",
+      "note": "Strife, division — household and church fractures.",
+      "concordance": "evil",
+      "examples": [
+        "Matthew 10:34",
+        "Matthew 10:35",
+        "Matthew 10:36",
+        "Galatians 5:20",
+        "James 3:16"
+      ],
+      "step": "Jesus names gospel cost—truth can split what false peace held together.",
+      "why": "When faith costs relationships, variance is honest friction—love still; cleave to Christ first."
+    },
+    {
+      "word": "talent",
+      "note": "Large unit of money in parables — capacity entrusted, not only “skill.”",
+      "concordance": "gift",
+      "examples": [
+        "Matthew 18:24",
+        "Matthew 25:15",
+        "Matthew 25:16",
+        "Matthew 25:20",
+        "1 Kings 10:10"
+      ],
+      "step": "Parable talents test faithfulness—small or great, invest what God gave.",
+      "why": "When you feel “untalented,” the parable is about trust with whatever measure you hold—faithful beats flashy."
+    },
+    {
+      "word": "penny",
+      "note": "Small coin — worth varies by story; God counts little things.",
+      "concordance": "gift",
+      "examples": [
+        "Matthew 10:29",
+        "Matthew 18:28",
+        "Matthew 20:10",
+        "Mark 12:42",
+        "Luke 12:6"
+      ],
+      "step": "Two sparrows for a farthing logic—pennies prove divine attention.",
+      "why": "When you feel unseen, penny texts argue the opposite—God’s math includes what the world calls pocket change."
+    },
+    {
+      "word": "cloak",
+      "note": "Outer garment — justice, travel, and generosity scenes.",
+      "concordance": "put",
+      "examples": [
+        "Matthew 5:40",
+        "Luke 6:29",
+        "Acts 9:39",
+        "Exodus 22:26",
+        "Deuteronomy 24:13"
+      ],
+      "step": "Matthew 5:40 is radical generosity—read as Jesus’ kingdom ethic, not coercion.",
+      "why": "When rights tighten your fist, cloak passages test love—generosity flows from security in God, not from being walked over with bitterness."
+    },
+    {
+      "word": "napkin",
+      "note": "Cloth — face wrapping, burial detail, stewardship parable.",
+      "concordance": "put",
+      "examples": [
+        "John 11:44",
+        "John 20:7",
+        "Luke 19:20"
+      ],
+      "step": "John 20:7: folded napkin signals orderly resurrection hope.",
+      "why": "When a napkin shows up in Scripture, slow down—God is in tender details, from graves to coins wrapped in cloth."
+    },
+    {
+      "word": "publican",
+      "note": "Tax collector — often a humbled heart versus proud religion.",
+      "concordance": "man",
+      "examples": [
+        "Matthew 5:46",
+        "Matthew 9:10",
+        "Matthew 11:19",
+        "Matthew 18:17",
+        "Luke 18:10"
+      ],
+      "step": "The publican’s prayer beats the Pharisee’s posture—mercy over performance.",
+      "why": "When “publican” sounds like insult, Jesus often sets them as models of repentance—honest need meets honest grace."
+    },
+    {
+      "word": "physician",
+      "note": "Healer — Christ’s mission and human humility.",
+      "concordance": "saveth",
+      "examples": [
+        "Matthew 9:12",
+        "Mark 2:17",
+        "Luke 4:23",
+        "Luke 5:31",
+        "Job 13:4"
+      ],
+      "step": "“Physician, heal thyself” can be proverb or sarcasm—watch tone.",
+      "why": "When you pretend you are fine, physician texts invite honesty—Christ came for the sick, not for polished masks."
+    },
+    {
+      "word": "strait",
+      "note": "Narrow, tight, strict — gate, way, discipline.",
+      "concordance": "path",
+      "examples": [
+        "Matthew 7:13",
+        "Matthew 7:14",
+        "Luke 13:24",
+        "Acts 26:5",
+        "Job 36:16"
+      ],
+      "step": "Strait gate is not meanness—life is found in the narrow way of Christ.",
+      "why": "When “strait” feels like squeeze, it is tight-shoe faith—real life often starts where the crowd thins and Christ is clear."
+    }
+  ]
+}

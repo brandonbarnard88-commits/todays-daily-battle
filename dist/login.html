@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login • Today's Daily Battle</title>
+  <meta name="description" content="Secure login for Today's Daily Battle.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/login.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <script type="module" src="config.js"></script>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Secure Login</span>
+      </div>
+      <nav class="header-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <section class="glass" style="max-width:560px;margin:0 auto;">
+          <h1 id="login-title" class="section-divider">Sign In</h1>
+          <p class="section-note">Sign in to your account to sync across devices.</p>
+          <p class="section-note"><strong id="login-mode-tag">Sign in</strong></p>
+          <form id="login-form" class="newsletter-form" autocomplete="on">
+            <label for="login-email" class="sr-only">Email</label>
+            <input id="login-email" type="email" placeholder="Email" required autocomplete="email">
+            <label for="login-password" class="sr-only">Password</label>
+            <input id="login-password" type="password" placeholder="Password" required autocomplete="current-password">
+            <label class="section-note util-mt-0_35" style="display:flex;align-items:center;gap:.45rem;">
+              <input id="login-show-password" type="checkbox" aria-label="Show password">
+              Show password
+            </label>
+            <button type="submit" class="btn btn-primary">Continue</button>
+          </form>
+          <div class="cta-group util-mt-0_5" aria-label="OAuth sign in">
+            <button id="login-oauth-google" type="button" class="btn btn-secondary">Continue with Google</button>
+            <button id="login-oauth-apple" type="button" class="btn btn-secondary">Continue with Apple</button>
+          </div>
+          <p class="section-note util-mt-0_35">
+            <a href="#" id="login-forgot-password">Forgot password?</a>
+            <span aria-hidden="true"> · </span>
+            <a href="#" id="login-resend-confirmation">Resend confirmation</a>
+          </p>
+          <p id="login-status" class="section-note" aria-live="polite"></p>
+          <p class="section-note util-mb-0">
+            Need an account? <a href="/login.html?mode=signup">Create one</a>.
+          </p>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script defer src="/language-switcher.js"></script>
+  <script src="auth.js?v=20260328oauth-redirect" defer></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="David avatar placeholder">
+  <defs>
+    <linearGradient id="davidBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#7c2d12"/>
+      <stop offset="100%" stop-color="#14532d"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="57" fill="url(#davidBg)" stroke="#facc15" stroke-width="4"/>
+  <circle cx="60" cy="52" r="24" fill="#f1c27d"/>
+  <path d="M38 49c3-14 13-23 22-23s19 9 22 23c-8-6-14-8-22-8s-14 2-22 8z" fill="#1f2937"/>
+  <path d="M47 78h26l-3 13H50z" fill="#78350f"/>
+  <circle cx="86" cy="78" r="8" fill="#94a3b8" stroke="#0f172a" stroke-width="2"/>
+  <path d="M80 72l-12-8" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+  <text x="60" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#fde68a">DAVID</text>
+</svg>

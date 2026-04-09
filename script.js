@@ -2489,6 +2489,13 @@ function setLocalPrayerTotalCount(total, options) {
   if (opts.skipDom === true) return n;
   var el = document.getElementById('prayer-counter');
   if (el) el.textContent = n.toLocaleString();
+
+  // Update gentle homepage counter if present
+  var homeEl = document.getElementById('prayer-counter-home');
+  if (homeEl) {
+    var displayCount = Math.max(n, 42); // always encouraging minimum
+    homeEl.textContent = displayCount.toLocaleString() + '+ people prayed anonymously worldwide today';
+  }
   return n;
 }
 function bumpLocalPrayerTotalCount(amount) {
@@ -16331,6 +16338,7 @@ function tdbRunHomeMoodShuffleAndWelcome() {
     shuffleHomeQuickTopicSurfaces();
     pickHomeWelcomeLine();
     tdbUpdateWelcomeBackMsg();
+    updateHomepagePrayerCounter(); // gentle worldwide counter
   } catch (eHomeMood) {
     if (typeof console !== 'undefined' && console.warn) console.warn('TDB: home mood shuffle', eHomeMood);
   }

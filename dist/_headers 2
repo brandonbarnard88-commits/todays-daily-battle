@@ -1,0 +1,789 @@
+# Security headers for todaysdailybattle.com (Priority 1 & 2)
+# Cloudflare Pages: https://developers.cloudflare.com/pages/configuration/headers/
+# Netlify: https://docs.netlify.com/routing/headers/
+
+# Home + plans: stronger anti-stale for shared CDNs (s-maxage=0, no-store). Slightly weaker BFCache vs ghost deploys.
+/
+  Cache-Control: no-cache, no-store, must-revalidate, max-age=0, s-maxage=0
+  Pragma: no-cache
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate, max-age=0, s-maxage=0
+  Pragma: no-cache
+
+# High-churn tool HTML (inline copy + scripts): must not stick at CDN — users saw stale Spanish after en copy shipped
+/calm.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/calm
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/team-toolkit.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/team-toolkit
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Explore, plans, My Verses, Bible Tool, verse — high churn / user hubs (keep in sync with cloudflare-purge.mjs SOCIAL_PURGE_PATHS + SW CACHE_NAME; second tier: study / reader / message below)
+/explore.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/explore
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/site-guide.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/site-guide
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/plans.html
+  Cache-Control: no-cache, no-store, must-revalidate, max-age=0, s-maxage=0
+  Pragma: no-cache
+/plans
+  Cache-Control: no-cache, no-store, must-revalidate, max-age=0, s-maxage=0
+  Pragma: no-cache
+/my-verses.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/my-verses
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/bible-tool.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/bible-tool
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Verse of the Day page — copy and hints update; precached by SW (bump CACHE_NAME when shell changes)
+/verse.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/verse
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Study workspace, chapter reader, prayer wall — second-tier churn (sync purge + SW CACHE_NAME)
+/study.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/study
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/reader.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/reader
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/message.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/message
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/prayer-wall.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/prayer-wall
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Spanish topical pages (copy + “Más ayuda” links churn; sync cloudflare-purge SOCIAL_PURGE_PATHS)
+/ansiedad.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ansiedad
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fuerza.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fuerza
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/paz.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/paz
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/miedo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/miedo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/soledad.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/soledad
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/culpa.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/culpa
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/agobio.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/agobio
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/esperanza.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/esperanza
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/planes.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/planes
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/muro.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/muro
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/lector.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/lector
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ninos.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ninos
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ira.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ira
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/duelo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/duelo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/perdon.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/perdon
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Indonesian topical pilot (id/) — copy + tool links churn
+/id/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/id
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/id/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/id/kecemasan.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/id/kecemasan
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/id/ketakutan.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/id/ketakutan
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Russian hub + pilots (ru/)
+/ru/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/trevoga.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/trevoga
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/nadezhda.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/nadezhda
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/strakh.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/strakh
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/sila.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/sila
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/mir.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/mir
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/odinochestvo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/odinochestvo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/proshchenie.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/proshchenie
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Chinese hub + pilots (zh/)
+/zh/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/kongju.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/kongju
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/liliang.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/liliang
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/jiaolv.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/jiaolv
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/heping.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/heping
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/kuanshu.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/kuanshu
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Hindi hub + pilots (hi/)
+/hi/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/chinta.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/chinta
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/asha.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/asha
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/dar.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/dar
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/shakti.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/shakti
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/shanti.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/shanti
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/akelapan.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/akelapan
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/kshama.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/kshama
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Tagalog topical pilot (tl/)
+/tl/kabalisahan.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/tl/kabalisahan
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Spanish hub (es/) — high churn like PT/FR hubs
+/es/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# French hub (fr/) — high churn like PT hub
+/fr/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# French anxiety pilot (fr/)
+/fr/anxiete.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/anxiete
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/peur.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/peur
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/force.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/force
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/paix.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/paix
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/plans.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/plans
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/mural.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/mural
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/lecteur.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/lecteur
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/enfants.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/enfants
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/colere.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/colere
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/tristesse.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/tristesse
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/pardon.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/pardon
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Arabic anxiety pilot (ar/)
+/ar/qalaq.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ar/qalaq
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Swedish anxiety pilot (sv/)
+/sv/oro.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/sv/oro
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Portuguese hub + pilots (pt/)
+/pt/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/ansiedade.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/ansiedade
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/esperanca.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/esperanca
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/medo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/medo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/forca.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/forca
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/paz.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/paz
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/solidao.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/solidao
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/culpa.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/culpa
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/sobrecarga.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/sobrecarga
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/planos.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/planos
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/mural.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/mural
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/leitor.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/leitor
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/criancas.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/criancas
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/privacy.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/privacy
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/terms.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/terms
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Bengali anxiety pilot (bn/)
+/bn/chinta.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/bn/chinta
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Swahili anxiety pilot (sw/)
+/sw/wasiwasi.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/sw/wasiwasi
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/fr/espoir.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/espoir
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/zh/xiwang.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/xiwang
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/fr/solitude.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/solitude
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/zh/gudu.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/gudu
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/fr/culpabilite.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/culpabilite
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/zh/neijiu.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/neijiu
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/fr/deborde.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/deborde
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/zh/taiduo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/taiduo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Kids Battle HTML: avoid stale hub/library at CDN (Pick a path, copy updates)
+/kids/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/kids/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/kids/corner.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Kids JS (story library): avoid year-long edge stickiness if a URL is fetched without ?v=; HTML still uses ?v= for fingerprinted copies.
+/kids/*.js
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Loop Library (root) — same freshness as /kids/corner.html (clean URLs + .html)
+/kids-corner
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/kids-corner.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Static assets: long cache (versioned in build)
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/icon-*.png
+  Cache-Control: public, max-age=31536000, immutable
+/favicon-*.png
+  Cache-Control: public, max-age=31536000, immutable
+/logo-shield-600.png
+  Cache-Control: public, max-age=31536000, immutable
+
+# Explicit MIME + cache for PWA, icons, and crawlers (cuts “empty”/unknown-type noise in edge analytics)
+/manifest.json
+  Content-Type: application/manifest+json; charset=utf-8
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/icon.svg
+  Content-Type: image/svg+xml; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.ico
+  Content-Type: image/x-icon
+  Cache-Control: public, max-age=604800, must-revalidate
+
+# Large static JSON (verse data, packs) — safe to cache; bump or purge when data ships
+/*.json
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# Fonts (Kids story UI, etc.)
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# Media / audio (documentary, loops) — long TTL; filenames versioned when content changes
+/media/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/audio/*
+  Cache-Control: public, max-age=2592000, immutable
+
+# Crawl / discovery
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/.well-known/security.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# Build stamp for footer (avoid stale CDN empty/missing responses)
+/build-date.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: no-cache, must-revalidate
+
+# Minimal deny body for blocked routes (see _redirects → blocked.html)
+/blocked.html
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+# Internal / debug / templates: noindex (matches robots.txt + extensionless routes)
+/mystudy.html
+  X-Robots-Tag: noindex, nofollow
+/mystudy
+  X-Robots-Tag: noindex, nofollow
+/what-god-has-done.html
+  X-Robots-Tag: noindex, nofollow
+/what-god-has-done
+  X-Robots-Tag: noindex, nofollow
+/test-search-diagnosis.html
+  X-Robots-Tag: noindex, nofollow
+/test-search-diagnosis
+  X-Robots-Tag: noindex, nofollow
+/crest-generator.html
+  X-Robots-Tag: noindex, nofollow
+/crest-generator
+  X-Robots-Tag: noindex, nofollow
+/newsletter-template-weekly.html
+  X-Robots-Tag: noindex, nofollow
+/newsletter-template-weekly
+  X-Robots-Tag: noindex, nofollow
+/weekly-email-template.html
+  X-Robots-Tag: noindex, nofollow
+/weekly-email-template
+  X-Robots-Tag: noindex, nofollow
+/stats.html
+  X-Robots-Tag: noindex, nofollow
+/stats
+  X-Robots-Tag: noindex, nofollow
+/secrets.html
+  X-Robots-Tag: noindex, nofollow
+/secrets
+  X-Robots-Tag: noindex, nofollow
+/admin.html
+  X-Robots-Tag: noindex, nofollow
+/admin
+  X-Robots-Tag: noindex, nofollow
+/login.html
+  X-Robots-Tag: noindex, nofollow
+/login
+  X-Robots-Tag: noindex, nofollow
+/reset.html
+  X-Robots-Tag: noindex, nofollow
+/reset
+  X-Robots-Tag: noindex, nofollow
+/404-admin.html
+  X-Robots-Tag: noindex, nofollow
+
+# Apply to all paths
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Permissions-Policy: geolocation=(self), microphone=(), camera=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Cross-Origin-Resource-Policy: same-origin
+  X-Permitted-Cross-Domain-Policies: none
+  Origin-Agent-Cluster: ?1
+  X-XSS-Protection: 1; mode=block
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://checkout.stripe.com https://hooks.stripe.com; trusted-types default dompurify; script-src 'self' 'nonce-tdb2025s' https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://www.todaysdailybattle.com https://plausible.io https://www.googletagmanager.com https://js.stripe.com; script-src-elem 'self' 'nonce-tdb2025s' https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://www.todaysdailybattle.com https://plausible.io https://www.googletagmanager.com https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://api.stripe.com https://api.github.com https://bible-api.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; worker-src 'self' blob: https://todaysdailybattle.com https://www.todaysdailybattle.com; frame-src 'self' https://challenges.cloudflare.com https://js.stripe.com https://hooks.stripe.com; upgrade-insecure-requests

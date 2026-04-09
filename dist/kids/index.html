@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260326clean"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kids Battle • Today's Daily Battle</title>
+  <meta name="description" content="Kids Battle: A two-minute daily verse, prayer, and doodle for kids. Build streaks and earn badges like Bible Boss and Faith Hero.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids/">
+  <meta property="og:title" content="Kids Battle • Today's Daily Battle">
+  <meta property="og:description" content="Two minutes: verse, prayer, doodle. Kids build streaks and earn badges.">
+  <meta property="og:url" content="https://todaysdailybattle.com/kids/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260412launch">
+  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful">
+  <script nonce="tdb2025s">
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get('mode') === 'corner') {
+          p.delete('mode');
+          var qs = p.toString();
+          location.replace('corner.html' + (qs ? '?' + qs : ''));
+          return;
+        }
+        /* Library deep links must hit corner.html (grid + modal). Hub has no #kids-library-grid. */
+        var storyRaw = p.get('story');
+        if (storyRaw && String(storyRaw).trim()) {
+          location.replace('corner.html' + location.search);
+          return;
+        }
+        if (p.get('random') === '1' || p.get('journey') === '1' || p.get('challenge') === '1') {
+          location.replace('corner.html' + location.search);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <div class="sky-page-backdrop" aria-hidden="true">
+    <div class="sky" aria-hidden="true" id="sky-layer">
+      <div class="sky-stars-parallax" aria-hidden="true"></div>
+      <div class="sky-aurora" id="sky-aurora" aria-hidden="true">
+        <div class="sky-aurora-veil" aria-hidden="true"></div>
+      </div>
+      <div class="sky-viewport" id="sky-celestial-plane">
+        <div class="sky-sun" id="sky-sun"></div>
+        <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
+          <svg class="sky-moon-svg" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <radialGradient id="moon-base" cx="38%" cy="35%" r="50%">
+                <stop offset="0%" stop-color="rgba(255,255,240,0.96)"/>
+                <stop offset="60%" stop-color="rgba(200,210,230,0.88)"/>
+                <stop offset="100%" stop-color="rgba(140,160,190,0.72)"/>
+              </radialGradient>
+            </defs>
+            <circle cx="50" cy="50" r="48" fill="url(#moon-base)"/>
+            <ellipse cx="36" cy="40" rx="7" ry="5" fill="#090918" opacity="0.22"/>
+            <ellipse cx="58" cy="48" rx="9" ry="6" fill="#0a0a1c" opacity="0.18"/>
+            <circle cx="32" cy="38" r="5" fill="#0a0a1f" opacity="0.45"/>
+            <ellipse cx="64" cy="54" rx="6.5" ry="5" fill="#080818" opacity="0.38"/>
+            <circle cx="28" cy="62" r="4" fill="#0c0c20" opacity="0.35"/>
+            <ellipse cx="70" cy="34" rx="5" ry="3.5" fill="#0a0a1f" opacity="0.42"/>
+            <circle cx="45" cy="55" r="3" fill="#0a0a1f" opacity="0.3"/>
+            <ellipse cx="54" cy="44" rx="4" ry="3" fill="#080818" opacity="0.34"/>
+            <circle cx="38" cy="28" r="2.5" fill="#0c0c20" opacity="0.32"/>
+            <ellipse cx="74" cy="60" rx="3" ry="2" fill="#0a0a1f" opacity="0.26"/>
+            <circle cx="48" cy="30" r="2" fill="#0b0b22" opacity="0.24"/>
+            <circle id="sky-moon-shadow" cx="50" cy="50" r="48" fill="rgba(2,4,18,0.93)" class="sky-moon-shadow-svg"/>
+            <circle cx="50" cy="50" r="52" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
+          </svg>
+          <span class="sky-moon-label" id="sky-moon-label"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle kids-subtitle">Kids Battle</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids Battle navigation">
+        <a href="/kids/" aria-current="page">Kids Battle Home</a>
+        <a href="corner.html">Bible Story Library</a>
+        <a href="../kids-corner.html">Loop Library</a>
+        <a href="../coloring.html">Color &amp; Tell</a>
+      </nav>
+      <p class="kids-header-site-link-wrap">
+        <a href="/" class="kids-bc-whole-site">Today’s Daily Battle — whole site home</a>
+      </p>
+        <a href="../coloring.html" class="kids-parent-link-mobile" aria-label="Coloring &amp; parent tool">Parents</a>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner kids-battle-inner">
+        <span class="kids-faith-trail-badge" aria-label="Battle Trail badge" id="kids-greeting-badge">🔥 Battle Trail</span>
+        <button type="button" class="kids-share-streak" id="kids-share-streak" aria-label="Share your streak">🔥 Share Streak!</button>
+        <header class="kids-battle-hero">
+          <h1 class="kids-battle-title">Kids Battle</h1>
+          <p class="kids-battle-tagline" id="kids-hero-tagline">Two minutes. One verse. One prayer. You're a hero!</p>
+        </header>
+
+        <section class="kids-first-steps glass" role="region" aria-label="Quick start paths for kids and families">
+          <div class="kids-first-steps-copy">
+            <h2 class="kids-section-title">Start here in 2 minutes</h2>
+            <p class="kids-first-steps-lead">If the day is loud, don&rsquo;t overthink it. Pick one lane, do one small thing, and let mercy carry the rest.</p>
+          </div>
+          <div class="kids-age-lanes" role="list" aria-label="Age-aware ways to begin">
+            <article class="kids-age-lane" role="listitem">
+              <p class="kids-age-lane-kicker">Littles · ages 5-7</p>
+              <h3>Watch, repeat, color</h3>
+              <p>Start with one short loop, speak one line from the KJV verse, then color one Bible picture together.</p>
+              <div class="kids-age-lane-actions">
+                <a class="btn btn-primary" href="../kids-corner.html">Start a quick loop</a>
+                <a class="btn btn-secondary" href="../coloring.html">Color one story</a>
+              </div>
+            </article>
+            <article class="kids-age-lane" role="listitem">
+              <p class="kids-age-lane-kicker">Middles · ages 8-10</p>
+              <h3>Read, listen, answer one question</h3>
+              <p>Open one story card from the library, hear the KJV verse, then try the gentle quiz together.</p>
+              <div class="kids-age-lane-actions">
+                <a class="btn btn-primary" href="corner.html">Open Bible Story Library</a>
+                <a class="btn btn-secondary" href="corner.html?journey=1">Start a story journey</a>
+              </div>
+            </article>
+            <article class="kids-age-lane" role="listitem">
+              <p class="kids-age-lane-kicker">Older kids · ages 11+</p>
+              <h3>Read with a grown-up and carry it into the week</h3>
+              <p>Use one kids plan, one family question, and Family Armor when you want a calmer, deeper household rhythm without pressure.</p>
+              <div class="kids-age-lane-actions">
+                <a class="btn btn-primary" href="../plans.html?plan=beatitudes-kids">Open a kids plan</a>
+                <a class="btn btn-secondary" href="../family-armor.html">Family Armor</a>
+              </div>
+            </article>
+          </div>
+          <div class="kids-preview-strip" role="list" aria-label="What kids can do here tonight">
+            <a href="../kids-corner.html" class="kids-preview-card" role="listitem">
+              <img src="panel-david.svg" alt="Quick Bible loop preview" width="120" height="96">
+              <span class="kids-preview-card-label">Loops</span>
+              <span class="kids-preview-card-copy">10-15 second replay-safe cartoons for a quick calm reset.</span>
+            </a>
+            <a href="corner.html?story=noah" class="kids-preview-card" role="listitem">
+              <img src="panel-noah.svg" alt="Bible story preview" width="120" height="96">
+              <span class="kids-preview-card-label">Stories</span>
+              <span class="kids-preview-card-copy">Read-along cards, comic panels, and gentle quizzes when you have a few more minutes.</span>
+            </a>
+            <a href="../coloring.html?story=jesus-children" class="kids-preview-card" role="listitem">
+              <img src="panel-jesus.svg" alt="Coloring preview" width="120" height="96">
+              <span class="kids-preview-card-label">Color &amp; Tell</span>
+              <span class="kids-preview-card-copy">Paint one scene, save it on this device, and watch your own slideshow later.</span>
+            </a>
+            <a href="../kids-corner.html" class="kids-preview-card" role="listitem">
+              <img src="panel-daniel.svg" alt="Prayer habit preview" width="120" height="96">
+              <span class="kids-preview-card-label">Prayer habits</span>
+              <span class="kids-preview-card-copy">Simple calm loops and prayer rhythms that stay on this device.</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="kids-path-picker glass" role="region" aria-label="Choose loops, stories, coloring, or calm prayer habits">
+          <h2 class="kids-section-title">Pick a path</h2>
+          <p class="kids-path-picker-desc">Same Jesus—friendly doors. Quick loops for a calm reset, full stories with read-along and quizzes when you have more time, coloring when hands want to create, and prayer rhythms that stay on this device.</p>
+          <div class="kids-path-picker-grid">
+            <a href="../kids-corner.html" class="kids-path-card kids-path-card-loops">
+              <span class="kids-path-card-age">Best for ages 5-8</span>
+              <img src="panel-david.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
+              <span class="kids-path-card-emoji" aria-hidden="true">🎬</span>
+              <span class="kids-path-card-label">Quick Bible loops</span>
+              <span class="kids-path-card-hint">10–15 second hand-drawn KJV cartoons. Replay-safe calm for little hearts.</span>
+            </a>
+            <a href="corner.html" class="kids-path-card kids-path-card-stories">
+              <span class="kids-path-card-age">Best for ages 7-11</span>
+              <img src="panel-noah.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
+              <span class="kids-path-card-emoji" aria-hidden="true">📚</span>
+              <span class="kids-path-card-label">Bible Story Library</span>
+              <span class="kids-path-card-hint">280+ scenes. Read-along, comic panels, gentle quizzes, and your own colored pictures in slideshows.</span>
+            </a>
+            <a href="../coloring.html" class="kids-path-card kids-path-card-color">
+              <span class="kids-path-card-age">Best for ages 5-10</span>
+              <img src="panel-jesus.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
+              <span class="kids-path-card-emoji" aria-hidden="true">🖍️</span>
+              <span class="kids-path-card-label">Color &amp; Tell</span>
+              <span class="kids-path-card-hint">Paint the scenes, save your art on this device, watch your own slideshow, then print. Master prompt for parents included.</span>
+            </a>
+            <a href="../kids-corner.html" class="kids-path-card kids-path-card-prayer">
+              <span class="kids-path-card-age">Best for any age with a grown-up</span>
+              <img src="panel-daniel.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
+              <span class="kids-path-card-emoji" aria-hidden="true">🙏</span>
+              <span class="kids-path-card-label">Calm prayer habits</span>
+              <span class="kids-path-card-hint">Short KJV loops that pair with simple prayer rhythms. Everything stays on this device.</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="kids-first-win glass" role="region" aria-label="Starter path for first wins">
+          <h2 class="kids-section-title">First Win Path</h2>
+          <p class="section-note">If you are brand new, start here: one story, one response, one small finish. Zechariah 4:10 reminds us not to despise the day of small things.</p>
+          <div class="kids-first-win-steps" role="list" aria-label="Three first-win steps">
+            <a href="corner.html?story=david" class="kids-first-win-step" role="listitem">
+              <strong>1. Open David &amp; Goliath</strong>
+              <span>One story from the Library. Speak the KJV verse together.</span>
+            </a>
+            <a href="../coloring.html" class="kids-first-win-step" role="listitem">
+              <strong>2. Color one scene</strong>
+              <span>Little hands paint while the verse settles. Use the master prompt for more pages.</span>
+            </a>
+            <button type="button" id="kids-first-win-finish" class="kids-first-win-step kids-first-win-step-button" role="listitem">
+              <strong>3. Mark today as done</strong>
+              <span>One small finish is enough. Zechariah 4:10 — do not despise the day of small things.</span>
+            </button>
+          </div>
+          <p id="kids-first-win-status" class="kids-first-win-status section-note" aria-live="polite">Start with one story and your first gentle badge will land here.</p>
+        </section>
+
+        <section class="glass" role="region" aria-label="Classroom and church team path">
+          <h2 class="kids-section-title">For private Christian schools &amp; church teams</h2>
+          <p class="section-note util-mb-0_5">Built to be fun for kids and usable for leaders: KJV-only memory, short rhythms, and print-friendly handoff tools.</p>
+          <ul class="section-note util-mb-0_75" aria-label="Classroom-ready lesson rhythm">
+            <li><strong>2 minutes:</strong> start with one quick loop for attention and joy.</li>
+            <li><strong>8 minutes:</strong> open one Bible Story Library card and use the read-and-quiz flow.</li>
+            <li><strong>5 minutes:</strong> finish with one prayer habit or coloring response and a memory-verse repeat.</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="corner.html">Open Bible Story Library</a>
+            <a class="btn btn-secondary" href="../church-sharing-kit.html#csk-children-ministry">Children's leader ideas</a>
+            <a class="btn btn-secondary" href="../church-sharing-kit.html#csk-vbs-ideas">VBS themes</a>
+            <a class="btn btn-secondary" href="../church-sharing-kit.html#csk-children-print-leader">Print leader guide</a>
+            <a class="btn btn-secondary" href="../yearly-rhythm.html#yr-ages-5-18">Ages 5–18 map</a>
+          </div>
+        </section>
+
+        <section class="kids-weekly-paths glass" role="region" aria-label="Weekly kids plans and offline adventure kit">
+          <h2 class="kids-section-title">Weekly kids paths</h2>
+          <p class="kids-weekly-paths-lead">Use the stories already here, then carry them through the week with one short plan or one printable. Nothing needs a new account.</p>
+          <div class="kids-weekly-path-grid" role="list" aria-label="Weekly kids plan cards">
+            <a href="../plans.html?plan=lordsprayer-kids" class="kids-weekly-card" role="listitem">
+              <span class="kids-weekly-card-kicker">7 days</span>
+              <strong>The Lord&rsquo;s Prayer for Kids</strong>
+              <span>Simple phrases, pray-together language, and calm family repetition.</span>
+            </a>
+            <a href="../plans.html?plan=beatitudes-kids" class="kids-weekly-card" role="listitem">
+              <span class="kids-weekly-card-kicker">9 days</span>
+              <strong>Beatitudes for Kids</strong>
+              <span>Quiet heart training with simple words and no pressure-heavy tone.</span>
+            </a>
+            <a href="../plans.html?plan=sower-kids" class="kids-weekly-card" role="listitem">
+              <span class="kids-weekly-card-kicker">7 days</span>
+              <strong>Parable of the Sower for Kids</strong>
+              <span>One honest question, one tiny action, one story thread you can revisit.</span>
+            </a>
+            <a href="../plans.html?plan=summer-seeds" class="kids-weekly-card" role="listitem">
+              <span class="kids-weekly-card-kicker">8 weeks</span>
+              <strong>Summer Seeds</strong>
+              <span>One anchor day per week when your family wants the lightest possible rhythm.</span>
+            </a>
+          </div>
+          <div class="kids-offline-kit">
+            <p class="kids-offline-kit-title">Offline adventure kit</p>
+            <div class="cta-group">
+              <a class="btn btn-primary" href="../kids-activities-print.html">Kids activity sheet</a>
+              <a class="btn btn-secondary" href="../family-activity-packs.html">Family activity packs</a>
+              <a class="btn btn-secondary" href="prayer-activities.html">Prayer habits</a>
+              <a class="btn btn-secondary" href="../printables.html#print-kids-offline-kit">Printables hub</a>
+            </div>
+          </div>
+        </section>
+
+        <p class="section-note util-mb-0_75 kids-mobius-ribbon-nudge" id="kids-mobius-ribbon-nudge">Grown-ups: the <a href="../mobius.html">Möbius</a> page is one ribbon with no dead end—at home, you can twist a paper strip, tape the ends, and hide a tiny verse inside the loop. Fun first; KJV ref stays small.</p>
+
+        <section class="kids-library-home-progress glass" role="region" aria-label="Bible story library progress">
+          <h2 class="kids-section-title">Bible Story Library</h2>
+          <p class="section-note util-mb-0_5"><span id="kids-home-story-count-badge" class="kids-story-count-badge">281 Bible stories</span> — read, listen, and quiz in the Library.</p>
+          <p class="section-note util-mb-0_5 kids-lib-cache-hint">If a story opens without read-along words or quiz, hard-refresh (pull down on your phone, or Ctrl+Shift+R / Cmd+Shift+R on a computer) so the newest library loads.</p>
+          <p id="kids-home-story-master" class="kids-home-story-master" aria-live="polite"></p>
+          <p id="kids-story-master-gentle-start" class="kids-story-master-gentle-start section-note" aria-live="polite"></p>
+          <div id="story-master-dashboard" class="kids-story-master-dashboard" role="group" aria-label="Story Master tier and library progress">
+            <span class="kids-story-master-dashboard-label">Story Master:</span>
+            <span id="tier-badge" class="kids-tier-badge"></span>
+            <progress id="story-progress" max="281" value="0" aria-label="Story library progress toward Story Master tiers"></progress>
+            <span id="story-percent" class="kids-story-percent">0%</span>
+          </div>
+          <div id="kids-home-story-master-bar" class="kids-home-story-master-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Story library completion">
+            <span id="kids-home-story-master-bar-fill" class="kids-home-story-master-bar-fill"></span>
+          </div>
+          <div id="kids-continue-carousel" class="kids-continue-carousel" role="region" aria-label="Continue reading Bible stories"></div>
+          <div class="kids-reflection-buttons">
+            <a href="all-stories.html" class="btn kids-btn-primary">Browse All 281 Stories</a>
+            <a href="corner.html?random=1" class="btn kids-btn-memory">Random Story</a>
+            <button type="button" id="global-quiz-challenge" class="btn btn-secondary">Quiz Challenge (5 Questions)</button>
+          </div>
+        </section>
+
+        <section class="kids-search-section glass" role="region" aria-label="Find verses by topic">
+          <h2 class="kids-section-title">Find a verse about…</h2>
+          <div id="kids-topic-buttons" class="kids-topic-buttons kids-topic-buttons-big" aria-label="Topic buttons">
+            <!-- Filled by kids-battle.js from KIDS_TOPICS -->
+          </div>
+          <form id="kids-search-form" class="kids-search-form" action="#" novalidate>
+            <input type="search" id="kids-search-input" name="q" class="kids-search-input" placeholder="Verse word or story (peace, Jonah, davd golith…)…" autocomplete="off" aria-describedby="kids-search-dual-hint">
+            <button type="submit" class="btn kids-btn-primary kids-search-btn">Find</button>
+          </form>
+          <p id="kids-search-dual-hint" class="section-note util-mb-0_5">Top: today&rsquo;s verse ideas. Below: fuzzy links into the full Bible Story Library.</p>
+          <div id="kids-hub-story-matches" class="kids-hub-story-matches hidden" role="region" aria-label="Matching Bible stories in the library"></div>
+          <div id="kids-search-results" class="kids-search-results hidden" aria-live="polite"></div>
+        </section>
+
+        <!-- Comic panels: clickable links to relevant stories in corner.html -->
+        <section class="kids-comic-panels glass" role="region" aria-label="Comic illustration">
+          <h2 class="kids-section-title sr-only">Today's Story</h2>
+          <div class="kids-panels-row">
+            <a href="corner.html?story=david" class="kids-panel" aria-label="Read the David and Goliath story" data-prompt="Young David with sling, heroic pose, comic book style, bold colors, speech bubble, big eyes, kid-friendly, no violence, Sunday school illustration">
+              <img src="panel-david.svg" alt="David and Goliath — be brave like David" width="200" height="160">
+            </a>
+            <a href="corner.html?story=noah" class="kids-panel" aria-label="Read the Noah's Ark story" data-prompt="Noah's ark with animals, rainbow, comic style, bright colors, friendly animals, two by two, kid-safe">
+              <img src="panel-noah.svg" alt="Noah's ark — God keeps His promises" width="200" height="160">
+            </a>
+            <a href="corner.html?story=jesus" class="kids-panel" aria-label="Read the story of Jesus and the children" data-prompt="Jesus with children, warm embrace, comic book style, gentle colors, speech bubble, big eyes, safe and loving">
+              <img src="panel-jesus.svg" alt="Jesus loves the little children" width="200" height="160">
+            </a>
+            <a href="corner.html?story=daniel" class="kids-panel" aria-label="Read the Daniel and the lions story" data-prompt="Daniel in lions den, angel with lions, comic style, brave and calm, kid-safe, no violence">
+              <img src="panel-daniel.svg" alt="Daniel and the lions — God protects the brave" width="200" height="160">
+            </a>
+            <a href="corner.html?story=jonah" class="kids-panel" aria-label="Read the Jonah and the big fish story" data-prompt="Jonah and the whale, comic style, bright colors, God's second chance, kid-friendly">
+              <img src="panel-jonah.svg" alt="Jonah and the big fish — God gives second chances" width="200" height="160">
+            </a>
+          </div>
+        </section>
+
+        <section class="kids-battle-verse glass" role="region" aria-label="Today's verse for kids">
+          <div class="speech-bubble verse-bubble">
+            <h2 class="kids-section-title kids-verse-title-row">Today's Verse <button type="button" id="kids-verse-speak" class="kids-speak-btn" aria-label="Listen to verse">🔊 Tap to hear</button></h2>
+            <p id="kids-home-verse-bridge" class="kids-home-verse-bridge">Kid-friendly version of the same verse the whole site is carrying today.</p>
+            <p class="kids-verse-ref" id="kids-verse-ref">Psalm 23:1</p>
+            <p class="kids-verse-text" id="kids-verse-text">The Lord is my shepherd; I shall not want.</p>
+            <div id="kids-verse-context" class="kids-verse-context hidden" role="complementary"></div>
+            <div id="kids-verse-action" class="kids-verse-action" role="complementary" aria-label="What to do with today's verse">
+              <p class="kids-verse-action-kicker">Kid action</p>
+              <p id="kids-verse-action-step" class="kids-verse-action-step">Try one small brave step with this verse today.</p>
+              <p id="kids-verse-parent-note" class="kids-verse-parent-note">Grown-ups: keep it simple. One sentence, one question, one prayer is enough.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="kids-battle-prayer glass" role="region" aria-label="30-second prayer">
+          <div class="speech-bubble prayer-bubble">
+            <h2 class="kids-section-title">Say This Prayer (30 seconds)</h2>
+            <p class="kids-prayer-text" id="kids-prayer-text">Hey God, help me be brave like David! Amen!</p>
+          </div>
+        </section>
+
+        <section class="kids-battle-reflection glass" role="region" aria-label="Daily reflection">
+          <h2 class="kids-section-title">What did you notice in that verse?</h2>
+          <textarea id="kid-reflection" class="kid-reflection" placeholder="e.g., 'God helps me be brave!'" rows="2" maxlength="300" aria-label="Your thought about the verse"></textarea>
+          <span id="kid-reflection-saved" class="kid-reflection-saved hidden" aria-live="polite">Saved! ⭐</span>
+          <div class="kids-reflection-buttons">
+            <button type="button" id="kids-quiz-btn" class="btn kids-btn-quiz" aria-label="Take today's quiz">Bible Quiz 🎉</button>
+            <button type="button" id="kids-memory-btn" class="btn kids-btn-memory" aria-label="Memorize today's verse">Learn It! 🧠</button>
+          </div>
+        </section>
+
+        <section class="kids-bible-cartoon glass" role="region" aria-label="Today's story illustration">
+          <div id="kids-cartoon-container">
+            <div class="bible-cartoon cartoon-slide-david" id="kids-bible-cartoon">
+              <img src="panel-david.svg" alt="David with slingshot" class="cartoon-img" id="kids-cartoon-img" width="200" height="160">
+              <p class="cartoon-caption" id="kids-cartoon-caption">David trusted God to be strong!</p>
+            </div>
+          </div>
+          <p class="section-note kids-cartoon-library-cta"><a href="corner.html" class="kids-cartoon-link" aria-label="Open full story library in Kids Story Library">Open full story library →</a></p>
+        </section>
+
+        <section class="kids-story-library-cta glass" role="region" aria-label="All Bible cartoon stories">
+          <h2 class="kids-section-title">All Bible Cartoon Stories</h2>
+          <p class="section-note">Open the full story library to swipe and watch every available Bible cartoon story.</p>
+          <div class="kids-reflection-buttons">
+            <a href="corner.html" class="btn kids-btn-primary">Open Full Story Library</a>
+            <a href="corner.html?random=1" class="btn kids-btn-memory">Random Story</a>
+            <a href="corner.html?journey=1" class="btn btn-secondary">Start Guided Journey</a>
+          </div>
+        </section>
+
+        <section class="kids-battle-streak glass" role="region" aria-label="Streak tracker">
+          <h2 class="kids-section-title">Your Streak</h2>
+          <p id="kids-come-back-nudge" class="kids-come-back-nudge hidden">Come back tomorrow! 🔥 Don't break your streak!</p>
+          <p class="kids-streak-display" id="kids-streak-display">🔥 0 days — start today!</p>
+          <button type="button" id="kids-mark-done" class="btn kids-btn-primary">I Did It Today!</button>
+          <p id="kids-done-msg" class="kids-done-msg hidden">Battle won! See you tomorrow. 🌟</p>
+          <button type="button" id="kids-remind-btn" class="btn kids-btn-remind" aria-label="Set a daily reminder so you don't miss a day">🔔 Remind me when I miss a day</button>
+        </section>
+
+        <section id="kids-story-of-day" class="kids-story-of-day glass" role="region" aria-label="Story of the Day">
+          <h2 class="kids-section-title">Story of the Day</h2>
+          <div id="kids-story-of-day-inner" class="kids-story-of-day-inner">
+            <a href="corner.html" class="kids-story-of-day-link">
+              <img id="kids-story-of-day-thumb" src="panel-david-1.svg" alt="" class="kids-story-of-day-thumb">
+              <div class="kids-story-of-day-content">
+                <p id="kids-story-of-day-title" class="kids-story-of-day-title">David & Goliath</p>
+                <p id="kids-story-of-day-caption" class="kids-story-of-day-caption">Swipe in Kids Story Library to see!</p>
+                <span class="kids-story-of-day-cta">Go to Library <span class="kids-story-arrow" aria-hidden="true">→</span></span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section id="kids-family-code-section" class="kids-family-code glass" role="region" aria-label="Connect with parent">
+          <h2 class="kids-section-title">Connect with Parent</h2>
+          <p class="section-note kids-family-code-lead">Optional only. Use this when a grown-up wants to see wins on purpose. Same device stays local right away; no child activity is posted publicly from here.</p>
+          <p id="kids-family-code-status" class="kids-family-code-status hidden">Connected! Your parent sees your wins. 🎉</p>
+          <p id="kids-family-code-error" class="kids-family-code-error hidden" role="alert"></p>
+          <form id="kids-family-code-form" class="kids-family-code-form" novalidate>
+            <label for="kids-family-code-input" class="kids-beta-label">Enter parent's code</label>
+            <input type="text" id="kids-family-code-input" class="kids-beta-input" placeholder="ABC123" maxlength="6" autocomplete="off" autocapitalize="characters">
+            <button type="submit" class="btn kids-btn-primary">Connect</button>
+          </form>
+          <p class="section-note kids-family-code-foot">Need the grown-up side first? Open the <a href="parent.html">Parent Dashboard</a> for the guide, invite code, and a calm explanation of how to use wins gently.</p>
+          <p class="section-note kids-family-code-foot">Want something printable? The Parent Dashboard now includes a one-page gentle guide you can print before you connect.</p>
+        </section>
+
+        <section class="kids-battle-badges glass" role="region" aria-label="Badges">
+          <h2 class="kids-section-title">Badges Earned</h2>
+          <div id="kids-badges-list" class="kids-badges-list"></div>
+        </section>
+
+        <section class="kids-battle-doodle glass" role="region" aria-label="Doodle canvas">
+          <h2 class="kids-section-title">Doodle Prompt</h2>
+          <p class="kids-doodle-prompt">Draw what today's verse means to you!</p>
+          <button type="button" id="kids-doodle-btn" class="btn kids-btn-doodle" aria-label="Open the doodle canvas to draw">✏️ Open Doodle Canvas</button>
+          <button type="button" id="kids-share-btn" class="btn kids-btn-share" aria-label="Share your win today">📸 Share my win!</button>
+        </section>
+
+        <section id="kids-faith-trail" class="kids-faith-trail glass hidden" role="region" aria-label="Battle Trail progress map">
+          <h2 class="kids-section-title">Battle Trail</h2>
+          <p class="kids-faith-trail-desc">Your journey — collect icons each day! ⚔️🏆</p>
+          <div id="kids-faith-trail-board" class="kids-faith-trail-board"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-humility">We battle. He wins.</p>
+      <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/kids/">Kids</a>
+        <a href="/ansiedad.html">Ansiedad</a>
+        <a href="/fuerza.html">Fuerza</a>
+        <a href="/paz.html">Paz</a>
+      </nav>
+      <p class="footer-lang-hint kids-footer-lang" role="group" aria-labelledby="footer-es-devotional-label"><span id="footer-es-devotional-label" class="footer-es-nav-label">Spanish devotionals</span> <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a><span aria-hidden="true"> · </span><a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a><span aria-hidden="true"> · </span><a href="/paz.html" hreflang="es" lang="es">Paz</a></p>
+      <p class="last-updated">Last updated: March 24, 2026 • Built in the trenches of Memphis</p>
+      <p class="site-footer-copy kids-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
+      <p class="kids-footer-sub">Kids Battle · Faith Trail</p>
+      <nav class="kids-footer-exit" aria-label="Site exit links">
+        <a href="/explore.html">Explore</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/" aria-label="Back to Today&apos;s Daily Battle main site">Main site</a>
+      </nav>
+    </footer>
+
+    <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
+      <a href="/kids/" aria-current="page">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">📖</span>
+        <span class="kids-bottom-nav-label">Home</span>
+      </a>
+      <a href="corner.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">🖼️</span>
+        <span class="kids-bottom-nav-label">Stories</span>
+      </a>
+      <a href="../coloring.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">🖍️</span>
+        <span class="kids-bottom-nav-label">Color</span>
+      </a>
+      <a href="parent.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">👪</span>
+        <span class="kids-bottom-nav-label">Parent</span>
+      </a>
+    </nav>
+    <div id="kids-share-toast" class="kids-share-toast hidden" role="status" aria-live="polite"></div>
+  </div>
+
+  <div id="video-modal" class="kids-video-modal hidden" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+    <div class="kids-video-modal-content">
+      <button type="button" class="kids-video-modal-close" aria-label="Close">×</button>
+      <h3 id="video-modal-title" class="kids-video-modal-title"></h3>
+      <div class="kids-video-wrapper">
+        <iframe id="video-frame" width="100%" height="100%" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="Bible story video"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div id="kids-doodle-modal" class="kids-doodle-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-doodle-title">
+    <div class="kids-doodle-modal-inner">
+      <div class="kids-doodle-header">
+        <h2 id="kids-doodle-title" class="kids-doodle-title">Draw what the verse means to you</h2>
+        <button type="button" id="kids-doodle-close" class="kids-doodle-close" aria-label="Close">×</button>
+      </div>
+      <div class="kids-doodle-tools">
+        <label for="kids-doodle-color">Color</label>
+        <input id="kids-doodle-color" type="color" value="#ff6b6b">
+        <label for="kids-doodle-size">Size</label>
+        <input id="kids-doodle-size" type="range" min="2" max="24" value="6">
+        <button type="button" id="kids-doodle-clear" class="btn btn-secondary">Clear Drawing</button>
+        <button type="button" id="kids-doodle-save" class="btn kids-btn-primary">Save Doodle!</button>
+        <button type="button" id="kids-doodle-download" class="btn btn-secondary">Download Image</button>
+        <button type="button" id="kids-doodle-share" class="btn kids-btn-share" aria-label="Share your doodle win">📸 Share my win!</button>
+      </div>
+      <div class="kids-doodle-canvas-wrap">
+        <canvas id="kids-doodle-canvas" width="600" height="400" style="max-width:100%;height:auto;display:block;"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div id="kids-name-modal" class="kids-name-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-name-modal-title">
+    <div class="kids-name-modal-inner">
+      <p class="kids-name-modal-emoji" aria-hidden="true">😊</p>
+      <h2 id="kids-name-modal-title" class="kids-name-modal-title">What's your name?</h2>
+      <p class="kids-name-modal-hint">We'll say hi when you come back!</p>
+      <input type="text" id="kids-name-input" class="kids-name-input" placeholder="Your name" maxlength="24" autocomplete="given-name" aria-label="Your name">
+      <button type="button" id="kids-name-save" class="btn kids-btn-primary kids-name-save">Save!</button>
+    </div>
+  </div>
+
+  <!-- ── Parent PIN gate ── -->
+  <div id="kids-pin-modal" class="kids-pin-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-pin-modal-title">
+    <div class="kids-pin-modal-inner">
+      <p class="kids-pin-emoji" aria-hidden="true">🔐</p>
+      <h2 id="kids-pin-modal-title" class="kids-pin-modal-title">Parent check</h2>
+      <p class="kids-pin-hint" id="kids-pin-hint">Enter your 4-digit parent code to unlock saving.</p>
+      <div class="kids-pin-inputs" aria-label="4-digit PIN entry">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 1">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 2">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 3">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 4">
+      </div>
+      <p class="kids-pin-error hidden" id="kids-pin-error" role="alert">Incorrect code. Try again.</p>
+      <div class="kids-pin-actions">
+        <button type="button" id="kids-pin-submit" class="btn kids-btn-primary">Unlock</button>
+        <button type="button" id="kids-pin-cancel" class="btn btn-secondary">Cancel</button>
+      </div>
+      <p class="kids-pin-set-hint" id="kids-pin-set-hint">No code set yet? <button type="button" class="kids-pin-text-btn" id="kids-pin-set-link">Set one now</button></p>
+    </div>
+  </div>
+  <!-- ── Set PIN modal ── -->
+  <div id="kids-pin-set-modal" class="kids-pin-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-pin-set-title">
+    <div class="kids-pin-modal-inner">
+      <p class="kids-pin-emoji" aria-hidden="true">👨‍👩‍👧</p>
+      <h2 id="kids-pin-set-title" class="kids-pin-modal-title">Set parent code</h2>
+      <p class="kids-pin-hint">Choose a 4-digit code only you know.</p>
+      <div class="kids-pin-inputs" id="kids-pin-set-inputs" aria-label="Set new 4-digit PIN">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 1">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 2">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 3">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 4">
+      </div>
+      <p class="kids-pin-error hidden" id="kids-pin-set-error" role="alert">Use only digits 0–9.</p>
+      <div class="kids-pin-actions">
+        <button type="button" id="kids-pin-set-save" class="btn kids-btn-primary">Save Code</button>
+        <button type="button" id="kids-pin-set-cancel" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* ── Parent PIN gate ── */
+    .kids-pin-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(10, 13, 20, 0.82);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .kids-pin-modal.hidden { display: none; }
+    .kids-pin-modal-inner {
+      background: #1b212d;
+      border: 1px solid #2a3344;
+      border-radius: 22px;
+      padding: 28px 24px 24px;
+      max-width: 320px;
+      width: 92%;
+      text-align: center;
+      animation: kids-pin-rise 0.22s ease;
+    }
+    @keyframes kids-pin-rise {
+      from { transform: translateY(14px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .kids-pin-emoji { font-size: 2.4rem; margin: 0 0 8px; }
+    .kids-pin-modal-title { margin: 0 0 6px; font-size: 1.2rem; color: #f2dc98; }
+    .kids-pin-hint { font-size: 0.88rem; color: #bcc5d6; margin: 0 0 18px; }
+    .kids-pin-inputs {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .kids-pin-digit {
+      width: 48px;
+      height: 56px;
+      text-align: center;
+      font-size: 1.6rem;
+      font-family: monospace;
+      background: #0f1218;
+      border: 2px solid #2a3344;
+      border-radius: 10px;
+      color: #f5f7fb;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .kids-pin-digit:focus { border-color: #e3bc67; }
+    .kids-pin-error { font-size: 0.83rem; color: #e87b7b; margin: 0 0 12px; }
+    .kids-pin-error.hidden { display: none; }
+    .kids-pin-actions { display: flex; gap: 10px; justify-content: center; margin-top: 14px; }
+    .kids-pin-set-hint { font-size: 0.82rem; color: #bcc5d6; margin-top: 14px; }
+    .kids-pin-text-btn {
+      background: none;
+      border: none;
+      color: #e3bc67;
+      font-size: inherit;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+    }
+  </style>
+  <script nonce="tdb2025s">
+    // ── Parent PIN gate for Kids Corner ──
+    (function() {
+      const PIN_KEY = 'tdb-kids-parent-pin';
+      const UNLOCK_KEY = 'tdb-kids-pin-unlocked-session';
+
+      function getStoredPin() { return localStorage.getItem(PIN_KEY) || ''; }
+      function isUnlocked() { return sessionStorage.getItem(UNLOCK_KEY) === '1'; }
+      function setUnlocked() { sessionStorage.setItem(UNLOCK_KEY, '1'); }
+
+      function getPinVal(inputs) {
+        return Array.from(inputs).map(i => i.value.replace(/\D/g, '')).join('');
+      }
+
+      function clearPinInputs(inputs) {
+        inputs.forEach(i => { i.value = ''; });
+        if (inputs[0]) inputs[0].focus();
+      }
+
+      function wireDigitInputs(inputs) {
+        inputs.forEach((inp, idx) => {
+          inp.addEventListener('input', () => {
+            const v = inp.value.replace(/\D/g, '');
+            inp.value = v.slice(-1);
+            if (v && idx < inputs.length - 1) inputs[idx + 1].focus();
+          });
+          inp.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && !inp.value && idx > 0) inputs[idx - 1].focus();
+          });
+        });
+      }
+
+      // ── Gate modal (verify) ──
+      const gateModal = document.getElementById('kids-pin-modal');
+      const gateInputs = gateModal ? Array.from(gateModal.querySelectorAll('.kids-pin-digit')) : [];
+      const gateError  = document.getElementById('kids-pin-error');
+      const gateSetHint = document.getElementById('kids-pin-set-hint');
+      const submitBtn  = document.getElementById('kids-pin-submit');
+      const cancelBtn  = document.getElementById('kids-pin-cancel');
+      const setLink    = document.getElementById('kids-pin-set-link');
+
+      if (gateModal) wireDigitInputs(gateInputs);
+
+      let _pinCallback = null;
+
+      function openPinGate(onSuccess) {
+        if (!gateModal) { onSuccess && onSuccess(); return; }
+        const pin = getStoredPin();
+        if (!pin) {
+          openPinSet(() => onSuccess && onSuccess());
+          return;
+        }
+        _pinCallback = onSuccess;
+        gateSetHint && (gateSetHint.hidden = false);
+        gateError && gateError.classList.add('hidden');
+        clearPinInputs(gateInputs);
+        gateModal.classList.remove('hidden');
+      }
+
+      function closePinGate() {
+        gateModal && gateModal.classList.add('hidden');
+        _pinCallback = null;
+      }
+
+      submitBtn && submitBtn.addEventListener('click', () => {
+        const entered = getPinVal(gateInputs);
+        if (entered.length < 4) return;
+        if (entered === getStoredPin()) {
+          setUnlocked();
+          closePinGate();
+          if (_pinCallback) _pinCallback();
+        } else {
+          gateError && gateError.classList.remove('hidden');
+          clearPinInputs(gateInputs);
+        }
+      });
+      cancelBtn && cancelBtn.addEventListener('click', closePinGate);
+
+      // ── Set PIN modal ──
+      const setModal   = document.getElementById('kids-pin-set-modal');
+      const setInputs  = setModal ? Array.from(setModal.querySelectorAll('.kids-pin-digit')) : [];
+      const setError   = document.getElementById('kids-pin-set-error');
+      const setSaveBtn = document.getElementById('kids-pin-set-save');
+      const setCancelBtn = document.getElementById('kids-pin-set-cancel');
+      let _setCallback = null;
+
+      if (setModal) wireDigitInputs(setInputs);
+
+      function openPinSet(onDone) {
+        if (!setModal) return;
+        _setCallback = onDone;
+        setError && setError.classList.add('hidden');
+        clearPinInputs(setInputs);
+        setModal.classList.remove('hidden');
+      }
+
+      function closePinSet() {
+        setModal && setModal.classList.add('hidden');
+        _setCallback = null;
+      }
+
+      setLink && setLink.addEventListener('click', () => {
+        closePinGate();
+        openPinSet(() => {});
+      });
+
+      setSaveBtn && setSaveBtn.addEventListener('click', () => {
+        const val = getPinVal(setInputs);
+        if (val.length < 4) { setError && setError.classList.remove('hidden'); return; }
+        localStorage.setItem(PIN_KEY, val);
+        setUnlocked();
+        closePinSet();
+        if (_setCallback) _setCallback();
+      });
+
+      setCancelBtn && setCancelBtn.addEventListener('click', closePinSet);
+
+      // ── Hook: guard Save Doodle and Download ──
+      function guardedAction(fn) {
+        if (isUnlocked()) { fn(); return; }
+        openPinGate(() => { setUnlocked(); fn(); });
+      }
+
+      document.addEventListener('click', (e) => {
+        const saveBtn = e.target.closest('#kids-doodle-save, #kids-doodle-download');
+        if (!saveBtn) return;
+        if (isUnlocked()) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        openPinGate(() => { saveBtn.click(); });
+      }, true);
+
+      // Expose for other scripts if needed
+      window._kidsPin = { openPinGate, openPinSet, isUnlocked };
+    }());
+  </script>
+
+  <div id="kids-memory-modal" class="kids-memory-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-memory-title">
+    <div class="kids-memory-modal-inner">
+      <div class="kids-memory-header">
+        <span class="kids-memory-icon" aria-hidden="true">🧠</span>
+        <h2 id="kids-memory-title" class="kids-memory-title">Memorize Today's Verse</h2>
+        <button type="button" id="kids-memory-close" class="kids-memory-close" aria-label="Close">×</button>
+      </div>
+      <p class="kids-memory-ref" id="kids-memory-ref"></p>
+      <div id="kids-memory-blanks" class="kids-memory-blanks" role="form">
+        <!-- Filled by kids-battle.js -->
+      </div>
+      <div id="kids-memory-result" class="kids-memory-result hidden" role="status">
+        <p id="kids-memory-result-msg"></p>
+        <button type="button" id="kids-memory-next" class="btn kids-btn-memory-gold" aria-label="Next memory verse">Next</button>
+      </div>
+      <button type="button" id="kids-memory-submit" class="btn kids-btn-memory-gold kids-memory-submit">Check!</button>
+    </div>
+  </div>
+
+  <div id="kids-quiz-modal" class="kids-quiz-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-quiz-title">
+    <div class="kids-quiz-modal-inner">
+      <div class="kids-quiz-header">
+        <span class="kids-quiz-icon" aria-hidden="true">⚔️</span>
+        <h2 id="kids-quiz-title" class="kids-quiz-title">Today's Verse Quiz</h2>
+        <button type="button" id="kids-quiz-close" class="kids-quiz-close" aria-label="Close">×</button>
+      </div>
+      <div id="kids-quiz-questions" class="kids-quiz-questions" role="form">
+        <!-- Filled by kids-battle.js -->
+      </div>
+      <div id="kids-quiz-result" class="kids-quiz-result hidden" role="status">
+        <p id="kids-quiz-result-msg"></p>
+        <button type="button" id="kids-quiz-result-close" class="btn kids-btn-primary">OK</button>
+      </div>
+      <button type="button" id="kids-quiz-submit" class="btn kids-btn-primary kids-quiz-submit">Submit!</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <script src="../inline-bootstrap.js"></script>
+  <script src="../verse-breakdown.js?v=20260405-relations-fix" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="../vendor/uFuzzy.iife.min.js" defer></script>
+  <script src="kids-verses-365.js?v=20260325kidsmeans" defer></script>
+  <script src="kids-battle.js?v=20260405kidsfollowup" defer></script>
+  <script src="kids-read-quiz-data.js?v=20260330kidslib" defer></script>
+  <script src="kids-corner.js?v=20260405kidsrollout" defer></script>
+  <script type="module" src="../script.js?v=20260328feelwire" data-cfasync="false"></script>
+  <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
+  <script src="../sky-ip-geo.js?v=20260327ipgeo" defer></script>
+  <script src="kids-page-sky.js?v=20260327ipgeo" defer></script>
+</body>
+</html>

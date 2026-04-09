@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <circle cx="64" cy="64" r="58" fill="#0B1220"/>
+  <circle cx="64" cy="64" r="54" stroke="#94A3B8" stroke-width="3"/>
+  <!-- head -->
+  <ellipse cx="64" cy="30" rx="12" ry="13" fill="#EAC7A4"/>
+  <path d="M52 30C52 21 57 17 64 17C71 17 76 21 76 30V33H52V30Z" fill="#1F2937"/>
+  <circle cx="59" cy="30" r="1.8" fill="#0F172A"/>
+  <circle cx="69" cy="30" r="1.8" fill="#0F172A"/>
+  <path d="M60 36C61.3 37.2 62.7 37.8 64 37.8C65.3 37.8 66.7 37.2 68 36" stroke="#7C4A2D" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- neck -->
+  <rect x="60.5" y="40" width="7" height="5" rx="2" fill="#E0B991"/>
+  <!-- period-correct cloak + tunic -->
+  <path d="M42 54C45 46 52 43 64 43C76 43 83 46 86 54L82 92H46L42 54Z" fill="#4B5563"/>
+  <path d="M49 52C52 48 56 46 64 46C72 46 76 48 79 52L76 94H52L49 52Z" fill="#D1D5DB"/>
+  <rect x="54" y="61" width="20" height="5" rx="2.5" fill="#7C2D12"/>
+  <!-- arms -->
+  <path d="M47 57L38 76" stroke="#D1D5DB" stroke-width="6" stroke-linecap="round"/>
+  <path d="M81 57L90 76" stroke="#D1D5DB" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="37.5" cy="77.5" r="3.5" fill="#EAC7A4"/>
+  <circle cx="90.5" cy="77.5" r="3.5" fill="#EAC7A4"/>
+  <!-- legs -->
+  <rect x="54" y="92" width="7" height="16" rx="3" fill="#334155"/>
+  <rect x="67" y="92" width="7" height="16" rx="3" fill="#334155"/>
+  <rect x="52" y="107" width="10" height="4" rx="2" fill="#6B4F2A"/>
+  <rect x="66" y="107" width="10" height="4" rx="2" fill="#6B4F2A"/>
+</svg>

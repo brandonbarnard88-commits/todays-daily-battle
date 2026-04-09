@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- tdb-cache-hygiene: _headers no-cache /sos.html; bump service-worker CACHE_NAME when changing copy -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steady now • KJV anchors when the moment is heavy • Today&apos;s Daily Battle</title>
+  <meta name="description" content="Three KJV verses, slow and plain—Isaiah 40:31, Psalm 46:10, John 16:33. Not emergency services; Scripture and breath.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/sos.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .tdb-sos-page { min-height: 100vh; min-height: 100dvh; }
+    .tdb-sos-main {
+      max-width: 34rem;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem 3rem;
+      box-sizing: border-box;
+    }
+    .tdb-sos-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted, #94a3b8);
+      margin: 0 0 0.35rem;
+    }
+    .tdb-sos-main h1 {
+      font-size: clamp(1.35rem, 4vw, 1.65rem);
+      font-weight: 600;
+      color: var(--text, #e2e8f0);
+      margin: 0 0 0.75rem;
+      line-height: 1.25;
+    }
+    .tdb-sos-emergency {
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, transparent);
+      background: rgba(227, 188, 103, 0.06);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text, #e2e8f0);
+      margin: 0 0 1.25rem;
+    }
+    .tdb-sos-breathe {
+      font-size: 0.95rem;
+      color: var(--gold-soft, #d4b87a);
+      margin: 0 0 1.5rem;
+      line-height: 1.5;
+    }
+    .tdb-sos-verse {
+      margin: 0 0 1.75rem;
+      padding: 0 0 0 1rem;
+      border-left: 3px solid color-mix(in srgb, var(--gold, #c9a84c) 45%, transparent);
+    }
+    .tdb-sos-verse blockquote {
+      margin: 0;
+      font-family: Cormorant Garamond, Georgia, serif;
+      font-size: clamp(1.2rem, 3.6vw, 1.45rem);
+      line-height: 1.55;
+      color: var(--text, #e2e8f0);
+    }
+    .tdb-sos-ref {
+      margin: 0.65rem 0 0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold, #e3bc67);
+    }
+    .tdb-sos-next {
+      margin-top: 2rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--muted, #94a3b8);
+    }
+    .tdb-sos-next a { color: var(--gold-soft, #d4b87a); text-underline-offset: 2px; }
+    .tdb-sos-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.25rem;
+    }
+    .tdb-sos-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.45rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--text, #e2e8f0);
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+    .tdb-sos-nav a.tdb-sos-nav-primary {
+      border-color: rgba(227, 188, 103, 0.45);
+      background: rgba(227, 188, 103, 0.08);
+      color: var(--gold, #e3bc67);
+    }
+    .tdb-sos-nav a:focus-visible {
+      outline: 2px solid var(--gold, #e3bc67);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-sos-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content" class="tdb-sos-main">
+    <p class="tdb-sos-kicker">Steady now</p>
+    <h1>When the moment is heavy</h1>
+    <p class="tdb-sos-emergency" role="alert">
+      If you are in <strong>immediate danger</strong>, call <strong>911</strong> (U.S.) or your <strong>local emergency number</strong>. This page is <strong>KJV Scripture and breath</strong>—not a substitute for professional or emergency care.
+    </p>
+    <p class="tdb-sos-breathe">Breathe once—slow in, slow out. Read one phrase at a time. No rush.</p>
+
+    <section class="tdb-sos-verse" aria-labelledby="sos-v1">
+      <h2 class="sr-only" id="sos-v1">Isaiah 40:31</h2>
+      <blockquote>But they that wait upon the <span class="red-letter">Lord</span> shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.</blockquote>
+      <p class="tdb-sos-ref">Isaiah 40:31 (KJV)</p>
+    </section>
+
+    <section class="tdb-sos-verse" aria-labelledby="sos-v2">
+      <h2 class="sr-only" id="sos-v2">Psalm 46:10</h2>
+      <blockquote>Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.</blockquote>
+      <p class="tdb-sos-ref">Psalm 46:10 (KJV)</p>
+    </section>
+
+    <section class="tdb-sos-verse" aria-labelledby="sos-v3">
+      <h2 class="sr-only" id="sos-v3">John 16:33</h2>
+      <blockquote>These things I have spoken unto you, that in me ye might have peace. In the world ye shall have tribulation: but be of good cheer; I have overcome the world.</blockquote>
+      <p class="tdb-sos-ref">John 16:33 (KJV)</p>
+    </section>
+
+    <p class="tdb-sos-next">
+      Your loop can start here: the <a href="/mobius.html">Möbius</a> page is one path with no dead end—fear and faith on the same strip. The <a href="/prayer-wall.html?tab=with-others">prayer wall</a> is there if a few honest lines would help. <a href="/calm.html">Calm</a> stays one tap if you want a single verse.
+    </p>
+    <nav class="tdb-sos-nav" aria-label="Next steps">
+      <a class="tdb-sos-nav-primary" href="/">Home</a>
+      <a href="/mobius.html">Möbius</a>
+      <a href="/prayer-wall.html?tab=with-others">Prayer</a>
+      <a href="/calm.html">Calm</a>
+      <a href="/explore.html">Explore</a>
+    </nav>
+  </main>
+  <script nonce="tdb2025s">
+    (function () {
+      if (typeof window.trackEvent === 'function') {
+        try { window.trackEvent('sos_page_view', { source: 'sos' }); } catch (e) {}
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+# Kids read-quiz source map
+
+Generated: **2026-03-23** (run `npm run kids:audit-read-quiz-sources` to refresh)
+
+**Note:** This file describes **today’s** pipeline only: what `generate-kids-read-quiz-data.mjs` would do on the next `npm run kids:generate-read-quiz`. Older commits may have edited `kids-read-quiz-data.js` directly for batches of stories; unless those edits were **moved into** `read-quiz-handcrafted.cjs` (or into `narration:` / panel / `kidContext` in `kids-battle.js`), a full regen would rebuild those keys from the generator.
+
+## How to read this
+
+- **Handcrafted full pack** — `kids/read-quiz-handcrafted.cjs` (and `read-quiz-david-pack.cjs` for David). These keys **replace** `buildPack()` entirely when you run `npm run kids:generate-read-quiz`. Edit those files, then regenerate.
+- **Generator + narration** — Story text in `kids/kids-battle.js` includes a `narration:` string. The generator splits/shapes it into paragraphs and builds the five multiple-choice questions from that block + metadata. **Your battle copy is the source of truth** for those keys.
+- **Generator, no narration** — No `narration:` field (or empty). Read-aloud paragraphs are built only from **panel `alt` text** and **kidContext.apply** in `kids-battle.js` (no invented facts in the generator). Quizzes still use the same five-question pattern.
+
+## Summary
+
+| Category | Count |
+|----------|------:|
+| Total `bibleStories` keys | 281 |
+| **Handcrafted** full-pack override | 4 |
+| **Generator** (`buildPack`) | 277 |
+| …with non-empty `narration:` in battle | 20 |
+| …no narration (alt + apply path) | 257 |
+
+## Handcrafted keys (4)
+
+Shared packs (same object used for two library cards each):
+
+- **David:** `david`, `davidGoliath` → `read-quiz-david-pack.cjs`
+- **Jericho:** `jerichoWalls`, `fallOfJericho` → `buildJerichoReadQuiz()` in `read-quiz-handcrafted.cjs`
+
+Keys:
+
+- `david`
+- `davidGoliath`
+- `fallOfJericho`
+- `jerichoWalls`
+
+## Generator keys with `narration:` (20)
+
+- `burningBush`
+- `creationLight`
+- `daniel`
+- `esther`
+- `fieryFurnace`
+- `jacobLadder`
+- `jesusCalmsStorm`
+- `jonah`
+- `josephCoat`
+- `lazarus`
+- `manna`
+- `mosesBaby`
+- `mosesSea`
+- `naamanDip`
+- `noah`
+- `redSea`
+- `ruthGlean`
+- `samson`
+- `tenCommandments`
+- `tenPlagues`
+
+## Generator keys without narration — alt/apply only (257)
+
+- `abigailWise`
+- `abrahamIsaac`
+- `actsApollosPriscilla`
+- `actsPaulBeforeAgrippa`
+- `actsPaulMarsHill`
+- `actsPaulMelita`
+- `adamEve`
+- `alphaOmega`
+- `alphaOmega2`
+- `angelMary`
+- `annaProphet`
+- `armorBelt`
+- `armorOfGod`
+- `armorShield`
+- `armorSword`
+- `ascension`
+- `balaakCurse`
+- `balaamBlessing`
+- `balaamDonkey`
+- `battleOfAi`
+- `beastMark`
+- `betrayal`
+- `cainAbel`
+- `colossiansChristSupreme`
+- `comeLordJesus`
+- `corinthiansOneBody`
+- `councilJerusalem`
+- `creation`
+- `crossCarry`
+- `crucifixion`
+- `danielFieryFurnace`
+- `danielLionsDen`
+- `danielPray`
+- `davidAnointed`
+- `davidCave`
+- `davidHarp`
+- `davidJonathan`
+- `davidJonathanFriendship`
+- `davidSaul`
+- `davidSaulJealousy`
+- `davidSheep`
+- `deborahBarak`
+- `deborahJudge`
+- `dorcasRaise`
+- `dragonFight`
+- `earlyChurchLife`
+- `elijahChariot`
+- `elijahElijahElisha`
+- `elijahFire`
+- `elijahFireFromHeaven`
+- `elishaFloatingAxe`
+- `elishaMiracles`
+- `elishaOil`
+- `elishaRaised`
+- `emmausRoad`
+- `estherBanquet`
+- `estherCrown`
+- `estherFast`
+- `euniceMother`
+- `everyKneeBow`
+- `ezekielValleyBones`
+- `ezraReturn`
+- `faithMountain`
+- `faithMustard`
+- `forgive70x7`
+- `fourHorsemen`
+- `fruitSpirit`
+- `gardenPrayer`
+- `gideonFleece`
+- `gideonMidianites`
+- `goldenCalf`
+- `goliathChallenge`
+- `goodSamaritan`
+- `greatCommission`
+- `hannahPray`
+- `hannahSamuel`
+- `healBlind`
+- `healLeper`
+- `heavenDoor`
+- `heavenPromise`
+- `hebrewsFaith`
+- `holySpiritPentecost`
+- `isaiahMessianic`
+- `jaelTent`
+- `jairus`
+- `jamesFaithWorks`
+- `jeremiahWeeping`
+- `jesus`
+- `jesusAscension`
+- `jesusBaptism`
+- `jesusBirth`
+- `jesusBlessKids`
+- `jesusCallingDisciples`
+- `jesusCrucifixion`
+- `jesusFeeds5000`
+- `jesusFirstMiracle`
+- `jesusGardenGethsemane`
+- `jesusGreatCommission`
+- `jesusHealsBlind`
+- `jesusHealsParalytic`
+- `jesusLastSupper`
+- `jesusLazarus`
+- `jesusManger`
+- `jesusParableGoodShepherd`
+- `jesusParableMustardSeed`
+- `jesusParableSower`
+- `jesusResurrection`
+- `jesusSermonMount`
+- `jesusTemple`
+- `jesusTempt`
+- `jesusTemptation`
+- `jesusTriumphalEntry`
+- `jesusWalksWater`
+- `jobSuffering`
+- `johnBaptist`
+- `johnBaptize`
+- `johnFirstLetter`
+- `johnPatmos`
+- `johnSecondThirdLetters`
+- `jonahVine`
+- `jordanCrossing`
+- `josephDreams`
+- `josephPrison`
+- `josephRuler`
+- `josephSold`
+- `joshuaAi`
+- `joshuaJordan`
+- `judasKiss`
+- `judeWarning`
+- `juniaApostle`
+- `lambBook`
+- `lastSupper`
+- `loisTimothy`
+- `lostCoin`
+- `lostSheep`
+- `loveChapter`
+- `loveNeighbor`
+- `lydiaSell`
+- `malachiMessage`
+- `marthaServe`
+- `maryAnoint`
+- `maryMagdalene`
+- `marySit`
+- `miriamSong`
+- `mosesBush`
+- `mosesStaffSnake`
+- `mustardSeed`
+- `naaman`
+- `nehemiahWalls`
+- `newEarth`
+- `newHeaven`
+- `noNight`
+- `palmSunday`
+- `parableSower`
+- `parableTalents`
+- `passoverLamb`
+- `paulBarnabas`
+- `paulConversion`
+- `paulDamascus`
+- `paulEndurance`
+- `paulEphesus`
+- `paulEutychus`
+- `paulFirstJourney`
+- `paulLetters`
+- `paulPhilemon`
+- `paulPrisonEpistles`
+- `paulRome`
+- `paulSecondJourney`
+- `paulShip`
+- `paulShipwreck`
+- `paulSilas`
+- `paulThirdJourney`
+- `paulTimothy`
+- `paulTitus`
+- `pentecost`
+- `pentecostFire`
+- `pentecostTongues`
+- `persistentWidow`
+- `peterFirstLetter`
+- `peterHealsLame`
+- `peterJailBreak`
+- `peterPentecostSermon`
+- `peterSecondLetter`
+- `peterShadow`
+- `pharaohDreams`
+- `philipChariot`
+- `philipEthiopian`
+- `philippiansJoy`
+- `phoebeDeacon`
+- `prayerCloset`
+- `prayerKnock`
+- `priscillaTeach`
+- `priscillaTent`
+- `prodigalSon`
+- `psalm23Shepherd`
+- `rahabJericho`
+- `rahabRope`
+- `rahabWindow`
+- `redSeaCrossing`
+- `resurrection`
+- `revelation`
+- `revelationBabylonFall`
+- `revelationBeasts`
+- `revelationBride`
+- `revelationLetters`
+- `revelationNewHeaven`
+- `revelationNewJerusalem`
+- `revelationSeals`
+- `revelationSongsAndHarvest`
+- `revelationSupperAndKing`
+- `revelationThousandYears`
+- `revelationThrone`
+- `revelationThroneRoom`
+- `revelationTrumpets`
+- `revelationWomanDragon`
+- `richYoungRuler`
+- `riverOfLife`
+- `roadToEmmaus`
+- `romansRoadKids`
+- `ruthBoaz`
+- `ruthMoab`
+- `ruthNaomi`
+- `samaritanWoman`
+- `samsonBirth`
+- `samsonHair`
+- `samuelAnointsDavid`
+- `samuelBirth`
+- `samuelCall`
+- `samuelCalls`
+- `sarahLaughs`
+- `sarahPromise`
+- `saulDisobedience`
+- `saulKing`
+- `saulSpear`
+- `shepherdsStar`
+- `solomonTemple`
+- `solomonWisdom`
+- `spiesInCanaan`
+- `stephen`
+- `stephenMartyr`
+- `stephenStones`
+- `tenVirgins`
+- `thessaloniansHope`
+- `thomasDoubt`
+- `timothyYouthExample`
+- `tombEmpty`
+- `towerBabel`
+- `transfigure`
+- `treeFruit`
+- `treeOfLife`
+- `trial`
+- `weddingWine`
+- `widowMite`
+- `widowOil`
+- `widowsMite`
+- `worryBirds`
+- `zacchaeus`

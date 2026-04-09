@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Möbius Loop • Today's Daily Battle</title>
+  <meta name="description" content="One ribbon. One path. KJV faithfulness—see mobius.html for the full loop.">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://todaysdailybattle.com/mobius-minimal.html">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      font-family: 'Georgia', serif;
+      overflow: hidden;
+    }
+    svg {
+      width: 80vmin;
+      height: 80vmin;
+      animation: spin 20s linear infinite;
+    }
+    .text {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      color: #222;
+      letter-spacing: 0.05em;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 28ch;
+      opacity: 0;
+      animation: fadeIn 4s ease 1.5s forwards;
+    }
+    .footnote {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #666;
+      font-style: italic;
+      opacity: 0;
+      animation: fadeIn 3s ease 5s forwards;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .text, .footnote { animation: none; opacity: 1; }
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .skip-link { position: absolute; top: -3rem; left: 1rem; z-index: 100; padding: 0.5rem 1rem; background: #e3bc67; color: #0f1218; font-weight: 600; text-decoration: none; border-radius: 4px; transition: top 0.2s ease; }
+    .skip-link:focus, .skip-link:focus-visible { top: 0.75rem; outline: 2px solid #fff; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <svg viewBox="-150 -150 300 300" aria-hidden="true">
+    <path d="M 0,0 Q 100,100 0,200 Q -100,100 0,0" 
+          fill="none" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 0,0 Q -100,-100 0,-200 Q 100,-100 0,0" 
+          fill="none" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+  </svg>
+
+  <main id="main-content">
+    <p class="text" role="status">And Enoch walked with God: and he was not; for God took him. The loop does not end.</p>
+    <p class="footnote">Genesis 5:24 KJV — <a href="/mobius.html">Open the full Möbius Loop</a></p>
+  </main>
+</body>
+</html>

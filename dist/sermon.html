@@ -1,0 +1,2370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sermon Builder • Today's Daily Battle</title>
+  <meta name="description" content="KJV sermon outlines, verse lookup, and study notes — built for pastors who lead from the Word.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/sermon.html">
+  <meta property="og:title" content="Sermon Builder • Today's Daily Battle">
+  <meta property="og:description" content="Build sermon outlines, save drafts, and send them to your congregation or co-leaders.">
+  <meta property="og:url" content="https://todaysdailybattle.com/sermon.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sermon Builder • Today's Daily Battle">
+  <meta name="twitter:description" content="Build sermon outlines, save drafts, and send them to your congregation or co-leaders.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="manifest" href="manifest.json">
+  <script nonce="tdb2025s" type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Sermon Builder • Today's Daily Battle","url":"https://todaysdailybattle.com/sermon.html","description":"KJV sermon outlines, verse lookup, and study notes — built for pastors who lead from the Word.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <style>
+    /* ── Sermon Builder Enhancement Layer ── */
+    .sb-enhance-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-radius: var(--tdb-surface-radius, 12px);
+      margin: 0.75rem 0 1rem;
+      border: 1px solid var(--tdb-surface-panel-border);
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-panel-shadow);
+    }
+    .sb-toolbar-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold, #e3bc67);
+      margin-right: 0.25rem;
+      white-space: nowrap;
+    }
+    .sb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      min-height: 44px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 4px);
+      border: 1px solid var(--tdb-surface-card-border);
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-panel-shadow);
+      color: var(--text, #f5f7fb);
+      cursor: pointer;
+      transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .sb-btn:hover {
+      background-color: color-mix(in srgb, var(--tdb-surface-card-bg) 88%, rgba(227, 188, 103, 0.12));
+      border-color: color-mix(in srgb, var(--tdb-surface-card-border) 72%, rgba(227, 188, 103, 0.32));
+      box-shadow: var(--tdb-surface-card-shadow-hover);
+    }
+    .sb-btn:focus-visible {
+      background-color: color-mix(in srgb, var(--tdb-surface-card-bg) 88%, rgba(227, 188, 103, 0.12));
+      border-color: var(--gold, #e3bc67);
+      outline: 2px solid var(--gold, #e3bc67);
+      outline-offset: 2px;
+    }
+    .sb-btn--gold {
+      background: var(--gold, #e3bc67);
+      color: #1a1226;
+      border-color: var(--gold, #e3bc67);
+    }
+    .sb-btn--gold:hover { filter: brightness(1.08); background: var(--gold, #e3bc67); }
+    .sb-autosave-status {
+      font-size: 0.74rem;
+      color: var(--muted, #bcc5d6);
+      font-style: italic;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+    .sb-autosave-status.saved { color: #6dbf8a; }
+
+    /* ── Quick Start Popover ── */
+    .sb-popover-backdrop {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(0,0,0,0.6);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .sb-popover-backdrop[hidden] { display: none; }
+    .sb-popover {
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid var(--tdb-surface-card-border);
+      border-radius: var(--tdb-surface-radius, 14px);
+      padding: 1.4rem 1.3rem 1.2rem;
+      width: min(400px, 100%);
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: var(--tdb-surface-card-shadow);
+    }
+    .sb-popover-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold, #e3bc67);
+      margin: 0 0 0.2rem;
+    }
+    .sb-popover-sub {
+      font-size: 0.8rem;
+      color: var(--muted, #bcc5d6);
+      margin: 0 0 1rem;
+    }
+    .sb-popover-close {
+      position: absolute; top: 0.9rem; right: 1rem;
+      background: none; border: none;
+      color: var(--muted, #bcc5d6); font-size: 1.1rem;
+      cursor: pointer; padding: 4px; border-radius: 5px;
+      transition: color 0.14s;
+    }
+    .sb-popover-close:hover { color: var(--gold, #e3bc67); }
+    .sb-template-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      max-height: min(70vh, 28rem);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-right: 0.2rem;
+    }
+    .sb-template-btn {
+      display: flex; flex-direction: column; align-items: flex-start;
+      gap: 0.2rem;
+      min-height: 44px;
+      padding: 0.75rem 0.85rem;
+      background: var(--bg-soft, #171c25);
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 30%, transparent);
+      border-radius: 9px;
+      cursor: pointer;
+      transition: border-color 0.14s, background 0.14s;
+      text-align: left;
+    }
+    .sb-template-btn--starter {
+      border-color: color-mix(in srgb, var(--gold, #e3bc67) 50%, transparent);
+      background: color-mix(in srgb, var(--gold, #e3bc67) 14%, transparent);
+    }
+    .sb-template-btn:hover { border-color: var(--gold, #e3bc67); background: color-mix(in srgb, var(--gold, #e3bc67) 10%, transparent); }
+    .sb-template-name { font-size: 0.88rem; font-weight: 700; color: var(--text, #f5f7fb); }
+    .sb-template-ref  { font-size: 0.74rem; color: var(--muted, #bcc5d6); }
+
+    /* ── Add Verse Popover ── */
+    .sb-verse-search-row {
+      display: flex; gap: 0.5rem; margin-bottom: 0.85rem;
+    }
+    .sb-verse-input {
+      flex: 1;
+      background: var(--bg-soft, #171c25);
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 40%, transparent);
+      border-radius: 8px;
+      padding: 0.55rem 0.75rem;
+      color: var(--text, #f5f7fb);
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .sb-verse-input:focus { border-color: var(--gold, #e3bc67); }
+    .sb-verse-results { display: flex; flex-direction: column; gap: 0.5rem; }
+    .sb-verse-result-card {
+      background: var(--bg-soft, #171c25);
+      border: 1px solid transparent;
+      border-radius: 9px;
+      padding: 0.7rem 0.85rem;
+      cursor: pointer;
+      transition: border-color 0.14s;
+    }
+    .sb-verse-result-card:hover { border-color: var(--gold, #e3bc67); }
+    .sb-verse-result-ref  { font-size: 0.78rem; font-weight: 700; color: var(--gold, #e3bc67); }
+    .sb-verse-result-text { font-size: 0.82rem; color: var(--text, #f5f7fb); line-height: 1.4; margin: 0.2rem 0 0; }
+    .sb-verse-result-tip  { font-size: 0.74rem; color: var(--muted, #bcc5d6); font-style: italic; margin: 0.15rem 0 0; }
+    .sb-verse-empty { font-size: 0.82rem; color: var(--muted, #bcc5d6); }
+
+    /* ── Insert target selector ── */
+    .sb-insert-target {
+      font-size: 0.8rem;
+      background: var(--bg-soft, #171c25);
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, transparent);
+      border-radius: 7px;
+      padding: 0.4rem 0.6rem;
+      color: var(--text, #f5f7fb);
+      margin-bottom: 0.75rem;
+      cursor: pointer;
+      outline: none;
+      width: 100%;
+    }
+    .sb-insert-target:focus { border-color: var(--gold, #e3bc67); }
+
+    /* ── OIA workspace + preview (Church & Teaching slice) ── */
+    .sb-workspace-wrap {
+      margin: 0.75rem 0 1.25rem;
+      padding: 1rem 1rem 1.15rem;
+      border-radius: 14px;
+    }
+    :root[data-theme="light"] .sb-oia-point {
+      background: var(--bg-soft, #f8fafc);
+      border-color: color-mix(in srgb, var(--gold, #b8860b) 28%, transparent);
+    }
+    :root[data-theme="light"] .sb-oia-point-title,
+    :root[data-theme="light"] #sb-verse-collector,
+    :root[data-theme="light"] #sb-study-materials {
+      background: #fff;
+      color: var(--text, #1e293b);
+      border-color: color-mix(in srgb, var(--gold, #b8860b) 32%, transparent);
+    }
+    :root[data-theme="light"] #sb-live-preview {
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(148, 163, 184, 0.35);
+      color: var(--text, #334155);
+    }
+    .sb-workspace-intro {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--muted, #bcc5d6);
+      margin: 0 0 1rem;
+      max-width: 46rem;
+    }
+    .sb-workspace-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+    @media (min-width: 900px) {
+      .sb-workspace-grid { grid-template-columns: 1fr minmax(280px, 340px); align-items: start; }
+    }
+    @media (max-width: 599px) {
+      .sb-workspace-grid { gap: 1rem; }
+      #sb-live-preview {
+        min-height: 10rem;
+        max-height: min(50vh, 20rem);
+      }
+    }
+    .sb-oia-points-wrap h3,
+    .sb-side-stack h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold, #e3bc67);
+      margin: 0 0 0.5rem;
+      font-family: var(--font-display), Georgia, serif;
+    }
+    .sb-oia-points {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .sb-oia-point {
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 22%, transparent);
+      border-radius: 11px;
+      padding: 0.65rem 0.75rem 0.75rem;
+      background: var(--bg-soft, #171c25);
+    }
+    .sb-oia-point-head {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 0.45rem;
+    }
+    .sb-oia-point-title {
+      flex: 1;
+      min-width: 0;
+      padding: 0.45rem 0.55rem;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, transparent);
+      background: var(--card, #1b212d);
+      color: var(--text, #f5f7fb);
+      font-size: 0.9rem;
+    }
+    .sb-oia-remove {
+      flex-shrink: 0;
+      min-height: 44px;
+      min-width: 44px;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.75rem;
+      border-radius: 7px;
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      background: transparent;
+      color: #fca5a5;
+      cursor: pointer;
+    }
+    .sb-oia-remove:hover { border-color: #f87171; color: #fecaca; }
+    .sb-oia-details summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text, #e2e8f0);
+      margin-bottom: 0.4rem;
+      list-style: none;
+    }
+    .sb-oia-details summary::-webkit-details-marker { display: none; }
+    .sb-oia-field label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted, #94a3b8);
+      margin: 0.45rem 0 0.2rem;
+    }
+    .sb-oia-field textarea {
+      width: 100%;
+      min-height: 3.2rem;
+      padding: 0.45rem 0.55rem;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 25%, transparent);
+      background: rgba(0,0,0,0.15);
+      color: var(--text, #f5f7fb);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    .sb-add-point-btn {
+      margin-top: 0.35rem;
+      align-self: flex-start;
+      min-height: 44px;
+      padding: 0.5rem 0.85rem;
+    }
+    .sb-side-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .sb-verse-collector-label,
+    .sb-preview-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted, #94a3b8);
+      margin-bottom: 0.25rem;
+    }
+    #sb-verse-collector,
+    #sb-study-materials {
+      width: 100%;
+      min-height: 5.5rem;
+      padding: 0.5rem 0.6rem;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 30%, transparent);
+      background: var(--bg-soft, #171c25);
+      color: var(--text, #f5f7fb);
+      font-size: 0.84rem;
+      line-height: 1.4;
+      box-sizing: border-box;
+    }
+    #sb-study-materials { min-height: 4.5rem; }
+    #sb-live-preview {
+      min-height: 8rem;
+      max-height: 22rem;
+      overflow: auto;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(0,0,0,0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--text, #e2e8f0);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .sb-oia-scaffold-btn {
+      margin-top: 0.45rem;
+      padding: 0.35rem 0.55rem;
+      font-size: 0.76rem;
+      border-radius: 7px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 40%, transparent);
+      background: color-mix(in srgb, var(--gold, #e3bc67) 12%, transparent);
+      color: var(--text, #f5f7fb);
+      cursor: pointer;
+    }
+    .sb-oia-scaffold-btn:hover { border-color: var(--gold, #e3bc67); }
+
+    /* ── Scholar Notes Sidebar ── */
+    .sb-notes-sidebar {
+      position: fixed;
+      top: 50%; right: 0;
+      transform: translateY(-50%) translateX(100%);
+      width: min(340px, 92vw);
+      max-height: 70vh;
+      background: var(--card, #1b212d);
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
+      border-radius: 14px 0 0 14px;
+      padding: 1.1rem 1rem 1rem;
+      z-index: 200;
+      box-shadow: -6px 0 28px rgba(0,0,0,0.4);
+      transition: transform 0.28s cubic-bezier(0.32,0.72,0,1);
+      display: flex; flex-direction: column; gap: 0.6rem;
+      overflow-y: auto;
+    }
+    .sb-notes-sidebar.open { transform: translateY(-50%) translateX(0); }
+    .sb-notes-sidebar-title {
+      font-size: 0.9rem; font-weight: 700;
+      color: var(--gold, #e3bc67);
+      margin: 0;
+    }
+    .sb-notes-textarea {
+      width: 100%; box-sizing: border-box;
+      background: var(--bg-soft, #171c25);
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, transparent);
+      border-radius: 8px;
+      padding: 0.6rem 0.7rem;
+      color: var(--text, #f5f7fb);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      resize: vertical;
+      font-family: inherit;
+      min-height: 100px;
+      outline: none;
+      transition: border-color 0.14s;
+    }
+    .sb-notes-textarea:focus { border-color: var(--gold, #e3bc67); }
+    .sb-notes-label {
+      font-size: 0.73rem;
+      font-weight: 600;
+      color: var(--muted, #bcc5d6);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0.4rem 0 0.2rem;
+    }
+    .sb-notes-insert-btn {
+      align-self: flex-start;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: color-mix(in srgb, var(--gold, #e3bc67) 18%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
+      border-radius: 7px;
+      color: var(--text, #f5f7fb);
+      cursor: pointer;
+      transition: background 0.14s;
+    }
+    .sb-notes-insert-btn:hover { background: color-mix(in srgb, var(--gold, #e3bc67) 28%, transparent); }
+    .sb-crossref-list {
+      list-style: none; margin: 0; padding: 0;
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .sb-crossref-list li {
+      font-size: 0.8rem; color: var(--muted, #bcc5d6);
+      cursor: pointer; padding: 0.2rem 0;
+      border-bottom: 1px solid var(--line, #2a3344);
+      transition: color 0.12s;
+    }
+    .sb-crossref-list li:hover { color: var(--gold, #e3bc67); }
+
+    /* ── Compare Popover ── */
+    .sb-compare-grid {
+      display: grid; gap: 0.6rem;
+    }
+    .sb-compare-card {
+      background: var(--bg-soft, #171c25);
+      border: 1px solid var(--line, #2a3344);
+      border-radius: 9px;
+      padding: 0.7rem 0.85rem;
+    }
+    .sb-compare-ref  { font-size: 0.78rem; font-weight: 700; color: var(--gold, #e3bc67); margin-bottom: 0.2rem; }
+    .sb-compare-text { font-size: 0.82rem; color: var(--text, #f5f7fb); line-height: 1.45; }
+    .sb-compare-insert-btn {
+      margin-top: 0.5rem;
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.74rem; font-weight: 600;
+      background: none;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
+      border-radius: 6px;
+      color: var(--gold, #e3bc67);
+      cursor: pointer;
+      transition: background 0.14s;
+    }
+    .sb-compare-insert-btn:hover { background: color-mix(in srgb, var(--gold, #e3bc67) 14%, transparent); }
+
+    /* ── Reading progress during TTS ── */
+    /* .sb-tts-active removed — progressive TTS highlighting not yet implemented */
+
+    /* ── Inline Suggestions ── */
+    .sermon-full { position: relative; }
+    #sbSuggestionBubble {
+      position: fixed; /* reposition via JS using getBoundingClientRect */
+      z-index: 500;
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      pointer-events: auto;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    #sbSuggestionBubble.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .sb-suggestion-chip {
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid var(--tdb-surface-panel-border);
+      box-shadow: var(--tdb-surface-panel-shadow);
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 6px);
+      padding: 0.25rem 0.55rem;
+      font-size: 0.78rem;
+      color: var(--muted, #bcc5d6);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+      user-select: none;
+    }
+    .sb-suggestion-chip:hover,
+    .sb-suggestion-chip:focus-visible {
+      background: color-mix(in srgb, var(--gold, #e3bc67) 18%, transparent);
+      border-color: var(--gold, #e3bc67);
+      color: var(--text, #f5f7fb);
+      outline: none;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Build outlines, find verses, export to PDF — KJV</span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+        <a href="/verse.html">Today&rsquo;s Verse</a>
+        <a href="/#feel-section">How I Feel</a>
+        <a href="/prayer-wall.html">Pray</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <a href="/">Home</a>
+            <a href="/explore.html">Explore</a>
+            <a href="/mystudy">My Study</a>
+            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+            <a href="/plans.html">Battle Plans</a>
+            <a href="/memorize.html">Memorize</a>
+            <a href="/kids/corner.html">Kids &amp; Family</a>
+            <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+            <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+            <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+            <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+            <a href="/about.html">About</a>
+            <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            <a href="/mobius.html">Möbius</a>
+            <a href="/calm.html">Calm</a>
+            <a href="/story.html">Story</a>
+            <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+          </div>
+        </details>
+      </div>
+    </nav>
+      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+      </div>
+
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+</header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
+        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
+        <a href="/pastor/" data-section="pastor-hub" data-icon="PH">Pastor Hub</a>
+        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
+        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
+        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
+        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
+        <a href="/prayer-wall.html?tab=with-others" data-section="prayer" data-icon="MB">Prayer</a>
+        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
+        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      </nav>
+      <div class="sidebar-options" hidden>
+        <label class="inline-toggle">
+          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
+          Red letters
+        </label>
+      </div>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner hero-banner--soar-dawn study-hero--soar-dawn">
+          <h1>Sermon Builder</h1>
+          <p>Start with the Word. Build from there.</p>
+          <p class="section-note hero-banner-trust" style="margin-top:0.35rem;max-width:40rem;">Nothing here is against you—only Scripture, your notes, and files that stay on this device until you choose to share them.</p>
+          <p class="tdb-trust-return" style="max-width:40rem;">A quiet place to meet God in the battle — outlines stay on this device until you export or share.</p>
+          <p class="tdb-offline-trust" style="max-width:40rem;">Still here when the signal isn&rsquo;t.</p>
+          <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads this page if a draft or passage didn&rsquo;t load.</span></div>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="pastor-toolkit.html">Pastor Toolkit</a>
+            <a class="btn btn-secondary" href="resources.html">Pastor Resources</a>
+            <a class="btn btn-secondary" href="curriculum.html">Curriculum</a>
+          </div>
+        </header>
+        <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
+          <label for="query" class="search-hero-label">Search by emotion or verse</label>
+          <div class="search-hero-row">
+            <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
+            <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
+          </div>
+          <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
+          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" role="region" aria-label="Quick topic search"></div>
+          <details class="home-accordion util-mt-0_5">
+            <summary class="home-accordion-summary">More topics</summary>
+            <div class="quick-actions" id="quick-actions-accordion" aria-label="All quick topics"></div>
+          </details>
+          <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
+        </section>
+        <section id="sermons-dashboard" class="glass sermons-dashboard" aria-label="My sermons">
+          <h2 class="section-divider">My Sermons</h2>
+          <p class="section-note">Create and edit sermon outlines. Sign in to sync across devices.</p>
+          <div class="sermons-dashboard-actions">
+            <button type="button" id="new-sermon-btn" class="btn btn-primary">New Sermon</button>
+          </div>
+          <ul id="sermons-list" class="sermons-list" aria-label="Sermon list">
+            <li class="section-note sermons-list-empty">Loading…</li>
+          </ul>
+        </section>
+        <section id="sermon-builder" class="sermon-builder glass">
+          <h2 class="section-divider">Sermon Builder</h2>
+          <p class="section-note">Write from what the text says. Add your notes. Take it to the pulpit.</p>
+
+          <!-- ── Enhanced Toolbar ── -->
+          <div class="sb-enhance-toolbar" role="toolbar" aria-label="Sermon Builder tools">
+            <span class="sb-toolbar-label">Tools</span>
+            <button type="button" id="sb-quick-preach-btn" class="sb-btn sb-btn--gold" aria-label="Load Quick Preach — ten minute outline from Philippians chapter 4 verses 6 and 7">⚡ Quick&nbsp;Preach</button>
+            <button type="button" id="sb-quick-start-btn" class="sb-btn" aria-label="Quick Start — choose a sermon template" aria-haspopup="true">✦ Quick&nbsp;Start</button>
+            <button type="button" id="sb-add-verse-btn"   class="sb-btn" aria-label="Add a verse to your sermon" aria-haspopup="true">📖 Add&nbsp;Verse</button>
+            <button type="button" id="sb-compare-btn"     class="sb-btn" aria-label="Compare parallel passages" aria-haspopup="true">⇄ Compare</button>
+            <button type="button" id="sb-notes-toggle"    class="sb-btn" aria-label="Toggle Scholar Notes sidebar" aria-pressed="false">✎ Notes</button>
+            <button type="button" id="sb-tts-btn"         class="sb-btn" aria-label="Read sermon aloud" aria-pressed="false">🔊 Read&nbsp;Aloud</button>
+            <button type="button" id="sb-pdf-btn"         class="sb-btn sb-btn--gold" aria-label="Export sermon as PDF">⬇ PDF</button>
+            <button type="button" id="sb-pdf-handout-btn" class="sb-btn" aria-label="Export handout PDF with larger text and discussion space">Handout PDF</button>
+            <button type="button" id="sb-pdf-lesson-btn"  class="sb-btn" aria-label="Export small group lesson PDF with OIA main points, discussion prompts from application, verses, and supporting context">Lesson pack</button>
+            <button type="button" id="sb-share-btn"       class="sb-btn" aria-label="Share sermon text">↑ Share</button>
+            <span id="sb-autosave-status" class="sb-autosave-status" aria-live="polite" aria-atomic="true"></span>
+          </div>
+
+          <div class="sb-workspace-wrap" id="sb-workspace-wrap" aria-labelledby="sb-workspace-heading">
+            <h3 id="sb-workspace-heading" class="sr-only">Structured outline with observation, interpretation, and application</h3>
+            <p class="sb-workspace-intro">Each main point uses a calm <strong>OIA rhythm</strong> (Observation → Interpretation → Application). Tap <strong>Quick Start</strong> for Expository, Topical, or Devotional talk starters with OIA blocks and verse lines. Add more verses in the collector; use <strong>Add Verse</strong> → <strong>Add OIA scaffold</strong> to drop text into the first point’s Observation. <a href="for-pastors.html#fp-workflow">How people use this</a> · <a href="for-pastors.html#fp-oia-examples">KJV examples &amp; SOAP</a>.</p>
+            <div class="sb-workspace-grid">
+              <div class="sb-oia-points-wrap">
+                <h3>Main points (OIA)</h3>
+                <div id="sb-oia-points" class="sb-oia-points" role="list" aria-label="Sermon main points"></div>
+                <button type="button" id="sb-add-point-btn" class="btn btn-secondary sb-add-point-btn">Add main point</button>
+              </div>
+              <div class="sb-side-stack">
+                <div>
+                  <div class="sb-verse-collector-label" id="sb-vc-label">Verse collector</div>
+                  <textarea id="sb-verse-collector" aria-labelledby="sb-vc-label" placeholder="One verse per line (e.g. John 3:16). Paste from Bible Tool or plans."></textarea>
+                </div>
+                <div>
+                  <div class="sb-verse-collector-label" id="sb-sm-label">Supporting context (optional)</div>
+                  <textarea id="sb-study-materials" aria-labelledby="sb-sm-label" aria-describedby="sb-sm-hint" placeholder="Short excerpts you pasted from book intros, cross-reference chains, or word helps — stays on this device."></textarea>
+                  <p id="sb-sm-hint" class="section-note util-mt-0_35 util-mb-0" style="font-size:0.78rem;">Feeds the Lesson pack PDF under &ldquo;Supporting context.&rdquo; Interpretation in OIA still comes first in your own words.</p>
+                </div>
+                <div>
+                  <div class="sb-preview-label" id="sb-preview-label">Live preview</div>
+                  <div id="sb-live-preview" role="region" aria-labelledby="sb-preview-label" aria-live="polite"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sermon-grid">
+            <div>
+              <label for="sermon-title">Title</label>
+              <input id="sermon-title" placeholder="Sermon title">
+            </div>
+            <div>
+              <label for="sermon-theme">Theme</label>
+              <input id="sermon-theme" placeholder="Main theme or aim">
+            </div>
+            <div>
+              <label for="sermon-date">Date</label>
+              <input id="sermon-date" type="date" aria-label="Sermon date">
+            </div>
+            <div>
+              <label for="sermon-text-ref">Primary Text</label>
+              <input id="sermon-text-ref" placeholder="Book Chapter:Verse (e.g., John 3:16)">
+            </div>
+            <div>
+              <label for="sermon-status">Status</label>
+              <select id="sermon-status" aria-label="Status">
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
+              </select>
+            </div>
+            <div class="sermon-full">
+              <label for="sermon-outline">Outline</label>
+              <textarea id="sermon-outline" rows="4" placeholder="I. Point one...&#10;II. Point two..."></textarea>
+            </div>
+            <div class="sermon-full">
+              <label for="sermon-points">Key Points & Illustrations</label>
+              <textarea id="sermon-points" rows="4" placeholder="Key points, cross references, and illustrations..."></textarea>
+            </div>
+            <div class="sermon-full">
+              <label for="sermon-application">Application</label>
+              <textarea id="sermon-application" rows="3" placeholder="Call to action and application for the congregation..."></textarea>
+            </div>
+            <div class="sermon-full">
+              <label for="sermon-prayer">Closing Prayer</label>
+              <textarea id="sermon-prayer" rows="3" placeholder="Short closing prayer..."></textarea>
+            </div>
+            <div class="sermon-actions">
+              <button id="save-sermon" type="button" aria-label="Save sermon draft locally">Save Draft</button>
+              <button id="load-sermon" type="button" aria-label="Load your last saved sermon draft">Load Draft</button>
+              <button id="export-sermon" type="button" aria-label="Copy sermon text for sharing">Copy for Sharing</button>
+              <button id="export-sermon-email" type="button" aria-label="Copy sermon formatted for email">Copy for Email</button>
+              <button id="export-sermon-slides" type="button" aria-label="Copy sermon formatted for presentation slides">Copy for Slides</button>
+              <button id="print-sermon" type="button" aria-label="Print sermon or save as PDF">Print / Save as PDF</button>
+              <button id="email-sermon" type="button" aria-label="Email this sermon">Email Sermon</button>
+              <button id="pastor-toolkit" type="button" aria-label="Open the Pastor Toolkit">Pastor Toolkit</button>
+              <button id="share-sermon" type="button" aria-label="Email this sermon to your congregation">Email to Congregation</button>
+              <button id="share-sermon-link" type="button" aria-label="Create a shareable link for this sermon">Create Share Link</button>
+              <button id="open-sermon-link" type="button" aria-label="Open the shared sermon link">Open Share Link</button>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-top:0.4rem;">
+              <input id="sermon-share-link" placeholder="Share link will appear here" readonly aria-label="Sermon share link" style="flex:1;">
+              <button id="copy-sermon-link" type="button" aria-label="Copy sermon share link" style="white-space:nowrap;" hidden>Copy Link</button>
+            </div>
+            <p class="section-note">Tip: Copy the draft and share it with your team or congregation.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Verse</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, read <a href="/where-support-goes.html">where support goes</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Need the current support path? Use the <a href="/give" aria-label="Open the support page">support page</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/kids-corner.html">Kids corner</a>
+        <a href="/kids/?v=hub20260321">Kids battle</a>
+        <a href="/coloring.html">Kids coloring</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 9, 2026</span></p>
+  <script defer src="/language-switcher.js"></script>
+</footer>
+  </div>
+
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260328sermon-syntax-fix" data-cfasync="false"></script>
+
+  <!-- ── Quick Start Popover ── -->
+  <div id="sbQuickStartBackdrop" class="sb-popover-backdrop" hidden role="dialog" aria-modal="true" aria-label="Quick Start sermon templates">
+    <div class="sb-popover">
+      <button type="button" class="sb-popover-close" id="sbQuickStartClose" aria-label="Close Quick Start">✕</button>
+      <h3 class="sb-popover-title">✦ Quick Start</h3>
+      <p class="sb-popover-sub">Pick a teaching shape—starters load OIA blocks, verse lines, and optional supporting-context hints. Edit everything.</p>
+      <div class="sb-template-grid" id="sbTemplateGrid">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Add Verse Popover ── -->
+  <div id="sbAddVerseBackdrop" class="sb-popover-backdrop" hidden role="dialog" aria-modal="true" aria-label="Add a verse to sermon">
+    <div class="sb-popover">
+      <button type="button" class="sb-popover-close" id="sbAddVerseClose" aria-label="Close Add Verse">✕</button>
+      <h3 class="sb-popover-title">📖 Add Verse</h3>
+      <p class="sb-popover-sub">Search a topic — select a result to insert.</p>
+      <div class="sb-verse-search-row">
+        <input type="text" id="sbVerseInput" class="sb-verse-input" placeholder="hope, fear, John 3:16…" aria-label="Search for a verse topic" autocomplete="off" maxlength="80">
+        <button type="button" id="sbVerseSearchBtn" class="sb-btn" style="padding:0.45rem 0.75rem">Search</button>
+      </div>
+      <label for="sbInsertTarget" class="sb-notes-label" style="margin-top:0">Insert into:</label>
+      <select id="sbInsertTarget" class="sb-insert-target" aria-label="Choose which sermon field to insert verse into">
+        <option value="sermon-outline">Outline</option>
+        <option value="sermon-points">Key Points &amp; Illustrations</option>
+        <option value="sermon-application">Application</option>
+        <option value="sermon-prayer">Closing Prayer</option>
+      </select>
+      <div id="sbVerseResults" class="sb-verse-results" aria-live="polite" aria-atomic="true">
+        <p class="sb-verse-empty">Type a topic above and tap Search.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Compare Popover ── -->
+  <div id="sbCompareBackdrop" class="sb-popover-backdrop" hidden role="dialog" aria-modal="true" aria-label="Compare parallel passages">
+    <div class="sb-popover">
+      <button type="button" class="sb-popover-close" id="sbCompareClose" aria-label="Close Compare">✕</button>
+      <h3 class="sb-popover-title">⇄ Parallel Passages</h3>
+      <p class="sb-popover-sub">Classic side-by-side comparisons — tap to insert.</p>
+      <label for="sbCompareInsertTarget" class="sb-notes-label" style="margin-top:0">Insert into:</label>
+      <select id="sbCompareInsertTarget" class="sb-insert-target" aria-label="Choose which sermon field to insert passage into">
+        <option value="sermon-points">Key Points &amp; Illustrations</option>
+        <option value="sermon-outline">Outline</option>
+        <option value="sermon-application">Application</option>
+        <option value="sermon-prayer">Closing Prayer</option>
+      </select>
+      <div class="sb-compare-grid" id="sbCompareGrid">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Scholar Notes Sidebar ── -->
+  <aside id="sbNotesSidebar" class="sb-notes-sidebar" aria-label="Scholar Notes" role="complementary">
+    <h3 class="sb-notes-sidebar-title">✎ Scholar Notes</h3>
+    <p class="sb-notes-label">Greek / Hebrew / Cross-ref thoughts</p>
+    <textarea id="sbNotesText" class="sb-notes-textarea" rows="6" placeholder="e.g. 'eirene' (εἰρήνη) — wholeness, not just absence of conflict…" aria-label="Scholar notes textarea"></textarea>
+    <button type="button" id="sbNotesInsertBtn" class="sb-notes-insert-btn" aria-label="Insert note into Key Points">Insert into Key Points</button>
+    <p class="sb-notes-label" style="margin-top:0.6rem">Suggested cross-refs</p>
+    <ul class="sb-crossref-list" id="sbCrossRefList" aria-label="Suggested cross-references">
+      <!-- populated by JS based on primary text -->
+    </ul>
+  </aside>
+
+  <script nonce="tdb2025s">
+  (function () {
+    'use strict';
+
+    /* ── Shared data ── */
+    var SB_TEMPLATES = [
+      { starter: true, name: 'Expository', icon: '📜', ref: 'Romans 8:1-4', title: 'No Condemnation — Life in the Spirit (Romans 8)', theme: 'Verse-by-verse through a short passage: freedom, the Spirit\'s rule, walking after the Spirit',
+        outline: 'I. Romans 8:1 — no condemnation for those in Christ Jesus\nII. Romans 8:2–3 — the law of the Spirit vs. sin and death\nIII. Romans 8:4 — righteousness of the law fulfilled in us who walk after the Spirit',
+        points: 'Read the full passage aloud before teaching. Add cross-references in Key Points (e.g. Romans 7:25; 2 Corinthians 3:17; Galatians 5:16–25).',
+        application: 'Where does the Spirit need to lead you this week—name one relationship or habit honestly.',
+        prayer: 'Father, thank You for no condemnation in Christ. Lead us by Your Spirit. Amen.',
+        verseCollector: 'Romans 8:1\nRomans 8:2\nRomans 8:3\nRomans 8:4',
+        studyMaterials: 'Paste a short line or two from the Romans book intro in Bible Tool if it helps. Add cross-reference chain notes from the lookup panel when you open each verse.',
+        oiaPoints: [
+          { title: 'I. Romans 8:1 — no condemnation', observation: 'Who is "there is therefore" answering? What changes for the person who is "in Christ Jesus"?', interpretation: 'Paul states the verdict: no condemnation for those united to Christ—see Romans 5:1; 8:33–34 for the courtroom language.', application: 'I will bring one self-accusation to God and leave it at the cross this week.' },
+          { title: 'II. Romans 8:2–3 — Spirit vs. sin and death', observation: 'Two "laws" are named. What could the law in the flesh not do? What did God do in sending His Son?', interpretation: 'The Spirit\'s rule brings life; sin\'s power held us under death. In Christ\'s flesh sin is condemned so we can walk in newness.', application: 'I will ask each morning whom I am walking by—flesh or Spirit—and pray for one concrete choice.' },
+          { title: 'III. Romans 8:4 — walk after the Spirit', observation: 'What is "fulfilled" in us? How is "walk" different from a single feeling?', interpretation: 'God\'s righteous requirement is met in those who live in step with the Spirit—not by self-made merit.', application: 'I will take one small obedience step that matches the Spirit\'s direction, not performance.' }
+        ] },
+      { starter: true, name: 'Topical', icon: '🧭', ref: 'Philippians 4:6-7', title: 'Peace Through Prayer (Philippians 4)', theme: 'A theme from the text: turn worry into prayer and thanksgiving; God\'s peace stands guard',
+        outline: 'I. Be careful for nothing — bring every burden to God\nII. By prayer and supplication with thanksgiving — make requests known\nIII. The peace of God — keeps heart and mind in Christ Jesus',
+        points: 'Use Bible Tool topic search and chains for related verses (e.g. Matthew 6:25–34; 1 Peter 5:7). Pull word helps for "careful," "supplication," "peace" from Hub tools.',
+        application: 'Name one worry you will hand to God today with thanks for one mercy you already have.',
+        prayer: 'Lord, we cast our cares on You. Let Your peace guard our hearts and minds in Christ Jesus. Amen.',
+        verseCollector: 'Philippians 4:6\nPhilippians 4:7\nMatthew 6:34',
+        studyMaterials: 'Paste 1–2 lines from cross-reference chains after you look up Philippians 4:6–7. Optional: one short gloss from KJV word helps for "careful" or "peace."',
+        oiaPoints: [
+          { title: 'I. The command — be careful for nothing', observation: 'What is commanded negatively? What is the alternative ("but in every thing")?', interpretation: 'Paul does not deny trouble; he redirects the heart from anxious spinning to structured prayer with thanks.', application: 'When worry rises, I will stop and name the request before God with one thanksgiving.' },
+          { title: 'II. Prayer with thanksgiving', observation: 'What three words describe how we come (prayer, supplication, thanksgiving)?', interpretation: 'Thanksgiving steadies faith before the answer arrives; it aligns the heart with God\'s past faithfulness.', application: 'I will write one gratitude line beside one request each evening this week.' },
+          { title: 'III. The peace of God', observation: 'What does "passeth all understanding" imply? What two things does peace "keep"?', interpretation: 'This peace is not rational calm only—it is God-given and sentinels heart and mind in Christ.', application: 'I will ask for that guard when my thoughts race, and speak one verse aloud.' }
+        ] },
+      { starter: true, name: 'Devotional talk', icon: '🕯️', ref: 'John 14:1', title: 'Let Not Your Heart Be Troubled', theme: 'A shorter encouragement — good for a brief visit, mid-week gathering, or beside a bed',
+        outline: 'I. The command — let not your heart be troubled\nII. Believe — God the Father and Christ our hope',
+        points: 'Aim for 8–12 minutes: read the verse twice; one illustration at most; end with prayer.',
+        application: 'Who near you needs a calm word this week? Offer one verse and one hour of presence.',
+        prayer: 'Lord, still our hearts. Help us believe You. Amen.',
+        verseCollector: 'John 14:1\nJohn 14:27',
+        studyMaterials: 'Optional: paste one sentence from the John book intro in Bible Tool when you open John 14:1.',
+        oiaPoints: [
+          { title: 'I. "Let not your heart be troubled"', observation: 'Who is speaking? To whom? What emotion does Jesus address first?', interpretation: 'Jesus speaks peace before explaining everything—faith rests on His person, not on full understanding.', application: 'I will admit one trouble to Christ out loud today and sit in silence for one minute.' },
+          { title: 'II. Believe in God; believe also in Christ', observation: 'What is doubled? What is the relationship between trust in the Father and the Son?', interpretation: 'The ground of peace is belief in who God is and who Christ is—parallel trust.', application: 'I will speak one line of trust aloud when fear rises: "I believe in You." ' }
+        ] },
+      { name: 'Quick Preach', icon: '⚡', ref: 'Philippians 4:6-7', title: 'The Peace That Guards', theme: 'A ten-minute outline when the mind will not slow down — prayer, thanksgiving, and the peace that keeps the heart',
+        outline: 'I. Be careful for nothing — bring the burden to God (v.6)\nII. With thanksgiving — remembrance steadies the soul (v.6)\nIII. The peace of God — it keepeth heart and mind in Christ Jesus (v.7)',
+        points: 'Key text (KJV — read slowly):\n“Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.”\n\nTiming (~10 min): 2 min welcome + 2–3 min per point + 1–2 min application.',
+        application: 'Quiet moment: name one worry, speak it to God in prayer, then thank Him for one mercy you can name today.',
+        prayer: 'Father, we bring You what we carry. Let Your peace stand guard over our hearts and minds in Christ Jesus. Amen.' },
+      { name: 'Hope',         icon: '✨', ref: 'Romans 15:13',    title: 'The God of Hope',      theme: 'Hope that does not disappoint',
+        outline: 'I. Hope defined — not wishful thinking, but confident expectation\nII. Hope\'s source — the God who fills\nIII. Hope\'s fruit — joy and peace in believing',
+        points:  'Cross-refs: Hebrews 11:1, Jeremiah 29:11, Psalm 42:11\nIllustration: An anchor holds a ship in a storm — hope anchors the soul (Heb 6:19).',
+        application: 'Where has hope grown thin? Name it. Then bring it to Him.',
+        prayer:  'Father, fill us with all joy and peace as we trust in You. Be our hope today.' },
+      { name: 'Forgiveness',  icon: '🕊️', ref: 'Ephesians 4:32',  title: 'Freed by Forgiveness', theme: 'Forgive as God in Christ forgave you',
+        outline: 'I. The weight of unforgiveness\nII. The cost of forgiveness — it cost Christ everything\nIII. The freedom forgiveness releases',
+        points:  'Cross-refs: Matthew 6:14, Colossians 3:13, Luke 23:34\nIllustration: A debt canceled — the ledger wiped clean.',
+        application: 'Name the person. Choose to release the debt. Pray it out loud.',
+        prayer:  'Lord, help us forgive as we have been forgiven. Free us from the weight.' },
+      { name: 'Love',         icon: '❤️', ref: '1 Corinthians 13:4–7', title: 'Love That Stays', theme: 'Love in action, not just feeling',
+        outline: 'I. Love defined by what it does, not what it feels\nII. Love modeled — Jesus on the cross\nIII. Love lived — one person at a time',
+        points:  'Cross-refs: John 15:13, Romans 5:8, 1 John 4:19\nIllustration: Love is a decision made every morning.',
+        application: 'Who needs your patient, kind, long-suffering love today? Do one thing.',
+        prayer:  'God, pour Your love into us so we can give it away without running dry.' },
+      { name: 'Peace',        icon: '🕊', ref: 'John 14:27',         title: 'Peace I Give You',   theme: 'His peace, not the world\'s peace',
+        outline: 'I. The kind of peace the world offers — temporary, conditional\nII. The peace Christ gives — deep, unshaken, permanent\nIII. Receiving peace — guard your heart and mind',
+        points:  'Cross-refs: Philippians 4:6-7, Isaiah 26:3, Psalm 46:10\nIllustration: Eye of the storm — dead calm in the center of chaos.',
+        application: 'Is your mind \'stayed on Him\' (Isaiah 26:3)? What would that look like today?',
+        prayer:  'Jesus, be our peace. Still our hearts. You have overcome.' },
+      { name: 'Strength',     icon: '💪', ref: 'Isaiah 40:31',       title: 'Renewed Strength',   theme: 'Waiting on God — where strength is born',
+        outline: 'I. The honest admission — we grow weary\nII. The promise — those who wait shall renew their strength\nIII. The picture — wings like eagles, running without fainting',
+        points:  'Cross-refs: Philippians 4:13, Psalm 27:14, 2 Corinthians 12:9\nIllustration: An eagle soars on thermals it didn\'t create.',
+        application: 'Where are you running on empty? Wait — stop striving for five minutes and ask.',
+        prayer:  'Lord, be our strength. We are weak. In that weakness, show Your power.' },
+      { name: 'Grace',        icon: '🤍', ref: 'Ephesians 2:8-9',    title: 'Grace Alone',        theme: 'Saved by grace through faith — nothing added',
+        outline: 'I. What grace is — unmerited favor\nII. What grace is not — wages earned\nIII. What grace produces — good works from gratitude, not guilt',
+        points:  'Cross-refs: Romans 6:23, Titus 3:5, Galatians 2:21\nIllustration: A gift you didn\'t earn and can\'t return.',
+        application: 'Are you living from grace or performing for approval? Bring that to God.',
+        prayer:  'Father, remind us that we stand in grace. Not our merit — Yours.' }
+    ];
+
+    var SB_PARALLEL_PASSAGES = [
+      { label: 'Beatitudes — Matthew vs Luke',
+        passages: [
+          { ref: 'Matthew 5:3-6 (KJV)', text: 'Blessed are the poor in spirit: for theirs is the kingdom of heaven. Blessed are they that mourn: for they shall be comforted. Blessed are the meek: for they shall inherit the earth. Blessed are they which do hunger and thirst after righteousness: for they shall be filled.' },
+          { ref: 'Luke 6:20-21 (KJV)',  text: 'Blessed be ye poor: for yours is the kingdom of God. Blessed are ye that hunger now: for ye shall be filled. Blessed are ye that weep now: for ye shall laugh.' }
+        ]
+      },
+      { label: 'Great Commission — Matthew vs Acts',
+        passages: [
+          { ref: 'Matthew 28:18-20 (KJV)', text: 'All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you.' },
+          { ref: 'Acts 1:8 (KJV)',          text: 'But ye shall receive power, after that the Holy Ghost is come upon you: and ye shall be witnesses unto me both in Jerusalem, and in all Judaea, and in Samaria, and unto the uttermost part of the earth.' }
+        ]
+      },
+      { label: 'Faith — Hebrews vs James',
+        passages: [
+          { ref: 'Hebrews 11:1 (KJV)', text: 'Now faith is the substance of things hoped for, the evidence of things not seen.' },
+          { ref: 'James 2:17 (KJV)',   text: 'Even so faith, if it hath not works, is dead, being alone.' }
+        ]
+      },
+      { label: 'Love Command — John vs Matthew',
+        passages: [
+          { ref: 'John 13:34 (KJV)',      text: 'A new commandment I give unto you, That ye love one another; as I have loved you, that ye also love one another.' },
+          { ref: 'Matthew 22:37-39 (KJV)', text: 'Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. This is the first and great commandment. And the second is like unto it, Thou shalt love thy neighbour as thyself.' }
+        ]
+      }
+    ];
+
+    var SB_CROSSREFS = {
+      'John': ['Romans 5:8', 'John 10:10', 'John 1:14', 'Revelation 1:8'],
+      'Romans': ['Galatians 5:22', 'Ephesians 1:7', 'Romans 12:2', '1 Corinthians 15:3'],
+      'Psalm': ['Isaiah 41:10', 'Psalm 46:1', 'Psalm 34:18', 'Proverbs 3:5'],
+      'Isaiah': ['John 14:27', 'Romans 8:28', 'Hebrews 11:1', 'Philippians 4:13'],
+      'Matthew': ['Luke 15:20', 'Mark 12:30', 'Colossians 3:23', 'James 1:5'],
+      'Ephesians': ['Colossians 3:15', 'Galatians 6:2', 'Romans 12:18', '2 Corinthians 4:16'],
+      'Philippians': ['Philippians 4:8', 'Colossians 3:15', 'Isaiah 26:3', 'John 14:27'],
+      'default': ['John 3:16', 'Psalm 46:10', 'Isaiah 40:31', 'Romans 8:28', 'Proverbs 3:5-6']
+    };
+
+    /* ── Helper: get text field by id ── */
+    function getField(id) { return document.getElementById(id); }
+
+    function sbNewPointId() {
+      return 'p' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
+    }
+
+    function sbCollectOiaPoints() {
+      var root = document.getElementById('sb-oia-points');
+      if (!root) return [];
+      var articles = root.querySelectorAll('.sb-oia-point');
+      var out = [];
+      articles.forEach(function (art) {
+        if (!art) return;
+        var id = art.getAttribute('data-point-id') || '';
+        var titleEl = art.querySelector('.sb-oia-point-title');
+        var obsEl = art.querySelector('.sb-oia-obs');
+        var intEl = art.querySelector('.sb-oia-int');
+        var appEl = art.querySelector('.sb-oia-app');
+        out.push({
+          id: id,
+          title: (titleEl && titleEl.value || '').trim(),
+          observation: (obsEl && obsEl.value || '').trim(),
+          interpretation: (intEl && intEl.value || '').trim(),
+          application: (appEl && appEl.value || '').trim()
+        });
+      });
+      return out;
+    }
+
+    function sbRenderOiaPoints(points) {
+      var root = document.getElementById('sb-oia-points');
+      if (!root) return;
+      root.textContent = '';
+      var list = Array.isArray(points) && points.length ? points : [{ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' }];
+      list.forEach(function (pt, idx) {
+        var id = pt.id || sbNewPointId();
+        var art = document.createElement('article');
+        art.className = 'sb-oia-point';
+        art.setAttribute('data-point-id', id);
+        art.setAttribute('role', 'listitem');
+
+        var head = document.createElement('div');
+        head.className = 'sb-oia-point-head';
+        var titleIn = document.createElement('input');
+        titleIn.type = 'text';
+        titleIn.className = 'sb-oia-point-title';
+        titleIn.setAttribute('aria-label', 'Main point ' + (idx + 1) + ' title');
+        titleIn.placeholder = (idx + 1) + '. Main point…';
+        titleIn.value = pt.title || '';
+        var rm = document.createElement('button');
+        rm.type = 'button';
+        rm.className = 'sb-oia-remove';
+        rm.textContent = 'Remove';
+        rm.setAttribute('aria-label', 'Remove main point ' + (idx + 1));
+        rm.addEventListener('click', function () {
+          if (root.querySelectorAll('.sb-oia-point').length <= 1) {
+            if (typeof showEliteToast === 'function') showEliteToast('Keep at least one main point.');
+            return;
+          }
+          art.remove();
+          sbSyncOutlineFromOia();
+          sbUpdateLivePreview();
+          sbAutoSaveNow();
+        });
+        head.appendChild(titleIn);
+        head.appendChild(rm);
+
+        var det = document.createElement('details');
+        det.className = 'sb-oia-details';
+        det.open = true;
+        var sum = document.createElement('summary');
+        sum.textContent = 'Observation · Interpretation · Application';
+        det.appendChild(sum);
+
+        function addField(className, labelText, val) {
+          var wrap = document.createElement('div');
+          wrap.className = 'sb-oia-field';
+          var lab = document.createElement('label');
+          lab.textContent = labelText;
+          var ta = document.createElement('textarea');
+          ta.className = className;
+          ta.rows = 3;
+          ta.value = val || '';
+          wrap.appendChild(lab);
+          wrap.appendChild(ta);
+          det.appendChild(wrap);
+        }
+        addField('sb-oia-obs', 'Observation — what does the text say?', pt.observation);
+        addField('sb-oia-int', 'Interpretation — what does it mean?', pt.interpretation);
+        addField('sb-oia-app', 'Application — how do we live it?', pt.application);
+
+        art.appendChild(head);
+        art.appendChild(det);
+        root.appendChild(art);
+      });
+      sbSyncOutlineFromOia();
+      sbUpdateLivePreview();
+    }
+
+    function sbSyncOutlineFromOia() {
+      var pts = sbCollectOiaPoints();
+      var lines = pts.map(function (p) { return p.title; }).filter(Boolean);
+      var outlineEl = getField('sermon-outline');
+      if (outlineEl && lines.length) outlineEl.value = lines.join('\n');
+    }
+
+    var sbPreviewTimer = null;
+    function sbUpdateLivePreview() {
+      if (sbPreviewTimer) clearTimeout(sbPreviewTimer);
+      sbPreviewTimer = setTimeout(function () {
+        var prev = document.getElementById('sb-live-preview');
+        if (!prev) return;
+        var d = sbGetDraft();
+        var oia = d.oiaPoints || [];
+        var parts = [];
+        if (d.title) parts.push(d.title);
+        if (d.textRef) parts.push('Primary text: ' + d.textRef);
+        if (d.theme) parts.push('Theme: ' + d.theme);
+        parts.push('');
+        oia.forEach(function (p, i) {
+          var h = p.title || ('Point ' + (i + 1));
+          parts.push('— ' + h + ' —');
+          if (p.observation) parts.push('Observation: ' + p.observation);
+          if (p.interpretation) parts.push('Interpretation: ' + p.interpretation);
+          if (p.application) parts.push('Application: ' + p.application);
+          parts.push('');
+        });
+        if (d.verseCollector) {
+          parts.push('Verses collected:');
+          parts.push(d.verseCollector);
+          parts.push('');
+        }
+        if (d.studyMaterials) {
+          parts.push('Supporting context:');
+          parts.push(d.studyMaterials);
+          parts.push('');
+        }
+        if (d.application) parts.push('Congregation application:\n' + d.application);
+        prev.textContent = parts.join('\n').trim() || '(Preview fills as you type.)';
+      }, 120);
+    }
+
+    function sbInitOiaFromStorage() {
+      try {
+        var raw = localStorage.getItem('sermonDraft');
+        var d = raw ? JSON.parse(raw) : {};
+        if (d.oiaPoints && Array.isArray(d.oiaPoints) && d.oiaPoints.length) {
+          sbRenderOiaPoints(d.oiaPoints);
+        } else {
+          sbRenderOiaPoints([{ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' }]);
+        }
+        var vc = getField('sb-verse-collector');
+        if (vc && d.verseCollector) vc.value = d.verseCollector;
+        var sm = getField('sb-study-materials');
+        if (sm && d.studyMaterials) sm.value = d.studyMaterials;
+      } catch (e) {
+        sbRenderOiaPoints([{ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' }]);
+      }
+      sbUpdateLivePreview();
+    }
+
+    /* Avoid painting from localStorage when ?load=1 will apply the same draft from script.js (prevents flash/overwrite). */
+    function sbBootstrapOiaWorkspace() {
+      var skipStorage = false;
+      try {
+        var p = new URLSearchParams(window.location.search || '');
+        if (p.get('load') === '1') {
+          var raw = localStorage.getItem('sermonDraft');
+          var d = raw ? JSON.parse(raw) : {};
+          if (d && (d.title || d.textRef || d.outline || d.studyMaterials || d.verseCollector || (d.oiaPoints && d.oiaPoints.length))) {
+            skipStorage = true;
+          }
+        }
+      } catch (e) {}
+      if (skipStorage) {
+        sbRenderOiaPoints([{ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' }]);
+        sbUpdateLivePreview();
+        return;
+      }
+      sbInitOiaFromStorage();
+    }
+
+    function sbFirstOiaObservationTa() {
+      var root = document.getElementById('sb-oia-points');
+      if (!root) return null;
+      var first = root.querySelector('.sb-oia-obs');
+      return first || null;
+    }
+
+    /* ── Helper: append text to a textarea ── */
+    function appendToField(fieldId, text) {
+      var el = getField(fieldId);
+      if (!el) return;
+      var cur = el.value.trim();
+      el.value = cur ? cur + '\n\n' + text : text;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      el.focus();
+      el.scrollTop = el.scrollHeight;
+    }
+
+    /* ── Helper: safe text (no HTML injection) ── */
+    function t(str) { return String(str || ''); }
+
+    /* ── Helper: open/close backdrop ── */
+    function openBackdrop(id, focusId) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.hidden = false;
+      var focus = focusId ? document.getElementById(focusId) : el.querySelector('button, input, select, textarea');
+      if (focus) setTimeout(function () { focus.focus(); }, 50);
+      // Focus trap: keep Tab/Shift-Tab within the open dialog
+      el._sbTrapHandler = function (e) {
+        if (e.key !== 'Tab') return;
+        var focusable = Array.from(el.querySelectorAll('button:not([disabled]):not([hidden]), input:not([disabled]):not([hidden]), select:not([disabled]):not([hidden]), textarea:not([disabled]):not([hidden]), [tabindex="0"]'));
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last  = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+        }
+      };
+      el.addEventListener('keydown', el._sbTrapHandler);
+    }
+    function closeBackdrop(id, returnId) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.hidden = true;
+        if (el._sbTrapHandler) { el.removeEventListener('keydown', el._sbTrapHandler); el._sbTrapHandler = null; }
+      }
+      var ret = returnId ? document.getElementById(returnId) : null;
+      if (ret) ret.focus();
+    }
+
+    /* ── Auto-save every 5 s ── */
+    var SB_AUTOSAVE_KEY = 'sermonDraft';
+    var sbAutoSaveTimer = null;
+    var sbAutoSaveStatus = document.getElementById('sb-autosave-status');
+
+    function sbGetDraft() {
+      return {
+        title:       (getField('sermon-title')?.value || '').trim(),
+        theme:       (getField('sermon-theme')?.value || '').trim(),
+        textRef:     (getField('sermon-text-ref')?.value || '').trim(),
+        outline:     (getField('sermon-outline')?.value || '').trim(),
+        points:      (getField('sermon-points')?.value || '').trim(),
+        application: (getField('sermon-application')?.value || '').trim(),
+        prayer:      (getField('sermon-prayer')?.value || '').trim(),
+        date:        (getField('sermon-date')?.value || ''),
+        status:      (getField('sermon-status')?.value || 'draft'),
+        notes:       (getField('sbNotesText')?.value || '').trim(),
+        oiaPoints:   sbCollectOiaPoints(),
+        verseCollector: (getField('sb-verse-collector')?.value || '').trim(),
+        studyMaterials: (getField('sb-study-materials')?.value || '').trim()
+      };
+    }
+
+    function sbAutoSaveNow() {
+      try {
+        var draft = sbGetDraft();
+        localStorage.setItem(SB_AUTOSAVE_KEY, JSON.stringify(draft));
+        if (sbAutoSaveStatus) {
+          sbAutoSaveStatus.textContent = 'Draft saved ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          sbAutoSaveStatus.className = 'sb-autosave-status saved';
+          clearTimeout(sbAutoSaveTimer);
+          sbAutoSaveTimer = setTimeout(function () {
+            if (sbAutoSaveStatus) sbAutoSaveStatus.className = 'sb-autosave-status';
+          }, 4000);
+        }
+      } catch (e) { /* storage full */ }
+    }
+
+    /* Wire auto-save on all sermon fields */
+    ['sermon-title','sermon-theme','sermon-text-ref','sermon-outline','sermon-points','sermon-application','sermon-prayer','sermon-date','sbNotesText','sb-study-materials']
+      .forEach(function (id) {
+        var el = getField(id);
+        if (el) {
+          el.addEventListener('input', function () {
+            clearTimeout(sbAutoSaveTimer);
+            sbAutoSaveTimer = setTimeout(sbAutoSaveNow, 5000);
+            if (sbAutoSaveStatus) {
+              sbAutoSaveStatus.textContent = 'Unsaved changes…';
+              sbAutoSaveStatus.className = 'sb-autosave-status';
+            }
+          });
+        }
+      });
+
+    /* ── Quick Start ── */
+    var qsBackdrop = document.getElementById('sbQuickStartBackdrop');
+    var qsGrid     = document.getElementById('sbTemplateGrid');
+
+    if (qsGrid) {
+      SB_TEMPLATES.forEach(function (tmpl) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'sb-template-btn';
+        btn.setAttribute('aria-label', 'Use ' + tmpl.name + ' template');
+        var nameEl = document.createElement('span'); nameEl.className = 'sb-template-name'; nameEl.textContent = tmpl.icon + ' ' + tmpl.name;
+        var refEl  = document.createElement('span'); refEl.className  = 'sb-template-ref';  refEl.textContent  = tmpl.ref;
+        btn.appendChild(nameEl);
+        btn.appendChild(refEl);
+        btn.addEventListener('click', function () {
+          sbApplyTemplate(tmpl);
+          closeBackdrop('sbQuickStartBackdrop', 'sb-quick-start-btn');
+        });
+        if (tmpl.starter) btn.classList.add('sb-template-btn--starter');
+        qsGrid.appendChild(btn);
+      });
+    }
+
+    function sbApplyTemplate(tmpl) {
+      if (!tmpl) return;
+      var tf;
+      tf = getField('sermon-title');       if (tf) tf.value = t(tmpl.title);
+      tf = getField('sermon-theme');        if (tf) tf.value = t(tmpl.theme);
+      tf = getField('sermon-text-ref');     if (tf) tf.value = t(tmpl.ref);
+      tf = getField('sermon-outline');      if (tf) tf.value = t(tmpl.outline);
+      tf = getField('sermon-points');       if (tf) tf.value = t(tmpl.points);
+      tf = getField('sermon-application'); if (tf) tf.value = t(tmpl.application);
+      tf = getField('sermon-prayer');       if (tf) tf.value = t(tmpl.prayer);
+      if (tmpl.oiaPoints && Array.isArray(tmpl.oiaPoints) && tmpl.oiaPoints.length) {
+        var mapped = tmpl.oiaPoints.map(function (p) {
+          return {
+            id: sbNewPointId(),
+            title: t(p.title),
+            observation: t(p.observation),
+            interpretation: t(p.interpretation),
+            application: t(p.application)
+          };
+        });
+        sbRenderOiaPoints(mapped);
+      }
+      if (tmpl.verseCollector != null) {
+        tf = getField('sb-verse-collector');
+        if (tf) tf.value = t(tmpl.verseCollector);
+      }
+      if (tmpl.studyMaterials != null) {
+        tf = getField('sb-study-materials');
+        if (tf) tf.value = t(tmpl.studyMaterials);
+      }
+      sbUpdateLivePreview();
+      sbAutoSaveNow();
+      sbUpdateCrossRefs(tmpl.ref);
+    }
+
+    document.getElementById('sb-quick-preach-btn')?.addEventListener('click', function () {
+      var qp = SB_TEMPLATES.find(function (t) { return t.name === 'Quick Preach'; });
+      if (!qp) return;
+      sbApplyTemplate(qp);
+    });
+
+    document.getElementById('sb-quick-start-btn')?.addEventListener('click', function () {
+      openBackdrop('sbQuickStartBackdrop', null);
+    });
+    document.getElementById('sbQuickStartClose')?.addEventListener('click', function () {
+      closeBackdrop('sbQuickStartBackdrop', 'sb-quick-start-btn');
+    });
+    qsBackdrop?.addEventListener('click', function (e) { if (e.target === qsBackdrop) closeBackdrop('sbQuickStartBackdrop', 'sb-quick-start-btn'); });
+    qsBackdrop?.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeBackdrop('sbQuickStartBackdrop', 'sb-quick-start-btn'); });
+
+    /* ── Add Verse (mini smart-search) ── */
+    var SB_VERSE_DATA = (typeof window.ROTATING_HERO_VERSES !== 'undefined') ? window.ROTATING_HERO_VERSES : [];
+    var SB_DICT       = (typeof window.SMART_DICTIONARY !== 'undefined')     ? window.SMART_DICTIONARY     : {};
+
+    function sbSearchVerses(query) {
+      var q = query.toLowerCase().trim();
+      if (!q) return [];
+      /* 1. exact dictionary key */
+      var results = [];
+      var info = SB_DICT[q];
+      if (info) {
+        var match = SB_VERSE_DATA.find(function (v) { return v && v.ref && v.ref.indexOf(info.verseRef) !== -1; });
+        if (match) results.push({ verse: match, heartfelt: info.def, action: info.action });
+      }
+      /* 2. partial text/ref scan — up to 4 more */
+      SB_VERSE_DATA.forEach(function (v) {
+        if (results.length >= 5) return;
+        if (!v || !v.ref || !v.text) return;
+        if (v.ref.toLowerCase().indexOf(q) !== -1 || v.text.toLowerCase().indexOf(q) !== -1) {
+          if (!results.find(function (r) { return r.verse.ref === v.ref; })) {
+            results.push({ verse: v, heartfelt: '', action: '' });
+          }
+        }
+      });
+      return results.slice(0, 5);
+    }
+
+    function sbRenderVerseResults(results, targetFieldId) {
+      var container = document.getElementById('sbVerseResults');
+      if (!container) return;
+      container.innerHTML = '';
+      if (!results.length) {
+        var p = document.createElement('p'); p.className = 'sb-verse-empty'; p.textContent = 'No results—try hope, fear, peace, or a book name.';
+        container.appendChild(p); return;
+      }
+      results.forEach(function (item) {
+        var card = document.createElement('div');
+        card.className = 'sb-verse-result-card';
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', 'Insert ' + item.verse.ref);
+        var refEl = document.createElement('p'); refEl.className = 'sb-verse-result-ref'; refEl.textContent = item.verse.ref + ' (KJV)';
+        var textEl = document.createElement('p'); textEl.className = 'sb-verse-result-text'; textEl.textContent = item.verse.text;
+        card.appendChild(refEl);
+        card.appendChild(textEl);
+        if (item.heartfelt) {
+          var tipEl = document.createElement('p'); tipEl.className = 'sb-verse-result-tip'; tipEl.textContent = item.heartfelt + (item.action ? ' — ' + item.action : '');
+          card.appendChild(tipEl);
+        }
+        if (item.verse.breakdown && item.verse.breakdown.length) {
+          var bk = document.createElement('p'); bk.className = 'sb-verse-result-tip'; bk.textContent = '• ' + item.verse.breakdown.slice(0,2).join(' • ');
+          card.appendChild(bk);
+        }
+        function doInsert() {
+          var fid = document.getElementById('sbInsertTarget')?.value || 'sermon-points';
+          var insertText = item.verse.ref + ' (KJV): "' + item.verse.text + '"';
+          if (item.verse.breakdown && item.verse.breakdown.length) {
+            insertText += '\n  → ' + item.verse.breakdown.join(' | ');
+          }
+          if (item.action) insertText += '\n  Do: ' + item.action;
+          appendToField(fid, insertText);
+          closeBackdrop('sbAddVerseBackdrop', 'sb-add-verse-btn');
+        }
+        var scBtn = document.createElement('button');
+        scBtn.type = 'button';
+        scBtn.className = 'sb-oia-scaffold-btn';
+        scBtn.textContent = 'Add OIA scaffold';
+        scBtn.setAttribute('aria-label', 'Add this verse to Observation in the first main point and to the verse collector');
+        scBtn.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          var insertText = item.verse.ref + ' (KJV): "' + item.verse.text + '"';
+          var ta = sbFirstOiaObservationTa();
+          if (ta) {
+            var cur = ta.value.trim();
+            ta.value = cur ? cur + '\n\n' + insertText : insertText;
+            ta.dispatchEvent(new Event('input', { bubbles: true }));
+          }
+          appendToField('sb-verse-collector', item.verse.ref);
+          sbUpdateLivePreview();
+          sbAutoSaveNow();
+          closeBackdrop('sbAddVerseBackdrop', 'sb-add-verse-btn');
+        });
+        card.addEventListener('click', doInsert);
+        card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doInsert(); } });
+        card.appendChild(scBtn);
+        container.appendChild(card);
+      });
+    }
+
+    document.getElementById('sb-add-verse-btn')?.addEventListener('click', function () {
+      openBackdrop('sbAddVerseBackdrop', 'sbVerseInput');
+    });
+    document.getElementById('sbAddVerseClose')?.addEventListener('click', function () {
+      closeBackdrop('sbAddVerseBackdrop', 'sb-add-verse-btn');
+    });
+    document.getElementById('sbVerseSearchBtn')?.addEventListener('click', function () {
+      var q = document.getElementById('sbVerseInput')?.value || '';
+      sbRenderVerseResults(sbSearchVerses(q));
+    });
+    document.getElementById('sbVerseInput')?.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { sbRenderVerseResults(sbSearchVerses(e.target.value)); }
+    });
+    document.getElementById('sbAddVerseBackdrop')?.addEventListener('click', function (e) {
+      if (e.target === document.getElementById('sbAddVerseBackdrop')) closeBackdrop('sbAddVerseBackdrop', 'sb-add-verse-btn');
+    });
+    document.getElementById('sbAddVerseBackdrop')?.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeBackdrop('sbAddVerseBackdrop', 'sb-add-verse-btn');
+    });
+
+    /* Wait for script.js to expose ROTATING_HERO_VERSES then refresh the ref */
+    window.addEventListener('load', function () {
+      if (typeof window.ROTATING_HERO_VERSES !== 'undefined') SB_VERSE_DATA = window.ROTATING_HERO_VERSES;
+      if (typeof window.SMART_DICTIONARY   !== 'undefined') SB_DICT       = window.SMART_DICTIONARY;
+    });
+
+    /* ── Compare Parallel Passages ── */
+    var compareGrid = document.getElementById('sbCompareGrid');
+    if (compareGrid) {
+      SB_PARALLEL_PASSAGES.forEach(function (group) {
+        var section = document.createElement('div');
+        var label = document.createElement('p');
+        label.style.cssText = 'font-size:0.78rem;font-weight:700;color:var(--muted,#bcc5d6);margin:0 0 0.4rem;';
+        label.textContent = group.label;
+        section.appendChild(label);
+        group.passages.forEach(function (p) {
+          var card = document.createElement('div'); card.className = 'sb-compare-card';
+          var ref  = document.createElement('p');  ref.className = 'sb-compare-ref';  ref.textContent = p.ref;
+          var text = document.createElement('p');  text.className = 'sb-compare-text'; text.textContent = p.text;
+          var ins  = document.createElement('button'); ins.type = 'button'; ins.className = 'sb-compare-insert-btn';
+          ins.textContent = '+ Insert'; ins.setAttribute('aria-label', 'Insert ' + p.ref + ' into selected field');
+          ins.addEventListener('click', function () {
+            var insertText = p.ref + ': "' + p.text + '"';
+            var fid = document.getElementById('sbCompareInsertTarget')?.value || 'sermon-points';
+            appendToField(fid, insertText);
+            closeBackdrop('sbCompareBackdrop', 'sb-compare-btn');
+          });
+          card.appendChild(ref); card.appendChild(text); card.appendChild(ins);
+          section.appendChild(card);
+        });
+        compareGrid.appendChild(section);
+      });
+    }
+    document.getElementById('sb-compare-btn')?.addEventListener('click', function () {
+      openBackdrop('sbCompareBackdrop', null);
+    });
+    document.getElementById('sbCompareClose')?.addEventListener('click', function () {
+      closeBackdrop('sbCompareBackdrop', 'sb-compare-btn');
+    });
+    document.getElementById('sbCompareBackdrop')?.addEventListener('click', function (e) {
+      if (e.target === document.getElementById('sbCompareBackdrop')) closeBackdrop('sbCompareBackdrop', 'sb-compare-btn');
+    });
+    document.getElementById('sbCompareBackdrop')?.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeBackdrop('sbCompareBackdrop', 'sb-compare-btn');
+    });
+
+    /* ── Scholar Notes Sidebar ── */
+    var sbNotesSidebar = document.getElementById('sbNotesSidebar');
+    var sbNotesToggle  = document.getElementById('sb-notes-toggle');
+    var sbNotesOpen    = false;
+
+    function sbUpdateCrossRefs(textRef) {
+      var list = document.getElementById('sbCrossRefList');
+      if (!list) return;
+      list.innerHTML = '';
+      var refs = SB_CROSSREFS['default'];
+      if (textRef) {
+        for (var book in SB_CROSSREFS) {
+          if (book !== 'default' && textRef.indexOf(book) !== -1) { refs = SB_CROSSREFS[book]; break; }
+        }
+      }
+      refs.forEach(function (r) {
+        var li = document.createElement('li');
+        li.textContent = r;
+        li.setAttribute('role', 'button');
+        li.setAttribute('title', 'Click to add to Key Points');
+        li.setAttribute('aria-label', 'Add cross-reference ' + r + ' to Key Points');
+        li.setAttribute('tabindex', '0');
+        li.addEventListener('click', function () { appendToField('sermon-points', r + ' — cross-reference'); });
+        li.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            appendToField('sermon-points', r + ' — cross-reference');
+          }
+        });
+        list.appendChild(li);
+      });
+    }
+
+    if (sbNotesToggle) {
+      sbNotesToggle.addEventListener('click', function () {
+        sbNotesOpen = !sbNotesOpen;
+        sbNotesSidebar?.classList.toggle('open', sbNotesOpen);
+        sbNotesToggle.setAttribute('aria-pressed', String(sbNotesOpen));
+        if (sbNotesOpen) {
+          sbUpdateCrossRefs(getField('sermon-text-ref')?.value || '');
+          document.getElementById('sbNotesText')?.focus();
+        }
+      });
+    }
+
+    document.getElementById('sbNotesInsertBtn')?.addEventListener('click', function () {
+      var note = document.getElementById('sbNotesText')?.value?.trim();
+      if (!note) return;
+      appendToField('sermon-points', '[Scholar Note] ' + note);
+    });
+
+    /* Update cross-refs when primary text changes */
+    getField('sermon-text-ref')?.addEventListener('change', function () {
+      sbUpdateCrossRefs(this.value);
+    });
+
+    /* ── Read Aloud (TTS) ── */
+    var sbTTSBtn    = document.getElementById('sb-tts-btn');
+    var sbTTSActive = false;
+    var sbTTSUtter  = null;
+
+    function sbBuildReadText() {
+      var draft = sbGetDraft();
+      var parts = [];
+      if (draft.title)       parts.push(draft.title + '.');
+      if (draft.textRef)     parts.push('Primary text: ' + draft.textRef + '.');
+      if (draft.theme)       parts.push('Theme: ' + draft.theme + '.');
+      if (draft.oiaPoints && draft.oiaPoints.length) {
+        draft.oiaPoints.forEach(function (p, i) {
+          var h = p.title || ('Point ' + (i + 1));
+          parts.push(h + '.');
+          if (p.observation) parts.push('Observation. ' + p.observation.replace(/\n/g, '. '));
+          if (p.interpretation) parts.push('Interpretation. ' + p.interpretation.replace(/\n/g, '. '));
+          if (p.application) parts.push('Application. ' + p.application.replace(/\n/g, '. '));
+        });
+      }
+      if (draft.outline)     parts.push('Outline. ' + draft.outline.replace(/\n/g, '. '));
+      if (draft.points)      parts.push('Key points. ' + draft.points.replace(/\n/g, '. '));
+      if (draft.application) parts.push('Application. ' + draft.application);
+      if (draft.prayer)      parts.push('Closing prayer. ' + draft.prayer);
+      if (draft.notes)       parts.push('Scholar notes. ' + draft.notes);
+      if (draft.studyMaterials) parts.push('Supporting context. ' + draft.studyMaterials.replace(/\n/g, '. '));
+      return parts.join(' ');
+    }
+
+    if (sbTTSBtn && 'speechSynthesis' in window) {
+      sbTTSBtn.addEventListener('click', function () {
+        if (sbTTSActive) {
+          window.speechSynthesis.cancel();
+          sbTTSActive = false;
+          sbTTSBtn.textContent = '🔊 Read\u00a0Aloud';
+          sbTTSBtn.setAttribute('aria-label', 'Read sermon aloud');
+          sbTTSBtn.setAttribute('aria-pressed', 'false');
+          sbTTSBtn.classList.remove('sb-btn--gold');
+          return;
+        }
+        var text = sbBuildReadText();
+        if (!text.trim()) {
+          if (typeof showEliteToast === 'function') showEliteToast('Fill in a few fields first, then tap Read Aloud.');
+          return;
+        }
+        sbTTSUtter = new SpeechSynthesisUtterance(text);
+        sbTTSUtter.rate = 0.9;
+        sbTTSUtter.onend = sbTTSUtter.onerror = function () {
+          sbTTSActive = false;
+          sbTTSBtn.textContent = '🔊 Read\u00a0Aloud';
+          sbTTSBtn.setAttribute('aria-label', 'Read sermon aloud');
+          sbTTSBtn.setAttribute('aria-pressed', 'false');
+          sbTTSBtn.classList.remove('sb-btn--gold');
+        };
+        window.speechSynthesis.speak(sbTTSUtter);
+        sbTTSActive = true;
+        sbTTSBtn.textContent = '⏹ Stop';
+        sbTTSBtn.setAttribute('aria-label', 'Stop reading sermon aloud');
+        sbTTSBtn.setAttribute('aria-pressed', 'true');
+        sbTTSBtn.classList.add('sb-btn--gold');
+      });
+    } else if (sbTTSBtn) {
+      sbTTSBtn.hidden = true;
+    }
+
+    /* ── Lesson pack: turn Application lines into discussion prompts (device-local; no network) ── */
+    function sbLessonDiscussionLines(appText) {
+      var s = String(appText || '').trim();
+      if (!s) return ['Where does this truth meet your life this week?'];
+      var lines = s.split('\n').map(function (x) { return x.trim(); }).filter(Boolean);
+      if (lines.length > 1) {
+        return lines.slice(0, 5).map(function (line) {
+          return line.length > 280 ? line.slice(0, 277) + '\u2026' : line;
+        });
+      }
+      var one = lines[0] || s;
+      var sentences = [];
+      var buf = '';
+      for (var i = 0; i < one.length; i++) {
+        buf += one[i];
+        var ch = one[i];
+        if ((ch === '.' || ch === '!' || ch === '?') && (i === one.length - 1 || /\s/.test(one[i + 1]))) {
+          var t = buf.trim();
+          if (t) sentences.push(t);
+          buf = '';
+        }
+      }
+      if (buf.trim()) sentences.push(buf.trim());
+      if (!sentences.length) sentences = [one];
+      if (sentences.length === 1) {
+        var u = sentences[0];
+        return ['Discuss: ' + (u.length > 220 ? u.slice(0, 217) + '\u2026' : u)];
+      }
+      return sentences.slice(0, 4).map(function (sent) {
+        return 'Discuss: ' + sent;
+      });
+    }
+
+    /* ── PDF Export (jsPDF): standard, handout, small-group lesson (OIA-friendly) ── */
+    function sbExportSermonPdf(exportMode) {
+      exportMode = exportMode || 'standard';
+      var draft = sbGetDraft();
+      var title = draft.title || 'Sermon';
+      var isHandout = exportMode === 'handout';
+      var isLesson = exportMode === 'lesson';
+
+      var jspdf = window.jspdf;
+      if (jspdf && jspdf.jsPDF) {
+        var doc = new jspdf.jsPDF({ unit: 'pt', format: 'a4' });
+        var margin = 48;
+        var y = 60;
+        var W = doc.internal.pageSize.getWidth() - margin * 2;
+        var sizes = isHandout
+          ? { title: 18, heading: 12, body: 12, note: 10, lh: 18 }
+          : isLesson
+          ? { title: 17, heading: 12, body: 11, note: 10, lh: 17 }
+          : { title: 20, heading: 11, body: 10, note: 9, lh: 16 };
+
+        function addLine(text, style) {
+          if (!text && style !== 'title') return;
+          if (y > doc.internal.pageSize.getHeight() - 60) { doc.addPage(); y = 60; }
+          var lh = sizes.lh;
+          if (style === 'title') {
+            doc.setFont('helvetica', 'bold'); doc.setFontSize(sizes.title); doc.setTextColor(163, 125, 64);
+          } else if (style === 'heading') {
+            doc.setFont('helvetica', 'bold'); doc.setFontSize(sizes.heading); doc.setTextColor(80, 80, 80);
+          } else if (style === 'note') {
+            doc.setFont('helvetica', 'italic'); doc.setFontSize(sizes.note); doc.setTextColor(120, 120, 120);
+          } else {
+            doc.setFont('helvetica', 'normal'); doc.setFontSize(sizes.body); doc.setTextColor(30, 30, 30);
+          }
+          var lines = doc.splitTextToSize(String(text || ''), W);
+          doc.text(lines, margin, y);
+          y += lines.length * lh + (style === 'title' ? 10 : style === 'heading' ? 6 : 4);
+        }
+
+        function addParagraph(block, heading) {
+          if (!block || !String(block).trim()) return;
+          addLine(heading, 'heading');
+          String(block).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+          y += 4;
+        }
+
+        if (isLesson) {
+          addLine(title, 'title');
+          addLine('Small group lesson pack (KJV) — Observation · Interpretation · Application', 'note');
+          if (draft.date) addLine('Date: ' + draft.date, 'note');
+          if (draft.theme) addLine('Aim: ' + draft.theme, 'note');
+          if (draft.textRef) addLine('Primary text: ' + draft.textRef, 'heading');
+          y += 8;
+
+          var hasOiaLesson = draft.oiaPoints && draft.oiaPoints.some(function (p) {
+            return p && ((p.title || '').trim() || (p.observation || '').trim() || (p.interpretation || '').trim() || (p.application || '').trim());
+          });
+
+          if (hasOiaLesson) {
+            addLine('Main points (OIA)', 'heading');
+            draft.oiaPoints.forEach(function (p, idx) {
+              var hasPt = p && ((p.title || '').trim() || (p.observation || '').trim() || (p.interpretation || '').trim() || (p.application || '').trim());
+              if (!hasPt) return;
+              addLine((idx + 1) + '. ' + ((p.title || '').trim() || 'Point'), 'heading');
+              if (p.observation && String(p.observation).trim()) {
+                addLine('Observation — what does the text say?', 'note');
+                String(p.observation).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+              }
+              if (p.interpretation && String(p.interpretation).trim()) {
+                addLine('Interpretation — what does it mean?', 'note');
+                String(p.interpretation).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+              }
+              if (p.application && String(p.application).trim()) {
+                addLine('Application — how do we live it?', 'note');
+                String(p.application).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+                addLine('Discussion prompts', 'note');
+                sbLessonDiscussionLines(p.application).forEach(function (line) {
+                  addLine('\u2022 ' + line, 'body');
+                });
+              }
+              y += 4;
+            });
+            y += 4;
+          } else {
+            addLine('Observation — What does the text say?', 'heading');
+            var obsL = [draft.textRef ? '(' + draft.textRef + ')' : '', draft.outline, draft.points].filter(function (x) { return x && String(x).trim(); }).join('\n\n');
+            if (obsL.trim()) {
+              obsL.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            } else {
+              addLine('(Add observations from the passage, or use main points above in the workspace.)', 'note');
+            }
+            y += 6;
+            addLine('Interpretation — What does it mean?', 'heading');
+            var interpL = draft.notes || draft.theme;
+            if (interpL && String(interpL).trim()) {
+              String(interpL).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            } else {
+              addLine('(Context, cross-references, one main idea.)', 'note');
+            }
+            y += 6;
+            addLine('Application — What should we do?', 'heading');
+            if (draft.application && draft.application.trim()) {
+              draft.application.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+              addLine('Discussion prompts', 'note');
+              sbLessonDiscussionLines(draft.application).forEach(function (line) {
+                addLine('\u2022 ' + line, 'body');
+              });
+            } else {
+              addLine('(How this shapes love, repentance, or obedience this week.)', 'note');
+            }
+            y += 6;
+          }
+
+          if (draft.verseCollector && String(draft.verseCollector).trim()) {
+            addLine('Verse collector', 'heading');
+            draft.verseCollector.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            y += 6;
+          }
+          if (draft.studyMaterials && String(draft.studyMaterials).trim()) {
+            addLine('Supporting context (book intros, chains, word helps)', 'heading');
+            String(draft.studyMaterials).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            y += 6;
+          }
+          if (draft.outline && draft.outline.trim()) {
+            addParagraph(draft.outline, 'Outline');
+          }
+          if (draft.points && draft.points.trim()) {
+            addParagraph(draft.points, 'Key points & illustrations');
+          }
+          if (hasOiaLesson && draft.application && draft.application.trim()) {
+            addParagraph(draft.application, 'Whole-group application');
+            addLine('Discussion prompts', 'note');
+            sbLessonDiscussionLines(draft.application).forEach(function (line) {
+              addLine('\u2022 ' + line, 'body');
+            });
+            y += 4;
+          }
+          if (draft.prayer && draft.prayer.trim()) {
+            addParagraph(draft.prayer, 'Closing prayer');
+          }
+          if (draft.notes && draft.notes.trim()) {
+            addParagraph(draft.notes, 'Scholar notes');
+          }
+        } else {
+          addLine(title, 'title');
+          if (draft.date) addLine('Date: ' + draft.date, 'note');
+          if (draft.theme) addLine('Theme: ' + draft.theme, 'note');
+          if (draft.textRef) addLine('Primary Text: ' + draft.textRef, 'heading');
+          y += 8;
+
+          if (draft.oiaPoints && draft.oiaPoints.length) {
+            var hasOia = draft.oiaPoints.some(function (p) {
+              return p && ((p.title || '').trim() || (p.observation || '').trim() || (p.interpretation || '').trim() || (p.application || '').trim());
+            });
+            if (hasOia) {
+              addLine('Main points (OIA)', 'heading');
+              draft.oiaPoints.forEach(function (p, idx) {
+                addLine((idx + 1) + '. ' + ((p.title || '').trim() || 'Point'), 'heading');
+                if (p.observation && String(p.observation).trim()) {
+                  addLine('Observation — what does the text say?', 'note');
+                  String(p.observation).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+                }
+                if (p.interpretation && String(p.interpretation).trim()) {
+                  addLine('Interpretation — what does it mean?', 'note');
+                  String(p.interpretation).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+                }
+                if (p.application && String(p.application).trim()) {
+                  addLine('Application — how do we live it?', 'note');
+                  String(p.application).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+                }
+                y += 4;
+              });
+              y += 4;
+            }
+          }
+          if (draft.verseCollector) {
+            addLine('Verse collector', 'heading');
+            draft.verseCollector.split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            y += 6;
+          }
+          if (draft.studyMaterials && String(draft.studyMaterials).trim()) {
+            addLine('Supporting context (book intros, chains, word helps)', 'heading');
+            String(draft.studyMaterials).split('\n').forEach(function (l) { if (l.trim()) addLine(l, 'body'); });
+            y += 6;
+          }
+
+          addParagraph(draft.outline, 'Outline');
+          addParagraph(draft.points, 'Key Points & Illustrations');
+          addParagraph(draft.application, 'Application');
+          addParagraph(draft.prayer, 'Closing Prayer');
+          if (draft.notes) {
+            y += 4;
+            addParagraph(draft.notes, 'Scholar Notes');
+          }
+          if (isHandout) {
+            y += 10;
+            addLine('For discussion', 'heading');
+            addLine('1. _________________________________________________', 'body');
+            addLine('2. _________________________________________________', 'body');
+            addLine('3. _________________________________________________', 'body');
+          }
+        }
+
+        var pageCount = doc.getNumberOfPages();
+        for (var i = 1; i <= pageCount; i++) {
+          doc.setPage(i);
+          doc.setFont('helvetica', 'italic'); doc.setFontSize(8); doc.setTextColor(160, 160, 160);
+          doc.text('Today\u2019s Daily Battle \u2022 todaysdailybattle.com \u2022 KJV', margin, doc.internal.pageSize.getHeight() - 24);
+          doc.text('Page ' + i + ' of ' + pageCount, doc.internal.pageSize.getWidth() - margin - 40, doc.internal.pageSize.getHeight() - 24);
+        }
+
+        var safeTitle = title.replace(/[^a-z0-9]/gi, '-').toLowerCase().slice(0, 40);
+        var suffix = exportMode === 'handout' ? '-handout' : exportMode === 'lesson' ? '-lesson' : '';
+        doc.save('sermon' + suffix + '-' + safeTitle + '-' + new Date().toISOString().slice(0, 10) + '.pdf');
+        if (typeof trackEvent === 'function') {
+          trackEvent('sermon_pdf_export', { mode: exportMode });
+        }
+        return;
+      }
+
+      /* Fallback: plain text */
+      var parts = [];
+      if (isLesson) {
+        var lp = [];
+        lp.push('LESSON PACK (KJV) — ' + title);
+        if (draft.date) lp.push('Date: ' + draft.date);
+        lp.push('');
+        lp.push('PRIMARY TEXT: ' + (draft.textRef || ''));
+        lp.push('AIM: ' + (draft.theme || ''));
+        lp.push('');
+        var hasOiaT = draft.oiaPoints && draft.oiaPoints.some(function (p) {
+          return p && ((p.title || '').trim() || (p.observation || '').trim() || (p.interpretation || '').trim() || (p.application || '').trim());
+        });
+        if (hasOiaT) {
+          lp.push('MAIN POINTS (OIA)');
+          draft.oiaPoints.forEach(function (p, i) {
+            lp.push('');
+            lp.push((i + 1) + '. ' + (p.title || 'Point'));
+            if (p.observation) lp.push('Observation: ' + p.observation);
+            if (p.interpretation) lp.push('Interpretation: ' + p.interpretation);
+            if (p.application) {
+              lp.push('Application: ' + p.application);
+              lp.push('Discussion prompts:');
+              sbLessonDiscussionLines(p.application).forEach(function (line) {
+                lp.push('• ' + line);
+              });
+            }
+          });
+        } else {
+          lp.push('OBSERVATION — What does the text say?');
+          lp.push(draft.outline || '');
+          lp.push(draft.points || '');
+          lp.push('');
+          lp.push('INTERPRETATION — What does it mean?');
+          lp.push(draft.notes || draft.theme || '');
+          lp.push('');
+          lp.push('APPLICATION — What should we do?');
+          lp.push(draft.application || '');
+        }
+        lp.push('');
+        if (draft.verseCollector && String(draft.verseCollector).trim()) {
+          lp.push('VERSE COLLECTOR');
+          lp.push(draft.verseCollector);
+          lp.push('');
+        }
+        if (draft.studyMaterials && String(draft.studyMaterials).trim()) {
+          lp.push('SUPPORTING CONTEXT');
+          lp.push(draft.studyMaterials);
+          lp.push('');
+        }
+        if (hasOiaT && draft.application && String(draft.application).trim()) {
+          lp.push('WHOLE-GROUP APPLICATION');
+          lp.push(draft.application);
+          lp.push('Discussion prompts:');
+          sbLessonDiscussionLines(draft.application).forEach(function (line) {
+            lp.push('• ' + line);
+          });
+          lp.push('');
+        }
+        lp.push('CLOSING PRAYER');
+        lp.push(draft.prayer || '');
+        lp.push('');
+        if (draft.notes && String(draft.notes).trim()) {
+          lp.push('SCHOLAR NOTES');
+          lp.push(draft.notes);
+          lp.push('');
+        }
+        lp.push('todaysdailybattle.com | KJV');
+        parts = lp;
+      } else {
+        var oiaTxt = '';
+        if (draft.oiaPoints && draft.oiaPoints.length) {
+          oiaTxt = '\nMAIN POINTS (OIA)\n';
+          draft.oiaPoints.forEach(function (p, i) {
+            oiaTxt += '\n' + (i + 1) + '. ' + (p.title || '') + '\n';
+            if (p.observation) oiaTxt += 'Observation: ' + p.observation + '\n';
+            if (p.interpretation) oiaTxt += 'Interpretation: ' + p.interpretation + '\n';
+            if (p.application) oiaTxt += 'Application: ' + p.application + '\n';
+          });
+        }
+        parts = [
+          (isHandout ? 'HANDOUT — ' : 'SERMON — ') + title,
+          draft.date ? 'Date: ' + draft.date : '',
+          draft.theme ? 'Theme: ' + draft.theme : '',
+          draft.textRef ? 'Text: ' + draft.textRef : '',
+          oiaTxt,
+          draft.verseCollector ? '\nVERSE COLLECTOR\n' + draft.verseCollector : '',
+          draft.studyMaterials ? '\nSUPPORTING CONTEXT\n' + draft.studyMaterials : '',
+          '',
+          draft.outline ? 'OUTLINE\n' + draft.outline : '',
+          draft.points ? '\nKEY POINTS\n' + draft.points : '',
+          draft.application ? '\nAPPLICATION\n' + draft.application : '',
+          draft.prayer ? '\nCLOSING PRAYER\n' + draft.prayer : '',
+          draft.notes ? '\nSCHOLAR NOTES\n' + draft.notes : '',
+          isHandout ? '\nFOR DISCUSSION\n1.\n2.\n3.' : '',
+          '\ntodaysdailybattle.com | KJV'
+        ];
+      }
+      var lines = parts.filter(function (x) { return x !== '' && x != null; }).join('\n');
+      var blob = new Blob([lines], { type: 'text/plain;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'sermon-' + exportMode + '-' + new Date().toISOString().slice(0, 10) + '.txt';
+      document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(url); document.body.removeChild(a); }, 1000);
+    }
+
+    document.getElementById('sb-pdf-btn')?.addEventListener('click', function () { sbExportSermonPdf('standard'); });
+    document.getElementById('sb-pdf-handout-btn')?.addEventListener('click', function () { sbExportSermonPdf('handout'); });
+    document.getElementById('sb-pdf-lesson-btn')?.addEventListener('click', function () { sbExportSermonPdf('lesson'); });
+
+    /* ── Web Share ── */
+    document.getElementById('sb-share-btn')?.addEventListener('click', function () {
+      var draft = sbGetDraft();
+      var text  = [
+        (draft.title  ? '📖 ' + draft.title + '\n'     : ''),
+        (draft.textRef? draft.textRef + '\n\n'          : ''),
+        (draft.outline? 'Outline:\n' + draft.outline + '\n\n' : ''),
+        (draft.prayer ? 'Prayer: ' + draft.prayer       : ''),
+        '\n— Today\'s Daily Battle | todaysdailybattle.com'
+      ].join('').trim();
+
+      if (navigator.share) {
+        navigator.share({ title: draft.title || 'Sermon', text: text })
+          .catch(function () {});
+        return;
+      }
+      /* Clipboard fallback */
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(function () {
+          var btn = document.getElementById('sb-share-btn');
+          if (btn) { var prev = btn.textContent; btn.textContent = '✓ Copied!'; setTimeout(function () { btn.textContent = prev; }, 2200); }
+        });
+      }
+    });
+
+    /* ── Initial cross-refs on load ── */
+    window.addEventListener('load', function () {
+      sbUpdateCrossRefs(getField('sermon-text-ref')?.value || '');
+    });
+
+    document.getElementById('sb-add-point-btn')?.addEventListener('click', function () {
+      var cur = sbCollectOiaPoints();
+      cur.push({ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' });
+      sbRenderOiaPoints(cur);
+      sbAutoSaveNow();
+    });
+
+    (function sbWireWorkspaceDelegation() {
+      var wrap = document.getElementById('sb-workspace-wrap');
+      if (!wrap) return;
+      wrap.addEventListener('input', function () {
+        sbUpdateLivePreview();
+        clearTimeout(sbAutoSaveTimer);
+        sbAutoSaveTimer = setTimeout(sbAutoSaveNow, 5000);
+        if (sbAutoSaveStatus) {
+          sbAutoSaveStatus.textContent = 'Unsaved changes…';
+          sbAutoSaveStatus.className = 'sb-autosave-status';
+        }
+      });
+    })();
+
+    window.tdbSermonGetExtendedDraft = function () {
+      var d = sbGetDraft();
+      return {
+        oiaPoints: d.oiaPoints || [],
+        verseCollector: d.verseCollector || '',
+        studyMaterials: d.studyMaterials || ''
+      };
+    };
+    window.tdbSermonApplyOiaDraft = function (draft) {
+      if (!draft) return;
+      var vc = getField('sb-verse-collector');
+      if (vc && draft.verseCollector != null) vc.value = draft.verseCollector;
+      var sm = getField('sb-study-materials');
+      if (sm && draft.studyMaterials != null) sm.value = draft.studyMaterials;
+      if (draft.oiaPoints && Array.isArray(draft.oiaPoints) && draft.oiaPoints.length) {
+        sbRenderOiaPoints(draft.oiaPoints);
+      } else {
+        sbRenderOiaPoints([{ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' }]);
+      }
+      sbUpdateLivePreview();
+    };
+
+    sbBootstrapOiaWorkspace();
+
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      var refQ = (params.get('ref') || '').trim();
+      if (refQ && getField('sermon-text-ref') && !getField('sermon-text-ref').value) {
+        getField('sermon-text-ref').value = refQ;
+        appendToField('sb-verse-collector', refQ);
+        sbUpdateLivePreview();
+      }
+    } catch (eRef) {}
+
+  }());
+  </script>
+  <!-- ── Inline Suggestion Bubble (shared, moved by JS) ── -->
+  <div id="sbSuggestionBubble" role="group" aria-label="Word suggestions" aria-live="polite"></div>
+
+  <script nonce="tdb2025s">
+  (function () {
+    'use strict';
+    var WORD_BANK = [
+      'hope','peace','fear','strength','love','grace','faith','forgiveness',
+      'patience','wisdom','grief','anger','loneliness','guilt','gratitude',
+      'courage','rest','trust','mercy','victory'
+    ];
+
+    var bubble  = document.getElementById('sbSuggestionBubble');
+    var TEXTAREA_IDS = ['sermon-outline','sermon-points','sermon-application','sermon-prayer'];
+    var debounceTimer = null;
+    var activeTA = null;
+
+    function hideBubble() {
+      if (!bubble) return;
+      bubble.classList.remove('visible');
+      /* delay clearing so fade-out completes */
+      setTimeout(function () { if (!bubble.classList.contains('visible')) bubble.innerHTML = ''; }, 160);
+    }
+
+    /* Get the fragment of the word being typed at cursor position */
+    function getFragment(ta) {
+      var pos  = ta.selectionStart;
+      var text = ta.value.slice(0, pos);
+      var match = text.match(/([a-zA-Z]+)$/);
+      return match ? match[1].toLowerCase() : '';
+    }
+
+    /* Replace last typed fragment with the chosen word */
+    function insertWord(ta, word, fragment) {
+      var pos    = ta.selectionStart;
+      var before = ta.value.slice(0, pos - fragment.length);
+      var after  = ta.value.slice(pos);
+      ta.value   = before + word + ' ' + after;
+      var newPos = before.length + word.length + 1;
+      ta.selectionStart = ta.selectionEnd = newPos;
+      ta.dispatchEvent(new Event('input', { bubbles: true }));
+      hideBubble();
+      ta.focus();
+    }
+
+    /* Position bubble just below the textarea's caret line */
+    function positionBubble(ta) {
+      var rect = ta.getBoundingClientRect();
+      /* Approximate caret line — use line-height * rough line count */
+      var style   = window.getComputedStyle(ta);
+      var lh      = parseFloat(style.lineHeight) || 20;
+      var padTop  = parseFloat(style.paddingTop)  || 8;
+      /* Count newlines up to caret to estimate vertical offset */
+      var lines   = ta.value.slice(0, ta.selectionStart).split('\n').length;
+      var caretY  = rect.top + padTop + lines * lh;
+      var maxY    = rect.bottom - 4;
+      var top     = Math.min(caretY, maxY) + 2;
+      bubble.style.top  = top  + 'px';
+      bubble.style.left = rect.left + 'px';
+      /* Don't overflow viewport right */
+      var vw = window.innerWidth;
+      bubble.style.maxWidth = (vw - rect.left - 12) + 'px';
+    }
+
+    function showSuggestions(ta, fragment) {
+      if (!bubble || !fragment || fragment.length < 2) { hideBubble(); return; }
+      var matches = WORD_BANK.filter(function (w) {
+        return w.indexOf(fragment) === 0 && w !== fragment;
+      }).slice(0, 3);
+      if (!matches.length) { hideBubble(); return; }
+
+      bubble.innerHTML = '';
+      matches.forEach(function (word) {
+        var chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'sb-suggestion-chip';
+        chip.textContent = word;
+        chip.setAttribute('aria-label', 'Insert word: ' + word);
+        chip.addEventListener('mousedown', function (e) {
+          e.preventDefault(); /* prevent textarea blur */
+          insertWord(ta, word, fragment);
+        });
+        chip.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            insertWord(ta, word, fragment);
+          }
+        });
+        bubble.appendChild(chip);
+      });
+
+      positionBubble(ta);
+      bubble.classList.add('visible');
+    }
+
+    function wireTextarea(id) {
+      var ta = document.getElementById(id);
+      if (!ta) return;
+
+      ta.addEventListener('keyup', function (e) {
+        /* Dismiss on navigation/delete keys quickly */
+        if (['Escape','ArrowUp','ArrowDown','Tab'].includes(e.key)) { hideBubble(); return; }
+        if (e.key === 'Enter') { hideBubble(); return; }
+        activeTA = ta;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function () {
+          showSuggestions(ta, getFragment(ta));
+        }, 300);
+      });
+
+      ta.addEventListener('blur', function () {
+        /* Short delay so mousedown on chip fires first */
+        setTimeout(hideBubble, 180);
+      });
+
+      ta.addEventListener('scroll', hideBubble);
+    }
+
+    TEXTAREA_IDS.forEach(wireTextarea);
+
+    /* Hide on resize/scroll so bubble doesn't float orphaned */
+    window.addEventListener('resize',  hideBubble);
+    window.addEventListener('scroll',  hideBubble, true);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') hideBubble();
+    });
+  }());
+  </script>
+</body>
+</html>

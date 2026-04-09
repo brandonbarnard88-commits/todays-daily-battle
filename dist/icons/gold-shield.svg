@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Gold shield icon">
+  <defs>
+    <linearGradient id="shieldGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4d891"/>
+      <stop offset="100%" stop-color="#c89732"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 4l22 8v18c0 13.2-8.2 24-22 30C18.2 54 10 43.2 10 30V12z" fill="url(#shieldGold)" opacity="0.2"/>
+  <path d="M32 6l20 7v16.8C52 42.2 44.5 52.7 32 58 19.5 52.7 12 42.2 12 29.8V13z" fill="none" stroke="#e3bc67" stroke-width="2.8" stroke-linejoin="round"/>
+  <path d="M32 17v25M20 29h24" stroke="#f2dc98" stroke-width="2.6" stroke-linecap="round"/>
+</svg>

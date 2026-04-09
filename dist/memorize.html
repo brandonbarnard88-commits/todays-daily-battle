@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="tt-bootstrap.js?v=20260326clean"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memorize • Gentle KJV memory tools • Today&apos;s Daily Battle</title>
+  <meta name="description" content="Private verse cards, gentle review, typing and listening practice—King James Bible only; everything stays on your device.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/memorize.html">
+  <meta property="og:title" content="Memorize • Gentle KJV memory tools • Today&apos;s Daily Battle">
+  <meta property="og:description" content="Private verse cards, gentle review, typing and listening practice—King James Bible only; everything stays on your device.">
+  <meta property="og:url" content="https://todaysdailybattle.com/memorize.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Today&apos;s Daily Battle">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Today&apos;s Daily Battle — gentle KJV memory tools">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Memorize • Gentle KJV memory tools • Today&apos;s Daily Battle">
+  <meta name="twitter:description" content="Private verse cards, gentle review, typing and listening practice—King James Bible only; everything stays on your device.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260411launch">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260331edge">
+  <style>
+    :root {
+      --bg:#0d1117;
+      --card:#161c26;
+      --text:#f5f7fb;
+      --muted:#8896b0;
+      --gold:#e3bc67;
+      --line:#242d3d;
+      --tdb-surface-veil-subtle: var(--tdb-lux-guilloche);
+      --tdb-surface-card-bg: color-mix(in srgb, var(--card) 93%, rgba(227, 188, 103, 0.09));
+      --tdb-surface-card-border: color-mix(in srgb, var(--line) 82%, rgba(227, 188, 103, 0.22));
+      --tdb-surface-card-shadow: 0 10px 32px rgba(0, 0, 0, 0.32),
+        0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.2) 50%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+      --tdb-surface-panel-bg: color-mix(in srgb, var(--card) 96%, rgba(139, 166, 217, 0.06));
+      --tdb-surface-panel-border: color-mix(in srgb, var(--line) 90%, rgba(227, 188, 103, 0.12));
+      --tdb-surface-panel-shadow: 0 6px 22px rgba(0, 0, 0, 0.26),
+        0 0 0 1px color-mix(in srgb, var(--line) 70%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+      --tdb-surface-radius: 18px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--gold); color: #111; }
+    .tdb-global-nav {
+      display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
+      padding: 0.35rem 0.75rem; min-height: 52px;
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border-bottom: 1px solid var(--tdb-surface-panel-border);
+      box-shadow: var(--tdb-surface-panel-shadow);
+      position: sticky; top: 0; z-index: 201; backdrop-filter: blur(10px); font-size: 0.86rem;
+    }
+    .tdb-global-nav a {
+      color: rgba(226, 232, 240, 0.85); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px;
+      min-height: 44px; display: inline-flex; align-items: center;
+    }
+    .tdb-global-nav a:hover, .tdb-global-nav a:focus-visible { color: var(--gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
+    main.mem-main { margin: 0 auto; }
+    h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.35rem; font-weight: 800; }
+    .subtitle { color: var(--muted); margin: 0 0 1rem; font-size: 0.95rem; }
+    .lead { color: rgba(245, 247, 251, 0.9); margin: 0 0 1.5rem; line-height: 1.6; }
+    main.mem-main > section {
+      margin-bottom: 1.35rem;
+      padding: 1.2rem 1.15rem 1.35rem;
+      border-radius: var(--tdb-surface-radius);
+      border: 1px solid var(--tdb-surface-panel-border);
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-panel-shadow);
+      box-sizing: border-box;
+    }
+    main.mem-main > section:last-of-type { margin-bottom: 0; }
+    .mem-intro-panel {
+      margin-bottom: 1.35rem;
+      padding: 1.15rem 1.2rem 1.3rem;
+      border-radius: var(--tdb-surface-radius);
+      border: 1px solid var(--tdb-surface-card-border);
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-card-shadow);
+      box-sizing: border-box;
+    }
+    .mem-intro-panel h1 { margin-top: 0; }
+    h2 { font-size: 1.05rem; color: var(--gold); margin: 0 0 0.65rem; font-weight: 700; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+      padding: 0.55rem 1rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+      border: 1px solid rgba(227, 188, 103, 0.45);
+      background: rgba(227, 188, 103, 0.12); color: var(--gold);
+      cursor: pointer; font-family: inherit;
+    }
+    .btn:hover, .btn:focus-visible { background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .btn-secondary { background: transparent; color: rgba(226, 232, 240, 0.9); border-color: var(--line); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--gold); color: var(--gold); }
+    label { display: block; font-weight: 600; margin: 0.5rem 0 0.25rem; font-size: 0.88rem; color: rgba(226, 232, 240, 0.88); }
+    input[type="text"] {
+      width: 100%; max-width: 22rem; min-height: 44px; padding: 0.45rem 0.65rem; border-radius: 10px;
+      border: 1px solid var(--tdb-surface-panel-border);
+      background-color: color-mix(in srgb, var(--tdb-surface-panel-bg) 92%, #0f172a);
+      color: var(--text); font-family: inherit; font-size: 1rem;
+    }
+    input:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.45); outline-offset: 2px; }
+    .mem-card {
+      margin-top: 1rem; padding: 1rem 1.1rem; border-radius: var(--tdb-surface-radius);
+      border: 1px solid var(--tdb-surface-card-border);
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      box-shadow: var(--tdb-surface-card-shadow);
+      min-height: 8rem;
+    }
+    .mem-card p { margin: 0.35rem 0 0; }
+    .mem-card .mem-ref { font-weight: 700; color: var(--gold); font-size: 1.05rem; }
+    .mem-card:not(.mem-card--text) .mem-body { display: none; }
+    .mem-card.mem-card--text .mem-ref { display: none; }
+    .mem-card.mem-card--text .mem-body { display: block; font-size: 1.08rem; line-height: 1.6; color: rgba(245, 247, 251, 0.95); }
+    .mem-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    .mem-queue { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+    .mem-queue li {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem 0.65rem;
+      padding: 0.5rem 0; border-bottom: 1px solid var(--line);
+    }
+    .mem-queue li:last-child { border-bottom: none; }
+    .mem-type-input { width: 100%; max-width: none; min-height: 6rem; font-family: inherit; font-size: 1rem; line-height: 1.55; resize: vertical; }
+    .section-note { font-size: 0.9rem; color: var(--muted); margin: 0.35rem 0 0; }
+    .mem-growing { font-size: 0.92rem; color: rgba(226, 232, 240, 0.88); margin: 0.5rem 0 0; }
+    footer.tdb-calm-hub-footer { font-size: 0.82rem; color: var(--muted); padding-bottom: 2rem; }
+    footer a { color: var(--gold); }
+    .mem-hide .mem-hidden-bit { color: transparent; text-shadow: 0 0 10px rgba(245,247,251,0.35); user-select: none; }
+    .mem-card.mem-card--listening {
+      box-shadow: 0 0 0 2px rgba(227, 188, 103, 0.45);
+      transition: box-shadow 0.25s ease;
+    }
+    @keyframes memYourTurnPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(227, 188, 103, 0); }
+      50% { box-shadow: 0 0 0 10px rgba(227, 188, 103, 0.22); }
+    }
+    .mem-card.mem-card--your-turn {
+      animation: memYourTurnPulse 1.15s ease-in-out 3;
+    }
+    @keyframes memGoodGlow {
+      0% { box-shadow: 0 0 0 0 rgba(227, 188, 103, 0); opacity: 1; }
+      45% { box-shadow: 0 0 28px 6px rgba(227, 188, 103, 0.18); opacity: 0.98; }
+      100% { box-shadow: 0 0 0 0 rgba(227, 188, 103, 0); opacity: 1; }
+    }
+    .mem-card.mem-card--good-pulse {
+      animation: memGoodGlow 0.95s ease-out 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mem-card.mem-card--your-turn { animation: none; box-shadow: 0 0 0 2px rgba(227, 188, 103, 0.35); }
+      .mem-card.mem-card--good-pulse { animation: none; box-shadow: 0 0 0 2px rgba(227, 188, 103, 0.28); }
+    }
+    .mem-rhythm-label {
+      font-size: 0.88rem; line-height: 1.5; color: rgba(226, 232, 240, 0.82); margin: 0.35rem 0 0.25rem; max-width: 36rem;
+    }
+    .mem-progress-rhythm {
+      display: flex; flex-wrap: nowrap; gap: 0.5rem; margin: 0.35rem 0 0; align-items: center; justify-content: flex-start;
+      min-height: 1.5rem; max-width: 22rem;
+    }
+    .mem-seed {
+      flex: 1 1 0; max-width: 2.25rem; height: 0.55rem; border-radius: 999px;
+      background: rgba(55, 65, 85, 0.55); border: 1px solid rgba(136, 150, 176, 0.22);
+      transition: background 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+    }
+    .mem-seed--grown {
+      background: linear-gradient(180deg, rgba(227, 188, 103, 0.35) 0%, rgba(227, 188, 103, 0.14) 100%);
+      border-color: rgba(227, 188, 103, 0.35);
+    }
+    @keyframes memSeedSoftGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(227, 188, 103, 0); }
+      50% { box-shadow: 0 0 14px 3px rgba(227, 188, 103, 0.2); }
+    }
+    .mem-seed--glow {
+      animation: memSeedSoftGlow 2.8s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mem-seed--glow { animation: none; box-shadow: 0 0 0 2px rgba(227, 188, 103, 0.2); }
+    }
+    .mem-progress-summary { margin-top: 0.45rem !important; max-width: 36rem; }
+    .mem-queue li.mem-queue-due { border-left: 3px solid rgba(227, 188, 103, 0.45); padding-left: 0.45rem; margin-left: -0.15rem; }
+    .mem-snooze-row {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;
+      width: 100%; margin-top: 0.25rem;
+    }
+    .mem-snooze-btn { font-size: 0.78rem !important; padding: 0.3rem 0.5rem !important; min-height: 40px !important; }
+    @media (max-width: 380px) {
+      .mem-progress-rhythm { gap: 0.35rem; max-width: 100%; }
+      .mem-seed { max-width: 1.85rem; height: 0.5rem; }
+      .mem-rhythm-label { font-size: 0.84rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+    <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/verse.html">Today&rsquo;s Verse</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/prayer-wall.html">Pray</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/explore.html">Explore</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/plans.html">Battle Plans</a>
+          <a href="/memorize.html">Memorize</a>
+          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+          <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+          <a href="/about.html">About</a>
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/mobius.html">Möbius</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/story.html">Story</a>
+          <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+          <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+  <div class="tdb-shell-account-strip" role="region" aria-label="Account shortcuts">
+    <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+      <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+      <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+      <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+      <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+    </div>
+  </div>
+
+  <nav class="tdb-global-subnav" aria-label="Study shelf on this device">
+    <a href="/explore.html">Explore</a>
+    <a href="/site-guide.html">Guide</a>
+    <a href="/daily-quiet-time.html">Daily quiet</a>
+    <a href="/reader.html">Reader</a>
+    <a href="/what-god-has-done.html">What God has done</a>
+    <a href="/memorize.html" aria-current="page">Memorize</a>
+    <a href="/mystudy.html">My Study</a>
+    <a href="/kjv-story.html">KJV story</a>
+  </nav>
+  <div
+    id="tdb-offline-strip"
+    class="tdb-offline-strip hidden"
+    role="status"
+    aria-live="polite"
+    data-tdb-offline-page="memorize"
+  ><p class="offline-msg"></p></div>
+  <main id="main" class="mem-main tdb-calm-hub">
+    <header class="mem-intro-panel" aria-labelledby="mem-page-title">
+      <h1 id="mem-page-title">Memorize</h1>
+      <p class="subtitle">Private &mdash; everything stays on this device</p>
+      <p class="lead">Quiet tools to hide God&rsquo;s Word in your heart. No streaks, no scores, no competition&mdash;just gentle repetition that still works on hard days. Verses you keep in <a href="/mystudy?tab=library#saved-verses" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">My Study</a> have a Memorize link on each card.</p>
+      <p class="section-note mem-year-round-bridge" style="margin:0.85rem 0 0;max-width:38rem;line-height:1.55">Families &amp; classrooms: the same gentle <strong>month-by-month KJV grid</strong> (mark learning or memorized on this device) lives on <a href="/yearly-rhythm.html#yr-memory">Year-round rhythm</a> and <a href="/family.html#family-year-round-memory">Family hub</a>. <a href="/year-at-a-glance.html">Year at a glance</a> prints every month plus seasonal doors on one page. Calm practice ideas (no quizzes): <a href="/church-sharing-kit.html#csk-memory-verse-activities">Memory Verse Activities</a> in the Church Sharing Kit &middot; <a href="/memory-verse-activities-print.html">one-page print sheet</a>.</p>
+    </header>
+
+    <section aria-labelledby="mem-card-h2">
+      <h2 id="mem-card-h2">One-tap verse cards</h2>
+      <p class="section-note">Flip between reference and full text. Optional &ldquo;hide words&rdquo; blanks out some words for gentle recall.</p>
+      <label for="mem-ref-input">Verse reference (KJV)</label>
+      <input type="text" id="mem-ref-input" maxlength="80" autocomplete="off" placeholder="e.g. John 3:16" aria-describedby="mem-ref-hint">
+      <p id="mem-ref-hint" class="section-note">Use the same form as elsewhere on the site (book, chapter:verse).</p>
+      <div class="mem-row">
+        <button type="button" class="btn" id="mem-load-verse">Load verse</button>
+        <button type="button" class="btn btn-secondary" id="mem-add-queue">Add to your memory list</button>
+      </div>
+      <div id="mem-status" class="section-note" role="status" aria-live="polite"></div>
+      <div id="mem-card" class="mem-card hidden" tabindex="0" aria-live="polite" role="article">
+        <p class="mem-ref" id="mem-card-ref"></p>
+        <p class="mem-body" id="mem-card-body"></p>
+      </div>
+      <div class="mem-row">
+        <button type="button" class="btn btn-secondary hidden" id="mem-flip">Flip card</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-hide-toggle" aria-pressed="false">Hide some words</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-mark-known">Remembered well</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-mark-review">Say it again soon</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="mem-srs-h2">
+      <h2 id="mem-srs-h2">Gentle review</h2>
+      <p class="section-note">Verses you add also live in <a href="mystudy.html">My Study</a>&rsquo;s memorize queue. A light spaced rhythm stays on this device&mdash;longer gaps when you tap &ldquo;Remembered well,&rdquo; sooner when you tap &ldquo;Say it again soon.&rdquo; Never a score.</p>
+      <p id="mem-growing" class="mem-growing" hidden aria-hidden="true"></p>
+      <p id="mem-rhythm-label" class="mem-rhythm-label" hidden>Hiding God&rsquo;s Word in your heart &mdash; one gentle rhythm at a time.</p>
+      <div id="mem-progress-rhythm" class="mem-progress-rhythm" hidden></div>
+      <p id="mem-progress-summary" class="section-note mem-progress-summary" role="status" aria-live="polite" hidden></p>
+      <div class="mem-row mem-queue-actions">
+        <button type="button" class="btn btn-secondary" id="mem-review-due">Review due verses</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-show-full-queue" aria-label="Show full memory list">Show full list</button>
+      </div>
+      <p id="mem-queue-filter-empty" class="section-note" hidden role="status" aria-live="polite"></p>
+      <ul id="mem-queue-list" class="mem-queue" aria-label="Memory list"></ul>
+      <p id="mem-queue-empty" class="lead">Nothing here yet.<br><br>When a verse touches your heart, tap <strong>Add to your memory list</strong> above.<br><br>The Lord meets you right where you are.</p>
+      <p id="mem-snooze-legend" class="section-note">When your list has verses, optional buttons appear beside each line: <strong>In 1d</strong>, <strong>In 3d</strong>, <strong>In 7d</strong> schedule the next gentle check-in about that many days out&mdash;still private, still no score.</p>
+    </section>
+
+    <section aria-labelledby="mem-type-h2">
+      <h2 id="mem-type-h2">Typing practice</h2>
+      <p class="section-note">Type the verse from memory. When you pause, first letters appear as a quiet hint&mdash;not a test.</p>
+      <label for="mem-type-area">Your typing</label>
+      <textarea id="mem-type-area" class="mem-type-input" rows="4" autocomplete="off" placeholder="Load a verse above, then type it here&hellip;" aria-describedby="mem-type-hint"></textarea>
+      <p id="mem-type-hint" class="section-note">Pause about a second after typing to show first-letter hints for words you have not typed yet.</p>
+      <div class="mem-row">
+        <button type="button" class="btn btn-secondary" id="mem-type-hint-now">Show first letters</button>
+        <button type="button" class="btn btn-secondary" id="mem-type-clear">Clear</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="mem-audio-h2">
+      <h2 id="mem-audio-h2">Listen &amp; repeat</h2>
+      <p class="section-note">Uses your browser&rsquo;s calm voice when available. Load a verse above. &ldquo;Repeat after me&rdquo; plays the line once, then softly highlights the card so you can speak it aloud&mdash;no microphone, nothing leaves your device.</p>
+      <div class="mem-row">
+        <button type="button" class="btn hidden" id="mem-repeat-along">Repeat after me</button>
+        <button type="button" class="btn btn-secondary" id="mem-speak">Read verse aloud</button>
+        <button type="button" class="btn btn-secondary" id="mem-speak-stop" hidden>Stop</button>
+      </div>
+      <p id="mem-audio-note" class="section-note hidden" role="status">Speaking is not available in this browser.</p>
+    </section>
+
+    <section aria-labelledby="mem-print-h2">
+      <h2 id="mem-print-h2">Printable cards</h2>
+      <p class="section-note">Opens a quiet print sheet: reference, then text&mdash;one card per verse. Trim or fold if you like. Text appears when you have loaded that verse on this page before (same cache as typing practice).</p>
+      <div class="mem-row">
+        <button type="button" class="btn btn-secondary" id="mem-print-cards">Open print sheet</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="mem-export-h2">
+      <h2 id="mem-export-h2">Export My Memory List</h2>
+      <p class="section-note">Private backup from this device &mdash; reference plus verse text when you have loaded it here. Never a score.</p>
+      <div class="mem-row" role="group" aria-label="Export memory list format">
+        <button type="button" class="btn btn-secondary" id="mem-export-txt">Plain text</button>
+        <button type="button" class="btn btn-secondary" id="mem-export-md">Markdown</button>
+        <button type="button" class="btn btn-secondary" id="mem-export-json">JSON</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="mem-remind-h2">
+      <h2 id="mem-remind-h2">Optional reminders</h2>
+      <p class="section-note">Browser reminders stay off by default. Nothing here nags you; open this page when you want a quiet round.</p>
+    </section>
+  </main>
+  <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Verse</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, read <a href="/where-support-goes.html">where support goes</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Need the current support path? Use the <a href="/give" aria-label="Open the support page">support page</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/kids-corner.html">Kids corner</a>
+        <a href="/kids/?v=hub20260321">Kids battle</a>
+        <a href="/coloring.html">Kids coloring</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 9, 2026</span></p>
+  <script defer src="/language-switcher.js"></script>
+</footer>
+  <script src="bible-study-companion.js?v=20260328mem"></script>
+  <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
+  <script src="memorize.js?v=20260430a11y-print"></script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
+  <script src="share-page.js?v=20260402shareattrs" defer></script>
+</body>
+</html>

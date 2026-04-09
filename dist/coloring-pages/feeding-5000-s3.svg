@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
+  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="450" cy="480" rx="320" ry="60"/>
+    <circle cx="450" cy="200" r="26"/>
+    <line x1="450" y1="226" x2="450" y2="360"/>
+    <line x1="450" y1="260" x2="390" y2="220"/>
+    <line x1="450" y1="260" x2="510" y2="220"/>
+    <line x1="450" y1="300" x2="380" y2="280"/>
+    <line x1="450" y1="300" x2="520" y2="280"/>
+    <rect x="320" y="380" width="260" height="50" rx="10"/>
+    <circle cx="380" cy="405" r="16"/>
+    <circle cx="450" cy="400" r="16"/>
+    <circle cx="520" cy="405" r="16"/>
+    <circle cx="300" cy="420" r="12"/>
+    <circle cx="600" cy="415" r="12"/>
+    <circle cx="250" cy="450" r="11"/>
+    <circle cx="650" cy="445" r="11"/>
+  </g>
+</svg>

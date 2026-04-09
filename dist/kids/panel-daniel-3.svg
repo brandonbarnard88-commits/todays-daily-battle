@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="Daniel safeking amazed">
+  <defs>
+    <linearGradient id="d3-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#87CEEB"/><stop offset="1" stop-color="#E0F6FF"/></linearGradient>
+    <linearGradient id="d3-robe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B4513"/><stop offset="1" stop-color="#5D3A1A"/></linearGradient>
+    <linearGradient id="d3-king" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD700"/><stop offset="1" stop-color="#B8860B"/></linearGradient>
+  </defs>
+  <rect width="200" height="160" fill="url(#d3-sky)"/>
+  <rect x="0" y="100" width="200" height="60" fill="#6B8E23"/>
+  <!-- King / Darius figure (amazed) -->
+  <ellipse cx="155" cy="75" rx="22" ry="26" fill="#F5DEB3" stroke="#333" stroke-width="1"/>
+  <circle cx="150" cy="70" r="2.5" fill="#333"/>
+  <circle cx="160" cy="70" r="2.5" fill="#333"/>
+  <path d="M148 82 Q155 86 162 82" stroke="#333" stroke-width="1" fill="none"/>
+  <path d="M133 78 L133 115 L177 115 L177 78 Q155 65 133 78" fill="url(#d3-king)" stroke="#8B7355" stroke-width="1"/>
+  <path d="M155 95 L155 115 L165 115 L165 95 Z" fill="#8B4513" stroke="#333" stroke-width="1"/>
+  <!-- Crown -->
+  <path d="M145 55 L155 45 L165 55 L160 50 L155 55 L150 50 Z" fill="#FFD700" stroke="#8B7355" stroke-width="1"/>
+  <!-- Daniel standing, safe -->
+  <ellipse cx="75" cy="80" rx="18" ry="22" fill="#F5DEB3" stroke="#333" stroke-width="1"/>
+  <circle cx="70" cy="75" r="2.5" fill="#333"/>
+  <circle cx="80" cy="75" r="2.5" fill="#333"/>
+  <path d="M68 88 Q75 92 82 88" stroke="#333" stroke-width="1" fill="none"/>
+  <path d="M57 85 L57 115 L93 115 L93 85 Q75 75 57 85" fill="url(#d3-robe)" stroke="#333" stroke-width="1"/>
+  <line x1="75" y1="115" x2="70" y2="130" stroke="#5D4E37" stroke-width="3"/>
+  <line x1="85" y1="115" x2="90" y2="128" stroke="#5D4E37" stroke-width="3"/>
+  <!-- Speech bubbles -->
+  <path d="M45 45 L95 45 L100 60 L88 65 L45 65 Z" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="52" y="58" font-family="Comic Sans MS, cursive" font-size="9" fill="#333">I'm safe!</text>
+  <path d="M125 55 L175 55 L180 70 L168 75 L125 75 Z" fill="white" stroke="#333" stroke-width="1.5"/>
+  <text x="132" y="68" font-family="Comic Sans MS, cursive" font-size="8" fill="#333">God saved him!</text>
+</svg>

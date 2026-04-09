@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="Daniel in the lions den - God protects">
+  <defs>
+    <linearGradient id="d-cave" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d3d3d"/><stop offset="1" stop-color="#1a1a1a"/></linearGradient>
+    <linearGradient id="d-robe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B4513"/><stop offset="1" stop-color="#5D3A1A"/></linearGradient>
+  </defs>
+  <rect width="200" height="160" fill="url(#d-cave)"/>
+  <ellipse cx="45" cy="120" rx="30" ry="20" fill="#c9a227" stroke="#8B7355" stroke-width="1"/>
+  <circle cx="58" cy="113" r="7" fill="#2d2d2d"/>
+  <circle cx="60" cy="110" r="2" fill="white"/>
+  <ellipse cx="155" cy="118" rx="28" ry="19" fill="#b8941f" stroke="#8B7355" stroke-width="1"/>
+  <circle cx="142" cy="111" r="6" fill="#2d2d2d"/>
+  <circle cx="144" cy="108" r="2" fill="white"/>
+  <!-- Daniel kneeling, calm -->
+  <ellipse cx="100" cy="85" rx="20" ry="24" fill="#F5DEB3" stroke="#333" stroke-width="1"/>
+  <circle cx="95" cy="80" r="2.5" fill="#333"/>
+  <circle cx="105" cy="80" r="2.5" fill="#333"/>
+  <path d="M92 92 Q100 96 108 92" stroke="#333" stroke-width="1" fill="none"/>
+  <path d="M80 88 L80 118 L120 118 L120 88 Q100 78 80 88" fill="url(#d-robe)" stroke="#333" stroke-width="1"/>
+  <!-- Speech bubble -->
+  <path d="M55 45 L145 45 L150 60 L138 65 L55 65 Z" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="65" y="57" font-family="Comic Sans MS, cursive" font-size="10" fill="#333">God protects when you pray!</text>
+</svg>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study workshop (Tools) • Bible Hub • Today's Daily Battle</title>
+  <meta name="description" content="KJV concordance, verse maps, book intros, full word-help index, memory and quiz—one calm workshop for deeper study.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/bible/tools.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260412launch">
+  <link rel="stylesheet" href="bible-hub.css?v=20260331edge">
+  <link rel="stylesheet" href="bible-tools.css?v=20260330surfaces">
+  <link rel="manifest" href="../manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" integrity="sha384-0esPaJH+F9evp2lsJYN36SW7XkRbaYviuyF+PpnbjDXBC9i1CWGiJyGrXCyiyGqZ" crossorigin="anonymous" defer></script>
+  <script type="module" src="../config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode bible-hub-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar bible-hub-header">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle bible-hub-subtitle">Bible Hub</span>
+      </div>
+      <nav class="bible-hub-nav" aria-label="Bible Hub navigation">
+        <a href="/bible/">Daily</a>
+        <a href="study.html">Study</a>
+        <a href="tools.html" aria-current="page">Tools</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner bible-hub-inner bible-tools-inner">
+        <header class="bible-hub-hero bible-tools-hero">
+          <p class="bible-tools-eyebrow">Study workshop</p>
+          <h1>Tools</h1>
+          <p class="bible-hub-tagline">A calm workshop for the King James Bible—map, memorize, browse context, and search the text.</p>
+          <p class="bible-tools-intro">Quiet tools to help you understand and teach the KJV. Everything here is built to stay light and fast; open each tool once while online so it is ready when you need it offline.</p>
+        </header>
+
+        <p class="bible-tools-hub-bridge">Verse lookup, topic search, and Ask the Word stay in the <a href="../bible-tool.html">Bible Tool</a>. This page is the shelf for maps, memory, book intros, the full word-help index, and concordance. Notes and your queue live in <a href="../mystudy.html">My Study</a>.</p>
+
+        <p class="bible-hub-tagline tdb-kjv-dict-hint util-mb-0_75" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
+
+        <section class="bible-tools-lanes glass" aria-labelledby="bible-tools-lanes-title">
+          <h2 id="bible-tools-lanes-title" class="bible-tools-group-title">Start here in 30 seconds</h2>
+          <div class="bible-tools-lanes-grid">
+            <a class="bible-tools-lane-card" href="tools.html?place=jerusalem#verse-maps-section">
+              <span class="bible-tools-lane-step">Need context</span>
+              <strong class="bible-tools-lane-title">Open Verse Maps</strong>
+              <span class="bible-tools-lane-copy">See the place, then read related verses.</span>
+            </a>
+            <a class="bible-tools-lane-card" href="tools.html?q=faith#concordance-section">
+              <span class="bible-tools-lane-step">Need cross-text</span>
+              <strong class="bible-tools-lane-title">Run concordance</strong>
+              <span class="bible-tools-lane-copy">Pull every verse tied to one word.</span>
+            </a>
+            <a class="bible-tools-lane-card" href="tools.html?tool=memory#verse-memory-section">
+              <span class="bible-tools-lane-step">Need retention</span>
+              <strong class="bible-tools-lane-title">Do memory drill</strong>
+              <span class="bible-tools-lane-copy">Practice one verse until it sticks.</span>
+            </a>
+          </div>
+        </section>
+
+        <div class="bible-tools-overview-shell">
+        <nav class="bible-tools-overview" aria-label="Jump to a tool">
+          <p class="bible-tools-overview-label" id="bible-tools-overview-label">At a glance</p>
+          <ul class="bible-tools-overview-grid" aria-labelledby="bible-tools-overview-label">
+            <li>
+              <a class="bible-tools-overview-card tdb-surface-card" href="#verse-maps-section">
+                <span class="bible-tools-overview-name">Verse Maps</span>
+                <span class="bible-tools-overview-desc">See a place on the map and read related verses</span>
+              </a>
+            </li>
+            <li>
+              <a class="bible-tools-overview-card tdb-surface-card" href="#verse-memory-section">
+                <span class="bible-tools-overview-name">Verse Memory</span>
+                <span class="bible-tools-overview-desc">Fill-in-the-blank from today&rsquo;s chapter</span>
+              </a>
+            </li>
+            <li>
+              <a class="bible-tools-overview-card tdb-surface-card" href="#bible-quiz-section">
+                <span class="bible-tools-overview-name">Today&rsquo;s Quiz</span>
+                <span class="bible-tools-overview-desc">Quick questions on today&rsquo;s chapter</span>
+              </a>
+            </li>
+            <li>
+              <a class="bible-tools-overview-card tdb-surface-card" href="#book-intros">
+                <span class="bible-tools-overview-name">Book introductions</span>
+                <span class="bible-tools-overview-desc">What each book is doing, in plain words</span>
+              </a>
+            </li>
+            <li>
+              <a class="bible-tools-overview-card tdb-surface-card" href="#kjv-word-helps">
+                <span class="bible-tools-overview-name">KJV word helps</span>
+                <span class="bible-tools-overview-desc">Short glosses for older or easy-to-misread words</span>
+              </a>
+            </li>
+            <li>
+              <a class="bible-tools-overview-card tdb-surface-card" href="#concordance-section">
+                <span class="bible-tools-overview-name">Concordance</span>
+                <span class="bible-tools-overview-desc">Find every verse that uses a word</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        </div>
+
+        <section class="bible-tools-group" aria-labelledby="bible-tools-group-place">
+          <h2 id="bible-tools-group-place" class="bible-tools-group-title">Maps &amp; place</h2>
+          <p class="bible-tools-group-lead">Start with geography when the text names towns, rivers, or regions.</p>
+
+        <section id="verse-maps-section" class="verse-maps-section glass" role="search" aria-label="Verse Maps">
+          <div class="verse-maps-header">
+            <h3 class="verse-maps-title">Verse Maps</h3>
+            <p class="verse-maps-hint">Type a place to see it on the map and related verses.</p>
+            <div class="verse-maps-search-row">
+              <input type="search" id="verse-maps-input" class="verse-maps-input" placeholder="e.g. Bethlehem, Jordan, Jerusalem" autocomplete="off" aria-label="Search place for verse map">
+              <button type="button" id="verse-maps-show-btn" class="verse-maps-show-btn">Show Map</button>
+            </div>
+          </div>
+          <div id="verse-maps-content" class="verse-maps-content hidden">
+            <div class="verse-maps-frame">
+              <iframe id="verse-maps-iframe" class="verse-maps-iframe" title="Map of biblical place" allowfullscreen></iframe>
+            </div>
+            <div class="verse-maps-accordion" role="region" aria-label="Related verses">
+              <button type="button" class="verse-maps-accordion-trigger" id="verse-maps-accordion-trigger" aria-expanded="true" aria-controls="verse-maps-verse-list">
+                <span class="verse-maps-accordion-title">Related verses</span>
+                <span class="verse-maps-accordion-icon" aria-hidden="true">▼</span>
+              </button>
+              <div id="verse-maps-verse-list" class="verse-maps-verse-list" role="region"></div>
+            </div>
+            <div id="verse-maps-verse-card" class="verse-maps-verse-card hidden" role="region" aria-label="Selected verse">
+              <span id="verse-maps-verse-ref" class="verse-maps-verse-ref"></span>
+              <p id="verse-maps-verse-text" class="verse-maps-verse-text"></p>
+              <div class="verse-maps-verse-actions util-mt-0_5" role="group" aria-label="Verse actions">
+                <button type="button" id="verse-maps-highlight-btn" class="verse-maps-highlight-btn">Highlight</button>
+                <button type="button" id="verse-maps-memorize-btn" class="verse-maps-highlight-btn" hidden aria-pressed="false">Memorize</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        </section>
+
+        <section class="bible-tools-group" aria-labelledby="bible-tools-group-practice">
+          <h2 id="bible-tools-group-practice" class="bible-tools-group-title">Practice &amp; recall</h2>
+          <p class="bible-tools-group-lead">Gentle drills—fill-in memory and a short quiz tied to today&rsquo;s chapter.</p>
+
+        <section id="verse-memory-section" class="verse-memory-section glass" role="region" aria-label="Verse Memory">
+          <h3 class="verse-memory-title">Verse Memory</h3>
+          <p class="verse-memory-hint" id="verse-memory-hint">Fill in the blank. From today's chapter or this week's theme.</p>
+          <button type="button" id="memorize-verse-btn" class="memorize-verse-btn">Memorize a Verse</button>
+        </section>
+
+        <section id="bible-quiz-section" class="bible-quiz-section glass" role="region" aria-label="Bible Quiz">
+          <h3 class="bible-quiz-title">Today's Quiz</h3>
+          <p class="bible-quiz-hint" id="bible-quiz-hint">Test your knowledge of today's chapter.</p>
+          <button type="button" id="take-quiz-btn" class="take-quiz-btn">Take Today's Quiz</button>
+        </section>
+        </section>
+
+        <section class="bible-tools-group" aria-labelledby="bible-tools-group-study">
+          <h2 id="bible-tools-group-study" class="bible-tools-group-title">Study &amp; search</h2>
+          <p class="bible-tools-group-lead">Book context, word glosses, and a full concordance—everything stays on your device until you choose to share.</p>
+
+        <section id="book-intros" class="concordance-section glass book-intros-section" role="region" aria-labelledby="book-intros-title">
+          <div class="concordance-section-header">
+            <h3 id="book-intros-title" class="concordance-section-title">Book introductions</h3>
+            <p class="concordance-hint">Short orientation for each book: what fight it serves, a few anchor verses, and one small step. The same text appears in the <a href="../reader.html">chapter reader</a> and in <a href="../bible-tool.html">Bible Tool</a> after a lookup—this grid is the place to browse them all. Plan tie-ins live on <a href="../plans.html">Battle Plans</a>.</p>
+          </div>
+          <div class="hub-book-intro-controls">
+            <label for="hub-book-intro-select" class="section-note util-mb-0_5 bible-hub-tools-label">Choose a book</label>
+            <select id="hub-book-intro-select" class="hub-book-intro-select" aria-label="Book for introduction"></select>
+          </div>
+          <div id="hub-book-intro-body" class="hub-book-intro-body section-note util-mt-0_75 util-mb-1" aria-live="polite"></div>
+        </section>
+
+        <section id="kjv-word-helps" class="concordance-section glass kjv-word-helps-section" role="region" aria-labelledby="kjv-word-helps-title">
+          <div class="concordance-section-header">
+            <h3 id="kjv-word-helps-title" class="concordance-section-title">KJV word helps</h3>
+            <p class="concordance-hint">Short glosses for wording that often misleads modern readers. Tap the headword to search the concordance below; tap a verse to open it in the Bible Tool. After a lookup, the Tool&rsquo;s study companion can show glosses for words in <em>that</em> verse only—<strong>this</strong> list is the full A&ndash;Z index.</p>
+          </div>
+          <ul id="kjv-word-helps-list" class="kjv-word-helps-list" aria-label="KJV word help entries"></ul>
+        </section>
+
+        <section id="concordance-section" class="concordance-section glass" role="search" aria-label="Concordance">
+          <div class="concordance-section-header">
+            <h3 class="concordance-section-title">Concordance</h3>
+            <p class="concordance-hint">Type a word to see all verses that use it.</p>
+            <div class="concordance-search-row">
+              <input type="search" id="concordance-search-input" class="concordance-search-input" placeholder="e.g. faith, love, peace" autocomplete="off" aria-label="Search word in concordance">
+              <button type="button" id="concordance-search-btn" class="concordance-search-btn">Search</button>
+            </div>
+          </div>
+          <div class="concordance-results">
+            <p id="concordance-count" class="concordance-count" aria-live="polite"></p>
+            <ol id="concordance-list" class="concordance-list" aria-label="Verse references"></ol>
+            <div id="concordance-verse-card" class="concordance-verse-card hidden" role="region" aria-label="Selected verse">
+              <span id="concordance-verse-ref" class="concordance-verse-ref"></span>
+              <p id="concordance-verse-text" class="concordance-verse-text"></p>
+              <div id="concordance-chain-refs" class="concordance-chain-refs hidden" aria-label="Curated cross references"></div>
+              <div class="concordance-verse-actions util-mt-0_5" role="group" aria-label="Verse actions">
+                <button type="button" id="concordance-highlight-btn" class="concordance-highlight-btn">Highlight</button>
+                <button type="button" id="concordance-memorize-btn" class="concordance-highlight-btn" hidden aria-pressed="false">Memorize</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        </section>
+      </div>
+    </main>
+
+    <div id="verse-memory-modal" class="verse-memory-modal hidden" role="dialog" aria-modal="true" aria-labelledby="verse-memory-modal-title">
+      <div class="verse-memory-modal-inner">
+        <h2 id="verse-memory-modal-title" class="verse-memory-modal-title">Memorize a Verse</h2>
+        <div id="verse-memory-cards" class="verse-memory-cards"></div>
+        <div id="verse-memory-result" class="verse-memory-result hidden">
+          <p id="verse-memory-score" class="verse-memory-score"></p>
+          <p id="verse-memory-message" class="verse-memory-message"></p>
+          <button type="button" id="verse-memory-close" class="bible-hub-read-btn">Close</button>
+        </div>
+        <div id="verse-memory-actions" class="verse-memory-actions">
+          <button type="button" id="verse-memory-next" class="verse-memory-next-btn">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="bible-quiz-modal" class="bible-quiz-modal hidden" role="dialog" aria-modal="true" aria-labelledby="bible-quiz-modal-title">
+      <div class="bible-quiz-modal-inner">
+        <h2 id="bible-quiz-modal-title" class="bible-quiz-modal-title">Today's Quiz</h2>
+        <p id="bible-quiz-chapter" class="bible-quiz-chapter"></p>
+        <div id="bible-quiz-questions" class="bible-quiz-questions"></div>
+        <div id="bible-quiz-result" class="bible-quiz-result hidden">
+          <p id="bible-quiz-score" class="bible-quiz-score"></p>
+          <p id="bible-quiz-message" class="bible-quiz-message"></p>
+          <button type="button" id="bible-quiz-close" class="bible-hub-read-btn">Close</button>
+        </div>
+        <div id="bible-quiz-actions" class="bible-quiz-actions">
+          <button type="button" id="bible-quiz-next" class="bible-hub-read-btn">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="concordance-note-modal" class="concordance-note-modal hidden" role="dialog" aria-modal="true" aria-labelledby="concordance-note-title">
+      <div class="concordance-note-modal-inner">
+        <h2 id="concordance-note-title" class="concordance-note-title">Add a note</h2>
+        <p id="concordance-note-ref" class="concordance-note-ref"></p>
+        <textarea id="concordance-note-input" class="concordance-note-input" placeholder="This reminded me of…" rows="3" maxlength="500"></textarea>
+        <div class="concordance-note-actions">
+          <button type="button" id="concordance-note-save" class="bible-hub-read-btn">Save</button>
+          <button type="button" id="concordance-note-remove" class="bible-hub-share-btn">Remove highlight</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Verse</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, read <a href="/where-support-goes.html">where support goes</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Need the current support path? Use the <a href="/give" aria-label="Open the support page">support page</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/kids-corner.html">Kids corner</a>
+        <a href="/kids/?v=hub20260321">Kids battle</a>
+        <a href="/coloring.html">Kids coloring</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 9, 2026</span></p>
+  <script defer src="/language-switcher.js"></script>
+</footer>
+
+    <nav class="bible-hub-bottom-nav" aria-label="Bible Hub navigation">
+      <a href="/bible/">
+        <span class="bible-hub-bottom-nav-icon" aria-hidden="true">📖</span>
+        <span>Daily</span>
+      </a>
+      <a href="study.html">
+        <span class="bible-hub-bottom-nav-icon" aria-hidden="true">🔍</span>
+        <span>Study</span>
+      </a>
+      <a href="tools.html" aria-current="page">
+        <span class="bible-hub-bottom-nav-icon" aria-hidden="true">🛠</span>
+        <span>Tools</span>
+      </a>
+    </nav>
+  </div>
+  <script src="../verse-breakdown.js?v=20260405-relations-fix" defer></script>
+  <script src="../bible-study-companion.js?v=20260328printpolish"></script>
+  <script src="bible-tools.js?v=20260328integration-shine"></script>
+  <script type="module" src="../script.js?v=20260328feelwire" defer></script>
+  <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
+</body>
+</html>

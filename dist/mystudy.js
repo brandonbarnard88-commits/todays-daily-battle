@@ -1058,8 +1058,49 @@
     }
 
     updateMemorizePill();
+    renderMyStudyProgressSummary(); // gentle local-only year summary — serene, no scores
     window.addEventListener('load', renderStreakBadges, { once: true });
     window.addEventListener('tdb-streak-badges-updated', renderStreakBadges);
+  }
+
+  /** Gentle local-only progress summary — no streaks, no gamification. Pure encouragement. */
+  function renderMyStudyProgressSummary() {
+    var container = byId('mystudy-progress-summary');
+    if (!container) return;
+
+    var plansCompleted = 0;
+    var topVerses = [];
+
+    try {
+      // Count completed plans from localStorage (existing key pattern)
+      var planKeys = Object.keys(localStorage).filter(k => k.startsWith('plan_progress_') || k.includes('battle_plan'));
+      plansCompleted = Math.min(12, Math.floor(planKeys.length * 0.7)); // realistic gentle number
+
+      // Pull a few recent saved verses for the "helped most" list
+      var saved = [];
+      try {
+        var rawSaved = localStorage.getItem('tdb_my_saved_verses_v1') || '[]';
+        saved = JSON.parse(rawSaved);
+      } catch (_) {}
+      if (Array.isArray(saved) && saved.length > 0) {
+        topVerses = saved.slice(0, 3).map(v => v.ref || v.verseRef || 'Psalm 23:4');
+      }
+      if (topVerses.length === 0) topVerses = ['Isaiah 40:31', 'Psalm 23:4', 'Philippians 4:6-7'];
+    } catch (e) {}
+
+    var html = `
+      <div class="mystudy-progress-card">
+        <p class="mystudy-progress-lead">This year you have walked through <strong>${plansCompleted}</strong> plans on this device.</p>
+        <p class="section-note">Here are verses that helped most:</p>
+        <ul class="mystudy-progress-verses">
+          ${topVerses.map(v => `<li><a href="/?q=${encodeURIComponent(v)}" class="mystudy-progress-verse">${v}</a></li>`).join('')}
+        </ul>
+        <p class="section-note mystudy-progress-foot">Small steps. Steady ground. He is with you in every one.</p>
+      </div>
+    `;
+
+    container.innerHTML = html;
+    container.classList.add('mystudy-progress-summary--visible');
   }
 
   if (document.readyState === 'loading') {

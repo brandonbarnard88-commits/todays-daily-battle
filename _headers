@@ -2,6 +2,34 @@
 # Cloudflare Pages: https://developers.cloudflare.com/pages/configuration/headers/
 # Netlify: https://docs.netlify.com/routing/headers/
 
+# CRITICAL: Explicit MIME types for ALL JS and CSS files
+# These MUST come FIRST so they override the catch-all /* rule that sets X-Content-Type-Options: nosniff.
+# This fixes "Content-Type is not a script MIME type" errors for perf-hint.js, dompurify.min.js,
+# family-verse-bridge.js, vendor libs, assets, kids scripts, etc.
+
+# All JavaScript
+/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+/assets/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+/vendor/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+/kids/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+/kids/*/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+# All CSS
+/*.css
+  Content-Type: text/css; charset=utf-8
+
+/assets/*.css
+  Content-Type: text/css; charset=utf-8
+
 # Home + plans: stronger anti-stale for shared CDNs (s-maxage=0, no-store). Slightly weaker BFCache vs ghost deploys.
 /
   Cache-Control: no-cache, no-store, must-revalidate, max-age=0, s-maxage=0

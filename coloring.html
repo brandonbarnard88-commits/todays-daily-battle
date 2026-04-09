@@ -249,7 +249,7 @@
         </section>
         <section class="glass">
           <h2 class="section-divider">Short Verses for Kids</h2>
-          <p class="section-note">Easy verses to memorize or read together.</p>
+          <p class="section-note">Easy verses to memorize or read together. Speak them slowly while coloring.</p>
           <div class="list">
             <div class="list-item"><div><strong>Psalm 118:24</strong><p>This is the day which the Lord hath made; we will rejoice and be glad in it.</p></div></div>
             <div class="list-item"><div><strong>Psalm 23:1</strong><p>The Lord is my shepherd; I shall not want.</p></div></div>
@@ -260,6 +260,51 @@
           <div class="cta-group">
             <a class="btn btn-secondary" href="/#main-search">Search More Verses</a>
           </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">For Parents &amp; Teachers: Create Coloring Pages</h2>
+          <p class="section-note">The 280+ scenes here are hand-crafted SVGs for digital coloring and printing. To make new high-quality pages at home, use this perfected master prompt. It produces thick bold line art, large clear areas for young hands, and the exact KJV verse in beautiful decorative lettering. Keep every page reverent, simple, and worthy of little hearts.</p>
+
+          <div style="background:var(--card);padding:1.5rem;border-radius:12px;margin:1.25rem 0;">
+            <h3 style="margin-top:0;font-size:1.1rem;color:var(--gold);">Master Prompt – Perfected for This Place</h3>
+            <p style="font-family:monospace;font-size:0.82rem;line-height:1.45;white-space:pre-wrap;background:#111827;color:#e2e8f0;padding:1.1rem;border-radius:8px;overflow:auto;max-height:340px;">
+You are an expert Bible coloring page designer for children's ministry, Sunday school, homeschool, and church use. 
+
+Your work is quiet, reverent, and worthy of the Word. 
+
+Create one professional black-and-white coloring page per request that is:
+- Strictly black and white line art only
+- Thick, bold, clean outlines (easy for ages 4–12 and clear printing)
+- No shading, no gradients, no gray tones, no textures
+- Large, clear open areas for coloring
+- Pure white background
+- High contrast and print-friendly
+
+Style: simple, wholesome, balanced, classic storybook line drawing. Good composition. Add subtle decorative borders or small icons only if they serve the page without crowding. 
+
+Always include the exact full KJV verse in large, beautiful, readable decorative lettering at the bottom.
+
+When the user gives a story, verse, or theme, respond with this exact structure:
+1. The exact KJV verse.
+2. One calm sentence describing the scene the line art will show.
+3. The complete optimized image generation prompt (ready to copy-paste into any strong model).
+
+Core prompt template (adapt the scene description and insert the exact verse):
+
+"Create a clean black and white children's coloring page, thick bold clean outlines only, no shading no color no gradients no textures, white background, large clear open areas perfect for young children, [detailed wholesome scene description with strong composition, balance, and simple clear elements], reverent classic Bible storybook illustration style, include the exact KJV verse '[FULL VERSE TEXT HERE]' in large beautiful decorative lettering centered at the bottom"
+
+Example for “Jesus calming the storm – Mark 4:39”:
+1. "And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm. - Mark 4:39 (KJV)"
+2. Jesus stands in the boat with his hand raised as he speaks to the wind and waves; the disciples watch in awe while the sea grows still — large open water and sky for coloring.
+3. [the full template prompt above with this scene and verse]
+            </p>
+            <div class="cta-group" style="margin-top:1rem;">
+              <button type="button" id="copy-master-prompt" class="btn btn-secondary" style="font-size:0.9rem;">Copy Master Prompt</button>
+              <a href="kids-coloring-pack.html" class="btn btn-secondary">View Printable Pack</a>
+            </div>
+          </div>
+          <p class="section-note">Speak the verse together while coloring. The existing 280+ scenes and digital Color &amp; Tell experience stay exactly as they are — only this tool has been made better.</p>
         </section>
       </div>
     </main>
@@ -443,5 +488,27 @@
   <script defer src="kids/color-and-tell.js?v=18"></script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260405kidsdaily" data-cfasync="false"></script>
+  <script nonce="tdb2025s">
+    // Copy master prompt for parents
+    document.addEventListener('DOMContentLoaded', function() {
+      var copyBtn = document.getElementById('copy-master-prompt');
+      if (!copyBtn) return;
+      copyBtn.addEventListener('click', function() {
+        var promptBlock = copyBtn.parentElement.previousElementSibling;
+        if (promptBlock && promptBlock.tagName === 'P') {
+          var textToCopy = promptBlock.textContent.trim();
+          navigator.clipboard.writeText(textToCopy).then(function() {
+            var orig = copyBtn.textContent;
+            copyBtn.textContent = '✓ Copied';
+            copyBtn.style.background = '#166534';
+            setTimeout(function() {
+              copyBtn.textContent = orig;
+              copyBtn.style.background = '';
+            }, 2000);
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

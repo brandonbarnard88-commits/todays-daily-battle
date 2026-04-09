@@ -260,15 +260,18 @@ async function validateQuickTopic(page) {
     await page.locator('#feel-section').scrollIntoViewIfNeeded({ timeout: 15000 });
     await page.waitForTimeout(1200);
 
-    // Click the Steady category card to expand the panel containing Hope
-    const steadyCard = page.locator('#feelCatSteady, .feel-category-card[data-feel-band="steady"]').first();
-    if (await steadyCard.count() > 0) {
-      await steadyCard.waitFor({ state: 'visible', timeout: 10000 });
-      await steadyCard.click({ force: true, timeout: 10000 });
-      await page.waitForTimeout(900);
-      info('Expanded "steadiness" category (contains Hope chip)');
+    // Expand the correct category band first (per homepage-feel-search rule — category disclosure)
+    // Hope appears in "steadiness" / "When you need steadiness" band
+    const categoryCard = page.locator('.feel-category-card[data-feel-band="steady"], .feel-category-card:has-text("steadiness"), .feel-category-card:has-text("Steadiness")').first();
+    if (await categoryCard.count() > 0) {
+      await categoryCard.scrollIntoViewIfNeeded({ timeout: 10000 });
+      await categoryCard.waitFor({ state: 'visible', timeout: 10000 });
+      await categoryCard.click({ force: true, timeout: 10000 });
+      await page.waitForTimeout(1200);
+      info('Expanded steadiness category (contains Hope / Wonder chip)');
     } else {
-      info('Steady category card not found — trying fallback');
+      info('Category card not found — falling back to direct chip click');
+      await page.locator('#quickTopics').scrollIntoViewIfNeeded({ timeout: 8000 });
     }
 
     // Robust selector for the Hope chip (now that panel should be expanded)

@@ -646,9 +646,37 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
-# Kids JS (story library): avoid year-long edge stickiness if a URL is fetched without ?v=; HTML still uses ?v= for fingerprinted copies.
+# Explicit MIME types for all JavaScript + CSS (fixes X-Content-Type-Options: nosniff errors on Vercel/Cloudflare)
+# Placed before catch-all rules so they take precedence. Includes perf-hint, vendor libs, family-verse-bridge, etc.
+
+# Root JS
+/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+# Vendor libs (dompurify, jl-coloringBook, etc.)
+/vendor/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+# Assets (perf-hint.js, etc.)
+/assets/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+# Kids JS (story library, battle, loops)
 /kids/*.js
   Content-Type: application/javascript; charset=utf-8
+
+/kids/*/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+# CSS
+/*.css
+  Content-Type: text/css; charset=utf-8
+
+/assets/*.css
+  Content-Type: text/css; charset=utf-8
+
+# Kids JS (story library): avoid year-long edge stickiness if a URL is fetched without ?v=
+/kids/*.js
   Cache-Control: public, max-age=3600, must-revalidate
 
 # Loop Library (root) — same freshness as /kids/corner.html (clean URLs + .html)

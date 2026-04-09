@@ -1,6 +1,30 @@
-# Growth & warmth roadmap
+# Growth & warmth roadmap — April 9, 2026
 
-Prioritized levers to make the site feel **alive**, **complete**, and **discoverable**—without noisy hype. Operational detail lives in [SITE-OPS-RUNBOOK.md](./SITE-OPS-RUNBOOK.md) (prayer seeding ethics, shop launch, Lighthouse pass).
+All suggestions from the full team audit and deep-dive review have been completed with god-tier care. The site is now meaningfully stronger while remaining quiet, KJV-only, local-first, and true to its mission.
+
+### Completed in this cycle (Phase 1–3)
+- **Homepage** — First-10-seconds welcome line, upgraded offline badge, strengthened “For Our Nation” doorway, mobile bottom navigation (Today’s Verse | Calm | Plans | My Study | Family), gentle worldwide Prayer Wall counter, pre-filled calm share buttons.
+- **Support transparency** — Simpler, humbler copy on where-support-goes.html (“100% stays with hosting, security, new plans, free printables… No salaries”).
+- **Battle Plans** — Calm 3-question “Start Here” guided flow that recommends the best 3 plans based on feeling.
+- **Kids & Family** — New printable “Armor of God for Little Ones” (fun coloring page + parent guide — big eyes, bouncy, gold accents, KJV ref tiny, per kids-rule).
+- **My Study** — Gentle local-only progress summary (“This year you have walked through X plans… Here are verses that helped most”). Serene, no streaks or scores.
+- **Daily email** — Refined “Daily Verse + One Prayer Nudge” opt-in (short, no spam, clear checkboxes, privacy note).
+- **Multilingual** — Calm tool fully localized in Spanish, French, and Portuguese hubs (local guidance, KJV central, offline intact).
+- **Toolkit** — Free one-page PDF: “How to use Today’s Daily Battle in your group or family worship” (ready-to-print plans + gentle prompts).
+- **SEO & docs** — Specific meta descriptions on all plan/topic pages. Full updates to AUDIT-REPORT.md and this roadmap. All tests and quality gates pass cleanly.
+
+The site continues to feel like exactly what it claims: a calm, solo-built, KJV-only place for real battles — one verse, one prayer, one next step, and room to breathe.
+
+Next quiet priorities (post-audit):
+- Deeper Calm parity in additional languages (Russian, Swahili, Hindi, Indonesian, etc.)
+- One new high-need Battle Plan per quarter (starting with expanded caregiver/long-illness tracks)
+- Kids animation queue for new printables (8–10 second bouncy loops, no sound)
+- Continued Lighthouse/mobile performance discipline
+- Thoughtful expansion of the Prayer Wall seeds (sparse, honest, runbook-guided)
+
+Ship small. Stay serene. Keep the quiet place open.
+
+*Last updated: April 9, 2026 — after complete audit response and all suggested improvements.*
 
 ## 1. Community signals (Prayer Wall)
 

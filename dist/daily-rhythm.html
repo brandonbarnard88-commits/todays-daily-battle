@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="tt-bootstrap.js?v=20260410rhythm"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Rhythm • Quiet Morning &amp; Quiet Evening • Today&apos;s Daily Battle</title>
+  <meta name="description" content="A gentle daily heartbeat: Quiet Morning to begin the day with the Word, Quiet Evening to release and rest in the Lord. One verse, one prompt, one breath at a time. Private. Offline. No task list.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/daily-rhythm.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260410rhythm">
+  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260331edge">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <style>
+    :root { --bg:#0a0c12; --text:#f5f4f0; --muted:#a8a29e; --gold:#d4af7b; --line:#2a2520; }
+    body { background: var(--bg); color: var(--text); font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; line-height: 1.7; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .rhythm-hero { text-align: center; padding: 2.5rem 1.5rem 2rem; background: color-mix(in srgb, var(--bg) 92%, #1a1814); border-radius: 24px; border: 1px solid color-mix(in srgb, var(--gold) 18%, transparent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); margin-bottom: 2.5rem; }
+    .rhythm-title { font-size: clamp(1.6rem, 4.5vw, 2.2rem); color: var(--gold); margin: 0 0 0.5rem; font-weight: 700; letter-spacing: -0.02em; }
+    .rhythm-lead { color: var(--muted); font-size: 1.05rem; max-width: 34rem; margin: 0 auto 2rem; line-height: 1.6; }
+    .rhythm-card { 
+      background: color-mix(in srgb, var(--bg) 94%, #1c1917); 
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line)); 
+      border-radius: 18px; 
+      padding: 1.75rem 1.5rem; 
+      margin-bottom: 2rem; 
+      transition: all 0.3s ease;
+    }
+    .rhythm-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .rhythm-card h3 { color: var(--gold); margin: 0 0 0.75rem; font-size: 1.15rem; }
+    .rhythm-card .verse-preview { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.1rem; line-height: 1.45; color: #e8e4d9; margin: 0 0 1rem; font-style: italic; }
+    .btn-rhythm { 
+      display: inline-flex; align-items: center; justify-content: center; min-height: 52px;
+      padding: 0.75rem 2rem; border-radius: 9999px; font-size: 0.95rem; font-weight: 600;
+      background: transparent; border: 1.5px solid var(--gold); color: var(--gold); 
+      text-decoration: none; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .btn-rhythm:hover, .btn-rhythm:focus-visible { background: var(--gold); color: #111; transform: translateY(-1px); }
+    .time-suggestion { font-size: 0.85rem; color: var(--muted); text-align: center; margin: 1.5rem 0 0; padding: 0.75rem; background: rgba(212,175,123,0.06); border-radius: 12px; }
+    .offline-note { font-size: 0.82rem; color: var(--muted); text-align: center; margin: 3rem 0 0; padding: 1rem; border-radius: 12px; background: rgba(212,175,123,0.06); }
+  </style>
+</head>
+<body class="dark-mode">
+  <a href="#main" class="skip-link">Skip to Daily Rhythm</a>
+  
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/verse.html">Today’s Verse</a>
+      <a href="/daily-rhythm.html" aria-current="page">Daily Rhythm</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/prayer-wall.html">Pray</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme">Calm cream</button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/quiet-morning.html">Quiet Morning</a>
+          <a href="/quiet-evening.html">Quiet Evening</a>
+          <a href="/explore.html">Explore</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/printables.html">Printables</a>
+          <a href="/family-home.html">Family</a>
+          <a href="/about.html">About</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="rhythm">
+    <p class="offline-msg">Offline—still got you. Your daily rhythm is cached on this device.</p>
+  </div>
+
+  <main id="main" class="tdb-calm-hub">
+    <div class="rhythm-hero">
+      <h1 class="rhythm-title">Daily Rhythm</h1>
+      <p class="rhythm-lead">A gentle heartbeat for the day: one quiet moment with the Word in the morning, one peaceful release in the evening. No task list. Just the Lord, one breath at a time. Everything stays private on your device.</p>
+      
+      <div class="time-suggestion" id="time-suggestion">
+        It is currently <span id="current-time"></span>. Would you like to begin with <strong>Quiet Morning</strong> or <strong>Quiet Evening</strong>?
+      </div>
+    </div>
+
+    <div class="rhythm-card">
+      <h3>Quiet Morning</h3>
+      <p class="verse-preview" id="morning-verse-preview">"The name of the LORD is a strong tower..."</p>
+      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.25rem;">One quiet moment with the Word before the day begins. Let the Lord speak gently to your heart this morning. One short step is enough.</p>
+      <a href="/quiet-morning.html" class="btn-rhythm">Open Quiet Morning</a>
+    </div>
+
+    <div class="rhythm-card">
+      <h3>Quiet Evening</h3>
+      <p class="verse-preview" id="evening-verse-preview">"I will both lay me down in peace..."</p>
+      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.25rem;">What are you carrying as the day ends? Lay it down gently before sleep. Let the Lord bring peace to your heart tonight. One breath of gratitude is enough.</p>
+      <a href="/quiet-evening.html" class="btn-rhythm">Open Quiet Evening</a>
+    </div>
+
+    <div style="margin-top:2.5rem; text-align:center;">
+      <a href="/family-home.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Family Table prompts →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/printables.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Printable companions →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/living-in-the-refuge.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Living in the Refuge →</a>
+    </div>
+
+    <div class="offline-note">
+      Your daily rhythm stays on this device. No accounts. No lists. Just you and the Lord, morning and evening.
+    </div>
+  </main>
+
+  <footer style="max-width:42rem;margin:0 auto;padding:3rem 1.25rem 4rem;font-size:0.82rem;color:var(--muted);text-align:center;border-top:1px solid var(--line);">
+    <p>Daily Rhythm — a gentle heartbeat. <a href="/quiet-morning.html" style="color:var(--gold);">Morning</a> · <a href="/quiet-evening.html" style="color:var(--gold);">Evening</a></p>
+    <p style="margin-top:1.5rem;opacity:0.6;">KJV only. Built to be a safe, private place from dawn until dusk.</p>
+  </footer>
+
+  <script>
+    (function() {
+      function updateTimeSuggestion() {
+        const hour = new Date().getHours();
+        const timeEl = document.getElementById('current-time');
+        const suggestionEl = document.getElementById('time-suggestion');
+        
+        if (timeEl) timeEl.textContent = hour < 12 ? 'morning' : (hour < 17 ? 'afternoon' : 'evening');
+        
+        if (suggestionEl && hour >= 16) {
+          suggestionEl.innerHTML = 'It is currently evening. Would you like to begin with <strong>Quiet Evening</strong>?';
+        }
+      }
+      
+      function loadVersePreviews() {
+        const morningPreview = document.getElementById('morning-verse-preview');
+        const eveningPreview = document.getElementById('evening-verse-preview');
+        
+        if (typeof getDailyVerseRef === 'function' && typeof bible !== 'undefined') {
+          const ref = getDailyVerseRef();
+          if (ref && bible[ref]) {
+            const text = bible[ref].substring(0, 65) + '...';
+            if (morningPreview) morningPreview.textContent = '"' + text + '"';
+            if (eveningPreview) eveningPreview.textContent = '"' + text + '"';
+          }
+        }
+      }
+      
+      window.addEventListener('load', function() {
+        updateTimeSuggestion();
+        loadVersePreviews();
+        console.log('%cDaily Rhythm hub ready. A gentle heartbeat for the day.', 'color:#d4af7b;font-size:0.8rem;');
+      });
+    })();
+  </script>
+</body>
+</html>

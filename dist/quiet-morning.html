@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="tt-bootstrap.js?v=20260410quiet"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiet Morning • One gentle moment with the Word • Today&apos;s Daily Battle</title>
+  <meta name="description" content="Today’s KJV verse. One quiet moment before the day begins. Listen slow, save to My Study, mark as reviewed. Private on your device. Works offline. No task list—just the Word and a gentle prompt.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/quiet-morning.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260410morning">
+  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260331edge">
+  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <style>
+    :root { --bg:#0a0c12; --text:#f5f4f0; --muted:#a8a29e; --gold:#d4af7b; --line:#2a2520; --verse-font-size: clamp(1.75rem, 5.5vw, 2.75rem); }
+    body { background: var(--bg); color: var(--text); font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; line-height: 1.7; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .quiet-hero { text-align: center; padding: 3rem 1.5rem 2rem; background: color-mix(in srgb, var(--bg) 92%, #1a1814); border-radius: 24px; border: 1px solid color-mix(in srgb, var(--gold) 18%, transparent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .verse-ref { font-size: 1.1rem; color: var(--gold); letter-spacing: 0.04em; font-weight: 600; margin: 0 0 1rem; }
+    .verse-text { 
+      font-family: "Cormorant Garamond", Georgia, serif; 
+      font-size: var(--verse-font-size); 
+      line-height: 1.35; 
+      color: #f5f4f0; 
+      margin: 0 0 2rem; 
+      font-weight: 400; 
+    }
+    @media (max-width: 380px) {
+      .verse-text { 
+        font-size: clamp(1.55rem, 5.2vw, 2.1rem); 
+        line-height: 1.4; 
+      }
+      .gentle-prompt { font-size: 1rem; line-height: 1.6; }
+    }
+    .gentle-prompt { font-size: 1.05rem; color: var(--muted); max-width: 36rem; margin: 0 auto 2.5rem; line-height: 1.65; font-style: italic; }
+    .one-tap-row { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin: 2rem 0; }
+    .btn-quiet { 
+      min-height: 52px; padding: 0.85rem 1.75rem; border-radius: 9999px; font-size: 0.95rem; font-weight: 600; 
+      background: transparent; border: 1.5px solid var(--gold); color: var(--gold); transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .btn-quiet:hover, .btn-quiet:focus-visible { background: var(--gold); color: #111; transform: translateY(-1px); box-shadow: 0 8px 25px rgba(212, 175, 123, 0.25); }
+    .next-steps { margin-top: 3rem; }
+    .next-steps h3 { color: var(--gold); font-size: 1rem; margin-bottom: 1.25rem; text-align: center; letter-spacing: 0.5px; }
+    .step-card { margin-bottom: 1.25rem; }
+    .step-card { 
+      background: color-mix(in srgb, var(--bg) 96%, #1c1917); border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line)); border-radius: 16px; 
+      padding: 1.25rem; margin-bottom: 1.25rem; transition: all 0.3s ease;
+    }
+    .step-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .kids-coloring { margin-top: 3rem; padding: 2rem 1.5rem; background: color-mix(in srgb, var(--bg) 94%, #2c2720); border-radius: 20px; text-align: center; border: 1px dashed color-mix(in srgb, var(--gold) 35%, transparent); }
+    .offline-note { font-size: 0.82rem; color: var(--muted); text-align: center; margin: 2rem 0 0; padding: 0.75rem; border-radius: 12px; background: rgba(212,175,123,0.06); }
+    .mark-reviewed { opacity: 0.7; }
+    .mark-reviewed.done { background: #1a3c2e; color: #7dd3a3; border-color: #7dd3a3; }
+    .prompt-source { font-size: 0.8rem; color: var(--muted); text-align: center; margin-top: 0.5rem; }
+  </style>
+</head>
+<body class="dark-mode">
+  <a href="#main" class="skip-link">Skip to Quiet Morning</a>
+  
+  <!-- Reuse global nav pattern -->
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/verse.html">Today’s Verse</a>
+      <a href="/quiet-morning.html" aria-current="page">Quiet Morning</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/calm.html">Calm</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme">Calm cream</button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/daily-quiet-time.html">Daily Quiet</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/printables.html">Printables</a>
+          <a href="/kids/corner.html">Kids Corner</a>
+          <a href="/about.html">About</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="quietmorning">
+    <p class="offline-msg">Offline—still got you. Verse and prompt cached on this device.</p>
+  </div>
+
+  <main id="main" class="tdb-calm-hub quiet-morning-main">
+    <div class="quiet-hero" id="verse-container">
+      <div class="verse-ref" id="verse-ref">Proverbs 18:10 (KJV)</div>
+      <div class="verse-text" id="verse-text">"The name of the LORD is a strong tower: the righteous runneth into it, and is safe."</div>
+      <div class="one-tap-row">
+        <button id="listen-slow-btn" class="btn-quiet" aria-label="Listen to the verse slowly">Listen slow</button>
+        <button id="save-study-btn" class="btn-quiet" aria-label="Save this verse and thought to My Study">Save to My Study</button>
+        <button id="mark-reviewed-btn" class="btn-quiet mark-reviewed" aria-label="Mark this Quiet Morning as reviewed">Mark as reviewed</button>
+      </div>
+    </div>
+
+    <div class="gentle-prompt" id="daily-prompt">
+      One quiet moment with the Word before the day begins. Let the Lord speak gently to your heart this morning. One short step is enough.
+    </div>
+    <p class="prompt-source">— A gentle doorway into the day</p>
+
+    <!-- Breakdown using skill principles -->
+    <div id="breakdown" class="step-card" style="margin-top: 2rem; padding: 1.5rem;">
+      <strong>Plain words:</strong> The Lord’s name is a safe place you can run to. When life feels uncertain, He is the tower that holds.
+      <br><br>
+      <strong>Today:</strong> Before the notifications start or the weight of the day presses in, remember you have a strong tower ready. His name is enough to run into.
+      <br><br>
+      <strong>So do this:</strong> Whisper His name out loud once — slowly — and let the truth of safety settle for 30 seconds.
+    </div>
+
+    <div class="next-steps">
+      <h3>Quiet doors if you want to go deeper</h3>
+      <div class="step-card">
+        <a href="/quiet-evening.html" style="text-decoration: none; color: inherit;">Continue into Quiet Evening</a>
+      </div>
+      <div class="step-card">
+        <a href="/family-home.html" style="text-decoration: none; color: inherit;">See today’s Family Table prompt</a>
+      </div>
+      <div class="step-card">
+        <a href="/seasonal.html" style="text-decoration: none; color: inherit;">Open a seasonal reflection</a>
+      </div>
+      <div class="step-card">
+        <a href="/mystudy" style="text-decoration: none; color: inherit;">Review what you’ve saved before</a>
+      </div>
+    </div>
+
+    <div class="kids-coloring" id="kids-section">
+      <h3 style="color: var(--gold); margin: 0 0 0.75rem;">A simple coloring moment for little ones</h3>
+      <p style="color: var(--muted); margin-bottom: 1rem; font-size: 0.95rem;">When it fits the morning, draw a tall tower with the sun rising behind it. Write the verse in big letters at the bottom. Talk together about how God keeps us safe like a strong tower.</p>
+      <a href="/coloring.html" class="btn-quiet" style="display: inline-block; font-size: 0.9rem; padding: 0.6rem 1.5rem;">Open Kids Coloring</a>
+      <p style="font-size: 0.75rem; color: var(--muted); margin-top: 1.25rem;">Tiny KJV ref at the bottom. Gold accents. 10 seconds of joy.</p>
+    </div>
+
+    <div class="offline-note">
+      Everything here stays private on your device. Cached for offline. No accounts or lists required. Just you and the Word.
+    </div>
+  </main>
+
+  <footer style="max-width: 42rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; font-size: 0.8rem; color: var(--muted); text-align: center; border-top: 1px solid var(--line);">
+    <p>Quiet Morning — a gentle beginning. <a href="/daily-quiet-time.html" style="color: var(--gold);">More doors</a></p>
+    <p style="margin-top: 1.5rem; opacity: 0.6;">KJV only. Built to be a safe, private place.</p>
+    <p id="qm-date" style="font-size: 0.7rem; margin-top: 2rem; opacity: 0.5;"></p>
+  </footer>
+
+  <script src="verse-narration.js?v=20260329narr12"></script>
+  <script src="word-study.js?v=20260329pass2off"></script>
+  <!-- Core logic from script.js will be loaded via global functions; for self-contained we inline key helpers -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // Reuse daily verse logic
+      const bible = window.bible || {};
+      let currentRef = 'Proverbs 18:10';
+      let currentText = 'The name of the LORD is a strong tower: the righteous runneth into it, and is safe.';
+      
+      // Simple fallback bible for this page
+      const localBible = {
+        'Proverbs 18:10': currentText
+      };
+      
+      function getCurrentVerse() {
+        // Try to use global if available, else fallback to example as per spec
+        if (typeof getDailyVerseRef === 'function') {
+          const ref = getDailyVerseRef();
+          if (ref && (bible[ref] || localBible[ref])) {
+            currentRef = ref;
+            currentText = bible[ref] || localBible[ref];
+            return {ref: currentRef, text: currentText};
+          }
+        }
+        return {ref: currentRef, text: currentText};
+      }
+      
+      function renderVerse() {
+        const v = getCurrentVerse();
+        const refEl = document.getElementById('verse-ref');
+        const textEl = document.getElementById('verse-text');
+        if (refEl) refEl.textContent = v.ref + ' (KJV)';
+        if (textEl) textEl.textContent = '“' + v.text + '”';
+        
+        // Update buttons
+        const saveBtn = document.getElementById('save-study-btn');
+        if (saveBtn) {
+          saveBtn.setAttribute('data-ref', v.ref);
+          saveBtn.setAttribute('data-text', v.text);
+        }
+      }
+      
+      // Listen slow — uses slow narration
+      function handleListenSlow() {
+        const v = getCurrentVerse();
+        if (typeof window.TDBVerseNarration !== 'undefined' && typeof window.TDBVerseNarration.speakSlowly === 'function') {
+          window.TDBVerseNarration.speakSlowly(v.ref + '. ' + v.text);
+        } else if ('speechSynthesis' in window) {
+          const utterance = new SpeechSynthesisUtterance(v.ref + '. ' + v.text);
+          utterance.rate = 0.72; // slow and deliberate
+          speechSynthesis.cancel();
+          speechSynthesis.speak(utterance);
+          trackEvent('quiet_morning_listen', { action: 'slow', ref: v.ref });
+        } else {
+          alert('Listen not available in this browser. The words are here for you to read slowly.');
+        }
+      }
+      
+      // Save to My Study — reuse existing pattern if possible, else local save
+      function handleSaveToStudy() {
+        const v = getCurrentVerse();
+        try {
+          let saved = JSON.parse(localStorage.getItem('tdb_my_study_verses') || '[]');
+          if (!saved.some(item => item.ref === v.ref)) {
+            saved.unshift({
+              ref: v.ref,
+              text: v.text,
+              added: new Date().toISOString(),
+              source: 'quiet-morning',
+              prompt: document.getElementById('daily-prompt').textContent.trim()
+            });
+            localStorage.setItem('tdb_my_study_verses', JSON.stringify(saved.slice(0, 50)));
+          }
+          const toast = document.createElement('div');
+          toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a3c2e;color:#7dd3a3;padding:0.75rem 1.5rem;border-radius:9999px;font-size:0.9rem;box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:9999;';
+          toast.textContent = 'Saved to My Study. You can find it anytime.';
+          document.body.appendChild(toast);
+          setTimeout(() => toast.remove(), 2800);
+          trackEvent('quiet_morning_save', { ref: v.ref });
+        } catch(e) {
+          console.error(e);
+          alert('Saved in memory for this session. Visit My Study to see your collection.');
+        }
+      }
+      
+      function handleMarkReviewed() {
+        const btn = document.getElementById('mark-reviewed-btn');
+        const todayKey = 'quiet_morning_reviewed_' + new Date().toISOString().split('T')[0];
+        try {
+          localStorage.setItem(todayKey, 'true');
+          btn.classList.add('done');
+          btn.textContent = 'Reviewed today ✓';
+          btn.disabled = true;
+          const note = document.createElement('p');
+          note.style.cssText = 'text-align:center; color:#7dd3a3; font-size:0.85rem; margin:1rem 0 0;';
+          note.textContent = 'One short step completed. The Lord is near.';
+          btn.parentNode.appendChild(note);
+          trackEvent('quiet_morning_reviewed');
+        } catch(e) {}
+      }
+      
+      function checkIfReviewedToday() {
+        const todayKey = 'quiet_morning_reviewed_' + new Date().toISOString().split('T')[0];
+        const btn = document.getElementById('mark-reviewed-btn');
+        if (localStorage.getItem(todayKey) === 'true' && btn) {
+          btn.classList.add('done');
+          btn.textContent = 'Reviewed today ✓';
+          btn.disabled = true;
+        }
+      }
+      
+      function trackEvent(name, params = {}) {
+        if (typeof window.trackEvent === 'function') {
+          window.trackEvent(name, params);
+        }
+      }
+      
+      // Init
+      function initQuietMorning() {
+        renderVerse();
+        checkIfReviewedToday();
+        
+        const listenBtn = document.getElementById('listen-slow-btn');
+        const saveBtn = document.getElementById('save-study-btn');
+        const markBtn = document.getElementById('mark-reviewed-btn');
+        
+        if (listenBtn) listenBtn.addEventListener('click', handleListenSlow);
+        if (saveBtn) saveBtn.addEventListener('click', handleSaveToStudy);
+        if (markBtn) markBtn.addEventListener('click', handleMarkReviewed);
+        
+        // Date for footer
+        const dateEl = document.getElementById('qm-date');
+        if (dateEl) {
+          const now = new Date();
+          dateEl.textContent = 'Quiet Morning — ' + now.toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric'});
+        }
+        
+        // Offline strip already handled by included JS
+        console.log('%cQuiet Morning ready. One short step is enough.', 'color:#d4af7b; font-size:0.8rem;');
+        
+        // Load core script if not present for full integration
+        if (!window.getDailyVerseRef) {
+          const coreScript = document.createElement('script');
+          coreScript.src = 'script.js';
+          coreScript.defer = true;
+          document.head.appendChild(coreScript);
+        }
+      }
+      
+      window.addEventListener('load', initQuietMorning);
+    })();
+  </script>
+</body>
+</html>

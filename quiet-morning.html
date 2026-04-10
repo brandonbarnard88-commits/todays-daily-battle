@@ -20,7 +20,21 @@
     main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
     .quiet-hero { text-align: center; padding: 3rem 1.5rem 2rem; background: color-mix(in srgb, var(--bg) 92%, #1a1814); border-radius: 24px; border: 1px solid color-mix(in srgb, var(--gold) 18%, transparent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
     .verse-ref { font-size: 1.1rem; color: var(--gold); letter-spacing: 0.04em; font-weight: 600; margin: 0 0 1rem; }
-    .verse-text { font-family: "Cormorant Garamond", Georgia, serif; font-size: var(--verse-font-size); line-height: 1.4; color: #f5f4f0; margin: 0 0 2rem; font-weight: 400; }
+    .verse-text { 
+      font-family: "Cormorant Garamond", Georgia, serif; 
+      font-size: var(--verse-font-size); 
+      line-height: 1.35; 
+      color: #f5f4f0; 
+      margin: 0 0 2rem; 
+      font-weight: 400; 
+    }
+    @media (max-width: 380px) {
+      .verse-text { 
+        font-size: clamp(1.55rem, 5.2vw, 2.1rem); 
+        line-height: 1.4; 
+      }
+      .gentle-prompt { font-size: 1rem; line-height: 1.6; }
+    }
     .gentle-prompt { font-size: 1.05rem; color: var(--muted); max-width: 36rem; margin: 0 auto 2.5rem; line-height: 1.65; font-style: italic; }
     .one-tap-row { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin: 2rem 0; }
     .btn-quiet { 
@@ -117,8 +131,8 @@
     </div>
 
     <div class="kids-coloring" id="kids-section">
-      <h3 style="color: var(--gold); margin: 0 0 0.75rem;">A simple moment for little ones</h3>
-      <p style="color: var(--muted); margin-bottom: 1rem; font-size: 0.95rem;">Draw a tall tower with the sun rising behind it. Write the verse in big letters at the bottom. Talk about how God keeps us safe like a strong tower.</p>
+      <h3 style="color: var(--gold); margin: 0 0 0.75rem;">A simple coloring moment for little ones</h3>
+      <p style="color: var(--muted); margin-bottom: 1rem; font-size: 0.95rem;">When it fits the morning, draw a tall tower with the sun rising behind it. Write the verse in big letters at the bottom. Talk together about how God keeps us safe like a strong tower.</p>
       <a href="/coloring.html" class="btn-quiet" style="display: inline-block; font-size: 0.9rem; padding: 0.6rem 1.5rem;">Open Kids Coloring</a>
       <p style="font-size: 0.75rem; color: var(--muted); margin-top: 1.25rem;">Tiny KJV ref at the bottom. Gold accents. 10 seconds of joy.</p>
     </div>

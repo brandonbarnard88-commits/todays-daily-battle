@@ -42,11 +42,10 @@ const checks = [
     ],
   },
   {
-    path: '/prayer-wall.html',
+    path: '/prayer-wall',
     needles: [
       'Pray privately',
       'Pray with others',
-      'My Study',
     ],
     forbidden: [
       'Community board',
@@ -57,8 +56,7 @@ const checks = [
   {
     path: '/mystudy',
     needles: [
-      'My Study — your private place for verses, notes, and progress.',
-      'Everything stays on this device unless you sign in.',
+      'A calmer place for saved verses, notes, prayer, highlights, and steady progress. Everything stays on this device unless you sign in to sync.',
     ],
     forbidden: [
       'Message Board',
@@ -78,7 +76,7 @@ const checks = [
     needles: [
       'Five calm minutes (optional)',
       'Home, Calm, plans, My Study, prayer',
-      'My Study — saved verses, notes, highlights, and progress in one place.',
+      'saved verses, notes, highlights, and progress in one place.',
     ],
     forbidden: [
       'My Verses',

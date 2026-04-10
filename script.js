@@ -16338,7 +16338,8 @@ function tdbRunHomeMoodShuffleAndWelcome() {
     shuffleHomeQuickTopicSurfaces();
     pickHomeWelcomeLine();
     tdbUpdateWelcomeBackMsg();
-    updateHomepagePrayerCounter(); // gentle worldwide counter
+    // gentle worldwide counter (now handled in renderRecentPrayers + setLocalPrayerTotalCount)
+    // updateHomepagePrayerCounter(); // removed - function no longer exists (merged into setLocalPrayerTotalCount)
   } catch (eHomeMood) {
     if (typeof console !== 'undefined' && console.warn) console.warn('TDB: home mood shuffle', eHomeMood);
   }

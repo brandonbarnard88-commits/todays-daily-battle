@@ -123,12 +123,22 @@ This addresses the test-security.js warning: "wins-report.html: innerHTML from l
 **Verification performed:** `npm run test:security` (0 warnings), `npm run test` (full wiring + 50+ page offline checks), manual spot-checks on calm, mystudy, plans, search, multilingual links, privacy inspector. All match the team’s live pull.
 
 
-## April 10 2026 – Deep Audit Complete
+## April 10 2026 – Deep Audit Complete & Phase 1–2 Polish
 
-**God-Tier Level-Up Achieved**
-- Quick-topic chips (with progressive disclosure for category bands), My Study progress summary, Prayer Wall counter, realistic coloring pages, refined master prompt, MIME/header fixes, and full kids ecosystem consolidation are all live.
-- Production validation: consistently 5/5 green. Homepage search wiring guard clean.
-- All .cursorrules followed (KJV-only, quiet-dawn tone, no feature removal, mobile-first, accessibility, offline-first, security-first). Legacy surfaces elevated to match new god-tier standard.
-- The site now feels like a quiet friend at dawn — warm, direct, worthy of the mission. Less scroll, more soul.
+**God-Tier Level-Up Achieved (both phases)**
+- Homepage hero, quick-topic category bands (one-tap disclosure, all 30+ chips reachable, sr-only guard intact), Prayer Wall counter surfaced on homepage/Calm/My Study (serene, non-gamified, `updateHomepagePrayerCounter` reliable).
+- Multilingual Calm links prominent in hero + Explore (paz.html, paix.html, etc.) with hreflang.
+- New battle plans polished and surfaced (Exhausted Parent Reset, When Faith Feels Dry, Pulpit Heavy, Caregiver Rest, Holy Week, Chronic Illness, Identity, End-of-Life — calm KJV structure, semantic search integration).
+- Realistic kids coloring pages gently highlighted (“Watch it shine” one-tap, big eyes, bouncy 10s loops, tiny KJV ref per kids-rule.mdc).
+- Visual/copy serenity elevated site-wide (My Study, Prayer Wall, hero, Explore, kids): breathing room, consistent tone, mobile-first tap targets ≥44px, god-tier polish on legacy surfaces too.
+- Full test suite green (`npm run test:security` 0 warnings, `npm run test` wiring + offline 60+ pages, `npm run validate:prod` 5/5).
+- All .cursorrules followed (KJV-only, quiet-dawn tone, no feature removal, security-first, privacy, accessibility, offline cache, no hype). 
 
-**Verification complete.** Cloudflare purge was the final step. All checks now pass in production.
+**Verification:** Local build, tests, and prod-validation all pass cleanly. Cloudflare purge pending real token in `.env` (see instructions below). The site now feels even more like a quiet friend at dawn — warm, direct, worthy of the mission. Less scroll, more soul.
+
+**Next step for user:** Edit `.env` with real Cloudflare API token (Edit zone cache template for todaysdailybattle.com) and Zone ID, then run:
+```bash
+npm run purge:cloudflare:social
+npm run verify:live-key-html
+```
+Once green, the live site will reflect all changes.

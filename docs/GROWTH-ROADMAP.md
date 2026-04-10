@@ -15,16 +15,17 @@ All suggestions from the full team audit and deep-dive review have been complete
 
 The site continues to feel like exactly what it claims: a calm, solo-built, KJV-only place for real battles — one verse, one prayer, one next step, and room to breathe.
 
-Next quiet priorities (post-audit):
-- Deeper Calm parity in additional languages (Russian, Swahili, Hindi, Indonesian, etc.)
-- One new high-need Battle Plan per quarter (starting with expanded caregiver/long-illness tracks)
-- Kids animation queue for new printables (8–10 second bouncy loops, no sound)
-- Continued Lighthouse/mobile performance discipline
-- Thoughtful expansion of the Prayer Wall seeds (sparse, honest, runbook-guided)
+Next quiet priorities (post-April 2026 audit + Phase 1–2 polish):
+- Deeper Calm parity and self-contained hubs in remaining languages (Russian, Swahili, Hindi, Indonesian, etc.)
+- One new high-need Battle Plan per quarter (next: expanded caregiver/long-illness and identity tracks)
+- Kids animation queue for new realistic printables (8–10s bouncy loops, no sound, gold accents)
+- Lighthouse/mobile performance discipline (LCP, CLS, offline resilience)
+- Thoughtful, sparse expansion of Prayer Wall seeds (per runbook)
+- Quiet community signals without losing the solo, private-first spirit
 
-Ship small. Stay serene. Keep the quiet place open.
+Ship small, test rigorously, level-up existing surfaces to god-tier. The mission remains: one verse, one prayer, one next step, room to breathe.
 
-*Last updated: April 9, 2026 — after complete audit response and all suggested improvements.*
+*Last updated: April 10, 2026 — after full Phase 1 polish + Phase 2 rollout. All tests green, live pending final Cloudflare purge.*
 
 ## 1. Community signals (Prayer Wall)
 

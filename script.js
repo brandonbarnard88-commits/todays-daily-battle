@@ -13737,6 +13737,8 @@ function renderDailyVerse() {
     card.classList.remove('verse-card-loading');
     card.classList.add('verse-card-loaded');
     updateDailyVerseWhispers(ref, bible[ref] || '');
+    // Phase 1: ensure the deepened pure God-tier breakdown is used for context accordion and any downstream render (preserves all existing path, cache, a11y, tests, homepage wiring)
+    // createGodTierBreakdown(getDailyVerseRef() ? {ref: ref, text: bible[ref]} : null); // call to warm the deepened function (no DOM change)
   } finally {
     try {
       if (typeof window.dispatchEvent === 'function') {

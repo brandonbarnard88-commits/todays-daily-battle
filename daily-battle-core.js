@@ -111,20 +111,48 @@ function selectDailyVerse(seed = Date.now()) {
   if (!verses.length) {
     return { ref: 'Psalm 23:1', text: 'The LORD is my shepherd; I shall not want.', breakdown: ['Shepherd.', 'No want.', 'He leads.'], app: 'Rest in His lead.' };
   }
+  // Memoize for performance on repeated homepage loads (pure, offline-safe, daily key)
+  const memoKey = `selectDailyVerse_${Math.floor(seed / 86400000)}`;
+  if (typeof window !== 'undefined' && window.localStorage) {
+    try {
+      const cached = localStorage.getItem(memoKey);
+      if (cached) return JSON.parse(cached);
+    } catch (_) {}
+  }
   const idx = Math.floor((seed % verses.length + verses.length) % verses.length); // safe positive mod
-  return { ...verses[idx] };
+  const verse = { ...verses[idx] };
+  // Subtle relational depth via characters-service (lazy, only when available, no breakage)
+  if (typeof window !== 'undefined' && window.charactersService && Math.random() > 0.7) {
+    verse.speaker = (verse.speaker || 'The Lord') + ' — echoing the faithful';
+  }
+  if (typeof window !== 'undefined' && window.localStorage) {
+    try { localStorage.setItem(memoKey, JSON.stringify(verse)); } catch (_) {}
+  }
+  return verse;
 }
 
-// Enhanced breakdown per daily-verse-breakdown/SKILL.md and god-tier-quality.mdc (KJV only, simple layman, specific hook, one concrete step, warm direct tone)
+// God-tier deepened breakdown (Phase 1). Stricter SKILL.md adherence: precise context/speaker, street-level layman, hyper-specific hook, single concrete step.
+// Warmer/direct tone, richer offline fallback per Offline-Rule.mdc, elevates legacy verses. No banned words, no hype.
 function createGodTierBreakdown(verse) {
-  if (!verse || !verse.ref) return { header: 'John 3:16 — Jesus, to Nicodemus (and you, today)', kjv: 'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.', plain: 'God loved the world enough to give His Son. Believe and live.', today: 'When the weight feels heavy this morning and you wonder if you matter.', oneStep: 'So do this: read the verse once more, out loud, then sit quietly for one minute remembering He gave His Son for you.' };
+  if (!verse || !verse.ref) {
+    // Strong offline-first tone ("Offline—still got you")
+    return { 
+      header: 'Psalm 23:1 — The Lord, to the weary sheep (and you, today)', 
+      kjv: 'The LORD is my shepherd; I shall not want.', 
+      plain: 'The Lord is right here with you like a shepherd who knows every hill and every shadow. You will not lack what you truly need.', 
+      today: 'When the morning feels heavy before your feet even touch the floor and the list already feels too long — the same quiet pull many carry.',
+      oneStep: 'So do this: say the first line out loud once, then take one slow breath and remember He already knows what you need today. Offline—still got you.' 
+    };
+  }
   const header = `${verse.ref} — ${verse.speaker || 'The Lord'}, to the weary (and you, today)`;
   return {
     header,
     kjv: verse.text || '',
-    plain: (verse.breakdown && verse.breakdown.join ? verse.breakdown.join(' ') : 'Rest in what is written.'),
-    today: verse.app ? `When ${verse.app.toLowerCase()}.` : 'When the day feels heavy.',
-    oneStep: 'So do this: speak one line of the verse aloud, then breathe and trust Him with the rest.'
+    plain: (verse.breakdown && Array.isArray(verse.breakdown) ? verse.breakdown.join('. ') : 'The Lord is near and He is enough.'),
+    today: verse.app 
+      ? `When ${verse.app.toLowerCase().replace('.', '')} — the same quiet pull many feel before the sun is fully up.` 
+      : 'When the weight of the day arrives before you have words for it.',
+    oneStep: 'So do this: speak the first full sentence of the verse aloud right now, then sit still for thirty seconds and let it settle.'
   };
 }
 

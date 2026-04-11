@@ -214,7 +214,7 @@
 
   <script type="module" src="config.js"></script>
   <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
-  <!-- Supabase SDK loaded once by script.js (singleton prevents duplicate GoTrueClient instances) -->
+  <!-- Supabase SDK managed exclusively by script.js (singleton prevents duplicate GoTrueClient instances and auth token races) -->
   <script src="verse-breakdown.js?v=20260405-relations-fix" defer></script>
   <script src="highlights.js?v=20260305" defer></script>
   <script src="bible-study-companion.js?v=20260328printpolish" defer></script>

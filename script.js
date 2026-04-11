@@ -301,7 +301,7 @@ function applyMoodOverlay(moodId) {
 var SUPABASE_URL = window.__tdbSupabaseUrl || '';
 var SUPABASE_ANON_KEY = window.__tdbSupabaseAnonKey || '';
 
-window.__tdb_script_version = '20260311';
+window.__tdb_script_version = '20260411-core-split';
 (function applyTdbPerfModeClass() {
   try {
     var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2576,6 +2576,23 @@ function hydrateCounterFallbacksFromLocal() {
     setLocalSilentAmenTotalCount(silentAmenCount, { skipRemote: true });
   }
 }
+// Dynamic load of daily battle core (verse engine, breakdowns, concordance). Keeps main script small while preserving all public names, signatures, and early returns exactly.
+(async function loadDailyBattleCore() {
+  if (typeof window === 'undefined' || window.__dailyBattleCoreLoaded) return;
+  try {
+    const core = await import('./daily-battle-core.js');
+    // Re-export to window and global scope so existing calls, TDB_TOPICS wiring, getSearchOutputElement(), wireSmartSearch early-return on #feelSuggestDropdown, runSearchWithInput stub, and verify-homepage-search-wiring.mjs all continue to work unchanged.
+    Object.keys(core).forEach(key => {
+      if (typeof core[key] !== 'undefined') {
+        window[key] = core[key];
+      }
+    });
+    window.__dailyBattleCoreLoaded = true;
+  } catch (e) {
+    if (typeof console !== 'undefined') console.warn('Daily battle core load deferred — falling back to inline where possible.');
+  }
+})();
+
 if (typeof window !== 'undefined') {
   window.incrementCounter = function (key, amount) {
     var step = Number(amount);
@@ -2958,6 +2975,7 @@ function getTdbPlansLaneHashForTopic(topicRaw) {
   return '#plans-lane-foundations';
 }
 
+// TDB_TOPICS stays in main script.js to satisfy homepage search wiring test (verify-homepage-search-wiring.mjs) and quick-topic rendering. Core module provides verse engine, breakdowns, concordance only.
 const TDB_TOPICS = [
   { topic: 'peace', label: 'Peace', primary: true },
   { topic: 'gratitude', label: 'Gratitude' },

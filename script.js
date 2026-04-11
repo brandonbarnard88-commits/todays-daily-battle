@@ -2491,7 +2491,7 @@ function setLocalPrayerTotalCount(total, options) {
   if (el) el.textContent = n.toLocaleString();
 
   // Update gentle homepage counter if present
-  var homeEl = document.getElementById('prayer-counter-home');
+  var homeEl = document.getElementById('prayer-counter-home') || document.getElementById('prayer-counter-footer');
   if (homeEl) {
     var displayCount = Math.max(n, 42); // always encouraging minimum
     homeEl.textContent = displayCount.toLocaleString() + '+ people prayed anonymously worldwide today';

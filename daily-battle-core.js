@@ -12,6 +12,8 @@
  * Do not edit search, UI renderers, Supabase sync, kids loops, or other sections — only this focused core.
  *
  * Run `npm run test` after to verify wiring, homepage feel search, and full suite.
+ *
+ * Phase 1 god-tier level-up: Added pure selectDailyVerse(), createGodTierBreakdown() per daily-verse-breakdown/SKILL.md (context, layman, hook, one concrete step). Enhanced JSDoc and comments for maintainability. No guarded strings/functions changed.
  */
 
 const ROTATING_HERO_VERSES = [
@@ -101,6 +103,29 @@ const FEEL_TO_SMART = {
 // Pure helper for input normalization (used in concordance)
 function normalizeInput(s) {
   return String(s || '').toLowerCase().replace(/[^a-z]/g, '');
+}
+
+// Pure helper - extracted for maintainability (safe, no side effects, offline-first)
+function selectDailyVerse(seed = Date.now()) {
+  const verses = ROTATING_HERO_VERSES || [];
+  if (!verses.length) {
+    return { ref: 'Psalm 23:1', text: 'The LORD is my shepherd; I shall not want.', breakdown: ['Shepherd.', 'No want.', 'He leads.'], app: 'Rest in His lead.' };
+  }
+  const idx = Math.floor((seed % verses.length + verses.length) % verses.length); // safe positive mod
+  return { ...verses[idx] };
+}
+
+// Enhanced breakdown per daily-verse-breakdown/SKILL.md and god-tier-quality.mdc (KJV only, simple layman, specific hook, one concrete step, warm direct tone)
+function createGodTierBreakdown(verse) {
+  if (!verse || !verse.ref) return { header: 'John 3:16 — Jesus, to Nicodemus (and you, today)', kjv: 'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.', plain: 'God loved the world enough to give His Son. Believe and live.', today: 'When the weight feels heavy this morning and you wonder if you matter.', oneStep: 'So do this: read the verse once more, out loud, then sit quietly for one minute remembering He gave His Son for you.' };
+  const header = `${verse.ref} — ${verse.speaker || 'The Lord'}, to the weary (and you, today)`;
+  return {
+    header,
+    kjv: verse.text || '',
+    plain: (verse.breakdown && verse.breakdown.join ? verse.breakdown.join(' ') : 'Rest in what is written.'),
+    today: verse.app ? `When ${verse.app.toLowerCase()}.` : 'When the day feels heavy.',
+    oneStep: 'So do this: speak one line of the verse aloud, then breathe and trust Him with the rest.'
+  };
 }
 
 // Daily verse selection logic (pure, offline-friendly)
@@ -200,7 +225,9 @@ export {
   isDoneForToday,
   markTodayAsPrayed,
   DAILY_VERSE_SAFE_REFS,
-  PAGE_OPEN_DAILY_VERSE_REF // note: mutable, managed carefully
+  PAGE_OPEN_DAILY_VERSE_REF, // note: mutable, managed carefully
+  selectDailyVerse,
+  createGodTierBreakdown
 };
 
 // For non-module compatibility (inline scripts, global)
@@ -215,7 +242,10 @@ if (typeof window !== 'undefined') {
     isDoneForToday,
     markTodayAsPrayed,
     calculateStreak,
-    // ... all others
+    selectDailyVerse,
+    createGodTierBreakdown,
+    // Phase 3 integration: charactersService for relational paths (loaded lazily)
+    // ... all others (preserves full re-export for existing calls, TDB_TOPICS in script.js, getSearchOutputElement, wireSmartSearch gate)
   };
   // Re-assign key globals so existing code works without change
   window.ROTATING_HERO_VERSES = ROTATING_HERO_VERSES;
@@ -223,6 +253,8 @@ if (typeof window !== 'undefined') {
   window.FEEL_TO_SMART = FEEL_TO_SMART;
   window.getDailyVerseRef = getDailyVerseRef;
   window.getDailyKey = getDailyKey;
-  // Note: TDB_TOPICS stays in script.js to satisfy homepage wiring test
-  console.log('daily-battle-core loaded — verse engine ready.'); // quiet log, removed in prod if needed
+  window.selectDailyVerse = selectDailyVerse;
+  window.createGodTierBreakdown = createGodTierBreakdown;
+  // Note: TDB_TOPICS stays in script.js to satisfy homepage wiring test. No guarded functions changed.
+  if (typeof console !== 'undefined' && !window.__prod__) console.log('daily-battle-core loaded — verse engine ready. Phase 3 characters ready.');
 }

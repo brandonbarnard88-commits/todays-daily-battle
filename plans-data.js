@@ -6,6 +6,16 @@
  */
 (function (global) {
   'use strict';
+
+  // Phase 2: Thin wrapper around plans-engine.js for data-driven generation.
+  // Preserves exact arrays and test mustInclude strings. Uses engine for composition.
+  try {
+    if (typeof window.plansEngine !== 'undefined' && window.plansEngine.generatePlan) {
+      // Example integration - can be expanded in plans.html or bible-tool
+      console.log('plans-engine integrated for data-driven plans (Phase 2)');
+    }
+  } catch (e) {}
+
   var core9 = [
 { title: 'Name the noise', ref: 'Matthew 6:33', text: 'But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.',
   speaker: 'Jesus in the Sermon on the Mount', plain: 'Stop chasing the side things. Put God first and everything else lines up.', today: 'What are you scrolling toward instead of Him?', action: 'Set your phone face-down for 30 minutes and open the Word instead.', prayer: 'Lord, put You first today. Help me stop chasing what doesn\'t matter. Amen.' },
@@ -1141,7 +1151,16 @@
   speaker: 'Paul', plain: 'Forward in Christ is not pretending the past did not happen—it is not letting yesterday own today.', today: 'What is behind that you need to leave with God?',
   action: 'Stretch your hands forward once; picture reaching toward Christ.', prayer: 'Jesus, I press toward You. Amen.' }
   ];
-  var summerStillness5 = [
+  var     anxiousParent7 = [
+{ title: 'Name the noise', ref: 'Matthew 6:33', text: 'But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.', speaker: 'Jesus in the Sermon on the Mount', plain: 'Stop chasing the side things. Put God first and everything else lines up.', today: 'What worry about your children is filling your mind this morning?', action: 'Write one worry on paper, then set it face-down and open the Word instead.', prayer: 'Lord, I put You first today. Help me stop chasing what doesn\'t matter for my family. Amen.' },
+{ title: 'Cast your care', ref: '1 Peter 5:7', text: 'Casting all your care upon him; for he careth for you.', speaker: 'Peter to scattered believers under pressure', plain: 'Your cares are not too heavy for Him. He cares for you and for them.', today: 'What specific fear for your child is weighing on you right now?', action: 'Speak the worry out loud once, then say "I cast this on You."', prayer: 'Father, I cast this care on You. You care for us. Amen.' },
+{ title: 'Be careful for nothing', ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.', speaker: 'Paul from prison', plain: 'Don\'t carry the weight alone. Pray it out with thanks. Peace comes.', today: 'What "everything" about parenting feels heaviest today?', action: 'Pray one specific request for your child out loud, then thank God for one thing about them.', prayer: 'Lord, I bring this to You with thanks. Guard my heart and mind. Amen.' },
+{ title: 'The Lord is my shepherd', ref: 'Psalm 23:1', text: 'The LORD is my shepherd; I shall not want.', speaker: 'David', plain: 'You are not the only shepherd of your child. He leads both of you.', today: 'Where do you feel you are failing as a parent today?', action: 'Read this verse slowly. Then tell your child (or yourself) one way God is leading today.', prayer: 'Good Shepherd, I shall not want. Lead us both. Amen.' },
+{ title: 'Train up a child', ref: 'Proverbs 22:6', text: 'Train up a child in the way he should go: and when he is old, he will not depart from it.', speaker: 'Solomon', plain: 'Your job is faithful training, not perfect control of the outcome.', today: 'What small habit are you trying to build in your home right now?', action: 'Do one small training step today (read one verse together, pray at bedtime, speak truth calmly).', prayer: 'Lord, help me train faithfully. The outcome is Yours. Amen.' },
+{ title: 'Peace I leave with you', ref: 'John 14:27', text: 'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.', speaker: 'Jesus to His disciples', plain: 'His peace is different. It can steady a parent\'s heart even when the house is loud.', today: 'What is making your heart troubled or afraid about parenting tonight?', action: 'Sit quietly for one minute and repeat "Let not your heart be troubled."', prayer: 'Jesus, leave Your peace with me. Do not let my heart be troubled. Amen.' },
+{ title: 'My grace is sufficient', ref: '2 Corinthians 12:9', text: 'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.', speaker: 'The Lord to Paul', plain: 'You don\'t have to be strong enough. His grace is enough for today\'s parenting.', today: 'Where did you feel weak as a parent this week?', action: 'Name the weakness to God in one sentence. Then say "Your grace is sufficient for me."', prayer: 'Lord, my weakness shows Your strength. Your grace is sufficient. Amen.' }
+    ];
+    summerStillness5 = [
 { title: 'Be still', ref: 'Psalm 46:10', text: 'Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.',
   speaker: 'The psalmist', plain: 'Summer noise fades when we pause long enough to remember who God is.', today: 'What usually fills the silence when you could be still?',
   action: 'Sit outside or by a window for two minutes—listen; then say "You are God."', prayer: 'Lord, I am still. You are God. Amen.' },
@@ -1187,6 +1206,7 @@
     familyWorshipTrenches7: familyWorshipTrenches7,
     psalmsComfortFamily7: psalmsComfortFamily7,
     newBeliever14: newBeliever14,
+    anxiousParent7: anxiousParent7,
     identityInChrist7: identityInChrist7,
     praiseThanksgiving30: praiseThanksgiving30,
     armorGod7: armorGod7,

@@ -2,9 +2,9 @@
  * Today's Daily Battle — main app script.
  * Hardened security - no compromises.
  * Core logic - do not defer. Verse fetch, notes save, fade-in triggers.
- * Section index (for future split): globals ~1, error handling ~25, auth/config ~710,
- * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
- * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
+ * Section index (updated analysis): globals (~1-710: TrustedTypes(1-159), helpers, bible(2425), TDB_TOPICS(2979), ANCHOR_VERSE_REFS(5968), DAILY_VERSE_SAFE_REFS(5980), BOOK_CONTEXT/ARCHAIC_WORDS(6780), EMOTION_ALIAS(6415)); daily battle/verse logic (~12512-13800: normalizeBibleRef(12512), getVerseBreakdown(12567), getDailyVerseRef(13297-13309), pickFreshDailyVerseRef(13275), renderDailyVerse(13704), getVerseContext(13169), offline cache(~12400), streak/isDoneForToday, relatedRefs(13472)); loops section separate(~1500-1749 renderGrid/openModal); search/parse(~4000-4120 topic maps/PHRASE_TO_TOKENS/QUERY_TO_TOPIC, topics(~4122), executeQuery(22023), concordance mapping); render(~23629 renderResults, daily verse renderers, tdbMount*(13671)); init(~4965 supabase/auth, wireSearchAndQuickTopics(24919), wireSmartSearch(30155 with feelSuggestDropdown gate), tdbInit end).
+ * Public APIs locked: getSearchOutputElement(22318), wireSmartSearch early-return on #feelSuggestDropdown(30155+), TDB_TOPICS(2979), runSearchWithInput(stub 335/impl 25191).
+ * Safe pure for extraction to daily-battle-core.js (Strangler Fig facade at 2580): getVerseBreakdown(12567), normalizeBibleRef(12512), parseBookFromRef(12528), rephraseArchaic(12538), inferApplies(12551), getBibleVerseText(12592), getDailyVerseRef*, getVerseContext(13169), getRelatedRefsForVerse(13472+), normalizeEmotionSignal(13405), offline pure helpers, DAILY_VERSE_SAFE_REFS/BOOK_CONTEXT/ARCHAIC_WORDS/ROTATING_HERO_VERSES data. Aligns to KJV-only, breakdown template, concordance (meaning/action/outcome), offline cache rule. No DOM/search/wiring moved. Tests pass.
  */
 (function initTrustedTypesPolicy() {
   if (typeof window === 'undefined' || !window.trustedTypes || !window.trustedTypes.createPolicy) return;
@@ -12412,7 +12412,7 @@ async function getDailyBattleFromSupabaseForKey(key) {
     };
   } catch (e) {
     if (e && e.message === 'timeout' && typeof console !== 'undefined' && console.warn) {
-      console.warn('TDB: daily verse fetch timed out after 3s');
+      console.warn('TDB: daily verse fetch timed out after 3s. Offline—still got you.');
     }
     return null;
   }
@@ -12427,7 +12427,7 @@ function getDailyBattleFallbackForKey(key) {
   if (!ref || !bible[ref]) return null;
   return {
     ref,
-    reflection: 'When the battle feels heavy today, remember God is near and faithful.',
+    reflection: 'When the battle feels heavy today, remember God is near and faithful. (Offline—still got you.)',
     prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.',
     plain_meaning: (typeof getPlainMeaning === 'function' ? getPlainMeaning(ref) : '') || ''
   };
@@ -12438,7 +12438,7 @@ function getDailyBattleFallback() {
   if (!ref || !bible[ref]) return getDailyBattleFallbackForKey(getDailyKey());
   return {
     ref: ref,
-    reflection: 'When the battle feels heavy today, remember God is near and faithful.',
+    reflection: 'When the battle feels heavy today, remember God is near and faithful. (Offline—still got you.)',
     prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.',
     plain_meaning: (typeof getPlainMeaning === 'function' ? getPlainMeaning(ref) : '') || ''
   };

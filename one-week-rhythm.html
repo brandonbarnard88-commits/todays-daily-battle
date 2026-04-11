@@ -6,130 +6,138 @@
   <title>One Week of Quiet Rhythm • Today's Daily Battle</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Instrument+Serif:ital@0;1&amp;display=swap');
-    
+   
     :root {
       --paper: #f8f1e9;
       --text: #3c2f2f;
       --accent: #8c5c2d;
-      --gold-soft: #d4b88a;
+      --gold: #d4b88a;
     }
-    
+   
     body {
       font-family: 'Crimson Text', serif;
-      line-height: 1.75;
+      line-height: 1.85;
       color: var(--text);
       background: var(--paper);
-      max-width: 850px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 50px 60px;
+      padding: 60px 50px;
       font-size: 15.5px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.1);
+      box-shadow: 0 0 50px rgba(0,0,0,0.12);
     }
-    
+   
     h1 {
       font-family: 'Instrument Serif', serif;
       text-align: center;
       color: var(--accent);
-      font-size: 32px;
+      font-size: 29px;
       margin: 0 0 8px;
       letter-spacing: -0.5px;
     }
-    
+   
     .subtitle {
       text-align: center;
       font-style: italic;
       color: #6b5742;
-      margin-bottom: 40px;
-      font-size: 17px;
+      margin-bottom: 45px;
+      font-size: 16.8px;
     }
-    
+   
     .verse {
       font-style: italic;
       color: #5c4635;
-      background: rgba(212, 184, 138, 0.08);
-      padding: 18px 24px;
-      border-left: 5px solid var(--gold-soft);
-      margin: 32px 0 28px;
-      font-size: 15px;
+      background: rgba(212, 184, 138, 0.09);
+      padding: 22px 28px;
+      border-left: 6px solid var(--gold);
+      margin: 38px 0 32px;
+      font-size: 15.2px;
     }
-    
+   
     .day {
       background: white;
-      padding: 28px;
-      margin-bottom: 32px;
+      padding: 28px 32px;
+      margin-bottom: 34px;
       border: 1px solid #e8d9c0;
-      border-radius: 8px;
-      box-shadow: 0 4px 16px rgba(140, 92, 45, 0.06);
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(140, 92, 45, 0.07);
+      page-break-inside: avoid;
     }
-    
+   
     .day h3 {
       color: var(--accent);
-      margin: 0 0 14px;
-      font-size: 17px;
+      margin: 0 0 18px;
+      font-size: 17.5px;
       font-weight: 600;
     }
-    
+   
     .writing-area {
-      border: 2px dotted var(--gold-soft);
-      min-height: 110px;
-      padding: 12px 16px;
-      margin: 12px 0 24px;
-      background: rgba(255,255,255,0.6);
-      font-family: inherit;
-      font-size: 15px;
-      line-height: 1.6;
-      resize: none;
       width: 100%;
+      min-height: 130px;
+      border: 2px dotted var(--gold);
+      background: rgba(255,255,255,0.75);
+      padding: 16px 20px;
+      font-family: inherit;
+      font-size: 15.2px;
+      line-height: 1.7;
+      resize: none;
+      margin: 16px 0 28px;
     }
-    
+   
     .family-prompt {
       background: #f8f1e9;
-      padding: 28px;
-      border: 1px solid var(--gold-soft);
-      border-radius: 8px;
-      margin: 32px 0;
+      padding: 28px 34px;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      margin: 42px 0;
     }
-    
+   
     .footer {
       text-align: center;
-      margin-top: 60px;
-      padding-top: 30px;
+      margin-top: 75px;
+      padding-top: 38px;
       border-top: 1px solid #d4b88a;
       color: var(--accent);
-      font-size: 13.5px;
-      line-height: 1.5;
+      font-size: 13.8px;
+      line-height: 1.65;
     }
-    
+   
     .print-note {
-      font-size: 13px;
-      color: #6b5742;
       text-align: center;
-      margin-top: 40px;
+      font-size: 13.5px;
+      color: #6b5742;
+      margin: 42px 0 24px;
       font-style: italic;
     }
-    
+   
+    /* Improved Print Styles */
     @media print {
       body {
-        background: white;
-        padding: 30px 40px;
-        box-shadow: none;
-        max-width: 100%;
-        margin: 0;
+        background: white !important;
+        color: #000 !important;
+        padding: 30px 40px !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        font-size: 14pt !important;
+        line-height: 1.6 !important;
       }
       .day {
-        box-shadow: none;
-        border: 1px solid #ddd;
-        margin-bottom: 24px;
-        padding: 22px;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        margin-bottom: 28px !important;
+        padding: 24px !important;
       }
       .writing-area {
-        border: 1px solid #ccc;
-        min-height: 140px;
-        background: white;
+        border: 1px dotted #999 !important;
+        min-height: 180px !important;
+        background: white !important;
+        background-image: linear-gradient(transparent 90%, #ddd 90%) !important;
+        background-size: 100% 28px !important;
       }
-      h1 { font-size: 28pt; }
-      .subtitle { font-size: 15pt; }
-      .footer { margin-top: 40px; }
+      h1 { font-size: 26pt !important; }
+      .subtitle, .verse { font-size: 14pt !important; }
+      .verse { border-left-color: #aaa !important; }
+      a { color: #000 !important; text-decoration: underline !important; }
+      .print-note, .footer { font-size: 12pt !important; }
     }
   </style>
 </head>
@@ -141,8 +149,8 @@
     “In the morning, O Lord, Thou wilt hear my voice…” (Psalm 5:3, KJV)
   </div>
 
-  <h2 style="text-align:center; color:#8c5c2d; margin:2rem 0 1.5rem; font-size:22px;">Morning Quiet Time</h2>
-
+  <h2 style="text-align:center; color:#8c5c2d; margin:2.2rem 0 1.4rem; font-size:21px;">Morning Quiet Time</h2>
+  
   <div class="day">
     <h3>Monday — Psalm 5:3</h3>
     <p>“In the morning, O Lord, Thou wilt hear my voice: in the morning will I direct my prayer unto Thee, and will look up.”</p>
@@ -184,10 +192,10 @@
 
   <div class="day">
     <h3>Notes / Things I want to remember</h3>
-    <textarea class="writing-area" style="min-height: 180px;"></textarea>
+    <textarea class="writing-area" style="min-height: 210px;"></textarea>
   </div>
 
-  <h2 style="text-align:center; color:#8c5c2d; margin:3rem 0 1.5rem; font-size:22px;">Evening Reflection &amp; Family Table</h2>
+  <h2 style="text-align:center; color:#8c5c2d; margin:3.2rem 0 1.6rem; font-size:21px;">Evening Reflection &amp; Family Table</h2>
 
   <div class="verse">
     “I will both lay me down in peace, and sleep: for Thou, Lord, only makest me dwell in safety.” (Psalm 4:8, KJV)
@@ -205,7 +213,7 @@
 
   <div class="day">
     <h3>A short closing prayer</h3>
-    <textarea class="writing-area" style="min-height: 140px;"></textarea>
+    <textarea class="writing-area" style="min-height: 160px;"></textarea>
   </div>
 
   <div class="family-prompt">
@@ -220,7 +228,7 @@
   </div>
 
   <div class="footer">
-    “Be still, and know that I am God.” (Psalm 46:10, KJV)<br>
+    “Be still, and know that I am God.” (Psalm 46:10, KJV)<br><br>
     Printed from <a href="https://todaysdailybattle.com" style="color:#8c5c2d; text-decoration:none;">todaysdailybattle.com</a>
   </div>
 </body>

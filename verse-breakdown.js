@@ -29,13 +29,13 @@
   var inlinePanelUid = 0;
   var RELATIONS_FALLBACK = {
     anxiety: {
-      line: "Your boss just texted 'urgent'—same as Paul's friends panicking. Pray first."
+      line: "When the weight feels too heavy to carry alone, this verse reminds you there is a place to set it down."
     },
     fear: {
-      line: "The news cycle feels loud and scary. Same fear, same answer: bring it to God first."
+      line: "The things that keep you up at night are known. This verse meets you in the dark with steady truth."
     },
     hope: {
-      line: 'Bad day? This verse meets you there. Hold hope and take the next faithful step.'
+      line: "Even when today feels thin, this verse holds a quiet promise that lasts longer than the feeling."
     }
   };
   var relationsDictCache = null;
@@ -117,11 +117,11 @@
 
   function inferApplies(text) {
     var l = String(text || '').toLowerCase();
-    if (/\b(careful|worry|anxious|fear|afraid)\b/.test(l)) return 'Bring your fear to God in prayer and choose trust.';
-    if (/\b(hope|hopeth|hoped)\b/.test(l)) return 'Hold hope in God even when today is heavy.';
-    if (/\b(peace|rest)\b/.test(l)) return 'Receive God\'s peace and slow your heart before Him.';
-    if (/\b(strength|strong|strengthen)\b/.test(l)) return 'Lean on God\'s strength for your next step.';
-    return 'Ask: what one step of obedience does this verse invite today?';
+    if (/\b(careful|worry|anxious|fear|afraid)\b/.test(l)) return 'This verse meets you when fear presses close. You are not asked to carry it alone.';
+    if (/\b(hope|hopeth|hoped)\b/.test(l)) return 'Even when the day feels thin, this verse holds something steady.';
+    if (/\b(peace|rest)\b/.test(l)) return 'This verse offers a quiet place to set the day down.';
+    if (/\b(strength|strong|strengthen)\b/.test(l)) return 'This verse reminds you there is strength beyond your own.';
+    return 'Sit with this verse for one slow minute. What does it ask of you today?';
   }
 
   function plainSpeaker(raw) {

@@ -2058,8 +2058,8 @@ function safeSessionGet(key) {
   }
 }
 
-var TDB_COOKIE_CONSENT_KEY = 'tdb_cookie_consent_v1';
-var TDB_COOKIE_CONSENT_SNOOZE_MS = 24 * 60 * 60 * 1000;
+var TDB_COOKIE_CONSENT_KEY = 'tdb_cookie_consent_v2';
+var TDB_COOKIE_CONSENT_SNOOZE_MS = 24 * 60 * 60 * 1000; // legacy only; no longer used after v2 fix
 
 function readTdbCookieConsentState() {
   var raw = safeGetItem(TDB_COOKIE_CONSENT_KEY);
@@ -2107,9 +2107,9 @@ function writeTdbCookieConsentState(status) {
 function shouldShowTdbCookieNotice() {
   var state = readTdbCookieConsentState();
   if (!state || !state.status) return true;
-  if (state.status === 'accepted') return false;
-  if (!state.updatedAt) return true;
-  return (Date.now() - state.updatedAt) >= TDB_COOKIE_CONSENT_SNOOZE_MS;
+  // Respect 'accepted' or 'later' permanently. The snooze (24h) was causing the notice to reappear on every page for "Not now" users.
+  // This fixes the bug while keeping the "Privacy first, even here." copy and UX intact.
+  return false;
 }
 
 function ensureTdbCookieNoticeStyles() {
@@ -22848,7 +22848,7 @@ function getAskTheWordHeading(queryText, results, response) {
   if (response && response.answer_mode === 'closest_principles') {
     return 'Closest Scriptural anchors';
   }
-  return 'Strongest verses for this battle';
+  return 'Verses that meet you here';
 }
 
 function buildAskTheWordLocalLead(queryText, results) {
@@ -22857,17 +22857,17 @@ function buildAskTheWordLocalLead(queryText, results) {
     var title = getAskTheWordHeading(queryText, results);
     return heartfelt
       ? (title + '. ' + heartfelt)
-      : (title + '. God meets real life with real truth, not fake calm. Start with these KJV verses.');
+      : (title + '. God meets real life with real truth. Start with these KJV verses.');
   }
-  if (heartfelt) return heartfelt + ' The Bible does not dodge this. Start with these KJV verses.';
-  return 'This battle is real, and Scripture does not pretend otherwise. Start with these KJV verses.';
+  if (heartfelt) return heartfelt + ' The Bible does not turn away. Start with these KJV verses.';
+  return 'This moment is real. Scripture meets it plainly. Start with these KJV verses.';
 }
 
 function buildAskTheWordFooterCopy(queryText, results) {
   if (isAskTheWordSingleWordTopic(queryText, results)) {
-    return 'What stands out, stings, or steadies you here?';
+    return 'What stays with you here?';
   }
-  return 'Name what hit hardest, then bring it to the Lord plainly.';
+  return 'What lingers after you read? Bring that to the Lord plainly.';
 }
 
 function getAskTheWordSources(queryText, results, response) {
@@ -23502,7 +23502,7 @@ function renderHomeSearchResults(results, output, queryText) {
   if (results && results.fallback) {
     var fallback = document.createElement('p');
     fallback.className = 'home-search-note';
-    fallback.textContent = 'No exact match yet, so these are the calmest Scripture doors that stay close to what you asked.';
+    fallback.textContent = 'These verses stay close to what you asked.';
     shell.appendChild(fallback);
   }
 
@@ -23512,11 +23512,11 @@ function renderHomeSearchResults(results, output, queryText) {
     versesSection.setAttribute('data-home-search-section', 'verses');
     var versesHeading = document.createElement('h3');
     versesHeading.className = 'home-search-section-heading';
-    versesHeading.textContent = 'Strongest KJV verses';
+    versesHeading.textContent = 'Verses that meet you here';
     versesSection.appendChild(versesHeading);
     var versesNote = document.createElement('p');
     versesNote.className = 'home-search-note';
-    versesNote.textContent = 'Start with the verse that catches hardest, not all of them at once.';
+    versesNote.textContent = 'Start with the verse that stays with you.';
     versesSection.appendChild(versesNote);
     var verseList = document.createElement('div');
     verseList.className = 'home-search-card-grid';
@@ -23563,13 +23563,13 @@ function renderHomeSearchResults(results, output, queryText) {
     plansSection.setAttribute('data-home-search-section', 'plans');
     var plansHeading = document.createElement('h3');
     plansHeading.className = 'home-search-section-heading';
-    plansHeading.textContent = 'Battle Plans if you need a steadier path';
+    plansHeading.textContent = 'Plans if you need a steadier path';
     plansSection.appendChild(plansHeading);
     var plansNote = document.createElement('p');
     plansNote.className = 'home-search-note';
     plansNote.textContent = planMatches.length === 1
-      ? 'One matched plan showed up for this search.'
-      : (planMatches.length + ' matched plans showed up for this search. Start with the first one.');
+      ? 'One plan matches this search.'
+      : (planMatches.length + ' plans match this search. Start with the first one.');
     plansSection.appendChild(plansNote);
     var planList = document.createElement('div');
     planList.className = 'home-search-card-grid';
@@ -23590,7 +23590,7 @@ function renderHomeSearchResults(results, output, queryText) {
     resourcesSection.appendChild(resourcesHeading);
     var resourcesNote = document.createElement('p');
     resourcesNote.className = 'home-search-note';
-    resourcesNote.textContent = 'Open one if you want a fuller topic page, journal lane, or calmer study doorway.';
+    resourcesNote.textContent = 'Open one if it feels right.';
     resourcesSection.appendChild(resourcesNote);
     var resourceList = document.createElement('div');
     resourceList.className = 'home-search-card-grid';

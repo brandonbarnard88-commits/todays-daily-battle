@@ -48,11 +48,11 @@
   }
 
   var FAMILY_QUESTIONS = [
-    'What is one word from this verse you want God to make real at home today?',
-    'Where do you feel that truth touching your day—school, work, or somewhere else?',
-    'Who might need a gentle word from this verse before bedtime?',
-    'If you had to say this verse in your own short sentence, how would you say it?',
-    'What part of this verse feels kind—and what part feels challenging?'
+    'What one word from this verse stays with you right now?',
+    'Where in your day does this verse feel close?',
+    'Who might need to hear one line from this verse tonight?',
+    'If you said this verse in your own plain words, what would you say?',
+    'What feels kind here, and what feels hard?'
   ];
 
   function pickQuestionForKey(dayKey) {

@@ -5206,27 +5206,26 @@ async function ensureSupabaseLoaded() {
   if (initSupabaseClient()) {
     return true;
   }
+
+  // Strict guard against multiple SDK instances (source of GoTrueClient warning)
   const existing = document.querySelector('script[data-supabase-sdk="true"]');
   if (existing) {
-    const ready = await waitForSupabaseReady(10000);
-    if (ready) {
-      return true;
-    }
+    const ready = await waitForSupabaseReady(8000);
+    if (ready) return true;
   }
+
   for (const urlOrObj of supabaseScriptUrls) {
     const ok = await loadSupabaseScript(urlOrObj);
     if (ok && initSupabaseClient()) {
       return true;
     }
-    const ready = await waitForSupabaseReady(8000);
-    if (ready) {
-      return true;
-    }
+    const ready = await waitForSupabaseReady(6000);
+    if (ready) return true;
   }
+
   const delayedReady = await waitForSupabaseReady(8000);
-  if (delayedReady) {
-    return true;
-  }
+  if (delayedReady) return true;
+
   await reportSupabaseDiagnostics();
   return false;
 }

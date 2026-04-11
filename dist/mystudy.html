@@ -214,8 +214,7 @@
 
   <script type="module" src="config.js"></script>
   <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
-  <!-- Supabase SDK managed by script.js (data-supabase-sdk prevents duplicate GoTrueClient instances and auth token races) -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-supabase-sdk="true" defer></script>
+  <!-- Supabase SDK loaded once by script.js (singleton prevents duplicate GoTrueClient instances) -->
   <script src="verse-breakdown.js?v=20260405-relations-fix" defer></script>
   <script src="highlights.js?v=20260305" defer></script>
   <script src="bible-study-companion.js?v=20260328printpolish" defer></script>

@@ -2904,15 +2904,24 @@
       .hymn-lyrics-modal-inner { max-height: 85vh; overflow-y: auto; }
     }
 
-    /* ── Hero Verse ── */
+    /* ── Hero Verse — deeper Patek serenity & focal peace ── */
+    #hero-verse-wrap,
+    .verse-card {
+      background: #FAF7F2;
+      padding: 2.75rem 1.75rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.025);
+      border: 1px solid rgba(191, 164, 111, 0.09);
+    }
+
     .hero-verse {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      color: var(--text);
-      font-size: clamp(1.65rem, 4.5vw, 2.55rem);
-      line-height: 1.55;
-      font-weight: 500;
-      letter-spacing: -0.005em;
-      margin: 0;
+      color: #1F2529;
+      font-size: clamp(1.85rem, 5vw, 2.35rem);
+      line-height: 1.78;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+      margin: 0 0 1.25rem;
     }
 
     @keyframes tdbHeroVerseIn {
@@ -2932,12 +2941,14 @@
       }
     }
 
-    .verse-ref {
-      margin: 10px 0 6px;
-      color: var(--muted);
-      font-size: 0.88rem;
-      letter-spacing: 0.04em;
+    .verse-ref,
+    .hero-daily-ref-above {
+      margin: 0.75rem 0 1rem;
+      color: var(--gold);
+      font-size: 1.05rem;
+      letter-spacing: 0.035em;
       text-transform: uppercase;
+      font-weight: 400;
     }
 
     .tdb-why-stay-line {
@@ -3063,9 +3074,12 @@
 
     /* Calendar verse breakdown sits directly under the verse row (before hub “extra anchor”) */
     .hero-calendar-breakdown-wrap {
-      margin: 0.5rem 0 0;
-      padding-top: 0.6rem;
-      border-top: 1px solid color-mix(in srgb, var(--line, rgba(255, 255, 255, 0.12)) 88%, transparent);
+      margin: 1.25rem 0 0;
+      padding: 1.75rem 1.5rem;
+      background: #FFFFFF;
+      border: 1px solid rgba(191, 164, 111, 0.13);
+      border-radius: 8px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.028);
     }
     .hero-calendar-breakdown-wrap .hero-breakdown-panels {
       margin: 0.45rem 0 0.65rem;
@@ -3074,8 +3088,8 @@
     /* ── Hero verse rich breakdown panels ── */
     .hero-breakdown-panels {
       display: grid;
-      gap: 10px;
-      margin: 1rem 0 0;
+      gap: 12px;
+      margin: 0;
     }
     .hbp-panel {
       background: color-mix(in srgb, var(--gold) 7%, var(--card));
@@ -3108,10 +3122,15 @@
     }
 
     .application {
-      margin: 14px 0 0;
+      margin: 1.25rem 0 0;
+      padding: 1.25rem 1.5rem;
+      background: #FFFFFF;
+      border: 1px solid rgba(191, 164, 111, 0.13);
+      border-radius: 8px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.028);
       color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.45;
+      font-size: 0.97rem;
+      line-height: 1.6;
     }
 
     /* ── Verse skeleton ── */
@@ -5313,20 +5332,20 @@
     }
     /* Hero daily verse doorway — welcoming any day */
     .hero-daily-headline {
-      margin: 0 0 0.5rem;
-      font-size: clamp(1.25rem, 3.2vw, 1.55rem);
-      font-weight: 600;
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.35rem, 3.5vw, 1.65rem);
+      font-weight: 500;
       color: var(--text);
-      letter-spacing: 0.01em;
-      line-height: 1.3;
+      letter-spacing: -0.005em;
+      line-height: 1.25;
     }
     .hero-daily-subline {
-      margin: 0 0 1rem;
-      font-size: clamp(0.97rem, 2.6vw, 1.08rem);
-      line-height: 1.6;
+      margin: 0 0 1.5rem;
+      font-size: clamp(0.98rem, 2.6vw, 1.1rem);
+      line-height: 1.65;
       font-weight: 400;
       color: var(--muted);
-      max-width: 38rem;
+      max-width: 40rem;
       overflow-wrap: anywhere;
       hyphens: auto;
       -webkit-hyphens: auto;

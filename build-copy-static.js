@@ -124,6 +124,7 @@ const rootFiles = [
   'contact-form.js',
   'shop-waitlist.js',
   'feeling-suggest-form.js',
+  'plan-suggest-form.js',
   'firebase-push.js',
   'voice-message.js',
   'voice-pray.js',

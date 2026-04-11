@@ -30,14 +30,28 @@
 
       var client = window.__tdbSupabaseClient;
       if (!client) {
-        status.textContent = 'Unable to submit right now. Please try again later.';
+        // Supabase not loaded yet (deferred). Wait a moment then retry.
+        status.textContent = 'Connecting…';
         status.style.color = 'var(--muted, #888)';
+        setTimeout(function () {
+          var retryClient = window.__tdbSupabaseClient;
+          if (retryClient) {
+            submitWithClient(retryClient, phrase, status, textarea);
+          } else {
+            status.textContent = 'Unable to submit right now. Please try again later.';
+            status.style.color = 'var(--muted, #888)';
+          }
+        }, 1200);
         return;
       }
 
       status.textContent = 'Sending…';
       status.style.color = 'var(--muted, #888)';
 
+      submitWithClient(client, phrase, status, textarea);
+    });
+
+    function submitWithClient(client, phrase, status, textarea) {
       client.from('plan_suggestions').insert({ phrase: phrase })
         .then(function (res) {
           if (res.error) {
@@ -54,7 +68,7 @@
           status.textContent = 'Something went wrong. Please try again.';
           status.style.color = 'var(--muted, #888)';
         });
-    });
+    }
   }
 
   if (document.readyState === 'loading') {

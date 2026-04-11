@@ -2107,9 +2107,9 @@ function writeTdbCookieConsentState(status) {
 function shouldShowTdbCookieNotice() {
   var state = readTdbCookieConsentState();
   if (!state || !state.status) return true;
-  // Respect 'accepted' or 'later' permanently. The snooze (24h) was causing the notice to reappear on every page for "Not now" users.
-  // This fixes the bug while keeping the "Privacy first, even here." copy and UX intact.
-  return false;
+  // Permanently respect both choices. "Not now" must silence the banner forever (the previous snooze logic was the root cause of reappearing on every page).
+  if (state.status === 'accepted' || state.status === 'later') return false;
+  return true;
 }
 
 function ensureTdbCookieNoticeStyles() {

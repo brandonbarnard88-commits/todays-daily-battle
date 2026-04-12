@@ -12,8 +12,9 @@
 /mystudy/ /mystudy.html 200!
 /mystudy.html /mystudy 301
 
-# Prayer Wall — critical clean-URL + no-redirect-loop fix (moved high; 200! for both paths)
-# Serves prayer-wall.html content for /prayer-wall and /prayer-wall.html. Prevents 308/301 loops from platform clean-URL rules.
+# Prayer Wall — critical clean-URL + no-redirect-loop fix (highest priority)
+# Cloudflare Pages often overrides later 200! rules with its own 308 clean-URL redirects.
+# These must stay at the very top (after admin blocks) to win.
 /prayer-wall.html /prayer-wall.html 200!
 /prayer-wall /prayer-wall.html 200!
 /prayer-wall/ /prayer-wall.html 200!

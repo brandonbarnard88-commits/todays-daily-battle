@@ -1,64 +1,55 @@
-# Cloudflare Redirect Rules Fallback (Donation Paths)
+# Cloudflare Redirect Rules Fallback (Prayer Wall + Clean URLs)
 
-If `_redirects` in Cloudflare Pages isn't applying (propagation delay, build quirk, or platform mismatch), use **Redirect Rules** in the Cloudflare dashboard. These run at the edge and apply immediately.
+If `_redirects` rules (even with `200!`) are overridden by Cloudflare Pages' automatic clean-URL 308 redirects, use **Redirect Rules** or **Transform Rules** in the Cloudflare dashboard. These run at the edge and take precedence.
 
-## Setup
+## Recommended: Transform Rule (URL Rewrite) - Preferred for 2026
 
-1. **Cloudflare Dashboard** → your zone (todaysdailybattle.com) → **Rules** → **Redirect Rules**
-2. **Create rule** → **Create Redirect Rule**
-3. Use the values below.
+1. Cloudflare Dashboard → **Rules** → **Transform Rules** → **Create rule**
+2. **Rule name**: `Prayer Wall clean URL rewrite (200)`
+3. **When incoming requests match**:
+   - Custom filter expression:
+     ```
+     (http.request.uri.path eq "/prayer-wall" or http.request.uri.path eq "/prayer-wall/" or http.request.uri.path eq "/prayer-wall.html")
+     ```
+4. **Then**:
+   - **Action**: Rewrite to static path
+   - **Path**: `/prayer-wall.html`
+   - Preserve query string: **On** (critical for `?tab=with-others`)
+   - Status code: Serve as **200 OK** (no redirect)
 
----
+Place this rule high in the list (before any catch-all or 404 rules).
 
-## Rule 1: /donate, /stripe, /support, /donations (exact)
+## Alternative: Legacy Page Rule (if Transform not available)
 
-| Field | Value |
-|-------|-------|
-| **Rule name** | Donation paths → Buy Me a Coffee |
-| **When incoming requests match** | Custom filter expression |
-| **Expression** | `(http.request.uri.path eq "/donate" or http.request.uri.path eq "/stripe" or http.request.uri.path eq "/support" or http.request.uri.path eq "/donations")` |
-| **Then** | Dynamic redirect |
-| **Type** | Permanent (301) |
-| **URL** | `https://buymeacoffee.com/todaysdailybattle` |
-| **Preserve query string** | Off (or On if you want `?` params passed through) |
+1. **Rules** → **Page Rules** → **Create Page Rule**
+2. URL pattern: `todaysdailybattle.com/prayer-wall*`
+3. Settings:
+   - **URL Forwarding** → Forwarding URL (301 or 200 if available)
+   - Or use "Static" / rewrite behavior to `/prayer-wall.html` with 200 status.
 
----
+## Quick _redirects fallback (highest priority, add at very top of file)
 
-## Rule 2: /donations/* (wildcard)
-
-| Field | Value |
-|-------|-------|
-| **Rule name** | Donations wildcard → Buy Me a Coffee |
-| **When incoming requests match** | Custom filter expression |
-| **Expression** | `starts_with(http.request.uri.path, "/donations/")` |
-| **Then** | Dynamic redirect |
-| **Type** | Permanent (301) |
-| **URL** | `https://buymeacoffee.com/todaysdailybattle` |
-
----
-
-## Alternative: Single rule with regex
-
-If your plan supports it, one rule can cover all:
-
-**Expression:**
 ```
-(http.request.uri.path eq "/donate" or http.request.uri.path eq "/stripe" or http.request.uri.path eq "/support" or http.request.uri.path eq "/donations" or starts_with(http.request.uri.path, "/donations/"))
+/prayer-wall.html /prayer-wall.html 200!
+/prayer-wall /prayer-wall.html 200!
+/prayer-wall/ /prayer-wall.html 200!
 ```
 
----
+Then:
+- `npm run build`
+- Deploy
+- Purge cache for `/prayer-wall*` in Cloudflare
 
-## Order
+## Verification commands
 
-Place these rules **above** any catch-all 404 rules so they match first.
+```bash
+curl -I https://todaysdailybattle.com/prayer-wall
+curl -I -A "Googlebot" https://todaysdailybattle.com/prayer-wall
+curl -I https://todaysdailybattle.com/prayer-wall.html
+```
 
----
+Look for **HTTP/2 200** (not 301/308/503). The response should contain the full prayer wall HTML with the noscript block visible in source.
 
-## Verification
+After the rule is active, re-test the tabbed UI, seed prayers, offline strip, and privacy inspector. The site can then be marked "complete and clean."
 
-After saving, test in incognito:
-
-- https://todaysdailybattle.com/donate → 301 → buymeacoffee.com/todaysdailybattle
-- https://todaysdailybattle.com/donations/test → 301 → buymeacoffee.com/todaysdailybattle
-
-DevTools → Network → check for `301` status and `Location` header.
+Updated: April 12, 2026 (post-CSP + noscript pass)

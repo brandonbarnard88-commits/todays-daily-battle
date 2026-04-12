@@ -8,9 +8,9 @@
 
 .mystudy-shell {
   width: 100%;
-  max-width: 72rem;
+  max-width: 92rem;
   margin: 0 auto;
-  padding: 1.1rem 0.9rem 2.5rem;
+  padding: 1.4rem 1.25rem 3rem;
 }
 
 .mystudy-topbar {
@@ -517,16 +517,26 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
 
 .mystudy-panel-flow {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
+}
+
+#panel-note-library .mystudy-panel-flow {
+  max-width: 820px;
+  margin: 0 auto;
 }
 
 .mystudy-section-card {
-  padding: 1rem 1.05rem;
+  padding: 1.25rem 1.35rem;
   border-radius: 20px;
   border: 1px solid rgba(148, 163, 184, 0.18);
   background:
     linear-gradient(180deg, rgba(15, 23, 42, 0.72), rgba(9, 14, 24, 0.68));
   box-shadow: 0 18px 44px rgba(2, 6, 23, 0.2);
+}
+
+#panel-note-library .mystudy-section-card,
+#panel-note-library .mystudy-library-item {
+  max-width: none;
 }
 
 .mystudy-section-head {
@@ -791,8 +801,8 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
 
 .mystudy-library-item {
   margin: 0;
-  padding: 0.65rem 0.75rem;
-  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
   border: 1px solid var(--tdb-surface-panel-border);
   background-color: var(--tdb-surface-panel-bg);
   background-image: var(--tdb-surface-veil-subtle);
@@ -951,6 +961,10 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
   .mystudy-streak-badge-featured-card {
     padding: 0.78rem 0.82rem;
   }
+
+  #panel-note-library .mystudy-panel-flow {
+    max-width: none;
+  }
 }
 
 @media (min-width: 820px) {
@@ -967,6 +981,12 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
 
   .mystudy-writing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Library tab gets full desktop width */
+  #panel-note-library .mystudy-panel-flow {
+    max-width: 860px;
+    margin: 0 auto;
   }
 }
 

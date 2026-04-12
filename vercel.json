@@ -130,12 +130,12 @@
     {
       "source": "/prayer-wall",
       "destination": "/prayer-wall.html",
-      "permanent": true
+      "permanent": false
     },
     {
       "source": "/prayer-wall/",
       "destination": "/prayer-wall.html",
-      "permanent": true
+      "permanent": false
     }
   ],
   "headers": [
@@ -184,7 +184,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://checkout.stripe.com https://hooks.stripe.com; trusted-types default dompurify; script-src 'self' 'nonce-tdb2025s' https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://www.todaysdailybattle.com https://plausible.io https://www.googletagmanager.com https://js.stripe.com; script-src-elem 'self' 'nonce-tdb2025s' https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://www.todaysdailybattle.com https://plausible.io https://www.googletagmanager.com https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://api.stripe.com https://api.github.com https://bible-api.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; worker-src 'self' blob: https://todaysdailybattle.com https://www.todaysdailybattle.com; frame-src 'self' https://challenges.cloudflare.com https://js.stripe.com https://hooks.stripe.com; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://checkout.stripe.com https://hooks.stripe.com; trusted-types default dompurify; script-src 'self' 'nonce-tdb2025s' https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://www.todaysdailybattle.com https://plausible.io https://www.googletagmanager.com https://js.stripe.com https://static.cloudflareinsights.com; script-src-elem 'self' 'nonce-tdb2025s' https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://www.todaysdailybattle.com https://plausible.io https://www.googletagmanager.com https://js.stripe.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://api.stripe.com https://api.github.com https://bible-api.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://static.cloudflareinsights.com https://cdn-cgi/rum; worker-src 'self' blob: https://todaysdailybattle.com https://www.todaysdailybattle.com https://todaysdailybattle.com; frame-src 'self' https://challenges.cloudflare.com https://js.stripe.com https://hooks.stripe.com; upgrade-insecure-requests"
         }
       ]
     }

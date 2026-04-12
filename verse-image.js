@@ -30,6 +30,17 @@
     return String(ref || '').replace(/\s+/g, ' ').trim();
   }
 
+  /** Phase 4 light polish: Calmer, humbler tone matching createGodTierBreakdown() and "quiet friend at dawn". Graceful offline fallback per Offline-Rule.mdc and site-wide "Offline—still got you". No AI prompts (canvas-only); uses calm descriptive guidance for backgrounds/status. */
+  function getOfflineImageFallback(verse) {
+    const ref = (verse && verse.ref) || (verse && verse.reference) || 'Psalm 23:1';
+    const text = (verse && (verse.text || verse.body)) || 'The LORD is my shepherd; I shall not want.';
+    return {
+      message: "Offline—still got you. Canvas preview and download work completely offline.",
+      textCard: `${ref}\n\n${text}\n\nOne calm step today: read it once, breathe slowly, and remember He is near.`,
+      action: "Update preview to render on canvas (uses cached text). All exports and shares stay available."
+    };
+  }
+
   function newId() {
     if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
     return String(Date.now()) + '-' + String(Math.random()).slice(2, 10);
@@ -1199,9 +1210,7 @@
         if (!custom && tdef.textColor) colorEl.value = tdef.textColor;
       }
       if (templateHintEl) {
-        templateHintEl.textContent = custom
-          ? 'Custom uses a wide preview (1200×630). Pick a dawn template for square or story-sized shares.'
-          : 'This template sets size and colors. Switch to Custom to mix your own background and layout.';
+        templateHintEl.textContent = getCalmTemplateHint(tk);
       }
     }
 
@@ -1384,13 +1393,21 @@
           var c = loadCache();
           if (c && normRef(c.ref) === normRef(ref) && c.text) {
             bodyEl.value = c.text;
-            setStatus('Offline — still got you. Using your last saved text for this reference.');
+            setStatus('Offline—still got you. Using your last saved text for this reference.');
           } else {
-            setStatus('Could not load verse. Check connection or paste text.');
+            var fb = getOfflineImageFallback({ ref: ref });
+            bodyEl.value = fb.textCard.split('\n\n')[1] || 'The LORD is my shepherd; I shall not want.';
+            setStatus(fb.message);
           }
         }
       });
     });
+
+    /** Calmer prompt guidance for templates (no external AI; reuses existing canvas backgrounds). Matches deepened createGodTierBreakdown tone: quiet dawn, humble, one concrete step. */
+    function getCalmTemplateHint(tk) {
+      if (!tk || tk === 'custom') return 'Custom uses a wide preview (1200×630). Dawn templates pair best with the one calm step in your verse.';
+      return 'Template sets size, colors, and subtle dawn light. One calm step: choose what matches the verse’s quiet truth today.';
+    }
 
     document.getElementById('verse-image-preview-btn').addEventListener('click', runPreview);
 
@@ -1512,6 +1529,11 @@
       bodyEl.value = cache.text;
       if (qrEl && cache.includeQr === false) qrEl.checked = false;
       if (watermarkEl && cache.includeBranding === false) watermarkEl.checked = false;
+    } else {
+      // Warm offline-first default matching God-tier breakdown tone
+      var fb = getOfflineImageFallback(null);
+      if (refEl) refEl.value = 'Psalm 23:1';
+      if (bodyEl) bodyEl.value = 'The LORD is my shepherd; I shall not want.';
     }
     try {
       if (watermarkEl) {
@@ -1525,14 +1547,16 @@
     migrateLegacyTemplateKeysInIdb().then(function () {
       applyTemplateUi(templateEl ? templateEl.value : 'custom');
       renderRecentGens();
+      var initialRef = normRef(refEl.value) || 'Psalm 23:1';
+      var initialBody = stripHtml(bodyEl.value) || 'The LORD is my shepherd; I shall not want.';
       renderCardWithQr(
         canvas,
-        normRef(refEl.value) || 'Philippians 4:13',
-        stripHtml(bodyEl.value) || 'I can do all things through Christ which strengtheneth me.',
+        initialRef,
+        initialBody,
         getCardOpts(),
         function () {}
       );
-      setStatus('Adjust text, then Update preview.');
+      setStatus('Adjust text or template, then Update preview. All canvas work stays available offline.');
     });
   }
 

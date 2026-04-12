@@ -12,7 +12,90 @@
     /* Existing styles from previous version - keeping them intact for consistency */
     :root { --bg:#0d1117; --text:#f5f7fb; --muted:#8896b0; --gold:#e3bc67; --line:#242d3d; }
     body { background: var(--bg); color: var(--text); font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; }
-    /* Add any additional styles as needed - this is the full page structure */
+
+    /* Printables elevation — ink-friendly, high-contrast, serene for real battles. Matches the provided @media print rules. */
+    @media print {
+      /* Hide everything non-essential */
+      nav, .top-bar, .footer, button:not(.print-trigger), .no-print,
+      .ads, .share-bar, .dark-toggle, .tdb-header-account-nudge, .site-global-nav-topbar { 
+        display: none !important; 
+      }
+
+      body, html {
+        background: #ffffff !important;
+        color: #1a1a1a !important;
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.6;
+        max-width: 100%;
+        margin: 0;
+        padding: 0.5in;
+      }
+
+      h1, h2, h3 {
+        font-size: 18pt;
+        color: #000;
+        page-break-after: avoid;
+        margin-bottom: 0.5in;
+      }
+
+      p, li {
+        font-size: 12pt;
+        orphans: 3;
+        widows: 3;
+        margin-bottom: 0.6em;
+      }
+
+      .printable-section {
+        page-break-inside: avoid;
+        margin-bottom: 1.5in;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 1in;
+      }
+
+      /* Checkboxes and lines become print-friendly */
+      input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        accent-color: #000;
+        border: 2px solid #000;
+      }
+
+      /* Generous margins, no backgrounds or colors that waste ink */
+      * {
+        background: transparent !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+
+      a {
+        color: #000;
+        text-decoration: underline;
+      }
+
+      /* Force black text, high contrast for KJV verses */
+      .verse-text, .printable-verse {
+        font-size: 14pt;
+        font-weight: normal;
+        color: #000;
+        line-height: 1.45;
+      }
+
+      .print-trigger {
+        display: none !important;
+      }
+    }
+
+    /* On-screen print button styling — calm and useful */
+    .print-trigger {
+      background: var(--gold, #e3bc67);
+      color: #1a1a1a;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 1rem 0;
+    }
   </style>
 </head>
 <body>
@@ -30,28 +113,45 @@
     </p>
   </section>
 
-  <section class="daily-rhythm">
+  <section class="daily-rhythm printable-section">
     <h3>Daily Rhythm Companions</h3>
     <p>Gentle structures to help you begin the day with the Lord and end it in peace — flexible for individuals, parents, and whole families.</p>
     
     <ul>
       <li>
-        <strong><a href="one-week-rhythm.html">One Week of Quiet Rhythm</a></strong> — 
+        <strong><a href="one-week-rhythm.html" class="print-trigger">One Week of Quiet Rhythm</a></strong> — 
         A calm seven-day rhythm with morning quiet time, evening reflection, and a simple family table prompt. 
         Spacious and flexible for anyone wanting gentle structure in their hand.
       </li>
       <li>
-        <strong><a href="one-week-rhythm-kids.html">One Week of Quiet Rhythm – Kids & Family Edition</a></strong> — 
+        <strong><a href="one-week-rhythm-kids.html" class="print-trigger">One Week of Quiet Rhythm – Kids & Family Edition</a></strong> — 
         The same gentle rhythm, made simpler and more joyful for children and families. 
         Larger fonts, drawing space, and light-hearted prompts that invite everyone to notice God together without pressure.
       </li>
       <li>
-        <strong><a href="be-still-moments.html">Be Still Moments</a></strong> — 
+        <strong><a href="be-still-moments.html" class="print-trigger">Be Still Moments</a></strong> — 
         Five short, independent 5-minute cards (one for each weekday) with a single KJV verse and a quiet prompt. 
         Ideal for busy mornings, lunch breaks, or any moment you simply need to pause and remember the Lord is near.
       </li>
     </ul>
   </section>
+
+  <section class="memory-verse printable-section">
+    <h3>Memory Verse Activities</h3>
+    <p>Simple, ink-friendly worksheets for hiding Scripture in your heart. One verse per sheet with space to write, draw, or copy the KJV text. Perfect for individuals, families, or homeschool.</p>
+    <button type="button" class="btn print-trigger" onclick="window.print()">Print Memory Verse Worksheets</button>
+  </section>
+
+  <section class="family-armor printable-section">
+    <h3>Family Armor Checklist</h3>
+    <p>Weekly checklist for putting on the full armor of God together (Ephesians 6). Space for each family member to note one way they saw God’s protection that week. Calm, reverent, no pressure.</p>
+    <button type="button" class="btn print-trigger" onclick="window.print()">Print Family Armor Checklist</button>
+  </section>
+
+  <!-- Humble language note — KJV English only for now -->
+  <p class="site-note footer-humility" style="margin-top: 3rem; font-size: 0.9rem; color: var(--muted);">
+    KJV English only for now — Spanish and other languages coming when the Lord leads.
+  </p>
 
   <!-- Additional printables sections would go here (resurrection, family sheets, etc.). The core new content is now live. -->
 

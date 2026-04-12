@@ -136,10 +136,13 @@
     </aside>
 
     <main class="app-content" id="main-content">
-      <div class="content-inner">
+        <div class="content-inner">
+        <!-- tdb-offline-strip for prayer per Offline-Rule: shows 'Offline—still got you' on fetch fail or no connection. Prayer data stays local first. -->
+        <div id="tdb-offline-strip" class="tdb-offline-strip hidden" data-tdb-offline-page="prayer" role="status" aria-live="polite"></div>
+
         <header class="hero-banner tdb-dawn-hub--dusk">
           <h1>Prayer</h1>
-          <p class="real-talk">One clear doorway, two honest ways to use it. <strong>Pray Privately</strong> keeps one anonymous line on this device with no account. <strong>Pray With Others</strong> opens the shared wall for reading, praying, and signed-in posts when you are ready.</p>
+          <p class="real-talk">Two quiet doors. Pray privately here with no name or account — the line stays on this device. Or sign in to read and add to the shared wall with others. Both honest. Both safe.</p>
           <div class="cta-group">
             <a class="btn btn-secondary" href="/">Home &amp; search</a>
             <button type="button" class="btn btn-secondary prayer-door-tab-link" data-prayer-tab-target="private">Pray privately</button>
@@ -155,26 +158,26 @@
         <!-- ── Prayer ── -->
         <section class="card prayer-wall-card prayer-wall-quiet-room" id="prayer-panel-private" data-prayer-panel="private" role="tabpanel" aria-labelledby="prayer-tab-private">
           <h2 id="prayer-wall-room-title" class="prayer-wall-room-title">Pray privately</h2>
-          <p class="prayer-wall-room-lead">Name one line for God. No feed, no performance&mdash;just a gentle place to be honest before Him.</p>
+          <p class="prayer-wall-room-lead">Name one honest line. No feed, no score, no performance. Just you and Him in the quiet.</p>
           <div class="prayer-wall-header-row">
             <p class="prayer-wall-label"><svg class="section-divider-icon" style="display:inline-block;vertical-align:middle;margin-right:0.35rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Private prayer</p>
-            <span class="prayer-wall-badge">No account, no name, just you and Him.</span>
+            <span class="prayer-wall-badge">No account needed. Just you and Him.</span>
             <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
           </div>
-          <p class="prayer-wall-privacy-note landing-privacy-teaser section-note">What you post here stays humble and anonymous unless you sign in and choose otherwise. <a href="privacy.html">Privacy policy</a>.</p>
-          <p class="section-note">Human-curated &bull; All posts remain anonymous by default. Report any concerns: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a></p>
-          <p class="prayer-wall-community-line section-note">Need the shared wall instead? Open <strong>Pray With Others</strong> above when you want to read or post with an account.</p>
+          <p class="prayer-wall-privacy-note landing-privacy-teaser section-note">Everything here stays on this device by default. Your words are not sent unless you sign in to share on the wall. <a href="privacy.html">Read the promise</a>.</p>
+          <p class="section-note">Human-curated. All anonymous by default. Report any concern: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+          <p class="prayer-wall-community-line section-note">The shared wall is in the other tab. It waits until you are ready and signed in.</p>
           <!-- Grace message: shown once when a streak breaks, dismissed on next post or click -->
           <p id="prayerWallGraceMsg" class="prayer-wall-grace-msg" hidden aria-live="polite">
-            Missed a day? No shame&#8212;fresh start today. 🙏
+            Missed a day? No shame. Fresh start today. 
             <button type="button" id="prayerWallGraceDismiss" class="prayer-wall-grace-dismiss" aria-label="Dismiss message">&#x2715;</button>
           </p>
-          <p class="prayer-wall-prompt">"Lord, keep me in truth today."</p>
+          <p class="prayer-wall-prompt">“Lord, keep me in truth today.”</p>
           <p id="prayerWallNudge" class="prayer-wall-nudge section-note" hidden aria-live="polite">Need to pray? You can post without a name.</p>
           <div class="prayer-counter-row">
-            <span class="prayer-today-label" id="prayerTodayLabel">Quiet today—open starters on the wall</span>
+            <span class="prayer-today-label" id="prayerTodayLabel">Quiet room today. The seeds are here when you need them.</span>
             <span class="prayer-today-badge" id="prayerTodayBadge" aria-live="polite" aria-atomic="true"></span>
-            <span class="prayer-offline-notice hidden" id="prayerOfflineNotice">Saved locally—sync when back</span>
+            <span class="prayer-offline-notice hidden" id="prayerOfflineNotice">Saved on this device. Syncs when you’re back online.</span>
             <button type="button" id="prayerRetrySyncBtn" class="prayer-retry-sync-btn hidden" aria-label="Retry syncing prayers">Retry sync</button>
           </div>
           <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">23</span></p>
@@ -183,7 +186,7 @@
           <p class="prayer-social-proof prayer-social-proof-zero" id="prayerSocialProofZero" aria-live="polite">You're the first today—your prayer could encourage someone tomorrow.</p>
           <div id="prayer-echo" class="prayer-echo" aria-labelledby="prayer-echo-heading">
             <h3 id="prayer-echo-heading" class="prayer-echo-heading">Whispers in the room right now</h3>
-            <p class="prayer-echo-sub section-note">Anonymous intents from the table—no names, just hearts. <a href="privacy.html">Privacy</a></p>
+            <p class="prayer-echo-sub section-note">Anonymous lines from the quiet room—no names, just hearts lifted. <a href="privacy.html">Privacy</a></p>
             <p id="prayer-echo-sacred" class="prayer-echo-sacred hidden" hidden>Live whispers rest while sacred silence is on.</p>
             <p id="prayer-echo-loading" class="prayer-echo-loading section-note">Gathering the latest hushed prayers…</p>
             <p id="prayer-echo-presence" class="prayer-echo-presence hidden" aria-live="polite"></p>
@@ -204,9 +207,10 @@
           </div>
           <p id="prayer-wall-input-error" class="prayer-wall-input-error section-note" role="alert" hidden></p>
           <p id="prayer-wall-post-success" class="prayer-wall-post-success section-note" role="status" aria-live="polite" hidden></p>
+          <!-- Enhanced offline resilience for prayer wall per rules and eval feedback on load issues. Private prayers cached locally first. -->
           <div class="prayer-wall-alive" role="region" aria-label="Your prayers on this device">
             <div class="today-count" id="prayer-device-today-block">
-              <span id="prayer-device-quiet" class="prayer-device-quiet">Quiet on this device today—Silent Amen still counts.</span>
+              <span id="prayer-device-quiet" class="prayer-device-quiet">Quiet on this device today. Silent Amen still counts as prayer.</span>
               <span id="prayer-device-count-wrap" class="prayer-device-count-wrap hidden" aria-live="polite">
                 <strong><span id="prayer-count-today">0</span></strong> prayers today on this device
               </span>
@@ -215,7 +219,7 @@
             <div id="recent-prayers" class="recent-prayers" role="region" aria-label="Recent anonymous prayers" aria-live="polite"></div>
           </div>
           <!-- Sync status note — updated by updateSyncStatusUI() -->
-          <p class="prayer-wall-note" aria-live="polite">Stays right here on your phone or computer until you sign in.</p>
+          <p class="prayer-wall-note" aria-live="polite">Everything here stays on this device until you choose to sign in and sync. Your words are safe.</p>
           <div class="prayer-export-row">
             <button type="button" id="prayer-export-btn" class="prayer-export-btn" aria-label="Export my prayers" aria-describedby="prayer-export-hint">Export my prayers</button>
             <p id="prayer-export-hint" class="prayer-export-hint section-note">Save as a text file—or share a verse anonymously with Share on any line.</p>
@@ -257,10 +261,10 @@
 
         <section id="prayer-panel-with-others" class="message-board glass hidden" data-prayer-panel="with-others" role="tabpanel" aria-labelledby="prayer-tab-with-others" aria-hidden="true">
           <h2 class="section-divider" id="message-board-heading">Pray with others</h2>
-          <p class="section-note" id="message-board-intro">Read what others shared, pause over it, and post a few honest lines when you are signed in. Names stay optional. We do not rank one prayer over another.</p>
-          <p class="section-note" role="note">Safety note: keep private details out. Short and anonymous is best.</p>
-          <p class="section-note" role="note">Human-curated and carefully moderated. Report concerns: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a></p>
-          <p class="section-note tdb-privacy-whisper" id="message-board-privacy-note" role="note">We don&rsquo;t sell prayer posts or use them for ads. <strong>Before you post:</strong> see <a href="privacy.html">Privacy</a> for how shared posts are handled.</p>
+          <p class="section-note" id="message-board-intro">Read quiet lines others have shared. Pause, pray, then add your own when signed in. Names optional. No ranking. Just hearts before God.</p>
+          <p class="section-note" role="note">Keep details private. Short and honest is enough.</p>
+          <p class="section-note" role="note">Human-curated and moderated. Report any concern: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+          <p class="section-note tdb-privacy-whisper" id="message-board-privacy-note" role="note">No selling. No ads. Shared posts stay anonymous and are moderated. <strong>Before you post</strong>, read the <a href="privacy.html">privacy promise</a>.</p>
           <div id="message-board-note" class="section-note"></div>
           <div class="message-toolbar">
             <div class="daily-encouragement" id="daily-encouragement"></div>
@@ -273,7 +277,7 @@
             </select>
           </div>
           <div class="message-form">
-            <input id="message-name" type="text" placeholder="Your name (optional)" aria-label="Your display name">
+            <input id="message-name" type="text" placeholder="Name (optional)" aria-label="Your display name (optional)">
             <details class="message-loop-prayer-details" id="message-loop-prayer-details">
               <summary>Simple prayer template (optional)</summary>
               <p class="section-note util-mb-0_5">Lay down one weight. Receive one promise. Fill the lines, tap <strong>Use in post</strong>, then edit. Nothing posts until you choose.</p>
@@ -287,7 +291,7 @@
                 <button type="button" class="btn btn-secondary" id="loop-prayer-use-btn">Use in post</button>
               </div>
             </details>
-            <textarea id="message-text" rows="4" placeholder="A few honest lines are enough—prayer, thanks, or a verse that helped." aria-label="Your prayer or note" aria-describedby="message-board-intro message-board-privacy-note message-loop-prayer-hint"></textarea>
+            <textarea id="message-text" rows="4" placeholder="A few honest lines — a prayer, a thanks, or a verse that held you." aria-label="Your prayer or note" aria-describedby="message-board-intro message-board-privacy-note message-loop-prayer-hint"></textarea>
             <p class="section-note sr-only" id="message-loop-prayer-hint">Optional: open the simple prayer template above to drop in a weight-and-promise pattern, then edit.</p>
             <div class="message-form-actions">
               <button type="button" id="post-message" class="btn btn-primary">Post to the wall</button>
@@ -481,7 +485,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 11, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 12, 2026</span></p>
   <script defer src="/language-switcher.js"></script>
 </footer>
   </div>

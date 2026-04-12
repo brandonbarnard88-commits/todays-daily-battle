@@ -30,6 +30,17 @@
     return String(ref || '').replace(/\s+/g, ' ').trim();
   }
 
+  /** Phase 4 light polish: Calmer, humbler tone matching createGodTierBreakdown() and "quiet friend at dawn". Graceful offline fallback per Offline-Rule.mdc and site-wide "Offline—still got you". No AI prompts (canvas-only); uses calm descriptive guidance for backgrounds/status. */
+  function getOfflineImageFallback(verse) {
+    const ref = (verse && verse.ref) || (verse && verse.reference) || 'Psalm 23:1';
+    const text = (verse && (verse.text || verse.body)) || 'The LORD is my shepherd; I shall not want.';
+    return {
+      message: "Offline—still got you. Canvas preview and download work completely offline.",
+      textCard: `${ref}\n\n${text}\n\nOne calm step today: read it once, breathe slowly, and remember He is near.`,
+      action: "Update preview to render on canvas (uses cached text). All exports and shares stay available."
+    };
+  }
+
   function newId() {
     if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
     return String(Date.now()) + '-' + String(Math.random()).slice(2, 10);
@@ -273,6 +284,34 @@
       bg: 'minimal_blank',
       layout: 'centered',
       textColor: 'ink',
+      memorize: false,
+      footer: 'site'
+    },
+    // T13–T15: Quiet Dawn Refinements — serene, minimal, high-contrast with KJV text. God-tier elevation.
+    'T13-soft-mist-dawn': {
+      w: 1080,
+      h: 1080,
+      bg: 'soft_mist_dawn',
+      layout: 'centered',
+      textColor: 'ink',
+      memorize: false,
+      footer: 'site'
+    },
+    'T14-lily-silhouette': {
+      w: 1080,
+      h: 1350,
+      bg: 'lily_silhouette',
+      layout: 'centered',
+      textColor: 'ink',
+      memorize: false,
+      footer: 'site'
+    },
+    'T15-rock-river': {
+      w: 1080,
+      h: 1080,
+      bg: 'rock_river_dawn',
+      layout: 'centered',
+      textColor: 'paper',
       memorize: false,
       footer: 'site'
     }
@@ -753,6 +792,80 @@
     ctx.restore();
   }
 
+  /** T13 — Soft mist at dawn. Warm-to-cool gradient with faint horizontal mist band. Extremely serene. */
+  function drawSoftMistDawnBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#f5e8d3');
+    gr.addColorStop(0.4, '#d8e0d8');
+    gr.addColorStop(1, '#a8b5b0');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.save();
+    ctx.globalAlpha = 0.14;
+    ctx.strokeStyle = '#8a9a8a';
+    ctx.lineWidth = Math.max(4, w * 0.012);
+    ctx.beginPath();
+    ctx.moveTo(0, h * 0.38);
+    ctx.quadraticCurveTo(w * 0.28, h * 0.31, w * 0.65, h * 0.39);
+    ctx.quadraticCurveTo(w * 0.88, h * 0.34, w, h * 0.41);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  /** T14 — Lily silhouette. Cream-to-soft-green gradient with two extremely faint lily forms (bottom third). */
+  function drawLilySilhouetteBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#f8f4eb');
+    gr.addColorStop(0.5, '#e8f0e0');
+    gr.addColorStop(1, '#c8d5c8');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.save();
+    ctx.globalAlpha = 0.11;
+    ctx.fillStyle = '#b8c5b0';
+    drawLilySilhouette(ctx, w * 0.25, h * 0.76, Math.min(w, h) * 0.11);
+    drawLilySilhouette(ctx, w * 0.72, h * 0.81, Math.min(w, h) * 0.09);
+    ctx.restore();
+  }
+
+  /** T15 — Rock river at dawn. Warm stone to quiet blue-gray with gentle flowing wave and minimal rock base. */
+  function drawRockRiverDawnBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#e8d9c0');
+    gr.addColorStop(0.45, '#c0d0d0');
+    gr.addColorStop(1, '#9aa8a8');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.save();
+    ctx.globalAlpha = 0.13;
+    ctx.strokeStyle = '#a0b0b0';
+    ctx.lineWidth = Math.max(3, w * 0.009);
+    ctx.beginPath();
+    ctx.moveTo(0, h * 0.79);
+    ctx.quadraticCurveTo(w * 0.3, h * 0.73, w * 0.62, h * 0.81);
+    ctx.quadraticCurveTo(w * 0.85, h * 0.76, w, h * 0.84);
+    ctx.stroke();
+
+    ctx.globalAlpha = 0.09;
+    ctx.fillStyle = '#8a9a8a';
+    ctx.fillRect(w * 0.05, h * 0.82, w * 0.14, h * 0.16); // rock base
+    ctx.fillRect(w * 0.78, h * 0.83, w * 0.17, h * 0.14);
+    ctx.restore();
+  }
+
+  /** Minimal lily form used by T14. Extremely faint. */
+  function drawLilySilhouette(ctx, x, y, size) {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.quadraticCurveTo(x - size * 0.65, y - size * 0.75, x - size * 0.25, y - size * 1.15);
+    ctx.quadraticCurveTo(x, y - size * 1.35, x + size * 0.3, y - size * 1.1);
+    ctx.quadraticCurveTo(x + size * 0.7, y - size * 0.8, x, y);
+    ctx.fill();
+  }
+
   /** Thin gold-edge frame — share cards feel finished, not flat. */
   function drawSubtleFrame(ctx, w, h) {
     ctx.save();
@@ -853,6 +966,18 @@
     }
     if (bg === 'minimal_blank') {
       drawMinimalBlankBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'soft_mist_dawn') {
+      drawSoftMistDawnBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'lily_silhouette') {
+      drawLilySilhouetteBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'rock_river_dawn') {
+      drawRockRiverDawnBackground(ctx, w, h);
       return;
     }
     var g = bgGradients(bg === 'cross' ? 'dawn' : bg);
@@ -1108,7 +1233,8 @@
     var path = '/verse-image.html';
     var link = origin ? origin + path : 'https://todaysdailybattle.com' + path;
     var snip = tweetSnippet(body);
-    return ref + ' — ' + snip + ' #DailyBattle ' + link;
+    // Calmer, mission-aligned share text — no hype, quiet invitation
+    return ref + ' — ' + snip + '\nA quiet place for real battles.\ntodaysdailybattle.com';
   }
 
   function fetchVerse(ref, cb) {
@@ -1180,6 +1306,14 @@
     var templateEl = document.getElementById('verse-image-template');
     var templateHintEl = document.getElementById('verse-image-template-hint');
 
+    // Story preset button (added for one-tap 9:16 share — serene, optimized for Instagram/WhatsApp stories)
+    var storyBtn = document.createElement('button');
+    storyBtn.type = 'button';
+    storyBtn.className = 'btn btn-secondary';
+    storyBtn.textContent = 'Share as Story (1080×1920)';
+    storyBtn.setAttribute('aria-label', 'Share as vertical story size for social media');
+    storyBtn.style.marginLeft = '0.5rem';
+
     function applyTemplateUi(tk) {
       tk = normalizeTemplateKey(tk);
       var tdef = TEMPLATES[tk] || TEMPLATES.custom;
@@ -1199,10 +1333,26 @@
         if (!custom && tdef.textColor) colorEl.value = tdef.textColor;
       }
       if (templateHintEl) {
-        templateHintEl.textContent = custom
-          ? 'Custom uses a wide preview (1200×630). Pick a dawn template for square or story-sized shares.'
-          : 'This template sets size and colors. Switch to Custom to mix your own background and layout.';
+        templateHintEl.textContent = getCalmTemplateHint(tk);
       }
+    }
+
+    // One-tap Story preset — 1080x1920 vertical with optimized layout and calm CTA
+    function useStoryPreset() {
+      if (!templateEl) return;
+      templateEl.value = 'T07-night-peace'; // tall template as base for story (we override size)
+      applyTemplateUi('T07-night-peace');
+      if (canvas) {
+        canvas.width = 1080;
+        canvas.height = 1920;
+      }
+      var ref = normRef(refEl && refEl.value) || 'Psalm 23:1';
+      var body = stripHtml(bodyEl && bodyEl.value) || 'The LORD is my shepherd; I shall not want.';
+      var opts = getCardOpts();
+      opts.layout = 'centered';
+      renderCardWithQr(canvas, ref, body, opts, function () {
+        setStatus('Story preset ready (1080×1920). Download or share below. A quiet place for real battles.');
+      });
     }
 
     function getCardOpts() {
@@ -1384,15 +1534,63 @@
           var c = loadCache();
           if (c && normRef(c.ref) === normRef(ref) && c.text) {
             bodyEl.value = c.text;
-            setStatus('Offline — still got you. Using your last saved text for this reference.');
+            setStatus('Offline—still got you. Using your last saved text for this reference.');
           } else {
-            setStatus('Could not load verse. Check connection or paste text.');
+            var fb = getOfflineImageFallback({ ref: ref });
+            bodyEl.value = fb.textCard.split('\n\n')[1] || 'The LORD is my shepherd; I shall not want.';
+            setStatus(fb.message);
           }
         }
       });
     });
 
+    /** Calmer prompt guidance for templates (no external AI; reuses existing canvas backgrounds). Matches deepened createGodTierBreakdown tone: quiet dawn, humble, one concrete step. */
+    function getCalmTemplateHint(tk) {
+      tk = normalizeTemplateKey(tk || 'custom');
+      if (tk === 'custom') return 'Custom uses a wide preview (1200×630). Dawn templates pair best with the one calm step in your verse.';
+      if (tk === 'T13-soft-mist-dawn') return 'Soft mist at dawn — strength quietly rising. Breathe and remember He is near.';
+      if (tk === 'T14-lily-silhouette') return 'Consider the lilies... they neither toil nor spin. (Matthew 6:28) — rest in His care.';
+      if (tk === 'T15-rock-river') return 'He leads me beside still waters... (Psalm 23) — one calm step today: read it once, then breathe.';
+      return 'Template sets size, colors, and subtle dawn light. One calm step: choose what matches the verse’s quiet truth today.';
+    }
+
+  /** Redraw canvas when theme changes — ensures perfect contrast on new T13–T15 templates and Story preset. Called from global dark mode toggle. */
+  window.redrawVerseCanvasForTheme = function (theme) {
+    var canvas = document.getElementById('verse-image-canvas');
+    if (!canvas) return;
+
+    var refEl = document.getElementById('verse-image-ref');
+    var bodyEl = document.getElementById('verse-image-body');
+    var ref = normRef(refEl && refEl.value) || 'Psalm 23:1';
+    var body = stripHtml(bodyEl && bodyEl.value) || 'The LORD is my shepherd; I shall not want.';
+
+    var opts = getCardOpts ? getCardOpts() : { templateKey: 'custom', layout: 'centered' };
+
+    // Force theme-aware contrast for dark mode (warm shadows, higher readability on new backgrounds)
+    if (theme === 'dark') {
+      opts.textColor = 'paper'; // ensure light text on dark canvas
+    }
+
+    renderCardWithQr(canvas, ref, body, opts, function () {
+      // Subtle re-shadow for depth in dark mode
+      var ctx = canvas.getContext('2d');
+      if (ctx && theme === 'dark') {
+        ctx.shadowColor = 'rgba(0,0,0,0.6)';
+        ctx.shadowBlur = 6;
+        // Re-stroke the frame for warmth
+        drawSubtleFrame(ctx, canvas.width, canvas.height);
+      }
+    });
+  };
+
     document.getElementById('verse-image-preview-btn').addEventListener('click', runPreview);
+
+    // Add Story button to the actions group (serene placement next to existing buttons)
+    var actionsGroup = document.querySelector('.verse-image-actions');
+    if (actionsGroup) {
+      actionsGroup.appendChild(storyBtn);
+      storyBtn.addEventListener('click', useStoryPreset);
+    }
 
     if (templateEl) {
       templateEl.addEventListener('change', function () {
@@ -1512,6 +1710,11 @@
       bodyEl.value = cache.text;
       if (qrEl && cache.includeQr === false) qrEl.checked = false;
       if (watermarkEl && cache.includeBranding === false) watermarkEl.checked = false;
+    } else {
+      // Warm offline-first default matching God-tier breakdown tone
+      var fb = getOfflineImageFallback(null);
+      if (refEl) refEl.value = 'Psalm 23:1';
+      if (bodyEl) bodyEl.value = 'The LORD is my shepherd; I shall not want.';
     }
     try {
       if (watermarkEl) {
@@ -1525,14 +1728,16 @@
     migrateLegacyTemplateKeysInIdb().then(function () {
       applyTemplateUi(templateEl ? templateEl.value : 'custom');
       renderRecentGens();
+      var initialRef = normRef(refEl.value) || 'Psalm 23:1';
+      var initialBody = stripHtml(bodyEl.value) || 'The LORD is my shepherd; I shall not want.';
       renderCardWithQr(
         canvas,
-        normRef(refEl.value) || 'Philippians 4:13',
-        stripHtml(bodyEl.value) || 'I can do all things through Christ which strengtheneth me.',
+        initialRef,
+        initialBody,
         getCardOpts(),
         function () {}
       );
-      setStatus('Adjust text, then Update preview.');
+      setStatus('Adjust text or template, then Update preview. All canvas work stays available offline. New dawn templates and Story preset added.');
     });
   }
 

@@ -11,6 +11,13 @@
 /mystudy /mystudy.html 200!
 /mystudy/ /mystudy.html 200!
 /mystudy.html /mystudy 301
+
+# Prayer Wall — critical clean-URL + no-redirect-loop fix (highest priority)
+# Cloudflare Pages often overrides later 200! rules with its own 308 clean-URL redirects.
+# These must stay at the very top (after admin blocks) to win.
+/prayer-wall.html /prayer-wall.html 200!
+/prayer-wall /prayer-wall.html 200!
+/prayer-wall/ /prayer-wall.html 200!
 /message /prayer-wall.html?tab=with-others 302
 /message/ /prayer-wall.html?tab=with-others 302
 /message.html /prayer-wall.html?tab=with-others 302
@@ -229,7 +236,7 @@
 /journal/forgiveness-when-you-replay-it /journal/forgiveness-when-you-replay-it.html 200!
 /journal/loneliness-at-night /journal/loneliness-at-night.html 200!
 /journal/peace-when-your-mind-runs /journal/peace-when-your-mind-runs.html 200!
-/prayer-wall /prayer-wall.html 301
-/prayer-wall/ /prayer-wall.html 301
+/prayer-wall /prayer-wall.html 200!
+/prayer-wall/ /prayer-wall.html 200!
 /index.html / 301
 /index / 301

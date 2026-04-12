@@ -12982,6 +12982,22 @@
   <!-- ── Confetti Canvas ── -->
   <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
 
+  <!-- Privacy Consent Popup (v2) — serene, one-time, respects existing analytics consent -->
+  <div id="privacy-popup" class="privacy-consent-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="privacy-consent-title">
+    <div class="privacy-consent-card">
+      <div class="privacy-consent-inner">
+        <h2 id="privacy-consent-title" class="privacy-consent-title">You are safe here</h2>
+        <div class="privacy-consent-body">
+          <p class="privacy-consent-copy">This place holds what you bring — your prayers, your battles, your seeking — and keeps it here with you alone.</p>
+          <p class="privacy-consent-copy">No advertisements. No data sold. No tracking that follows you. Only anonymous counts, so we may know which words bring comfort in hard hours.</p>
+          <p class="privacy-consent-copy">Read our <a href="/privacy.html" class="privacy-link">privacy promise</a> and <a href="/terms.html" class="privacy-link">terms</a> if it gives you peace.</p>
+        </div>
+        <button id="accept-privacy" class="btn btn-primary privacy-accept-btn" aria-label="Accept and enter the quiet place">I understand and accept</button>
+        <p class="privacy-consent-foot">This consent is saved on your device. You may review it anytime from Privacy.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <!-- Study stack: defer + low priority so document can finish parsing; runs before modules (document order). -->

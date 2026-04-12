@@ -1030,6 +1030,7 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', syncTdbStickyHeaderOffset);
   document.addEventListener('DOMContentLoaded', highlightCurrentNav);
   document.addEventListener('DOMContentLoaded', ensureTdbCookieNotice);
+  document.addEventListener('DOMContentLoaded', ensurePrivacyConsentPopup);
   document.addEventListener('DOMContentLoaded', normalizeLegacyShellLinks);
 } else {
   wireEarlySearchFallbacks();
@@ -1040,6 +1041,7 @@ if (document.readyState === 'loading') {
   syncTdbStickyHeaderOffset();
   highlightCurrentNav();
   ensureTdbCookieNotice();
+  ensurePrivacyConsentPopup();
   normalizeLegacyShellLinks();
 }
 
@@ -1049,6 +1051,7 @@ try {
       syncTdbStickyHeaderOffset();
       highlightCurrentNav();
       ensureTdbCookieNotice();
+      ensurePrivacyConsentPopup();
       normalizeLegacyShellLinks();
     }
   });
@@ -2149,6 +2152,62 @@ function setTdbCookieNoticeVisibility(banner, visible) {
   banner.hidden = !visible;
   banner.setAttribute('aria-hidden', visible ? 'false' : 'true');
   document.body.classList.toggle('tdb-cookie-notice-visible', !!visible);
+}
+
+function ensurePrivacyConsentPopup() {
+  if (typeof document === 'undefined' || !document.body) return;
+
+  var CONSENT_KEY = 'tdb_privacy_accepted_v2';
+  var popup = document.getElementById('privacy-popup');
+  var acceptBtn = document.getElementById('accept-privacy');
+
+  if (!popup || !acceptBtn) return;
+
+  // Respect existing analytics consent (v2 key used by cookie notice)
+  var hasAccepted = false;
+  try {
+    var raw = localStorage.getItem(CONSENT_KEY) || localStorage.getItem('tdb_cookie_consent_v2');
+    if (raw) {
+      if (raw === 'yes') hasAccepted = true;
+      else {
+        var parsed = JSON.parse(raw);
+        if (parsed && parsed.status === 'accepted') hasAccepted = true;
+      }
+    }
+  } catch (_) {}
+
+  if (!hasAccepted) {
+    popup.hidden = false;
+    // Slight delay for entrance animation
+    setTimeout(function() {
+      popup.style.opacity = '1';
+    }, 10);
+  }
+
+  acceptBtn.addEventListener('click', function () {
+    try {
+      localStorage.setItem(CONSENT_KEY, 'yes');
+      // Also update analytics consent for consistency
+      if (typeof writeTdbCookieConsentState === 'function') {
+        writeTdbCookieConsentState('accepted');
+      } else {
+        safeSetItem('tdb_cookie_consent_v2', JSON.stringify({ status: 'accepted', updatedAt: Date.now() }));
+      }
+    } catch (_) {}
+    popup.hidden = true;
+    if (typeof showEliteToast === 'function') {
+      showEliteToast('Thank you. This quiet place is yours.', { duration: 2200 });
+    }
+  });
+
+  // Allow Escape key
+  document.addEventListener('keydown', function handler(e) {
+    if (e.key === 'Escape' && !popup.hidden) {
+      e.preventDefault();
+      popup.hidden = true;
+      document.removeEventListener('keydown', handler);
+    }
+  });
 }
 
 function ensureTdbCookieNotice() {

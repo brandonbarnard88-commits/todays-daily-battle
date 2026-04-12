@@ -32,6 +32,30 @@
     inset 0 1px 0 var(--tdb-lux-bevel-light);
   --tdb-lux-shadow-card-hover: 0 14px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(227, 188, 103, 0.22),
     0 0 28px rgba(201, 162, 39, 0.12), inset 0 1px 0 var(--tdb-lux-bevel-light);
+
+  /* Mission-aligned base palette — warm, serene, never cold. Expanded for dark mode contrast on canvas/verse-image. */
+  --bg: #f8f4eb;           /* light dawn cream */
+  --text: #3a3a35;
+  --muted: #8a8a80;
+  --accent: #6b7a6b;
+  --border: #d8d0c0;
+  --canvas-bg: #f8f4eb;    /* for verse image fallback */
+  --card: rgba(12, 18, 30, 0.94);
+  --card-light: #fff;
+  --gold: #e3bc67;
+  --gold-soft: #f2dc98;
+  --line: #2a3344;
+}
+
+[data-theme="dark"] {
+  --bg: #1f1f1b;           /* deep, warm charcoal — never cold black */
+  --text: #e8e4d8;         /* warm off-white */
+  --muted: #a8a89c;
+  --accent: #9ca89c;
+  --border: #4a4a42;
+  --canvas-bg: #2a2a24;    /* slightly warmer dark for canvas readability */
+  --card: rgba(31, 31, 27, 0.96);
+  --card-light: #2a2a24;
 }
 
 /* Display line — inscription tone */
@@ -884,6 +908,16 @@
   background-color: color-mix(in srgb, var(--card-light, #fff) 94%, var(--gold, #e3bc67));
   background-image: var(--tdb-lux-guilloche);
   border-color: color-mix(in srgb, var(--tdb-lux-rose) 20%, rgba(15, 23, 42, 0.1));
+}
+
+/* Dark mode canvas/verse-image contrast — warm charcoal with excellent text readability. Matches new T13-T15 templates. */
+.verse-image-page #verse-image-canvas {
+  background-color: var(--canvas-bg, #2a2a24);
+  box-shadow: 0 0 0 1px var(--border, #4a4a42);
+}
+
+[data-theme="dark"] .verse-image-page #verse-image-canvas {
+  filter: contrast(1.05) brightness(1.02); /* subtle warmth on dark canvas */
 }
 
 /* —— Kids Corner loop library: warm bezel on hero + main grid wrap —— */

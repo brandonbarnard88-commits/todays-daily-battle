@@ -1554,6 +1554,35 @@
       return 'Template sets size, colors, and subtle dawn light. One calm step: choose what matches the verse’s quiet truth today.';
     }
 
+  /** Redraw canvas when theme changes — ensures perfect contrast on new T13–T15 templates and Story preset. Called from global dark mode toggle. */
+  window.redrawVerseCanvasForTheme = function (theme) {
+    var canvas = document.getElementById('verse-image-canvas');
+    if (!canvas) return;
+
+    var refEl = document.getElementById('verse-image-ref');
+    var bodyEl = document.getElementById('verse-image-body');
+    var ref = normRef(refEl && refEl.value) || 'Psalm 23:1';
+    var body = stripHtml(bodyEl && bodyEl.value) || 'The LORD is my shepherd; I shall not want.';
+
+    var opts = getCardOpts ? getCardOpts() : { templateKey: 'custom', layout: 'centered' };
+
+    // Force theme-aware contrast for dark mode (warm shadows, higher readability on new backgrounds)
+    if (theme === 'dark') {
+      opts.textColor = 'paper'; // ensure light text on dark canvas
+    }
+
+    renderCardWithQr(canvas, ref, body, opts, function () {
+      // Subtle re-shadow for depth in dark mode
+      var ctx = canvas.getContext('2d');
+      if (ctx && theme === 'dark') {
+        ctx.shadowColor = 'rgba(0,0,0,0.6)';
+        ctx.shadowBlur = 6;
+        // Re-stroke the frame for warmth
+        drawSubtleFrame(ctx, canvas.width, canvas.height);
+      }
+    });
+  };
+
     document.getElementById('verse-image-preview-btn').addEventListener('click', runPreview);
 
     // Add Story button to the actions group (serene placement next to existing buttons)

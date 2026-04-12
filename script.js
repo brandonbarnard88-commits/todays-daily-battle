@@ -676,6 +676,12 @@ function toggleTdbTheme(source) {
   ensureVisibleThemeShortcut();
   ensureVisibleThemeShortcut();
   syncThemeToggleButtons();
+
+  // Verse Image canvas redraw for perfect contrast on new T13–T15 templates and Story preset
+  if (typeof window.redrawVerseCanvasForTheme === 'function') {
+    window.redrawVerseCanvasForTheme(nextTheme);
+  }
+
   if (typeof trackEvent === 'function') {
     trackEvent('appearance_theme_select', { theme: nextTheme, source: source || 'quick_toggle' });
   }

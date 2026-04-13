@@ -115,7 +115,7 @@ const checks = [
       'id="login-email"',
       'id="login-password"',
       withAuthAssetVersion('/auth.js').replace(/^\//, ''),
-      'TDB Login Forced Init v6 - Strong Mode Switching',
+      'TDB Login Forced Init v7 - Robust Mode Switching',
     ],
     forbidden: [
       'src="browser-shared.js"',

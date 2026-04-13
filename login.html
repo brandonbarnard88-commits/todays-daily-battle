@@ -189,7 +189,7 @@
   <script defer src="/language-switcher.js"></script>
   <script src="auth.js"></script>
   <script>
-  console.log('=== TDB Login Forced Init v6 - Strong Mode Switching ===');
+  console.log('=== TDB Login Forced Init v7 - Robust Mode Switching ===');
   (function () {
     function applyModeChrome(mode) {
       var isSignup = String(mode || 'login').toLowerCase() === 'signup';
@@ -203,7 +203,7 @@
       if (modeTag) modeTag.textContent = isSignup ? 'Create account' : 'Sign in';
       if (intro) {
         intro.textContent = isSignup
-          ? 'Create your account to keep your verses, notes, and steady progress with you.'
+          ? 'Create an account to sync your progress across devices.'
           : 'Sign in to your account to sync across devices.';
       }
       if (submitBtn) submitBtn.textContent = isSignup ? 'Create Account' : 'Continue';
@@ -226,24 +226,23 @@
         applyModeChrome(mode);
         console.log('Mode detected:', isSignup ? 'SIGNUP' : 'LOGIN');
         if (typeof window.tdbInitLoginPage === 'function') {
-          console.log('Calling tdbInitLoginPage with mode:', mode);
           await window.tdbInitLoginPage(mode);
-        } else {
-          console.warn('tdbInitLoginPage not found');
         }
         var loading = document.getElementById('auth-loading');
         if (loading) loading.style.display = 'none';
+        console.log('Mode switch applied successfully');
       } catch (e) {
-        console.error('Init error:', e);
+        console.error('Force init error:', e);
       }
     }
+    window.addEventListener('load', forceInitAuth);
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', forceInitAuth, { once: true });
+      document.addEventListener('DOMContentLoaded', forceInitAuth);
     } else {
       forceInitAuth();
     }
-    window.setTimeout(forceInitAuth, 300);
-    window.setTimeout(forceInitAuth, 1000);
+    window.setTimeout(forceInitAuth, 400);
+    window.setTimeout(forceInitAuth, 1200);
   })();
   </script>
 </body>

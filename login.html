@@ -22,35 +22,55 @@
     .login-panel {
       max-width: 560px;
       margin: 0 auto;
+      padding: clamp(1.2rem, 3vw, 2rem);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      box-shadow: 0 22px 48px rgba(2, 6, 23, 0.3);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .login-panel[data-auth-ready="false"] {
+      opacity: 0.96;
     }
     .login-form-stack {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 0.85rem;
+      gap: 0.9rem;
+      margin-top: 1rem;
     }
     .login-form-stack input {
       width: 100%;
       margin: 0;
-      min-height: 52px;
-      padding: 0.9rem 1rem;
+      min-height: 54px;
+      padding: 0.95rem 1rem;
       box-sizing: border-box;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      border-radius: 12px;
-      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.78);
       color: #f8fafc;
+      font-size: 1rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .login-form-stack input::placeholder {
+      color: rgba(226, 232, 240, 0.72);
+    }
+    .login-form-stack input:focus {
+      outline: none;
+      border-color: rgba(125, 211, 252, 0.5);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.14);
+      background: rgba(15, 23, 42, 0.9);
     }
     .login-form-stack .btn,
     .login-oauth-group .btn {
       width: 100%;
       margin: 0;
       min-height: 52px;
+      border-radius: 14px;
     }
     .login-password-toggle {
       display: flex;
       align-items: center;
       gap: 0.45rem;
       margin: 0;
+      color: rgba(226, 232, 240, 0.88);
     }
     .login-password-toggle input {
       width: auto;
@@ -58,14 +78,42 @@
       margin: 0;
       padding: 0;
     }
+    .login-panel .section-note {
+      color: rgba(226, 232, 240, 0.82);
+    }
+    .login-panel a {
+      color: #c7d2fe;
+    }
+    .login-panel a:hover,
+    .login-panel a:focus-visible {
+      color: #e0e7ff;
+    }
+    .auth-loading {
+      margin-top: 0.85rem;
+      margin-bottom: 0.25rem;
+      padding: 0.75rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(15, 23, 42, 0.52);
+      color: rgba(226, 232, 240, 0.82);
+      font-size: 0.96rem;
+    }
     .login-oauth-group {
       display: grid;
       gap: 0.65rem;
-      margin-top: 0.75rem;
+      margin-top: 0.95rem;
     }
     @media (min-width: 640px) {
       .login-oauth-group {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .login-panel {
+        padding: 1rem;
+      }
+      .login-form-stack {
+        gap: 0.8rem;
       }
     }
   </style>
@@ -107,8 +155,9 @@
       <div class="content-inner">
         <section class="glass login-panel">
           <h1 id="login-title" class="section-divider">Sign In</h1>
-          <p class="section-note">Sign in to your account to sync across devices.</p>
+          <p id="login-intro" class="section-note">Sign in to your account to sync across devices.</p>
           <p class="section-note"><strong id="login-mode-tag">Sign in</strong></p>
+          <div id="auth-loading" class="auth-loading" aria-live="polite">Loading secure login...</div>
           <form id="login-form" class="login-form-stack" autocomplete="on">
             <label for="login-email" class="sr-only">Email</label>
             <input id="login-email" type="email" placeholder="Email" required autocomplete="email">
@@ -118,7 +167,7 @@
               <input id="login-show-password" type="checkbox" aria-label="Show password">
               Show password
             </label>
-            <button type="submit" class="btn btn-primary">Continue</button>
+            <button id="login-submit" type="submit" class="btn btn-primary">Continue</button>
           </form>
           <div class="login-oauth-group" aria-label="OAuth sign in">
             <button id="login-oauth-google" type="button" class="btn btn-secondary">Continue with Google</button>
@@ -131,7 +180,7 @@
           </p>
           <p id="login-status" class="section-note" aria-live="polite"></p>
           <p class="section-note util-mb-0">
-            Need an account? <a href="/login.html?mode=signup">Create one</a>.
+            <span id="login-switch-copy">Need an account?</span> <a id="login-switch-link" href="/login.html?mode=signup">Create one</a>.
           </p>
         </section>
       </div>
@@ -140,36 +189,61 @@
   <script defer src="/language-switcher.js"></script>
   <script src="auth.js"></script>
   <script>
-  console.log('=== TDB Login Forced Init v4 ===');
+  console.log('=== TDB Login Forced Init v6 - Strong Mode Switching ===');
   (function () {
-    var loginInitStarted = false;
-    async function tdbForceLoginInit() {
+    function applyModeChrome(mode) {
+      var isSignup = String(mode || 'login').toLowerCase() === 'signup';
+      var heading = document.getElementById('login-title');
+      var modeTag = document.getElementById('login-mode-tag');
+      var intro = document.getElementById('login-intro');
+      var submitBtn = document.getElementById('login-submit');
+      var switchCopy = document.getElementById('login-switch-copy');
+      var switchLink = document.getElementById('login-switch-link');
+      if (heading) heading.textContent = isSignup ? 'Create Account' : 'Sign In';
+      if (modeTag) modeTag.textContent = isSignup ? 'Create account' : 'Sign in';
+      if (intro) {
+        intro.textContent = isSignup
+          ? 'Create your account to keep your verses, notes, and steady progress with you.'
+          : 'Sign in to your account to sync across devices.';
+      }
+      if (submitBtn) submitBtn.textContent = isSignup ? 'Create Account' : 'Continue';
+      if (switchCopy) switchCopy.textContent = isSignup ? 'Already have an account?' : 'Need an account?';
+      if (switchLink) {
+        switchLink.textContent = isSignup ? 'Sign in' : 'Create one';
+        switchLink.href = isSignup ? '/login.html' : '/login.html?mode=signup';
+      }
+      document.title = isSignup ? 'Create Account • Today\'s Daily Battle' : 'Login • Today\'s Daily Battle';
+    }
+    async function forceInitAuth() {
       try {
-        console.log('ensureSupabaseLoaded available?', typeof window.ensureSupabaseLoaded);
+        console.log('Starting auth init...');
         if (typeof window.ensureSupabaseLoaded === 'function') {
           await window.ensureSupabaseLoaded().catch(function () {});
-          console.log('Supabase loaded via ensureSupabaseLoaded');
+          console.log('Supabase ready');
         }
-        if (loginInitStarted) return;
         var mode = new URLSearchParams(window.location.search || '').get('mode') || 'login';
-        console.log('Initializing auth for mode:', mode);
+        var isSignup = String(mode).toLowerCase() === 'signup';
+        applyModeChrome(mode);
+        console.log('Mode detected:', isSignup ? 'SIGNUP' : 'LOGIN');
         if (typeof window.tdbInitLoginPage === 'function') {
-          loginInitStarted = true;
+          console.log('Calling tdbInitLoginPage with mode:', mode);
           await window.tdbInitLoginPage(mode);
-          return;
+        } else {
+          console.warn('tdbInitLoginPage not found');
         }
-        console.error('No init function found — check script includes');
+        var loading = document.getElementById('auth-loading');
+        if (loading) loading.style.display = 'none';
       } catch (e) {
-        console.error('Force init error:', e);
+        console.error('Init error:', e);
       }
     }
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', tdbForceLoginInit, { once: true });
+      document.addEventListener('DOMContentLoaded', forceInitAuth, { once: true });
     } else {
-      tdbForceLoginInit();
+      forceInitAuth();
     }
-    window.setTimeout(tdbForceLoginInit, 600);
-    window.setTimeout(tdbForceLoginInit, 1500);
+    window.setTimeout(forceInitAuth, 300);
+    window.setTimeout(forceInitAuth, 1000);
   })();
   </script>
 </body>

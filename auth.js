@@ -183,9 +183,13 @@
     window.location.replace(url);
   }
 
-  function getEffectiveMode() {
-    var params = new URLSearchParams(window.location.search || '');
-    var mode = (params.get('mode') || 'login').toLowerCase();
+  function getEffectiveMode(modeOverride) {
+    var mode = modeOverride;
+    if (!mode) {
+      var params = new URLSearchParams(window.location.search || '');
+      mode = params.get('mode') || 'login';
+    }
+    mode = String(mode || 'login').toLowerCase();
     return mode === 'signup' ? 'signup' : 'login';
   }
 
@@ -326,14 +330,54 @@
     }
   }
 
-  function wireLoginPage(client, session) {
+  function applyLoginModeUi(mode) {
+    if (!isLoginRoute()) return;
+    var resolvedMode = getEffectiveMode(mode);
+    var isSignup = resolvedMode === 'signup';
+    var titleEl = document.getElementById('login-title');
+    var modeTag = document.getElementById('login-mode-tag');
+    var introEl = document.getElementById('login-intro');
+    var submitBtn = document.getElementById('login-submit');
+    var switchCopy = document.getElementById('login-switch-copy');
+    var switchLink = document.getElementById('login-switch-link');
+    if (titleEl) titleEl.textContent = isSignup ? 'Create Account' : 'Sign In';
+    if (modeTag) modeTag.textContent = isSignup ? 'Create account' : 'Sign in';
+    if (introEl) {
+      introEl.textContent = isSignup
+        ? 'Create your account to keep your verses, notes, and steady progress with you.'
+        : 'Sign in to your account to sync across devices.';
+    }
+    if (submitBtn) submitBtn.textContent = isSignup ? 'Create Account' : 'Continue';
+    if (switchCopy) switchCopy.textContent = isSignup ? 'Already have an account?' : 'Need an account?';
+    if (switchLink) {
+      switchLink.textContent = isSignup ? 'Sign in' : 'Create one';
+      switchLink.setAttribute('href', isSignup ? '/login.html' : '/login.html?mode=signup');
+    }
+    try {
+      document.title = isSignup ? 'Create Account • Today\'s Daily Battle' : 'Login • Today\'s Daily Battle';
+    } catch (e) {}
+  }
+
+  function setLoginReadyState(isReady, message) {
+    if (!isLoginRoute()) return;
+    var loadingEl = document.getElementById('auth-loading');
+    var panelEl = document.querySelector('.login-panel');
+    if (panelEl) panelEl.setAttribute('data-auth-ready', isReady ? 'true' : 'false');
+    if (!loadingEl) return;
+    if (message) loadingEl.textContent = message;
+    if (isReady) {
+      loadingEl.setAttribute('hidden', 'hidden');
+    } else {
+      loadingEl.removeAttribute('hidden');
+    }
+  }
+
+  function wireLoginPage(client, session, modeOverride) {
     if (!isLoginRoute()) return;
     var statusEl = document.getElementById('login-status');
     var form = document.getElementById('login-form');
     var email = document.getElementById('login-email');
     var password = document.getElementById('login-password');
-    var titleEl = document.getElementById('login-title');
-    var modeTag = document.getElementById('login-mode-tag');
     var showPassword = document.getElementById('login-show-password');
     var forgotBtn = document.getElementById('login-forgot-password');
     var resendBtn = document.getElementById('login-resend-confirmation');
@@ -342,20 +386,22 @@
     var enabledProviders = getEnabledOAuthProviders();
     var googleEnabled = enabledProviders.indexOf('google') !== -1;
     var appleEnabled = enabledProviders.indexOf('apple') !== -1;
-    var mode = getEffectiveMode();
-    if (modeTag) modeTag.textContent = mode === 'signup' ? 'Create account' : 'Sign in';
-    if (titleEl) titleEl.textContent = mode === 'signup' ? 'Create Account' : 'Sign In';
+    var mode = getEffectiveMode(modeOverride);
+    applyLoginModeUi(mode);
 
     if (session && session.user) {
+      setLoginReadyState(true);
       window.location.replace(getNextUrl());
       return;
     }
 
     if (!form) return;
     if (!client || !client.auth) {
+      setLoginReadyState(false, 'Secure login is still loading...');
       if (statusEl) statusEl.textContent = 'Auth is not configured. Check SUPABASE_URL / SUPABASE_ANON_KEY.';
       return;
     }
+    setLoginReadyState(true);
     if (form.getAttribute('data-tdb-login-wired') === '1') return;
     form.setAttribute('data-tdb-login-wired', '1');
     if (forgotBtn) {
@@ -432,8 +478,10 @@
     });
   }
 
-  async function run() {
+  async function run(modeOverride) {
     hideGuestUi();
+    applyLoginModeUi(modeOverride);
+    setLoginReadyState(false, 'Loading secure login...');
     var client = createClient();
     var statusEl = document.getElementById('login-status');
     if (!hasAuthClient(client)) {
@@ -447,6 +495,7 @@
       }
     }
     if (!hasAuthClient(client)) {
+      setLoginReadyState(false, 'Secure login is still loading...');
       if (isLoginRoute() && statusEl) statusEl.textContent = 'Auth client is unavailable. Reload after configuration finishes loading. Check console for details.';
       console.error('TDB Auth: Supabase SDK failed to load. TDB_CONFIG present?', !!window.TDB_CONFIG, 'SDK loaded?', typeof window.supabase);
       return;
@@ -455,6 +504,7 @@
     try {
       sessionData = await client.auth.getSession();
     } catch (e) {
+      setLoginReadyState(false, 'Secure login is still loading...');
       if (isLoginRoute() && statusEl) statusEl.textContent = 'Auth service could not be reached. Please try again in a moment.';
       return;
     }
@@ -470,7 +520,7 @@
     }
 
     wireLogout(client);
-    wireLoginPage(client, session);
+    wireLoginPage(client, session, modeOverride);
   }
 
   window.tdbSecureLogout = function () {

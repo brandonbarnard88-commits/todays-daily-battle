@@ -17,8 +17,8 @@
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
 
-  <title>Today’s Verse — A Quiet Place — Proverbs 22:1 (KJV)</title>
-  <meta name="description" content="Today’s KJV verse: Proverbs 22:1. A quiet place for any day—search by how you feel, prayer wall, works offline. No ads, no login.">
+  <title>Today’s Verse — A Quiet Place — Proverbs 28:26 (KJV)</title>
+  <meta name="description" content="Today’s KJV verse: Proverbs 28:26. A quiet place for any day—search by how you feel, prayer wall, works offline. No ads, no login.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
@@ -38,7 +38,7 @@
     "name": "Today's Daily Battle",
     "url": "https://todaysdailybattle.com",
     "logo": "https://todaysdailybattle.com/logo-shield-600.png",
-    "description": "A calm, ad-free KJV web app for real battles: daily verse, search by how you feel, battle plans, prayer, and offline-first privacy."
+    "description": "Less scroll, more soul — a calm, ad-free KJV web app for real battles: daily verse, search by how you feel, battle plans, prayer, and offline-first privacy."
   }
   </script>
   <script nonce="tdb2025s" type="application/ld+json">
@@ -47,7 +47,7 @@
     "@type": "WebSite",
     "name": "Today's Daily Battle",
     "url": "https://todaysdailybattle.com",
-    "description": "A calm, ad-free KJV companion for real battles: daily verse, quiet search, battle plans, prayer, and private on-device progress.",
+    "description": "Less scroll, more soul — a calm, ad-free KJV companion for real battles: daily verse, quiet search, battle plans, prayer, and private on-device progress.",
     "publisher": { "@id": "https://todaysdailybattle.com/#organization" },
     "potentialAction": {
       "@type": "SearchAction",
@@ -68,12 +68,12 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Quiet place · Proverbs 22:1">
+  <meta name="apple-mobile-web-app-title" content="Quiet place · Proverbs 28:26">
   <!-- Open Graph (iMessage, Facebook, Slack previews) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
-  <meta property="og:title" content="Today’s Verse — A Quiet Place — Proverbs 22:1 (KJV)">
-  <meta property="og:description" content="Today’s KJV verse: Proverbs 22:1. A quiet place for any day—search by how you feel, prayer wall, works offline. No ads, no login.">
+  <meta property="og:title" content="Today’s Verse — A Quiet Place — Proverbs 28:26 (KJV)">
+  <meta property="og:description" content="Today’s KJV verse: Proverbs 28:26. A quiet place for any day—search by how you feel, prayer wall, works offline. No ads, no login.">
   <meta property="og:url" content="https://todaysdailybattle.com/">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png?v=20260430homeog">
   <meta property="og:image:width" content="600">
@@ -82,8 +82,8 @@
 
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Today’s Verse — A Quiet Place — Proverbs 22:1 (KJV)">
-  <meta name="twitter:description" content="Today’s KJV verse: Proverbs 22:1. A quiet place for any day—search by how you feel, prayer wall, works offline. No ads, no login.">
+  <meta name="twitter:title" content="Today’s Verse — A Quiet Place — Proverbs 28:26 (KJV)">
+  <meta name="twitter:description" content="Today’s KJV verse: Proverbs 28:26. A quiet place for any day—search by how you feel, prayer wall, works offline. No ads, no login.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png?v=20260430homeog">
   <!-- Caveat + Cormorant (display=swap). Stylesheet only — avoids preload-not-used warning when CSS applies after paint. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -721,6 +721,11 @@
     /* Cream page (sky hidden): tagline must read like body text, not faint sky-muted */
     :root[data-theme="light"] .site-tagline {
       color: rgba(38, 34, 30, 0.9);
+      text-shadow: none;
+      opacity: 1;
+    }
+    :root[data-theme="light"] .soul-tag {
+      color: rgba(38, 34, 30, 0.88);
       text-shadow: none;
       opacity: 1;
     }
@@ -1766,6 +1771,7 @@
       .site-logo-wrap { width: 56px; }
       .site-title { font-size: 1.65rem; }
       .site-tagline { font-size: 0.6rem; letter-spacing: 0.14em; }
+      .soul-tag { font-size: clamp(0.62rem, 2.4vw, 0.78rem); letter-spacing: 0.05em; }
       .site-title-underline { width: 110px; }
       .site-top-links { font-size: 0.8rem; margin-top: 0.45rem; padding: 0.35rem 0.5rem; }
       .site-top-links a,
@@ -2529,10 +2535,31 @@
     @media (min-width: 900px) {
       .hero-daily-path { font-size: 0.88rem; padding: 0.75rem 1.1rem; }
     }
+    .hero-brand-taglines {
+      position: relative;
+      z-index: 3;
+      margin: 0.65rem auto 0;
+      max-width: min(22rem, 92vw);
+      text-align: center;
+    }
+    .soul-tag {
+      margin: 0 0 0.4rem;
+      font-size: clamp(0.72rem, 2.8vw, 0.95rem);
+      font-weight: 500;
+      font-style: normal;
+      letter-spacing: 0.055em;
+      line-height: 1.38;
+      color: rgba(255, 252, 248, 0.93);
+      text-transform: none;
+      text-shadow:
+        0 0 2px rgba(6, 10, 22, 0.9),
+        0 1px 3px rgba(4, 12, 28, 0.82),
+        0 0 18px rgba(0, 0, 0, 0.45);
+    }
     .site-tagline {
       position: relative;
       z-index: 3;
-      margin: 0.65rem 0 0.35rem;
+      margin: 0 0 0.35rem;
       font-size: clamp(0.65rem, 2.5vw, 0.82rem);
       /* Sky-aware: bright dawn/day/dusk tops swallow gray-muted; match title legibility */
       color: rgba(255, 252, 248, 0.97);
@@ -7429,7 +7456,10 @@
           </defs>
         </svg>
       </div>
-      <p class="site-tagline">For God · For Country · For Family</p>
+      <div class="hero-brand-taglines" role="group" aria-label="Site motto">
+        <p class="soul-tag">Less scroll, more soul</p>
+        <p class="site-tagline">For God · For Country · For Family</p>
+      </div>
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
       <nav class="site-top-links" aria-label="Account and site information">
@@ -7696,10 +7726,10 @@
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
-        <p class="verse-ref hero-daily-ref-above" id="heroRef">Proverbs 22:1 (KJV)</p>
+        <p class="verse-ref hero-daily-ref-above" id="heroRef">Proverbs 28:26 (KJV)</p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
-            <p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“A good name is rather to be chosen than great riches.”</p>
+            <p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“He that trusteth in the Lord shall be made fat.”</p>
             <div class="verse-font-controls" aria-label="Adjust verse text size">
               <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
@@ -7741,7 +7771,7 @@
         <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen slow for a quiet hear-through of today&rsquo;s verse and breakdown. Keyboard: Tab to Listen slow, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
-          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Proverbs 22:1" data-tdb-wordstudy-text="A good name is rather to be chosen than great riches." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
+          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Proverbs 28:26" data-tdb-wordstudy-text="He that trusteth in the Lord shall be made fat." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
         <p class="tdb-why-stay-line" id="tdb-why-stay-line">A steady place for Scripture&mdash;any kind of day.</p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Study">
@@ -7869,9 +7899,9 @@
       <!-- ── Daily Verse Image Card (shareable preview under today’s verse) ── -->
       <div class="verse-img-card" id="verseImgCard" role="region" aria-label="Today’s verse as a shareable image preview">
         <div class="verse-img-inner">
-          <p class="verse-img-text" id="verseImgText">“A good name is rather to be chosen than great riches.”</p>
+          <p class="verse-img-text" id="verseImgText">“He that trusteth in the Lord shall be made fat.”</p>
           <hr class="verse-img-rule">
-          <p class="verse-img-ref" id="verseImgRef">Proverbs 22:1</p>
+          <p class="verse-img-ref" id="verseImgRef">Proverbs 28:26</p>
         </div>
       </div>
       <div class="verse-growth-row" id="verseFeedbackRow" role="region" aria-label="Tell a friend, gentle feedback" hidden>
@@ -8181,7 +8211,7 @@
       <p class="site-family-mission-nudge section-note">For home and ministry teams: <a href="/family.html">Family hub</a> (verse, plans, printables) · <a href="/mission-outreach-packs.html">Mission &amp; outreach packs</a>.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
-        <a href="reader.html?book=Proverbs&chapter=22&ref=Proverbs%2022%3A1" id="readChapterLink" class="read-chapter-link" aria-label="Read Proverbs chapter 22 in full context">📖 Read the full chapter</a>
+        <a href="reader.html?book=Proverbs&chapter=28&ref=Proverbs%2028%3A26" id="readChapterLink" class="read-chapter-link" aria-label="Read Proverbs chapter 28 in full context">📖 Read the full chapter</a>
       </div>
       <div class="explore-hero-row">
         <a href="explore.html" class="explore-hero-link" aria-label="Browse every topic, tool, and plan on the site">🗺 Explore all topics, tools, and plans</a>
@@ -12981,6 +13011,22 @@
 
   <!-- ── Confetti Canvas ── -->
   <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Privacy Consent Popup (v2) — serene, one-time, respects existing analytics consent -->
+  <div id="privacy-popup" class="privacy-consent-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="privacy-consent-title">
+    <div class="privacy-consent-card">
+      <div class="privacy-consent-inner">
+        <h2 id="privacy-consent-title" class="privacy-consent-title">You are safe here</h2>
+        <div class="privacy-consent-body">
+          <p class="privacy-consent-copy">This place holds what you bring — your prayers, your battles, your seeking — and keeps it here with you alone.</p>
+          <p class="privacy-consent-copy">No advertisements. No data sold. No tracking that follows you. Only anonymous counts, so we may know which words bring comfort in hard hours.</p>
+          <p class="privacy-consent-copy">Read our <a href="/privacy.html" class="privacy-link">privacy promise</a> and <a href="/terms.html" class="privacy-link">terms</a> if it gives you peace.</p>
+        </div>
+        <button id="accept-privacy" class="btn btn-primary privacy-accept-btn" aria-label="Accept and enter the quiet place">I understand and accept</button>
+        <p class="privacy-consent-foot">This consent is saved on your device. You may review it anytime from Privacy.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>

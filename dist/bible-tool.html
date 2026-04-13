@@ -372,16 +372,22 @@
     @keyframes qa-spin { to { transform: rotate(360deg); } }
     .qa-result {
       margin-top: 1rem;
-      padding: 0.85rem 1rem;
+      padding: 1.1rem 1.25rem;
       background-color: var(--tdb-surface-panel-bg);
       background-image: var(--tdb-surface-veil-subtle);
       border: 1px solid var(--tdb-surface-panel-border);
       border-left: 4px solid #d4af37;
       border-radius: calc(var(--tdb-surface-radius, 12px) - 2px);
       box-shadow: var(--tdb-surface-panel-shadow);
+      color: var(--text, #e2e8f0);
     }
     .qa-result.hidden { display: none; }
-    .qa-result .qa-answer { margin: 0; line-height: 1.5; }
+    .qa-result .qa-answer { 
+      margin: 0; 
+      line-height: 1.65; 
+      color: var(--text, #e2e8f0); 
+      font-size: 1.02rem;
+    }
     .qa-result .qa-sources { margin-top: 0.75rem; font-size: 0.9rem; color: #94a3b8; }
     .qa-result .qa-sources a { color: #d4af37; text-decoration: none; }
     .qa-result .qa-sources a:hover { text-decoration: underline; }

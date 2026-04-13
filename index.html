@@ -18,7 +18,7 @@
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>
 
   <title>Today&rsquo;s Daily Battle &mdash; KJV Daily Verse, Battle Plans, and Calm Bible Help</title>
-  <meta name="description" content="Calm, ad-free KJV Bible help for anxiety, grief, fear, parenting, and hard days: daily verse, Ask the Word search, battle plans, prayer, and offline-first privacy.">
+  <meta name="description" content="Less scroll, more soul. Calm, ad-free KJV Bible help for anxiety, grief, fear, parenting, and hard days: daily verse, Ask the Word search, battle plans, prayer, and offline-first privacy.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
@@ -38,7 +38,7 @@
     "name": "Today's Daily Battle",
     "url": "https://todaysdailybattle.com",
     "logo": "https://todaysdailybattle.com/logo-shield-600.png",
-    "description": "A calm, ad-free KJV web app for real battles: daily verse, search by how you feel, battle plans, prayer, and offline-first privacy."
+    "description": "Less scroll, more soul — a calm, ad-free KJV web app for real battles: daily verse, search by how you feel, battle plans, prayer, and offline-first privacy."
   }
   </script>
   <script nonce="tdb2025s" type="application/ld+json">
@@ -47,7 +47,7 @@
     "@type": "WebSite",
     "name": "Today's Daily Battle",
     "url": "https://todaysdailybattle.com",
-    "description": "A calm, ad-free KJV companion for real battles: daily verse, quiet search, battle plans, prayer, and private on-device progress.",
+    "description": "Less scroll, more soul — a calm, ad-free KJV companion for real battles: daily verse, quiet search, battle plans, prayer, and private on-device progress.",
     "publisher": { "@id": "https://todaysdailybattle.com/#organization" },
     "potentialAction": {
       "@type": "SearchAction",
@@ -721,6 +721,11 @@
     /* Cream page (sky hidden): tagline must read like body text, not faint sky-muted */
     :root[data-theme="light"] .site-tagline {
       color: rgba(38, 34, 30, 0.9);
+      text-shadow: none;
+      opacity: 1;
+    }
+    :root[data-theme="light"] .soul-tag {
+      color: rgba(38, 34, 30, 0.88);
       text-shadow: none;
       opacity: 1;
     }
@@ -1766,6 +1771,7 @@
       .site-logo-wrap { width: 56px; }
       .site-title { font-size: 1.65rem; }
       .site-tagline { font-size: 0.6rem; letter-spacing: 0.14em; }
+      .soul-tag { font-size: clamp(0.62rem, 2.4vw, 0.78rem); letter-spacing: 0.05em; }
       .site-title-underline { width: 110px; }
       .site-top-links { font-size: 0.8rem; margin-top: 0.45rem; padding: 0.35rem 0.5rem; }
       .site-top-links a,
@@ -2529,10 +2535,31 @@
     @media (min-width: 900px) {
       .hero-daily-path { font-size: 0.88rem; padding: 0.75rem 1.1rem; }
     }
+    .hero-brand-taglines {
+      position: relative;
+      z-index: 3;
+      margin: 0.65rem auto 0;
+      max-width: min(22rem, 92vw);
+      text-align: center;
+    }
+    .soul-tag {
+      margin: 0 0 0.4rem;
+      font-size: clamp(0.72rem, 2.8vw, 0.95rem);
+      font-weight: 500;
+      font-style: normal;
+      letter-spacing: 0.055em;
+      line-height: 1.38;
+      color: rgba(255, 252, 248, 0.93);
+      text-transform: none;
+      text-shadow:
+        0 0 2px rgba(6, 10, 22, 0.9),
+        0 1px 3px rgba(4, 12, 28, 0.82),
+        0 0 18px rgba(0, 0, 0, 0.45);
+    }
     .site-tagline {
       position: relative;
       z-index: 3;
-      margin: 0.65rem 0 0.35rem;
+      margin: 0 0 0.35rem;
       font-size: clamp(0.65rem, 2.5vw, 0.82rem);
       /* Sky-aware: bright dawn/day/dusk tops swallow gray-muted; match title legibility */
       color: rgba(255, 252, 248, 0.97);
@@ -7429,7 +7456,10 @@
           </defs>
         </svg>
       </div>
-      <p class="site-tagline">For God · For Country · For Family</p>
+      <div class="hero-brand-taglines" role="group" aria-label="Site motto">
+        <p class="soul-tag">Less scroll, more soul</p>
+        <p class="site-tagline">For God · For Country · For Family</p>
+      </div>
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
       <nav class="site-top-links" aria-label="Account and site information">

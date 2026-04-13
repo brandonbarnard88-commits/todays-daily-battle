@@ -2645,7 +2645,14 @@ function hydrateCounterFallbacksFromLocal() {
 (async function loadDailyBattleCore() {
   if (typeof window === 'undefined' || window.__dailyBattleCoreLoaded) return;
   try {
-    const core = await import('./daily-battle-core.js');
+    // Resolve beside script.js first; fall back to site root (fixes 404 when the module base URL
+    // does not match where static files are hosted, e.g. some local servers or rewrites).
+    var core;
+    try {
+      core = await import('./daily-battle-core.js');
+    } catch (relErr) {
+      core = await import('/daily-battle-core.js');
+    }
     // Re-export to window and global scope so existing calls, TDB_TOPICS wiring, getSearchOutputElement(), wireSmartSearch early-return on #feelSuggestDropdown, runSearchWithInput stub, and verify-homepage-search-wiring.mjs all continue to work unchanged.
     Object.keys(core).forEach(key => {
       if (typeof core[key] !== 'undefined') {

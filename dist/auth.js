@@ -381,10 +381,17 @@
     var statusEl = document.getElementById('login-status');
     if (!hasAuthClient(client)) {
       if (isLoginRoute() && statusEl) statusEl.textContent = 'Loading auth...';
-      client = await waitForAuthClient(3200);
+      // Use main script's loader if available for better reliability (script.js now loaded before auth.js)
+      if (typeof ensureSupabaseLoaded === 'function') {
+        await ensureSupabaseLoaded().catch(function(){});
+        client = createClient();
+      } else {
+        client = await waitForAuthClient(5000);
+      }
     }
     if (!hasAuthClient(client)) {
-      if (isLoginRoute() && statusEl) statusEl.textContent = 'Auth client is unavailable. Reload after configuration finishes loading.';
+      if (isLoginRoute() && statusEl) statusEl.textContent = 'Auth client is unavailable. Reload after configuration finishes loading. Check console for details.';
+      console.error('TDB Auth: Supabase SDK failed to load. TDB_CONFIG present?', !!window.TDB_CONFIG, 'SDK loaded?', typeof window.supabase);
       return;
     }
     var sessionData = null;

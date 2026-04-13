@@ -211,7 +211,9 @@
       var submitBtn = document.getElementById('login-submit') || document.querySelector('button[type="submit"]');
       if (submitBtn) submitBtn.textContent = isSignup ? 'Create Account' : 'Continue';
 
+      var switchCopy = document.getElementById('login-switch-copy');
       var switchLink = document.getElementById('login-switch-link') || document.querySelector('a[href*="mode="]');
+      if (switchCopy) switchCopy.textContent = isSignup ? 'Already have an account?' : 'Need an account?';
       if (switchLink) {
         if (isSignup) {
           switchLink.textContent = 'Sign in';

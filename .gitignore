@@ -6,6 +6,7 @@
 token*
 *.key
 .env
+.env.save
 config.js
 firebase-config.js
 .DS_Store

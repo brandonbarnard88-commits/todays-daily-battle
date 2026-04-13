@@ -108,6 +108,7 @@ const rootFiles = [
   'service-worker.js',
   'sw.js',
   'daily-verse-widget.js',
+  'daily-battle-core.js',
   'hero-daily-365-data.js',
   'hero-hero-pools.js',
   'hero-daily-first-paint.js',

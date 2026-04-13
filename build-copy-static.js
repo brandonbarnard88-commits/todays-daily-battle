@@ -193,6 +193,8 @@ const rootFiles = [
   'story-manifest.js',
   'verse-rotator.js',
   'auth.js',
+  'browser-shared.js',
+  'owner-console.js',
   'verse-image.js',
   'verse-ref-slug.js',
   'profile.js',

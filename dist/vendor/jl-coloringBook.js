@@ -5,7 +5,8 @@
     Donations are accepted to continue the development of more open source projects. Paypal address: joe@primoweb.com
 
     Vendored for todaysdailybattle.com from https://github.com/collinph/jl-coloringbook
-    Patches: localStorage keys, first palette selection, cursor max brush, print without document.write, quieter save().
+    Patches: localStorage keys, first palette selection, cursor max brush, print without document.write, quieter save(),
+      build toolbar with createElement (insertAdjacentHTML + DOMPurify strips <input> under Trusted Types).
 */
 customElements.define('jl-coloringbook', class extends HTMLElement {
     constructor() {
@@ -64,11 +65,20 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
 
     
    drawTemplate() {
-        // Prevent default click behavior on the custom element itself if desired
-        this.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-        });
+        if (!this._jlClickTrap) {
+            this._jlClickTrap = true;
+            this.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+        }
+
+        if (this._jlShellBuilt) {
+            this.generatePalette();
+            this.drawImageNav();
+            return;
+        }
+        this._jlShellBuilt = true;
 
         // Add base styles
         const style = document.createElement('style');
@@ -189,48 +199,74 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
             this.shadowRoot.appendChild(link);
         }
 
-        // --- THE FIX IS HERE ---
-        // Create a container for the main content within the shadowRoot
-        // This is the element on which we will call insertAdjacentHTML
         this.mainContentContainer = document.createElement('div');
-        this.shadowRoot.appendChild(this.mainContentContainer); // Add it to the shadowRoot
+        this.shadowRoot.appendChild(this.mainContentContainer);
 
-        // Build the main HTML structure
         const maxBrushSize = this.getAttribute('maxbrushsize') || 32;
-        const wrapperHTML = `
-            <div class="wrapper">
-                <div class="imageNav"></div>
-                <div class="toolbar">
-                    <div class="tools">
-                        <input class="sizerTool input" type="range" min="1" max="${maxBrushSize}">
-                        <div class="spacer"></div>
-                        <button class="undoButton button"><i class="material-icons"></i></button>
-                        <button class="clearButton button"><i class="material-icons"></i></button>
-                        <button class="printButton button"><i class="material-icons"></i></button>
-                        <button class="saveButton  button"><i class="material-icons"></i></button>
-                    </div>
-                    <div class="palette"></div>
-                </div>
-                <div class="canvasWrapper"></div>
-            </div>
-        `;
-        // Now call insertAdjacentHTML on the new container, not directly on shadowRoot
-        this.mainContentContainer.insertAdjacentHTML('beforeend', wrapperHTML);
 
-        // Get references to key elements (these queries should still work fine as they target within mainContentContainer)
-        this.sizer = this.shadowRoot.querySelector('.sizerTool');
-        this.wrapper = this.shadowRoot.querySelector('.wrapper');
-        this.imageNav = this.shadowRoot.querySelector('.imageNav');
-        this.palette = this.shadowRoot.querySelector('.palette');
-        this.canvasWrapper = this.shadowRoot.querySelector('.canvasWrapper');
+        const wrapper = document.createElement('div');
+        wrapper.className = 'wrapper';
+        const imageNav = document.createElement('div');
+        imageNav.className = 'imageNav';
+        const toolbar = document.createElement('div');
+        toolbar.className = 'toolbar';
+        const tools = document.createElement('div');
+        tools.className = 'tools';
 
-        // Attach event listeners
-        this.sizer.addEventListener('input', this.updateSize.bind(this));
-        this.shadowRoot.querySelector('.undoButton').addEventListener('click', () => {
+        const sizer = document.createElement('input');
+        sizer.type = 'range';
+        sizer.className = 'sizerTool input';
+        sizer.min = '1';
+        sizer.max = String(maxBrushSize);
+        tools.appendChild(sizer);
+
+        const spacer = document.createElement('div');
+        spacer.className = 'spacer';
+        tools.appendChild(spacer);
+
+        function iconButton(className) {
+            const btn = document.createElement('button');
+            btn.className = className + ' button';
+            const i = document.createElement('i');
+            i.className = 'material-icons';
+            btn.appendChild(i);
+            return btn;
+        }
+
+        const undoButton = iconButton('undoButton');
+        const clearButton = iconButton('clearButton');
+        const printButton = iconButton('printButton');
+        const saveButton = iconButton('saveButton');
+        tools.appendChild(undoButton);
+        tools.appendChild(clearButton);
+        tools.appendChild(printButton);
+        tools.appendChild(saveButton);
+
+        const palette = document.createElement('div');
+        palette.className = 'palette';
+        toolbar.appendChild(tools);
+        toolbar.appendChild(palette);
+
+        const canvasWrapper = document.createElement('div');
+        canvasWrapper.className = 'canvasWrapper';
+
+        wrapper.appendChild(imageNav);
+        wrapper.appendChild(toolbar);
+        wrapper.appendChild(canvasWrapper);
+        this.mainContentContainer.appendChild(wrapper);
+
+        this.sizer = sizer;
+        this.wrapper = wrapper;
+        this.imageNav = imageNav;
+        this.palette = palette;
+        this.canvasWrapper = canvasWrapper;
+
+        sizer.addEventListener('input', this.updateSize.bind(this));
+        undoButton.addEventListener('click', () => {
             this.paths.pop();
             this.refresh();
         });
-        this.shadowRoot.querySelector('.clearButton').addEventListener('click', () => {
+        clearButton.addEventListener('click', () => {
             this.paths = [];
             if (this.src) {
                 try {
@@ -239,8 +275,8 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
             }
             this.refresh();
         });
-        this.shadowRoot.querySelector('.printButton').addEventListener('click', this.print.bind(this));
-        this.shadowRoot.querySelector('.saveButton').addEventListener('click', this.save.bind(this));
+        printButton.addEventListener('click', this.print.bind(this));
+        saveButton.addEventListener('click', this.save.bind(this));
 
         this.generatePalette();
         this.drawImageNav();

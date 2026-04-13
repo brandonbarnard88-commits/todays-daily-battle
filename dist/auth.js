@@ -189,8 +189,9 @@
       var params = new URLSearchParams(window.location.search || '');
       mode = params.get('mode') || 'login';
     }
-    mode = String(mode || 'login').toLowerCase();
-    return mode === 'signup' ? 'signup' : 'login';
+    mode = String(mode || 'login').toLowerCase().trim();
+    if (mode.indexOf('signup') === 0) return 'signup';
+    return 'login';
   }
 
   function getSafeNextUrl(rawValue) {

@@ -191,8 +191,13 @@
   <script>
   console.log('=== TDB Login Forced Init v10 - Simple & Reliable ===');
   (function () {
+    function getRequestedMode() {
+      var params = new URLSearchParams(window.location.search || '');
+      var mode = String(params.get('mode') || 'login').toLowerCase().trim();
+      return mode.indexOf('signup') === 0 ? 'signup' : 'login';
+    }
     function applyAuthMode() {
-      var isSignup = window.location.search.indexOf('mode=signup') !== -1;
+      var isSignup = getRequestedMode() === 'signup';
 
       console.log('Mode detected:', isSignup ? 'SIGNUP' : 'LOGIN');
 
@@ -233,7 +238,7 @@
         applyAuthMode();
 
         if (typeof window.tdbInitLoginPage === 'function') {
-          window.tdbInitLoginPage(new URLSearchParams(window.location.search || '').get('mode') || 'login');
+          window.tdbInitLoginPage(getRequestedMode());
         }
 
         console.log('v10 Mode switch applied successfully');

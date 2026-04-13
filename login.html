@@ -18,6 +18,57 @@
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true"></script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <style>
+    .login-panel {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .login-form-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+    .login-form-stack input {
+      width: 100%;
+      margin: 0;
+      min-height: 52px;
+      padding: 0.9rem 1rem;
+      box-sizing: border-box;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.82);
+      color: #f8fafc;
+    }
+    .login-form-stack .btn,
+    .login-oauth-group .btn {
+      width: 100%;
+      margin: 0;
+      min-height: 52px;
+    }
+    .login-password-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0;
+    }
+    .login-password-toggle input {
+      width: auto;
+      min-height: 0;
+      margin: 0;
+      padding: 0;
+    }
+    .login-oauth-group {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .login-oauth-group {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
 </head>
 <body class="dark-mode tdb-inner-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -54,22 +105,22 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <section class="glass" style="max-width:560px;margin:0 auto;">
+        <section class="glass login-panel">
           <h1 id="login-title" class="section-divider">Sign In</h1>
           <p class="section-note">Sign in to your account to sync across devices.</p>
           <p class="section-note"><strong id="login-mode-tag">Sign in</strong></p>
-          <form id="login-form" class="newsletter-form" autocomplete="on">
+          <form id="login-form" class="login-form-stack" autocomplete="on">
             <label for="login-email" class="sr-only">Email</label>
             <input id="login-email" type="email" placeholder="Email" required autocomplete="email">
             <label for="login-password" class="sr-only">Password</label>
             <input id="login-password" type="password" placeholder="Password" required autocomplete="current-password">
-            <label class="section-note util-mt-0_35" style="display:flex;align-items:center;gap:.45rem;">
+            <label class="section-note login-password-toggle">
               <input id="login-show-password" type="checkbox" aria-label="Show password">
               Show password
             </label>
             <button type="submit" class="btn btn-primary">Continue</button>
           </form>
-          <div class="cta-group util-mt-0_5" aria-label="OAuth sign in">
+          <div class="login-oauth-group" aria-label="OAuth sign in">
             <button id="login-oauth-google" type="button" class="btn btn-secondary">Continue with Google</button>
             <button id="login-oauth-apple" type="button" class="btn btn-secondary">Continue with Apple</button>
           </div>
@@ -87,30 +138,24 @@
     </main>
   </div>
   <script defer src="/language-switcher.js"></script>
-  <script src="browser-shared.js?v=20260413authfix"></script>
-  <!-- Full script.js provides ensureSupabaseLoaded, wireAuthModal, openLoginModal, and shared auth helpers -->
-  <script src="script.js"></script>
-  <script src="auth.js?v=20260413authfix"></script>
+  <script src="auth.js"></script>
   <script>
-  console.log('=== TDB Login Page Forced Init v2 ===');
+  console.log('=== TDB Login Forced Init v4 ===');
   (function () {
+    var loginInitStarted = false;
     async function tdbForceLoginInit() {
       try {
-        if (!window.TDB_CONFIG) {
-          console.warn('TDB_CONFIG missing — using fallback');
-        }
+        console.log('ensureSupabaseLoaded available?', typeof window.ensureSupabaseLoaded);
         if (typeof window.ensureSupabaseLoaded === 'function') {
           await window.ensureSupabaseLoaded().catch(function () {});
           console.log('Supabase loaded via ensureSupabaseLoaded');
         }
+        if (loginInitStarted) return;
         var mode = new URLSearchParams(window.location.search || '').get('mode') || 'login';
         console.log('Initializing auth for mode:', mode);
         if (typeof window.tdbInitLoginPage === 'function') {
+          loginInitStarted = true;
           await window.tdbInitLoginPage(mode);
-          return;
-        }
-        if (typeof window.openLoginModal === 'function') {
-          window.openLoginModal(String(mode).toLowerCase() === 'signup' ? 'signup' : 'login');
           return;
         }
         console.error('No init function found — check script includes');
@@ -123,6 +168,8 @@
     } else {
       tdbForceLoginInit();
     }
+    window.setTimeout(tdbForceLoginInit, 600);
+    window.setTimeout(tdbForceLoginInit, 1500);
   })();
   </script>
 </body>

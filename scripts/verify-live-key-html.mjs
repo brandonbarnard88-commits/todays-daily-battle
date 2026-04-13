@@ -7,6 +7,13 @@
  *
  * Exit 1 if any check fails (stale CDN, wrong output dir, or deploy not finished).
  */
+import { existsSync, readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const root = path.join(__dirname, '..');
+const AUTH_ASSET_VERSION_PATH = path.join(root, 'AUTH-ASSET-VERSION');
 const base = (process.env.LIVE_BASE_URL || 'https://todaysdailybattle.com').replace(/\/$/, '');
 
 /** Browser-like UA so fewer edges treat this as a bot probe. */
@@ -16,6 +23,23 @@ const FETCH_UA =
 function extractBuildStamp(html) {
   const m = html.match(/<!--\s*tdb build\s+([^>]+?)\s*-->/i);
   return m ? m[1].trim() : null;
+}
+
+function getAuthAssetVersion() {
+  if (!existsSync(AUTH_ASSET_VERSION_PATH)) {
+    throw new Error('AUTH-ASSET-VERSION is missing.');
+  }
+  const version = readFileSync(AUTH_ASSET_VERSION_PATH, 'utf8').trim();
+  if (!version) {
+    throw new Error('AUTH-ASSET-VERSION is empty.');
+  }
+  return version;
+}
+
+const AUTH_ASSET_VERSION = getAuthAssetVersion();
+
+function withAuthAssetVersion(assetPath) {
+  return assetPath + '?v=' + AUTH_ASSET_VERSION;
 }
 
 const jsonChecks = [
@@ -30,12 +54,12 @@ const jsonChecks = [
 
 const assetChecks = [
   {
-    path: '/browser-shared.js?v=20260413authfix',
+    path: withAuthAssetVersion('/browser-shared.js'),
     label: 'browser shared runtime',
     needles: ['TDBBrowserCore'],
   },
   {
-    path: '/auth.js?v=20260413authfix',
+    path: withAuthAssetVersion('/auth.js'),
     label: 'auth runtime',
     needles: ['tdbInitLoginPage', 'wireLoginPage'],
   },
@@ -88,13 +112,14 @@ const checks = [
     path: '/login.html',
     needles: [
       'id="login-form"',
-      'id="email"',
-      'id="password"',
-      'browser-shared.js?v=20260413authfix',
-      'auth.js?v=20260413authfix',
-      'TDB Login Page Forced Init v2',
+      'id="login-email"',
+      'id="login-password"',
+      withAuthAssetVersion('/auth.js').replace(/^\//, ''),
+      'TDB Login Forced Init v4',
     ],
     forbidden: [
+      'src="browser-shared.js"',
+      'src="script.js"',
       'src="config.js"',
     ],
   },

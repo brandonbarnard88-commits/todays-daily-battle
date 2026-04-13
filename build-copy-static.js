@@ -9,6 +9,15 @@ const path = require('path');
 
 const root = __dirname;
 const dist = path.join(root, 'dist');
+const AUTH_ASSET_VERSION_PATH = path.join(root, 'AUTH-ASSET-VERSION');
+const AUTH_ASSET_VERSION = fs.existsSync(AUTH_ASSET_VERSION_PATH)
+  ? fs.readFileSync(AUTH_ASSET_VERSION_PATH, 'utf8').trim()
+  : '';
+
+if (!AUTH_ASSET_VERSION) {
+  console.error('BUILD FAIL: AUTH-ASSET-VERSION is missing or empty.');
+  process.exit(1);
+}
 
 /** CSP require-trusted-types-for: sync DOMPurify + innerHTML bridge before any deferred script */
 const TT_BOOTSTRAP_MARK = 'Trusted Types: DOMPurify + innerHTML bridge';
@@ -23,6 +32,18 @@ function ensureTrustedTypesBootstrap(html) {
   return html.replace(/<head([^>]*)>/i, function (m) {
     return m + TT_BOOTSTRAP_SNIPPET;
   });
+}
+
+function stampAuthAssetUrls(html) {
+  var assets = ['browser-shared.js', 'auth.js', 'owner-console.js', 'profile.js'];
+  var out = html;
+  for (var i = 0; i < assets.length; i++) {
+    var asset = assets[i];
+    var escaped = asset.replace(/\./g, '\\.');
+    var re = new RegExp('(src=["\'][^"\']*' + escaped + ')(?:\\?v=[^"\']*)?(["\'])', 'g');
+    out = out.replace(re, '$1?v=' + AUTH_ASSET_VERSION + '$2');
+  }
+  return out;
 }
 
 function walkHtmlUnder(dir, onFile) {
@@ -253,6 +274,7 @@ topics.forEach(function (f) {
     let content = fs.readFileSync(src, 'utf8');
     content = content.replace(/TDB_BUILD_DATE/g, BUILD_DATE_STR);
     content = ensureTrustedTypesBootstrap(content);
+    content = stampAuthAssetUrls(content);
     fs.writeFileSync(dest, content);
     console.log('Copied topic: ' + f);
   }
@@ -286,6 +308,7 @@ for (const f of otherHtml) {
   let content = fs.readFileSync(path.join(root, f), 'utf8');
   content = content.replace(/TDB_BUILD_DATE/g, BUILD_DATE_STR);
   content = ensureTrustedTypesBootstrap(content);
+  content = stampAuthAssetUrls(content);
   fs.writeFileSync(path.join(dist, f), content);
   if (f === 'plans.html') {
     if (!content.includes('plan-list') || !content.includes('Battle Distraction')) {
@@ -601,8 +624,9 @@ fs.writeFileSync(path.join(dist, 'build-date.txt'), BUILD_DATE_STR, 'utf8');
 // Verify critical pages exist (fail build if missing)
 const CRITICAL_PAGES = [
   'index.html', 'bible-tool.html', 'pastor-toolkit.html', 'sermon.html', 'plans.html',
-  'testimonials.html', 'why-not-ai.html',
-  'pastor/index.html', 'bible/index.html', 'script.js', 'footer-build-stamp.js', 'build-date.txt'
+  'testimonials.html', 'why-not-ai.html', 'login.html',
+  'pastor/index.html', 'bible/index.html', 'script.js', 'auth.js', 'browser-shared.js',
+  'footer-build-stamp.js', 'build-date.txt'
 ];
 const missing = CRITICAL_PAGES.filter(function (f) { return !fs.existsSync(path.join(dist, f)); });
 if (missing.length) {

@@ -448,7 +448,29 @@ if (!script.includes('tdbGatherVersesForJournalExport')) {
 } else {
   ok('script.js: journal export gather helper present');
 }
+const authJs = read('auth.js');
+if (!read('AUTH-ASSET-VERSION').trim()) {
+  fail('AUTH-ASSET-VERSION missing or empty');
+} else {
+  ok('AUTH-ASSET-VERSION present');
+}
+if (authJs.includes('localStorage.clear()') || authJs.includes('sessionStorage.clear()')) {
+  fail('auth.js: logout must not clear all browser storage');
+} else {
+  ok('auth.js: logout avoids broad storage wipes');
+}
+if (!authJs.includes('function getSafeNextUrl(') || authJs.includes("return params.get('next') || '/'")) {
+  fail('auth.js: next redirect sanitization missing or bypassed');
+} else {
+  ok('auth.js: next redirects are sanitized to same-origin paths');
+}
 const purgeMjs = read('scripts/cloudflare-purge.mjs');
+const verifyLive = read('scripts/verify-live-key-html.mjs');
+if (!purgeMjs.includes('AUTH-ASSET-VERSION') || !verifyLive.includes('AUTH-ASSET-VERSION')) {
+  fail('auth asset cache-bust version must be shared through AUTH-ASSET-VERSION in purge and live verify scripts');
+} else {
+  ok('auth asset version is centralized for purge and live verification');
+}
 if (
   !purgeMjs.includes("'/ansiedad.html'") ||
   !purgeMjs.includes("'/fuerza.html'") ||

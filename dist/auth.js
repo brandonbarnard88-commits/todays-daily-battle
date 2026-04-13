@@ -118,8 +118,43 @@
       var eq = part.indexOf('=');
       var name = (eq > -1 ? part.slice(0, eq) : part).trim();
       if (!name) continue;
+      if (!isAuthStorageKey(name)) continue;
       document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
       document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + window.location.hostname;
+    }
+  }
+
+  function getAuthStoragePrefixes() {
+    var prefixes = ['sb-', 'supabase.auth.'];
+    try {
+      var url = getSupabaseUrl();
+      if (url) {
+        var ref = new URL(url).hostname.split('.')[0];
+        if (ref) prefixes.unshift('sb-' + ref + '-');
+      }
+    } catch (e) {}
+    return prefixes;
+  }
+
+  function isAuthStorageKey(name) {
+    if (!name) return false;
+    var key = String(name);
+    if (key === 'supabase.auth.token') return true;
+    var prefixes = getAuthStoragePrefixes();
+    for (var i = 0; i < prefixes.length; i++) {
+      if (key.indexOf(prefixes[i]) === 0) return true;
+    }
+    return false;
+  }
+
+  function clearAuthStorage(storage) {
+    if (!storage || typeof storage.length !== 'number' || typeof storage.key !== 'function') return;
+    for (var i = storage.length - 1; i >= 0; i--) {
+      var key = storage.key(i);
+      if (!isAuthStorageKey(key)) continue;
+      try {
+        storage.removeItem(key);
+      } catch (e) {}
     }
   }
 
@@ -127,8 +162,8 @@
     try {
       if (client && client.auth && client.auth.signOut) await client.auth.signOut({ scope: 'global' });
     } catch (e) {}
-    try { localStorage.clear(); } catch (e2) {}
-    try { sessionStorage.clear(); } catch (e3) {}
+    try { clearAuthStorage(localStorage); } catch (e2) {}
+    try { clearAuthStorage(sessionStorage); } catch (e3) {}
     clearAllCookies();
     window.location.href = '/';
   }
@@ -154,9 +189,21 @@
     return mode === 'signup' ? 'signup' : 'login';
   }
 
+  function getSafeNextUrl(rawValue) {
+    var raw = String(rawValue || '').trim();
+    if (!raw) return '/';
+    try {
+      var resolved = new URL(raw, window.location.origin);
+      if (resolved.origin !== window.location.origin) return '/';
+      return (resolved.pathname || '/') + (resolved.search || '') + (resolved.hash || '');
+    } catch (e) {
+      return '/';
+    }
+  }
+
   function getNextUrl() {
     var params = new URLSearchParams(window.location.search || '');
-    return params.get('next') || '/';
+    return getSafeNextUrl(params.get('next'));
   }
 
   function getAuthRedirectBase() {
@@ -300,9 +347,7 @@
     if (titleEl) titleEl.textContent = mode === 'signup' ? 'Create Account' : 'Sign In';
 
     if (session && session.user) {
-      var params = new URLSearchParams(window.location.search || '');
-      var next = params.get('next') || '/';
-      window.location.replace(next);
+      window.location.replace(getNextUrl());
       return;
     }
 

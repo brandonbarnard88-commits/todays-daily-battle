@@ -31,6 +31,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
+const AUTH_ASSET_VERSION_PATH = join(root, 'AUTH-ASSET-VERSION');
 const envPath = join(root, '.env');
 if (existsSync(envPath)) {
   const lines = readFileSync(envPath, 'utf8').split('\n');
@@ -77,6 +78,25 @@ if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder|change
   process.exit(1);
 }
 
+function getAuthAssetVersion() {
+  if (!existsSync(AUTH_ASSET_VERSION_PATH)) {
+    console.error('AUTH-ASSET-VERSION is missing. Add it to the repo root so auth cache-busting stays in sync.');
+    process.exit(1);
+  }
+  const version = readFileSync(AUTH_ASSET_VERSION_PATH, 'utf8').trim();
+  if (!version) {
+    console.error('AUTH-ASSET-VERSION is empty. Set a non-empty auth asset version before purging.');
+    process.exit(1);
+  }
+  return version;
+}
+
+const AUTH_ASSET_VERSION = getAuthAssetVersion();
+
+function withAuthAssetVersion(assetPath) {
+  return assetPath + '?v=' + AUTH_ASSET_VERSION;
+}
+
 /** Bump with HTML og:image ?v= when replacing share art (cache-bust). */
 const SHARE_OG_V = '20260430';
 
@@ -104,13 +124,13 @@ const SOCIAL_PURGE_PATHS = [
   '/service-worker.js',
   '/sw.js?v=' + SW_REG_VERSION,
   '/browser-shared.js',
-  '/browser-shared.js?v=20260413authfix',
+  withAuthAssetVersion('/browser-shared.js'),
   '/auth.js',
-  '/auth.js?v=20260413authfix',
+  withAuthAssetVersion('/auth.js'),
   '/owner-console.js',
-  '/owner-console.js?v=20260413authfix',
+  withAuthAssetVersion('/owner-console.js'),
   '/profile.js',
-  '/profile.js?v=20260413authfix',
+  withAuthAssetVersion('/profile.js'),
   '/tt-bootstrap.js',
   '/assets/perf-hint.js',
   '/verse-breakdown.js',

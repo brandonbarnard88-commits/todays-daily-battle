@@ -96,7 +96,11 @@ ALTER TABLE public.daily_battles ENABLE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS "daily_battles_read_public" ON public.daily_battles;
 CREATE POLICY "daily_battles_read_public" ON public.daily_battles FOR SELECT USING (true);
 DROP POLICY IF EXISTS "daily_battles_write_master" ON public.daily_battles;
-CREATE POLICY "daily_battles_write_master" ON public.daily_battles FOR INSERT TO authenticated WITH CHECK (
-  EXISTS (SELECT 1 FROM auth.users WHERE auth.users.id = auth.uid() AND lower(auth.users.email) = 'brandonbarnard88@yahoo.com')
-);
--- Service role (seed-daily-battle) bypasses RLS for INSERT
+DROP POLICY IF EXISTS "daily_battles_insert_service" ON public.daily_battles;
+DROP POLICY IF EXISTS "daily_battles_update_service" ON public.daily_battles;
+DROP POLICY IF EXISTS "daily_battles_delete_service" ON public.daily_battles;
+CREATE POLICY "daily_battles_insert_service" ON public.daily_battles FOR INSERT TO service_role WITH CHECK (true);
+CREATE POLICY "daily_battles_update_service" ON public.daily_battles FOR UPDATE TO service_role USING (true) WITH CHECK (true);
+CREATE POLICY "daily_battles_delete_service" ON public.daily_battles FOR DELETE TO service_role USING (true);
+GRANT SELECT ON public.daily_battles TO anon, authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.daily_battles TO service_role;

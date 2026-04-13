@@ -9,22 +9,32 @@
 
   var LOGIN_PATH = '/login.html';
   var AUTH_ACTION_TIMEOUT_MS = 12000;
+  var browserCore = window.TDBBrowserCore || null;
 
   function getCfg() {
     return (typeof window !== 'undefined' && window.TDB_CONFIG) ? window.TDB_CONFIG : null;
   }
 
   function getSupabaseUrl() {
+    if (browserCore && typeof browserCore.getSupabaseUrl === 'function') {
+      return browserCore.getSupabaseUrl();
+    }
     var cfg = getCfg();
     return (cfg && cfg.SUPABASE_URL) || window.__tdbSupabaseUrl || window.SUPABASE_URL || '';
   }
 
   function getSupabaseAnonKey() {
+    if (browserCore && typeof browserCore.getSupabaseAnonKey === 'function') {
+      return browserCore.getSupabaseAnonKey();
+    }
     var cfg = getCfg();
     return (cfg && cfg.SUPABASE_ANON_KEY) || window.__tdbSupabaseAnonKey || window.SUPABASE_ANON_KEY || '';
   }
 
   function createClient() {
+    if (browserCore && typeof browserCore.createSupabaseClient === 'function') {
+      return browserCore.createSupabaseClient({ auth: { detectSessionInUrl: true } });
+    }
     if (window.__tdbSupabaseClient) return window.__tdbSupabaseClient;
     var url = getSupabaseUrl();
     var key = getSupabaseAnonKey();
@@ -301,6 +311,8 @@
       if (statusEl) statusEl.textContent = 'Auth is not configured. Check SUPABASE_URL / SUPABASE_ANON_KEY.';
       return;
     }
+    if (form.getAttribute('data-tdb-login-wired') === '1') return;
+    form.setAttribute('data-tdb-login-wired', '1');
     if (forgotBtn) {
       forgotBtn.addEventListener('click', function (evt) {
         evt.preventDefault();
@@ -420,6 +432,8 @@
     var client = createClient();
     return secureLogout(client);
   };
+  window.tdbInitLoginPage = run;
+  window.wireLoginPage = wireLoginPage;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () { run(); });

@@ -5,7 +5,12 @@
 (function () {
   'use strict';
 
-  function getClient() {
+  var browserCore = window.TDBBrowserCore || null;
+
+  async function getClient() {
+    if (browserCore && typeof browserCore.getSupabaseClient === 'function') {
+      return browserCore.getSupabaseClient({ auth: { detectSessionInUrl: true } });
+    }
     if (window.__tdbSupabaseClient) return window.__tdbSupabaseClient;
     var cfg = window.TDB_CONFIG;
     var url = (cfg && cfg.SUPABASE_URL) || '';
@@ -27,7 +32,7 @@
   }
 
   async function generateInviteCode() {
-    var client = getClient();
+    var client = await getClient();
     if (!client) return null;
     try {
       var res = await client.rpc('profile_generate_invite_code');
@@ -38,7 +43,7 @@
   }
 
   async function loadProfile() {
-    var client = getClient();
+    var client = await getClient();
     if (!client) {
       window.location.href = '/login.html?next=' + encodeURIComponent('/profile.html');
       return;
@@ -196,6 +201,9 @@
   }
 
   function escapeHtml(s) {
+    if (browserCore && typeof browserCore.escapeHtml === 'function') {
+      return browserCore.escapeHtml(s);
+    }
     if (!s) return '';
     var div = document.createElement('div');
     div.textContent = s;
@@ -203,7 +211,7 @@
   }
 
   async function addKid() {
-    var client = getClient();
+    var client = await getClient();
     if (!client) return;
     var nameEl = document.getElementById('kid-name');
     var ageEl = document.getElementById('kid-age');
@@ -232,7 +240,7 @@
   }
 
   async function deleteKid(kidId) {
-    var client = getClient();
+    var client = await getClient();
     if (!client || !kidId) return;
     if (!confirm('Remove this child from your profile?')) return;
     try {
@@ -245,7 +253,7 @@
   }
 
   async function createGroup() {
-    var client = getClient();
+    var client = await getClient();
     if (!client) return;
     var nameEl = document.getElementById('group-name');
     var name = (nameEl && nameEl.value || '').trim();
@@ -278,7 +286,7 @@
   }
 
   async function joinGroup() {
-    var client = getClient();
+    var client = await getClient();
     if (!client) return;
     var codeEl = document.getElementById('join-code');
     var code = (codeEl && codeEl.value || '').trim();
@@ -303,7 +311,7 @@
   }
 
   async function leaveOrDeleteGroup(groupId, isCreator) {
-    var client = getClient();
+    var client = await getClient();
     if (!client || !groupId) return;
     if (!confirm(isCreator ? 'Delete this group? Members will lose access.' : 'Leave this group?')) return;
     try {
@@ -322,7 +330,7 @@
   }
 
   async function saveChurch() {
-    var client = getClient();
+    var client = await getClient();
     if (!client) return;
     var sess = await client.auth.getSession();
     var uid = sess && sess.data && sess.data.session ? sess.data.session.user.id : null;
@@ -353,7 +361,7 @@
   }
 
   async function deleteAccount() {
-    var client = getClient();
+    var client = await getClient();
     if (!client) return;
     var confirmText = window.prompt('Type DELETE to permanently remove your account and all data. This cannot be undone.');
     if (!confirmText || confirmText.trim().toUpperCase() !== 'DELETE') {
@@ -395,7 +403,7 @@
   }
 
   async function exportData() {
-    var client = getClient();
+    var client = await getClient();
     if (!client) return;
     var btn = document.getElementById('export-data-btn');
     if (btn) btn.disabled = true;

@@ -4,38 +4,24 @@
  * Tests current state of todaysdailybattle.com
  */
 
-import https from 'https';
+import { fetchText } from './_lib/live-http-utils.mjs';
 
 const SITE_URL = 'https://todaysdailybattle.com';
 
 async function checkHTML() {
-  return new Promise((resolve, reject) => {
-    https.get(`${SITE_URL}/?cb=${Date.now()}`, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        const hasLoadingPlaceholder = /Loading today's verse/.test(data);
-        const hasHardcodedVerse = /<strong>Philippians 4:6<\/strong>/.test(data);
-        const hasVerseCardLoaded = /verse-card-loaded/.test(data);
-        resolve({ hasLoadingPlaceholder, hasHardcodedVerse, hasVerseCardLoaded });
-      });
-    }).on('error', reject);
-  });
+  const data = await fetchText(`${SITE_URL}/?cb=${Date.now()}`);
+  const hasLoadingPlaceholder = /Loading today's verse/.test(data);
+  const hasHardcodedVerse = /<strong>Philippians 4:6<\/strong>/.test(data);
+  const hasVerseCardLoaded = /verse-card-loaded/.test(data);
+  return { hasLoadingPlaceholder, hasHardcodedVerse, hasVerseCardLoaded };
 }
 
 async function checkScript() {
-  return new Promise((resolve, reject) => {
-    https.get(`${SITE_URL}/script.js?cb=${Date.now()}`, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        const hasPickFreshDailyVerseRef = /function pickFreshDailyVerseRef/.test(data);
-        const hasBundledFallbacksArray = /var BUNDLED_DAILY_VERSE_FALLBACKS\s*=\s*\[/.test(data);
-        const hasRenderDailyBattleCard = /async function renderDailyBattleCard/.test(data);
-        resolve({ hasPickFreshDailyVerseRef, hasBundledFallbacksArray, hasRenderDailyBattleCard });
-      });
-    }).on('error', reject);
-  });
+  const data = await fetchText(`${SITE_URL}/script.js?cb=${Date.now()}`);
+  const hasPickFreshDailyVerseRef = /function pickFreshDailyVerseRef/.test(data);
+  const hasBundledFallbacksArray = /var BUNDLED_DAILY_VERSE_FALLBACKS\s*=\s*\[/.test(data);
+  const hasRenderDailyBattleCard = /async function renderDailyBattleCard/.test(data);
+  return { hasPickFreshDailyVerseRef, hasBundledFallbacksArray, hasRenderDailyBattleCard };
 }
 
 async function main() {

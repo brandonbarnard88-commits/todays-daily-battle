@@ -19044,6 +19044,15 @@ function updateRoleViews() {
 async function deleteMessageItem(item) {
   if (!item) return false;
   if (!isMasterUser) return false;
+  if (typeof window.tdbOwnerApiRequest === 'function') {
+    try {
+      await window.tdbOwnerApiRequest('/api/admin/moderation', {
+        method: 'POST',
+        body: JSON.stringify({ action: 'message-delete', messageId: item.id })
+      });
+      return true;
+    } catch (_) {}
+  }
   if (isSupabaseConfigured() && currentUserId) {
     const { error } = await supabaseClient.from('messages').delete().eq('id', item.id);
     if (!error) return true;
@@ -19057,6 +19066,15 @@ async function deleteMessageItem(item) {
 async function hideMessageItem(item) {
   if (!item) return false;
   if (!isMasterUser) return false;
+  if (typeof window.tdbOwnerApiRequest === 'function') {
+    try {
+      await window.tdbOwnerApiRequest('/api/admin/moderation', {
+        method: 'POST',
+        body: JSON.stringify({ action: 'message-hide', messageId: item.id })
+      });
+      return true;
+    } catch (_) {}
+  }
   if (isSupabaseConfigured() && currentUserId) {
     const { error } = await supabaseClient.from('messages').update({ hidden: true }).eq('id', item.id);
     if (!error) return true;
@@ -19070,6 +19088,15 @@ async function hideMessageItem(item) {
 async function unhideMessageItem(item) {
   if (!item) return false;
   if (!isMasterUser) return false;
+  if (typeof window.tdbOwnerApiRequest === 'function') {
+    try {
+      await window.tdbOwnerApiRequest('/api/admin/moderation', {
+        method: 'POST',
+        body: JSON.stringify({ action: 'message-unhide', messageId: item.id })
+      });
+      return true;
+    } catch (_) {}
+  }
   if (isSupabaseConfigured() && currentUserId) {
     const { error } = await supabaseClient.from('messages').update({ hidden: false }).eq('id', item.id);
     if (!error) return true;
@@ -19110,6 +19137,18 @@ async function reportPrayerWallItem(item) {
     local.unshift({ id: id, created_at: new Date().toISOString() });
     localStorage.setItem('prayerWallReports', JSON.stringify(local.slice(0, 40)));
   } catch {}
+  try {
+    await fetch('/api/report-prayer', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prayer_id: id,
+        prayer_text: truncateForDb(sanitizeUserInput(item.intent || ''), 600),
+        reason: 'Needs review',
+        details: ''
+      })
+    });
+  } catch (_) {}
   if (typeof trackEvent === 'function') {
     trackEvent('prayer_wall_report', { source: 'home_wall' });
   }
@@ -19805,17 +19844,37 @@ function wireDailyBattleSeedForm() {
       if (statusEl) statusEl.textContent = 'Master account required.';
       return;
     }
-    if (!supabaseClient) {
-      if (statusEl) statusEl.textContent = 'Supabase not ready yet.';
-      ensureSupabaseLoaded();
-      return;
-    }
     const date = dateEl ? dateEl.value : '';
     const verse_ref = verseEl ? verseEl.value.trim() : '';
     const reflection = reflectionEl ? reflectionEl.value.trim() : '';
     const prayer = prayerEl ? prayerEl.value.trim() : '';
     if (!date || !verse_ref) {
       if (statusEl) statusEl.textContent = 'Date and verse reference are required.';
+      return;
+    }
+    if (typeof window.tdbOwnerApiRequest === 'function') {
+      try {
+        await window.tdbOwnerApiRequest('/api/admin/content', {
+          method: 'POST',
+          body: JSON.stringify({
+            action: 'save-daily-battle',
+            date: date,
+            verse_ref: verse_ref,
+            reflection: reflection,
+            prayer: prayer
+          })
+        });
+        if (statusEl) statusEl.textContent = 'Daily battle saved.';
+        if (reflectionEl) reflectionEl.value = '';
+        if (prayerEl) prayerEl.value = '';
+        return;
+      } catch (error) {
+        if (statusEl) statusEl.textContent = error && error.message ? error.message : 'Owner save failed.';
+      }
+    }
+    if (!supabaseClient) {
+      if (statusEl) statusEl.textContent = 'Supabase not ready yet.';
+      ensureSupabaseLoaded();
       return;
     }
     const { error } = await supabaseClient

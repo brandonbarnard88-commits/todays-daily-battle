@@ -7,6 +7,8 @@
 (function () {
   'use strict';
 
+  var browserCore = window.TDBBrowserCore || null;
+
   var PROGRESS_KEY = 'tdb_curriculum_progress_days';
   var FAMILY_KEY = 'tdb_family_link_code';
   var FAMILY_REGISTRY_KEY = 'tdb_family_registry_v1';
@@ -193,6 +195,10 @@
 
   async function isAdmin() {
     try {
+      if (browserCore && typeof browserCore.getSupabaseClient === 'function' && typeof browserCore.isAdminUser === 'function') {
+        var sharedClient = await browserCore.getSupabaseClient({ auth: { detectSessionInUrl: true } });
+        return browserCore.isAdminUser(sharedClient);
+      }
       if (!window.supabase || !window.TDB_CONFIG) return false;
       var client = window.__tdbSupabaseClient;
       if (!client) {

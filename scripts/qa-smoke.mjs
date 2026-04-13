@@ -1,13 +1,4 @@
-// Playwright reads PLAYWRIGHT_BROWSERS_PATH when the module loads. Cursor/agent sandboxes
-// sometimes point it at a wrong-arch or incomplete cache; strip that before import.
-if (
-  typeof process.env.PLAYWRIGHT_BROWSERS_PATH === 'string' &&
-  process.env.PLAYWRIGHT_BROWSERS_PATH.includes('cursor-sandbox-cache')
-) {
-  delete process.env.PLAYWRIGHT_BROWSERS_PATH;
-}
-
-const { chromium, firefox } = await import('playwright');
+import { launchBestBrowser, waitForSearchOutput, waitForSearchReady } from './_lib/live-browser-utils.mjs';
 
 const url = process.env.QA_URL || 'https://todaysdailybattle.com/index.html';
 const checks = [];
@@ -24,41 +15,7 @@ function hasFailure() {
   return checks.some((c) => c.status === 'FAIL');
 }
 
-async function launchBrowser() {
-  try {
-    return await firefox.launch({ headless: true });
-  } catch (_) {
-    return await chromium.launch({ headless: true });
-  }
-}
-
-async function waitForSearchReady(page) {
-  return await page.waitForFunction(() => {
-    const input = document.querySelector('#tdb-search') || document.querySelector('#feel-search');
-    const out = document.querySelector('#output') || document.querySelector('#feel-results');
-    return !!(input && out && typeof window.runSearchWithInput === 'function');
-  }, { timeout: 25000 }).then(() => true).catch(() => false);
-}
-
-/** Homepage renders to #feel-results; other pages use #output. Check both. */
-async function waitForSearchOutput(page, timeoutMs = 15000) {
-  const deadline = Date.now() + timeoutMs;
-  const outputSel = '#output, #feel-results';
-  while (Date.now() < deadline) {
-    const cards = await page.locator(`${outputSel} .verse-card, ${outputSel} .smart-card`).count();
-    const emptyCount = await page.locator(`${outputSel} .empty`).count();
-    if (cards > 0 || emptyCount > 0) {
-      return { cards, emptyCount };
-    }
-    await page.waitForTimeout(450);
-  }
-  return {
-    cards: await page.locator(`${outputSel} .verse-card, ${outputSel} .smart-card`).count(),
-    emptyCount: await page.locator(`${outputSel} .empty`).count()
-  };
-}
-
-const browser = await launchBrowser();
+const browser = await launchBestBrowser();
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
 const page = await ctx.newPage();
 

@@ -3,25 +3,15 @@
  * Check if verse rotation code is deployed in production
  */
 
-import https from 'https';
 import fs from 'fs';
+import { fetchText } from './_lib/live-http-utils.mjs';
 
 const SCRIPT_URL = 'https://todaysdailybattle.com/script.js';
-
-function fetchScript() {
-  return new Promise((resolve, reject) => {
-    https.get(SCRIPT_URL + '?cb=' + Date.now(), (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve(data));
-    }).on('error', reject);
-  });
-}
 
 async function main() {
   console.log('📥 Downloading production script.js...\n');
   
-  const script = await fetchScript();
+  const script = await fetchText(SCRIPT_URL + '?cb=' + Date.now());
   
   console.log(`✅ Downloaded ${script.length} bytes\n`);
   

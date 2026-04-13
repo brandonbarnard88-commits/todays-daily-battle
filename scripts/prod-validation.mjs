@@ -14,6 +14,7 @@
  */
 
 import { chromium } from 'playwright';
+import { dismissWelcomeOverlay, waitForPageSettle } from './_lib/live-browser-utils.mjs';
 
 const PROD_URL = (process.env.PROD_VALIDATION_URL || 'https://www.todaysdailybattle.com').replace(/\/$/, '');
 const TIMEOUT = 15000;
@@ -50,36 +51,6 @@ function section(title) {
   log(`\n${'='.repeat(60)}`, colors.bright);
   log(title, colors.bright);
   log('='.repeat(60), colors.bright);
-}
-
-async function dismissWelcomeOverlay(page) {
-  // Robust dismissal matching qa-smoke.mjs pattern
-  try {
-    await page.evaluate(() => {
-      localStorage.setItem('welcome-seen', '1');
-      const overlay = document.getElementById('tdb-welcome-tour-overlay') || 
-                      document.querySelector('.welcome-tour-overlay, #welcome-anointing-overlay');
-      if (overlay) overlay.style.display = 'none';
-    });
-    await page.waitForTimeout(800);
-
-    const closeBtn = page.locator('#welcome-close, .welcome-close, .tour-close, button[aria-label*="close" i], .close').first();
-    if (await closeBtn.count() > 0) {
-      await closeBtn.click({ timeout: 5000 }).catch(() => {});
-    }
-
-    await page.waitForTimeout(600);
-  } catch (e) {
-    // Silent fallback - overlay handling is best-effort
-  }
-}
-
-async function waitForPageSettle(page) {
-  // Wait for DOM to be ready, but don't require full network idle
-  // (some analytics or third-party scripts may continue loading)
-  await page.waitForLoadState('load', { timeout: TIMEOUT });
-  // Give animations and initial JS time to complete
-  await page.waitForTimeout(1500);
 }
 
 async function captureVerseReference(page) {

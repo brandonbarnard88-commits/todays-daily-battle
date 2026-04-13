@@ -21,6 +21,54 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .owner-console-shell { display: grid; gap: 1rem; }
+    .owner-tabbar { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+    .owner-tabbar .btn[aria-pressed="true"] { background: rgba(212, 175, 55, 0.18); border-color: rgba(212, 175, 55, 0.45); color: #f4e7b2; }
+    .owner-pane[hidden] { display: none; }
+    .owner-pane-grid { display: grid; gap: 1rem; }
+    .owner-pane-grid--two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .owner-card {
+      background: rgba(11, 16, 35, 0.72);
+      border: 1px solid rgba(201, 168, 76, 0.18);
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+    }
+    .owner-card h3 { margin: 0 0 0.55rem; }
+    .owner-card p { margin: 0.35rem 0; }
+    .owner-status-bar { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .owner-pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.82rem;
+      background: rgba(87, 103, 132, 0.2);
+      color: #d8e1ef;
+    }
+    .owner-console-list { display: grid; gap: 0.85rem; }
+    .owner-console-list .list-item { margin: 0; }
+    .owner-console-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 0.7rem; }
+    .owner-inline-form { display: grid; gap: 0.75rem; }
+    .owner-inline-form textarea,
+    .owner-inline-form input,
+    .owner-inline-form select {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .owner-inline-form textarea { min-height: 8rem; resize: vertical; }
+    .owner-section-note { margin-top: 0.25rem; opacity: 0.88; }
+    .owner-user-row,
+    .owner-data-row { display: grid; gap: 0.75rem; }
+    .owner-user-row { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) auto; align-items: end; }
+    .owner-data-row { grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; }
+    .owner-log-meta { font-size: 0.82rem; opacity: 0.78; }
+    @media (max-width: 720px) {
+      .owner-user-row,
+      .owner-data-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body class="dark-mode">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -99,39 +147,191 @@
           </p>
           <p class="admin-eyebrow">Owner command center</p>
           <p class="admin-lead">
-            One place to check whether the site is healthy, whether live and Pages builds match, what this browser is caching, and what needs your attention first.
+            One place to manage moderation, content, users, exports, billing visibility, deploy health, and owner-only operations without exposing those powers to anyone else.
           </p>
-          <div class="admin-actions">
-            <button id="admin-refresh-dashboard" class="btn btn-secondary" type="button">Refresh Dashboard</button>
-            <button id="admin-copy-report" class="btn btn-secondary" type="button">Copy Debug Report</button>
-            <button id="admin-refresh-browser" class="btn btn-secondary" type="button">Refresh Browser Health</button>
-            <button id="admin-clear-browser-cache" class="btn btn-secondary" type="button">Clear This Browser Cache</button>
-            <span id="admin-ops-status" class="section-note admin-status-inline" aria-live="polite"></span>
-          </div>
-          <h2 class="section-divider">Site Health</h2>
-          <div id="admin-health" class="admin-grid"></div>
-          <div class="admin-actions">
-            <button id="admin-health-run" class="btn btn-secondary" type="button">Run Quick Checks</button>
-          </div>
-          <div id="admin-health-checks" class="list"></div>
-          <h2 class="section-divider">Deployment Match</h2>
-          <p class="admin-subsection-note">Checks the public domain and the Pages domain so you can spot stale deploys fast.</p>
-          <div id="admin-deployment" class="admin-grid"></div>
-          <div id="admin-deployment-notes" class="list admin-list"></div>
-          <h2 class="section-divider">Browser &amp; Offline Health</h2>
-          <p class="admin-subsection-note">Shows what this device is doing with service workers, caches, storage, and notifications.</p>
-          <div id="admin-browser" class="admin-grid"></div>
-          <div id="admin-browser-notes" class="list admin-list"></div>
-          <h2 class="section-divider">Growth Stats</h2>
-          <div id="admin-stats" class="admin-grid"></div>
-          <h2 class="section-divider">Content Overview</h2>
-          <div id="admin-overview" class="admin-grid"></div>
-          <h2 class="section-divider">Operator Shortcuts</h2>
-          <div class="admin-actions">
-            <a class="admin-action-link" href="/security.html">Security Page</a>
-            <a class="admin-action-link" href="/prayer-wall.html?tab=with-others">Prayer Wall</a>
-            <a class="admin-action-link" href="/mystudy">My Study</a>
-            <a class="admin-action-link" href="/explore.html">Explore</a>
+          <div class="owner-console-shell">
+            <div class="owner-status-bar">
+              <span class="owner-pill" id="owner-console-auth-pill">Owner session required</span>
+              <span class="owner-pill" id="owner-console-server-pill">Server actions pending</span>
+              <span class="section-note" id="owner-console-status" aria-live="polite"></span>
+            </div>
+            <div class="owner-tabbar" role="tablist" aria-label="Owner console sections">
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="overview" aria-pressed="true">Overview</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="moderation" aria-pressed="false">Moderation</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="content" aria-pressed="false">Content</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="users" aria-pressed="false">Users &amp; Roles</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="data" aria-pressed="false">Data &amp; Exports</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="billing" aria-pressed="false">Billing</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="ops" aria-pressed="false">Ops &amp; Deploy</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="audit" aria-pressed="false">Audit Log</button>
+            </div>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="overview">
+              <div id="owner-overview-cards" class="admin-grid"></div>
+              <div class="owner-pane-grid owner-pane-grid--two">
+                <div class="owner-card">
+                  <h3>Health snapshot</h3>
+                  <p class="owner-section-note">Immediate signals from your auth state, Supabase wiring, and current owner session.</p>
+                  <div id="admin-health" class="admin-grid"></div>
+                </div>
+                <div class="owner-card">
+                  <h3>Content snapshot</h3>
+                  <p class="owner-section-note">A quick pulse on live content, signups, waitlists, and saved records.</p>
+                  <div id="admin-overview" class="admin-grid"></div>
+                </div>
+              </div>
+              <div class="owner-card">
+                <h3>Browser and local growth</h3>
+                <p class="owner-section-note">Per-browser counters and diagnostics still matter when debugging stale deploys or local regressions.</p>
+                <div id="admin-stats" class="admin-grid"></div>
+              </div>
+            </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="moderation" hidden>
+              <div class="owner-pane-grid owner-pane-grid--two">
+                <div class="owner-card">
+                  <h3>Message moderation queue</h3>
+                  <div id="owner-messages" class="owner-console-list"></div>
+                </div>
+                <div class="owner-card">
+                  <h3>Reported messages</h3>
+                  <div id="owner-message-reports" class="owner-console-list"></div>
+                </div>
+              </div>
+              <div class="owner-pane-grid owner-pane-grid--two">
+                <div class="owner-card">
+                  <h3>Prayer reports</h3>
+                  <div id="owner-prayer-reports" class="owner-console-list"></div>
+                </div>
+                <div class="owner-card">
+                  <h3>Recent prayers</h3>
+                  <div id="owner-prayers" class="owner-console-list"></div>
+                </div>
+              </div>
+              <div hidden>
+                <div id="admin-messages" class="list"></div>
+                <div id="admin-reports" class="list"></div>
+              </div>
+            </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="content" hidden>
+              <div class="owner-pane-grid owner-pane-grid--two">
+                <div class="owner-card">
+                  <h3>Daily battle editor</h3>
+                  <p class="owner-section-note">Write the live featured daily battle through the owner API so writes stay server-backed.</p>
+                  <form id="daily-battle-seed-form" class="newsletter-form owner-inline-form">
+                    <input id="daily-battle-date" type="date" aria-label="Daily battle date">
+                    <input id="daily-battle-verse" type="text" placeholder="Verse ref (e.g., Psalm 46:1)" aria-label="Daily battle verse">
+                    <input id="daily-battle-reflection-input" type="text" placeholder="Short reflection" aria-label="Daily battle reflection">
+                    <input id="daily-battle-prayer-input" type="text" placeholder="Short prayer" aria-label="Daily battle prayer">
+                    <button class="btn btn-secondary" type="submit">Save daily battle</button>
+                  </form>
+                  <p id="daily-battle-seed-status" class="section-note"></p>
+                  <div id="owner-daily-battles" class="owner-console-list"></div>
+                </div>
+                <div class="owner-card">
+                  <h3>Structured owner content</h3>
+                  <p class="owner-section-note">Store homepage, support, and featured-content records in one durable place for future live wiring.</p>
+                  <form id="owner-content-form" class="owner-inline-form">
+                    <input id="owner-content-key" type="text" placeholder="content_key (e.g. homepage_feature)" aria-label="Content key">
+                    <input id="owner-content-title" type="text" placeholder="Title" aria-label="Content title">
+                    <input id="owner-content-summary" type="text" placeholder="Summary" aria-label="Content summary">
+                    <textarea id="owner-content-body" placeholder="Body copy" aria-label="Content body"></textarea>
+                    <button class="btn btn-secondary" type="submit">Save content entry</button>
+                  </form>
+                  <p id="owner-content-status" class="section-note"></p>
+                  <div id="owner-content-entries" class="owner-console-list"></div>
+                </div>
+              </div>
+            </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="users" hidden>
+              <div class="owner-card">
+                <h3>User lookup and access control</h3>
+                <form id="owner-user-search-form" class="owner-user-row">
+                  <input id="owner-user-query" type="text" placeholder="Search by email" aria-label="Search users by email">
+                  <select id="owner-user-role" aria-label="Role update">
+                    <option value="member">member</option>
+                    <option value="admin">admin</option>
+                  </select>
+                  <select id="owner-user-subscription" aria-label="Subscription update">
+                    <option value="free">free</option>
+                    <option value="supporter">supporter</option>
+                    <option value="battle_pro">battle_pro</option>
+                    <option value="church_team">church_team</option>
+                  </select>
+                  <button class="btn btn-secondary" type="submit">Search</button>
+                </form>
+                <p id="owner-user-status" class="section-note"></p>
+                <div id="owner-users" class="owner-console-list"></div>
+              </div>
+            </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="data" hidden>
+              <div class="owner-card">
+                <h3>Datasets and exports</h3>
+                <p class="owner-section-note">Pull owner-visible exports from the server, not just this browser.</p>
+                <div id="owner-datasets" class="owner-console-list"></div>
+              </div>
+            </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="billing" hidden>
+              <div class="owner-pane-grid owner-pane-grid--two">
+                <div class="owner-card">
+                  <h3>Billing summary</h3>
+                  <div id="owner-billing-cards" class="admin-grid"></div>
+                </div>
+                <div class="owner-card">
+                  <h3>Recent subscriptions</h3>
+                  <div id="owner-billing-subscriptions" class="owner-console-list"></div>
+                </div>
+              </div>
+            </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="ops" hidden>
+              <div class="admin-actions">
+                <button id="admin-refresh-dashboard" class="btn btn-secondary" type="button">Refresh Dashboard</button>
+                <button id="admin-copy-report" class="btn btn-secondary" type="button">Copy Debug Report</button>
+                <button id="admin-refresh-browser" class="btn btn-secondary" type="button">Refresh Browser Health</button>
+                <button id="admin-clear-browser-cache" class="btn btn-secondary" type="button">Clear This Browser Cache</button>
+                <span id="admin-ops-status" class="section-note admin-status-inline" aria-live="polite"></span>
+              </div>
+              <div class="owner-pane-grid owner-pane-grid--two">
+                <div class="owner-card">
+                  <h3>Owner ops readiness</h3>
+                  <div id="owner-ops-cards" class="admin-grid"></div>
+                  <div id="owner-ops-checks" class="owner-console-list"></div>
+                </div>
+                <div class="owner-card">
+                  <h3>Quick checks</h3>
+                  <button id="admin-health-run" class="btn btn-secondary" type="button">Run Quick Checks</button>
+                  <div id="admin-health-checks" class="list"></div>
+                </div>
+              </div>
+              <div class="owner-pane-grid owner-pane-grid--two">
+                <div class="owner-card">
+                  <h3>Deployment match</h3>
+                  <p class="admin-subsection-note">Checks the public domain and the Pages domain so you can spot stale deploys fast.</p>
+                  <div id="admin-deployment" class="admin-grid"></div>
+                  <div id="admin-deployment-notes" class="list admin-list"></div>
+                </div>
+                <div class="owner-card">
+                  <h3>Browser &amp; offline health</h3>
+                  <p class="admin-subsection-note">Shows what this device is doing with service workers, caches, storage, and notifications.</p>
+                  <div id="admin-browser" class="admin-grid"></div>
+                  <div id="admin-browser-notes" class="list admin-list"></div>
+                </div>
+              </div>
+              <div class="owner-card">
+                <h3>Operator shortcuts</h3>
+                <div class="admin-actions">
+                  <a class="admin-action-link" href="/security.html">Security Page</a>
+                  <a class="admin-action-link" href="/prayer-wall.html?tab=with-others">Prayer Wall</a>
+                  <a class="admin-action-link" href="/mystudy">My Study</a>
+                  <a class="admin-action-link" href="/explore.html">Explore</a>
+                </div>
+              </div>
+            </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="audit" hidden>
+              <div class="owner-card">
+                <h3>Owner audit log</h3>
+                <p class="owner-section-note">Sensitive actions are logged here so owner changes are traceable.</p>
+                <div id="owner-audit-log" class="owner-console-list"></div>
+              </div>
+            </section>
           </div>
           <div class="admin-actions">
             <button id="newsletter-export" class="btn btn-secondary" type="button">Export Newsletter CSV</button>
@@ -178,20 +378,6 @@
             <div class="list-item"><div><strong>Search verification</strong><p>Add Google/Bing verification meta tags to index.html when tokens are ready.</p></div></div>
             <div class="list-item"><div><strong>Sitemap submit</strong><p>Submit https://todaysdailybattle.com/sitemap.xml in Search Console and Bing Webmaster Tools.</p></div></div>
           </div>
-          <h2 class="section-divider">Daily Battle Seed Helper</h2>
-          <p class="section-note">Add or update the featured battle for a specific date.</p>
-          <form id="daily-battle-seed-form" class="newsletter-form">
-            <input id="daily-battle-date" type="date" aria-label="Daily battle date">
-            <input id="daily-battle-verse" type="text" placeholder="Verse ref (e.g., Psalm 46:1)" aria-label="Daily battle verse">
-            <input id="daily-battle-reflection-input" type="text" placeholder="Short reflection" aria-label="Daily battle reflection">
-            <input id="daily-battle-prayer-input" type="text" placeholder="Short prayer" aria-label="Daily battle prayer">
-            <button class="btn btn-secondary" type="submit">Save daily battle</button>
-          </form>
-          <p id="daily-battle-seed-status" class="section-note"></p>
-          <h2 class="section-divider">Message Moderation</h2>
-          <div id="admin-messages" class="list"></div>
-          <h2 class="section-divider">Reported Messages</h2>
-          <div id="admin-reports" class="list"></div>
         </section>
       </div>
     </main>
@@ -372,7 +558,9 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
+  <script src="browser-shared.js" defer></script>
   <script src="auth.js?v=20260314" defer></script>
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
+  <script src="owner-console.js" defer></script>
 </body>
 </html>

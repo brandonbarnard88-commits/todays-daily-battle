@@ -6,115 +6,43 @@
 (function () {
   'use strict';
 
-  /**
-   * Set element HTML. Always assign via el.innerHTML so tt-bootstrap's patched setter runs.
-   * Do not use __tdbNativeInnerHTMLSet with raw strings — that bypasses the patch and breaks Trusted Types.
-   */
+  var kidsShared = window.TDBKidsShared || {};
+
   function tdbSetHtml(el, html) {
+    if (kidsShared && typeof kidsShared.setHtml === 'function') {
+      return kidsShared.setHtml(el, html);
+    }
     if (!el) return;
-    var s = html == null ? '' : String(html);
-    var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
-    if (pol && typeof pol.createHTML === 'function') {
-      try {
-        el.innerHTML = pol.createHTML(s);
-        return;
-      } catch (_) {
-        try {
-          var wash = typeof DOMPurify !== 'undefined' && DOMPurify.sanitize
-            ? DOMPurify.sanitize(s, { RETURN_TRUSTED_TYPE: false })
-            : s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-          el.innerHTML = pol.createHTML(wash);
-          return;
-        } catch (__) {
-          try { el.innerHTML = pol.createHTML(''); } catch (___) {}
-          return;
-        }
-      }
-    }
-    try {
-      el.innerHTML = s;
-    } catch (____) {
-      try { el.textContent = String(s).replace(/<[^>]+>/g, ' '); } catch (_____) {}
-    }
+    el.innerHTML = html == null ? '' : String(html);
   }
+
   function tdbClearHtml(el) {
+    if (kidsShared && typeof kidsShared.clearHtml === 'function') {
+      return kidsShared.clearHtml(el);
+    }
     if (!el) return;
     while (el.firstChild) el.removeChild(el.firstChild);
   }
 
-  /** Decode common HTML entities without innerHTML (Trusted Types / require-trusted-types-for safe). */
   function tdbDecodeEntitiesForPlainUi(str) {
-    if (str == null || str === '') return '';
-    var out = String(str);
-    var prev;
-    var n;
-    for (n = 0; n < 12; n++) {
-      prev = out;
-      out = out.replace(/&amp;/g, '&');
-      if (out === prev) break;
+    if (kidsShared && typeof kidsShared.decodeEntitiesForPlainUi === 'function') {
+      return kidsShared.decodeEntitiesForPlainUi(str);
     }
-    out = out
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&quot;/g, '"')
-      .replace(/&#0*39;/g, "'")
-      .replace(/&apos;/g, "'")
-      .replace(/&nbsp;/g, '\u00a0');
-    out = out.replace(/&#(\d{1,7});/g, function (_, num) {
-      var c = parseInt(num, 10);
-      return c >= 0 && c <= 0x10ffff ? String.fromCharCode(c) : '';
-    });
-    out = out.replace(/&#x([0-9a-fA-F]{1,6});/g, function (_, hex) {
-      var c = parseInt(hex, 16);
-      return c >= 0 && c <= 0x10ffff ? String.fromCharCode(c) : '';
-    });
-    return out;
+    return String(str == null ? '' : str);
   }
 
   function tdbPlainTextForUi(s) {
-    function finishPlain(t) {
-      if (typeof window.tdbCleanForPlainDisplay === 'function') {
-        return window.tdbCleanForPlainDisplay(t);
-      }
-      if (typeof window.tdbStripAngleMarkupForPlainText === 'function') {
-        return window.tdbStripAngleMarkupForPlainText(t);
-      }
-      return String(t || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (kidsShared && typeof kidsShared.plainTextForUi === 'function') {
+      return kidsShared.plainTextForUi(s);
     }
-    if (s == null || s === '') return '';
-    var str = tdbDecodeEntitiesForPlainUi(String(s));
-    return finishPlain(str);
+    return String(s == null ? '' : s).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   }
 
-  /**
-   * Mutate bibleStories once so every consumer (Kids Corner, battle UI, coloring) sees plain text,
-   * not double-encoded entities from bad source or legacy data.
-   */
   function normalizeBibleStoriesForUi(stories) {
-    if (!stories || typeof stories !== 'object') return;
-    var sk = Object.keys(stories);
-    for (var si = 0; si < sk.length; si++) {
-      var s = stories[sk[si]];
-      if (!s || typeof s !== 'object') continue;
-      if (s.title != null) s.title = tdbPlainTextForUi(s.title);
-      if (s.caption != null) s.caption = tdbPlainTextForUi(s.caption);
-      if (s.kjvRef != null) s.kjvRef = tdbPlainTextForUi(s.kjvRef);
-      if (s.videoTitle != null) s.videoTitle = tdbPlainTextForUi(s.videoTitle);
-      if (s.narration != null) s.narration = tdbPlainTextForUi(s.narration);
-      var ctx = s.kidContext;
-      if (ctx && typeof ctx === 'object') {
-        if (ctx.who != null) ctx.who = tdbPlainTextForUi(ctx.who);
-        if (ctx.to != null) ctx.to = tdbPlainTextForUi(ctx.to);
-        if (ctx.apply != null) ctx.apply = tdbPlainTextForUi(ctx.apply);
-      }
-      var panels = s.panels;
-      if (Array.isArray(panels)) {
-        for (var pi = 0; pi < panels.length; pi++) {
-          var pan = panels[pi];
-          if (pan && pan.alt != null) pan.alt = tdbPlainTextForUi(String(pan.alt));
-        }
-      }
+    if (kidsShared && typeof kidsShared.normalizeBibleStoriesForUi === 'function') {
+      return kidsShared.normalizeBibleStoriesForUi(stories);
     }
+    return stories;
   }
 
   // Shared with Kids Coloring (coloring.html) — hub for all kid stuff; one streak across both
@@ -132,94 +60,27 @@
   const KID_QUIZ_DONE_KEY = 'kidQuizDone';
   const KID_MEMORY_DONE_KEY = 'kidMemoryDone';
 
-  /**
-   * Lazy singleton Supabase JS client (UMD) — anon key only; never service_role.
-   * Deferred init (below) keeps first paint clear; RLS + policies are enforced server-side.
-   */
-  var kidSupabaseClient = null;
-  var kidSupabaseInitPromise = null;
-  var kidSupabaseDeferResolve = null;
-
   function createKidSupabaseClientInstance() {
-    var cfg = window.TDB_CONFIG || {};
-    var supabaseUrl = cfg.SUPABASE_URL;
-    var supabaseKey = cfg.SUPABASE_ANON_KEY;
-    var lib = window.supabase && window.supabase.createClient ? window.supabase : (typeof supabase !== 'undefined' ? supabase : null);
-    if (!supabaseUrl || !supabaseKey || !lib || !lib.createClient) return null;
-    var storage = null;
-    try {
-      storage = typeof window !== 'undefined' && window.localStorage ? window.localStorage : undefined;
-    } catch (e) {}
-    var opts = {
-      auth: {
-        persistSession: true,
-        autoRefreshToken: true,
-        detectSessionInUrl: true,
-        flowType: 'pkce'
-      }
-    };
-    if (storage) opts.auth.storage = storage;
-    try {
-      return lib.createClient(supabaseUrl, supabaseKey, opts);
-    } catch (e) {
-      if (typeof console !== 'undefined' && console.warn) {
-        console.warn('Supabase client init failed:', e);
-      }
-      return null;
+    if (kidsShared && typeof kidsShared.createKidSupabaseClientInstance === 'function') {
+      return kidsShared.createKidSupabaseClientInstance();
     }
+    return null;
   }
 
-  /** immediate: user gesture (redeem, doodle). Else: single idle-scheduled init (timeout 1500ms, else setTimeout 500ms). */
   function getKidSupabaseClient(immediate) {
-    if (kidSupabaseClient) {
-      return Promise.resolve(kidSupabaseClient);
+    if (kidsShared && typeof kidsShared.getKidSupabaseClient === 'function') {
+      return kidsShared.getKidSupabaseClient(immediate);
     }
-    if (immediate) {
-      kidSupabaseClient = createKidSupabaseClientInstance();
-      if (kidSupabaseDeferResolve) {
-        var resImm = kidSupabaseDeferResolve;
-        kidSupabaseDeferResolve = null;
-        kidSupabaseInitPromise = null;
-        resImm(kidSupabaseClient);
-      }
-      return Promise.resolve(kidSupabaseClient);
-    }
-    if (kidSupabaseInitPromise) {
-      return kidSupabaseInitPromise;
-    }
-    kidSupabaseInitPromise = new Promise(function (resolve) {
-      kidSupabaseDeferResolve = resolve;
-      var run = function () {
-        if (!kidSupabaseClient) {
-          kidSupabaseClient = createKidSupabaseClientInstance();
-        }
-        var c = kidSupabaseClient;
-        var fin = kidSupabaseDeferResolve;
-        kidSupabaseDeferResolve = null;
-        kidSupabaseInitPromise = null;
-        resolve(c);
-      };
-      if (typeof window !== 'undefined' && typeof window.requestIdleCallback === 'function') {
-        window.requestIdleCallback(run, { timeout: 1500 });
-      } else {
-        setTimeout(run, 500);
-      }
-    });
-    return kidSupabaseInitPromise;
+    return Promise.resolve(createKidSupabaseClientInstance());
   }
 
-  /** Run fn(client) after client is ready; immediate=true for redeem / doodle upload. */
   function withKidSupabase(immediate, fn) {
+    if (kidsShared && typeof kidsShared.withKidSupabase === 'function') {
+      return kidsShared.withKidSupabase(immediate, fn);
+    }
     return getKidSupabaseClient(immediate).then(function (client) {
       if (!client) return;
-      try {
-        var ret = fn(client);
-        if (ret && typeof ret.then === 'function') return ret;
-      } catch (e) {
-        if (typeof console !== 'undefined' && console.warn) {
-          console.warn('Supabase operation failed:', e);
-        }
-      }
+      return fn(client);
     });
   }
 

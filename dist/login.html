@@ -189,31 +189,29 @@
   <script defer src="/language-switcher.js"></script>
   <script src="auth.js?v=20260413authhardening"></script>
   <script>
-  console.log('=== TDB Login Forced Init v9 - Clean & Reliable ===');
+  console.log('=== TDB Login Forced Init v10 - Simple & Reliable ===');
   (function () {
-    function applyModeSwitch() {
-      var params = new URLSearchParams(window.location.search || '');
-      var mode = params.get('mode') || 'login';
-      var isSignup = mode === 'signup';
+    function applyAuthMode() {
+      var isSignup = window.location.search.indexOf('mode=signup') !== -1;
 
       console.log('Mode detected:', isSignup ? 'SIGNUP' : 'LOGIN');
 
-      var titleEl = document.getElementById('login-title') || document.querySelector('h1');
-      if (titleEl) titleEl.textContent = isSignup ? 'Create Account' : 'Sign In';
+      var title = document.querySelector('h1, #login-title, .auth-title');
+      if (title) title.textContent = isSignup ? 'Create Account' : 'Sign In';
 
-      var introEl = document.getElementById('login-intro') || document.querySelector('.auth-intro, p');
-      if (introEl) {
-        introEl.textContent = isSignup
+      var intro = document.querySelector('#login-intro, .auth-intro, p');
+      if (intro) {
+        intro.textContent = isSignup
           ? 'Create an account to sync your progress across devices.'
           : 'Sign in to your account to sync across devices.';
       }
 
-      var submitBtn = document.getElementById('login-submit') || document.querySelector('button[type="submit"]');
-      if (submitBtn) submitBtn.textContent = isSignup ? 'Create Account' : 'Continue';
+      var btn = document.getElementById('login-submit') || document.querySelector('button[type="submit"]');
+      if (btn) btn.textContent = isSignup ? 'Create Account' : 'Continue';
 
       var switchCopy = document.getElementById('login-switch-copy');
-      var switchLink = document.getElementById('login-switch-link') || document.querySelector('a[href*="mode="]');
       if (switchCopy) switchCopy.textContent = isSignup ? 'Already have an account?' : 'Need an account?';
+      var switchLink = document.getElementById('login-switch-link') || document.querySelector('a[href*="mode="]');
       if (switchLink) {
         if (isSignup) {
           switchLink.textContent = 'Sign in';
@@ -232,23 +230,23 @@
         if (typeof window.ensureSupabaseLoaded === 'function') {
           await window.ensureSupabaseLoaded().catch(function () {});
         }
-        applyModeSwitch();
+        applyAuthMode();
 
         if (typeof window.tdbInitLoginPage === 'function') {
           window.tdbInitLoginPage(new URLSearchParams(window.location.search || '').get('mode') || 'login');
         }
 
-        console.log('v9 Mode switch applied successfully');
+        console.log('v10 Mode switch applied successfully');
       } catch (e) {
-        console.error('v9 init error:', e);
+        console.error('v10 init error:', e);
       }
     }
+    console.log('v10 init script registered');
     window.addEventListener('load', forceInitAuth);
-    document.addEventListener('DOMContentLoaded', forceInitAuth);
-    if (document.readyState !== 'loading') forceInitAuth();
-    window.setTimeout(forceInitAuth, 300);
-    window.setTimeout(forceInitAuth, 800);
-    window.setTimeout(forceInitAuth, 1500);
+    window.setTimeout(forceInitAuth, 100);
+    window.setTimeout(forceInitAuth, 400);
+    window.setTimeout(forceInitAuth, 1000);
+    window.setTimeout(forceInitAuth, 2000);
   })();
   </script>
 </body>

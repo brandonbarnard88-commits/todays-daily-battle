@@ -189,30 +189,25 @@
   <script defer src="/language-switcher.js"></script>
   <script src="auth.js"></script>
   <script>
-  console.log('=== TDB Login Forced Init v10 - Simple & Reliable ===');
+  console.log('=== TDB Login Forced Init v11 - Ultra Simple Late Mode Switch ===');
   (function () {
-    function getRequestedMode() {
-      var params = new URLSearchParams(window.location.search || '');
-      var mode = String(params.get('mode') || 'login').toLowerCase().trim();
-      return mode.indexOf('signup') === 0 ? 'signup' : 'login';
-    }
-    function applyAuthMode() {
-      var isSignup = getRequestedMode() === 'signup';
+    function applySignupMode() {
+      var isSignup = window.location.search.indexOf('mode=signup') !== -1;
 
-      console.log('Mode detected:', isSignup ? 'SIGNUP' : 'LOGIN');
+      console.log('v11 Mode detected:', isSignup ? 'SIGNUP' : 'LOGIN');
 
-      var title = document.querySelector('h1, #login-title, .auth-title');
-      if (title) title.textContent = isSignup ? 'Create Account' : 'Sign In';
+      var heading = document.querySelector('h1, #login-title, .auth-heading, .page-title');
+      if (heading) heading.textContent = isSignup ? 'Create Account' : 'Sign In';
 
-      var intro = document.querySelector('#login-intro, .auth-intro, p');
+      var intro = document.querySelector('#login-intro, .auth-intro, p:first-of-type');
       if (intro) {
         intro.textContent = isSignup
           ? 'Create an account to sync your progress across devices.'
           : 'Sign in to your account to sync across devices.';
       }
 
-      var btn = document.getElementById('login-submit') || document.querySelector('button[type="submit"]');
-      if (btn) btn.textContent = isSignup ? 'Create Account' : 'Continue';
+      var submitBtn = document.getElementById('login-submit') || document.querySelector('button[type="submit"], .auth-submit');
+      if (submitBtn) submitBtn.textContent = isSignup ? 'Create Account' : 'Continue';
 
       var switchCopy = document.getElementById('login-switch-copy');
       if (switchCopy) switchCopy.textContent = isSignup ? 'Already have an account?' : 'Need an account?';
@@ -230,28 +225,14 @@
       var loading = document.getElementById('auth-loading');
       if (loading) loading.style.display = 'none';
     }
-    async function forceInitAuth() {
-      try {
-        if (typeof window.ensureSupabaseLoaded === 'function') {
-          await window.ensureSupabaseLoaded().catch(function () {});
-        }
-        applyAuthMode();
+    window.addEventListener('load', applySignupMode);
+    window.setTimeout(applySignupMode, 50);
+    window.setTimeout(applySignupMode, 300);
+    window.setTimeout(applySignupMode, 800);
+    window.setTimeout(applySignupMode, 1500);
+    window.setTimeout(applySignupMode, 3000);
 
-        if (typeof window.tdbInitLoginPage === 'function') {
-          window.tdbInitLoginPage(getRequestedMode());
-        }
-
-        console.log('v10 Mode switch applied successfully');
-      } catch (e) {
-        console.error('v10 init error:', e);
-      }
-    }
-    console.log('v10 init script registered');
-    window.addEventListener('load', forceInitAuth);
-    window.setTimeout(forceInitAuth, 100);
-    window.setTimeout(forceInitAuth, 400);
-    window.setTimeout(forceInitAuth, 1000);
-    window.setTimeout(forceInitAuth, 2000);
+    console.log('v11 script registered - ready for mode switch');
   })();
   </script>
 </body>

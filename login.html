@@ -88,6 +88,9 @@
     </main>
   </div>
   <script defer src="/language-switcher.js"></script>
+  <!-- Full script.js provides ensureSupabaseLoaded, wireAuthModal, openLoginModal, and shared auth helpers -->
+  <script src="script.js"></script>
   <script src="auth.js"></script>
 </body>
 </html>
+console.log("Auth debug: TDB_CONFIG=", window.TDB_CONFIG ? "present" : "missing"); console.log("Supabase SDK=", typeof window.supabase);

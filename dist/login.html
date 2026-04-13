@@ -189,60 +189,64 @@
   <script defer src="/language-switcher.js"></script>
   <script src="auth.js?v=20260413authhardening"></script>
   <script>
-  console.log('=== TDB Login Forced Init v7 - Robust Mode Switching ===');
+  console.log('=== TDB Login Forced Init v9 - Clean & Reliable ===');
   (function () {
-    function applyModeChrome(mode) {
-      var isSignup = String(mode || 'login').toLowerCase() === 'signup';
-      var heading = document.getElementById('login-title');
-      var modeTag = document.getElementById('login-mode-tag');
-      var intro = document.getElementById('login-intro');
-      var submitBtn = document.getElementById('login-submit');
-      var switchCopy = document.getElementById('login-switch-copy');
-      var switchLink = document.getElementById('login-switch-link');
-      if (heading) heading.textContent = isSignup ? 'Create Account' : 'Sign In';
-      if (modeTag) modeTag.textContent = isSignup ? 'Create account' : 'Sign in';
-      if (intro) {
-        intro.textContent = isSignup
+    function applyModeSwitch() {
+      var params = new URLSearchParams(window.location.search || '');
+      var mode = params.get('mode') || 'login';
+      var isSignup = mode === 'signup';
+
+      console.log('Mode detected:', isSignup ? 'SIGNUP' : 'LOGIN');
+
+      var titleEl = document.getElementById('login-title') || document.querySelector('h1');
+      if (titleEl) titleEl.textContent = isSignup ? 'Create Account' : 'Sign In';
+
+      var introEl = document.getElementById('login-intro') || document.querySelector('.auth-intro, p');
+      if (introEl) {
+        introEl.textContent = isSignup
           ? 'Create an account to sync your progress across devices.'
           : 'Sign in to your account to sync across devices.';
       }
+
+      var submitBtn = document.getElementById('login-submit') || document.querySelector('button[type="submit"]');
       if (submitBtn) submitBtn.textContent = isSignup ? 'Create Account' : 'Continue';
-      if (switchCopy) switchCopy.textContent = isSignup ? 'Already have an account?' : 'Need an account?';
+
+      var switchLink = document.getElementById('login-switch-link') || document.querySelector('a[href*="mode="]');
       if (switchLink) {
-        switchLink.textContent = isSignup ? 'Sign in' : 'Create one';
-        switchLink.href = isSignup ? '/login.html' : '/login.html?mode=signup';
+        if (isSignup) {
+          switchLink.textContent = 'Sign in';
+          switchLink.href = '/login.html';
+        } else {
+          switchLink.textContent = 'Create one';
+          switchLink.href = '/login.html?mode=signup';
+        }
       }
-      document.title = isSignup ? 'Create Account • Today\'s Daily Battle' : 'Login • Today\'s Daily Battle';
+
+      var loading = document.getElementById('auth-loading');
+      if (loading) loading.style.display = 'none';
     }
     async function forceInitAuth() {
       try {
-        console.log('Starting auth init...');
         if (typeof window.ensureSupabaseLoaded === 'function') {
           await window.ensureSupabaseLoaded().catch(function () {});
-          console.log('Supabase ready');
         }
-        var mode = new URLSearchParams(window.location.search || '').get('mode') || 'login';
-        var isSignup = String(mode).toLowerCase() === 'signup';
-        applyModeChrome(mode);
-        console.log('Mode detected:', isSignup ? 'SIGNUP' : 'LOGIN');
+        applyModeSwitch();
+
         if (typeof window.tdbInitLoginPage === 'function') {
-          await window.tdbInitLoginPage(mode);
+          window.tdbInitLoginPage(new URLSearchParams(window.location.search || '').get('mode') || 'login');
         }
-        var loading = document.getElementById('auth-loading');
-        if (loading) loading.style.display = 'none';
-        console.log('Mode switch applied successfully');
+
+        console.log('v9 Mode switch applied successfully');
       } catch (e) {
-        console.error('Force init error:', e);
+        console.error('v9 init error:', e);
       }
     }
     window.addEventListener('load', forceInitAuth);
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', forceInitAuth);
-    } else {
-      forceInitAuth();
-    }
-    window.setTimeout(forceInitAuth, 400);
-    window.setTimeout(forceInitAuth, 1200);
+    document.addEventListener('DOMContentLoaded', forceInitAuth);
+    if (document.readyState !== 'loading') forceInitAuth();
+    window.setTimeout(forceInitAuth, 300);
+    window.setTimeout(forceInitAuth, 800);
+    window.setTimeout(forceInitAuth, 1500);
   })();
   </script>
 </body>

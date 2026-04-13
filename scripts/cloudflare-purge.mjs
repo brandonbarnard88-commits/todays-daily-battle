@@ -93,9 +93,24 @@ try {
 /** Paths appended to https://DOMAIN for post–share-image deploys */
 const SOCIAL_PURGE_PATHS = [
   '/',
+  '/login',
+  '/login.html',
+  '/login.html?mode=signup',
+  '/admin',
+  '/admin.html',
+  '/profile',
+  '/profile.html',
   '/sw.js',
   '/service-worker.js',
   '/sw.js?v=' + SW_REG_VERSION,
+  '/browser-shared.js',
+  '/browser-shared.js?v=20260413authfix',
+  '/auth.js',
+  '/auth.js?v=20260413authfix',
+  '/owner-console.js',
+  '/owner-console.js?v=20260413authfix',
+  '/profile.js',
+  '/profile.js?v=20260413authfix',
   '/tt-bootstrap.js',
   '/assets/perf-hint.js',
   '/verse-breakdown.js',
@@ -501,6 +516,20 @@ async function purgeFiles(zoneId, urls) {
   return out;
 }
 
+function printCloudflareRecoveryHints(error) {
+  if (!error) return;
+  if (error.code === 7003) {
+    console.error('Hint: CF_ZONE_ID is wrong for the custom-domain zone. Use the Zone ID from Cloudflare Dashboard → todaysdailybattle.com → Overview, not the Pages project id.');
+  }
+  if (error.code === 9109 || error.code === 6003) {
+    console.error('Hint: The token needs Zone Cache Purge permission. Create a token with Zone → Cache Purge: Purge and Zone → Zone: Read for todaysdailybattle.com.');
+  }
+  if (error.code === 10000) {
+    console.error('Hint: Cloudflare rejected the bearer. Update GitHub secrets so CF_API_TOKEN or CLOUDFLARE_API_TOKEN is a real token for this account and zone, not a stale/revoked token.');
+    console.error('Hint: If you use separate tokens, keep CLOUDFLARE_API_TOKEN for Pages deploy and CF_API_TOKEN for zone purge. Both can point to the same token if it has both permissions.');
+  }
+}
+
 (async () => {
   try {
     if (!ZONE_ID) {
@@ -531,6 +560,8 @@ async function purgeFiles(zoneId, urls) {
 
       const failed = results.filter((r) => !r.data.success);
       if (failed.length) {
+        const error = failed[0].data && failed[0].data.errors && failed[0].data.errors[0];
+        printCloudflareRecoveryHints(error);
         console.error('Purge failed for one or more batches. HTTP', failed[0].res.status);
         console.error('Response:', JSON.stringify(failed[0].data, null, 2));
         process.exit(1);
@@ -558,9 +589,7 @@ async function purgeFiles(zoneId, urls) {
     }
 
     if (data.errors && data.errors[0]) {
-      const e = data.errors[0];
-      if (e.code === 7003) console.error('Hint: Wrong CF_ZONE_ID. Use Zone ID from domain Overview, not Pages project ID.');
-      if (e.code === 9109 || e.code === 6003) console.error('Hint: Token needs "Cache Purge". Use "Edit zone cache" template, Zone: ' + DOMAIN);
+      printCloudflareRecoveryHints(data.errors[0]);
     }
     console.error('Purge failed. HTTP', res.status);
     console.error('Response:', JSON.stringify(data, null, 2));

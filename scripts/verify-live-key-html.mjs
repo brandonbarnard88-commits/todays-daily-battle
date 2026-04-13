@@ -20,11 +20,24 @@ function extractBuildStamp(html) {
 
 const jsonChecks = [
   {
-    path: '/data/site-search-index.json',
+    paths: ['/data/site-search-index.json', '/site-search-index.json'],
     label: 'site search index',
     validate(data) {
       return data && Array.isArray(data.entries) && data.entries.length >= 5;
     },
+  },
+];
+
+const assetChecks = [
+  {
+    path: '/browser-shared.js?v=20260413authfix',
+    label: 'browser shared runtime',
+    needles: ['TDBBrowserCore'],
+  },
+  {
+    path: '/auth.js?v=20260413authfix',
+    label: 'auth runtime',
+    needles: ['tdbInitLoginPage', 'wireLoginPage'],
   },
 ];
 
@@ -72,6 +85,20 @@ const checks = [
     ],
   },
   {
+    path: '/login.html',
+    needles: [
+      'id="login-form"',
+      'id="email"',
+      'id="password"',
+      'browser-shared.js?v=20260413authfix',
+      'auth.js?v=20260413authfix',
+      'TDB Login Page Forced Init v2',
+    ],
+    forbidden: [
+      'src="config.js"',
+    ],
+  },
+  {
     path: '/explore.html',
     needles: [
       'Five calm minutes (optional)',
@@ -103,30 +130,53 @@ async function fetchText(url) {
 
 async function main() {
   let failed = false;
-  for (const { path, label, validate } of jsonChecks) {
-    const jUrl = base + path;
+  for (const { paths, label, validate } of jsonChecks) {
+    let jsonOk = false;
+    for (const path of paths) {
+      const jUrl = base + path;
+      try {
+        const jr = await fetch(jUrl, {
+          headers: {
+            'User-Agent': FETCH_UA,
+            Accept: 'application/json,*/*;q=0.8',
+            'Cache-Control': 'no-cache',
+          },
+        });
+        if (!jr.ok) {
+          console.warn('verify-live-key-html: JSON candidate unavailable', jUrl, 'HTTP', jr.status);
+          continue;
+        }
+        const data = await jr.json();
+        if (!validate(data)) {
+          console.warn('verify-live-key-html:', label, 'candidate shape wrong', jUrl);
+          continue;
+        }
+        console.log('verify-live-key-html: OK', jUrl);
+        jsonOk = true;
+        break;
+      } catch (e) {
+        console.warn('verify-live-key-html:', label, 'candidate failed', jUrl, e.message || e);
+      }
+    }
+    if (!jsonOk) {
+      console.error('verify-live-key-html:', label, 'missing or invalid on all known paths');
+      failed = true;
+    }
+  }
+
+  for (const { path, label, needles } of assetChecks) {
+    const assetUrl = base + path;
     try {
-      const jr = await fetch(jUrl, {
-        headers: {
-          'User-Agent': FETCH_UA,
-          Accept: 'application/json,*/*;q=0.8',
-          'Cache-Control': 'no-cache',
-        },
-      });
-      if (!jr.ok) {
-        console.error('verify-live-key-html: MISSING or blocked', jUrl, 'HTTP', jr.status);
+      const body = await fetchText(assetUrl);
+      const missingNeedles = needles.filter((needle) => !body.includes(needle));
+      if (missingNeedles.length) {
+        console.error('verify-live-key-html:', label, 'is missing markers on', assetUrl, '→', missingNeedles.join(', '));
         failed = true;
         continue;
       }
-      const data = await jr.json();
-      if (!validate(data)) {
-        console.error('verify-live-key-html:', label, 'shape wrong or too few entries');
-        failed = true;
-        continue;
-      }
-      console.log('verify-live-key-html: OK', jUrl);
+      console.log('verify-live-key-html: OK', assetUrl);
     } catch (e) {
-      console.error('verify-live-key-html:', label, 'fetch failed', e.message || e);
+      console.error('verify-live-key-html:', label, 'fetch failed', assetUrl, e.message || e);
       failed = true;
     }
   }
@@ -171,9 +221,9 @@ async function main() {
         '  • Confirm Cloudflare Pages custom domain points to the active Pages project for this repo.\n' +
         '  • Confirm Cloudflare Pages is serving the current deployment (not a stale origin).\n' +
         '  • Confirm CF_API_TOKEN / CLOUDFLARE_API_TOKEN has Zone Cache Purge permission for todaysdailybattle.com.\n' +
-        '  • Purge Cloudflare (needs CF_API_TOKEN in .env): CF_PURGE_FILES=https://todaysdailybattle.com/,https://todaysdailybattle.com/prayer-wall.html,... npm run purge:cloudflare\n' +
+        '  • Purge Cloudflare (needs CF_API_TOKEN in .env): CF_PURGE_FILES=https://todaysdailybattle.com/login.html,https://todaysdailybattle.com/browser-shared.js,... npm run purge:cloudflare\n' +
         '     or: npm run purge:cloudflare:social\n' +
-        '  • Local dist spot-check: confirm index/prayer-wall/mystudy/my-verses/explore contain current My Study + Prayer copy.\n'
+        '  • Local dist spot-check: confirm login.html, browser-shared.js, auth.js, index/prayer-wall/mystudy/my-verses/explore contain current output.\n'
     );
     process.exit(1);
   }

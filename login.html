@@ -92,28 +92,36 @@
   <script src="script.js"></script>
   <script src="auth.js"></script>
   <script>
+  console.log('=== TDB Login Page Forced Init v2 ===');
   (function () {
-    async function forceInitAuth() {
+    async function tdbForceLoginInit() {
       try {
+        if (!window.TDB_CONFIG) {
+          console.warn('TDB_CONFIG missing — using fallback');
+        }
         if (typeof window.ensureSupabaseLoaded === 'function') {
           await window.ensureSupabaseLoaded().catch(function () {});
+          console.log('Supabase loaded via ensureSupabaseLoaded');
         }
+        var mode = new URLSearchParams(window.location.search || '').get('mode') || 'login';
+        console.log('Initializing auth for mode:', mode);
         if (typeof window.tdbInitLoginPage === 'function') {
-          await window.tdbInitLoginPage();
+          await window.tdbInitLoginPage(mode);
           return;
         }
         if (typeof window.openLoginModal === 'function') {
-          var params = new URLSearchParams(window.location.search || '');
-          window.openLoginModal((params.get('mode') || 'login').toLowerCase() === 'signup' ? 'signup' : 'login');
+          window.openLoginModal(String(mode).toLowerCase() === 'signup' ? 'signup' : 'login');
+          return;
         }
-      } catch (err) {
-        console.error('TDB login forced init failed:', err);
+        console.error('No init function found — check script includes');
+      } catch (e) {
+        console.error('Force init error:', e);
       }
     }
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', forceInitAuth, { once: true });
+      document.addEventListener('DOMContentLoaded', tdbForceLoginInit, { once: true });
     } else {
-      forceInitAuth();
+      tdbForceLoginInit();
     }
   })();
   </script>

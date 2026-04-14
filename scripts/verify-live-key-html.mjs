@@ -15,6 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const AUTH_ASSET_VERSION_PATH = path.join(root, 'AUTH-ASSET-VERSION');
 const base = (process.env.LIVE_BASE_URL || 'https://todaysdailybattle.com').replace(/\/$/, '');
+const FETCH_TIMEOUT_MS = Math.max(1000, Number(process.env.LIVE_FETCH_TIMEOUT_MS || 15000));
 
 /** Browser-like UA so fewer edges treat this as a bot probe. */
 const FETCH_UA =
@@ -140,6 +141,7 @@ const checks = [
 async function fetchText(url) {
   const res = await fetch(url, {
     redirect: 'follow',
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
     headers: {
       'User-Agent': FETCH_UA,
       Accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
@@ -161,6 +163,7 @@ async function main() {
       const jUrl = base + path;
       try {
         const jr = await fetch(jUrl, {
+          signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
           headers: {
             'User-Agent': FETCH_UA,
             Accept: 'application/json,*/*;q=0.8',

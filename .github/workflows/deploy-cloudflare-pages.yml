@@ -180,13 +180,13 @@ PY
           fi
 
       - name: Verify exact Pages deployment markers
-        if: ${{ steps.req.outputs.skip != 'true' && steps.deploy_pages.outputs.deployed_url != '' }}
+        if: ${{ steps.req.outputs.skip != 'true' && steps.deploy_pages.outputs.deployed_url }}
         env:
           LIVE_BASE_URL: ${{ steps.deploy_pages.outputs.deployed_url }}
         run: npm run verify:live-key-html
 
       - name: Verify exact Pages deployment CSP
-        if: ${{ steps.req.outputs.skip != 'true' && steps.deploy_pages.outputs.deployed_url != '' }}
+        if: ${{ steps.req.outputs.skip != 'true' && steps.deploy_pages.outputs.deployed_url }}
         env:
           LIVE_SITE_URL: ${{ steps.deploy_pages.outputs.deployed_url }}
           LIVE_CSP_ATTEMPTS: '4'
@@ -219,7 +219,9 @@ PY
         run: npm run test:live-csp
 
       - name: Fail if purge did not succeed
-        if: ${{ always() && steps.req.outputs.skip != 'true' && steps.purge_cache.outcome == 'failure' }}
+        if: ${{ steps.req.outputs.skip != 'true' }}
         run: |
-          echo "::error::Cloudflare Pages deploy uploaded successfully, but zone cache purge failed. Fix CF_API_TOKEN/CLOUDFLARE_API_TOKEN cache purge permissions and redeploy."
-          exit 1
+          if [ "${{ steps.purge_cache.outcome }}" = "failure" ]; then
+            echo "::error::Cloudflare Pages deploy uploaded successfully, but zone cache purge failed. Fix CF_API_TOKEN/CLOUDFLARE_API_TOKEN cache purge permissions and redeploy."
+            exit 1
+          fi

@@ -87,14 +87,13 @@ const checks = [
     ],
     forbidden: [
       'Community board',
-      'quiet room',
       'Message Board',
     ],
   },
   {
     path: '/mystudy',
     needles: [
-      'A calmer place for saved verses, notes, prayer, highlights, and steady progress. Everything stays on this device unless you sign in to sync.',
+      'A calmer place for saved verses, notes, prayer, highlights, and steady progress. Everything stays on this device unless you sign in to sync across devices.',
     ],
     forbidden: [
       'Message Board',

@@ -99,15 +99,15 @@ jobs:
             local log_file="$1"
             local url
             url="$(python3 - "$log_file" <<'PY'
-import re
-import sys
-from pathlib import Path
+            import re
+            import sys
+            from pathlib import Path
 
-text = Path(sys.argv[1]).read_text(encoding='utf-8', errors='ignore')
-matches = re.findall(r'https://[A-Za-z0-9._-]+\.pages\.dev', text)
-print(matches[-1] if matches else '')
-PY
-)"
+            text = Path(sys.argv[1]).read_text(encoding='utf-8', errors='ignore')
+            matches = re.findall(r'https://[A-Za-z0-9._-]+\.pages\.dev', text)
+            print(matches[-1] if matches else '')
+            PY
+            )"
             if [ -n "$url" ]; then
               DEPLOYED_URL="$url"
             fi

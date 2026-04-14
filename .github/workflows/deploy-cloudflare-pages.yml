@@ -84,6 +84,7 @@ jobs:
           exit $missing
 
       - name: Deploy to Cloudflare Pages (wrangler, token fallback)
+        id: deploy_pages
         if: ${{ steps.req.outputs.skip != 'true' }}
         env:
           DEPLOY_BRANCH: ${{ github.ref_name }}
@@ -93,14 +94,45 @@ jobs:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
         run: |
           set -euo pipefail
+          DEPLOYED_URL=""
+          capture_deployed_url() {
+            local log_file="$1"
+            local url
+            url="$(python3 - "$log_file" <<'PY'
+import re
+import sys
+from pathlib import Path
+
+text = Path(sys.argv[1]).read_text(encoding='utf-8', errors='ignore')
+matches = re.findall(r'https://[A-Za-z0-9._-]+\.pages\.dev', text)
+print(matches[-1] if matches else '')
+PY
+)"
+            if [ -n "$url" ]; then
+              DEPLOYED_URL="$url"
+            fi
+          }
           deploy_with_token() {
             local token="$1"
             local mode="${2:-with_account}"
+            local log_file
+            log_file="$(mktemp)"
             if [ "$mode" = "without_account" ]; then
-              env -u CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" --branch="${DEPLOY_BRANCH:-main}"
-            else
-              CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" --branch="${DEPLOY_BRANCH:-main}"
+              if env -u CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" --branch="${DEPLOY_BRANCH:-main}" 2>&1 | tee "$log_file"; then
+                capture_deployed_url "$log_file"
+                rm -f "$log_file"
+                return 0
+              fi
+              rm -f "$log_file"
+              return 1
             fi
+            if CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" --branch="${DEPLOY_BRANCH:-main}" 2>&1 | tee "$log_file"; then
+              capture_deployed_url "$log_file"
+              rm -f "$log_file"
+              return 0
+            fi
+            rm -f "$log_file"
+            return 1
           }
           deploy_with_fallbacks() {
             local token="$1"
@@ -121,24 +153,50 @@ jobs:
             fi
             return 1
           }
+          deployed_ok=0
           if [ -n "${CLOUDFLARE_API_TOKEN:-}" ]; then
             echo "Trying Pages deploy with CLOUDFLARE_API_TOKEN..."
             if deploy_with_fallbacks "$CLOUDFLARE_API_TOKEN" "CLOUDFLARE_API_TOKEN"; then
               echo "Pages deploy succeeded with CLOUDFLARE_API_TOKEN."
-              exit 0
+              deployed_ok=1
+            else
+              echo "::warning::Pages deploy failed with CLOUDFLARE_API_TOKEN. Trying CF_API_TOKEN fallback if available..."
             fi
-            echo "::warning::Pages deploy failed with CLOUDFLARE_API_TOKEN. Trying CF_API_TOKEN fallback if available..."
           fi
-          if [ -n "${CF_API_TOKEN:-}" ]; then
+          if [ "$deployed_ok" -ne 1 ] && [ -n "${CF_API_TOKEN:-}" ]; then
             deploy_with_fallbacks "$CF_API_TOKEN" "CF_API_TOKEN"
             echo "Pages deploy succeeded with CF_API_TOKEN."
-            exit 0
+            deployed_ok=1
           fi
-          echo "::error::No usable deploy token found. Set CLOUDFLARE_API_TOKEN (preferred) or CF_API_TOKEN with Pages deploy permission."
-          exit 1
+          if [ -n "$DEPLOYED_URL" ]; then
+            echo "deployed_url=$DEPLOYED_URL" >> "$GITHUB_OUTPUT"
+            echo "Exact Pages deployment URL: $DEPLOYED_URL"
+          else
+            echo "::warning::Could not parse the exact Pages deployment URL from wrangler output."
+          fi
+          if [ "$deployed_ok" -ne 1 ]; then
+            echo "::error::No usable deploy token found. Set CLOUDFLARE_API_TOKEN (preferred) or CF_API_TOKEN with Pages deploy permission."
+            exit 1
+          fi
+
+      - name: Verify exact Pages deployment markers
+        if: ${{ steps.req.outputs.skip != 'true' && steps.deploy_pages.outputs.deployed_url != '' }}
+        env:
+          LIVE_BASE_URL: ${{ steps.deploy_pages.outputs.deployed_url }}
+        run: npm run verify:live-key-html
+
+      - name: Verify exact Pages deployment CSP
+        if: ${{ steps.req.outputs.skip != 'true' && steps.deploy_pages.outputs.deployed_url != '' }}
+        env:
+          LIVE_SITE_URL: ${{ steps.deploy_pages.outputs.deployed_url }}
+          LIVE_CSP_ATTEMPTS: '4'
+          LIVE_CSP_SLEEP_MS: '4000'
+        run: node scripts/verify-live-csp.mjs
 
       - name: Purge zone cache after deploy
+        id: purge_cache
         if: ${{ steps.req.outputs.skip != 'true' }}
+        continue-on-error: true
         env:
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
@@ -152,3 +210,16 @@ jobs:
           LIVE_VERIFY_ATTEMPTS: '4'
           LIVE_VERIFY_SLEEP_MS: '25000'
         run: npm run verify:live-key-html:retry
+
+      - name: Verify live CSP + security headers
+        if: ${{ steps.req.outputs.skip != 'true' }}
+        env:
+          LIVE_CSP_ATTEMPTS: '6'
+          LIVE_CSP_SLEEP_MS: '10000'
+        run: npm run test:live-csp
+
+      - name: Fail if purge did not succeed
+        if: ${{ always() && steps.req.outputs.skip != 'true' && steps.purge_cache.outcome == 'failure' }}
+        run: |
+          echo "::error::Cloudflare Pages deploy uploaded successfully, but zone cache purge failed. Fix CF_API_TOKEN/CLOUDFLARE_API_TOKEN cache purge permissions and redeploy."
+          exit 1

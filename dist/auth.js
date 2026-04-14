@@ -373,6 +373,30 @@
     }
   }
 
+  function isRateLimitedAuthError(err, msg) {
+    var text = String(msg || (err && err.message) || '').toLowerCase();
+    var status = Number(err && (err.status || err.statusCode || err.code || 0));
+    return status === 429 || /429|rate limit|too many requests|over request rate/i.test(text);
+  }
+
+  function getFriendlyAuthErrorMessage(err, mode) {
+    var msg = err && err.message ? String(err.message) : 'Auth failed.';
+    if (/invalid login credentials/i.test(msg)) msg = 'Email or password is incorrect.';
+    if (/email not confirmed/i.test(msg)) msg = 'Check your email and confirm your account first.';
+    if (/user already registered/i.test(msg)) msg = 'Account already exists. Try signing in instead.';
+    if (err && err.code === 'AUTH_TIMEOUT') {
+      return mode === 'signup'
+        ? 'Signup timed out. Please try again. If it keeps happening, check Supabase Auth email provider and SMTP settings.'
+        : 'Login timed out. Please try again.';
+    }
+    if (isRateLimitedAuthError(err, msg)) {
+      return mode === 'signup'
+        ? 'Too many signup attempts just now. Wait a minute, then try again.'
+        : 'Too many login attempts just now. Wait a minute, then try again.';
+    }
+    return msg;
+  }
+
   function wireLoginPage(client, session, modeOverride) {
     if (!isLoginRoute()) return;
     var statusEl = document.getElementById('login-status');
@@ -388,6 +412,7 @@
     var googleEnabled = enabledProviders.indexOf('google') !== -1;
     var appleEnabled = enabledProviders.indexOf('apple') !== -1;
     var mode = getEffectiveMode(modeOverride);
+    var submitInFlight = false;
     applyLoginModeUi(mode);
 
     if (session && session.user) {
@@ -405,15 +430,35 @@
     setLoginReadyState(true);
     if (form.getAttribute('data-tdb-login-wired') === '1') return;
     form.setAttribute('data-tdb-login-wired', '1');
+
+    function setAuthUiBusy(isBusy) {
+      form.setAttribute('aria-busy', isBusy ? 'true' : 'false');
+      if (email) email.disabled = !!isBusy;
+      if (password) password.disabled = !!isBusy;
+      if (showPassword) showPassword.disabled = !!isBusy;
+      if (forgotBtn) forgotBtn.setAttribute('aria-disabled', isBusy ? 'true' : 'false');
+      if (resendBtn) resendBtn.setAttribute('aria-disabled', isBusy ? 'true' : 'false');
+      if (forgotBtn) forgotBtn.tabIndex = isBusy ? -1 : 0;
+      if (resendBtn) resendBtn.tabIndex = isBusy ? -1 : 0;
+      if (forgotBtn) forgotBtn.style.pointerEvents = isBusy ? 'none' : '';
+      if (resendBtn) resendBtn.style.pointerEvents = isBusy ? 'none' : '';
+      var submitBtn = document.getElementById('login-submit');
+      if (submitBtn) submitBtn.disabled = !!isBusy;
+      if (oauthGoogle && googleEnabled) oauthGoogle.disabled = !!isBusy;
+      if (oauthApple && appleEnabled) oauthApple.disabled = !!isBusy;
+    }
+
     if (forgotBtn) {
       forgotBtn.addEventListener('click', function (evt) {
         evt.preventDefault();
+        if (submitInFlight) return;
         requestPasswordReset(client, email && email.value, statusEl);
       });
     }
     if (resendBtn) {
       resendBtn.addEventListener('click', function (evt) {
         evt.preventDefault();
+        if (submitInFlight) return;
         resendConfirmation(client, email && email.value, statusEl);
       });
     }
@@ -424,16 +469,46 @@
     }
     toggleProviderButton(oauthGoogle, 'google', googleEnabled);
     toggleProviderButton(oauthApple, 'apple', appleEnabled);
-    if (oauthGoogle && googleEnabled) oauthGoogle.addEventListener('click', function () { startOAuth(client, 'google', statusEl); });
-    if (oauthApple && appleEnabled) oauthApple.addEventListener('click', function () { startOAuth(client, 'apple', statusEl); });
+    if (oauthGoogle && googleEnabled) {
+      oauthGoogle.addEventListener('click', async function () {
+        if (submitInFlight) return;
+        submitInFlight = true;
+        setAuthUiBusy(true);
+        try {
+          await startOAuth(client, 'google', statusEl);
+        } finally {
+          submitInFlight = false;
+          setAuthUiBusy(false);
+        }
+      });
+    }
+    if (oauthApple && appleEnabled) {
+      oauthApple.addEventListener('click', async function () {
+        if (submitInFlight) return;
+        submitInFlight = true;
+        setAuthUiBusy(true);
+        try {
+          await startOAuth(client, 'apple', statusEl);
+        } finally {
+          submitInFlight = false;
+          setAuthUiBusy(false);
+        }
+      });
+    }
     form.addEventListener('submit', async function (evt) {
       evt.preventDefault();
+      if (submitInFlight) {
+        if (statusEl) statusEl.textContent = mode === 'signup' ? 'Already creating your account...' : 'Already signing you in...';
+        return;
+      }
       var e = (email && email.value || '').trim().toLowerCase();
       var p = (password && password.value || '');
       if (!e || !p) {
         if (statusEl) statusEl.textContent = 'Enter email and password.';
         return;
       }
+      submitInFlight = true;
+      setAuthUiBusy(true);
       if (statusEl) statusEl.textContent = mode === 'signup' ? 'Creating account...' : 'Signing in...';
       try {
         trackAuth(mode === 'signup' ? 'auth_signup_submit' : 'auth_login_submit');
@@ -463,18 +538,15 @@
         trackAuth('auth_login_success');
         window.location.replace(getNextUrl());
       } catch (err) {
-        var msg = err && err.message ? String(err.message) : 'Auth failed.';
-        if (/invalid login credentials/i.test(msg)) msg = 'Email or password is incorrect.';
-        if (/email not confirmed/i.test(msg)) msg = 'Check your email and confirm your account first.';
-        if (/user already registered/i.test(msg)) msg = 'Account already exists. Try signing in instead.';
+        var msg = getFriendlyAuthErrorMessage(err, mode);
         if (err && err.code === 'AUTH_TIMEOUT') {
-          msg = mode === 'signup'
-            ? 'Signup timed out. Please try again. If it keeps happening, check Supabase Auth email provider and SMTP settings.'
-            : 'Login timed out. Please try again.';
           trackAuth(mode === 'signup' ? 'auth_signup_timeout' : 'auth_login_timeout');
         }
         trackAuth(mode === 'signup' ? 'auth_signup_error' : 'auth_login_error');
         if (statusEl) statusEl.textContent = msg;
+      } finally {
+        submitInFlight = false;
+        setAuthUiBusy(false);
       }
     });
   }

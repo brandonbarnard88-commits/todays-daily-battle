@@ -28,7 +28,7 @@
     "test": "node scripts/verify-homepage-search-wiring.mjs && python3 test-site.py --offline",
     "test:search-wiring": "node scripts/verify-homepage-search-wiring.mjs",
     "test:security": "node test-security.js",
-    "test:site": "node test-site.js --offline",
+    "test:site": "node test-site.js --offline && node scripts/verify-offline-strip-coverage.mjs",
     "test:surface-tokens": "node scripts/verify-tdb-surface-token-sync.mjs",
     "release:check": "npm run build && npm run verify:mobius-audio && npm run test && npm run test:site && npm run test:security",
     "deploy:reminder": "node scripts/post-deploy-reminder.mjs",
@@ -49,6 +49,7 @@
     "test:a11y": "playwright test tests/a11y-critical.spec.ts",
     "test:smoke": "playwright test tests/smoke-core.spec.ts",
     "test:live-csp": "node scripts/verify-live-csp.mjs",
+    "verify:live:critical": "npm run test:live-csp && npm run verify:live-key-html",
     "reel:batch": "node scripts/build-batch-reel.mjs",
     "reel:batch:night": "node scripts/build-batch-reel.mjs --profile night",
     "prompts:cinematic": "node scripts/build-cinematic-prompt-manifest.mjs",
@@ -60,7 +61,7 @@
     "quality:gate": "npm run build && npm run audit:paranoid && node scripts/audit-links.mjs && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
     "qa:smoke:local": "node scripts/qa-smoke-local.mjs",
     "quality:gate:full": "npm run quality:gate && npm run qa:smoke:local",
-    "quality:gate:browser": "npm run build && npx playwright install chromium && npx playwright test tests/a11y-critical.spec.ts tests/smoke-core.spec.ts tests/calm.spec.ts tests/prayer-wall-seeds.spec.ts && npm run test:live-csp",
+    "quality:gate:browser": "npm run build && npx playwright install chromium && npx playwright test tests/a11y-critical.spec.ts tests/smoke-core.spec.ts tests/calm.spec.ts tests/prayer-wall-seeds.spec.ts && npm run verify:live:critical",
     "quality:gate:browser:core": "npm run build && npx playwright install chromium && npx playwright test tests/smoke-core.spec.ts tests/calm.spec.ts",
     "validate:prod": "node scripts/prod-validation.mjs",
     "verify:live": "node scripts/verify-live-suite.mjs",
@@ -88,7 +89,7 @@
     "audit:lighthouse:local:manual": "npx lighthouse http://localhost:8080 --output=html --output-path=./lighthouse-report.html --view --form-factor=mobile --only-categories=performance,accessibility,best-practices",
     "pre-launch": "npm run quality:gate",
     "pre-launch:full": "npm run quality:gate && npm run audit:lighthouse && npm run qa:smoke:local",
-    "pre-launch:verify-live": "npm run test:live-csp && npm run validate:prod"
+    "pre-launch:verify-live": "npm run verify:live:critical && npm run validate:prod"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",

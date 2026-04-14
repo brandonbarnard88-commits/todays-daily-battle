@@ -23,6 +23,9 @@ const NEED = [
   { label: 'object-src', re: /object-src\s+'none'/i },
 ];
 
+const RETRY_ATTEMPTS = Math.max(1, Number(process.env.LIVE_CSP_ATTEMPTS || 3));
+const RETRY_SLEEP_MS = Math.max(500, Number(process.env.LIVE_CSP_SLEEP_MS || 5000));
+
 function loadExpectedFromRepo() {
   const p = path.join(root, '_headers');
   const raw = fs.readFileSync(p, 'utf8');
@@ -48,6 +51,10 @@ function urlsToCheck() {
     .filter(Boolean);
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function fetchDocument(url, method) {
   return fetch(url, {
     method,
@@ -70,6 +77,40 @@ function norm(s) {
   return s == null ? '' : String(s).trim();
 }
 
+function knownCloudflareOverrideHint(res) {
+  const csp = norm(res.headers.get('content-security-policy'));
+  const frame = norm(res.headers.get('x-frame-options'));
+  const referrer = norm(res.headers.get('referrer-policy'));
+  if (!csp && /sameorigin/i.test(frame) && /same-origin/i.test(referrer)) {
+    return (
+      '  Observed SAMEORIGIN + same-origin without CSP. This usually means the custom domain is not serving repo-managed _headers,\n' +
+      '  or a Cloudflare Transform Rule / proxy origin is overriding the response headers before they reach users.'
+    );
+  }
+  return '';
+}
+
+async function verifyOneWithRetry(url, expected) {
+  let lastError = null;
+  for (let attempt = 1; attempt <= RETRY_ATTEMPTS; attempt++) {
+    try {
+      await verifyOne(url, expected);
+      return;
+    } catch (error) {
+      lastError = error;
+      if (attempt === RETRY_ATTEMPTS) break;
+      console.warn(
+        'verify-live-csp: retrying',
+        url,
+        '(' + attempt + '/' + RETRY_ATTEMPTS + ') →',
+        error.message || error
+      );
+      await sleep(RETRY_SLEEP_MS);
+    }
+  }
+  throw lastError || new Error('Unknown CSP verification failure.');
+}
+
 async function verifyOne(url, expected) {
   let res;
   let via;
@@ -78,19 +119,17 @@ async function verifyOne(url, expected) {
     res = out.res;
     via = out.via;
   } catch (e) {
-    console.error('verify-live-csp: fetch failed:', url, e.message || e);
-    process.exit(1);
+    throw new Error('fetch failed for ' + url + ': ' + (e.message || e));
   }
 
   if (!res.ok) {
-    console.error('verify-live-csp: HTTP', res.status, url);
-    process.exit(1);
+    throw new Error('HTTP ' + res.status + ' for ' + url);
   }
 
   const csp = norm(res.headers.get('content-security-policy'));
   if (!csp) {
-    console.error(
-      'verify-live-csp: No Content-Security-Policy on document response (' +
+    throw new Error(
+      'No Content-Security-Policy on document response (' +
         via +
         ').\n' +
         '  URL: ' +
@@ -98,9 +137,9 @@ async function verifyOne(url, expected) {
         '\n' +
         '  If you use Cloudflare Pages, ensure dist/_headers is deployed to the output root.\n' +
         '  If you use Vercel, ensure vercel.json is deployed (run npm run sync:vercel-headers).\n' +
-        '  If a Transform Rule sets or strips CSP, align with _headers or remove the override.'
+        '  If a Transform Rule sets or strips CSP, align with _headers or remove the override.\n' +
+        knownCloudflareOverrideHint(res)
     );
-    process.exit(1);
   }
 
   const missing = [];
@@ -108,38 +147,46 @@ async function verifyOne(url, expected) {
     if (!re.test(csp)) missing.push(label);
   }
   if (missing.length) {
-    console.error(
-      'verify-live-csp: CSP present but missing required fragments:',
-      missing.join(', ')
+    throw new Error(
+      'CSP present but missing required fragments: ' +
+        missing.join(', ') +
+        '\n  URL: ' +
+        url +
+        '\n  First 400 chars: ' +
+        (csp.slice(0, 400) + (csp.length > 400 ? '…' : ''))
     );
-    console.error('verify-live-csp: (first 400 chars)', csp.slice(0, 400) + (csp.length > 400 ? '…' : ''));
-    process.exit(1);
   }
 
   const expCsp = norm(expected['content-security-policy']);
   if (expCsp && csp !== expCsp) {
-    console.error('verify-live-csp: CSP does not match repo _headers (byte-for-byte).');
-    console.error('  got (first 120 chars):', csp.slice(0, 120) + '…');
-    process.exit(1);
+    throw new Error(
+      'CSP does not match repo _headers (byte-for-byte).\n' +
+        '  URL: ' +
+        url +
+        '\n  got (first 120 chars): ' +
+        (csp.slice(0, 120) + '…')
+    );
   }
 
   const checks = [
     ['x-frame-options', 'X-Frame-Options'],
     ['referrer-policy', 'Referrer-Policy'],
+    ['x-content-type-options', 'X-Content-Type-Options'],
+    ['strict-transport-security', 'Strict-Transport-Security'],
+    ['permissions-policy', 'Permissions-Policy'],
   ];
   for (const [ek, name] of checks) {
     const got = norm(res.headers.get(name));
     const want = norm(expected[ek]);
     if (want && got !== want) {
-      console.error(
-        'verify-live-csp: ' + name + ' mismatch for ' + url + ' (' + via + ').\n' +
+      throw new Error(
+        name + ' mismatch for ' + url + ' (' + via + ').\n' +
           '  expected: ' +
           want +
           '\n' +
           '  got:      ' +
           (got || '(absent)')
       );
-      process.exit(1);
     }
   }
 
@@ -156,8 +203,13 @@ async function main() {
   }
 
   const list = urlsToCheck();
-  for (const url of list) {
-    await verifyOne(url, expected);
+  try {
+    for (const url of list) {
+      await verifyOneWithRetry(url, expected);
+    }
+  } catch (e) {
+    console.error('verify-live-csp:', e.message || e);
+    process.exit(1);
   }
 }
 

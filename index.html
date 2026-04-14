@@ -173,9 +173,35 @@
     :root[data-theme="light"] .hero-verse {
       color: var(--text);
     }
+    :root[data-theme="light"] .hero-daily-ref-above,
+    :root[data-theme="light"] .read-aloud-label,
+    :root[data-theme="light"] .verse-note,
+    :root[data-theme="light"] .hero-my-verses-hint a {
+      color: #5c4818;
+    }
+    :root[data-theme="light"] .hero-toolbar-btn {
+      color: #5c4818;
+      border-color: color-mix(in srgb, #5c4818 40%, var(--line));
+      background: color-mix(in srgb, #fffdf7 94%, #efe4c8);
+    }
+    :root[data-theme="light"] .hero-toolbar-btn:hover,
+    :root[data-theme="light"] .hero-toolbar-btn:focus-visible {
+      color: #1c2a44;
+      border-color: #5c4818;
+      background: color-mix(in srgb, #fffdf7 86%, #ead8ab);
+    }
+    :root[data-theme="light"] .read-aloud-btn {
+      border-color: #5c4818;
+      color: #5c4818;
+    }
+    :root[data-theme="light"] .read-aloud-btn:hover,
+    :root[data-theme="light"] .read-aloud-btn:focus-visible {
+      background: color-mix(in srgb, #5c4818 10%, #fffdf7);
+      box-shadow: 0 0 0 5px color-mix(in srgb, #5c4818 18%, transparent);
+    }
     :root[data-theme="light"] .sos-btn {
-      background: var(--sage, #6b8e6b);
-      color: #f8f5f0;
+      background: #456745;
+      color: #ffffff;
     }
 
     /* Light theme: cream page like before — hide full-page night sky layer */
@@ -1130,8 +1156,14 @@
     }
     :root[data-theme="light"] .tdb-home-votm-listen-row .tdb-votm-read-aloud--primary {
       background: color-mix(in srgb, var(--gold) 18%, var(--card));
-      color: color-mix(in srgb, var(--gold) 55%, #2a2410 45%);
+      color: #5c4818;
       border-color: color-mix(in srgb, var(--gold) 40%, var(--line));
+    }
+    :root[data-theme="light"] .tdb-home-votm-listen-row .tdb-votm-read-aloud--primary:hover,
+    :root[data-theme="light"] .tdb-home-votm-listen-row .tdb-votm-read-aloud--primary:focus-visible {
+      color: #1c2a44;
+      background: color-mix(in srgb, var(--gold) 24%, var(--card));
+      border-color: #5c4818;
     }
     #tdb-home-votm .family-memory-ref {
       font-size: clamp(0.98rem, 2.6vw, 1.08rem);
@@ -2434,6 +2466,10 @@
     :root[data-theme="light"] .tdb-morning-doorway-hint {
       background: color-mix(in srgb, var(--card) 96%, #fff);
       border-color: color-mix(in srgb, var(--line) 92%, var(--gold) 8%);
+      color: #5b4c2b;
+    }
+    :root[data-theme="light"] .tdb-morning-doorway-hint a {
+      color: #5c4818;
     }
     .tdb-home-prayer-strip {
       max-width: 52rem;
@@ -5453,6 +5489,11 @@
       font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.02em;
+    }
+    :root[data-theme="light"] .hero-streak-badge {
+      background: color-mix(in srgb, var(--gold) 22%, var(--card));
+      color: #5c4818;
+      border-color: color-mix(in srgb, #5c4818 30%, var(--line));
     }
 
     /* ── Tool Teaser Cards ── */

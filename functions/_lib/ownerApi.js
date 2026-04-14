@@ -1,6 +1,12 @@
 const JSON_HEADERS = {
   'content-type': 'application/json; charset=utf-8',
-  'cache-control': 'no-store'
+  'cache-control': 'no-store, private, max-age=0',
+  'x-content-type-options': 'nosniff',
+  'x-frame-options': 'DENY',
+  'referrer-policy': 'no-referrer',
+  'permissions-policy': 'geolocation=(), microphone=(), camera=(), payment=(), usb=()',
+  'cross-origin-resource-policy': 'same-origin',
+  vary: 'Authorization, Origin'
 };
 
 export function getSupabaseUrl(env) {
@@ -82,11 +88,24 @@ function buildServiceHeaders(env, extraHeaders) {
   );
 }
 
+function sameOriginRequestOrMissingOrigin(request) {
+  const originHeader = String(request.headers.get('origin') || '').trim();
+  if (!originHeader) return true;
+  try {
+    return new URL(originHeader).origin === new URL(request.url).origin;
+  } catch (_) {
+    return false;
+  }
+}
+
 export async function requireOwner(request, env) {
   const supabaseUrl = getSupabaseUrl(env);
   const serviceKey = getServiceRoleKey(env);
   if (!supabaseUrl || !serviceKey) {
     return { error: json({ error: 'Owner API is not configured on the server.' }, 503) };
+  }
+  if (!sameOriginRequestOrMissingOrigin(request)) {
+    return { error: json({ error: 'Owner API origin mismatch.' }, 403) };
   }
 
   const authHeader = request.headers.get('authorization') || request.headers.get('Authorization') || '';

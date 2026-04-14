@@ -20,14 +20,21 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname.toLowerCase();
-    const isAdminRoute = path === '/admin' || path === '/admin/' || path === '/admin.html';
+    const isAdminRoute = /^\/admin(?:\.html)?(?:\/.*)?$/.test(path);
     if (!isAdminRoute) {
       return fetch(request);
     }
     const secret = env.TDB_ADMIN_SECRET || '';
     const header = request.headers.get('X-TDB-Admin') || '';
     if (!secret || header !== secret) {
-      return new Response('Forbidden', { status: 403 });
+      return new Response('Forbidden', {
+        status: 403,
+        headers: {
+          'cache-control': 'no-store',
+          'content-type': 'text/plain; charset=utf-8',
+          'x-content-type-options': 'nosniff'
+        }
+      });
     }
     return fetch(request);
   },

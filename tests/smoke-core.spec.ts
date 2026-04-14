@@ -1,5 +1,16 @@
 import { test, expect } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    try {
+      localStorage.setItem('tdb-tour-seen', '1');
+    } catch (e) {}
+    try {
+      sessionStorage.setItem('tdb_welcome_intro_seen_session', '1');
+    } catch (e) {}
+  });
+});
+
 async function dismissFirstVisitIfPresent(page: import('@playwright/test').Page) {
   const btn = page.locator('#firstVisitDismiss');
   if (await btn.isVisible().catch(() => false)) {
@@ -12,6 +23,10 @@ async function dismissFirstVisitIfPresent(page: import('@playwright/test').Page)
   const tourSkip = page.getByRole('button', { name: /^skip$/i });
   if (await tourSkip.isVisible().catch(() => false)) {
     await tourSkip.click().catch(() => {});
+  }
+  const welcomeTourSkip = page.locator('.tdb-welcome-tour-skip');
+  if (await welcomeTourSkip.isVisible().catch(() => false)) {
+    await welcomeTourSkip.click().catch(() => {});
   }
 }
 

@@ -1,8 +1,8 @@
 # Admin route guard (Cloudflare Worker)
 
-**Note:** Production now rewrites `/admin` to `admin.html` in `_redirects`, but that route is meant to stay protected by this Worker plus Cloudflare Access. Do not expose `/admin` without both the edge gate and the in-page Supabase admin-role check.
+**Note:** Production now rewrites `/admin` to `admin.html` in `_redirects`, but that route and any future `/admin/...` paths are meant to stay protected by this Worker plus Cloudflare Access. Do not expose `/admin` without both the edge gate and the in-page Supabase admin-role check.
 
-Protects `/admin` and `/admin.html` so only requests that include the secret header are allowed.
+Protects `/admin`, `/admin.html`, and any `/admin/...` path so only requests that include the secret header are allowed.
 
 ## Setup
 

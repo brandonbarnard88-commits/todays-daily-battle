@@ -369,6 +369,11 @@ if (!adminBlocked && !(adminGuarded && adminGuardWorker.includes('X-TDB-Admin') 
 } else {
   ok(adminBlocked ? '_redirects: admin URLs return minimal blocked.html in production' : '_redirects: admin route is re-enabled only with documented edge protection');
 }
+if (!adminGuardWorker.includes('/^\\/admin(?:\\.html)?(?:\\/.*)?$/') || !adminGuardWorker.includes("'cache-control': 'no-store'")) {
+  fail('workers/admin-guard.js: descendant route protection or hardened 403 response missing');
+} else {
+  ok('workers/admin-guard.js: descendant route protection + hardened 403 response present');
+}
 
 if (
   !redirects.includes('/ru /ru/index.html 200!') ||
@@ -449,6 +454,8 @@ if (!script.includes('tdbGatherVersesForJournalExport')) {
   ok('script.js: journal export gather helper present');
 }
 const authJs = read('auth.js');
+const ownerApiJs = read('functions/_lib/ownerApi.js');
+const pagesMiddlewareJs = read('functions/_middleware.js');
 if (!read('AUTH-ASSET-VERSION').trim()) {
   fail('AUTH-ASSET-VERSION missing or empty');
 } else {
@@ -464,8 +471,45 @@ if (!authJs.includes('function getSafeNextUrl(') || authJs.includes("return para
 } else {
   ok('auth.js: next redirects are sanitized to same-origin paths');
 }
+if (!authJs.includes('var submitInFlight = false;') || !authJs.includes('setAuthUiBusy(true);')) {
+  fail('auth.js: login/signup submit guard missing');
+} else {
+  ok('auth.js: login/signup submit guard present');
+}
+if (!authJs.includes('function isRateLimitedAuthError(') || !authJs.includes('Too many signup attempts just now. Wait a minute, then try again.')) {
+  fail('auth.js: auth rate-limit handling missing');
+} else {
+  ok('auth.js: auth rate-limit handling present');
+}
+if (!ownerApiJs.includes('sameOriginRequestOrMissingOrigin') || !ownerApiJs.includes('Owner API origin mismatch.')) {
+  fail('functions/_lib/ownerApi.js: owner API same-origin guard missing');
+} else {
+  ok('functions/_lib/ownerApi.js: owner API same-origin guard present');
+}
+if (
+  !ownerApiJs.includes("'x-frame-options': 'DENY'") ||
+  !ownerApiJs.includes("'x-content-type-options': 'nosniff'") ||
+  !ownerApiJs.includes("vary: 'Authorization, Origin'")
+) {
+  fail('functions/_lib/ownerApi.js: hardened JSON security headers missing');
+} else {
+  ok('functions/_lib/ownerApi.js: hardened JSON security headers present');
+}
+if (
+  !pagesMiddlewareJs.includes("export async function onRequest") ||
+  !pagesMiddlewareJs.includes("'Content-Security-Policy'") ||
+  !pagesMiddlewareJs.includes("'Referrer-Policy': 'no-referrer'") ||
+  !pagesMiddlewareJs.includes("'X-Frame-Options': 'DENY'")
+) {
+  fail('functions/_middleware.js: Pages middleware fallback security headers missing');
+} else {
+  ok('functions/_middleware.js: Pages middleware fallback security headers present');
+}
 const purgeMjs = read('scripts/cloudflare-purge.mjs');
 const verifyLive = read('scripts/verify-live-key-html.mjs');
+const liveCspWorkflow = read('.github/workflows/live-csp.yml');
+const authzWorkflow = read('.github/workflows/authz-smoke.yml');
+const deployWorkflow = read('.github/workflows/deploy-cloudflare-pages.yml');
 if (!purgeMjs.includes('AUTH-ASSET-VERSION') || !verifyLive.includes('AUTH-ASSET-VERSION')) {
   fail('auth asset cache-bust version must be shared through AUTH-ASSET-VERSION in purge and live verify scripts');
 } else {
@@ -538,6 +582,33 @@ if (
   fail('scripts/cloudflare-purge.mjs: Spanish/CSS purge paths missing from SOCIAL_PURGE_PATHS');
 } else {
   ok('cloudflare-purge.mjs: Spanish topical + ?tdb_cb + ES styles purge paths present');
+}
+if (
+  !liveCspWorkflow.includes('run: node scripts/verify-live-csp.mjs') ||
+  liveCspWorkflow.includes('continue-on-error')
+) {
+  fail('live-csp workflow must run verify-live-csp as a blocking check');
+} else {
+  ok('live-csp workflow is blocking');
+}
+if (
+  !authzWorkflow.includes('run: npm run test:authz-smoke') ||
+  authzWorkflow.includes('continue-on-error')
+) {
+  fail('authz-smoke workflow must remain blocking whenever its secrets are present');
+} else {
+  ok('authz-smoke workflow is blocking when configured');
+}
+if (
+  !deployWorkflow.includes('id: deploy_pages') ||
+  !deployWorkflow.includes('deployed_url=$DEPLOYED_URL') ||
+  !deployWorkflow.includes('Verify exact Pages deployment markers') ||
+  !deployWorkflow.includes('Verify exact Pages deployment CSP') ||
+  !deployWorkflow.includes('run: npm run test:live-csp')
+) {
+  fail('deploy-cloudflare-pages workflow must capture and verify the exact Pages deployment before canonical live CSP checks');
+} else {
+  ok('deploy-cloudflare-pages workflow captures exact Pages deployment + verifies live CSP after deploy');
 }
 
 // 6. config.js not committed with secrets (recommend .gitignore)

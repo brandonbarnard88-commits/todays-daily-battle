@@ -9,6 +9,8 @@
   'use strict';
 
   var MESSAGES = {
+    prayer:
+      'Offline — still got you. Prayer requests you already opened are here. New community updates will appear when you’re back online.',
     reader:
       'Offline — still got you. Cached chapters are available. New chapters will load when you’re back online.',
     'bible-tool':
@@ -25,6 +27,14 @@
       'Offline — still got you. Saved studies and lexicon are available.',
     'word-study':
       'Offline — still got you. The lexicon is cached on this device.',
+    living:
+      'Offline — still got you. This refuge stays readable with the calm copy already on your device.',
+    quietmorning:
+      'Offline — still got you. Your quiet morning can continue with the words already on this device.',
+    quietevening:
+      'Offline — still got you. Your quiet evening can continue with the reflection already on this device.',
+    rhythm:
+      'Offline — still got you. Your rhythm and progress stay here until the connection returns.',
     storage:
       'Storage may be full. Try exporting older notes. Reading still works; saving may fail until there is room.',
     default:

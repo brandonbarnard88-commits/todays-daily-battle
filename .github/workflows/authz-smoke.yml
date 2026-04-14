@@ -45,7 +45,6 @@ jobs:
 
       - name: Run authz smoke tests
         if: ${{ steps.authz_check.outputs.skip != 'true' }}
-        continue-on-error: ${{ github.event_name == 'push' }}
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}

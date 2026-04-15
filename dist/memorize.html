@@ -281,8 +281,8 @@
       <input type="text" id="mem-ref-input" maxlength="80" autocomplete="off" placeholder="e.g. John 3:16" aria-describedby="mem-ref-hint">
       <p id="mem-ref-hint" class="section-note">Use the same form as elsewhere on the site (book, chapter:verse).</p>
       <div class="mem-row">
-        <button type="button" class="btn" id="mem-load-verse">Load verse</button>
-        <button type="button" class="btn btn-secondary" id="mem-add-queue">Add to your memory list</button>
+        <button type="button" class="btn" id="mem-load-verse" aria-label="Load KJV verse text for the reference above">Load verse</button>
+        <button type="button" class="btn btn-secondary" id="mem-add-queue" aria-label="Add this verse to your private memory list on this device">Add to your memory list</button>
       </div>
       <div id="mem-status" class="section-note" role="status" aria-live="polite"></div>
       <div id="mem-card" class="mem-card hidden" tabindex="0" aria-live="polite" role="article">
@@ -290,10 +290,10 @@
         <p class="mem-body" id="mem-card-body"></p>
       </div>
       <div class="mem-row">
-        <button type="button" class="btn btn-secondary hidden" id="mem-flip">Flip card</button>
-        <button type="button" class="btn btn-secondary hidden" id="mem-hide-toggle" aria-pressed="false">Hide some words</button>
-        <button type="button" class="btn btn-secondary hidden" id="mem-mark-known">Remembered well</button>
-        <button type="button" class="btn btn-secondary hidden" id="mem-mark-review">Say it again soon</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-flip" aria-label="Flip verse card between reference and full text">Flip card</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-hide-toggle" aria-pressed="false" aria-label="Hide some words on the card for gentle recall">Hide some words</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-mark-known" aria-label="Mark verse remembered well—schedule a longer gentle gap">Remembered well</button>
+        <button type="button" class="btn btn-secondary hidden" id="mem-mark-review" aria-label="Say it again soon—schedule a shorter gentle check-in">Say it again soon</button>
       </div>
     </section>
 
@@ -305,7 +305,7 @@
       <div id="mem-progress-rhythm" class="mem-progress-rhythm" hidden></div>
       <p id="mem-progress-summary" class="section-note mem-progress-summary" role="status" aria-live="polite" hidden></p>
       <div class="mem-row mem-queue-actions">
-        <button type="button" class="btn btn-secondary" id="mem-review-due">Review due verses</button>
+        <button type="button" class="btn btn-secondary" id="mem-review-due" aria-label="Review verses that are due for a gentle check-in">Review due verses</button>
         <button type="button" class="btn btn-secondary hidden" id="mem-show-full-queue" aria-label="Show full memory list">Show full list</button>
       </div>
       <p id="mem-queue-filter-empty" class="section-note" hidden role="status" aria-live="polite"></p>
@@ -321,8 +321,8 @@
       <textarea id="mem-type-area" class="mem-type-input" rows="4" autocomplete="off" placeholder="Load a verse above, then type it here&hellip;" aria-describedby="mem-type-hint"></textarea>
       <p id="mem-type-hint" class="section-note">Pause about a second after typing to show first-letter hints for words you have not typed yet.</p>
       <div class="mem-row">
-        <button type="button" class="btn btn-secondary" id="mem-type-hint-now">Show first letters</button>
-        <button type="button" class="btn btn-secondary" id="mem-type-clear">Clear</button>
+        <button type="button" class="btn btn-secondary" id="mem-type-hint-now" aria-label="Show first-letter hints for words not typed yet">Show first letters</button>
+        <button type="button" class="btn btn-secondary" id="mem-type-clear" aria-label="Clear typing practice box">Clear</button>
       </div>
     </section>
 
@@ -330,9 +330,9 @@
       <h2 id="mem-audio-h2">Listen &amp; repeat</h2>
       <p class="section-note">Uses your browser&rsquo;s calm voice when available. Load a verse above. &ldquo;Repeat after me&rdquo; plays the line once, then softly highlights the card so you can speak it aloud&mdash;no microphone, nothing leaves your device.</p>
       <div class="mem-row">
-        <button type="button" class="btn hidden" id="mem-repeat-along">Repeat after me</button>
-        <button type="button" class="btn btn-secondary" id="mem-speak">Read verse aloud</button>
-        <button type="button" class="btn btn-secondary" id="mem-speak-stop" hidden>Stop</button>
+        <button type="button" class="btn hidden" id="mem-repeat-along" aria-label="Play verse once, then pause for you to repeat aloud">Repeat after me</button>
+        <button type="button" class="btn btn-secondary" id="mem-speak" aria-label="Read loaded KJV verse aloud with device speech">Read verse aloud</button>
+        <button type="button" class="btn btn-secondary" id="mem-speak-stop" hidden aria-label="Stop verse speech">Stop</button>
       </div>
       <p id="mem-audio-note" class="section-note hidden" role="status">Speaking is not available in this browser.</p>
     </section>
@@ -341,7 +341,7 @@
       <h2 id="mem-print-h2">Printable cards</h2>
       <p class="section-note">Opens a quiet print sheet: reference, then text&mdash;one card per verse. Trim or fold if you like. Text appears when you have loaded that verse on this page before (same cache as typing practice).</p>
       <div class="mem-row">
-        <button type="button" class="btn btn-secondary" id="mem-print-cards">Open print sheet</button>
+        <button type="button" class="btn btn-secondary" id="mem-print-cards" aria-label="Open printable memory verse cards">Open print sheet</button>
       </div>
     </section>
 
@@ -349,9 +349,9 @@
       <h2 id="mem-export-h2">Export My Memory List</h2>
       <p class="section-note">Private backup from this device &mdash; reference plus verse text when you have loaded it here. Never a score.</p>
       <div class="mem-row" role="group" aria-label="Export memory list format">
-        <button type="button" class="btn btn-secondary" id="mem-export-txt">Plain text</button>
-        <button type="button" class="btn btn-secondary" id="mem-export-md">Markdown</button>
-        <button type="button" class="btn btn-secondary" id="mem-export-json">JSON</button>
+        <button type="button" class="btn btn-secondary" id="mem-export-txt" aria-label="Export memory list as plain text file">Plain text</button>
+        <button type="button" class="btn btn-secondary" id="mem-export-md" aria-label="Export memory list as Markdown file">Markdown</button>
+        <button type="button" class="btn btn-secondary" id="mem-export-json" aria-label="Export memory list as JSON backup">JSON</button>
       </div>
     </section>
 

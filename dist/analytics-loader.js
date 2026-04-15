@@ -31,7 +31,10 @@
       }
     } catch (_) {}
     try {
-      var raw = localStorage.getItem('tdb_cookie_consent_v2') || localStorage.getItem('tdb_cookie_consent_v1') || readCookie('tdb_cookie_consent_v2');
+      var raw = localStorage.getItem('tdb_cookie_consent_v2') ||
+        localStorage.getItem('tdb_cookie_consent_v1') ||
+        readCookie('tdb_cookie_consent_v2') ||
+        readCookie('tdb_cookie_consent_v1');
       if (!raw) return false;
       var parsed = JSON.parse(raw);
       return !!(parsed && parsed.status === 'accepted');

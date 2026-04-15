@@ -2227,6 +2227,8 @@ function safeSessionGet(key) {
 }
 
 var TDB_COOKIE_CONSENT_KEY = 'tdb_cookie_consent_v2';
+var TDB_COOKIE_CONSENT_V1_KEY = 'tdb_cookie_consent_v1';
+var TDB_PRIVACY_POPUP_ACCEPTED_KEY = 'tdb_privacy_accepted_v2';
 var TDB_COOKIE_CONSENT_SNOOZE_MS = 24 * 60 * 60 * 1000; // legacy only; no longer used after v2 fix
 var TDB_COOKIE_CONSENT_MAX_AGE_SECONDS = 365 * 24 * 60 * 60;
 
@@ -2280,13 +2282,29 @@ function parseTdbCookieConsentState(raw) {
 function readTdbCookieConsentState() {
   var raw = safeGetItem(TDB_COOKIE_CONSENT_KEY);
   var parsed = parseTdbCookieConsentState(raw);
-  if (parsed) return parsed;
+  if (parsed && parsed.status) return parsed;
   raw = safeReadCookie(TDB_COOKIE_CONSENT_KEY);
   parsed = parseTdbCookieConsentState(raw);
-  if (parsed && !safeGetItem(TDB_COOKIE_CONSENT_KEY)) {
-    safeSetItem(TDB_COOKIE_CONSENT_KEY, raw);
+  if (parsed && parsed.status) {
+    if (!safeGetItem(TDB_COOKIE_CONSENT_KEY)) safeSetItem(TDB_COOKIE_CONSENT_KEY, raw);
+    return parsed;
   }
-  return parsed;
+  // analytics-loader.js still honors v1 in localStorage; keep banner in sync and migrate quietly
+  raw = safeGetItem(TDB_COOKIE_CONSENT_V1_KEY) || safeReadCookie(TDB_COOKIE_CONSENT_V1_KEY);
+  parsed = parseTdbCookieConsentState(raw);
+  if (parsed && parsed.status) {
+    var payload = JSON.stringify({
+      status: parsed.status,
+      updatedAt: parsed.updatedAt > 0 ? parsed.updatedAt : Date.now()
+    });
+    safeSetItem(TDB_COOKIE_CONSENT_KEY, payload);
+    safeWriteCookie(TDB_COOKIE_CONSENT_KEY, payload, TDB_COOKIE_CONSENT_MAX_AGE_SECONDS);
+    try {
+      localStorage.removeItem(TDB_COOKIE_CONSENT_V1_KEY);
+    } catch (_) {}
+    return parsed;
+  }
+  return null;
 }
 
 function getTdbCookieConsentStatus() {
@@ -2319,6 +2337,9 @@ function writeTdbCookieConsentState(status) {
 }
 
 function shouldShowTdbCookieNotice() {
+  if (safeGetItem(TDB_PRIVACY_POPUP_ACCEPTED_KEY) === 'yes' || safeReadCookie(TDB_PRIVACY_POPUP_ACCEPTED_KEY) === 'yes') {
+    return false;
+  }
   var state = readTdbCookieConsentState();
   if (!state || !state.status) return true;
   // Permanently respect both choices. "Not now" must silence the banner forever (the previous snooze logic was the root cause of reappearing on every page).
@@ -2362,7 +2383,7 @@ function setTdbCookieNoticeVisibility(banner, visible) {
 function ensurePrivacyConsentPopup() {
   if (typeof document === 'undefined' || !document.body) return;
 
-  var CONSENT_KEY = 'tdb_privacy_accepted_v2';
+  var CONSENT_KEY = TDB_PRIVACY_POPUP_ACCEPTED_KEY;
   var popup = document.getElementById('privacy-popup');
   var acceptBtn = document.getElementById('accept-privacy');
 
@@ -2375,13 +2396,18 @@ function ensurePrivacyConsentPopup() {
     hasAccepted = true;
   }
 
-  if (!hasAccepted) {
+  if (hasAccepted) {
+    popup.hidden = true;
+    popup.style.opacity = '';
+  } else {
     popup.hidden = false;
-    // Slight delay for entrance animation
-    setTimeout(function() {
+    setTimeout(function () {
       popup.style.opacity = '1';
     }, 10);
   }
+
+  if (popup.dataset.tdbPrivacyConsentWired === '1') return;
+  popup.dataset.tdbPrivacyConsentWired = '1';
 
   acceptBtn.addEventListener('click', function () {
     try {
@@ -2400,10 +2426,13 @@ function ensurePrivacyConsentPopup() {
     }
   });
 
-  // Allow Escape key
+  // Allow Escape key (same effect as "Not now" on the cookie bar: quiet dismissal, no analytics)
   document.addEventListener('keydown', function handler(e) {
     if (e.key === 'Escape' && !popup.hidden) {
       e.preventDefault();
+      if (typeof writeTdbCookieConsentState === 'function') {
+        writeTdbCookieConsentState('later');
+      }
       popup.hidden = true;
       document.removeEventListener('keydown', handler);
     }
@@ -2436,7 +2465,8 @@ function ensureTdbCookieNotice() {
     var acceptBtn = document.createElement('button');
     acceptBtn.type = 'button';
     acceptBtn.className = 'tdb-cookie-notice__btn tdb-cookie-notice__btn--primary';
-    acceptBtn.textContent = 'Accept';
+    acceptBtn.textContent = 'Accept all';
+    acceptBtn.setAttribute('aria-label', 'Accept all cookies and anonymous usage analytics');
 
     var laterBtn = document.createElement('button');
     laterBtn.type = 'button';
@@ -2476,6 +2506,25 @@ function ensureTdbCookieNotice() {
     document.body.appendChild(banner);
   }
   setTdbCookieNoticeVisibility(banner, shouldShowTdbCookieNotice());
+}
+
+if (typeof window !== 'undefined' && !window.__tdbPrivacyConsentSyncWired) {
+  window.__tdbPrivacyConsentSyncWired = true;
+  window.addEventListener('tdb-analytics-consent-change', function (ev) {
+    var st = ev && ev.detail && ev.detail.status;
+    if (st !== 'accepted' && st !== 'later') return;
+    try {
+      var popup = document.getElementById('privacy-popup');
+      if (popup) {
+        popup.hidden = true;
+        popup.style.opacity = '';
+      }
+    } catch (_) {}
+    try {
+      var bn = document.getElementById('tdb-cookie-notice');
+      if (bn) setTdbCookieNoticeVisibility(bn, false);
+    } catch (_) {}
+  });
 }
 
 function wireCollapsedTopBar() {

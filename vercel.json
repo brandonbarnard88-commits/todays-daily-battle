@@ -158,6 +158,11 @@
       "permanent": true
     },
     {
+      "source": "/family.html",
+      "destination": "/family",
+      "permanent": true
+    },
+    {
       "source": "/prayer-wall",
       "destination": "/prayer-wall.html",
       "permanent": false

@@ -185,6 +185,7 @@
 /site-guide/ /site-guide.html 200!
 /family /family.html 200!
 /family/ /family.html 200!
+/family.html /family 301
 
 # Why not AI (moat page — clean URL + trailing slash)
 /why-not-ai /why-not-ai.html 200!

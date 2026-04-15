@@ -23,11 +23,11 @@ Quick verification checklist for Progressive Web App behavior.
 
 ## Service Worker (`sw.js` -> `service-worker.js`)
 
-**Version bump:** Repo root `SW-VERSION` (single line, e.g. `20260320`) is the cache-bust token. Keep in sync everywhere: `index.html`, `script.js`, `kids/kids-battle.js`, `firebase-push.js` — all use `/sw.js?v=<that token>` so registrations are not split across URLs.
+**Version bump:** Repo root `SW-VERSION` (single line, e.g. `20260416-perf-offline`) is the cache-bust token. `register-sw.js` is the single registration path and keeps `/sw.js?v=<that token>` aligned for shared callers like `tdbRegisterServiceWorker()`.
 
 | Check | Status |
 |-------|--------|
-| Registers at `/` | ✅ `navigator.serviceWorker.register('/sw.js?v=…')` (see `SW-VERSION`) |
+| Registers at `/` | ✅ Centralized in `register-sw.js` via `tdbRegisterServiceWorker()` |
 | `CACHE_NAME` bumped on deploy | ✅ Bump when HTML/CSS changes |
 | Core HTML/CSS precached | ✅ CORE_ASSETS |
 | `script.js`, `config.js` NOT precached | ✅ Updates deploy immediately |

@@ -39,6 +39,12 @@
       "id": "family-clean",
       "aliases": ["/family", "/family/"],
       "rewrite": { "to": "/family.html", "status": 200 }
+    },
+    {
+      "id": "family-legacy-html",
+      "note": "Legacy HTML path now resolves to the clean Family hub URL.",
+      "aliases": ["/family.html"],
+      "redirect": { "to": "/family", "status": 301 }
     }
   ]
 }

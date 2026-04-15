@@ -9,14 +9,16 @@
  * ?v= in all og:image and twitter:image tags, bump SHARE_OG_V, redeploy, purge (npm run purge:cloudflare:social).
  * Markers still match on filename (kids-*-og.jpg) — no edit needed here unless you rename files.
  */
+import { SITE_ASSET_VERSION } from './site-asset-version.mjs';
+
 export const LOOP_HTML_MARKERS = [
   'kids-loop-og.jpg',
   'summary_large_image',
   'Download loop progress (PDF)',
   'loop-pdf-export',
   'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"',
-  'script.js?v=20260328feelwire',
-  'kids-corner.css?v=10'
+  `script.js?v=${SITE_ASSET_VERSION}`,
+  'kids-corner.css?v=11'
 ];
 
 export const STORY_HTML_MARKERS = [
@@ -26,11 +28,11 @@ export const STORY_HTML_MARKERS = [
   'pdf-export',
   'aria-describedby="pdf-export-count-hint pdf-export-hint"',
   'story-library-fonts.css?v=1',
-  'kids-corner.js?v=20260326kidsflow',
+  'kids-corner.js?v=20260405kidsrollout',
   'kids-page-sky.css?v=20260326playful',
   'uFuzzy.iife.min.js',
   'kids-verses-365.js?v=20260325kidsmeans',
-  'kids-battle.js?v=20260326kidsflow',
+  'kids-battle.js?v=20260405kidsfollowup',
   'TDB_PANEL_RASTER',
   'nunito-latin.woff2',
   '/kids/panel-david-1.svg'

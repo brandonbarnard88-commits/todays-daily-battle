@@ -7,15 +7,28 @@
 -- If your table uses a different owner column, adjust USING/WITH CHECK.
 
 -- prayers (if present)
+-- Raw table should stay service-role only. Public prayer features use SECURITY DEFINER
+-- RPCs from `supabase-prayers.sql` (`get_total_prayer_count`, `get_prayer_presence_count`,
+-- `get_prayers_today_count`, `get_last_prayer_created_at`, `get_recent_prayers`,
+-- `get_prayer_echo_match_count`, `get_prayer_intent_suggestions`, `increment_prayer_amen`).
 alter table if exists public.prayers enable row level security;
-drop policy if exists prayers_select_own on public.prayers;
-drop policy if exists prayers_insert_own on public.prayers;
-drop policy if exists prayers_update_own on public.prayers;
-drop policy if exists prayers_delete_own on public.prayers;
-create policy prayers_select_own on public.prayers for select to authenticated using (auth.uid() = user_id);
-create policy prayers_insert_own on public.prayers for insert to authenticated with check (auth.uid() = user_id);
-create policy prayers_update_own on public.prayers for update to authenticated using (auth.uid() = user_id) with check (auth.uid() = user_id);
-create policy prayers_delete_own on public.prayers for delete to authenticated using (auth.uid() = user_id);
+alter table if exists public.prayers force row level security;
+do $$
+declare
+  r record;
+begin
+  for r in (
+    select policyname
+    from pg_policies
+    where schemaname = 'public'
+      and tablename = 'prayers'
+  ) loop
+    execute format('drop policy if exists %I on public.prayers', r.policyname);
+  end loop;
+end $$;
+revoke all on table public.prayers from anon;
+revoke all on table public.prayers from authenticated;
+grant select, insert, update, delete on table public.prayers to service_role;
 
 -- adult streaks
 alter table if exists public.adult_streaks enable row level security;
@@ -205,46 +218,45 @@ CREATE POLICY "newsletter_signups_update_own"
   WITH CHECK (email = (SELECT email FROM auth.users WHERE id = auth.uid()));
 
 -- -----------------------------------------------------------------------------
--- 5. prayers (anon cannot read rows; anon can insert for quick-pray; counts via RPC only)
+-- 5. prayers (raw table locked down; public prayer features use RPCs only)
 -- -----------------------------------------------------------------------------
 ALTER TABLE public.prayers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.prayers FORCE ROW LEVEL SECURITY;
 
--- No anon SELECT: table data hidden from anon. Counts exposed only via get_total_prayer_count / get_prayer_presence_count (SECURITY DEFINER).
-CREATE POLICY "prayers_select_authenticated"
-  ON public.prayers
-  FOR SELECT
-  TO authenticated
-  USING (true);
+DO $$
+DECLARE
+  r RECORD;
+BEGIN
+  FOR r IN (
+    SELECT policyname
+    FROM pg_policies
+    WHERE schemaname = 'public'
+      AND tablename = 'prayers'
+  ) LOOP
+    EXECUTE format('DROP POLICY IF EXISTS %I ON public.prayers', r.policyname);
+  END LOOP;
+END $$;
 
--- Anon can insert (quick-pray without login); authenticated can insert/update
-CREATE POLICY "prayers_insert_anon"
-  ON public.prayers
-  FOR INSERT
-  TO anon
-  WITH CHECK (true);
-
-CREATE POLICY "prayers_insert_authenticated"
-  ON public.prayers
-  FOR INSERT
-  TO authenticated
-  WITH CHECK (true);
-
-CREATE POLICY "prayers_update_authenticated"
-  ON public.prayers
-  FOR UPDATE
-  TO authenticated
-  USING (true)
-  WITH CHECK (true);
-
--- RPCs remain callable by anon (they return only aggregate counts, no row data)
+-- RPCs remain callable by anon/authenticated; the raw table is not.
 GRANT EXECUTE ON FUNCTION public.get_prayer_presence_count() TO anon;
 GRANT EXECUTE ON FUNCTION public.get_total_prayer_count() TO anon;
+GRANT EXECUTE ON FUNCTION public.get_prayers_today_count() TO anon;
+GRANT EXECUTE ON FUNCTION public.get_last_prayer_created_at() TO anon;
+GRANT EXECUTE ON FUNCTION public.get_recent_prayers(integer) TO anon;
+GRANT EXECUTE ON FUNCTION public.get_prayer_echo_match_count(text) TO anon;
+GRANT EXECUTE ON FUNCTION public.get_prayer_intent_suggestions(integer) TO anon;
+GRANT EXECUTE ON FUNCTION public.increment_prayer_amen(uuid) TO anon;
 GRANT EXECUTE ON FUNCTION public.get_prayer_presence_count() TO authenticated;
 GRANT EXECUTE ON FUNCTION public.get_total_prayer_count() TO authenticated;
-
--- Re-grant anon only INSERT on prayers (so quick-pray works without login)
-GRANT INSERT ON public.prayers TO anon;
+GRANT EXECUTE ON FUNCTION public.get_prayers_today_count() TO authenticated;
+GRANT EXECUTE ON FUNCTION public.get_last_prayer_created_at() TO authenticated;
+GRANT EXECUTE ON FUNCTION public.get_recent_prayers(integer) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.get_prayer_echo_match_count(text) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.get_prayer_intent_suggestions(integer) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.increment_prayer_amen(uuid) TO authenticated;
+REVOKE ALL ON public.prayers FROM anon;
+REVOKE ALL ON public.prayers FROM authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.prayers TO service_role;
 
 -- -----------------------------------------------------------------------------
 -- 6. saved_verses (user_id = owner) — UNCOMMENT when table exists

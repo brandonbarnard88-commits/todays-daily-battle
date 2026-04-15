@@ -3298,6 +3298,7 @@
   var LIBRARY_RECENT_KEYS = 'kidsLibraryRecentStoryKeys';
   var STORY_MASTER_THRESHOLD = 7;
   var currentOpenStoryKey = null;
+  var currentStoryNavMode = 'browse';
   var currentVisibleKeys = [];
   var modalPreviousFocus = null;
   var modalFocusTrapHandler = null;
@@ -4173,12 +4174,20 @@
           var colorWrap = document.createElement('p');
           colorWrap.className = 'kids-read-quiz-color-wrap';
           var colorA = document.createElement('a');
-          colorA.href = '/coloring.html?story=' + encodeURIComponent(colorSlug);
+          colorA.href = '/coloring.html?story=' + encodeURIComponent(colorSlug) + '&gentle=1&gentleStory=' + encodeURIComponent(key);
           colorA.className = 'btn kids-btn-primary kids-read-quiz-color-link';
           colorA.textContent = 'Color this story!';
           colorWrap.appendChild(colorA);
           done.appendChild(colorWrap);
         }
+        var loopWrap = document.createElement('p');
+        loopWrap.className = 'kids-read-quiz-color-wrap';
+        var loopA = document.createElement('a');
+        loopA.href = buildGentleLoopHref(key, getStories()[key]);
+        loopA.className = 'btn btn-secondary kids-read-quiz-color-link';
+        loopA.textContent = 'Watch a quick loop';
+        loopWrap.appendChild(loopA);
+        done.appendChild(loopWrap);
         quizHost.appendChild(done);
         try {
           localStorage.setItem('kidsStoryReadQuizDone:' + key, String(Date.now()));
@@ -4294,17 +4303,19 @@
     wirePrintQaSheetButton(key, pack, storyTitle);
   }
 
-  var STORY_JOURNEY_ORDER = [
-    'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
-    'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-    'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahabJericho', 'joshuaAi', 'battleOfAi', 'fallOfJericho', 'ruthBoaz',
-    'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
-    'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-    'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
-    'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
-    'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
-    'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'
-  ];
+  var STORY_JOURNEY_ORDER = (window.TDB_GENTLE_JOURNEY && Array.isArray(window.TDB_GENTLE_JOURNEY.ORDER) && window.TDB_GENTLE_JOURNEY.ORDER.length)
+    ? window.TDB_GENTLE_JOURNEY.ORDER.slice()
+    : [
+        'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
+        'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahabJericho', 'joshuaAi', 'battleOfAi', 'fallOfJericho', 'ruthBoaz',
+        'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
+        'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+        'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+        'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
+        'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'
+      ];
 
   function showToast(msg) {
     var el = document.getElementById('kids-library-toast');
@@ -4462,6 +4473,22 @@
     return window.TDB_STORY_THEMES || {};
   }
 
+  function isGentleJourneyMode() {
+    return currentStoryNavMode === 'gentle';
+  }
+
+  function buildGentleStoryHref(key) {
+    return '/kids/corner.html?story=' + encodeURIComponent(key) + '&gentle=1';
+  }
+
+  function buildGentleLoopHref(key, story) {
+    var title = story && story.title ? String(story.title) : key;
+    var ref = story && story.kjvRef ? String(story.kjvRef) : '';
+    return '/kids-corner.html?gentle=1&gentleStory=' + encodeURIComponent(key) +
+      '&gentleTitle=' + encodeURIComponent(title) +
+      '&gentleRef=' + encodeURIComponent(ref);
+  }
+
   /** Resolve URL story param to canonical key. Handles aliases, slug/case variants, and fuzzy title match. */
   function resolveStoryKey(param) {
     if (!param || typeof param !== 'string') return null;
@@ -4601,13 +4628,13 @@
     var done = next >= total && total > 0;
     if (journeyStatusEl) {
       if (!state.started) {
-        journeyStatusEl.textContent = 'Start a guided Bible journey (' + total + ' stories).';
+        journeyStatusEl.textContent = 'Start the Gentle Journey (' + total + ' stories).';
       } else if (done) {
-        journeyStatusEl.textContent = 'Journey complete! ' + total + '/' + total + ' stories done. You can reset to begin again.';
+        journeyStatusEl.textContent = 'Gentle Journey complete! ' + total + '/' + total + ' stories done. You can reset to begin again.';
       } else {
         var key = keys[next];
         var title = (getStories()[key] && getStories()[key].title) ? getStories()[key].title : 'Next story';
-        journeyStatusEl.textContent = 'Journey progress: ' + next + '/' + total + '. Next: ' + tdbPlainTextForUi(title) + '.';
+        journeyStatusEl.textContent = 'Gentle Journey progress: ' + next + '/' + total + '. Next gentle story: ' + tdbPlainTextForUi(title) + '.';
       }
     }
     if (journeyStartBtn) journeyStartBtn.disabled = total === 0;
@@ -4621,8 +4648,8 @@
     if (!keys.length) return;
     setJourneyState({ started: true, nextIndex: 0 });
     syncJourneyUi();
-    openStory(keys[0]);
-    showToast('Journey started! Story 1 of ' + keys.length + '.');
+    openStory(keys[0], { navMode: 'gentle' });
+    showToast('Gentle Journey started! Story 1 of ' + keys.length + '.');
   }
 
   function continueJourney() {
@@ -4634,7 +4661,7 @@
       return;
     }
     var idx = Math.min(Math.max(0, state.nextIndex), keys.length - 1);
-    openStory(keys[idx]);
+    openStory(keys[idx], { navMode: 'gentle' });
   }
 
   function advanceJourneyFromStory(storyKey) {
@@ -4648,9 +4675,9 @@
     var nextIndex = idx + 1;
     setJourneyState({ started: true, nextIndex: nextIndex });
     if (nextIndex >= keys.length) {
-      showToast('Journey complete! Amazing faith walk!');
+      showToast('Gentle Journey complete! Amazing faith walk!');
     } else {
-      showToast('Journey progress saved: ' + nextIndex + '/' + keys.length);
+      showToast('Gentle Journey progress saved: ' + nextIndex + '/' + keys.length);
     }
     syncJourneyUi();
   }
@@ -4664,13 +4691,13 @@
       return;
     }
     var idx = Math.min(Math.max(0, state.nextIndex), keys.length - 1);
-    openStory(keys[idx]);
+    openStory(keys[idx], { navMode: 'gentle' });
   }
 
   function resetJourney() {
     setJourneyState({ started: false, nextIndex: 0 });
     syncJourneyUi();
-    showToast('Journey reset.');
+    showToast('Gentle Journey reset.');
   }
 
   function migrateStoryMasterFromLegacyViewed() {
@@ -5229,7 +5256,7 @@
     }
   }
 
-  function openStory(key) {
+  function openStory(key, opts) {
     clearReadQuizModal();
     var stories = getStories();
     var s = stories[key];
@@ -5246,6 +5273,7 @@
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = key;
+    currentStoryNavMode = opts && opts.navMode === 'gentle' ? 'gentle' : 'browse';
     pushRecentStoryKey(key);
     updateDocumentStoryMeta(key, s);
     if (modalTitle) modalTitle.textContent = tdbPlainTextForUi(s.title || key);
@@ -5456,6 +5484,10 @@
    * story came from a URL while the grid is filtered, fall back to the full library order.
    */
   function getKeysForStoryNav() {
+    if (isGentleJourneyMode()) {
+      var gentleKeys = getJourneyKeys();
+      if (gentleKeys.length) return gentleKeys;
+    }
     var all = getStoryKeys();
     if (!currentVisibleKeys || !currentVisibleKeys.length) return all;
     if (currentOpenStoryKey && currentVisibleKeys.indexOf(currentOpenStoryKey) === -1) return all;
@@ -5474,7 +5506,7 @@
     var idx = storyIndexInNavKeys();
     if (idx < 0) idx = 0;
     var next = (idx + step + keys.length) % keys.length;
-    openStory(keys[next]);
+    openStory(keys[next], { navMode: isGentleJourneyMode() ? 'gentle' : 'browse' });
   }
 
   function syncStoryNavButtons() {
@@ -5482,6 +5514,8 @@
     var hasStories = !!(keys && keys.length);
     if (prevStoryBtn) prevStoryBtn.disabled = !hasStories;
     if (nextStoryBtn) nextStoryBtn.disabled = !hasStories;
+    if (prevStoryBtn) prevStoryBtn.textContent = isGentleJourneyMode() ? '← Previous gentle story' : '← Previous Story';
+    if (nextStoryBtn) nextStoryBtn.textContent = isGentleJourneyMode() ? 'Next gentle story →' : 'Next Story →';
   }
 
   function applyFilters() {
@@ -5811,6 +5845,7 @@
       }
     } catch (_) {}
     var pendingStoryUrlParam = null;
+    var pendingStoryNavMode = 'browse';
     try {
       var params = new URLSearchParams(location.search);
       var q = params.get('q');
@@ -5819,6 +5854,7 @@
       if (storyParamRaw && String(storyParamRaw).trim()) {
         pendingStoryUrlParam = String(storyParamRaw).trim();
       }
+      if (params.get('gentle') === '1' || params.get('navMode') === 'gentle') pendingStoryNavMode = 'gentle';
     } catch (e) {}
     populateBookFilterOptions();
     renderGrid(applyFilters());
@@ -5828,7 +5864,7 @@
       function tryOpenFromStoryParam() {
         var sk = resolveStoryKey(storyParamForOpen);
         if (sk) {
-          openStory(sk);
+          openStory(sk, { navMode: pendingStoryNavMode });
           try {
             var u = new URL(location.href);
             if (String(u.searchParams.get('story') || '') !== sk) {

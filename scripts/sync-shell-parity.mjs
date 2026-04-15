@@ -11,14 +11,15 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { SITE_ASSET_VERSION } from './site-asset-version.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
-const SCRIPT_VER = '20260411launch';
-const STYLES_VER = '20260412launch';
-const SHARE_VER = '20260402shareattrs';
-const STAMP_VER = '20260329fdbuild';
+const SCRIPT_VER = SITE_ASSET_VERSION;
+const STYLES_VER = SITE_ASSET_VERSION;
+const SHARE_VER = SITE_ASSET_VERSION;
+const STAMP_VER = SITE_ASSET_VERSION;
 
 function readFooterInner() {
   const partialPath = path.join(root, 'partials', 'site-footer.html');

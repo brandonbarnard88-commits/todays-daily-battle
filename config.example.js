@@ -75,6 +75,10 @@ window.TDB_CONFIG = {
   },
   // Usually SUPABASE_URL + '/functions/v1/create-checkout-session'; build-config.js sets this when SUPABASE_URL is in env.
   CREATE_CHECKOUT_SESSION_URL: '',
+  // Quick Pray shared-wall submit path. Keep this same-origin or Supabase Edge Function only.
+  SUBMIT_PRAYER_URL: '',
+  // Cloudflare Turnstile site key (public). If empty, shared prayer stays unavailable and prayers remain local-only.
+  TURNSTILE_SITE_KEY: '',
   CF_ANALYTICS_TOKEN: '',
   GA_MEASUREMENT_ID: '',
   PLAUSIBLE_DOMAIN: '',

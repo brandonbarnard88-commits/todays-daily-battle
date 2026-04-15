@@ -6,6 +6,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { SITE_ASSET_VERSION } from './site-asset-version.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -13,7 +14,7 @@ const root = path.resolve(__dirname, '..');
 const MARKER = 'Trusted Types: DOMPurify + innerHTML bridge';
 const INJECT = `  <!-- ${MARKER} (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js"></script>
+  <script src="/tt-bootstrap.js?v=${SITE_ASSET_VERSION}"></script>
 `;
 
 function walk(dir, out = []) {

@@ -390,9 +390,6 @@
       await client.from('profile_kids').delete().eq('parent_id', uid);
       await client.from('profile_user_churches').delete().eq('user_id', uid);
       await client.from('user_sync_data').delete().eq('user_id', uid);
-      try {
-        await client.from('prayers').delete().eq('user_id', uid);
-      } catch (e) { /* prayers may not have user_id */ }
       await client.auth.signOut();
       setStatus('delete-account-status', 'Account removed. Redirecting…');
       setTimeout(function () { window.location.href = '/'; }, 1500);
@@ -436,10 +433,6 @@
         var syncRes = await client.from('user_sync_data').select('sync_key, sync_value, updated_at').eq('user_id', uid);
         var rows = (syncRes && syncRes.data) || [];
         rows.forEach(function (r) { out.sync[r.sync_key] = r.sync_value; });
-      } catch (e) { /* skip */ }
-      try {
-        var prayersRes = await client.from('prayers').select('intent, created_at, family_name').eq('user_id', uid).order('created_at', { ascending: false }).limit(500);
-        out.prayers = (prayersRes && prayersRes.data) || [];
       } catch (e) { /* skip */ }
       var json = JSON.stringify(out, null, 2);
       var blob = new Blob([json], { type: 'application/json' });

@@ -3,7 +3,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js"></script>
+  <script src="/tt-bootstrap.js?v=20260414ttfix"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="../analytics-loader.js"></script>
@@ -39,7 +39,7 @@
        <link rel="preload" href="/assets/panels/panel-david-1.jpg" as="image"> -->
   <script nonce="tdb2025s">window.TDB_PANEL_RASTER = false;</script>
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
-  <link rel="stylesheet" href="../styles.css?v=20260412launch">
+  <link rel="stylesheet" href="../styles.css?v=20260414ttfix">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="stylesheet" href="canvas.css?v=1">
@@ -606,6 +606,15 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
+    .kids-battle-inner {
+      padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+    }
+    @media (max-width: 768px) {
+      .kids-bottom-nav {
+        position: static;
+        margin-top: 1rem;
+      }
+    }
   </style>
 </head>
 <body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful">
@@ -707,6 +716,15 @@
           <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
         </header>
 
+        <section class="glass" role="region" aria-label="Little ones all-in-one hub">
+          <h2 class="kids-section-title">Want the calmer all-in-one doorway first?</h2>
+          <p class="section-note">Use <a href="/little-ones.html">For the Little Ones</a> when you want today&rsquo;s verse, one featured story, and matching coloring without choosing between several pages first.</p>
+          <div class="cta-group">
+            <a class="btn kids-btn-primary" href="/little-ones.html">Open For the Little Ones</a>
+            <a class="btn btn-secondary" href="/coloring.html?story=jesus">Color one matching story</a>
+          </div>
+        </section>
+
         <section class="glass kids-library-start-lanes" role="region" aria-label="Age-aware ways to begin in the Bible Story Library">
           <h2 class="kids-section-title">Pick your starting lane</h2>
           <p class="section-note">Use these when you want a first story without thinking too hard. Search and theme filters still stay below for everything else.</p>
@@ -785,13 +803,14 @@
           </div>
           <p class="section-note util-mb-0_5">Use age, length, and book if you need a quicker fit for littles, older readers, homeschool, or bedtime.</p>
           <p id="kids-library-story-master" class="kids-library-story-master hidden">🏆 Story Master — you finished 7+ read-and-quiz stories (or stories without a quiz yet)!</p>
-          <div class="kids-library-filters" role="region" aria-label="Story journey">
-            <span class="kids-library-theme-label">Bible Stories</span>
-            <button type="button" id="kids-journey-start-btn" class="btn kids-btn-primary">Watch Stories</button>
+          <div class="kids-library-filters" role="region" aria-label="Gentle story journey">
+            <span class="kids-library-theme-label">Gentle Journey</span>
+            <button type="button" id="kids-journey-start-btn" class="btn kids-btn-primary">Start Gentle Journey</button>
             <button type="button" id="kids-journey-continue-btn" class="btn btn-secondary">Continue</button>
-            <button type="button" id="kids-journey-next-btn" class="btn btn-secondary">Next Story</button>
+            <button type="button" id="kids-journey-next-btn" class="btn btn-secondary">Next Gentle Story</button>
             <button type="button" id="kids-journey-reset-btn" class="btn btn-secondary">Reset</button>
           </div>
+          <p class="section-note util-mb-0_25">Free browsing still works below. Gentle Journey simply keeps one peaceful next story ready when you want the library to lead.</p>
           <p id="kids-journey-status" class="section-note util-mb-0_25" aria-live="polite"></p>
           <button type="button" id="kids-library-random-btn" class="btn kids-btn-primary kids-library-random-btn">🎲 Random Story</button>
           <button type="button" id="global-quiz-challenge" class="btn btn-secondary kids-library-random-btn" style="margin-top: 0.5rem;">Quiz Challenge (5 Questions)</button>
@@ -990,6 +1009,7 @@
   <script src="kids-verses-365.js?v=20260325kidsmeans" defer></script>
   <script src="kids-shared.js?v=20260413efficiency" defer></script>
   <script src="kids-battle.js?v=20260405kidsfollowup" defer></script>
+  <script src="kids-gentle-journey.js?v=20260415gentle" defer></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
@@ -1019,7 +1039,7 @@
   </script>
   <script src="kids-corner.js?v=20260405kidsrollout" defer></script>
   <script type="module" src="../kids-data-loader.js" data-cfasync="false" defer></script>
-  <script type="module" src="../script.js?v=20260405kidsrollout" data-cfasync="false" defer></script>
+  <script type="module" src="../script.js?v=20260414ttfix" data-cfasync="false" defer></script>
   <script src="../kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
 
   <!-- ── Parent code lock ── -->

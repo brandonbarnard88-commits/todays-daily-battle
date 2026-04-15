@@ -6615,7 +6615,7 @@
       bridgeEl.textContent = 'Same verse as home today: ' + safeRef + '. The line below keeps that same Scripture in kid-ready words.';
       return;
     }
-    bridgeEl.textContent = 'Kid-friendly version of the same verse the whole site is carrying today.';
+    bridgeEl.textContent = 'Kid-friendly doorway into today&rsquo;s KJV verse. When home sync finishes, this line will match the main page exactly.';
   }
 
   function applyKidsVersePayload(ref, kidText, prayerText, kjvText, cartoonSeed, syncedToHome) {

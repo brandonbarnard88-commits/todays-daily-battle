@@ -3,19 +3,19 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js"></script>
+  <script src="/tt-bootstrap.js?v=20260414ttfix"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="../analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kids Battle Beta – Join Early! • Today's Daily Battle</title>
-  <meta name="description" content="Join the first 100 families – get free Battle Pro month + early features! Kids Battle beta waitlist.">
+  <title>Kids Battle Beta Updates • Today's Daily Battle</title>
+  <meta name="description" content="Join the quiet update list for Kids Battle beta notes and early family testing invitations.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids/kids-beta.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css?v=20260412launch">
+  <link rel="stylesheet" href="../styles.css?v=20260414ttfix">
   <link rel="stylesheet" href="kids-battle.css?v=20260331edge">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,12 +40,12 @@
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner kids-beta-inner">
         <header class="kids-battle-hero">
-          <h1 class="kids-battle-title">Kids Battle Beta – Join Early!</h1>
-          <p class="kids-battle-tagline">Join the first 100 families – get free Battle Pro month + early features!</p>
+          <h1 class="kids-battle-title">Kids Battle Beta Updates</h1>
+          <p class="kids-battle-tagline">A quiet list for families who want early notes, test invites, and launch updates when they are ready.</p>
         </header>
 
         <section id="kids-beta-form-section" class="kids-beta-form glass" role="region" aria-label="Beta signup form">
-          <p id="kids-beta-spots" class="kids-beta-spots" aria-live="polite">Join now—spots filling fast!</p>
+          <p id="kids-beta-spots" class="kids-beta-spots" aria-live="polite">Join the list for calm launch updates.</p>
           <p id="kids-beta-error" class="kids-beta-error hidden" role="alert"></p>
           <form id="kids-beta-form" novalidate>
             <label for="kids-beta-email" class="kids-beta-label">Email</label>
@@ -64,7 +64,7 @@
         </section>
 
         <section id="kids-beta-success" class="kids-beta-success glass hidden" role="status" aria-live="polite">
-          <p class="kids-beta-success-msg">You're in! First 100 get free Pro. We'll email you when we're ready. 🎉</p>
+          <p class="kids-beta-success-msg">You&rsquo;re on the list. We&rsquo;ll email you when there is something ready to test or share.</p>
           <p id="kids-beta-code-msg" class="kids-beta-code-msg hidden"></p>
           <a href="/kids/" class="btn kids-btn-primary">← Back to Kids Battle</a>
         </section>
@@ -95,7 +95,7 @@
     </footer>
 
     <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
-      <a href="/kids/" aria-current="page">
+      <a href="/kids/">
         <span class="kids-bottom-nav-icon" aria-hidden="true">📖</span>
         <span class="kids-bottom-nav-label">Home</span>
       </a>
@@ -196,29 +196,29 @@
       var supabaseUrl = cfg.SUPABASE_URL;
       var supabaseKey = cfg.SUPABASE_ANON_KEY;
       if (!navigator.onLine || !supabaseUrl || !supabaseKey) {
-        spotsEl.textContent = 'Join now—spots filling fast!';
+        spotsEl.textContent = 'Join the list for calm launch updates.';
         return;
       }
       try {
         var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
         if (!supabase || !supabase.createClient) {
-          spotsEl.textContent = 'Join now—spots filling fast!';
+          spotsEl.textContent = 'Join the list for calm launch updates.';
           return;
         }
         var client = supabase.createClient(supabaseUrl, supabaseKey);
         client.rpc('get_waitlist_count').then(function (res) {
           if (res.error) {
-            spotsEl.textContent = 'Join now—spots filling fast!';
+            spotsEl.textContent = 'Join the list for calm launch updates.';
             return;
           }
           var count = typeof res.data === 'number' ? res.data : parseInt(res.data, 10) || 0;
           var left = Math.max(0, MAX_SPOTS - count);
-          spotsEl.textContent = left > 0 ? 'Only ' + left + ' spots left!' : 'Waitlist full—join for updates!';
+          spotsEl.textContent = left > 0 ? left + ' early-family places left in this round.' : 'This round is full. Join the list for future updates.';
         }).catch(function () {
-          spotsEl.textContent = 'Join now—spots filling fast!';
+          spotsEl.textContent = 'Join the list for calm launch updates.';
         });
       } catch (e) {
-        spotsEl.textContent = 'Join now—spots filling fast!';
+        spotsEl.textContent = 'Join the list for calm launch updates.';
       }
     }
 

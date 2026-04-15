@@ -23,4 +23,4 @@ Edge Function that verifies a Cloudflare Turnstile token and inserts a Quick Pra
 3. Deploy: `supabase functions deploy submit-prayer`
 4. Set the three secrets above.
 
-When `TURNSTILE_SITE_KEY` and `SUBMIT_PRAYER_URL` are set, the Quick Pray form will show the Turnstile widget and submit via this function. If either is missing, the client falls back to direct Supabase insert (no abuse protection).
+When `TURNSTILE_SITE_KEY` and `SUBMIT_PRAYER_URL` are set, the Quick Pray form will show the Turnstile widget and submit via this function. If either is missing, the prayer stays local on the device and does **not** fall back to direct Supabase insert.

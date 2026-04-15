@@ -4,7 +4,7 @@
   <!-- tdb-cache-hygiene: bump purge if prayer-wall layout or CSP changes -->
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260402a11y"></script>
+  <script src="/tt-bootstrap.js?v=20260414ttfix"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
@@ -28,7 +28,7 @@
   <meta name="twitter:description" content="Pray privately with no account, or pray with others on the shared wall when you are ready.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260412launch" nonce="tdb2025s">
+  <link rel="stylesheet" href="styles.css?v=20260414ttfix" nonce="tdb2025s">
   <link rel="manifest" href="manifest.json">
   <noscript>
     <meta http-equiv="refresh" content="0;url=/explore.html#prayer">
@@ -453,9 +453,13 @@
         <a href="/pastor-toolkit.html">Pastor toolkit</a>
         <a href="/pastor/">Pastor hub</a>
         <a href="/sermon.html">Sermon builder</a>
-        <a href="/kids-corner.html">Kids corner</a>
-        <a href="/kids/?v=hub20260321">Kids battle</a>
-        <a href="/coloring.html">Kids coloring</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/?v=hub20260321">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
       </div>
       <div class="footer-sitemap-col">
         <h3>More</h3>
@@ -496,13 +500,13 @@
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
-  <script defer src="/language-switcher.js"></script>
+  <script defer src="/language-switcher.js?v=20260414ttfix"></script>
 </footer>
   </div>
 
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260414ttfix" data-cfasync="false"></script>
   <script>
     (function wirePrayerDoorTabs() {
       var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-prayer-tab]'));
@@ -567,6 +571,6 @@
       } catch (_) {}
     }());
   </script>
-  <script src="share-page.js?v=20260402shareattrs" defer></script>
+  <script src="share-page.js?v=20260414ttfix" defer></script>
 </body>
 </html>

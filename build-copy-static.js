@@ -10,12 +10,21 @@ const path = require('path');
 const root = __dirname;
 const dist = path.join(root, 'dist');
 const AUTH_ASSET_VERSION_PATH = path.join(root, 'AUTH-ASSET-VERSION');
+const SITE_ASSET_VERSION_PATH = path.join(root, 'SITE-ASSET-VERSION');
 const AUTH_ASSET_VERSION = fs.existsSync(AUTH_ASSET_VERSION_PATH)
   ? fs.readFileSync(AUTH_ASSET_VERSION_PATH, 'utf8').trim()
+  : '';
+const SITE_ASSET_VERSION = fs.existsSync(SITE_ASSET_VERSION_PATH)
+  ? fs.readFileSync(SITE_ASSET_VERSION_PATH, 'utf8').trim()
   : '';
 
 if (!AUTH_ASSET_VERSION) {
   console.error('BUILD FAIL: AUTH-ASSET-VERSION is missing or empty.');
+  process.exit(1);
+}
+
+if (!SITE_ASSET_VERSION) {
+  console.error('BUILD FAIL: SITE-ASSET-VERSION is missing or empty.');
   process.exit(1);
 }
 
@@ -24,7 +33,7 @@ const TT_BOOTSTRAP_MARK = 'Trusted Types: DOMPurify + innerHTML bridge';
 const TT_BOOTSTRAP_SNIPPET =
   '\n  <!-- ' + TT_BOOTSTRAP_MARK + ' (_headers CSP) -->\n' +
   '  <script src="/vendor/dompurify.min.js"></script>\n' +
-  '  <script src="/tt-bootstrap.js"></script>\n';
+  '  <script src="/tt-bootstrap.js?v=' + SITE_ASSET_VERSION + '"></script>\n';
 
 function ensureTrustedTypesBootstrap(html) {
   if (!/<head[^>]*>/i.test(html)) return html;
@@ -584,7 +593,7 @@ if (fs.existsSync(wellKnown)) {
 
 // Classic deferred script: fills #footer-date without waiting for script.js (module cache / CSP / order).
 (function injectFooterBuildStampScript() {
-  var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260329fdbuild"></script>';
+  var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=' + SITE_ASSET_VERSION + '"></script>';
   function ensure(html) {
     if (html.indexOf('footer-build-stamp.js') !== -1) return html;
     if (!/id\s*=\s*["']footer-date["']/.test(html)) return html;

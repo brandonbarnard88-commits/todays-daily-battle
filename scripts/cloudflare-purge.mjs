@@ -28,6 +28,7 @@
 import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { SITE_ASSET_VERSION } from './site-asset-version.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -371,8 +372,12 @@ const SOCIAL_PURGE_PATHS = [
   '/styles.css?v=20260330surface-mob',
   '/styles.css?v=20260331surface-final',
   '/styles.css?v=20260412launch',
+  `/styles.css?v=${SITE_ASSET_VERSION}`,
   '/script.js?v=20260411launch',
+  `/script.js?v=${SITE_ASSET_VERSION}`,
+  `/tt-bootstrap.js?v=${SITE_ASSET_VERSION}`,
   '/tdb-quiet-luxury.css?v=20260411launch',
+  `/tdb-quiet-luxury.css?v=${SITE_ASSET_VERSION}`,
   '/tdb-quiet-luxury.css?v=20260401lux',
   '/tdb-quiet-luxury.css?v=20260402chapel',
   '/study.html',
@@ -418,6 +423,7 @@ const SOCIAL_PURGE_PATHS = [
   '/footer-build-stamp.js?v=20260328stamp',
   '/footer-build-stamp.js?v=20260329footer',
   '/footer-build-stamp.js?v=20260329fdbuild',
+  `/footer-build-stamp.js?v=${SITE_ASSET_VERSION}`,
   '/tdb-home-mobius-week.js?v=20260330home',
   '/tt-bootstrap.js?v=20260326clean',
   '/build-date.txt',

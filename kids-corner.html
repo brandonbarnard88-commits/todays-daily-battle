@@ -3,7 +3,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js"></script>
+  <script src="/tt-bootstrap.js?v=20260414ttfix"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
@@ -32,7 +32,7 @@
   <meta name="twitter:site" content="@todaysdailybattle">
   <meta name="twitter:creator" content="@todaysdailybattle">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="stylesheet" href="styles.css?v=20260414ttfix">
   <link rel="stylesheet" href="kids/kids-page-sky.css?v=20260326playful">
   <link rel="stylesheet" href="kids-corner.css?v=11">
   <link rel="stylesheet" href="loop-player.css?v=20260331edge">
@@ -141,7 +141,7 @@
             <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
             <a href="/plans.html">Battle Plans</a>
             <a href="/memorize.html">Memorize</a>
-            <a href="/kids/corner.html">Kids &amp; Family</a>
+            <a href="/family.html">Family hub</a>
             <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
             <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
             <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
@@ -199,6 +199,15 @@
           </div>
         </header>
 
+        <section class="glass card-gold" aria-label="Little ones all-in-one hub">
+          <h2 class="section-divider kids-section-divider">Want one calmer all-in-one start?</h2>
+          <p class="section-note util-mb-0_5"><a href="/little-ones.html">For the Little Ones</a> brings today&rsquo;s verse, one starter story, and the matching coloring handoff into one gentle page. Come back here when you want the full loop shelf.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="/little-ones.html">Open For the Little Ones</a>
+            <a class="btn btn-secondary" href="/coloring.html?story=jesus">Color after one loop</a>
+          </div>
+        </section>
+
         <section class="glass card-gold loop-quick-start" aria-label="Start here fast in the loop library">
           <div class="loop-quick-start-copy">
             <h2 class="section-divider kids-section-divider">Start here in under 2 minutes</h2>
@@ -246,7 +255,7 @@
           <div class="kids-daily-verse-card" id="kids-daily-verse-card">
             <p class="kids-daily-verse-ref daily-verse-ref" id="kids-daily-verse-ref"></p>
             <blockquote class="daily-verse-body kids-daily-verse-body" aria-labelledby="kids-daily-verse-ref">
-              <p class="kids-daily-verse-quote daily-verse-text" id="kids-daily-verse-text" aria-live="polite">Loading today&rsquo;s verse&hellip;</p>
+              <p class="kids-daily-verse-quote daily-verse-text" id="kids-daily-verse-text" aria-live="polite">The same KJV verse from home will appear here. If the connection is slow, open <a href="/verse.html">Verse of the Day</a> or come back in a moment.</p>
             </blockquote>
           </div>
           <p class="section-note tdb-privacy-whisper kids-family-privacy-whisper" role="note">Stars and loop taps stay on this device unless a grown-up turns on sync&mdash;we don&rsquo;t sell play data. <a href="/privacy.html">Privacy</a> has the short version.</p>
@@ -466,9 +475,13 @@
         <a href="/pastor-toolkit.html">Pastor toolkit</a>
         <a href="/pastor/">Pastor hub</a>
         <a href="/sermon.html">Sermon builder</a>
-        <a href="/kids-corner.html">Kids corner</a>
-        <a href="/kids/?v=hub20260321">Kids battle</a>
-        <a href="/coloring.html">Kids coloring</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/?v=hub20260321">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
       </div>
       <div class="footer-sitemap-col">
         <h3>More</h3>
@@ -509,14 +522,15 @@
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
-  <script defer src="/language-switcher.js"></script>
+  <script defer src="/language-switcher.js?v=20260414ttfix"></script>
 </footer>
   </div>
 
   <script type="module" src="config.js"></script>
   <script src="loop-feedback-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer crossorigin></script>
-  <script type="module" src="script.js?v=20260405kidsrollout" data-cfasync="false"></script>
+  <script src="kids/kids-gentle-journey.js?v=20260415gentle" defer></script>
+  <script type="module" src="script.js?v=20260414ttfix" data-cfasync="false"></script>
   <script src="kids-corner-daily-verse.js?v=4" defer></script>
   <script src="sky-ip-geo.js?v=20260327ipgeo" defer></script>
   <script src="kids/kids-page-sky.js?v=20260327ipgeo" defer></script>

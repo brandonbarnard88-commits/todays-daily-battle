@@ -3642,11 +3642,26 @@
 
   function init() {
     var requestedStoryId = '';
+    var gentleStoryKey = '';
+    var gentleNextKey = '';
     try {
       var params = new URLSearchParams(window.location.search || '');
       requestedStoryId = normalizeStoryQuery(params.get('story'));
+      gentleStoryKey = String(params.get('gentleStory') || '').trim();
+      if (
+        params.get('gentle') === '1' &&
+        window.TDB_GENTLE_JOURNEY &&
+        typeof window.TDB_GENTLE_JOURNEY.hasKey === 'function' &&
+        window.TDB_GENTLE_JOURNEY.hasKey(gentleStoryKey)
+      ) {
+        gentleNextKey = window.TDB_GENTLE_JOURNEY.getNextKey(gentleStoryKey) || '';
+      } else {
+        gentleStoryKey = '';
+      }
     } catch (e) {
       requestedStoryId = '';
+      gentleStoryKey = '';
+      gentleNextKey = '';
     }
     var requestedStorySection = null;
 
@@ -3680,6 +3695,23 @@
     jumpHint.appendChild(document.createTextNode('.'));
 
     mount.appendChild(note);
+    if (gentleStoryKey) {
+      var gentleNote = document.createElement('div');
+      gentleNote.className = 'cta-group';
+      var currentLink = document.createElement('a');
+      currentLink.className = 'btn btn-secondary';
+      currentLink.href = '/kids/corner.html?story=' + encodeURIComponent(gentleStoryKey) + '&gentle=1';
+      currentLink.textContent = 'Back to this gentle story';
+      gentleNote.appendChild(currentLink);
+      if (gentleNextKey) {
+        var nextLink = document.createElement('a');
+        nextLink.className = 'btn btn-primary';
+        nextLink.href = '/kids/corner.html?story=' + encodeURIComponent(gentleNextKey) + '&gentle=1';
+        nextLink.textContent = 'Open next gentle story';
+        gentleNote.appendChild(nextLink);
+      }
+      mount.appendChild(gentleNote);
+    }
     mount.appendChild(jumpHint);
     mount.appendChild(progressOuter);
     progressOuter.appendChild(progressWrap);

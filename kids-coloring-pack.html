@@ -3,7 +3,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js"></script>
+  <script src="/tt-bootstrap.js?v=20260414ttfix"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
@@ -14,7 +14,7 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids-coloring-pack.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="stylesheet" href="styles.css?v=20260414ttfix">
   <link rel="manifest" href="manifest.json">
   <style nonce="tdb2025s">
     body { background: #fff; color: #111827; }
@@ -54,7 +54,38 @@
       <a class="btn btn-secondary" href="coloring.html">Open Color &amp; Tell (digital)</a>
     </div>
 
-    <section class="glass coloring-pack-sheet" aria-labelledby="pack-creation-h2">
+    <section class="glass coloring-pack-sheet" aria-labelledby="pack-jesus-children-h2" data-pack-sheet="jesus-children">
+      <h2 class="section-divider" id="pack-jesus-children-h2">Jesus and the Little Children</h2>
+      <p class="section-note">Jesus welcomes little children near (Mark 10:14).</p>
+      <div class="coloring-pack-art" role="img" aria-label="Line drawing: Jesus with children gathered near Him">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600">
+          <rect width="900" height="600" fill="white"/>
+          <circle cx="450" cy="160" r="70" fill="none" stroke="black" stroke-width="4"/>
+          <line x1="450" y1="230" x2="450" y2="410" stroke="black" stroke-width="4"/>
+          <line x1="450" y1="275" x2="350" y2="350" stroke="black" stroke-width="4"/>
+          <line x1="450" y1="275" x2="550" y2="350" stroke="black" stroke-width="4"/>
+          <line x1="450" y1="410" x2="390" y2="540" stroke="black" stroke-width="4"/>
+          <line x1="450" y1="410" x2="510" y2="540" stroke="black" stroke-width="4"/>
+          <circle cx="250" cy="270" r="45" fill="none" stroke="black" stroke-width="4"/>
+          <line x1="250" y1="315" x2="250" y2="430" stroke="black" stroke-width="4"/>
+          <line x1="250" y1="350" x2="210" y2="390" stroke="black" stroke-width="4"/>
+          <line x1="250" y1="350" x2="290" y2="390" stroke="black" stroke-width="4"/>
+          <line x1="250" y1="430" x2="220" y2="520" stroke="black" stroke-width="4"/>
+          <line x1="250" y1="430" x2="280" y2="520" stroke="black" stroke-width="4"/>
+          <circle cx="650" cy="280" r="45" fill="none" stroke="black" stroke-width="4"/>
+          <line x1="650" y1="325" x2="650" y2="440" stroke="black" stroke-width="4"/>
+          <line x1="650" y1="360" x2="610" y2="400" stroke="black" stroke-width="4"/>
+          <line x1="650" y1="360" x2="690" y2="400" stroke="black" stroke-width="4"/>
+          <line x1="650" y1="440" x2="620" y2="530" stroke="black" stroke-width="4"/>
+          <line x1="650" y1="440" x2="680" y2="530" stroke="black" stroke-width="4"/>
+          <path d="M150 150 C220 100, 320 100, 390 150" fill="none" stroke="black" stroke-width="4"/>
+          <path d="M520 120 C620 70, 760 90, 820 170" fill="none" stroke="black" stroke-width="4"/>
+          <text x="40" y="560" font-size="28" font-family="Arial, Helvetica, sans-serif" fill="black">Jesus welcomes little children.</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="glass coloring-pack-sheet" aria-labelledby="pack-creation-h2" data-pack-sheet="creation">
       <h2 class="section-divider" id="pack-creation-h2">Creation</h2>
       <p class="section-note">God made the world and everything in it (Genesis 1).</p>
       <div class="coloring-pack-art" role="img" aria-label="Line drawing: sun, land, sea, and simple shapes for creation">
@@ -72,7 +103,7 @@
       </div>
     </section>
 
-    <section class="glass coloring-pack-sheet" aria-labelledby="pack-david-h2">
+    <section class="glass coloring-pack-sheet" aria-labelledby="pack-david-h2" data-pack-sheet="david">
       <h2 class="section-divider" id="pack-david-h2">David &amp; Goliath</h2>
       <p class="section-note">God gave David courage (1 Samuel 17).</p>
       <div class="coloring-pack-art" role="img" aria-label="Line drawing: small figure, large figure, and stone">
@@ -96,7 +127,7 @@
       </div>
     </section>
 
-    <section class="glass coloring-pack-sheet" aria-labelledby="pack-noah-h2">
+    <section class="glass coloring-pack-sheet" aria-labelledby="pack-noah-h2" data-pack-sheet="noah">
       <h2 class="section-divider" id="pack-noah-h2">Noah&apos;s Ark</h2>
       <p class="section-note">God kept Noah safe in the ark (Genesis 6–9).</p>
       <div class="coloring-pack-art" role="img" aria-label="Line drawing: ark, waves, sun and clouds">
@@ -114,7 +145,7 @@
       </div>
     </section>
 
-    <section class="glass coloring-pack-sheet" aria-labelledby="pack-storm-h2">
+    <section class="glass coloring-pack-sheet" aria-labelledby="pack-storm-h2" data-pack-sheet="storm">
       <h2 class="section-divider" id="pack-storm-h2">Jesus Calms the Storm</h2>
       <p class="section-note">Jesus spoke peace to the storm (Mark 4:35–41).</p>
       <div class="coloring-pack-art" role="img" aria-label="Line drawing: boat on waves">
@@ -136,7 +167,47 @@
     <p class="pack-footer-note">KJV is the site&apos;s Bible text elsewhere; captions here are plain-language for young children. Need more stories? Use <a href="coloring.html">Color &amp; Tell</a> on a phone or tablet.</p>
   </main>
   <script nonce="tdb2025s">
-    document.getElementById('print-pack-btn').addEventListener('click', function () { window.print(); });
+    (function () {
+      var button = document.getElementById('print-pack-btn');
+      if (button) {
+        button.addEventListener('click', function () {
+          window.print();
+        });
+      }
+
+      var sheetMap = {
+        jesus: 'jesus-children',
+        'jesus-children': 'jesus-children',
+        creation: 'creation',
+        david: 'david',
+        noah: 'noah',
+        storm: 'storm'
+      };
+
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var sheetKey = sheetMap[String(params.get('sheet') || '').trim()];
+        if (!sheetKey) return;
+
+        var sheets = document.querySelectorAll('.coloring-pack-sheet');
+        var target = null;
+        sheets.forEach(function (sheet) {
+          var matches = sheet.getAttribute('data-pack-sheet') === sheetKey;
+          sheet.hidden = !matches;
+          if (matches) target = sheet;
+        });
+
+        if (target) {
+          target.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }
+
+        if (params.get('autoprint') === '1') {
+          window.setTimeout(function () {
+            window.print();
+          }, 200);
+        }
+      } catch (e) {}
+    })();
   </script>
 </body>
 </html>

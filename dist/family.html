@@ -3,7 +3,7 @@
 <head>
   <!-- tdb-cache-hygiene: _headers no-cache tool pages; bump script query with substantive JS changes -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260402a11y"></script>
+  <script src="/tt-bootstrap.js?v=20260414ttfix"></script>
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="KJV family hub: verse, plans, printables, teen journal—saved on your device until you print.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260412launch">
+  <link rel="stylesheet" href="styles.css?v=20260414ttfix">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -742,7 +742,7 @@
           <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
           <a href="/plans.html">Battle Plans</a>
           <a href="/memorize.html">Memorize</a>
-          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/family.html" aria-current="page">Family hub</a>
           <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
           <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
           <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
@@ -778,7 +778,7 @@
       <p class="family-parent-at-a-glance__lead">A calm checklist of what your child can land on from this hub today—everything stays on this device until you print or export.</p>
       <ul class="family-parent-at-a-glance__list">
         <li><strong>Same verse as home</strong> — read it aloud together from the card below (KJV).</li>
-        <li><strong>Story tone</strong> — <a href="kids/corner.html">Kids Story Library</a> for read-alongs; Family Armor for household Scripture stories.</li>
+        <li><strong>Story tone</strong> — <a href="kids/corner.html">Bible Story Library</a> for read-alongs, <a href="kids-corner.html">Bible Loop Library</a> for quicker replays, and Family Armor for household Scripture stories.</li>
         <li><strong>Short plans</strong> — family worship and Psalms comfort tracks with parent prompts, one day at a time.</li>
         <li><strong>Paper when you want it</strong> — activity packs and the teen journal sheet; nothing uploads from the family prayer list on this page.</li>
       </ul>
@@ -789,10 +789,24 @@
       <p class="family-parent-quick-dash__lead">If tonight is all you can hold, do one card from each line and stop there.</p>
       <ol class="family-parent-quick-dash__steps">
         <li><a href="#family-daily-verse-root">Read today&rsquo;s family verse</a> and let one person repeat the line that sticks.</li>
-        <li><a href="kids/corner.html?story=david">Open one starter story</a>, <a href="kids-corner.html">one quick loop</a>, or <a href="coloring.html?story=jesus">one coloring story</a>.</li>
+        <li><a href="kids/corner.html?story=david">Open one Bible Story Library card</a>, <a href="kids-corner.html">one Bible Loop Library replay</a>, or <a href="coloring.html?story=jesus">one Color &amp; Tell story</a>.</li>
         <li><a href="#family-prayer-wall">Add one name or need</a> to the household prayer list, then whisper one short prayer.</li>
       </ol>
       <p class="family-parent-quick-dash__note section-note">For weekly rhythm instead of just tonight, use the kids paths below. Nothing here requires a second account or a cloud sync to be useful.</p>
+    </section>
+
+    <section class="family-parent-at-a-glance family-hub-animate family-hub-d2" aria-labelledby="family-doorways-heading">
+      <h2 class="family-parent-at-a-glance__title" id="family-doorways-heading">Know the four kid doorways</h2>
+      <p class="family-parent-at-a-glance__lead">Same Scripture thread, different pace. Use this map when you are deciding where to land tonight.</p>
+      <ul class="family-parent-at-a-glance__list">
+        <li><strong><a href="/little-ones.html">For the Little Ones</a></strong> — one calm page that brings the verse, one story, and one coloring handoff into a single first stop.</li>
+        <li><strong><a href="/family.html">Family hub</a></strong> — parent doorway for plans, prayer list, printables, and calm next steps.</li>
+        <li><strong><a href="/kids/">Kids Battle home</a></strong> — daily kid doorway with one verse, one prayer, and a first-win path.</li>
+        <li><strong><a href="kids/corner.html">Bible Story Library</a></strong> — read-aloud story cards, comic panels, and gentle quizzes.</li>
+        <li><strong><a href="kids-corner.html">Bible Loop Library</a></strong> — short replay-safe loops when attention is short.</li>
+        <li><strong><a href="coloring.html">Color &amp; Tell</a></strong> — hands-busy retelling that saves on this device.</li>
+      </ul>
+      <p class="section-note">For ages 3&ndash;4 with a grown-up, start with <a href="/little-ones.html">For the Little Ones</a>, <a href="coloring.html?story=jesus">Jesus &amp; the children</a>, <a href="coloring.html?story=creation">Creation</a>, or one comfort loop, then end while it still feels peaceful.</p>
     </section>
 
     <section class="family-year-round-tools-card family-hub-animate family-hub-d2" id="family-year-round-tools" aria-labelledby="family-year-round-tools-heading">
@@ -818,7 +832,7 @@
       <p class="family-parent-quick-dash__lead">Three calm stops you can repeat any evening—nothing posts; it stays on this device until you share on purpose.</p>
       <ol class="family-parent-quick-dash__steps">
         <li><a href="/verse.html">Read today&rsquo;s verse</a> (KJV) together or echo one line.</li>
-        <li><a href="kids/corner.html">Open one story card</a> or a short loop—keep it light.</li>
+        <li><a href="kids/corner.html">Open one Bible Story Library card</a> or a short loop from the <a href="kids-corner.html">Bible Loop Library</a>—keep it light.</li>
         <li><a href="calm.html">Pray one sentence in plain words</a>, or add a name on <a href="#family-prayer-wall">your family prayer list</a>.</li>
       </ol>
       <p class="family-parent-quick-dash__note section-note">Later, simple plan marks here could mirror what you already complete in Battle Plans—today this block is just a steady map.</p>
@@ -827,9 +841,9 @@
     <section class="family-parent-quick-start family-hub-animate family-hub-d2" aria-labelledby="family-quick-start-heading">
       <h2 class="family-parent-quick-start__title" id="family-quick-start-heading">Today&rsquo;s family quick start</h2>
       <p class="family-parent-quick-start__lead">A one-glance line: today&rsquo;s reference, a short KJV line from the same pick as home, then one gentle question. No quiz; just listening.</p>
-      <p class="family-parent-quick-start__ref" id="family-quick-start-ref" aria-live="polite">&nbsp;</p>
-      <p class="family-parent-quick-start__verse" id="family-quick-start-verse" aria-live="polite"></p>
-      <p class="family-parent-quick-start__question" id="family-quick-start-question" aria-live="polite"></p>
+      <p class="family-parent-quick-start__ref" id="family-quick-start-ref" aria-live="polite">Same daily pick (KJV)</p>
+      <p class="family-parent-quick-start__verse" id="family-quick-start-verse" aria-live="polite">&ldquo;Open the verse card below if today&rsquo;s line has not landed yet.&rdquo;</p>
+      <p class="family-parent-quick-start__question" id="family-quick-start-question" aria-live="polite">What one word from this verse do we want to carry into tonight?</p>
     </section>
 
     <section class="family-section-block family-hub-animate family-hub-d3" aria-labelledby="family-weekly-kids-heading">
@@ -867,8 +881,8 @@
       <div class="family-dashboard-grid">
         <article class="family-dashboard-card">
           <h3>Today&rsquo;s verse, family-sized</h3>
-          <p id="family-dashboard-verse-line">Waiting on today&rsquo;s family verse&hellip;</p>
-          <p id="family-dashboard-verse-step">One simple next step from today&rsquo;s verse will land here.</p>
+          <p id="family-dashboard-verse-line">Today&rsquo;s family verse will show here with one calm line to carry into the room.</p>
+          <p id="family-dashboard-verse-step">If the page is still waking up, open the verse card below or tap Try again.</p>
           <div class="family-dashboard-links">
             <a class="btn btn-primary" id="family-dashboard-verse-link" href="#family-daily-verse-root">Open today&rsquo;s verse</a>
             <button type="button" class="btn btn-secondary" id="family-dashboard-verse-speak">Read aloud</button>
@@ -907,9 +921,9 @@
     <section class="family-verse-card family-hub-animate family-hub-d2" id="family-daily-verse-root" aria-labelledby="family-daily-verse-heading">
       <h2 id="family-daily-verse-heading">Today&rsquo;s family verse</h2>
       <div class="family-verse-frame">
-        <p class="family-verse-ref daily-verse-ref" id="family-daily-verse-ref"></p>
+        <p class="family-verse-ref daily-verse-ref" id="family-daily-verse-ref">Same daily pick (KJV)</p>
         <blockquote class="daily-verse-body family-daily-verse-body" aria-labelledby="family-daily-verse-ref">
-          <p class="family-verse-quote daily-verse-text" id="family-daily-verse-text" aria-live="polite">Loading today&rsquo;s verse&hellip;</p>
+          <p class="family-verse-quote daily-verse-text" id="family-daily-verse-text" aria-live="polite">The same KJV verse from home will appear here. If the signal is slow, open <a href="verse.html">Verse of the Day</a> or tap Try again above.</p>
         </blockquote>
       </div>
       <p class="family-verse-foot">Same pick as the home page today (KJV). Full page: <a href="verse.html">Verse of the Day</a>.</p>
@@ -1012,7 +1026,7 @@
       <div class="family-youth-box">
         <p class="family-youth-note">A quiet place to meet God in your own words.</p>
         <p>Use the <a href="family-youth-journal.html">printable OIA sheet</a> with <a href="plans.html?plan=familyworship">Family Worship in the Trenches</a>, <a href="plans.html?plan=psalmscomfortfamily">Psalms of Comfort (Family Edition)</a>, or <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a>. Keep it private on paper; the site never sees what you write.</p>
-        <p>For younger children, <a href="kids-corner.html">Kids Corner</a> stays the gentler loop-and-story space.</p>
+        <p>For younger children, the <a href="kids-corner.html">Bible Loop Library</a> stays the gentler replay-safe space, and the <a href="kids/corner.html">Bible Story Library</a> is the next step when you want a read-aloud card.</p>
       </div>
     </section>
 
@@ -1139,7 +1153,7 @@
       </ul>
     </section>
 
-    <p class="family-kids-tie"><a href="kids-corner.html">Kids Corner</a> stays the younger-child space (loops &amp; stories). <a href="plans.html?plan=beatitudes-kids">The Beatitudes for Kids</a> is nine gentle KJV days with simple words&mdash;read beside them. <a href="plans.html?plan=lordsprayer-kids">The Lord&rsquo;s Prayer for Kids</a> walks Matthew 6 phrase by phrase in the same calm voice (seven days, pray together). Try <a href="plans.html?plan=sower">the Parable of the Sower</a> together, too: a calm story about how our hearts receive God&rsquo;s Word; younger children may prefer <a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a> (same verses, simpler steps). <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a> pairs well with teens. Coloring: <a href="coloring.html">coloring pages</a>.</p>
+    <p class="family-kids-tie"><a href="kids-corner.html">Bible Loop Library</a> stays the younger-child space for quick replays, and <a href="kids/corner.html">Bible Story Library</a> is the fuller read-aloud path. <a href="plans.html?plan=beatitudes-kids">The Beatitudes for Kids</a> is nine gentle KJV days with simple words&mdash;read beside them. <a href="plans.html?plan=lordsprayer-kids">The Lord&rsquo;s Prayer for Kids</a> walks Matthew 6 phrase by phrase in the same calm voice (seven days, pray together). Try <a href="plans.html?plan=sower">the Parable of the Sower</a> together, too: a calm story about how our hearts receive God&rsquo;s Word; younger children may prefer <a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a> (same verses, simpler steps). <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a> pairs well with teens. Coloring: <a href="coloring.html">Color &amp; Tell</a>.</p>
   </main>
   <script src="family-hierarchy.js"></script>
   <script src="memory-verses.js"></script>
@@ -1652,7 +1666,7 @@
     window.TDB_DAILY_VERSE_TEXT_ID = 'family-daily-verse-text';
     window.TDB_DAILY_VERSE_REF_ID = 'family-daily-verse-ref';
   </script>
-  <script type="module" src="script.js?v=20260411launch" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260414ttfix" data-cfasync="false"></script>
   <script src="kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
   <script src="family-dashboard.js?v=20260405familydash1" defer></script>
 </body>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260414ttfix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For the Little Ones • Today's Daily Battle</title>
+  <meta name="description" content="One calm place for little ones: today’s KJV verse, one gentle Bible story, matching coloring, and soft age-based starting places for families.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/little-ones.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260414ttfix">
+  <link rel="manifest" href="manifest.json">
+  <style nonce="tdb2025s">
+    .little-ones-page {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 1rem 1rem 3rem;
+    }
+    .little-ones-hero {
+      margin-bottom: 1rem;
+    }
+    .little-ones-hero .hero-kicker {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      color: rgba(227,188,103,0.92);
+      margin: 0 0 0.5rem;
+    }
+    .little-ones-verse-head,
+    .little-ones-feature-top,
+    .little-ones-age-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .little-ones-feature-grid,
+    .little-ones-age-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .little-ones-feature-card,
+    .little-ones-story-actions,
+    .little-ones-age-card {
+      background: rgba(8, 12, 22, 0.55);
+      border: 1px solid rgba(227,188,103,0.22);
+      border-radius: 18px;
+      padding: 1rem;
+    }
+    .little-ones-feature-chooser,
+    .little-ones-age-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.85rem;
+    }
+    .little-ones-chip {
+      border: 1px solid rgba(227,188,103,0.28);
+      background: rgba(255,255,255,0.05);
+      color: #e6edf7;
+      border-radius: 999px;
+      padding: 0.6rem 0.95rem;
+      min-height: 44px;
+      cursor: pointer;
+      font: inherit;
+    }
+    .little-ones-chip.is-active {
+      background: rgba(227,188,103,0.18);
+      border-color: rgba(227,188,103,0.55);
+    }
+    .little-ones-feature-image {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      display: block;
+      margin: 0 auto 0.75rem;
+    }
+    .little-ones-prompt {
+      border-left: 3px solid rgba(227,188,103,0.55);
+      padding-left: 0.85rem;
+      margin-top: 0.9rem;
+    }
+    .little-ones-age-card h3,
+    .little-ones-feature-card h3 {
+      margin-top: 0;
+    }
+    .little-ones-story-actions .cta-group,
+    .little-ones-hero .cta-group {
+      margin-top: 0.85rem;
+    }
+    .little-ones-soft-list {
+      margin: 0;
+      padding-left: 1.15rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content" class="little-ones-page">
+    <a href="explore.html" class="plans-back plans-back-hub">← Explore</a>
+
+    <header class="hero-banner tdb-dawn-hub--mist little-ones-hero">
+      <p class="hero-kicker">For the little ones</p>
+      <h1>One gentle place to land with your little ones</h1>
+      <p>Come sit with your little ones in God&rsquo;s Word. No lessons to finish. No perfect pictures required. Just a quiet moment together.</p>
+      <p class="section-note">This page brings the calmest parts of the kids and family spaces into one room: today&rsquo;s KJV verse, one gentle story, matching coloring, and simple starting places by age.</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="/family.html">Family hub</a>
+        <a class="btn btn-secondary" href="/kids/">Kids Battle home</a>
+        <a class="btn btn-secondary" href="/kids/corner.html">Bible Story Library</a>
+        <a class="btn btn-secondary" href="/coloring.html">Color &amp; Tell</a>
+      </div>
+    </header>
+
+    <section class="glass" id="little-ones-verse-root" aria-labelledby="little-ones-verse-heading">
+      <div class="little-ones-verse-head">
+        <div>
+          <h2 class="section-divider" id="little-ones-verse-heading">Today&rsquo;s verse for little hearts</h2>
+          <p class="section-note">Same KJV daily pick as the rest of the site, with one calm line to carry into the room.</p>
+        </div>
+        <button type="button" class="btn btn-secondary" id="little-ones-verse-speak">Read aloud</button>
+      </div>
+      <p class="daily-verse-ref" id="little-ones-verse-ref">Same daily pick (KJV)</p>
+      <blockquote class="daily-verse-body" aria-labelledby="little-ones-verse-ref">
+        <p class="daily-verse-text" id="little-ones-verse-text" aria-live="polite">The same KJV verse from home will appear here. If it is slow to load, give it a moment or open Verse of the Day.</p>
+      </blockquote>
+      <p class="section-note">One calm step: read one line, let your child repeat one word, then keep going only if the room still feels open.</p>
+    </section>
+
+    <section class="glass" aria-labelledby="little-ones-feature-heading">
+      <div class="little-ones-feature-top">
+        <div>
+          <h2 class="section-divider" id="little-ones-feature-heading">Story &amp; color together</h2>
+          <p class="section-note">One featured story, right beside its coloring path. No bouncing between rooms to keep the moment going.</p>
+        </div>
+      </div>
+      <div class="little-ones-feature-chooser" role="group" aria-label="Choose a gentle starter story">
+        <button type="button" class="little-ones-chip is-active" data-little-ones-story="jesus" aria-pressed="true">Jesus &amp; the children</button>
+        <button type="button" class="little-ones-chip" data-little-ones-story="creation" aria-pressed="false">Creation</button>
+        <button type="button" class="little-ones-chip" data-little-ones-story="noah" aria-pressed="false">Noah</button>
+        <button type="button" class="little-ones-chip" data-little-ones-story="david" aria-pressed="false">David</button>
+        <button type="button" class="little-ones-chip" data-little-ones-story="storm" aria-pressed="false">Storm</button>
+      </div>
+      <div class="little-ones-feature-grid" style="margin-top:1rem;">
+        <article class="little-ones-feature-card">
+          <img id="little-ones-feature-image" class="little-ones-feature-image" src="/kids/panel-jesus.svg" alt="Jesus welcoming children">
+          <h3 id="little-ones-feature-title">Jesus and the little children</h3>
+          <p id="little-ones-feature-lead">A warm first stop when you want your child to feel safe, seen, and near to Jesus.</p>
+          <div class="little-ones-prompt">
+            <p class="section-note" style="margin:0 0 0.35rem;"><strong>Color &amp; Tell prompt</strong></p>
+            <p id="little-ones-feature-prompt" style="margin:0;">While you color, ask: What do you see in the picture? How do you think Jesus feels about little children?</p>
+          </div>
+        </article>
+        <aside class="little-ones-story-actions">
+          <h3 style="margin-top:0;">Take the next gentle step</h3>
+          <p class="section-note">These all stay in the same calm family lane: read, color, print, then stop before it feels like homework.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" id="little-ones-read-story" href="/kids/corner.html?story=jesus">Read the story aloud</a>
+            <a class="btn btn-secondary" id="little-ones-color-story" href="/coloring.html?story=jesus">Color on screen</a>
+            <a class="btn btn-secondary" id="little-ones-print-story" href="/kids-coloring-pack.html?sheet=jesus-children&autoprint=1">Print this coloring page</a>
+          </div>
+          <p class="section-note" style="margin-top:1rem;"><strong>Family question:</strong> <span id="little-ones-feature-family-question">Where did your child feel welcomed today?</span></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="glass" aria-labelledby="little-ones-age-heading">
+      <h2 class="section-divider" id="little-ones-age-heading">Gentle starting places by age</h2>
+      <p class="section-note">Tap one lane. The others stay here when you want them, but you do not have to hold the whole page at once.</p>
+      <div class="little-ones-age-tabs" role="tablist" aria-label="Choose an age lane">
+        <button type="button" class="little-ones-chip is-active" id="little-ones-tab-very-young" data-little-ones-age="very-young" role="tab" aria-selected="true">Ages 3–4</button>
+        <button type="button" class="little-ones-chip" id="little-ones-tab-littles" data-little-ones-age="littles" role="tab" aria-selected="false">Ages 5–7</button>
+        <button type="button" class="little-ones-chip" id="little-ones-tab-family" data-little-ones-age="family" role="tab" aria-selected="false">Family together</button>
+      </div>
+      <div class="little-ones-age-grid" style="margin-top:1rem;">
+        <article class="little-ones-age-card" id="little-ones-age-very-young" role="tabpanel">
+          <h3>Ages 3–4, with a grown-up</h3>
+          <p>Keep it very short. One simple picture, one short line, one warm ending.</p>
+          <ul class="little-ones-soft-list">
+            <li>Start with <a href="/coloring.html?story=jesus">Jesus &amp; the children</a> or <a href="/coloring.html?story=creation">Creation</a>.</li>
+            <li>Name two things in the picture and one thing God made or gives.</li>
+            <li>Repeat one word from today&rsquo;s verse, then stop while it still feels sweet.</li>
+          </ul>
+        </article>
+        <article class="little-ones-age-card" id="little-ones-age-littles" role="tabpanel" hidden>
+          <h3>Ages 5–7</h3>
+          <p>They can hold a little more story now, but the best rhythm is still short, warm, and repeatable.</p>
+          <ul class="little-ones-soft-list">
+            <li>Open one comfort or brave story from the <a href="/kids/corner.html">Bible Story Library</a>.</li>
+            <li>Color one matching scene in <a href="/coloring.html">Color &amp; Tell</a>.</li>
+            <li>Ask one open question and pray one sentence together.</li>
+          </ul>
+        </article>
+        <article class="little-ones-age-card" id="little-ones-age-family" role="tabpanel" hidden>
+          <h3>Family together</h3>
+          <p>Use the same Scripture thread with everyone in the room, but keep the pressure low.</p>
+          <ul class="little-ones-soft-list">
+            <li>Read one verse aloud from the daily card above.</li>
+            <li>Let little ones color while older kids answer one simple question.</li>
+            <li>Use <a href="/family.html">Family hub</a> or <a href="/family-armor.html">Family Armor</a> when you want to keep going a little farther.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <details class="glass">
+      <summary>More quiet helps</summary>
+      <div style="padding-top:1rem;">
+        <div class="little-ones-age-grid">
+          <article class="little-ones-age-card">
+            <h3>More coloring and story themes</h3>
+            <ul class="little-ones-soft-list">
+              <li><a href="/coloring.html?story=creation">Creation</a> and first-wonder moments</li>
+              <li><a href="/coloring.html?story=jesus">Jesus and the little children</a> for comfort</li>
+              <li><a href="/coloring.html?story=noah">Noah</a> for rescue and promise</li>
+              <li><a href="/coloring.html?story=david">David</a> for courage</li>
+            </ul>
+          </article>
+          <article class="little-ones-age-card">
+            <h3>Printable packets</h3>
+            <ul class="little-ones-soft-list">
+              <li><a href="/kids-coloring-pack.html">Kids Coloring Pack</a></li>
+              <li><a href="/kids-activities-print.html">Kids activity sheet</a></li>
+              <li><a href="/family-activity-packs.html">Family activity packs</a></li>
+              <li><a href="/printables.html#print-kids-offline-kit">Offline kit</a></li>
+            </ul>
+          </article>
+          <article class="little-ones-age-card">
+            <h3>Family Armor lite</h3>
+            <p class="section-note">Bedtime or mealtime version:</p>
+            <ul class="little-ones-soft-list">
+              <li>Truth: one true thing God says today</li>
+              <li>Peace: one place your child needs calm</li>
+              <li>Prayer: one short sentence together before bed</li>
+            </ul>
+            <p class="section-note" style="margin-bottom:0;"><a href="/family-armor.html">Open full Family Armor</a></p>
+          </article>
+        </div>
+      </div>
+    </details>
+  </main>
+
+  <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Verse</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, read <a href="/where-support-goes.html">where support goes</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Need the current support path? Use the <a href="/give" aria-label="Open the support page">support page</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/?v=hub20260321">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <script defer src="/language-switcher.js?v=20260414ttfix"></script>
+</footer>
+
+  <script defer src="little-ones.js?v=20260415littleones"></script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260414ttfix" data-cfasync="false"></script>
+  <script src="kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
+</body>
+</html>

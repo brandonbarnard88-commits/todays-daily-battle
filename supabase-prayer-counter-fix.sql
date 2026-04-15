@@ -1,5 +1,5 @@
 -- =============================================================================
--- Fixes full count RPC, enables anon inserts for quick-pray ♥, public read for map/counter.
+-- Fixes count/timestamp RPCs only. Raw `public.prayers` stays locked down.
 -- Run once in Supabase → SQL Editor → Run.
 -- =============================================================================
 
@@ -32,20 +32,9 @@ GRANT EXECUTE ON FUNCTION public.get_last_prayer_created_at() TO anon;
 GRANT EXECUTE ON FUNCTION public.get_last_prayer_created_at() TO authenticated;
 
 ALTER TABLE public.prayers ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.prayers FORCE ROW LEVEL SECURITY;
 
-DROP POLICY IF EXISTS "prayers_anon_insert" ON public.prayers;
-DROP POLICY IF EXISTS "prayers_insert_anon" ON public.prayers;
-CREATE POLICY "prayers_anon_insert"
-  ON public.prayers
-  FOR INSERT
-  TO anon
-  WITH CHECK (true);
-
-DROP POLICY IF EXISTS "prayers_anon_select" ON public.prayers;
-CREATE POLICY "prayers_anon_select"
-  ON public.prayers
-  FOR SELECT
-  TO anon
-  USING (true);
-
-GRANT SELECT, INSERT ON public.prayers TO anon;
+-- Do not re-open raw table access here.
+REVOKE ALL ON public.prayers FROM anon;
+REVOKE ALL ON public.prayers FROM authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.prayers TO service_role;

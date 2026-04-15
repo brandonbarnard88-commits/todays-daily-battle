@@ -342,9 +342,8 @@
       if (fired) return;
       if (panel.scrollTop + panel.clientHeight >= panel.scrollHeight * 0.45) {
         fired = true;
-        var ref1 = root.getAttribute('data-ref') || '';
         if (typeof window.trackEvent === 'function') {
-          window.trackEvent('verse_breakdown_scrolled_50', { ref: ref1.slice(0, 32) });
+          window.trackEvent('verse_breakdown_scrolled_50');
         }
         panel.removeEventListener('scroll', onScroll);
         root.__tdbVbScrollCleanup = null;
@@ -376,8 +375,7 @@
     }
     if (open && !wasOpen) {
       if (typeof window.trackEvent === 'function') {
-        var ref0 = root.getAttribute('data-ref') || '';
-        window.trackEvent('verse_breakdown_open', { ref: ref0.slice(0, 32) });
+        window.trackEvent('verse_breakdown_open');
       }
       attachPanelScrollAnalytics(root);
     }

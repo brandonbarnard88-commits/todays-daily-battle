@@ -54,7 +54,7 @@
 - **RLS & OWASP mapping** — See **`docs/SUPABASE-RLS-OWASP.md`** for policy patterns (owner-only, anon insert-only, JWT roles), OWASP Top 10 (2021) mapping, and Supabase-specific breach patterns. Table inventory stays in **`SUPABASE-SYNC-TABLES.md`**; SQL sources are `supabase-*.sql`.
 - **Anon key** — Safe to be in repo and in frontend; RLS and auth determine what rows are visible.
 - **Service role key** — Must **never** be in the repo or client. Use only in Edge Functions, cron, or backend; store in Supabase secrets or env.
-- **Edge Functions** — `submit-prayer` verifies Turnstile server-side and rate-limits per IP; `create-checkout-session` uses service role and attaches `user_id` from the authenticated session only; `post-message` rate-limits per user and sanitizes server-side.
+- **Edge Functions** — `submit-prayer` verifies Turnstile server-side and rate-limits per IP; shared prayer writes go through this path only, while offline/silent prayer stays local until the user submits again with the protected path. `public.prayers` is database-locked so `anon`/`authenticated` access raw prayer rows only through approved SECURITY DEFINER RPCs for counts, echo, and Amen. `create-checkout-session` uses service role and attaches `user_id` from the authenticated session only; `post-message` rate-limits per user and sanitizes server-side.
 
 ### Payments (Stripe)
 

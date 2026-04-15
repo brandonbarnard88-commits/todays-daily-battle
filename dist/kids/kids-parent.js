@@ -374,6 +374,45 @@
     });
   }
 
+  function renderGentleNotice(el, lines, question) {
+    if (!el) return;
+    el.replaceChildren();
+    lines.forEach(function (line) {
+      var p = document.createElement('p');
+      p.textContent = line;
+      el.appendChild(p);
+    });
+    var strong = document.createElement('strong');
+    strong.textContent = question;
+    el.appendChild(strong);
+  }
+
+  function buildParentStoryCard(imageSrc, imageAlt, title, reflection) {
+    const card = document.createElement('div');
+    card.className = 'story-card';
+
+    const img = document.createElement('img');
+    img.src = imageSrc;
+    img.alt = imageAlt;
+    img.loading = 'lazy';
+
+    const info = document.createElement('div');
+    info.className = 'story-info';
+
+    const heading = document.createElement('h4');
+    heading.textContent = title;
+
+    const note = document.createElement('p');
+    note.className = 'reflection';
+    note.textContent = reflection;
+
+    info.appendChild(heading);
+    info.appendChild(note);
+    card.appendChild(img);
+    card.appendChild(info);
+    return card;
+  }
+
   // Family Quiet View — on-device, heart-centered, no gamification.
   // Gentle noticing, reflection, and conversation. Matches .cursorrules perfectly.
   function loadParentView() {
@@ -387,11 +426,30 @@
     if (gentleNotice) {
       // Rotate gentle notices or use saved reflection if available
       const reflections = [
-        "Your child spent time with David today.<br>They gave him very brave eyes.<br><br><strong>Maybe ask them: What made David brave?</strong>",
-        "They colored Noah's Ark.<br>The rainbow reminded them God keeps every promise.<br><br><strong>Quiet question: When has God kept a promise for you?</strong>",
-        "Today they walked with the Good Shepherd.<br>They drew Him carrying a lamb.<br><br><strong>Ask: How does it feel to know Jesus carries you?</strong>"
+        {
+          lines: [
+            'Your child spent time with David today.',
+            'They gave him very brave eyes.'
+          ],
+          question: 'Maybe ask them: What made David brave?'
+        },
+        {
+          lines: [
+            "They colored Noah's Ark.",
+            'The rainbow reminded them God keeps every promise.'
+          ],
+          question: 'Quiet question: When has God kept a promise for you?'
+        },
+        {
+          lines: [
+            'Today they walked with the Good Shepherd.',
+            'They drew Him carrying a lamb.'
+          ],
+          question: 'Ask: How does it feel to know Jesus carries you?'
+        }
       ];
-      gentleNotice.innerHTML = reflections[Math.floor(Math.random() * reflections.length)];
+      const pickedReflection = reflections[Math.floor(Math.random() * reflections.length)];
+      renderGentleNotice(gentleNotice, pickedReflection.lines, pickedReflection.question);
     }
 
     // Render colorings gallery
@@ -402,18 +460,9 @@
       } else {
         if (emptyCopy) emptyCopy.style.display = 'none';
         Object.entries(savedStories).slice(0, 6).forEach(([id, data]) => {
-          const card = document.createElement('div');
-          card.className = 'story-card';
           const title = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
           const thumb = (data.scenes && data.scenes[0]) || 'panel-noah-1.svg';
-          card.innerHTML = `
-            <img src="${thumb}" alt="${title}" loading="lazy">
-            <div class="story-info">
-              <h4>${title}</h4>
-              <p class="reflection">They spent quiet time with this story today.</p>
-            </div>
-          `;
-          gallery.appendChild(card);
+          gallery.appendChild(buildParentStoryCard(thumb, title, title, 'They spent quiet time with this story today.'));
         });
       }
     }
@@ -427,16 +476,8 @@
       } else {
         if (favoritesEmpty) favoritesEmpty.style.display = 'none';
         viewed.slice(0, 4).forEach(key => {
-          const card = document.createElement('div');
-          card.className = 'story-card';
-          card.innerHTML = `
-            <img src="panel-david-1.svg" alt="${key}" loading="lazy">
-            <div class="story-info">
-              <h4>${key.replace(/-/g, ' ')}</h4>
-              <p class="reflection">A story worth talking about together.</p>
-            </div>
-          `;
-          favoritesGrid.appendChild(card);
+          const title = key.replace(/-/g, ' ');
+          favoritesGrid.appendChild(buildParentStoryCard('panel-david-1.svg', title, title, 'A story worth talking about together.'));
         });
       }
     }

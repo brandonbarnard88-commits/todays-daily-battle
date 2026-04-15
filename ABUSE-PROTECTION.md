@@ -5,7 +5,8 @@ Quick Pray is protected by **Cloudflare Turnstile** so the prayer wall and count
 ## How it works
 
 - When **Turnstile is configured** (see below), the Quick Pray form shows a small verification widget. On submit, the client sends the Turnstile token plus the intention to the **submit-prayer** Edge Function. The function verifies the token with Cloudflare and, if valid, inserts into `prayers` using the service role.
-- When **Turnstile is not configured**, the client submits directly to Supabase (anon insert) as before — no widget, no abuse protection.
+- When **Turnstile is not configured** or the user is offline, the prayer is saved **locally on the device only**. It does not write to `public.prayers`, the shared wall, or shared counters until the protected path is available and the user submits again.
+- `public.prayers` is locked down at the database level: `anon` and `authenticated` do not get direct table access. Public prayer wall reads, counts, and Amen taps go through SECURITY DEFINER RPCs only.
 
 ## Setup (one-time)
 
@@ -36,8 +37,9 @@ Details: **supabase/functions/submit-prayer/README.md**
 - User sees the Turnstile widget under the Pray button (dark theme).
 - If they tap Pray without completing verification: toast *"Complete the verification below, then tap Pray."*
 - After a successful submit, the widget resets so they can pray again.
-- If verification fails or expires: toast with the error message (e.g. *"Verification expired; try again."*).
+- If verification fails or expires: the prayer stays private on the device and the user is asked to complete the check and tap Pray again for shared prayer.
 
-## Optional: Silent / “Call God” and offline queue
+## Silent / offline behavior
 
-The **Silent offering** and **offline queue flush** still use direct Supabase insert (no Turnstile). You can add Turnstile or rate limiting for those later if needed.
+- The **offline queue** remains local-only. It preserves prayer text privately on the device, but it does not auto-flush to `public.prayers` in the background.
+- The **Silent offering** is local-only. It no longer writes to the shared wall or shared counters without the protected submit path.

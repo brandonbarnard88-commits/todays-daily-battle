@@ -6,7 +6,15 @@
   var prayerRequestInFlight = false;
   function isPrayerUrl(u){
     if (!u || typeof u !== 'string') return false;
-    return u.indexOf('prayers') !== -1 || u.indexOf('get_prayer_presence_count') !== -1 || u.indexOf('get_total_prayer_count') !== -1;
+    return u.indexOf('prayers') !== -1 ||
+      u.indexOf('get_prayer_presence_count') !== -1 ||
+      u.indexOf('get_total_prayer_count') !== -1 ||
+      u.indexOf('get_prayers_today_count') !== -1 ||
+      u.indexOf('get_last_prayer_created_at') !== -1 ||
+      u.indexOf('get_recent_prayers') !== -1 ||
+      u.indexOf('increment_prayer_amen') !== -1 ||
+      u.indexOf('get_prayer_echo_match_count') !== -1 ||
+      u.indexOf('get_prayer_intent_suggestions') !== -1;
   }
   function isTotalCountRpc(u) { return u && u.indexOf('get_total_prayer_count') !== -1; }
   function isPresenceCountRpc(u) { return u && u.indexOf('get_prayer_presence_count') !== -1; }

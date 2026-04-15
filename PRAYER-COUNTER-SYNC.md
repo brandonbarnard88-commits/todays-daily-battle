@@ -70,21 +70,19 @@ No filters — counts everything.
 
 ---
 
-## Step 4: Fix anon INSERT (so ♥ taps stick)
+## Step 4: Keep raw prayer writes locked down
 
-If the count doesn’t bump after tapping ♥, anon may be blocked. Run the RLS section from **`supabase-prayers.sql`** or:
+If the count doesn’t bump after tapping Pray/Amen, do **not** reopen anon table access. Run the protected RPC + RLS section from **`supabase-prayers.sql`** or keep this minimum lock:
 
 ```sql
 ALTER TABLE public.prayers ENABLE ROW LEVEL SECURITY;
-
-DROP POLICY IF EXISTS "prayers_anon_insert" ON public.prayers;
-CREATE POLICY "prayers_anon_insert" ON public.prayers
-  FOR INSERT WITH CHECK (true);
-
-GRANT SELECT, INSERT, UPDATE ON public.prayers TO anon;
+ALTER TABLE public.prayers FORCE ROW LEVEL SECURITY;
+REVOKE ALL ON public.prayers FROM anon;
+REVOKE ALL ON public.prayers FROM authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.prayers TO service_role;
 ```
 
-(Skip if policies already exist — check Table Editor → **prayers** → Policies.)
+Then make sure the prayer RPCs in **`supabase-prayers.sql`** exist (`get_total_prayer_count`, `get_recent_prayers`, `increment_prayer_amen`, etc.).
 
 ---
 

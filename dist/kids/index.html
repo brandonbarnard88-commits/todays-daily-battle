@@ -3,7 +3,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260326clean"></script>
+  <script src="/tt-bootstrap.js?v=20260414ttfix"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="../analytics-loader.js"></script>
@@ -19,7 +19,7 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css?v=20260412launch">
+  <link rel="stylesheet" href="../styles.css?v=20260414ttfix">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="manifest" href="../manifest.json">
@@ -115,6 +115,15 @@
           <p class="kids-battle-tagline" id="kids-hero-tagline">Two minutes. One verse. One prayer. You're a hero!</p>
         </header>
 
+        <section class="glass" role="region" aria-label="Little ones first stop">
+          <h2 class="kids-section-title">Need one calmer first stop?</h2>
+          <p class="section-note">If you want the verse, one story, and matching coloring in one place, start at <a href="../little-ones.html">For the Little Ones</a>. The full Kids Battle home still stays here when you want all the paths.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="../little-ones.html">Open For the Little Ones</a>
+            <a class="btn btn-secondary" href="corner.html?story=jesus">Read one starter story</a>
+          </div>
+        </section>
+
         <section class="kids-first-steps glass" role="region" aria-label="Quick start paths for kids and families">
           <div class="kids-first-steps-copy">
             <h2 class="kids-section-title">Start here in 2 minutes</h2>
@@ -149,6 +158,7 @@
               </div>
             </article>
           </div>
+          <p class="section-note util-mt-0_75">Ages 3&ndash;4 with a grown-up: start with <a href="../coloring.html?story=jesus">Jesus &amp; the children</a> or <a href="../coloring.html?story=creation">Creation</a>, say one short line from today&rsquo;s verse, then stop while it still feels warm.</p>
           <div class="kids-preview-strip" role="list" aria-label="What kids can do here tonight">
             <a href="../kids-corner.html" class="kids-preview-card" role="listitem">
               <img src="panel-david.svg" alt="Quick Bible loop preview" width="120" height="96">
@@ -176,6 +186,8 @@
         <section class="kids-path-picker glass" role="region" aria-label="Choose loops, stories, coloring, or calm prayer habits">
           <h2 class="kids-section-title">Pick a path</h2>
           <p class="kids-path-picker-desc">Same Jesus—friendly doors. Loops for a quick replay, full stories when you have a few minutes, coloring when little hands want to make something, and calm prayer habits when you want screen-light time with God.</p>
+          <p class="section-note util-mb-0_75">Need the family map? <a href="../little-ones.html">For the Little Ones</a> is the calm all-in-one first stop, <a href="../family.html">Family hub</a> is the parent doorway, <a href="corner.html">Bible Story Library</a> is for read-aloud cards, <a href="../kids-corner.html">Bible Loop Library</a> is for quick replays, and <a href="../coloring.html">Color &amp; Tell</a> is for hands-busy retelling.</p>
+          <p class="section-note util-mb-0_75">For very young kids, Color &amp; Tell and one comfort loop are the gentlest first doors. Save the longer story cards for when they want a few more minutes.</p>
           <div class="kids-path-picker-grid">
             <a href="../kids-corner.html" class="kids-path-card kids-path-card-loops">
               <span class="kids-path-card-age">Best for ages 5-8</span>
@@ -345,13 +357,13 @@
         <section class="kids-battle-verse glass" role="region" aria-label="Today's verse for kids">
           <div class="speech-bubble verse-bubble">
             <h2 class="kids-section-title kids-verse-title-row">Today's Verse <button type="button" id="kids-verse-speak" class="kids-speak-btn" aria-label="Listen to verse">🔊 Tap to hear</button></h2>
-            <p id="kids-home-verse-bridge" class="kids-home-verse-bridge">Kid-friendly version of the same verse the whole site is carrying today.</p>
-            <p class="kids-verse-ref" id="kids-verse-ref">Psalm 23:1</p>
-            <p class="kids-verse-text" id="kids-verse-text">The Lord is my shepherd; I shall not want.</p>
+            <p id="kids-home-verse-bridge" class="kids-home-verse-bridge">This card will sync to today&rsquo;s KJV verse from home, then put it in kid-ready words.</p>
+            <p class="kids-verse-ref" id="kids-verse-ref">Same daily pick (KJV)</p>
+            <p class="kids-verse-text" id="kids-verse-text">When the verse lands, read one line together and stop there if that is enough for today.</p>
             <div id="kids-verse-context" class="kids-verse-context hidden" role="complementary"></div>
             <div id="kids-verse-action" class="kids-verse-action" role="complementary" aria-label="What to do with today's verse">
               <p class="kids-verse-action-kicker">Kid action</p>
-              <p id="kids-verse-action-step" class="kids-verse-action-step">Try one small brave step with this verse today.</p>
+              <p id="kids-verse-action-step" class="kids-verse-action-step">Read one line, ask one question, and pray one small prayer together.</p>
               <p id="kids-verse-parent-note" class="kids-verse-parent-note">Grown-ups: keep it simple. One sentence, one question, one prayer is enough.</p>
             </div>
           </div>
@@ -826,7 +838,7 @@
   <script src="kids-battle.js?v=20260405kidsfollowup" defer></script>
   <script src="kids-read-quiz-data.js?v=20260330kidslib" defer></script>
   <script src="kids-corner.js?v=20260405kidsrollout" defer></script>
-  <script type="module" src="../script.js?v=20260328feelwire" data-cfasync="false"></script>
+  <script type="module" src="../script.js?v=20260414ttfix" data-cfasync="false"></script>
   <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
   <script src="../sky-ip-geo.js?v=20260327ipgeo" defer></script>
   <script src="kids-page-sky.js?v=20260327ipgeo" defer></script>

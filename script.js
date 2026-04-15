@@ -210,9 +210,10 @@ function trustedScript(s) {
   function loadAnalytics() {
     if (loaded) return;
     loaded = true;
+    var siteAssetVersion = (window.TDB_CONFIG && window.TDB_CONFIG.SITE_ASSET_VERSION) || '20260414site';
     inject('/analytics-loader.js');
     inject('/gsc-verify.js');
-    inject('/share-page.js?v=20260402shareattrs');
+    inject('/share-page.js?v=' + siteAssetVersion);
     inject('/utils.js');
   }
   function onTrigger() {
@@ -1220,9 +1221,112 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var unlockedLoops = [];
   var currentLoop = null;
   var activeLoopFilter = 'all';
+  var gentleJourneyApi = (typeof window !== 'undefined' && window.TDB_GENTLE_JOURNEY) || null;
+  var gentleLoopBridge = {
+    active: false,
+    primed: false,
+    storyKey: '',
+    storyTitle: '',
+    storyRef: '',
+    refStem: '',
+    titleTokens: [],
+    nextStoryKey: '',
+    suggestedFilter: 'all'
+  };
+
+  try {
+    var gentleParams = new URLSearchParams(location.search || '');
+    gentleLoopBridge.storyKey = String(gentleParams.get('gentleStory') || '').trim();
+    gentleLoopBridge.storyTitle = String(gentleParams.get('gentleTitle') || '').trim();
+    gentleLoopBridge.storyRef = String(gentleParams.get('gentleRef') || '').trim();
+    gentleLoopBridge.active = gentleParams.get('gentle') === '1' && (!!gentleLoopBridge.storyKey || !!gentleLoopBridge.storyTitle);
+    if (gentleLoopBridge.active && gentleJourneyApi && typeof gentleJourneyApi.hasKey === 'function' && gentleJourneyApi.hasKey(gentleLoopBridge.storyKey)) {
+      gentleLoopBridge.nextStoryKey = gentleJourneyApi.getNextKey(gentleLoopBridge.storyKey) || '';
+    }
+  } catch (e) {}
 
   function loopTitleLower(loop) {
     return String(loop && loop.title ? loop.title : '').toLowerCase();
+  }
+
+  function normalizeGentleText(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  }
+
+  function getGentleRefStem(ref) {
+    var safe = String(ref || '').trim();
+    var match = safe.match(/^((?:[1-3]\s+)?[A-Za-z]+(?:\s+[A-Za-z]+)?)\s+(\d+)/);
+    if (!match) return '';
+    return (match[1] + ' ' + match[2]).toLowerCase();
+  }
+
+  function getGentleTitleTokens(value) {
+    return normalizeGentleText(value).split(/\s+/).filter(function (token) {
+      return token && token.length > 2 && !/^(the|and|with|from|into|this|that|story|jesus)$/.test(token);
+    });
+  }
+
+  function getGentleFilterSuggestion(title, ref) {
+    var hay = normalizeGentleText(String(title || '') + ' ' + String(ref || ''));
+    if (/jesus|matthew|mark|luke|john|samaritan|prodigal|lost sheep|emmaus|cana|well/.test(hay)) return 'jesus';
+    if (/david|daniel|esther|gideon|jericho|moses|jonah|samson|joshua|deborah|elijah|paul/.test(hay)) return 'brave';
+    if (/noah|shepherd|children|lazarus|widow|hannah|ruth|blind|leper|storm/.test(hay)) return 'comfort';
+    return 'all';
+  }
+
+  gentleLoopBridge.refStem = getGentleRefStem(gentleLoopBridge.storyRef);
+  gentleLoopBridge.titleTokens = getGentleTitleTokens(gentleLoopBridge.storyTitle);
+  gentleLoopBridge.suggestedFilter = getGentleFilterSuggestion(gentleLoopBridge.storyTitle, gentleLoopBridge.storyRef);
+  if (gentleLoopBridge.active && activeLoopFilter === 'all' && gentleLoopBridge.suggestedFilter !== 'all') {
+    activeLoopFilter = gentleLoopBridge.suggestedFilter;
+  }
+
+  function getGentleNextStoryHref() {
+    if (!gentleLoopBridge.nextStoryKey) return '';
+    return '/kids/corner.html?story=' + encodeURIComponent(gentleLoopBridge.nextStoryKey) + '&gentle=1';
+  }
+
+  function scoreGentleLoopMatch(loop) {
+    if (!gentleLoopBridge.active || !loop) return -1;
+    var score = 0;
+    var loopTitle = normalizeGentleText(loop.title);
+    var loopRefStem = getGentleRefStem(loop.ref);
+    if (gentleLoopBridge.refStem && loopRefStem && gentleLoopBridge.refStem === loopRefStem) score += 6;
+    for (var i = 0; i < gentleLoopBridge.titleTokens.length; i++) {
+      if (loopTitle.indexOf(gentleLoopBridge.titleTokens[i]) !== -1) score += 2;
+    }
+    if (gentleLoopBridge.suggestedFilter !== 'all' && loopMatchesFilter(loop, gentleLoopBridge.suggestedFilter)) score += 1;
+    return score;
+  }
+
+  function findGentleLoopCandidate(list) {
+    var best = null;
+    var bestScore = -1;
+    var pool = Array.isArray(list) ? list : [];
+    for (var i = 0; i < pool.length; i++) {
+      var score = scoreGentleLoopMatch(pool[i]);
+      if (score > bestScore) {
+        best = pool[i];
+        bestScore = score;
+      }
+    }
+    return bestScore >= 4 ? best : null;
+  }
+
+  function maybePrimeGentleLoopBridge() {
+    if (!gentleLoopBridge.active || gentleLoopBridge.primed || !allLoops.length) return;
+    gentleLoopBridge.primed = true;
+    var candidate = findGentleLoopCandidate(unlockedLoops);
+    if (candidate) {
+      if (weeklyStatus) weeklyStatus.textContent = 'Gentle Journey brought you here from "' + gentleLoopBridge.storyTitle + '". This matching loop is ready now.';
+      openModal(candidate);
+      return;
+    }
+    if (weeklyStatus) weeklyStatus.textContent = 'Gentle Journey brought you here from "' + gentleLoopBridge.storyTitle + '". No exact loop is ready yet, so here are nearby short replays.';
+    if (gentleLoopBridge.suggestedFilter !== 'all') {
+      activeLoopFilter = gentleLoopBridge.suggestedFilter;
+      renderGrid();
+    }
   }
 
   function loopMatchesFilter(loop, filterName) {
@@ -1502,8 +1606,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     reportBtn.addEventListener('click', function (e) {
       e.stopPropagation();
       var comment = '';
-      try { comment = window.prompt('What\'s wrong with this animation? (optional)', '') || ''; } catch (err) {}
-      if (typeof trackEvent === 'function') trackEvent('loop_mismatch_report', { story_id: String(loop.id), story_title: String(loop.title) });
+      try { comment = window.prompt('What\'s wrong with this animation? (optional — please do not include private info)', '') || ''; } catch (err) {}
+      if (typeof trackEvent === 'function') trackEvent('loop_mismatch_report', { story_id: String(loop.id) });
       var form = LOOP_FEEDBACK_FORM;
       if (form && form.url && form.storyEntry) {
         var m = (loop.file || '').match(/\/([^/]+)\.webm$/);
@@ -1687,6 +1791,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     if (!currentLoop) return;
     modal.classList.remove('is-hidden');
     nextBtn.classList.add('is-hidden');
+    nextBtn.textContent = gentleLoopBridge.active && gentleLoopBridge.nextStoryKey ? 'Back to next gentle story' : 'Watch next?';
     modalTitle.textContent = String(currentLoop.title || 'Bible Loop') + ' • ' + String(currentLoop.ref || '');
     var fileUrl = String(currentLoop.file || '').trim();
     var videoTrusted = typeof trustedScriptURL === 'function' ? trustedScriptURL(fileUrl) : fileUrl;
@@ -1696,7 +1801,9 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     modalVideo.poster = LOOP_THUMB_PLACEHOLDER;
     modalVideo.currentTime = 0;
     modalHelper.textContent = fileUrl
-      ? 'Replay anytime, then jump to a random unlocked loop.'
+      ? (gentleLoopBridge.active
+          ? 'Replay this short loop, then step back into the next gentle story when you are ready.'
+          : 'Replay anytime, then jump to a random unlocked loop.')
       : 'This loop’s cartoon file is not on the server yet—no network fetch. When clips are uploaded to /assets/loops/, they will play here automatically.';
     if (String(currentLoop.audio || '').trim()) {
       var modalAudioTrusted = typeof trustedScriptURL === 'function' ? trustedScriptURL(String(currentLoop.audio).trim()) : String(currentLoop.audio).trim();
@@ -1764,6 +1871,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     });
     if (weeklyStatus) weeklyStatus.textContent = 'Release week: ' + effectiveWeek + ' of 12.';
     renderGrid();
+    maybePrimeGentleLoopBridge();
   }
 
   function applyLoopsJson(json) {
@@ -1835,6 +1943,11 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   });
 
   nextBtn.addEventListener('click', function () {
+    var nextStoryHref = getGentleNextStoryHref();
+    if (gentleLoopBridge.active && nextStoryHref) {
+      location.href = nextStoryHref;
+      return;
+    }
     playRandomUnlocked();
   });
 
@@ -3051,7 +3164,7 @@ function getTdbPlansLaneHashForTopic(topicRaw) {
 const TDB_TOPICS = [
   { topic: 'peace', label: 'Peace', primary: true },
   { topic: 'gratitude', label: 'Gratitude' },
-  { topic: 'hope', label: 'Wonder' },
+  { topic: 'wonder', label: 'Wonder' },
   { topic: 'anxiety', label: 'Restless' },
   { topic: 'strength', label: 'Tired' },
   { topic: 'overwhelmed', label: 'Heavy' },
@@ -3579,6 +3692,8 @@ const QUERY_TO_TOPIC = {
   // joy
   joy: 'joy', joyful: 'joy', rejoice: 'joy', rejoicing: 'joy', glad: 'joy', gladness: 'joy', delight: 'joy',
   happy: 'joy', happiness: 'joy', laughter: 'joy', celebrate: 'joy', celebration: 'joy',
+  // wonder / awe — route to hope lane for now so the chip feels expansive, not sparse
+  wonder: 'hope', awe: 'hope', awestruck: 'hope',
   // peace
   peace: 'peace', peaceful: 'peace', calm: 'peace', stillness: 'peace', tranquility: 'peace',
   serenity: 'peace', serene: 'peace', quiet: 'peace', quietness: 'peace', shalom: 'peace',
@@ -4911,7 +5026,15 @@ var _supabaseFetchLogged;
 var _prayerRequestInFlight = false;
 function _isPrayerRequestUrl(u) {
   if (!u || typeof u !== 'string') return false;
-  return u.indexOf('prayers') !== -1 || u.indexOf('get_prayer_presence_count') !== -1 || u.indexOf('get_total_prayer_count') !== -1;
+  return u.indexOf('prayers') !== -1 ||
+    u.indexOf('get_prayer_presence_count') !== -1 ||
+    u.indexOf('get_total_prayer_count') !== -1 ||
+    u.indexOf('get_prayers_today_count') !== -1 ||
+    u.indexOf('get_last_prayer_created_at') !== -1 ||
+    u.indexOf('get_recent_prayers') !== -1 ||
+    u.indexOf('increment_prayer_amen') !== -1 ||
+    u.indexOf('get_prayer_echo_match_count') !== -1 ||
+    u.indexOf('get_prayer_intent_suggestions') !== -1;
 }
 function _isPrayerWriteRequest(u, options) {
   if (!u || typeof u !== 'string') return false;
@@ -5204,32 +5327,35 @@ function ensurePrayersApiProbed() {
   if (!supabaseUrlValid || !supabaseKey || !_cfg) return Promise.resolve(false);
   if (prayersApiProbePromise) return prayersApiProbePromise;
   var base = String(_cfg.SUPABASE_URL || '').replace(/\/$/, '');
-  var probeUrl = base + '/rest/v1/prayers?select=id&limit=1';
+  // Probe the public RPC that remains readable after prayers table lockdown.
+  var probeUrl = base + '/rest/v1/rpc/get_total_prayer_count';
   var realFetch = typeof window !== 'undefined' && window.__tdb_real_fetch;
   var doProbe = realFetch
     ? function () {
         return realFetch(probeUrl, {
-          method: 'GET',
+          method: 'POST',
           headers: {
             Accept: 'application/json',
+            'Content-Type': 'application/json',
             apikey: _cfg.SUPABASE_ANON_KEY || '',
             Authorization: 'Bearer ' + (_cfg.SUPABASE_ANON_KEY || '')
-          }
+          },
+          body: '{}'
         });
       }
-    : function () { return supabaseFetch(probeUrl, { method: 'GET' }); };
+    : function () { return supabaseFetch(probeUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' }); };
   prayersApiProbePromise = doProbe()
     .then(function (res) {
       if (!res || !res.ok) {
         setPrayersApiUnavailable();
-        if (typeof console !== 'undefined' && console.log) console.log('TDB: Prayers API returned', res ? res.status : 'no response', '— run supabase-prayers.sql in Supabase SQL Editor. No further prayer requests.');
+        if (typeof console !== 'undefined' && console.log) console.log('TDB: Prayers RPC probe returned', res ? res.status : 'no response', '— check prayer RPC grants/migrations in Supabase. No further prayer requests.');
         return false;
       }
       return true;
     })
     .catch(function (e) {
       setPrayersApiUnavailable();
-      if (typeof console !== 'undefined' && console.log) console.log('TDB: Prayers probe failed — run supabase-prayers.sql in Supabase. No further prayer requests.');
+      if (typeof console !== 'undefined' && console.log) console.log('TDB: Prayers RPC probe failed — check prayer RPC grants/migrations in Supabase. No further prayer requests.');
       return false;
     });
   return prayersApiProbePromise;
@@ -5240,7 +5366,7 @@ function runSupabaseConnectionTest() {
   var isDev = typeof location !== 'undefined' && location.hostname.includes('localhost');
   ensurePrayersApiProbed().then(function (available) {
     if (available !== true || !isPrayersApiAvailable()) return;
-    supabaseClient.from('prayers').select('*', { count: 'exact', head: true })
+    supabaseClient.rpc('get_total_prayer_count')
     .then(function (res) {
       if (res && is404Like(res)) { setPrayersApiUnavailable(); return; }
     })
@@ -7543,7 +7669,7 @@ function wireRealPrayerCounter() {
         updateLastPrayerBadge();
         return;
       }
-      var req = supabaseClient.from('prayers').select('*', { count: 'exact', head: true });
+      var req = supabaseClient.rpc('get_total_prayer_count');
       var timeout = new Promise(function (_, reject) {
         setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS);
       });
@@ -7946,11 +8072,11 @@ function wireDailyVerseEcho() {
       return;
     }
     try {
-      var res = await supabaseClient.from('prayers').select('id, family_name').ilike('intent', '%' + ref + '%').order('created_at', { ascending: false }).limit(3);
+      var res = await supabaseClient.rpc('get_prayer_echo_match_count', { p_query: ref });
       if (res && is404Like(res)) { setPrayersApiUnavailable(); el.style.display = 'none'; return; }
-      var rows = (res && res.data) ? res.data : [];
+      var matchCount = res && res.data != null ? Number(res.data) : 0;
       el.style.display = 'block';
-      if (rows.length === 0) {
+      if (!(matchCount > 0)) {
         el.textContent = 'You\'re the first—pray it.';
         el.classList.remove('daily-verse-echo-pulse');
       } else {
@@ -9529,67 +9655,14 @@ function setPrayerOfflineQueue(q) {
   var list = Array.isArray(q) ? q.map(normalizePrayerQueueItem).filter(Boolean) : [];
   if (list.length > PRAYER_OFFLINE_MAX) list = list.slice(list.length - PRAYER_OFFLINE_MAX);
   try { localStorage.setItem(PRAYER_OFFLINE_QUEUE_KEY, JSON.stringify(list)); } catch (e) {}
-  if (list.length) requestPrayerBackgroundSync();
   if (isPrayerQueueDebugEnabled()) logPrayerQueueHealth();
 }
 function flushPrayerOfflineQueue() {
   if (prayerFlushInFlight) return prayerFlushInFlight;
   var q = getPrayerOfflineQueue();
-  if (!q.length || !supabaseClient) return;
-  var sessionId = getPrayerSessionId();
-  var familyName = getFamilyName();
-  var now = Date.now();
-  prayerFlushInFlight = Promise.all(q.map(function (item) {
-    var safeIntent = truncateForDb(sanitizeUserInput(item.intent), MAX_PRAYER_INTENT_LENGTH);
-    if (!safeIntent) return Promise.resolve({ keep: false, sent: false });
-    var attempts = Number(item.attempts || 0) || 0;
-    if (attempts >= PRAYER_SYNC_MAX_ATTEMPTS) {
-      return Promise.resolve({ keep: false, sent: false, dropped: true });
-    }
-    var lastTriedAt = item.lastTriedAt ? Number(item.lastTriedAt) : 0;
-    var waitMs = getPrayerSyncBackoffMs(attempts);
-    if (lastTriedAt && (now - lastTriedAt) < waitMs) {
-      return Promise.resolve({ keep: true, sent: false, item: item });
-    }
-    var payload = { intent: safeIntent, session_id: sessionId };
-    var fn = truncateForDb(sanitizeUserInput(familyName), MAX_FAMILY_NAME_LENGTH);
-    if (fn) payload.family_name = fn;
-    return supabaseClient.from('prayers').insert(payload).then(function (res) {
-      if (res && !res.error) return { keep: false, sent: true };
-      var nextAttempts = attempts + 1;
-      var errText = (res && res.error && (res.error.message || res.error.code)) ? (res.error.message || res.error.code) : 'Insert failed';
-      logFailedPrayerAttempt(item, nextAttempts, errText);
-      if (nextAttempts >= PRAYER_SYNC_MAX_ATTEMPTS) {
-        return { keep: false, sent: false, dropped: true };
-      }
-      return {
-        keep: true,
-        sent: false,
-        item: Object.assign({}, item, { attempts: nextAttempts, lastTriedAt: Date.now() })
-      };
-    }).catch(function () {
-      var nextAttempts = attempts + 1;
-      logFailedPrayerAttempt(item, nextAttempts, 'Network or insert exception');
-      if (nextAttempts >= PRAYER_SYNC_MAX_ATTEMPTS) {
-        return { keep: false, sent: false, dropped: true };
-      }
-      return {
-        keep: true,
-        sent: false,
-        item: Object.assign({}, item, { attempts: nextAttempts, lastTriedAt: Date.now() })
-      };
-    });
-  })).then(function (results) {
-    var keep = results.filter(function (r) { return r && r.keep && r.item; }).map(function (r) { return r.item; });
-    var sentAny = results.some(function (r) { return r && r.sent; });
-    var droppedAny = results.some(function (r) { return r && r.dropped; });
-    setPrayerOfflineQueue(keep);
-    if (sentAny && typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
-    if (sentAny && typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
-    if (droppedAny && typeof window.__tdb_reportError === 'function') {
-      window.__tdb_reportError('prayer_queue_drop_max_attempts', new Error('Dropped queued prayers after max retry attempts'));
-    }
-  }).catch(function () {}).finally(function () {
+  if (!q.length) return Promise.resolve({ queued: 0, localOnly: true });
+  prayerFlushInFlight = Promise.resolve({ queued: q.length, localOnly: true });
+  prayerFlushInFlight = prayerFlushInFlight.finally(function () {
     prayerFlushInFlight = null;
   });
   return prayerFlushInFlight;
@@ -9784,7 +9857,7 @@ function wireGodModePrayerEcho() {
       }
     }, 4000);
     try {
-      var res = await supabaseClient.from('prayers').select('id, intent, created_at, amen_count, family_name').order('created_at', { ascending: false }).limit(3);
+      var res = await supabaseClient.rpc('get_recent_prayers', { p_limit: 3 });
       clearTimeout(echoTimeout);
       if (res && is404Like(res)) {
         setPrayersApiUnavailable();
@@ -9850,13 +9923,16 @@ function wireGodModePrayerEcho() {
           if (alreadyAmen) return;
           if (!supabaseClient) return;
           var newCount = ac + 1;
-          supabaseClient.from('prayers').update({ amen_count: newCount }).eq('id', row.id).then(function (r) {
+          supabaseClient.rpc('increment_prayer_amen', { p_prayer_id: row.id }).then(function (r) {
             if (!r.error) {
+              var nextCount = r.data != null ? Number(r.data) : newCount;
+              if (!(nextCount >= 0)) nextCount = newCount;
               try { localStorage.setItem(AMEN_PREFIX + row.id, '1'); } catch (e) {}
               alreadyAmen = true;
               amenBtn.setAttribute('disabled', 'true');
-              countEl.textContent = ' ' + newCount;
-              if (newCount > 3 && typeof showEliteToast === 'function') showEliteToast('Your amen is in. Others prayed this too.');
+              ac = nextCount;
+              countEl.textContent = ' ' + nextCount;
+              if (nextCount > 3 && typeof showEliteToast === 'function') showEliteToast('Your amen is in. Others prayed this too.');
               if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('amen');
               if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('amen');
               if (typeof addArmorChainFromAmen === 'function') addArmorChainFromAmen();
@@ -10735,27 +10811,10 @@ function wireSilentOffering() {
       localStorage.setItem(silenceKey, String(silenceCount));
     } catch (e) {}
     if (silenceCount >= 5) emitEasterEgg('quiet5_whisper', { count: silenceCount });
-    if (typeof bumpLocalPrayerTotalCount === 'function') bumpLocalPrayerTotalCount(1);
-    var payload = { intent: 'A household offered silence.', session_id: getPrayerSessionId() };
-    var fn = truncateForDb(sanitizeUserInput(getFamilyName()), MAX_FAMILY_NAME_LENGTH);
-    if (fn) payload.family_name = fn;
-    if (navigator.onLine && supabaseClient) {
-      supabaseClient.from('prayers').insert(payload).then(function (r) {
-        if (!r.error) {
-          if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
-          if (typeof window.updateLastPrayerBadge === 'function') window.updateLastPrayerBadge();
-          if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
-          if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
-          if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
-          if (typeof addArmorChainFromSilentOffering === 'function') addArmorChainFromSilentOffering();
-        }
-      });
-    } else {
-      queuePrayerOfflineIntent('A household offered silence.', 'silent_offering');
-      if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
-      if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
-      if (typeof addArmorChainFromSilentOffering === 'function') addArmorChainFromSilentOffering();
-    }
+    if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
+    if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
+    if (typeof addArmorChainFromSilentOffering === 'function') addArmorChainFromSilentOffering();
+    if (typeof showEliteToast === 'function') showEliteToast('A quiet household silence offered. Thank you.');
   });
 }
 
@@ -10846,7 +10905,7 @@ function wireQuickPrayAutocomplete() {
   async function fill() {
     if (!supabaseClient) return;
     try {
-      var res = await supabaseClient.from('prayers').select('intent').not('intent', 'is', null).limit(50);
+      var res = await supabaseClient.rpc('get_prayer_intent_suggestions', { p_limit: 10 });
       var intents = (res && res.data) ? res.data : [];
       var seen = {};
       var words = [];
@@ -12751,10 +12810,32 @@ function trackSearchAnalytics(eventName, params) {
   trackEvent(eventName, safe);
 }
 
+function sanitizeTrackEventParams(params) {
+  if (!params || typeof params !== 'object' || Array.isArray(params)) return {};
+  var forbiddenKeys = {
+    ref: true,
+    verse: true,
+    verseRef: true,
+    query: true,
+    search_term: true,
+    journal: true,
+    email: true,
+    user_id: true,
+    prayer: true,
+    body: true
+  };
+  var safe = {};
+  Object.keys(params).forEach(function (key) {
+    if (forbiddenKeys[key]) return;
+    safe[key] = params[key];
+  });
+  return safe;
+}
+
 function trackEvent(eventName, params) {
   bumpStat(eventName);
   if (hasTdbAnalyticsConsent() && typeof window.gtag === 'function' && GA_MEASUREMENT_ID) {
-    window.gtag('event', eventName, params || {});
+    window.gtag('event', eventName, sanitizeTrackEventParams(params));
   }
 }
 // For search analytics (quick_search, search_query) use trackSearchAnalytics() only — it enforces the allowlist. See PRIVACY-ANALYTICS.md.
@@ -19641,13 +19722,13 @@ async function renderAdminPanel() {
       var todayStart = new Date();
       todayStart.setUTCHours(0, 0, 0, 0);
       var todayEnd = new Date(Date.UTC(todayStart.getUTCFullYear(), todayStart.getUTCMonth(), todayStart.getUTCDate() + 1, 0, 0, 0, 0));
-      supabaseClient.from('prayers').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()).lt('created_at', todayEnd.toISOString()).then(function (r) {
-        var count = (r && r.count != null) ? r.count : (r && r.error ? '—' : '0');
+      supabaseClient.rpc('get_prayers_today_count').then(function (r) {
+        var count = (r && r.data != null) ? String(r.data) : (r && r.error ? '—' : '0');
         health.insertAdjacentHTML('beforeend', buildAdminCardHtml({
           label: 'Prayers today',
-          value: String(count),
+          value: count,
           tone: r && !r.error ? 'ok' : 'warn',
-          detail: 'Direct count from the `prayers` table for today.'
+          detail: 'Aggregate count from the prayer RPC for today.'
         }));
       }).catch(function () {
         health.insertAdjacentHTML('beforeend', buildAdminCardHtml({
@@ -27235,13 +27316,43 @@ async function tdbInitImpl() {
         localStorage.removeItem(QUICK_PRAY_DRAFT_KEY);
       } catch (e) {}
     }
+    function showQuickPrayStatus(message, durationMs, opts) {
+      var text = String(message || '').trim();
+      if (!text) return;
+      var timeoutMs = Number(durationMs || 4000) || 4000;
+      if ((!opts || opts.toast !== false) && typeof showEliteToast === 'function') {
+        showEliteToast(text);
+      }
+      if (quickPrayFeedback) {
+        quickPrayFeedback.textContent = text;
+        quickPrayFeedback.style.display = 'block';
+        quickPrayFeedback.classList.add('quick-pray-toast-visible');
+        setTimeout(function () {
+          quickPrayFeedback.style.display = 'none';
+          quickPrayFeedback.textContent = '';
+          quickPrayFeedback.classList.remove('quick-pray-toast-visible');
+        }, timeoutMs);
+      }
+    }
+    function pulseQuickPraySavedState() {
+      if (!quickPrayBtn) return;
+      quickPrayBtn.textContent = 'Prayer saved';
+      quickPrayBtn.classList.add('quick-pray-saved');
+      quickPrayBtn.disabled = true;
+      setTimeout(function () {
+        quickPrayBtn.textContent = 'Pray';
+        quickPrayBtn.classList.remove('quick-pray-saved');
+        quickPrayBtn.disabled = false;
+      }, 2000);
+    }
     function doQuickPray() {
       if (typeof window !== 'undefined') window.__tdbQuickPrayLastRun = Date.now();
       const text = (quickPrayInput.value || '').trim();
       if (!text) return;
       markFirstWinPrayStep();
       var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
-      var useSubmitPrayer = cfg && cfg.SUBMIT_PRAYER_URL && cfg.TURNSTILE_SITE_KEY && navigator.onLine && supabaseClient;
+      var hasProtectedPrayerPath = !!(cfg && cfg.SUBMIT_PRAYER_URL && cfg.TURNSTILE_SITE_KEY);
+      var useSubmitPrayer = !!(hasProtectedPrayerPath && navigator.onLine && supabaseClient);
       var turnstileToken = '';
       if (useSubmitPrayer) {
         var twEl = document.getElementById('turnstile-quick-pray');
@@ -27266,7 +27377,6 @@ async function tdbInitImpl() {
       clearQuickPrayDraft();
       const count = getQuickPrayCountToday() + 1;
       setQuickPrayCountToday(count);
-      if (typeof bumpLocalPrayerTotalCount === 'function') bumpLocalPrayerTotalCount(1);
       try { sessionStorage.setItem(PRAYED_THIS_SESSION_KEY, '1'); } catch (e) {}
       updateQuickPrayCountDisplay();
       if (count >= 3) emitEasterEgg('pray3_badge', { count: count });
@@ -27278,9 +27388,8 @@ async function tdbInitImpl() {
       var sessionId = getPrayerSessionId();
       var familyName = truncateForDb(sanitizeUserInput(getFamilyName()), MAX_FAMILY_NAME_LENGTH);
       var safeIntent = truncateForDb(sanitizeUserInput(text), MAX_PRAYER_INTENT_LENGTH);
-      var payload = { intent: safeIntent, session_id: sessionId };
-      if (familyName) payload.family_name = familyName;
       function onInsertDone(isFirst) {
+        if (typeof bumpLocalPrayerTotalCount === 'function') bumpLocalPrayerTotalCount(1);
         if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
         if (typeof window.updateLastPrayerBadge === 'function') window.updateLastPrayerBadge();
         var badge = document.getElementById('last-prayer-badge');
@@ -27312,17 +27421,14 @@ async function tdbInitImpl() {
           }).then(function (r) {
             return r.json().then(function (data) {
               if (r.ok && data && data.ok) {
-                var todayStart = new Date();
-                todayStart.setUTCHours(0, 0, 0, 0);
-                var todayEnd = new Date(Date.UTC(todayStart.getUTCFullYear(), todayStart.getUTCMonth(), todayStart.getUTCDate() + 1, 0, 0, 0, 0));
-                supabaseClient.from('prayers').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()).lt('created_at', todayEnd.toISOString()).then(function (res) {
-                  var isFirst = res && res.count === 1;
+                supabaseClient.rpc('get_prayers_today_count').then(function (res) {
+                  var isFirst = Number(res && res.data) === 1;
                   onInsertDone(isFirst);
+                  showQuickPrayStatus('Added to shared prayer.', 2500, { toast: false });
                 }).catch(function () { onInsertDone(false); });
               } else {
                 var msg = (data && data.error) ? data.error : 'Verification failed; try again.';
-                if (typeof showEliteToast === 'function') showEliteToast(msg); else if (quickPrayFeedback) { quickPrayFeedback.textContent = msg; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 4000); }
-                onInsertDone(false);
+                showQuickPrayStatus(msg + ' Prayer stayed private on this device.', 5000);
               }
               try {
                 if (window.turnstile && typeof window.turnstile.reset === 'function') window.turnstile.reset('turnstile-quick-pray');
@@ -27330,62 +27436,26 @@ async function tdbInitImpl() {
             });
           }).catch(function () {
             queuePrayerOfflineIntent(safeIntent, 'quick_pray');
-            if (typeof showEliteToast === 'function') showEliteToast('Saved here—will sync when back online.');
-            onInsertDone(false);
+            showQuickPrayStatus('Saved privately on this device. When you are online, tap Pray again to add it to shared prayer.', 5000);
             try {
               if (window.turnstile && typeof window.turnstile.reset === 'function') window.turnstile.reset('turnstile-quick-pray');
             } catch (e) {}
           });
           return;
         }
-        supabaseClient.from('prayers').insert(payload).then(function (r) {
-          if (r.error) {
-            queuePrayerOfflineIntent(safeIntent, 'quick_pray');
-            if (typeof showEliteToast === 'function') showEliteToast('Saved here—will sync when back online.');
-          } else {
-            var todayStart = new Date();
-            todayStart.setUTCHours(0, 0, 0, 0);
-            var todayEnd = new Date(Date.UTC(todayStart.getUTCFullYear(), todayStart.getUTCMonth(), todayStart.getUTCDate() + 1, 0, 0, 0, 0));
-            supabaseClient.from('prayers').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()).lt('created_at', todayEnd.toISOString()).then(function (res) {
-              var isFirst = res && res.count === 1;
-              onInsertDone(isFirst);
-            }).catch(function () { onInsertDone(false); });
-            return;
-          }
-          onInsertDone(false);
-        }).catch(function () {
-          queuePrayerOfflineIntent(safeIntent, 'quick_pray');
-          if (typeof showEliteToast === 'function') showEliteToast('Saved here—will sync when back online.');
-          onInsertDone(false);
-          if (typeof window.__tdb_reportError === 'function') window.__tdb_reportError('quick_pray_insert_failed', new Error('Supabase insert failed'));
-        });
+        queuePrayerOfflineIntent(safeIntent, 'quick_pray');
+        if (hasProtectedPrayerPath) {
+          showQuickPrayStatus('Saved privately on this device. When you are online, tap Pray again to add it to shared prayer.', 5000);
+        } else {
+          showQuickPrayStatus('Saved privately on this device. Shared prayer is unavailable right now.', 5000);
+        }
       } else {
         queuePrayerOfflineIntent(text, 'quick_pray');
-        if (typeof showEliteToast === 'function') showEliteToast('Saved here—will sync when back online.');
-        onInsertDone(false);
+        showQuickPrayStatus('Saved privately on this device. When you are online, tap Pray again to add it to shared prayer.', 5000);
       }
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
       if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
-      if (quickPrayBtn) {
-        quickPrayBtn.textContent = 'Prayer saved';
-        quickPrayBtn.classList.add('quick-pray-saved');
-        quickPrayBtn.disabled = true;
-        setTimeout(function () {
-          quickPrayBtn.textContent = 'Pray';
-          quickPrayBtn.classList.remove('quick-pray-saved');
-          quickPrayBtn.disabled = false;
-        }, 2000);
-      }
-      if (quickPrayFeedback) {
-        quickPrayFeedback.textContent = 'Added!';
-        quickPrayFeedback.style.display = 'block';
-        quickPrayFeedback.classList.add('quick-pray-toast-visible');
-        setTimeout(function () {
-          quickPrayFeedback.style.display = 'none';
-          quickPrayFeedback.textContent = '';
-          quickPrayFeedback.classList.remove('quick-pray-toast-visible');
-        }, 2500);
-      }
+      pulseQuickPraySavedState();
       var shareWrap = document.getElementById('quick-pray-share-wrap');
       var shareBtn = document.getElementById('quick-pray-share');
       if (shareWrap && shareBtn) {

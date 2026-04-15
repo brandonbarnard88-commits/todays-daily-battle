@@ -2,7 +2,7 @@
 
 **Today's Daily Battle is built so your safety and privacy come first.** What you search stays yours. We never want to know who searched, and we never store what you type. That’s locked in code and policy so this stays a safe place, including if anything is ever breached.
 
-**Product analytics (2026):** No raw verse text, journal or prayer body, or personally identifying fields are sent in `trackEvent` / GA parameters—only the structural and aggregate keys listed in the event tables below (and search flows stay on `trackSearchAnalytics` with its allowlist).
+**Product analytics (2026):** No raw verse text, verse references, journal or prayer body, or personally identifying fields are sent in `trackEvent` / GA parameters—only the structural and aggregate keys listed in the event tables below (and search flows stay on `trackSearchAnalytics` with its allowlist).
 
 ---
 
@@ -26,7 +26,7 @@ If analytics or any system is ever compromised, there is nothing that could iden
 3. **Allowed parameters:** `topic`, `search_type`, `map_keys`, `semantic_blended`, `blended_count`, `blended_topics`, `heartfelt_template_used` (string, e.g. "pair:fear,loneliness" or "default"—which blended message fired), `default_rate` (0 or 1—1 if the query fell to the generic default message, 0 if a topic/blend matched), `verse_count_returned` (number 1–30—how many verses were returned), `used_default_verses` (0 or 1—1 if the curated hope set padded or filled the results). All are anonymous labels only—never raw query text. No other keys are passed through. Any attempt to pass `query`, `user_id`, `email`, or anything else is **stripped** and never sent.
 4. All search analytics call sites use `trackSearchAnalytics()`, not `trackEvent()`, for search events.
 
-So even if someone later adds `query: input` or `user_id: x` to a call, `trackSearchAnalytics()` will not forward them. Only `topic` and `search_type` can ever be sent.
+So even if someone later adds `query: input` or `user_id: x` to a call, `trackSearchAnalytics()` will not forward them. Only the allowlisted anonymous fields above can ever be sent.
 
 ### Do not
 
@@ -52,7 +52,9 @@ So even if someone later adds `query: input` or `user_id: x` to a call, `trackSe
 
 ## Non-search product events (`trackEvent`)
 
-**Search** stays on `trackSearchAnalytics` only (see above). For everything else, use `trackEvent(eventName, params)` from `script.js` / `analytics-loader.js`, and **never** send raw private text, full journal bodies, or free-typed prayer content.
+**Search** stays on `trackSearchAnalytics` only (see above). For everything else, use `trackEvent(eventName, params)` from `script.js` / `analytics-loader.js`, and **never** send raw private text, verse references, full journal bodies, or free-typed prayer content.
+
+Strict rule: never include `ref`, `verse`, `verseRef`, `query`, `search_term`, `journal`, `email`, `user_id`, `prayer`, or `body` in any `trackEvent` payload. Product events must stay aggregate and anonymous.
 
 ### Verse study overlay (`verse-study.js`)
 
@@ -115,6 +117,9 @@ Do **not** add verse reference or verse text to these calls.
 
 | Event | Params (allowed) |
 |-------|------------------|
+| `verse_feedback` | `{ sentiment: 'positive' \| 'neutral' \| 'negative' }` |
+| `verse_breakdown_open` | `{}` |
+| `verse_breakdown_scrolled_50` | `{}` |
 | `verse_page_save_my_verses` | `{}` |
 | `verse_page_listen` | `{}` |
 | `hero_save_my_verses` | `{}` |
@@ -139,4 +144,4 @@ Do **not** add verse reference or verse text to these calls.
 | `kids_corner_daily_verse` | `{}` |
 | `family_hub_daily_verse` | `{}` |
 
-When adding new `trackEvent` names, append them here with allowed keys. **Never** log verse body text, journal text, or search queries in `trackEvent`.
+When adding new `trackEvent` names, append them here with allowed keys. **Never** log verse references, verse body text, journal text, prayer text, or search queries in `trackEvent`.

@@ -92,6 +92,24 @@ test.describe('axe — critical pages', () => {
     expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
   });
 
+  test('verse.html', async ({ page }) => {
+    await page.goto('/verse.html');
+    await dismissFirstVisitIfPresent(page);
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+      .analyze();
+    expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
+  });
+
+  test('memorize.html', async ({ page }) => {
+    await page.goto('/memorize.html');
+    await dismissFirstVisitIfPresent(page);
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+      .analyze();
+    expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
+  });
+
   test('team-toolkit.html', async ({ page }) => {
     await page.goto('/team-toolkit.html');
     await dismissFirstVisitIfPresent(page);

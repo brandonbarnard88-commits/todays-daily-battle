@@ -3330,7 +3330,10 @@
       border-color: var(--gold);
       color: var(--text);
       box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 35%, transparent);
-      outline: none;
+    }
+    .hero-toolbar-btn:focus-visible {
+      outline: 2px solid var(--gold, #e3bc67);
+      outline-offset: 3px;
     }
     .header-battle-plans--solo {
       flex: 1 1 auto;
@@ -7859,7 +7862,7 @@
               </div>
             </div>
             <div class="hero-family-mode-links">
-              <button type="button" class="btn btn-secondary" id="tdbFamilyModeListen">Read this with kids</button>
+              <button type="button" class="btn btn-secondary" id="tdbFamilyModeListen" aria-label="Read today&apos;s verse aloud with kids using device speech, calm pace">Read this with kids</button>
               <a class="btn btn-primary" id="tdbFamilyModeStory" href="/kids/corner.html">Matching story</a>
               <a class="btn btn-secondary" id="tdbFamilyModeColor" href="/coloring.html">Color it</a>
               <a class="btn btn-secondary" id="tdbFamilyModePrayerLink" href="/kids/prayer-activities.html">Prayer habit</a>

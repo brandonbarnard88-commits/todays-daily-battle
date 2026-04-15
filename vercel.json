@@ -83,6 +83,36 @@
       "permanent": true
     },
     {
+      "source": "/ask-the-word",
+      "destination": "/bible-tool.html?tdb_focus=ask",
+      "permanent": true
+    },
+    {
+      "source": "/ask-the-word/",
+      "destination": "/bible-tool.html?tdb_focus=ask",
+      "permanent": true
+    },
+    {
+      "source": "/battle-plans",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/battle-plans/",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/my-study",
+      "destination": "/mystudy",
+      "permanent": true
+    },
+    {
+      "source": "/my-study/",
+      "destination": "/mystudy",
+      "permanent": true
+    },
+    {
       "source": "/anxiety",
       "destination": "/about.html",
       "permanent": true
@@ -136,6 +166,40 @@
       "source": "/prayer-wall/",
       "destination": "/prayer-wall.html",
       "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/memorize",
+      "destination": "/memorize.html"
+    },
+    {
+      "source": "/memorize/",
+      "destination": "/memorize.html"
+    },
+    {
+      "source": "/explore",
+      "destination": "/explore.html"
+    },
+    {
+      "source": "/explore/",
+      "destination": "/explore.html"
+    },
+    {
+      "source": "/site-guide",
+      "destination": "/site-guide.html"
+    },
+    {
+      "source": "/site-guide/",
+      "destination": "/site-guide.html"
+    },
+    {
+      "source": "/family",
+      "destination": "/family.html"
+    },
+    {
+      "source": "/family/",
+      "destination": "/family.html"
     }
   ],
   "headers": [

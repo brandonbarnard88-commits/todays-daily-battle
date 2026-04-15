@@ -138,6 +138,15 @@ function main() {
 
     next = next.replace(RE_INLINE_AUTH, '\n');
 
+    if (rel === 'index.html') {
+      const beforeHomeNav = next;
+      next = next.replace(
+        /<a href="\/verse\.html">Today&rsquo;s Verse<\/a>\s*\r?\n\s*<a href="\/#feel-section">How I Feel<\/a>/,
+        '<a href="/verse.html">Today&rsquo;s Verse</a>\n          <a href="/#feel-section" aria-current="page">How I Feel</a>'
+      );
+      if (next !== beforeHomeNav) touched = true;
+    }
+
     if (rel === 'family-armor.html' && touched) {
       next = next.replace(
         /<a href="\/family-armor\.html" id="nav-family-armor">/,
@@ -157,6 +166,109 @@ function main() {
         /<a href="\/year-at-a-glance\.html" id="nav-year-at-a-glance"/,
         '<a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-current="page"'
       );
+    }
+
+    if (rel === 'verse.html' && touched) {
+      next = next.replace(
+        /<a href="\/verse\.html">Today&rsquo;s Verse<\/a>/,
+        '<a href="/verse.html" aria-current="page">Today&rsquo;s Verse</a>'
+      );
+    }
+
+    if (rel === 'daily-rhythm.html' && touched) {
+      next = next.replace(
+        /<a href="\/daily-rhythm\.html">Daily Rhythm<\/a>/,
+        '<a href="/daily-rhythm.html" aria-current="page">Daily Rhythm</a>'
+      );
+    }
+
+    if (rel === 'prayer-wall.html' && touched) {
+      next = next.replace(
+        /<a href="\/prayer-wall\.html">Pray<\/a>/,
+        '<a href="/prayer-wall.html" aria-current="page">Pray</a>'
+      );
+    }
+
+    if (rel === 'explore.html' && touched) {
+      next = next.replace(
+        /<a href="\/explore\.html">Explore<\/a>/,
+        '<a href="/explore.html" aria-current="page">Explore</a>'
+      );
+    }
+
+    if (rel === 'mystudy.html' && touched) {
+      next = next.replace(
+        /<a href="\/mystudy">My Study<\/a>/,
+        '<a href="/mystudy" aria-current="page">My Study</a>'
+      );
+    }
+
+    if (rel === 'bible-tool.html' && touched) {
+      next = next.replace(
+        /<a href="\/bible-tool\.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool<\/a>/,
+        '<a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader" aria-current="page">Bible Tool</a>'
+      );
+    }
+
+    if (rel === 'plans.html' && touched) {
+      next = next.replace(
+        /<a href="\/plans\.html">Battle Plans<\/a>/,
+        '<a href="/plans.html" aria-current="page">Battle Plans</a>'
+      );
+    }
+
+    if (rel === 'memorize.html' && touched) {
+      next = next.replace(
+        /<a href="\/memorize\.html">Memorize<\/a>/,
+        '<a href="/memorize.html" aria-current="page">Memorize</a>'
+      );
+    }
+
+    if (rel === 'kids/corner.html' && touched) {
+      next = next.replace(
+        /<a href="\/kids\/corner\.html">Kids &amp; Family<\/a>/,
+        '<a href="/kids/corner.html" aria-current="page">Kids &amp; Family</a>'
+      );
+    }
+
+    if (rel === 'site-guide.html' && touched) {
+      next = next.replace(
+        /<a href="\/site-guide\.html" id="nav-site-guide"/,
+        '<a href="/site-guide.html" id="nav-site-guide" aria-current="page"'
+      );
+    }
+
+    if (rel === 'search.html' && touched) {
+      next = next.replace(
+        /<a href="\/search\.html" id="nav-site-search"/,
+        '<a href="/search.html" id="nav-site-search" aria-current="page"'
+      );
+    }
+
+    if (rel === 'about.html' && touched) {
+      next = next.replace(/<a href="\/about\.html">About<\/a>/, '<a href="/about.html" aria-current="page">About</a>');
+    }
+
+    if (rel === 'printables.html' && touched) {
+      next = next.replace(
+        /<a href="\/printables\.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub<\/a>/,
+        '<a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs" aria-current="page">Print hub</a>'
+      );
+    }
+
+    if (rel === 'mobius.html' && touched) {
+      next = next.replace(
+        /<a href="\/mobius\.html">Möbius<\/a>/,
+        '<a href="/mobius.html" aria-current="page">Möbius</a>'
+      );
+    }
+
+    if (rel === 'calm.html' && touched) {
+      next = next.replace(/<a href="\/calm\.html">Calm<\/a>/, '<a href="/calm.html" aria-current="page">Calm</a>');
+    }
+
+    if (rel === 'story.html' && touched) {
+      next = next.replace(/<a href="\/story\.html">Story<\/a>/, '<a href="/story.html" aria-current="page">Story</a>');
     }
 
     if (touched && next !== html) {

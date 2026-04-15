@@ -1,0 +1,44 @@
+{
+  "$comment": "Canonical URL map for the English shell. Keep _redirects (Cloudflare Pages) and vercel.json aligned. Run: node scripts/verify-url-truth-table.mjs",
+  "version": 1,
+  "entries": [
+    {
+      "id": "ask-the-word",
+      "note": "Ask the Word lives inside Bible Tool; tdb_focus=ask scrolls to #ask-the-word-section and is replaced with the hash for sharing.",
+      "aliases": ["/ask-the-word", "/ask-the-word/"],
+      "redirect": { "to": "/bible-tool.html?tdb_focus=ask", "status": 301 }
+    },
+    {
+      "id": "battle-plans",
+      "note": "Common guessed slug for Battle Plans library.",
+      "aliases": ["/battle-plans", "/battle-plans/"],
+      "redirect": { "to": "/plans", "status": 301 }
+    },
+    {
+      "id": "my-study-hyphen",
+      "note": "Hyphenated variant; canonical clean path is /mystudy (already linked from nav).",
+      "aliases": ["/my-study", "/my-study/"],
+      "redirect": { "to": "/mystudy", "status": 301 }
+    },
+    {
+      "id": "memorize-clean",
+      "aliases": ["/memorize", "/memorize/"],
+      "rewrite": { "to": "/memorize.html", "status": 200 }
+    },
+    {
+      "id": "explore-clean",
+      "aliases": ["/explore", "/explore/"],
+      "rewrite": { "to": "/explore.html", "status": 200 }
+    },
+    {
+      "id": "site-guide-clean",
+      "aliases": ["/site-guide", "/site-guide/"],
+      "rewrite": { "to": "/site-guide.html", "status": 200 }
+    },
+    {
+      "id": "family-clean",
+      "aliases": ["/family", "/family/"],
+      "rewrite": { "to": "/family.html", "status": 200 }
+    }
+  ]
+}

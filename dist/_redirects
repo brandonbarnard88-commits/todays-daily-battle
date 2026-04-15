@@ -170,6 +170,22 @@
 /plans /plans.html 200!
 /plans/ /plans.html 200!
 
+# URL truth table (see config/urls-truth-table.json) — guessed slugs + clean paths
+/ask-the-word /bible-tool.html?tdb_focus=ask 301
+/ask-the-word/ /bible-tool.html?tdb_focus=ask 301
+/battle-plans /plans 301
+/battle-plans/ /plans 301
+/my-study /mystudy 301
+/my-study/ /mystudy 301
+/memorize /memorize.html 200!
+/memorize/ /memorize.html 200!
+/explore /explore.html 200!
+/explore/ /explore.html 200!
+/site-guide /site-guide.html 200!
+/site-guide/ /site-guide.html 200!
+/family /family.html 200!
+/family/ /family.html 200!
+
 # Why not AI (moat page — clean URL + trailing slash)
 /why-not-ai /why-not-ai.html 200!
 /why-not-ai/ /why-not-ai.html 200!

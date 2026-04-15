@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v220-20260415-kids-gentle-cache';
+const CACHE_NAME = 'tdb-cache-v20260416-perf-offline';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -161,6 +161,15 @@ const CORE_ASSETS = [
   '/kids-corner-daily-verse.js?v=2',
   '/kids-corner-daily-verse.js?v=3',
   '/family.html',
+  '/family-armor.html',
+  '/yearly-rhythm.html',
+  '/year-at-a-glance.html',
+  '/one-week-rhythm.html',
+  '/one-week-rhythm-kids.html',
+  '/verse-image.html',
+  '/site-search-index.json',
+  '/tdb-quiet-luxury.css',
+  '/tdb-calm-hubs.css',
   '/family-activity-packs.html',
   '/family-youth-journal.html',
   '/mission-outreach-packs.html',
@@ -216,7 +225,8 @@ const CORE_ASSETS = [
   '/assets/data/kjv.json',
   '/bible-characters.json',
   '/people-verse-map.js',
-  '/daily-verses.js'
+  '/daily-verses.js',
+  '/register-sw.js'
 ];
 
 const CDN_FUSE_JS = 'https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js';
@@ -591,6 +601,26 @@ self.addEventListener('fetch', (event) => {
             if (res && res.ok) cache.put(event.request, res.clone()).catch(function () {});
             return res;
           });
+        });
+      })
+    );
+    return;
+  }
+
+  // Same-origin images & SVG: stale-while-revalidate (fast paint from cache, refresh in background)
+  if (sameOrigin && /\.(png|jpe?g|gif|webp|svg|ico)(\?|$)/i.test(url.pathname)) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function (cache) {
+        return cache.match(event.request).then(function (cached) {
+          var net = fetch(event.request).then(function (res) {
+            if (res && res.ok) cache.put(event.request, res.clone()).catch(function () {});
+            return res;
+          });
+          if (cached) {
+            net.catch(function () {});
+            return cached;
+          }
+          return net;
         });
       })
     );

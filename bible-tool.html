@@ -91,6 +91,7 @@
     .bible-tool .verse-ref { font-weight: 600; }
     .bible-tool .lookup-controls select:focus, .bible-tool .lookup-controls input:focus { outline: 2px solid rgba(167, 139, 250, 0.6); outline-offset: 2px; }
     .bible-tool #lookup-result { scroll-margin-top: 1rem; }
+    .bible-tool #ask-the-word-section { scroll-margin-top: 5rem; }
     .bible-tool .plan-progress-bar { height: 8px; background: rgba(148,163,184,0.2); border-radius: 4px; overflow: hidden; margin: 0.5rem 0; }
     .bible-tool .plan-progress-fill { height: 100%; background: linear-gradient(90deg, #6d28d9, #d4af37); border-radius: 4px; transition: width 0.3s ease; }
     .bible-tool .plan-day-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 6px; background: rgba(212,175,55,0.2); color: #d4af37; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
@@ -549,6 +550,7 @@
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
         <a href="/verse.html">Today&rsquo;s Verse</a>
+        <a href="/daily-rhythm.html">Daily Rhythm</a>
         <a href="/#feel-section">How I Feel</a>
         <a href="/prayer-wall.html">Pray</a>
         <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
@@ -558,7 +560,7 @@
             <a href="/">Home</a>
             <a href="/explore.html">Explore</a>
             <a href="/mystudy">My Study</a>
-            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader" aria-current="page">Bible Tool</a>
             <a href="/plans.html">Battle Plans</a>
             <a href="/memorize.html">Memorize</a>
             <a href="/kids/corner.html">Kids &amp; Family</a>
@@ -2604,6 +2606,40 @@
         }
       });
     })();
+  })();
+  </script>
+  <script nonce="tdb2025s">
+  (function () {
+    function tdbFocusAskTheWord() {
+      try {
+        var sp = new URLSearchParams(window.location.search || '');
+        var hash = (window.location.hash || '').replace(/^#/, '');
+        var fromQuery = sp.get('tdb_focus') === 'ask';
+        var fromHash = hash === 'ask-the-word-section';
+        if (!fromQuery && !fromHash) return;
+        var el = document.getElementById('ask-the-word-section');
+        if (!el) return;
+        var y = el.getBoundingClientRect().top + window.scrollY - 12;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        window.setTimeout(function () {
+          var input = document.getElementById('bible-qa-search');
+          if (input && typeof input.focus === 'function') {
+            try {
+              input.focus({ preventScroll: true });
+            } catch (e) {
+              input.focus();
+            }
+          }
+        }, 400);
+        if (fromQuery) {
+          try {
+            window.history.replaceState({}, '', window.location.pathname + '#ask-the-word-section');
+          } catch (e) {}
+        }
+      } catch (e) {}
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tdbFocusAskTheWord);
+    else tdbFocusAskTheWord();
   })();
   </script>
 </body>

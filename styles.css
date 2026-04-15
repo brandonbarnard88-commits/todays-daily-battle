@@ -7006,6 +7006,13 @@ html[data-theme="light"] .btn-primary {
   outline: 2px dashed var(--color-accent);
   outline-offset: 2px;
 }
+
+/* Verse of day / sacred clusters: solid ring reads cleaner with dashed .btn default */
+.verse-card-actions.calm-actions > .btn-primary:focus-visible,
+.verse-card-actions.calm-actions > .btn-secondary:focus-visible {
+  outline: 2px solid var(--tdb-focus-ring, var(--color-accent));
+  outline-offset: 3px;
+}
 .btn:active {
   transform: translateY(0);
 }
@@ -19827,6 +19834,248 @@ html[data-tdb-contrast="high"] .card {
   .tdb-support-waitlist-row .btn,
   .tdb-support-waitlist-row input {
     width: 100%;
+  }
+}
+
+/* =============================================================================
+   Print — paper-quiet (screen unchanged). Serif stack; ink-economy; calm margins.
+   ============================================================================= */
+@media print {
+  @page {
+    margin: 12mm 14mm 14mm 14mm;
+  }
+
+  html {
+    font-size: 12pt;
+  }
+
+  body {
+    background: #fff !important;
+    color: #1a1a1a !important;
+    font-family: Georgia, 'Palatino Linotype', Palatino, 'Book Antiqua', 'Liberation Serif', serif !important;
+    line-height: 1.5;
+    widows: 3;
+    orphans: 3;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: economy;
+    print-color-adjust: economy;
+  }
+
+  .app-shell {
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  .app-content {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  a:visited {
+    color: #000 !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+    color: #000 !important;
+  }
+
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  blockquote {
+    page-break-inside: avoid;
+  }
+
+  .glass {
+    background: #fff !important;
+    background-image: none !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+
+  /* Site chrome */
+  .skip-link,
+  .top-bar,
+  .tdb-global-nav,
+  .tdb-global-subnav,
+  .tdb-shell-account-strip,
+  .tdb-header-account-nudge,
+  .tdb-lang-switcher-header-wrap,
+  .sidebar,
+  .header-menu-link,
+  .site-footer,
+  .site-footer-share-wrap,
+  .footer-build-stamp,
+  .tdb-offline-strip,
+  .tdb-float-share-verse,
+  .tdb-verse-ribbon-fab,
+  .privacy-consent-overlay,
+  .easter-banner-vod,
+  .share-page-btn {
+    display: none !important;
+  }
+
+  /* Verse of the Day */
+  .tdb-verse-page .verse-hero .cta-group,
+  .tdb-verse-page .verse-card-actions,
+  .tdb-verse-page .verse-listen-wrap,
+  .tdb-verse-page .verse-save-hint,
+  .tdb-verse-page .verse-prayer-wall-nudge,
+  .tdb-verse-page .verse-study-hint,
+  .tdb-verse-page .verse-word-study-wrap {
+    display: none !important;
+  }
+
+  .tdb-verse-page .hero-banner.verse-hero {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 0 0.6rem !important;
+  }
+
+  .tdb-verse-page .verse-of-day.glass,
+  .tdb-verse-page #verse-of-day {
+    page-break-inside: avoid;
+  }
+
+  .tdb-verse-page .daily-verse-ref {
+    font-size: 11pt !important;
+    color: #000 !important;
+  }
+
+  .tdb-verse-page .daily-verse-text,
+  .tdb-verse-page .daily-verse-body {
+    font-size: 14pt !important;
+    line-height: 1.45 !important;
+    color: #111 !important;
+  }
+
+  .tdb-verse-page blockquote.daily-verse-body {
+    border-left: 3px solid #222 !important;
+    padding-left: 0.75rem !important;
+    margin: 0.35rem 0 0 !important;
+  }
+
+  /* Battle plans */
+  .plans-page .plans-plan-filter-bar,
+  .plans-page .plans-recommended-today,
+  .plans-page #plan-suggestions,
+  .plans-page .plans-audio-roadmap,
+  .plans-page .plans-url-hint,
+  .plans-page .plans-memory-activities-teaser,
+  .plans-page .day-pills,
+  .plans-page .plans-detail-nav-hint,
+  .plans-page .detail-back-btn,
+  .plans-page .plans-home-link {
+    display: none !important;
+  }
+
+  .plans-page .plan-detail .btn,
+  .plans-page .day-card .btn,
+  .plans-page .detail-progress-wrap,
+  .plans-page .streak-banner,
+  .plans-page .btn-share,
+  .plans-page .btn-extend,
+  .plans-page .btn-restart,
+  .plans-page .plan-loop-ribbon-actions {
+    display: none !important;
+  }
+
+  .plans-page .day-card,
+  .plans-page .plan-detail-dawn-band {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  .plans-page .day-card-verse-text {
+    font-size: 13pt !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Memorize — keep verse card & list legible; drop controls */
+  main.mem-main button,
+  main.mem-main input,
+  main.mem-main textarea {
+    display: none !important;
+  }
+
+  main.mem-main #mem-card:not(.hidden) {
+    display: block !important;
+    border: 1px solid #333 !important;
+    padding: 1rem !important;
+    page-break-inside: avoid;
+    background: #fff !important;
+  }
+
+  main.mem-main .mem-ref,
+  main.mem-main .mem-body {
+    color: #111 !important;
+  }
+
+  /* Family hub */
+  .family-hub-deep-page .tdb-primary-site-nav,
+  .family-hub-deep-page .plans-back,
+  .family-hub-deep-page .tdb-soft-retry-row,
+  .family-hub-deep-page .family-hub-tour-nudge {
+    display: none !important;
+  }
+
+  .family-hub-page .family-hub-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    background: #fff !important;
+  }
+
+  .family-hub-page .family-verse-card,
+  .family-hub-page .family-prayer-wall,
+  .family-hub-page .family-plan-card {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  /* Family Armor workspace */
+  body.family-armor-page .family-armor-chapel-main::before,
+  body.family-armor-page .family-armor-chapel-main::after {
+    display: none !important;
+  }
+
+  body.family-armor-page .hero-banner,
+  body.family-armor-page .glass.family-armor-panel,
+  body.family-armor-page .family-armor-hero-verse-frame,
+  body.family-armor-page .family-armor-lux-card {
+    box-shadow: none !important;
+    animation: none !important;
+    border-color: #ccc !important;
+    background: #fff !important;
+  }
+
+  /* Year-round rhythm hub */
+  .yearly-rhythm-hub .memory-table,
+  .yearly-rhythm-hub .yr-planner-sheet,
+  .yearly-rhythm-hub .yr-print-zone,
+  .yearly-rhythm-hub .yr-plain-planner-wrap {
+    page-break-inside: avoid;
+  }
+
+  .yearly-rhythm-hub .memory-table th,
+  .yearly-rhythm-hub .memory-table td {
+    border-color: #999 !important;
   }
 }
 

@@ -4,6 +4,7 @@
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260415privacyfix"></script>
+  <script src="/register-sw.js" defer></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="../analytics-loader.js"></script>
@@ -115,6 +116,10 @@
           <p class="kids-battle-tagline" id="kids-hero-tagline">Two minutes. One verse. One prayer. You're a hero!</p>
         </header>
 
+        <p class="section-note kids-family-kids-crossnav" style="margin: 0 auto 1.1rem; max-width: 42rem; text-align: center; line-height: 1.55;">
+          Parents: <a href="../family.html">Family hub</a><span aria-hidden="true"> · </span><a href="../printables.html">Print hub</a><span aria-hidden="true"> · </span><a href="../yearly-rhythm.html">Year-round rhythm</a><span aria-hidden="true"> · </span><a href="../family-armor.html">Family Armor</a>
+        </p>
+
         <section class="glass" role="region" aria-label="Little ones first stop">
           <h2 class="kids-section-title">Need one calmer first stop?</h2>
           <p class="section-note">If you want the verse, one story, and matching coloring in one place, start at <a href="../little-ones.html">For the Little Ones</a>. The full Kids Battle home still stays here when you want all the paths.</p>
@@ -161,22 +166,22 @@
           <p class="section-note util-mt-0_75">Ages 3&ndash;4 with a grown-up: start with <a href="../coloring.html?story=jesus">Jesus &amp; the children</a> or <a href="../coloring.html?story=creation">Creation</a>, say one short line from today&rsquo;s verse, then stop while it still feels warm.</p>
           <div class="kids-preview-strip" role="list" aria-label="What kids can do here tonight">
             <a href="../kids-corner.html" class="kids-preview-card" role="listitem">
-              <img src="panel-david.svg" alt="Quick Bible loop preview" width="120" height="96">
+              <img src="panel-david.svg" alt="Quick Bible loop preview" width="120" height="96" loading="lazy" decoding="async">
               <span class="kids-preview-card-label">Loops</span>
               <span class="kids-preview-card-copy">10-15 second replay-safe cartoons for a quick calm reset.</span>
             </a>
             <a href="corner.html?story=noah" class="kids-preview-card" role="listitem">
-              <img src="panel-noah.svg" alt="Bible story preview" width="120" height="96">
+              <img src="panel-noah.svg" alt="Bible story preview" width="120" height="96" loading="lazy" decoding="async">
               <span class="kids-preview-card-label">Stories</span>
               <span class="kids-preview-card-copy">Read-along cards, comic panels, and gentle quizzes when you have a few more minutes.</span>
             </a>
             <a href="../coloring.html?story=jesus-children" class="kids-preview-card" role="listitem">
-              <img src="panel-jesus.svg" alt="Coloring preview" width="120" height="96">
+              <img src="panel-jesus.svg" alt="Coloring preview" width="120" height="96" loading="lazy" decoding="async">
               <span class="kids-preview-card-label">Color &amp; Tell</span>
               <span class="kids-preview-card-copy">Paint one scene, save it on this device, and watch your own slideshow later.</span>
             </a>
             <a href="prayer-activities.html" class="kids-preview-card" role="listitem">
-              <img src="panel-daniel.svg" alt="Prayer habit preview" width="120" height="96">
+              <img src="panel-daniel.svg" alt="Prayer habit preview" width="120" height="96" loading="lazy" decoding="async">
               <span class="kids-preview-card-label">Prayer habits</span>
               <span class="kids-preview-card-copy">Paper chains, five-finger prayer, and simple screen-light ideas for heavy days.</span>
             </a>
@@ -191,28 +196,28 @@
           <div class="kids-path-picker-grid">
             <a href="../kids-corner.html" class="kids-path-card kids-path-card-loops">
               <span class="kids-path-card-age">Best for ages 5-8</span>
-              <img src="panel-david.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
+              <img src="panel-david.svg" alt="" class="kids-path-card-thumb" width="200" height="140" loading="lazy" decoding="async">
               <span class="kids-path-card-emoji" aria-hidden="true">🎬</span>
               <span class="kids-path-card-label">Quick Bible loops</span>
               <span class="kids-path-card-hint">Short, bouncy cartoons—replay-safe when little hearts need calm.</span>
             </a>
             <a href="corner.html" class="kids-path-card kids-path-card-stories">
               <span class="kids-path-card-age">Best for ages 7-11</span>
-              <img src="panel-noah.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
+              <img src="panel-noah.svg" alt="" class="kids-path-card-thumb" width="200" height="140" loading="lazy" decoding="async">
               <span class="kids-path-card-emoji" aria-hidden="true">📚</span>
               <span class="kids-path-card-label">Full Bible stories</span>
               <span class="kids-path-card-hint">Read-along words, comic panels, and gentle quizzes live in the Library. Some stories add a short YouTube preview.</span>
             </a>
             <a href="../coloring.html" class="kids-path-card kids-path-card-color">
               <span class="kids-path-card-age">Best for ages 5-10</span>
-              <img src="panel-jesus.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
+              <img src="panel-jesus.svg" alt="" class="kids-path-card-thumb" width="200" height="140" loading="lazy" decoding="async">
               <span class="kids-path-card-emoji" aria-hidden="true">🖍️</span>
               <span class="kids-path-card-label">Color &amp; create</span>
               <span class="kids-path-card-hint">Tap a big picture, paint on the page, print for the fridge—KJV line on each sheet.</span>
             </a>
             <a href="prayer-activities.html" class="kids-path-card kids-path-card-prayer">
               <span class="kids-path-card-age">Best for any age with a grown-up</span>
-              <img src="panel-daniel.svg" alt="" class="kids-path-card-thumb" width="200" height="140">
+              <img src="panel-daniel.svg" alt="" class="kids-path-card-thumb" width="200" height="140" loading="lazy" decoding="async">
               <span class="kids-path-card-emoji" aria-hidden="true">🙏</span>
               <span class="kids-path-card-label">Calm prayer habits</span>
               <span class="kids-path-card-hint">Five-finger prayer, thank-you slips, paper chains—screen-light, ties to today&rsquo;s verse. Printable sheet inside.</span>
@@ -337,19 +342,19 @@
           <h2 class="kids-section-title sr-only">Today's Story</h2>
           <div class="kids-panels-row">
             <a href="corner.html?story=david" class="kids-panel" aria-label="Read the David and Goliath story" data-prompt="Young David with sling, heroic pose, comic book style, bold colors, speech bubble, big eyes, kid-friendly, no violence, Sunday school illustration">
-              <img src="panel-david.svg" alt="David and Goliath — be brave like David" width="200" height="160">
+              <img src="panel-david.svg" alt="David and Goliath — be brave like David" width="200" height="160" loading="lazy" decoding="async">
             </a>
             <a href="corner.html?story=noah" class="kids-panel" aria-label="Read the Noah's Ark story" data-prompt="Noah's ark with animals, rainbow, comic style, bright colors, friendly animals, two by two, kid-safe">
-              <img src="panel-noah.svg" alt="Noah's ark — God keeps His promises" width="200" height="160">
+              <img src="panel-noah.svg" alt="Noah's ark — God keeps His promises" width="200" height="160" loading="lazy" decoding="async">
             </a>
             <a href="corner.html?story=jesus" class="kids-panel" aria-label="Read the story of Jesus and the children" data-prompt="Jesus with children, warm embrace, comic book style, gentle colors, speech bubble, big eyes, safe and loving">
-              <img src="panel-jesus.svg" alt="Jesus loves the little children" width="200" height="160">
+              <img src="panel-jesus.svg" alt="Jesus loves the little children" width="200" height="160" loading="lazy" decoding="async">
             </a>
             <a href="corner.html?story=daniel" class="kids-panel" aria-label="Read the Daniel and the lions story" data-prompt="Daniel in lions den, angel with lions, comic style, brave and calm, kid-safe, no violence">
-              <img src="panel-daniel.svg" alt="Daniel and the lions — God protects the brave" width="200" height="160">
+              <img src="panel-daniel.svg" alt="Daniel and the lions — God protects the brave" width="200" height="160" loading="lazy" decoding="async">
             </a>
             <a href="corner.html?story=jonah" class="kids-panel" aria-label="Read the Jonah and the big fish story" data-prompt="Jonah and the whale, comic style, bright colors, God's second chance, kid-friendly">
-              <img src="panel-jonah.svg" alt="Jonah and the big fish — God gives second chances" width="200" height="160">
+              <img src="panel-jonah.svg" alt="Jonah and the big fish — God gives second chances" width="200" height="160" loading="lazy" decoding="async">
             </a>
           </div>
         </section>
@@ -389,7 +394,7 @@
         <section class="kids-bible-cartoon glass" role="region" aria-label="Today's story illustration">
           <div id="kids-cartoon-container">
             <div class="bible-cartoon cartoon-slide-david" id="kids-bible-cartoon">
-              <img src="panel-david.svg" alt="David with slingshot" class="cartoon-img" id="kids-cartoon-img" width="200" height="160">
+              <img src="panel-david.svg" alt="David with slingshot" class="cartoon-img" id="kids-cartoon-img" width="200" height="160" loading="lazy" decoding="async">
               <p class="cartoon-caption" id="kids-cartoon-caption">David trusted God to be strong!</p>
             </div>
           </div>
@@ -419,7 +424,7 @@
           <h2 class="kids-section-title">Story of the Day</h2>
           <div id="kids-story-of-day-inner" class="kids-story-of-day-inner">
             <a href="corner.html" class="kids-story-of-day-link">
-              <img id="kids-story-of-day-thumb" src="panel-david-1.svg" alt="" class="kids-story-of-day-thumb">
+              <img id="kids-story-of-day-thumb" src="panel-david-1.svg" alt="" class="kids-story-of-day-thumb" loading="lazy" decoding="async">
               <div class="kids-story-of-day-content">
                 <p id="kids-story-of-day-title" class="kids-story-of-day-title">David & Goliath</p>
                 <p id="kids-story-of-day-caption" class="kids-story-of-day-caption">Swipe in Kids Story Library to see!</p>

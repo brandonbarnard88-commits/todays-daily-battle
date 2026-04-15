@@ -131,24 +131,46 @@
     }
    
     @media print {
+      @page {
+        margin: 12mm 14mm;
+      }
+
       body {
         background: white !important;
         color: #000 !important;
-        padding: 30px 40px !important;
+        padding: 0 !important;
         box-shadow: none !important;
-        font-size: 14.5pt !important;
+        font-size: 12.5pt !important;
+        line-height: 1.55 !important;
+        orphans: 3;
+        widows: 3;
       }
-      .day { box-shadow: none !important; border: 1px solid #ccc !important; padding: 22px !important; }
-      .drawing-area { min-height: 220px !important; border: 2px dotted #999 !important; background: white !important; }
-      .writing-area { min-height: 130px !important; border: 1px dotted #999 !important; background: white !important; }
-      h1 { font-size: 28pt !important; }
-      .subtitle, .verse { font-size: 14.5pt !important; }
+      .day {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        padding: 18px 20px !important;
+        page-break-inside: avoid;
+      }
+      .family-prompt {
+        page-break-inside: avoid;
+        border-color: #999 !important;
+      }
+      .drawing-area { min-height: 200px !important; border: 2px dotted #999 !important; background: white !important; }
+      .writing-area { min-height: 120px !important; border: 1px dotted #999 !important; background: white !important; }
+      h1 { font-size: 24pt !important; page-break-after: avoid; }
+      h2 { page-break-after: avoid; }
+      .subtitle, .verse { font-size: 12.5pt !important; }
+      .print-note, .footer { font-size: 10.5pt !important; }
     }
   </style>
 </head>
 <body>
   <h1>One Week of Quiet Rhythm</h1>
   <p class="subtitle">Kids & Family Edition<br>A gentle time to meet with Jesus together</p>
+
+  <p class="print-note" style="margin-top: 0; margin-bottom: 32px; max-width: 40rem; margin-left: auto; margin-right: auto;">
+    Same family thread on the site: <a href="family.html">Family hub</a> · <a href="printables.html">Print hub</a> · <a href="yearly-rhythm.html">Year-round rhythm</a>
+  </p>
   
   <div class="verse">
     “In the morning, O Lord, Thou wilt hear my voice…” (Psalm 5:3, KJV)

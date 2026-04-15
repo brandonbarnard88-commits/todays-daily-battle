@@ -6,45 +6,16 @@
  */
 import fs from 'fs';
 import path from 'path';
-import vm from 'vm';
 import { fileURLToPath } from 'url';
+import { loadYear365, pickVerseForToday, utcDayOfYear } from './lib/hero-daily-verse-pick.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const distIndex = path.join(root, 'dist', 'index.html');
-const dataPath = path.join(root, 'hero-daily-365-data.js');
 
 function fail(msg) {
   console.error('inject-home-hero:', msg);
   process.exit(1);
-}
-
-function loadYear365() {
-  const code = fs.readFileSync(dataPath, 'utf8');
-  const ctx = {};
-  ctx.window = ctx;
-  ctx.globalThis = ctx;
-  vm.createContext(ctx);
-  vm.runInContext(code, ctx);
-  const arr = ctx.__TDB_HERO_DAILY_YEAR;
-  if (!Array.isArray(arr) || !arr.length) {
-    fail('could not read __TDB_HERO_DAILY_YEAR from hero-daily-365-data.js');
-  }
-  return arr;
-}
-
-function utcDayOfYear() {
-  const d = new Date();
-  const y = d.getUTCFullYear();
-  const jan1 = Date.UTC(y, 0, 1);
-  const todayUtc = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
-  return Math.floor((todayUtc - jan1) / 86400000) + 1;
-}
-
-function pickVerse(arr) {
-  const dayOfYear = utcDayOfYear();
-  const idx = (dayOfYear - 1) % arr.length;
-  return arr[idx];
 }
 
 function escapeHtmlText(s) {
@@ -78,8 +49,8 @@ function main() {
   if (!fs.existsSync(distIndex)) {
     fail('dist/index.html missing — run build-copy-static first.');
   }
-  const year365 = loadYear365();
-  const v = pickVerse(year365);
+  const year365 = loadYear365(root);
+  const v = pickVerseForToday(year365);
   if (!v || !v.ref || !v.text) {
     fail('invalid verse from 365 list');
   }

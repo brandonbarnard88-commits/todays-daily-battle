@@ -6,6 +6,17 @@
  * Public APIs locked: getSearchOutputElement(22318), wireSmartSearch early-return on #feelSuggestDropdown(30155+), TDB_TOPICS(2979), runSearchWithInput(stub 335/impl 25191).
  * Safe pure for extraction to daily-battle-core.js (Strangler Fig facade at 2580): getVerseBreakdown(12567), normalizeBibleRef(12512), parseBookFromRef(12528), rephraseArchaic(12538), inferApplies(12551), getBibleVerseText(12592), getDailyVerseRef*, getVerseContext(13169), getRelatedRefsForVerse(13472+), normalizeEmotionSignal(13405), offline pure helpers, DAILY_VERSE_SAFE_REFS/BOOK_CONTEXT/ARCHAIC_WORDS/ROTATING_HERO_VERSES data. Aligns to KJV-only, breakdown template, concordance (meaning/action/outcome), offline cache rule. No DOM/search/wiring moved. Tests pass.
  */
+(function tdbEnsureRegisterSwScript() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (typeof window.tdbRegisterServiceWorker === 'function') return;
+  if (!('serviceWorker' in navigator)) return;
+  if (document.querySelector('script[data-tdb-sw-register]')) return;
+  var s = document.createElement('script');
+  s.src = '/register-sw.js';
+  s.defer = true;
+  s.setAttribute('data-tdb-sw-register', '1');
+  (document.head || document.documentElement).appendChild(s);
+})();
 (function initTrustedTypesPolicy() {
   if (typeof window === 'undefined' || !window.trustedTypes || !window.trustedTypes.createPolicy) return;
   if (window.trustedTypes.defaultPolicy) return;
@@ -25969,52 +25980,7 @@ async function tdbInitImpl() {
     }
     updateChallengeBannerState();
   }
-  // SW registration URL must match index.html, kids/kids-battle.js, firebase-push.js — bump repo SW-VERSION together.
-  if ('serviceWorker' in navigator) {
-    (function () {
-      function registerSW() {
-        return new Promise(function (resolve, reject) {
-          if (typeof window !== 'undefined' && window.__tdbSwRegisterStarted) {
-            navigator.serviceWorker.getRegistration('/').then(function (r) { resolve(r || null); }).catch(function () { resolve(null); });
-            return;
-          }
-          if (typeof window !== 'undefined') window.__tdbSwRegisterStarted = true;
-          navigator.serviceWorker.register('/sw.js?v=20260405-sw-refresh', { scope: '/', updateViaCache: 'none' })
-            .then(function (reg) {
-              if (!reg) { resolve(null); return; }
-              navigator.serviceWorker.getRegistration('/').then(function (fresh) {
-                if (fresh && (fresh.active || fresh.installing || fresh.waiting)) {
-                  try {
-                    fresh.update().then(function () {
-                    }).catch(function () {});
-                  } catch (e) {}
-                } else {
-                }
-                resolve(reg);
-              }).catch(function () { resolve(reg); });
-            })
-            .catch(function (e) {
-              if (typeof window !== 'undefined') window.__tdbSwRegisterStarted = false;
-              if (typeof console !== 'undefined' && console.error) {
-                console.error('SW registration failed:', e.message);
-              }
-              reject(e);
-            });
-        });
-      }
-      if (document.readyState === 'complete') {
-        tdbRunWhenIdle(registerSW, 4000);
-      } else {
-        window.addEventListener('load', function () {
-          tdbRunWhenIdle(registerSW, 4000);
-        });
-      }
-      navigator.serviceWorker.addEventListener('message', function (event) {
-        if (!event || !event.data || event.data.type !== 'TDB_FLUSH_PRAYER_QUEUE') return;
-        if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
-      });
-    })();
-  }
+  // Service worker: single registration in /register-sw.js (load before this bundle on pages that use SW).
   // Cloudflare beacon loads via loadDeferredThirdParty on window load
   wireOfflineBanner();
   tdbRunWhenIdle(function () {

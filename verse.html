@@ -266,7 +266,8 @@
         <span class="tdb-nav-flyout-toggle__label">Site</span>
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
-        <a href="/verse.html">Today&rsquo;s Verse</a>
+        <a href="/verse.html" aria-current="page">Today&rsquo;s Verse</a>
+        <a href="/daily-rhythm.html">Daily Rhythm</a>
         <a href="/#feel-section">How I Feel</a>
         <a href="/prayer-wall.html">Pray</a>
         <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
@@ -364,7 +365,7 @@
               <p id="verse-listen-hint" class="hint">KJV loads on this device—tap Listen slow for a calm read-through. When cloud audio is enabled on the site, that plays first; offline, your device reads aloud.</p>
               <button type="button" id="verse-listen-btn" class="btn btn-secondary tdb-verse-listen-btn" aria-describedby="verse-listen-hint" aria-label="Listen slow to this verse on your device" aria-pressed="false">Listen slow</button>
               <details class="verse-listen-options" id="verse-listen-options">
-                <summary>Natural voice options</summary>
+                <summary aria-label="More options for Listen slow: pace, pauses, and undertone">Natural voice options</summary>
                 <div class="verse-listen-options-grid">
                   <label for="verse-listen-rate">Pace
                     <select id="verse-listen-rate" aria-label="Verse narration pace">
@@ -385,8 +386,8 @@
                 </div>
               </details>
             </div>
-            <button type="button" id="verse-page-share" class="btn btn-primary">Share this verse</button>
-            <button type="button" id="verse-page-share-encourage" class="btn btn-secondary">Share with someone who needs it</button>
+            <button type="button" id="verse-page-share" class="btn btn-primary" aria-label="Share today&apos;s KJV verse (device share or copy link)">Share this verse</button>
+            <button type="button" id="verse-page-share-encourage" class="btn btn-secondary" aria-label="Share verse with a short encouraging note for someone who is struggling">Share with someone who needs it</button>
             <button type="button" id="verse-page-copy" class="btn btn-secondary" aria-label="Copy verse and link to clipboard">Copy verse</button>
             <button type="button" id="verse-page-save-my-verses" class="btn btn-secondary" aria-describedby="verse-save-hint-text" aria-label="Save today&apos;s verse to My Study on this device">Save to My Study</button>
             <a href="memorize.html" class="btn btn-secondary" id="verse-page-memorize-link" aria-label="Open gentle memorize tools for today&apos;s verse">Memorize</a>
@@ -394,7 +395,7 @@
               <span id="verse-study-hint" class="verse-study-hint">Slow on one word—concordance and short glosses stay on your device.</span>
               <button type="button" id="verse-page-word-study" class="btn btn-secondary" data-tdb-wordstudy-ref="Philippians 4:6" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." aria-describedby="verse-study-hint" aria-label="Open verse study for Philippians 4:6">Study this verse</button>
             </div>
-            <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy verse and share link">Pray this with me</button>
+            <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy a short prayer line and link for today&apos;s verse">Pray this with me</button>
           </div>
           <p id="verse-save-hint-text" class="section-note verse-save-hint">Saved verses appear in <a href="/mystudy?tab=library#saved-verses">My Study</a>—the same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="memorize.html" id="verse-save-hint-memorize">Memorize</a> opens the same verse on a private card. All verses are from the KJV.</p>
           <p class="section-note verse-prayer-wall-nudge">If naming the burden in a line or two would help—no account, no name—there is <a href="/prayer-wall.html?tab=with-others">Prayer</a>. Entirely optional. No rush.</p>
@@ -402,7 +403,7 @@
         </section>
       </div>
 
-      <button type="button" class="tdb-float-share-verse tdb-float-share-verse--above-ribbon" id="tdb-float-share-verse-page" aria-label="Share this verse">Share verse</button>
+      <button type="button" class="tdb-float-share-verse tdb-float-share-verse--above-ribbon" id="tdb-float-share-verse-page" aria-label="Share today&apos;s KJV verse">Share verse</button>
 
       <div class="tdb-verse-ribbon-fab" id="tdbVerseRibbonFab" aria-label="Optional ribbon note on this device">
         <div id="tdb-verse-ribbon-panel" class="tdb-verse-ribbon-panel" hidden>

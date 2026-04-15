@@ -3330,7 +3330,10 @@
       border-color: var(--gold);
       color: var(--text);
       box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 35%, transparent);
-      outline: none;
+    }
+    .hero-toolbar-btn:focus-visible {
+      outline: 2px solid var(--gold, #e3bc67);
+      outline-offset: 3px;
     }
     .header-battle-plans--solo {
       flex: 1 1 auto;
@@ -7525,7 +7528,7 @@
         </button>
         <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-home">
           <a href="/verse.html">Today&rsquo;s Verse</a>
-          <a href="/#feel-section">How I Feel</a>
+          <a href="/#feel-section" aria-current="page">How I Feel</a>
           <a href="/prayer-wall.html">Pray</a>
           <details class="tdb-nav-more">
             <summary aria-haspopup="true">More</summary>
@@ -7859,7 +7862,7 @@
               </div>
             </div>
             <div class="hero-family-mode-links">
-              <button type="button" class="btn btn-secondary" id="tdbFamilyModeListen">Read this with kids</button>
+              <button type="button" class="btn btn-secondary" id="tdbFamilyModeListen" aria-label="Read today&apos;s verse aloud with kids using device speech, calm pace">Read this with kids</button>
               <a class="btn btn-primary" id="tdbFamilyModeStory" href="/kids/corner.html">Matching story</a>
               <a class="btn btn-secondary" id="tdbFamilyModeColor" href="/coloring.html">Color it</a>
               <a class="btn btn-secondary" id="tdbFamilyModePrayerLink" href="/kids/prayer-activities.html">Prayer habit</a>
@@ -10250,22 +10253,7 @@
       });
     }());
 
-    // ── Service Worker (delayed to avoid blocking initial load). Bump repo SW-VERSION with script.js / kids / firebase-push. ──
-    function registerServiceWorker() {
-      if (!("serviceWorker" in navigator)) return;
-      var doReg = function () {
-        if (window.__tdbSwRegisterStarted) return;
-        window.__tdbSwRegisterStarted = true;
-        navigator.serviceWorker.register("/sw.js?v=20260405-sw-refresh", { scope: "/", updateViaCache: "none" }).catch(function () {
-          window.__tdbSwRegisterStarted = false;
-        });
-      };
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(doReg, { timeout: 2000 });
-      } else {
-        setTimeout(doReg, 1);
-      }
-    }
+    // ── Service Worker: loaded once via /register-sw.js (head, defer) — no duplicate registration here. ──
 
     // ── Daily prayer counter (anonymous, localStorage, midnight reset) ──
     const PRAYER_DAILY_KEY_PREFIX = 'tdb-prayers-day-';
@@ -12594,7 +12582,6 @@
     ) {
       wirePrayerWall();
     }
-    registerServiceWorker();
     wireVoiceSearch();
     wireHeroClickMenu();
     wireHeroImageBtn();

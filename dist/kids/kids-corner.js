@@ -3727,12 +3727,20 @@
   /** Default humility nudge after a wrong MC answer (story modal + optional per-pack override). */
   var KIDS_READ_QUIZ_WRONG_HUMILITY_DEFAULT = 'Close—take another slow look at the story above. He is with you in the retry.';
 
+  function sanitizeReadQuizWrongFeedbackText(text) {
+    var raw = String(text || '').trim();
+    if (!raw) return 'Try again—reread the story if you need a clue.';
+    raw = raw.replace(/\s*\(Answer:[\s\S]*?\)\s*$/i, '').trim();
+    raw = raw.replace(/\s*Answer:[\s\S]*$/i, '').trim();
+    return raw || 'Try again—reread the story if you need a clue.';
+  }
+
   function fillKidsReadQuizWrongFeedback(fbEl, mainWrongText, pack, qd) {
     if (!fbEl) return;
     tdbClearHtml(fbEl);
     var main = document.createElement('p');
     main.className = 'kids-read-quiz-feedback-main';
-    main.textContent = tdbPlainTextForUi(mainWrongText || 'Try again—reread the story if you need a clue.');
+    main.textContent = tdbPlainTextForUi(sanitizeReadQuizWrongFeedbackText(mainWrongText));
     fbEl.appendChild(main);
     var humSrc =
       qd && qd.wrongHumilityHint != null && String(qd.wrongHumilityHint).trim() !== ''

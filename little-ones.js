@@ -56,10 +56,24 @@
       imageAlt: 'Storm and boat style preview',
       prompt: 'While you color, ask: What looked scary in the storm? What changed when Jesus spoke peace?',
       familyQuestion: 'What does peace from Jesus sound like in our house tonight?'
+    },
+    'good-shepherd': {
+      title: 'The Good Shepherd',
+      lead: 'A soft comfort story when your child needs to remember that Jesus sees, leads, and keeps His own.',
+      storyHref: '/kids/corner.html?story=psalm23Shepherd',
+      colorHref: '/coloring.html?story=good-shepherd',
+      printHref: '/kids-coloring-pack.html?sheet=good-shepherd&autoprint=1',
+      imageSrc: '/kids/panel-jesus.svg',
+      imageAlt: 'Jesus the Good Shepherd',
+      prompt: 'While you color, ask: What does a good shepherd do? Where do you need Jesus to stay close today?',
+      familyQuestion: 'What helps your child feel safe enough to rest today?'
     }
   };
 
   var AGE_SECTIONS = ['very-young', 'littles', 'family'];
+  var currentStoryKey = 'jesus';
+  var currentAgeSection = 'very-young';
+  var pageSource = 'direct';
 
   function byId(id) {
     return document.getElementById(id);
@@ -92,8 +106,25 @@
     }
   }
 
-  function activateStory(key) {
+  function readQuerySource() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var raw = String(params.get('source') || '').trim().toLowerCase();
+      return /^[a-z0-9_-]{1,24}$/.test(raw) ? raw : 'direct';
+    } catch (e) {
+      return 'direct';
+    }
+  }
+
+  function track(eventName, params) {
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent(eventName, params || {});
+    }
+  }
+
+  function activateStory(key, options) {
     var story = STORY_OPTIONS[key] || STORY_OPTIONS.jesus;
+    currentStoryKey = key in STORY_OPTIONS ? key : 'jesus';
     setText('little-ones-feature-title', story.title);
     setText('little-ones-feature-lead', story.lead);
     setText('little-ones-feature-prompt', story.prompt);
@@ -109,19 +140,36 @@
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       btn.classList.toggle('is-active', isActive);
     });
+
+    if (!(options && options.skipTrack)) {
+      track('little_ones_story_pick', {
+        source: pageSource,
+        starter: currentStoryKey,
+        lane: currentAgeSection
+      });
+    }
   }
 
-  function activateAgeSection(targetId) {
+  function activateAgeSection(targetId, options) {
+    currentAgeSection = AGE_SECTIONS.indexOf(targetId) >= 0 ? targetId : 'very-young';
     AGE_SECTIONS.forEach(function (id) {
       var panel = byId('little-ones-age-' + id);
       var tab = byId('little-ones-tab-' + id);
-      var active = id === targetId;
+      var active = id === currentAgeSection;
       if (panel) panel.hidden = !active;
       if (tab) {
         tab.setAttribute('aria-selected', active ? 'true' : 'false');
         tab.classList.toggle('is-active', active);
       }
     });
+
+    if (!(options && options.skipTrack)) {
+      track('little_ones_lane_pick', {
+        source: pageSource,
+        starter: currentStoryKey,
+        lane: currentAgeSection
+      });
+    }
   }
 
   function speakCurrentVerse() {
@@ -135,6 +183,11 @@
     utterance.rate = 0.9;
     utterance.lang = 'en-US';
     window.speechSynthesis.speak(utterance);
+    track('little_ones_verse_speak', {
+      source: pageSource,
+      starter: currentStoryKey,
+      lane: currentAgeSection
+    });
   }
 
   function startDailyVerse() {
@@ -145,20 +198,47 @@
 
   function wire() {
     startDailyVerse();
+    pageSource = readQuerySource();
 
     var initialStory = readQueryStory();
-    activateStory(initialStory);
-    activateAgeSection('very-young');
+    activateStory(initialStory, { skipTrack: true });
+    activateAgeSection('very-young', { skipTrack: true });
+    track('little_ones_open', {
+      source: pageSource,
+      starter: currentStoryKey,
+      lane: currentAgeSection
+    });
 
     document.querySelectorAll('[data-little-ones-story]').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        activateStory(btn.getAttribute('data-little-ones-story'));
+        var nextStory = btn.getAttribute('data-little-ones-story');
+        if (nextStory === currentStoryKey) return;
+        activateStory(nextStory);
       });
     });
 
     document.querySelectorAll('[data-little-ones-age]').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        activateAgeSection(btn.getAttribute('data-little-ones-age'));
+        var nextAge = btn.getAttribute('data-little-ones-age');
+        if (nextAge === currentAgeSection) return;
+        activateAgeSection(nextAge);
+      });
+    });
+
+    [
+      { id: 'little-ones-read-story', action: 'read_story' },
+      { id: 'little-ones-color-story', action: 'color_story' },
+      { id: 'little-ones-print-story', action: 'print_story' }
+    ].forEach(function (item) {
+      var link = byId(item.id);
+      if (!link) return;
+      link.addEventListener('click', function () {
+        track('little_ones_cta', {
+          source: pageSource,
+          action: item.action,
+          starter: currentStoryKey,
+          lane: currentAgeSection
+        });
       });
     });
 

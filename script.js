@@ -1159,6 +1159,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 
   var modalInner = document.createElement('div');
   modalInner.className = 'loop-modal-inner';
+  var modalHeader = document.createElement('div');
+  modalHeader.className = 'modal-header';
   var modalClose = document.createElement('button');
   modalClose.type = 'button';
   modalClose.className = 'loop-modal-close';
@@ -1166,6 +1168,12 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   modalClose.setAttribute('aria-label', 'Close full screen player');
   var modalTitle = document.createElement('h2');
   modalTitle.className = 'loop-modal-title';
+  var gentleReturnRow = document.createElement('div');
+  gentleReturnRow.className = 'gentle-return-row';
+  var gentleReturnLink = document.createElement('a');
+  gentleReturnLink.className = 'gentle-return-btn';
+  gentleReturnLink.href = '#';
+  gentleReturnLink.textContent = 'Back to this gentle story';
   var modalVideo = document.createElement('video');
   modalVideo.id = 'loop-modal-video';
   modalVideo.setAttribute('muted', '');
@@ -1196,8 +1204,11 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 
   modalActions.appendChild(replayBtn);
   modalActions.appendChild(nextBtn);
-  modalInner.appendChild(modalClose);
-  modalInner.appendChild(modalTitle);
+  gentleReturnRow.appendChild(gentleReturnLink);
+  modalHeader.appendChild(modalClose);
+  modalHeader.appendChild(modalTitle);
+  modalInner.appendChild(modalHeader);
+  modalInner.appendChild(gentleReturnRow);
   modalInner.appendChild(modalVideo);
   modalInner.appendChild(modalAudioWrap);
   modalInner.appendChild(modalActions);
@@ -1221,7 +1232,6 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var unlockedLoops = [];
   var currentLoop = null;
   var activeLoopFilter = 'all';
-  var gentleJourneyApi = (typeof window !== 'undefined' && window.TDB_GENTLE_JOURNEY) || null;
   var gentleLoopBridge = {
     active: false,
     primed: false,
@@ -1240,10 +1250,19 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     gentleLoopBridge.storyTitle = String(gentleParams.get('gentleTitle') || '').trim();
     gentleLoopBridge.storyRef = String(gentleParams.get('gentleRef') || '').trim();
     gentleLoopBridge.active = gentleParams.get('gentle') === '1' && (!!gentleLoopBridge.storyKey || !!gentleLoopBridge.storyTitle);
-    if (gentleLoopBridge.active && gentleJourneyApi && typeof gentleJourneyApi.hasKey === 'function' && gentleJourneyApi.hasKey(gentleLoopBridge.storyKey)) {
-      gentleLoopBridge.nextStoryKey = gentleJourneyApi.getNextKey(gentleLoopBridge.storyKey) || '';
-    }
   } catch (e) {}
+
+  function getGentleJourneyApi() {
+    return (typeof window !== 'undefined' && window.TDB_GENTLE_JOURNEY) || null;
+  }
+
+  function refreshGentleLoopBridgeNextKey() {
+    var api = getGentleJourneyApi();
+    if (gentleLoopBridge.active && api && typeof api.hasKey === 'function' && api.hasKey(gentleLoopBridge.storyKey)) {
+      gentleLoopBridge.nextStoryKey = api.getNextKey(gentleLoopBridge.storyKey) || '';
+    }
+    return gentleLoopBridge.nextStoryKey;
+  }
 
   function loopTitleLower(loop) {
     return String(loop && loop.title ? loop.title : '').toLowerCase();
@@ -1282,8 +1301,27 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   }
 
   function getGentleNextStoryHref() {
+    if (!gentleLoopBridge.nextStoryKey) refreshGentleLoopBridgeNextKey();
     if (!gentleLoopBridge.nextStoryKey) return '';
     return '/kids/corner.html?story=' + encodeURIComponent(gentleLoopBridge.nextStoryKey) + '&gentle=1';
+  }
+
+  function getGentleReturnHref() {
+    var nextHref = getGentleNextStoryHref();
+    if (nextHref) return nextHref;
+    if (gentleLoopBridge.storyKey) {
+      return '/kids/corner.html?story=' + encodeURIComponent(gentleLoopBridge.storyKey) + '&gentle=1';
+    }
+    return '';
+  }
+
+  function handleLoopNextAction() {
+    var gentleReturnHref = getGentleReturnHref();
+    if (gentleLoopBridge.active && gentleReturnHref) {
+      location.href = gentleReturnHref;
+      return;
+    }
+    playRandomUnlocked();
   }
 
   function scoreGentleLoopMatch(loop) {
@@ -1789,9 +1827,19 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   function openModal(loop) {
     currentLoop = loop || null;
     if (!currentLoop) return;
+    refreshGentleLoopBridgeNextKey();
+    var gentleReturnHref = getGentleReturnHref();
     modal.classList.remove('is-hidden');
-    nextBtn.classList.add('is-hidden');
-    nextBtn.textContent = gentleLoopBridge.active && gentleLoopBridge.nextStoryKey ? 'Back to next gentle story' : 'Watch next?';
+    modal.classList.toggle('gentle-context', !!(gentleLoopBridge.active && gentleReturnHref));
+    modal.scrollTop = 0;
+    modalInner.scrollTop = 0;
+    if (gentleLoopBridge.active && gentleReturnHref) nextBtn.classList.remove('is-hidden');
+    else nextBtn.classList.add('is-hidden');
+    nextBtn.textContent = gentleLoopBridge.active
+      ? (gentleLoopBridge.nextStoryKey ? 'Back to next gentle story' : 'Back to gentle story library')
+      : 'Watch next?';
+    gentleReturnLink.textContent = gentleLoopBridge.nextStoryKey ? 'Back to next gentle story' : 'Back to this gentle story';
+    gentleReturnLink.href = gentleReturnHref || '#';
     modalTitle.textContent = String(currentLoop.title || 'Bible Loop') + ' • ' + String(currentLoop.ref || '');
     var fileUrl = String(currentLoop.file || '').trim();
     var videoTrusted = typeof trustedScriptURL === 'function' ? trustedScriptURL(fileUrl) : fileUrl;
@@ -1824,6 +1872,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 
   function closeModal() {
     modal.classList.add('is-hidden');
+    modal.classList.remove('gentle-context');
     modalVideo.pause();
     modalVideo.removeAttribute('src');
     modalVideo.load();
@@ -1937,18 +1986,15 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 
   replayBtn.addEventListener('click', function () {
     modalVideo.currentTime = 0;
-    nextBtn.classList.add('is-hidden');
+    if (!(gentleLoopBridge.active && getGentleReturnHref())) nextBtn.classList.add('is-hidden');
     var p = modalVideo.play();
     if (p && typeof p.catch === 'function') p.catch(function () {});
   });
 
-  nextBtn.addEventListener('click', function () {
-    var nextStoryHref = getGentleNextStoryHref();
-    if (gentleLoopBridge.active && nextStoryHref) {
-      location.href = nextStoryHref;
-      return;
-    }
-    playRandomUnlocked();
+  nextBtn.addEventListener('click', handleLoopNextAction);
+  gentleReturnLink.addEventListener('click', function (event) {
+    event.preventDefault();
+    handleLoopNextAction();
   });
 
   modalVideo.addEventListener('ended', function () {
@@ -2182,9 +2228,41 @@ function safeSessionGet(key) {
 
 var TDB_COOKIE_CONSENT_KEY = 'tdb_cookie_consent_v2';
 var TDB_COOKIE_CONSENT_SNOOZE_MS = 24 * 60 * 60 * 1000; // legacy only; no longer used after v2 fix
+var TDB_COOKIE_CONSENT_MAX_AGE_SECONDS = 365 * 24 * 60 * 60;
 
-function readTdbCookieConsentState() {
-  var raw = safeGetItem(TDB_COOKIE_CONSENT_KEY);
+function safeReadCookie(name) {
+  if (typeof document === 'undefined' || typeof name !== 'string' || !name) return '';
+  try {
+    var prefix = name + '=';
+    var pairs = String(document.cookie || '').split(/;\s*/);
+    for (var i = 0; i < pairs.length; i++) {
+      if (pairs[i].indexOf(prefix) === 0) {
+        return decodeURIComponent(pairs[i].slice(prefix.length));
+      }
+    }
+  } catch (_) {}
+  return '';
+}
+
+function safeWriteCookie(name, value, maxAgeSeconds) {
+  if (typeof document === 'undefined' || typeof name !== 'string' || !name) return;
+  try {
+    var parts = [
+      name + '=' + encodeURIComponent(String(value == null ? '' : value)),
+      'Path=/',
+      'SameSite=Lax'
+    ];
+    if (Number(maxAgeSeconds) > 0) {
+      parts.push('Max-Age=' + Math.floor(Number(maxAgeSeconds)));
+    }
+    if (typeof window !== 'undefined' && window.location && window.location.protocol === 'https:') {
+      parts.push('Secure');
+    }
+    document.cookie = parts.join('; ');
+  } catch (_) {}
+}
+
+function parseTdbCookieConsentState(raw) {
   if (!raw) return null;
   try {
     var parsed = JSON.parse(raw);
@@ -2197,6 +2275,18 @@ function readTdbCookieConsentState() {
   } catch (_) {
     return null;
   }
+}
+
+function readTdbCookieConsentState() {
+  var raw = safeGetItem(TDB_COOKIE_CONSENT_KEY);
+  var parsed = parseTdbCookieConsentState(raw);
+  if (parsed) return parsed;
+  raw = safeReadCookie(TDB_COOKIE_CONSENT_KEY);
+  parsed = parseTdbCookieConsentState(raw);
+  if (parsed && !safeGetItem(TDB_COOKIE_CONSENT_KEY)) {
+    safeSetItem(TDB_COOKIE_CONSENT_KEY, raw);
+  }
+  return parsed;
 }
 
 function getTdbCookieConsentStatus() {
@@ -2219,10 +2309,12 @@ function dispatchTdbAnalyticsConsentChange(status) {
 
 function writeTdbCookieConsentState(status) {
   var normalized = status === 'accepted' ? 'accepted' : 'later';
-  safeSetItem(TDB_COOKIE_CONSENT_KEY, JSON.stringify({
+  var payload = JSON.stringify({
     status: normalized,
     updatedAt: Date.now()
-  }));
+  });
+  safeSetItem(TDB_COOKIE_CONSENT_KEY, payload);
+  safeWriteCookie(TDB_COOKIE_CONSENT_KEY, payload, TDB_COOKIE_CONSENT_MAX_AGE_SECONDS);
   dispatchTdbAnalyticsConsentChange(normalized);
 }
 
@@ -2276,18 +2368,12 @@ function ensurePrivacyConsentPopup() {
 
   if (!popup || !acceptBtn) return;
 
-  // Respect existing analytics consent (v2 key used by cookie notice)
-  var hasAccepted = false;
-  try {
-    var raw = localStorage.getItem(CONSENT_KEY) || localStorage.getItem('tdb_cookie_consent_v2');
-    if (raw) {
-      if (raw === 'yes') hasAccepted = true;
-      else {
-        var parsed = JSON.parse(raw);
-        if (parsed && parsed.status === 'accepted') hasAccepted = true;
-      }
-    }
-  } catch (_) {}
+  // Respect either the legacy popup flag or the shared site-wide consent state.
+  var hasAccepted = safeGetItem(CONSENT_KEY) === 'yes' || safeReadCookie(CONSENT_KEY) === 'yes';
+  var consentState = readTdbCookieConsentState();
+  if (consentState && (consentState.status === 'accepted' || consentState.status === 'later')) {
+    hasAccepted = true;
+  }
 
   if (!hasAccepted) {
     popup.hidden = false;
@@ -2299,7 +2385,8 @@ function ensurePrivacyConsentPopup() {
 
   acceptBtn.addEventListener('click', function () {
     try {
-      localStorage.setItem(CONSENT_KEY, 'yes');
+      safeSetItem(CONSENT_KEY, 'yes');
+      safeWriteCookie(CONSENT_KEY, 'yes', TDB_COOKIE_CONSENT_MAX_AGE_SECONDS);
       // Also update analytics consent for consistency
       if (typeof writeTdbCookieConsentState === 'function') {
         writeTdbCookieConsentState('accepted');

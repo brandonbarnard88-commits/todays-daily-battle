@@ -10,6 +10,20 @@
   var bootstrapped = false;
   var disableKey = 'ga-disable-' + GA_ID;
 
+  function readCookie(name) {
+    if (typeof document === 'undefined' || typeof name !== 'string' || !name) return '';
+    try {
+      var prefix = name + '=';
+      var pairs = String(document.cookie || '').split(/;\s*/);
+      for (var i = 0; i < pairs.length; i++) {
+        if (pairs[i].indexOf(prefix) === 0) {
+          return decodeURIComponent(pairs[i].slice(prefix.length));
+        }
+      }
+    } catch (_) {}
+    return '';
+  }
+
   function hasConsent() {
     try {
       if (typeof window.__tdbHasAnalyticsConsent === 'function') {
@@ -17,7 +31,7 @@
       }
     } catch (_) {}
     try {
-      var raw = localStorage.getItem('tdb_cookie_consent_v2') || localStorage.getItem('tdb_cookie_consent_v1');
+      var raw = localStorage.getItem('tdb_cookie_consent_v2') || localStorage.getItem('tdb_cookie_consent_v1') || readCookie('tdb_cookie_consent_v2');
       if (!raw) return false;
       var parsed = JSON.parse(raw);
       return !!(parsed && parsed.status === 'accepted');

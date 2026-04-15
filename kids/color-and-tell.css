@@ -70,6 +70,32 @@
   color: #fde68a;
 }
 
+.tdb-cat-story-bridge {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem 1rem;
+  border-radius: 14px;
+  background: rgba(240, 233, 223, 0.82);
+  border: 1px solid rgba(148, 126, 101, 0.22);
+}
+
+.tdb-cat-story-bridge p {
+  margin: 0 0 0.75rem;
+  color: #5c5346;
+}
+
+.tdb-cat-story-bridge .cta-group {
+  margin: 0;
+}
+
+.dark-mode .tdb-cat-story-bridge {
+  background: rgba(92, 83, 70, 0.28);
+  border-color: rgba(229, 224, 216, 0.18);
+}
+
+.dark-mode .tdb-cat-story-bridge p {
+  color: #f3eadc;
+}
+
 .tdb-cat-progress {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));

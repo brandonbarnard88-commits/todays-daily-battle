@@ -28,6 +28,42 @@
     jesus: 'jesus-children'
   };
 
+  var STORY_RETURN_HANDOFFS = {
+    'jesus-children': {
+      storyHref: '/kids/corner.html?story=jesus',
+      sourceHref: '/little-ones.html',
+      sourceLabel: 'Back to For the Little Ones'
+    },
+    creation: {
+      storyHref: '/kids/corner.html?story=creation',
+      sourceHref: '/little-ones.html',
+      sourceLabel: 'Back to For the Little Ones'
+    },
+    noah: {
+      storyHref: '/kids/corner.html?story=noah',
+      sourceHref: '/little-ones.html',
+      sourceLabel: 'Back to For the Little Ones'
+    },
+    david: {
+      storyHref: '/kids/corner.html?story=david',
+      sourceHref: '/little-ones.html',
+      sourceLabel: 'Back to For the Little Ones'
+    },
+    'jesus-storm': {
+      storyHref: '/kids/corner.html?story=jesusCalmsStorm',
+      sourceHref: '/little-ones.html',
+      sourceLabel: 'Back to For the Little Ones'
+    },
+    'good-shepherd': {
+      storyHref: '/kids/corner.html?story=psalm23Shepherd',
+      sourceHref: '/little-ones.html',
+      sourceLabel: 'Back to For the Little Ones'
+    },
+    'daniel-lions': {
+      storyHref: '/kids/corner.html?story=daniel'
+    }
+  };
+
   var PALETTE = [
     'rgba(220, 38, 38, 0.95)',
     'rgba(37, 99, 235, 0.95)',
@@ -3640,6 +3676,14 @@
     return '';
   }
 
+  function getStoryMetaById(storyId) {
+    if (!storyId) return null;
+    for (var i = 0; i < STORIES.length; i++) {
+      if (STORIES[i].id === storyId) return STORIES[i];
+    }
+    return null;
+  }
+
   function init() {
     var requestedStoryId = '';
     var gentleStoryKey = '';
@@ -3695,6 +3739,37 @@
     jumpHint.appendChild(document.createTextNode('.'));
 
     mount.appendChild(note);
+    if (requestedStoryId) {
+      var storyMeta = getStoryMetaById(requestedStoryId);
+      var handoffMeta = STORY_RETURN_HANDOFFS[requestedStoryId] || null;
+      var storyBridge = document.createElement('div');
+      storyBridge.className = 'tdb-cat-story-bridge';
+      var storyBridgeNote = document.createElement('p');
+      storyBridgeNote.className = 'section-note';
+      storyBridgeNote.textContent =
+        'You opened coloring for ' +
+        (storyMeta ? storyMeta.title : 'this story') +
+        '. Save one scene, then step back into the story when you are ready.';
+      storyBridge.appendChild(storyBridgeNote);
+      var storyBridgeActions = document.createElement('div');
+      storyBridgeActions.className = 'cta-group';
+      var storyLink = document.createElement('a');
+      storyLink.className = 'btn btn-secondary';
+      storyLink.href = handoffMeta && handoffMeta.storyHref
+        ? handoffMeta.storyHref
+        : '/kids/corner.html';
+      storyLink.textContent = 'Back to the story';
+      storyBridgeActions.appendChild(storyLink);
+      if (handoffMeta && handoffMeta.sourceHref) {
+        var sourceLink = document.createElement('a');
+        sourceLink.className = 'btn btn-secondary';
+        sourceLink.href = handoffMeta.sourceHref;
+        sourceLink.textContent = handoffMeta.sourceLabel || 'Back to the family lane';
+        storyBridgeActions.appendChild(sourceLink);
+      }
+      storyBridge.appendChild(storyBridgeActions);
+      mount.appendChild(storyBridge);
+    }
     if (gentleStoryKey) {
       var gentleNote = document.createElement('div');
       gentleNote.className = 'cta-group';

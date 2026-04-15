@@ -3684,6 +3684,36 @@
     return null;
   }
 
+  function renderStoryBridge(target, storyMeta, handoffMeta) {
+    if (!target) return;
+    target.innerHTML = '';
+    var storyBridgeNote = document.createElement('p');
+    storyBridgeNote.className = 'section-note';
+    var noteStrong = document.createElement('strong');
+    noteStrong.textContent = 'Now coloring:';
+    storyBridgeNote.appendChild(noteStrong);
+    storyBridgeNote.appendChild(document.createTextNode(' ' + (storyMeta ? storyMeta.title : 'This story') + '. Save one scene, then step back into the story when you are ready.'));
+    target.appendChild(storyBridgeNote);
+    var storyBridgeActions = document.createElement('div');
+    storyBridgeActions.className = 'cta-group';
+    var storyLink = document.createElement('a');
+    storyLink.className = 'btn btn-secondary';
+    storyLink.href = handoffMeta && handoffMeta.storyHref
+      ? handoffMeta.storyHref
+      : '/kids/corner.html';
+    storyLink.textContent = 'Back to the story';
+    storyBridgeActions.appendChild(storyLink);
+    if (handoffMeta && handoffMeta.sourceHref) {
+      var sourceLink = document.createElement('a');
+      sourceLink.className = 'btn btn-secondary';
+      sourceLink.href = handoffMeta.sourceHref;
+      sourceLink.textContent = handoffMeta.sourceLabel || 'Back to the family lane';
+      storyBridgeActions.appendChild(sourceLink);
+    }
+    target.appendChild(storyBridgeActions);
+    if (target.hidden) target.hidden = false;
+  }
+
   function init() {
     var requestedStoryId = '';
     var gentleStoryKey = '';
@@ -3742,33 +3772,15 @@
     if (requestedStoryId) {
       var storyMeta = getStoryMetaById(requestedStoryId);
       var handoffMeta = STORY_RETURN_HANDOFFS[requestedStoryId] || null;
-      var storyBridge = document.createElement('div');
-      storyBridge.className = 'tdb-cat-story-bridge';
-      var storyBridgeNote = document.createElement('p');
-      storyBridgeNote.className = 'section-note';
-      storyBridgeNote.textContent =
-        'You opened coloring for ' +
-        (storyMeta ? storyMeta.title : 'this story') +
-        '. Save one scene, then step back into the story when you are ready.';
-      storyBridge.appendChild(storyBridgeNote);
-      var storyBridgeActions = document.createElement('div');
-      storyBridgeActions.className = 'cta-group';
-      var storyLink = document.createElement('a');
-      storyLink.className = 'btn btn-secondary';
-      storyLink.href = handoffMeta && handoffMeta.storyHref
-        ? handoffMeta.storyHref
-        : '/kids/corner.html';
-      storyLink.textContent = 'Back to the story';
-      storyBridgeActions.appendChild(storyLink);
-      if (handoffMeta && handoffMeta.sourceHref) {
-        var sourceLink = document.createElement('a');
-        sourceLink.className = 'btn btn-secondary';
-        sourceLink.href = handoffMeta.sourceHref;
-        sourceLink.textContent = handoffMeta.sourceLabel || 'Back to the family lane';
-        storyBridgeActions.appendChild(sourceLink);
+      var topStoryBridge = document.getElementById('tdb-cat-story-bridge-top');
+      if (topStoryBridge) {
+        renderStoryBridge(topStoryBridge, storyMeta, handoffMeta);
+      } else {
+        var storyBridge = document.createElement('div');
+        storyBridge.className = 'tdb-cat-story-bridge';
+        renderStoryBridge(storyBridge, storyMeta, handoffMeta);
+        mount.appendChild(storyBridge);
       }
-      storyBridge.appendChild(storyBridgeActions);
-      mount.appendChild(storyBridge);
     }
     if (gentleStoryKey) {
       var gentleNote = document.createElement('div');
@@ -4005,7 +4017,7 @@
 
     refreshAllProgress();
     if (requestedStorySection && typeof requestedStorySection.scrollIntoView === 'function') {
-      requestedStorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      requestedStorySection.scrollIntoView({ behavior: 'auto', block: 'start' });
       try {
         var requestedTitle = requestedStorySection.querySelector('.tdb-cat-story-title');
         if (requestedTitle && typeof requestedTitle.focus === 'function') requestedTitle.focus({ preventScroll: true });

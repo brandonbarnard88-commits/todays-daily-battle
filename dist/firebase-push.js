@@ -18,7 +18,10 @@
 
   function getReg() {
     if (!('serviceWorker' in navigator)) return Promise.resolve(null);
-    return navigator.serviceWorker.register('/sw.js?v=20260405-sw-refresh', { updateViaCache: 'none' }).then(function (reg) { return reg; }).catch(function () { return null; });
+    if (typeof window.tdbRegisterServiceWorker === 'function') {
+      return window.tdbRegisterServiceWorker().catch(function () { return null; });
+    }
+    return navigator.serviceWorker.getRegistration('/').then(function (r) { return r || null; });
   }
 
   function requestPermission() {

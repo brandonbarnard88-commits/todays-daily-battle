@@ -29,7 +29,7 @@
     "test": "node scripts/verify-homepage-search-wiring.mjs && node scripts/verify-url-truth-table.mjs && python3 test-site.py --offline",
     "test:search-wiring": "node scripts/verify-homepage-search-wiring.mjs",
     "test:security": "node test-security.js",
-    "test:site": "node test-site.js --offline && node scripts/verify-offline-strip-coverage.mjs && node scripts/verify-structured-data.mjs && node scripts/verify-a11y-controls.mjs && node scripts/verify-family-kids-links.mjs && node scripts/verify-print-styles.mjs",
+    "test:site": "node test-site.js --offline && node scripts/verify-offline-strip-coverage.mjs && node scripts/verify-structured-data.mjs && node scripts/verify-a11y-controls.mjs && node scripts/verify-family-kids-links.mjs && node scripts/verify-print-styles.mjs && node scripts/verify-performance.mjs && node scripts/verify-service-worker.mjs",
     "verify:asset-versions": "node scripts/verify-asset-versions.mjs",
     "test:surface-tokens": "node scripts/verify-tdb-surface-token-sync.mjs",
     "release:check": "npm run build && npm run verify:mobius-audio && npm run test && npm run test:site && npm run test:security",

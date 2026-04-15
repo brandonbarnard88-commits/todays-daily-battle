@@ -10253,22 +10253,7 @@
       });
     }());
 
-    // ── Service Worker (delayed to avoid blocking initial load). Bump repo SW-VERSION with script.js / kids / firebase-push. ──
-    function registerServiceWorker() {
-      if (!("serviceWorker" in navigator)) return;
-      var doReg = function () {
-        if (window.__tdbSwRegisterStarted) return;
-        window.__tdbSwRegisterStarted = true;
-        navigator.serviceWorker.register("/sw.js?v=20260405-sw-refresh", { scope: "/", updateViaCache: "none" }).catch(function () {
-          window.__tdbSwRegisterStarted = false;
-        });
-      };
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(doReg, { timeout: 2000 });
-      } else {
-        setTimeout(doReg, 1);
-      }
-    }
+    // ── Service Worker: loaded once via /register-sw.js (head, defer) — no duplicate registration here. ──
 
     // ── Daily prayer counter (anonymous, localStorage, midnight reset) ──
     const PRAYER_DAILY_KEY_PREFIX = 'tdb-prayers-day-';
@@ -12597,7 +12582,6 @@
     ) {
       wirePrayerWall();
     }
-    registerServiceWorker();
     wireVoiceSearch();
     wireHeroClickMenu();
     wireHeroImageBtn();

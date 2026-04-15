@@ -137,6 +137,7 @@ const rootFiles = [
   'footer-build-stamp.js',
   'service-worker.js',
   'sw.js',
+  'register-sw.js',
   'daily-verse-widget.js',
   'daily-battle-core.js',
   'hero-daily-365-data.js',

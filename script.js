@@ -1031,7 +1031,6 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', syncTdbStickyHeaderOffset);
   document.addEventListener('DOMContentLoaded', highlightCurrentNav);
   document.addEventListener('DOMContentLoaded', ensureTdbCookieNotice);
-  document.addEventListener('DOMContentLoaded', ensurePrivacyConsentPopup);
   document.addEventListener('DOMContentLoaded', normalizeLegacyShellLinks);
 } else {
   wireEarlySearchFallbacks();
@@ -1042,7 +1041,6 @@ if (document.readyState === 'loading') {
   syncTdbStickyHeaderOffset();
   highlightCurrentNav();
   ensureTdbCookieNotice();
-  ensurePrivacyConsentPopup();
   normalizeLegacyShellLinks();
 }
 
@@ -1052,7 +1050,6 @@ try {
       syncTdbStickyHeaderOffset();
       highlightCurrentNav();
       ensureTdbCookieNotice();
-      ensurePrivacyConsentPopup();
       normalizeLegacyShellLinks();
     }
   });
@@ -2246,7 +2243,16 @@ function safeReadCookie(name) {
   return '';
 }
 
-function safeWriteCookie(name, value, maxAgeSeconds) {
+function tdbSiteWideCookieDomain() {
+  try {
+    var h = String(window.location && window.location.hostname || '');
+    if (!h || h === 'localhost' || /^\d+\.\d+\.\d+\.\d+$/.test(h)) return '';
+    if (h === 'todaysdailybattle.com' || h.endsWith('.todaysdailybattle.com')) return 'todaysdailybattle.com';
+  } catch (_) {}
+  return '';
+}
+
+function safeWriteCookie(name, value, maxAgeSeconds, opts) {
   if (typeof document === 'undefined' || typeof name !== 'string' || !name) return;
   try {
     var parts = [
@@ -2254,6 +2260,10 @@ function safeWriteCookie(name, value, maxAgeSeconds) {
       'Path=/',
       'SameSite=Lax'
     ];
+    if (opts && opts.siteWideDomain) {
+      var dom = tdbSiteWideCookieDomain();
+      if (dom) parts.push('Domain=' + dom);
+    }
     if (Number(maxAgeSeconds) > 0) {
       parts.push('Max-Age=' + Math.floor(Number(maxAgeSeconds)));
     }
@@ -2270,6 +2280,7 @@ function parseTdbCookieConsentState(raw) {
     var parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== 'object') return null;
     var status = parsed.status === 'accepted' ? 'accepted' : (parsed.status === 'later' ? 'later' : '');
+    if (!status && parsed.accepted === true) status = 'accepted';
     return {
       status: status,
       updatedAt: Number(parsed.updatedAt) > 0 ? Number(parsed.updatedAt) : 0
@@ -2283,10 +2294,17 @@ function readTdbCookieConsentState() {
   var raw = safeGetItem(TDB_COOKIE_CONSENT_KEY);
   var parsed = parseTdbCookieConsentState(raw);
   if (parsed && parsed.status) return parsed;
+  raw = safeSessionGet(TDB_COOKIE_CONSENT_KEY);
+  parsed = parseTdbCookieConsentState(raw);
+  if (parsed && parsed.status) {
+    if (!safeGetItem(TDB_COOKIE_CONSENT_KEY)) safeSetItem(TDB_COOKIE_CONSENT_KEY, raw);
+    return parsed;
+  }
   raw = safeReadCookie(TDB_COOKIE_CONSENT_KEY);
   parsed = parseTdbCookieConsentState(raw);
   if (parsed && parsed.status) {
     if (!safeGetItem(TDB_COOKIE_CONSENT_KEY)) safeSetItem(TDB_COOKIE_CONSENT_KEY, raw);
+    if (!safeSessionGet(TDB_COOKIE_CONSENT_KEY)) safeSessionSet(TDB_COOKIE_CONSENT_KEY, raw);
     return parsed;
   }
   // analytics-loader.js still honors v1 in localStorage; keep banner in sync and migrate quietly
@@ -2298,7 +2316,8 @@ function readTdbCookieConsentState() {
       updatedAt: parsed.updatedAt > 0 ? parsed.updatedAt : Date.now()
     });
     safeSetItem(TDB_COOKIE_CONSENT_KEY, payload);
-    safeWriteCookie(TDB_COOKIE_CONSENT_KEY, payload, TDB_COOKIE_CONSENT_MAX_AGE_SECONDS);
+    safeSessionSet(TDB_COOKIE_CONSENT_KEY, payload);
+    safeWriteCookie(TDB_COOKIE_CONSENT_KEY, payload, TDB_COOKIE_CONSENT_MAX_AGE_SECONDS, { siteWideDomain: true });
     try {
       localStorage.removeItem(TDB_COOKIE_CONSENT_V1_KEY);
     } catch (_) {}
@@ -2332,12 +2351,15 @@ function writeTdbCookieConsentState(status) {
     updatedAt: Date.now()
   });
   safeSetItem(TDB_COOKIE_CONSENT_KEY, payload);
-  safeWriteCookie(TDB_COOKIE_CONSENT_KEY, payload, TDB_COOKIE_CONSENT_MAX_AGE_SECONDS);
+  safeSessionSet(TDB_COOKIE_CONSENT_KEY, payload);
+  safeWriteCookie(TDB_COOKIE_CONSENT_KEY, payload, TDB_COOKIE_CONSENT_MAX_AGE_SECONDS, { siteWideDomain: true });
   dispatchTdbAnalyticsConsentChange(normalized);
 }
 
 function shouldShowTdbCookieNotice() {
-  if (safeGetItem(TDB_PRIVACY_POPUP_ACCEPTED_KEY) === 'yes' || safeReadCookie(TDB_PRIVACY_POPUP_ACCEPTED_KEY) === 'yes') {
+  if (safeGetItem(TDB_PRIVACY_POPUP_ACCEPTED_KEY) === 'yes' ||
+      safeSessionGet(TDB_PRIVACY_POPUP_ACCEPTED_KEY) === 'yes' ||
+      safeReadCookie(TDB_PRIVACY_POPUP_ACCEPTED_KEY) === 'yes') {
     return false;
   }
   var state = readTdbCookieConsentState();
@@ -2378,65 +2400,6 @@ function setTdbCookieNoticeVisibility(banner, visible) {
   banner.hidden = !visible;
   banner.setAttribute('aria-hidden', visible ? 'false' : 'true');
   document.body.classList.toggle('tdb-cookie-notice-visible', !!visible);
-}
-
-function ensurePrivacyConsentPopup() {
-  if (typeof document === 'undefined' || !document.body) return;
-
-  var CONSENT_KEY = TDB_PRIVACY_POPUP_ACCEPTED_KEY;
-  var popup = document.getElementById('privacy-popup');
-  var acceptBtn = document.getElementById('accept-privacy');
-
-  if (!popup || !acceptBtn) return;
-
-  // Respect either the legacy popup flag or the shared site-wide consent state.
-  var hasAccepted = safeGetItem(CONSENT_KEY) === 'yes' || safeReadCookie(CONSENT_KEY) === 'yes';
-  var consentState = readTdbCookieConsentState();
-  if (consentState && (consentState.status === 'accepted' || consentState.status === 'later')) {
-    hasAccepted = true;
-  }
-
-  if (hasAccepted) {
-    popup.hidden = true;
-    popup.style.opacity = '';
-  } else {
-    popup.hidden = false;
-    setTimeout(function () {
-      popup.style.opacity = '1';
-    }, 10);
-  }
-
-  if (popup.dataset.tdbPrivacyConsentWired === '1') return;
-  popup.dataset.tdbPrivacyConsentWired = '1';
-
-  acceptBtn.addEventListener('click', function () {
-    try {
-      safeSetItem(CONSENT_KEY, 'yes');
-      safeWriteCookie(CONSENT_KEY, 'yes', TDB_COOKIE_CONSENT_MAX_AGE_SECONDS);
-      // Also update analytics consent for consistency
-      if (typeof writeTdbCookieConsentState === 'function') {
-        writeTdbCookieConsentState('accepted');
-      } else {
-        safeSetItem('tdb_cookie_consent_v2', JSON.stringify({ status: 'accepted', updatedAt: Date.now() }));
-      }
-    } catch (_) {}
-    popup.hidden = true;
-    if (typeof showEliteToast === 'function') {
-      showEliteToast('Thank you. This quiet place is yours.', { duration: 2200 });
-    }
-  });
-
-  // Allow Escape key (same effect as "Not now" on the cookie bar: quiet dismissal, no analytics)
-  document.addEventListener('keydown', function handler(e) {
-    if (e.key === 'Escape' && !popup.hidden) {
-      e.preventDefault();
-      if (typeof writeTdbCookieConsentState === 'function') {
-        writeTdbCookieConsentState('later');
-      }
-      popup.hidden = true;
-      document.removeEventListener('keydown', handler);
-    }
-  });
 }
 
 function ensureTdbCookieNotice() {
@@ -2513,13 +2476,6 @@ if (typeof window !== 'undefined' && !window.__tdbPrivacyConsentSyncWired) {
   window.addEventListener('tdb-analytics-consent-change', function (ev) {
     var st = ev && ev.detail && ev.detail.status;
     if (st !== 'accepted' && st !== 'later') return;
-    try {
-      var popup = document.getElementById('privacy-popup');
-      if (popup) {
-        popup.hidden = true;
-        popup.style.opacity = '';
-      }
-    } catch (_) {}
     try {
       var bn = document.getElementById('tdb-cookie-notice');
       if (bn) setTdbCookieNoticeVisibility(bn, false);

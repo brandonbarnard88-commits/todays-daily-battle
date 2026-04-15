@@ -131,18 +131,36 @@
     }
    
     @media print {
+      @page {
+        margin: 12mm 14mm;
+      }
+
       body {
         background: white !important;
         color: #000 !important;
-        padding: 30px 40px !important;
+        padding: 0 !important;
         box-shadow: none !important;
-        font-size: 14.5pt !important;
+        font-size: 12.5pt !important;
+        line-height: 1.55 !important;
+        orphans: 3;
+        widows: 3;
       }
-      .day { box-shadow: none !important; border: 1px solid #ccc !important; padding: 22px !important; }
-      .drawing-area { min-height: 220px !important; border: 2px dotted #999 !important; background: white !important; }
-      .writing-area { min-height: 130px !important; border: 1px dotted #999 !important; background: white !important; }
-      h1 { font-size: 28pt !important; }
-      .subtitle, .verse { font-size: 14.5pt !important; }
+      .day {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        padding: 18px 20px !important;
+        page-break-inside: avoid;
+      }
+      .family-prompt {
+        page-break-inside: avoid;
+        border-color: #999 !important;
+      }
+      .drawing-area { min-height: 200px !important; border: 2px dotted #999 !important; background: white !important; }
+      .writing-area { min-height: 120px !important; border: 1px dotted #999 !important; background: white !important; }
+      h1 { font-size: 24pt !important; page-break-after: avoid; }
+      h2 { page-break-after: avoid; }
+      .subtitle, .verse { font-size: 12.5pt !important; }
+      .print-note, .footer { font-size: 10.5pt !important; }
     }
   </style>
 </head>

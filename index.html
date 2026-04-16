@@ -9141,6 +9141,25 @@
       };
     }
 
+    function queueHeroBreakdownRefresh(data, attempt) {
+      const tries = Number(attempt || 0);
+      if (tries >= 24) return;
+      window.setTimeout(function () {
+        const panelsEl = document.getElementById('heroBreakdownPanels');
+        const hasPanels = !!(panelsEl && panelsEl.querySelector('.hbp-panel'));
+        const sharedReady = !!(
+          (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') ||
+          typeof window.getVerseBreakdown === 'function'
+        );
+        if (hasPanels) return;
+        if (!sharedReady) {
+          queueHeroBreakdownRefresh(data, tries + 1);
+          return;
+        }
+        renderVerseContent(data);
+      }, 250);
+    }
+
     function renderVerseContent(data) {
       const v = normalizeVerse(data);
       heroVerse.textContent = "\u201c" + v.text + "\u201d";
@@ -9193,17 +9212,61 @@
       heroBreakdown.replaceChildren();
       const panelsEl = document.getElementById('heroBreakdownPanels');
 
-      const hasRich = v.speaker || v.plain || v.today || v.action;
+      if (v && v.ref) {
+        window.TDB_VERSE_BREAKDOWN_OVERRIDES = window.TDB_VERSE_BREAKDOWN_OVERRIDES || {};
+        window.TDB_VERSE_BREAKDOWN_OVERRIDES[v.ref] = window.TDB_VERSE_BREAKDOWN_OVERRIDES[v.ref] || {};
+        window.TDB_VERSE_BREAKDOWN_OVERRIDES[v.ref].general = Object.assign(
+          {},
+          window.TDB_VERSE_BREAKDOWN_OVERRIDES[v.ref].general || {},
+          {
+            plainExplanation: v.plain || '',
+            groupApplication: v.today || '',
+            modernApplication: v.action || v.app || '',
+            about: v.speaker || ''
+          }
+        );
+        if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.registerOverrides === 'function') {
+          window.TDBVerseBreakdown.registerOverrides(window.TDB_VERSE_BREAKDOWN_OVERRIDES);
+        }
+      }
+
+      let heroSharedBreakdown = null;
+      if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
+        try {
+          heroSharedBreakdown = window.TDBVerseBreakdown.getBreakdown(v.ref, v.text, {
+            group: 'general',
+            override: {
+              plainExplanation: v.plain,
+              groupApplication: v.today,
+              modernApplication: v.action,
+              about: v.speaker
+            }
+          });
+        } catch (heroBreakdownErr) {}
+      }
+      if (!heroSharedBreakdown && typeof window.getVerseBreakdown === 'function') {
+        try {
+          const fallbackBreakdown = window.getVerseBreakdown(v.ref, v.text);
+          if (fallbackBreakdown) {
+            heroSharedBreakdown = {
+              plainExplanation: fallbackBreakdown.plainExplanation || fallbackBreakdown.layman || '',
+              groupApplication: fallbackBreakdown.groupApplication || fallbackBreakdown.applies || '',
+              modernApplication: fallbackBreakdown.modernApplication || fallbackBreakdown.relates || '',
+              about: fallbackBreakdown.about || fallbackBreakdown.speaker || ''
+            };
+          }
+        } catch (heroFallbackBreakdownErr) {}
+      }
+      const hasRich = heroSharedBreakdown || v.speaker || v.plain || v.today || v.action;
 
       if (hasRich && panelsEl) {
-        // Rich 4-panel breakdown
+        // Rich 3-panel breakdown
         heroBreakdown.style.display = 'none';
         panelsEl.replaceChildren();
         [
-          { label: 'Who\u2019s speaking', text: v.speaker, mod: '' },
-          { label: 'Real talk',           text: v.plain,   mod: '' },
-          { label: 'How it lands today',  text: v.today,   mod: '' },
-          { label: 'Do this',             text: v.action,  mod: 'hbp-panel--action' }
+          { label: 'Plain English', text: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain, mod: '' },
+          { label: 'For your group', text: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today || v.app, mod: '' },
+          { label: 'Real life today', text: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || v.action || v.app, mod: 'hbp-panel--action' }
         ].forEach(({ label, text, mod }) => {
           if (!text) return;
           const panel = document.createElement('div');
@@ -9231,6 +9294,7 @@
         });
         heroApplication.textContent = v.app;
         heroApplication.style.display = '';
+        queueHeroBreakdownRefresh(data, 0);
       }
 
       try {
@@ -9303,9 +9367,8 @@
       // Remove the stale static-fetch cache so it can't override on future visits
       try { localStorage.removeItem('tdb-last-online-verse'); } catch (_) {}
 
-      if (!skipHeroRedraw) {
-        renderVerseContent(verseData);
-      } else {
+      renderVerseContent(verseData);
+      if (skipHeroRedraw) {
         (function syncReadChapterFromRef() {
           var link = document.getElementById('readChapterLink');
           var refStr = typeof verseData.ref === 'string' ? verseData.ref : '';
@@ -9323,7 +9386,7 @@
       if (typeof showVerseFeedbackIfNeeded === 'function') showVerseFeedbackIfNeeded(verseData.ref);
 
       const verseRef = verseData.ref ? sanitizeText(verseData.ref) : '';
-      if (verseRef && !skipHeroRedraw) {
+      if (verseRef) {
         var titleSync = "Today\u2019s Verse \u2014 KJV Daily Help \u2014 " + verseRef;
         document.title = titleSync;
         var plainSync = String(verseData.text || "").replace(/\s+/g, " ").trim();

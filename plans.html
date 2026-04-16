@@ -3884,6 +3884,70 @@
       }
     }
 
+    function getPlanAudienceGroup(plan) {
+      if (!plan || !plan.id) return 'general';
+      if (plan.id === 'teenfaith') return 'teen';
+      if (plan.id === 'familyworship' || plan.id === 'psalmscomfortfamily' || plan.id === 'parenting' || plan.id.indexOf('family') !== -1) return 'family';
+      if (plan.id.indexOf('-kids') !== -1 || plan.id === 'beatitudes-kids' || plan.id === 'lordsprayer-kids' || plan.id === 'sower-kids') return 'kid';
+      if (plan.id === 'greatcommission') return 'street-preacher';
+      return 'general';
+    }
+
+    function getPlanDayBreakdown(plan, dayData, groupKey) {
+      var fallback = {
+        layman: cleanPlanPlain(dayData && dayData.plain ? dayData.plain : ''),
+        applies: cleanPlanPlain(dayData && dayData.today ? dayData.today : ''),
+        relates: cleanPlanPlain(dayData && dayData.action ? dayData.action : ''),
+        about: cleanPlanPlain(dayData && dayData.speaker ? dayData.speaker : ''),
+        to: '',
+        plainExplanation: cleanPlanPlain(dayData && dayData.plain ? dayData.plain : ''),
+        groupApplication: cleanPlanPlain(dayData && dayData.today ? dayData.today : ''),
+        modernApplication: cleanPlanPlain(dayData && dayData.action ? dayData.action : '')
+      };
+      if (!window.TDBVerseBreakdown || typeof window.TDBVerseBreakdown.getBreakdown !== 'function') return fallback;
+      var override = {
+        plainExplanation: dayData && dayData.plain ? dayData.plain : '',
+        groupApplication: dayData && dayData.today ? dayData.today : '',
+        modernApplication: dayData && dayData.action ? dayData.action : '',
+        about: dayData && dayData.speaker ? dayData.speaker : ''
+      };
+      if ((plan.id === 'familyworship' || plan.id === 'psalmscomfortfamily') && dayData) {
+        override.plainExplanation = dayData.familyUnderstand || override.plainExplanation;
+        override.groupApplication = dayData.familyLive || dayData.parentPrompt || override.groupApplication;
+        override.modernApplication = dayData.familyTogether || dayData.action || override.modernApplication;
+      }
+      return window.TDBVerseBreakdown.getBreakdown(dayData.ref, dayData.text, { group: groupKey, override: override });
+    }
+
+    function seedPlanBreakdownOverrides() {
+      if (!window.TDB_VERSE_BREAKDOWN_OVERRIDES) window.TDB_VERSE_BREAKDOWN_OVERRIDES = {};
+      Object.keys(PLANS).forEach(function (planId) {
+        var plan = PLANS[planId];
+        if (!plan || !Array.isArray(plan.days)) return;
+        var groupKey = getPlanAudienceGroup(plan);
+        plan.days.forEach(function (day) {
+          if (!day || !day.ref) return;
+          if (!window.TDB_VERSE_BREAKDOWN_OVERRIDES[day.ref]) window.TDB_VERSE_BREAKDOWN_OVERRIDES[day.ref] = {};
+          var bucket = window.TDB_VERSE_BREAKDOWN_OVERRIDES[day.ref];
+          var next = {
+            plainExplanation: day.plain || '',
+            groupApplication: day.today || '',
+            modernApplication: day.action || '',
+            about: day.speaker || ''
+          };
+          if ((plan.id === 'familyworship' || plan.id === 'psalmscomfortfamily') && day.familySee) {
+            next.plainExplanation = day.familyUnderstand || day.familySee || next.plainExplanation;
+            next.groupApplication = day.familyLive || day.parentPrompt || next.groupApplication;
+            next.modernApplication = day.familyTogether || day.action || next.modernApplication;
+          }
+          bucket[groupKey] = Object.assign({}, bucket[groupKey] || {}, next);
+        });
+      });
+      if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.registerOverrides === 'function') {
+        window.TDBVerseBreakdown.registerOverrides(window.TDB_VERSE_BREAKDOWN_OVERRIDES);
+      }
+    }
+
     function renderDayCard() {
       try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
       var hlClear = document.getElementById('plan-day-verse-text');
@@ -3895,6 +3959,7 @@
 
       var plan     = currentPlan;
       if (!plan) return;
+      var groupKey = getPlanAudienceGroup(plan);
       var progress = getDayProgress(plan);
       var dayData  = plan.days[currentDay];
       var container = document.getElementById('dayCardContainer');
@@ -3940,6 +4005,7 @@
 
       var verseShell = document.createElement('div');
       verseShell.className = 'plan-day-verse-shell';
+      verseShell.setAttribute('data-tdb-group', groupKey);
 
       var refP = document.createElement('p');
       refP.className = 'day-card-verse-ref daily-verse-ref';
@@ -3990,14 +4056,15 @@
 
       var breakdown = document.createElement('div');
       breakdown.className = 'day-breakdown';
+      var breakdownData = getPlanDayBreakdown(plan, dayData, groupKey);
       var isFamilyPlanStyle = (plan.id === 'familyworship' || plan.id === 'psalmscomfortfamily') && dayData.familySee;
       if (isFamilyPlanStyle) {
         if (dayData.speaker) {
           appendDayBp(breakdown, 'Context', dayData.speaker, '');
         }
-        appendDayBp(breakdown, 'See \u2014 what stands out?', dayData.familySee, '');
-        appendDayBp(breakdown, 'Understand \u2014 what does this tell us about God?', dayData.familyUnderstand, '');
-        appendDayBp(breakdown, 'Live \u2014 one thing we can do together this week', dayData.familyLive, '');
+        appendDayBp(breakdown, 'Plain English', breakdownData.plainExplanation || dayData.familyUnderstand || dayData.familySee, '');
+        appendDayBp(breakdown, 'For your group', breakdownData.groupApplication || dayData.familyLive || dayData.parentPrompt, '');
+        appendDayBp(breakdown, 'Real life today', breakdownData.modernApplication || dayData.familyTogether || dayData.action, '');
         appendDayBp(breakdown, 'Parent prompt', dayData.parentPrompt, '');
         appendDayBp(breakdown, 'For kids', dayData.kidQ, '');
         appendDayBp(breakdown, 'Together', dayData.familyTogether, 'action-panel');
@@ -4008,8 +4075,9 @@
         if (dayData.speaker) {
           appendDayBp(breakdown, 'Who\u2019s speaking', dayData.speaker, '');
         }
-        appendDayBp(breakdown, 'Real talk', dayData.plain, '');
-        appendDayBp(breakdown, 'How it lands today', dayData.today, '');
+        appendDayBp(breakdown, 'Plain English', breakdownData.plainExplanation || dayData.plain, '');
+        appendDayBp(breakdown, 'For your group', breakdownData.groupApplication || dayData.today, '');
+        appendDayBp(breakdown, 'Real life today', breakdownData.modernApplication || dayData.action, '');
         appendDayBp(breakdown, 'Do this', dayData.action, 'action-panel');
         if (dayData.prayer) {
           appendDayBp(breakdown, 'Prayer', dayData.prayer, 'prayer-panel');
@@ -4919,6 +4987,7 @@
 
     // ── URL routing — open plan directly if ?plan=id in URL ──────────────────
     function init() {
+      seedPlanBreakdownOverrides();
       var list = document.getElementById('planList');
       if (list) {
         list.setAttribute('aria-busy', 'true');

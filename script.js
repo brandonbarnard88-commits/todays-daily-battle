@@ -17,6 +17,23 @@
   s.setAttribute('data-tdb-sw-register', '1');
   (document.head || document.documentElement).appendChild(s);
 })();
+(function tdbEnsureVerseBreakdownScript() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (!window.TDB_VERSE_BREAKDOWN_DATA && !document.querySelector('script[data-tdb-verse-breakdown-overrides]')) {
+    var seed = document.createElement('script');
+    seed.src = '/verse-breakdown-overrides.js?v=20260416-breakdown-platform';
+    seed.defer = true;
+    seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
+    (document.head || document.documentElement).appendChild(seed);
+  }
+  if (window.TDBVerseBreakdown) return;
+  if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
+  var s = document.createElement('script');
+  s.src = '/verse-breakdown.js?v=20260416-breakdown-platform';
+  s.defer = true;
+  s.setAttribute('data-tdb-verse-breakdown', '1');
+  (document.head || document.documentElement).appendChild(s);
+})();
 (function initTrustedTypesPolicy() {
   if (typeof window === 'undefined' || !window.trustedTypes || !window.trustedTypes.createPolicy) return;
   if (window.trustedTypes.defaultPolicy) return;
@@ -12798,7 +12815,12 @@ function inferApplies(text) {
 }
 
 /** Auto-generate verse breakdown for any KJV verse. ref + text required. No pre-map; scales to 31k+ verses. */
-function getVerseBreakdown(ref, text) {
+function getVerseBreakdown(ref, text, options) {
+  if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
+    try {
+      return window.TDBVerseBreakdown.getBreakdown(ref, text, options || null);
+    } catch (sharedBreakdownErr) {}
+  }
   if (!ref) return null;
   var r = (ref || '').trim();
   var txt = (text || '').toString().replace(/<[^>]+>/g, '').trim();
@@ -13628,9 +13650,9 @@ function getAuthDailyVerseBreakdownData(ref, verseText) {
     who: 'Scripture speaker in this passage',
     to: 'Original audience of this passage',
     plain: 'Bring your fear to God in prayer and trust Him with today.',
-    context: 'This verse anchors steady faith and obedience in real life.',
+    context: 'Let this verse meet the people and pressure in front of you right now.',
     cross: '',
-    application: 'Pray this verse back to God and act on one clear step today.'
+    application: 'Let this verse show up in one real-life choice today.'
   };
   if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
     try {
@@ -13638,14 +13660,15 @@ function getAuthDailyVerseBreakdownData(ref, verseText) {
       if (shared) {
         data.who = shared.about || data.who;
         data.to = shared.to || data.to;
-        data.plain = shared.layman || data.plain;
-        data.application = shared.applies || data.application;
+        data.plain = shared.plainExplanation || shared.layman || data.plain;
+        data.context = shared.groupApplication || shared.applies || data.context;
+        data.application = shared.modernApplication || shared.relates || data.application;
       }
     } catch (e) {}
   }
   var crossRefs = getRelatedRefsForVerse(safeRef || '');
   data.cross = (crossRefs && crossRefs.length) ? crossRefs.join(', ') : 'Romans 15:13, Matthew 11:28';
-  data.context = 'Spoken by ' + data.who + ' to ' + data.to + '.';
+  if (!data.context) data.context = 'Spoken by ' + data.who + ' to ' + data.to + '.';
   return {
     ref: safeRef || 'Today\'s verse',
     verse: safeText || 'Verse text is loading.',

@@ -4,29 +4,34 @@
   var BOOK_CONTEXT = {
     Genesis: { s: 'Moses', a: 'Israel' }, Exodus: { s: 'Moses', a: 'Israel' }, Leviticus: { s: 'Moses', a: 'Israel' }, Numbers: { s: 'Moses', a: 'Israel' }, Deuteronomy: { s: 'Moses', a: 'Israel' },
     Joshua: { s: 'Joshua', a: 'Israel' }, Judges: { s: 'Unknown', a: 'Israel' }, Ruth: { s: 'Unknown', a: 'Israel' },
-    '1 Samuel': { s: 'Samuel', a: 'Israel' }, '2 Samuel': { s: 'Nathan', a: 'Israel' },
-    '1 Kings': { s: 'Unknown', a: 'Israel' }, '2 Kings': { s: 'Unknown', a: 'Israel' },
-    Ezra: { s: 'Ezra', a: 'Exiles' }, Nehemiah: { s: 'Nehemiah', a: 'Exiles' }, Esther: { s: 'Unknown', a: 'Israel' },
-    Job: { s: 'Job/God', a: 'All' }, Psalm: { s: 'David or others praising God', a: 'Everyone hurting or thankful' }, Psalms: { s: 'David or others praising God', a: 'Everyone hurting or thankful' },
+    '1 Samuel': { s: 'Samuel', a: 'Israel' }, '2 Samuel': { s: 'Nathan', a: 'Israel' }, '1 Kings': { s: 'Unknown', a: 'Israel' }, '2 Kings': { s: 'Unknown', a: 'Israel' },
+    '1 Chronicles': { s: 'Chronicler', a: 'Exiles' }, '2 Chronicles': { s: 'Chronicler', a: 'Exiles' }, Ezra: { s: 'Ezra', a: 'Exiles' }, Nehemiah: { s: 'Nehemiah', a: 'Exiles' }, Esther: { s: 'Unknown', a: 'Israel' },
+    Job: { s: 'Job and the Lord', a: 'All' }, Psalm: { s: 'David or another psalm writer', a: 'Everyone hurting or thankful' }, Psalms: { s: 'David or another psalm writer', a: 'Everyone hurting or thankful' },
     Proverbs: { s: 'Solomon giving wisdom', a: 'Everyone seeking guidance' }, Ecclesiastes: { s: 'Solomon', a: 'All' }, 'Song of Solomon': { s: 'Solomon', a: 'All' },
-    Isaiah: { s: 'Isaiah', a: 'Judah' }, Jeremiah: { s: 'Jeremiah', a: 'Judah/exiles' }, Lamentations: { s: 'Jeremiah', a: 'Exiles' }, Ezekiel: { s: 'Ezekiel', a: 'Exiles' }, Daniel: { s: 'Daniel', a: 'Exiles' },
-    Hosea: { s: 'Hosea', a: 'Israel' }, Joel: { s: 'Joel', a: 'Judah' }, Amos: { s: 'Amos', a: 'Israel' }, Obadiah: { s: 'Obadiah', a: 'Edom' }, Jonah: { s: 'Jonah', a: 'Nineveh' }, Micah: { s: 'Micah', a: 'Judah' }, Nahum: { s: 'Nahum', a: 'Nineveh' },
+    Isaiah: { s: 'Isaiah', a: 'Judah' }, Jeremiah: { s: 'Jeremiah', a: 'Judah and the exiles' }, Lamentations: { s: 'Jeremiah', a: 'Exiles' }, Ezekiel: { s: 'Ezekiel', a: 'Exiles' }, Daniel: { s: 'Daniel', a: 'Exiles' },
+    Hosea: { s: 'Hosea', a: 'Israel' }, Joel: { s: 'Joel', a: 'Judah' }, Amos: { s: 'Amos', a: 'Israel' }, Obadiah: { s: 'Obadiah', a: 'Edom' }, Jonah: { s: 'Jonah', a: 'Nineveh' }, Micah: { s: 'Micah', a: 'Judah' }, Nahum: { s: 'Nahum', a: 'Nineveh' }, Habakkuk: { s: 'Habakkuk', a: 'Judah' }, Zephaniah: { s: 'Zephaniah', a: 'Judah' }, Haggai: { s: 'Haggai', a: 'Exiles' }, Zechariah: { s: 'Zechariah', a: 'Exiles' }, Malachi: { s: 'Malachi', a: 'Israel' },
     Matthew: { s: 'Jesus', a: 'Believers' }, Mark: { s: 'Jesus', a: 'Believers' }, Luke: { s: 'Jesus', a: 'Believers' }, John: { s: 'Jesus', a: 'Believers' }, Acts: { s: 'Luke', a: 'Church' },
-    Romans: { s: 'Paul', a: 'Rome' }, Galatians: { s: 'Paul', a: 'Galatia' }, Ephesians: { s: 'Paul', a: 'Ephesus' }, Philippians: { s: 'Paul', a: 'Philippi' }, Colossians: { s: 'Paul', a: 'Colosse' },
-    Revelation: { s: 'John', a: 'Seven churches' }
+    Romans: { s: 'Paul', a: 'Rome' }, '1 Corinthians': { s: 'Paul', a: 'Corinth' }, '2 Corinthians': { s: 'Paul', a: 'Corinth' }, Galatians: { s: 'Paul', a: 'Galatia' }, Ephesians: { s: 'Paul', a: 'Ephesus' }, Philippians: { s: 'Paul', a: 'Philippi' }, Colossians: { s: 'Paul', a: 'Colosse' }, '1 Thessalonians': { s: 'Paul', a: 'Thessalonica' }, '2 Thessalonians': { s: 'Paul', a: 'Thessalonica' }, '1 Timothy': { s: 'Paul', a: 'Timothy' }, '2 Timothy': { s: 'Paul', a: 'Timothy' }, Titus: { s: 'Paul', a: 'Titus' }, Philemon: { s: 'Paul', a: 'Philemon' }, Hebrews: { s: 'Unknown', a: 'Hebrew believers' }, James: { s: 'James', a: 'Believers' }, '1 Peter': { s: 'Peter', a: 'Believers' }, '2 Peter': { s: 'Peter', a: 'Believers' }, '1 John': { s: 'John', a: 'Believers' }, '2 John': { s: 'John', a: 'Believers' }, '3 John': { s: 'John', a: 'Gaius' }, Jude: { s: 'Jude', a: 'Believers' }, Revelation: { s: 'John', a: 'Seven churches' }
   };
 
   var ARCHAIC = {
     careful: 'worried', beseech: 'ask', supplication: 'prayer', thee: 'you', thou: 'you', thy: 'your', ye: 'you',
-    hath: 'has', doth: 'does', believeth: 'believes', loveth: 'loves', giveth: 'gives', unto: 'to', saith: 'says',
-    begotten: 'only', perish: 'be lost', everlasting: 'eternal', labour: 'labor', laden: 'burdened', dismayed: 'discouraged'
+    hath: 'has', doth: 'does', believeth: 'believes', loveth: 'loves', giveth: 'gives', knoweth: 'knows', maketh: 'makes',
+    strengtheneth: 'strengthens', keepeth: 'keeps', worketh: 'works', unto: 'to', saith: 'says', begotten: 'only', perish: 'be lost',
+    everlasting: 'eternal', labour: 'labor', laden: 'burdened', dismayed: 'discouraged', whosoever: 'whoever', whatsoever: 'whatever',
+    verily: 'truly', behold: 'look', passeth: 'passes', brethren: 'brothers', mount: 'rise', faint: 'give up'
   };
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
-  var KJV_DICT_URLS = ['/kjv.json'];
-  var INLINE_SUMMARY = 'Break it down';
-  var INLINE_SUMMARY_ARIA = 'Open a plain-language breakdown under this verse';
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v2::';
+  var BREAKDOWN_MAX_MEMORY_CACHE = 600;
+  var KJV_DICT_URLS = ['/data/kjv-full.json', '/kjv.json'];
+  var BREAKDOWN_OVERRIDES_SCRIPT_URL = '/verse-breakdown-overrides.js';
+  var INLINE_SUMMARY = 'Verse breakdown';
+  var INLINE_SUMMARY_ARIA = 'Open a verse breakdown under this verse';
   var inlinePanelUid = 0;
+  var BREAKDOWN_OVERRIDES = {};
+  var BREAKDOWN_MEMORY_CACHE = new Map();
   var RELATIONS_FALLBACK = {
     anxiety: {
       line: "When the weight feels too heavy to carry alone, this verse reminds you there is a place to set it down."
@@ -230,51 +235,336 @@
     return next;
   }
 
-  function personalizeBreakdown(base, ageMode, ref, text) {
-    var next = {
-      about: plainSpeaker(base.about || ''),
-      to: plainAudience(base.to || ''),
-      layman: base.layman || '',
-      applies: base.applies || '',
-      bubbleTitle: '',
-      bubbleEmoji: ''
-    };
-    var raw = tdbPlainTextForUi(String(text || '').replace(/<[^>]+>/g, '').trim());
-    if (ageMode === 'kid') {
-      next.bubbleTitle = 'Jesus! ';
-      next.bubbleEmoji = '😊✨';
-      next.layman = 'Jesus! ' + (next.layman || 'God loves you and stays with you.') + ' 😊';
-      next.applies = (next.applies || 'Talk to Jesus, trust Him, and take one kind step today.') + ' 🙌';
-      return next;
+  function normalizeRef(ref) {
+    var raw = tdbPlainTextForUi(String(ref || '').replace(/\s*\(KJV\)\s*$/i, '').trim());
+    if (!raw) return '';
+    if (typeof window.normalizeBibleRef === 'function') {
+      try {
+        return tdbPlainTextForUi(window.normalizeBibleRef(raw) || raw);
+      } catch (e) {}
     }
-    if (ageMode === 'teen') {
-      var edgy = /philippians|ephesians|galatians|romans|corinthians|timothy|titus|philemon/i.test(String(ref || ''))
-        ? 'Paul from jail says keep your faith steady under pressure.'
-        : 'Real life pressure, real faith response.';
-      next.bubbleTitle = 'Street note';
-      next.bubbleEmoji = '⚡';
-      next.layman = edgy + ' ' + (next.layman || '');
-      next.applies = (next.applies || 'Choose one bold move that matches this verse today.');
-      if (!next.about && /paul/i.test(raw)) next.about = 'Paul';
-      return next;
-    }
-    next.bubbleTitle = 'Plain';
-    next.bubbleEmoji = '';
-    return next;
+    return raw.replace(/^Psalms\s+/i, 'Psalm ');
   }
 
-  function getBreakdown(ref, text) {
+  function normalizeGroup(group) {
+    var raw = String(group || '').toLowerCase().trim();
+    if (!raw || raw === 'adult') return 'general';
+    if (raw === 'children' || raw === 'child') return 'kid';
+    if (raw === 'parents' || raw === 'home') return 'family';
+    if (raw === 'pastors' || raw === 'pastor-teacher') return 'pastor';
+    if (raw === 'leaders' || raw === 'leader' || raw === 'church' || raw === 'churchleader') return 'church-leader';
+    if (raw === 'streetpreacher' || raw === 'street-preaching') return 'street-preacher';
+    if (raw === 'biblestudy' || raw === 'bible-study' || raw === 'small-group') return 'bible-study-group';
+    return raw;
+  }
+
+  function inferPageGroup() {
+    try {
+      var path = String((window.location && window.location.pathname) || '').toLowerCase();
+      if (path.indexOf('/kids') === 0 || path.indexOf('/kids/') === 0) return 'kid';
+      if (path.indexOf('/family') === 0 || path.indexOf('family') !== -1) return 'family';
+      if (path.indexOf('/pastor') === 0 || path.indexOf('/for-pastors') === 0) return 'pastor';
+      if (path.indexOf('/church') === 0 || path.indexOf('church') !== -1) return 'church-leader';
+      if (path.indexOf('mission') !== -1) return 'missionary';
+      if (path.indexOf('street') !== -1) return 'street-preacher';
+      if (path.indexOf('teen') !== -1) return 'teen';
+    } catch (e) {}
+    return '';
+  }
+
+  function inferHostGroup(host) {
+    if (!host || typeof host.closest !== 'function') return '';
+    var attrs = ['data-tdb-group', 'data-group', 'data-audience'];
+    for (var i = 0; i < attrs.length; i++) {
+      var attr = attrs[i];
+      var node = host.closest('[' + attr + ']');
+      if (!node) continue;
+      var value = String(node.getAttribute(attr) || '').trim();
+      if (value) return normalizeGroup(value);
+    }
+    return '';
+  }
+
+  function resolveGroupContext(options, host) {
+    if (typeof options === 'string') return normalizeGroup(options);
+    if (options && typeof options === 'object') {
+      if (options.group) return normalizeGroup(options.group);
+      if (options.ageMode) return normalizeGroup(options.ageMode);
+      if (options.host) {
+        var hostGroup = inferHostGroup(options.host);
+        if (hostGroup) return hostGroup;
+      }
+    }
+    var inferred = inferHostGroup(host);
+    if (inferred) return inferred;
+    var mode = '';
+    try { mode = String(localStorage.getItem(AGE_KEY) || '').toLowerCase(); } catch (e2) {}
+    if (mode === 'kid' || mode === 'teen') return mode;
+    return normalizeGroup(inferPageGroup() || 'general');
+  }
+
+  function normalizeOverrideMap(override) {
+    if (!override || typeof override !== 'object') return {};
+    var out = {};
+    var plain = override.plainExplanation || override.plain || override.layman || '';
+    var group = override.groupApplication || override.forGroup || override.applies || '';
+    var modern = override.modernApplication || override.today || override.relates || '';
+    var about = override.about || override.speaker || '';
+    var to = override.to || override.audience || '';
+    if (plain) out.plainExplanation = tdbPlainTextForUi(plain);
+    if (group) out.groupApplication = tdbPlainTextForUi(group);
+    if (modern) out.modernApplication = tdbPlainTextForUi(modern);
+    if (about) out.about = tdbPlainTextForUi(about);
+    if (to) out.to = tdbPlainTextForUi(to);
+    return out;
+  }
+
+  function clearCachedBreakdownForRef(refKey) {
+    var prefix = BREAKDOWN_CACHE_PREFIX + refKey + '::';
+    try {
+      BREAKDOWN_MEMORY_CACHE.forEach(function (_, key) {
+        if (key.indexOf(prefix) === 0) BREAKDOWN_MEMORY_CACHE.delete(key);
+      });
+    } catch (eMem) {}
+    try {
+      for (var i = localStorage.length - 1; i >= 0; i--) {
+        var key = localStorage.key(i);
+        if (key && key.indexOf(prefix) === 0) {
+          localStorage.removeItem(key);
+        }
+      }
+    } catch (e) {}
+  }
+
+  function registerSeedData(data) {
+    if (!data || typeof data !== 'object') return;
+    if (data.surfacedRefs && Array.isArray(data.surfacedRefs)) {
+      window.TDB_SURFACED_VERSE_REFS = data.surfacedRefs.slice();
+    }
+    if (data.overrides && typeof data.overrides === 'object') {
+      window.TDB_VERSE_BREAKDOWN_OVERRIDES = Object.assign({}, window.TDB_VERSE_BREAKDOWN_OVERRIDES || {}, data.overrides);
+      registerOverrides(data.overrides);
+    }
+    try {
+      if (window.__tdbVerseBreakdownAutoEnhanced) {
+        enhanceVerseContainers(document);
+      }
+      if (typeof window.dispatchEvent === 'function' && typeof window.CustomEvent === 'function') {
+        window.dispatchEvent(new CustomEvent('tdb-verse-breakdown-seed-ready'));
+      }
+    } catch (e) {}
+  }
+
+  function ensureOverrideSeedScript() {
+    if (window.TDB_VERSE_BREAKDOWN_DATA || window.TDB_VERSE_BREAKDOWN_OVERRIDES) return;
+    if (document.querySelector('script[data-tdb-verse-breakdown-overrides]')) return;
+    var s = document.createElement('script');
+    s.src = BREAKDOWN_OVERRIDES_SCRIPT_URL;
+    s.defer = true;
+    s.setAttribute('data-tdb-verse-breakdown-overrides', '1');
+    (document.head || document.documentElement).appendChild(s);
+  }
+
+  function registerOverrides(entries) {
+    if (!entries) return;
+    if (Array.isArray(entries)) {
+      entries.forEach(function (entry) {
+        if (!entry || !entry.ref) return;
+        var tmp = {};
+        tmp[entry.ref] = {};
+        tmp[entry.ref][normalizeGroup(entry.group || 'general')] = entry;
+        registerOverrides(tmp);
+      });
+      return;
+    }
+    Object.keys(entries).forEach(function (rawRef) {
+      var refKey = normalizeRef(rawRef);
+      if (!refKey) return;
+      var payload = entries[rawRef];
+      if (!payload || typeof payload !== 'object') return;
+      if (!BREAKDOWN_OVERRIDES[refKey]) BREAKDOWN_OVERRIDES[refKey] = {};
+      var looksGrouped = payload.general || payload.kid || payload.teen || payload.family || payload.pastor || payload['church-leader'] || payload.missionary || payload['street-preacher'] || payload['bible-study-group'];
+      var groups = looksGrouped ? payload : { general: payload };
+      Object.keys(groups).forEach(function (rawGroup) {
+        var groupKey = normalizeGroup(rawGroup);
+        BREAKDOWN_OVERRIDES[refKey][groupKey] = Object.assign(
+          {},
+          BREAKDOWN_OVERRIDES[refKey][groupKey] || {},
+          normalizeOverrideMap(groups[rawGroup])
+        );
+      });
+      clearCachedBreakdownForRef(refKey);
+    });
+  }
+
+  function getRegisteredOverride(ref, group) {
+    var refKey = normalizeRef(ref);
+    if (!refKey || !BREAKDOWN_OVERRIDES[refKey]) return {};
+    return Object.assign({}, BREAKDOWN_OVERRIDES[refKey].general || {}, BREAKDOWN_OVERRIDES[refKey][normalizeGroup(group)] || {});
+  }
+
+  function getTextCacheKey(ref, group, text) {
+    var raw = tdbPlainTextForUi(String(text || ''));
+    return BREAKDOWN_CACHE_PREFIX + normalizeRef(ref) + '::' + normalizeGroup(group) + '::' + raw.length + '::' + raw.slice(0, 48);
+  }
+
+  function readCachedBreakdown(ref, group, text) {
+    var cacheKey = getTextCacheKey(ref, group, text);
+    if (BREAKDOWN_MEMORY_CACHE.has(cacheKey)) {
+      return BREAKDOWN_MEMORY_CACHE.get(cacheKey);
+    }
+    try {
+      var stored = localStorage.getItem(cacheKey);
+      if (!stored) return null;
+      var parsed = JSON.parse(stored);
+      if (parsed && typeof parsed === 'object') BREAKDOWN_MEMORY_CACHE.set(cacheKey, parsed);
+      return parsed && typeof parsed === 'object' ? parsed : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function writeCachedBreakdown(ref, group, text, data) {
+    var cacheKey = getTextCacheKey(ref, group, text);
+    BREAKDOWN_MEMORY_CACHE.set(cacheKey, data);
+    if (BREAKDOWN_MEMORY_CACHE.size > BREAKDOWN_MAX_MEMORY_CACHE) {
+      try {
+        var oldest = BREAKDOWN_MEMORY_CACHE.keys().next();
+        if (oldest && !oldest.done) BREAKDOWN_MEMORY_CACHE.delete(oldest.value);
+      } catch (eMem) {}
+    }
+    try {
+      localStorage.setItem(cacheKey, JSON.stringify(data));
+    } catch (e) {}
+  }
+
+  function getCuratedPlainMeaning(ref) {
+    if (typeof window.getPlainMeaning === 'function') {
+      try {
+        return tdbPlainTextForUi(window.getPlainMeaning(ref) || '');
+      } catch (e) {}
+    }
+    return '';
+  }
+
+  function buildGroupApplication(group, topic) {
+    var groupKey = normalizeGroup(group);
+    var topicKey = String(topic || 'hope');
+    var defaults = {
+      general: 'For your group: let this verse set the tone for your next faithful step.',
+      kid: 'For kids: say it simply, ask Jesus for help, and take one kind step.',
+      teen: 'For teens: let this verse speak into pressure, noise, and the next honest choice.',
+      family: 'For families: let this verse shape how you talk, respond, and pray together today.',
+      pastor: 'For pastors: carry this verse into the weight you hold for other people, not just yourself.',
+      'church-leader': 'For church leaders: let this verse guide the way you shepherd, steady, and serve people today.',
+      missionary: 'For missionaries: carry this verse into the field with patience, courage, and a clean heart.',
+      'street-preacher': 'For street preachers: let this verse keep your tone brave, clean, and full of mercy in public witness.',
+      'bible-study-group': 'For Bible study groups: let this verse move the room from discussion into lived obedience.'
+    };
+    var byTopic = {
+      anxiety: {
+        general: 'For your group: bring the pressure to God instead of letting it drive the room.',
+        kid: 'For kids: when school, bedtime, or big feelings feel scary, tell Jesus the truth and stay near.',
+        teen: 'For teens: when your head is loud, the group chat is buzzing, or you feel exposed, let this verse slow you down.',
+        family: 'For families: when the house feels tense, let this verse reset the tone before the next response.',
+        pastor: 'For pastors: do not carry everybody else so hard that you stop carrying your own heart to God.',
+        'church-leader': 'For leaders: when people bring heavy needs, let this verse keep you steady instead of frantic.',
+        missionary: 'For missionaries: when the field feels uncertain, keep your soul from living in alarm.',
+        'street-preacher': 'For street preachers: when the street is unpredictable, answer fear with steadiness and prayer.',
+        'bible-study-group': 'For Bible study groups: when worry is in the room, let this verse create calm honesty.'
+      },
+      fear: {
+        general: 'For your group: courage here is not pretending; it is moving with God while your knees still shake.',
+        kid: 'For kids: you do not have to be brave by yourself; Jesus stays close when you feel small.',
+        teen: 'For teens: fear does not get to call the shots just because it showed up first.',
+        family: 'For families: bring the fear into the light so your home is led by truth, not tension.',
+        pastor: 'For pastors: even leaders need reminding that God is with them in the dark places.',
+        'church-leader': 'For leaders: let this verse steady your voice when others need calm from you.',
+        missionary: 'For missionaries: courage in the field is often quiet, daily, and obedient.',
+        'street-preacher': 'For street preachers: bold witness stays anchored when fear is answered by God\'s presence.',
+        'bible-study-group': 'For Bible study groups: let this verse turn hidden fear into shared prayer.'
+      },
+      family: {
+        family: 'For families: let this verse show up at the table, in the hallway, and in the way you answer each other.'
+      }
+    };
+    return (byTopic[topicKey] && byTopic[topicKey][groupKey]) || defaults[groupKey] || defaults.general;
+  }
+
+  function buildGeneratedBase(ref, text) {
     var raw = tdbPlainTextForUi(String(text || '').replace(/<[^>]+>/g, '').trim());
     var book = parseBook(ref);
-    if (!book) return { layman: 'Verse not found. Try exact format like John 3:16.', about: '', to: '', applies: '' };
+    if (!book) {
+      return {
+        about: '',
+        to: '',
+        plainExplanation: 'Verse not found. Try exact format like John 3:16.',
+        groupApplication: '',
+        modernApplication: 'Open the verse again and let the wording settle slowly.',
+        source: 'generated'
+      };
+    }
     var ctx = BOOK_CONTEXT[book] || { s: 'The biblical author', a: 'Original audience' };
     if (/begat|son of|daughter of|father of|generations?\s+of/i.test(raw) && raw.length < 140) {
-      return { layman: 'This tracks family lines in God\'s big story.', about: ctx.s, to: ctx.a, applies: 'Every name matters to God. You matter too.' };
+      return {
+        about: ctx.s,
+        to: ctx.a,
+        plainExplanation: 'This verse tracks family lines in God\'s larger story.',
+        groupApplication: '',
+        modernApplication: 'Every name matters to God. Your life is not background noise to Him.',
+        source: 'generated'
+      };
     }
-    var layman = rephraseArchaic(raw);
-    if (raw.length > 150) layman = layman.length > 120 ? ('Key idea: ' + layman.slice(0, 117) + '...') : ('Key idea: ' + layman);
-    if (!layman) layman = 'A timeless truth from Scripture for real life today.';
-    return { layman: layman, about: ctx.s, to: ctx.a, applies: inferApplies(raw) };
+    var curatedPlain = getCuratedPlainMeaning(ref);
+    var plain = curatedPlain || rephraseArchaic(raw);
+    if (raw.length > 150 && !curatedPlain) plain = plain.length > 120 ? ('Key idea: ' + plain.slice(0, 117) + '...') : ('Key idea: ' + plain);
+    if (!plain) plain = 'A steady truth from Scripture for real life today.';
+    return {
+      about: ctx.s,
+      to: ctx.a,
+      plainExplanation: plain,
+      groupApplication: '',
+      modernApplication: inferApplies(raw),
+      source: curatedPlain ? 'override' : 'generated'
+    };
+  }
+
+  function finalizeBreakdown(base, group) {
+    var out = {
+      about: plainSpeaker(base.about || ''),
+      to: plainAudience(base.to || ''),
+      plainExplanation: tdbPlainTextForUi(base.plainExplanation || ''),
+      groupApplication: tdbPlainTextForUi(base.groupApplication || ''),
+      modernApplication: tdbPlainTextForUi(base.modernApplication || ''),
+      bubbleTitle: 'Verse breakdown',
+      bubbleEmoji: '',
+      group: normalizeGroup(group),
+      source: base.source || 'generated'
+    };
+    out.layman = out.plainExplanation || 'A steady truth from Scripture for real life today.';
+    out.applies = out.groupApplication || buildGroupApplication(out.group, inferRelationTopic('', out.layman));
+    out.relates = out.modernApplication || inferApplies(out.layman);
+    return out;
+  }
+
+  function getBreakdown(ref, text, options) {
+    var raw = tdbPlainTextForUi(String(text || '').replace(/<[^>]+>/g, ' ').trim());
+    var group = resolveGroupContext(options, options && options.host ? options.host : null);
+    var manualOverride = normalizeOverrideMap(options && options.override ? options.override : null);
+    var useCache = Object.keys(manualOverride).length === 0;
+    var cached = useCache ? readCachedBreakdown(ref, group, raw) : null;
+    if (cached) return cached;
+    var base = buildGeneratedBase(ref, raw);
+    var merged = Object.assign({}, base, getRegisteredOverride(ref, group), manualOverride);
+    if (!merged.groupApplication) merged.groupApplication = buildGroupApplication(group, inferRelationTopic(ref, raw));
+    if (!merged.modernApplication) merged.modernApplication = inferApplies(raw);
+    var finalBreakdown = finalizeBreakdown(merged, group);
+    if (useCache) writeCachedBreakdown(ref, group, raw, finalBreakdown);
+    return finalBreakdown;
+  }
+
+  function personalizeBreakdown(base, ageMode, ref, text) {
+    return getBreakdown(ref, text, { group: ageMode, override: base || null });
   }
 
   function copyText(text, btn, successLabel) {
@@ -486,11 +776,11 @@
       breakdown.appendChild(row);
     }
 
-    addBkRow('tdb-vb-inline-speaker', 'Who said it?', 'about');
-    addBkRow('tdb-vb-inline-audience', 'Who to:', 'to');
-    addBkRow('tdb-vb-inline-plain', 'Plain talk:', 'layman');
-    addBkRow('tdb-vb-inline-fit', 'How it fits you:', 'applies');
-    addBkRow('tdb-vb-inline-relates', 'How it relates today?', 'relates');
+    addBkRow('tdb-vb-inline-speaker', 'Who said it first?', 'about');
+    addBkRow('tdb-vb-inline-audience', 'Who heard it first?', 'to');
+    addBkRow('tdb-vb-inline-plain', 'Plain English:', 'layman');
+    addBkRow('tdb-vb-inline-fit', 'For your group:', 'applies');
+    addBkRow('tdb-vb-inline-relates', 'Real life today:', 'relates');
 
     var actions = document.createElement('div');
     actions.className = 'tdb-vb-inline-actions';
@@ -583,20 +873,22 @@
         if (details.getAttribute('data-ref') !== refKey) return;
         var lazyText = getBibleVerseText(ref);
         if (!lazyText) return;
-        var lazyBreakdown = personalizeBreakdown(getBreakdown(ref, lazyText), ageMode, ref, lazyText);
+        var lazyBreakdown = getBreakdown(ref, lazyText, { group: ageMode, host: details });
         var lazyTextEl = details.querySelector('.tdb-vb-inline-verse-text');
         var lazyLay = details.querySelector('[data-bk="layman"]');
         var lazyApp = details.querySelector('[data-bk="applies"]');
+        var lazyRel = details.querySelector('[data-bk="relates"]');
         if (lazyTextEl) lazyTextEl.textContent = lazyText;
         if (lazyLay) lazyLay.textContent = tdbPlainTextForUi(lazyBreakdown.layman || '—');
         if (lazyApp) lazyApp.textContent = tdbPlainTextForUi(lazyBreakdown.applies || '—');
+        if (lazyRel) lazyRel.textContent = tdbPlainTextForUi(lazyBreakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK));
         details.setAttribute('data-text', lazyText);
       });
     }
     loadRelationsDict().then(function (dict) {
       if (details.getAttribute('data-ref') !== refKey) return;
       var relatesEl = details.querySelector('[data-bk="relates"]');
-      if (relatesEl) relatesEl.textContent = buildRelationLine(topic, dict);
+      if (relatesEl && !String(relatesEl.textContent || '').trim()) relatesEl.textContent = buildRelationLine(topic, dict);
     });
   }
 
@@ -618,7 +910,7 @@
     details.setAttribute('data-age-mode', ageMode);
 
     var resolvedText = cleanVerseText(text || '') || getBibleVerseText(ref);
-    var breakdown = personalizeBreakdown(getBreakdown(ref, resolvedText), ageMode, ref, resolvedText);
+    var breakdown = getBreakdown(ref, resolvedText, { group: ageMode, host: details });
     var topic = inferRelationTopic(ref, resolvedText);
 
     refEl.textContent = tdbPlainTextForUi(ref || 'Verse');
@@ -627,7 +919,7 @@
     toEl.textContent = tdbPlainTextForUi(breakdown.to || '—');
     layEl.textContent = tdbPlainTextForUi(breakdown.layman || '—');
     appEl.textContent = tdbPlainTextForUi(breakdown.applies || '—');
-    relEl.textContent = buildRelationLine(topic, RELATIONS_FALLBACK);
+    relEl.textContent = tdbPlainTextForUi(breakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK));
 
     details.setAttribute('data-ref', tdbPlainTextForUi(ref || ''));
     details.setAttribute('data-text', resolvedText || '');
@@ -777,6 +1069,7 @@
     if (existing) {
       wireInlineDetailsEvents(existing);
       populateInlineDetails(existing, ref, text);
+      setInlineBreakdownOpen(existing, true);
       return;
     }
 
@@ -792,6 +1085,7 @@
     } else {
       pt.parent.appendChild(details);
     }
+    setInlineBreakdownOpen(details, true);
   }
 
   function open(ref, text) {
@@ -860,11 +1154,41 @@
     return tdbPlainTextForUi(String(text || '').replace(/\s+/g, ' ').trim());
   }
 
+  function resolveRangeVerseText(ref, dict) {
+    var normalized = normalizeRef(ref);
+    var rangeMatch = normalized.match(/^(.+?)\s+(\d+):(\d+)-(?:(\d+):)?(\d+)$/);
+    if (!rangeMatch || !dict) return '';
+    var book = rangeMatch[1];
+    var startChapter = parseInt(rangeMatch[2], 10);
+    var startVerse = parseInt(rangeMatch[3], 10);
+    var endChapter = parseInt(rangeMatch[4] || rangeMatch[2], 10);
+    var endVerse = parseInt(rangeMatch[5], 10);
+    if (!book || !startChapter || !startVerse || !endChapter || !endVerse || endChapter < startChapter) return '';
+    var parts = [];
+    for (var chapter = startChapter; chapter <= endChapter; chapter++) {
+      var verseStart = chapter === startChapter ? startVerse : 1;
+      var verseEnd = chapter === endChapter ? endVerse : 300;
+      for (var verse = verseStart; verse <= verseEnd; verse++) {
+        var key = book + ' ' + chapter + ':' + verse;
+        if (!dict[key]) {
+          if (verse === verseStart) return '';
+          break;
+        }
+        parts.push(dict[key]);
+        if (chapter === endChapter && verse === endVerse) return cleanVerseText(parts.join(' '));
+      }
+    }
+    return cleanVerseText(parts.join(' '));
+  }
+
   function getBibleVerseText(ref) {
     var r = String(ref || '').trim();
     if (!r) return '';
-    var direct = (window.bible && window.bible[r]) || (window.kjvData && window.kjvData[r]) || '';
+    var key = normalizeRef(r);
+    var direct = (window.bible && (window.bible[r] || window.bible[key])) || (window.kjvData && (window.kjvData[r] || window.kjvData[key])) || '';
     if (direct) return cleanVerseText(direct);
+    var ranged = resolveRangeVerseText(r, window.bible || window.kjvData || null);
+    if (ranged) return ranged;
     if (typeof window.getBibleVerseText === 'function') {
       try { return cleanVerseText(window.getBibleVerseText(r) || ''); } catch (e) {}
     }
@@ -879,6 +1203,15 @@
           var res = await fetch(KJV_DICT_URLS[i], { cache: 'force-cache' });
           if (!res.ok) throw new Error('status_' + res.status);
           var json = await res.json();
+          if (Array.isArray(json)) {
+            var mapped = {};
+            json.forEach(function (entry) {
+              if (!entry || !entry.ref || !entry.text) return;
+              mapped[normalizeRef(entry.ref)] = tdbPlainTextForUi(entry.text);
+            });
+            window.kjvData = mapped;
+            return mapped;
+          }
           if (json && typeof json === 'object') {
             window.kjvData = json;
             return json;
@@ -995,7 +1328,7 @@
       ''
     ).trim();
     if (!ref) {
-      var refNode = container.querySelector('.verse-ref, .smart-ref, .kids-verse-ref, .concordance-verse-ref, .verse-maps-verse-ref');
+      var refNode = container.querySelector('.verse-ref, .daily-verse-ref, .smart-ref, .kids-verse-ref, .concordance-verse-ref, .verse-maps-verse-ref, #family-daily-verse-ref, #family-armor-hero-ref, #kids-daily-verse-ref, #little-ones-verse-ref, #pastor-daily-verse-ref');
       if (refNode) ref = extractRefFromText(refNode.textContent || '');
     }
     if (!ref) {
@@ -1014,7 +1347,7 @@
       ''
     ).trim();
     if (!text) {
-      var textNode = container.querySelector('.verse-text, .smart-verse, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text, #verse-text, #desktop-verse-text');
+      var textNode = container.querySelector('.verse-text, .daily-verse-text, .smart-verse, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text, #verse-text, #desktop-verse-text, #family-daily-verse-text, #family-armor-hero-text, #kids-daily-verse-text, #little-ones-verse-text, #pastor-daily-verse-text');
       if (textNode) text = cleanVerseText(textNode.textContent || '');
     }
     if (!text) {
@@ -1042,9 +1375,16 @@
     var selectors = [
       '#daily-verse-card',
       '#daily-battle-card',
+      '#family-daily-verse-root',
+      '#kids-daily-verse-card',
+      '#pastor-daily-verse-card',
       '#church-daily-verse-card',
       '#tdb-cartoon-verse-host',
       'article.church-board-card',
+      '.bible-hub-verse-card',
+      '.church-verse-card',
+      '.family-verse-card',
+      '.kids-daily-verse-card',
       '#concordance-verse-card',
       '#verse-maps-verse-card',
       '#verseCard',
@@ -1080,10 +1420,38 @@
           } catch (eHome) {}
         }
         var pair = extractRefAndText(el);
-        if (!pair.ref || !pair.text) return;
+        if (!pair.ref || !pair.text) {
+          el.removeAttribute('data-tdb-breakdown-missing');
+          el.removeAttribute('data-tdb-breakdown-attached');
+          return;
+        }
         injectInlineBreakdown(el, pair.ref, pair.text);
+        if (findExistingInline(el)) {
+          el.removeAttribute('data-tdb-breakdown-missing');
+          el.setAttribute('data-tdb-breakdown-attached', '1');
+        } else {
+          el.setAttribute('data-tdb-breakdown-missing', '1');
+        }
       });
     });
+  }
+
+  function getMissingVisibleBreakdowns(root) {
+    var host = root && root.querySelectorAll ? root : document;
+    var out = [];
+    host.querySelectorAll('[data-tdb-breakdown-missing="1"]').forEach(function (el) {
+      var pair = extractRefAndText(el);
+      out.push({
+        ref: pair && pair.ref ? pair.ref : '',
+        id: el.id || '',
+        className: el.className || ''
+      });
+    });
+    return out;
+  }
+
+  function countMissingVisibleBreakdowns(root) {
+    return getMissingVisibleBreakdowns(root).length;
   }
 
   function wireAutoEnhance() {
@@ -1132,12 +1500,28 @@
     });
   }
 
+  window.__tdbRegisterVerseBreakdownSeedData = registerSeedData;
+  if (window.TDB_VERSE_BREAKDOWN_DATA) {
+    registerSeedData(window.TDB_VERSE_BREAKDOWN_DATA);
+  }
+  if (window.TDB_VERSE_BREAKDOWN_OVERRIDES) {
+    registerOverrides(window.TDB_VERSE_BREAKDOWN_OVERRIDES);
+  }
+  if (!window.TDB_VERSE_BREAKDOWN_DATA) {
+    ensureOverrideSeedScript();
+  }
+
   window.TDBVerseBreakdown = {
     open: open,
     getBreakdown: getBreakdown,
+    registerOverrides: registerOverrides,
+    registerSeedData: registerSeedData,
     addButton: addButton,
     injectInlineBreakdown: injectInlineBreakdown,
     populateInlineDetails: populateInlineDetails,
+    enhanceVisibleVerseContainers: enhanceVerseContainers,
+    getMissingVisibleBreakdowns: getMissingVisibleBreakdowns,
+    countMissingVisibleBreakdowns: countMissingVisibleBreakdowns,
     getAgeMode: getAgeMode,
     setAgeMode: setAgeMode
   };

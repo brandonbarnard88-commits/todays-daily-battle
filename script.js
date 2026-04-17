@@ -21,7 +21,7 @@
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
   if (!window.TDB_VERSE_BREAKDOWN_DATA && !document.querySelector('script[data-tdb-verse-breakdown-overrides]')) {
     var seed = document.createElement('script');
-    seed.src = '/verse-breakdown-overrides.js?v=20260416-breakdown-platform';
+    seed.src = '/verse-breakdown-overrides.js?v=20260417-hydration';
     seed.defer = true;
     seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
     (document.head || document.documentElement).appendChild(seed);
@@ -29,7 +29,7 @@
   if (window.TDBVerseBreakdown) return;
   if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
   var s = document.createElement('script');
-  s.src = '/verse-breakdown.js?v=20260416-breakdown-platform';
+  s.src = '/verse-breakdown.js?v=20260417-hydration';
   s.defer = true;
   s.setAttribute('data-tdb-verse-breakdown', '1');
   (document.head || document.documentElement).appendChild(s);
@@ -2146,7 +2146,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260404-home-hero');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260417-hydration');
   if (!trusted) return;
   var script = document.createElement('script');
   script.src = trusted;

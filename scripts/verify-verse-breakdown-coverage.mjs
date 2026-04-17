@@ -13,7 +13,7 @@ const runtimePath = path.join(repoRoot, 'verse-breakdown.js');
 const heroFirstPaintPath = path.join(repoRoot, 'hero-daily-first-paint.js');
 const distRoot = path.join(repoRoot, 'dist');
 const distSeedPath = path.join(distRoot, 'verse-breakdown-overrides.js');
-const CURRENT_BREAKDOWN_TOKEN = '20260416-breakdown-platform';
+const CURRENT_BREAKDOWN_TOKEN = '20260417-hydration';
 const GROUPS = ['general', 'kid', 'teen', 'family', 'pastor', 'church-leader', 'missionary', 'street-preacher', 'bible-study-group'];
 const STATIC_PAGE_CHECKS = [
   'dist/verse.html',
@@ -155,6 +155,12 @@ async function verifyHydrationAssets() {
   });
   if (!indexHtml.includes(`verse-breakdown-overrides.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
     throw new Error('index.html is missing the current verse-breakdown override seed include.');
+  }
+  if (!indexHtml.includes(`verse-breakdown.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
+    throw new Error('index.html is missing the current verse-breakdown runtime token.');
+  }
+  if (!indexHtml.includes(`hero-daily-first-paint.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
+    throw new Error('index.html is missing the current hero first-paint token.');
   }
   if (!verseHtml.includes(`verse-breakdown-overrides.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
     throw new Error('verse.html is missing the current verse-breakdown override seed include.');

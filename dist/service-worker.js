@@ -195,6 +195,7 @@ const CORE_ASSETS = [
   '/easter-eggs.css',
   '/highlights.js',
   '/verse-breakdown.js',
+  '/verse-breakdown-overrides.js',
   '/family-hierarchy.js',
   '/crest.js',
   '/avatar-progress.js',

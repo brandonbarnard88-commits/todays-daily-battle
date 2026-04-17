@@ -25,6 +25,8 @@ function main() {
   if (!sw.includes('/family-armor.html')) fail('service-worker.js: precache should include /family-armor.html');
   if (!sw.includes('/yearly-rhythm.html')) fail('service-worker.js: precache should include /yearly-rhythm.html');
   if (!sw.includes('/site-search-index.json')) fail('service-worker.js: precache should include /site-search-index.json');
+  if (!sw.includes('/print-pack-generator.html')) fail('service-worker.js: precache should include /print-pack-generator.html');
+  if (!sw.includes('/print-pack-generator.js')) fail('service-worker.js: precache should include /print-pack-generator.js');
   if (!sw.includes('Same-origin images')) fail('service-worker.js: image stale-while-revalidate block missing');
   if (!/const\s+CACHE_NAME\s*=\s*'tdb-cache-v/.test(sw)) {
     fail('service-worker.js: CACHE_NAME should use tdb-cache-v… prefix');

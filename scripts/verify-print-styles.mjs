@@ -33,8 +33,9 @@ function main() {
   if (!chunk.includes('.family-hub-deep-page')) fail('styles.css: family hub print rules missing');
   if (!chunk.includes('body.family-armor-page')) fail('styles.css: family armor print rules missing');
   if (!chunk.includes('.yearly-rhythm-hub')) fail('styles.css: yearly rhythm print rules missing');
+  if (!chunk.includes('.print-pack-generator-page')) fail('styles.css: printable pack generator print rules missing');
 
-  for (const f of ['printables.html', 'one-week-rhythm-kids.html', 'one-week-rhythm.html']) {
+  for (const f of ['printables.html', 'one-week-rhythm-kids.html', 'one-week-rhythm.html', 'print-pack-generator.html']) {
     const html = read(f);
     const mp = html.indexOf('@media print');
     if (mp === -1) fail(`${f}: @media print missing`);

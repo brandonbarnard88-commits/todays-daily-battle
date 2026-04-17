@@ -20126,5 +20126,34 @@ html[data-tdb-contrast="high"] .card {
   .yearly-rhythm-hub .memory-table td {
     border-color: #999 !important;
   }
+
+  /* Printable pack generator */
+  .print-pack-generator-page .ppg-chooser,
+  .print-pack-generator-page .ppg-toolbar,
+  .print-pack-generator-page .ppg-back-links {
+    display: none !important;
+  }
+
+  .print-pack-generator-page .ppg-sheet {
+    page-break-inside: avoid;
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+
+  .print-pack-generator-page .ppg-verse {
+    color: #111 !important;
+    background: #fffef8 !important;
+    border-color: #ad8a54 !important;
+    box-shadow: none !important;
+    font-size: 14pt !important;
+    line-height: 1.5 !important;
+  }
+
+  .print-pack-generator-page .ppg-copy-card,
+  .print-pack-generator-page .ppg-writing-zone {
+    background: #fff !important;
+    border-color: #ccc !important;
+  }
 }
 

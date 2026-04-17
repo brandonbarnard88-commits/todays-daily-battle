@@ -153,6 +153,7 @@ const rootFiles = [
   'gsc-verify.js',
   'ask-the-word.js',
   'search-widget.js',
+  'print-pack-generator.js',
   'contact-form.js',
   'shop-waitlist.js',
   'feeling-suggest-form.js',

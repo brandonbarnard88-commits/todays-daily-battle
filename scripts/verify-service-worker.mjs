@@ -50,6 +50,8 @@ function main() {
   if (!kids.includes('register-sw.js')) fail('kids/index.html: must load /register-sw.js');
 
   if (!sw.includes("'/register-sw.js'")) fail('service-worker.js: precache should include /register-sw.js');
+  if (!sw.includes("'/print-pack-generator.html'")) fail('service-worker.js: precache should include /print-pack-generator.html');
+  if (!sw.includes("'/print-pack-generator.js'")) fail('service-worker.js: precache should include /print-pack-generator.js');
 
   const fb = read('firebase-push.js');
   if (fb.includes("serviceWorker.register('/sw.js")) {

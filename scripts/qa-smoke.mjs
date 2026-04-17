@@ -15,6 +15,25 @@ function hasFailure() {
   return checks.some((c) => c.status === 'FAIL');
 }
 
+async function dismissCookieNotice(page) {
+  const laterBtn = page.locator('#tdb-cookie-notice .tdb-cookie-notice__btn--secondary').first();
+  if (await laterBtn.count()) {
+    await laterBtn.click().catch(() => {});
+    await page.waitForTimeout(200);
+  }
+  const banner = page.locator('#tdb-cookie-notice');
+  if (await banner.count()) {
+    await banner.evaluate((node) => {
+      if (!node) return;
+      node.setAttribute('hidden', '');
+      node.setAttribute('aria-hidden', 'true');
+      if (document && document.body && document.body.classList) {
+        document.body.classList.remove('tdb-cookie-notice-visible');
+      }
+    }).catch(() => {});
+  }
+}
+
 const browser = await launchBestBrowser();
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
 const page = await ctx.newPage();
@@ -193,6 +212,7 @@ try {
   // Action Bible archive runtime checks
   await page.goto(origin + '/action-bible.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForTimeout(1200);
+  await dismissCookieNotice(page);
   const archiveStatus = ((await page.locator('#ab-status').textContent()) || '').trim();
   const seasonOpts = await page.locator('#ab-season option').count();
   const archiveLoaded = /Loaded\s+\d+\s+entries/i.test(archiveStatus) && seasonOpts > 1;

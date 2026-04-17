@@ -173,15 +173,14 @@
     });
 
     if (heroBreakdown) heroBreakdown.replaceChildren();
-    var hasRich = v.speaker || v.plain || v.today || v.action;
+    var hasRich = v.plain || v.today || v.action;
     if (hasRich && panelsEl) {
       if (heroBreakdown) heroBreakdown.style.display = 'none';
       panelsEl.replaceChildren();
       var spec = [
-        { label: 'Who\u2019s speaking', text: v.speaker, mod: '' },
-        { label: 'Real talk', text: v.plain, mod: '' },
-        { label: 'How it lands today', text: v.today, mod: '' },
-        { label: 'Do this', text: v.action, mod: 'hbp-panel--action' }
+        { label: 'Plain English', text: v.plain, mod: '' },
+        { label: 'For your group', text: v.today, mod: '' },
+        { label: 'Real life today', text: v.action, mod: 'hbp-panel--action' }
       ];
       for (var si = 0; si < spec.length; si++) {
         var row = spec[si];

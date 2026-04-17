@@ -345,6 +345,14 @@
       window.TDB_VERSE_BREAKDOWN_OVERRIDES = Object.assign({}, window.TDB_VERSE_BREAKDOWN_OVERRIDES || {}, data.overrides);
       registerOverrides(data.overrides);
     }
+    try {
+      if (window.__tdbVerseBreakdownAutoEnhanced) {
+        enhanceVerseContainers(document);
+      }
+      if (typeof window.dispatchEvent === 'function' && typeof window.CustomEvent === 'function') {
+        window.dispatchEvent(new CustomEvent('tdb-verse-breakdown-seed-ready'));
+      }
+    } catch (e) {}
   }
 
   function ensureOverrideSeedScript() {

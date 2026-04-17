@@ -9141,17 +9141,27 @@
       };
     }
 
+    function heroBreakdownPanelsHydrated(panelsEl) {
+      if (!panelsEl) return false;
+      const labels = Array.from(panelsEl.querySelectorAll('.hbp-label')).map(function (el) {
+        return String(el.textContent || '').trim().toLowerCase();
+      });
+      return labels.includes('plain english') &&
+        labels.includes('for your group') &&
+        labels.includes('real life today');
+    }
+
     function queueHeroBreakdownRefresh(data, attempt) {
       const tries = Number(attempt || 0);
       if (tries >= 24) return;
       window.setTimeout(function () {
         const panelsEl = document.getElementById('heroBreakdownPanels');
-        const hasPanels = !!(panelsEl && panelsEl.querySelector('.hbp-panel'));
+        const hasHydratedPanels = heroBreakdownPanelsHydrated(panelsEl);
         const sharedReady = !!(
           (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') ||
           typeof window.getVerseBreakdown === 'function'
         );
-        if (hasPanels) return;
+        if (hasHydratedPanels && sharedReady) return;
         if (!sharedReady) {
           queueHeroBreakdownRefresh(data, tries + 1);
           return;
@@ -13112,6 +13122,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="family-verse-bridge.js?v=20260405familybridge1"></script>
+  <script nonce="tdb2025s" defer fetchpriority="low" src="verse-breakdown-overrides.js?v=20260416-breakdown-platform" data-tdb-verse-breakdown-overrides="1"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260415privacyfix" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->

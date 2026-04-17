@@ -10,7 +10,10 @@ const manifestPath = path.join(repoRoot, 'data', 'verse-breakdown-manifest.json'
 const kjvFullPath = path.join(repoRoot, 'data', 'kjv-full.json');
 const kjvPath = path.join(repoRoot, 'kjv.json');
 const runtimePath = path.join(repoRoot, 'verse-breakdown.js');
+const heroFirstPaintPath = path.join(repoRoot, 'hero-daily-first-paint.js');
 const distRoot = path.join(repoRoot, 'dist');
+const distSeedPath = path.join(distRoot, 'verse-breakdown-overrides.js');
+const CURRENT_BREAKDOWN_TOKEN = '20260416-breakdown-platform';
 const GROUPS = ['general', 'kid', 'teen', 'family', 'pastor', 'church-leader', 'missionary', 'street-preacher', 'bible-study-group'];
 const STATIC_PAGE_CHECKS = [
   'dist/verse.html',
@@ -135,6 +138,32 @@ async function verifyStaticPages(manifest) {
   }
 }
 
+async function verifyHydrationAssets() {
+  const [seedAsset, heroFirstPaint, indexHtml, verseHtml] = await Promise.all([
+    fs.readFile(distSeedPath, 'utf8'),
+    fs.readFile(heroFirstPaintPath, 'utf8'),
+    fs.readFile(path.join(repoRoot, 'index.html'), 'utf8'),
+    fs.readFile(path.join(repoRoot, 'verse.html'), 'utf8')
+  ]);
+  if (!seedAsset.includes('TDB_VERSE_BREAKDOWN_DATA')) {
+    throw new Error('verse-breakdown-overrides.js did not build into dist with seed data.');
+  }
+  ['Plain English', 'For your group', 'Real life today'].forEach((label) => {
+    if (!heroFirstPaint.includes(label)) {
+      throw new Error(`hero-daily-first-paint.js is missing "${label}" first-paint label.`);
+    }
+  });
+  if (!indexHtml.includes(`verse-breakdown-overrides.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
+    throw new Error('index.html is missing the current verse-breakdown override seed include.');
+  }
+  if (!verseHtml.includes(`verse-breakdown-overrides.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
+    throw new Error('verse.html is missing the current verse-breakdown override seed include.');
+  }
+  if (!verseHtml.includes(`verse-breakdown.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
+    throw new Error('verse.html is missing the current verse-breakdown runtime token.');
+  }
+}
+
 async function ensureDistExists() {
   const stats = await fs.stat(distRoot).catch(() => null);
   if (!stats || !stats.isDirectory()) {
@@ -162,7 +191,8 @@ async function main() {
   await verifySurfacedRefs(manifest, kjv);
   await ensureDistExists();
   await verifyStaticPages(manifest);
-  console.log(`verify-verse-breakdown-coverage: ${manifest.surfacedRefs.length} surfaced refs verified across ${GROUPS.length} groups`);
+  await verifyHydrationAssets();
+  console.log(`verify-verse-breakdown-coverage: ${manifest.surfacedRefs.length} surfaced refs verified across ${GROUPS.length} groups + hydration assets`);
 }
 
 main().catch((error) => {

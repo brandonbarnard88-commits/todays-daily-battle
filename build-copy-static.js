@@ -177,6 +177,7 @@ const rootFiles = [
   'memory-verses.js',
   'home-votm.js',
   'verse-breakdown.js',
+  'verse-breakdown-overrides.js',
   'kjv-dictionary.js',
   'bible-study-companion.js',
   'word-study.js',

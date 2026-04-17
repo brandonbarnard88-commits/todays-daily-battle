@@ -13509,6 +13509,55 @@ button.family-armor-stories-btn {
 .prayer-echo-amen { font-size: 0.85rem; padding: 0 0.25rem; }
 .prayer-echo-amen-count { font-size: 0.85rem; opacity: 0.9; }
 
+/* Batch 11: Prayer wall breathing room without changing the quiet-room flow */
+body.prayer-wall-page .hero-banner .cta-group {
+  margin-bottom: 2.75rem;
+}
+
+body.prayer-wall-page #prayer-door-tabs {
+  margin-bottom: 2.25rem;
+}
+
+body.prayer-wall-page .prayer-wall-card .prayer-echo {
+  margin-top: 3.25rem;
+}
+
+body.prayer-wall-page .prayer-echo-heading {
+  margin-bottom: 1.5rem;
+}
+
+body.prayer-wall-page .prayer-echo-list {
+  gap: 1.75rem;
+}
+
+body.prayer-wall-page .prayer-wall-item {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+body.prayer-wall-page .prayer-wall-item.prayer-wall-top {
+  padding-left: calc(1.5rem - 3px);
+}
+
+@media (max-width: 640px) {
+  body.prayer-wall-page .hero-banner .cta-group {
+    margin-bottom: 2.25rem;
+  }
+
+  body.prayer-wall-page .prayer-wall-card .prayer-echo {
+    margin-top: 2.75rem;
+  }
+
+  body.prayer-wall-page .prayer-wall-item {
+    padding: 1.25rem;
+  }
+
+  body.prayer-wall-page .prayer-wall-item.prayer-wall-top {
+    padding-left: calc(1.25rem - 3px);
+  }
+}
+
 .daily-verse-echo { margin-top: 0.75rem; color: var(--elite-gold-solid); font-family: var(--font-body); font-size: 0.95rem; }
 .daily-verse-echo-pulse { animation: verse-echo-pulse 2s ease-out; }
 @keyframes verse-echo-pulse { 0% { opacity: 1; box-shadow: 0 0 12px var(--elite-gold-dim); } 50% { opacity: 0.95; } 100% { opacity: 1; box-shadow: none; } }

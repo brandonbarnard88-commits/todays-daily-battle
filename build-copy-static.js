@@ -184,6 +184,8 @@ const rootFiles = [
   'verse-narration.js',
   'family-verse-bridge.js',
   'kjv-lexicon.json',
+  'chapters.json',
+  'concordance.json',
   'mystudy.js',
   'what-god-has-done.js',
   'tdb-offline-strip.js',

@@ -63,7 +63,7 @@
     "quality:gate": "npm run build && npm run audit:paranoid && node scripts/audit-links.mjs && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
     "qa:smoke:local": "node scripts/qa-smoke-local.mjs",
     "quality:gate:full": "npm run quality:gate && npm run qa:smoke:local",
-    "quality:gate:browser": "npm run build && npx playwright install chromium && npx playwright test tests/a11y-critical.spec.ts tests/smoke-core.spec.ts tests/calm.spec.ts tests/prayer-wall-seeds.spec.ts && npm run verify:live:critical",
+    "quality:gate:browser": "npm run build && npx playwright install chromium && npx playwright test tests/a11y-critical.spec.ts tests/smoke-core.spec.ts tests/calm.spec.ts tests/prayer-wall-seeds.spec.ts tests/site-guide.spec.ts tests/mobius.spec.ts tests/spanish-deploy-hygiene.spec.ts && npm run verify:live:critical",
     "quality:gate:browser:core": "npm run build && npx playwright install chromium && npx playwright test tests/smoke-core.spec.ts tests/calm.spec.ts",
     "validate:prod": "node scripts/prod-validation.mjs",
     "verify:live": "node scripts/verify-live-suite.mjs",

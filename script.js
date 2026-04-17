@@ -605,6 +605,12 @@ function highlightCurrentNav() {
       if (linkPathname === '/give') {
         return path === '/give' || /\/give\.html$/i.test(path);
       }
+      if (/\.html$/i.test(linkPathname) && path === linkPathname.replace(/\.html$/i, '')) {
+        return true;
+      }
+      if (/\.html$/i.test(path) && path.replace(/\.html$/i, '') === linkPathname) {
+        return true;
+      }
       return path === linkPathname;
     }
 

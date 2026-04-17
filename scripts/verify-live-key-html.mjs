@@ -135,6 +135,32 @@ const checks = [
       'Message Board',
     ],
   },
+  {
+    path: '/printables.html',
+    needles: [
+      'Print hub',
+      'Printable Pack Generator',
+      'print-pack-generator.html',
+    ],
+  },
+  {
+    path: '/family-activity-packs.html',
+    needles: [
+      'Printable family activity packs',
+      'print-pack-generator.html?pack=bedtime-peace-littles',
+      'Themed pack generator',
+    ],
+  },
+  {
+    path: '/print-pack-generator.html',
+    needles: [
+      'Printable Pack Generator',
+      'Anxiety Anchor Pack',
+      'Bedtime Peace for Littles',
+      'Grief Comfort Bundle',
+      'print-pack-generator.js',
+    ],
+  },
 ];
 
 async function fetchText(url) {

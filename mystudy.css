@@ -6,11 +6,12 @@
   color: #e2e8f0;
 }
 
-.mystudy-shell {
+body.tdb-inner-page.mystudy-body .mystudy-shell {
   width: 100%;
-  max-width: 92rem;
+  max-width: min(92rem, 100%);
   margin: 0 auto;
   padding: 1.4rem 1.25rem 3rem;
+  display: block;
 }
 
 .mystudy-topbar {
@@ -57,6 +58,10 @@
   gap: 0.65rem;
 }
 
+.mystudy-hero-support {
+  align-content: start;
+}
+
 .mystudy-kicker {
   margin: 0;
   font-size: 0.76rem;
@@ -91,7 +96,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .mystudy-progress-summary {
@@ -117,6 +122,51 @@
 
 .mystudy-progress-summary-line--lead {
   color: #e2e8f0;
+}
+
+.mystudy-progress-card {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.mystudy-progress-lead,
+.mystudy-progress-foot {
+  margin: 0;
+}
+
+.mystudy-progress-lead {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #f8fafc;
+}
+
+.mystudy-progress-verses {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+}
+
+.mystudy-progress-verse {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(227, 188, 103, 0.26);
+  background: rgba(15, 23, 42, 0.62);
+  color: #f8fafc;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(2, 6, 23, 0.16);
+}
+
+.mystudy-progress-verse:hover,
+.mystudy-progress-verse:focus-visible {
+  color: #fef3c7;
+  border-color: rgba(227, 188, 103, 0.48);
+  text-decoration: none;
 }
 
 .mystudy-streak-badges {

@@ -7,7 +7,6 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -91,6 +90,7 @@ export default function Home() {
     window.speechSynthesis.speak(u);
   }, []);
 
+  // Pilot: `tdb-saved-verses-pilot` in localStorage until My Study + IndexedDB parity; static-site saves stay separate.
   const handleSave = useCallback(() => {
     try {
       const raw = window.localStorage.getItem("tdb-saved-verses-pilot");
@@ -316,12 +316,6 @@ export default function Home() {
                 </p>
               ) : null}
             </CardContent>
-            <CardFooter className="flex flex-col items-stretch gap-2 border-t border-border/50 text-center text-xs text-muted-foreground sm:items-center">
-              <p>
-                Pilot note: saves use a scratch localStorage key until IndexedDB + My Study parity
-                ships — your live site data is untouched.
-              </p>
-            </CardFooter>
           </Card>
 
           <div className="grid gap-6 md:grid-cols-3">

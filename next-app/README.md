@@ -18,6 +18,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Troubleshooting (local dev)
+
+- **`ENOENT` / `scandir .../next-app/app` or `app_dir must be a directory`** — the App Router folder is missing locally. From the repo root: `git checkout HEAD -- next-app/app` or `git pull origin main`, then `cd next-app && rm -rf .next && npm run dev`.
+- **Port 3000 already in use** — Next will pick 3001. To free 3000: `lsof -nP -iTCP:3000 -sTCP:LISTEN` then `kill <PID>` (or `kill -9 <PID>` if needed).
+- **Stale Turbopack / odd cache** — `cd next-app && rm -rf .next && npm run dev`.
+
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More

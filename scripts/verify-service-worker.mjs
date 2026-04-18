@@ -52,6 +52,9 @@ function main() {
   if (!sw.includes("'/register-sw.js'")) fail('service-worker.js: precache should include /register-sw.js');
   if (!sw.includes("'/print-pack-generator.html'")) fail('service-worker.js: precache should include /print-pack-generator.html');
   if (!sw.includes("'/print-pack-generator.js'")) fail('service-worker.js: precache should include /print-pack-generator.js');
+  if (!sw.includes("'/embeddable-widgets.html'")) fail('service-worker.js: precache should include /embeddable-widgets.html');
+  if (!sw.includes("'/embed-verse-widget.js'")) fail('service-worker.js: precache should include /embed-verse-widget.js');
+  if (!sw.includes("'/embeddable-widgets-page.js'")) fail('service-worker.js: precache should include /embeddable-widgets-page.js');
 
   const fb = read('firebase-push.js');
   if (fb.includes("serviceWorker.register('/sw.js")) {

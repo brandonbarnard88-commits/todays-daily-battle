@@ -84,6 +84,9 @@ const checks = [
     needles: [
       'Pray privately',
       'Pray with others',
+      'Queued shared prayers',
+      'Gentle KJV echo for this battle',
+      'Household room groundwork',
     ],
     forbidden: [
       'Community board',
@@ -159,6 +162,16 @@ const checks = [
       'Bedtime Peace for Littles',
       'Grief Comfort Bundle',
       'print-pack-generator.js',
+    ],
+  },
+  {
+    path: '/embeddable-widgets.html',
+    needles: [
+      'Embeddable verse widgets',
+      'Starter contract',
+      'Copy this embed code',
+      'embed-verse-widget.js',
+      'data-tdb-embed="verse-widget"',
     ],
   },
 ];

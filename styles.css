@@ -13508,6 +13508,78 @@ button.family-armor-stories-btn {
 .prayer-echo-amen-wrap { flex-shrink: 0; }
 .prayer-echo-amen { font-size: 0.85rem; padding: 0 0.25rem; }
 .prayer-echo-amen-count { font-size: 0.85rem; opacity: 0.9; }
+.prayer-choice-guide,
+.prayer-queue-card,
+.prayer-verse-echo-card,
+.prayer-household-room {
+  margin-top: 1rem;
+  padding: 1rem 1.05rem;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(2, 6, 23, 0.2);
+}
+.prayer-choice-guide .section-divider,
+.prayer-queue-card .section-divider,
+.prayer-verse-echo-card .section-divider,
+.prayer-household-room .section-divider {
+  margin-bottom: 0.5rem;
+}
+.prayer-queue-turnstile-wrap {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+.prayer-verse-echo-ref {
+  margin: 0 0 0.35rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-soft, #e3bc67);
+}
+.prayer-verse-echo-text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.prayer-verse-echo-grid {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.9rem;
+}
+.prayer-verse-echo-block {
+  padding: 0.85rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(15, 23, 42, 0.22);
+}
+.prayer-verse-echo-block h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.95);
+}
+.prayer-verse-echo-block p {
+  margin: 0;
+  line-height: 1.55;
+}
+.prayer-household-join-code {
+  width: 100%;
+  margin-top: 0.85rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.22);
+  color: inherit;
+  padding: 0.85rem 0.9rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+@media (min-width: 720px) {
+  .prayer-verse-echo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 
 /* Batch 11: Prayer wall breathing room without changing the quiet-room flow */
 body.prayer-wall-page .hero-banner .cta-group {

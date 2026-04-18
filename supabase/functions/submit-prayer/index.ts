@@ -2,7 +2,7 @@
  * Submit Quick Pray with Cloudflare Turnstile verification.
  * Verifies the token server-side, then inserts into prayers with service_role.
  *
- * POST body: { turnstile_token: string, intent: string, family_name?: string, session_id?: string }
+ * POST body: { turnstile_token: string, intent?: string, intents?: string[], family_name?: string, session_id?: string }
  * Returns: { ok: true } or { error: string, code?: string }
  *
  * Env: TURNSTILE_SECRET_KEY, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
@@ -58,6 +58,7 @@ function sanitizeForDb(s: string, maxLen: number): string {
 }
 
 const MAX_INTENT_LENGTH = 2000;
+const MAX_BATCH_INTENTS = 8;
 const MAX_FAMILY_NAME_LENGTH = 80;
 
 const PRAYER_RATE_LIMIT_WINDOW_SEC = 60;
@@ -125,7 +126,7 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: "Submit prayer not configured" }, 500);
   }
 
-  let body: { turnstile_token?: string; intent?: string; family_name?: string; session_id?: string };
+  let body: { turnstile_token?: string; intent?: string; intents?: string[]; family_name?: string; session_id?: string };
   try {
     body = await req.json();
   } catch {
@@ -133,13 +134,20 @@ Deno.serve(async (req) => {
   }
 
   const token = typeof body.turnstile_token === "string" ? body.turnstile_token.trim() : "";
-  const intentRaw = typeof body.intent === "string" ? body.intent.trim() : "";
-  const intent = sanitizeForDb(intentRaw, MAX_INTENT_LENGTH);
+  const rawIntents = Array.isArray(body.intents)
+    ? body.intents
+    : typeof body.intent === "string"
+      ? [body.intent]
+      : [];
+  const intents = rawIntents
+    .map((value) => sanitizeForDb(String(value ?? "").trim(), MAX_INTENT_LENGTH))
+    .filter(Boolean)
+    .slice(0, MAX_BATCH_INTENTS);
 
   if (!token) {
     return jsonResponse({ error: "Missing verification", code: "missing_token" }, 400);
   }
-  if (!intent) {
+  if (!intents.length) {
     return jsonResponse({ error: "Invalid intention", code: "invalid_intent" }, 400);
   }
 
@@ -171,11 +179,12 @@ Deno.serve(async (req) => {
     typeof body.family_name === "string" && body.family_name.trim()
       ? sanitizeForDb(body.family_name.trim(), MAX_FAMILY_NAME_LENGTH)
       : "";
-  const payload: { intent: string; session_id?: string; family_name?: string } = {
+  const sessionId = body.session_id ? String(body.session_id).slice(0, 256) : "";
+  const payload = intents.map((intent) => ({
     intent,
-    ...(body.session_id && { session_id: String(body.session_id).slice(0, 256) }),
+    ...(sessionId && { session_id: sessionId }),
     ...(familyNameRaw && { family_name: familyNameRaw }),
-  };
+  }));
 
   const { error } = await supabase.from("prayers").insert(payload);
 
@@ -184,5 +193,5 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: "Could not save prayer" }, 500);
   }
 
-  return jsonResponse({ ok: true }, 200);
+  return jsonResponse({ ok: true, inserted: payload.length }, 200);
 });

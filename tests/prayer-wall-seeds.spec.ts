@@ -107,4 +107,34 @@ test.describe('Prayer Wall seeds', () => {
     await expect(page.locator('#prayer-panel-private #prayer-wall-list li.prayer-wall-item:not(.prayer-wall-seed)')).toHaveCount(1);
     await expect(input).toHaveValue('');
   });
+
+  test('queue, verse echo, and household groundwork appear on the private wall', async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem(
+        'tdb_prayer_offline_queue',
+        JSON.stringify([{ intent: 'Please pray for my family tonight', attempts: 0, lastTriedAt: null, createdAt: Date.now(), source: 'quick_pray' }])
+      );
+    });
+    await waitForPrayerWallSeeds(page, test.info());
+
+    await expect(page.locator('#prayer-queue-card')).toBeVisible();
+    await expect(page.locator('#prayer-queue-status')).toContainText(/queued/i);
+
+    const input = page.locator('#prayer-wall-input');
+    await input.fill('my family needs peace tonight');
+    await expect(page.locator('#prayer-verse-echo-card')).toBeVisible();
+    await expect(page.locator('#prayer-verse-echo-card')).toContainText('Joshua 24:15');
+
+    const householdCode = Buffer.from(
+      JSON.stringify({
+        version: 1,
+        label: 'Smith home',
+        prayers: [{ text: 'Facing a long week today', ts: Date.now() }],
+      }),
+      'utf8'
+    ).toString('base64');
+    await page.locator('#prayer-household-join-code').fill(`tdb-household-room:${householdCode}`);
+    await page.locator('#prayer-household-join-btn').click();
+    await expect(page.locator('#prayer-household-status')).toContainText(/Smith home|household prayer/i);
+  });
 });

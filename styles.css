@@ -20348,3 +20348,86 @@ details[open] > .tdb-gentle-suggest-summary::after {
   text-align: left;
 }
 
+/* --- Embeddable widgets builder (embeddable-widgets.html) --- */
+.embed-page .embed-howto {
+  margin: 0.85rem 0 0;
+  padding-left: 1.2rem;
+  line-height: 1.65;
+}
+.embed-page .embed-howto li {
+  margin: 0.35rem 0;
+}
+.embed-page .embed-preview-live {
+  margin-top: 1rem;
+  padding: 1rem 1rem 1.15rem;
+  border-radius: 16px;
+  border: 1px dashed rgba(227, 188, 103, 0.35);
+  background: rgba(2, 6, 23, 0.25);
+}
+.embed-page .embed-preview-live__label {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(227, 188, 103, 0.92);
+}
+.embed-page .embed-controls {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.embed-page .embed-control-cluster {
+  display: grid;
+  gap: 0.45rem;
+}
+.embed-page .embed-control-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(226, 232, 240, 0.88);
+}
+:root[data-theme='light'] .embed-page .embed-control-label {
+  color: rgba(30, 41, 59, 0.9);
+}
+.embed-page .embed-control-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+.embed-page .embed-control-row select {
+  min-height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.45);
+  color: inherit;
+  padding: 0.35rem 0.65rem;
+  font: inherit;
+}
+:root[data-theme='light'] .embed-page .embed-control-row select {
+  background: rgba(248, 250, 252, 0.95);
+  color: #0f172a;
+  border-color: rgba(100, 116, 139, 0.35);
+}
+.embed-page .embed-brand-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.embed-page .embed-brand-toggle input {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.embed-page .embed-minimal-block {
+  margin-top: 1rem;
+}
+@media (max-width: 640px) {
+  .embed-page .embed-preview-live {
+    padding: 0.85rem 0.65rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+

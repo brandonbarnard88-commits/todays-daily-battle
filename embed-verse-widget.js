@@ -115,6 +115,20 @@
     return String(value || '').toLowerCase() === 'compact' ? 'compact' : 'card';
   }
 
+  function normalizeShowBrand(value) {
+    var v = String(value || '').toLowerCase();
+    if (v === '0' || v === 'false' || v === 'no' || v === 'off') return false;
+    return true;
+  }
+
+  /** Safe max-width for embedded card (avoid arbitrary CSS injection). */
+  function sanitizeMaxWidth(value) {
+    var raw = text(value);
+    if (!raw) return '';
+    if (/^(100%|\d{2,4}px)$/.test(raw)) return raw;
+    return '';
+  }
+
   function text(value) {
     return String(value == null ? '' : value).trim();
   }
@@ -141,7 +155,9 @@
       subtitle: text(ds.subtitle || node.getAttribute('data-subtitle')),
       linkLabel: text(ds.linkLabel || node.getAttribute('data-link-label')) || 'Open the full quiet place',
       sharedKey: text(ds.sharedKey || node.getAttribute('data-shared-key')),
-      sharedIndex: text(ds.sharedIndex || node.getAttribute('data-shared-index'))
+      sharedIndex: text(ds.sharedIndex || node.getAttribute('data-shared-index')),
+      maxWidth: sanitizeMaxWidth(ds.maxWidth || node.getAttribute('data-max-width')),
+      showBrand: normalizeShowBrand(ds.showBrand != null ? ds.showBrand : node.getAttribute('data-show-brand'))
     };
   }
 
@@ -215,7 +231,8 @@
       '.tdb-widget--compact .tdb-widget__grid{gap:8px;}' +
       '.tdb-widget--compact .tdb-widget__block{padding:10px 11px;}' +
       '.tdb-widget__loading,.tdb-widget__error{font-size:14px;}' +
-      '@media (min-width:520px){.tdb-widget__grid{grid-template-columns:repeat(3,minmax(0,1fr));}}';
+      '@media (min-width:520px){.tdb-widget__grid{grid-template-columns:repeat(3,minmax(0,1fr));}}' +
+      '@media (max-width:480px){.tdb-widget{padding:15px 14px 14px;}.tdb-widget--compact{padding:12px 11px 10px;}.tdb-widget__title{font-size:20px;}}';
   }
 
   function renderState(node, message, stateClass) {
@@ -241,8 +258,11 @@
 
     var card = createElement(document, 'section', 'tdb-widget tdb-widget--' + config.theme + ' tdb-widget--' + config.layout);
     card.setAttribute('part', 'card');
+    if (config.maxWidth) {
+      card.style.maxWidth = config.maxWidth;
+    }
 
-    card.appendChild(createElement(document, 'p', 'tdb-widget__eyebrow', config.audience === 'family' ? 'Family embeddable verse widget' : 'Embeddable verse widget'));
+    card.appendChild(createElement(document, 'p', 'tdb-widget__eyebrow', config.audience === 'family' ? 'For families & ministries' : 'A calm KJV verse for your page'));
     card.appendChild(createElement(document, 'h2', 'tdb-widget__title', config.title));
     if (config.subtitle) card.appendChild(createElement(document, 'p', 'tdb-widget__subtitle', config.subtitle));
 
@@ -265,7 +285,9 @@
     card.appendChild(grid);
 
     var footer = createElement(document, 'div', 'tdb-widget__footer');
-    footer.appendChild(createElement(document, 'span', 'tdb-widget__brand', 'KJV only - privacy-first - Today\'s Daily Battle'));
+    if (config.showBrand !== false) {
+      footer.appendChild(createElement(document, 'span', 'tdb-widget__brand', 'KJV only · No login · Today\'s Daily Battle'));
+    }
     var link = createElement(document, 'a', 'tdb-widget__link', config.linkLabel);
     link.href = assetUrl('/verse.html');
     link.target = '_blank';
@@ -320,7 +342,9 @@
           audience: config.audience,
           theme: config.theme,
           layout: config.layout,
-          linkLabel: config.linkLabel
+          linkLabel: config.linkLabel,
+          maxWidth: config.maxWidth,
+          showBrand: config.showBrand
         };
         var row = verseData.row || {
           ref: verseData.ref,
@@ -362,6 +386,13 @@
       if (safe.layout) attrs.push('data-layout="' + escapeHtml(normalizeLayout(safe.layout)) + '"');
       if (safe.title) attrs.push('data-title="' + escapeHtml(text(safe.title)) + '"');
       if (safe.subtitle) attrs.push('data-subtitle="' + escapeHtml(text(safe.subtitle)) + '"');
+      if (safe.sharedKey) attrs.push('data-shared-key="' + escapeHtml(text(safe.sharedKey)) + '"');
+      if (safe.sharedIndex != null && text(safe.sharedIndex) !== '') {
+        attrs.push('data-shared-index="' + escapeHtml(text(safe.sharedIndex)) + '"');
+      }
+      var mw = sanitizeMaxWidth(safe.maxWidth);
+      if (mw) attrs.push('data-max-width="' + escapeHtml(mw) + '"');
+      if (safe.showBrand === false) attrs.push('data-show-brand="false"');
       return '<div ' + attrs.join(' ') + '></div>\n<script src="' + assetUrl('/embed-verse-widget.js') + '" defer></script>';
     }
   };

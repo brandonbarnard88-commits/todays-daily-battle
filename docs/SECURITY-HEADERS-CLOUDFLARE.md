@@ -63,6 +63,22 @@ Wait for inclusion in browser preload lists (~2 weeks). After that you’re comm
 
 ---
 
+## Troubleshooting: `verify-live-csp` / `npm run test:live-csp` fails on X-Frame-Options
+
+**Symptom:** `expected: DENY` but `got: SAMEORIGIN` on `https://todaysdailybattle.com` (and/or `www`).
+
+**Cause:** A **zone-level** Cloudflare rule or legacy setting is setting **`X-Frame-Options: SAMEORIGIN`**, which overrides the **`DENY`** value from **Pages `dist/_headers`**. CSP may still match (including `frame-ancestors 'none'`), but live header parity tests require **`X-Frame-Options` to match the repo**.
+
+**Fix:**
+
+1. **Rules → Transform Rules → Modify response header** — edit or remove any rule that sets `X-Frame-Options` to `SAMEORIGIN`. Set it to **`DENY`** (same as the table in Step 2 above), or remove the header action so only `_headers` applies.
+2. **Security → Settings** — check for any automatic response header that forces framing policy; align with **`DENY`**.
+3. **Caching → Purge Everything**, wait a minute, then run:
+
+   `npm run test:live-csp`
+
+---
+
 ## Step 4: Verify
 
 - **https://securityheaders.com/?q=https://todaysdailybattle.com** — aim for A or A+. With Permissions-Policy added and deprecated headers removed, you should hit A+.

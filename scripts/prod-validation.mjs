@@ -11,8 +11,14 @@
  * 5. Fixed bottom nav still reachable after scroll (home header is not sticky by design)
  *
  * Override URL: PROD_VALIDATION_URL=https://www.todaysdailybattle.com
+ *
+ * Browsers: `npm run validate:prod` sets PLAYWRIGHT_BROWSERS_PATH=0 (hermetic install under
+ * node_modules). First run: `PLAYWRIGHT_BROWSERS_PATH=0 npx playwright install chromium`.
  */
 
+import { existsSync } from 'node:fs';
+import { homedir, platform } from 'node:os';
+import path from 'node:path';
 import { chromium } from 'playwright';
 import { dismissWelcomeOverlay, waitForPageSettle } from './_lib/live-browser-utils.mjs';
 
@@ -51,6 +57,33 @@ function section(title) {
   log(`\n${'='.repeat(60)}`, colors.bright);
   log(title, colors.bright);
   log('='.repeat(60), colors.bright);
+}
+
+/**
+ * Cursor/agent sandboxes may set PLAYWRIGHT_BROWSERS_PATH to a cache dir without binaries.
+ * `PLAYWRIGHT_BROWSERS_PATH=0` stores browsers under node_modules (hermetic); run
+ * `PLAYWRIGHT_BROWSERS_PATH=0 npx playwright install chromium` once per machine.
+ */
+function normalizePlaywrightBrowsersPath() {
+  const cur = process.env.PLAYWRIGHT_BROWSERS_PATH || '';
+  if (cur.includes('sandbox-cache') || cur.includes('cursor-sandbox')) {
+    process.env.PLAYWRIGHT_BROWSERS_PATH = '0';
+    return;
+  }
+  if (cur && cur !== '0' && !existsSync(cur)) {
+    process.env.PLAYWRIGHT_BROWSERS_PATH = '0';
+    return;
+  }
+  if (!cur || cur === '') {
+    const home = homedir();
+    const fallback =
+      platform() === 'darwin'
+        ? path.join(home, 'Library', 'Caches', 'ms-playwright')
+        : path.join(home, '.cache', 'ms-playwright');
+    if (existsSync(fallback)) {
+      process.env.PLAYWRIGHT_BROWSERS_PATH = fallback;
+    }
+  }
 }
 
 async function captureVerseReference(page) {
@@ -206,7 +239,7 @@ async function validateSearch(page) {
 }
 
 async function validateQuickTopic(page) {
-  section('CHECK 6: Quick-topic button (Hope) in feel grid');
+  section('CHECK 6: Quick-topic chip in feel grid (prefers Hope)');
   
   try {
     await page.goto(PROD_URL, { waitUntil: 'domcontentloaded', timeout: TIMEOUT * 2 });
@@ -283,10 +316,10 @@ async function validateQuickTopic(page) {
       bodyText.toLowerCase().includes('you\'re not alone');
 
     if (hasResults && hasHeartfeltMessage) {
-      pass('Quick-topic "Hope" working (results and supportive copy present)');
-      return { success: true, topic: 'hope' };
+      pass(`Quick-topic "${chipText}" working (results and supportive copy present)`);
+      return { success: true, topic: chipText };
     } else {
-      fail('Quick-topic "Hope" did not show expected results', `results=${hasResults}, message=${hasHeartfeltMessage}`);
+      fail(`Quick-topic "${chipText}" did not show expected results`, `results=${hasResults}, message=${hasHeartfeltMessage}`);
       return { success: false, reason: 'Results or message missing' };
     }
 
@@ -400,6 +433,7 @@ async function generateReport(results) {
 }
 
 async function main() {
+  normalizePlaywrightBrowsersPath();
   log('\n🚀 Starting Production Validation', colors.bright);
   log(`Target: ${PROD_URL}`, colors.cyan);
   log('');

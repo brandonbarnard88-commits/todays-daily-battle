@@ -24,6 +24,16 @@ for (const rel of OG_ASSET_PATHS) {
   }
 }
 
+for (const rel of ['kids-data-loader.js']) {
+  const p = join(dist, rel);
+  if (!existsSync(p)) {
+    console.error('FAIL missing file:', rel);
+    failed = true;
+  } else {
+    console.log('OK   file:', rel);
+  }
+}
+
 function checkHtml(rel, markers, label) {
   const p = join(dist, rel);
   if (!existsSync(p)) {

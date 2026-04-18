@@ -179,13 +179,28 @@ async function verifyOne(url, expected) {
     const got = norm(res.headers.get(name));
     const want = norm(expected[ek]);
     if (want && got !== want) {
+      let hint = '';
+      if (
+        ek === 'x-frame-options' &&
+        /^deny$/i.test(want) &&
+        /^sameorigin$/i.test(got)
+      ) {
+        hint =
+          '\n\n  Remediation (Cloudflare is overriding Pages `_headers`):\n' +
+          '  • Dashboard → Rules → Transform Rules → HTTP Response Headers: find any rule that sets\n' +
+          '    X-Frame-Options to SAMEORIGIN; change to DENY or remove that action so `dist/_headers` wins.\n' +
+          '  • Also check Security → Settings for legacy “HTTP headers” overrides.\n' +
+          '  • After change: Caching → Purge Everything, then re-run `npm run test:live-csp`.\n' +
+          '  • Doc: docs/SECURITY-HEADERS-CLOUDFLARE.md (X-Frame-Options row + Troubleshooting).\n';
+      }
       throw new Error(
         name + ' mismatch for ' + url + ' (' + via + ').\n' +
           '  expected: ' +
           want +
           '\n' +
           '  got:      ' +
-          (got || '(absent)')
+          (got || '(absent)') +
+          hint
       );
     }
   }

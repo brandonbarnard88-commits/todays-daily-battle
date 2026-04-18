@@ -27,14 +27,14 @@ Set these in Cloudflare (Transform Rules / Page Rules), Netlify (`_headers`), Ve
 ```
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 X-Content-Type-Options: nosniff
-X-Frame-Options: SAMEORIGIN
+X-Frame-Options: DENY
 Referrer-Policy: strict-origin-when-cross-origin
 Permissions-Policy: geolocation=(), microphone=(self), camera=()
 ```
 
 - **Strict-Transport-Security:** HTTPS only; browsers won’t downgrade.
 - **X-Content-Type-Options: nosniff:** Stops MIME sniffing.
-- **X-Frame-Options: SAMEORIGIN:** Reduces clickjacking (CSP frame-src already limits frames).
+- **X-Frame-Options: DENY:** Matches repo `_headers` and `npm run test:live-csp` (stricter than SAMEORIGIN; CSP also uses `frame-ancestors 'none'`).
 - **Referrer-Policy:** Matches meta referrer; don’t send full URL to third parties.
 - **Permissions-Policy:** Restrict sensitive APIs; allow microphone only for “Call God” if needed.
 
@@ -43,7 +43,7 @@ Permissions-Policy: geolocation=(), microphone=(self), camera=()
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
-  X-Frame-Options: SAMEORIGIN
+  X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
 ```
 
@@ -52,7 +52,7 @@ Permissions-Policy: geolocation=(), microphone=(self), camera=()
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
-  X-Frame-Options: SAMEORIGIN
+  X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
 ```
 

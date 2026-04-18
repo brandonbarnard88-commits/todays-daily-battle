@@ -130,6 +130,7 @@ const rootFiles = [
   'loop-player.css',
   'kids-corner.css',
   'kids-corner-daily-verse.js',
+  'kids-data-loader.js',
   'mystudy.css',
   'what-god-has-done.css',
   'script.js',

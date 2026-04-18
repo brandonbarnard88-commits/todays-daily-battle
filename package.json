@@ -65,7 +65,7 @@
     "quality:gate:full": "npm run quality:gate && npm run qa:smoke:local",
     "quality:gate:browser": "npm run build && npx playwright install chromium && npx playwright test tests/a11y-critical.spec.ts tests/smoke-core.spec.ts tests/calm.spec.ts tests/prayer-wall-seeds.spec.ts tests/embed-widget.spec.ts tests/site-guide.spec.ts tests/mobius.spec.ts tests/spanish-deploy-hygiene.spec.ts && npm run verify:live:critical",
     "quality:gate:browser:core": "npm run build && npx playwright install chromium && npx playwright test tests/smoke-core.spec.ts tests/calm.spec.ts",
-    "validate:prod": "node scripts/prod-validation.mjs",
+    "validate:prod": "PLAYWRIGHT_BROWSERS_PATH=0 node scripts/prod-validation.mjs",
     "verify:live": "node scripts/verify-live-suite.mjs",
     "verify:live-kids": "node scripts/verify-live-kids.mjs",
     "verify:kids-dist": "node scripts/verify-kids-dist.mjs",

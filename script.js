@@ -8073,23 +8073,41 @@ function wirePrayerSharingGuidance() {
 function wirePrayerHouseholdRoom() {
   var nameInput = document.getElementById('prayer-household-name');
   var codeInput = document.getElementById('prayer-household-join-code');
+  var verifyInput = document.getElementById('prayer-household-join-verify');
   var copyBtn = document.getElementById('prayer-household-copy-code');
   var joinBtn = document.getElementById('prayer-household-join-btn');
   var statusEl = document.getElementById('prayer-household-status');
+  var shortCodeEl = document.getElementById('prayer-household-short-code');
+  var regenBtn = document.getElementById('prayer-household-regenerate-code');
   if (!nameInput && !codeInput && !copyBtn && !joinBtn) return;
   if (nameInput && !nameInput.value) nameInput.value = getFamilyName();
   function setStatus(message) {
     if (statusEl) statusEl.textContent = message || '';
   }
+  function refreshHouseholdShortDisplay() {
+    if (shortCodeEl) shortCodeEl.textContent = getOrCreateHouseholdShortCode();
+  }
+  refreshHouseholdShortDisplay();
+  if (regenBtn) {
+    regenBtn.addEventListener('click', function () {
+      var next = randomHouseholdShortCode();
+      try { localStorage.setItem(PRAYER_HOUSEHOLD_SHORT_KEY, next); } catch (eR) {}
+      if (shortCodeEl) shortCodeEl.textContent = next;
+      setStatus('New code on this device. Copy a fresh bundle so your home gets the new 6-character match.');
+    });
+  }
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
       var items = readPrayerWallItemsForHousehold();
       if (!items.length) {
-        setStatus('Add a private prayer first, then this device can make a household code.');
+        setStatus('Add a private prayer first, then this device can build a household bundle.');
         return;
       }
+      var shortCode = getOrCreateHouseholdShortCode();
+      if (shortCodeEl) shortCodeEl.textContent = shortCode;
       var payload = {
         version: 1,
+        shortCode: shortCode,
         label: String((nameInput && nameInput.value) || getFamilyName() || 'Household room').trim(),
         exportedAt: new Date().toISOString(),
         prayers: items.slice(-12).map(function (item) {
@@ -8102,7 +8120,7 @@ function wirePrayerHouseholdRoom() {
       var code = encodePrayerHouseholdCode(payload);
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(code).then(function () {
-          setStatus('Household code copied. It carries recent local prayers only.');
+          setStatus('Bundle copied. Your code is ' + shortCode + ' — they can type it below to verify before merging.');
         }).catch(function () {
           setStatus(code);
         });
@@ -8115,8 +8133,23 @@ function wirePrayerHouseholdRoom() {
     joinBtn.addEventListener('click', function () {
       var decoded = decodePrayerHouseholdCode(codeInput && codeInput.value);
       if (!decoded || !Array.isArray(decoded.prayers)) {
-        setStatus('That household code did not open cleanly. Check the full code and try again.');
+        setStatus('That bundle did not open cleanly. Paste the full line and try again.');
         return;
+      }
+      var verifyNorm = normalizeHouseholdShortInput(verifyInput && verifyInput.value);
+      if (verifyNorm.length > 0 && verifyNorm.length < 6) {
+        setStatus('If you use a code, enter all six characters to match theirs.');
+        return;
+      }
+      if (verifyNorm.length === 6) {
+        if (!decoded.shortCode) {
+          setStatus('This bundle has no 6-character code (older share). Leave the code box empty, or ask for a fresh bundle.');
+          return;
+        }
+        if (String(decoded.shortCode).toUpperCase() !== verifyNorm) {
+          setStatus('That code does not match this bundle. Check with the person who shared it.');
+          return;
+        }
       }
       var raw;
       try {
@@ -8151,6 +8184,7 @@ function wirePrayerHouseholdRoom() {
         setStatus('This device already has those household prayers.');
       }
       if (codeInput) codeInput.value = '';
+      if (verifyInput) verifyInput.value = '';
     });
   }
 }
@@ -9980,6 +10014,7 @@ function updatePrayerQueueUi(messageOverride) {
   if (shareBtn) shareBtn.disabled = !show;
   if (clearBtn) clearBtn.disabled = !show;
   if (!show) {
+    setPrayerQueueFlushing(false);
     if (status) status.textContent = 'Quiet lines saved here can be shared later when you are back online and ready.';
     if (wrap) {
       wrap.hidden = true;
@@ -10011,8 +10046,23 @@ function updatePrayerQueueUi(messageOverride) {
     if (showTurnstile) ensurePrayerQueueTurnstile();
   }
 }
+function setPrayerQueueFlushing(on) {
+  var card = document.getElementById('prayer-queue-card');
+  var live = document.getElementById('prayer-queue-flush-live');
+  if (card) card.classList.toggle('prayer-queue-flushing', !!on);
+  if (live) {
+    if (on) {
+      live.removeAttribute('hidden');
+      live.textContent = 'Sending queued lines quietly…';
+    } else {
+      live.textContent = '';
+      live.setAttribute('hidden', '');
+    }
+  }
+}
 function clearPrayerOfflineQueue() {
   setPrayerOfflineQueue([]);
+  setPrayerQueueFlushing(false);
   updatePrayerQueueUi('Queued shared prayers cleared. Your quiet room entries stayed on this device.');
 }
 function flushPrayerOfflineQueue() {
@@ -10043,6 +10093,7 @@ function flushPrayerOfflineQueue() {
   }
   var familyName = truncateForDb(sanitizeUserInput(getFamilyName()), MAX_FAMILY_NAME_LENGTH);
   var sessionId = getPrayerSessionId();
+  setPrayerQueueFlushing(true);
   updatePrayerQueueUi('Sending queued lines quietly…');
   prayerFlushInFlight = fetch(cfg.SUBMIT_PRAYER_URL, {
     method: 'POST',
@@ -10096,6 +10147,7 @@ function flushPrayerOfflineQueue() {
   });
   prayerFlushInFlight = prayerFlushInFlight.finally(function () {
     prayerFlushInFlight = null;
+    setPrayerQueueFlushing(false);
   });
   return prayerFlushInFlight;
 }
@@ -10108,6 +10160,27 @@ var FAMILY_NAME_KEY = 'tdb_family_name';
 var AMEN_PREFIX = 'tdb_amen_';
 var PRAYER_LAST_PRIVATE_LINE_KEY = 'tdb_prayer_last_private_line';
 var PRAYER_HOUSEHOLD_CODE_PREFIX = 'tdb-household-room:';
+var PRAYER_HOUSEHOLD_SHORT_KEY = 'tdb_household_short_code_v1';
+var HOUSEHOLD_CODE_ALPHABET = '23456789ABCDEFGHJKMNPQRSTVWXYZ';
+function randomHouseholdShortCode() {
+  var out = '';
+  for (var i = 0; i < 6; i++) {
+    out += HOUSEHOLD_CODE_ALPHABET.charAt(Math.floor(Math.random() * HOUSEHOLD_CODE_ALPHABET.length));
+  }
+  return out;
+}
+function getOrCreateHouseholdShortCode() {
+  try {
+    var existing = (localStorage.getItem(PRAYER_HOUSEHOLD_SHORT_KEY) || '').trim().toUpperCase();
+    if (/^[23456789ABCDEFGHJKMNPQRSTVWXYZ]{6}$/.test(existing)) return existing;
+  } catch (e) {}
+  var code = randomHouseholdShortCode();
+  try { localStorage.setItem(PRAYER_HOUSEHOLD_SHORT_KEY, code); } catch (e2) {}
+  return code;
+}
+function normalizeHouseholdShortInput(value) {
+  return String(value || '').toUpperCase().replace(/[^23456789ABCDEFGHJKMNPQRSTVWXYZ]/g, '').slice(0, 6);
+}
 var PRAYER_VERSE_ECHO_MAP = [
   {
     keywords: ['anxiety', 'anxious', 'worry', 'worried', 'panic', 'overwhelmed'],
@@ -10156,6 +10229,30 @@ var PRAYER_VERSE_ECHO_MAP = [
     ref: 'Ephesians 4:32',
     text: 'And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ\'s sake hath forgiven you.',
     audience: 'general'
+  },
+  {
+    keywords: ['anger', 'angry', 'rage', 'furious', 'resent'],
+    ref: 'James 1:19-20',
+    text: 'Wherefore, my beloved brethren, let every man be swift to hear, slow to speak, slow to wrath: For the wrath of man worketh not the righteousness of God.',
+    audience: 'general'
+  },
+  {
+    keywords: ['stress', 'stressed', 'pressure', 'burnout'],
+    ref: 'Psalms 55:22',
+    text: 'Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.',
+    audience: 'general'
+  },
+  {
+    keywords: ['depression', 'depressed', 'hopeless', 'despair'],
+    ref: 'Psalms 42:11',
+    text: 'Why art thou cast down, O my soul? and why art thou disquieted within me? hope thou in God: for I shall yet praise him, who is the health of my countenance, and my God.',
+    audience: 'general'
+  },
+  {
+    keywords: ['parenting', 'parent', 'mother', 'father', 'toddler', 'teenager'],
+    ref: 'Proverbs 22:6',
+    text: 'Train up a child in the way he should go: and when he is old, he will not depart from it.',
+    audience: 'family'
   },
   {
     keywords: [],

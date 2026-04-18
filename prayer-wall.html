@@ -4,7 +4,7 @@
   <!-- tdb-cache-hygiene: bump purge if prayer-wall layout or CSP changes -->
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260415privacyfix"></script>
+  <script src="/tt-bootstrap.js?v=20260418prayerwall2"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="/analytics-loader.js"></script>
@@ -28,7 +28,7 @@
   <meta name="twitter:description" content="Pray privately with no account, or pray with others on the shared wall when you are ready.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css?v=20260415privacyfix" nonce="tdb2025s">
+  <link rel="stylesheet" href="/styles.css?v=20260418prayerwall2" nonce="tdb2025s">
   <link rel="manifest" href="/manifest.json">
   <noscript>
     <meta http-equiv="refresh" content="0;url=/explore.html#prayer">
@@ -153,7 +153,7 @@
 
         <header class="hero-banner tdb-dawn-hub--dusk">
           <h1>Prayer</h1>
-          <p class="real-talk">Two quiet doors. Pray privately here with no name or account — the line stays on this device. Or sign in to read and add to the shared wall with others. Both honest. Both safe.</p>
+          <p class="real-talk">Two quiet doors. <strong>Private tab:</strong> honest lines stay on this device — no account, no feed. <strong>Shared wall tab:</strong> short, moderated prayers with others after you sign in. Nothing crosses over unless you carry it on purpose. Both calm. Both safe.</p>
           <div class="cta-group">
             <a class="btn btn-secondary" href="/">Home &amp; search</a>
             <button type="button" class="btn btn-secondary prayer-door-tab-link" data-prayer-tab-target="private">Pray privately</button>
@@ -175,12 +175,12 @@
             <span class="prayer-wall-badge">No account needed. Just you and Him.</span>
             <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
           </div>
-          <p class="prayer-wall-privacy-note landing-privacy-teaser section-note">Everything here stays on this device by default. Your words are not sent unless you sign in to share on the wall. <a href="privacy.html">Read the promise</a>.</p>
+          <p class="prayer-wall-privacy-note landing-privacy-teaser section-note">Everything in this tab stays on this device until <em>you</em> open the shared wall and post while signed in. Your words are not uploaded as “private” lines. <a href="privacy.html">Read the promise</a>.</p>
           <p class="section-note">Human-curated. All anonymous by default. Report any concern: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
           <p class="prayer-wall-community-line section-note">The shared wall is in the other tab. It waits until you are ready and signed in.</p>
           <section class="prayer-choice-guide glass" aria-label="Private and shared prayer guide">
-            <h3 class="section-divider">Private first. Shared only when you choose.</h3>
-            <p class="section-note">The box below is for the quiet room on this device. If a line later needs the shared wall, use the button below to carry it over on purpose instead of posting everything automatically.</p>
+            <h3 class="section-divider">Private first. Shared only when you mean it.</h3>
+            <p class="section-note">The box below is the quiet room on <em>this</em> phone or browser only. The shared wall lives in the other tab and needs sign-in. Use the buttons here to open that tab or copy your latest line over — never an automatic post.</p>
             <div class="cta-group">
               <button type="button" id="prayer-open-shared-tab-btn" class="btn btn-secondary">Open shared wall</button>
               <button type="button" id="prayer-share-latest-btn" class="btn btn-secondary" hidden>Send latest line to shared wall</button>
@@ -229,6 +229,7 @@
           <section id="prayer-queue-card" class="prayer-queue-card hidden" hidden aria-labelledby="prayer-queue-heading">
             <h3 id="prayer-queue-heading" class="section-divider">Queued shared prayers</h3>
             <p id="prayer-queue-status" class="section-note">Quiet lines saved here can be shared later when you are back online and ready.</p>
+            <p id="prayer-queue-flush-live" class="prayer-queue-flush-live section-note" role="status" aria-live="polite" hidden></p>
             <div id="prayer-queue-turnstile-wrap" class="prayer-queue-turnstile-wrap hidden" hidden>
               <p class="section-note">Verify once, then send the queued lines quietly.</p>
               <div id="prayer-queue-turnstile-container"></div>
@@ -256,6 +257,7 @@
                 <p id="prayer-verse-echo-today"></p>
               </section>
             </div>
+            <p class="prayer-verse-echo-footnote section-note">Gentle match from a small, hand-tended keyword list to a KJV verse — not reading your heart, not AI.</p>
           </section>
           <!-- Enhanced offline resilience for prayer wall per rules and eval feedback on load issues. Private prayers cached locally first. -->
           <div class="prayer-wall-alive" role="region" aria-label="Your prayers on this device">
@@ -275,17 +277,23 @@
             <p id="prayer-export-hint" class="prayer-export-hint section-note">Save as a text file—or share a verse anonymously with Share on any line.</p>
           </div>
           <section id="prayer-household-room" class="prayer-household-room" aria-labelledby="prayer-household-heading">
-            <h3 id="prayer-household-heading" class="section-divider">Household room groundwork</h3>
-            <p class="section-note">If your home wants one quiet thread across devices, this page builds a single copy-paste block from the prayers already on this device (not a short PIN—paste the whole line). It stays local-first and human-sized.</p>
+            <h3 id="prayer-household-heading" class="section-divider">Household room (local only)</h3>
+            <p class="section-note">Share a <strong>full paste block</strong> with someone in your home — it bundles recent quiet-room lines from this device. A short <strong>6-character code</strong> on each phone helps you confirm the paste is really yours. No accounts; everything stays human-sized.</p>
+            <div class="prayer-household-short-panel">
+              <p class="section-note prayer-household-short-line">This device’s household code: <strong id="prayer-household-short-code" class="prayer-household-code-chars" translate="no" aria-live="polite">------</strong> <span class="prayer-household-short-paren">(saved only on this device)</span></p>
+              <button type="button" id="prayer-household-regenerate-code" class="link-button prayer-household-regenerate">Generate a new code</button>
+            </div>
             <label for="prayer-household-name" class="sr-only">Household label</label>
             <input type="text" id="prayer-household-name" class="prayer-wall-input" maxlength="60" placeholder="Household label (optional)" aria-label="Household label">
-            <div class="cta-group">
-              <button type="button" id="prayer-household-copy-code" class="btn btn-secondary">Copy household code</button>
+            <div class="cta-group prayer-household-actions">
+              <button type="button" id="prayer-household-copy-code" class="btn btn-secondary">Copy household bundle</button>
             </div>
-            <label for="prayer-household-join-code" class="sr-only">Paste a household code</label>
-            <textarea id="prayer-household-join-code" class="prayer-household-join-code" rows="4" placeholder="Paste a household code on this device when someone in your home shares one." aria-label="Paste a household code"></textarea>
+            <label for="prayer-household-join-code" class="sr-only">Paste a household bundle</label>
+            <textarea id="prayer-household-join-code" class="prayer-household-join-code" rows="4" placeholder="Paste the full household bundle someone shared." aria-label="Paste a household bundle"></textarea>
+            <label for="prayer-household-join-verify" class="prayer-household-verify-label">Optional: their 6-character code</label>
+            <input type="text" id="prayer-household-join-verify" class="prayer-wall-input prayer-household-join-verify" maxlength="6" placeholder="e.g. ABC2XY" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" aria-label="Optional 6-character code to verify the pasted bundle">
             <div class="cta-group">
-              <button type="button" id="prayer-household-join-btn" class="btn btn-secondary">Use code on this device</button>
+              <button type="button" id="prayer-household-join-btn" class="btn btn-secondary">Merge bundle on this device</button>
             </div>
             <p id="prayer-household-status" class="section-note" role="status" aria-live="polite"></p>
           </section>
@@ -555,13 +563,13 @@
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
-  <script defer src="/language-switcher.js?v=20260415privacyfix"></script>
+  <script defer src="/language-switcher.js?v=20260418prayerwall2"></script>
 </footer>
   </div>
 
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260415privacyfix" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260418prayerwall2" data-cfasync="false"></script>
   <script>
     (function wirePrayerDoorTabs() {
       var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-prayer-tab]'));
@@ -626,6 +634,6 @@
       } catch (_) {}
     }());
   </script>
-  <script src="share-page.js?v=20260415privacyfix" defer></script>
+  <script src="share-page.js?v=20260418prayerwall2" defer></script>
 </body>
 </html>

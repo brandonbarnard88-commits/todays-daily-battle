@@ -90,7 +90,7 @@ if (headersForCsp.includes("require-trusted-types-for 'script'")) {
 if (!headersForCsp.includes('trusted-types default dompurify')) {
   fail('_headers: CSP trusted-types must allow default and dompurify (DOMPurify internal policy)');
 } else if (headersForCsp.includes('decodeHTMLEntitiesPolicy')) {
-  warn('CSP: decodeHTMLEntitiesPolicy in trusted-types is unnecessary for this repo; prefer minimal allowlist (default dompurify)');
+  ok('CSP: trusted-types default dompurify decodeHTMLEntitiesPolicy (third-party / extension compatibility)');
 } else {
   ok('CSP: trusted-types default dompurify (minimal allowlist)');
 }

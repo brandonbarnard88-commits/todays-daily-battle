@@ -3,7 +3,7 @@
 <head>
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260415privacyfix"></script>
-  <script defer src="analytics-loader.js"></script>
+  <script defer src="/analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>For the Little Ones • Today's Daily Battle</title>
@@ -12,8 +12,8 @@
   <link rel="canonical" href="https://todaysdailybattle.com/little-ones.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260415privacyfix">
-  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="/styles.css?v=20260415privacyfix">
+  <link rel="manifest" href="/manifest.json">
   <style nonce="tdb2025s">
     .little-ones-page {
       max-width: 72rem;
@@ -99,12 +99,46 @@
       padding-left: 1.15rem;
       line-height: 1.65;
     }
+    .little-ones-page > section.glass,
+    .little-ones-page > details.glass {
+      margin-top: 1.25rem;
+    }
+    .little-ones-page > section.glass:first-of-type {
+      margin-top: 1.35rem;
+    }
+    @media (min-width: 960px) {
+      .little-ones-page {
+        max-width: 76rem;
+        padding: 1.5rem clamp(1.75rem, 5vw, 3.25rem) 4.5rem;
+      }
+      .little-ones-hero {
+        margin-bottom: 1.5rem;
+      }
+      .little-ones-page > section.glass,
+      .little-ones-page > details.glass {
+        margin-top: 2.25rem;
+      }
+      .little-ones-feature-grid,
+      .little-ones-age-grid {
+        gap: 1.5rem;
+      }
+      .little-ones-feature-card,
+      .little-ones-story-actions,
+      .little-ones-age-card {
+        padding: 1.25rem 1.35rem;
+      }
+      .little-ones-verse-head,
+      .little-ones-feature-top,
+      .little-ones-age-tabs {
+        gap: 1rem;
+      }
+    }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <main id="main-content" class="little-ones-page">
-    <a href="explore.html" class="plans-back plans-back-hub">← Explore</a>
+    <a href="/explore.html" class="plans-back plans-back-hub">← Explore</a>
 
     <header class="hero-banner tdb-dawn-hub--mist little-ones-hero">
       <p class="hero-kicker">For the little ones</p>
@@ -426,9 +460,9 @@
   <script defer src="/language-switcher.js?v=20260415privacyfix"></script>
 </footer>
 
-  <script defer src="little-ones.js?v=20260415littleones"></script>
-  <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260415privacyfix" data-cfasync="false"></script>
-  <script src="kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
+  <script defer src="/little-ones.js?v=20260415littleones"></script>
+  <script type="module" src="/config.js"></script>
+  <script type="module" src="/script.js?v=20260415privacyfix" data-cfasync="false"></script>
+  <script src="/kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
 </body>
 </html>

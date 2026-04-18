@@ -38,6 +38,7 @@ import {
   readListenRate,
   writeListenRate,
 } from "@/lib/tdb-listen-rate";
+import { GENTLE_PICKS, memorizeHrefForRef } from "@/lib/tdb-gentle-picks";
 import { migratePilotLocalStorageOnce, appendSavedVerse } from "@/lib/tdb-study-db";
 import { cn } from "@/lib/utils";
 import { Moon, Scroll, SunMedium } from "lucide-react";
@@ -383,6 +384,31 @@ export default function Home() {
                 </CardHeader>
               </Card>
             </Link>
+          </div>
+
+          <div className="tdb-no-print mt-14 border-t border-border/40 pt-10">
+            <p className="mb-3 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              Gentle picks (on device)
+            </p>
+            <p className="mb-4 max-w-lg text-sm text-muted-foreground">
+              Optional lanes from the same pilot catalog — open Memorize with that reference when you
+              need a next step. No scores, no tracking.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {GENTLE_PICKS.map((p) => (
+                <Link
+                  key={p.id}
+                  href={memorizeHrefForRef(p.reference)}
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                    "h-auto min-h-9 flex-col items-start gap-0 py-1.5 text-left",
+                  )}
+                >
+                  <span className="text-xs font-medium text-foreground">{p.mood}</span>
+                  <span className="text-[11px] font-normal text-muted-foreground">{p.hint}</span>
+                </Link>
+              ))}
+            </div>
           </div>
 
           <TdbPageFooter />

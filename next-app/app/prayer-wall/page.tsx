@@ -5,7 +5,13 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  TDBCard,
+} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
@@ -38,6 +44,7 @@ export default function PrayerWallPage() {
   const [pending, setPending] = useState(0);
   const [flushMsg, setFlushMsg] = useState<string | null>(null);
   const [household, setHousehold] = useState("");
+  const [householdSavedHint, setHouseholdSavedHint] = useState(false);
 
   const refresh = useCallback(() => {
     setPrayers(listPrivatePrayers());
@@ -57,7 +64,9 @@ export default function PrayerWallPage() {
       if (n > 0) {
         clearPendingFlush();
         setPending(0);
-        setFlushMsg(`Back online — ${n} quiet line(s) marked ready. Full sync lives on the main site when you sign in.`);
+        setFlushMsg(
+          `Back online — ${n} queued line(s) cleared here. When you sign in on the main site, anything that syncs there is separate from this local queue.`,
+        );
         window.setTimeout(() => setFlushMsg(null), 8000);
       }
     };
@@ -74,7 +83,7 @@ export default function PrayerWallPage() {
   }, [draft, refresh]);
 
   const appendVerseEcho = useCallback(() => {
-    const line = `${dailyVerse.reference} — ${dailyVerse.text.slice(0, 120)}…`;
+    const line = `${dailyVerse.reference} — ${dailyVerse.text.slice(0, 200)}…`;
     setDraft((d) => (d ? `${d}\n\n${line}` : line));
   }, []);
 
@@ -125,29 +134,58 @@ export default function PrayerWallPage() {
                   </p>
                 ) : null}
                 {pending > 0 ? (
-                  <p className="text-sm text-muted-foreground">
-                    {pending} line(s) queued while you were offline — we&apos;ll clear the queue when
-                    you&apos;re back online (full sync uses the main site).
-                  </p>
+                  <div
+                    className="rounded-lg border border-amber-900/15 bg-muted/25 p-3 text-sm text-muted-foreground dark:border-amber-100/15"
+                    role="status"
+                  >
+                    <p className="font-medium text-foreground">
+                      {pending} prayer line{pending === 1 ? "" : "s"} waiting in the offline queue
+                    </p>
+                    <p className="mt-1.5 leading-relaxed">
+                      Saved when your connection dropped. They stay on this device until you go online
+                      (we clear the queue marker then) or tap{" "}
+                      <span className="text-foreground">Clear offline queue</span> below.
+                    </p>
+                  </div>
                 ) : null}
 
-                <div className="rounded-lg border border-border/60 bg-muted/20 p-3 text-sm text-muted-foreground">
-                  <p className="font-medium text-foreground">Verse echo (optional)</p>
-                  <p className="mt-1">
-                    Today: <span className="text-foreground">{dailyVerse.reference}</span> — borrow a
-                    phrase if it helps your prayer.
-                  </p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {verseEchoPrompts.map((p) => (
-                      <Button type="button" key={p} variant="outline" size="sm" className="text-xs font-normal" onClick={() => appendPrompt(p)}>
-                        {p}
-                      </Button>
-                    ))}
-                  </div>
-                  <Button type="button" variant="ghost" size="sm" className="mt-2" onClick={appendVerseEcho}>
-                    Add KJV verse snippet
-                  </Button>
-                </div>
+                <TDBCard variant="parchment" className="shadow-none ring-border/60">
+                  <CardHeader className="pb-2">
+                    <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                      Optional · KJV echo
+                    </p>
+                    <CardTitle className="font-heading text-base text-foreground">
+                      {dailyVerse.reference}
+                    </CardTitle>
+                    <p className="text-sm text-muted-foreground">
+                      Borrow a phrase into your prayer — nothing posts unless you save privately below.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 pt-0">
+                    <blockquote className="border-l-[3px] border-primary/35 pl-3 font-heading text-sm italic leading-relaxed text-foreground/95">
+                      {dailyVerse.text.length > 220
+                        ? `${dailyVerse.text.slice(0, 220).trim()}…`
+                        : dailyVerse.text}
+                    </blockquote>
+                    <div className="flex flex-wrap gap-2">
+                      {verseEchoPrompts.map((p) => (
+                        <Button
+                          type="button"
+                          key={p}
+                          variant="outline"
+                          size="sm"
+                          className="text-xs font-normal"
+                          onClick={() => appendPrompt(p)}
+                        >
+                          {p}
+                        </Button>
+                      ))}
+                    </div>
+                    <Button type="button" variant="secondary" size="sm" onClick={appendVerseEcho}>
+                      Insert verse snippet into draft
+                    </Button>
+                  </CardContent>
+                </TDBCard>
 
                 <Textarea
                   value={draft}
@@ -165,6 +203,14 @@ export default function PrayerWallPage() {
                     type="button"
                     variant="outline"
                     onClick={() => {
+                      if (pending === 0) return;
+                      if (
+                        !window.confirm(
+                          "Clear the offline queue on this device? Your saved private prayers stay — this only removes queued markers from when you were offline.",
+                        )
+                      ) {
+                        return;
+                      }
                       clearPendingFlush();
                       setPending(0);
                     }}
@@ -179,7 +225,8 @@ export default function PrayerWallPage() {
                     Household share code (optional)
                   </label>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    For future family rhythms — stored only on this device.
+                    Private — for future family rhythms on the main site. Stays only in this
+                    browser until you use it there yourself. Nothing here posts to the shared wall.
                   </p>
                   <input
                     id="tdb-household"
@@ -188,10 +235,21 @@ export default function PrayerWallPage() {
                     onChange={(e) => {
                       setHousehold(e.target.value);
                       writeHouseholdShareCode(e.target.value);
+                      setHouseholdSavedHint(false);
+                    }}
+                    onBlur={() => {
+                      if (!household.trim()) return;
+                      setHouseholdSavedHint(true);
+                      window.setTimeout(() => setHouseholdSavedHint(false), 3200);
                     }}
                     placeholder="e.g. family code from main site"
                     autoComplete="off"
                   />
+                  {householdSavedHint ? (
+                    <p className="mt-2 text-xs text-muted-foreground" role="status">
+                      Noted on this device — still private until you choose otherwise on the main site.
+                    </p>
+                  ) : null}
                 </div>
               </CardContent>
             </Card>

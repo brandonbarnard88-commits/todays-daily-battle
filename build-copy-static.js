@@ -152,6 +152,7 @@ const rootFiles = [
   'team-toolkit-packs-pdf.js',
   'analytics-loader.js',
   'gsc-verify.js',
+  'gentle-suggest.js',
   'embed-verse-widget.js',
   'embeddable-widgets-page.js',
   'ask-the-word.js',

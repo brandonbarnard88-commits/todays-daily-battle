@@ -37,6 +37,33 @@
         <div class="mystudy-hero-support">
           <p class="section-note tdb-kjv-dict-hint mystudy-hint-card" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
           <div class="tdb-soft-retry-row mystudy-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Reload page</button><span class="section-note util-mb-0">Use this if your saved study, notes, or highlights open blank on first load.</span></div>
+          <details class="tdb-gentle-suggest-disclosure mystudy-gentle-disclosure" data-tdb-gentle-root>
+            <summary class="tdb-gentle-suggest-summary">Gentle suggestions?</summary>
+            <div class="tdb-gentle-suggest-body">
+              <p class="section-note util-mb-0_5">Optional. One calm KJV verse at a time, chosen on <strong>this device only</strong>—no tracking, no streaks, no pushy nudges.</p>
+              <label class="mystudy-inline util-mt-0_75">
+                <input type="checkbox" data-tdb-gentle-optin aria-describedby="tdb-gentle-mystudy-hint">
+                Turn on gentle verse suggestions on this device
+              </label>
+              <p id="tdb-gentle-mystudy-hint" class="section-note util-mt-0_5">Uses the same gentle three-part breakdown as the rest of the site. Off by default.</p>
+              <div data-tdb-gentle-panel class="tdb-gentle-panel hidden util-mt-1">
+                <label class="mystudy-label" for="tdb-gentle-band-mystudy">What kind of day is it?</label>
+                <select id="tdb-gentle-band-mystudy" data-tdb-gentle-band class="tdb-gentle-band-select" aria-label="Gentle suggestion mood">
+                  <option value="general">Let it be gentle and general</option>
+                  <option value="heavy">Heavy, worried, or worn down</option>
+                  <option value="steady">Need steadiness, hope, or peace</option>
+                  <option value="home">Home, family, or relationships</option>
+                  <option value="practical">Practical burdens (sleep, provision, rhythm)</option>
+                </select>
+                <p class="section-note util-mt-0_75">We also glance at your verse search words above—only on this page—to pick a fitting band when you leave the menu on “general.”</p>
+                <button type="button" class="btn btn-secondary util-mt-0_75" data-tdb-gentle-offer>Offer me a gentle verse</button>
+                <p data-tdb-gentle-status class="section-note tdb-gentle-status hidden" aria-live="polite"></p>
+                <p data-tdb-gentle-ref class="mystudy-verse-ref util-mt-1 hidden" aria-live="polite"></p>
+                <p data-tdb-gentle-text class="mystudy-verse-text section-note hidden" aria-live="polite"></p>
+                <div data-tdb-gentle-output class="tdb-gentle-output hidden" aria-live="polite"></div>
+              </div>
+            </div>
+          </details>
         </div>
         <div id="mystudy-progress-summary" class="mystudy-progress-summary" role="region" aria-label="Your gentle study rhythm on this device"></div>
         <section id="mystudy-streak-badges" class="mystudy-streak-badges" role="region" aria-labelledby="mystudy-streak-badges-heading">
@@ -216,6 +243,7 @@
   <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
   <!-- Supabase SDK managed exclusively by script.js (singleton prevents duplicate GoTrueClient instances and auth token races) -->
   <script src="verse-breakdown.js?v=20260405-relations-fix" defer></script>
+  <script src="gentle-suggest.js?v=20260418gentle" defer></script>
   <script src="highlights.js?v=20260305" defer></script>
   <script src="bible-study-companion.js?v=20260328printpolish" defer></script>
   <script src="word-study.js?v=20260329pass2off" defer></script>

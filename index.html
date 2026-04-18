@@ -7933,6 +7933,32 @@
       <p class="tdb-calm-doorway-teaser" id="tdbCalmDoorwayTeaser">
         <a href="calm.html">In a heavy moment?</a> Calm opens one gentle verse in a tap&mdash;no topic pick required.
       </p>
+      <details class="tdb-gentle-suggest-disclosure tdb-home-gentle-disclosure" data-tdb-gentle-root>
+        <summary class="tdb-gentle-suggest-summary">Gentle suggestions?</summary>
+        <div class="tdb-gentle-suggest-body">
+          <p class="section-note util-mb-0_5">Optional. Calm KJV verses with the same three-part breakdown as today&rsquo;s verse&mdash;stored on <strong>this device only</strong>, no analytics.</p>
+          <label class="tdb-gentle-optin-label">
+            <input type="checkbox" data-tdb-gentle-optin aria-describedby="tdb-gentle-home-hint">
+            Turn on gentle verse suggestions on this device
+          </label>
+          <p id="tdb-gentle-home-hint" class="section-note util-mt-0_5">Off by default. You can turn this off anytime.</p>
+          <div data-tdb-gentle-panel class="tdb-gentle-panel hidden util-mt-1">
+            <label class="sr-only" for="tdb-gentle-band-home">Gentle suggestion mood</label>
+            <select id="tdb-gentle-band-home" data-tdb-gentle-band class="tdb-gentle-band-select" aria-label="Gentle suggestion mood">
+              <option value="general">Let it be gentle and general</option>
+              <option value="heavy">Heavy, worried, or worn down</option>
+              <option value="steady">Need steadiness, hope, or peace</option>
+              <option value="home">Home, family, or relationships</option>
+              <option value="practical">Practical burdens (sleep, provision, rhythm)</option>
+            </select>
+            <button type="button" class="btn btn-secondary util-mt-0_75" data-tdb-gentle-offer>Offer me a gentle verse</button>
+            <p data-tdb-gentle-status class="section-note tdb-gentle-status hidden" aria-live="polite"></p>
+            <p data-tdb-gentle-ref class="verse-ref util-mt-1 hidden" aria-live="polite"></p>
+            <p data-tdb-gentle-text class="section-note hidden" aria-live="polite"></p>
+            <div data-tdb-gentle-output class="tdb-gentle-output hidden" aria-live="polite"></div>
+          </div>
+        </div>
+      </details>
       <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Spring 2026)</span> &mdash; Clearer <a href="explore.html#start-here">Start here</a> flow on Explore, family and mission tools alongside the daily rhythm, new reading-plan paths for hard weeks. <a href="explore.html#whats-new-spring-2026">Spring notes</a> · <a href="explore.html#first-visit-tour">Five calm minutes tour</a> · <a href="about.html#whats-new-study">Study tools</a>.</p>
       <div class="tdb-home-rhythm-card" style="margin:2rem auto;max-width:38rem;background:rgba(227,188,103,0.06);border:1px solid rgba(227,188,103,0.25);border-radius:18px;padding:1.5rem 1.75rem;text-align:center;">
         <p style="color:var(--gold);font-size:0.95rem;margin:0 0 0.75rem;font-weight:600;letter-spacing:0.5px;">THIS WEEK’S RHYTHM</p>
@@ -13124,6 +13150,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="family-verse-bridge.js?v=20260405familybridge1"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-breakdown-overrides.js?v=20260417-hydration" data-tdb-verse-breakdown-overrides="1"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-breakdown.js?v=20260417-hydration" data-tdb-verse-breakdown="1"></script>
+  <script nonce="tdb2025s" defer fetchpriority="low" src="gentle-suggest.js?v=20260418gentle"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260415privacyfix" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->

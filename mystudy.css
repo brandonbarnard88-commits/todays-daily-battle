@@ -1059,3 +1059,14 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
     flex: 1 1 calc(33.333% - 0.55rem);
   }
 }
+
+/* Gentle suggestions disclosure (My Study hero) */
+.mystudy-gentle-disclosure {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 42rem;
+}
+
+.mystudy-gentle-disclosure .tdb-gentle-band-select {
+  background: rgba(15, 23, 42, 0.72);
+}

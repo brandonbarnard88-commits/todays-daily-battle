@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Crimson_Text, Inter } from "next/font/google";
 import Script from "next/script";
 
+import { AddToHomePrompt } from "@/components/add-to-home-prompt";
 import { RegisterServiceWorker } from "@/components/register-service-worker";
 import { tdbThemeBootstrapInline } from "@/lib/tdb-theme-bootstrap";
 
@@ -57,6 +58,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: tdbThemeBootstrapInline }}
         />
         {children}
+        <AddToHomePrompt />
         <RegisterServiceWorker />
       </body>
     </html>

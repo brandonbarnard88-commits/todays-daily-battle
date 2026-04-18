@@ -3,6 +3,12 @@
 import Link from "next/link";
 import { useCallback, useEffect, useId, useMemo, useState } from "react";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
@@ -10,12 +16,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   applyTdbTheme,
   readInitialTdbTheme,
   type TdbThemeId,
   TDB_THEME_LABEL,
 } from "@/lib/tdb-theme";
+import { LISTEN_PRESETS, presetForRate, readListenRate, writeListenRate } from "@/lib/tdb-listen-rate";
+import { migratePilotLocalStorageOnce, appendSavedVerse } from "@/lib/tdb-study-db";
 import { cn } from "@/lib/utils";
 import { Moon, Scroll, SunMedium } from "lucide-react";
 
@@ -51,6 +60,22 @@ const verseJsonLd = {
   description:
     "A quiet place for real battles — KJV daily verse and gentle tools. No ads. No tracking.",
   inLanguage: "en",
+  keywords: [
+    "King James Version",
+    "KJV daily verse",
+    "Bible verse for anxiety",
+    "Scripture for parents",
+    "Christian encouragement",
+    "KJV Scripture",
+  ],
+  about: {
+    "@type": "Thing",
+    name: "Daily KJV encouragement for anxiety, parenting, grief, and fear",
+  },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: [".tdb-speakable-verse"],
+  },
   mainEntity: {
     "@type": "Quotation",
     text: dailyVerse.text,
@@ -65,49 +90,79 @@ const verseJsonLd = {
 };
 
 export default function Home() {
-  const audienceTabsId = useId();
+  const audienceLabelId = useId();
   const [theme, setTheme] = useState<TdbThemeId | null>(null);
   const [audience, setAudience] = useState<Audience>("adult");
   const [saved, setSaved] = useState(false);
   const [prayOpen, setPrayOpen] = useState(false);
+  const [listenRate, setListenRate] = useState(readListenRate);
+  const [listenHint, setListenHint] = useState<string | null>(null);
 
   useEffect(() => {
     const initial = readInitialTdbTheme();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- theme comes from localStorage after mount (no SSR storage)
     setTheme(initial);
     applyTdbTheme(initial);
   }, []);
+
+  useEffect(() => {
+    void migratePilotLocalStorageOnce();
+  }, []);
+
+  useEffect(() => {
+    if (!listenHint) return;
+    const t = window.setTimeout(() => setListenHint(null), 5200);
+    return () => window.clearTimeout(t);
+  }, [listenHint]);
 
   const setTdbTheme = useCallback((next: TdbThemeId) => {
     setTheme(next);
     applyTdbTheme(next);
   }, []);
 
-  const handleListen = useCallback(() => {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(dailyVerse.text);
-    u.rate = 0.85;
-    window.speechSynthesis.speak(u);
+  const applyListenPreset = useCallback((rate: number) => {
+    writeListenRate(rate);
+    setListenRate(rate);
   }, []);
 
-  // Pilot: `tdb-saved-verses-pilot` in localStorage until My Study + IndexedDB parity; static-site saves stay separate.
-  const handleSave = useCallback(() => {
-    try {
-      const raw = window.localStorage.getItem("tdb-saved-verses-pilot");
-      const list = raw ? (JSON.parse(raw) as unknown[]) : [];
-      list.push({
-        reference: dailyVerse.reference,
-        savedAt: new Date().toISOString(),
-      });
-      window.localStorage.setItem("tdb-saved-verses-pilot", JSON.stringify(list));
-    } catch {
-      window.localStorage.setItem(
-        "tdb-saved-verses-pilot",
-        JSON.stringify([{ reference: dailyVerse.reference, savedAt: new Date().toISOString() }]),
-      );
+  const handleListen = useCallback(async () => {
+    const rate = listenRate;
+    const text = dailyVerse.text;
+    if (typeof window === "undefined") return;
+    setListenHint(null);
+
+    if (!window.speechSynthesis) {
+      try {
+        await navigator.clipboard.writeText(`${dailyVerse.reference} (KJV)\n${text}`);
+        setListenHint("Copied — read aloud in your own time, or share with someone you trust.");
+      } catch {
+        setListenHint("Sit with the verse quietly for a moment — your browser can't read aloud here.");
+      }
+      return;
     }
-    setSaved(true);
-    window.setTimeout(() => setSaved(false), 2200);
+
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = rate;
+    u.onerror = () => {
+      void navigator.clipboard
+        .writeText(`${dailyVerse.reference} (KJV)\n${text}`)
+        .then(() => {
+          setListenHint("Reading hit a snag — verse copied so you can read it yourself.");
+        })
+        .catch(() => {
+          setListenHint("Reading paused — stay with the verse a moment.");
+        });
+    };
+    window.speechSynthesis.speak(u);
+  }, [listenRate]);
+
+  const handleSave = useCallback(async () => {
+    const result = await appendSavedVerse(dailyVerse.reference);
+    if (result.ok) {
+      setSaved(true);
+      window.setTimeout(() => setSaved(false), 2200);
+    }
   }, []);
 
   const handleShare = useCallback(async () => {
@@ -132,6 +187,8 @@ export default function Home() {
     () => ({ kid: "Kid", teen: "Teen", adult: "Adult" } as const),
     [],
   );
+
+  const activePreset = presetForRate(listenRate);
 
   const themeIcon = (id: TdbThemeId) => {
     if (id === "dark") return <Moon className="size-3.5 shrink-0 opacity-80" aria-hidden />;
@@ -228,63 +285,89 @@ export default function Home() {
               </div>
             </CardHeader>
             <CardContent className="pt-6">
-              <blockquote className="font-heading border-l-4 border-primary/35 pl-5 text-xl font-normal leading-relaxed text-foreground sm:text-2xl">
+              <blockquote className="tdb-speakable-verse font-heading border-l-4 border-primary/35 pl-5 text-xl font-normal leading-relaxed text-foreground sm:text-2xl">
                 {dailyVerse.text}
               </blockquote>
 
-              <div
-                className="mt-8 rounded-lg border border-border/60 bg-muted/30 p-4"
-                role="tablist"
-                aria-labelledby={`${audienceTabsId}-label`}
-              >
-                <p id={`${audienceTabsId}-label`} className="mb-3 text-sm font-medium text-foreground">
-                  Same verse — gentle words for who&apos;s listening
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {(Object.keys(audienceLabel) as Audience[]).map((key) => (
+              <div className="tdb-no-print mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs text-muted-foreground">Pace</span>
+                  {LISTEN_PRESETS.map((p) => (
                     <Button
-                      key={key}
+                      key={p.id}
                       type="button"
-                      role="tab"
-                      aria-selected={audience === key}
                       size="sm"
-                      variant={audience === key ? "default" : "ghost"}
+                      variant={activePreset === p.id ? "secondary" : "ghost"}
                       className="text-xs"
-                      onClick={() => setAudience(key)}
+                      onClick={() => applyListenPreset(p.rate)}
                     >
-                      {audienceLabel[key]}
+                      {p.label}
                     </Button>
                   ))}
                 </div>
-                <p
-                  role="tabpanel"
-                  className="mt-4 text-sm leading-relaxed text-muted-foreground"
-                  aria-live="polite"
-                >
-                  {dailyVerse.byAudience[audience]}
-                </p>
-              </div>
-
-              <div className="mt-10 grid gap-6 text-sm sm:grid-cols-3">
-                <div>
-                  <p className="font-medium text-foreground">Who said it?</p>
-                  <p className="mt-1 text-muted-foreground">{dailyVerse.breakdown.speaker}</p>
-                </div>
-                <div>
-                  <p className="font-medium text-foreground">To whom?</p>
-                  <p className="mt-1 text-muted-foreground">{dailyVerse.breakdown.audience}</p>
-                </div>
-                <div>
-                  <p className="font-medium text-foreground">Plain English</p>
-                  <p className="mt-1 text-muted-foreground">{dailyVerse.breakdown.plain}</p>
-                </div>
-              </div>
-
-              <div className="tdb-no-print mt-10 flex flex-wrap gap-2">
-                <Button type="button" onClick={handleListen}>
+                <Button type="button" onClick={() => void handleListen()}>
                   Listen slow
                 </Button>
-                <Button type="button" variant="outline" onClick={handleSave}>
+              </div>
+              {listenHint ? (
+                <p className="tdb-no-print mt-3 text-sm text-muted-foreground" role="status" aria-live="polite">
+                  {listenHint}
+                </p>
+              ) : null}
+
+              <Tabs
+                className="tdb-no-print mt-8"
+                value={audience}
+                onValueChange={(v) => {
+                  if (v === "kid" || v === "teen" || v === "adult") setAudience(v);
+                }}
+              >
+                <div className="rounded-lg border border-border/60 bg-muted/30 p-4">
+                  <p id={audienceLabelId} className="mb-3 text-sm font-medium text-foreground">
+                    Same verse — gentle words for who&apos;s listening
+                  </p>
+                  <TabsList aria-labelledby={audienceLabelId} className="mb-4 w-full min-w-0 flex-wrap justify-start gap-1">
+                    {(Object.keys(audienceLabel) as Audience[]).map((key) => (
+                      <TabsTrigger key={key} value={key} className="text-xs">
+                        {audienceLabel[key]}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                  {(Object.keys(audienceLabel) as Audience[]).map((key) => (
+                    <TabsContent key={key} value={key} className="mt-0 text-sm leading-relaxed text-muted-foreground">
+                      {dailyVerse.byAudience[key]}
+                    </TabsContent>
+                  ))}
+                </div>
+              </Tabs>
+
+              <Accordion
+                multiple
+                defaultValue={[]}
+                className="tdb-no-print mt-8 rounded-lg border border-border/60 bg-muted/20"
+              >
+                <AccordionItem value="speaker">
+                  <AccordionTrigger className="px-4">Who said it?</AccordionTrigger>
+                  <AccordionContent className="px-4 text-muted-foreground">
+                    {dailyVerse.breakdown.speaker}
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="audience">
+                  <AccordionTrigger className="px-4">To whom?</AccordionTrigger>
+                  <AccordionContent className="px-4 text-muted-foreground">
+                    {dailyVerse.breakdown.audience}
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="plain">
+                  <AccordionTrigger className="px-4">Plain English</AccordionTrigger>
+                  <AccordionContent className="px-4 text-muted-foreground">
+                    {dailyVerse.breakdown.plain}
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+
+              <div className="tdb-no-print mt-10 flex flex-wrap gap-2">
+                <Button type="button" variant="outline" onClick={() => void handleSave()}>
                   {saved ? "Saved — My Study ✓" : "Save to My Study"}
                 </Button>
                 <Link
@@ -318,7 +401,7 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="tdb-no-print grid gap-6 md:grid-cols-3">
             <Link href="/calm" className="group block rounded-xl outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring">
               <Card className="h-full transition-[box-shadow,transform] group-hover:ring-1 group-hover:ring-primary/25">
                 <CardHeader>

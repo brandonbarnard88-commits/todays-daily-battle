@@ -178,8 +178,17 @@ html[data-theme="sepia"] {
   }
   .tdb-print-verse {
     break-inside: avoid;
+    page-break-inside: avoid;
     border: 1px solid #ccc;
     padding: 1.25rem;
     border-radius: 0.5rem;
+    box-shadow: none !important;
+  }
+  .tdb-print-verse blockquote {
+    border-left-color: #444 !important;
+    color: #111 !important;
+  }
+  @page {
+    margin: 1.2cm;
   }
 }

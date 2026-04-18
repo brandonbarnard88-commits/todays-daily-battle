@@ -1,0 +1,4 @@
+{"timestamp":"00:00:00.695","source":"Server","level":"LOG","message":""}
+{"timestamp":"02:49:30.970","source":"Server","level":"ERROR","message":"Error: ENOENT: no such file or directory, scandir '/Users/brandonbarnard/Desktop/todaysdailybattle-site/next-app/app'"}
+{"timestamp":"02:49:30.971","source":"Server","level":"ERROR","message":"⨯ \"unhandledRejection:\" Error: ENOENT: no such file or directory, scandir '/Users/brandonbarnard/Desktop/todaysdailybattle-site/next-app/app'"}
+{"timestamp":"02:49:30.972","source":"Server","level":"ERROR","message":"⨯ \"unhandledRejection: \" Error: ENOENT: no such file or directory, scandir '/Users/brandonbarnard/Desktop/todaysdailybattle-site/next-app/app'"}

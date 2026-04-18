@@ -188,6 +188,10 @@ html[data-theme="sepia"] {
     border-left-color: #444 !important;
     color: #111 !important;
   }
+  .tdb-print-verse .tdb-print-breakdown-print dl,
+  .tdb-print-verse .tdb-print-breakdown-print dd {
+    color: #222 !important;
+  }
   @page {
     margin: 1.2cm;
   }

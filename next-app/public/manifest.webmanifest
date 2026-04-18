@@ -1,8 +1,10 @@
 {
+  "id": "/",
   "name": "Today's Daily Battle",
   "short_name": "Daily Battle",
   "description": "A quiet place for real battles — KJV only, private, offline-friendly.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#f6f1e3",
   "theme_color": "#0d0d0d",

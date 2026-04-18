@@ -5,11 +5,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
 import { dailyVerse } from "@/lib/daily-verse";
+import { buildVersePageJsonLd } from "@/lib/verse-jsonld";
 import { cn } from "@/lib/utils";
 
 export default function VersePage() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildVersePageJsonLd()) }}
+      />
       <TdbSiteNav currentPath="/verse" />
 
       <main className="mx-auto max-w-3xl px-4 pb-24 pt-10 sm:px-6 sm:pt-12">
@@ -27,7 +32,7 @@ export default function VersePage() {
             <CardTitle className="font-heading text-2xl sm:text-3xl">{dailyVerse.reference}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            <blockquote className="font-heading border-l-4 border-primary/35 pl-5 text-xl leading-relaxed sm:text-2xl">
+            <blockquote className="tdb-speakable-verse font-heading border-l-4 border-primary/35 pl-5 text-xl leading-relaxed sm:text-2xl">
               {dailyVerse.text}
             </blockquote>
             <div className="flex flex-wrap gap-2">

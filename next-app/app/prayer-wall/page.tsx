@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
-import { dailyVerse } from "@/lib/daily-verse";
+import { dailyVerse, verseEchoPrompts } from "@/lib/daily-verse";
 import { getMainSiteOrigin } from "@/lib/main-site";
 import {
   addPrivatePrayer,
@@ -78,6 +78,10 @@ export default function PrayerWallPage() {
     setDraft((d) => (d ? `${d}\n\n${line}` : line));
   }, []);
 
+  const appendPrompt = useCallback((line: string) => {
+    setDraft((d) => (d ? `${d}\n\n${line}` : line));
+  }, []);
+
   const sharedWallUrl = `${getMainSiteOrigin()}/prayer-wall.html?tab=with-others`;
 
   return (
@@ -133,8 +137,15 @@ export default function PrayerWallPage() {
                     Today: <span className="text-foreground">{dailyVerse.reference}</span> — borrow a
                     phrase if it helps your prayer.
                   </p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {verseEchoPrompts.map((p) => (
+                      <Button type="button" key={p} variant="outline" size="sm" className="text-xs font-normal" onClick={() => appendPrompt(p)}>
+                        {p}
+                      </Button>
+                    ))}
+                  </div>
                   <Button type="button" variant="ghost" size="sm" className="mt-2" onClick={appendVerseEcho}>
-                    Add verse snippet to my line
+                    Add KJV verse snippet
                   </Button>
                 </div>
 

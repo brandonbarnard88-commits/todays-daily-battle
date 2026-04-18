@@ -27,3 +27,10 @@ export function resolveVerseByRef(ref: string | null | undefined): DailyVerse {
   if (decoded.toLowerCase() === dailyVerse.reference.toLowerCase()) return dailyVerse;
   return dailyVerse;
 }
+
+/** Short prayer starters that echo today’s theme — optional taps on the Prayer Wall. */
+export const verseEchoPrompts = [
+  "Lord, renew my strength today — I wait on You.",
+  "Teach me what it means to wait on You, not rush my own fix.",
+  "Thank You for patience with me when I am weary.",
+] as const;

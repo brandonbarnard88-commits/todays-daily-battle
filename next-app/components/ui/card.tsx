@@ -2,6 +2,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/** shadcn Base UI card — soft ring + shadow track parchment / night tokens via `bg-card` and CSS vars. */
 function Card({
   className,
   size = "default",

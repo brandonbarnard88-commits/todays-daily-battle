@@ -21,6 +21,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
 import { dailyVerse } from "@/lib/daily-verse";
+import { buildHomeVerseJsonLd } from "@/lib/verse-jsonld";
 import {
   applyTdbTheme,
   readInitialTdbTheme,
@@ -35,42 +36,6 @@ import { Moon, Scroll, SunMedium } from "lucide-react";
 type Audience = "kid" | "teen" | "adult";
 
 const THEME_ORDER: TdbThemeId[] = ["light", "dark", "sepia"];
-
-const verseJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "Today's Daily Battle",
-  description:
-    "A quiet place for real battles — KJV daily verse and gentle tools. No ads. No tracking.",
-  inLanguage: "en",
-  keywords: [
-    "King James Version",
-    "KJV daily verse",
-    "Bible verse for anxiety",
-    "Scripture for parents",
-    "Christian encouragement",
-    "KJV Scripture",
-  ],
-  about: {
-    "@type": "Thing",
-    name: "Daily KJV encouragement for anxiety, parenting, grief, and fear",
-  },
-  speakable: {
-    "@type": "SpeakableSpecification",
-    cssSelector: [".tdb-speakable-verse"],
-  },
-  mainEntity: {
-    "@type": "Quotation",
-    text: dailyVerse.text,
-    name: dailyVerse.reference,
-    citation: `King James Version, ${dailyVerse.reference}`,
-    isPartOf: {
-      "@type": "Book",
-      name: "Holy Bible",
-      bookEdition: "King James Version",
-    },
-  },
-};
 
 export default function Home() {
   const pathname = usePathname();
@@ -184,7 +149,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(verseJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildHomeVerseJsonLd()) }}
       />
 
       <div className="min-h-screen">
@@ -318,7 +283,7 @@ export default function Home() {
                 </AccordionItem>
               </Accordion>
 
-              <div className="mt-6 hidden print:block">
+              <div className="tdb-print-breakdown-print mt-6 hidden print:block">
                 <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
                   Gentle breakdown (print)
                 </p>

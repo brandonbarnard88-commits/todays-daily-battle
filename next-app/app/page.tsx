@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useMemo, useState } from "react";
 
 import {
@@ -17,6 +18,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TdbPageFooter } from "@/components/tdb-page-footer";
+import { TdbSiteNav } from "@/components/tdb-site-nav";
+import { dailyVerse } from "@/lib/daily-verse";
 import {
   applyTdbTheme,
   readInitialTdbTheme,
@@ -27,27 +31,6 @@ import { LISTEN_PRESETS, presetForRate, readListenRate, writeListenRate } from "
 import { migratePilotLocalStorageOnce, appendSavedVerse } from "@/lib/tdb-study-db";
 import { cn } from "@/lib/utils";
 import { Moon, Scroll, SunMedium } from "lucide-react";
-
-/**
- * Pilot homepage — pattern for migrated routes.
- * Daily verse: replace with build-time data / same source as static `index.html` when wired.
- */
-const dailyVerse = {
-  reference: "Isaiah 40:31",
-  text: "But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
-  breakdown: {
-    speaker: "Isaiah, speaking God’s word",
-    audience: "God’s people in exhaustion and exile — anyone whose strength has run out",
-    plain:
-      "When we wait on the Lord instead of rushing our own fix, He renews us. We can keep going — not by sheer willpower, but by His strength.",
-  },
-  byAudience: {
-    kid: "When we slow down and trust God instead of panicking, He helps our hearts feel strong again — like we can keep going.",
-    teen: "If you feel burned out or behind, this verse says strength comes from waiting on God — not from forcing everything yourself.",
-    adult:
-      "When the day is long and your tank is empty, God invites you to wait on Him. That kind of waiting is active trust — and He meets you with endurance.",
-  },
-} as const;
 
 type Audience = "kid" | "teen" | "adult";
 
@@ -90,6 +73,7 @@ const verseJsonLd = {
 };
 
 export default function Home() {
+  const pathname = usePathname();
   const audienceLabelId = useId();
   const [theme, setTheme] = useState<TdbThemeId | null>(null);
   const [audience, setAudience] = useState<Audience>("adult");
@@ -204,39 +188,7 @@ export default function Home() {
       />
 
       <div className="min-h-screen">
-        <nav
-          aria-label="Primary"
-          className="tdb-no-print sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md supports-[backdrop-filter]:bg-background/70"
-        >
-          <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
-            <Link
-              href="/"
-              className="font-heading text-lg font-semibold tracking-tight text-foreground sm:text-xl"
-            >
-              Today&apos;s Daily Battle
-            </Link>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
-              <Link className="underline-offset-4 hover:text-foreground hover:underline" href="/verse">
-                Today&apos;s Verse
-              </Link>
-              <Link className="underline-offset-4 hover:text-foreground hover:underline" href="/plans">
-                Battle Plans
-              </Link>
-              <Link className="underline-offset-4 hover:text-foreground hover:underline" href="/calm">
-                Calm
-              </Link>
-              <Link className="underline-offset-4 hover:text-foreground hover:underline" href="/mystudy">
-                My Study
-              </Link>
-              <Link
-                href="/family"
-                className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-muted-foreground")}
-              >
-                Family
-              </Link>
-            </div>
-          </div>
-        </nav>
+        <TdbSiteNav currentPath={pathname ?? "/"} />
 
         <main className="mx-auto max-w-3xl px-4 pb-24 pt-10 sm:px-6 sm:pt-12">
           <header className="mb-12 text-center sm:mb-16">
@@ -366,6 +318,26 @@ export default function Home() {
                 </AccordionItem>
               </Accordion>
 
+              <div className="mt-6 hidden print:block">
+                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                  Gentle breakdown (print)
+                </p>
+                <dl className="mt-3 space-y-3 text-sm text-foreground">
+                  <div>
+                    <dt className="font-medium">Who said it?</dt>
+                    <dd className="text-muted-foreground">{dailyVerse.breakdown.speaker}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium">To whom?</dt>
+                    <dd className="text-muted-foreground">{dailyVerse.breakdown.audience}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium">Plain English</dt>
+                    <dd className="text-muted-foreground">{dailyVerse.breakdown.plain}</dd>
+                  </div>
+                </dl>
+              </div>
+
               <div className="tdb-no-print mt-10 flex flex-wrap gap-2">
                 <Button type="button" variant="outline" onClick={() => void handleSave()}>
                   {saved ? "Saved — My Study ✓" : "Save to My Study"}
@@ -434,15 +406,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <p
-            role="note"
-            className="mt-16 text-center text-xs leading-relaxed text-muted-foreground sm:mt-20"
-          >
-            Built solo by Brandon · A quiet place · We battle. He wins. We&apos;re not perfect; He
-            is.
-            <br />
-            Everything stays on this device until you choose to export or sync.
-          </p>
+          <TdbPageFooter />
         </main>
       </div>
     </>

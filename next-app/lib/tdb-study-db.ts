@@ -79,6 +79,75 @@ export async function migratePilotLocalStorageOnce(): Promise<void> {
   }
 }
 
+/** All saves (IndexedDB + any remaining pilot localStorage rows), newest first. */
+export async function getAllSavedVerses(): Promise<SavedVerseRow[]> {
+  await migratePilotLocalStorageOnce();
+  const byKey = new Map<string, SavedVerseRow>();
+
+  const merge = (r: SavedVerseRow) => {
+    const key = `${r.reference}|${r.savedAt}`;
+    if (!byKey.has(key)) byKey.set(key, r);
+  };
+
+  const db = await openDb();
+  if (db) {
+    try {
+      const rows = await new Promise<SavedVerseRow[]>((resolve, reject) => {
+        const tx = db.transaction(STORE, "readonly");
+        const req = tx.objectStore(STORE).getAll();
+        req.onsuccess = () => resolve((req.result as SavedVerseRow[]) ?? []);
+        req.onerror = () => reject(req.error);
+      });
+      for (const r of rows) merge(r);
+    } catch {
+      /* ignore */
+    }
+  }
+
+  try {
+    const raw = localStorage.getItem(PILOT_LS_KEY);
+    if (raw) {
+      const list = JSON.parse(raw) as { reference: string; savedAt: string }[];
+      if (Array.isArray(list)) {
+        for (const x of list) {
+          merge({
+            reference: String(x.reference),
+            savedAt: String(x.savedAt),
+            source: "ls-fallback",
+          });
+        }
+      }
+    }
+  } catch {
+    /* ignore */
+  }
+
+  return Array.from(byKey.values()).sort(
+    (a, b) => new Date(b.savedAt).getTime() - new Date(a.savedAt).getTime(),
+  );
+}
+
+export async function deleteSavedVerseById(id: number): Promise<boolean> {
+  const db = await openDb();
+  if (!db) return false;
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction(STORE, "readwrite");
+      tx.objectStore(STORE).delete(id);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export async function exportSavedVersesJson(): Promise<string> {
+  const rows = await getAllSavedVerses();
+  return JSON.stringify(rows, null, 2);
+}
+
 export async function appendSavedVerse(reference: string): Promise<{ ok: boolean; via: "idb" | "ls" }> {
   await migratePilotLocalStorageOnce();
 

@@ -20,7 +20,8 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
-import { dailyVerse } from "@/lib/daily-verse";
+import { CANON_VERSION, dailyVerse } from "@/lib/daily-verse";
+import { syncCanonSchemaVersion } from "@/lib/tdb-canon-version";
 import { buildHomeVerseJsonLd } from "@/lib/verse-jsonld";
 import {
   applyTdbTheme,
@@ -56,6 +57,7 @@ export default function Home() {
 
   useEffect(() => {
     void migratePilotLocalStorageOnce();
+    syncCanonSchemaVersion(CANON_VERSION);
   }, []);
 
   useEffect(() => {

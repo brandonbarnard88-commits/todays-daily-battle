@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "description": "Canonical daily verse for this Next.js app — bump version when today or catalog changes; keep KJV text exact. For static-site parity, mirror into root script.js ROTATING_HERO_VERSES / daily pickers when you change pilot day.",
+    "version": 1,
+    "updatedAt": "2026-04-19T00:00:00.000Z"
+  },
+  "today": {
+    "reference": "Isaiah 40:31",
+    "text": "But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not be faint.",
+    "breakdown": {
+      "speaker": "Isaiah, speaking God’s word",
+      "audience": "God’s people in exhaustion and exile — anyone whose strength has run out",
+      "plain": "When we wait on the Lord instead of rushing our own fix, He renews us. We can keep going — not by sheer willpower, but by His strength."
+    },
+    "byAudience": {
+      "kid": "When we slow down and trust God instead of panicking, He helps our hearts feel strong again — like we can keep going.",
+      "teen": "If you feel burned out or behind, this verse says strength comes from waiting on God — not from forcing everything yourself.",
+      "adult": "When the day is long and your tank is empty, God invites you to wait on Him. That kind of waiting is active trust — and He meets you with endurance."
+    },
+    "verseEchoPrompts": [
+      "Lord, renew my strength today — I wait on You.",
+      "Teach me what it means to wait on You, not rush my own fix.",
+      "Thank You for patience with me when I am weary."
+    ]
+  },
+  "catalog": [
+    {
+      "reference": "Philippians 4:6-7",
+      "text": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+      "breakdown": {
+        "speaker": "Paul, writing to the church at Philippi",
+        "audience": "Believers learning to rejoice under pressure",
+        "plain": "Instead of spiraling in worry, we bring everything to God with prayer and thanks — and His peace guards what we cannot."
+      },
+      "byAudience": {
+        "kid": "God wants you to tell Him what worries you and say thank you too — then He helps your heart feel quiet inside.",
+        "teen": "Anxiety is heavy, but this verse says: pray honestly, add thanks, and let God’s peace stand guard over your mind.",
+        "adult": "When your mind races, God invites specific requests plus gratitude — not performance, just honest conversation — and His peace does the guarding."
+      },
+      "verseEchoPrompts": [
+        "Lord, I bring my worry to You — thank You for hearing me.",
+        "Thank You for peace that passes what I can figure out on my own."
+      ]
+    },
+    {
+      "reference": "Matthew 11:28",
+      "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+      "breakdown": {
+        "speaker": "Jesus",
+        "audience": "Anyone weary, carrying more than they can hold",
+        "plain": "Jesus doesn’t ask you to fix yourself first — He asks you to come as you are, and He gives rest."
+      },
+      "byAudience": {
+        "kid": "Jesus says come to Him when you feel tired or worried — He helps your heart rest.",
+        "teen": "If you’re exhausted from trying to hold it all, Jesus invites you to come to Him for real rest — not fake calm.",
+        "adult": "Weariness isn’t failure here — it’s an invitation to come to Jesus and receive rest you couldn’t manufacture."
+      },
+      "verseEchoPrompts": [
+        "Jesus, I come as I am — give me Your rest.",
+        "Thank You that I don’t have to carry this alone."
+      ]
+    }
+  ]
+}

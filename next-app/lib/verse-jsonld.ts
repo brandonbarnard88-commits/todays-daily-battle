@@ -1,10 +1,11 @@
-import { dailyVerse } from "@/lib/daily-verse";
+import { CANON_UPDATED_AT, dailyVerse } from "@/lib/daily-verse";
 
 /** Home page — rich result friendly (KJV, anxiety/parenting keywords, speakable verse). */
 export function buildHomeVerseJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    ...(CANON_UPDATED_AT ? { dateModified: CANON_UPDATED_AT } : {}),
     name: "Today's Daily Battle",
     description:
       "A quiet place for real battles — KJV daily verse and gentle tools. No ads. No tracking.",
@@ -44,6 +45,7 @@ export function buildVersePageJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    ...(CANON_UPDATED_AT ? { dateModified: CANON_UPDATED_AT } : {}),
     name: `Today's verse — ${dailyVerse.reference} (KJV)`,
     description: `King James Version daily verse: ${dailyVerse.reference}. Private, calm, no pressure.`,
     inLanguage: "en",

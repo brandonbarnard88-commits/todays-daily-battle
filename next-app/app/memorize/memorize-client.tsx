@@ -8,7 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
-import { dailyVerse, resolveVerseByRef } from "@/lib/daily-verse";
+import { resolveVerseByRef } from "@/lib/daily-verse";
 import { getMainSiteOrigin } from "@/lib/main-site";
 import { LISTEN_PRESETS, presetForRate, readListenRate, writeListenRate } from "@/lib/tdb-listen-rate";
 import { appendSavedVerse } from "@/lib/tdb-study-db";
@@ -19,12 +19,11 @@ export function MemorizeClient() {
   const searchParams = useSearchParams();
   const refParam = searchParams.get("ref");
 
-  const verse = useMemo(() => resolveVerseByRef(refParam), [refParam]);
-  const refMismatch = useMemo(() => {
-    if (!refParam) return false;
-    const d = decodeURIComponent(refParam).trim().toLowerCase();
-    return d !== dailyVerse.reference.toLowerCase();
-  }, [refParam]);
+  const { verse, matchedRef, normalizedRequest } = useMemo(
+    () => resolveVerseByRef(refParam),
+    [refParam],
+  );
+  const showUnknownRefNote = Boolean(refParam && !matchedRef);
 
   const [hidden, setHidden] = useState(false);
   const [listenRate, setListenRate] = useState(readListenRate);
@@ -87,9 +86,11 @@ export function MemorizeClient() {
           </p>
         </header>
 
-        {refMismatch ? (
+        {showUnknownRefNote ? (
           <p className="mb-6 rounded-lg border border-dashed border-border/70 bg-muted/30 px-4 py-3 text-sm text-muted-foreground">
-            Showing today&apos;s pilot verse. When the full canon syncs, &ldquo;{decodeURIComponent(refParam ?? "")}&rdquo; will resolve here.
+            We don&apos;t have that exact reference in the pilot catalog yet — showing today&apos;s verse
+            instead. You asked for:{" "}
+            <span className="font-medium text-foreground">{normalizedRequest ?? refParam}</span>.
           </p>
         ) : null}
 

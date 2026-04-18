@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-16T20:26:51.008Z",
-  "surfacedRefCount": 2750,
-  "overrideCount": 2750,
+  "generatedAt": "2026-04-18T13:44:09.687Z",
+  "surfacedRefCount": 2751,
+  "overrideCount": 2751,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -142,6 +142,18 @@
     "easter-eggs.js": {
       "refs": 34,
       "pairs": 6
+    },
+    "embed-verse-widget.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "embeddable-widgets-page.js": {
+      "refs": 3,
+      "pairs": 3
+    },
+    "embeddable-widgets.html": {
+      "refs": 1,
+      "pairs": 0
     },
     "fallback-search.js": {
       "refs": 1,
@@ -396,8 +408,8 @@
       "pairs": 0
     },
     "script.js": {
-      "refs": 411,
-      "pairs": 198
+      "refs": 413,
+      "pairs": 207
     },
     "search.js": {
       "refs": 14,
@@ -1726,6 +1738,7 @@
     "Jeremiah 13:1",
     "Jeremiah 13:27",
     "Jeremiah 16:18",
+    "Jeremiah 17:14",
     "Jeremiah 17:7",
     "Jeremiah 17:7-8",
     "Jeremiah 1:5",
@@ -13244,6 +13257,14 @@
     "Jeremiah 16:18": {
       "general": {
         "plainExplanation": "Key idea: And first I will recompense their iniquity and their sin double; because they have defiled my land, they have filled mine inheritance with the carcases of t...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jeremiah",
+        "to": "Judah and the exiles"
+      }
+    },
+    "Jeremiah 17:14": {
+      "general": {
+        "plainExplanation": "Heal me, O LORD, and I shall be healed; save me, and I shall be saved: for you art my praise.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jeremiah",
         "to": "Judah and the exiles"

@@ -179,6 +179,14 @@
           <p class="prayer-wall-privacy-note landing-privacy-teaser section-note">Everything here stays on this device by default. Your words are not sent unless you sign in to share on the wall. <a href="privacy.html">Read the promise</a>.</p>
           <p class="section-note">Human-curated. All anonymous by default. Report any concern: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
           <p class="prayer-wall-community-line section-note">The shared wall is in the other tab. It waits until you are ready and signed in.</p>
+          <section class="prayer-choice-guide glass" aria-label="Private and shared prayer guide">
+            <h3 class="section-divider">Private first. Shared only when you choose.</h3>
+            <p class="section-note">The box below is for the quiet room on this device. If a line later needs the shared wall, use the button below to carry it over on purpose instead of posting everything automatically.</p>
+            <div class="cta-group">
+              <button type="button" id="prayer-open-shared-tab-btn" class="btn btn-secondary">Open shared wall</button>
+              <button type="button" id="prayer-share-latest-btn" class="btn btn-secondary" hidden>Send latest line to shared wall</button>
+            </div>
+          </section>
           <!-- Grace message: shown once when a streak breaks, dismissed on next post or click -->
           <p id="prayerWallGraceMsg" class="prayer-wall-grace-msg" hidden aria-live="polite">
             Missed a day? No shame. Fresh start today. 
@@ -219,6 +227,37 @@
           </div>
           <p id="prayer-wall-input-error" class="prayer-wall-input-error section-note" role="alert" hidden></p>
           <p id="prayer-wall-post-success" class="prayer-wall-post-success section-note" role="status" aria-live="polite" hidden></p>
+          <section id="prayer-queue-card" class="prayer-queue-card hidden" hidden aria-labelledby="prayer-queue-heading">
+            <h3 id="prayer-queue-heading" class="section-divider">Queued shared prayers</h3>
+            <p id="prayer-queue-status" class="section-note">Quiet lines saved here can be shared later when you are back online and ready.</p>
+            <div id="prayer-queue-turnstile-wrap" class="prayer-queue-turnstile-wrap hidden" hidden>
+              <p class="section-note">Verify once, then send the queued lines quietly.</p>
+              <div id="prayer-queue-turnstile-container"></div>
+            </div>
+            <div class="cta-group">
+              <button type="button" id="prayerQueueShareBtn" class="btn btn-secondary">Share queued prayers</button>
+              <button type="button" id="prayerQueueClearBtn" class="btn btn-secondary">Keep them private</button>
+            </div>
+          </section>
+          <section id="prayer-verse-echo-card" class="prayer-verse-echo-card hidden" hidden aria-labelledby="prayer-verse-echo-heading">
+            <h3 id="prayer-verse-echo-heading" class="section-divider">Gentle KJV echo for this battle</h3>
+            <p id="prayer-verse-echo-ref" class="prayer-verse-echo-ref"></p>
+            <p id="prayer-verse-echo-text" class="prayer-verse-echo-text"></p>
+            <div class="prayer-verse-echo-grid">
+              <section class="prayer-verse-echo-block">
+                <h4>Plain English</h4>
+                <p id="prayer-verse-echo-plain"></p>
+              </section>
+              <section class="prayer-verse-echo-block">
+                <h4>For your group</h4>
+                <p id="prayer-verse-echo-group"></p>
+              </section>
+              <section class="prayer-verse-echo-block">
+                <h4>Real life today</h4>
+                <p id="prayer-verse-echo-today"></p>
+              </section>
+            </div>
+          </section>
           <!-- Enhanced offline resilience for prayer wall per rules and eval feedback on load issues. Private prayers cached locally first. -->
           <div class="prayer-wall-alive" role="region" aria-label="Your prayers on this device">
             <div class="today-count" id="prayer-device-today-block">
@@ -236,6 +275,21 @@
             <button type="button" id="prayer-export-btn" class="prayer-export-btn" aria-label="Export my prayers" aria-describedby="prayer-export-hint">Export my prayers</button>
             <p id="prayer-export-hint" class="prayer-export-hint section-note">Save as a text file—or share a verse anonymously with Share on any line.</p>
           </div>
+          <section id="prayer-household-room" class="prayer-household-room" aria-labelledby="prayer-household-heading">
+            <h3 id="prayer-household-heading" class="section-divider">Household room groundwork</h3>
+            <p class="section-note">If your home wants one quiet thread across devices, this page can now create a simple share code from the prayers already on this device. It stays local-first and human-sized.</p>
+            <label for="prayer-household-name" class="sr-only">Household label</label>
+            <input type="text" id="prayer-household-name" class="prayer-wall-input" maxlength="60" placeholder="Household label (optional)" aria-label="Household label">
+            <div class="cta-group">
+              <button type="button" id="prayer-household-copy-code" class="btn btn-secondary">Copy household code</button>
+            </div>
+            <label for="prayer-household-join-code" class="sr-only">Paste a household code</label>
+            <textarea id="prayer-household-join-code" class="prayer-household-join-code" rows="4" placeholder="Paste a household code on this device when someone in your home shares one." aria-label="Paste a household code"></textarea>
+            <div class="cta-group">
+              <button type="button" id="prayer-household-join-btn" class="btn btn-secondary">Use code on this device</button>
+            </div>
+            <p id="prayer-household-status" class="section-note" role="status" aria-live="polite"></p>
+          </section>
           <div id="featured-prayer" class="featured-prayer-container" aria-live="polite"></div>
           <ul id="prayer-wall-list" class="prayer-wall-list" aria-label="Prayer entries" aria-live="polite" data-prayer-wall-rendered="1">
             <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-1" aria-label="Pray" aria-hidden="true" disabled>♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, my legs hurt so bad today I can barely stand. Just help me make it through this hour. Amen.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
@@ -501,7 +555,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 15, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 18, 2026</span></p>
   <script defer src="/language-switcher.js?v=20260415privacyfix"></script>
 </footer>
   </div>

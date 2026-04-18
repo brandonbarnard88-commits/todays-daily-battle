@@ -153,7 +153,7 @@
     var maxSel = byId('embed-opt-max-width');
     var brandCb = byId('embed-opt-show-brand');
     if (maxSel) {
-      maxSel.value = '560px';
+      maxSel.value = '';
     }
     if (brandCb) {
       brandCb.checked = true;

@@ -201,6 +201,7 @@ const CORE_ASSETS = [
   '/highlights.js',
   '/verse-breakdown.js',
   '/verse-breakdown-overrides.js',
+  '/gentle-suggest.js',
   '/family-hierarchy.js',
   '/crest.js',
   '/avatar-progress.js',

@@ -10043,6 +10043,7 @@ function flushPrayerOfflineQueue() {
   }
   var familyName = truncateForDb(sanitizeUserInput(getFamilyName()), MAX_FAMILY_NAME_LENGTH);
   var sessionId = getPrayerSessionId();
+  updatePrayerQueueUi('Sending queued lines quietly…');
   prayerFlushInFlight = fetch(cfg.SUBMIT_PRAYER_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

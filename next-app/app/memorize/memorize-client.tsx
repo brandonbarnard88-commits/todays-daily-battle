@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useLayoutEffect, useMemo, useState } from "react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,7 +10,13 @@ import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
 import { resolveVerseByRef } from "@/lib/daily-verse";
 import { getMainSiteOrigin } from "@/lib/main-site";
-import { LISTEN_PRESETS, presetForRate, readListenRate, writeListenRate } from "@/lib/tdb-listen-rate";
+import {
+  LISTEN_PRESETS,
+  LISTEN_RATE_SSR_DEFAULT,
+  presetForRate,
+  readListenRate,
+  writeListenRate,
+} from "@/lib/tdb-listen-rate";
 import { appendSavedVerse } from "@/lib/tdb-study-db";
 import { cn } from "@/lib/utils";
 
@@ -26,11 +32,15 @@ export function MemorizeClient() {
   const showUnknownRefNote = Boolean(refParam && !matchedRef);
 
   const [hidden, setHidden] = useState(false);
-  const [listenRate, setListenRate] = useState(readListenRate);
+  const [listenRate, setListenRate] = useState<number>(LISTEN_RATE_SSR_DEFAULT);
   const [saved, setSaved] = useState(false);
   const [hint, setHint] = useState<string | null>(null);
 
   const activePreset = presetForRate(listenRate);
+
+  useLayoutEffect(() => {
+    setListenRate(readListenRate());
+  }, []);
 
   const applyPreset = useCallback((rate: number) => {
     writeListenRate(rate);

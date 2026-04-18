@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useId, useMemo, useState } from "react";
+import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useState } from "react";
 
 import {
   Accordion,
@@ -16,6 +16,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
+  TDBCard,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
@@ -26,10 +27,17 @@ import { buildHomeVerseJsonLd } from "@/lib/verse-jsonld";
 import {
   applyTdbTheme,
   readInitialTdbTheme,
+  tdbThemeToCardVariant,
   type TdbThemeId,
   TDB_THEME_LABEL,
 } from "@/lib/tdb-theme";
-import { LISTEN_PRESETS, presetForRate, readListenRate, writeListenRate } from "@/lib/tdb-listen-rate";
+import {
+  LISTEN_PRESETS,
+  LISTEN_RATE_SSR_DEFAULT,
+  presetForRate,
+  readListenRate,
+  writeListenRate,
+} from "@/lib/tdb-listen-rate";
 import { migratePilotLocalStorageOnce, appendSavedVerse } from "@/lib/tdb-study-db";
 import { cn } from "@/lib/utils";
 import { Moon, Scroll, SunMedium } from "lucide-react";
@@ -45,12 +53,13 @@ export default function Home() {
   const [audience, setAudience] = useState<Audience>("adult");
   const [saved, setSaved] = useState(false);
   const [prayOpen, setPrayOpen] = useState(false);
-  const [listenRate, setListenRate] = useState(readListenRate);
+  const [listenRate, setListenRate] = useState<number>(LISTEN_RATE_SSR_DEFAULT);
   const [listenHint, setListenHint] = useState<string | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    setListenRate(readListenRate());
     const initial = readInitialTdbTheme();
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- theme comes from localStorage after mount (no SSR storage)
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- localStorage + DOM theme after first paint (SSR has no storage)
     setTheme(initial);
     applyTdbTheme(initial);
   }, []);
@@ -173,7 +182,10 @@ export default function Home() {
             </p>
           </header>
 
-          <Card className="tdb-print-verse mb-14 border-border/70 shadow-none ring-1 ring-border/80 sm:mb-16">
+          <TDBCard
+            variant={tdbThemeToCardVariant(theme)}
+            className="tdb-print-verse mb-14 sm:mb-16"
+          >
             <CardHeader className="gap-4 border-b border-border/50 pb-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
@@ -338,7 +350,7 @@ export default function Home() {
                 </p>
               ) : null}
             </CardContent>
-          </Card>
+          </TDBCard>
 
           <div className="tdb-no-print grid gap-6 md:grid-cols-3">
             <Link href="/calm" className="group block rounded-xl outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring">

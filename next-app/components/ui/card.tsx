@@ -93,8 +93,35 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * Calm verse / hub surface — parchment, night, and dawn accents on top of theme tokens
+ * (pairs with Daylight / Quiet night / Dawn parchment in the nav).
+ */
+function TDBCard({
+  className,
+  variant = "parchment",
+  ...props
+}: React.ComponentProps<typeof Card> & {
+  variant?: "parchment" | "night" | "dawn";
+}) {
+  return (
+    <Card
+      className={cn(
+        "rounded-2xl",
+        variant === "parchment" &&
+          "border-border/70 shadow-none ring-1 ring-border/80 shadow-black/[0.03]",
+        variant === "night" && "border-amber-100/10 ring-1 ring-amber-100/15",
+        variant === "dawn" && "border-amber-900/20 ring-1 ring-amber-900/15",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
 export {
   Card,
+  TDBCard,
   CardHeader,
   CardFooter,
   CardTitle,

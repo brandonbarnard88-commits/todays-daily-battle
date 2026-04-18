@@ -6,6 +6,9 @@ export const LISTEN_PRESETS = [
   { id: "calm", label: "Calm", rate: 0.95 },
 ] as const;
 
+/** Same default `readListenRate` uses when `window` is missing — use for `useState` before localStorage sync. */
+export const LISTEN_RATE_SSR_DEFAULT = LISTEN_PRESETS[1].rate;
+
 export type ListenPresetId = (typeof LISTEN_PRESETS)[number]["id"];
 
 export function readListenRate(): number {

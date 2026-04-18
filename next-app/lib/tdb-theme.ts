@@ -15,6 +15,15 @@ export const TDB_THEME_LABEL: Record<TdbThemeId, string> = {
   sepia: "Dawn parchment",
 };
 
+/** Maps UI theme to `TDBCard` accents (Daylight → parchment, Quiet night → night, Dawn → dawn). */
+export function tdbThemeToCardVariant(
+  theme: TdbThemeId | null,
+): "parchment" | "night" | "dawn" {
+  if (theme === "dark") return "night";
+  if (theme === "sepia") return "dawn";
+  return "parchment";
+}
+
 export function readTdbThemeFromStorage(): TdbThemeId | null {
   if (typeof window === "undefined") return null;
   try {

@@ -1065,6 +1065,28 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Numbers 22:28</text>'
       ),
 
+      /* Samson's birth — loop 166 / library samsonBirth */
+      samsonBirth: svg(
+        ground() + hills() +
+        star(42, 38, 4) + star(68, 52, 3) + star(92, 34, 4) +
+        '<rect x="268" y="188" width="44" height="28" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M278 188 L290 168 L302 188" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M282 198 L298 198 M290 190 L290 206" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M286 182 L294 176 M286 182 L294 188" ' + s + ' stroke-width="1.5"/>' +
+        person(125, 178, 10, 28) +
+        '<line x1="118" y1="168" x2="112" y2="152" ' + s + ' stroke-width="2"/>' +
+        '<line x1="132" y1="168" x2="138" y2="152" ' + s + ' stroke-width="2"/>' +
+        person(275, 178, 10, 28) +
+        '<line x1="268" y1="168" x2="262" y2="152" ' + s + ' stroke-width="2"/>' +
+        '<line x1="282" y1="168" x2="288" y2="152" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="155" rx="14" ry="20" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M186 140 Q200 125 214 140" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M178 158 L162 148 M178 158 L162 168" ' + s + ' stroke-width="2"/>' +
+        '<path d="M222 158 L238 148 M222 158 L238 168" ' + s + ' stroke-width="2"/>' +
+        '<circle cx="200" cy="148" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 13:24</text>'
+      ),
+
       /* ── Week 3: Samson Hair (41) ── */
       samsonHair: svg(
         ground() +
@@ -2950,7 +2972,7 @@
     gideonFleece: 'gideonFleece',
     gideonMidianites: 'gideonMidianites',
     deborahBarak: 'deborahBarak',
-    samsonBirth: 'samsonHair',
+    samsonBirth: 'samsonBirth',
     ruthNaomi: 'ruthMoab',
     hannahSamuel: 'hannahPray',
     samuelAnointsDavid: 'davidAnointed',
@@ -4496,7 +4518,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'fallOfJericho', 'ruthBoaz',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'fallOfJericho', 'ruthBoaz',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

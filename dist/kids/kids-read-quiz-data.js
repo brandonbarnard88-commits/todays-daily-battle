@@ -4095,7 +4095,7 @@
           "Revelation 13",
           "Acts 2:14–41",
           "1 Samuel 18–19",
-          "Judges 13"
+          "Judges 13:1-25"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4807,7 +4807,7 @@
           "Revelation 13",
           "1 Kings 19:19–21",
           "Exodus 7–12",
-          "Judges 13"
+          "Judges 13:1-25"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7224,7 +7224,7 @@
           "Revelation 13",
           "Acts 2:14–41",
           "1 Samuel 17:8–11, 16, 23–30",
-          "Judges 13"
+          "Judges 13:1-25"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8230,7 +8230,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 13",
-          "Judges 13",
+          "Judges 13:1-25",
           "Genesis 28:10–22",
           "Acts 2:14–41"
         ],
@@ -19538,7 +19538,7 @@
           "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
           "Acts 12:1–19",
           "Revelation 13",
-          "Judges 13"
+          "Judges 13:1-25"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21695,89 +21695,124 @@
     ]
   },
   "samsonBirth": {
-    "kjvRef": "Judges 13",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Judges 13:1-25 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "The children of Israel did evil again, and the Philistines troubled them. There was a man named Manoah whose wife had no children.",
+        "caption": "A hard time — a longing heart",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The angel of the Lord appeared to her and said, \"Thou shalt conceive, and bear a son. No razor shall come on his head, for the child shall be a Nazarite unto God from the womb. He shall begin to deliver Israel out of the hand of the Philistines.\"",
+        "caption": "God's promise",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "She told Manoah. He prayed that the angel would come again. The angel returned and spoke the same words.",
+        "caption": "Manoah prays — the angel comes again",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Manoah offered a sacrifice upon a rock to the Lord. When the flame went up toward heaven, the angel of the Lord ascended in the flame of the altar.",
+        "caption": "Up in the flame — holy wonder",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Manoah and his wife were afraid, yet the Lord had shewed them great things. In time a son was born, and they called his name Samson.",
+        "caption": "Welcome, Samson",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "The child grew, and the Lord blessed him.",
+        "caption": "The Lord's blessing",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Baby Samson (Judges 13).",
-      "An angel tells Manoah's wife she will have a son A Nazirite.",
-      "set apart for God from the womb Samson is born.",
-      "the Spirit of the Lord begins to move him God has a purpose for your life too.",
-      "even before anyone sees it."
+      "The children of Israel did evil again, and the Lord let the Philistines trouble them.",
+      "There was a man named Manoah whose wife had no children. One day the angel of the Lord appeared to her and said, \"Thou shalt conceive, and bear a son. No razor shall come on his head, for the child shall be a Nazarite unto God from the womb. He shall begin to deliver Israel out of the hand of the Philistines.\"",
+      "The woman told her husband. Manoah prayed that the angel would come again and teach them what to do.",
+      "The angel returned and repeated the words. Then Manoah offered a sacrifice, and when the flame went up toward heaven from the altar, the angel of the Lord ascended in the flame.",
+      "Manoah and his wife were afraid, but the Lord had shown them something holy. In time a son was born, and they called his name Samson. The child grew, and the Lord blessed him.",
+      "For you: Before Samson was strong, God had already chosen him — God knows your name too."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 22",
-          "Judges 13",
-          "Luke 24:13–35",
-          "Acts 6:8–7:60"
+          "Judges 16",
+          "Judges 13:1-25",
+          "Judges 7",
+          "Ruth 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Judges 13.)"
+        "wrongFeedback": "Skim the Bible line under the title. (Answer: Judges 13:1-25.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What special promise did the angel give about the coming son?",
         "choices": [
-          "God",
-          "The Holy Ghost",
-          "Jesus",
-          "Holy Spirit"
+          "He would never sleep.",
+          "He would be a Nazarite unto God from the womb — no razor on his head.",
+          "He would build a great ship.",
+          "He would live in Egypt forever."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 1,
+        "correctFeedback": "Right — set apart for God from the very beginning.",
+        "wrongFeedback": "Listen for Nazarite and razor. (Answer: Nazarite… no razor….)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What happened when Manoah offered the sacrifice?",
         "choices": [
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God has a purpose for your life too — even before anyone sees it."
+          "Nothing at all.",
+          "The angel of the Lord went up to heaven in the flame of the altar.",
+          "It started to snow.",
+          "Everyone ran away from Zorah."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God has a purpose for your life too — even before anyone sees it..)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes — a moment full of holy wonder.",
+        "wrongFeedback": "Think flame and heaven. (Answer: Angel… in the flame….)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What was the baby's name?",
         "choices": [
-          "An angel tells Manoah's wife she will have a son",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
+          "Gideon",
+          "Samson",
+          "Manoah",
+          "Jonathan"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly — the child the Lord blessed.",
+        "wrongFeedback": "The title of the story helps. (Answer: Samson.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Never say sorry when we do wrong.",
-          "God has a purpose for your life too — even before anyone sees it.",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us."
+          "Believe that God can work His kind plans — even when we cannot see how yet.",
+          "Never pray about hard things.",
+          "Only grown-ups matter to God.",
+          "Hide from the Bible."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God has a purpose for your life too — even before anyone sees it..)"
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful — quiet trust pleases God.",
+        "wrongFeedback": "Pick trust in God's kindness. (Answer: Believe God can work….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Baby Samson with God's Word today.",
-    "takeaway": "God has a purpose for your life too — even before anyone sees it.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Baby Samson. Amen.",
+    "doneMessage": "Great job reading Samson's Birth and Call with God's Word today.",
+    "takeaway": "God promised a deliverer before Samson was born — He hears His people and keeps His Word.",
+    "prayer": "God, thank You for the Bible. Thank You that You bless children and families. Help me trust You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: An angel tells Manoah's wife she will have a son (samson)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A Nazirite — set apart for God from the womb (manoah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samson is born — the Spirit of the Lord begins to move him (nazirite)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: An angel tells Manoah's wife she will have a son (judges 13)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A Nazirite — set apart for God from the womb (angel)"
-    ]
+      "Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, hopeful holy mood, no fear on faces, no scary expressions, no text in image: Manoah and wife kneeling calmly together simple robes, angel of Lord standing before them with gentle wing shapes simple curves kind calm face, small stone altar background soft flame lines rising upward minimal, soft sky gentle hills plenty white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel speaks to Manoah's wife (judges 13)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A Nazarite promised from the womb",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Offering and flame — angel ascends",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samson — the Lord blessed the child"
+    ],
+    "readAlongImages": []
   },
   "samsonHair": {
     "kjvRef": "Judges 16",

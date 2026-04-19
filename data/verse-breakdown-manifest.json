@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T20:38:01.591Z",
-  "surfacedRefCount": 2774,
-  "overrideCount": 2774,
+  "generatedAt": "2026-04-19T20:44:25.044Z",
+  "surfacedRefCount": 2775,
+  "overrideCount": 2775,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 143,
+      "refs": 144,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 162,
+      "refs": 163,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 142,
+      "refs": 143,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 164,
+      "refs": 165,
       "pairs": 0
     },
     "memorize.html": {
@@ -2018,6 +2018,7 @@
     "Jude 1:7",
     "Jude 1:8",
     "Judges 11:34",
+    "Judges 13:1-25",
     "Judges 13:24",
     "Judges 13:25",
     "Judges 14:6",
@@ -15409,6 +15410,14 @@
       "general": {
         "plainExplanation": "Key idea: And Jephthah came to Mizpeh to his house, and, look, his daughter came out to meet him with timbrels and with dances: and she was his only child; beside her...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Judges 13:1-25": {
+      "general": {
+        "plainExplanation": "Key idea: And the children of Israel did evil again in the sight of the LORD; and the LORD delivered them into the hand of the Philistines forty years. And there was...",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Unknown",
         "to": "Israel"
       }

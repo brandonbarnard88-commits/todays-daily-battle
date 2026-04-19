@@ -187,16 +187,6 @@
     "kw": "moses basket nile princess exodus 2 protect baby"
   },
   {
-    "key": "samsonBirth",
-    "title": "Baby Samson",
-    "kjvRef": "Judges 13",
-    "who": "God",
-    "to": "Samson's parents (and us)",
-    "apply": "God has a purpose for your life too — even before anyone sees it.",
-    "theme": "Protection",
-    "kw": "samson manoah nazirite judges 13 angel baby promise"
-  },
-  {
     "key": "revelationBabylonFall",
     "title": "Babylon Falls",
     "kjvRef": "Revelation 17–18",
@@ -2115,6 +2105,16 @@
     "apply": "Samson was super strong because God gave him power, but he didn't always use it wisely. In the end, he prayed for strength one last time and brought down the pillars to defeat the enemies. God gives us strength too—use it to help others and honor Him, not for selfish things.",
     "theme": "Protection",
     "kw": "samson hair strength pillars judges 16 power delilah"
+  },
+  {
+    "key": "samsonBirth",
+    "title": "Samson's Birth and Call",
+    "kjvRef": "Judges 13:1-25",
+    "who": "The Lord",
+    "to": "Manoah, his wife — and every family who trusts God's Word",
+    "apply": "Long before Samson was strong, God had a plan — a child set apart for Him from the womb. Your story matters to God too; He knows your name and hears when you pray.",
+    "theme": "Protection",
+    "kw": "samson manoah nazirite nazarite judges 13 angel baby promise philistines deliver womb blessed"
   },
   {
     "key": "samsonHair",

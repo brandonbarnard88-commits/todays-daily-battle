@@ -2382,6 +2382,127 @@ function buildGideonMidianitesReadQuiz() {
   };
 }
 
+/** Samson's birth — Judges 13:1-25 (KJV); promise, Nazarite, angel, blessing. */
+function buildSamsonBirthReadQuiz() {
+  return {
+    kjvRef: 'Judges 13:1-25 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'The children of Israel did evil again, and the Philistines troubled them. There was a man named Manoah whose wife had no children.',
+        caption: 'A hard time — a longing heart',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text:
+          'The angel of the Lord appeared to her and said, "Thou shalt conceive, and bear a son. No razor shall come on his head, for the child shall be a Nazarite unto God from the womb. He shall begin to deliver Israel out of the hand of the Philistines."',
+        caption: 'God\'s promise',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text:
+          'She told Manoah. He prayed that the angel would come again. The angel returned and spoke the same words.',
+        caption: 'Manoah prays — the angel comes again',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'Manoah offered a sacrifice upon a rock to the Lord. When the flame went up toward heaven, the angel of the Lord ascended in the flame of the altar.',
+        caption: 'Up in the flame — holy wonder',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'Manoah and his wife were afraid, yet the Lord had shewed them great things. In time a son was born, and they called his name Samson.',
+        caption: 'Welcome, Samson',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'The child grew, and the Lord blessed him.',
+        caption: 'The Lord\'s blessing',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    paragraphs: [
+      'The children of Israel did evil again, and the Lord let the Philistines trouble them.',
+      'There was a man named Manoah whose wife had no children. One day the angel of the Lord appeared to her and said, "Thou shalt conceive, and bear a son. No razor shall come on his head, for the child shall be a Nazarite unto God from the womb. He shall begin to deliver Israel out of the hand of the Philistines."',
+      'The woman told her husband. Manoah prayed that the angel would come again and teach them what to do.',
+      'The angel returned and repeated the words. Then Manoah offered a sacrifice, and when the flame went up toward heaven from the altar, the angel of the Lord ascended in the flame.',
+      'Manoah and his wife were afraid, but the Lord had shown them something holy. In time a son was born, and they called his name Samson. The child grew, and the Lord blessed him.',
+      'For you: Before Samson was strong, God had already chosen him — God knows your name too.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Judges 16', 'Judges 13:1-25', 'Judges 7', 'Ruth 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: Judges 13:1-25.)'
+      },
+      {
+        question: 'What special promise did the angel give about the coming son?',
+        choices: [
+          'He would never sleep.',
+          'He would be a Nazarite unto God from the womb — no razor on his head.',
+          'He would build a great ship.',
+          'He would live in Egypt forever.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Right — set apart for God from the very beginning.',
+        wrongFeedback: 'Listen for Nazarite and razor. (Answer: Nazarite… no razor….)'
+      },
+      {
+        question: 'What happened when Manoah offered the sacrifice?',
+        choices: [
+          'Nothing at all.',
+          'The angel of the Lord went up to heaven in the flame of the altar.',
+          'It started to snow.',
+          'Everyone ran away from Zorah.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes — a moment full of holy wonder.',
+        wrongFeedback: 'Think flame and heaven. (Answer: Angel… in the flame….)'
+      },
+      {
+        question: 'What was the baby\'s name?',
+        choices: ['Gideon', 'Samson', 'Manoah', 'Jonathan'],
+        correctIndex: 1,
+        correctFeedback: 'Exactly — the child the Lord blessed.',
+        wrongFeedback: 'The title of the story helps. (Answer: Samson.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Believe that God can work His kind plans — even when we cannot see how yet.',
+          'Never pray about hard things.',
+          'Only grown-ups matter to God.',
+          'Hide from the Bible.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful — quiet trust pleases God.',
+        wrongFeedback: 'Pick trust in God\'s kindness. (Answer: Believe God can work….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Samson's Birth and Call with God's Word today.",
+    takeaway:
+      'God promised a deliverer before Samson was born — He hears His people and keeps His Word.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You bless children and families. Help me trust You today. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, hopeful holy mood, no fear on faces, no scary expressions, no text in image: Manoah and wife kneeling calmly together simple robes, angel of Lord standing before them with gentle wing shapes simple curves kind calm face, small stone altar background soft flame lines rising upward minimal, soft sky gentle hills plenty white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel speaks to Manoah\'s wife (judges 13)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A Nazarite promised from the womb',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Offering and flame — angel ascends',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samson — the Lord blessed the child'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -2409,5 +2530,6 @@ module.exports = {
   battleOfAi: buildBattleOfAiReadQuiz(),
   deborahBarak: buildDeborahBarakReadQuiz(),
   gideonFleece: buildGideonFleeceReadQuiz(),
-  gideonMidianites: buildGideonMidianitesReadQuiz()
+  gideonMidianites: buildGideonMidianitesReadQuiz(),
+  samsonBirth: buildSamsonBirthReadQuiz()
 };

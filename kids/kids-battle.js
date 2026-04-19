@@ -2167,18 +2167,27 @@
         "Deborah and Barak – Judges 4:1-16. The children of Israel did evil in the sight of the Lord, and He sold them into the hand of Jabin king of Canaan, who mightily oppressed them twenty years. Deborah, a prophetess, judged Israel under the palm tree between Ramah and Bethel; the children of Israel came up to her for judgment. She called Barak and told him the Lord God of Israel commanded him to take ten thousand men to mount Tabor, for the Lord would draw Sisera, Jabin's captain, with his chariots and his multitude, unto the river Kishon, and deliver him into Barak's hand. Barak would go if Deborah went with him; she said she would go, and that the Lord would sell Sisera into the hand of a woman. They went up; the Lord discomfited Sisera, and all his chariots, and all his host, with the edge of the sword before Barak; Sisera lighted down off his chariot, and fled on his feet. Barak pursued; all the host of Sisera fell by the edge of the sword; and there was not a man left. For you: Listen for God's voice in His Word — He still leads and delivers those who trust Him."
     },
     samsonBirth: {
-      title: 'Baby Samson',
+      title: 'Samson\'s Birth and Call',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'An angel tells Manoah\'s wife she will have a son' },
-        { src: 'panel-noah-2.svg', alt: 'A Nazirite — set apart for God from the womb' },
-        { src: 'panel-noah-3.svg', alt: 'Samson is born — the Spirit of the Lord begins to move him' }
+        { src: 'panel-noah-1.svg', alt: 'The angel of the Lord speaks to Manoah\'s wife — a son, a Nazarite unto God' },
+        { src: 'panel-noah-2.svg', alt: 'Manoah\'s offering — the angel ascends in the flame of the altar' },
+        { src: 'panel-noah-3.svg', alt: 'Samson is born — the child grew, and the Lord blessed him' }
       ],
-      caption: 'Swipe to see God\'s plan for baby Samson before he was born! 👶',
+      caption: 'Swipe to see God promise a deliverer — before Samson ever took his first step! 👶',
       videoId: '',
       videoTitle: '',
-      keywords: ['samson', 'manoah', 'nazirite', 'judges 13', 'angel', 'baby', 'promise'],
-      kjvRef: 'Judges 13',
-      kidContext: { who: 'God', to: 'Samson\'s parents (and us)', apply: 'God has a purpose for your life too — even before anyone sees it.' }
+      keywords: [
+        'samson', 'manoah', 'nazirite', 'nazarite', 'judges 13', 'angel', 'baby', 'promise', 'philistines', 'deliver', 'womb', 'blessed'
+      ],
+      kjvRef: 'Judges 13:1-25',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Manoah, his wife — and every family who trusts God\'s Word',
+        apply:
+          "Long before Samson was strong, God had a plan — a child set apart for Him from the womb. Your story matters to God too; He knows your name and hears when you pray."
+      },
+      narration:
+        "Samson's Birth and Call – Judges 13:1-25. The children of Israel did evil again in the sight of the LORD; and the LORD delivered them into the hand of the Philistines forty years. There was a certain man of Zorah, of the family of the Danites, whose name was Manoah; and his wife was barren. The angel of the LORD appeared unto the woman, and said unto her, 'Behold now, thou art barren, and bearest not: but thou shalt conceive, and bear a son. Now therefore beware, I pray thee, and drink not wine nor strong drink, and eat not any unclean thing: for the child shall be a Nazarite unto God from the womb to the day of his death; and he shall begin to deliver Israel out of the hand of the Philistines.' She told Manoah; he besought the LORD, and the angel came again. Manoah offered a kid upon a rock unto the LORD; when the flame went up toward heaven from off the altar, the angel of the LORD ascended in the flame. Manoah and his wife looked on it, and fell on their faces to the ground. The woman bare a son, and called his name Samson: and the child grew, and the LORD blessed him. For you: God's plans start in His kindness — trust Him with your tomorrow."
     },
     ruthNaomi: {
       title: 'Ruth and Naomi',
@@ -5236,6 +5245,11 @@
     }
     if (/ten commandments|commandments|exodus 20|tablets|mountain.*moses/.test(low)) {
       return { type: 'carousel', story: 'tenCommandments' };
+    }
+    if (
+      /judges 13|manoah|nazarite unto god from the womb|barren.*bear a son.*samson|samson.*womb|angel.*manoah/.test(low)
+    ) {
+      return { type: 'carousel', story: 'samsonBirth' };
     }
     if (/samson|delilah|pillars|judges 16|hair.*strength/.test(low)) {
       return { type: 'carousel', story: 'samson' };

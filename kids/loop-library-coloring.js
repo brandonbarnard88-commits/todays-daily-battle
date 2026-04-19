@@ -124,6 +124,7 @@
   "revelationWomanDragon": "dragonFight",
   "roadToEmmaus": "emmausRoad",
   "ruthGlean": "ruthGlean",
+  "samsonBirth": "samsonBirth",
   "samsonHair": "samsonHair",
   "samuelCalls": "samuelCall",
   "shepherdsStar": "shepherdsStar",

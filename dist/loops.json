@@ -1495,5 +1495,14 @@
     "ref": "Joshua 8:1-8, 18-23, 26-29",
     "week": 12,
     "libraryKey": "battleOfAi"
+  },
+  {
+    "id": 166,
+    "title": "Samson's Birth",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 13:1-25",
+    "week": 12,
+    "libraryKey": "samsonBirth"
   }
 ]

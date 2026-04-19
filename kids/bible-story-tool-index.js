@@ -339,22 +339,22 @@
   {
     "key": "david",
     "title": "David & Goliath",
-    "kjvRef": "1 Samuel 17:45–50",
-    "who": "David",
-    "to": "Goliath (and us)",
-    "apply": "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord's!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you.",
+    "kjvRef": "1 Samuel 17:1-11, 32-51",
+    "who": "The Lord",
+    "to": "David and every heart that feels small",
+    "apply": "Goliath looked strong; David looked to God. The Lord saved — not by sword in David's hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord's.",
     "theme": "Protection",
-    "kw": "david goliath brave battle shepherd slingshot"
+    "kw": "david goliath sling stone stones smooth stones 1 samuel 17 valley of elah living god uncircumcised philistine defy brave faith shepherd giant philistine lord of hosts battle is the lord"
   },
   {
     "key": "davidGoliath",
     "title": "David & Goliath",
-    "kjvRef": "1 Samuel 17",
-    "who": "David",
-    "to": "God's people",
-    "apply": "Trust God more than your own size or strength. He wins when we come in His name.",
+    "kjvRef": "1 Samuel 17:1-11, 32-51",
+    "who": "The Lord",
+    "to": "David and every heart that feels small",
+    "apply": "Goliath looked strong; David looked to God. The Lord saved — not by sword in David's hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord's.",
     "theme": "Protection",
-    "kw": "david goliath sling 1 samuel 17 faith giant stone brave"
+    "kw": "david and goliath david goliath sling stone stones smooth stones 1 samuel 17 valley of elah living god uncircumcised philistine defy faith giant philistine lord of hosts five stones brook"
   },
   {
     "key": "davidJonathanFriendship",

@@ -45,6 +45,7 @@
     danielLionsDen: 4,
     danielPray: 57,
     david: 1,
+    davidGoliath: 1,
     davidCave: 44,
     davidHarp: 44,
     davidSheep: 42,

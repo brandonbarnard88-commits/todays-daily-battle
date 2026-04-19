@@ -613,17 +613,42 @@
     david: {
       title: 'David & Goliath',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'David as shepherd boy – Small but faithful' },
-        { src: 'panel-david-2.svg', alt: 'David faces Goliath – God is bigger than any giant' },
-        { src: 'panel-david-3.svg', alt: "David wins with God's help – One stone, one faith" }
+        { src: 'panel-david-1.svg', alt: 'Goliath defies Israel — the armies stand afraid in the valley' },
+        { src: 'panel-david-2.svg', alt: 'David trusts the living God — five stones, a sling, no sword in his hand' },
+        { src: 'panel-david-3.svg', alt: 'In the name of the LORD of hosts — one stone; the Lord gives victory' }
       ],
-      caption: 'Swipe to see how God helped David be brave! ⚔️',
+      caption: 'Swipe to see courage that trusts the Lord — not size or armor.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'goliath', 'brave', 'battle', 'shepherd', 'slingshot'],
-      kjvRef: '1 Samuel 17:45–50',
-      kidContext: { who: 'David', to: 'Goliath (and us)', apply: "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord\'s!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you." },
-      narration: "David and Goliath – 1 Samuel 17. Goliath was a huge giant. He shouted at God's army every day. Everyone was scared—except David. David was young and small, but he knew God. He said, 'Who is this giant? The Lord will deliver him into my hand.' David ran toward Goliath with a sling and five stones. He swung once—and the stone hit Goliath. The giant fell. God gave David the victory! For you: Your giants might be fear, worry, or someone who hurts you. God is bigger. Trust Him and be brave."
+      keywords: [
+        'david',
+        'goliath',
+        'sling',
+        'stone',
+        'stones',
+        'smooth stones',
+        '1 samuel 17',
+        'valley of elah',
+        'living god',
+        'uncircumcised philistine',
+        'defy',
+        'brave',
+        'faith',
+        'shepherd',
+        'giant',
+        'philistine',
+        'lord of hosts',
+        'battle is the lord'
+      ],
+      kjvRef: '1 Samuel 17:1-11, 32-51',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David and every heart that feels small',
+        apply:
+          'Goliath looked strong; David looked to God. The Lord saved — not by sword in David\'s hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord\'s.'
+      },
+      narration:
+        "David and Goliath – 1 Samuel 17:1-11, 32-51. The Philistines gathered against Israel; their champion Goliath defied the armies of the living God day after day, and all Israel were afraid. Young David came to the camp and asked, Who is this uncircumcised Philistine, that he should defy the armies of the living God? He told Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. Saul's armor did not fit David's heart — David took his staff, five smooth stones, and his sling. He ran toward the giant in the name of the LORD of hosts. One stone sank into the giant's forehead; he fell. David prevailed with a sling and a stone, and there was no sword in David's hand — the Lord gave victory. For you: Courage is trusting God when the problem looks huge."
     },
     noah: {
       title: "Noah's Ark",
@@ -2795,16 +2820,42 @@
     davidGoliath: {
       title: 'David & Goliath',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Goliath taunts God\'s army—everyone is afraid' },
-        { src: 'panel-david-2.svg', alt: 'David trusts God with his sling and stones' },
-        { src: 'panel-david-3.svg', alt: 'The stone flies—God gives victory over the giant' }
+        { src: 'panel-david-1.svg', alt: 'Goliath defies Israel — the armies stand afraid in the valley' },
+        { src: 'panel-david-2.svg', alt: 'David trusts the living God — five stones, a sling, no sword in his hand' },
+        { src: 'panel-david-3.svg', alt: 'In the name of the LORD of hosts — one stone; the Lord gives victory' }
       ],
-      caption: 'Swipe to see God win over the giant! ⚔️',
+      caption: 'Swipe to see courage that trusts the Lord — not size or armor.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'goliath', 'sling', '1 samuel 17', 'faith', 'giant', 'stone', 'brave'],
-      kjvRef: '1 Samuel 17',
-      kidContext: { who: 'David', to: 'God\'s people', apply: 'Trust God more than your own size or strength. He wins when we come in His name.' }
+      keywords: [
+        'david and goliath',
+        'david',
+        'goliath',
+        'sling',
+        'stone',
+        'stones',
+        'smooth stones',
+        '1 samuel 17',
+        'valley of elah',
+        'living god',
+        'uncircumcised philistine',
+        'defy',
+        'faith',
+        'giant',
+        'philistine',
+        'lord of hosts',
+        'five stones',
+        'brook'
+      ],
+      kjvRef: '1 Samuel 17:1-11, 32-51',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David and every heart that feels small',
+        apply:
+          'Goliath looked strong; David looked to God. The Lord saved — not by sword in David\'s hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord\'s.'
+      },
+      narration:
+        "David and Goliath – 1 Samuel 17:1-11, 32-51. The Philistines gathered against Israel; their champion Goliath defied the armies of the living God day after day, and all Israel were afraid. Young David came to the camp and asked, Who is this uncircumcised Philistine, that he should defy the armies of the living God? He told Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. Saul's armor did not fit David's heart — David took his staff, five smooth stones, and his sling. He ran toward the giant in the name of the LORD of hosts. One stone sank into the giant's forehead; he fell. David prevailed with a sling and a stone, and there was no sword in David's hand — the Lord gave victory. For you: Courage is trusting God when the problem looks huge."
     },
     davidSaulJealousy: {
       title: 'David & Saul\'s Jealousy',
@@ -5543,7 +5594,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5552,7 +5603,7 @@
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
       'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samson',
-      'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
+      'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidGoliath', 'davidAnointed',
       'saulSpear', 'davidCave',
       'hannahPrayer', 'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
@@ -5650,6 +5701,17 @@
       )
     ) {
       return { type: 'carousel', story: 'davidAnointed' };
+    }
+    if (
+      /\b1 samuel 17:(?:[1-9]|1[01])\b|\b1 sam 17:(?:[1-9]|1[01])\b/.test(low) ||
+      /\b1 samuel 17:(?:3[2-9]|4[0-9]|5[01])\b|\b1 sam 17:(?:3[2-9]|4[0-9]|5[01])\b/.test(low) ||
+      (/\b1 samuel 17\b|\b1 sam 17\b/.test(low) &&
+        !/\b1 samuel 17:34\b|\b1 sam 17:34\b|lion.*bear|kept his father.*sheep|thy servant kept/.test(low)) ||
+      /\bgoliath\b|\bdefy the armies of the living god\b|uncircumcised philistine|five smooth stones|smooth stones out of the brook|valley of elah|ephesdammim|six cubits and a span|david prevailed over the philistine with a sling|no sword in the hand of david|battle is the lord/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidGoliath' };
     }
     if (/david|goliath|battle|1 samuel|joshua 1:9|philippians 4:13|ephesians 6:10|brave|courage|strong|strength|strengthen|strengtheneth/.test(low)) {
       return { type: 'carousel', story: 'david' };

@@ -99,7 +99,7 @@
     var k = String(storyKey);
     var map = {
       david: 'david',
-      davidGoliath: 'david',
+      davidGoliath: 'davidGoliath',
       davidSheep: 'david',
       davidHarp: 'david',
       davidAnointed: 'david',
@@ -224,29 +224,60 @@
     }
 
     return {
-      /* David vs Goliath */
+      /* David & Goliath — calm valley; giant kept smaller and farther */
       david: svg(
-        ground() +
-        hills() +
-        /* Goliath — giant warrior */
-        '<rect x="280" y="100" width="50" height="80" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="305" cy="90" r="18" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* helmet */
-        '<path d="M287 90 Q305 68 323 90" ' + s + ' stroke-width="3"/>' +
-        '<rect x="296" y="80" width="18" height="8" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* spear */
-        '<line x1="340" y1="60" x2="340" y2="200" ' + s + ' stroke-width="4"/>' +
-        '<polygon points="340,50 333,68 347,68" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* shield */
-        '<ellipse cx="268" cy="155" rx="14" ry="20" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* David — small figure with sling */
-        person(100, 170, 12, 36) +
+        ground() + hills() +
+        sun(48, 44, 20) + cloud(300, 36) +
+        /* distant Goliath — shorter, farther right */
+        '<rect x="318" y="128" width="38" height="62" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="337" cy="118" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M325 118 Q337 104 349 118" ' + s + ' stroke-width="2"/>' +
+        '<line x1="358" y1="98" x2="358" y2="188" ' + s + ' stroke-width="2.5"/>' +
+        '<polygon points="358,90 352,104 364,104" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="308" cy="158" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* David — trusting face tipped upward slightly */
+        person(118, 162, 11, 32) +
+        '<path d="M110 166 Q118 160 126 166" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="114" cy="164" r="1.4" fill="#111"/><circle cx="122" cy="164" r="1.4" fill="#111"/>' +
+        '<path d="M112 158 Q118 148 124 158" ' + s + ' stroke-width="1.2" fill="none"/>' +
         /* sling */
-        '<path d="M100 196 Q140 175 125 210" ' + s + ' stroke-width="2.5"/>' +
-        '<circle cx="125" cy="212" r="5" ' + sf + ' fill="white" stroke-width="2"/>' +
-        sun(50, 40, 22) +
-        /* verse tag */
-        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 17:45</text>'
+        '<path d="M118 188 Q148 172 138 205" ' + s + ' stroke-width="2.2"/>' +
+        '<circle cx="138" cy="207" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* five stones at feet */
+        '<circle cx="92" cy="248" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="104" cy="252" r="3.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="116" cy="249" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="128" cy="253" r="3.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="140" cy="250" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* small shepherd scrip */
+        '<ellipse cx="98" cy="198" rx="10" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M92 192 Q98 186 104 192" ' + s + ' stroke-width="1.5"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 17:45</text>'
+      ),
+
+      davidGoliath: svg(
+        ground() + hills() +
+        sun(48, 44, 20) + cloud(300, 36) +
+        '<rect x="318" y="128" width="38" height="62" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="337" cy="118" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M325 118 Q337 104 349 118" ' + s + ' stroke-width="2"/>' +
+        '<line x1="358" y1="98" x2="358" y2="188" ' + s + ' stroke-width="2.5"/>' +
+        '<polygon points="358,90 352,104 364,104" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="308" cy="158" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(118, 162, 11, 32) +
+        '<path d="M110 166 Q118 160 126 166" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="114" cy="164" r="1.4" fill="#111"/><circle cx="122" cy="164" r="1.4" fill="#111"/>' +
+        '<path d="M112 158 Q118 148 124 158" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M118 188 Q148 172 138 205" ' + s + ' stroke-width="2.2"/>' +
+        '<circle cx="138" cy="207" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="92" cy="248" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="104" cy="252" r="3.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="116" cy="249" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="128" cy="253" r="3.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="140" cy="250" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="98" cy="198" rx="10" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M92 192 Q98 186 104 192" ' + s + ' stroke-width="1.5"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 17:45</text>'
       ),
 
       /* Noah's Ark */
@@ -3010,7 +3041,7 @@
     samuelCalls: 'samuelCall',
     davidHarp: 'davidHarp',
     davidSheep: 'davidHarp',
-    goliathChallenge: 'goliathChallenge',
+    goliathChallenge: 'davidGoliath',
     davidAnointed: 'davidAnointed',
     saulSpear: 'saulSpear',
     davidCave: 'davidCave',
@@ -3231,7 +3262,7 @@
     hannahPray: 'hannahPrayer',
     hannahPrayer: 'hannahPrayer',
     samuelAnointsDavid: 'davidAnointed',
-    davidGoliath: 'david',
+    davidGoliath: 'davidGoliath',
     davidSaulJealousy: 'saulSpear',
     davidSaul: 'saulSpear',
     davidJonathan: 'david',
@@ -4773,7 +4804,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

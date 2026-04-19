@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T23:34:38.528Z",
-  "surfacedRefCount": 2789,
-  "overrideCount": 2789,
+  "generatedAt": "2026-04-19T23:44:06.622Z",
+  "surfacedRefCount": 2790,
+  "overrideCount": 2790,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -252,7 +252,7 @@
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 147,
+      "refs": 146,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -717,6 +717,7 @@
     "1 Samuel 16:23",
     "1 Samuel 16:4-5",
     "1 Samuel 16:7",
+    "1 Samuel 17:1-11",
     "1 Samuel 17:22",
     "1 Samuel 17:26",
     "1 Samuel 17:4",
@@ -5136,6 +5137,14 @@
       "general": {
         "plainExplanation": "Key idea: But the LORD said to Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for the LORD seeth not as man seeth;...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Samuel",
+        "to": "Israel"
+      }
+    },
+    "1 Samuel 17:1-11": {
+      "general": {
+        "plainExplanation": "Key idea: Now the Philistines gathered together their armies to battle, and were gathered together at Shochoh, which belongeth to Judah, and pitched between Shochoh a...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Samuel",
         "to": "Israel"
       }

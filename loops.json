@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "title": "David vs Goliath",
+    "title": "David & Goliath",
     "file": "",
     "audio": "",
-    "ref": "1 Samuel 17:49",
+    "ref": "1 Samuel 17:1-11, 32-51",
     "week": 0,
-    "kjvText": "David prevailed over the Philistine with a sling and with a stone.",
-    "libraryKey": "david"
+    "kjvText": "And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands.",
+    "libraryKey": "davidGoliath"
   },
   {
     "id": 2,

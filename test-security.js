@@ -40,7 +40,21 @@ function walkJsFiles(dir, out) {
     const name = entry.name;
     const full = path.join(dir, name);
     if (entry.isDirectory()) {
-      if (name === 'node_modules' || name === '.git' || name === '.cursor' || name === 'dist' || name === 'playwright-report' || name === 'test-results' || name === '.pw-browsers') continue;
+      if (
+        name === 'node_modules' ||
+        name === '.git' ||
+        name === '.cursor' ||
+        name === 'dist' ||
+        name === 'playwright-report' ||
+        name === 'test-results' ||
+        name === '.pw-browsers' ||
+        name === '.next' ||
+        name === '.turbo'
+      ) {
+        continue;
+      }
+      // Next.js static export + compiled chunks (framework/vendor; not first-party app source)
+      if (name === 'out' && path.basename(dir) === 'next-app') continue;
       walkJsFiles(full, out);
       continue;
     }

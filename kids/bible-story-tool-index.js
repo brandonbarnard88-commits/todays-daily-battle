@@ -2617,6 +2617,16 @@
     "kw": "armor shield faith ephesians 6 arrows protect stand"
   },
   {
+    "key": "sunStandsStill",
+    "title": "The Sun Stands Still",
+    "kjvRef": "Joshua 10:12-14",
+    "who": "The Lord",
+    "to": "Joshua and Israel (and us)",
+    "apply": "Joshua spoke to God where everyone could hear — and God answered in a way no one had ever seen. The Lord fights for His people still; you can pray honestly and trust His power and care.",
+    "theme": "Miracles",
+    "kw": "joshua joshua 10 sun moon gibeon ajalon miracle prayer long day lord fought for israel"
+  },
+  {
     "key": "armorSword",
     "title": "The Sword of the Spirit",
     "kjvRef": "Ephesians 6",

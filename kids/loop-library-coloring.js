@@ -128,6 +128,7 @@
   "solomonWisdom": "solomonWisdom",
   "spiesInCanaan": "jerichoWalls",
   "stephenStones": "stephenStones",
+  "sunStandsStill": "sunStandsStill",
   "tabernacle": "tabernacle",
   "tenCommandments": "tenCommandments",
   "tenVirgins": "tenVirgins",

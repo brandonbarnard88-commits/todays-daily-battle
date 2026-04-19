@@ -2012,6 +2012,29 @@
       kjvRef: 'Joshua 8',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'After sin was removed, God\'s plan worked — obey Him and watch Him fight for you.' }
     },
+    sunStandsStill: {
+      title: 'The Sun Stands Still',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Kings gather against God\'s people — Joshua leads Israel forward' },
+        { src: 'panel-david-2.svg', alt: 'Joshua prays aloud — Sun, stand still; Moon, stay in the valley' },
+        { src: 'panel-david-3.svg', alt: 'Sun and moon hold their places — the Lord fights for Israel' }
+      ],
+      caption: 'Swipe to see God hear Joshua — even day and night obey Him! ☀️🌙',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'joshua', 'joshua 10', 'sun', 'moon', 'gibeon', 'ajalon', 'miracle', 'prayer', 'long day', 'lord fought for israel'
+      ],
+      kjvRef: 'Joshua 10:12-14',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel (and us)',
+        apply:
+          "Joshua spoke to God where everyone could hear — and God answered in a way no one had ever seen. The Lord fights for His people still; you can pray honestly and trust His power and care."
+      },
+      narration:
+        "The Sun Stands Still – Joshua 10:12-14. The kings of the land gathered together to fight against God's people. Joshua and the children of Israel went out to meet them. In the middle of the battle, Joshua prayed to the Lord where all Israel could hear: 'Sun, stand thou still upon Gibeon; and thou, Moon, in the valley of Ajalon.' And the sun stood still, and the moon stayed, until the people had avenged themselves upon their enemies. So the sun stood still in the midst of heaven, and hasted not to go down about a whole day. There was no day like that before it or after it, that the Lord hearkened unto the voice of a man: for the Lord fought for Israel. For you: God hears prayer — and He is mighty to help everyone who trusts Him."
+    },
     joshuaCharge: {
       title: 'Joshua\'s Charge to the People',
       panels: [
@@ -4946,7 +4969,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 285, color: '#e5e4e2' }
+      { name: 'Platinum', min: 286, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5189,6 +5212,9 @@
     }
     if (/joshua 3|joshua 4|cross.*jordan|jordan.*cross|ark.*jordan|waters.*heap/.test(low)) {
       return { type: 'carousel', story: 'jordanCrossing' };
+    }
+    if (/joshua 10|gibeon|ajalon|sun stand|moon.*ajalon|long day/.test(low)) {
+      return { type: 'carousel', story: 'sunStandsStill' };
     }
     if (/joshua 24|serve the lord|as for me and my house|choose you this day/.test(low)) {
       return { type: 'carousel', story: 'joshuaCharge' };
@@ -7793,6 +7819,7 @@
     /* Week 3 */
     joshuaJordan: 'Miracles', jordanCrossing: 'Miracles', jerichoWalls: 'Obedience', joshuaAi: 'Obedience', battleOfAi: 'Obedience',
     joshuaCharge: 'Obedience',
+    sunStandsStill: 'Miracles',
     gideonFleece: 'Miracles', gideonMidianites: 'Miracles', deborahBarak: 'Protection', samsonBirth: 'Protection', ruthNaomi: 'Love',
     rahab: 'Obedience', rahabRope: 'Obedience', rahabJericho: 'Obedience',
     balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonHair: 'Protection', ruthGlean: 'Love',

@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (285 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (286 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -1346,6 +1346,11 @@
       mp4: '/media/kids-stories/stephen-stones.mp4',
       webm: '/media/kids-stories/stephen-stones.webm',
       captionsVtt: '/media/kids-stories/stephen-stones.vtt'
+    },
+    sunStandsStill: {
+      mp4: '/media/kids-stories/sun-stands-still.mp4',
+      webm: '/media/kids-stories/sun-stands-still.webm',
+      captionsVtt: '/media/kids-stories/sun-stands-still.vtt'
     },
     tabernacle: {
       mp4: '/media/kids-stories/tabernacle.mp4',

@@ -49,6 +49,7 @@
     'jerichoWalls',
     'joshuaAi',
     'battleOfAi',
+    'sunStandsStill',
     'joshuaCharge',
     'deborahBarak',
     'deborahJudge',

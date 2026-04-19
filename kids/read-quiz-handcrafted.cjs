@@ -1622,6 +1622,132 @@ function buildJoshuaChargeReadQuiz() {
   };
 }
 
+/** The sun stands still — Joshua 10:12-14 (KJV). */
+function buildSunStandsStillReadQuiz() {
+  return {
+    kjvRef: 'Joshua 10:12-14 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          "The kings of the land gathered together to fight against God's people. Joshua and the children of Israel went out to meet them.",
+        caption: 'God\'s people go forward',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'In the middle of the battle, Joshua prayed to the Lord where all Israel could hear: "Sun, stand thou still upon Gibeon; and thou, Moon, in the valley of Ajalon."',
+        caption: 'Joshua prays aloud',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And the sun stood still, and the moon stayed, until the people had avenged themselves upon their enemies.',
+        caption: 'The sun and moon wait',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'So the sun stood still in the midst of heaven, and hasted not to go down about a whole day.',
+        caption: 'A day like no other',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'There was no day like that before it or after it, that the Lord hearkened unto the voice of a man: for the Lord fought for Israel.',
+        caption: 'The Lord fought for Israel',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    paragraphs: [
+      "The kings of the land gathered together to fight against God's people. Joshua and the children of Israel went out to meet them.",
+      'In the middle of the battle, Joshua prayed to the Lord where all Israel could hear: "Sun, stand thou still upon Gibeon; and thou, Moon, in the valley of Ajalon."',
+      'And the sun stood still, and the moon stayed, until the people had avenged themselves upon their enemies.',
+      'So the sun stood still in the midst of heaven, and hasted not to go down about a whole day.',
+      'There was no day like that before it or after it, that the Lord hearkened unto the voice of a man: for the Lord fought for Israel.',
+      'For you: God hears when we pray — and He is mighty to help. You can tell Him what you need and trust His loving care.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Joshua 10:12-14', 'Genesis 1:1', 'Matthew 5'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the Bible note. (Answer: Joshua 10:12-14.)'
+      },
+      {
+        question: 'What did Joshua ask the sun and moon to do?',
+        choices: [
+          'Run away and hide.',
+          'Turn into stars.',
+          'Stand still and stay — sun on Gibeon, moon in the valley of Ajalon.',
+          'Fall from the sky.'
+        ],
+        correctIndex: 2,
+        correctFeedback: 'Yes—that is what Joshua spoke in faith before all Israel.',
+        wrongFeedback:
+          'Listen for Joshua\'s prayer in the story. (Answer: Stand still and stay….)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God does not hear when people pray.',
+          'The Bible is only pretend stories.',
+          'Only grown-ups may talk to God.',
+          'The Lord hears prayer and is mighty to help His people — even the sun and moon obey Him.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the "For you" heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's power and care? (Answer: The Lord hears prayer….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Joshua rode a bicycle to the moon.',
+          'The sun stood still in the midst of heaven about a whole day.',
+          'Everyone turned into butterflies.',
+          'The river turned into soda pop.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches God\'s Word? (Answer: The sun stood still….)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Never tell anyone we need help.',
+          'Only pray when we are perfect.',
+          'Thank God that He hears you — pray honestly and trust Jesus, who always prays for His people.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust and thankfulness? Pick the one that honors Him. (Answer: Thank God that He hears you….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading The Sun Stands Still with God's Word today.",
+    takeaway:
+      'God hearkened to Joshua — the Lord fought for Israel, and there was no day like it.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You hear me when I pray. Help me trust You today. Amen.',
+    imagePrompts: [
+      'Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, wonder-filled protected mood, no fighting, no fear, no blood, no text in image: Joshua standing calmly on a gentle hill with one hand raised toward heaven in prayer, bright sun and soft moon both visible together in open sky, below a few soldiers of Israel with shields and swords lowered looking up in quiet wonder, soft hills minimal background, plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joshua prays — sun and moon (joshua 10)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Sun stand still upon Gibeon',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The Lord fought for Israel',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A day like no other — God hears prayer'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -1643,5 +1769,6 @@ module.exports = {
   rahabWindow: buildRahabReadQuiz(),
   jordanCrossing: buildJordanCrossingReadQuiz(),
   joshuaJordan: buildJordanCrossingReadQuiz(),
-  joshuaCharge: buildJoshuaChargeReadQuiz()
+  joshuaCharge: buildJoshuaChargeReadQuiz(),
+  sunStandsStill: buildSunStandsStillReadQuiz()
 };

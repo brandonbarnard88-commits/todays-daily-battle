@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T19:54:52.999Z",
-  "surfacedRefCount": 2763,
-  "overrideCount": 2763,
+  "generatedAt": "2026-04-19T20:02:01.940Z",
+  "surfacedRefCount": 2765,
+  "overrideCount": 2765,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 137,
+      "refs": 138,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 156,
+      "refs": 157,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 136,
+      "refs": 137,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 161,
+      "refs": 162,
       "pairs": 0
     },
     "memorize.html": {
@@ -1980,6 +1980,8 @@
     "Jonah 2:9",
     "Jonah 3:5",
     "Jonah 4:7",
+    "Joshua 10:12-14",
+    "Joshua 10:13",
     "Joshua 14:12",
     "Joshua 14:14",
     "Joshua 1:6",
@@ -15096,6 +15098,22 @@
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jonah",
         "to": "Nineveh"
+      }
+    },
+    "Joshua 10:12-14": {
+      "general": {
+        "plainExplanation": "Key idea: Then spake Joshua to the LORD in the day when the LORD delivered up the Amorites before the children of Israel, and he said in the sight of Israel, Sun, sta...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Joshua",
+        "to": "Israel"
+      }
+    },
+    "Joshua 10:13": {
+      "general": {
+        "plainExplanation": "Key idea: And the sun stood still, and the moon stayed, until the people had avenged themselves upon their enemies. Is not this written in the book of Jasher? So the...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Joshua",
+        "to": "Israel"
       }
     },
     "Joshua 14:12": {

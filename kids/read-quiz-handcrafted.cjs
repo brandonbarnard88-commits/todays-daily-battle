@@ -224,10 +224,139 @@ function buildRedSeaReadQuiz() {
   };
 }
 
+/** Burning Bush — full read-along + quiz (Exodus 3:1-6; card may note fuller Exodus 3 in the library). */
+function buildMosesBushReadQuiz() {
+  return {
+    kjvRef: 'Exodus 3:1-6 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          "Moses was taking care of his father-in-law's sheep in the desert. One day he came to the mountain of God, called Horeb.",
+        caption: 'Moses and the sheep at Horeb',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text:
+          'He saw a most wonderful thing. A bush was burning with fire, but the bush was not burned up. The flames danced, yet the leaves stayed green and whole.',
+        caption: 'Fire in the bush—yet it is not consumed',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text:
+          'Moses said, "I will turn aside and see this great sight, why the bush is not burnt."',
+        caption: 'Moses draws near',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text:
+          'When the Lord saw that Moses turned to look, God called to him out of the midst of the bush, "Moses, Moses." And Moses said, "Here am I."',
+        caption: 'God calls by name',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text:
+          'God said, "Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground."',
+        caption: 'Holy ground',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text:
+          'Then God told Moses who He was — the God of his fathers, Abraham, Isaac, and Jacob. And Moses hid his face, for he was afraid to look upon God.',
+        caption: 'The God of Abraham, Isaac, and Jacob',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    paragraphs: [
+      "Moses was taking care of his father-in-law's sheep in the desert. One day he came to the mountain of God, called Horeb.",
+      'He saw a most wonderful thing. A bush was burning with fire, but the bush was not burned up.',
+      'Moses said, "I will turn aside and see this great sight, why the bush is not burnt."',
+      'When the Lord saw that Moses turned to look, God called to him out of the midst of the bush, "Moses, Moses." And Moses said, "Here am I."',
+      'God said, "Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground."',
+      'Then God told Moses who He was — the God of his fathers, Abraham, Isaac, and Jacob. And Moses hid his face, for he was afraid to look upon God.',
+      'For you: When God speaks, we listen with quiet hearts. You can say "Here am I" too—He loves to call His children.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Exodus 3:1-6', 'Genesis 1:1', 'John 3:16'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 3:1-6.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['Nobody', 'Only sheep', 'God', 'Pharaoh'],
+        correctIndex: 2,
+        correctFeedback: 'Right—keep that person (or group) in mind as you think about God.',
+        wrongFeedback: 'Look for who the story follows first—names in the title often help. (Answer: God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'We should hide from God when we mess up.',
+          'God never hears when kids pray.',
+          'The Bible is only pretend stories.',
+          'God is holy. He called Moses from the bush and told him to stand on holy ground with reverence.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the “For you” heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is holy….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A talking toaster became king of the city.',
+          'The bush burned with fire but was not burned up.',
+          'A spaceship landed in the parking lot.',
+          'Everyone decided to never sleep again.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.',
+          'Listen when God speaks—in His Word and in prayer—and answer with a willing heart.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Listen when God speaks….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading The Burning Bush with God's Word today.",
+    takeaway:
+      'God met Moses in holy fire that did not destroy the bush. He knows your name too—and He is worthy of quiet reverence.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You speak to Your people. Help me listen with a soft heart. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children, bold thick outlines, large open areas for crayons, joyful wonder not fear, no text in image: Moses near a large bush on a quiet desert hill, gentle flames rising from the bush center, leaves and branches clearly not burned, Moses surprised but calm, one hand slightly raised, staff in the other, soft desert hills behind, minimal lines, plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses sees a bush on fire (moses)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God calls Moses from the bush (bush)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses takes off his shoes on holy ground (exodus 3)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses hides his face before God (fire)'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
   david: davidReadQuizPack,
   davidGoliath: davidReadQuizPack,
-  redSea: buildRedSeaReadQuiz()
+  redSea: buildRedSeaReadQuiz(),
+  mosesBush: buildMosesBushReadQuiz(),
+  burningBush: buildMosesBushReadQuiz()
 };

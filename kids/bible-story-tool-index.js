@@ -1389,12 +1389,12 @@
   {
     "key": "mosesBush",
     "title": "Moses & the Burning Bush",
-    "kjvRef": "Exodus 3",
+    "kjvRef": "Exodus 3:1-15",
     "who": "God",
     "to": "Moses (in the desert)",
-    "apply": "God called Moses from a burning bush! When God calls you, say yes—He will help you!",
+    "apply": "God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, \"Here am I.\"",
     "theme": "Protection",
-    "kw": "moses bush fire staff call exodus 3 burning"
+    "kw": "moses bush fire staff call exodus 3 burning holy ground horeb"
   },
   {
     "key": "mosesSea",
@@ -2309,12 +2309,12 @@
   {
     "key": "burningBush",
     "title": "The Burning Bush",
-    "kjvRef": "Exodus 3:1–10",
+    "kjvRef": "Exodus 3:1-15",
     "who": "God",
     "to": "Moses",
-    "apply": "Moses saw a bush on fire but not burning up. God spoke from the bush and told Moses His name and plan. God speaks to us too—through His Word, prayer, and quiet moments. Listen for His voice and obey when He calls you.",
+    "apply": "God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, \"Here am I.\"",
     "theme": "Obedience",
-    "kw": "moses burning bush fire exodus 3 holy ground call"
+    "kw": "moses burning bush fire exodus 3 holy ground call horeb"
   },
   {
     "key": "heavenDoor",

@@ -779,9 +779,10 @@
       caption: 'Swipe to see God call Moses from the burning bush! 🔥',
       videoId: 'bWcwZIV-ip8',
       videoTitle: "Moses and the Burning Bush – Bible Stories for Kids!",
-      keywords: ['moses', 'bush', 'fire', 'staff', 'call', 'exodus 3', 'burning'],
-      kjvRef: 'Exodus 3',
-      kidContext: { who: 'God', to: 'Moses (in the desert)', apply: 'God called Moses from a burning bush! When God calls you, say yes—He will help you!' }
+      keywords: ['moses', 'bush', 'fire', 'staff', 'call', 'exodus 3', 'burning', 'holy ground', 'horeb'],
+      kjvRef: 'Exodus 3:1-15',
+      kidContext: { who: 'God', to: 'Moses (in the desert)', apply: 'God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, "Here am I."' },
+      narration: "The Burning Bush – Exodus 3:1-6. Moses was keeping his father-in-law's sheep in the desert when he came to Horeb, the mountain of God. He saw a bush burning with fire, yet the bush was not burned up. Moses turned aside to see why. When the Lord saw he looked, God called from the bush, 'Moses, Moses!' Moses said, 'Here am I.' God said to put off his shoes, for the ground was holy. Then God made Himself known as the God of Abraham, Isaac, and Jacob—and Moses hid his face, afraid to look upon God. For you: God still speaks. Listen with a quiet heart; His presence is holy."
     },
     redSea: {
       title: 'Red Sea Crossing',
@@ -1518,10 +1519,10 @@
       caption: 'Swipe to see God call Moses from the burning bush! 🔥',
       videoId: 'bWcwZIV-ip8',
       videoTitle: "Moses and the Burning Bush – Bible Stories for Kids!",
-      keywords: ['moses', 'burning bush', 'fire', 'exodus 3', 'holy ground', 'call'],
-      kjvRef: 'Exodus 3:1–10',
-      kidContext: { who: 'God', to: 'Moses', apply: "Moses saw a bush on fire but not burning up. God spoke from the bush and told Moses His name and plan. God speaks to us too—through His Word, prayer, and quiet moments. Listen for His voice and obey when He calls you." },
-      narration: "Burning Bush – Exodus 3:2. Moses was taking care of sheep when he saw something amazing—a bush burning with fire but not burning up. He went closer. God called from the bush, 'Moses, Moses!' God said, 'I am the God of your fathers. I have seen My people's suffering in Egypt. Go tell Pharaoh to let them go.' Moses was afraid, but God promised, 'I will be with you.' God even told Moses His name: 'I AM THAT I AM.' God speaks to us! For you: God still speaks today—through the Bible, prayer, and when your heart feels a gentle nudge. Listen, trust, and obey when He calls your name."
+      keywords: ['moses', 'burning bush', 'fire', 'exodus 3', 'holy ground', 'call', 'horeb'],
+      kjvRef: 'Exodus 3:1-15',
+      kidContext: { who: 'God', to: 'Moses', apply: 'God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, "Here am I."' },
+      narration: "The Burning Bush – Exodus 3:1-6. Moses was keeping his father-in-law's sheep in the desert when he came to Horeb, the mountain of God. He saw a bush burning with fire, yet the bush was not burned up. Moses turned aside to see why. When the Lord saw he looked, God called from the bush, 'Moses, Moses!' Moses said, 'Here am I.' God said to put off his shoes, for the ground was holy. Then God made Himself known as the God of Abraham, Isaac, and Jacob—and Moses hid his face, afraid to look upon God. For you: God still speaks. Listen with a quiet heart; His presence is holy."
     },
     tenPlagues: {
       title: 'Ten Plagues of Egypt',

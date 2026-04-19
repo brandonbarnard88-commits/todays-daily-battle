@@ -124,7 +124,8 @@ html.dark {
 html[data-theme="sepia"] {
   --background: oklch(0.94 0.035 72);
   --foreground: oklch(0.28 0.04 42);
-  --card: oklch(0.97 0.025 68);
+  /* Slightly warmer Dawn parchment — gentle chroma bump, paper-friendly */
+  --card: oklch(0.965 0.028 68);
   --card-foreground: oklch(0.28 0.04 42);
   --popover: oklch(0.98 0.02 68);
   --popover-foreground: oklch(0.28 0.04 42);
@@ -132,13 +133,13 @@ html[data-theme="sepia"] {
   --primary-foreground: oklch(0.99 0.01 85);
   --secondary: oklch(0.9 0.04 72);
   --secondary-foreground: oklch(0.3 0.05 42);
-  --muted: oklch(0.9 0.035 72);
+  --muted: oklch(0.895 0.038 72);
   --muted-foreground: oklch(0.48 0.04 48);
   --accent: oklch(0.91 0.04 68);
   --accent-foreground: oklch(0.32 0.05 42);
   --destructive: oklch(0.52 0.18 28);
-  --border: oklch(0.82 0.04 65);
-  --input: oklch(0.82 0.04 65);
+  --border: oklch(0.815 0.042 65);
+  --input: oklch(0.815 0.042 65);
   --ring: oklch(0.48 0.12 55);
   --chart-1: oklch(0.65 0.12 55);
   --chart-2: oklch(0.52 0.06 48);
@@ -151,8 +152,14 @@ html[data-theme="sepia"] {
   --sidebar-primary-foreground: oklch(0.99 0.01 85);
   --sidebar-accent: oklch(0.91 0.04 68);
   --sidebar-accent-foreground: oklch(0.3 0.05 42);
-  --sidebar-border: oklch(0.82 0.04 65);
+  --sidebar-border: oklch(0.815 0.042 65);
   --sidebar-ring: oklch(0.48 0.12 55);
+}
+
+/* Verse breakdown surfaces: a touch more parchment on cards (screen) */
+html[data-theme="sepia"] .tdb-breakdown-card {
+  background-color: oklch(0.96 0.03 69 / 0.92);
+  border-color: oklch(0.78 0.045 63 / 0.55);
 }
 
 @layer base {
@@ -200,7 +207,7 @@ html[data-theme="sepia"] {
     margin-top: 1rem;
     margin-bottom: 1.5rem;
     padding-top: 0.75rem;
-    border-top: 1px solid #c4b49a;
+    border-top: 1px solid #c9b08a;
   }
   .tdb-print-breakdown-heading {
     color: #3f2a1e !important;
@@ -231,7 +238,7 @@ html[data-theme="sepia"] {
   .tdb-print-breakdown-dd {
     margin: 0 0 0.85rem 0 !important;
     padding: 0 0 0 1rem !important;
-    border-left: 3px solid #d4b89e !important;
+    border-left: 3px solid #d8b89a !important;
     color: #1a1510 !important;
   }
   .tdb-print-breakdown-pair:last-child .tdb-print-breakdown-dd {

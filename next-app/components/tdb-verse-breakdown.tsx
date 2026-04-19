@@ -54,7 +54,7 @@ export function TDBVerseBreakdown({
   };
 
   const fields = frozenBreakdown ?? mergeVerseBreakdownForAudience(verse, tier);
-  const prayerLine = verse.verseEchoPrompts?.[0];
+  const quietPrayerLine = verse.quietPrayerNudge ?? verse.verseEchoPrompts?.[0];
 
   const defaultOpenValues = useMemo(() => {
     if (!expandAllByDefault) return [];
@@ -65,16 +65,16 @@ export function TDBVerseBreakdown({
       `${reactId}-you`,
       `${reactId}-real`,
     ];
-    if (prayerLine) open.push(`${reactId}-pray`);
+    if (quietPrayerLine) open.push(`${reactId}-quiet`);
     return open;
-  }, [expandAllByDefault, reactId, prayerLine]);
+  }, [expandAllByDefault, reactId, quietPrayerLine]);
 
   const accordion = (
     <Accordion
       key={frozenBreakdown ? "snap" : tier}
       multiple
       defaultValue={defaultOpenValues}
-      className="rounded-lg border border-border/60 bg-muted/20"
+      className="tdb-breakdown-card rounded-lg border border-border/60 bg-muted/20"
     >
       <AccordionItem value={`${reactId}-speaker`}>
         <AccordionTrigger className="px-4 text-left">Who&apos;s talking</AccordionTrigger>
@@ -96,10 +96,10 @@ export function TDBVerseBreakdown({
         <AccordionTrigger className="px-4 text-left">Real talk (plain English)</AccordionTrigger>
         <AccordionContent className="px-4 text-muted-foreground">{fields.realTalk}</AccordionContent>
       </AccordionItem>
-      {prayerLine ? (
-        <AccordionItem value={`${reactId}-pray`}>
-          <AccordionTrigger className="px-4 text-left">Gentle prayer nudge (optional)</AccordionTrigger>
-          <AccordionContent className="px-4 text-muted-foreground">{prayerLine}</AccordionContent>
+      {quietPrayerLine ? (
+        <AccordionItem value={`${reactId}-quiet`}>
+          <AccordionTrigger className="px-4 text-left">A quiet prayer nudge</AccordionTrigger>
+          <AccordionContent className="px-4 text-muted-foreground">{quietPrayerLine}</AccordionContent>
         </AccordionItem>
       ) : null}
     </Accordion>
@@ -141,10 +141,10 @@ export function TDBVerseBreakdown({
           <dt className="tdb-print-breakdown-dt">Real talk</dt>
           <dd className="tdb-print-breakdown-dd text-muted-foreground">{fields.realTalk}</dd>
         </div>
-        {prayerLine ? (
+        {quietPrayerLine ? (
           <div className="tdb-print-breakdown-pair">
-            <dt className="tdb-print-breakdown-dt">Gentle prayer nudge</dt>
-            <dd className="tdb-print-breakdown-dd text-muted-foreground">{prayerLine}</dd>
+            <dt className="tdb-print-breakdown-dt">A quiet prayer nudge</dt>
+            <dd className="tdb-print-breakdown-dd text-muted-foreground">{quietPrayerLine}</dd>
           </div>
         ) : null}
       </dl>
@@ -162,7 +162,7 @@ export function TDBVerseBreakdown({
 
   return (
     <div className="tdb-verse-breakdown">
-      <div className={cn("tdb-no-print rounded-lg border border-border/60 bg-muted/30 p-4", className)}>
+      <div className={cn("tdb-breakdown-card tdb-no-print rounded-lg border border-border/60 bg-muted/30 p-4", className)}>
         {tabsLabelId ? (
           <p id={tabsLabelId} className="mb-3 text-sm font-medium text-foreground">
             Same verse — gentle words for who&apos;s listening

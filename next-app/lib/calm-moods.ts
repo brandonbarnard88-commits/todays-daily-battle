@@ -1,6 +1,7 @@
 import calmRaw from "@/data/calm-moods.json";
 
-import { resolveVerseByRef, type CanonVerse } from "./daily-verse";
+import { dailyVerse, resolveVerseByRef, type CanonVerse } from "./daily-verse";
+import { refKey } from "./normalize-bible-ref";
 
 export type CalmMood = {
   id: string;
@@ -57,15 +58,19 @@ export function moodIdFromFreeText(text: string): string | null {
 
 export type CalmVerseHit = { verse: CanonVerse; matchedRef: boolean };
 
-/** Up to `max` distinct verses for a mood, in catalog order. */
+/** Up to `max` distinct verses: today’s live verse first, then mood picks in order. */
 export function versesForCalmMood(moodId: string, max = 3): CalmVerseHit[] {
   const mood = calmMoodById(moodId);
   if (!mood) return [];
   const out: CalmVerseHit[] = [];
   const seen = new Set<string>();
+
+  seen.add(refKey(dailyVerse.reference));
+  out.push({ verse: dailyVerse, matchedRef: true });
+
   for (const ref of mood.referenceOrder) {
     const { verse, matchedRef } = resolveVerseByRef(ref);
-    const key = verse.reference;
+    const key = refKey(verse.reference);
     if (seen.has(key)) continue;
     seen.add(key);
     out.push({ verse, matchedRef });

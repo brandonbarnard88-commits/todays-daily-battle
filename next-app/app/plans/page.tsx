@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
 import { listPlans } from "@/lib/battle-plans";
+import { dailyVerse } from "@/lib/daily-verse";
 import { getMainSiteOrigin } from "@/lib/main-site";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +28,32 @@ export default function PlansPage() {
             Pick up where you left off; nothing scores you.
           </p>
         </header>
+
+        <Card className="mb-8 border-border/70 bg-muted/15 shadow-none ring-1 ring-border/80">
+          <CardHeader className="pb-2">
+            <CardTitle className="font-heading text-base">Today’s anchor</CardTitle>
+            <p className="text-sm text-muted-foreground">
+              The live daily verse is the same gentle anchor everywhere — plans below are day-by-day lanes.
+            </p>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <p className="font-medium text-foreground">{dailyVerse.reference}</p>
+            <blockquote className="border-l-2 border-primary/40 pl-3 text-sm leading-relaxed text-muted-foreground">
+              {dailyVerse.text}
+            </blockquote>
+            <div className="flex flex-wrap gap-2 pt-1">
+              <Link href="/verse" className={cn(buttonVariants({ variant: "secondary", size: "sm" }))}>
+                Open verse room
+              </Link>
+              <Link
+                href={`/memorize?ref=${encodeURIComponent(dailyVerse.reference)}`}
+                className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
+              >
+                Memorize
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
 
         <div className="space-y-4">
           {plans.map((p) => (

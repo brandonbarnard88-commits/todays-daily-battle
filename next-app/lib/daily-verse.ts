@@ -29,6 +29,8 @@ export type CanonVerse = {
   text: string;
   breakdown: VerseBreakdownFields;
   byAudience: Record<TdbAudience, ByAudienceOverrides>;
+  /** Optional one-line prayer echo for the breakdown accordion (falls back to first `verseEchoPrompts` if absent). */
+  quietPrayerNudge?: string;
   verseEchoPrompts?: readonly string[];
 };
 

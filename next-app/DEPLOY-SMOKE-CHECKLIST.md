@@ -1,6 +1,24 @@
 # Next app — smoke checklist (local + Cloudflare preview)
 
-Run **`npm run build && npm run lint`** in `next-app/` before any deploy.
+Run **`npm run check`** in `next-app/` (same as **`npm run lint && npm run build`**) before any deploy.
+
+## Cloudflare Pages — exact settings (second project)
+
+| Field | Value |
+|-------|--------|
+| **Project name** | e.g. `tdb-pilot` or `todaysdailybattle-next` |
+| **Production branch** | `cursor/verse-breakdowns-verse-room` (pilot) or `main` after merge |
+| **Root directory** | **`next-app`** (recommended) |
+| **Build command** | `npm ci && npm run build` |
+| **Build output directory** | **`out`** |
+| **Node version** | 20.x or 22.x (match local if possible) |
+
+If the Pages project uses **repo root** instead of `next-app`:
+
+- **Build command:** `cd next-app && npm ci && npm run build`
+- **Output directory:** `next-app/out`
+
+Optional env: **VAR** `NEXT_PUBLIC_MAIN_SITE_ORIGIN` = `https://todaysdailybattle.com` (classic reader / deep links).
 
 ## Local (`npm run dev` or `npx serve out` after build)
 

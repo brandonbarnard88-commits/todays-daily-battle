@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  poweredByHeader: false,
   /** Silence monorepo warning when the parent repo also has package-lock.json */
   turbopack: {
     root: process.cwd(),

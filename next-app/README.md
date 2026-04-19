@@ -1,55 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Today’s Daily Battle — Next.js pilot
 
-## Getting Started
+KJV-only, calm, static-export App Router app. Ships to **`next-app/out`** for Cloudflare Pages (`output: "export"`).
 
-First, run the development server:
+## Scripts
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+| Command | Purpose |
+|--------|---------|
+| `npm run dev` | Local dev (http://localhost:3000) |
+| `npm run lint` | ESLint |
+| `npm run build` | Production static export → `out/` |
+| `npm run check` | **`lint` + `build`** — run before every deploy |
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Routes (clean URLs)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`/`, `/verse`, `/reader`, `/calm`, `/plans`, `/plans/[slug]`, `/family`, `/mystudy`, `/memorize`, `/prayer-wall`. Rewrites live in `public/_redirects`.
 
 ## Deploy (Cloudflare Pages)
 
-The app is built as a **static export** (`next-app/out` via `output: "export"` in `next.config.ts`).
+Use a **second** Pages project so the main static site stays untouched. Full settings:
 
-1. In Cloudflare, create a **second** Pages project (do not reuse the static `dist/` site).
-2. In GitHub → **Settings → Secrets**, set **`CF_PAGES_NEXT_PROJECT_NAME`** to that project’s name (slug). Reuse **`CLOUDFLARE_API_TOKEN`** (or **`CF_API_TOKEN`**) and **`CLOUDFLARE_ACCOUNT_ID`** from the main site workflow.
-3. Push to **`main`** — workflow **Deploy Cloudflare Pages (Next.js export)** runs `npm ci && npm run build` in `next-app` and deploys **`next-app/out`**.
-4. Optional: attach a custom domain (e.g. `app.todaysdailybattle.com`) in the Pages project.
+| Setting | Value |
+|--------|--------|
+| **Framework preset** | None (or Next.js if offered — build is custom) |
+| **Root directory** | `next-app` *(or repo root, then build command includes `cd`)* |
+| **Build command** | `npm ci && npm run build` *(from `next-app` root)* or `cd next-app && npm ci && npm run build` *(from monorepo root)* |
+| **Build output directory** | `out` *(if root is `next-app`)* or `next-app/out` *(if root is repo root)* |
+| **Environment variables** | Optional: `NEXT_PUBLIC_MAIN_SITE_ORIGIN` = `https://todaysdailybattle.com` (classic reader links) |
 
-`public/_redirects` maps clean paths (`/memorize`, `/prayer-wall`, …) to the exported `*.html` files so Cloudflare Pages matches dev URLs.
+After deploy, run **`DEPLOY-SMOKE-CHECKLIST.md`** on the preview URL.
 
-If **`CF_PAGES_NEXT_PROJECT_NAME`** is unset, that workflow skips deploy so the static site pipeline keeps working.
+## Troubleshooting
 
-## Troubleshooting (local dev)
+- **Stale build:** `rm -rf .next out && npm run build`
+- **Port in use:** Next may use 3001; see `lsof` on 3000 if needed.
 
-- **`ENOENT` / `scandir .../next-app/app` or `app_dir must be a directory`** — the App Router folder is missing locally. From the repo root: `git checkout HEAD -- next-app/app` or `git pull origin main`, then `cd next-app && rm -rf .next && npm run dev`.
-- **Port 3000 already in use** — Next will pick 3001. To free 3000: `lsof -nP -iTCP:3000 -sTCP:LISTEN` then `kill <PID>` (or `kill -9 <PID>` if needed).
-- **Stale Turbopack / odd cache** — `cd next-app && rm -rf .next && npm run dev`.
+## More
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Smoke checklist: `DEPLOY-SMOKE-CHECKLIST.md`
+- Agent notes: `AGENTS.md`

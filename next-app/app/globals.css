@@ -192,6 +192,52 @@ html[data-theme="sepia"] {
   .tdb-print-verse .tdb-print-breakdown-print dd {
     color: #222 !important;
   }
+
+  /* Gentle takeaway: breakdown definition list on paper */
+  .tdb-verse-breakdown .tdb-print-breakdown-print {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #c4b49a;
+  }
+  .tdb-print-breakdown-heading {
+    color: #3f2a1e !important;
+    letter-spacing: 0.12em !important;
+  }
+  .tdb-print-audience-tier-note,
+  .audience-tier-note {
+    font-style: italic;
+    color: #5c4633 !important;
+  }
+  .tdb-print-audience-tier-note strong {
+    font-style: normal;
+    color: #3f2a1e !important;
+  }
+  .tdb-print-breakdown-dl {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+  .tdb-print-breakdown-dt {
+    font-weight: 600 !important;
+    color: #3f2a1e !important;
+    margin-top: 1.15rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .tdb-print-breakdown-pair:first-child .tdb-print-breakdown-dt {
+    margin-top: 0 !important;
+  }
+  .tdb-print-breakdown-dd {
+    margin: 0 0 0.85rem 0 !important;
+    padding: 0 0 0 1rem !important;
+    border-left: 3px solid #d4b89e !important;
+    color: #1a1510 !important;
+  }
+  .tdb-print-breakdown-pair:last-child .tdb-print-breakdown-dd {
+    margin-bottom: 0 !important;
+  }
+
   .tdb-print-family-band {
     break-inside: avoid;
     page-break-inside: avoid;

@@ -1,17 +1,25 @@
-# Cloudflare Pages: map clean URLs to Next static export (*.html).
+# Cloudflare Pages: clean URLs → Next static export (*.html)
 # https://developers.cloudflare.com/pages/configuration/redirects/
 
-/calm        /calm.html        200
-/calm/       /calm.html        200
-/family      /family.html      200
-/family/     /family.html      200
-/memorize    /memorize.html    200
-/memorize/   /memorize.html    200
-/mystudy     /mystudy.html     200
-/mystudy/    /mystudy.html     200
-/plans       /plans.html       200
-/plans/      /plans.html       200
-/prayer-wall /prayer-wall.html 200
-/prayer-wall/ /prayer-wall.html 200
-/verse       /verse.html       200
-/verse/      /verse.html       200
+/calm         /calm.html         200
+/calm/        /calm.html         200
+/family       /family.html       200
+/family/      /family.html       200
+/memorize     /memorize.html     200
+/memorize/    /memorize.html     200
+/mystudy      /mystudy.html      200
+/mystudy/     /mystudy.html      200
+/plans        /plans.html        200
+/plans/       /plans.html        200
+/plans/fear   /plans/fear.html   200
+/plans/fear/  /plans/fear.html   200
+/plans/parenting   /plans/parenting.html   200
+/plans/parenting/  /plans/parenting.html   200
+/plans/grief  /plans/grief.html  200
+/plans/grief/ /plans/grief.html  200
+/plans/family /plans/family.html 200
+/plans/family/ /plans/family.html 200
+/prayer-wall  /prayer-wall.html  200
+/prayer-wall/ /prayer-wall.html  200
+/verse        /verse.html        200
+/verse/       /verse.html        200

@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { TDBVerseBreakdown } from "@/components/tdb-verse-breakdown";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
@@ -45,6 +46,16 @@ export default function MyStudyPage() {
   const pathname = usePathname();
   const [rows, setRows] = useState<SavedVerseRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const [filterQ, setFilterQ] = useState("");
+
+  const filteredRows = useMemo(() => {
+    const q = filterQ.trim().toLowerCase();
+    if (!q) return rows;
+    return rows.filter((r) => {
+      const v = verseForSavedRow(r);
+      return r.reference.toLowerCase().includes(q) || v.text.toLowerCase().includes(q);
+    });
+  }, [rows, filterQ]);
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -105,7 +116,21 @@ export default function MyStudyPage() {
               </Link>
             </div>
           </CardHeader>
-          <CardContent className="pt-6">
+          <CardContent className="space-y-4 pt-6">
+            {!loading && rows.length > 0 ? (
+              <div className="space-y-2">
+                <label htmlFor="mystudy-filter" className="text-sm font-medium text-foreground">
+                  Filter by reference or verse text
+                </label>
+                <Input
+                  id="mystudy-filter"
+                  value={filterQ}
+                  onChange={(e) => setFilterQ(e.target.value)}
+                  placeholder="e.g. Isaiah 54, kindness, peace"
+                  autoComplete="off"
+                />
+              </div>
+            ) : null}
             {loading ? (
               <p className="text-sm text-muted-foreground">Opening your quiet shelf…</p>
             ) : rows.length === 0 ? (
@@ -113,9 +138,23 @@ export default function MyStudyPage() {
                 Nothing saved yet. When a verse steadies you, tap <strong>Save to My Study</strong> on
                 the home page — it&apos;ll land here.
               </p>
+            ) : filterQ.trim() && filteredRows.length === 0 ? (
+              <div className="rounded-lg border border-border/60 bg-muted/20 px-4 py-10 text-center">
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  No saved verses match your filter yet — try a different word or{" "}
+                  <button
+                    type="button"
+                    className="font-medium text-primary underline underline-offset-4 hover:text-foreground"
+                    onClick={() => setFilterQ("")}
+                  >
+                    clear the filter
+                  </button>
+                  .
+                </p>
+              </div>
             ) : (
               <ul className="space-y-4">
-                {rows.map((r, i) => {
+                {filteredRows.map((r, i) => {
                   const v = verseForSavedRow(r);
                   const snapStale = r.snapshot && r.snapshot.canonVersion !== CANON_VERSION;
                   return (

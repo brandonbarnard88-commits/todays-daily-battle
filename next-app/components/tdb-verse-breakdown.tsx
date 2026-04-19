@@ -54,17 +54,20 @@ export function TDBVerseBreakdown({
   };
 
   const fields = frozenBreakdown ?? mergeVerseBreakdownForAudience(verse, tier);
+  const prayerLine = verse.verseEchoPrompts?.[0];
 
   const defaultOpenValues = useMemo(() => {
     if (!expandAllByDefault) return [];
-    return [
+    const open = [
       `${reactId}-speaker`,
       `${reactId}-to`,
       `${reactId}-today`,
       `${reactId}-you`,
       `${reactId}-real`,
     ];
-  }, [expandAllByDefault, reactId]);
+    if (prayerLine) open.push(`${reactId}-pray`);
+    return open;
+  }, [expandAllByDefault, reactId, prayerLine]);
 
   const accordion = (
     <Accordion
@@ -93,51 +96,72 @@ export function TDBVerseBreakdown({
         <AccordionTrigger className="px-4 text-left">Real talk (plain English)</AccordionTrigger>
         <AccordionContent className="px-4 text-muted-foreground">{fields.realTalk}</AccordionContent>
       </AccordionItem>
+      {prayerLine ? (
+        <AccordionItem value={`${reactId}-pray`}>
+          <AccordionTrigger className="px-4 text-left">Gentle prayer nudge (optional)</AccordionTrigger>
+          <AccordionContent className="px-4 text-muted-foreground">{prayerLine}</AccordionContent>
+        </AccordionItem>
+      ) : null}
     </Accordion>
   );
 
   const printBlock = (
     <div className="tdb-print-breakdown-print mt-6 hidden print:block">
-      <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+      <p className="tdb-print-breakdown-heading text-xs font-medium uppercase tracking-widest text-muted-foreground">
         Gentle breakdown (print)
         {frozenBreakdown ? " — saved copy" : ` — ${AUDIENCE_LABEL[tier]}`}
       </p>
-      <dl className="mt-3 space-y-3 text-sm text-foreground">
-        <div>
-          <dt className="font-medium">Who&apos;s talking</dt>
-          <dd className="text-muted-foreground">{fields.speaker}</dd>
+      {!frozenBreakdown ? (
+        <p className="tdb-print-audience-tier-note audience-tier-note mt-2 text-sm text-muted-foreground">
+          Printed for the <strong>{AUDIENCE_LABEL[tier]}</strong> wording — same KJV verse above.
+        </p>
+      ) : (
+        <p className="tdb-print-audience-tier-note audience-tier-note mt-2 text-sm text-muted-foreground">
+          Text and notes as saved on your device.
+        </p>
+      )}
+      <dl className="tdb-print-breakdown-dl mt-4 space-y-0 text-sm text-foreground">
+        <div className="tdb-print-breakdown-pair">
+          <dt className="tdb-print-breakdown-dt">Who&apos;s talking</dt>
+          <dd className="tdb-print-breakdown-dd text-muted-foreground">{fields.speaker}</dd>
         </div>
-        <div>
-          <dt className="font-medium">Who they were talking to</dt>
-          <dd className="text-muted-foreground">{fields.audience}</dd>
+        <div className="tdb-print-breakdown-pair">
+          <dt className="tdb-print-breakdown-dt">Who they were talking to</dt>
+          <dd className="tdb-print-breakdown-dd text-muted-foreground">{fields.audience}</dd>
         </div>
-        <div>
-          <dt className="font-medium">How it relates to today</dt>
-          <dd className="text-muted-foreground">{fields.relatesToToday}</dd>
+        <div className="tdb-print-breakdown-pair">
+          <dt className="tdb-print-breakdown-dt">How it relates to today</dt>
+          <dd className="tdb-print-breakdown-dd text-muted-foreground">{fields.relatesToToday}</dd>
         </div>
-        <div>
-          <dt className="font-medium">How it relates to you</dt>
-          <dd className="text-muted-foreground">{fields.relatesToYou}</dd>
+        <div className="tdb-print-breakdown-pair">
+          <dt className="tdb-print-breakdown-dt">How it relates to you</dt>
+          <dd className="tdb-print-breakdown-dd text-muted-foreground">{fields.relatesToYou}</dd>
         </div>
-        <div>
-          <dt className="font-medium">Real talk</dt>
-          <dd className="text-muted-foreground">{fields.realTalk}</dd>
+        <div className="tdb-print-breakdown-pair">
+          <dt className="tdb-print-breakdown-dt">Real talk</dt>
+          <dd className="tdb-print-breakdown-dd text-muted-foreground">{fields.realTalk}</dd>
         </div>
+        {prayerLine ? (
+          <div className="tdb-print-breakdown-pair">
+            <dt className="tdb-print-breakdown-dt">Gentle prayer nudge</dt>
+            <dd className="tdb-print-breakdown-dd text-muted-foreground">{prayerLine}</dd>
+          </div>
+        ) : null}
       </dl>
     </div>
   );
 
   if (!showAudienceTabs || frozenBreakdown) {
     return (
-      <>
+      <div className="tdb-verse-breakdown">
         <div className={cn("tdb-no-print", className)}>{accordion}</div>
         {printBlock}
-      </>
+      </div>
     );
   }
 
   return (
-    <>
+    <div className="tdb-verse-breakdown">
       <div className={cn("tdb-no-print rounded-lg border border-border/60 bg-muted/30 p-4", className)}>
         {tabsLabelId ? (
           <p id={tabsLabelId} className="mb-3 text-sm font-medium text-foreground">
@@ -162,6 +186,6 @@ export function TDBVerseBreakdown({
         {accordion}
       </div>
       {printBlock}
-    </>
+    </div>
   );
 }

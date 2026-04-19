@@ -27,7 +27,7 @@ Use a **second** Pages project so the main static site stays untouched. Full set
 | **Build output directory** | `out` *(if root is `next-app`)* or `next-app/out` *(if root is repo root)* |
 | **Environment variables** | Optional: `NEXT_PUBLIC_MAIN_SITE_ORIGIN` = `https://todaysdailybattle.com` (classic reader links) |
 
-After deploy, run **`DEPLOY-SMOKE-CHECKLIST.md`** on the preview URL.
+After deploy, run **`DEPLOY-SMOKE-CHECKLIST.md`** on the preview URL (includes optional Cloudflare cache rules, build caching notes, service worker summary, and the **gentle 10-minute side-by-side heart check**).
 
 ## Troubleshooting
 

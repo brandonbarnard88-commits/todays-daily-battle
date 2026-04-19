@@ -237,6 +237,7 @@
     samson: 7,
     samsonDelilah: 168,
     samuelCall: 41,
+    samuelCalls: 41,
     shepherdsStar: 63,
     solomonWisdom: 45,
     spiesInCanaan: 34,

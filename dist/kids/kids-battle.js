@@ -2581,18 +2581,43 @@
       narration: "Ruth Gleans – Ruth 2:2. Ruth's husband died, and she could have gone back home. But she said to Naomi, 'Your people will be my people, and your God my God.' They went to Bethlehem. Ruth worked in the fields picking leftover grain. The owner, Boaz, noticed her kindness and hard work. He told his workers to leave extra grain for her and protected her. Boaz married Ruth, and they had a son who became part of Jesus' family line! God saw Ruth's faithfulness and blessed her. For you: When you stay loyal, help others, and work hard, God sees it. He blesses faithfulness and can turn hard times into joy."
     },
     samuelCall: {
-      title: 'God Calls Samuel',
+      title: 'Samuel Hears God\'s Voice at Night',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Samuel sleeps in the temple' },
-        { src: 'panel-noah-2.svg', alt: 'A voice calls: Samuel! Samuel!' },
-        { src: 'panel-noah-3.svg', alt: 'Samuel answers: Speak, Lord—I\'m listening!' }
+        { src: 'panel-noah-1.svg', alt: 'Lamp still burning — young Samuel lies down in the Lord\'s house' },
+        { src: 'panel-noah-2.svg', alt: 'Samuel runs to Eli — Here am I; for thou calledst me' },
+        { src: 'panel-noah-3.svg', alt: 'Speak; for thy servant heareth — the Lord calls by name' }
       ],
-      caption: 'Swipe to see God call Samuel—He calls you too! 👂',
+      caption: 'Swipe to see God call a child by name — and teach him how to answer.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samuel', 'call', 'temple', '1 samuel 3', 'eli', 'voice', 'listen'],
-      kjvRef: '1 Samuel 3',
-      kidContext: { who: 'God', to: 'Young Samuel', apply: 'God calls children! Say yes: "Speak, Lord—I am listening."' }
+      keywords: [
+        'samuel',
+        'call',
+        'called',
+        'night',
+        'temple',
+        'shiloh',
+        '1 samuel 3',
+        'eli',
+        'here am i',
+        'speak lord',
+        'thy servant heareth',
+        'lamp of god',
+        'word of the lord was precious',
+        'no open vision',
+        'ministered unto the lord',
+        'listen',
+        'prophet'
+      ],
+      kjvRef: '1 Samuel 3:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Young Samuel — and every child learning to listen',
+        apply:
+          'God called Samuel by name in the quiet night. Eli helped him understand — and Samuel learned to say, Speak, LORD; for thy servant heareth. God still speaks through His Word; we answer with open hearts.'
+      },
+      narration:
+        "Samuel Hears God's Voice at Night – 1 Samuel 3:1-21. The word of the LORD was precious; there was no open vision. The child Samuel ministered before Eli. One night Eli was laid down in his place, and Samuel was laid down to sleep in the temple of the LORD. The LORD called Samuel — and he ran to Eli, Here am I; for thou calledst me. Eli said, I called not; lie down again. This happened again until Eli perceived that the LORD had called the child. He said, If he call thee, thou shalt say, Speak, LORD; for thy servant heareth. The LORD came and stood, and called, Samuel, Samuel. Then Samuel answered, Speak; for thy servant heareth. The LORD told Samuel weighty things about Eli's house. In the morning Samuel opened the doors; he told Eli every word. Samuel grew, and the LORD was with him, and let none of his words fall to the ground. All Israel knew Samuel was the LORD's prophet. For you: God knows your name — listen for Him in His Word, and answer with a gentle heart."
     },
     davidHarp: {
       title: 'David Plays the Harp',
@@ -2810,18 +2835,45 @@
         "The Birth and Dedication of Samuel – 1 Samuel 1:21-28; 2:1-11, 18-21. When Samuel was weaned, Hannah remembered her promise. She took him to the house of the Lord at Shiloh and said to Eli, For this child I prayed; and the LORD hath given me my petition which I asked of him. Therefore also I have lent him to the LORD; as long as he liveth he shall be lent to the LORD. Then Hannah prayed, My heart rejoiceth in the LORD… there is none holy as the LORD. She left Samuel with Eli to serve the Lord. Every year she made him a little coat when she came up with her husband for the yearly sacrifice. The LORD visited Hannah, and she had three more sons and two daughters. And the child Samuel grew before the LORD. For you: God blesses thankful hearts that keep their promises to Him."
     },
     samuelCalls: {
-      title: 'Samuel Hears God Calling',
+      title: 'Samuel Hears God\'s Voice at Night',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Samuel sleeping in the temple at night' },
-        { src: 'panel-noah-2.svg', alt: 'Samuel runs to Eli — "Here I am!"' },
-        { src: 'panel-noah-3.svg', alt: 'Samuel says: Speak, Lord — Your servant listens' }
+        { src: 'panel-noah-1.svg', alt: 'Lamp still burning — young Samuel lies down in the Lord\'s house' },
+        { src: 'panel-noah-2.svg', alt: 'Samuel runs to Eli — Here am I; for thou calledst me' },
+        { src: 'panel-noah-3.svg', alt: 'Speak; for thy servant heareth — the Lord calls by name' }
       ],
-      caption: 'Swipe to see Samuel learn to listen for God\'s voice! 👂',
+      caption: 'Swipe to see God call a child by name — and teach him how to answer.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samuel', 'call', 'listen', '1 samuel 3', 'eli', 'temple', 'night', 'prophet'],
-      kjvRef: '1 Samuel 3',
-      kidContext: { who: 'God', to: 'Samuel', apply: 'God still speaks today through His Word. Say, "Speak, Lord" — and listen with a quiet heart.' }
+      keywords: [
+        'samuel',
+        'samuel calls',
+        'call',
+        'called',
+        'night',
+        'temple',
+        'shiloh',
+        '1 samuel 3',
+        'eli',
+        'here am i',
+        'speak lord',
+        'thy servant heareth',
+        'lamp of god',
+        'word of the lord was precious',
+        'no open vision',
+        'ministered unto the lord',
+        'listen',
+        'prophet',
+        'samuel samuel'
+      ],
+      kjvRef: '1 Samuel 3:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Young Samuel — and every child learning to listen',
+        apply:
+          'God called Samuel by name in the quiet night. Eli helped him understand — and Samuel learned to say, Speak, LORD; for thy servant heareth. God still speaks through His Word; we answer with open hearts.'
+      },
+      narration:
+        "Samuel Hears God's Voice at Night – 1 Samuel 3:1-21. The word of the LORD was precious; there was no open vision. The child Samuel ministered before Eli. One night Eli was laid down in his place, and Samuel was laid down to sleep in the temple of the LORD. The LORD called Samuel — and he ran to Eli, Here am I; for thou calledst me. Eli said, I called not; lie down again. This happened again until Eli perceived that the LORD had called the child. He said, If he call thee, thou shalt say, Speak, LORD; for thy servant heareth. The LORD came and stood, and called, Samuel, Samuel. Then Samuel answered, Speak; for thy servant heareth. The LORD told Samuel weighty things about Eli's house. In the morning Samuel opened the doors; he told Eli every word. Samuel grew, and the LORD was with him, and let none of his words fall to the ground. All Israel knew Samuel was the LORD's prophet. For you: God knows your name — listen for Him in His Word, and answer with a gentle heart."
     },
     saulKing: {
       title: 'Saul Becomes King',
@@ -5416,7 +5468,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5499,7 +5551,9 @@
     }
     if (
       /\b1 samuel 3\b|\b1 sam 3\b/.test(low) ||
-      /speak,?\s*lord|for thy servant heareth|samuel.*here\s*i\s*am|here\s*i\s*am.*eli|the\s+lord\s+called\s+samuel|called\s+samuel/.test(low)
+      /speak,?\s*lord|for thy servant heareth|samuel.*here\s*i\s*am|here\s*i\s*am.*eli|the\s+lord\s+called\s+samuel|called\s+samuel|word of the lord was precious|no open vision|lamp of god went out|eli perceived that the lord had called|none of his words fall to the ground|samuel,?\s*samuel/.test(
+        low
+      )
     ) {
       return { type: 'carousel', story: 'samuelCalls' };
     }

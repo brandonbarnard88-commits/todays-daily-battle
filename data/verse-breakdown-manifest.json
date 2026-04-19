@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T23:10:41.786Z",
-  "surfacedRefCount": 2787,
-  "overrideCount": 2787,
+  "generatedAt": "2026-04-19T23:26:35.027Z",
+  "surfacedRefCount": 2788,
+  "overrideCount": 2788,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 153,
+      "refs": 154,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 171,
+      "refs": 172,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 149,
+      "refs": 148,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -752,6 +752,7 @@
     "1 Samuel 2:13",
     "1 Samuel 2:30",
     "1 Samuel 31:4",
+    "1 Samuel 3:1-21",
     "1 Samuel 3:10",
     "1 Samuel 3:3",
     "1 Samuel 3:4",
@@ -5414,6 +5415,14 @@
       "general": {
         "plainExplanation": "Key idea: Then said Saul to his armourbearer, Draw your sword, and thrust me through therewith; lest these uncircumcised come and thrust me through, and abuse me. But...",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Samuel",
+        "to": "Israel"
+      }
+    },
+    "1 Samuel 3:1-21": {
+      "general": {
+        "plainExplanation": "Key idea: And the child Samuel ministered to the LORD before Eli. And the word of the LORD was precious in those days; there was no open vision. And it came to pass a...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Samuel",
         "to": "Israel"
       }

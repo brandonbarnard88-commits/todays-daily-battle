@@ -3581,6 +3581,129 @@ function buildSamuelBirthReadQuiz() {
   };
 }
 
+/** Samuel hears the Lord at night — 1 Samuel 3:1-21 (KJV). */
+function buildSamuelCallsReadQuiz() {
+  return {
+    kjvRef: '1 Samuel 3:1-21 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'And the child Samuel ministered unto the LORD before Eli. And the word of the LORD was precious in those days; there was no open vision. And it came to pass at that time, when Eli was laid down in his place, and his eyes began to wax dim, that he could not see; And ere the lamp of God went out in the temple of the LORD, where the ark of God was, and Samuel was laid down to sleep;',
+        caption: 'Night in the Lord\'s house — the lamp still burning',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'That the LORD called Samuel: and he answered, Here am I. And he ran unto Eli, and said, Here am I; for thou calledst me. And he said, I called not; lie down again. And he went and lay down. And the LORD called yet again, Samuel. And Samuel arose and went to Eli, and said, Here am I; for thou didst call me. And he answered, I called not, my son; lie down again. Now Samuel did not yet know the LORD, neither was the word of the LORD yet revealed unto him.',
+        caption: 'Samuel runs to Eli — I called not; lie down again',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And the LORD called Samuel again the third time. And he arose and went to Eli, and said, Here am I; for thou didst call me. And Eli perceived that the LORD had called the child. Therefore Eli said unto Samuel, Go, lie down: and it shall be, if he call thee, that thou shalt say, Speak, LORD; for thy servant heareth. So Samuel went and lay down in his place. And the LORD came, and stood, and called as at other times, Samuel, Samuel. Then Samuel answered, Speak; for thy servant heareth.',
+        caption: 'Speak, LORD — Speak; for thy servant heareth',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And the LORD said to Samuel, Behold, I will do a thing in Israel, at which both the ears of every one that heareth it shall tingle. In that day I will perform against Eli all things which I have spoken concerning his house: when I begin, I will also make an end. For I have told him that I will judge his house for ever for the iniquity which he knoweth; because his sons made themselves vile, and he restrained them not. And therefore I have sworn unto the house of Eli, that the iniquity of Eli\'s house shall not be purged with sacrifice nor offering for ever.',
+        caption: 'The Lord speaks — a heavy word for Eli\'s house',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'And Samuel lay until the morning, and opened the doors of the house of the LORD. And Samuel feared to shew Eli the vision. Then Eli called Samuel, and said, Samuel, my son. And he answered, Here am I. And he said, What is the thing that the LORD hath said unto thee? I pray thee hide it not from me: God do so to thee, and more also, if thou hide any thing from me of all the things that he said unto thee. And Samuel told him every whit, and hid nothing from him. And he said, It is the LORD: let him do what seemeth him good.',
+        caption: 'Morning — Samuel tells Eli every word',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'And Samuel grew, and the LORD was with him, and did let none of his words fall to the ground. And all Israel from Dan even to Beersheba knew that Samuel was established to be a prophet of the LORD. And the LORD appeared again in Shiloh: for the LORD revealed himself to Samuel in Shiloh by the word of the LORD.',
+        caption: 'Samuel grew — the Lord was with him',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    paragraphs: [
+      'The word of the Lord was precious in those days; there was no open vision. Samuel was a young boy ministering to the Lord before Eli.',
+      'One night Eli was lying down in his place, and Samuel was lying down in the temple of the Lord. The Lord called, "Samuel, Samuel!"',
+      'Samuel thought it was Eli and ran to him, saying, "Here am I; for thou calledst me." Eli said, "I called not; lie down again."',
+      'This happened three times. Then Eli understood that the Lord was calling the child. He said to Samuel, "Go, lie down: and it shall be, if he call thee, that thou shalt say, Speak, Lord; for thy servant heareth."',
+      'So Samuel went and lay down in his place. The Lord came and stood, and called as at other times, "Samuel, Samuel!" Then Samuel answered, "Speak; for thy servant heareth."',
+      'The Lord told Samuel things that would happen in Israel. And Samuel grew, and the Lord was with him, and did let none of his words fall to the ground.',
+      'For you: God calls us by name in His Word — we can answer with a quiet heart, "Speak, Lord; for thy servant heareth."'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['1 Samuel 16', '1 Samuel 3:1-21', 'Ruth 2', 'Psalm 23'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: 1 Samuel 3:1-21.)'
+      },
+      {
+        question: 'At first, whom did Samuel think was calling him?',
+        choices: ['King Saul.', 'Eli the priest.', 'His mother Hannah.', 'A lion.'],
+        correctIndex: 1,
+        correctFeedback: 'Yes — he ran to Eli each time.',
+        wrongFeedback: 'Think who he ran to. (Answer: Eli….)'
+      },
+      {
+        question: 'What did Eli tell Samuel to say if the Lord called again?',
+        choices: [
+          'Go away.',
+          'Speak, LORD; for thy servant heareth.',
+          'I am afraid.',
+          'I will not listen.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful — a listening heart.',
+        wrongFeedback: 'Listen for servant heareth. (Answer: Speak, LORD….)'
+      },
+      {
+        question: 'How did Samuel answer when the Lord called, "Samuel, Samuel!" the last time?',
+        choices: [
+          'I will not come.',
+          'Speak; for thy servant heareth.',
+          'Who is there?',
+          'I am sleeping.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes — exactly as Eli taught him.',
+        wrongFeedback: 'Think short answer. (Answer: Speak; for thy servant heareth….)'
+      },
+      {
+        question: 'How did the Lord bless Samuel as he grew?',
+        choices: [
+          'He forgot him.',
+          'The LORD was with him, and did let none of his words fall to the ground.',
+          'He sent him home forever.',
+          'The story does not say.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'God kept every word Samuel spoke as His prophet.',
+        wrongFeedback: 'Listen for grew. (Answer: The LORD was with him….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Samuel's night call with God's Word today.",
+    takeaway:
+      'God called Samuel by name — Eli helped him listen — and Samuel learned to answer, Speak, LORD; for thy servant heareth.',
+    prayer:
+      'Lord, thank You that You speak in Your Word. Help us listen with quiet hearts and answer You faithfully. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young Samuel lying calmly in bed at night inside tabernacle soft light rays gently from above Eli kind face in doorway gentle stars simple walls wonder listening mood minimal plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Here am I (1 sam 3)',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Speak LORD for thy servant heareth',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Samuel Samuel called',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD was with him'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -3618,5 +3741,7 @@ module.exports = {
   ruthThreshing: buildRuthThreshingReadQuiz(),
   ruthRedemption: buildRuthRedemptionReadQuiz(),
   hannahPrayer: buildHannahPrayerReadQuiz(),
-  samuelBirth: buildSamuelBirthReadQuiz()
+  samuelBirth: buildSamuelBirthReadQuiz(),
+  samuelCalls: buildSamuelCallsReadQuiz(),
+  samuelCall: buildSamuelCallsReadQuiz()
 };

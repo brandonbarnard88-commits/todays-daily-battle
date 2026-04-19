@@ -144,6 +144,7 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   171: 'ruthThreshing',
   172: 'ruthRedemption',
   40: 'hannahPrayer',
+  41: 'samuelCalls',
   173: 'samuelBirth'
 };
 

@@ -69,7 +69,6 @@
     'ruthGlean',
     'hannahPrayer',
     'samuelBirth',
-    'samuelCall',
     'samuelCalls',
     'saulKing',
     'saulDisobedience',

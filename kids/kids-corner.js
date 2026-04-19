@@ -1269,17 +1269,34 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 4:11</text>'
       ),
 
-      /* ── Week 3: Samuel Call (43) ── */
+      /* Samuel hears God at night — library samuelCalls / loop 41 */
       samuelCall: svg(
-        '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M60 100 L200 78 L340 100" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<rect x="85" y="90" width="60" height="40" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<rect x="255" y="90" width="60" height="40" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M140 260 Q165 220 200 210 Q235 220 260 260" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="200" cy="204" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M186 195 Q200 180 214 195" ' + s + ' stroke-width="2"/>' +
-        star(200, 45, 16) + star(50, 40, 10) + star(350, 40, 10) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 3:10</text>'
+        ground() +
+        /* night */
+        star(48, 42, 4) + star(88, 58, 3) + star(312, 48, 4) + star(352, 64, 3) + star(198, 36, 3) +
+        /* tabernacle wall + doorway */
+        '<rect x="48" y="88" width="304" height="162" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="268" y="118" width="64" height="112" rx="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* lamp — gentle glow */
+        '<line x1="92" y1="248" x2="92" y2="168" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="92" cy="158" rx="14" ry="18" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M82 168 Q92 138 102 168" ' + s + ' stroke-width="1.5" fill="none"/>' +
+        /* soft light from above */
+        '<path d="M118 52 L108 118 M152 44 L148 118 M186 40 L188 118 M222 44 L228 118 M256 52 L268 118" ' +
+          s +
+          ' stroke-width="2" stroke-linecap="round" opacity="0.85"/>' +
+        /* Samuel on simple bed */
+        '<rect x="118" y="208" width="120" height="28" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M118 208 L118 188 L238 188 L238 208" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="178" cy="172" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M170 166 Q178 160 186 166" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="178" y1="184" x2="178" y2="200" ' + s + ' stroke-width="2"/>' +
+        /* blanket */
+        '<path d="M128 212 Q178 200 228 212 L228 228 L128 228 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* Eli in doorway */
+        person(300, 142, 9, 24) +
+        '<path d="M292 158 Q284 168 288 178" ' + s + ' stroke-width="1.6"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 3:10</text>'
       ),
 
       /* ── Week 3: David Harp (44) ── */
@@ -2984,6 +3001,7 @@
     ruthRedemption: 'ruthRedemption',
     ruthBoazGate: 'ruthRedemption',
     samuelCall: 'samuelCall',
+    samuelCalls: 'samuelCall',
     davidHarp: 'davidHarp',
     davidSheep: 'davidHarp',
     goliathChallenge: 'goliathChallenge',
@@ -4749,7 +4767,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

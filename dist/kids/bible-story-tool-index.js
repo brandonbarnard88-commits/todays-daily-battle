@@ -697,16 +697,6 @@
     "kw": "gideon 300 midian midianites judges 7 trumpet pitcher torch lamp jar victory obey sword of the lord"
   },
   {
-    "key": "samuelCall",
-    "title": "God Calls Samuel",
-    "kjvRef": "1 Samuel 3",
-    "who": "God",
-    "to": "Young Samuel",
-    "apply": "God calls children! Say yes: \"Speak, Lord—I am listening.\"",
-    "theme": "Obedience",
-    "kw": "samuel call temple 1 samuel 3 eli voice listen"
-  },
-  {
     "key": "goliathChallenge",
     "title": "Goliath's Challenge",
     "kjvRef": "1 Samuel 17:8–11, 16, 23–30",
@@ -2177,14 +2167,24 @@
     "kw": "samuel david anoint 1 samuel 16 jesse heart sheep bethlehem"
   },
   {
-    "key": "samuelCalls",
-    "title": "Samuel Hears God Calling",
-    "kjvRef": "1 Samuel 3",
-    "who": "God",
-    "to": "Samuel",
-    "apply": "God still speaks today through His Word. Say, \"Speak, Lord\" — and listen with a quiet heart.",
+    "key": "samuelCall",
+    "title": "Samuel Hears God's Voice at Night",
+    "kjvRef": "1 Samuel 3:1-21",
+    "who": "The Lord",
+    "to": "Young Samuel — and every child learning to listen",
+    "apply": "God called Samuel by name in the quiet night. Eli helped him understand — and Samuel learned to say, Speak, LORD; for thy servant heareth. God still speaks through His Word; we answer with open hearts.",
     "theme": "Obedience",
-    "kw": "samuel call listen 1 samuel 3 eli temple night prophet"
+    "kw": "samuel call called night temple shiloh 1 samuel 3 eli here am i speak lord thy servant heareth lamp of god word of the lord was precious no open vision ministered unto the lord listen prophet"
+  },
+  {
+    "key": "samuelCalls",
+    "title": "Samuel Hears God's Voice at Night",
+    "kjvRef": "1 Samuel 3:1-21",
+    "who": "The Lord",
+    "to": "Young Samuel — and every child learning to listen",
+    "apply": "God called Samuel by name in the quiet night. Eli helped him understand — and Samuel learned to say, Speak, LORD; for thy servant heareth. God still speaks through His Word; we answer with open hearts.",
+    "theme": "Obedience",
+    "kw": "samuel samuel calls call called night temple shiloh 1 samuel 3 eli here am i speak lord thy servant heareth lamp of god word of the lord was precious no open vision ministered unto the lord listen prophet samuel samuel"
   },
   {
     "key": "sarahLaughs",

@@ -2503,6 +2503,117 @@ function buildSamsonBirthReadQuiz() {
   };
 }
 
+/** Samson and the lion — Judges 14:5-9 (KJV); Spirit of the Lord, strength, honey. */
+function buildSamsonLionReadQuiz() {
+  return {
+    kjvRef: 'Judges 14:5-9 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text: 'Samson went down toward Timnath. A young lion roared against him.',
+        caption: 'Something fierce on the path',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text:
+          'The Spirit of the LORD came mightily upon him, and he rent him as he would have rent a kid, and he had nothing in his hand.',
+        caption: 'God\'s strength — not boasting',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'After a time he turned aside to see the carcass of the lion: and, behold, there was a swarm of bees and honey in the carcass of the lion.',
+        caption: 'A sweet surprise',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He took thereof in his hands, and went on eating, and came to his father and mother, and he gave them, and they did eat.',
+        caption: 'Sharing the honey',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'But he told not them that he had taken the honey out of the carcass of the lion.',
+        caption: 'A quiet secret for now',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    paragraphs: [
+      'Samson grew up strong. One day he went toward Timnath, and a young lion roared against him.',
+      'The Spirit of the LORD came mightily upon Samson, and he rent the lion as he would have rent a kid, though he had nothing in his hand.',
+      'Later, when he passed by the same place again, he turned aside to see the carcass of the lion. Behold, there was a swarm of bees and honey in the body of the lion.',
+      'Samson took some of the honey in his hands and went on eating it. He gave some to his father and mother, and they ate too. But he did not tell them where he had found the sweet honey.',
+      'For you: The Lord gives strength when you need it — and He can bring kindness you did not expect.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Judges 13', 'Judges 14:5-9', 'Judges 7', 'Ruth 2'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: Judges 14:5-9.)'
+      },
+      {
+        question: 'What came upon Samson when the young lion roared against him?',
+        choices: [
+          'He ran away alone.',
+          'The Spirit of the LORD came mightily upon him.',
+          'He built a big ship.',
+          'He forgot where he was going.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Right — God gave him strength for that moment.',
+        wrongFeedback: 'Listen for Spirit and mightily. (Answer: Spirit of the LORD….)'
+      },
+      {
+        question: 'What did Samson find in the carcass of the lion later?',
+        choices: ['Only dust.', 'A swarm of bees and honey.', 'A bag of gold.', 'Nothing at all.'],
+        correctIndex: 1,
+        correctFeedback: 'Yes — God turned a hard memory into sweetness.',
+        wrongFeedback: 'Think bees and honey. (Answer: Swarm of bees and honey.)'
+      },
+      {
+        question: 'What did Samson do with some of the honey?',
+        choices: [
+          'He threw it away.',
+          'He ate and gave some to his father and mother.',
+          'He hid it forever.',
+          'He sold it in the market.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Exactly — a gentle share with family.',
+        wrongFeedback: 'Think eat and parents. (Answer: Ate and gave… father and mother.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Him that He can give strength and kindness — even after hard moments.',
+          'Never tell anyone about the Bible.',
+          'Only grown-ups need God\'s help.',
+          'Hide when anything feels hard.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful — quiet trust and gratitude please God.',
+        wrongFeedback: 'Pick thankfulness and trust. (Answer: Thank Him… strength and kindness….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Samson and the Lion with God's Word today.",
+    takeaway:
+      'The Spirit of the LORD came mightily upon Samson — God\'s strength for the fierce moment, and honey as a gentle surprise afterward.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You are strong and kind. When I feel small or scared, help me trust You. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, wonder-filled strong thankful mood, calm faces no anger no scary expressions no text in image: young Samson standing beside large gentle resting lion overcome peaceful mane, Samson holds honeycomb piece two small bee shapes nearby soft path soft hills minimal background plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Young lion and the Spirit\'s strength (judges 14)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Bees and honey in the lion',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samson shares honey with parents',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God gives strength when we need it'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -2531,5 +2642,6 @@ module.exports = {
   deborahBarak: buildDeborahBarakReadQuiz(),
   gideonFleece: buildGideonFleeceReadQuiz(),
   gideonMidianites: buildGideonMidianitesReadQuiz(),
-  samsonBirth: buildSamsonBirthReadQuiz()
+  samsonBirth: buildSamsonBirthReadQuiz(),
+  samsonLion: buildSamsonLionReadQuiz()
 };

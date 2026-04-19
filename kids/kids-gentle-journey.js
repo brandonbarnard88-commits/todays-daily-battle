@@ -58,6 +58,7 @@
     'gideonFleece',
     'gideonMidianites',
     'samsonBirth',
+    'samsonLion',
     'samson',
     'samsonHair',
     'ruthBoaz',

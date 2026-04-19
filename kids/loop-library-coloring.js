@@ -126,6 +126,7 @@
   "ruthGlean": "ruthGlean",
   "samsonBirth": "samsonBirth",
   "samsonHair": "samsonHair",
+  "samsonLion": "samsonLion",
   "samuelCalls": "samuelCall",
   "shepherdsStar": "shepherdsStar",
   "solomonWisdom": "solomonWisdom",

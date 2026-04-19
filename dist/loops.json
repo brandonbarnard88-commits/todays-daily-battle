@@ -126,7 +126,7 @@
     "audio": "",
     "ref": "Exodus 14:21-31",
     "week": 1,
-    "libraryKey": "redSea"
+    "libraryKey": "mosesSea"
   },
   {
     "id": 14,
@@ -135,7 +135,7 @@
     "audio": "",
     "ref": "Exodus 3:1-6",
     "week": 1,
-    "libraryKey": "mosesBush"
+    "libraryKey": "burningBush"
   },
   {
     "id": 15,
@@ -1504,5 +1504,14 @@
     "ref": "Judges 13:1-25",
     "week": 12,
     "libraryKey": "samsonBirth"
+  },
+  {
+    "id": 167,
+    "title": "Samson and the Lion",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 14:5-9",
+    "week": 12,
+    "libraryKey": "samsonLion"
   }
 ]

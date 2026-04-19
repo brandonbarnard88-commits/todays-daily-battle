@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T20:44:25.044Z",
-  "surfacedRefCount": 2775,
-  "overrideCount": 2775,
+  "generatedAt": "2026-04-19T20:53:36.678Z",
+  "surfacedRefCount": 2777,
+  "overrideCount": 2777,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 144,
+      "refs": 145,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 163,
+      "refs": 164,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 143,
+      "refs": 144,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 165,
+      "refs": 166,
       "pairs": 0
     },
     "memorize.html": {
@@ -2021,7 +2021,9 @@
     "Judges 13:1-25",
     "Judges 13:24",
     "Judges 13:25",
+    "Judges 14:5-9",
     "Judges 14:6",
+    "Judges 14:8",
     "Judges 15:8",
     "Judges 16:17",
     "Judges 16:28",
@@ -15438,9 +15440,25 @@
         "to": "Israel"
       }
     },
+    "Judges 14:5-9": {
+      "general": {
+        "plainExplanation": "Key idea: Then went Samson down, and his father and his mother, to Timnath, and came to the vineyards of Timnath: and, look, a young lion roared against him. And the...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
     "Judges 14:6": {
       "general": {
         "plainExplanation": "Key idea: And the Spirit of the LORD came mightily upon him, and he rent him as he would have rent a kid, and he had nothing in his hand: but he told not his father o...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Judges 14:8": {
+      "general": {
+        "plainExplanation": "And after a time he returned to take her, and he turned aside to see the carcase of the lion: and, look, there was a swarm of bees and honey in the carcase of the lion.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"

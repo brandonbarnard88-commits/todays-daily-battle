@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (287 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (288 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -1271,6 +1271,11 @@
       mp4: '/media/kids-stories/samson-hair.mp4',
       webm: '/media/kids-stories/samson-hair.webm',
       captionsVtt: '/media/kids-stories/samson-hair.vtt'
+    },
+    samsonLion: {
+      mp4: '/media/kids-stories/samson-lion.mp4',
+      webm: '/media/kids-stories/samson-lion.webm',
+      captionsVtt: '/media/kids-stories/samson-lion.vtt'
     },
     samuelAnointsDavid: {
       mp4: '/media/kids-stories/samuel-anoints-david.mp4',

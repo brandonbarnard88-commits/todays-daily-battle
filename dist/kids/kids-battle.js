@@ -2189,6 +2189,38 @@
       narration:
         "Samson's Birth and Call – Judges 13:1-25. The children of Israel did evil again in the sight of the LORD; and the LORD delivered them into the hand of the Philistines forty years. There was a certain man of Zorah, of the family of the Danites, whose name was Manoah; and his wife was barren. The angel of the LORD appeared unto the woman, and said unto her, 'Behold now, thou art barren, and bearest not: but thou shalt conceive, and bear a son. Now therefore beware, I pray thee, and drink not wine nor strong drink, and eat not any unclean thing: for the child shall be a Nazarite unto God from the womb to the day of his death; and he shall begin to deliver Israel out of the hand of the Philistines.' She told Manoah; he besought the LORD, and the angel came again. Manoah offered a kid upon a rock unto the LORD; when the flame went up toward heaven from off the altar, the angel of the LORD ascended in the flame. Manoah and his wife looked on it, and fell on their faces to the ground. The woman bare a son, and called his name Samson: and the child grew, and the LORD blessed him. For you: God's plans start in His kindness — trust Him with your tomorrow."
     },
+    samsonLion: {
+      title: 'Samson and the Lion',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A young lion roars — the Spirit of the Lord comes mightily upon Samson' },
+        { src: 'panel-noah-2.svg', alt: 'Later, bees and honey in the lion — a sweet surprise from God' },
+        { src: 'panel-noah-3.svg', alt: 'Samson shares honey with his father and mother' }
+      ],
+      caption: 'Swipe to see God give strength — and sweetness after something fierce! 🍯',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'samson',
+        'lion',
+        'honey',
+        'bees',
+        'timnath',
+        'spirit of the lord',
+        'judges 14',
+        'strength',
+        'nazarite',
+        'young lion'
+      ],
+      kjvRef: 'Judges 14:5-9',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Samson (and every child who needs courage)',
+        apply:
+          "When something fierce faced Samson, the Spirit of the Lord came mightily upon him — God's strength, not boasting. God can turn hard moments into kindness you did not expect. You can ask Him for courage and thank Him when He gives help."
+      },
+      narration:
+        "Samson and the Lion – Judges 14:5-9. Samson went down with his father and mother to Timnath; and a young lion roared against him. The Spirit of the LORD came mightily upon him, and he rent him as he would have rent a kid, and he had nothing in his hand. After a time he turned aside to see the carcass of the lion: and, behold, there was a swarm of bees and honey in the carcass of the lion. He took thereof in his hands, and went on eating, and came to his father and mother, and he gave them, and they did eat: but he told not them that he had taken the honey out of the carcass of the lion. For you: The Lord gives strength when you need it — and He can bring sweetness after the hard part."
+    },
     ruthNaomi: {
       title: 'Ruth and Naomi',
       panels: [
@@ -5044,7 +5076,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 287, color: '#e5e4e2' }
+      { name: 'Platinum', min: 288, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5151,7 +5183,7 @@
       'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
-      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'ruthNaomi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samsonHair',
+      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'ruthNaomi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samsonHair',
       'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
       'saulSpear', 'davidCave',
       'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
@@ -5250,6 +5282,11 @@
       /judges 13|manoah|nazarite unto god from the womb|barren.*bear a son.*samson|samson.*womb|angel.*manoah/.test(low)
     ) {
       return { type: 'carousel', story: 'samsonBirth' };
+    }
+    if (
+      /judges 14:5|judges 14:6|judges 14:7|judges 14:8|judges 14:9|timnath|timnah|young lion.*samson|samson.*young lion|samson.*lion|lion.*samson|samson.*honey|honey.*lion|bees.*lion|swarm of bees/.test(low)
+    ) {
+      return { type: 'carousel', story: 'samsonLion' };
     }
     if (/samson|delilah|pillars|judges 16|hair.*strength/.test(low)) {
       return { type: 'carousel', story: 'samson' };
@@ -7931,7 +7968,7 @@
     achan: 'Obedience',
     joshuaCharge: 'Obedience',
     sunStandsStill: 'Miracles',
-    gideonFleece: 'Miracles', gideonMidianites: 'Miracles', deborahBarak: 'Protection', samsonBirth: 'Protection', ruthNaomi: 'Love',
+    gideonFleece: 'Miracles', gideonMidianites: 'Miracles', deborahBarak: 'Protection', samsonBirth: 'Protection', samsonLion: 'Miracles', ruthNaomi: 'Love',
     rahab: 'Obedience', rahabRope: 'Obedience', rahabJericho: 'Obedience',
     balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonHair: 'Protection', ruthGlean: 'Love',
     samuelCall: 'Obedience', davidHarp: 'Love', goliathChallenge: 'Protection',

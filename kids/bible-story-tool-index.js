@@ -2107,6 +2107,16 @@
     "kw": "samson hair strength pillars judges 16 power delilah"
   },
   {
+    "key": "samsonLion",
+    "title": "Samson and the Lion",
+    "kjvRef": "Judges 14:5-9",
+    "who": "The Lord",
+    "to": "Samson (and every child who needs courage)",
+    "apply": "When something fierce faced Samson, the Spirit of the Lord came mightily upon him — God's strength, not boasting. God can turn hard moments into kindness you did not expect. You can ask Him for courage and thank Him when He gives help.",
+    "theme": "Miracles",
+    "kw": "samson lion honey bees timnath spirit of the lord judges 14 strength nazarite young lion"
+  },
+  {
     "key": "samsonBirth",
     "title": "Samson's Birth and Call",
     "kjvRef": "Judges 13:1-25",

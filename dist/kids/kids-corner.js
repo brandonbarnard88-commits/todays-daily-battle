@@ -1087,6 +1087,37 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 13:24</text>'
       ),
 
+      /* Samson and the lion — loop 167 / library samsonLion */
+      samsonLion: svg(
+        ground() + hills() +
+        '<path d="M0 248 Q80 232 160 248 Q240 232 320 248 Q360 238 400 248" ' + s + ' stroke-width="2" fill="none"/>' +
+        /* lion — resting, calm */
+        '<ellipse cx="268" cy="218" rx="52" ry="28" ' + sf + ' fill="white" stroke-width="3.5"/>' +
+        '<ellipse cx="218" cy="208" rx="22" ry="20" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M196 198 Q188 175 200 165 Q212 158 222 168 Q228 182 220 198" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M206 188 Q198 172 205 162 Q214 168 210 182" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M218 188 Q226 172 232 182 Q228 194 220 198" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="208" cy="192" r="3.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="222" cy="192" r="3.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M212 202 Q216 206 220 202" ' + s + ' stroke-width="1.8"/>' +
+        '<ellipse cx="248" cy="212" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M300 228 L318 238 L312 248" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M308 220 L325 228 L318 238" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        /* honeycomb + bees */
+        '<path d="M118 175 L132 168 L146 175 L146 192 L132 199 L118 192 Z M132 168 L146 161 L160 168 L160 185 L146 192 L132 185 Z M146 175 L160 168 L174 175 L174 192 L160 199 L146 192 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="92" cy="158" rx="7" ry="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="88" cy="152" rx="4" ry="3" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M96 160 L102 164 M100 158 L104 164" ' + s + ' stroke-width="1.2"/>' +
+        '<ellipse cx="178" cy="150" rx="7" ry="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="174" cy="144" rx="4" ry="3" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M182 152 L188 156 M186 150 L190 156" ' + s + ' stroke-width="1.2"/>' +
+        person(125, 158, 11, 34) +
+        '<path d="M108 188 L132 178 M142 182 L162 172" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M108 188 Q118 198 128 205" ' + s + ' stroke-width="2"/>' +
+        sun(42, 48, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 14:8</text>'
+      ),
+
       /* ── Week 3: Samson Hair (41) ── */
       samsonHair: svg(
         ground() +
@@ -2973,6 +3004,7 @@
     gideonMidianites: 'gideonMidianites',
     deborahBarak: 'deborahBarak',
     samsonBirth: 'samsonBirth',
+    samsonLion: 'samsonLion',
     ruthNaomi: 'ruthMoab',
     hannahSamuel: 'hannahPray',
     samuelAnointsDavid: 'davidAnointed',
@@ -4518,7 +4550,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'fallOfJericho', 'ruthBoaz',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'fallOfJericho', 'ruthBoaz',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

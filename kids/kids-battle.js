@@ -839,9 +839,16 @@
       caption: 'Swipe to see why we worship God alone! 🐂',
       videoId: '',
       videoTitle: '',
-      keywords: ['golden calf', 'exodus 32', 'idol', 'moses', 'aaron', 'worship', 'sinai'],
-      kjvRef: 'Exodus 32',
-      kidContext: { who: 'God', to: 'Israel', apply: 'Impatience led to idolatry — wait for God and worship Him only.' }
+      keywords: ['golden calf', 'exodus 32', 'idol', 'moses', 'aaron', 'worship', 'sinai', 'mercy', 'forgive', 'tablets', 'intercession'],
+      kjvRef: 'Exodus 32:1-8, 15-20, 30-32',
+      kidContext: {
+        who: 'God',
+        to: 'Moses and Israel',
+        apply:
+          "While Moses was with God, the people made a golden calf and worshiped it—but Moses prayed, and God showed mercy. Wrong choices are serious; so is God's kindness when we turn back to Him. Wait for God, worship Him alone, and when you mess up, tell Him you are sorry and trust Jesus."
+      },
+      narration:
+        "The Golden Calf – Exodus 32:1-8, 15-20, 30-32. While Moses was still on the mountain with God, the people grew impatient. They asked Aaron to make them a god they could see. Aaron took their golden earrings, melted them, and made a golden calf. The people bowed down and danced around it. When Moses came down from the mountain carrying the two stone tablets, he saw the calf and the dancing. His anger burned, and he threw the tablets and broke them at the foot of the mountain. Moses burned the golden calf, ground it to powder, scattered it on the water, and made the people drink it. Then Moses stood before the Lord and prayed, 'Oh, this people have sinned a great sin. Yet now, if thou wilt forgive their sin—; and if not, blot me, I pray thee, out of thy book which thou hast written.' God heard Moses' prayer and showed mercy to His people. For you: God is merciful. When we choose wrong, we can say sorry, worship Him alone, and trust Jesus."
     },
     spiesInCanaan: {
       title: 'Spies in Canaan',

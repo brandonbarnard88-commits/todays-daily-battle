@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-19T18:31:44.375Z",
+  "generatedAt": "2026-04-19T18:35:32.377Z",
   "surfacedRefCount": 2754,
   "overrideCount": 2754,
   "sourceCounts": {
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 130,
+      "refs": 131,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 146,
+      "refs": 147,
       "pairs": 0
     },
     "kids/kids-corner.js": {
@@ -1335,8 +1335,8 @@
     "Exodus 2:5",
     "Exodus 2:6",
     "Exodus 31:18",
+    "Exodus 32:1-8",
     "Exodus 32:32",
-    "Exodus 32:4",
     "Exodus 33:14",
     "Exodus 34:19",
     "Exodus 35:32",
@@ -9929,18 +9929,18 @@
         "to": "Israel"
       }
     },
-    "Exodus 32:32": {
+    "Exodus 32:1-8": {
       "general": {
-        "plainExplanation": "Yet now, if you wilt forgive their sin--; and if not, blot me, I pray you, out of your book which you hast written.",
-        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "plainExplanation": "Key idea: And when the people saw that Moses delayed to come down out of the mount, the people gathered themselves together to Aaron, and said to him, Up, make us god...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "Moses",
         "to": "Israel"
       }
     },
-    "Exodus 32:4": {
+    "Exodus 32:32": {
       "general": {
-        "plainExplanation": "Key idea: And he received them at their hand, and fashioned it with a graving tool, after he had made it a molten calf: and they said, These be your gods, O Israel, w...",
-        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "plainExplanation": "Yet now, if you wilt forgive their sin--; and if not, blot me, I pray you, out of your book which you hast written.",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
         "about": "Moses",
         "to": "Israel"
       }

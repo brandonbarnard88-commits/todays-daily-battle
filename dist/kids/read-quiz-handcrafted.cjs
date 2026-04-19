@@ -723,6 +723,133 @@ function buildTenCommandmentsReadQuiz() {
   };
 }
 
+/** Golden Calf — read-along + quiz (Exodus 32:1-8, 15-20, 30-32). */
+function buildGoldenCalfReadQuiz() {
+  return {
+    kjvRef: 'Exodus 32:1-8, 15-20, 30-32 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'While Moses was still on the mountain with God, the people grew impatient. They asked Aaron to make them a god they could see.',
+        caption: 'Waiting turned to impatience',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'Aaron took their golden earrings, melted them, and made a golden calf. The people bowed down and danced around it.',
+        caption: 'A calf of gold',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'When Moses came down from the mountain carrying the two stone tablets, he saw the calf and the dancing. His anger burned, and he threw the tablets and broke them at the foot of the mountain.',
+        caption: 'The tablets break',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'Moses burned the golden calf, ground it to powder, scattered it on the water, and made the people drink it.',
+        caption: 'Wrong worship undone',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'Then Moses stood before the Lord and prayed, "Oh, this people have sinned a great sin. Yet now, if thou wilt forgive their sin—; and if not, blot me, I pray thee, out of thy book which thou hast written."',
+        caption: 'Moses pleads for mercy',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text: "God heard Moses' prayer and showed mercy to His people.",
+        caption: 'God hears and is merciful',
+        image: 'panel-david-1.svg'
+      }
+    ],
+    paragraphs: [
+      'While Moses was still on the mountain with God, the people grew impatient. They asked Aaron to make them a god they could see.',
+      'Aaron took their golden earrings, melted them, and made a golden calf. The people bowed down and danced around it.',
+      'When Moses came down from the mountain carrying the two stone tablets, he saw the calf and the dancing. His anger burned, and he threw the tablets and broke them at the foot of the mountain.',
+      'Moses burned the golden calf, ground it to powder, scattered it on the water, and made the people drink it.',
+      'Then Moses stood before the Lord and prayed, "Oh, this people have sinned a great sin. Yet now, if thou wilt forgive their sin—; and if not, blot me, I pray thee, out of thy book which thou hast written."',
+      "God heard Moses' prayer and showed mercy to His people.",
+      'For you: When we choose wrong, God is still merciful. We can tell Him we are sorry, trust Jesus who saves us, and worship Him alone.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Genesis 1:1', 'Exodus 32:1-8, 15-20, 30-32', 'John 3:16'],
+        correctIndex: 2,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the first paragraph\'s Bible note. (Answer: Exodus 32:1-8, 15-20, 30-32.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['Nobody', 'Only sheep', 'Moses and God', 'Pharaoh only'],
+        correctIndex: 2,
+        correctFeedback: 'Right—keep that person (or group) in mind as you think about God.',
+        wrongFeedback:
+          'Look for who the story follows first—names in the title often help. (Answer: Moses and God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never hears when kids pray.',
+          'The Bible is only pretend stories.',
+          'We should hide from God when we mess up.',
+          'God is merciful—even when His people sin, He hears prayer and can forgive.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the “For you” heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is merciful….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed at the camp.',
+          'Aaron made a golden calf and the people bowed down before it.',
+          'A talking toaster became king of Egypt.',
+          'Everyone decided to never sleep again.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.',
+          'Say sorry to God, worship Him alone, and thank Him for His mercy in Jesus.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Say sorry to God….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading The Golden Calf with God's Word today.",
+    takeaway:
+      "God's people chose a visible idol, but Moses prayed—and God showed mercy. Jesus is the only Savior we need.",
+    prayer:
+      'God, thank You for the Bible. Thank You that You forgive when we turn to You. Help me worship You alone. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, honest yet hopeful mood, focus on prayer not anger, no wild dancing, no text in image: Moses on mountain path holding two broken stone tablet pieces, small golden calf statue quiet in distance with few people standing sadly nearby, Moses sorrowful but calm with hands lifted praying toward heaven, soft mountain lines gentle sky, minimal background, plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People waiting at the mountain – Moses with God (exodus 32)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Golden calf – wrong worship (idol)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Broken stone tablets at the mountain (moses)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses praying for the people – God\'s mercy'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -733,5 +860,6 @@ module.exports = {
   burningBush: buildMosesBushReadQuiz(),
   passoverLamb: buildPassoverLambReadQuiz(),
   manna: buildMannaReadQuiz(),
-  tenCommandments: buildTenCommandmentsReadQuiz()
+  tenCommandments: buildTenCommandmentsReadQuiz(),
+  goldenCalf: buildGoldenCalfReadQuiz()
 };

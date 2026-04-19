@@ -2369,12 +2369,12 @@
   {
     "key": "goldenCalf",
     "title": "The Golden Calf",
-    "kjvRef": "Exodus 32",
+    "kjvRef": "Exodus 32:1-8, 15-20, 30-32",
     "who": "God",
-    "to": "Israel",
-    "apply": "Impatience led to idolatry — wait for God and worship Him only.",
+    "to": "Moses and Israel",
+    "apply": "While Moses was with God, the people made a golden calf and worshiped it—but Moses prayed, and God showed mercy. Wrong choices are serious; so is God's kindness when we turn back to Him. Wait for God, worship Him alone, and when you mess up, tell Him you are sorry and trust Jesus.",
     "theme": "Obedience",
-    "kw": "golden calf exodus 32 idol moses aaron worship sinai"
+    "kw": "golden calf exodus 32 idol moses aaron worship sinai mercy forgive tablets intercession"
   },
   {
     "key": "jesusParableGoodShepherd",

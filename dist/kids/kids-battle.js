@@ -850,6 +850,38 @@
       narration:
         "The Golden Calf – Exodus 32:1-8, 15-20, 30-32. While Moses was still on the mountain with God, the people grew impatient. They asked Aaron to make them a god they could see. Aaron took their golden earrings, melted them, and made a golden calf. The people bowed down and danced around it. When Moses came down from the mountain carrying the two stone tablets, he saw the calf and the dancing. His anger burned, and he threw the tablets and broke them at the foot of the mountain. Moses burned the golden calf, ground it to powder, scattered it on the water, and made the people drink it. Then Moses stood before the Lord and prayed, 'Oh, this people have sinned a great sin. Yet now, if thou wilt forgive their sin—; and if not, blot me, I pray thee, out of thy book which thou hast written.' God heard Moses' prayer and showed mercy to His people. For you: God is merciful. When we choose wrong, we can say sorry, worship Him alone, and trust Jesus."
     },
+    bronzeSerpent: {
+      title: 'The Bronze Serpent',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Israel weary in the wilderness — hard words and a hard lesson' },
+        { src: 'panel-david-2.svg', alt: 'The people tell Moses they have sinned — please pray' },
+        { src: 'panel-david-3.svg', alt: 'Brass serpent on a pole — look and live' }
+      ],
+      caption: 'Swipe to see God give a way to live — look and trust! 🐍',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'bronze serpent',
+        'brass serpent',
+        'numbers 21',
+        'wilderness',
+        'moses',
+        'pole',
+        'look and live',
+        'heal',
+        'mercy',
+        'faith'
+      ],
+      kjvRef: 'Numbers 21:1-9',
+      kidContext: {
+        who: 'God',
+        to: 'Israel through Moses',
+        apply:
+          "When God's people complained, He disciplined them—but when they were sorry, Moses prayed, and God gave a brass serpent on a pole. Everyone who looked lived. It points to Jesus: when we trust Him lifted on the cross, we find life. Tell God you're sorry, and look to Him—not away."
+      },
+      narration:
+        "The Bronze Serpent – Numbers 21:4-9. The children of Israel grew tired and discouraged on their long journey through the wilderness. They spoke against God and against Moses. So the Lord sent fiery serpents among the people, and the serpents bit them. Many people died. The people came to Moses and said, 'We have sinned, for we have spoken against the Lord, and against thee. Pray unto the Lord, that he take away the serpents from us.' Moses prayed for the people. And the Lord said unto Moses, 'Make thee a fiery serpent, and set it upon a pole: and it shall come to pass, that every one that is bitten, when he looketh upon it, shall live.' Moses made a serpent of brass and put it upon a pole. And it came to pass, that if a serpent had bitten any man, when he beheld the serpent of brass, he lived. For you: God is merciful when we turn back. Look to Jesus—He is the way to live forever."
+    },
     spiesInCanaan: {
       title: 'Spies in Canaan',
       panels: [
@@ -4761,7 +4793,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 281, color: '#e5e4e2' }
+      { name: 'Platinum', min: 282, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -7580,7 +7612,7 @@
   var STORY_THEMES = {
     david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
     adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection', josephSold: 'Protection',
-    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
+    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', bronzeSerpent: 'Miracles', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
     fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',

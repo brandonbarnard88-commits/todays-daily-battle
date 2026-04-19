@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (281 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (282 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -126,6 +126,11 @@
       mp4: '/media/kids-stories/betrayal.mp4',
       webm: '/media/kids-stories/betrayal.webm',
       captionsVtt: '/media/kids-stories/betrayal.vtt'
+    },
+    bronzeSerpent: {
+      mp4: '/media/kids-stories/bronze-serpent.mp4',
+      webm: '/media/kids-stories/bronze-serpent.webm',
+      captionsVtt: '/media/kids-stories/bronze-serpent.vtt'
     },
     burningBush: {
       mp4: '/media/kids-stories/burning-bush.mp4',

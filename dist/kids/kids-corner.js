@@ -2555,6 +2555,7 @@
     josephRuler: 'pharaohDreams',
     mosesBaby: 'mosesBaby',
     mosesStaffSnake: 'mosesStaffSnake',
+    bronzeSerpent: 'mosesStaffSnake',
     passoverLamb: 'passoverLamb',
     redSeaCrossing: 'redSeaCrossing',
     /* ── Week 3 ── */

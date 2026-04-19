@@ -37,6 +37,7 @@
     'manna',
     'tenCommandments',
     'goldenCalf',
+    'bronzeSerpent',
     'spiesInCanaan',
     'balaamDonkey',
     'balaakCurse',

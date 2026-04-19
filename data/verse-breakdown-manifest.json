@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T18:35:32.377Z",
-  "surfacedRefCount": 2754,
-  "overrideCount": 2754,
+  "generatedAt": "2026-04-19T18:50:27.185Z",
+  "surfacedRefCount": 2756,
+  "overrideCount": 2756,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 131,
+      "refs": 132,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 147,
+      "refs": 149,
       "pairs": 0
     },
     "kids/kids-corner.js": {
@@ -2677,6 +2677,8 @@
     "Numbers 18:15",
     "Numbers 18:17",
     "Numbers 20:25",
+    "Numbers 21:1-9",
+    "Numbers 21:4-9",
     "Numbers 21:9",
     "Numbers 22:1-20",
     "Numbers 22:21",
@@ -20660,6 +20662,22 @@
     "Numbers 20:25": {
       "general": {
         "plainExplanation": "Take Aaron and Eleazar his son, and bring them up to mount Hor:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Numbers 21:1-9": {
+      "general": {
+        "plainExplanation": "Key idea: And when king Arad the Canaanite, which dwelt in the south, heard tell that Israel came by the way of the spies; then he fought against Israel, and took som...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Numbers 21:4-9": {
+      "general": {
+        "plainExplanation": "Key idea: And they journeyed from mount Hor by the way of the Red sea, to compass the land of Edom: and the soul of the people was much discouraged because of the way...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"

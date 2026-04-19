@@ -2307,6 +2307,16 @@
     "kw": "revelation beast 666 mark dragon worship faithful"
   },
   {
+    "key": "bronzeSerpent",
+    "title": "The Bronze Serpent",
+    "kjvRef": "Numbers 21:1-9",
+    "who": "God",
+    "to": "Israel through Moses",
+    "apply": "When God's people complained, He disciplined them—but when they were sorry, Moses prayed, and God gave a brass serpent on a pole. Everyone who looked lived. It points to Jesus: when we trust Him lifted on the cross, we find life. Tell God you're sorry, and look to Him—not away.",
+    "theme": "Miracles",
+    "kw": "bronze serpent brass serpent numbers 21 wilderness moses pole look and live heal mercy faith"
+  },
+  {
     "key": "burningBush",
     "title": "The Burning Bush",
     "kjvRef": "Exodus 3:1-15",

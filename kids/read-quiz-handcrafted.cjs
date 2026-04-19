@@ -850,6 +850,133 @@ function buildGoldenCalfReadQuiz() {
   };
 }
 
+/** Bronze serpent — read-along + quiz (Numbers 21:4-9; card may show 21:1-9). */
+function buildBronzeSerpentReadQuiz() {
+  return {
+    kjvRef: 'Numbers 21:4-9 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'The children of Israel grew tired and discouraged on their long journey through the wilderness. They spoke against God and against Moses.',
+        caption: 'A hard day on the journey',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'So the Lord sent fiery serpents among the people, and the serpents bit them. Many people died.',
+        caption: 'Serious consequences',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'The people came to Moses and said, "We have sinned, for we have spoken against the Lord, and against thee. Pray unto the Lord, that he take away the serpents from us."',
+        caption: 'We have sinned—please pray',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text: 'Moses prayed for the people.',
+        caption: 'Moses prays',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'And the Lord said unto Moses, "Make thee a fiery serpent, and set it upon a pole: and it shall come to pass, that every one that is bitten, when he looketh upon it, shall live."',
+        caption: 'God gives a way to live',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'Moses made a serpent of brass and put it upon a pole. And it came to pass, that if a serpent had bitten any man, when he beheld the serpent of brass, he lived.',
+        caption: 'Look and live',
+        image: 'panel-david-1.svg'
+      }
+    ],
+    paragraphs: [
+      'The children of Israel grew tired and discouraged on their long journey through the wilderness. They spoke against God and against Moses.',
+      'So the Lord sent fiery serpents among the people, and the serpents bit them. Many people died.',
+      'The people came to Moses and said, "We have sinned, for we have spoken against the Lord, and against thee. Pray unto the Lord, that he take away the serpents from us."',
+      'Moses prayed for the people.',
+      'And the Lord said unto Moses, "Make thee a fiery serpent, and set it upon a pole: and it shall come to pass, that every one that is bitten, when he looketh upon it, shall live."',
+      'Moses made a serpent of brass and put it upon a pole. And it came to pass, that if a serpent had bitten any man, when he beheld the serpent of brass, he lived.',
+      'For you: When we are sorry and look to God in faith, He is merciful. Jesus said the Son of man must be lifted up—everyone who believes in Him has eternal life.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Genesis 1:1', 'Numbers 21:4-9', 'John 3:16'],
+        correctIndex: 2,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the first paragraph\'s Bible note. (Answer: Numbers 21:4-9.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['Nobody', 'Only sheep', 'God and Moses', 'Pharaoh only'],
+        correctIndex: 2,
+        correctFeedback: 'Right—keep that person (or group) in mind as you think about God.',
+        wrongFeedback:
+          'Look for who the story follows first—names in the title often help. (Answer: God and Moses.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never hears when kids pray.',
+          'The Bible is only pretend stories.',
+          'We should hide from God when we mess up.',
+          'God gave a way to live—when they looked to what He said, they were healed.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the “For you” heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God gave a way to live….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the desert.',
+          'Moses put a serpent of brass on a pole, and those who looked lived.',
+          'A talking toaster became king of the camp.',
+          'Everyone decided to never sleep again.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.',
+          'Say sorry when we grumble, and look to Jesus—trust Him to save and help.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Say sorry… look to Jesus….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading The Bronze Serpent with God's Word today.",
+    takeaway:
+      'God heard Moses\' prayer and gave a lifted serpent—simple trust brought life. Jesus is the greater rescue for everyone who believes.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You forgive and heal when we turn to You. Help me trust Jesus every day. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, hopeful trusting mood, no snakes on ground, no pain or fear on faces, no text in image: Moses calmly in wilderness holding tall pole with serpent of brass wrapped gently around top, several bitten people nearby sitting or standing quietly looking up at brass serpent with calm hopeful faces, soft desert hills gentle sky, minimal lines plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses prays for the people in the wilderness (numbers 21)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Brass serpent lifted on a pole – look and live',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People say sorry and ask Moses to pray',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God\'s mercy in the desert (bronze serpent)'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -861,5 +988,6 @@ module.exports = {
   passoverLamb: buildPassoverLambReadQuiz(),
   manna: buildMannaReadQuiz(),
   tenCommandments: buildTenCommandmentsReadQuiz(),
-  goldenCalf: buildGoldenCalfReadQuiz()
+  goldenCalf: buildGoldenCalfReadQuiz(),
+  bronzeSerpent: buildBronzeSerpentReadQuiz()
 };

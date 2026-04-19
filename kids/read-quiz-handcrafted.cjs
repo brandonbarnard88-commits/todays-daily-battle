@@ -3324,6 +3324,135 @@ function buildRuthRedemptionReadQuiz() {
   };
 }
 
+/** Hannah's prayer at Shiloh — 1 Samuel 1:1-20 (KJV); poured-out heart, Eli's blessing, Samuel born. */
+function buildHannahPrayerReadQuiz() {
+  return {
+    kjvRef: '1 Samuel 1:1-20 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'Now there was a certain man of Ramathaimzophim, of mount Ephraim, and his name was Elkanah, the son of Jeroham, the son of Elihu, the son of Tohu, the son of Zuph, an Ephrathite: And he had two wives; the name of the one was Hannah, and the name of the other Peninnah: and Peninnah had children, but Hannah had no children. And this man went up out of his city yearly to worship and to sacrifice unto the LORD of hosts in Shiloh. And the two sons of Eli, Hophni and Phinehas, the priests of the LORD, were there. And when the time was that Elkanah offered, he gave to Peninnah his wife, and to all her sons and her daughters, portions:',
+        caption: 'Shiloh — Hannah had no children',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'But unto Hannah he gave a worthy portion; for he loved Hannah: but the LORD had shut up her womb. And her adversary also provoked her sore, for to make her fret, because the LORD had shut up her womb. And as he did so year by year, when she went up to the house of the LORD, so she provoked her; therefore she wept, and did not eat. Then said Elkanah her husband to her, Hannah, why weepest thou? and why eatest thou not? and why is thy heart grieved? am not I better to thee than ten sons?',
+        caption: 'Year by year — she wept and did not eat',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'So Hannah rose up after they had eaten in Shiloh, and after they had drunk. Now Eli the priest sat upon a seat by a post of the temple of the LORD. And she was in bitterness of soul, and prayed unto the LORD, and wept sore. And she vowed a vow, and said, O LORD of hosts, if thou wilt indeed look on the affliction of thine handmaid, and remember me, and not forget thine handmaid, but wilt give unto thine handmaid a man child, then I will give him unto the LORD all the days of his life, and there shall no razor come upon his head.',
+        caption: 'She prayed and vowed before the Lord',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And it came to pass, as she continued praying before the LORD, that Eli marked her mouth. Now Hannah, she spake in her heart; only her lips moved, but her voice was not heard: therefore Eli thought she had been drunken. And Eli said unto her, How long wilt thou be drunken? put away thy wine from thee.',
+        caption: 'Eli saw her lips — he misunderstood',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And Hannah answered and said, No, my lord, I am a woman of a sorrowful spirit: I have drunk neither wine nor strong drink, but have poured out my soul before the LORD. Count not thine handmaid for a daughter of Belial: for out of the abundance of my complaint and grief have I spoken hitherto.',
+        caption: 'Poured out my soul before the Lord',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'Then Eli answered and said, Go in peace: and the God of Israel grant thee thy petition that thou hast asked of him.',
+        caption: 'Go in peace — grant thee thy petition',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'And she said, Let thine handmaid find grace in thy sight. So the woman went her way, and did eat, and her countenance was no more sad.',
+        caption: 'Her countenance was no more sad',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'And they rose up in the morning early, and worshipped before the LORD, and returned, and came to their house to Ramah: and Elkanah knew Hannah his wife; and the LORD remembered her. Wherefore it came to pass, when the time was come about after Hannah had conceived, that she bare a son, and called his name Samuel, saying, Because I have asked him of the LORD.',
+        caption: 'The Lord remembered her — Samuel',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    paragraphs: [
+      'There was a woman named Hannah who had no children, and her heart was very sad. Every year she went with her husband to the house of the Lord at Shiloh, but she cried and could not eat.',
+      'One day Hannah prayed at the tabernacle with all her heart. She wept sore and made a promise to God: "O Lord of hosts, if thou wilt… give unto thine handmaid a man child, then I will give him unto the Lord all the days of his life."',
+      'Eli the priest saw her lips moving but heard no voice. He thought she was drunk, but Hannah told him, "I am a woman of a sorrowful spirit… I have poured out my soul before the Lord."',
+      'Eli answered, "Go in peace: and the God of Israel grant thee thy petition that thou hast asked of him."',
+      'Hannah went away with a happy face. The Lord remembered Hannah, and in time she had a son. She called his name Samuel, saying, "Because I have asked him of the Lord."',
+      'For you: God hears honest prayers and remembers His children in His kind time.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['1 Samuel 3:10', '1 Samuel 1:1-20', 'Ruth 4', 'Psalm 23'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: 1 Samuel 1:1-20.)'
+      },
+      {
+        question: 'Where did they go year by year to worship?',
+        choices: ['Nineveh only.', 'Shiloh — the house of the Lord.', 'Egypt.', 'No where.'],
+        correctIndex: 1,
+        correctFeedback: 'Right — a holy place for God\'s people.',
+        wrongFeedback: 'Think yearly worship. (Answer: Shiloh….)'
+      },
+      {
+        question: 'What did Hannah say she had poured out before the Lord?',
+        choices: ['Her lunch.', 'Her soul.', 'Her shoes.', 'Nothing.'],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful — honest prayer.',
+        wrongFeedback: 'Listen for poured out. (Answer: Her soul….)'
+      },
+      {
+        question: 'What did Eli tell Hannah?',
+        choices: [
+          'Go away forever.',
+          'Go in peace: and the God of Israel grant thee thy petition.',
+          'Stop praying.',
+          'Run to Egypt.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Gentle — God heard.',
+        wrongFeedback: 'Listen for peace and petition. (Answer: Go in peace….)'
+      },
+      {
+        question: 'What did Hannah name her son, and why?',
+        choices: [
+          'David, for a king.',
+          'Samuel — Because I have asked him of the LORD.',
+          'Moses, for the sea.',
+          'She left him unnamed.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes — asked of the Lord.',
+        wrongFeedback: 'Think gift and asking. (Answer: Samuel… Because I have asked him….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Hannah's Prayer with God's Word today.",
+    takeaway:
+      'Hannah poured out her soul honestly — Eli blessed her in peace — and the LORD remembered her.',
+    prayer:
+      'Lord, thank You that You hear when we pray with honest hearts. Thank You that You remember us. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art young children bold thick outlines large open spaces Hannah kneeling calmly at tabernacle hands folded in prayer gentle tears on cheeks Eli priest standing nearby kind face soft background tabernacle tent simple curtains soft sky tender hopeful mood minimal plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Shiloh house of the Lord (1 sam 1)',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text O LORD of hosts vow',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Poured out my soul',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Go in peace Samuel born'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -3359,5 +3488,6 @@ module.exports = {
   ruthNaomi: buildRuthNaomiReadQuiz(),
   ruthBoaz: buildRuthBoazReadQuiz(),
   ruthThreshing: buildRuthThreshingReadQuiz(),
-  ruthRedemption: buildRuthRedemptionReadQuiz()
+  ruthRedemption: buildRuthRedemptionReadQuiz(),
+  hannahPrayer: buildHannahPrayerReadQuiz()
 };

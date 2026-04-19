@@ -86,6 +86,8 @@
     goodSamaritan: 77,
     greatCommission: 153,
     hannahPray: 40,
+    hannahPrayer: 40,
+    hannahSamuel: 40,
     healBlind: 72,
     healLeper: 73,
     holySpiritPentecost: 91,

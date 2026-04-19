@@ -1686,6 +1686,49 @@
       narration:
         "Ruth's Redemption – Ruth 4:1-17. Boaz went up to the gate and sat down; the nearer kinsman came, and Boaz called ten elders to sit. He spoke of Naomi's land and of redeeming it; the kinsman first said he would redeem, but when he heard he must also take Ruth the Moabitess to raise up the name of the dead upon his inheritance, he could not — and plucked off his shoe and gave his right to Boaz. Boaz said to the elders and all the people, Ye are witnesses this day, that I have bought all that was Elimelech's, and all that was Chilion's and Mahlon's, of the hand of Naomi. Moreover Ruth the Moabitess, the wife of Mahlon, have I purchased to be my wife. The people blessed him and prayed the Lord would make her like Rachel and like Leah, and be famous in Bethlehem. So Boaz took Ruth, and she bare a son. The women blessed Naomi and said the child would be a restorer of her life; Naomi took the child and laid him in her bosom. They called his name Obed: he is the father of Jesse, the father of David. For you: God keeps His promises — He cares for His people and gives a Redeemer."
     },
+    hannahPrayer: {
+      title: 'Hannah\'s Prayer',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Year after year — Hannah\'s sad heart at the house of the Lord' },
+        { src: 'panel-noah-2.svg', alt: 'She prays with moving lips — Eli watches by the temple door' },
+        { src: 'panel-noah-3.svg', alt: 'Go in peace — the Lord remembers; a son named Samuel' }
+      ],
+      caption: 'Swipe to see God hear a poured-out heart and remember.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'hannah',
+        'hannah prayer',
+        '1 samuel 1',
+        'shiloh',
+        'elkanah',
+        'peninnah',
+        'eli',
+        'tabernacle',
+        'temple',
+        'lord of hosts',
+        'poured out my soul',
+        'sorrowful spirit',
+        'go in peace',
+        'grant thee thy petition',
+        'samuel',
+        'because i have asked him',
+        'remembered',
+        'weep',
+        'vow',
+        'nazarite',
+        'razor'
+      ],
+      kjvRef: '1 Samuel 1:1-20',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Hannah — and every heart that weeps honestly',
+        apply:
+          "God hears when we pour out our souls to Him — not too loud, not too proud, just true. Eli's blessing was gentle; the Lord's answer came in His time."
+      },
+      narration:
+        "Hannah's Prayer – 1 Samuel 1:1-20. There was a woman named Hannah who had no children, and her heart was very sad. Every year she went with her husband to the house of the Lord at Shiloh, but she cried and could not eat. One day Hannah prayed at the tabernacle with all her heart. She wept sore and made a promise to God: O LORD of hosts, if thou wilt… give unto thine handmaid a man child, then I will give him unto the LORD all the days of his life. Eli the priest saw her lips moving but heard no voice. He thought she was drunk, but Hannah told him, I am a woman of a sorrowful spirit… I have poured out my soul before the LORD. Eli answered, Go in peace: and the God of Israel grant thee thy petition that thou hast asked of him. Hannah went away with a happy face. The LORD remembered Hannah, and in time she had a son. She called his name Samuel, saying, Because I have asked him of the LORD. For you: God listens to sad hearts and answers in His kind time."
+    },
     parableTalents: {
       title: 'Parable of Talents',
       panels: [
@@ -2631,7 +2674,7 @@
       caption: 'Swipe to see God answer Hannah\'s prayer! 🙏',
       videoId: '',
       videoTitle: '',
-      keywords: ['hannah', 'samuel', 'prayer', '1 samuel 1', 'eli', 'temple', 'promise', 'vow'],
+      keywords: ['hannah', 'samuel', 'dedication', '1 samuel 2', 'eli', 'temple', 'promise', 'vow', 'lent unto the lord'],
       kjvRef: '1 Samuel 1–2',
       kidContext: { who: 'God', to: 'Hannah and Samuel', apply: 'Pray with all your heart—God hears. Hannah kept her promise and gave Samuel to serve God.' }
     },
@@ -2729,7 +2772,7 @@
       caption: 'Swipe to see Hannah keep her promise — Samuel serves God! 🙏',
       videoId: '',
       videoTitle: '',
-      keywords: ['samuel', 'hannah', 'dedication', 'temple', '1 samuel 1', 'eli', 'promise', 'prophet'],
+      keywords: ['samuel', 'hannah', 'dedication', 'temple', '1 samuel 1', '1 samuel 2', 'eli', 'promise', 'prophet', 'lent unto the lord', 'lent to the lord'],
       kjvRef: '1 Samuel 1–2',
       kidContext: { who: 'Hannah and God', to: 'Samuel', apply: 'When you promise God something, He helps you keep it. Samuel grew up loving God because Hannah gave him back to the Lord.' }
     },
@@ -5241,7 +5284,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 290, color: '#e5e4e2' }
+      { name: 'Platinum', min: 291, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5340,7 +5383,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5351,7 +5394,7 @@
       'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samson',
       'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
       'saulSpear', 'davidCave',
-      'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
+      'hannahPrayer', 'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
@@ -5382,7 +5425,7 @@
       'alphaOmega', 'newHeaven', 'revelationNewHeaven', 'treeOfLife', 'riverOfLife', 'lambBook',
       'dragonFight', 'beastMark',
       /* Week 10 */
-      'rahabWindow', 'deborahJudge', 'jaelTent', 'abigailWise', 'hannahPray',
+      'rahabWindow', 'deborahJudge', 'jaelTent', 'abigailWise', 'hannahPray', 'hannahPrayer',
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
@@ -5400,6 +5443,14 @@
     }
     if (/david.*sheep|shepherd.*david|1 samuel 17:34|harp|lion.*bear/.test(low)) {
       return { type: 'carousel', story: 'davidSheep' };
+    }
+    if (
+      (!/\b1 samuel 1:(?:2[1-9]|[3-9]\d)\b|\b1 sam 1:(?:2[1-9]|[3-9]\d)\b/.test(low)) &&
+      (/\b1 samuel 1:\s*(?:[1-9]|1\d|20)\b|\b1 sam 1:\s*(?:[1-9]|1\d|20)\b|^1 samuel 1\b|\b1 samuel 1\s|^1 sam 1\b|\b1 sam 1\s/.test(low) ||
+        (/\bshiloh\b/.test(low) && /\bhannah\b/.test(low)) ||
+        /\belkanah\b|\bpeninnah\b|poured out my soul|sorrowful spirit|grant thee thy petition|because i have asked him|the lord remembered her\b/.test(low))
+    ) {
+      return { type: 'carousel', story: 'hannahPrayer' };
     }
     if (/david|goliath|battle|1 samuel|joshua 1:9|philippians 4:13|ephesians 6:10|brave|courage|strong|strength|strengthen|strengtheneth/.test(low)) {
       return { type: 'carousel', story: 'david' };
@@ -8175,7 +8226,7 @@
     balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonDelilah: 'Obedience', ruthGlean: 'Love',
     samuelCall: 'Obedience', davidHarp: 'Love', goliathChallenge: 'Protection',
     davidAnointed: 'Obedience', saulSpear: 'Protection', davidCave: 'Protection',
-    hannahSamuel: 'Miracles', samuelBirth: 'Obedience', samuelCalls: 'Obedience',
+    hannahPrayer: 'Miracles', hannahSamuel: 'Miracles', samuelBirth: 'Obedience', samuelCalls: 'Obedience',
     samuelAnointsDavid: 'Obedience', davidGoliath: 'Protection',
     davidSaulJealousy: 'Protection', davidJonathanFriendship: 'Love',
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
@@ -8264,7 +8315,7 @@
     dragonFight: 'Protection', beastMark: 'Obedience',
     /* Week 10 */
     rahabWindow: 'Obedience', deborahJudge: 'Protection', jaelTent: 'Protection',
-    abigailWise: 'Love', hannahPray: 'Miracles', maryMagdalene: 'Love',
+    abigailWise: 'Love', hannahPray: 'Miracles', hannahPrayer: 'Miracles', maryMagdalene: 'Love',
     lydiaSell: 'Obedience', priscillaTeach: 'Obedience', ruthMoab: 'Love',
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */

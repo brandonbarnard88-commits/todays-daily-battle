@@ -734,7 +734,7 @@
     "to": "Hannah and Samuel",
     "apply": "Pray with all your heart—God hears. Hannah kept her promise and gave Samuel to serve God.",
     "theme": "Miracles",
-    "kw": "hannah samuel prayer 1 samuel 1 eli temple promise vow"
+    "kw": "hannah samuel dedication 1 samuel 2 eli temple promise vow lent unto the lord"
   },
   {
     "key": "hannahPray",
@@ -745,6 +745,16 @@
     "apply": "God hears every prayer! Pour out your heart—He is listening and He cares.",
     "theme": "Miracles",
     "kw": "hannah pray baby 1 samuel 1 temple samuel vow answer"
+  },
+  {
+    "key": "hannahPrayer",
+    "title": "Hannah's Prayer",
+    "kjvRef": "1 Samuel 1:1-20",
+    "who": "The Lord",
+    "to": "Hannah — and every heart that weeps honestly",
+    "apply": "God hears when we pour out our souls to Him — not too loud, not too proud, just true. Eli's blessing was gentle; the Lord's answer came in His time.",
+    "theme": "Miracles",
+    "kw": "hannah hannah prayer 1 samuel 1 shiloh elkanah peninnah eli tabernacle temple lord of hosts poured out my soul sorrowful spirit go in peace grant thee thy petition samuel because i have asked him remembered weep vow nazarite razor"
   },
   {
     "key": "jesusResurrection",
@@ -2184,7 +2194,7 @@
     "to": "Samuel",
     "apply": "When you promise God something, He helps you keep it. Samuel grew up loving God because Hannah gave him back to the Lord.",
     "theme": "Obedience",
-    "kw": "samuel hannah dedication temple 1 samuel 1 eli promise prophet"
+    "kw": "samuel hannah dedication temple 1 samuel 1 1 samuel 2 eli promise prophet lent unto the lord lent to the lord"
   },
   {
     "key": "sarahLaughs",

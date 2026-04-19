@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T22:46:07.323Z",
-  "surfacedRefCount": 2785,
-  "overrideCount": 2785,
+  "generatedAt": "2026-04-19T22:59:23.663Z",
+  "surfacedRefCount": 2786,
+  "overrideCount": 2786,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 151,
+      "refs": 152,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 169,
+      "refs": 170,
       "pairs": 0
     },
     "kids/kids-corner.js": {
@@ -729,6 +729,7 @@
     "1 Samuel 18:11",
     "1 Samuel 18:3",
     "1 Samuel 18:4",
+    "1 Samuel 1:1-20",
     "1 Samuel 1:10",
     "1 Samuel 1:10-11",
     "1 Samuel 1:17",
@@ -5228,6 +5229,14 @@
       "general": {
         "plainExplanation": "And Jonathan stripped himself of the robe that was upon him, and gave it to David, and his garments, even to his sword, and to his bow, and to his girdle.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Samuel",
+        "to": "Israel"
+      }
+    },
+    "1 Samuel 1:1-20": {
+      "general": {
+        "plainExplanation": "Key idea: Now there was a certain man of Ramathaimzophim, of mount Ephraim, and his name was Elkanah, the son of Jeroham, the son of Elihu, the son of Tohu, the son o...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "Samuel",
         "to": "Israel"
       }

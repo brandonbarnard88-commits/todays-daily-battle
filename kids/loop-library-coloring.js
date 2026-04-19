@@ -53,7 +53,7 @@
   "goodSamaritan": "loveNeighbor",
   "greatCommission": "greatCommission",
   "hannahPray": "hannahPray",
-  "hannahSamuel": "hannahPray",
+  "hannahPrayer": "hannahPrayer",
   "healBlind": "healBlind",
   "healLeper": "healLeper",
   "holySpiritPentecost": "pentecost",

@@ -2330,6 +2330,32 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 1:10</text>'
       ),
 
+      /* Hannah's prayer — library hannahPrayer / loop 40 (remapped from hannahSamuel) */
+      hannahPrayer: svg(
+        ground() + hills() +
+        sun(42, 48, 16) + cloud(300, 36) +
+        /* tabernacle tent */
+        '<path d="M248 118 L320 210 L176 210 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M248 128 L302 200 L194 200 Z" ' + s + ' stroke-width="1.5" fill="none"/>' +
+        '<line x1="220" y1="200" x2="276" y2="200" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
+        /* Hannah kneeling, hands folded */
+        '<ellipse cx="165" cy="238" rx="28" ry="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="165" cy="200" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M158 194 Q165 188 172 194" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="160" cy="198" r="1.8" fill="#111"/><circle cx="170" cy="198" r="1.8" fill="#111"/>' +
+        '<path d="M152 204 Q155 208 158 206" ' + s + ' stroke-width="1.2"/>' +
+        '<path d="M172 204 Q169 208 166 206" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="165" y1="211" x2="165" y2="228" ' + s + ' stroke-width="2"/>' +
+        '<line x1="152" y1="220" x2="178" y2="220" ' + s + ' stroke-width="2"/>' +
+        '<line x1="165" y1="228" x2="152" y2="246" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="165" y1="228" x2="178" y2="246" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M156 216 L165 208 L174 216" ' + s + ' stroke-width="1.8"/>' +
+        /* Eli — kind, standing */
+        person(268, 168, 11, 34) +
+        '<path d="M258 188 Q248 198 252 210" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 1:17</text>'
+      ),
+
       /* ── Week 10: Mary Magdalene (126) ── */
       maryMagdalene: svg(
         ground() + hills() +
@@ -3101,7 +3127,8 @@
     deborahJudge: 'deborahJudge',
     jaelTent: 'jaelTent',
     abigailWise: 'abigailWise',
-    hannahPray: 'hannahPray',
+    hannahPray: 'hannahPrayer',
+    hannahPrayer: 'hannahPrayer',
     maryMagdalene: 'maryMagdalene',
     lydiaSell: 'lydiaSell',
     priscillaTeach: 'priscillaTeach',
@@ -3152,7 +3179,9 @@
     samsonLion: 'samsonLion',
     samsonDelilah: 'samsonDelilah',
     ruthNaomi: 'ruthNaomi',
-    hannahSamuel: 'hannahPray',
+    hannahSamuel: 'hannahPrayer',
+    hannahPray: 'hannahPrayer',
+    hannahPrayer: 'hannahPrayer',
     samuelAnointsDavid: 'davidAnointed',
     davidGoliath: 'david',
     davidSaulJealousy: 'saulSpear',
@@ -4696,7 +4725,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

@@ -1459,5 +1459,14 @@
     "ref": "Exodus 40:34-38",
     "week": 12,
     "libraryKey": "tabernacle"
+  },
+  {
+    "id": 162,
+    "title": "Joshua's Charge",
+    "file": "",
+    "audio": "",
+    "ref": "Joshua 24:14-15",
+    "week": 12,
+    "libraryKey": "joshuaCharge"
   }
 ]

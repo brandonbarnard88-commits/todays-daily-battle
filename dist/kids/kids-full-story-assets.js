@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (284 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (285 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -716,6 +716,11 @@
       mp4: '/media/kids-stories/joshua-ai.mp4',
       webm: '/media/kids-stories/joshua-ai.webm',
       captionsVtt: '/media/kids-stories/joshua-ai.vtt'
+    },
+    joshuaCharge: {
+      mp4: '/media/kids-stories/joshua-charge.mp4',
+      webm: '/media/kids-stories/joshua-charge.webm',
+      captionsVtt: '/media/kids-stories/joshua-charge.vtt'
     },
     joshuaJordan: {
       mp4: '/media/kids-stories/joshua-jordan.mp4',

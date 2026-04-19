@@ -1503,6 +1503,125 @@ function buildJordanCrossingReadQuiz() {
   };
 }
 
+/** Joshua's charge — Joshua 24:14-15 (KJV). */
+function buildJoshuaChargeReadQuiz() {
+  return {
+    kjvRef: 'Joshua 24:14-15 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'Joshua had lived a long life. He had seen God keep every promise. He gathered the people to hear God\'s Word one more time.',
+        caption: 'Joshua speaks to Israel',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'He said, "Now therefore fear the Lord, and serve him in sincerity and in truth: and put away the gods which your fathers served on the other side of the flood, and in Egypt; and serve ye the Lord."',
+        caption: 'Serve the Lord in truth',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          '"And if it seem evil unto you to serve the Lord, choose you this day whom ye will serve; whether the gods which your fathers served that were on the other side of the flood, or the gods of the Amorites, in whose land ye dwell."',
+        caption: 'Choose this day',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          '"But as for me and my house, we will serve the Lord."',
+        caption: 'Joshua\'s house chooses the Lord',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    paragraphs: [
+      'Joshua had lived a long life. He had seen God keep every promise. He gathered the people to hear God\'s Word one more time.',
+      'He said, "Now therefore fear the Lord, and serve him in sincerity and in truth: and put away the gods which your fathers served on the other side of the flood, and in Egypt; and serve ye the Lord."',
+      '"And if it seem evil unto you to serve the Lord, choose you this day whom ye will serve; whether the gods which your fathers served that were on the other side of the flood, or the gods of the Amorites, in whose land ye dwell."',
+      '"But as for me and my house, we will serve the Lord."',
+      'For you: God does not force us — He invites us. You can pray, "Lord, I choose You," and ask Jesus to help you serve Him today.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Joshua 24:14-15', 'Genesis 1:1', 'Matthew 5'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the Bible note. (Answer: Joshua 24:14-15.)'
+      },
+      {
+        question: 'What did Joshua say his own house would do?',
+        choices: [
+          'Serve other gods in secret.',
+          'Forget God when things got hard.',
+          'We will serve the Lord.',
+          'Leave the land and go back to Egypt.'
+        ],
+        correctIndex: 2,
+        correctFeedback: 'Yes—that is Joshua\'s brave, clear choice.',
+        wrongFeedback:
+          'Listen for Joshua\'s own words about his family. (Answer: We will serve the Lord.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never lets anyone choose.',
+          'The Bible is only pretend stories.',
+          'We should never pray at home.',
+          'God kindly invites us to choose whom we will serve — and we can say with Joshua\'s house: we will serve the Lord.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the "For you" heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's invitation? (Answer: God kindly invites us….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Joshua rode a rocket to the moon.',
+          'Choose you this day whom ye will serve.',
+          'A giant sandwich fell from the sky.',
+          'Everyone turned into frogs.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that phrase comes from God\'s Word in this chapter.',
+        wrongFeedback:
+          'Cross out the joke answers. Which line matches Joshua 24? (Answer: Choose you this day….)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Never tell anyone we love Jesus.',
+          'Only obey when we feel like it.',
+          'Tell God quietly, "I choose You," and thank Him for Jesus who helps us serve the Lord.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust and love for God? Pick the one that honors Him. (Answer: Tell God quietly….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Joshua's Charge with God's Word today.",
+    takeaway:
+      'Joshua put the Lord first for his whole house — a calm, brave invitation we can echo in prayer.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You invite us to serve You. Help me choose You today. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, reverent hopeful mood, no weapons, no fear, no text in image: elder Joshua standing calmly with one hand gently raised speaking to families of Israel, simple small house shape behind him suggesting home, few adults and children listening with peaceful faces, soft hills minimal sky, plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joshua gathers the people (joshua 24)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Choose this day whom ye will serve',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: As for me and my house we will serve the Lord',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Serve the Lord in sincerity and truth'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -1523,5 +1642,6 @@ module.exports = {
   rahabRope: buildRahabReadQuiz(),
   rahabWindow: buildRahabReadQuiz(),
   jordanCrossing: buildJordanCrossingReadQuiz(),
-  joshuaJordan: buildJordanCrossingReadQuiz()
+  joshuaJordan: buildJordanCrossingReadQuiz(),
+  joshuaCharge: buildJoshuaChargeReadQuiz()
 };

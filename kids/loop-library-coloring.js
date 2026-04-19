@@ -77,6 +77,7 @@
   "jordanCrossing": "joshuaJordan",
   "josephCoat": "josephCoat",
   "josephPrison": "josephPrison",
+  "joshuaCharge": "joshuaCharge",
   "lastSupper": "maryAnoint",
   "lazarus": "lazarus",
   "lostCoin": "widowMite",

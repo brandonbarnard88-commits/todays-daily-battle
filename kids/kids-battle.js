@@ -2012,6 +2012,29 @@
       kjvRef: 'Joshua 8',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'After sin was removed, God\'s plan worked — obey Him and watch Him fight for you.' }
     },
+    joshuaCharge: {
+      title: 'Joshua\'s Charge to the People',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Joshua, old and faithful, speaks God\'s Word to all Israel' },
+        { src: 'panel-david-2.svg', alt: 'Families listen — a quiet moment to choose whom they will serve' },
+        { src: 'panel-david-3.svg', alt: 'Joshua\'s brave words: as for me and my house, we will serve the Lord' }
+      ],
+      caption: 'Swipe to hear Joshua\'s gentle, strong invitation — choose the Lord! 🏠',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'joshua', 'joshua 24', 'serve the lord', 'choose', 'house', 'covenant', 'faithful', 'israel', 'farewell', 'charge'
+      ],
+      kjvRef: 'Joshua 24:14-15',
+      kidContext: {
+        who: 'Joshua (and the Lord through His Word)',
+        to: 'Israel — and every heart today',
+        apply:
+          "Joshua did not rush anyone. He put the Lord's kindness in front of them and said: choose whom you will serve. His own house had already decided — they would serve the Lord. You can tell God the same in prayer: 'Lord, I choose You.'"
+      },
+      narration:
+        "Joshua's Charge – Joshua 24:14-15. Joshua had seen God keep every promise. When he was old, he gathered the people and called them to serve the Lord in sincerity and in truth. He said, 'Now therefore fear the Lord, and serve him in sincerity and in truth: and put away the gods which your fathers served on the other side of the flood, and in Egypt; and serve ye the Lord. And if it seem evil unto you to serve the Lord, choose you this day whom ye will serve; whether the gods which your fathers served that were on the other side of the flood, or the gods of the Amorites, in whose land ye dwell: but as for me and my house, we will serve the Lord.' For you: Choosing the Lord is not a mean test — it is a loving invitation. You can say with Joshua's house: we will serve the Lord — and Jesus helps us mean it."
+    },
     gideonFleece: {
       title: 'Gideon\'s Fleece',
       panels: [
@@ -4923,7 +4946,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 284, color: '#e5e4e2' }
+      { name: 'Platinum', min: 285, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5166,6 +5189,9 @@
     }
     if (/joshua 3|joshua 4|cross.*jordan|jordan.*cross|ark.*jordan|waters.*heap/.test(low)) {
       return { type: 'carousel', story: 'jordanCrossing' };
+    }
+    if (/joshua 24|serve the lord|as for me and my house|choose you this day/.test(low)) {
+      return { type: 'carousel', story: 'joshuaCharge' };
     }
     if (/jericho|walls fall|joshua 6|trumpets/.test(low)) {
       return { type: 'carousel', story: 'fallOfJericho' };
@@ -7766,6 +7792,7 @@
     mosesStaffSnake: 'Miracles', passoverLamb: 'Love', redSeaCrossing: 'Protection',
     /* Week 3 */
     joshuaJordan: 'Miracles', jordanCrossing: 'Miracles', jerichoWalls: 'Obedience', joshuaAi: 'Obedience', battleOfAi: 'Obedience',
+    joshuaCharge: 'Obedience',
     gideonFleece: 'Miracles', gideonMidianites: 'Miracles', deborahBarak: 'Protection', samsonBirth: 'Protection', ruthNaomi: 'Love',
     rahab: 'Obedience', rahabRope: 'Obedience', rahabJericho: 'Obedience',
     balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonHair: 'Protection', ruthGlean: 'Love',

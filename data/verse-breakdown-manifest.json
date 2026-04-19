@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T19:48:50.652Z",
-  "surfacedRefCount": 2762,
-  "overrideCount": 2762,
+  "generatedAt": "2026-04-19T19:54:52.999Z",
+  "surfacedRefCount": 2763,
+  "overrideCount": 2763,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 136,
+      "refs": 137,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 155,
+      "refs": 156,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 135,
+      "refs": 136,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 160,
+      "refs": 161,
       "pairs": 0
     },
     "memorize.html": {
@@ -1986,6 +1986,7 @@
     "Joshua 1:8",
     "Joshua 1:9",
     "Joshua 21:45",
+    "Joshua 24:14-15",
     "Joshua 24:15",
     "Joshua 2:1",
     "Joshua 2:1-21",
@@ -15141,6 +15142,14 @@
       "general": {
         "plainExplanation": "There failed not ought of any good thing which the LORD had spoken to the house of Israel; all came to pass.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Joshua",
+        "to": "Israel"
+      }
+    },
+    "Joshua 24:14-15": {
+      "general": {
+        "plainExplanation": "Key idea: Now therefore fear the LORD, and serve him in sincerity and in truth: and put away the gods which your fathers served on the other side of the flood, and in...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Joshua",
         "to": "Israel"
       }

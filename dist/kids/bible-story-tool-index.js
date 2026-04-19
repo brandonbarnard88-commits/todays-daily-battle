@@ -1167,6 +1167,16 @@
     "kw": "joshua jordan ark river joshua 3 joshua 4 priests miracle heap dry ground twelve stones covenant obey promised land"
   },
   {
+    "key": "joshuaCharge",
+    "title": "Joshua's Charge to the People",
+    "kjvRef": "Joshua 24:14-15",
+    "who": "Joshua (and the Lord through His Word)",
+    "to": "Israel — and every heart today",
+    "apply": "Joshua did not rush anyone. He put the Lord's kindness in front of them and said: choose whom you will serve. His own house had already decided — they would serve the Lord. You can tell God the same in prayer: 'Lord, I choose You.'",
+    "theme": "Obedience",
+    "kw": "joshua joshua 24 serve the lord choose house covenant faithful israel farewell charge"
+  },
+  {
     "key": "judasKiss",
     "title": "Judas Betrays Jesus",
     "kjvRef": "Matthew 26",

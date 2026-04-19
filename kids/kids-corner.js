@@ -887,6 +887,20 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 3:14-17</text>'
       ),
 
+      /* Joshua's charge — loop 162 / library joshuaCharge */
+      joshuaCharge: svg(
+        ground() + hills() +
+        '<rect x="268" y="168" width="72" height="52" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M268 168 L304 148 L340 168" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="288" y="188" width="14" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 155, 13, 38) +
+        '<path d="M186 168 L214 168" ' + s + ' stroke-width="2"/>' +
+        person(95, 175, 10, 28) + person(125, 178, 10, 28) +
+        person(305, 178, 10, 28) + person(330, 182, 9, 26) +
+        sun(48, 48, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 24:15</text>'
+      ),
+
       /* ── Week 3: Jericho Walls (38) ── */
       jerichoWalls: svg(
         ground() +
@@ -2593,6 +2607,7 @@
     jerichoWalls: 'jerichoWalls',
     fallOfJericho: 'jerichoWalls',
     joshuaAi: 'jerichoWalls',
+    joshuaCharge: 'joshuaCharge',
     rahab: 'rahabRope',
     rahabRope: 'rahabRope',
     rahabJericho: 'rahabRope',
@@ -4362,7 +4377,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'battleOfAi', 'fallOfJericho', 'ruthBoaz',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'battleOfAi', 'joshuaCharge', 'fallOfJericho', 'ruthBoaz',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

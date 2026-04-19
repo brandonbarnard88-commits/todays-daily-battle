@@ -393,11 +393,12 @@
   },
   {
     "id": 43,
-    "title": "David and Jonathan",
+    "title": "David & Jonathan's Friendship",
     "file": "",
     "audio": "",
-    "ref": "1 Samuel 18:1",
+    "ref": "1 Samuel 18:1-4; 20:1-42",
     "week": 3,
+    "kjvText": "And Jonathan stripped himself of the robe that was upon him, and gave it to David, and his garments, even to his sword, and to his bow, and to his girdle.",
     "libraryKey": "davidJonathan"
   },
   {

@@ -359,42 +359,42 @@
   {
     "key": "davidJonathanFriendship",
     "title": "David & Jonathan — True Friends",
-    "kjvRef": "1 Samuel 18–20",
+    "kjvRef": "1 Samuel 18:1-4; 20:1-42",
     "who": "Jonathan",
-    "to": "David",
-    "apply": "Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.",
+    "to": "David — and every listener",
+    "apply": "Real friends share, warn when trouble is near, and keep their word before God. Thank the Lord for friends who stand with you.",
     "theme": "Love",
-    "kw": "david jonathan friend covenant 1 samuel 18 loyal love escape"
+    "kw": "david jonathan friend friendship covenant loyal love knit robe sword 1 samuel 18 1 samuel 20 escape warned peace"
   },
   {
     "key": "davidJonathan",
     "title": "David & Jonathan's Friendship",
-    "kjvRef": "1 Samuel 18–20",
+    "kjvRef": "1 Samuel 18:1-4; 20:1-42",
     "who": "Jonathan",
-    "to": "David",
-    "apply": "True friends keep promises and protect each other. Ask God to help you be a loyal friend.",
+    "to": "David — and every heart that needs a true friend",
+    "apply": "Jonathan kept covenant: he shared what he had, warned David when danger came, and parted in peace. Ask God to help you love friends loyally and tell the truth kindly.",
     "theme": "Love",
-    "kw": "david jonathan friend 1 samuel 18 covenant loyal love brother"
+    "kw": "david jonathan friend friendship covenant loyal love knit soul robe sword bow girdle 1 samuel 18 1 samuel 20 naioth ramah stone ezel arrow beyond go in peace seed and thy seed"
   },
   {
     "key": "davidSaulJealousy",
     "title": "David & Saul's Jealousy",
-    "kjvRef": "1 Samuel 18–19",
+    "kjvRef": "1 Samuel 18:6-11, 17-19:17",
     "who": "God",
     "to": "David",
     "apply": "Jealousy can make people do scary things. Stay humble like David — God is your shield.",
     "theme": "Protection",
-    "kw": "david saul jealous spear harp 1 samuel 18 jonathan protect"
+    "kw": "david saul jealous spear harp 1 samuel 18 jonathan protect javelin evil spirit"
   },
   {
     "key": "davidSaul",
     "title": "David & Saul's Jealousy",
-    "kjvRef": "1 Samuel 18–19",
+    "kjvRef": "1 Samuel 18:6-11, 17-19:17",
     "who": "God",
     "to": "David",
     "apply": "Jealousy hurts people, but God protects those who stay faithful. Let God guard your heart from envy.",
     "theme": "Protection",
-    "kw": "david saul jealous spear 1 samuel 18 jonathan protect army"
+    "kw": "david saul jealous spear 1 samuel 18 jonathan protect army javelin"
   },
   {
     "key": "davidSheep",

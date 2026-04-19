@@ -2867,8 +2867,8 @@
       caption: 'Swipe to see God guard David when jealousy gets ugly! 🛡️',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'saul', 'jealous', 'spear', 'harp', '1 samuel 18', 'jonathan', 'protect'],
-      kjvRef: '1 Samuel 18–19',
+      keywords: ['david', 'saul', 'jealous', 'spear', 'harp', '1 samuel 18', 'jonathan', 'protect', 'javelin', 'evil spirit'],
+      kjvRef: '1 Samuel 18:6-11, 17-19:17',
       kidContext: { who: 'God', to: 'David', apply: 'Jealousy can make people do scary things. Stay humble like David — God is your shield.' }
     },
     davidSaul: {
@@ -2881,37 +2881,89 @@
       caption: 'Swipe to see God protect David when Saul is jealous! 🛡️',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'saul', 'jealous', 'spear', '1 samuel 18', 'jonathan', 'protect', 'army'],
-      kjvRef: '1 Samuel 18–19',
+      keywords: ['david', 'saul', 'jealous', 'spear', '1 samuel 18', 'jonathan', 'protect', 'army', 'javelin'],
+      kjvRef: '1 Samuel 18:6-11, 17-19:17',
       kidContext: { who: 'God', to: 'David', apply: 'Jealousy hurts people, but God protects those who stay faithful. Let God guard your heart from envy.' }
     },
     davidJonathan: {
       title: 'David & Jonathan\'s Friendship',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Jonathan loves David like a brother' },
-        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and belt' },
-        { src: 'panel-david-3.svg', alt: 'They weep and promise—The Lord be between us forever' }
+        { src: 'panel-david-1.svg', alt: 'Souls knit together — Jonathan loved David as his own soul' },
+        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and girdle to David' },
+        { src: 'panel-david-3.svg', alt: 'They weep together — The LORD be between me and thee for ever' }
       ],
       caption: 'Swipe to see loyal friendship—Jonathan and David! 🤝',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'jonathan', 'friend', '1 samuel 18', 'covenant', 'loyal', 'love', 'brother'],
-      kjvRef: '1 Samuel 18–20',
-      kidContext: { who: 'Jonathan', to: 'David', apply: 'True friends keep promises and protect each other. Ask God to help you be a loyal friend.' }
+      keywords: [
+        'david',
+        'jonathan',
+        'friend',
+        'friendship',
+        'covenant',
+        'loyal',
+        'love',
+        'knit',
+        'soul',
+        'robe',
+        'sword',
+        'bow',
+        'girdle',
+        '1 samuel 18',
+        '1 samuel 20',
+        'naioth',
+        'ramah',
+        'stone ezel',
+        'arrow beyond',
+        'go in peace',
+        'seed and thy seed'
+      ],
+      kjvRef: '1 Samuel 18:1-4; 20:1-42',
+      kidContext: {
+        who: 'Jonathan',
+        to: 'David — and every heart that needs a true friend',
+        apply:
+          'Jonathan kept covenant: he shared what he had, warned David when danger came, and parted in peace. Ask God to help you love friends loyally and tell the truth kindly.'
+      },
+      narration:
+        "David and Jonathan's Friendship – 1 Samuel 18:1-4; 20:1-42. After David's great day, Jonathan's soul was knit with David's — he loved him as his own soul. They made covenant; Jonathan stripped off his robe and gave David his garments, sword, bow, and girdle. When Saul sought David's life, Jonathan did not hide the danger — he helped David escape. In the field they wept and kissed; Jonathan sent David in peace with this promise: The LORD be between me and thee, and between my seed and thy seed for ever. For you: God can plant deep, loyal love in our hearts."
     },
     davidJonathanFriendship: {
       title: 'David & Jonathan — True Friends',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Jonathan and David — souls knit together' },
-        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and belt to David' },
-        { src: 'panel-david-3.svg', alt: 'They weep and promise: the Lord be between us forever' }
+        { src: 'panel-david-1.svg', alt: 'Souls knit together — covenant of love' },
+        { src: 'panel-david-2.svg', alt: 'Robe, sword, bow, and girdle — costly kindness' },
+        { src: 'panel-david-3.svg', alt: 'Weeping, kiss, and Go in peace — the LORD between us' }
       ],
       caption: 'Swipe to see friendship that costs something — and keeps its promise! 🤝',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'jonathan', 'friend', 'covenant', '1 samuel 18', 'loyal', 'love', 'escape'],
-      kjvRef: '1 Samuel 18–20',
-      kidContext: { who: 'Jonathan', to: 'David', apply: 'Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.' }
+      keywords: [
+        'david',
+        'jonathan',
+        'friend',
+        'friendship',
+        'covenant',
+        'loyal',
+        'love',
+        'knit',
+        'robe',
+        'sword',
+        '1 samuel 18',
+        '1 samuel 20',
+        'escape',
+        'warned',
+        'peace'
+      ],
+      kjvRef: '1 Samuel 18:1-4; 20:1-42',
+      kidContext: {
+        who: 'Jonathan',
+        to: 'David — and every listener',
+        apply:
+          'Real friends share, warn when trouble is near, and keep their word before God. Thank the Lord for friends who stand with you.'
+      },
+      narration:
+        "David and Jonathan – 1 Samuel 18:1-4; 20:1-42. Jonathan loved David as himself; they covenanted, and Jonathan gave his robe and arms to David. When hatred rose in the palace, Jonathan chose truth and mercy — he shewed David the danger and sent him away in peace, weeping with him. Their promise echoed: The LORD be between me and thee, and between my seed and thy seed for ever. For you: Loyal friendship is a gift; treat it gently and honestly."
     },
     samuelBirth: {
       title: 'The Birth and Dedication of Samuel',
@@ -5594,7 +5646,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5712,6 +5764,27 @@
       )
     ) {
       return { type: 'carousel', story: 'davidGoliath' };
+    }
+    if (
+      /\b1 samuel 18:\s*1\s*[-–]\s*4\b|\b1 sam 18:\s*1\s*[-–]\s*4\b/.test(low) ||
+      /\b1 samuel 20\b|\b1 sam 20\b/.test(low) ||
+      /soul of jonathan was knit|knit with the soul of david|loved him as his own soul|between my seed and thy seed|stone ezel|is not the arrow beyond thee|david earnestly asked leave/.test(
+        low
+      ) ||
+      (/\bjonathan\b/.test(low) &&
+        /\bdavid\b/.test(low) &&
+        !/\bgoliath\b|valley of elah|five smooth stones|1 samuel 17|1 sam 17/.test(low))
+    ) {
+      return { type: 'carousel', story: 'davidJonathan' };
+    }
+    if (
+      /\b1 samuel 18\b|\b1 sam 18\b/.test(low) &&
+      /jealous|javelin|spear|evil spirit|played with his hand|singing women|ten thousands|saul sought|saul spake to jonathan his son, wherefore/.test(low) &&
+      !/\b1 samuel 18:\s*[1-4]\b|\b1 sam 18:\s*[1-4]\b/.test(low) &&
+      !/\b1 samuel 20\b|\b1 sam 20\b/.test(low) &&
+      !/soul.*knit|knit.*soul|covenant.*jonathan|jonathan stripped|robe.*upon him.*gave it to david/.test(low)
+    ) {
+      return { type: 'carousel', story: 'davidSaulJealousy' };
     }
     if (/david|goliath|battle|1 samuel|joshua 1:9|philippians 4:13|ephesians 6:10|brave|courage|strong|strength|strengthen|strengtheneth/.test(low)) {
       return { type: 'carousel', story: 'david' };

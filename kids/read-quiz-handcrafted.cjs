@@ -6,12 +6,14 @@
  * Keep this file tiny: only keys that must differ from auto-generation.
  * Two library cards share one Joshua 6 read+quiz — same pack for both keys.
  * David & Goliath: full read-along sections + quiz live in read-quiz-david-pack.cjs (keys david + davidGoliath).
+ * David & Jonathan: read-quiz-david-jonathan-pack.cjs (keys davidJonathan + davidJonathanFriendship).
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
  */
 
 const davidReadQuizPack = require('./read-quiz-david-pack.cjs');
+const davidJonathanReadQuizPack = require('./read-quiz-david-jonathan-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3843,5 +3845,7 @@ module.exports = {
   samuelCalls: buildSamuelCallsReadQuiz(),
   samuelCall: buildSamuelCallsReadQuiz(),
   davidAnointed: buildDavidAnointedReadQuiz(),
-  samuelAnointsDavid: buildDavidAnointedReadQuiz()
+  samuelAnointsDavid: buildDavidAnointedReadQuiz(),
+  davidJonathan: davidJonathanReadQuizPack,
+  davidJonathanFriendship: davidJonathanReadQuizPack
 };

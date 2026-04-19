@@ -76,7 +76,6 @@
     'saulDisobedience',
     'davidHarp',
     'davidGoliath',
-    'davidJonathanFriendship',
     'davidJonathan',
     'davidSaul',
     'davidSaulJealousy',

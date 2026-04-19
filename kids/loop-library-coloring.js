@@ -28,7 +28,7 @@
   "daniel": "daniel",
   "davidAnointed": "davidAnointed",
   "davidGoliath": "davidGoliath",
-  "davidJonathan": "david",
+  "davidJonathan": "davidJonathan",
   "davidSheep": "davidHarp",
   "deborahBarak": "deborahBarak",
   "dorcasRaise": "dorcasRaise",

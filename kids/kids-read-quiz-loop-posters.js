@@ -46,6 +46,8 @@
     danielPray: 57,
     david: 1,
     davidGoliath: 1,
+    davidJonathan: 43,
+    davidJonathanFriendship: 43,
     davidCave: 44,
     davidHarp: 44,
     davidSheep: 42,

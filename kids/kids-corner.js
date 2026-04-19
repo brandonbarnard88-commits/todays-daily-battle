@@ -106,8 +106,8 @@
       davidCave: 'david',
       davidSaul: 'david',
       davidSaulJealousy: 'david',
-      davidJonathan: 'david',
-      davidJonathanFriendship: 'david',
+      davidJonathan: 'davidJonathan',
+      davidJonathanFriendship: 'davidJonathan',
       goliathChallenge: 'david',
       noah: 'noah',
       jonah: 'jonah',
@@ -278,6 +278,39 @@
         '<ellipse cx="98" cy="198" rx="10" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<path d="M92 192 Q98 186 104 192" ' + s + ' stroke-width="1.5"/>' +
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 17:45</text>'
+      ),
+
+      /* David & Jonathan — robe and sword gift; warm friendship */
+      davidJonathan: svg(
+        '<path d="M0 248 Q120 210 200 248 Q280 210 400 248" ' + s + ' stroke-width="2.8" fill="none"/>' +
+        sun(52, 48, 18) + cloud(288, 40) +
+        /* Jonathan (left) — hands extended with robe and sword toward David */
+        '<circle cx="128" cy="168" r="13" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M122 172 Q128 166 134 172" ' + s + ' stroke-width="1.4"/>' +
+        '<line x1="128" y1="181" x2="128" y2="232" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="128" y1="198" x2="98" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="128" y1="198" x2="168" y2="192" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="128" y1="232" x2="112" y2="258" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="128" y1="232" x2="144" y2="258" ' + s + ' stroke-width="2.5"/>' +
+        /* robe bundle */
+        '<path d="M152 178 Q168 168 182 182 Q176 198 158 196 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* sword */
+        '<line x1="175" y1="175" x2="198" y2="188" ' + s + ' stroke-width="2.4"/>' +
+        '<rect x="192" y="184" width="16" height="5" rx="1" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* bow (simple curve) */
+        '<path d="M95 200 Q108 188 118 202" ' + s + ' stroke-width="2"/>' +
+        /* David (right) — thankful, receiving */
+        '<circle cx="268" cy="172" r="12" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<circle cx="264" cy="170" r="1.3" fill="#111"/><circle cx="272" cy="170" r="1.3" fill="#111"/>' +
+        '<path d="M262 178 Q268 182 274 178" ' + s + ' stroke-width="1.3"/>' +
+        '<line x1="268" y1="184" x2="268" y2="236" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="268" y1="202" x2="248" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="268" y1="202" x2="288" y2="212" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="268" y1="236" x2="254" y2="262" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="268" y1="236" x2="282" y2="262" ' + s + ' stroke-width="2.5"/>' +
+        /* girdle hint at David\'s waist */
+        '<ellipse cx="268" cy="228" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 18:4</text>'
       ),
 
       /* Noah's Ark */
@@ -3042,6 +3075,8 @@
     davidHarp: 'davidHarp',
     davidSheep: 'davidHarp',
     goliathChallenge: 'davidGoliath',
+    davidJonathan: 'davidJonathan',
+    davidJonathanFriendship: 'davidJonathan',
     davidAnointed: 'davidAnointed',
     saulSpear: 'saulSpear',
     davidCave: 'davidCave',
@@ -4804,7 +4839,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

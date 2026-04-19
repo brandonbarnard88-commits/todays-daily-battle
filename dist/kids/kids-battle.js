@@ -779,9 +779,10 @@
       caption: 'Swipe to see God call Moses from the burning bush! 🔥',
       videoId: 'bWcwZIV-ip8',
       videoTitle: "Moses and the Burning Bush – Bible Stories for Kids!",
-      keywords: ['moses', 'bush', 'fire', 'staff', 'call', 'exodus 3', 'burning'],
-      kjvRef: 'Exodus 3',
-      kidContext: { who: 'God', to: 'Moses (in the desert)', apply: 'God called Moses from a burning bush! When God calls you, say yes—He will help you!' }
+      keywords: ['moses', 'bush', 'fire', 'staff', 'call', 'exodus 3', 'burning', 'holy ground', 'horeb'],
+      kjvRef: 'Exodus 3:1-15',
+      kidContext: { who: 'God', to: 'Moses (in the desert)', apply: 'God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, "Here am I."' },
+      narration: "The Burning Bush – Exodus 3:1-6. Moses was keeping his father-in-law's sheep in the desert when he came to Horeb, the mountain of God. He saw a bush burning with fire, yet the bush was not burned up. Moses turned aside to see why. When the Lord saw he looked, God called from the bush, 'Moses, Moses!' Moses said, 'Here am I.' God said to put off his shoes, for the ground was holy. Then God made Himself known as the God of Abraham, Isaac, and Jacob—and Moses hid his face, afraid to look upon God. For you: God still speaks. Listen with a quiet heart; His presence is holy."
     },
     redSea: {
       title: 'Red Sea Crossing',
@@ -794,9 +795,9 @@
       videoId: 'GYZh5eY6FGg',
       videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
       keywords: ['moses', 'red sea', 'waters', 'part', 'exodus 14', 'egypt', 'escape'],
-      kjvRef: 'Exodus 14:21',
-      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through." },
-      narration: "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind. The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed. A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water. When the Egyptians followed, God closed the sea and saved His people. God makes a way! For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
+      kjvRef: 'Exodus 14:21-31',
+      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save." },
+      narration: "Moses Sea-Split – Exodus 14:21-31. God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. But Moses stretched out his hand over the sea, just as God told him. The Lord caused the sea to go back all night with a strong east wind. The waters divided. The children of Israel walked on dry ground, with walls of water on their right and on their left. When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered the chariots and the horsemen—not one of them remained. That day the Lord saved Israel, and the people believed the Lord and His servant Moses. For you: When you feel stuck or afraid, God can still make a way. Pray and trust Him."
     },
     manna: {
       title: 'Manna from Heaven',
@@ -808,10 +809,10 @@
       caption: 'Swipe to see God give bread from heaven! 🍞',
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
-      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'food', 'provide'],
-      kjvRef: 'Exodus 16',
-      kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time." },
-      narration: "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost. It tasted like honey wafers! They called it manna. God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath. God provided every morning! For you: God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just enough, right when you need it."
+      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'wilderness', 'forty years', 'honey', 'wafers', 'food', 'provide'],
+      kjvRef: 'Exodus 16:1-36',
+      kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: "God rained bread from heaven every morning—small, sweet manna, enough for each day. He fed His people for forty years until they reached the land He promised. When you worry about tomorrow, trust Him; He still gives daily bread—and Jesus is the true bread of life." },
+      narration: "Manna from Heaven – Exodus 16:4-5, 13-15, 31. The children of Israel had been walking in the wilderness for many days. They were hungry and began to grumble. God heard them and spoke to Moses: 'Behold, I will rain bread from heaven for you. The people shall go out and gather a certain amount every day.' The next morning, when the dew was gone, there on the ground lay small, white flakes like frost. The people looked at it and said, 'What is it?' for they did not know what it was. Moses said, 'This is the bread which the Lord hath given you to eat.' Every morning the manna came. It tasted sweet, like wafers made with honey. The people gathered just enough for each day, and on the sixth day they gathered twice as much so they could rest on the Sabbath. God gave them this bread from heaven every single day for forty years, until they came to the land He promised. For you: God gives enough for today. When you worry, remember His daily kindness—and thank Him for Jesus."
     },
     tenCommandments: {
       title: 'Ten Commandments',
@@ -1504,9 +1505,9 @@
       videoId: 'GYZh5eY6FGg',
       videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
       keywords: ['moses', 'red sea', 'staff', 'parting', 'exodus 14', 'miracle'],
-      kjvRef: 'Exodus 14',
-      kidContext: { who: 'God', to: 'Moses and Israel', apply: "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through." },
-      narration: "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind. The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed. A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water. When the Egyptians followed, God closed the sea and saved His people. God makes a way! For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
+      kjvRef: 'Exodus 14:21-31',
+      kidContext: { who: 'God', to: 'Moses and Israel', apply: "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save." },
+      narration: "Moses Sea-Split – Exodus 14:21-31. God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. But Moses stretched out his hand over the sea, just as God told him. The Lord caused the sea to go back all night with a strong east wind. The waters divided. The children of Israel walked on dry ground, with walls of water on their right and on their left. When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered the chariots and the horsemen—not one of them remained. That day the Lord saved Israel, and the people believed the Lord and His servant Moses. For you: When you feel stuck or afraid, God can still make a way. Pray and trust Him."
     },
     burningBush: {
       title: 'The Burning Bush',
@@ -1518,10 +1519,10 @@
       caption: 'Swipe to see God call Moses from the burning bush! 🔥',
       videoId: 'bWcwZIV-ip8',
       videoTitle: "Moses and the Burning Bush – Bible Stories for Kids!",
-      keywords: ['moses', 'burning bush', 'fire', 'exodus 3', 'holy ground', 'call'],
-      kjvRef: 'Exodus 3:1–10',
-      kidContext: { who: 'God', to: 'Moses', apply: "Moses saw a bush on fire but not burning up. God spoke from the bush and told Moses His name and plan. God speaks to us too—through His Word, prayer, and quiet moments. Listen for His voice and obey when He calls you." },
-      narration: "Burning Bush – Exodus 3:2. Moses was taking care of sheep when he saw something amazing—a bush burning with fire but not burning up. He went closer. God called from the bush, 'Moses, Moses!' God said, 'I am the God of your fathers. I have seen My people's suffering in Egypt. Go tell Pharaoh to let them go.' Moses was afraid, but God promised, 'I will be with you.' God even told Moses His name: 'I AM THAT I AM.' God speaks to us! For you: God still speaks today—through the Bible, prayer, and when your heart feels a gentle nudge. Listen, trust, and obey when He calls your name."
+      keywords: ['moses', 'burning bush', 'fire', 'exodus 3', 'holy ground', 'call', 'horeb'],
+      kjvRef: 'Exodus 3:1-15',
+      kidContext: { who: 'God', to: 'Moses', apply: 'God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, "Here am I."' },
+      narration: "The Burning Bush – Exodus 3:1-6. Moses was keeping his father-in-law's sheep in the desert when he came to Horeb, the mountain of God. He saw a bush burning with fire, yet the bush was not burned up. Moses turned aside to see why. When the Lord saw he looked, God called from the bush, 'Moses, Moses!' Moses said, 'Here am I.' God said to put off his shoes, for the ground was holy. Then God made Himself known as the God of Abraham, Isaac, and Jacob—and Moses hid his face, afraid to look upon God. For you: God still speaks. Listen with a quiet heart; His presence is holy."
     },
     tenPlagues: {
       title: 'Ten Plagues of Egypt',
@@ -1548,10 +1549,10 @@
       caption: 'Swipe to see God feed His people with bread from heaven! 🍞',
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
-      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'provide'],
-      kjvRef: 'Exodus 16',
-      kidContext: { who: 'God', to: 'Israel in the wilderness', apply: "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time." },
-      narration: "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost. It tasted like honey wafers! They called it manna. God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath. God provided every morning! For you: God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just enough, right when you need it."
+      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'wilderness', 'forty years', 'honey', 'wafers', 'provide'],
+      kjvRef: 'Exodus 16:1-36',
+      kidContext: { who: 'God', to: 'Israel in the wilderness', apply: "God rained bread from heaven every morning—small, sweet manna, enough for each day. He fed His people for forty years until they reached the land He promised. When you worry about tomorrow, trust Him; He still gives daily bread—and Jesus is the true bread of life." },
+      narration: "Manna from Heaven – Exodus 16:4-5, 13-15, 31. The children of Israel had been walking in the wilderness for many days. They were hungry and began to grumble. God heard them and spoke to Moses: 'Behold, I will rain bread from heaven for you. The people shall go out and gather a certain amount every day.' The next morning, when the dew was gone, there on the ground lay small, white flakes like frost. The people looked at it and said, 'What is it?' for they did not know what it was. Moses said, 'This is the bread which the Lord hath given you to eat.' Every morning the manna came. It tasted sweet, like wafers made with honey. The people gathered just enough for each day, and on the sixth day they gathered twice as much so they could rest on the Sabbath. God gave them this bread from heaven every single day for forty years, until they came to the land He promised. For you: God gives enough for today. When you worry, remember His daily kindness—and thank Him for Jesus."
     },
     tenCommandments: {
       title: 'Ten Commandments',
@@ -1798,9 +1799,10 @@
       caption: 'Swipe to see God\'s rescue—the Passover lamb! 🐑',
       videoId: '',
       videoTitle: '',
-      keywords: ['passover', 'lamb', 'blood', 'doorposts', 'exodus 12', 'rescue', 'save'],
-      kjvRef: 'Exodus 12',
-      kidContext: { who: 'God', to: 'Israel in Egypt', apply: 'Jesus is our Passover Lamb! He saves us—just believe and be covered.' }
+      keywords: ['passover', 'lamb', 'blood', 'doorposts', 'hyssop', 'exodus 12', 'rescue', 'save'],
+      kjvRef: 'Exodus 12:1-14',
+      kidContext: { who: 'God', to: 'Israel in Egypt', apply: "God told His people to put blood on the door. When He saw it, He passed over them and kept them safe. Jesus is God's Passover Lamb—when we trust Him, we are safe in His rescue." },
+      narration: "The Passover Lamb – Exodus 12:7-13. God told Moses and Aaron what Israel must do. Each home took a lamb, and at evening they put its blood on the doorposts with hyssop. The Lord said, When I see the blood, I will pass over you, and the plague shall not destroy you. They obeyed, stayed inside, and ate the meal God said to eat. Because of the blood on the door, the Lord passed over and kept them safe. For you: Trust God's way of rescue—Jesus gave His life so we could be safe forever."
     },
     redSeaCrossing: {
       title: 'Red Sea Crossing',

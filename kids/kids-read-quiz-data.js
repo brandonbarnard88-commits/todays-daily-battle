@@ -10312,7 +10312,7 @@
           "Revelation 1",
           "Mark 2:1–12",
           "Matthew 4:1–11; Luke 4:1–13",
-          "Exodus 16"
+          "Exodus 16:1-36"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12980,36 +12980,66 @@
     ]
   },
   "manna": {
-    "kjvRef": "Exodus 16",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Exodus 16:4-5, 13-15, 31 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "The children of Israel had been walking in the wilderness for many days. They were hungry and began to grumble. God heard them and spoke to Moses: \"Behold, I will rain bread from heaven for you. The people shall go out and gather a certain amount every day.\"",
+        "caption": "God hears and promises bread",
+        "image": "panel-jonah-1.svg"
+      },
+      {
+        "text": "The next morning, when the dew was gone, there on the ground lay small, white flakes like frost. The people looked at it and said, \"What is it?\" for they did not know what it was.",
+        "caption": "White flakes on the ground",
+        "image": "panel-jonah-2.svg"
+      },
+      {
+        "text": "Moses said, \"This is the bread which the Lord hath given you to eat.\"",
+        "caption": "Moses names the manna",
+        "image": "panel-jonah-2.svg"
+      },
+      {
+        "text": "Every morning the manna came. It tasted sweet, like wafers made with honey. The people gathered just enough for each day, and on the sixth day they gathered twice as much so they could rest on the Sabbath.",
+        "caption": "Daily bread and the sixth day",
+        "image": "panel-jonah-3.svg"
+      },
+      {
+        "text": "God gave them this bread from heaven every single day for forty years, until they came to the land He promised.",
+        "caption": "Forty years of daily care",
+        "image": "panel-jonah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost.",
-      "It tasted like honey wafers! They called it manna.",
-      "God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath.",
-      "God provided every morning! For you: God gives us what we need each day—food, strength, love.",
-      "When you feel worried or empty, trust Him. He provides just enough, right when you need it."
+      "The children of Israel had been walking in the wilderness for many days. They were hungry and began to grumble.",
+      "God heard them and spoke to Moses: \"Behold, I will rain bread from heaven for you. The people shall go out and gather a certain amount every day.\"",
+      "The next morning, when the dew was gone, there on the ground lay small, white flakes like frost. The people looked at it and said, \"What is it?\" for they did not know what it was.",
+      "Moses said, \"This is the bread which the Lord hath given you to eat.\"",
+      "Every morning the manna came. It tasted sweet, like wafers made with honey. The people gathered just enough for each day, and on the sixth day they gathered twice as much so they could rest on the Sabbath.",
+      "God gave them this bread from heaven every single day for forty years, until they came to the land He promised.",
+      "For you: God gives enough for today. When you worry about tomorrow, remember His daily kindness—and thank Him for Jesus, the true bread of life."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 16",
-          "Exodus 7–12",
-          "Genesis 3",
-          "Ruth 1–4"
+          "Psalm 23",
+          "Genesis 1:1",
+          "Exodus 16:4-5, 13-15, 31",
+          "John 3:16"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 16.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 16:4-5, 13-15, 31.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
-          "David",
+          "Nobody",
+          "Only sheep",
           "God",
-          "John"
+          "Pharaoh only"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13018,51 +13048,52 @@
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you…",
           "God never hears when kids pray.",
           "The Bible is only pretend stories.",
-          "We should hide from God when we mess up."
+          "We should hide from God when we mess up.",
+          "God gave bread from heaven every morning—enough for each day—because He cares for His people."
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God sent bread from heaven every morning for His people in the desert. They called it….)"
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God gave bread from heaven….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
           "A spaceship landed in the parking lot.",
-          "Israelites hungry in the desert – Complaining to Moses"
+          "Small white flakes like frost appeared on the ground after the dew lifted.",
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again."
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
         "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
+          "Ignore God until we are older.",
           "Never say sorry when we do wrong.",
-          "God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just…",
-          "Ignore God until we are older."
+          "Only be kind to people who are exactly like us.",
+          "Thank God for today’s bread—trust Him for what you need one day at a time."
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God gives us what we need each day—food, strength, love. When you feel worried or empty,….)"
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Thank God for today….)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Manna from Heaven with God's Word today.",
-    "takeaway": "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one…",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Manna from Heaven. Amen.",
+    "takeaway": "God rained bread from heaven every morning—sweet, daily, enough. He still cares for His children today.",
+    "prayer": "God, thank You for the Bible. Thank You for feeding Your people in the wilderness. Help me trust You for each day. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israelites hungry in the desert – Complaining to Moses (manna)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Manna falling from heaven – God sends bread (bread)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People gathering manna each morning – God provides daily (heaven)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israelites hungry in the desert – Complaining to Moses (desert)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Manna falling from heaven – God sends bread (exodus 16)"
-    ]
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, wonder-filled thankful mood, no grumbling faces, no heavy shadows, no text in image: early morning wilderness, ground covered with small delicate manna flakes like frost, a few children in simple robes gently gathering manna into baskets and bowls with calm happy faces, soft desert hills, bright morning sky with gentle sun rays, minimal lines, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Manna falling from heaven – God sends bread (exodus 16)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People gathering manna each morning – God provides daily (manna)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: White flakes on the ground like frost (bread)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses explains this is the bread the Lord gave (wilderness)"
+    ],
+    "readAlongImages": []
   },
   "marthaServe": {
     "kjvRef": "the Bible",
@@ -14710,7 +14741,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 16",
+          "Exodus 16:1-36",
           "Matthew 25:14–30",
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
           "Revelation 1"
@@ -19456,7 +19487,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 16",
+          "Exodus 16:1-36",
           "Revelation 19",
           "Acts 3",
           "Acts 20:7–12"

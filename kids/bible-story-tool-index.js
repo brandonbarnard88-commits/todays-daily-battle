@@ -1319,12 +1319,12 @@
   {
     "key": "manna",
     "title": "Manna from Heaven",
-    "kjvRef": "Exodus 16",
+    "kjvRef": "Exodus 16:1-36",
     "who": "God",
     "to": "The Israelites in the wilderness",
-    "apply": "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time.",
+    "apply": "God rained bread from heaven every morning—small, sweet manna, enough for each day. He fed His people for forty years until they reached the land He promised. When you worry about tomorrow, trust Him; He still gives daily bread—and Jesus is the true bread of life.",
     "theme": "Miracles",
-    "kw": "manna bread heaven desert exodus 16 food provide"
+    "kw": "manna bread heaven desert exodus 16 wilderness forty years honey wafers food provide"
   },
   {
     "key": "marthaServe",

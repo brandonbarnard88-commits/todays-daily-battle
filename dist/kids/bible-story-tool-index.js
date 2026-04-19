@@ -339,7 +339,7 @@
   {
     "key": "david",
     "title": "David & Goliath",
-    "kjvRef": "1 Samuel 17",
+    "kjvRef": "1 Samuel 17:45–50",
     "who": "David",
     "to": "Goliath (and us)",
     "apply": "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord's!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you.",
@@ -1319,12 +1319,12 @@
   {
     "key": "manna",
     "title": "Manna from Heaven",
-    "kjvRef": "Exodus 16",
+    "kjvRef": "Exodus 16:1-36",
     "who": "God",
     "to": "The Israelites in the wilderness",
-    "apply": "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time.",
+    "apply": "God rained bread from heaven every morning—small, sweet manna, enough for each day. He fed His people for forty years until they reached the land He promised. When you worry about tomorrow, trust Him; He still gives daily bread—and Jesus is the true bread of life.",
     "theme": "Miracles",
-    "kw": "manna bread heaven desert exodus 16 food provide"
+    "kw": "manna bread heaven desert exodus 16 wilderness forty years honey wafers food provide"
   },
   {
     "key": "marthaServe",
@@ -1389,20 +1389,20 @@
   {
     "key": "mosesBush",
     "title": "Moses & the Burning Bush",
-    "kjvRef": "Exodus 3",
+    "kjvRef": "Exodus 3:1-15",
     "who": "God",
     "to": "Moses (in the desert)",
-    "apply": "God called Moses from a burning bush! When God calls you, say yes—He will help you!",
+    "apply": "God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, \"Here am I.\"",
     "theme": "Protection",
-    "kw": "moses bush fire staff call exodus 3 burning"
+    "kw": "moses bush fire staff call exodus 3 burning holy ground horeb"
   },
   {
     "key": "mosesSea",
     "title": "Moses Parts the Sea",
-    "kjvRef": "Exodus 14",
+    "kjvRef": "Exodus 14:21-31",
     "who": "God",
     "to": "Moses and Israel",
-    "apply": "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through.",
+    "apply": "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save.",
     "theme": "Miracles",
     "kw": "moses red sea staff parting exodus 14 miracle"
   },
@@ -1969,10 +1969,10 @@
   {
     "key": "redSea",
     "title": "Red Sea Crossing",
-    "kjvRef": "Exodus 14:21",
+    "kjvRef": "Exodus 14:21-31",
     "who": "God",
     "to": "Moses and the Israelites",
-    "apply": "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through.",
+    "apply": "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save.",
     "theme": "Miracles",
     "kw": "moses red sea waters part exodus 14 egypt escape"
   },
@@ -2309,12 +2309,12 @@
   {
     "key": "burningBush",
     "title": "The Burning Bush",
-    "kjvRef": "Exodus 3:1–10",
+    "kjvRef": "Exodus 3:1-15",
     "who": "God",
     "to": "Moses",
-    "apply": "Moses saw a bush on fire but not burning up. God spoke from the bush and told Moses His name and plan. God speaks to us too—through His Word, prayer, and quiet moments. Listen for His voice and obey when He calls you.",
+    "apply": "God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, \"Here am I.\"",
     "theme": "Obedience",
-    "kw": "moses burning bush fire exodus 3 holy ground call"
+    "kw": "moses burning bush fire exodus 3 holy ground call horeb"
   },
   {
     "key": "heavenDoor",
@@ -2519,12 +2519,12 @@
   {
     "key": "passoverLamb",
     "title": "The Passover Lamb",
-    "kjvRef": "Exodus 12",
+    "kjvRef": "Exodus 12:1-14",
     "who": "God",
     "to": "Israel in Egypt",
-    "apply": "Jesus is our Passover Lamb! He saves us—just believe and be covered.",
+    "apply": "God told His people to put blood on the door. When He saw it, He passed over them and kept them safe. Jesus is God's Passover Lamb—when we trust Him, we are safe in His rescue.",
     "theme": "Love",
-    "kw": "passover lamb blood doorposts exodus 12 rescue save"
+    "kw": "passover lamb blood doorposts hyssop exodus 12 rescue save"
   },
   {
     "key": "persistentWidow",

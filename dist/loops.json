@@ -6,7 +6,8 @@
     "audio": "",
     "ref": "1 Samuel 17:49",
     "week": 0,
-    "kjvText": "David prevailed over the Philistine with a sling and with a stone."
+    "kjvText": "David prevailed over the Philistine with a sling and with a stone.",
+    "libraryKey": "david"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "audio": "",
     "ref": "Genesis 7:7",
     "week": 0,
-    "kjvText": "And Noah went in, and his sons, and his wife, and his sons' wives with him, into the ark."
+    "kjvText": "And Noah went in, and his sons, and his wife, and his sons' wives with him, into the ark.",
+    "libraryKey": "noah"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "audio": "",
     "ref": "Jonah 1:17",
     "week": 0,
-    "kjvText": "Now the LORD had prepared a great fish to swallow up Jonah."
+    "kjvText": "Now the LORD had prepared a great fish to swallow up Jonah.",
+    "libraryKey": "jonah"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "audio": "",
     "ref": "Daniel 6:22",
     "week": 0,
-    "kjvText": "My God hath sent his angel, and hath shut the lions' mouths."
+    "kjvText": "My God hath sent his angel, and hath shut the lions' mouths.",
+    "libraryKey": "daniel"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "audio": "",
     "ref": "Esther 4:14",
     "week": 0,
-    "kjvText": "Who knoweth whether thou art come to the kingdom for such a time as this?"
+    "kjvText": "Who knoweth whether thou art come to the kingdom for such a time as this?",
+    "libraryKey": "estherFast"
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "audio": "",
     "ref": "Genesis 37:3",
     "week": 0,
-    "kjvText": "Now Israel loved Joseph more than all his children, and he made him a coat of many colours."
+    "kjvText": "Now Israel loved Joseph more than all his children, and he made him a coat of many colours.",
+    "libraryKey": "josephCoat"
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "audio": "",
     "ref": "Judges 16:30",
     "week": 0,
-    "kjvText": "Let me die with the Philistines. And he bowed himself with all his might."
+    "kjvText": "Let me die with the Philistines. And he bowed himself with all his might.",
+    "libraryKey": "samsonHair"
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "audio": "",
     "ref": "Ruth 2:2",
     "week": 0,
-    "kjvText": "Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace."
+    "kjvText": "Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace.",
+    "libraryKey": "ruthGlean"
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "audio": "",
     "ref": "Exodus 2:5",
     "week": 0,
-    "kjvText": "And the daughter of Pharaoh came down to wash herself at the river, and she saw the ark among the flags."
+    "kjvText": "And the daughter of Pharaoh came down to wash herself at the river, and she saw the ark among the flags.",
+    "libraryKey": "mosesBaby"
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "audio": "",
     "ref": "Joshua 6:20",
     "week": 0,
-    "kjvText": "So the people shouted with a great shout, and the wall fell down flat."
+    "kjvText": "So the people shouted with a great shout, and the wall fell down flat.",
+    "libraryKey": "fallOfJericho"
   },
   {
     "id": 11,
@@ -96,7 +106,8 @@
     "audio": "",
     "ref": "John 11:43-44",
     "week": 0,
-    "kjvText": "And when he thus had spoken, he cried with a loud voice, Lazarus, come forth."
+    "kjvText": "And when he thus had spoken, he cried with a loud voice, Lazarus, come forth.",
+    "libraryKey": "lazarus"
   },
   {
     "id": 12,
@@ -105,39 +116,44 @@
     "audio": "",
     "ref": "Mark 4:39",
     "week": 0,
-    "kjvText": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still."
+    "kjvText": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still.",
+    "libraryKey": "jesusCalmsStorm"
   },
   {
     "id": 13,
     "title": "Moses Sea-Split",
     "file": "",
     "audio": "",
-    "ref": "Exodus 14:21",
-    "week": 1
+    "ref": "Exodus 14:21-31",
+    "week": 1,
+    "libraryKey": "redSea"
   },
   {
     "id": 14,
     "title": "Burning Bush",
     "file": "",
     "audio": "",
-    "ref": "Exodus 3:2",
-    "week": 1
+    "ref": "Exodus 3:1-6",
+    "week": 1,
+    "libraryKey": "mosesBush"
   },
   {
     "id": 15,
-    "title": "Ten Plagues",
+    "title": "Passover Door",
     "file": "",
     "audio": "",
-    "ref": "Exodus 12:29",
-    "week": 1
+    "ref": "Exodus 12:7-13",
+    "week": 1,
+    "libraryKey": "passoverLamb"
   },
   {
     "id": 16,
     "title": "Manna from Heaven",
     "file": "",
     "audio": "",
-    "ref": "Exodus 16:15",
-    "week": 1
+    "ref": "Exodus 16:4-5, 13-15, 31",
+    "week": 1,
+    "libraryKey": "manna"
   },
   {
     "id": 17,
@@ -145,7 +161,8 @@
     "file": "",
     "audio": "",
     "ref": "Exodus 20:1-2",
-    "week": 1
+    "week": 1,
+    "libraryKey": "tenCommandments"
   },
   {
     "id": 18,
@@ -153,7 +170,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Kings 18:38",
-    "week": 1
+    "week": 1,
+    "libraryKey": "elijahFire"
   },
   {
     "id": 19,
@@ -161,7 +179,8 @@
     "file": "",
     "audio": "",
     "ref": "2 Kings 4:6",
-    "week": 1
+    "week": 1,
+    "libraryKey": "elishaOil"
   },
   {
     "id": 20,
@@ -169,7 +188,8 @@
     "file": "",
     "audio": "",
     "ref": "Daniel 3:25",
-    "week": 1
+    "week": 1,
+    "libraryKey": "fieryFurnace"
   },
   {
     "id": 21,
@@ -177,7 +197,8 @@
     "file": "",
     "audio": "",
     "ref": "2 Kings 5:14",
-    "week": 1
+    "week": 1,
+    "libraryKey": "naaman"
   },
   {
     "id": 22,
@@ -185,7 +206,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 1:3",
-    "week": 1
+    "week": 1,
+    "libraryKey": "creation"
   },
   {
     "id": 23,
@@ -193,7 +215,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 2:15",
-    "week": 1
+    "week": 1,
+    "libraryKey": "adamEve"
   },
   {
     "id": 24,
@@ -201,7 +224,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 11:4",
-    "week": 1
+    "week": 1,
+    "libraryKey": "towerBabel"
   },
   {
     "id": 25,
@@ -209,7 +233,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 22:12",
-    "week": 2
+    "week": 2,
+    "libraryKey": "abrahamIsaac"
   },
   {
     "id": 26,
@@ -217,7 +242,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 28:12",
-    "week": 2
+    "week": 2,
+    "libraryKey": "jacobLadder"
   },
   {
     "id": 27,
@@ -225,7 +251,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 39:21",
-    "week": 2
+    "week": 2,
+    "libraryKey": "josephPrison"
   },
   {
     "id": 28,
@@ -233,7 +260,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 41:39-40",
-    "week": 2
+    "week": 2,
+    "libraryKey": "pharaohDreams"
   },
   {
     "id": 29,
@@ -241,7 +269,8 @@
     "file": "",
     "audio": "",
     "ref": "Exodus 2:10",
-    "week": 2
+    "week": 2,
+    "libraryKey": "mosesBaby"
   },
   {
     "id": 30,
@@ -249,7 +278,8 @@
     "file": "",
     "audio": "",
     "ref": "Exodus 12:13",
-    "week": 2
+    "week": 2,
+    "libraryKey": "passoverLamb"
   },
   {
     "id": 31,
@@ -257,7 +287,8 @@
     "file": "",
     "audio": "",
     "ref": "Exodus 13:21",
-    "week": 2
+    "week": 2,
+    "libraryKey": "burningBush"
   },
   {
     "id": 32,
@@ -265,7 +296,8 @@
     "file": "",
     "audio": "",
     "ref": "Exodus 17:6",
-    "week": 2
+    "week": 2,
+    "libraryKey": "manna"
   },
   {
     "id": 33,
@@ -273,7 +305,8 @@
     "file": "",
     "audio": "",
     "ref": "Exodus 32:4",
-    "week": 2
+    "week": 2,
+    "libraryKey": "goldenCalf"
   },
   {
     "id": 34,
@@ -281,7 +314,8 @@
     "file": "",
     "audio": "",
     "ref": "Numbers 13:27",
-    "week": 2
+    "week": 2,
+    "libraryKey": "spiesInCanaan"
   },
   {
     "id": 35,
@@ -289,7 +323,8 @@
     "file": "",
     "audio": "",
     "ref": "Numbers 21:9",
-    "week": 2
+    "week": 2,
+    "libraryKey": "mosesStaffSnake"
   },
   {
     "id": 36,
@@ -297,7 +332,8 @@
     "file": "",
     "audio": "",
     "ref": "Numbers 22:28",
-    "week": 2
+    "week": 2,
+    "libraryKey": "balaamDonkey"
   },
   {
     "id": 37,
@@ -305,7 +341,8 @@
     "file": "",
     "audio": "",
     "ref": "Joshua 3:17",
-    "week": 3
+    "week": 3,
+    "libraryKey": "jordanCrossing"
   },
   {
     "id": 38,
@@ -313,7 +350,8 @@
     "file": "",
     "audio": "",
     "ref": "Judges 6:38",
-    "week": 3
+    "week": 3,
+    "libraryKey": "gideonFleece"
   },
   {
     "id": 39,
@@ -321,7 +359,8 @@
     "file": "",
     "audio": "",
     "ref": "Judges 7:21",
-    "week": 3
+    "week": 3,
+    "libraryKey": "gideonMidianites"
   },
   {
     "id": 40,
@@ -329,7 +368,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Samuel 1:27",
-    "week": 3
+    "week": 3,
+    "libraryKey": "hannahSamuel"
   },
   {
     "id": 41,
@@ -337,7 +377,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Samuel 3:10",
-    "week": 3
+    "week": 3,
+    "libraryKey": "samuelCalls"
   },
   {
     "id": 42,
@@ -345,7 +386,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Samuel 16:12",
-    "week": 3
+    "week": 3,
+    "libraryKey": "davidSheep"
   },
   {
     "id": 43,
@@ -353,7 +395,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Samuel 18:1",
-    "week": 3
+    "week": 3,
+    "libraryKey": "davidJonathan"
   },
   {
     "id": 44,
@@ -361,7 +404,8 @@
     "file": "",
     "audio": "",
     "ref": "Psalm 23:1",
-    "week": 3
+    "week": 3,
+    "libraryKey": "psalm23Shepherd"
   },
   {
     "id": 45,
@@ -369,7 +413,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Kings 3:12",
-    "week": 3
+    "week": 3,
+    "libraryKey": "solomonWisdom"
   },
   {
     "id": 46,
@@ -377,7 +422,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Kings 17:6",
-    "week": 3
+    "week": 3,
+    "libraryKey": "elijahFire"
   },
   {
     "id": 47,
@@ -385,7 +431,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Kings 19:12",
-    "week": 3
+    "week": 3,
+    "libraryKey": "elijahElijahElisha"
   },
   {
     "id": 48,
@@ -393,7 +440,8 @@
     "file": "",
     "audio": "",
     "ref": "2 Kings 2:11",
-    "week": 3
+    "week": 3,
+    "libraryKey": "elijahChariot"
   },
   {
     "id": 49,
@@ -401,7 +449,8 @@
     "file": "",
     "audio": "",
     "ref": "2 Kings 4:35",
-    "week": 4
+    "week": 4,
+    "libraryKey": "elishaRaised"
   },
   {
     "id": 50,
@@ -409,7 +458,8 @@
     "file": "",
     "audio": "",
     "ref": "2 Kings 20:11",
-    "week": 4
+    "week": 4,
+    "libraryKey": "faithMountain"
   },
   {
     "id": 51,
@@ -417,7 +467,8 @@
     "file": "",
     "audio": "",
     "ref": "Nehemiah 4:6",
-    "week": 4
+    "week": 4,
+    "libraryKey": "nehemiahWalls"
   },
   {
     "id": 52,
@@ -425,7 +476,8 @@
     "file": "",
     "audio": "",
     "ref": "Nehemiah 8:8",
-    "week": 4
+    "week": 4,
+    "libraryKey": "ezraReturn"
   },
   {
     "id": 53,
@@ -433,7 +485,8 @@
     "file": "",
     "audio": "",
     "ref": "Jonah 3:5",
-    "week": 4
+    "week": 4,
+    "libraryKey": "jonah"
   },
   {
     "id": 54,
@@ -441,7 +494,8 @@
     "file": "",
     "audio": "",
     "ref": "Isaiah 6:1",
-    "week": 4
+    "week": 4,
+    "libraryKey": "isaiahMessianic"
   },
   {
     "id": 55,
@@ -449,7 +503,8 @@
     "file": "",
     "audio": "",
     "ref": "Jeremiah 1:9",
-    "week": 4
+    "week": 4,
+    "libraryKey": "jeremiahWeeping"
   },
   {
     "id": 56,
@@ -457,7 +512,8 @@
     "file": "",
     "audio": "",
     "ref": "Ezekiel 37:10",
-    "week": 4
+    "week": 4,
+    "libraryKey": "ezekielValleyBones"
   },
   {
     "id": 57,
@@ -465,7 +521,8 @@
     "file": "",
     "audio": "",
     "ref": "Daniel 5:25",
-    "week": 4
+    "week": 4,
+    "libraryKey": "daniel"
   },
   {
     "id": 58,
@@ -473,7 +530,8 @@
     "file": "",
     "audio": "",
     "ref": "Joel 2:28",
-    "week": 4
+    "week": 4,
+    "libraryKey": "holySpiritPentecost"
   },
   {
     "id": 59,
@@ -481,7 +539,8 @@
     "file": "",
     "audio": "",
     "ref": "Micah 5:2",
-    "week": 4
+    "week": 4,
+    "libraryKey": "shepherdsStar"
   },
   {
     "id": 60,
@@ -489,7 +548,8 @@
     "file": "",
     "audio": "",
     "ref": "Malachi 4:2",
-    "week": 4
+    "week": 4,
+    "libraryKey": "malachiMessage"
   },
   {
     "id": 61,
@@ -497,7 +557,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 1:31",
-    "week": 5
+    "week": 5,
+    "libraryKey": "angelMary"
   },
   {
     "id": 62,
@@ -505,7 +566,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 2:7",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusBirth"
   },
   {
     "id": 63,
@@ -513,7 +575,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 2:13-14",
-    "week": 5
+    "week": 5,
+    "libraryKey": "shepherdsStar"
   },
   {
     "id": 64,
@@ -521,7 +584,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 2:11",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusBirth"
   },
   {
     "id": 65,
@@ -529,7 +593,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 2:46",
-    "week": 5
+    "week": 5,
+    "libraryKey": "annaProphet"
   },
   {
     "id": 66,
@@ -537,7 +602,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 3:16",
-    "week": 5
+    "week": 5,
+    "libraryKey": "johnBaptize"
   },
   {
     "id": 67,
@@ -545,7 +611,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 4:11",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusTemptation"
   },
   {
     "id": 68,
@@ -553,7 +620,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 4:19",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusCallingDisciples"
   },
   {
     "id": 69,
@@ -561,7 +629,8 @@
     "file": "",
     "audio": "",
     "ref": "John 2:9",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusFirstMiracle"
   },
   {
     "id": 70,
@@ -569,7 +638,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 5:3",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusSermonMount"
   },
   {
     "id": 71,
@@ -577,7 +647,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 6:9",
-    "week": 5
+    "week": 5,
+    "libraryKey": "prayerCloset"
   },
   {
     "id": 72,
@@ -585,7 +656,8 @@
     "file": "",
     "audio": "",
     "ref": "John 9:7",
-    "week": 5
+    "week": 5,
+    "libraryKey": "healBlind"
   },
   {
     "id": 73,
@@ -593,7 +665,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 17:14",
-    "week": 6
+    "week": 6,
+    "libraryKey": "healLeper"
   },
   {
     "id": 74,
@@ -601,7 +674,8 @@
     "file": "",
     "audio": "",
     "ref": "John 6:11",
-    "week": 6
+    "week": 6,
+    "libraryKey": "jesusFeeds5000"
   },
   {
     "id": 75,
@@ -609,7 +683,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 14:29",
-    "week": 6
+    "week": 6,
+    "libraryKey": "jesusWalksWater"
   },
   {
     "id": 76,
@@ -617,7 +692,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 13:8",
-    "week": 6
+    "week": 6,
+    "libraryKey": "parableSower"
   },
   {
     "id": 77,
@@ -625,7 +701,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 10:33",
-    "week": 6
+    "week": 6,
+    "libraryKey": "goodSamaritan"
   },
   {
     "id": 78,
@@ -633,7 +710,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 15:5",
-    "week": 6
+    "week": 6,
+    "libraryKey": "lostSheep"
   },
   {
     "id": 79,
@@ -641,7 +719,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 15:20",
-    "week": 6
+    "week": 6,
+    "libraryKey": "prodigalSon"
   },
   {
     "id": 80,
@@ -649,7 +728,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 19:5",
-    "week": 6
+    "week": 6,
+    "libraryKey": "zacchaeus"
   },
   {
     "id": 81,
@@ -657,7 +737,8 @@
     "file": "",
     "audio": "",
     "ref": "Mark 10:21",
-    "week": 6
+    "week": 6,
+    "libraryKey": "jesusBlessKids"
   },
   {
     "id": 82,
@@ -665,7 +746,8 @@
     "file": "",
     "audio": "",
     "ref": "Mark 12:44",
-    "week": 6
+    "week": 6,
+    "libraryKey": "widowsMite"
   },
   {
     "id": 83,
@@ -673,7 +755,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 17:2",
-    "week": 6
+    "week": 6,
+    "libraryKey": "transfigure"
   },
   {
     "id": 84,
@@ -681,7 +764,8 @@
     "file": "",
     "audio": "",
     "ref": "Mark 10:16",
-    "week": 6
+    "week": 6,
+    "libraryKey": "jesusBlessKids"
   },
   {
     "id": 85,
@@ -689,7 +773,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 21:9",
-    "week": 7
+    "week": 7,
+    "libraryKey": "palmSunday"
   },
   {
     "id": 86,
@@ -697,7 +782,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 22:19",
-    "week": 7
+    "week": 7,
+    "libraryKey": "lastSupper"
   },
   {
     "id": 87,
@@ -705,7 +791,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 26:39",
-    "week": 7
+    "week": 7,
+    "libraryKey": "gardenPrayer"
   },
   {
     "id": 88,
@@ -713,7 +800,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 28:6",
-    "week": 7
+    "week": 7,
+    "libraryKey": "resurrection"
   },
   {
     "id": 89,
@@ -721,7 +809,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 24:31",
-    "week": 7
+    "week": 7,
+    "libraryKey": "roadToEmmaus"
   },
   {
     "id": 90,
@@ -729,7 +818,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 1:9",
-    "week": 7
+    "week": 7,
+    "libraryKey": "ascension"
   },
   {
     "id": 91,
@@ -737,7 +827,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 2:3-4",
-    "week": 7
+    "week": 7,
+    "libraryKey": "pentecost"
   },
   {
     "id": 92,
@@ -745,7 +836,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 3:8",
-    "week": 7
+    "week": 7,
+    "libraryKey": "peterHealsLame"
   },
   {
     "id": 93,
@@ -753,7 +845,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 8:38",
-    "week": 7
+    "week": 7,
+    "libraryKey": "philipChariot"
   },
   {
     "id": 94,
@@ -761,7 +854,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 9:3",
-    "week": 7
+    "week": 7,
+    "libraryKey": "paulDamascus"
   },
   {
     "id": 95,
@@ -769,7 +863,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 10:28",
-    "week": 7
+    "week": 7,
+    "libraryKey": "earlyChurchLife"
   },
   {
     "id": 96,
@@ -777,7 +872,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 16:25",
-    "week": 7
+    "week": 7,
+    "libraryKey": "paulSilas"
   },
   {
     "id": 97,
@@ -785,7 +881,8 @@
     "file": "",
     "audio": "",
     "ref": "Ephesians 6:11",
-    "week": 8
+    "week": 8,
+    "libraryKey": "armorOfGod"
   },
   {
     "id": 98,
@@ -793,7 +890,8 @@
     "file": "",
     "audio": "",
     "ref": "Ephesians 6:16",
-    "week": 8
+    "week": 8,
+    "libraryKey": "armorShield"
   },
   {
     "id": 99,
@@ -801,7 +899,8 @@
     "file": "",
     "audio": "",
     "ref": "Ephesians 6:17",
-    "week": 8
+    "week": 8,
+    "libraryKey": "armorOfGod"
   },
   {
     "id": 100,
@@ -809,7 +908,8 @@
     "file": "",
     "audio": "",
     "ref": "Ephesians 6:17",
-    "week": 8
+    "week": 8,
+    "libraryKey": "armorSword"
   },
   {
     "id": 101,
@@ -817,7 +917,8 @@
     "file": "",
     "audio": "",
     "ref": "Galatians 5:22",
-    "week": 8
+    "week": 8,
+    "libraryKey": "fruitSpirit"
   },
   {
     "id": 102,
@@ -825,7 +926,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Corinthians 13:4",
-    "week": 8
+    "week": 8,
+    "libraryKey": "loveChapter"
   },
   {
     "id": 103,
@@ -833,7 +935,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 17:20",
-    "week": 8
+    "week": 8,
+    "libraryKey": "faithMountain"
   },
   {
     "id": 104,
@@ -841,7 +944,8 @@
     "file": "",
     "audio": "",
     "ref": "John 14:6",
-    "week": 8
+    "week": 8,
+    "libraryKey": "jesus"
   },
   {
     "id": 105,
@@ -849,7 +953,8 @@
     "file": "",
     "audio": "",
     "ref": "John 8:12",
-    "week": 8
+    "week": 8,
+    "libraryKey": "creationLight"
   },
   {
     "id": 106,
@@ -857,7 +962,8 @@
     "file": "",
     "audio": "",
     "ref": "John 10:11",
-    "week": 8
+    "week": 8,
+    "libraryKey": "jesusParableGoodShepherd"
   },
   {
     "id": 107,
@@ -865,7 +971,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 25:21",
-    "week": 8
+    "week": 8,
+    "libraryKey": "parableTalents"
   },
   {
     "id": 108,
@@ -873,7 +980,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 25:4",
-    "week": 8
+    "week": 8,
+    "libraryKey": "tenVirgins"
   },
   {
     "id": 109,
@@ -881,7 +989,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 7:55",
-    "week": 9
+    "week": 9,
+    "libraryKey": "stephenStones"
   },
   {
     "id": 110,
@@ -889,7 +998,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 10:44",
-    "week": 9
+    "week": 9,
+    "libraryKey": "earlyChurchLife"
   },
   {
     "id": 111,
@@ -897,7 +1007,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 16:14",
-    "week": 9
+    "week": 9,
+    "libraryKey": "lydiaSell"
   },
   {
     "id": 112,
@@ -905,7 +1016,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 17:28",
-    "week": 9
+    "week": 9,
+    "libraryKey": "actsPaulMarsHill"
   },
   {
     "id": 113,
@@ -913,7 +1025,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 27:44",
-    "week": 9
+    "week": 9,
+    "libraryKey": "paulShipwreck"
   },
   {
     "id": 114,
@@ -921,7 +1034,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 28:5",
-    "week": 9
+    "week": 9,
+    "libraryKey": "actsPaulMelita"
   },
   {
     "id": 115,
@@ -929,7 +1043,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 4:2",
-    "week": 9
+    "week": 9,
+    "libraryKey": "revelationThroneRoom"
   },
   {
     "id": 116,
@@ -937,7 +1052,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 6:2",
-    "week": 9
+    "week": 9,
+    "libraryKey": "revelationSeals"
   },
   {
     "id": 117,
@@ -945,7 +1061,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 12:9",
-    "week": 9
+    "week": 9,
+    "libraryKey": "revelationWomanDragon"
   },
   {
     "id": 118,
@@ -953,7 +1070,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 21:2",
-    "week": 9
+    "week": 9,
+    "libraryKey": "revelationNewJerusalem"
   },
   {
     "id": 119,
@@ -961,7 +1079,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 22:2",
-    "week": 9
+    "week": 9,
+    "libraryKey": "comeLordJesus"
   },
   {
     "id": 120,
@@ -969,7 +1088,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 22:13",
-    "week": 9
+    "week": 9,
+    "libraryKey": "alphaOmega2"
   },
   {
     "id": 121,
@@ -977,7 +1097,8 @@
     "file": "",
     "audio": "",
     "ref": "Joshua 2:21",
-    "week": 10
+    "week": 10,
+    "libraryKey": "rahabJericho"
   },
   {
     "id": 122,
@@ -985,7 +1106,8 @@
     "file": "",
     "audio": "",
     "ref": "Judges 4:14",
-    "week": 10
+    "week": 10,
+    "libraryKey": "deborahBarak"
   },
   {
     "id": 123,
@@ -993,7 +1115,8 @@
     "file": "",
     "audio": "",
     "ref": "Judges 11:34",
-    "week": 10
+    "week": 10,
+    "libraryKey": "jairus"
   },
   {
     "id": 124,
@@ -1001,7 +1124,8 @@
     "file": "",
     "audio": "",
     "ref": "Ruth 2:8",
-    "week": 10
+    "week": 10,
+    "libraryKey": "ruthGlean"
   },
   {
     "id": 125,
@@ -1009,7 +1133,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Samuel 25:32",
-    "week": 10
+    "week": 10,
+    "libraryKey": "abigailWise"
   },
   {
     "id": 126,
@@ -1017,7 +1142,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Kings 1:30",
-    "week": 10
+    "week": 10,
+    "libraryKey": "solomonWisdom"
   },
   {
     "id": 127,
@@ -1025,7 +1151,8 @@
     "file": "",
     "audio": "",
     "ref": "2 Chronicles 20:22",
-    "week": 10
+    "week": 10,
+    "libraryKey": "miriamSong"
   },
   {
     "id": 128,
@@ -1033,7 +1160,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Chronicles 4:10",
-    "week": 10
+    "week": 10,
+    "libraryKey": "hannahPray"
   },
   {
     "id": 129,
@@ -1041,7 +1169,8 @@
     "file": "",
     "audio": "",
     "ref": "Job 42:10",
-    "week": 10
+    "week": 10,
+    "libraryKey": "jobSuffering"
   },
   {
     "id": 130,
@@ -1049,7 +1178,8 @@
     "file": "",
     "audio": "",
     "ref": "Proverbs 22:6",
-    "week": 10
+    "week": 10,
+    "libraryKey": "solomonWisdom"
   },
   {
     "id": 131,
@@ -1057,7 +1187,8 @@
     "file": "",
     "audio": "",
     "ref": "Song of Solomon 2:1",
-    "week": 10
+    "week": 10,
+    "libraryKey": "miriamSong"
   },
   {
     "id": 132,
@@ -1065,7 +1196,8 @@
     "file": "",
     "audio": "",
     "ref": "Psalm 150:6",
-    "week": 10
+    "week": 10,
+    "libraryKey": "revelationSongsAndHarvest"
   },
   {
     "id": 133,
@@ -1073,7 +1205,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 2:36",
-    "week": 11
+    "week": 11,
+    "libraryKey": "annaProphet"
   },
   {
     "id": 134,
@@ -1081,7 +1214,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 1:44",
-    "week": 11
+    "week": 11,
+    "libraryKey": "angelMary"
   },
   {
     "id": 135,
@@ -1089,7 +1223,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 8:48",
-    "week": 11
+    "week": 11,
+    "libraryKey": "healLeper"
   },
   {
     "id": 136,
@@ -1097,7 +1232,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 10:42",
-    "week": 11
+    "week": 11,
+    "libraryKey": "goodSamaritan"
   },
   {
     "id": 137,
@@ -1105,7 +1241,8 @@
     "file": "",
     "audio": "",
     "ref": "John 12:3",
-    "week": 11
+    "week": 11,
+    "libraryKey": "maryAnoint"
   },
   {
     "id": 138,
@@ -1113,7 +1250,8 @@
     "file": "",
     "audio": "",
     "ref": "John 20:16",
-    "week": 11
+    "week": 11,
+    "libraryKey": "maryMagdalene"
   },
   {
     "id": 139,
@@ -1121,7 +1259,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 18:26",
-    "week": 11
+    "week": 11,
+    "libraryKey": "priscillaTeach"
   },
   {
     "id": 140,
@@ -1129,7 +1268,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 9:40",
-    "week": 11
+    "week": 11,
+    "libraryKey": "dorcasRaise"
   },
   {
     "id": 141,
@@ -1137,7 +1277,8 @@
     "file": "",
     "audio": "",
     "ref": "Romans 16:1",
-    "week": 11
+    "week": 11,
+    "libraryKey": "phoebeDeacon"
   },
   {
     "id": 142,
@@ -1145,7 +1286,8 @@
     "file": "",
     "audio": "",
     "ref": "2 Timothy 1:5",
-    "week": 11
+    "week": 11,
+    "libraryKey": "euniceMother"
   },
   {
     "id": 143,
@@ -1153,7 +1295,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 15:9",
-    "week": 11
+    "week": 11,
+    "libraryKey": "lostCoin"
   },
   {
     "id": 144,
@@ -1161,7 +1304,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 18:7",
-    "week": 11
+    "week": 11,
+    "libraryKey": "persistentWidow"
   },
   {
     "id": 145,
@@ -1169,7 +1313,8 @@
     "file": "",
     "audio": "",
     "ref": "John 11:17",
-    "week": 12
+    "week": 12,
+    "libraryKey": "lazarus"
   },
   {
     "id": 146,
@@ -1177,7 +1322,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 10:3",
-    "week": 12
+    "week": 12,
+    "libraryKey": "goodSamaritan"
   },
   {
     "id": 147,
@@ -1185,7 +1331,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 13:47",
-    "week": 12
+    "week": 12,
+    "libraryKey": "parableSower"
   },
   {
     "id": 148,
@@ -1193,7 +1340,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 13:45-46",
-    "week": 12
+    "week": 12,
+    "libraryKey": "parableSower"
   },
   {
     "id": 149,
@@ -1201,7 +1349,8 @@
     "file": "",
     "audio": "",
     "ref": "Mark 8:9",
-    "week": 12
+    "week": 12,
+    "libraryKey": "jesusFeeds5000"
   },
   {
     "id": 150,
@@ -1209,7 +1358,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 21:31",
-    "week": 12
+    "week": 12,
+    "libraryKey": "palmSunday"
   },
   {
     "id": 151,
@@ -1217,7 +1367,8 @@
     "file": "",
     "audio": "",
     "ref": "John 13:5",
-    "week": 12
+    "week": 12,
+    "libraryKey": "maryAnoint"
   },
   {
     "id": 152,
@@ -1225,7 +1376,8 @@
     "file": "",
     "audio": "",
     "ref": "John 15:5",
-    "week": 12
+    "week": 12,
+    "libraryKey": "fruitSpirit"
   },
   {
     "id": 153,
@@ -1233,7 +1385,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 28:19",
-    "week": 12
+    "week": 12,
+    "libraryKey": "greatCommission"
   },
   {
     "id": 154,
@@ -1241,7 +1394,8 @@
     "file": "",
     "audio": "",
     "ref": "Philippians 4:13",
-    "week": 12
+    "week": 12,
+    "libraryKey": "philippiansJoy"
   },
   {
     "id": 155,
@@ -1249,7 +1403,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 1:3",
-    "week": 12
+    "week": 12,
+    "libraryKey": "johnPatmos"
   },
   {
     "id": 156,
@@ -1257,7 +1412,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 5:12",
-    "week": 12
+    "week": 12,
+    "libraryKey": "revelationThroneRoom"
   },
   {
     "id": 157,
@@ -1265,7 +1421,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 7:4",
-    "week": 12
+    "week": 12,
+    "libraryKey": "revelationSeals"
   },
   {
     "id": 158,
@@ -1273,7 +1430,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 22:1",
-    "week": 12
+    "week": 12,
+    "libraryKey": "comeLordJesus"
   },
   {
     "id": 159,
@@ -1281,7 +1439,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 22:20",
-    "week": 12
+    "week": 12,
+    "libraryKey": "comeLordJesus"
   },
   {
     "id": 160,
@@ -1289,6 +1448,7 @@
     "file": "",
     "audio": "",
     "ref": "Philippians 2:10",
-    "week": 12
+    "week": 12,
+    "libraryKey": "everyKneeBow"
   }
 ]

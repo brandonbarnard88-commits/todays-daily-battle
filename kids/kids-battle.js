@@ -809,10 +809,10 @@
       caption: 'Swipe to see God give bread from heaven! 🍞',
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
-      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'food', 'provide'],
-      kjvRef: 'Exodus 16',
-      kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time." },
-      narration: "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost. It tasted like honey wafers! They called it manna. God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath. God provided every morning! For you: God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just enough, right when you need it."
+      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'wilderness', 'forty years', 'honey', 'wafers', 'food', 'provide'],
+      kjvRef: 'Exodus 16:1-36',
+      kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: "God rained bread from heaven every morning—small, sweet manna, enough for each day. He fed His people for forty years until they reached the land He promised. When you worry about tomorrow, trust Him; He still gives daily bread—and Jesus is the true bread of life." },
+      narration: "Manna from Heaven – Exodus 16:4-5, 13-15, 31. The children of Israel had been walking in the wilderness for many days. They were hungry and began to grumble. God heard them and spoke to Moses: 'Behold, I will rain bread from heaven for you. The people shall go out and gather a certain amount every day.' The next morning, when the dew was gone, there on the ground lay small, white flakes like frost. The people looked at it and said, 'What is it?' for they did not know what it was. Moses said, 'This is the bread which the Lord hath given you to eat.' Every morning the manna came. It tasted sweet, like wafers made with honey. The people gathered just enough for each day, and on the sixth day they gathered twice as much so they could rest on the Sabbath. God gave them this bread from heaven every single day for forty years, until they came to the land He promised. For you: God gives enough for today. When you worry, remember His daily kindness—and thank Him for Jesus."
     },
     tenCommandments: {
       title: 'Ten Commandments',
@@ -1549,10 +1549,10 @@
       caption: 'Swipe to see God feed His people with bread from heaven! 🍞',
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
-      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'provide'],
-      kjvRef: 'Exodus 16',
-      kidContext: { who: 'God', to: 'Israel in the wilderness', apply: "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time." },
-      narration: "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost. It tasted like honey wafers! They called it manna. God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath. God provided every morning! For you: God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just enough, right when you need it."
+      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'wilderness', 'forty years', 'honey', 'wafers', 'provide'],
+      kjvRef: 'Exodus 16:1-36',
+      kidContext: { who: 'God', to: 'Israel in the wilderness', apply: "God rained bread from heaven every morning—small, sweet manna, enough for each day. He fed His people for forty years until they reached the land He promised. When you worry about tomorrow, trust Him; He still gives daily bread—and Jesus is the true bread of life." },
+      narration: "Manna from Heaven – Exodus 16:4-5, 13-15, 31. The children of Israel had been walking in the wilderness for many days. They were hungry and began to grumble. God heard them and spoke to Moses: 'Behold, I will rain bread from heaven for you. The people shall go out and gather a certain amount every day.' The next morning, when the dew was gone, there on the ground lay small, white flakes like frost. The people looked at it and said, 'What is it?' for they did not know what it was. Moses said, 'This is the bread which the Lord hath given you to eat.' Every morning the manna came. It tasted sweet, like wafers made with honey. The people gathered just enough for each day, and on the sixth day they gathered twice as much so they could rest on the Sabbath. God gave them this bread from heaven every single day for forty years, until they came to the land He promised. For you: God gives enough for today. When you worry, remember His daily kindness—and thank Him for Jesus."
     },
     tenCommandments: {
       title: 'Ten Commandments',

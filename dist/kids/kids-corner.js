@@ -2823,6 +2823,14 @@
     return COLORING_OUTLINES._default;
   }
 
+  /** After quiz: open inline coloring — loop-roadmap outline when mapped, else gentle shield default. */
+  function initColoringForLibraryKey(libraryKey, displayTitle) {
+    var map = window.TDB_LOOP_COLORING_OUTLINE || {};
+    var outlineKey = map[libraryKey] || '';
+    if (!outlineKey || !COLORING_OUTLINES[outlineKey]) outlineKey = '_default';
+    initColoringCanvas(outlineKey, displayTitle || libraryKey);
+  }
+
   /* ── Coloring canvas state ── */
   var coloringState = {
     open: false,
@@ -4178,16 +4186,26 @@
           done.appendChild(pr);
         }
         var colorSlug = tdbColoringSlugForLibraryKey(key);
+        var colorWrap = document.createElement('p');
+        colorWrap.className = 'kids-read-quiz-color-wrap';
+        var colorBtn = document.createElement('button');
+        colorBtn.type = 'button';
+        colorBtn.className = 'btn kids-btn-primary kids-read-quiz-color-link';
+        colorBtn.textContent = 'Color on this page';
+        colorBtn.addEventListener('click', function () {
+          var st = getStories()[key];
+          var t = st && st.title ? String(st.title) : key;
+          initColoringForLibraryKey(key, tdbPlainTextForUi(t));
+        });
+        colorWrap.appendChild(colorBtn);
         if (colorSlug) {
-          var colorWrap = document.createElement('p');
-          colorWrap.className = 'kids-read-quiz-color-wrap';
           var colorA = document.createElement('a');
           colorA.href = '/coloring.html?story=' + encodeURIComponent(colorSlug) + '&gentle=1&gentleStory=' + encodeURIComponent(key);
-          colorA.className = 'btn kids-btn-primary kids-read-quiz-color-link';
-          colorA.textContent = 'Color this story!';
+          colorA.className = 'btn btn-secondary kids-read-quiz-color-link';
+          colorA.textContent = 'Open Color & Tell (full story)';
           colorWrap.appendChild(colorA);
-          done.appendChild(colorWrap);
         }
+        done.appendChild(colorWrap);
         var loopWrap = document.createElement('p');
         loopWrap.className = 'kids-read-quiz-color-wrap';
         var loopA = document.createElement('a');

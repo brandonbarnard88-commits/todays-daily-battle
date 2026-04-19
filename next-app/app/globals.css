@@ -192,6 +192,12 @@ html[data-theme="sepia"] {
   .tdb-print-verse .tdb-print-breakdown-print dd {
     color: #222 !important;
   }
+  .tdb-print-family-band {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px dashed #888 !important;
+    background: #fafafa !important;
+  }
   @page {
     margin: 1.2cm;
   }

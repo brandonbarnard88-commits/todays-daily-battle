@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T22:28:21.185Z",
-  "surfacedRefCount": 2783,
-  "overrideCount": 2783,
+  "generatedAt": "2026-04-19T22:46:07.323Z",
+  "surfacedRefCount": 2785,
+  "overrideCount": 2785,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 150,
+      "refs": 151,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 168,
+      "refs": 169,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 148,
+      "refs": 149,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 170,
+      "refs": 171,
       "pairs": 0
     },
     "memorize.html": {
@@ -3298,6 +3298,8 @@
     "Ruth 2:8",
     "Ruth 3:1-18",
     "Ruth 3:11",
+    "Ruth 4:1-17",
+    "Ruth 4:11",
     "Ruth 4:13",
     "Ruth 4:14",
     "Ruth 4:18",
@@ -25658,6 +25660,22 @@
       "general": {
         "plainExplanation": "And now, my daughter, fear not; I will do to you all that you requirest: for all the city of my people does know that you art a virtuous woman.",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Ruth 4:1-17": {
+      "general": {
+        "plainExplanation": "Key idea: Then went Boaz up to the gate, and sat him down there: and, look, the kinsman of whom Boaz spake came by; to whom he said, Ho, such a one! turn aside, sit d...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Ruth 4:11": {
+      "general": {
+        "plainExplanation": "Key idea: And all the people that were in the gate, and the elders, said, We are witnesses. The LORD make the woman that is come into thine house like Rachel and like...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"
       }

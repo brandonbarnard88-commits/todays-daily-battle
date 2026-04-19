@@ -1244,6 +1244,31 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 3:11</text>'
       ),
 
+      /* Ruth's redemption at the gate — library ruthRedemption / loop 172 */
+      ruthRedemption: svg(
+        ground() + hills() +
+        sun(52, 50, 18) + cloud(300, 38) +
+        /* city gate */
+        '<rect x="292" y="128" width="9" height="120" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="354" y="128" width="9" height="120" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M292 128 Q323 102 363 128" ' + s + ' stroke-width="2.5" fill="none"/>' +
+        /* witnesses */
+        person(314, 176, 7, 18) + person(330, 174, 7, 18) +
+        /* Ruth and Boaz */
+        person(198, 160, 10, 30) +
+        person(242, 156, 11, 32) +
+        /* sandal (testimony) in Boaz's hand */
+        '<ellipse cx="224" cy="186" rx="11" ry="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M216 186 L232 186 M220 182 L228 190" ' + s + ' stroke-width="1.5"/>' +
+        /* Naomi with baby Obed */
+        '<ellipse cx="118" cy="230" rx="30" ry="17" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="118" cy="196" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M112 192 Q118 186 124 192" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="132" cy="214" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M128 210 Q132 206 136 210" ' + s + ' stroke-width="1.2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 4:11</text>'
+      ),
+
       /* ── Week 3: Samuel Call (43) ── */
       samuelCall: svg(
         '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
@@ -2906,6 +2931,8 @@
     ruthBoaz: 'ruthBoaz',
     ruthThreshing: 'ruthThreshing',
     ruthBoazNight: 'ruthThreshing',
+    ruthRedemption: 'ruthRedemption',
+    ruthBoazGate: 'ruthRedemption',
     samuelCall: 'samuelCall',
     davidHarp: 'davidHarp',
     davidSheep: 'davidHarp',
@@ -4669,7 +4696,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

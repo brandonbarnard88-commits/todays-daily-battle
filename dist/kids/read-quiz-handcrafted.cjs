@@ -3209,6 +3209,121 @@ function buildRuthThreshingReadQuiz() {
   };
 }
 
+/** Ruth's redemption at the gate — Ruth 4:1-17 (KJV); kinsman-redeemer, Obed, joy. */
+function buildRuthRedemptionReadQuiz() {
+  return {
+    kjvRef: 'Ruth 4:1-17 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'Then went Boaz up to the gate, and sat him down there: and, behold, the kinsman of whom Boaz spake came by; unto whom he said, Ho, such a one! turn aside, sit down here. And he turned aside, and sat down. And he took ten men of the elders of the city, and said, Sit ye down here. And they sat down.',
+        caption: 'At the gate — elders sit as witnesses',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'And he said unto the kinsman, Naomi, that is come again out of the country of Moab, selleth a parcel of land, which was our brother Elimelech\'s: And I thought to advertise thee, saying, Buy it before the inhabitants, and before the elders of my people. If thou wilt redeem it, redeem it: but if thou wilt not redeem it, then tell me, that I may know: for there is none to redeem it beside thee; and I am after thee. And he said, I will redeem it.',
+        caption: 'The field of Naomi — I will redeem it',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'Then said Boaz, What day thou buyest the field of the hand of Naomi, thou must buy it also of Ruth the Moabitess, the wife of the dead, to raise up the name of the dead upon his inheritance. And the kinsman said, I cannot redeem it for myself, lest I mar mine own inheritance: redeem thou my right to thyself; for I cannot redeem it.',
+        caption: 'The nearer kinsman cannot — redeem thou my right',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'Now this was the manner in former time in Israel concerning redeeming and concerning changing, for to confirm all things; a man plucked off his shoe, and gave it to his neighbour: and this was a testimony in Israel. Therefore the kinsman said unto Boaz, Buy it for thee. So he drew off his shoe.',
+        caption: 'The shoe — a testimony in Israel',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And Boaz said unto the elders, and unto all the people, Ye are witnesses this day, that I have bought all that was Elimelech\'s, and all that was Chilion\'s and Mahlon\'s, of the hand of Naomi. Moreover Ruth the Moabitess, the wife of Mahlon, have I purchased to be my wife, to raise up the name of the dead upon his inheritance, that the name of the dead be not cut off from among his brethren, and from the gate of his place: ye are witnesses this day.',
+        caption: 'Ye are witnesses — purchased to be my wife',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And all the people that were in the gate, and the elders, said, We are witnesses. The LORD make the woman that is come into thine house like Rachel and like Leah, which two did build the house of Israel: and do thou worthily in Ephratah, and be famous in Bethlehem: And let thy house be like the house of Pharez, whom Tamar bare unto Judah, of the seed which the LORD shall give thee of this young woman.',
+        caption: 'We are witnesses — the Lord make her like Rachel and Leah',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'So Boaz took Ruth, and she was his wife: and when he went in unto her, the LORD gave her conception, and she bare a son. And the women said unto Naomi, Blessed be the LORD, which hath not left thee this day without a kinsman, that his name may be famous in Israel. And he shall be unto thee a restorer of thy life, and a nourisher of thine old age: for thy daughter in law, which loveth thee, which is better to thee than seven sons, hath born him. And Naomi took the child, and laid it in her bosom, and became nurse unto it. And the women her neighbours gave it a name, saying, There is a son born to Naomi; and they called his name Obed: he is the father of Jesse, the father of David.',
+        caption: 'A son — Obed — joy for Naomi',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    paragraphs: [
+      'Boaz went up to the gate of the city and called the nearer kinsman. He told him about Naomi\'s land and Ruth. The nearer kinsman could not redeem it, so he gave up his right.',
+      'Then Boaz said to the elders and all the people, "Ye are witnesses this day that I have bought all that was Naomi\'s, and also Ruth the Moabitess, to be my wife."',
+      'The people blessed Boaz and said, "The Lord make the woman that is come into thine house like Rachel and like Leah… and be famous in Bethlehem."',
+      'Boaz took Ruth, and she became his wife. The Lord gave them a son, and they called his name Obed.',
+      'Obed became the father of Jesse, and Jesse the father of David.',
+      'Naomi took the child and laid him in her bosom, and the women said, "There is a son born to Naomi… and they called his name Obed: he is the father of Jesse, the father of David."',
+      'In this way God turned Naomi\'s sadness into joy and brought Ruth into the family of Israel.',
+      'For you: God keeps His promises — He cares for His people and gives a Redeemer.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Ruth 3:1', 'Ruth 4:1-17', 'Judges 7', 'Psalm 23'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: Ruth 4:1-17.)'
+      },
+      {
+        question: 'Where did Boaz speak with the kinsman and the elders?',
+        choices: ['In a far country.', 'At the gate of the city.', 'Only in a field.', 'Under the sea.'],
+        correctIndex: 1,
+        correctFeedback: 'Right — a public, honest place.',
+        wrongFeedback: 'Think city and witnesses. (Answer: At the gate….)'
+      },
+      {
+        question: 'What did Boaz say the people were?',
+        choices: ['Asleep.', 'Witnesses this day.', 'Angry.', 'Lost.'],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful — open and true.',
+        wrongFeedback: 'Listen for witnesses. (Answer: Ye are witnesses….)'
+      },
+      {
+        question: 'What was the baby\'s name?',
+        choices: ['Moses.', 'Obed.', 'Goliath.', 'Jonah.'],
+        correctIndex: 1,
+        correctFeedback: 'Yes — a gift from the Lord.',
+        wrongFeedback: 'Think Ruth 4. (Answer: Obed.)'
+      },
+      {
+        question: 'Who was Obed the father of?',
+        choices: ['Pharaoh.', 'Jesse.', 'Haman.', 'Nobody.'],
+        correctIndex: 1,
+        correctFeedback: 'Right — toward David\'s line.',
+        wrongFeedback: 'Think grandfather. (Answer: Jesse.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Ruth's Redemption with God's Word today.",
+    takeaway:
+      'Boaz kept his word at the gate; the Lord gave a son; Naomi\'s heart was filled with joy again.',
+    prayer:
+      'God, thank You for faithful promises and for Jesus our Redeemer. Thank You for turning sadness into joy. Amen.',
+    imagePrompts: [
+      'Simple joyful black-and-white line-art young children bold thick outlines large open spaces Boaz and Ruth standing happily at city gate elders and people watching kindly Boaz holds sandal sign of redemption foreground Naomi sitting smiling baby Obed in arms soft gate gentle sky warm thankful mood minimal plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Ye are witnesses (ruth 4)',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Drew off his shoe',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Like Rachel and Leah blessing',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Son born to Naomi Obed'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -3243,5 +3358,6 @@ module.exports = {
   samson: buildSamsonPillarsReadQuiz(),
   ruthNaomi: buildRuthNaomiReadQuiz(),
   ruthBoaz: buildRuthBoazReadQuiz(),
-  ruthThreshing: buildRuthThreshingReadQuiz()
+  ruthThreshing: buildRuthThreshingReadQuiz(),
+  ruthRedemption: buildRuthRedemptionReadQuiz()
 };

@@ -64,6 +64,7 @@
     'ruthNaomi',
     'ruthBoaz',
     'ruthThreshing',
+    'ruthRedemption',
     'ruthMoab',
     'ruthGlean',
     'hannahSamuel',

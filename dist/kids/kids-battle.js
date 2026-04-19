@@ -1641,6 +1641,51 @@
       narration:
         "Ruth at the Threshing Floor – Ruth 3:1-18. Naomi loved Ruth and wanted to find rest for her. She told Ruth what to do. That night, when Boaz had eaten and drunk and his heart was merry, he went to lie down at the end of the heap of corn; and Ruth came softly, uncovered his feet, and laid her down. At midnight the man was afraid, and turned: and, behold, a woman lay at his feet. He said, Who art thou? And she answered, I am Ruth thine handmaid: spread therefore thy skirt over thine handmaid; for thou art a near kinsman. He said, Blessed be thou of the LORD, my daughter… fear not; I will do to thee all that thou requirest: for all the city of my people doth know that thou art a virtuous woman. He gave her six measures of barley to carry to Naomi, and said that if the nearer kinsman would not do the part of a kinsman, he would. Ruth returned, and Naomi said, The man will not be in rest, until he have finished the thing this day. For you: When we trust God and obey kindly, He works redemption in His time."
     },
+    ruthRedemption: {
+      title: 'Ruth\'s Redemption (The Happy Ending)',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'At the city gate — Boaz, the nearer kinsman, and witnesses' },
+        { src: 'panel-david-2.svg', alt: 'Ye are witnesses — Boaz redeems Naomi\'s line and takes Ruth as his wife' },
+        { src: 'panel-david-3.svg', alt: 'Naomi holds baby Obed — joy where sorrow had been' }
+      ],
+      caption: 'Swipe to see God\'s faithful happy ending at the gate.',
+      videoId: 'irThVpdeSXk',
+      videoTitle: "God's Story: Ruth – Bible Story for Kids!",
+      keywords: [
+        'ruth',
+        'ruth 4',
+        'boaz',
+        'naomi',
+        'obed',
+        'jesse',
+        'david',
+        'gate',
+        'redeem',
+        'redeemer',
+        'kinsman',
+        'witnesses',
+        'sandal',
+        'shoe',
+        'bethlehem',
+        'moabitess',
+        'rachel',
+        'leah',
+        'ephraah',
+        'restorer',
+        'nourisher',
+        'joy',
+        'faithful'
+      ],
+      kjvRef: 'Ruth 4:1-17',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Naomi, Ruth, Boaz — and every heart that needs hope',
+        apply:
+          "At the gate, Boaz kept his word as kinsman-redeemer. The Lord gave a son; Naomi's arms were filled again. God turns sorrow into joy and weaves faithful love into His bigger story."
+      },
+      narration:
+        "Ruth's Redemption – Ruth 4:1-17. Boaz went up to the gate and sat down; the nearer kinsman came, and Boaz called ten elders to sit. He spoke of Naomi's land and of redeeming it; the kinsman first said he would redeem, but when he heard he must also take Ruth the Moabitess to raise up the name of the dead upon his inheritance, he could not — and plucked off his shoe and gave his right to Boaz. Boaz said to the elders and all the people, Ye are witnesses this day, that I have bought all that was Elimelech's, and all that was Chilion's and Mahlon's, of the hand of Naomi. Moreover Ruth the Moabitess, the wife of Mahlon, have I purchased to be my wife. The people blessed him and prayed the Lord would make her like Rachel and like Leah, and be famous in Bethlehem. So Boaz took Ruth, and she bare a son. The women blessed Naomi and said the child would be a restorer of her life; Naomi took the child and laid him in her bosom. They called his name Obed: he is the father of Jesse, the father of David. For you: God keeps His promises — He cares for His people and gives a Redeemer."
+    },
     parableTalents: {
       title: 'Parable of Talents',
       panels: [
@@ -5196,7 +5241,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 289, color: '#e5e4e2' }
+      { name: 'Platinum', min: 290, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5295,7 +5340,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5303,7 +5348,7 @@
       'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
-      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samson',
+      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samson',
       'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
       'saulSpear', 'davidCave',
       'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
@@ -5572,11 +5617,16 @@
       return { type: 'carousel', story: 'ruthNaomi' };
     }
     if (
+      /ruth 4:|^ruth 4\b|ruth 4 |\bobed\b|father of jesse|father of david|jesse.*david|david.*jesse|there is a son born to naomi|laid it in her bosom|nourisher of thine old age|restorer of thy life|like rachel and like leah|ye are witnesses this day.*bought|bought all that was elimelech|purchased to be my wife|drew off his shoe|plucked off his shoe|cannot redeem it for myself|raise up the name of the dead upon his inheritance/.test(low)
+    ) {
+      return { type: 'carousel', story: 'ruthRedemption' };
+    }
+    if (
       /ruth 3:|^ruth 3\b|ruth 3 |threshing|heap of corn|spread therefore thy skirt|spread thy skirt|who art thou|virtuous woman|six measures|lodging place|tarry this night|perform the part of a kinsman|nearer kinsman|will not be in rest/.test(low)
     ) {
       return { type: 'carousel', story: 'ruthThreshing' };
     }
-    if (/naomi/.test(low) && !/boaz/.test(low) && !/glean|harvest|barley|ephah|reap|field.*ruth|threshing|skirt|kinsman.*redeem|redeemer/.test(low)) {
+    if (/naomi/.test(low) && !/boaz/.test(low) && !/glean|harvest|barley|ephah|reap|field.*ruth|threshing|skirt|kinsman.*redeem|redeemer|\bobed\b|jesse|david|ruth 4|gate.*witness|witnesses this day/.test(low)) {
       return { type: 'carousel', story: 'ruthNaomi' };
     }
     if (
@@ -8107,7 +8157,7 @@
     jesusTemptation: 'Obedience', parableSower: 'Protection', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
-    ruthBoaz: 'Love', ruthThreshing: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',
+    ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',
     /* Week 1 */
     mosesSea: 'Miracles', burningBush: 'Obedience', tenPlagues: 'Miracles', naamanDip: 'Obedience',
     creationLight: 'Miracles', elijahFire: 'Miracles', elishaOil: 'Miracles', towerBabel: 'Obedience',

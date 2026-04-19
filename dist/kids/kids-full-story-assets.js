@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (289 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (290 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -1251,6 +1251,11 @@
       mp4: '/media/kids-stories/ruth-naomi.mp4',
       webm: '/media/kids-stories/ruth-naomi.webm',
       captionsVtt: '/media/kids-stories/ruth-naomi.vtt'
+    },
+    ruthRedemption: {
+      mp4: '/media/kids-stories/ruth-redemption.mp4',
+      webm: '/media/kids-stories/ruth-redemption.webm',
+      captionsVtt: '/media/kids-stories/ruth-redemption.vtt'
     },
     ruthThreshing: {
       mp4: '/media/kids-stories/ruth-threshing.mp4',

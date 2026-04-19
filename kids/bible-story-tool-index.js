@@ -2107,6 +2107,16 @@
     "kw": "ruth naomi moab ruth 2 loyal wherever field faithful"
   },
   {
+    "key": "ruthRedemption",
+    "title": "Ruth's Redemption (The Happy Ending)",
+    "kjvRef": "Ruth 4:1-17",
+    "who": "The Lord",
+    "to": "Naomi, Ruth, Boaz — and every heart that needs hope",
+    "apply": "At the gate, Boaz kept his word as kinsman-redeemer. The Lord gave a son; Naomi's arms were filled again. God turns sorrow into joy and weaves faithful love into His bigger story.",
+    "theme": "Love",
+    "kw": "ruth ruth 4 boaz naomi obed jesse david gate redeem redeemer kinsman witnesses sandal shoe bethlehem moabitess rachel leah ephraah restorer nourisher joy faithful"
+  },
+  {
     "key": "samsonDelilah",
     "title": "Samson and Delilah",
     "kjvRef": "Judges 16:4-21",

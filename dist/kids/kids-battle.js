@@ -882,6 +882,38 @@
       narration:
         "The Bronze Serpent – Numbers 21:4-9. The children of Israel grew tired and discouraged on their long journey through the wilderness. They spoke against God and against Moses. So the Lord sent fiery serpents among the people, and the serpents bit them. Many people died. The people came to Moses and said, 'We have sinned, for we have spoken against the Lord, and against thee. Pray unto the Lord, that he take away the serpents from us.' Moses prayed for the people. And the Lord said unto Moses, 'Make thee a fiery serpent, and set it upon a pole: and it shall come to pass, that every one that is bitten, when he looketh upon it, shall live.' Moses made a serpent of brass and put it upon a pole. And it came to pass, that if a serpent had bitten any man, when he beheld the serpent of brass, he lived. For you: God is merciful when we turn back. Look to Jesus—He is the way to live forever."
     },
+    tabernacle: {
+      title: 'The Tabernacle',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'God\'s special tent in the camp — a place for His presence' },
+        { src: 'panel-david-2.svg', alt: 'Glad gifts and skilled hands — building what God commanded' },
+        { src: 'panel-david-3.svg', alt: 'Cloud and glory — the Lord dwells with His people' }
+      ],
+      caption: 'Swipe to see God come close to His people in the tabernacle! ⛺',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'tabernacle',
+        'tent',
+        'exodus 40',
+        'moses',
+        'glory',
+        'cloud',
+        'covenant',
+        'ark',
+        'dwell',
+        'wilderness'
+      ],
+      kjvRef: 'Exodus 40:1-38',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Israel through Moses',
+        apply:
+          "God told Moses how to build the tabernacle—His house in the middle of the camp. When it was finished, His glory filled it: cloud by day, fire by night. He stayed with His people on the journey. God still wants to be near us; Jesus is 'God with us'—draw near to Him in prayer."
+      },
+      narration:
+        "The Tabernacle – Exodus 40:34-38. God told Moses exactly how to build a special tent called the tabernacle. It would be God's house in the middle of the camp so He could dwell with His people. The people brought gifts with glad hearts—gold, silver, fine cloth, wood, and more. Skilled workers made the curtains, the altar, the lampstand, the table, and the beautiful ark of the covenant. When everything was finished just as God commanded, Moses set up the tabernacle. He put the furniture in its place and hung the veil. Then a cloud covered the tent of the congregation, and the glory of the Lord filled the tabernacle. The cloud stayed over the tabernacle by day, and fire was on it by night. When the cloud moved, the people followed. When the cloud stayed, they rested. In this way the Lord was with His people everywhere they went. For you: God loves to be near His people—thank Him, and come to Jesus."
+    },
     spiesInCanaan: {
       title: 'Spies in Canaan',
       panels: [
@@ -4793,7 +4825,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 282, color: '#e5e4e2' }
+      { name: 'Platinum', min: 283, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -7612,7 +7644,7 @@
   var STORY_THEMES = {
     david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
     adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection', josephSold: 'Protection',
-    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', bronzeSerpent: 'Miracles', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
+    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', bronzeSerpent: 'Miracles', tabernacle: 'Love', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
     fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',

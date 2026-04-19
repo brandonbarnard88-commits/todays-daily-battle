@@ -977,6 +977,133 @@ function buildBronzeSerpentReadQuiz() {
   };
 }
 
+/** Tabernacle — read-along + quiz (Exodus 40:34-38; card may show 40:1-38). */
+function buildTabernacleReadQuiz() {
+  return {
+    kjvRef: 'Exodus 40:34-38 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'God told Moses exactly how to build a special tent called the tabernacle. It would be God\'s house in the middle of the camp so He could dwell with His people.',
+        caption: 'God\'s tent in the camp',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'The people brought gifts with glad hearts — gold, silver, fine cloth, wood, and more. Skilled workers made the curtains, the altar, the lampstand, the table, and the beautiful ark of the covenant.',
+        caption: 'Glad gifts and careful work',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'When everything was finished just as God commanded, Moses set up the tabernacle. He put the furniture in its place and hung the veil.',
+        caption: 'Moses finishes the setup',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'Then a cloud covered the tent of the congregation, and the glory of the Lord filled the tabernacle.',
+        caption: 'Glory fills the tent',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'The cloud stayed over the tabernacle by day, and fire was on it by night. When the cloud moved, the people followed. When the cloud stayed, they rested.',
+        caption: 'Cloud by day, fire by night',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text: 'In this way the Lord was with His people everywhere they went.',
+        caption: 'God with His people',
+        image: 'panel-david-1.svg'
+      }
+    ],
+    paragraphs: [
+      'God told Moses exactly how to build a special tent called the tabernacle. It would be God\'s house in the middle of the camp so He could dwell with His people.',
+      'The people brought gifts with glad hearts — gold, silver, fine cloth, wood, and more. Skilled workers made the curtains, the altar, the lampstand, the table, and the beautiful ark of the covenant.',
+      'When everything was finished just as God commanded, Moses set up the tabernacle. He put the furniture in its place and hung the veil.',
+      'Then a cloud covered the tent of the congregation, and the glory of the Lord filled the tabernacle.',
+      'The cloud stayed over the tabernacle by day, and fire was on it by night. When the cloud moved, the people followed. When the cloud stayed, they rested.',
+      'In this way the Lord was with His people everywhere they went.',
+      'For you: God wanted to be close to His people—and He still draws near to everyone who trusts Him. Jesus is Immanuel: God with us.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Genesis 1:1', 'Exodus 40:34-38', 'John 3:16'],
+        correctIndex: 2,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the first paragraph\'s Bible note. (Answer: Exodus 40:34-38.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['Nobody', 'Only sheep', 'The Lord and Moses', 'Pharaoh only'],
+        correctIndex: 2,
+        correctFeedback: 'Right—keep that person (or group) in mind as you think about God.',
+        wrongFeedback:
+          'Look for who the story follows first—names in the title often help. (Answer: The Lord and Moses.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never wants to be near His people.',
+          'The Bible is only pretend stories.',
+          'We should hide from God when we mess up.',
+          'God filled the tabernacle with His glory—He stayed close to His people day and night.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the “For you” heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God filled the tabernacle….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed on the tent.',
+          'A cloud covered the tent and the glory of the Lord filled the tabernacle.',
+          'A talking toaster became high priest.',
+          'Everyone decided to never sleep again.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.',
+          'Thank God that He draws near—and welcome Jesus, who is God with us.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Thank God… welcome Jesus….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading The Tabernacle with God's Word today.",
+    takeaway:
+      'God\'s glory filled the finished tabernacle—cloud by day, fire by night—so His people knew He was with them.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You want to be with Your people. Help me draw near to You through Jesus. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, joyful holy protected mood, no overwhelming detail, no text in image: completed tabernacle tent in middle of wilderness camp with beautiful curtains and open entrance, gentle cloud resting above tabernacle with soft rays of glory downward, few children of Israel nearby with calm happy faces looking at cloud, soft desert hills minimal background, plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People bring gifts for the tabernacle (exodus 35-39)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses sets up the tent of meeting',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Glory cloud fills the tabernacle (exodus 40)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Cloud by day fire by night above God\'s tent'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -989,5 +1116,6 @@ module.exports = {
   manna: buildMannaReadQuiz(),
   tenCommandments: buildTenCommandmentsReadQuiz(),
   goldenCalf: buildGoldenCalfReadQuiz(),
-  bronzeSerpent: buildBronzeSerpentReadQuiz()
+  bronzeSerpent: buildBronzeSerpentReadQuiz(),
+  tabernacle: buildTabernacleReadQuiz()
 };

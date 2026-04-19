@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T18:50:27.185Z",
-  "surfacedRefCount": 2756,
-  "overrideCount": 2756,
+  "generatedAt": "2026-04-19T19:04:28.247Z",
+  "surfacedRefCount": 2758,
+  "overrideCount": 2758,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 132,
+      "refs": 133,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 149,
+      "refs": 151,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 134,
+      "refs": 135,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 159,
+      "refs": 160,
       "pairs": 0
     },
     "memorize.html": {
@@ -1349,7 +1349,9 @@
     "Exodus 3:2",
     "Exodus 3:4",
     "Exodus 3:5",
+    "Exodus 40:1-38",
     "Exodus 40:34",
+    "Exodus 40:34-38",
     "Exodus 4:11",
     "Exodus 4:14",
     "Exodus 4:22",
@@ -10043,9 +10045,25 @@
         "to": "Israel"
       }
     },
+    "Exodus 40:1-38": {
+      "general": {
+        "plainExplanation": "Key idea: And the LORD spake to Moses, saying, On the first day of the first month shalt you set up the tabernacle of the tent of the congregation. And you shalt put...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
     "Exodus 40:34": {
       "general": {
         "plainExplanation": "Then a cloud covered the tent of the congregation, and the glory of the LORD filled the tabernacle.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Exodus 40:34-38": {
+      "general": {
+        "plainExplanation": "Key idea: Then a cloud covered the tent of the congregation, and the glory of the LORD filled the tabernacle. And Moses was not able to enter into the tent of the con...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"

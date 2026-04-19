@@ -38,6 +38,7 @@
     'tenCommandments',
     'goldenCalf',
     'bronzeSerpent',
+    'tabernacle',
     'spiesInCanaan',
     'balaamDonkey',
     'balaakCurse',

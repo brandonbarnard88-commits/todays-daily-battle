@@ -586,6 +586,32 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 16:15</text>'
       ),
 
+      /* Tabernacle — God dwells with His people (Exodus 40) */
+      tabernacle: svg(
+        ground() +
+        hills() +
+        /* tent body */
+        '<path d="M128 248 L128 182 L200 128 L272 182 L272 248 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* curtain stripes */
+        '<line x1="148" y1="182" x2="148" y2="248" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="168" y1="182" x2="168" y2="248" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="232" y1="182" x2="232" y2="248" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="252" y1="182" x2="252" y2="248" ' + s + ' stroke-width="1.8"/>' +
+        /* open entrance */
+        '<path d="M188 248 L188 182 Q200 172 212 182 L212 248" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        /* glory cloud above */
+        cloud(142, 38) +
+        '<line x1="200" y1="95" x2="200" y2="120" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        '<line x1="182" y1="100" x2="172" y2="118" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        '<line x1="218" y1="100" x2="228" y2="118" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        /* gentle hint of fire by night */
+        '<path d="M248 150 Q256 132 250 124 Q244 138 248 150" ' + s + ' stroke-width="2"/>' +
+        person(88, 198, 10, 28) +
+        person(312, 198, 10, 28) +
+        person(200, 218, 9, 24) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 40:34</text>'
+      ),
+
       /* ── Week 1: Ten Commandments (17) ── */
       tenCommandments: svg(
         '<path d="M60 250 L60 90 Q200 30 340 90 L340 250" ' + sf + ' fill="white" stroke-width="3"/>' +

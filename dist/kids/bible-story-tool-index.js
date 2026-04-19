@@ -2607,6 +2607,16 @@
     "kw": "armor sword word ephesians 6 scripture spirit fight"
   },
   {
+    "key": "tabernacle",
+    "title": "The Tabernacle",
+    "kjvRef": "Exodus 40:1-38",
+    "who": "The Lord",
+    "to": "Israel through Moses",
+    "apply": "God told Moses how to build the tabernacle—His house in the middle of the camp. When it was finished, His glory filled it: cloud by day, fire by night. He stayed with His people on the journey. God still wants to be near us; Jesus is 'God with us'—draw near to Him in prayer.",
+    "theme": "Love",
+    "kw": "tabernacle tent exodus 40 moses glory cloud covenant ark dwell wilderness"
+  },
+  {
     "key": "tenVirgins",
     "title": "The Ten Virgins",
     "kjvRef": "Matthew 25",

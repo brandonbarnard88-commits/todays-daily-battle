@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
+import { TDBVerseBreakdown } from "@/components/tdb-verse-breakdown";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
 import { dailyVerse, verseEchoPrompts } from "@/lib/daily-verse";
@@ -184,6 +185,7 @@ export default function PrayerWallPage() {
                     <Button type="button" variant="secondary" size="sm" onClick={appendVerseEcho}>
                       Insert verse snippet into draft
                     </Button>
+                    <TDBVerseBreakdown className="mt-4 border-border/50" verse={dailyVerse} />
                   </CardContent>
                 </TDBCard>
 

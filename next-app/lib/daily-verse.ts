@@ -10,19 +10,24 @@ export const CANON_VERSION = typeof meta?.version === "number" ? meta.version : 
 export const CANON_UPDATED_AT =
   typeof meta?.updatedAt === "string" && meta.updatedAt.length > 0 ? meta.updatedAt : "";
 
+export type TdbAudience = "kid" | "teen" | "adult";
+
+/** Five calm breakdown fields — KJV text stays separate; this is all helper copy. */
+export type VerseBreakdownFields = {
+  speaker: string;
+  audience: string;
+  relatesToToday: string;
+  relatesToYou: string;
+  realTalk: string;
+};
+
+export type ByAudienceOverrides = Partial<Pick<VerseBreakdownFields, "relatesToToday" | "relatesToYou" | "realTalk">>;
+
 export type CanonVerse = {
   reference: string;
   text: string;
-  breakdown: {
-    speaker: string;
-    audience: string;
-    plain: string;
-  };
-  byAudience: {
-    kid: string;
-    teen: string;
-    adult: string;
-  };
+  breakdown: VerseBreakdownFields;
+  byAudience: Record<TdbAudience, ByAudienceOverrides>;
   verseEchoPrompts?: readonly string[];
 };
 

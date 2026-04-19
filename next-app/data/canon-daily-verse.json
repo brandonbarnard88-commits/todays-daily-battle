@@ -1,41 +1,102 @@
 {
   "_meta": {
     "description": "Canonical daily verse for this Next.js app — bump version when today or catalog changes; keep KJV text exact. For static-site parity, mirror into root script.js ROTATING_HERO_VERSES / daily pickers when you change pilot day.",
-    "version": 1,
+    "version": 2,
     "updatedAt": "2026-04-19T00:00:00.000Z"
   },
   "today": {
-    "reference": "Isaiah 40:31",
-    "text": "But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not be faint.",
+    "reference": "Isaiah 54:10",
+    "text": "For the mountains shall depart, and the hills be removed; but my kindness shall not depart from thee, neither shall the covenant of my peace be removed, saith the LORD that hath mercy on thee.",
     "breakdown": {
-      "speaker": "Isaiah, speaking God’s word",
-      "audience": "God’s people in exhaustion and exile — anyone whose strength has run out",
-      "plain": "When we wait on the Lord instead of rushing our own fix, He renews us. We can keep going — not by sheer willpower, but by His strength."
+      "speaker": "The Lord God, spoken through the prophet Isaiah",
+      "audience": "Jerusalem — God’s people who felt abandoned, afraid He’d walk away",
+      "relatesToToday": "In 2026 everything still feels shaky: jobs, health, headlines, your own mood. This verse says the stuff that looks permanent can move — but God’s kindness and His peace-deal with you don’t.",
+      "relatesToYou": "If you’re braced for the other shoe to drop, this is God locking eyes with you: I’m not leaving. Your peace isn’t a mood you have to manufacture; it’s tied to Him.",
+      "realTalk": "Mountains are the big, unmovable things in your head. God says even those can shift — and He still won’t budge on caring for you. That’s the whole point."
     },
     "byAudience": {
-      "kid": "When we slow down and trust God instead of panicking, He helps our hearts feel strong again — like we can keep going.",
-      "teen": "If you feel burned out or behind, this verse says strength comes from waiting on God — not from forcing everything yourself.",
-      "adult": "When the day is long and your tank is empty, God invites you to wait on Him. That kind of waiting is active trust — and He meets you with endurance."
+      "kid": {
+        "relatesToToday": "Sometimes big things feel scary or confusing. This verse says God’s love for you stays put even when stuff changes.",
+        "relatesToYou": "God is kind like someone who stays with you on a hard day — He doesn’t walk off because you had a meltdown or a bad grade.",
+        "realTalk": "Even when things move around you, God’s kindness doesn’t pack up and leave. He keeps His promise to be your peace."
+      },
+      "teen": {
+        "relatesToToday": "When life feels unstable — family, friends, future — this verse says what’s true about God doesn’t depend on your circumstances staying perfect.",
+        "relatesToYou": "If you’re waiting for the next thing to go wrong, God says His care isn’t a temporary vibe. It’s covenant-level faithful.",
+        "realTalk": "The big stuff in life can shift. God’s commitment to you and His peace doesn’t. That’s what you can actually lean on."
+      },
+      "adult": {
+        "relatesToToday": "When you’re running on fumes — night shift, grief, little kids, bills — the world keeps rearranging. This line grounds you: God’s kindness and the peace He gives aren’t tied to things holding still.",
+        "relatesToYou": "You don’t have to earn His steadiness. Mercy is in the sentence on purpose — He’s not waiting for you to get it together before He stays.",
+        "realTalk": "It’s plain: landscapes can change; God’s kindness toward you doesn’t. That’s bedrock when your Tuesday is a mess."
+      }
     },
     "verseEchoPrompts": [
-      "Lord, renew my strength today — I wait on You.",
-      "Teach me what it means to wait on You, not rush my own fix.",
-      "Thank You for patience with me when I am weary."
+      "Lord, when everything feels unstable, hold me in Your kindness.",
+      "Thank You that Your peace isn’t something I have to muscle up.",
+      "Teach me to rest in the covenant You keep — not in my circumstances."
     ]
   },
   "catalog": [
     {
+      "reference": "Isaiah 40:31",
+      "text": "But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not be faint.",
+      "breakdown": {
+        "speaker": "The Lord God, through the prophet Isaiah",
+        "audience": "A weary people — exiles who felt finished, and anyone whose strength has run out",
+        "relatesToToday": "We live wired for hurry: notifications, shifts that don’t end, kids who need you before you’ve had coffee. This verse names a different source of fuel — not grit alone, but waiting on God on purpose.",
+        "relatesToYou": "You’re not weak because you’re tired. God offers renewal when you stop pretending you can white-knuckle everything and actually look to Him for the next step.",
+        "realTalk": "Waiting here isn’t sitting and doing nothing. It’s leaning on God instead of your own panic. When you do, He trades your empty tank for strength that lasts the long day."
+      },
+      "byAudience": {
+        "kid": {
+          "relatesToToday": "Sometimes you feel too tired to keep going. God says people who trust Him get new strength — like wings to keep moving.",
+          "relatesToYou": "When school or feelings wear you out, God helps you not give up — not because you’re perfect, but because you look to Him.",
+          "realTalk": "Trusting God when you’re worn out is like asking Him to refill you. He gives strength for the next step."
+        },
+        "teen": {
+          "relatesToToday": "Burnout isn’t just for adults. When you’re overloaded, this verse says strength comes from waiting on God — not from forcing everything yourself.",
+          "relatesToYou": "If you’re running on empty, God isn’t judging your limits. He invites you to rely on Him and catch your breath for real.",
+          "realTalk": "“Wait on the Lord” means hang your weight on Him instead of on your own nerves. That’s how strength comes back."
+        },
+        "adult": {
+          "relatesToToday": "In 2026 the grind is real: caregiving, grief, night work, anxiety that won’t clock out. This verse doesn’t shame your weariness — it points you to God as the one who renews.",
+          "relatesToYou": "You don’t have to mount up like an eagle every morning on your own. One honest “I need You” counts as waiting on Him.",
+          "realTalk": "Plain and simple: stop, look to God, let Him strengthen you. Then you can walk the next hour without collapsing."
+        }
+      },
+      "verseEchoPrompts": [
+        "Lord, renew my strength today — I wait on You.",
+        "Teach me what it means to wait on You, not rush my own fix.",
+        "Thank You for patience with me when I am weary."
+      ]
+    },
+    {
       "reference": "Philippians 4:6-7",
       "text": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
       "breakdown": {
-        "speaker": "Paul, writing to the church at Philippi",
-        "audience": "Believers learning to rejoice under pressure",
-        "plain": "Instead of spiraling in worry, we bring everything to God with prayer and thanks — and His peace guards what we cannot."
+        "speaker": "Paul, writing by the Spirit to believers",
+        "audience": "The church at Philippi — ordinary people learning joy under real pressure",
+        "relatesToToday": "Anxiety is the background noise of modern life — inboxes, health alerts, money, kids. Paul doesn’t say “pretend you’re fine.” He says bring it to God, with thanks mixed in, and let His peace stand guard.",
+        "relatesToYou": "Your mind doesn’t have to be a hostile place. Peace here is God’s own calm standing watch over what you cannot argue into silence.",
+        "realTalk": "Don’t spin alone. Tell God what you need, say thank you for what He’s already done, and His peace — the kind you can’t explain — starts guarding your head and heart."
       },
       "byAudience": {
-        "kid": "God wants you to tell Him what worries you and say thank you too — then He helps your heart feel quiet inside.",
-        "teen": "Anxiety is heavy, but this verse says: pray honestly, add thanks, and let God’s peace stand guard over your mind.",
-        "adult": "When your mind races, God invites specific requests plus gratitude — not performance, just honest conversation — and His peace does the guarding."
+        "kid": {
+          "relatesToToday": "When worries bounce in your head, God wants you to talk to Him and say thank you too — not fake happy, just honest.",
+          "relatesToYou": "You can tell God what scares you. He listens, and He helps your inside feel safer.",
+          "realTalk": "Prayer is telling God what’s wrong and remembering what’s good. He gives peace like a guard for your thoughts."
+        },
+        "teen": {
+          "relatesToToday": "School, friends, family, future — it piles up. This verse says swap endless looping for prayer plus gratitude, and God’s peace takes post in your mind.",
+          "relatesToYou": "You don’t have to win the argument in your head before you come to God. Bring the mess; He meets you there.",
+          "realTalk": "Honest requests + thanks = room for God’s peace to stand guard. You’re not weak for needing that."
+        },
+        "adult": {
+          "relatesToToday": "When your mind races at 2 AM or your chest tightens over bills, this is a kitchen-table practice: name the worry, hand it up, fold in thanks, and let God’s peace do security detail.",
+          "relatesToYou": "You’re not failing if you need help with your thoughts. This is God doing what you cannot — keeping you through Christ.",
+          "realTalk": "No performance. Just prayer, specifics, gratitude, and peace that outranks what you can figure out alone."
+        }
       },
       "verseEchoPrompts": [
         "Lord, I bring my worry to You — thank You for hearing me.",
@@ -46,14 +107,28 @@
       "reference": "Matthew 11:28",
       "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
       "breakdown": {
-        "speaker": "Jesus",
-        "audience": "Anyone weary, carrying more than they can hold",
-        "plain": "Jesus doesn’t ask you to fix yourself first — He asks you to come as you are, and He gives rest."
+        "speaker": "Jesus Christ",
+        "audience": "Anyone who is tired — soul-tired, body-tired, tired of trying to hold it all",
+        "relatesToToday": "We wear busyness like a badge and wonder why we’re hollow. Jesus cuts through: come as you are, not after you’ve fixed the spreadsheet of your life.",
+        "relatesToYou": "Rest isn’t reward for being strong enough. It’s what He gives when you stop performing and actually come to Him.",
+        "realTalk": "If you’re carrying more than you can hold, Jesus says come. No prerequisites. He gives real rest — not collapse, not numbness, but His kind of relief."
       },
       "byAudience": {
-        "kid": "Jesus says come to Him when you feel tired or worried — He helps your heart rest.",
-        "teen": "If you’re exhausted from trying to hold it all, Jesus invites you to come to Him for real rest — not fake calm.",
-        "adult": "Weariness isn’t failure here — it’s an invitation to come to Jesus and receive rest you couldn’t manufacture."
+        "kid": {
+          "relatesToToday": "When you feel worried or worn out, Jesus says come to Him and He helps you rest inside.",
+          "relatesToYou": "You don’t have to be big and brave first. Jesus wants you to come to Him exactly as you are.",
+          "realTalk": "Tired kids still get to come to Jesus. He gives rest — like a deep breath for your heart."
+        },
+        "teen": {
+          "relatesToToday": "Pressure to measure up is loud. Jesus invites you before you’ve got it all sorted — and He gives rest that isn’t fake chill.",
+          "relatesToYou": "You don’t have to earn a break from Him. Show up honest, and He meets you.",
+          "realTalk": "“Come” is the whole move. Heavy laden counts as qualified. He handles the rest part."
+        },
+        "adult": {
+          "relatesToToday": "Parenting, grief, shift work, anxiety — the load is real. Jesus isn’t asking you to tidy up first; He asks you to come and receive rest you can’t manufacture.",
+          "relatesToYou": "Weariness isn’t shameful here. It’s the very reason for the invitation.",
+          "realTalk": "Stop trying to carry alone what was never meant to be solo. Come to Jesus; He gives rest."
+        }
       },
       "verseEchoPrompts": [
         "Jesus, I come as I am — give me Your rest.",

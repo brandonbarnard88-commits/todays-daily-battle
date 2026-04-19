@@ -6,10 +6,17 @@ import { useCallback, useEffect, useState } from "react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { TDBVerseBreakdown } from "@/components/tdb-verse-breakdown";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
+import { CANON_VERSION, resolveVerseByRef, type CanonVerse } from "@/lib/daily-verse";
 import { cn } from "@/lib/utils";
-import { deleteSavedVerseById, exportSavedVersesJson, getAllSavedVerses, type SavedVerseRow } from "@/lib/tdb-study-db";
+import {
+  deleteSavedVerseById,
+  exportSavedVersesJson,
+  getAllSavedVerses,
+  type SavedVerseRow,
+} from "@/lib/tdb-study-db";
 
 function formatWhen(iso: string) {
   try {
@@ -20,6 +27,18 @@ function formatWhen(iso: string) {
   } catch {
     return iso;
   }
+}
+
+function verseForSavedRow(r: SavedVerseRow): CanonVerse {
+  const { verse } = resolveVerseByRef(r.reference);
+  if (!r.snapshot) return verse;
+  return {
+    reference: r.reference,
+    text: r.snapshot.text,
+    breakdown: r.snapshot.merged,
+    byAudience: { kid: {}, teen: {}, adult: {} },
+    verseEchoPrompts: verse.verseEchoPrompts,
+  };
 }
 
 export default function MyStudyPage() {
@@ -96,27 +115,54 @@ export default function MyStudyPage() {
               </p>
             ) : (
               <ul className="space-y-4">
-                {rows.map((r, i) => (
-                  <li
-                    key={`${r.reference}-${r.savedAt}-${r.id ?? i}`}
-                    className="flex flex-col gap-2 rounded-lg border border-border/60 bg-muted/20 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
-                  >
-                    <div>
-                      <p className="font-heading text-base font-medium text-foreground">{r.reference}</p>
-                      <p className="text-xs text-muted-foreground">
-                        {formatWhen(r.savedAt)}
-                        {r.source ? ` · ${r.source}` : ""}
-                      </p>
-                    </div>
-                    {typeof r.id === "number" ? (
-                      <Button type="button" variant="ghost" size="sm" onClick={() => void handleDelete(r.id)}>
-                        Remove
-                      </Button>
-                    ) : (
-                      <span className="text-xs text-muted-foreground">Stored in backup storage — clear home saves to reset.</span>
-                    )}
-                  </li>
-                ))}
+                {rows.map((r, i) => {
+                  const v = verseForSavedRow(r);
+                  const snapStale = r.snapshot && r.snapshot.canonVersion !== CANON_VERSION;
+                  return (
+                    <li
+                      key={`${r.reference}-${r.savedAt}-${r.id ?? i}`}
+                      className="rounded-lg border border-border/60 bg-muted/20 px-4 py-3"
+                    >
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <p className="font-heading text-base font-medium text-foreground">{r.reference}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {formatWhen(r.savedAt)}
+                            {r.source ? ` · ${r.source}` : ""}
+                            {r.snapshot ? ` · saved as ${r.snapshot.tier}` : ""}
+                          </p>
+                          {snapStale ? (
+                            <p className="mt-1 text-xs text-muted-foreground">
+                              Gentle notes may predate the latest site update — still your copy.
+                            </p>
+                          ) : null}
+                        </div>
+                        {typeof r.id === "number" ? (
+                          <Button type="button" variant="ghost" size="sm" onClick={() => void handleDelete(r.id)}>
+                            Remove
+                          </Button>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">Stored in backup storage — clear home saves to reset.</span>
+                        )}
+                      </div>
+                      <details className="tdb-no-print mt-3 rounded-md border border-border/50 bg-background/40">
+                        <summary className="cursor-pointer select-none px-3 py-2 text-sm font-medium text-foreground">
+                          Verse &amp; gentle breakdown
+                        </summary>
+                        <div className="border-t border-border/40 px-3 py-3">
+                          <blockquote className="mb-4 border-l-[3px] border-primary/35 pl-3 font-heading text-sm leading-relaxed text-foreground">
+                            {v.text}
+                          </blockquote>
+                          <TDBVerseBreakdown
+                            verse={v}
+                            showAudienceTabs={!r.snapshot}
+                            frozenBreakdown={r.snapshot ? r.snapshot.merged : undefined}
+                          />
+                        </div>
+                      </details>
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </CardContent>

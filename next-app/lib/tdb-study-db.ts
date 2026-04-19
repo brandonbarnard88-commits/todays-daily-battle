@@ -3,17 +3,39 @@
  * from the pilot localStorage key. Falls back to localStorage if IDB is blocked.
  */
 
+import { CANON_VERSION, type CanonVerse, type TdbAudience, type VerseBreakdownFields } from "./daily-verse";
+import { mergeVerseBreakdownForAudience } from "./verse-breakdown";
+
 const DB_NAME = "tdb-study";
-const DB_VERSION = 1;
+/** Bumped when shelf schema gains optional fields (e.g. verse snapshot) — store is schemaless; version documents migrations. */
+const DB_VERSION = 2;
 const STORE = "savedVerses";
 const PILOT_LS_KEY = "tdb-saved-verses-pilot";
 const MIGRATION_DONE_KEY = "tdb-study-migrated-pilot-ls";
+
+export type SavedVerseSnapshot = {
+  canonVersion: number;
+  text: string;
+  tier: TdbAudience;
+  merged: VerseBreakdownFields;
+};
+
+export function buildSavedVerseSnapshot(verse: CanonVerse, tier: TdbAudience): SavedVerseSnapshot {
+  return {
+    canonVersion: CANON_VERSION,
+    text: verse.text,
+    tier,
+    merged: mergeVerseBreakdownForAudience(verse, tier),
+  };
+}
 
 export type SavedVerseRow = {
   id?: number;
   reference: string;
   savedAt: string;
   source?: string;
+  /** Gentle breakdown + KJV text as of save (My Study offline shelf). */
+  snapshot?: SavedVerseSnapshot;
 };
 
 let dbPromise: Promise<IDBDatabase | null> | null = null;
@@ -25,10 +47,14 @@ function openDb(): Promise<IDBDatabase | null> {
     const req = indexedDB.open(DB_NAME, DB_VERSION);
     req.onerror = () => resolve(null);
     req.onsuccess = () => resolve(req.result);
-    req.onupgradeneeded = () => {
+    req.onupgradeneeded = (ev) => {
       const db = req.result;
       if (!db.objectStoreNames.contains(STORE)) {
         db.createObjectStore(STORE, { keyPath: "id", autoIncrement: true });
+      }
+      const from = (ev as IDBVersionChangeEvent).oldVersion;
+      if (from < 2) {
+        /* v2: rows may include optional `snapshot`; no structural store change. */
       }
     };
   });
@@ -107,13 +133,14 @@ export async function getAllSavedVerses(): Promise<SavedVerseRow[]> {
   try {
     const raw = localStorage.getItem(PILOT_LS_KEY);
     if (raw) {
-      const list = JSON.parse(raw) as { reference: string; savedAt: string }[];
+      const list = JSON.parse(raw) as Partial<SavedVerseRow>[];
       if (Array.isArray(list)) {
         for (const x of list) {
           merge({
             reference: String(x.reference),
             savedAt: String(x.savedAt),
             source: "ls-fallback",
+            snapshot: x.snapshot,
           });
         }
       }
@@ -148,13 +175,17 @@ export async function exportSavedVersesJson(): Promise<string> {
   return JSON.stringify(rows, null, 2);
 }
 
-export async function appendSavedVerse(reference: string): Promise<{ ok: boolean; via: "idb" | "ls" }> {
+export async function appendSavedVerse(
+  reference: string,
+  snapshot?: SavedVerseSnapshot,
+): Promise<{ ok: boolean; via: "idb" | "ls" }> {
   await migratePilotLocalStorageOnce();
 
   const row: Omit<SavedVerseRow, "id"> = {
     reference,
     savedAt: new Date().toISOString(),
     source: "next",
+    snapshot,
   };
 
   const db = await openDb();
@@ -175,7 +206,7 @@ export async function appendSavedVerse(reference: string): Promise<{ ok: boolean
   try {
     const raw = localStorage.getItem(PILOT_LS_KEY);
     const list = raw ? (JSON.parse(raw) as unknown[]) : [];
-    list.push({ reference: row.reference, savedAt: row.savedAt });
+    list.push({ reference: row.reference, savedAt: row.savedAt, snapshot: row.snapshot });
     localStorage.setItem(PILOT_LS_KEY, JSON.stringify(list));
     return { ok: true, via: "ls" };
   } catch {

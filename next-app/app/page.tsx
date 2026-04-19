@@ -2,14 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useId, useLayoutEffect, useState } from "react";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
@@ -18,10 +12,10 @@ import {
   CardTitle,
   TDBCard,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TDBVerseBreakdown } from "@/components/tdb-verse-breakdown";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
-import { CANON_VERSION, dailyVerse } from "@/lib/daily-verse";
+import { CANON_VERSION, dailyVerse, type TdbAudience } from "@/lib/daily-verse";
 import { syncCanonSchemaVersion } from "@/lib/tdb-canon-version";
 import { buildHomeVerseJsonLd } from "@/lib/verse-jsonld";
 import {
@@ -39,11 +33,9 @@ import {
   writeListenRate,
 } from "@/lib/tdb-listen-rate";
 import { GENTLE_PICKS, memorizeHrefForRef } from "@/lib/tdb-gentle-picks";
-import { migratePilotLocalStorageOnce, appendSavedVerse } from "@/lib/tdb-study-db";
+import { migratePilotLocalStorageOnce, appendSavedVerse, buildSavedVerseSnapshot } from "@/lib/tdb-study-db";
 import { cn } from "@/lib/utils";
 import { Moon, Scroll, SunMedium } from "lucide-react";
-
-type Audience = "kid" | "teen" | "adult";
 
 const THEME_ORDER: TdbThemeId[] = ["light", "dark", "sepia"];
 
@@ -51,7 +43,7 @@ export default function Home() {
   const pathname = usePathname();
   const audienceLabelId = useId();
   const [theme, setTheme] = useState<TdbThemeId | null>(null);
-  const [audience, setAudience] = useState<Audience>("adult");
+  const [audience, setAudience] = useState<TdbAudience>("adult");
   const [saved, setSaved] = useState(false);
   const [prayOpen, setPrayOpen] = useState(false);
   const [listenRate, setListenRate] = useState<number>(LISTEN_RATE_SSR_DEFAULT);
@@ -119,12 +111,12 @@ export default function Home() {
   }, [listenRate]);
 
   const handleSave = useCallback(async () => {
-    const result = await appendSavedVerse(dailyVerse.reference);
+    const result = await appendSavedVerse(dailyVerse.reference, buildSavedVerseSnapshot(dailyVerse, audience));
     if (result.ok) {
       setSaved(true);
       window.setTimeout(() => setSaved(false), 2200);
     }
-  }, []);
+  }, [audience]);
 
   const handleShare = useCallback(async () => {
     const title = `${dailyVerse.reference} (KJV) — Today's Daily Battle`;
@@ -143,11 +135,6 @@ export default function Home() {
       /* ignore */
     }
   }, []);
-
-  const audienceLabel = useMemo(
-    () => ({ kid: "Kid", teen: "Teen", adult: "Adult" } as const),
-    [],
-  );
 
   const activePreset = presetForRate(listenRate);
 
@@ -247,76 +234,13 @@ export default function Home() {
                 </p>
               ) : null}
 
-              <Tabs
+              <TDBVerseBreakdown
                 className="tdb-no-print mt-8"
-                value={audience}
-                onValueChange={(v) => {
-                  if (v === "kid" || v === "teen" || v === "adult") setAudience(v);
-                }}
-              >
-                <div className="rounded-lg border border-border/60 bg-muted/30 p-4">
-                  <p id={audienceLabelId} className="mb-3 text-sm font-medium text-foreground">
-                    Same verse — gentle words for who&apos;s listening
-                  </p>
-                  <TabsList aria-labelledby={audienceLabelId} className="mb-4 w-full min-w-0 flex-wrap justify-start gap-1">
-                    {(Object.keys(audienceLabel) as Audience[]).map((key) => (
-                      <TabsTrigger key={key} value={key} className="text-xs">
-                        {audienceLabel[key]}
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
-                  {(Object.keys(audienceLabel) as Audience[]).map((key) => (
-                    <TabsContent key={key} value={key} className="mt-0 text-sm leading-relaxed text-muted-foreground">
-                      {dailyVerse.byAudience[key]}
-                    </TabsContent>
-                  ))}
-                </div>
-              </Tabs>
-
-              <Accordion
-                multiple
-                defaultValue={[]}
-                className="tdb-no-print mt-8 rounded-lg border border-border/60 bg-muted/20"
-              >
-                <AccordionItem value="speaker">
-                  <AccordionTrigger className="px-4">Who said it?</AccordionTrigger>
-                  <AccordionContent className="px-4 text-muted-foreground">
-                    {dailyVerse.breakdown.speaker}
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="audience">
-                  <AccordionTrigger className="px-4">To whom?</AccordionTrigger>
-                  <AccordionContent className="px-4 text-muted-foreground">
-                    {dailyVerse.breakdown.audience}
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="plain">
-                  <AccordionTrigger className="px-4">Plain English</AccordionTrigger>
-                  <AccordionContent className="px-4 text-muted-foreground">
-                    {dailyVerse.breakdown.plain}
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-
-              <div className="tdb-print-breakdown-print mt-6 hidden print:block">
-                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-                  Gentle breakdown (print)
-                </p>
-                <dl className="mt-3 space-y-3 text-sm text-foreground">
-                  <div>
-                    <dt className="font-medium">Who said it?</dt>
-                    <dd className="text-muted-foreground">{dailyVerse.breakdown.speaker}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-medium">To whom?</dt>
-                    <dd className="text-muted-foreground">{dailyVerse.breakdown.audience}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-medium">Plain English</dt>
-                    <dd className="text-muted-foreground">{dailyVerse.breakdown.plain}</dd>
-                  </div>
-                </dl>
-              </div>
+                verse={dailyVerse}
+                audience={audience}
+                onAudienceChange={setAudience}
+                tabsLabelId={audienceLabelId}
+              />
 
               <div className="tdb-no-print mt-10 flex flex-wrap gap-2">
                 <Button type="button" variant="outline" onClick={() => void handleSave()}>

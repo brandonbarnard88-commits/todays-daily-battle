@@ -6,9 +6,10 @@ import { useCallback, useLayoutEffect, useMemo, useState } from "react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { TDBVerseBreakdown } from "@/components/tdb-verse-breakdown";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
-import { resolveVerseByRef } from "@/lib/daily-verse";
+import { resolveVerseByRef, type TdbAudience } from "@/lib/daily-verse";
 import { getMainSiteOrigin } from "@/lib/main-site";
 import {
   LISTEN_PRESETS,
@@ -17,7 +18,7 @@ import {
   readListenRate,
   writeListenRate,
 } from "@/lib/tdb-listen-rate";
-import { appendSavedVerse } from "@/lib/tdb-study-db";
+import { appendSavedVerse, buildSavedVerseSnapshot } from "@/lib/tdb-study-db";
 import { cn } from "@/lib/utils";
 
 export function MemorizeClient() {
@@ -34,6 +35,7 @@ export function MemorizeClient() {
   const [hidden, setHidden] = useState(false);
   const [listenRate, setListenRate] = useState<number>(LISTEN_RATE_SSR_DEFAULT);
   const [saved, setSaved] = useState(false);
+  const [audience, setAudience] = useState<TdbAudience>("adult");
   const [hint, setHint] = useState<string | null>(null);
 
   const activePreset = presetForRate(listenRate);
@@ -71,12 +73,12 @@ export function MemorizeClient() {
   }, [listenRate, verse.reference, verse.text]);
 
   const handleSave = useCallback(async () => {
-    const result = await appendSavedVerse(verse.reference);
+    const result = await appendSavedVerse(verse.reference, buildSavedVerseSnapshot(verse, audience));
     if (result.ok) {
       setSaved(true);
       window.setTimeout(() => setSaved(false), 2200);
     }
-  }, [verse.reference]);
+  }, [audience, verse]);
 
   const mainMemorizeUrl = `${getMainSiteOrigin()}/memorize.html`;
 
@@ -104,7 +106,7 @@ export function MemorizeClient() {
           </p>
         ) : null}
 
-        <Card className="border-border/70 shadow-none ring-1 ring-border/80">
+        <Card className="tdb-print-verse border-border/70 shadow-none ring-1 ring-border/80">
           <CardHeader className="border-b border-border/50">
             <CardTitle className="font-heading text-2xl">{verse.reference}</CardTitle>
           </CardHeader>
@@ -149,6 +151,13 @@ export function MemorizeClient() {
                 {hint}
               </p>
             ) : null}
+
+            <TDBVerseBreakdown
+              className="mt-2"
+              verse={verse}
+              audience={audience}
+              onAudienceChange={setAudience}
+            />
 
             <div className="flex flex-wrap gap-2 border-t border-border/50 pt-6">
               <Button type="button" variant="outline" onClick={() => void handleSave()}>

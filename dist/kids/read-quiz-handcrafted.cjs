@@ -2850,6 +2850,133 @@ function buildSamsonPillarsReadQuiz() {
   };
 }
 
+/** Ruth and Naomi — Ruth 1:1-18 (KJV); loyalty, Moab, promise. */
+function buildRuthNaomiReadQuiz() {
+  return {
+    kjvRef: 'Ruth 1:1-18 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'Now it came to pass in the days when the judges ruled, that there was a famine in the land. And a certain man of Bethlehemjudah went to sojourn in the country of Moab, he, and his wife, and his two sons. And the name of the man was Elimelech, and the name of his wife Naomi, and the name of his two sons Mahlon and Chilion, Ephrathites of Bethlehemjudah. And they came into the country of Moab, and continued there.',
+        caption: 'A hard time — a journey to Moab',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text:
+          'And Elimelech Naomi\'s husband died; and she was left, and her two sons. And they took them wives of the women of Moab; the name of the one was Orpah, and the name of the other Ruth: and they dwelled there about ten years. And Mahlon and Chilion died also both of them; and the woman was left of her two sons and her husband.',
+        caption: 'Sorrow — Naomi was left alone',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text:
+          'Then she arose with her daughters in law, that she might return from the country of Moab: for she had heard in the country of Moab how that the LORD had visited his people in giving them bread. Wherefore she went forth out of the place where she was, and her two daughters in law with her; and they went on the way to return unto the land of Judah.',
+        caption: 'Homeward — bread in Bethlehem again',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'And Naomi said unto her two daughters in law, Go, return each to her mother\'s house: the LORD deal kindly with you, as ye have dealt with the dead, and with me. And they lifted up their voice, and wept again: and Orpah kissed her mother in law; but Ruth clave unto her. And she said, Behold, thy sister in law is gone back unto her people, and unto her gods: return thou after thy sister in law.',
+        caption: 'One kissed goodbye — one stayed',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'And Ruth said, Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God: where thou diest, will I die, and there will I be buried: the LORD do so to me, and more also, if ought but death part thee and me.',
+        caption: 'Ruth\'s promise',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'When she saw that she was stedfastly minded to go with her, then she left speaking unto her.',
+        caption: 'Steadfast — Naomi knew Ruth would not turn back',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    paragraphs: [
+      'There was a famine in the land, and a woman named Naomi went to live in Moab with her husband and two sons. In time her husband and both sons died, and Naomi was left alone and sad.',
+      'Naomi decided to return to Bethlehem. Her two daughters-in-law started to go with her, but Naomi told them to go back to their own mothers.',
+      'One daughter-in-law kissed Naomi and went back. But Ruth said, "Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God."',
+      'Ruth would not leave Naomi. She chose to stay with her and love her like family.',
+      'The two women walked together back to Bethlehem, and the Lord was with them.',
+      'For you: God blesses loyal love — you can ask Him to help you be kind and true like Ruth.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Ruth 2', 'Ruth 1:1-18', 'Judges 16', 'Psalm 23'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: Ruth 1:1-18.)'
+      },
+      {
+        question: 'Why did Naomi\'s family first go to Moab?',
+        choices: [
+          'There was a famine in Bethlehem.',
+          'They wanted to see the ocean.',
+          'They were looking for gold.',
+          'They had never heard of God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Right — hard times sometimes move families.',
+        wrongFeedback: 'Think famine. (Answer: Famine in the land….)'
+      },
+      {
+        question: 'What did Ruth say about going with Naomi?',
+        choices: [
+          'Whither thou goest, I will go; thy people shall be my people, and thy God my God.',
+          'I will never speak again.',
+          'I will only stay one hour.',
+          'I forgot the way.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful — loyal words from the heart.',
+        wrongFeedback: 'Listen for goest and people. (Answer: Whither thou goest… thy people… thy God….)'
+      },
+      {
+        question: 'What did Orpah do?',
+        choices: [
+          'She kissed Naomi and returned to her people.',
+          'She built a tall tower.',
+          'She stayed in Moab forever with Ruth.',
+          'She went to Egypt.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes — each woman chose her path.',
+        wrongFeedback: 'Think kiss and return. (Answer: Orpah kissed… and went back….)'
+      },
+      {
+        question: 'What is one gentle lesson for today?',
+        choices: [
+          'Loyal love and choosing God\'s people pleases the Lord.',
+          'Never help anyone.',
+          'Run away from family.',
+          'Hide the Bible.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Lovely — kindness with courage matters to God.',
+        wrongFeedback: 'Pick loyal love. (Answer: Loyal love… choosing God\'s people….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Ruth and Naomi with God's Word today.",
+    takeaway:
+      'Ruth clave unto Naomi — whither thou goest, I will go — and God went with them.',
+    prayer:
+      'God, thank You for Ruth\'s loyal love. Help me love others kindly and choose You. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art young children bold thick outlines large open spaces warm comforting mood two women Ruth and Naomi walking together gentle path toward distant simple town Bethlehem soft hills Ruth holds Naomi arm or hand small travel bundles kind loyal faces plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Famine and sojourn Moab (ruth 1)',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Orpah kisses Naomi',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Whither thou goest I will go',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Two women come to Bethlehem'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -2881,5 +3008,6 @@ module.exports = {
   samsonBirth: buildSamsonBirthReadQuiz(),
   samsonLion: buildSamsonLionReadQuiz(),
   samsonDelilah: buildSamsonDelilahReadQuiz(),
-  samson: buildSamsonPillarsReadQuiz()
+  samson: buildSamsonPillarsReadQuiz(),
+  ruthNaomi: buildRuthNaomiReadQuiz()
 };

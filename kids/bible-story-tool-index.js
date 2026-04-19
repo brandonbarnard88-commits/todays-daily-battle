@@ -2069,12 +2069,12 @@
   {
     "key": "ruthNaomi",
     "title": "Ruth and Naomi",
-    "kjvRef": "Ruth 1–4",
-    "who": "God",
-    "to": "Ruth (and us)",
-    "apply": "Stay loyal and choose God — He weaves faithful love into His big story.",
+    "kjvRef": "Ruth 1:1-18",
+    "who": "The Lord",
+    "to": "Ruth, Naomi — and every heart that chooses kindness",
+    "apply": "When Naomi felt empty, Ruth stayed. Her words were simple and strong: your people will be my people, and your God my God. God blesses that kind of love — the kind that walks beside someone in a hard road.",
     "theme": "Love",
-    "kw": "ruth naomi boaz obed ruth 1 loyal bethlehem david"
+    "kw": "ruth naomi moab bethlehem famine orpah loyal ruth 1 whither thou goest thy people shall be my people thy god my god daughter in law clave"
   },
   {
     "key": "ruthGlean",

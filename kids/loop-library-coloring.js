@@ -123,6 +123,7 @@
   "revelationWomanDragon": "dragonFight",
   "roadToEmmaus": "emmausRoad",
   "ruthGlean": "ruthGlean",
+  "ruthNaomi": "ruthNaomi",
   "samson": "samson",
   "samsonBirth": "samsonBirth",
   "samsonDelilah": "samsonDelilah",

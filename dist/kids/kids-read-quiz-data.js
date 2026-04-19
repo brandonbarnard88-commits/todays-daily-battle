@@ -11035,7 +11035,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 3",
-          "Ruth 1–4",
+          "Ruth 1:1-18",
           "Revelation 1–22",
           "Job 2"
         ],
@@ -16583,7 +16583,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 1–4",
+          "Ruth 1:1-18",
           "Acts 27",
           "Acts 18:24–28",
           "Joshua 10:12-14"
@@ -18594,7 +18594,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Peter 1–5",
-          "Ruth 1–4",
+          "Ruth 1:1-18",
           "Revelation 1–22",
           "Acts 18:1–3, 18–19"
         ],
@@ -21443,89 +21443,124 @@
     ]
   },
   "ruthNaomi": {
-    "kjvRef": "Ruth 1–4",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Ruth 1:1-18 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "Now it came to pass in the days when the judges ruled, that there was a famine in the land. And a certain man of Bethlehemjudah went to sojourn in the country of Moab, he, and his wife, and his two sons. And the name of the man was Elimelech, and the name of his wife Naomi, and the name of his two sons Mahlon and Chilion, Ephrathites of Bethlehemjudah. And they came into the country of Moab, and continued there.",
+        "caption": "A hard time — a journey to Moab",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And Elimelech Naomi's husband died; and she was left, and her two sons. And they took them wives of the women of Moab; the name of the one was Orpah, and the name of the other Ruth: and they dwelled there about ten years. And Mahlon and Chilion died also both of them; and the woman was left of her two sons and her husband.",
+        "caption": "Sorrow — Naomi was left alone",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Then she arose with her daughters in law, that she might return from the country of Moab: for she had heard in the country of Moab how that the LORD had visited his people in giving them bread. Wherefore she went forth out of the place where she was, and her two daughters in law with her; and they went on the way to return unto the land of Judah.",
+        "caption": "Homeward — bread in Bethlehem again",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Naomi said unto her two daughters in law, Go, return each to her mother's house: the LORD deal kindly with you, as ye have dealt with the dead, and with me. And they lifted up their voice, and wept again: and Orpah kissed her mother in law; but Ruth clave unto her. And she said, Behold, thy sister in law is gone back unto her people, and unto her gods: return thou after thy sister in law.",
+        "caption": "One kissed goodbye — one stayed",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Ruth said, Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God: where thou diest, will I die, and there will I be buried: the LORD do so to me, and more also, if ought but death part thee and me.",
+        "caption": "Ruth's promise",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "When she saw that she was stedfastly minded to go with her, then she left speaking unto her.",
+        "caption": "Steadfast — Naomi knew Ruth would not turn back",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Ruth and Naomi (Ruth 1–4).",
-      "Ruth stays with Naomi on the road to Bethlehem Ruth gleans in Boaz's field.",
-      "kindness and care Boaz and Ruth.",
-      "Obed, and the line to King David Stay loyal and choose God.",
-      "He weaves faithful love into His big story."
+      "There was a famine in the land, and a woman named Naomi went to live in Moab with her husband and two sons. In time her husband and both sons died, and Naomi was left alone and sad.",
+      "Naomi decided to return to Bethlehem. Her two daughters-in-law started to go with her, but Naomi told them to go back to their own mothers.",
+      "One daughter-in-law kissed Naomi and went back. But Ruth said, \"Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God.\"",
+      "Ruth would not leave Naomi. She chose to stay with her and love her like family.",
+      "The two women walked together back to Bethlehem, and the Lord was with them.",
+      "For you: God blesses loyal love — you can ask Him to help you be kind and true like Ruth."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 27",
-          "Acts 8:26–40",
-          "Ruth 1–4",
-          "Matthew 13"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Ruth 1–4.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Hannah and God",
-          "God",
-          "Jesus",
-          "John"
+          "Ruth 2",
+          "Ruth 1:1-18",
+          "Judges 16",
+          "Psalm 23"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the Bible line under the title. (Answer: Ruth 1:1-18.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "Why did Naomi's family first go to Moab?",
         "choices": [
-          "Stay loyal and choose God — He weaves faithful love into His big story.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up."
+          "There was a famine in Bethlehem.",
+          "They wanted to see the ocean.",
+          "They were looking for gold.",
+          "They had never heard of God."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Stay loyal and choose God — He weaves faithful love into His big story..)"
+        "correctFeedback": "Right — hard times sometimes move families.",
+        "wrongFeedback": "Think famine. (Answer: Famine in the land….)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did Ruth say about going with Naomi?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Ruth stays with Naomi on the road to Bethlehem"
+          "Whither thou goest, I will go; thy people shall be my people, and thy God my God.",
+          "I will never speak again.",
+          "I will only stay one hour.",
+          "I forgot the way."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful — loyal words from the heart.",
+        "wrongFeedback": "Listen for goest and people. (Answer: Whither thou goest… thy people… thy God….)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What did Orpah do?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Stay loyal and choose God — He weaves faithful love into His big story.",
-          "Ignore God until we are older."
+          "She kissed Naomi and returned to her people.",
+          "She built a tall tower.",
+          "She stayed in Moab forever with Ruth.",
+          "She went to Egypt."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Stay loyal and choose God — He weaves faithful love into His big story..)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes — each woman chose her path.",
+        "wrongFeedback": "Think kiss and return. (Answer: Orpah kissed… and went back….)"
+      },
+      {
+        "question": "What is one gentle lesson for today?",
+        "choices": [
+          "Loyal love and choosing God's people pleases the Lord.",
+          "Never help anyone.",
+          "Run away from family.",
+          "Hide the Bible."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Lovely — kindness with courage matters to God.",
+        "wrongFeedback": "Pick loyal love. (Answer: Loyal love… choosing God's people….)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Ruth and Naomi with God's Word today.",
-    "takeaway": "Stay loyal and choose God — He weaves faithful love into His big story.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Ruth and Naomi. Amen.",
+    "takeaway": "Ruth clave unto Naomi — whither thou goest, I will go — and God went with them.",
+    "prayer": "God, thank You for Ruth's loyal love. Help me love others kindly and choose You. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ruth stays with Naomi on the road to Bethlehem (ruth)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ruth gleans in Boaz's field — kindness and care (naomi)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Boaz and Ruth — Obed, and the line to King David (boaz)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ruth stays with Naomi on the road to Bethlehem (obed)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ruth gleans in Boaz's field — kindness and care (ruth 1)"
-    ]
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces warm comforting mood two women Ruth and Naomi walking together gentle path toward distant simple town Bethlehem soft hills Ruth holds Naomi arm or hand small travel bundles kind loyal faces plenty white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Famine and sojourn Moab (ruth 1)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Orpah kisses Naomi",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Whither thou goest I will go",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Two women come to Bethlehem"
+    ],
+    "readAlongImages": []
   },
   "samaritanWoman": {
     "kjvRef": "the Bible",

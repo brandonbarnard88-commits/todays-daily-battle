@@ -2294,6 +2294,29 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 18:26</text>'
       ),
 
+      /* Ruth and Naomi — library ruthNaomi / loop 169 */
+      ruthNaomi: svg(
+        ground() + hills() +
+        '<path d="M0 248 Q100 232 200 248 Q300 232 400 248" ' + s + ' stroke-width="2.5" fill="none"/>' +
+        /* distant Bethlehem */
+        '<rect x="318" y="118" width="52" height="28" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="328" y="108" width="12" height="12" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<rect x="348" y="108" width="12" height="12" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M310 146 L378 146" ' + s + ' stroke-width="2"/>' +
+        /* Naomi — slightly ahead, arm linked */
+        person(175, 158, 11, 32) +
+        '<path d="M168 188 L152 198" ' + s + ' stroke-width="2.2"/>' +
+        '<ellipse cx="138" cy="202" rx="14" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M128 198 L128 212" ' + s + ' stroke-width="1.8"/>' +
+        /* Ruth — kind face toward Naomi */
+        person(218, 156, 11, 32) +
+        '<line x1="205" y1="182" x2="188" y2="192" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="248" cy="208" rx="14" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M238 204 L238 218" ' + s + ' stroke-width="1.8"/>' +
+        sun(42, 48, 18) + cloud(300, 38) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 1:16</text>'
+      ),
+
       /* ── Week 10: Ruth Moab (129) ── */
       ruthMoab: svg(
         ground() +
@@ -3043,7 +3066,7 @@
     samsonBirth: 'samsonBirth',
     samsonLion: 'samsonLion',
     samsonDelilah: 'samsonDelilah',
-    ruthNaomi: 'ruthMoab',
+    ruthNaomi: 'ruthNaomi',
     hannahSamuel: 'hannahPray',
     samuelAnointsDavid: 'davidAnointed',
     davidGoliath: 'david',
@@ -4588,7 +4611,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthBoaz',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

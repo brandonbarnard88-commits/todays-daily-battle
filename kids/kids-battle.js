@@ -2276,16 +2276,37 @@
     ruthNaomi: {
       title: 'Ruth and Naomi',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ruth stays with Naomi on the road to Bethlehem' },
-        { src: 'panel-noah-2.svg', alt: 'Ruth gleans in Boaz\'s field — kindness and care' },
-        { src: 'panel-noah-3.svg', alt: 'Boaz and Ruth — Obed, and the line to King David' }
+        { src: 'panel-noah-1.svg', alt: 'A famine in Bethlehem — Naomi\'s family sojourns in Moab' },
+        { src: 'panel-noah-2.svg', alt: 'Ruth\'s promise — thy people shall be my people, and thy God my God' },
+        { src: 'panel-noah-3.svg', alt: 'Two women walking together toward Bethlehem — the Lord with them' }
       ],
-      caption: 'Swipe to see Ruth\'s loyal love and God\'s kindness! 🌾',
+      caption: 'Swipe to see loyal love — whither thou goest, I will go.',
       videoId: '',
       videoTitle: '',
-      keywords: ['ruth', 'naomi', 'boaz', 'obed', 'ruth 1', 'loyal', 'bethlehem', 'david'],
-      kjvRef: 'Ruth 1–4',
-      kidContext: { who: 'God', to: 'Ruth (and us)', apply: 'Stay loyal and choose God — He weaves faithful love into His big story.' }
+      keywords: [
+        'ruth',
+        'naomi',
+        'moab',
+        'bethlehem',
+        'famine',
+        'orpah',
+        'loyal',
+        'ruth 1',
+        'whither thou goest',
+        'thy people shall be my people',
+        'thy god my god',
+        'daughter in law',
+        'clave'
+      ],
+      kjvRef: 'Ruth 1:1-18',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Ruth, Naomi — and every heart that chooses kindness',
+        apply:
+          "When Naomi felt empty, Ruth stayed. Her words were simple and strong: your people will be my people, and your God my God. God blesses that kind of love — the kind that walks beside someone in a hard road."
+      },
+      narration:
+        "Ruth and Naomi – Ruth 1:1-18. In the days when the judges ruled there was a famine in the land; and a certain man of Bethlehemjudah went to sojourn in the country of Moab, he, and his wife, and his two sons. The name of the man was Elimelech, and the name of his wife Naomi. Elimelech died; and her two sons took them wives of the women of Moab; the name of the one was Orpah, and the name of the other Ruth. Mahlon and Chilion died also; and the woman was left of her two sons and her husband. Then she arose with her daughters in law, that she might return from the country of Moab; for she had heard that the LORD had visited his people in giving them bread. Naomi kissed them; they lifted up their voice, and wept. Orpah kissed her mother in law; but Ruth clave unto her. Naomi said, Behold, thy sister in law is gone back unto her people, and unto her gods: return thou after thy sister in law. And Ruth said, Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God: where thou diest, will I die, and there will I be buried: the LORD do so to me, and more also, if ought but death part thee and me. When Naomi saw that she was stedfastly minded to go with her, then she left speaking unto her. For you: God walks with loyal love — choose His people and His ways, and He keeps you."
     },
     rahab: {
       title: 'Rahab and the Scarlet Cord',
@@ -5484,7 +5505,18 @@
     if (/revelation 21|no tears|new jerusalem|heaven.*promise/.test(low)) {
       return { type: 'carousel', story: 'heavenPromise' };
     }
-    if (/ruth|boaz|naomi|ruth 1|glean|harvest/.test(low)) {
+    if (
+      /ruth 1:|^ruth 1\b|ruth 1 |orpah|naomi.*moab|moab.*naomi|sojourn.*moab|elimelech|mahlon|chilion|whither thou goest|intreat me not to leave|thy people shall be my people|thy god my god|stedfastly minded|clave unto her/.test(low)
+    ) {
+      return { type: 'carousel', story: 'ruthNaomi' };
+    }
+    if (/naomi/.test(low) && !/boaz/.test(low)) {
+      return { type: 'carousel', story: 'ruthNaomi' };
+    }
+    if (/ruth 2:|^ruth 2\b|ruth 2 |glean|harvest|boaz/.test(low)) {
+      return { type: 'carousel', story: 'ruthBoaz' };
+    }
+    if (/ruth/.test(low)) {
       return { type: 'carousel', story: 'ruthBoaz' };
     }
     if (/parable.*talent|talents|matthew 25|servants.*money/.test(low)) {

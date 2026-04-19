@@ -227,7 +227,7 @@
     ruthBoaz: 124,
     ruthGlean: 8,
     ruthMoab: 124,
-    ruthNaomi: 124,
+    ruthNaomi: 169,
     sarahLaughs: 25,
     samson: 7,
     samsonDelilah: 168,

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T21:56:58.612Z",
-  "surfacedRefCount": 2780,
-  "overrideCount": 2780,
+  "generatedAt": "2026-04-19T22:08:20.172Z",
+  "surfacedRefCount": 2781,
+  "overrideCount": 2781,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 147,
+      "refs": 148,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 165,
+      "refs": 166,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 145,
+      "refs": 146,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 167,
+      "refs": 168,
       "pairs": 0
     },
     "memorize.html": {
@@ -3281,6 +3281,7 @@
     "Romans 9:11",
     "Romans 9:28",
     "Romans 9:4",
+    "Ruth 1:1-18",
     "Ruth 1:16",
     "Ruth 1:19",
     "Ruth 1:2",
@@ -25521,6 +25522,14 @@
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Rome"
+      }
+    },
+    "Ruth 1:1-18": {
+      "general": {
+        "plainExplanation": "Key idea: Now it came to pass in the days when the judges ruled, that there was a famine in the land. And a certain man of Bethlehemjudah went to sojourn in the count...",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Unknown",
+        "to": "Israel"
       }
     },
     "Ruth 1:16": {

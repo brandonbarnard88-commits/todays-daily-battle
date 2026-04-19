@@ -2519,12 +2519,12 @@
   {
     "key": "passoverLamb",
     "title": "The Passover Lamb",
-    "kjvRef": "Exodus 12",
+    "kjvRef": "Exodus 12:1-14",
     "who": "God",
     "to": "Israel in Egypt",
-    "apply": "Jesus is our Passover Lamb! He saves us—just believe and be covered.",
+    "apply": "God told His people to put blood on the door. When He saw it, He passed over them and kept them safe. Jesus is God's Passover Lamb—when we trust Him, we are safe in His rescue.",
     "theme": "Love",
-    "kw": "passover lamb blood doorposts exodus 12 rescue save"
+    "kw": "passover lamb blood doorposts hyssop exodus 12 rescue save"
   },
   {
     "key": "persistentWidow",

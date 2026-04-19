@@ -2661,7 +2661,7 @@
           "Matthew 27; Mark 15; Luke 23; John 19",
           "Luke 15:8–10",
           "Matthew 14:22–33",
-          "Exodus 12"
+          "Exodus 12:1-14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14461,7 +14461,7 @@
           "the Bible",
           "Luke 15:8–10",
           "Matthew 14:22–33",
-          "Exodus 12"
+          "Exodus 12:1-14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14781,87 +14781,120 @@
     ]
   },
   "passoverLamb": {
-    "kjvRef": "Exodus 12",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Exodus 12:7-13 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "God told Moses and Aaron what His people must do so the angel of death would pass over their houses. Each family was to take a perfect little lamb and keep it until the evening.",
+        "caption": "A lamb for each home",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Then they would kill the lamb and take some of its blood. With a bunch of hyssop they would strike the blood on the two side posts and on the upper door post of their house.",
+        "caption": "Blood on the doorposts",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "God said, \"When I see the blood, I will pass over you, and the plague shall not be upon you to destroy you.\"",
+        "caption": "God's promise",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "That night, the children of Israel did exactly as the Lord commanded. They put the blood on their doors. They stayed inside their houses and ate the roasted lamb with bitter herbs and unleavened bread.",
+        "caption": "Inside, safe together",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Because of the blood on the door, the Lord passed over their houses and kept them safe.",
+        "caption": "Passed over—kept safe",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "The Passover Lamb (Exodus 12).",
-      "A lamb is chosen—spotless and perfect Blood painted on the doorposts The angel passes over—God saves His people Jesus is our Passover Lamb!",
-      "He saves us—just believe and be covered."
+      "God told Moses and Aaron what His people must do so the angel of death would pass over their houses.",
+      "Each family was to take a perfect little lamb and keep it until the evening. Then they would kill the lamb and take some of its blood.",
+      "With a bunch of hyssop they would strike the blood on the two side posts and on the upper door post of their house.",
+      "God said, \"When I see the blood, I will pass over you, and the plague shall not be upon you to destroy you.\"",
+      "That night, the children of Israel did exactly as the Lord commanded. They put the blood on their doors. They stayed inside and ate the roasted lamb with bitter herbs and unleavened bread.",
+      "Because of the blood on the door, the Lord passed over their houses and kept them safe.",
+      "For you: God keeps everyone who trusts His way of rescue. Jesus is the Lamb who saves us—believe Him, and you are safe in Him."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 12",
-          "Philippians 2:8–11",
-          "the Bible",
-          "John 9"
+          "John 3:16",
+          "Genesis 1:1",
+          "Exodus 12:7-13",
+          "Psalm 23"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 12.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 12:7-13.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "Mary",
-          "The Lord",
-          "God"
+          "Nobody",
+          "Pharaoh only",
+          "God",
+          "Only sheep"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
         "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
+          "God never hears when kids pray.",
           "The Bible is only pretend stories.",
           "We should hide from God when we mess up.",
-          "Jesus is our Passover Lamb! He saves us—just believe and be covered.",
-          "God never hears when kids pray."
+          "When God sees the blood He commanded, He passes over His people and keeps them safe."
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus is our Passover Lamb! He saves us—just believe and be covered..)"
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When God sees the blood….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
           "A spaceship landed in the parking lot.",
-          "A lamb is chosen—spotless and perfect",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again."
+          "Everyone decided to never sleep again.",
+          "They struck the blood on the doorposts with hyssop.",
+          "A talking toaster became king of the city."
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
         "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus is our Passover Lamb! He saves us—just believe and be covered.",
-          "Only be kind to people who are exactly like us.",
           "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "Thank God for His rescue—and trust Jesus, the Lamb who saves us."
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus is our Passover Lamb! He saves us—just believe and be covered..)"
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Thank God… trust Jesus….)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading The Passover Lamb with God's Word today.",
-    "takeaway": "Jesus is our Passover Lamb! He saves us—just believe and be covered.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Passover Lamb. Amen.",
+    "takeaway": "God saw the blood on the door and passed over His people. He still saves everyone who trusts His Lamb—Jesus.",
+    "prayer": "God, thank You for the Bible. Thank You for the Passover—and for Jesus, who saves us. Help me trust You. Amen.",
     "imagePrompts": [
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open coloring areas, hopeful protected mood, no scary shadows or plagues, no text in image: humble house door at night with two side posts and lintel, father gently touching hyssop with blood to doorposts, clear drops and branch strokes, family calm inside open doorway, soft starry sky, minimal ground, ages 3-8 coloring page",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A lamb is chosen—spotless and perfect (passover)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Blood painted on the doorposts (lamb)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The angel passes over—God saves His people (blood)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A lamb is chosen—spotless and perfect (doorposts)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Blood painted on the doorposts (exodus 12)"
-    ]
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Blood painted on the doorposts (hyssop)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The angel passes over—God saves His people (exodus 12)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Family safe inside—roasted lamb meal (lamb)"
+    ],
+    "readAlongImages": []
   },
   "paulBarnabas": {
     "kjvRef": "Acts 13–14",
@@ -20346,7 +20379,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 14:22–33",
-          "Exodus 12",
+          "Exodus 12:1-14",
           "Luke 15:8–10",
           "Ruth 2"
         ],

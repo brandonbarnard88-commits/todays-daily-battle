@@ -1799,9 +1799,10 @@
       caption: 'Swipe to see God\'s rescue—the Passover lamb! 🐑',
       videoId: '',
       videoTitle: '',
-      keywords: ['passover', 'lamb', 'blood', 'doorposts', 'exodus 12', 'rescue', 'save'],
-      kjvRef: 'Exodus 12',
-      kidContext: { who: 'God', to: 'Israel in Egypt', apply: 'Jesus is our Passover Lamb! He saves us—just believe and be covered.' }
+      keywords: ['passover', 'lamb', 'blood', 'doorposts', 'hyssop', 'exodus 12', 'rescue', 'save'],
+      kjvRef: 'Exodus 12:1-14',
+      kidContext: { who: 'God', to: 'Israel in Egypt', apply: "God told His people to put blood on the door. When He saw it, He passed over them and kept them safe. Jesus is God's Passover Lamb—when we trust Him, we are safe in His rescue." },
+      narration: "The Passover Lamb – Exodus 12:7-13. God told Moses and Aaron what Israel must do. Each home took a lamb, and at evening they put its blood on the doorposts with hyssop. The Lord said, When I see the blood, I will pass over you, and the plague shall not destroy you. They obeyed, stayed inside, and ate the meal God said to eat. Because of the blood on the door, the Lord passed over and kept them safe. For you: Trust God's way of rescue—Jesus gave His life so we could be safe forever."
     },
     redSeaCrossing: {
       title: 'Red Sea Crossing',

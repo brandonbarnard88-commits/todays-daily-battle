@@ -1,6 +1,6 @@
 /**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
- * Keys match TDB_BIBLE_STORIES (283 stories).
+ * Keys match TDB_BIBLE_STORIES (284 stories).
  * Regenerate: npm run kids:generate-read-quiz
  * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath read-along sections).
  *
@@ -18400,257 +18400,489 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Still waters—rest and peace (peace)"
     ]
   },
-  "rahabJericho": {
-    "kjvRef": "Joshua 2",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+  "rahab": {
+    "kjvRef": "Joshua 2:1-21 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
+        "caption": "Two quiet spies",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
+        "caption": "Hidden on the roof",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
+        "caption": "She believed the Lord",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
+        "caption": "Kindness for her household",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
+        "caption": "The scarlet thread",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
+        "caption": "God kept His word",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Rahab at Jericho (Joshua 2).",
-      "Rahab hides the two spies on her roof Scarlet cord in the window.",
-      "a sign of faith Rahab and her family brought out safe She believed the Lord is God in heaven above.",
-      "and He kept her safe."
+      "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
+      "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
+      "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
+      "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
+      "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
+      "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
+      "For you: God keeps His promises to everyone who trusts Him. Jesus is the greater rescue—look to Him in faith."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 18:9–15",
-          "Ephesians 6",
-          "Matthew 28",
-          "Joshua 2"
+          "Psalm 23",
+          "Genesis 1:1",
+          "Joshua 2:1-21",
+          "Matthew 5"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Joshua 2.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph's Bible note. (Answer: Joshua 2:1-21.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God",
-          "Jude",
-          "Jonathan",
-          "Stephen"
+          "Nobody",
+          "Only the king of Jericho",
+          "Rahab",
+          "Only the city wall"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep her brave faith in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Rahab.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "She believed the Lord is God in heaven above — and He kept her safe.",
-          "The Bible is only pretend stories."
+          "God forgets people who are afraid.",
+          "The Bible is only pretend stories.",
+          "We should never tell the truth.",
+          "When we trust the Lord, He keeps His promises—even small signs of faith can mean rescue."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: She believed the Lord is God in heaven above — and He kept her safe..)"
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the \"For you\" heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When we trust the Lord….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Rahab hides the two spies on her roof",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city."
+          "A dragon painted the city pink.",
+          "Rahab hid the spies under flax on the roof.",
+          "The spies flew away in balloons.",
+          "The wall turned into ice cream."
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: Rahab hid the spies….)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
           "Ignore God until we are older.",
-          "She believed the Lord is God in heaven above — and He kept her safe."
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "Tell God you trust Him—like Rahab—and thank Him for keeping His Word in Jesus."
         ],
         "correctIndex": 3,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: She believed the Lord is God in heaven above — and He kept her safe..)"
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Tell God you trust Him….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Rahab at Jericho with God's Word today.",
-    "takeaway": "She believed the Lord is God in heaven above — and He kept her safe.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Rahab at Jericho. Amen.",
+    "doneMessage": "Great job reading Rahab and the Scarlet Cord with God's Word today.",
+    "takeaway": "Rahab believed the Lord and tied the scarlet cord—God remembered her household when Jericho fell.",
+    "prayer": "God, thank You for the Bible. Thank You that You keep Your promises. Help me trust Jesus every day. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab hides the two spies on her roof (rahab)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Scarlet cord in the window — a sign of faith (jericho)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab and her family brought out safe (spies)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab hides the two spies on her roof (joshua 2)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Scarlet cord in the window — a sign of faith (cord)"
-    ]
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, hopeful protected mood, no soldiers, no fear, no text in image: Rahab standing calmly at her window in the wall of Jericho gently tying a long scarlet cord hanging down outside, cord with thick bold lines and large open spaces for coloring bright red, kind peaceful face looking out with hope, below window a few simple houses and city wall with minimal lines, soft sky, plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab welcomes two quiet spies (joshua 2)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Flax stalks on a roof — gentle hiding place",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Scarlet cord in the window — promise",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God keeps His word — family safe (rahab)"
+    ],
+    "readAlongImages": []
+  },
+  "rahabJericho": {
+    "kjvRef": "Joshua 2:1-21 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
+        "caption": "Two quiet spies",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
+        "caption": "Hidden on the roof",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
+        "caption": "She believed the Lord",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
+        "caption": "Kindness for her household",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
+        "caption": "The scarlet thread",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
+        "caption": "God kept His word",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
+      "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
+      "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
+      "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
+      "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
+      "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
+      "For you: God keeps His promises to everyone who trusts Him. Jesus is the greater rescue—look to Him in faith."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Genesis 1:1",
+          "Joshua 2:1-21",
+          "Matthew 5"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph's Bible note. (Answer: Joshua 2:1-21.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Nobody",
+          "Only the king of Jericho",
+          "Rahab",
+          "Only the city wall"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep her brave faith in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Rahab.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God forgets people who are afraid.",
+          "The Bible is only pretend stories.",
+          "We should never tell the truth.",
+          "When we trust the Lord, He keeps His promises—even small signs of faith can mean rescue."
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the \"For you\" heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When we trust the Lord….)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A dragon painted the city pink.",
+          "Rahab hid the spies under flax on the roof.",
+          "The spies flew away in balloons.",
+          "The wall turned into ice cream."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: Rahab hid the spies….)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "Tell God you trust Him—like Rahab—and thank Him for keeping His Word in Jesus."
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Tell God you trust Him….)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Rahab and the Scarlet Cord with God's Word today.",
+    "takeaway": "Rahab believed the Lord and tied the scarlet cord—God remembered her household when Jericho fell.",
+    "prayer": "God, thank You for the Bible. Thank You that You keep Your promises. Help me trust Jesus every day. Amen.",
+    "imagePrompts": [
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, hopeful protected mood, no soldiers, no fear, no text in image: Rahab standing calmly at her window in the wall of Jericho gently tying a long scarlet cord hanging down outside, cord with thick bold lines and large open spaces for coloring bright red, kind peaceful face looking out with hope, below window a few simple houses and city wall with minimal lines, soft sky, plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab welcomes two quiet spies (joshua 2)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Flax stalks on a roof — gentle hiding place",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Scarlet cord in the window — promise",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God keeps His word — family safe (rahab)"
+    ],
+    "readAlongImages": []
   },
   "rahabRope": {
-    "kjvRef": "Joshua 2",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Joshua 2:1-21 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
+        "caption": "Two quiet spies",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
+        "caption": "Hidden on the roof",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
+        "caption": "She believed the Lord",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
+        "caption": "Kindness for her household",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
+        "caption": "The scarlet thread",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
+        "caption": "God kept His word",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Rahab's Scarlet Cord (Joshua 2).",
-      "Rahab hides the spies She hangs a scarlet cord in the window Rahab and her family are saved!",
-      "Faith saves!",
-      "Even when you're afraid, trust God and He rescues you."
+      "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
+      "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
+      "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
+      "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
+      "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
+      "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
+      "For you: God keeps His promises to everyone who trusts Him. Jesus is the greater rescue—look to Him in faith."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:1–23",
-          "Joshua 2",
-          "Matthew 4:1–11; Luke 4:1–13",
-          "Jude 1"
+          "Psalm 23",
+          "Genesis 1:1",
+          "Joshua 2:1-21",
+          "Matthew 5"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Joshua 2.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph's Bible note. (Answer: Joshua 2:1-21.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Paul",
-          "God",
-          "Elisha"
+          "Nobody",
+          "Only the king of Jericho",
+          "Rahab",
+          "Only the city wall"
         ],
         "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Right—keep her brave faith in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Rahab.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
+          "God forgets people who are afraid.",
           "The Bible is only pretend stories.",
-          "Faith saves! Even when you're afraid, trust God and He rescues you."
+          "We should never tell the truth.",
+          "When we trust the Lord, He keeps His promises—even small signs of faith can mean rescue."
         ],
         "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Faith saves! Even when you're afraid, trust God and He rescues you..)"
+        "correctFeedback": "Exactly—that lines up with the story and the \"For you\" heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When we trust the Lord….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Rahab hides the spies",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
+          "A dragon painted the city pink.",
+          "Rahab hid the spies under flax on the roof.",
+          "The spies flew away in balloons.",
+          "The wall turned into ice cream."
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: Rahab hid the spies….)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Never say sorry when we do wrong.",
-          "Faith saves! Even when you're afraid, trust God and He rescues you.",
           "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us."
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "Tell God you trust Him—like Rahab—and thank Him for keeping His Word in Jesus."
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Faith saves! Even when you're afraid, trust God and He rescues you..)"
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Tell God you trust Him….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Rahab's Scarlet Cord with God's Word today.",
-    "takeaway": "Faith saves! Even when you're afraid, trust God and He rescues you.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Rahab's Scarlet Cord. Amen.",
+    "doneMessage": "Great job reading Rahab and the Scarlet Cord with God's Word today.",
+    "takeaway": "Rahab believed the Lord and tied the scarlet cord—God remembered her household when Jericho fell.",
+    "prayer": "God, thank You for the Bible. Thank You that You keep Your promises. Help me trust Jesus every day. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab hides the spies (rahab)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She hangs a scarlet cord in the window (cord)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab and her family are saved! (spies)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab hides the spies (joshua 2)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She hangs a scarlet cord in the window (window)"
-    ]
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, hopeful protected mood, no soldiers, no fear, no text in image: Rahab standing calmly at her window in the wall of Jericho gently tying a long scarlet cord hanging down outside, cord with thick bold lines and large open spaces for coloring bright red, kind peaceful face looking out with hope, below window a few simple houses and city wall with minimal lines, soft sky, plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab welcomes two quiet spies (joshua 2)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Flax stalks on a roof — gentle hiding place",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Scarlet cord in the window — promise",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God keeps His word — family safe (rahab)"
+    ],
+    "readAlongImages": []
   },
   "rahabWindow": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Joshua 2:1-21 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
+        "caption": "Two quiet spies",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
+        "caption": "Hidden on the roof",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
+        "caption": "She believed the Lord",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
+        "caption": "Kindness for her household",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
+        "caption": "The scarlet thread",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
+        "caption": "God kept His word",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Rahab Hangs the Cord (the Bible).",
-      "Rahab lets the spies down by a rope She ties the scarlet cord in the window God keeps His promise—she is saved!",
-      "Even outsiders are welcomed by God!",
-      "Faith is the cord that saves—hold on!"
+      "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
+      "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
+      "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
+      "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
+      "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
+      "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
+      "For you: God keeps His promises to everyone who trusts Him. Jesus is the greater rescue—look to Him in faith."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Romans 16:1–2",
-          "Revelation 20",
-          "1 Samuel 9–10",
-          "the Bible"
+          "Psalm 23",
+          "Genesis 1:1",
+          "Joshua 2:1-21",
+          "Matthew 5"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph's Bible note. (Answer: Joshua 2:1-21.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "Mary",
-          "God",
-          "Elisha"
+          "Nobody",
+          "Only the king of Jericho",
+          "Rahab",
+          "Only the city wall"
         ],
         "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Right—keep her brave faith in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Rahab.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God never hears when kids pray.",
-          "Even outsiders are welcomed by God! Faith is the cord that saves—hold on!",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories."
+          "God forgets people who are afraid.",
+          "The Bible is only pretend stories.",
+          "We should never tell the truth.",
+          "When we trust the Lord, He keeps His promises—even small signs of faith can mean rescue."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Even outsiders are welcomed by God! Faith is the cord that saves—hold on!.)"
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the \"For you\" heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When we trust the Lord….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Rahab lets the spies down by a rope",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city."
+          "A dragon painted the city pink.",
+          "Rahab hid the spies under flax on the roof.",
+          "The spies flew away in balloons.",
+          "The wall turned into ice cream."
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: Rahab hid the spies….)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
           "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
           "Never say sorry when we do wrong.",
-          "Even outsiders are welcomed by God! Faith is the cord that saves—hold on!"
+          "Only be kind to people who are exactly like us.",
+          "Tell God you trust Him—like Rahab—and thank Him for keeping His Word in Jesus."
         ],
         "correctIndex": 3,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Even outsiders are welcomed by God! Faith is the cord that saves—hold on!.)"
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Tell God you trust Him….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Rahab Hangs the Cord with God's Word today.",
-    "takeaway": "Even outsiders are welcomed by God! Faith is the cord that saves—hold on!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Rahab Hangs the Cord. Amen.",
+    "doneMessage": "Great job reading Rahab and the Scarlet Cord with God's Word today.",
+    "takeaway": "Rahab believed the Lord and tied the scarlet cord—God remembered her household when Jericho fell.",
+    "prayer": "God, thank You for the Bible. Thank You that You keep Your promises. Help me trust Jesus every day. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab lets the spies down by a rope (rahab)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She ties the scarlet cord in the window (window)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God keeps His promise—she is saved! (cord)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab lets the spies down by a rope (scarlet)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She ties the scarlet cord in the window (joshua 2)"
-    ]
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, hopeful protected mood, no soldiers, no fear, no text in image: Rahab standing calmly at her window in the wall of Jericho gently tying a long scarlet cord hanging down outside, cord with thick bold lines and large open spaces for coloring bright red, kind peaceful face looking out with hope, below window a few simple houses and city wall with minimal lines, soft sky, plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rahab welcomes two quiet spies (joshua 2)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Flax stalks on a roof — gentle hiding place",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Scarlet cord in the window — promise",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God keeps His word — family safe (rahab)"
+    ],
+    "readAlongImages": []
   },
   "redSea": {
     "kjvRef": "Exodus 14:21-31 (KJV)",
@@ -23153,7 +23385,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2:4–21",
-          "Joshua 2",
+          "Joshua 2:1-21",
           "1 Timothy 4:12",
           "Acts 9:1–19"
         ],

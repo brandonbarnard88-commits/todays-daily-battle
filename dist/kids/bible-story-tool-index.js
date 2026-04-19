@@ -1937,34 +1937,44 @@
     "kw": "esther crown queen esther 5 scepter courage save"
   },
   {
+    "key": "rahab",
+    "title": "Rahab and the Scarlet Cord",
+    "kjvRef": "Joshua 2:1-21",
+    "who": "The Lord",
+    "to": "Rahab (and everyone who believes Him)",
+    "apply": "Rahab heard what God had done for His people and trusted Him. She hid the spies, tied the scarlet cord, and God kept His word—her whole household was safe. When you are afraid, you can tell God you trust Him too; Jesus is the greater rescue.",
+    "theme": "Obedience",
+    "kw": "rahab scarlet cord thread jericho spies joshua 2 window flax faith kindness promise save believe"
+  },
+  {
     "key": "rahabJericho",
     "title": "Rahab at Jericho",
-    "kjvRef": "Joshua 2",
-    "who": "God",
-    "to": "Rahab",
-    "apply": "She believed the Lord is God in heaven above — and He kept her safe.",
+    "kjvRef": "Joshua 2:1-21",
+    "who": "The Lord",
+    "to": "Rahab (and us)",
+    "apply": "She believed the Lord is God in heaven above and in earth beneath—and He remembered her. You can believe Him too; Jesus died and rose so everyone who trusts Him can be safe forever.",
     "theme": "Obedience",
-    "kw": "rahab jericho spies joshua 2 cord scarlet faith"
+    "kw": "rahab jericho spies joshua 2 cord scarlet faith promise kindness"
   },
   {
     "key": "rahabWindow",
     "title": "Rahab Hangs the Cord",
-    "kjvRef": "",
-    "who": "God",
-    "to": "Rahab",
-    "apply": "Even outsiders are welcomed by God! Faith is the cord that saves—hold on!",
+    "kjvRef": "Joshua 2:1-21",
+    "who": "The Lord",
+    "to": "Rahab (and us)",
+    "apply": "God welcomes everyone who turns to Him in faith. The cord was a quiet picture of trust—Jesus is the lasting sign of God's kindness; hold fast to Him.",
     "theme": "Obedience",
-    "kw": "rahab window cord scarlet joshua 2 rope faith save"
+    "kw": "rahab window cord scarlet joshua 2 rope faith save promise"
   },
   {
     "key": "rahabRope",
     "title": "Rahab's Scarlet Cord",
-    "kjvRef": "Joshua 2",
-    "who": "God",
-    "to": "Rahab",
-    "apply": "Faith saves! Even when you're afraid, trust God and He rescues you.",
+    "kjvRef": "Joshua 2:1-21",
+    "who": "The Lord",
+    "to": "Rahab (and us)",
+    "apply": "The scarlet cord was a simple sign of trust. God honored Rahab's faith and kept her family safe. When you trust Jesus, He is your safety—tell Him so in prayer.",
     "theme": "Obedience",
-    "kw": "rahab cord spies joshua 2 window scarlet faith save"
+    "kw": "rahab cord spies joshua 2 window scarlet faith save promise"
   },
   {
     "key": "redSea",

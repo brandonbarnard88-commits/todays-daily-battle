@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (283 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (284 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -1091,6 +1091,11 @@
       mp4: '/media/kids-stories/psalm23-shepherd.mp4',
       webm: '/media/kids-stories/psalm23-shepherd.webm',
       captionsVtt: '/media/kids-stories/psalm23-shepherd.vtt'
+    },
+    rahab: {
+      mp4: '/media/kids-stories/rahab.mp4',
+      webm: '/media/kids-stories/rahab.webm',
+      captionsVtt: '/media/kids-stories/rahab.vtt'
     },
     rahabJericho: {
       mp4: '/media/kids-stories/rahab-jericho.mp4',

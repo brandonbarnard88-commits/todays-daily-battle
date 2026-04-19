@@ -111,7 +111,7 @@
   "priscillaTeach": "priscillaTeach",
   "prodigalSon": "forgive70x7",
   "psalm23Shepherd": "psalm23Shepherd",
-  "rahabJericho": "rahabRope",
+  "rahab": "rahabRope",
   "redSea": "redSea",
   "resurrection": "resurrection",
   "revelationNewJerusalem": "newHeaven",

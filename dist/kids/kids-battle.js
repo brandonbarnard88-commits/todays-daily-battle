@@ -2062,33 +2062,71 @@
       kjvRef: 'Ruth 1–4',
       kidContext: { who: 'God', to: 'Ruth (and us)', apply: 'Stay loyal and choose God — He weaves faithful love into His big story.' }
     },
+    rahab: {
+      title: 'Rahab and the Scarlet Cord',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Two quiet spies — Rahab welcomes them into her home' },
+        { src: 'panel-noah-2.svg', alt: 'Flax on the roof — a gentle hiding place' },
+        { src: 'panel-noah-3.svg', alt: 'Scarlet cord in the window — God\'s promise to keep her safe' }
+      ],
+      caption: 'Swipe to see Rahab trust the Lord — and the cord that meant rescue! 🔴',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'rahab', 'scarlet', 'cord', 'thread', 'jericho', 'spies', 'joshua 2', 'window', 'flax', 'faith',
+        'kindness', 'promise', 'save', 'believe'
+      ],
+      kjvRef: 'Joshua 2:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Rahab (and everyone who believes Him)',
+        apply:
+          "Rahab heard what God had done for His people and trusted Him. She hid the spies, tied the scarlet cord, and God kept His word—her whole household was safe. When you are afraid, you can tell God you trust Him too; Jesus is the greater rescue."
+      },
+      narration:
+        "Rahab and the Scarlet Cord – Joshua 2:1-21. Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab. The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax. When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.' Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family. The men said, 'Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.' Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord. For you: God keeps His promises to everyone who trusts Him—look to Jesus."
+    },
     rahabRope: {
       title: 'Rahab\'s Scarlet Cord',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Rahab hides the spies' },
-        { src: 'panel-noah-2.svg', alt: 'She hangs a scarlet cord in the window' },
-        { src: 'panel-noah-3.svg', alt: 'Rahab and her family are saved!' }
+        { src: 'panel-noah-1.svg', alt: 'Rahab welcomes the spies — a brave, kind choice' },
+        { src: 'panel-noah-2.svg', alt: 'She ties the scarlet cord in the window' },
+        { src: 'panel-noah-3.svg', alt: 'God keeps His word — Rahab and her family are safe' }
       ],
       caption: 'Swipe to see how faith in God saves! 🔴',
       videoId: '',
       videoTitle: '',
-      keywords: ['rahab', 'cord', 'spies', 'joshua 2', 'window', 'scarlet', 'faith', 'save'],
-      kjvRef: 'Joshua 2',
-      kidContext: { who: 'God', to: 'Rahab', apply: 'Faith saves! Even when you\'re afraid, trust God and He rescues you.' }
+      keywords: ['rahab', 'cord', 'spies', 'joshua 2', 'window', 'scarlet', 'faith', 'save', 'promise'],
+      kjvRef: 'Joshua 2:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Rahab (and us)',
+        apply:
+          "The scarlet cord was a simple sign of trust. God honored Rahab's faith and kept her family safe. When you trust Jesus, He is your safety—tell Him so in prayer."
+      },
+      narration:
+        "Rahab's Scarlet Cord – Joshua 2:1-21. Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab. The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax. When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.' Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family. The men said, 'Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.' Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord. For you: God keeps His promises to everyone who trusts Him—look to Jesus."
     },
     rahabJericho: {
       title: 'Rahab at Jericho',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Rahab hides the two spies on her roof' },
-        { src: 'panel-noah-2.svg', alt: 'Scarlet cord in the window — a sign of faith' },
-        { src: 'panel-noah-3.svg', alt: 'Rahab and her family brought out safe' }
+        { src: 'panel-noah-1.svg', alt: 'Rahab hides the two spies beneath flax on the roof' },
+        { src: 'panel-noah-2.svg', alt: 'Scarlet cord in the window — a peaceful sign of trust' },
+        { src: 'panel-noah-3.svg', alt: 'When God gave the city, Rahab and her household were kept safe' }
       ],
       caption: 'Swipe to see faith in God save a whole family! 🏠',
       videoId: '',
       videoTitle: '',
-      keywords: ['rahab', 'jericho', 'spies', 'joshua 2', 'cord', 'scarlet', 'faith'],
-      kjvRef: 'Joshua 2',
-      kidContext: { who: 'God', to: 'Rahab', apply: 'She believed the Lord is God in heaven above — and He kept her safe.' }
+      keywords: ['rahab', 'jericho', 'spies', 'joshua 2', 'cord', 'scarlet', 'faith', 'promise', 'kindness'],
+      kjvRef: 'Joshua 2:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Rahab (and us)',
+        apply:
+          "She believed the Lord is God in heaven above and in earth beneath—and He remembered her. You can believe Him too; Jesus died and rose so everyone who trusts Him can be safe forever."
+      },
+      narration:
+        "Rahab at Jericho – Joshua 2:1-21. Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab. The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax. When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.' Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family. The men said, 'Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.' Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord. For you: God keeps His promises to everyone who trusts Him—look to Jesus."
     },
     balaakCurse: {
       title: 'Balak Sends for Balaam',
@@ -4265,15 +4303,23 @@
     rahabWindow: {
       title: 'Rahab Hangs the Cord',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Rahab lets the spies down by a rope' },
-        { src: 'panel-noah-2.svg', alt: 'She ties the scarlet cord in the window' },
-        { src: 'panel-noah-3.svg', alt: 'God keeps His promise—she is saved!' }
+        { src: 'panel-noah-1.svg', alt: 'Rahab lets the spies down by the window — a gentle escape' },
+        { src: 'panel-noah-2.svg', alt: 'She ties the scarlet cord where they asked — a sign of trust' },
+        { src: 'panel-noah-3.svg', alt: 'God remembers His promise — Rahab and her family are safe' }
       ],
       caption: 'Swipe to see Rahab\'s faith and God\'s promise! 🔴',
       videoId: '',
       videoTitle: '',
-      keywords: ['rahab', 'window', 'cord', 'scarlet', 'joshua 2', 'rope', 'faith', 'save'],
-      kidContext: { who: 'God', to: 'Rahab', apply: 'Even outsiders are welcomed by God! Faith is the cord that saves—hold on!' }
+      keywords: ['rahab', 'window', 'cord', 'scarlet', 'joshua 2', 'rope', 'faith', 'save', 'promise'],
+      kjvRef: 'Joshua 2:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Rahab (and us)',
+        apply:
+          "God welcomes everyone who turns to Him in faith. The cord was a quiet picture of trust—Jesus is the lasting sign of God's kindness; hold fast to Him."
+      },
+      narration:
+        "Rahab Hangs the Cord – Joshua 2:1-21. Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab. The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax. When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.' Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family. The men said, 'Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.' Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord. For you: God keeps His promises to everyone who trusts Him—look to Jesus."
     },
     deborahJudge: {
       title: 'Deborah the Judge',
@@ -4857,7 +4903,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 283, color: '#e5e4e2' }
+      { name: 'Platinum', min: 284, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5094,6 +5140,9 @@
     }
     if (/creation|genesis 1|let there be light|god made/.test(low)) {
       return { type: 'carousel', story: 'creation' };
+    }
+    if (/rahab|scarlet cord|scarlet thread|joshua 2/.test(low)) {
+      return { type: 'carousel', story: 'rahab' };
     }
     if (/jericho|walls fall|joshua 6|trumpets/.test(low)) {
       return { type: 'carousel', story: 'fallOfJericho' };
@@ -7695,7 +7744,7 @@
     /* Week 3 */
     joshuaJordan: 'Miracles', jordanCrossing: 'Miracles', jerichoWalls: 'Obedience', joshuaAi: 'Obedience', battleOfAi: 'Obedience',
     gideonFleece: 'Miracles', gideonMidianites: 'Miracles', deborahBarak: 'Protection', samsonBirth: 'Protection', ruthNaomi: 'Love',
-    rahabRope: 'Obedience', rahabJericho: 'Obedience',
+    rahab: 'Obedience', rahabRope: 'Obedience', rahabJericho: 'Obedience',
     balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonHair: 'Protection', ruthGlean: 'Love',
     samuelCall: 'Obedience', davidHarp: 'Love', goliathChallenge: 'Protection',
     davidAnointed: 'Obedience', saulSpear: 'Protection', davidCave: 'Protection',

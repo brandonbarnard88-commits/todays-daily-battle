@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-19T19:17:42.521Z",
+  "generatedAt": "2026-04-19T19:29:25.720Z",
   "surfacedRefCount": 2761,
   "overrideCount": 2761,
   "sourceCounts": {
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 134,
+      "refs": 135,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 153,
+      "refs": 154,
       "pairs": 0
     },
     "kids/kids-corner.js": {
@@ -1988,10 +1988,10 @@
     "Joshua 21:45",
     "Joshua 24:15",
     "Joshua 2:1",
+    "Joshua 2:1-21",
     "Joshua 2:11",
     "Joshua 2:15",
     "Joshua 2:18",
-    "Joshua 2:21",
     "Joshua 2:23-24",
     "Joshua 3:1",
     "Joshua 3:13",
@@ -15160,6 +15160,14 @@
         "to": "Israel"
       }
     },
+    "Joshua 2:1-21": {
+      "general": {
+        "plainExplanation": "Key idea: And Joshua the son of Nun sent out of Shittim two men to spy secretly, saying, Go view the land, even Jericho. And they went, and came into an harlot’s hous...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Joshua",
+        "to": "Israel"
+      }
+    },
     "Joshua 2:11": {
       "general": {
         "plainExplanation": "Key idea: And as soon as we had heard these things, our hearts did melt, neither did there remain any more courage in any man, because of you: for the LORD your God,...",
@@ -15179,14 +15187,6 @@
     "Joshua 2:18": {
       "general": {
         "plainExplanation": "Key idea: look, when we come into the land, you shalt bind this line of scarlet thread in the window which you didst let us down by: and you shalt bring your father,...",
-        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
-        "about": "Joshua",
-        "to": "Israel"
-      }
-    },
-    "Joshua 2:21": {
-      "general": {
-        "plainExplanation": "And she said, According to your words, so be it. And she sent them away, and they departed: and she bound the scarlet line in the window.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Joshua",
         "to": "Israel"

@@ -44,3 +44,11 @@ If external audits show reliability failures or `sitemap.xml` challenge pages, a
 - `CLOUDFLARE-RELIABILITY-BYPASS.md`
 
 This prevents challenge pages on public machine-readable files (`robots.txt`, sitemap, manifest, build date) that black-box tools depend on.
+
+## 8. Reading Analytics (4xx rate, cache, “empty” content type)
+
+Account-wide numbers mix all zones; use **per-site** analytics when you want truth for one property.
+
+- **4xx (~2–3%):** Often normal — bots, typos, old bookmarks, crawlers. In **Traffic** / **Events**, filter **status 404** and check **top paths**. If the same real URL repeats, add a **`_redirects`** rule or fix the source link. Run **`node scripts/audit-links.mjs`** after **`npm run build`** to catch broken **internal** links in `dist/` (does not see live-only 404s).
+- **Cache:** Low **cached request %** but high **cached bandwidth %** is common: HTML and API-like requests miss cache; large JS/CSS/fonts hit cache and dominate bytes. Optional: long TTL for **`/_next/static/*`** and large static JSON (see **`DEPLOY-SMOKE-CHECKLIST.md`** in `next-app/` for the Next pilot).
+- **“empty” content type:** Often beacons, RUM, or small responses — correlate by **path** and **hostname** in the dashboard if something looks off.

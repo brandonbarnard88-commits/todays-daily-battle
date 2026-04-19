@@ -1,27 +1,34 @@
-# Cloudflare Pages: clean URLs → Next static export (*.html)
+# Cloudflare Pages: clean URLs → Next static export (*.html) with 200 rewrite
 # https://developers.cloudflare.com/pages/configuration/redirects/
+# Build output: next-app/out/
 
-/calm         /calm.html         200
-/calm/        /calm.html         200
-/family       /family.html       200
-/family/      /family.html       200
-/memorize     /memorize.html     200
-/memorize/    /memorize.html     200
-/mystudy      /mystudy.html      200
-/mystudy/     /mystudy.html      200
-/plans        /plans.html        200
-/plans/       /plans.html        200
-/plans/fear   /plans/fear.html   200
-/plans/fear/  /plans/fear.html   200
+# Home (explicit; many hosts also serve /index.html at / by default)
+/             /index.html       200
+
+# App routes
+/calm         /calm.html        200
+/calm/        /calm.html        200
+/family       /family.html      200
+/family/      /family.html      200
+/memorize     /memorize.html    200
+/memorize/    /memorize.html    200
+/mystudy      /mystudy.html     200
+/mystudy/     /mystudy.html     200
+/prayer-wall  /prayer-wall.html 200
+/prayer-wall/ /prayer-wall.html 200
+/reader       /reader.html      200
+/reader/      /reader.html      200
+/verse        /verse.html       200
+/verse/       /verse.html       200
+
+# Battle plans (index + known slugs from generateStaticParams)
+/plans        /plans.html       200
+/plans/       /plans.html       200
+/plans/fear   /plans/fear.html  200
+/plans/fear/  /plans/fear.html  200
 /plans/parenting   /plans/parenting.html   200
 /plans/parenting/  /plans/parenting.html   200
-/plans/grief  /plans/grief.html  200
-/plans/grief/ /plans/grief.html  200
+/plans/grief  /plans/grief.html 200
+/plans/grief/ /plans/grief.html 200
 /plans/family /plans/family.html 200
 /plans/family/ /plans/family.html 200
-/prayer-wall  /prayer-wall.html  200
-/prayer-wall/ /prayer-wall.html  200
-/verse        /verse.html        200
-/verse/       /verse.html        200
-/reader       /reader.html       200
-/reader/      /reader.html       200

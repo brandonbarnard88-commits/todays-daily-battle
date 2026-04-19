@@ -1,4 +1,5 @@
 import canonRaw from "@/data/canon-daily-verse.json";
+import { verseRefWithinCatalogSpan } from "@/lib/bible-ref-range";
 import { normalizeBibleRef, refKey } from "@/lib/normalize-bible-ref";
 
 const meta = canonRaw._meta as { version?: number; updatedAt?: string };
@@ -43,6 +44,9 @@ export type DailyVerse = CanonVerse;
 
 const catalog = (canonRaw.catalog ?? []) as CanonVerse[];
 
+/** Today first, then catalog — for chapter reader range matching. */
+export const allCanonVersesOrdered: CanonVerse[] = [today, ...catalog];
+
 function buildRefMap(): Map<string, CanonVerse> {
   const m = new Map<string, CanonVerse>();
   m.set(refKey(today.reference), today);
@@ -78,6 +82,26 @@ export function resolveVerseByRef(ref: string | null | undefined): {
     return { verse: hit, matchedRef: true, normalizedRequest: normalized };
   }
   return { verse: today, matchedRef: false, normalizedRequest: normalized };
+}
+
+/**
+ * Resolve a single verse line inside a chapter (e.g. "Philippians 4:7") to canon copy,
+ * including when the pilot stores a span like "Philippians 4:6-7".
+ */
+export function resolveVerseForChapterLine(verseRef: string): {
+  verse: CanonVerse;
+  matchedRef: boolean;
+  normalizedRequest?: string;
+} {
+  const first = resolveVerseByRef(verseRef);
+  if (first.matchedRef) return first;
+  const normalized = normalizeBibleRef(verseRef);
+  for (const v of allCanonVersesOrdered) {
+    if (verseRefWithinCatalogSpan(normalized, v.reference)) {
+      return { verse: v, matchedRef: true, normalizedRequest: normalized };
+    }
+  }
+  return first;
 }
 
 /** Optional: refs available in the pilot catalog (today + catalog). */

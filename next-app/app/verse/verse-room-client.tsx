@@ -14,8 +14,7 @@ import {
   readListenRate,
   writeListenRate,
 } from "@/lib/tdb-listen-rate";
-import { getMainSiteOrigin } from "@/lib/main-site";
-import { mainSiteReaderUrlForRef, parseRefToBookChapter } from "@/lib/reader-href";
+import { nextReaderPathForRef, parseRefToBookChapter } from "@/lib/reader-href";
 import { migratePilotLocalStorageOnce, appendSavedVerse, buildSavedVerseSnapshot } from "@/lib/tdb-study-db";
 import { syncCanonSchemaVersion } from "@/lib/tdb-canon-version";
 import { cn } from "@/lib/utils";
@@ -28,11 +27,11 @@ export function VerseRoomClient() {
   const [listenRate, setListenRate] = useState<number>(LISTEN_RATE_SSR_DEFAULT);
   const [listenHint, setListenHint] = useState<string | null>(null);
 
-  const readerUrl =
-    mainSiteReaderUrlForRef(dailyVerse.reference) ?? `${getMainSiteOrigin()}/reader.html`;
+  const readerPath = nextReaderPathForRef(dailyVerse.reference) ?? "/reader";
   const bookChapter = parseRefToBookChapter(dailyVerse.reference);
 
   useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate listen rate from localStorage after SSR
     setListenRate(readListenRate());
   }, []);
 
@@ -132,27 +131,17 @@ export function VerseRoomClient() {
           <p className="text-sm leading-relaxed text-muted-foreground">
             <BookOpen className="mr-1.5 inline size-4 align-text-bottom opacity-80" aria-hidden />
             <span className="font-medium text-foreground">Chapter context: </span>
-            <a
-              href={readerUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary underline underline-offset-4 hover:text-foreground"
-            >
+            <Link href={readerPath} className="text-primary underline underline-offset-4 hover:text-foreground">
               Read {bookChapter.book} {bookChapter.chapter} in the chapter reader
-            </a>{" "}
-            <span className="text-muted-foreground">(full KJV chapter on the main site — opens a new tab).</span>
+            </Link>{" "}
+            <span className="text-muted-foreground">(full KJV chapter in this app — calm layout).</span>
           </p>
         ) : (
           <p className="text-sm text-muted-foreground">
-            <a
-              href={readerUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary underline underline-offset-4 hover:text-foreground"
-            >
+            <Link href={readerPath} className="text-primary underline underline-offset-4 hover:text-foreground">
               Open the chapter reader
-            </a>{" "}
-            on the main site to read in context.
+            </Link>{" "}
+            to read in context.
           </p>
         )}
 
@@ -183,15 +172,10 @@ export function VerseRoomClient() {
         ) : null}
 
         <div className="tdb-no-print flex flex-wrap gap-2">
-          <a
-            href={readerUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(buttonVariants({ variant: "default" }), "gap-1.5")}
-          >
+          <Link href={readerPath} className={cn(buttonVariants({ variant: "default" }), "gap-1.5")}>
             <BookOpen className="size-4" aria-hidden />
             Open in Reader
-          </a>
+          </Link>
           <Link href="/" className={cn(buttonVariants({ variant: "outline" }))}>
             Full home experience
           </Link>

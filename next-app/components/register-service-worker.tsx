@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-/** Gentle PWA hook — `/public/sw.js` is a stub until full offline parity ships. */
+/** Gentle PWA hook — `/public/sw.js` caches the KJV map after first load for offline chapter reading. */
 export function RegisterServiceWorker() {
   useEffect(() => {
     if (!("serviceWorker" in navigator)) return;

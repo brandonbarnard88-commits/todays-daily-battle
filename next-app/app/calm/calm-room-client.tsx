@@ -15,7 +15,7 @@ import {
   versesForCalmMood,
   type CalmVerseHit,
 } from "@/lib/calm-moods";
-import { CANON_VERSION, type CanonVerse, type TdbAudience } from "@/lib/daily-verse";
+import { CANON_VERSION, type TdbAudience } from "@/lib/daily-verse";
 import {
   LISTEN_PRESETS,
   LISTEN_RATE_SSR_DEFAULT,
@@ -24,7 +24,7 @@ import {
   writeListenRate,
 } from "@/lib/tdb-listen-rate";
 import { getMainSiteOrigin } from "@/lib/main-site";
-import { mainSiteReaderUrlForRef } from "@/lib/reader-href";
+import { nextReaderPathForRef } from "@/lib/reader-href";
 import { memorizeHrefForRef } from "@/lib/tdb-gentle-picks";
 import { migratePilotLocalStorageOnce, appendSavedVerse, buildSavedVerseSnapshot } from "@/lib/tdb-study-db";
 import { syncCanonSchemaVersion } from "@/lib/tdb-canon-version";
@@ -60,7 +60,7 @@ function CalmVerseBlock({
   const [saved, setSaved] = useState(false);
   const [prayOpen, setPrayOpen] = useState(false);
 
-  const readerUrl = mainSiteReaderUrlForRef(verse.reference) ?? `${getMainSiteOrigin()}/reader.html`;
+  const readerPath = nextReaderPathForRef(verse.reference) ?? "/reader";
   const prayerSeed =
     verse.verseEchoPrompts?.[0] ??
     `Lord, I'm heavy right now. Hold me to ${verse.reference} — meet me with Your peace. In Jesus' name, Amen.`;
@@ -161,15 +161,13 @@ function CalmVerseBlock({
           <Button type="button" size="sm" variant="ghost" onClick={() => setPrayOpen((o) => !o)}>
             {prayOpen ? "Close prayer" : "Pray"}
           </Button>
-          <a
-            href={readerUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={readerPath}
             className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "gap-1")}
           >
             <BookOpen className="size-3.5" aria-hidden />
             Reader
-          </a>
+          </Link>
         </div>
 
         {prayOpen ? (
@@ -198,6 +196,7 @@ export function CalmRoomClient() {
   const calmHubUrl = `${getMainSiteOrigin()}/calm.html`;
 
   useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate listen rate from localStorage after SSR
     setListenRate(readListenRate());
   }, []);
 

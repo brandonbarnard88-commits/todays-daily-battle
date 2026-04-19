@@ -8,6 +8,7 @@ const links = [
   { href: "/calm", label: "Calm" },
   { href: "/plans", label: "Battle Plans" },
   { href: "/memorize", label: "Memorize" },
+  { href: "/reader", label: "Reader" },
   { href: "/mystudy", label: "My Study" },
   { href: "/prayer-wall", label: "Pray" },
 ] as const;
@@ -20,9 +21,9 @@ export function TdbSiteNav({ currentPath }: Props) {
   return (
     <nav
       aria-label="Primary"
-      className="tdb-no-print sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md supports-[backdrop-filter]:bg-background/70"
+      className="tdb-no-print sticky top-0 z-50 border-b border-border/60 bg-background/85 pt-[env(safe-area-inset-top,0px)] backdrop-blur-md supports-[backdrop-filter]:bg-background/70"
     >
-      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
+      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 pb-3 pt-2 sm:px-6 sm:pb-4 sm:pt-3">
         <Link
           href="/"
           className="font-heading text-lg font-semibold tracking-tight text-foreground sm:text-xl"
@@ -34,7 +35,9 @@ export function TdbSiteNav({ currentPath }: Props) {
             const onSection =
               href === "/plans"
                 ? currentPath === "/plans" || Boolean(currentPath?.startsWith("/plans/"))
-                : currentPath === href;
+                : href === "/reader"
+                  ? currentPath === "/reader"
+                  : currentPath === href;
             return (
               <Link
                 key={href}

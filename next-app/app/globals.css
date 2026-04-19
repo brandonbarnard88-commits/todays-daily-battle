@@ -244,6 +244,23 @@ html[data-theme="sepia"] {
     border: 1px dashed #888 !important;
     background: #fafafa !important;
   }
+
+  /* /reader: chapter banner + verse cards (warm parchment with breakdown dt/dd) */
+  .tdb-reader-print-root .tdb-print-reader-banner {
+    border-bottom: 1px solid #c4b49a;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .tdb-reader-print-root .tdb-print-reader-banner-title {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: #3f2a1e !important;
+    letter-spacing: 0.02em !important;
+  }
+  .tdb-reader-print-root .tdb-reader-verse-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
   @page {
     margin: 1.2cm;
   }

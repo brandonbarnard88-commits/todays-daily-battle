@@ -50,9 +50,9 @@ export default function Home() {
   const [listenHint, setListenHint] = useState<string | null>(null);
 
   useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate listen rate from localStorage after SSR
     setListenRate(readListenRate());
     const initial = readInitialTdbTheme();
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- localStorage + DOM theme after first paint (SSR has no storage)
     setTheme(initial);
     applyTdbTheme(initial);
   }, []);
@@ -170,6 +170,24 @@ export default function Home() {
             </p>
           </header>
 
+          <section className="tdb-no-print mb-12 rounded-xl border border-border/60 bg-muted/15 px-5 py-6 sm:mb-14 sm:px-6">
+            <h2 className="font-heading text-lg font-semibold text-foreground sm:text-xl">
+              For the long days of raising little ones
+            </h2>
+            <p className="mt-2 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">
+              Same KJV verse below — gentler language for the supper table or bedtime. No quiz, no streak; just
+              Scripture that meets tired parents and squirmy kids where they are.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link href="/family" className={cn(buttonVariants({ variant: "secondary", size: "sm" }))}>
+                Open family room
+              </Link>
+              <Link href="/plans/parenting" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+                Parenting plan
+              </Link>
+            </div>
+          </section>
+
           <TDBCard
             variant={tdbThemeToCardVariant(theme)}
             className="tdb-print-verse mb-14 sm:mb-16"
@@ -277,25 +295,7 @@ export default function Home() {
             </CardContent>
           </TDBCard>
 
-          <section className="tdb-no-print mt-12 rounded-xl border border-border/60 bg-muted/15 px-5 py-6 sm:px-6">
-            <h2 className="font-heading text-lg font-semibold text-foreground sm:text-xl">
-              For the long days of raising little ones
-            </h2>
-            <p className="mt-2 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">
-              Same KJV verse as above — gentler language for the supper table or bedtime. No quiz, no streak; just
-              Scripture that meets tired parents and squirmy kids where they are.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <Link href="/family" className={cn(buttonVariants({ variant: "secondary", size: "sm" }))}>
-                Open family room
-              </Link>
-              <Link href="/plans/parenting" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
-                Parenting plan
-              </Link>
-            </div>
-          </section>
-
-          <div className="tdb-no-print grid gap-6 md:grid-cols-3">
+          <div className="tdb-no-print mt-12 grid gap-6 md:grid-cols-3">
             <Link href="/calm" className="group block rounded-xl outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring">
               <Card className="h-full transition-[box-shadow,transform] group-hover:ring-1 group-hover:ring-primary/25">
                 <CardHeader>

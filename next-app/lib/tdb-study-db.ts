@@ -213,3 +213,54 @@ export async function appendSavedVerse(
     return { ok: false, via: "ls" };
   }
 }
+
+function isSavedVerseRow(x: unknown): x is SavedVerseRow {
+  if (!x || typeof x !== "object") return false;
+  const o = x as Record<string, unknown>;
+  return typeof o.reference === "string" && typeof o.savedAt === "string";
+}
+
+/**
+ * Merge rows from an exported JSON backup into this device. Skips invalid entries;
+ * duplicates (same reference + savedAt) are ignored.
+ */
+export async function importSavedVersesJson(
+  json: string,
+): Promise<{ added: number; skipped: number; error?: string }> {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(json) as unknown;
+  } catch {
+    return { added: 0, skipped: 0, error: "That file isn’t valid JSON." };
+  }
+  if (!Array.isArray(parsed)) {
+    return { added: 0, skipped: 0, error: "Expected a list of saved verses." };
+  }
+
+  const existing = await getAllSavedVerses();
+  const seen = new Set(existing.map((r) => `${r.reference}|${r.savedAt}`));
+
+  let added = 0;
+  let skipped = 0;
+
+  for (const item of parsed) {
+    if (!isSavedVerseRow(item)) {
+      skipped++;
+      continue;
+    }
+    const key = `${item.reference}|${item.savedAt}`;
+    if (seen.has(key)) {
+      skipped++;
+      continue;
+    }
+    const result = await appendSavedVerse(item.reference, item.snapshot);
+    if (result.ok) {
+      seen.add(key);
+      added++;
+    } else {
+      skipped++;
+    }
+  }
+
+  return { added, skipped };
+}

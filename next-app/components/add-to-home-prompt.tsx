@@ -83,7 +83,7 @@ export function AddToHomePrompt() {
   return (
     <div
       role="status"
-      className="tdb-no-print fixed bottom-4 left-4 right-4 z-40 mx-auto max-w-lg rounded-xl border border-border/70 bg-card/95 p-4 text-sm text-foreground shadow-lg ring-1 ring-border/50 backdrop-blur-md supports-[backdrop-filter]:bg-card/90 md:left-auto"
+      className="tdb-no-print fixed bottom-4 left-4 right-4 z-40 mx-auto mb-[env(safe-area-inset-bottom,0px)] max-w-lg rounded-xl border border-border/70 bg-card/95 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] text-sm text-foreground shadow-lg ring-1 ring-border/50 backdrop-blur-md supports-[backdrop-filter]:bg-card/90 md:left-auto"
     >
       <p className="leading-relaxed text-muted-foreground">
         {iosStyle ? (

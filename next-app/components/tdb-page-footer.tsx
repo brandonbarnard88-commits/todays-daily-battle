@@ -1,8 +1,17 @@
-export function TdbPageFooter() {
+import { cn } from "@/lib/utils";
+
+type FooterProps = {
+  className?: string;
+};
+
+export function TdbPageFooter({ className }: FooterProps) {
   return (
     <p
       role="note"
-      className="mt-16 text-center text-xs leading-relaxed text-muted-foreground sm:mt-20"
+      className={cn(
+        "mt-16 border-t border-border/40 pt-10 text-center text-xs leading-relaxed text-muted-foreground sm:mt-20 sm:pt-12",
+        className,
+      )}
     >
       Built solo by Brandon · A quiet place · We battle. He wins. We&apos;re not perfect; He is.
       <br />

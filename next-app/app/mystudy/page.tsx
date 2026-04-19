@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent } from "react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,12 +10,14 @@ import { Input } from "@/components/ui/input";
 import { TDBVerseBreakdown } from "@/components/tdb-verse-breakdown";
 import { TdbPageFooter } from "@/components/tdb-page-footer";
 import { TdbSiteNav } from "@/components/tdb-site-nav";
-import { CANON_VERSION, resolveVerseByRef, type CanonVerse } from "@/lib/daily-verse";
+import { CANON_VERSION, listCanonReferences, resolveVerseByRef, type CanonVerse } from "@/lib/daily-verse";
+import { memorizeHrefForRef } from "@/lib/tdb-gentle-picks";
 import { cn } from "@/lib/utils";
 import {
   deleteSavedVerseById,
   exportSavedVersesJson,
   getAllSavedVerses,
+  importSavedVersesJson,
   type SavedVerseRow,
 } from "@/lib/tdb-study-db";
 
@@ -47,6 +49,8 @@ export default function MyStudyPage() {
   const [rows, setRows] = useState<SavedVerseRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterQ, setFilterQ] = useState("");
+  const [importNote, setImportNote] = useState<string | null>(null);
+  const importRef = useRef<HTMLInputElement | null>(null);
 
   const filteredRows = useMemo(() => {
     const q = filterQ.trim().toLowerCase();
@@ -78,6 +82,34 @@ export default function MyStudyPage() {
     a.click();
     URL.revokeObjectURL(url);
   }, []);
+
+  const handleImportPick = useCallback(() => {
+    importRef.current?.click();
+  }, []);
+
+  const handleImportFile = useCallback(
+    async (e: ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      e.target.value = "";
+      if (!file) return;
+      setImportNote(null);
+      const text = await file.text();
+      const result = await importSavedVersesJson(text);
+      if (result.error) {
+        setImportNote(result.error);
+        return;
+      }
+      setImportNote(
+        result.added || result.skipped
+          ? `Imported ${result.added} line${result.added === 1 ? "" : "s"}. Skipped ${result.skipped} duplicate or unreadable row${result.skipped === 1 ? "" : "s"}.`
+          : "Nothing new to add — that file matched what you already had.",
+      );
+      void refresh();
+    },
+    [refresh],
+  );
+
+  const canonRefs = useMemo(() => listCanonReferences(), []);
 
   const handleDelete = useCallback(
     async (id: number | undefined) => {
@@ -111,12 +143,49 @@ export default function MyStudyPage() {
               <Button type="button" variant="outline" size="sm" onClick={() => void handleExport()} disabled={rows.length === 0}>
                 Export JSON
               </Button>
+              <Button type="button" variant="outline" size="sm" onClick={handleImportPick}>
+                Import backup
+              </Button>
+              <input
+                ref={importRef}
+                type="file"
+                accept="application/json,.json"
+                className="sr-only"
+                aria-hidden
+                onChange={(e) => void handleImportFile(e)}
+              />
               <Link href="/" className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}>
                 Back home
               </Link>
             </div>
           </CardHeader>
           <CardContent className="space-y-4 pt-6">
+            {importNote ? (
+              <p className="rounded-lg border border-border/50 bg-muted/20 px-3 py-2 text-sm text-muted-foreground" role="status">
+                {importNote}
+              </p>
+            ) : null}
+            <div className="rounded-lg border border-border/50 bg-muted/10 px-3 py-3">
+              <p className="text-sm font-medium text-foreground">Pilot catalog (on-device suggestions)</p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Gentle opens — same KJV shelf as the rest of the app. Tap to memorize a line when you want a next
+                step.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {canonRefs.map((ref) => (
+                  <Link
+                    key={ref}
+                    href={memorizeHrefForRef(ref)}
+                    className={cn(
+                      buttonVariants({ variant: "outline", size: "sm" }),
+                      "text-xs font-normal",
+                    )}
+                  >
+                    {ref}
+                  </Link>
+                ))}
+              </div>
+            </div>
             {!loading && rows.length > 0 ? (
               <div className="space-y-2">
                 <label htmlFor="mystudy-filter" className="text-sm font-medium text-foreground">

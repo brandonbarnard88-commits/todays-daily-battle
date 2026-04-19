@@ -41,6 +41,7 @@ export function MemorizeClient() {
   const activePreset = presetForRate(listenRate);
 
   useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate listen rate from localStorage after SSR
     setListenRate(readListenRate());
   }, []);
 

@@ -1331,19 +1331,25 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 17:26</text>'
       ),
 
-      /* ── Week 3: David Anointed (46) ── */
+      /* David anointed — library davidAnointed / loop 174 */
       davidAnointed: svg(
-        ground() +
-        person(200, 185, 12, 35) +
-        '<path d="M192 188 Q200 178 208 188" ' + s + ' stroke-width="2"/>' +
-        '<path d="M188 182 Q196 165 210 170 Q215 180 208 186" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M195 170 Q200 155 205 162 Q210 168 205 174" ' + s + ' stroke-width="2.5"/>' +
-        person(290, 168, 14, 42) +
-        '<path d="M285 185 Q275 198 280 210" ' + s + ' stroke-width="2.5"/>' +
-        person(60, 185, 11, 32) + person(88, 188, 10, 28) +
-        person(115, 185, 10, 28) + person(338, 185, 10, 28) +
-        sun(320, 45, 20) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 16:13</text>'
+        ground() + hills() +
+        sun(52, 46, 18) + cloud(310, 38) +
+        /* young David center — humble face */
+        person(200, 168, 11, 30) +
+        '<path d="M192 172 Q200 166 208 172" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="196" cy="170" r="1.6" fill="#111"/><circle cx="204" cy="170" r="1.6" fill="#111"/>' +
+        /* small shepherd staff */
+        '<line x1="218" y1="188" x2="232" y2="248" ' + s + ' stroke-width="2.5" stroke-linecap="round"/>' +
+        /* Samuel pours oil */
+        person(268, 158, 10, 32) +
+        '<path d="M258 176 Q252 188 256 200" ' + s + ' stroke-width="2"/>' +
+        '<path d="M248 168 L262 162 L266 176 L252 182 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M258 176 L256 188 L248 192" ' + s + ' stroke-width="1.5" fill="none"/>' +
+        /* brothers — softer, smaller */
+        person(72, 182, 8, 22) + person(108, 186, 8, 22) + person(142, 184, 8, 22) +
+        person(258, 186, 8, 22) + person(292, 184, 8, 22) + person(328, 186, 8, 22) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 16:13</text>'
       ),
 
       /* ── Week 3: Saul Spear (47) ── */
@@ -4767,7 +4773,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

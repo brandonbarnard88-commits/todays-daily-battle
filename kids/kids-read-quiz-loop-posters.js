@@ -48,6 +48,8 @@
     davidCave: 44,
     davidHarp: 44,
     davidSheep: 42,
+    davidAnointed: 174,
+    samuelAnointsDavid: 174,
     deborahBarak: 122,
     deborahJudge: 122,
     dorcasRaise: 140,

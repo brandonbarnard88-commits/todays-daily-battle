@@ -2629,9 +2629,33 @@
       caption: 'Swipe to see David worship God in the fields! 🎶',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'harp', 'worship', 'sheep', '1 samuel 16', 'music', 'praise'],
-      kjvRef: '1 Samuel 16',
-      kidContext: { who: 'David', to: 'God', apply: 'God loves your worship! Sing and praise wherever you are.' }
+      keywords: [
+        'david',
+        'harp',
+        'worship',
+        'sheep',
+        '1 samuel 16',
+        '1 samuel 16:14',
+        '1 samuel 16:23',
+        'music',
+        'praise',
+        'saul',
+        'evil spirit',
+        'refreshed',
+        'armourbearer',
+        'armorbearer',
+        'played with his hand',
+        'cunning player'
+      ],
+      kjvRef: '1 Samuel 16:14-23',
+      kidContext: {
+        who: 'David',
+        to: 'King Saul (and us)',
+        apply:
+          'David\'s music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.'
+      },
+      narration:
+        "David Plays the Harp – 1 Samuel 16:14-23. An evil spirit troubled King Saul. His servants said, Find a man who plays the harp well. One said, I have seen a son of Jesse who plays skillfully—and the LORD is with him. Saul sent for David. When the distressing spirit came, David played with his hand on the harp, and Saul was refreshed and well. For you: God can use your simple gifts to bring calm where it is needed."
     },
     goliathChallenge: {
       title: 'Goliath\'s Challenge',
@@ -2648,18 +2672,49 @@
       kidContext: { who: 'David', to: 'Goliath (and us)', apply: 'God is bigger than any giant! Face your fears—He\'s with you.' }
     },
     davidAnointed: {
-      title: 'David Is Anointed King',
+      title: 'David Anointed by Samuel',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Samuel visits Jesse\'s family' },
-        { src: 'panel-david-2.svg', alt: 'God says: man looks at the outside—I look at the heart' },
-        { src: 'panel-david-3.svg', alt: 'Oil on David\'s head—the youngest chosen!' }
+        { src: 'panel-david-1.svg', alt: 'Samuel comes to Bethlehem with oil — Jesse and his sons at the sacrifice' },
+        { src: 'panel-david-2.svg', alt: 'The Lord looketh on the heart — not as man seeth' },
+        { src: 'panel-david-3.svg', alt: 'The youngest from the sheep — oil poured; the Spirit of the Lord comes on David' }
       ],
-      caption: 'Swipe to see God choose David—He looks at your heart! 💛',
+      caption: 'Swipe to see God choose the shepherd boy — He looketh on the heart.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'anoint', 'samuel', '1 samuel 16', 'king', 'heart', 'chosen'],
-      kjvRef: '1 Samuel 16',
-      kidContext: { who: 'God', to: 'David', apply: 'God looks at your heart! Be faithful where you are—He sees you.' }
+      keywords: [
+        'david',
+        'anoint',
+        'anointed',
+        'samuel',
+        '1 samuel 16',
+        '1 samuel 16:1',
+        '1 samuel 16:13',
+        'jesse',
+        'bethlehem',
+        'bethlehemite',
+        'horn of oil',
+        'king',
+        'heart',
+        'looketh on the heart',
+        'outward appearance',
+        'youngest',
+        'keeping the sheep',
+        'ruddy',
+        'spirit of the lord came upon david',
+        'eliab',
+        'abinadab',
+        'shammah',
+        'chosen'
+      ],
+      kjvRef: '1 Samuel 16:1-13',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David — and every heart God sees',
+        apply:
+          'People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.'
+      },
+      narration:
+        "David Anointed by Samuel – 1 Samuel 16:1-13. The LORD told Samuel to fill his horn with oil and go to Jesse the Bethlehemite; He had provided a king among his sons. Samuel came to Bethlehem and called Jesse and his sons to the sacrifice. Seven sons passed before him, but the LORD said, Look not on his countenance or stature — the LORD seeth not as man seeth; man looketh on the outward appearance, but the LORD looketh on the heart. Jesse's youngest was keeping the sheep; they fetched him — ruddy, fair, and pleasant to look upon. The LORD said, Arise, anoint him: for this is he. Samuel anointed David in the midst of his brethren, and the Spirit of the LORD came upon David from that day forward. For you: God sees your heart; walk humbly with Him."
     },
     saulSpear: {
       title: 'Saul Throws a Spear at David',
@@ -2704,18 +2759,38 @@
       kidContext: { who: 'God', to: 'Hannah and Samuel', apply: 'Pray with all your heart—God hears. Hannah kept her promise and gave Samuel to serve God.' }
     },
     samuelAnointsDavid: {
-      title: 'Samuel Anoints David',
+      title: 'David Anointed by Samuel',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Samuel arrives at Jesse\'s house with oil' },
-        { src: 'panel-david-2.svg', alt: 'God says: look at the heart, not just height' },
-        { src: 'panel-david-3.svg', alt: 'Samuel anoints David—God\'s Spirit comes on him' }
+        { src: 'panel-david-1.svg', alt: 'Samuel comes to Bethlehem with oil — Jesse and his sons at the sacrifice' },
+        { src: 'panel-david-2.svg', alt: 'The Lord looketh on the heart — not as man seeth' },
+        { src: 'panel-david-3.svg', alt: 'The youngest from the sheep — oil poured; the Spirit of the Lord comes on David' }
       ],
-      caption: 'Swipe to see God choose David by his heart! 💛',
+      caption: 'Swipe to see God choose the shepherd boy — He looketh on the heart.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samuel', 'david', 'anoint', '1 samuel 16', 'jesse', 'heart', 'sheep', 'bethlehem'],
-      kjvRef: '1 Samuel 16:1–13',
-      kidContext: { who: 'God', to: 'David', apply: 'God looks at your heart. You do not have to be the tallest or oldest—be faithful where you are.' }
+      keywords: [
+        'samuel anoints david',
+        'samuel',
+        'david',
+        'anoint',
+        'anointed',
+        '1 samuel 16',
+        'jesse',
+        'heart',
+        'sheep',
+        'bethlehem',
+        'horn of oil',
+        'looketh on the heart'
+      ],
+      kjvRef: '1 Samuel 16:1-13',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David — and every heart God sees',
+        apply:
+          'People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.'
+      },
+      narration:
+        "David Anointed by Samuel – 1 Samuel 16:1-13. The LORD told Samuel to fill his horn with oil and go to Jesse the Bethlehemite; He had provided a king among his sons. Samuel came to Bethlehem and called Jesse and his sons to the sacrifice. Seven sons passed before him, but the LORD said, Look not on his countenance or stature — the LORD seeth not as man seeth; man looketh on the outward appearance, but the LORD looketh on the heart. Jesse's youngest was keeping the sheep; they fetched him — ruddy, fair, and pleasant to look upon. The LORD said, Arise, anoint him: for this is he. Samuel anointed David in the midst of his brethren, and the Spirit of the LORD came upon David from that day forward. For you: God sees your heart; walk humbly with Him."
     },
     davidGoliath: {
       title: 'David & Goliath',
@@ -5468,7 +5543,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5556,6 +5631,25 @@
       )
     ) {
       return { type: 'carousel', story: 'samuelCalls' };
+    }
+    if (
+      /\b1 samuel 16:(?:1[4-9]|2[0-3])\b|\b1 sam 16:(?:1[4-9]|2[0-3])\b/.test(low) ||
+      /\bdavid\b.*\bharp\b|\bharp\b.*\bdavid\b|plays? the harp|played the harp|david took an harp/.test(low) ||
+      (/\b1 samuel 16\b|\b1 sam 16\b/.test(low) &&
+        /\bharp\b|refreshed|evil spirit|armourbearer|armorbearer|cunning player|played with his hand|send me david thy son/.test(low)) ||
+      /played with his hand.*saul|saul was refreshed|evil spirit from god.*trouble|cunning player on an harp/.test(low)
+    ) {
+      return { type: 'carousel', story: 'davidHarp' };
+    }
+    if (
+      /samuel anoints david|samuel.*anoint.*david|\bdavid\b.*\banoint\b|\banoint\b.*\bdavid\b/.test(low) ||
+      /\b1 samuel 16:(?:1[0-3]|[1-9])\b|\b1 sam 16:(?:1[0-3]|[1-9])\b/.test(low) ||
+      /\b1 samuel 16\b|\b1 sam 16\b/.test(low) ||
+      /jesse the bethlehemite.*king|fill thine horn with oil|horn with oil.*bethlehem|looketh on the heart|lord looketh on the heart|outward appearance.*heart|arise, anoint him|anoint him: for this is he|spirit of the lord came upon david from that day|samuel took the horn of oil.*anointed him in the midst/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidAnointed' };
     }
     if (/david|goliath|battle|1 samuel|joshua 1:9|philippians 4:13|ephesians 6:10|brave|courage|strong|strength|strengthen|strengtheneth/.test(low)) {
       return { type: 'carousel', story: 'david' };

@@ -27,6 +27,7 @@
   "creationLight": "creationLight",
   "daniel": "daniel",
   "david": "david",
+  "davidAnointed": "davidAnointed",
   "davidJonathan": "david",
   "davidSheep": "davidHarp",
   "deborahBarak": "deborahBarak",

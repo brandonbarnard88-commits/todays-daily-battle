@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T23:26:35.027Z",
-  "surfacedRefCount": 2788,
-  "overrideCount": 2788,
+  "generatedAt": "2026-04-19T23:34:38.528Z",
+  "surfacedRefCount": 2789,
+  "overrideCount": 2789,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 154,
+      "refs": 155,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 172,
+      "refs": 173,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 148,
+      "refs": 147,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 172,
+      "refs": 173,
       "pairs": 0
     },
     "memorize.html": {
@@ -713,6 +713,7 @@
     "1 Samuel 16:12",
     "1 Samuel 16:12-13",
     "1 Samuel 16:13",
+    "1 Samuel 16:14-23",
     "1 Samuel 16:23",
     "1 Samuel 16:4-5",
     "1 Samuel 16:7",
@@ -5103,6 +5104,14 @@
       "general": {
         "plainExplanation": "Key idea: Then Samuel took the horn of oil, and anointed him in the midst of his brothers: and the Spirit of the LORD came upon David from that day forward. So Samuel...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Samuel",
+        "to": "Israel"
+      }
+    },
+    "1 Samuel 16:14-23": {
+      "general": {
+        "plainExplanation": "Key idea: But the Spirit of the LORD departed from Saul, and an evil spirit from the LORD troubled him. And Saul’s servants said to him, look now, an evil spirit from...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Samuel",
         "to": "Israel"
       }

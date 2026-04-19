@@ -407,6 +407,26 @@
     "kw": "david sheep shepherd harp lion 1 samuel 17"
   },
   {
+    "key": "davidAnointed",
+    "title": "David Anointed by Samuel",
+    "kjvRef": "1 Samuel 16:1-13",
+    "who": "The Lord",
+    "to": "David — and every heart God sees",
+    "apply": "People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.",
+    "theme": "Obedience",
+    "kw": "david anoint anointed samuel 1 samuel 16 1 samuel 16:1 1 samuel 16:13 jesse bethlehem bethlehemite horn of oil king heart looketh on the heart outward appearance youngest keeping the sheep ruddy spirit of the lord came upon david eliab abinadab shammah chosen"
+  },
+  {
+    "key": "samuelAnointsDavid",
+    "title": "David Anointed by Samuel",
+    "kjvRef": "1 Samuel 16:1-13",
+    "who": "The Lord",
+    "to": "David — and every heart God sees",
+    "apply": "People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.",
+    "theme": "Obedience",
+    "kw": "samuel anoints david samuel david anoint anointed 1 samuel 16 jesse heart sheep bethlehem horn of oil looketh on the heart"
+  },
+  {
     "key": "davidCave",
     "title": "David Hides in the Cave",
     "kjvRef": "1 Samuel 22:1–2; 24",
@@ -417,24 +437,14 @@
     "kw": "david cave adullam 1 samuel 22 hiding prayer psalm"
   },
   {
-    "key": "davidAnointed",
-    "title": "David Is Anointed King",
-    "kjvRef": "1 Samuel 16",
-    "who": "God",
-    "to": "David",
-    "apply": "God looks at your heart! Be faithful where you are—He sees you.",
-    "theme": "Obedience",
-    "kw": "david anoint samuel 1 samuel 16 king heart chosen"
-  },
-  {
     "key": "davidHarp",
     "title": "David Plays the Harp",
-    "kjvRef": "1 Samuel 16",
+    "kjvRef": "1 Samuel 16:14-23",
     "who": "David",
-    "to": "God",
-    "apply": "God loves your worship! Sing and praise wherever you are.",
+    "to": "King Saul (and us)",
+    "apply": "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
     "theme": "Love",
-    "kw": "david harp worship sheep 1 samuel 16 music praise"
+    "kw": "david harp worship sheep 1 samuel 16 1 samuel 16:14 1 samuel 16:23 music praise saul evil spirit refreshed armourbearer armorbearer played with his hand cunning player"
   },
   {
     "key": "deborahBarak",
@@ -2155,16 +2165,6 @@
     "apply": "Long before Samson was strong, God had a plan — a child set apart for Him from the womb. Your story matters to God too; He knows your name and hears when you pray.",
     "theme": "Protection",
     "kw": "samson manoah nazirite nazarite judges 13 angel baby promise philistines deliver womb blessed"
-  },
-  {
-    "key": "samuelAnointsDavid",
-    "title": "Samuel Anoints David",
-    "kjvRef": "1 Samuel 16:1–13",
-    "who": "God",
-    "to": "David",
-    "apply": "God looks at your heart. You do not have to be the tallest or oldest—be faithful where you are.",
-    "theme": "Obedience",
-    "kw": "samuel david anoint 1 samuel 16 jesse heart sheep bethlehem"
   },
   {
     "key": "samuelCall",

@@ -122,6 +122,7 @@
   "revelationThroneRoom": "revelationThrone",
   "revelationWomanDragon": "dragonFight",
   "roadToEmmaus": "emmausRoad",
+  "ruthBoaz": "ruthBoaz",
   "ruthGlean": "ruthGlean",
   "ruthNaomi": "ruthNaomi",
   "samson": "samson",

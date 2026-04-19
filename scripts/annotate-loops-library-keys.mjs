@@ -139,7 +139,8 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   167: 'samsonLion',
   7: 'samson',
   168: 'samsonDelilah',
-  169: 'ruthNaomi'
+  169: 'ruthNaomi',
+  170: 'ruthBoaz'
 };
 
 const VALID_KEYS = new Set(loadStoryIndex().map((r) => r.key));

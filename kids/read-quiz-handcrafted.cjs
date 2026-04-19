@@ -2977,6 +2977,119 @@ function buildRuthNaomiReadQuiz() {
   };
 }
 
+/** Ruth and Boaz in the field — Ruth 2:1-17 (KJV); glean, kindness, provision. */
+function buildRuthBoazReadQuiz() {
+  return {
+    kjvRef: 'Ruth 2:1-17 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'And Naomi had a kinsman of her husband\'s, a mighty man of wealth, of the family of Elimelech; and his name was Boaz. And Ruth the Moabitess said unto Naomi, Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace. And she said unto her, Go, my daughter. And she went, and came, and gleaned in the field after the reapers: and her hap was to light on a part of the field belonging unto Boaz, who was of the kindred of Elimelech.',
+        caption: 'Harvest time — Ruth asks to glean',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'And, behold, Boaz came from Bethlehem, and said unto the reapers, The LORD be with you. And they answered him, The LORD bless thee. Then said Boaz unto his servant that was set over the reapers, Whose damsel is this? And the servant that was set over the reapers answered and said, It is the Moabitish damsel that came back with Naomi out of the country of Moab: And she said, I pray you, let me glean and gather after the reapers among the sheaves: so she came, and hath continued even from the morning until now, that she tarried a little in the house.',
+        caption: 'Boaz sees Ruth in his field',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'Then said Boaz unto Ruth, Hearest thou not, my daughter? Go not to glean in another field, neither go from hence, but abide here fast by my maidens: Let thine eyes be on the field that they do reap, and go thou after them: have I not charged the young men that they shall not touch thee? and when thou art athirst, go unto the vessels, and drink of that which the young men have drawn.',
+        caption: 'Kind words — stay here and drink',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'Then she fell on her face, and bowed herself to the ground, and said unto him, Why have I found grace in thine eyes, that thou shouldest take knowledge of me, seeing I am a stranger? And Boaz answered and said unto her, It hath fully been shewed me, all that thou hast done unto thy mother in law since the death of thine husband: and how thou hast left thy father and thy mother, and the land of thy nativity, and art come unto a people which thou knewest not heretofore. The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust.',
+        caption: 'Why such kindness? — The Lord recompense thy work',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'Then she said, Let me find favour in thy sight, my lord; for that thou hast comforted me, and for that thou hast spoken friendly unto thine handmaid, though I be not like unto one of thine handmaidens. And Boaz said unto her, At mealtime come thou hither, and eat of the bread, and dip thy morsel in the vinegar. And she sat beside the reapers: and he reached her parched corn, and she did eat, and was sufficed, and left. And when she was risen up to glean, Boaz commanded his young men, saying, Let her glean even among the sheaves, and reproach her not: And let fall also some of the handfuls of purpose for her, and leave them, that she may glean them, and rebuke her not. So she gleaned in the field until even, and beat out that she had gleaned: and it was about an ephah of barley.',
+        caption: 'Till evening — an ephah of barley',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    paragraphs: [
+      'Naomi and Ruth had come back to Bethlehem. It was harvest time. Ruth said to Naomi, "Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace."',
+      'Ruth went and gleaned in the field of a man named Boaz, who was a rich kinsman of Naomi.',
+      'Boaz came to the field and saw Ruth. He asked his servant whose damsel she was. The servant told him she was the Moabitish woman who came back with Naomi.',
+      'Boaz spoke kindly to Ruth. He said, "Go not to glean in another field… abide here fast by my maidens. Let thine eyes be on the field that they do reap, and go thou after them. Have I not charged the young men that they shall not touch thee? And when thou art athirst, go unto the vessels, and drink."',
+      'Ruth bowed herself to the ground and said, "Why have I found grace in thine eyes?"',
+      'Boaz answered, "It hath fully been shewed me all that thou hast done unto thy mother in law… The Lord recompense thy work, and a full reward be given thee of the Lord God of Israel, under whose wings thou art come to trust."',
+      'Ruth gleaned in Boaz\'s field until evening. She beat out what she had gleaned, and it was about an ephah of barley.',
+      'For you: God sees faithful love — and He often cares for us through the kindness of others.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Ruth 1:1', 'Ruth 2:1-17', 'Judges 7', 'Psalm 23'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: Ruth 2:1-17.)'
+      },
+      {
+        question: 'What did Ruth ask Naomi to let her do?',
+        choices: [
+          'Stay home always.',
+          'Go to the field and glean ears of corn.',
+          'Build a ship.',
+          'Forget Bethlehem.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Right — honest work in the harvest.',
+        wrongFeedback: 'Think field and glean. (Answer: Glean ears of corn….)'
+      },
+      {
+        question: 'Whose field did Ruth glean in?',
+        choices: ['A stranger far away.', 'Boaz — a kinsman of Naomi.', 'Only Orpah\'s field.', 'No field at all.'],
+        correctIndex: 1,
+        correctFeedback: 'Yes — God guided her steps.',
+        wrongFeedback: 'Think kinsman. (Answer: Boaz….)'
+      },
+      {
+        question: 'What did Boaz tell Ruth about drinking?',
+        choices: [
+          'Never drink water.',
+          'When thou art athirst, go unto the vessels, and drink.',
+          'Only at night.',
+          'Only in Moab.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful — gentle care.',
+        wrongFeedback: 'Listen for athirst and drink. (Answer: When thou art athirst… drink….)'
+      },
+      {
+        question: 'About how much barley did Ruth gather that day?',
+        choices: ['Nothing.', 'About an ephah of barley.', 'One tiny seed.', 'A whole city.'],
+        correctIndex: 1,
+        correctFeedback: 'Exactly — God provided through the day.',
+        wrongFeedback: 'Think measure. (Answer: About an ephah….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Ruth and Boaz in the Field with God's Word today.",
+    takeaway:
+      'Boaz spoke kindly — the LORD recompense thy work — and Ruth went home with barley for the table.',
+    prayer:
+      'God, thank You for people who speak kindly. Thank You that You see hard work and loyal love. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art young children bold thick outlines large open spaces warm thankful mood Ruth in grain field holding small barley bundle kind Boaz nearby gentle faces few soft background workers with sheaves distant soft hills harvest sky minimal plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Ruth asks to glean (ruth 2)',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Boaz The LORD be with you',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Abide here and drink',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Ephah of barley blessing'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -3009,5 +3122,6 @@ module.exports = {
   samsonLion: buildSamsonLionReadQuiz(),
   samsonDelilah: buildSamsonDelilahReadQuiz(),
   samson: buildSamsonPillarsReadQuiz(),
-  ruthNaomi: buildRuthNaomiReadQuiz()
+  ruthNaomi: buildRuthNaomiReadQuiz(),
+  ruthBoaz: buildRuthBoazReadQuiz()
 };

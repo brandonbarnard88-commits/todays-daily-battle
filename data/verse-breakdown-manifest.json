@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T22:08:20.172Z",
-  "surfacedRefCount": 2781,
-  "overrideCount": 2781,
+  "generatedAt": "2026-04-19T22:14:02.223Z",
+  "surfacedRefCount": 2782,
+  "overrideCount": 2782,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 148,
+      "refs": 149,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 166,
+      "refs": 167,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 146,
+      "refs": 147,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 168,
+      "refs": 169,
       "pairs": 0
     },
     "memorize.html": {
@@ -3288,6 +3288,7 @@
     "Ruth 1:20",
     "Ruth 1:4",
     "Ruth 2:1",
+    "Ruth 2:1-17",
     "Ruth 2:11",
     "Ruth 2:12",
     "Ruth 2:16",
@@ -25576,6 +25577,14 @@
       "general": {
         "plainExplanation": "And Naomi had a kinsman of her husband’s, a mighty man of wealth, of the family of Elimelech; and his name was Boaz.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Ruth 2:1-17": {
+      "general": {
+        "plainExplanation": "Key idea: And Naomi had a kinsman of her husband’s, a mighty man of wealth, of the family of Elimelech; and his name was Boaz. And Ruth the Moabitess said to Naomi, L...",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "Unknown",
         "to": "Israel"
       }

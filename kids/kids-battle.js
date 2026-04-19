@@ -1567,18 +1567,40 @@
       kidContext: { who: 'God', to: 'Everyone who believes', apply: 'God makes new home—no more sad! No tears, no pain—forever with Him!' }
     },
     ruthBoaz: {
-      title: 'Ruth & Boaz',
+      title: 'Ruth and Boaz in the Field',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Ruth stays with Naomi' },
-        { src: 'panel-david-2.svg', alt: 'Ruth gleans in Boaz\'s field' },
-        { src: 'panel-david-3.svg', alt: 'Boaz is kind—God sees!' }
+        { src: 'panel-david-1.svg', alt: 'Harvest in Bethlehem — Ruth asks to glean in the field' },
+        { src: 'panel-david-2.svg', alt: 'Boaz speaks kindly — abide here, drink when athirst' },
+        { src: 'panel-david-3.svg', alt: 'The Lord recompense thy work — Ruth gathers barley till evening' }
       ],
-      caption: 'Swipe to see Ruth and Boaz—be kind, God sees! 🌾',
+      caption: 'Swipe to see God\'s quiet kindness in the harvest field.',
       videoId: 'irThVpdeSXk',
       videoTitle: "God's Story: Ruth – Bible Story for Kids!",
-      keywords: ['ruth', 'boaz', 'loyalty', 'harvest', 'naomi', 'ruth 1'],
-      kjvRef: 'Ruth 1',
-      kidContext: { who: 'God', to: 'Ruth and Boaz', apply: 'Be kind—God sees! Loyalty and kindness matter to Him!' }
+      keywords: [
+        'ruth',
+        'boaz',
+        'glean',
+        'barley',
+        'harvest',
+        'bethlehem',
+        'naomi',
+        'kinsman',
+        'reapers',
+        'ephah',
+        'ruth 2',
+        'moabitess',
+        'grace',
+        'wings'
+      ],
+      kjvRef: 'Ruth 2:1-17',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Ruth — and every heart that works faithfully',
+        apply:
+          "Boaz noticed Ruth's loyal heart and spoke with gentleness. God often cares for us through the kindness of others — and He sees every faithful step."
+      },
+      narration:
+        "Ruth and Boaz in the Field – Ruth 2:1-17. Naomi had a kinsman, a mighty man of wealth, Boaz, of Elimelech's kindred. Ruth said unto Naomi, Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace. She came into the field of Boaz. Boaz came from Bethlehem, and said unto the reapers, The LORD be with you. He asked his servant whose damsel this was; it was the Moabitish damsel that came back with Naomi. Boaz said unto Ruth, Hearest thou not, my daughter? Go not to glean in another field… abide here fast by my maidens… when thou art athirst, go unto the vessels, and drink. She bowed herself to the ground, and said, Why have I found grace in thine eyes? Boaz answered, The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust. She gleaned in the field until evening, and beat out that she had gleaned: and it was about an ephah of barley. For you: God provides — often through gentle people He places beside you."
     },
     parableTalents: {
       title: 'Parable of Talents',
@@ -5510,10 +5532,12 @@
     ) {
       return { type: 'carousel', story: 'ruthNaomi' };
     }
-    if (/naomi/.test(low) && !/boaz/.test(low)) {
+    if (/naomi/.test(low) && !/boaz/.test(low) && !/glean|harvest|barley|ephah|reap|field.*ruth/.test(low)) {
       return { type: 'carousel', story: 'ruthNaomi' };
     }
-    if (/ruth 2:|^ruth 2\b|ruth 2 |glean|harvest|boaz/.test(low)) {
+    if (
+      /ruth 2:1|ruth 2:2|ruth 2:3|ruth 2:4|ruth 2:5|ruth 2:6|ruth 2:7|ruth 2:8|ruth 2:9|ruth 2:1[0-7]|boaz|glean|harvest|barley|ephah|reapers|reap|kinsman/.test(low)
+    ) {
       return { type: 'carousel', story: 'ruthBoaz' };
     }
     if (/ruth/.test(low)) {

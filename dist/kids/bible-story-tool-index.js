@@ -2058,13 +2058,13 @@
   },
   {
     "key": "ruthBoaz",
-    "title": "Ruth & Boaz",
-    "kjvRef": "Ruth 1",
-    "who": "God",
-    "to": "Ruth and Boaz",
-    "apply": "Be kind—God sees! Loyalty and kindness matter to Him!",
+    "title": "Ruth and Boaz in the Field",
+    "kjvRef": "Ruth 2:1-17",
+    "who": "The Lord",
+    "to": "Ruth — and every heart that works faithfully",
+    "apply": "Boaz noticed Ruth's loyal heart and spoke with gentleness. God often cares for us through the kindness of others — and He sees every faithful step.",
     "theme": "Love",
-    "kw": "ruth boaz loyalty harvest naomi ruth 1"
+    "kw": "ruth boaz glean barley harvest bethlehem naomi kinsman reapers ephah ruth 2 moabitess grace wings"
   },
   {
     "key": "ruthNaomi",

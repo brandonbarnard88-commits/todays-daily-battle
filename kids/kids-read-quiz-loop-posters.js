@@ -224,7 +224,7 @@
     roadToEmmaus: 89,
     romansRoadKids: 88,
     riverOfLife: 158,
-    ruthBoaz: 124,
+    ruthBoaz: 170,
     ruthGlean: 8,
     ruthMoab: 124,
     ruthNaomi: 169,

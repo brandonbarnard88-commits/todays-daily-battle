@@ -1188,6 +1188,32 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 2:8</text>'
       ),
 
+      /* Ruth and Boaz in the field — library ruthBoaz / loop 170 */
+      ruthBoaz: svg(
+        ground() + hills() +
+        '<path d="M0 235 Q60 218 120 235 Q180 252 240 235 Q300 218 360 235 Q380 228 400 235" ' + s + ' stroke-width="2" fill="none"/>' +
+        /* grain stalks */
+        '<line x1="55" y1="234" x2="55" y2="198" ' + s + ' stroke-width="2"/>' +
+        '<line x1="72" y1="236" x2="72" y2="202" ' + s + ' stroke-width="2"/>' +
+        '<line x1="330" y1="234" x2="330" y2="200" ' + s + ' stroke-width="2"/>' +
+        '<line x1="348" y1="236" x2="348" y2="204" ' + s + ' stroke-width="2"/>' +
+        /* distant workers */
+        person(95, 188, 8, 22) +
+        person(118, 190, 8, 22) +
+        '<ellipse cx="305" cy="210" rx="12" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="305" y1="202" x2="305" y2="188" ' + s + ' stroke-width="1.8"/>' +
+        /* Ruth with bundle */
+        person(175, 162, 11, 32) +
+        '<ellipse cx="148" cy="198" rx="16" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M138 192 L142 206 M158 192 L154 206" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="164" y1="188" x2="188" y2="178" ' + s + ' stroke-width="2"/>' +
+        /* Boaz — kind, nearby */
+        person(248, 158, 12, 36) +
+        '<path d="M232 182 Q218 175 210 188" ' + s + ' stroke-width="2"/>' +
+        sun(42, 48, 18) + cloud(300, 38) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 2:12</text>'
+      ),
+
       /* ── Week 3: Samuel Call (43) ── */
       samuelCall: svg(
         '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
@@ -2847,7 +2873,7 @@
     samson: 'samson',
     samsonDelilah: 'samsonDelilah',
     ruthGlean: 'ruthGlean',
-    ruthBoaz: 'ruthMoab',
+    ruthBoaz: 'ruthBoaz',
     samuelCall: 'samuelCall',
     davidHarp: 'davidHarp',
     davidSheep: 'davidHarp',

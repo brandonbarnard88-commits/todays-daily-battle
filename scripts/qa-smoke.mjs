@@ -252,9 +252,22 @@ try {
     'listen=' + (await listenBtn.count()) + ', stop=' + (await stopAudioBtn.count())
   );
 
-  // Workshop runtime checks
+  // Workshop runtime checks (dual JSON fetch can exceed a short sleep on CI)
   await page.goto(origin + '/action-bible-workshop.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await page.waitForTimeout(1200);
+  await page
+    .waitForFunction(
+      () => {
+        const el = document.getElementById('abw-status');
+        if (!el) return false;
+        const t = String(el.textContent || '').trim();
+        return (
+          /Loaded\s+\d+\s+entries\s+and\s+\d+\s+weekly packs/i.test(t) ||
+          /could not be loaded/i.test(t)
+        );
+      },
+      { timeout: 45000 }
+    )
+    .catch(() => {});
   const workshopStatus = ((await page.locator('#abw-status').textContent()) || '').trim();
   const workshopLoaded = /Loaded\s+\d+\s+entries\s+and\s+\d+\s+weekly packs/i.test(workshopStatus);
   mark(

@@ -86,7 +86,7 @@ const checks = [
       'Pray with others',
       'Queued shared prayers',
       'Gentle KJV echo for this battle',
-      'Household room groundwork',
+      'Household room (local only)',
     ],
     forbidden: [
       'Community board',

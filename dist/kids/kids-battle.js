@@ -2128,16 +2128,25 @@
     deborahBarak: {
       title: 'Deborah and Barak',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Deborah judges under the palm tree' },
-        { src: 'panel-noah-2.svg', alt: 'Barak leads the army — Deborah goes too' },
-        { src: 'panel-noah-3.svg', alt: 'God gives victory over Sisera\'s chariots' }
+        { src: 'panel-noah-1.svg', alt: 'Deborah under the palm tree — the Lord\'s word for the people' },
+        { src: 'panel-noah-2.svg', alt: 'Deborah tells Barak the Lord\'s command — he asks her to go with him' },
+        { src: 'panel-noah-3.svg', alt: 'The Lord delivers Israel — rest after listening to God\'s voice' }
       ],
-      caption: 'Swipe to see Deborah and Barak trust God for the battle! 🌴',
+      caption: 'Swipe to see God speak through Deborah — and give His people victory! 🌴',
       videoId: '',
       videoTitle: '',
-      keywords: ['deborah', 'barak', 'sisera', 'judges 4', 'judge', 'prophetess', 'chariot', 'victory'],
-      kjvRef: 'Judges 4',
-      kidContext: { who: 'God', to: 'Deborah and Barak (and us)', apply: 'Listen to God and step out brave — He fights for those who trust Him.' }
+      keywords: [
+        'deborah', 'barak', 'sisera', 'jabin', 'judges 4', 'judge', 'prophetess', 'palm tree', 'tabor', 'victory', 'listen', 'obey'
+      ],
+      kjvRef: 'Judges 4:1-16',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Israel — and every listener today',
+        apply:
+          "Deborah did not rush or shout — she sat under the palm tree and helped people hear what God said. When Barak obeyed God's command, the Lord cleared the way. You can ask God to help you listen like Deborah and obey like Barak — Jesus is with you."
+      },
+      narration:
+        "Deborah and Barak – Judges 4:1-16. The children of Israel did evil in the sight of the Lord, and He sold them into the hand of Jabin king of Canaan, who mightily oppressed them twenty years. Deborah, a prophetess, judged Israel under the palm tree between Ramah and Bethel; the children of Israel came up to her for judgment. She called Barak and told him the Lord God of Israel commanded him to take ten thousand men to mount Tabor, for the Lord would draw Sisera, Jabin's captain, with his chariots and his multitude, unto the river Kishon, and deliver him into Barak's hand. Barak would go if Deborah went with him; she said she would go, and that the Lord would sell Sisera into the hand of a woman. They went up; the Lord discomfited Sisera, and all his chariots, and all his host, with the edge of the sword before Barak; Sisera lighted down off his chariot, and fled on his feet. Barak pursued; all the host of Sisera fell by the edge of the sword; and there was not a man left. For you: Listen for God's voice in His Word — He still leads and delivers those who trust Him."
     },
     samsonBirth: {
       title: 'Baby Samson',
@@ -5266,6 +5275,17 @@
     }
     if (/achan|accursed thing|joshua 7|sin against the lord god of israel|hidden.*jericho/.test(low)) {
       return { type: 'carousel', story: 'achan' };
+    }
+    if (/jael|judges 4:21|judges 4:22|sisera.*tent|tent.*sisera/.test(low)) {
+      return { type: 'carousel', story: 'jaelTent' };
+    }
+    if (/judges 4:4|between ramah and bethel|deborah.*judge|judge.*israel.*palm|under the palm tree/.test(low)) {
+      return { type: 'carousel', story: 'deborahJudge' };
+    }
+    if (
+      /deborah|barak|sisera|jabin|mount tabor|river kishon|judges 4/.test(low)
+    ) {
+      return { type: 'carousel', story: 'deborahBarak' };
     }
     if (/elijah|baal|carmel|1 kings 18|fire.*heaven/.test(low)) {
       return { type: 'carousel', story: 'elijahFire' };

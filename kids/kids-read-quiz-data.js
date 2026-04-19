@@ -3184,7 +3184,7 @@
           "Daniel 6",
           "2 Timothy 1:5–7; 3:15",
           "1 Samuel 1–2",
-          "Judges 4"
+          "Judges 4:1-16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4247,88 +4247,125 @@
     ]
   },
   "deborahBarak": {
-    "kjvRef": "Judges 4",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Judges 4:1-16 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "The children of Israel did evil, and a strong king troubled them for many years.",
+        "caption": "A hard time for God's people",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Deborah was a judge who sat under a palm tree. She helped the people know what the Lord wanted.",
+        "caption": "Wisdom under the tree",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Deborah told Barak, \"The Lord God of Israel commands thee: go up to mount Tabor with ten thousand men. I will deliver Sisera, the captain of Jabin's army, into thine hand.\"",
+        "caption": "God's command",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Barak said he would go only if Deborah went with him. Deborah answered, \"I will surely go with thee… for the Lord shall sell Sisera into the hand of a woman.\"",
+        "caption": "Together they obey",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Barak and the men went up to battle. The Lord discomfited Sisera and all his host before Barak; they fell by the edge of the sword, and not a man was left.",
+        "caption": "The Lord gives victory",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "The Lord gave His people rest that day because they listened to His word through Deborah.",
+        "caption": "Rest after listening",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Deborah and Barak (Judges 4).",
-      "Deborah judges under the palm tree Barak leads the army.",
-      "Deborah goes too God gives victory over Sisera's chariots Listen to God and step out brave.",
-      "He fights for those who trust Him."
+      "The children of Israel did evil in the sight of the Lord, and He allowed a strong king named Jabin to trouble them for twenty years.",
+      "Deborah was a prophetess and judge in Israel. She sat under a palm tree and helped the people know what the Lord wanted.",
+      "One day Deborah sent for Barak and told him, \"The Lord God of Israel commands thee, Go and draw toward mount Tabor, and take with thee ten thousand men. I will deliver Sisera, the captain of Jabin's army, into thine hand.\"",
+      "Barak said he would go only if Deborah went with him. Deborah answered, \"I will surely go with thee… for the Lord shall sell Sisera into the hand of a woman.\"",
+      "Barak and the men of Israel went up to battle. The Lord discomfited Sisera, and all his chariots, and all his host, with the edge of the sword before Barak; all the host of Sisera fell upon the edge of the sword; and there was not a man left.",
+      "The Lord gave Israel rest and victory that day because they listened to His word through Deborah.",
+      "For you: God still speaks in the Bible — listen, obey, and trust Him to help you."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13:16–18",
-          "1 Samuel 16",
-          "Luke 24",
-          "Judges 4"
+          "Judges 6",
+          "Judges 4:1-16",
+          "Ruth 1",
+          "1 Samuel 17"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Judges 4.)"
+        "wrongFeedback": "Skim the line under the title in the story block. (Answer: Judges 4:1-16.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "Who was Deborah?",
         "choices": [
-          "God",
-          "Elisha",
-          "The crowds",
-          "Paul"
+          "A queen in Egypt.",
+          "A prophetess and judge who helped Israel hear the Lord.",
+          "A soldier with no faith.",
+          "A farmer who never prayed."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 1,
+        "correctFeedback": "Right—God gave her wisdom to lead and speak His Word.",
+        "wrongFeedback": "Think: who sat under the palm tree? (Answer: A prophetess and judge….)"
+      },
+      {
+        "question": "What did Barak ask Deborah?",
+        "choices": [
+          "To stay home alone.",
+          "To go with him when he obeyed the Lord.",
+          "To hide from the enemy.",
+          "To build a ship."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—he wanted her with him as they obeyed God.",
+        "wrongFeedback": "Listen for Barak's condition in the story. (Answer: To go with him….)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "We should hide from God when we mess up.",
-          "Listen to God and step out brave — He fights for those who trust Him.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "God never helps His people.",
+          "When we listen to God's Word and obey, He delivers and gives rest.",
+          "We should never trust women leaders.",
+          "The Bible is only pretend."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Listen to God and step out brave — He fights for those who trust Him..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Deborah judges under the palm tree",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Exactly—that lines up with Deborah, Barak, and the Lord.",
+        "wrongFeedback": "Reread the last lines about listening and victory. (Answer: When we listen….)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Listen to God and step out brave — He fights for those who trust Him."
+          "Ignore the Bible.",
+          "Ask God to help you listen to His Word today like Deborah helped Israel.",
+          "Only obey when we feel afraid.",
+          "Never pray with family."
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Listen to God and step out brave — He fights for those who trust Him..)"
+        "wrongFeedback": "Pick the choice that shows listening and trust. (Answer: Ask God to help you listen….)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Deborah and Barak with God's Word today.",
-    "takeaway": "Listen to God and step out brave — He fights for those who trust Him.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Deborah and Barak. Amen.",
+    "takeaway": "God raised up Deborah to speak His Word — when Israel listened and obeyed, the Lord gave victory and rest.",
+    "prayer": "God, thank You for the Bible. Thank You for Deborah and Barak. Help me listen to You and obey. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Deborah judges under the palm tree (deborah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Barak leads the army — Deborah goes too (barak)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God gives victory over Sisera's chariots (sisera)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Deborah judges under the palm tree (judges 4)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Barak leads the army — Deborah goes too (judge)"
-    ]
+      "Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, hopeful courageous mood, no fighting, no fear on faces, no scary battle, no text in image: Deborah sitting calmly under tall palm tree with large frond shapes open for coloring, Barak standing listening with calm ready face, soft background gentle hills few soldiers of Israel with shields lowered standing quietly, soft sky minimal lines plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Deborah under the palm tree (judges 4)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The Lord's command to Barak",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Deborah goes with Barak",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The Lord gives Israel victory"
+    ],
+    "readAlongImages": []
   },
   "deborahJudge": {
     "kjvRef": "the Bible",
@@ -18063,7 +18100,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 22",
-          "Judges 4",
+          "Judges 4:1-16",
           "Philippians 1:21; 2:5–11; 4:4–7, 13",
           "Genesis 3"
         ],

@@ -29,7 +29,7 @@
   "david": "david",
   "davidJonathan": "david",
   "davidSheep": "davidHarp",
-  "deborahBarak": "deborahJudge",
+  "deborahBarak": "deborahBarak",
   "dorcasRaise": "dorcasRaise",
   "earlyChurchLife": "pentecost",
   "elijahChariot": "elijahChariot",

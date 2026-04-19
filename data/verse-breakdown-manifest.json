@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T20:20:00.209Z",
-  "surfacedRefCount": 2770,
-  "overrideCount": 2770,
+  "generatedAt": "2026-04-19T20:26:27.935Z",
+  "surfacedRefCount": 2772,
+  "overrideCount": 2772,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 141,
+      "refs": 142,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 160,
+      "refs": 161,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 139,
+      "refs": 140,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -2027,9 +2027,11 @@
     "Judges 16:3",
     "Judges 16:30",
     "Judges 18:11",
+    "Judges 4:1-16",
     "Judges 4:14",
     "Judges 4:21",
     "Judges 4:4",
+    "Judges 4:6",
     "Judges 4:9",
     "Judges 5:1",
     "Judges 6:12",
@@ -15481,6 +15483,14 @@
         "to": "Israel"
       }
     },
+    "Judges 4:1-16": {
+      "general": {
+        "plainExplanation": "Key idea: And the children of Israel again did evil in the sight of the LORD, when Ehud was dead. And the LORD sold them into the hand of Jabin king of Canaan, that r...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
     "Judges 4:14": {
       "general": {
         "plainExplanation": "Key idea: And Deborah said to Barak, Up; for this is the day in which the LORD has delivered Sisera into thine hand: is not the LORD gone out before you? So Barak wen...",
@@ -15500,6 +15510,14 @@
     "Judges 4:4": {
       "general": {
         "plainExplanation": "And Deborah, a prophetess, the wife of Lapidoth, she judged Israel at that time.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Judges 4:6": {
+      "general": {
+        "plainExplanation": "Key idea: And she sent and called Barak the son of Abinoam out of Kedeshnaphtali, and said to him, has not the LORD God of Israel commanded, saying, Go and draw towar...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"

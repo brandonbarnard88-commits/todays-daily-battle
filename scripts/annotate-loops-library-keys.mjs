@@ -128,6 +128,7 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   157: 'revelationSeals',
   161: 'tabernacle',
   121: 'rahab',
+  122: 'deborahBarak',
   162: 'joshuaCharge',
   163: 'sunStandsStill',
   164: 'achan',

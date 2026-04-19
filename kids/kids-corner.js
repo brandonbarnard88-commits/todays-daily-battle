@@ -917,6 +917,23 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 7:20</text>'
       ),
 
+      /* Deborah and Barak — loop 122 / library deborahBarak */
+      deborahBarak: svg(
+        ground() + hills() +
+        '<line x1="92" y1="252" x2="92" y2="108" ' + s + ' stroke-width="3.5"/>' +
+        '<path d="M92 108 Q55 78 38 112 M92 108 Q72 58 58 88 M92 108 Q92 42 92 32 M92 108 Q112 58 128 88 M92 108 Q129 78 146 112" ' + s + ' stroke-width="2.5"/>' +
+        person(118, 178, 10, 28) +
+        person(208, 168, 12, 34) +
+        '<path d="M198 175 L188 188" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="268" cy="208" rx="9" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="262" y1="198" x2="274" y2="198" ' + s + ' stroke-width="1.5"/>' +
+        person(295, 192, 8, 22) +
+        '<ellipse cx="318" cy="210" rx="9" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(332, 194, 8, 22) +
+        sun(48, 48, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 4:6</text>'
+      ),
+
       /* Victory at Ai — loop 165 / library battleOfAi */
       battleOfAi: svg(
         ground() + hills() +
@@ -2883,7 +2900,7 @@
     parableTalents: 'richYoungRuler',
     gideonFleece: 'faithMustard',
     gideonMidianites: 'jerichoWalls',
-    deborahBarak: 'deborahJudge',
+    deborahBarak: 'deborahBarak',
     samsonBirth: 'samsonHair',
     ruthNaomi: 'ruthMoab',
     hannahSamuel: 'hannahPray',
@@ -4430,7 +4447,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'fallOfJericho', 'ruthBoaz',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'fallOfJericho', 'ruthBoaz',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

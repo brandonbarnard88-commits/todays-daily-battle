@@ -449,12 +449,12 @@
   {
     "key": "deborahBarak",
     "title": "Deborah and Barak",
-    "kjvRef": "Judges 4",
-    "who": "God",
-    "to": "Deborah and Barak (and us)",
-    "apply": "Listen to God and step out brave — He fights for those who trust Him.",
+    "kjvRef": "Judges 4:1-16",
+    "who": "The Lord",
+    "to": "Israel — and every listener today",
+    "apply": "Deborah did not rush or shout — she sat under the palm tree and helped people hear what God said. When Barak obeyed God's command, the Lord cleared the way. You can ask God to help you listen like Deborah and obey like Barak — Jesus is with you.",
     "theme": "Protection",
-    "kw": "deborah barak sisera judges 4 judge prophetess chariot victory"
+    "kw": "deborah barak sisera jabin judges 4 judge prophetess palm tree tabor victory listen obey"
   },
   {
     "key": "deborahJudge",

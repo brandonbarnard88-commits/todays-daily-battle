@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (286 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (287 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -26,6 +26,11 @@
       mp4: '/media/kids-stories/abraham-isaac.mp4',
       webm: '/media/kids-stories/abraham-isaac.webm',
       captionsVtt: '/media/kids-stories/abraham-isaac.vtt'
+    },
+    achan: {
+      mp4: '/media/kids-stories/achan.mp4',
+      webm: '/media/kids-stories/achan.webm',
+      captionsVtt: '/media/kids-stories/achan.vtt'
     },
     actsApollosPriscilla: {
       mp4: '/media/kids-stories/acts-apollos-priscilla.mp4',

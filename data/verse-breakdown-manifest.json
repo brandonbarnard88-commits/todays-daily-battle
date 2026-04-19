@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T20:02:01.940Z",
-  "surfacedRefCount": 2765,
-  "overrideCount": 2765,
+  "generatedAt": "2026-04-19T20:12:28.027Z",
+  "surfacedRefCount": 2768,
+  "overrideCount": 2768,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 138,
+      "refs": 140,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 157,
+      "refs": 159,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 137,
+      "refs": 138,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 162,
+      "refs": 163,
       "pairs": 0
     },
     "memorize.html": {
@@ -2008,6 +2008,9 @@
     "Joshua 6:3",
     "Joshua 6:4",
     "Joshua 6:5",
+    "Joshua 7:1-11",
+    "Joshua 7:1-26",
+    "Joshua 7:20",
     "Jude 1:1",
     "Jude 1:14",
     "Jude 1:7",
@@ -15319,6 +15322,30 @@
     "Joshua 6:5": {
       "general": {
         "plainExplanation": "Key idea: And it shall come to pass, that when they make a long blast with the ram’s horn, and when you hear the sound of the trumpet, all the people shall shout with...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Joshua",
+        "to": "Israel"
+      }
+    },
+    "Joshua 7:1-11": {
+      "general": {
+        "plainExplanation": "Key idea: But the children of Israel committed a trespass in the accursed thing: for Achan, the son of Carmi, the son of Zabdi, the son of Zerah, of the tribe of Juda...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Joshua",
+        "to": "Israel"
+      }
+    },
+    "Joshua 7:1-26": {
+      "general": {
+        "plainExplanation": "Key idea: But the children of Israel committed a trespass in the accursed thing: for Achan, the son of Carmi, the son of Zabdi, the son of Zerah, of the tribe of Juda...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Joshua",
+        "to": "Israel"
+      }
+    },
+    "Joshua 7:20": {
+      "general": {
+        "plainExplanation": "And Achan answered Joshua, and said, Indeed I have sinned against the LORD God of Israel, and thus and thus have I done:",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Joshua",
         "to": "Israel"

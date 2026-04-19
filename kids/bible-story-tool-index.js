@@ -67,6 +67,16 @@
     "kw": "abraham isaac sacrifice ram trust faith"
   },
   {
+    "key": "achan",
+    "title": "Achan's Sin and Restoration",
+    "kjvRef": "Joshua 7:1-26",
+    "who": "The Lord",
+    "to": "Israel — and every heart today",
+    "apply": "God is holy — He cannot bless what is hidden and wrong. When Achan told the truth, the trouble was removed from the camp. When you are sorry and tell God and a trusted grown-up, He forgives and helps you start clean in Jesus.",
+    "theme": "Obedience",
+    "kw": "achan joshua 7 ai confess sin forgive jericho stolen truth camp israel"
+  },
+  {
     "key": "adamEve",
     "title": "Adam & Eve",
     "kjvRef": "Genesis 3",
@@ -1149,12 +1159,12 @@
   {
     "key": "joshuaAi",
     "title": "Joshua and Ai",
-    "kjvRef": "Joshua 8",
-    "who": "God",
+    "kjvRef": "Joshua 7:1-11",
+    "who": "The Lord",
     "to": "Joshua and Israel",
-    "apply": "Hidden sin blocked the win — when the camp obeyed God again, He gave the city.",
+    "apply": "They thought Ai was small and easy — but God had said all the spoil of Jericho was devoted to Him. When someone hid what belonged to the Lord, the whole camp felt it. When we hide wrong, it hurts everyone; telling the truth is the way back.",
     "theme": "Obedience",
-    "kw": "joshua ai achan joshua 7 joshua 8 obey ambush"
+    "kw": "joshua ai achan joshua 7 defeat sin camp obey jericho"
   },
   {
     "key": "joshuaJordan",

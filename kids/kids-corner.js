@@ -901,6 +901,22 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 24:15</text>'
       ),
 
+      /* Achan — loop 164 / library achan */
+      achan: svg(
+        ground() + hills() +
+        person(200, 148, 13, 38) +
+        '<path d="M186 140 L214 125" ' + s + ' stroke-width="2.5"/>' +
+        person(95, 188, 9, 24) + person(120, 192, 9, 24) +
+        person(280, 192, 9, 24) + person(305, 188, 9, 24) +
+        person(200, 210, 10, 22) +
+        '<ellipse cx="200" cy="248" rx="28" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M178 232 Q188 218 200 228 Q212 218 222 232" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="192" y="228" width="16" height="10" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<rect x="206" y="230" width="12" height="6" rx="1" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<rect x="186" y="234" width="10" height="6" rx="1" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 7:20</text>'
+      ),
+
       /* Sun stands still — loop 163 / library sunStandsStill */
       sunStandsStill: svg(
         ground() + hills() +
@@ -2627,6 +2643,7 @@
     joshuaAi: 'jerichoWalls',
     joshuaCharge: 'joshuaCharge',
     sunStandsStill: 'sunStandsStill',
+    achan: 'achan',
     rahab: 'rahabRope',
     rahabRope: 'rahabRope',
     rahabJericho: 'rahabRope',
@@ -4396,7 +4413,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'fallOfJericho', 'ruthBoaz',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'fallOfJericho', 'ruthBoaz',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

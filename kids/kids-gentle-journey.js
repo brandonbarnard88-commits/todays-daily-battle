@@ -48,6 +48,7 @@
     'fallOfJericho',
     'jerichoWalls',
     'joshuaAi',
+    'achan',
     'battleOfAi',
     'sunStandsStill',
     'joshuaCharge',

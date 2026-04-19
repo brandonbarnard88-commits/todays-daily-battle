@@ -1987,16 +1987,46 @@
     joshuaAi: {
       title: 'Joshua and Ai',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'First attack on Ai — Israel stumbles' },
-        { src: 'panel-david-2.svg', alt: 'Sin is found and removed from the camp' },
-        { src: 'panel-david-3.svg', alt: 'God gives Joshua victory at Ai' }
+        { src: 'panel-david-1.svg', alt: 'After Jericho — Israel goes up against little Ai' },
+        { src: 'panel-david-2.svg', alt: 'The first attack fails — Joshua falls on his face before God' },
+        { src: 'panel-david-3.svg', alt: 'The Lord says there is sin in the camp — truth must come out' }
       ],
-      caption: 'Swipe to see obedience bring victory! 🏙️',
+      caption: 'Swipe to see why the first try at Ai failed — God is holy and true. 🏙️',
       videoId: '',
       videoTitle: '',
-      keywords: ['joshua', 'ai', 'achan', 'joshua 7', 'joshua 8', 'obey', 'ambush'],
-      kjvRef: 'Joshua 8',
-      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'Hidden sin blocked the win — when the camp obeyed God again, He gave the city.' }
+      keywords: ['joshua', 'ai', 'achan', 'joshua 7', 'defeat', 'sin', 'camp', 'obey', 'jericho'],
+      kjvRef: 'Joshua 7:1-11',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel',
+        apply:
+          "They thought Ai was small and easy — but God had said all the spoil of Jericho was devoted to Him. When someone hid what belonged to the Lord, the whole camp felt it. When we hide wrong, it hurts everyone; telling the truth is the way back."
+      },
+      narration:
+        "Joshua and Ai – Joshua 7:1-11. After Jericho, Joshua sent men to look at Ai. They said only a few thousand men were needed. But Israel went up and were chased and beaten; thirty-six men died. Joshua tore his clothes and fell on his face before the ark until evening. The Lord told him someone had taken of the accursed thing — there was sin in the camp. For you: God is holy; He calls His people to honesty together."
+    },
+    achan: {
+      title: 'Achan\'s Sin and Restoration',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Joshua gathers Israel — tribe by tribe, family by family' },
+        { src: 'panel-david-2.svg', alt: 'Achan kneels and tells the truth — I have sinned against the Lord' },
+        { src: 'panel-david-3.svg', alt: 'The camp is clean again — God can lead His people forward' }
+      ],
+      caption: 'Swipe to see the Lord\'s mercy when we tell the truth. 🙏',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'achan', 'joshua 7', 'ai', 'confess', 'sin', 'forgive', 'jericho', 'stolen', 'truth', 'camp', 'israel'
+      ],
+      kjvRef: 'Joshua 7:1-26',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Israel — and every heart today',
+        apply:
+          "God is holy — He cannot bless what is hidden and wrong. When Achan told the truth, the trouble was removed from the camp. When you are sorry and tell God and a trusted grown-up, He forgives and helps you start clean in Jesus."
+      },
+      narration:
+        "Achan's Sin and Restoration – Joshua 7:1-26. After Jericho, the children of Israel went to fight against the small city of Ai. But they were defeated and some men died. Joshua was sad and asked the Lord why this had happened. The Lord told him that someone in the camp had taken things from Jericho that belonged to the Lord and had hidden them. Joshua called all the people together. One by one the tribes came forward until the sin was found with a man named Achan. Achan confessed, 'Indeed I have sinned against the Lord God of Israel.' The trouble was taken away from the camp. Then the Lord was no longer angry, and He helped His people win the next battle against Ai. God showed both His holiness and His mercy that day. When we do wrong and tell the truth, He forgives and makes things right again. For you: Tell God the truth — He is kind to forgive everyone who trusts in Jesus."
     },
     battleOfAi: {
       title: 'Victory at Ai',
@@ -4969,7 +4999,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 286, color: '#e5e4e2' }
+      { name: 'Platinum', min: 287, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5061,7 +5091,7 @@
     var isWeeklyStory = (dayIndex % 7) === 0;
     var storyKeys = [
       'david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel',
-      'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'battleOfAi',
+      'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'joshuaAi', 'achan', 'battleOfAi',
       'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater',
@@ -5076,7 +5106,7 @@
       'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
-      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'ruthNaomi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samsonHair',
+      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'ruthNaomi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samsonHair',
       'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
       'saulSpear', 'davidCave',
       'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
@@ -5221,6 +5251,9 @@
     }
     if (/jericho|walls fall|joshua 6|trumpets/.test(low)) {
       return { type: 'carousel', story: 'fallOfJericho' };
+    }
+    if (/achan|accursed thing|joshua 7|sin against the lord god of israel|hidden.*jericho/.test(low)) {
+      return { type: 'carousel', story: 'achan' };
     }
     if (/elijah|baal|carmel|1 kings 18|fire.*heaven/.test(low)) {
       return { type: 'carousel', story: 'elijahFire' };
@@ -7818,6 +7851,7 @@
     mosesStaffSnake: 'Miracles', passoverLamb: 'Love', redSeaCrossing: 'Protection',
     /* Week 3 */
     joshuaJordan: 'Miracles', jordanCrossing: 'Miracles', jerichoWalls: 'Obedience', joshuaAi: 'Obedience', battleOfAi: 'Obedience',
+    achan: 'Obedience',
     joshuaCharge: 'Obedience',
     sunStandsStill: 'Miracles',
     gideonFleece: 'Miracles', gideonMidianites: 'Miracles', deborahBarak: 'Protection', samsonBirth: 'Protection', ruthNaomi: 'Love',

@@ -1748,6 +1748,133 @@ function buildSunStandsStillReadQuiz() {
   };
 }
 
+/** Achan — Joshua 7:1-26 (KJV); gentle focus on confession and mercy. */
+function buildAchanReadQuiz() {
+  return {
+    kjvRef: 'Joshua 7:1-26 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'After Jericho, Israel went to fight against the city of Ai. But they were defeated and some men died.',
+        caption: 'A hard day at Ai',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'Joshua asked the Lord why this had happened. The Lord said someone had taken things that belonged to Him and hidden them.',
+        caption: 'The Lord speaks plainly',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'Joshua called all the people together. One by one they came forward until the sin was found with a man named Achan.',
+        caption: 'Seeking the truth together',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'Achan said, "Indeed I have sinned against the Lord God of Israel."',
+        caption: 'Achan tells the truth',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'The trouble was taken away from the camp. Then the Lord was no longer angry, and He helped His people again.',
+        caption: 'Mercy and a clean camp',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    paragraphs: [
+      'After Jericho, the children of Israel went to fight against the small city of Ai. But they were defeated and some men died.',
+      'Joshua was sad and asked the Lord why this had happened. The Lord told him that someone in the camp had taken things from Jericho that belonged to the Lord and had hidden them.',
+      'Joshua called all the people together. One by one the tribes came forward until the sin was found with a man named Achan.',
+      'Achan confessed, "Indeed I have sinned against the Lord God of Israel."',
+      'The trouble was taken away from the camp. Then the Lord was no longer angry, and He helped His people win the next battle against Ai.',
+      'God showed both His holiness and His mercy that day. When we do wrong and tell the truth, He forgives and makes things right again.',
+      'For you: God is holy and kind. When you are sorry, tell Him — Jesus washes our sin away and helps us walk in truth.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Joshua 7:1-26', 'Genesis 1:1', 'Matthew 5'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the Bible note. (Answer: Joshua 7:1-26.)'
+      },
+      {
+        question: 'What did Achan do when the truth came out?',
+        choices: [
+          'He ran away from camp.',
+          'He pretended nothing was wrong.',
+          'He said, "Indeed I have sinned against the Lord God of Israel."',
+          'He blamed Joshua only.'
+        ],
+        correctIndex: 2,
+        correctFeedback: 'Yes—telling the truth to God is the first step back.',
+        wrongFeedback:
+          'Listen for Achan\'s own words in the story. (Answer: Indeed I have sinned….)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God does not care about honesty.',
+          'The Bible is only pretend stories.',
+          'We should hide wrong forever.',
+          'God is holy, but when we confess, He forgives and helps His people go forward.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the "For you" heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's holiness and mercy? (Answer: God is holy, but when we confess….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A dragon stole the ark.',
+          'Someone hid what belonged to the Lord from Jericho.',
+          'Everyone turned into birds.',
+          'The river turned into paint.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches Joshua 7? (Answer: Someone hid what belonged….)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Never say sorry.',
+          'Hide mistakes from grown-ups always.',
+          'Only pray when we feel perfect.',
+          'Tell God when you are sorry and ask Jesus to help you tell the truth — He forgives.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show honesty and trust in God? Pick the one that honors Him. (Answer: Tell God when you are sorry….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Achan's Sin and Restoration with God's Word today.",
+    takeaway:
+      'When Achan confessed, the trouble was removed — God is holy, and He is merciful to the honest heart.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You forgive when we tell the truth. Help me obey You and trust Jesus. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, honest hopeful mood, no anger on faces, no violence, no text in image: Joshua standing calmly with people of Israel gathered in gentle circle, in middle Achan kneeling quietly with sorry peaceful face confessing, small pile on ground beside him simple robe fold wedge shapes silver bar gold wedge shapes, soft hills gentle sky minimal lines plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joshua and Israel seek the Lord after Ai (joshua 7)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Achan tells the truth',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is holy and merciful',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Trouble removed — camp clean again'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -1770,5 +1897,6 @@ module.exports = {
   jordanCrossing: buildJordanCrossingReadQuiz(),
   joshuaJordan: buildJordanCrossingReadQuiz(),
   joshuaCharge: buildJoshuaChargeReadQuiz(),
-  sunStandsStill: buildSunStandsStillReadQuiz()
+  sunStandsStill: buildSunStandsStillReadQuiz(),
+  achan: buildAchanReadQuiz()
 };

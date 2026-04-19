@@ -884,7 +884,7 @@
         person(60, 178, 11, 32) + person(90, 182, 10, 28) +
         person(310, 178, 11, 32) + person(335, 182, 10, 28) +
         sun(40, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 3:17</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 3:14-17</text>'
       ),
 
       /* ── Week 3: Jericho Walls (38) ── */

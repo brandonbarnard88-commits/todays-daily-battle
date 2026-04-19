@@ -10442,7 +10442,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 3–4",
+          "Joshua 3:14-17; 4:1-7, 18-24",
           "Acts 28",
           "Exodus 14:21-31",
           "Matthew 4:1–11"
@@ -11430,89 +11430,119 @@
     ]
   },
   "jordanCrossing": {
-    "kjvRef": "Joshua 3–4",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Joshua 3:14-17; 4:1-7, 18-24 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "God's people came to the Jordan River. It was time to cross into the land the Lord had promised them.",
+        "caption": "At the river",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The Lord told Joshua, \"When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap.\"",
+        "caption": "What God said would happen",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over.",
+        "caption": "Dry ground in the river",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place.",
+        "caption": "Safe on the other side",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Joshua set up twelve stones from the middle of the river as a reminder. He told the people, \"When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty.\"",
+        "caption": "Twelve stones — remember",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Crossing the Jordan (Joshua 3–4). Israel at the Jordan.",
-      "priests bear the ark Feet touch the water.",
-      "the river stops upstream Twelve stones.",
-      "remember this miracle High water cannot stop God.",
-      "He makes a path when you obey."
+      "God's people came to the Jordan River. It was time to cross into the land the Lord had promised them.",
+      "The Lord told Joshua, \"When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap.\"",
+      "The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over.",
+      "After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place.",
+      "Joshua set up twelve stones from the middle of the river as a reminder. He told the people, \"When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty.\"",
+      "For you: God makes a way when we obey Him—like at the Red Sea, His hand is mighty. Trust Him with the next step He gives you."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 5:12–16",
-          "Revelation 21–22",
-          "1 Samuel 16:1–13",
-          "Joshua 3–4"
+          "Exodus 14",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Psalm 23",
+          "John 3:16"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Joshua 3–4.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the Bible note. (Answer: Joshua 3:14-17; 4:1-7, 18-24.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God",
-          "James",
-          "Peter",
-          "The apostles"
+          "Nobody",
+          "Only the river",
+          "The Lord and His people obeying Joshua",
+          "Only the stones"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 2,
+        "correctFeedback": "Right—God is leading; the people follow His Word through Joshua.",
+        "wrongFeedback": "Look for who gives the promise and who steps into the water in faith. (Answer: The Lord and His people obeying Joshua.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "We should hide from God when we mess up.",
-          "High water cannot stop God — He makes a path when you obey.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "God cannot help when we feel stuck.",
+          "The Bible is only pretend stories.",
+          "Rivers always obey people, not God.",
+          "When God says go, He can hold the water back and make a safe path for those who obey."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: High water cannot stop God — He makes a path when you obey..)"
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the \"For you\" heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's power and care? (Answer: When God says go….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Israel at the Jordan — priests bear the ark",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city."
+          "The ark grew wings and flew over the river.",
+          "The priests' feet touched the water and the river stopped flowing.",
+          "A whale carried everyone across.",
+          "The river turned into jelly."
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or paragraphs? (Answer: The priests' feet touched the water….)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
           "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "High water cannot stop God — He makes a path when you obey."
+          "Never tell anyone what He has done.",
+          "Only obey when we feel like it.",
+          "Thank God for His mighty hand—and take the next right step He shows you, even when it feels big."
         ],
         "correctIndex": 3,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: High water cannot stop God — He makes a path when you obey..)"
+        "wrongFeedback": "Think: does this choice show trust and thankfulness? Pick the one that honors Him. (Answer: Thank God for His mighty hand….)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Crossing the Jordan with God's Word today.",
-    "takeaway": "High water cannot stop God — He makes a path when you obey.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Crossing the Jordan. Amen.",
+    "takeaway": "The waters stood in a heap—the people crossed on dry ground—so all the earth might know the hand of the Lord is mighty.",
+    "prayer": "God, thank You for the Bible. Thank You that You make a way when we obey You. Help me trust You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israel at the Jordan — priests bear the ark (jordan)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Feet touch the water — the river stops upstream (joshua)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Twelve stones — remember this miracle (ark)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israel at the Jordan — priests bear the ark (crossing)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Feet touch the water — the river stops upstream (joshua 3)"
-    ]
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, wonder-filled protected mood, no rushing water, no fear, no text in image: priests carrying ark of the covenant standing calmly on dry ground in middle of Jordan River, tall gentle walls of water standing in a heap on one side, people of Israel walking safely across dry riverbed in background, soft sky gentle riverbanks minimal lines, plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Priests step into Jordan with the ark (joshua 3)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Waters stand in a heap — people cross dry ground",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Twelve stones memorial (joshua 4)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The hand of the Lord is mighty (jordan)"
+    ],
+    "readAlongImages": []
   },
   "josephCoat": {
     "kjvRef": "Genesis 37:3",
@@ -11869,7 +11899,7 @@
           "Genesis 37:28",
           "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
           "Lamentations 1–5",
-          "Joshua 3–4"
+          "Joshua 3:14-17; 4:1-7, 18-24"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12021,88 +12051,119 @@
     ]
   },
   "joshuaJordan": {
-    "kjvRef": "Joshua 3–4",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Joshua 3:14-17; 4:1-7, 18-24 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "God's people came to the Jordan River. It was time to cross into the land the Lord had promised them.",
+        "caption": "At the river",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The Lord told Joshua, \"When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap.\"",
+        "caption": "What God said would happen",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over.",
+        "caption": "Dry ground in the river",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place.",
+        "caption": "Safe on the other side",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Joshua set up twelve stones from the middle of the river as a reminder. He told the people, \"When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty.\"",
+        "caption": "Twelve stones — remember",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Joshua at the Jordan (Joshua 3–4).",
-      "Priests carry the ark to the Jordan They step in—the river stops!",
-      "Israel crosses on dry ground God leads you into the new!",
-      "Step forward in faith—He holds the water back."
+      "God's people came to the Jordan River. It was time to cross into the land the Lord had promised them.",
+      "The Lord told Joshua, \"When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap.\"",
+      "The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over.",
+      "After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place.",
+      "Joshua set up twelve stones from the middle of the river as a reminder. He told the people, \"When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty.\"",
+      "For you: God makes a way when we obey Him—like at the Red Sea, His hand is mighty. Trust Him with the next step He gives you."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
-          "Matthew 28",
-          "Genesis 18:9–15",
-          "Joshua 3–4"
+          "Exodus 14",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Psalm 23",
+          "John 3:16"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Joshua 3–4.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the Bible note. (Answer: Joshua 3:14-17; 4:1-7, 18-24.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God",
-          "David",
-          "Philip",
-          "John"
+          "Nobody",
+          "Only the river",
+          "The Lord and His people obeying Joshua",
+          "Only the stones"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 2,
+        "correctFeedback": "Right—God is leading; the people follow His Word through Joshua.",
+        "wrongFeedback": "Look for who gives the promise and who steps into the water in faith. (Answer: The Lord and His people obeying Joshua.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "We should hide from God when we mess up.",
-          "God leads you into the new! Step forward in faith—He holds the water back.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "God cannot help when we feel stuck.",
+          "The Bible is only pretend stories.",
+          "Rivers always obey people, not God.",
+          "When God says go, He can hold the water back and make a safe path for those who obey."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God leads you into the new! Step forward in faith—He holds the water back..)"
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the \"For you\" heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's power and care? (Answer: When God says go….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "Priests carry the ark to the Jordan",
-          "A talking toaster became king of the city."
+          "The ark grew wings and flew over the river.",
+          "The priests' feet touched the water and the river stopped flowing.",
+          "A whale carried everyone across.",
+          "The river turned into jelly."
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or paragraphs? (Answer: The priests' feet touched the water….)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
           "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "God leads you into the new! Step forward in faith—He holds the water back."
+          "Never tell anyone what He has done.",
+          "Only obey when we feel like it.",
+          "Thank God for His mighty hand—and take the next right step He shows you, even when it feels big."
         ],
         "correctIndex": 3,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God leads you into the new! Step forward in faith—He holds the water back..)"
+        "wrongFeedback": "Think: does this choice show trust and thankfulness? Pick the one that honors Him. (Answer: Thank God for His mighty hand….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Joshua at the Jordan with God's Word today.",
-    "takeaway": "God leads you into the new! Step forward in faith—He holds the water back.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Joshua at the Jordan. Amen.",
+    "doneMessage": "Great job reading Crossing the Jordan with God's Word today.",
+    "takeaway": "The waters stood in a heap—the people crossed on dry ground—so all the earth might know the hand of the Lord is mighty.",
+    "prayer": "God, thank You for the Bible. Thank You that You make a way when we obey You. Help me trust You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Priests carry the ark to the Jordan (joshua)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: They step in—the river stops! (jordan)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israel crosses on dry ground (ark)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Priests carry the ark to the Jordan (river)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: They step in—the river stops! (joshua 3)"
-    ]
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, wonder-filled protected mood, no rushing water, no fear, no text in image: priests carrying ark of the covenant standing calmly on dry ground in middle of Jordan River, tall gentle walls of water standing in a heap on one side, people of Israel walking safely across dry riverbed in background, soft sky gentle riverbanks minimal lines, plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Priests step into Jordan with the ark (joshua 3)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Waters stand in a heap — people cross dry ground",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Twelve stones memorial (joshua 4)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The hand of the Lord is mighty (jordan)"
+    ],
+    "readAlongImages": []
   },
   "judasKiss": {
     "kjvRef": "Matthew 26",

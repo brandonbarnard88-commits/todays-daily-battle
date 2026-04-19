@@ -1918,30 +1918,50 @@
     joshuaJordan: {
       title: 'Joshua at the Jordan',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Priests carry the ark to the Jordan' },
-        { src: 'panel-noah-2.svg', alt: 'They step in—the river stops!' },
-        { src: 'panel-noah-3.svg', alt: 'Israel crosses on dry ground' }
+        { src: 'panel-noah-1.svg', alt: 'God\'s people at the Jordan — time to enter the land He promised' },
+        { src: 'panel-noah-2.svg', alt: 'Priests bear the ark into the water — the river stops; a heap of water stands' },
+        { src: 'panel-noah-3.svg', alt: 'Twelve stones — tell the children what the Lord did' }
       ],
       caption: 'Swipe to see God stop the Jordan River—He always leads! 🏞️',
       videoId: '',
       videoTitle: '',
-      keywords: ['joshua', 'jordan', 'ark', 'river', 'joshua 3', 'priests', 'miracle'],
-      kjvRef: 'Joshua 3–4',
-      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God leads you into the new! Step forward in faith—He holds the water back.' }
+      keywords: [
+        'joshua', 'jordan', 'ark', 'river', 'joshua 3', 'joshua 4', 'priests', 'miracle', 'heap', 'dry ground',
+        'twelve stones', 'covenant', 'obey', 'promised land'
+      ],
+      kjvRef: 'Joshua 3:14-17; 4:1-7, 18-24',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel (and us)',
+        apply:
+          "When the priests obeyed and stepped in, God held the river back—just like He made a way at the Red Sea. His hand is mighty. When He asks you to take the next step, you can trust Him to go with you."
+      },
+      narration:
+        "Joshua at the Jordan – Joshua 3:14-17; 4:1-7, 18-24. God's people came to the Jordan River. It was time to cross into the land the Lord had promised them. The Lord told Joshua, 'When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap.' The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over. After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place. Joshua set up twelve stones from the middle of the river as a reminder. He told the people, 'When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty.' For you: God's hand is mighty—remember what He has done and trust Him today."
     },
     jordanCrossing: {
       title: 'Crossing the Jordan',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Israel at the Jordan — priests bear the ark' },
-        { src: 'panel-noah-2.svg', alt: 'Feet touch the water — the river stops upstream' },
-        { src: 'panel-noah-3.svg', alt: 'Twelve stones — remember this miracle' }
+        { src: 'panel-noah-1.svg', alt: 'The camp at the Jordan — the Lord will open the way' },
+        { src: 'panel-noah-2.svg', alt: 'Feet of the priests touch the flood — the waters stand in a heap' },
+        { src: 'panel-noah-3.svg', alt: 'Dry ground and twelve stones — so we never forget His mighty hand' }
       ],
       caption: 'Swipe to see God dry up the river — step forward! 🏞️',
       videoId: '',
       videoTitle: '',
-      keywords: ['jordan', 'joshua', 'ark', 'crossing', 'joshua 3', 'joshua 4', 'stones', 'memorial'],
-      kjvRef: 'Joshua 3–4',
-      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'High water cannot stop God — He makes a path when you obey.' }
+      keywords: [
+        'jordan', 'joshua', 'ark', 'crossing', 'joshua 3', 'joshua 4', 'stones', 'memorial', 'heap', 'dry ground',
+        'priests', 'promised land', 'obey', 'miracle'
+      ],
+      kjvRef: 'Joshua 3:14-17; 4:1-7, 18-24',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel (and us)',
+        apply:
+          "High water cannot stop God when He calls His people forward. The twelve stones were for remembering—tell someone what God has done for you, and thank Him for Jesus, our living way."
+      },
+      narration:
+        "Crossing the Jordan – Joshua 3:14-17; 4:1-7, 18-24. God's people came to the Jordan River. It was time to cross into the land the Lord had promised them. The Lord told Joshua, 'When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap.' The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over. After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place. Joshua set up twelve stones from the middle of the river as a reminder. He told the people, 'When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty.' For you: God's hand is mighty—remember what He has done and trust Him today."
     },
     jerichoWalls: {
       title: 'Walls of Jericho Fall',
@@ -5143,6 +5163,9 @@
     }
     if (/rahab|scarlet cord|scarlet thread|joshua 2/.test(low)) {
       return { type: 'carousel', story: 'rahab' };
+    }
+    if (/joshua 3|joshua 4|cross.*jordan|jordan.*cross|ark.*jordan|waters.*heap/.test(low)) {
+      return { type: 'carousel', story: 'jordanCrossing' };
     }
     if (/jericho|walls fall|joshua 6|trumpets/.test(low)) {
       return { type: 'carousel', story: 'fallOfJericho' };

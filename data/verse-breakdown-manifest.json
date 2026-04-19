@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T19:29:25.720Z",
-  "surfacedRefCount": 2761,
-  "overrideCount": 2761,
+  "generatedAt": "2026-04-19T19:48:50.652Z",
+  "surfacedRefCount": 2762,
+  "overrideCount": 2762,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 135,
+      "refs": 136,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 154,
+      "refs": 155,
       "pairs": 0
     },
     "kids/kids-corner.js": {
@@ -1995,6 +1995,7 @@
     "Joshua 2:23-24",
     "Joshua 3:1",
     "Joshua 3:13",
+    "Joshua 3:14-17",
     "Joshua 3:17",
     "Joshua 4:2-3",
     "Joshua 6:1-21",
@@ -15212,6 +15213,14 @@
       "general": {
         "plainExplanation": "Key idea: And it shall come to pass, as soon as the soles of the feet of the priests that bear the ark of the LORD, the LORD of all the earth, shall rest in the water...",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Joshua",
+        "to": "Israel"
+      }
+    },
+    "Joshua 3:14-17": {
+      "general": {
+        "plainExplanation": "Key idea: And it came to pass, when the people removed from their tents, to pass over Jordan, and the priests bearing the ark of the covenant before the people; And a...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Joshua",
         "to": "Israel"
       }

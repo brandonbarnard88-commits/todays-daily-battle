@@ -1382,6 +1382,127 @@ function buildRahabReadQuiz() {
   };
 }
 
+/** Crossing the Jordan — Joshua 3:14-17; 4:1-7, 18-24 (shared: jordanCrossing + joshuaJordan). */
+function buildJordanCrossingReadQuiz() {
+  return {
+    kjvRef: 'Joshua 3:14-17; 4:1-7, 18-24 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          "God's people came to the Jordan River. It was time to cross into the land the Lord had promised them.",
+        caption: 'At the river',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text:
+          'The Lord told Joshua, "When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap."',
+        caption: 'What God said would happen',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text:
+          'The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over.',
+        caption: 'Dry ground in the river',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place.',
+        caption: 'Safe on the other side',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'Joshua set up twelve stones from the middle of the river as a reminder. He told the people, "When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty."',
+        caption: 'Twelve stones — remember',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    paragraphs: [
+      "God's people came to the Jordan River. It was time to cross into the land the Lord had promised them.",
+      'The Lord told Joshua, "When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap."',
+      'The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over.',
+      'After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place.',
+      'Joshua set up twelve stones from the middle of the river as a reminder. He told the people, "When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty."',
+      'For you: God makes a way when we obey Him—like at the Red Sea, His hand is mighty. Trust Him with the next step He gives you.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Exodus 14', 'Joshua 3:14-17; 4:1-7, 18-24', 'Psalm 23', 'John 3:16'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the Bible note. (Answer: Joshua 3:14-17; 4:1-7, 18-24.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['Nobody', 'Only the river', 'The Lord and His people obeying Joshua', 'Only the stones'],
+        correctIndex: 2,
+        correctFeedback: 'Right—God is leading; the people follow His Word through Joshua.',
+        wrongFeedback:
+          'Look for who gives the promise and who steps into the water in faith. (Answer: The Lord and His people obeying Joshua.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God cannot help when we feel stuck.',
+          'The Bible is only pretend stories.',
+          'Rivers always obey people, not God.',
+          'When God says go, He can hold the water back and make a safe path for those who obey.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the "For you" heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's power and care? (Answer: When God says go….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The ark grew wings and flew over the river.',
+          'The priests\' feet touched the water and the river stopped flowing.',
+          'A whale carried everyone across.',
+          'The river turned into jelly.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or paragraphs? (Answer: The priests\' feet touched the water….)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Never tell anyone what He has done.',
+          'Only obey when we feel like it.',
+          'Thank God for His mighty hand—and take the next right step He shows you, even when it feels big.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust and thankfulness? Pick the one that honors Him. (Answer: Thank God for His mighty hand….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Crossing the Jordan with God's Word today.",
+    takeaway:
+      'The waters stood in a heap—the people crossed on dry ground—so all the earth might know the hand of the Lord is mighty.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You make a way when we obey You. Help me trust You today. Amen.',
+    imagePrompts: [
+      'Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, wonder-filled protected mood, no rushing water, no fear, no text in image: priests carrying ark of the covenant standing calmly on dry ground in middle of Jordan River, tall gentle walls of water standing in a heap on one side, people of Israel walking safely across dry riverbed in background, soft sky gentle riverbanks minimal lines, plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Priests step into Jordan with the ark (joshua 3)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Waters stand in a heap — people cross dry ground',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Twelve stones memorial (joshua 4)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The hand of the Lord is mighty (jordan)'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -1400,5 +1521,7 @@ module.exports = {
   rahab: buildRahabReadQuiz(),
   rahabJericho: buildRahabReadQuiz(),
   rahabRope: buildRahabReadQuiz(),
-  rahabWindow: buildRahabReadQuiz()
+  rahabWindow: buildRahabReadQuiz(),
+  jordanCrossing: buildJordanCrossingReadQuiz(),
+  joshuaJordan: buildJordanCrossingReadQuiz()
 };

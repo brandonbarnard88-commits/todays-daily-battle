@@ -289,12 +289,12 @@
   {
     "key": "jordanCrossing",
     "title": "Crossing the Jordan",
-    "kjvRef": "Joshua 3–4",
-    "who": "God",
-    "to": "Joshua and Israel",
-    "apply": "High water cannot stop God — He makes a path when you obey.",
+    "kjvRef": "Joshua 3:14-17; 4:1-7, 18-24",
+    "who": "The Lord",
+    "to": "Joshua and Israel (and us)",
+    "apply": "High water cannot stop God when He calls His people forward. The twelve stones were for remembering—tell someone what God has done for you, and thank Him for Jesus, our living way.",
     "theme": "Miracles",
-    "kw": "jordan joshua ark crossing joshua 3 joshua 4 stones memorial"
+    "kw": "jordan joshua ark crossing joshua 3 joshua 4 stones memorial heap dry ground priests promised land obey miracle"
   },
   {
     "key": "crucifixion",
@@ -1159,12 +1159,12 @@
   {
     "key": "joshuaJordan",
     "title": "Joshua at the Jordan",
-    "kjvRef": "Joshua 3–4",
-    "who": "God",
-    "to": "Joshua and Israel",
-    "apply": "God leads you into the new! Step forward in faith—He holds the water back.",
+    "kjvRef": "Joshua 3:14-17; 4:1-7, 18-24",
+    "who": "The Lord",
+    "to": "Joshua and Israel (and us)",
+    "apply": "When the priests obeyed and stepped in, God held the river back—just like He made a way at the Red Sea. His hand is mighty. When He asks you to take the next step, you can trust Him to go with you.",
     "theme": "Miracles",
-    "kw": "joshua jordan ark river joshua 3 priests miracle"
+    "kw": "joshua jordan ark river joshua 3 joshua 4 priests miracle heap dry ground twelve stones covenant obey promised land"
   },
   {
     "key": "judasKiss",

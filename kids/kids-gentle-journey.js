@@ -45,7 +45,6 @@
     'balaamBlessing',
     'rahab',
     'jordanCrossing',
-    'joshuaJordan',
     'fallOfJericho',
     'jerichoWalls',
     'joshuaAi',

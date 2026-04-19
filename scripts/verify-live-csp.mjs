@@ -6,6 +6,10 @@
  * Usage: node scripts/verify-live-csp.mjs
  * Env:   LIVE_SITE_URL       — if set, only this URL (overrides multi-URL default)
  *        LIVE_SITE_URLS      — comma-separated (used when LIVE_SITE_URL unset)
+ *        LIVE_CSP_FAIL_ON_REPORT_ONLY — if "1", fail when Report-Only header exists and
+ *        differs from enforced CSP (default: warn only; see CLOUDFLARE-CSP-FIX.md §9).
+ *        LIVE_CSP_HEADERS_ONLY — if "1", skip X-Frame / Referrer / etc. byte match (use when
+ *        Cloudflare overrides frame options but you still want CSP + Report-Only validation).
  */
 
 import fs from 'fs';
@@ -75,6 +79,43 @@ async function getResponseWithCsp(url) {
 
 function norm(s) {
   return s == null ? '' : String(s).trim();
+}
+
+/** Normalize CSP strings for equality (collapse ASCII whitespace). */
+function normCspValue(s) {
+  return norm(s).replace(/\s+/g, ' ');
+}
+
+/**
+ * Stale Content-Security-Policy-Report-Only at Cloudflare causes DevTools
+ * "[Report Only] Refused to load …" for same-origin scripts even when enforced CSP is correct.
+ */
+function checkReportOnlyHeader(res, url, enforcedCsp, via) {
+  const ro = norm(res.headers.get('content-security-policy-report-only'));
+  if (!ro) return;
+  if (normCspValue(ro) === normCspValue(enforcedCsp)) {
+    console.log(
+      'verify-live-csp:',
+      url,
+      '(' + via + ') → Content-Security-Policy-Report-Only matches enforced CSP'
+    );
+    return;
+  }
+  const detail = [
+    'verify-live-csp: WARNING — Content-Security-Policy-Report-Only differs from enforced CSP.',
+    '  URL: ' + url,
+    '  DevTools will show [Report Only] violations for resources that are actually allowed.',
+    '  Fix (Cloudflare): Rules → Transform Rules → remove the rule that sets',
+    '  Content-Security-Policy-Report-Only, or set it to the exact same value as Content-Security-Policy',
+    '  (see _headers and CLOUDFLARE-CSP-COPY-PASTE.txt). Then Caching → Purge Everything.',
+    '  Doc: CLOUDFLARE-CSP-FIX.md §9',
+  ].join('\n');
+  console.warn(detail);
+  if (process.env.LIVE_CSP_FAIL_ON_REPORT_ONLY === '1') {
+    throw new Error(
+      'Content-Security-Policy-Report-Only mismatch (set LIVE_CSP_FAIL_ON_REPORT_ONLY=0 to warn only).'
+    );
+  }
 }
 
 function knownCloudflareOverrideHint(res) {
@@ -166,6 +207,18 @@ async function verifyOne(url, expected) {
         '\n  got (first 120 chars): ' +
         (csp.slice(0, 120) + '…')
     );
+  }
+
+  /* Warn on stale Report-Only edge header before other header mismatches (e.g. X-Frame-Options). */
+  checkReportOnlyHeader(res, url, csp, via);
+
+  if (process.env.LIVE_CSP_HEADERS_ONLY === '1') {
+    console.log(
+      'verify-live-csp: OK (headers-only mode)',
+      url,
+      '(' + via + ') → CSP matches _headers; skipped frame/referrer strict checks'
+    );
+    return;
   }
 
   const checks = [

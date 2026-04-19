@@ -51,6 +51,8 @@
     "test:a11y": "playwright test tests/a11y-critical.spec.ts",
     "test:smoke": "playwright test tests/smoke-core.spec.ts",
     "test:live-csp": "node scripts/verify-live-csp.mjs",
+    "test:live-csp:strict": "LIVE_CSP_FAIL_ON_REPORT_ONLY=1 node scripts/verify-live-csp.mjs",
+    "test:live-csp:headers": "LIVE_CSP_HEADERS_ONLY=1 node scripts/verify-live-csp.mjs",
     "verify:live:critical": "npm run test:live-csp && npm run verify:live-key-html",
     "reel:batch": "node scripts/build-batch-reel.mjs",
     "reel:batch:night": "node scripts/build-batch-reel.mjs --profile night",

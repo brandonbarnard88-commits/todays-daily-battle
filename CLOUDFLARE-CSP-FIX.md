@@ -138,6 +138,10 @@ If you added a Transform Rule to **set** Content-Security-Policy but the site is
    **Fix:** In Cloudflare **Rules → Transform Rules** (and **Security → Settings** if any CSP feature is enabled), **find and remove** a duplicate **`Content-Security-Policy-Report-Only`** header, **or** set it to the **same** policy string as your enforced CSP in **`_headers`** / **`CLOUDFLARE-CSP-COPY-PASTE.txt`** so reports match reality. **Purging cache** after changes.  
    **Note:** `cdn-cgi/challenge-platform` and **`static.cloudflareinsights.com`** are expected when Cloudflare challenges or Web Analytics run; they are already allowed in this repo’s CSP when the edge sends the same policy as `_headers`.
 
+   **Automated check (repo):** Run **`npm run test:live-csp`** from the project root. The script fetches the live homepage(s) and, if **`Content-Security-Policy-Report-Only`** is present and **differs** from enforced **`Content-Security-Policy`**, prints a **WARNING** (still exits 0). To **fail** until the edge is fixed: **`npm run test:live-csp:strict`**. If **`X-Frame-Options`** is intentionally **`SAMEORIGIN`** at the edge (repo expects **`DENY`**) and the full script exits with an error, run **`npm run test:live-csp:headers`** to validate **CSP + Report-Only** only.
+
+   **If `curl` / `npm run test:live-csp:headers` show no `Content-Security-Policy-Report-Only`** on the wire but Safari/Chrome still log **`[Report Only]`**, try the **exact URL**, **incognito**, and **disable extensions** — some tools inject or evaluate an extra policy client-side.
+
    **Going forward:** Prefer **one** enforced CSP (this repo: **`_headers`** on Pages, or **`CLOUDFLARE-CSP-COPY-PASTE.txt`** if a Transform Rule must override). Do **not** leave a stale **`Content-Security-Policy-Report-Only`** at the edge unless it is **byte-for-byte identical** to the enforced policy—otherwise DevTools will keep showing harmless `[Report Only]` noise for same-origin scripts and workers. After any CSP edit: **purge cache**, verify with `curl -sI https://todaysdailybattle.com/ | grep -i content-security-policy`.
 
 ---

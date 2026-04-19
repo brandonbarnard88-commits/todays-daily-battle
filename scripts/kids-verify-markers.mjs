@@ -34,6 +34,7 @@ export const STORY_HTML_MARKERS = [
   'uFuzzy.iife.min.js',
   'kids-verses-365.js?v=20260325kidsmeans',
   'kids-battle.js?v=20260405kidsfollowup',
+  'kids-read-quiz-data.js?v=20260419redsea',
   'TDB_PANEL_RASTER',
   'nunito-latin.woff2',
   '/kids/panel-david-1.svg'

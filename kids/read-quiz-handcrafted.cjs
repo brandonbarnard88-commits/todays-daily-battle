@@ -98,9 +98,136 @@ function buildJerichoReadQuiz() {
   };
 }
 
+/** Moses Sea-Split — full read-along + quiz (Exodus 14:21-31). */
+function buildRedSeaReadQuiz() {
+  return {
+    kjvRef: 'Exodus 14:21-31 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          "God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. They had nowhere to go.",
+        caption: 'Trapped between the sea and the army',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: "But Moses stretched out his hand over the sea, just as God told him.",
+        caption: 'Moses obeys God',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'And the Lord caused the sea to go back all night with a strong east wind. The waters divided.',
+        caption: 'God opens a path',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'The children of Israel walked into the sea upon dry ground, with walls of water on their right hand and on their left.',
+        caption: 'Safe road through the sea',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text:
+          "When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered all the chariots and the horsemen. Not one of them remained.",
+        caption: 'God saves His people',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text:
+          'That day the Lord saved Israel. And the people feared the Lord, and believed the Lord and His servant Moses.',
+        caption: 'Israel trusts God and Moses',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    paragraphs: [
+      "God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. They had nowhere to go.",
+      "But Moses stretched out his hand over the sea, just as God told him.",
+      'And the Lord caused the sea to go back all night with a strong east wind. The waters divided.',
+      'The children of Israel walked into the sea upon dry ground, with walls of water on their right hand and on their left.',
+      "When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered all the chariots and the horsemen. Not one of them remained.",
+      'That day the Lord saved Israel. And the people feared the Lord, and believed the Lord and His servant Moses.',
+      'For you: When you feel stuck or afraid, God can still make a way. Pray and trust Him—He is strong to save.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'John 3:16', 'Genesis 1:1', 'Exodus 14:21-31'],
+        correctIndex: 3,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 14:21-31.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['Only Pharaoh', 'God', 'A talking animal', 'Nobody'],
+        correctIndex: 1,
+        correctFeedback: 'Right—keep that person (or group) in mind as you think about God.',
+        wrongFeedback: 'Look for who the story follows first—names in the title often help. (Answer: God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'We should hide from God when we mess up.',
+          'God never hears when kids pray.',
+          'The Bible is only pretend stories.',
+          'God made a way through the sea and saved His people when they trusted Him.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the “For you” heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God made a way through the sea….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'A talking toaster became king of the city.',
+          'Everyone decided to never sleep again.',
+          'Moses stretched out his hand over the sea, and the waters divided.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.',
+          'When you feel stuck or afraid, pray and trust God—He can make a way.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: pray and trust God….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Moses Sea-Split with God's Word today.",
+    takeaway:
+      'God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You save and lead Your people. Help me trust You when I feel afraid. Amen.',
+    imagePrompts: [
+      'Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces for crayons, peaceful not scary, no text in image: Moses on dry ground with staff stretched over the Red Sea, sea parted into two gentle walls of water, wide safe path in the middle, families walking calmly through, soft sky lines, no chariots or soldiers visible, ages 3-8 coloring page style',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses stretching his hand over the sea – God parts the waters (red sea)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People walking on dry ground between walls of water – God makes a way (exodus 14)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israelites at the shore – sea about to open (moses)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Walls of water on each side – families walking through (staff)'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
   david: davidReadQuizPack,
-  davidGoliath: davidReadQuizPack
+  davidGoliath: davidReadQuizPack,
+  redSea: buildRedSeaReadQuiz()
 };

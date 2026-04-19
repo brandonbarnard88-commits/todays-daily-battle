@@ -794,9 +794,9 @@
       videoId: 'GYZh5eY6FGg',
       videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
       keywords: ['moses', 'red sea', 'waters', 'part', 'exodus 14', 'egypt', 'escape'],
-      kjvRef: 'Exodus 14:21',
-      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through." },
-      narration: "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind. The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed. A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water. When the Egyptians followed, God closed the sea and saved His people. God makes a way! For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
+      kjvRef: 'Exodus 14:21-31',
+      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save." },
+      narration: "Moses Sea-Split – Exodus 14:21-31. God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. But Moses stretched out his hand over the sea, just as God told him. The Lord caused the sea to go back all night with a strong east wind. The waters divided. The children of Israel walked on dry ground, with walls of water on their right and on their left. When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered the chariots and the horsemen—not one of them remained. That day the Lord saved Israel, and the people believed the Lord and His servant Moses. For you: When you feel stuck or afraid, God can still make a way. Pray and trust Him."
     },
     manna: {
       title: 'Manna from Heaven',
@@ -1504,9 +1504,9 @@
       videoId: 'GYZh5eY6FGg',
       videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
       keywords: ['moses', 'red sea', 'staff', 'parting', 'exodus 14', 'miracle'],
-      kjvRef: 'Exodus 14',
-      kidContext: { who: 'God', to: 'Moses and Israel', apply: "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through." },
-      narration: "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind. The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed. A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water. When the Egyptians followed, God closed the sea and saved His people. God makes a way! For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
+      kjvRef: 'Exodus 14:21-31',
+      kidContext: { who: 'God', to: 'Moses and Israel', apply: "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save." },
+      narration: "Moses Sea-Split – Exodus 14:21-31. God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. But Moses stretched out his hand over the sea, just as God told him. The Lord caused the sea to go back all night with a strong east wind. The waters divided. The children of Israel walked on dry ground, with walls of water on their right and on their left. When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered the chariots and the horsemen—not one of them remained. That day the Lord saved Israel, and the people believed the Lord and His servant Moses. For you: When you feel stuck or afraid, God can still make a way. Pray and trust Him."
     },
     burningBush: {
       title: 'The Burning Bush',

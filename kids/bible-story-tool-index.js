@@ -339,7 +339,7 @@
   {
     "key": "david",
     "title": "David & Goliath",
-    "kjvRef": "1 Samuel 17",
+    "kjvRef": "1 Samuel 17:45–50",
     "who": "David",
     "to": "Goliath (and us)",
     "apply": "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord's!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you.",
@@ -1399,10 +1399,10 @@
   {
     "key": "mosesSea",
     "title": "Moses Parts the Sea",
-    "kjvRef": "Exodus 14",
+    "kjvRef": "Exodus 14:21-31",
     "who": "God",
     "to": "Moses and Israel",
-    "apply": "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through.",
+    "apply": "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save.",
     "theme": "Miracles",
     "kw": "moses red sea staff parting exodus 14 miracle"
   },
@@ -1969,10 +1969,10 @@
   {
     "key": "redSea",
     "title": "Red Sea Crossing",
-    "kjvRef": "Exodus 14:21",
+    "kjvRef": "Exodus 14:21-31",
     "who": "God",
     "to": "Moses and the Israelites",
-    "apply": "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through.",
+    "apply": "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save.",
     "theme": "Miracles",
     "kw": "moses red sea waters part exodus 14 egypt escape"
   },

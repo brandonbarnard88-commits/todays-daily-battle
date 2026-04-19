@@ -1788,7 +1788,7 @@
           "Genesis 37:3",
           "Matthew 26",
           "Acts 28",
-          "Exodus 14"
+          "Exodus 14:21-31"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2291,7 +2291,7 @@
           "Acts 15",
           "2 Timothy 4:6–8",
           "Luke 18:1–8",
-          "Exodus 14:21"
+          "Exodus 14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2374,7 +2374,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 28",
-          "Exodus 14",
+          "Exodus 14:21-31",
           "Genesis 1",
           "Acts 5:12–16"
         ],
@@ -3249,7 +3249,7 @@
           "Acts 28",
           "Acts 5:12–16",
           "1 Samuel 22:1–2; 24",
-          "Exodus 14"
+          "Exodus 14:21-31"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3955,7 +3955,7 @@
         "choices": [
           "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
           "Genesis 37:3",
-          "Exodus 14",
+          "Exodus 14:21-31",
           "Judges 4"
         ],
         "correctIndex": 3,
@@ -4965,7 +4965,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14:21",
+          "Exodus 14",
           "Acts 7",
           "Ruth 1",
           "2 Kings 4"
@@ -7651,11 +7651,11 @@
     "kjvRef": "Isaiah 7:14; 9:6–7; 53:4–6",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "Isaiah's Messianic Prophecies (Isaiah 7:14; 9:6–7; 53:4–6).",
-      "Isaiah speaks God's word to Judah's king A promised child.",
-      "Immanuel, God with us The suffering servant brings healing God said what He would do.",
-      "and Jesus came.",
-      "You can trust every promise in His Word."
+      "Isaiah was a prophet — someone who speaks God's truth to His people. Long before Jesus walked the earth, Isaiah wrote words from God about a coming King: a child who would be called Wonderful, Counsellor, the mighty God, the Prince of Peace.",
+      "He also wrote about One who would carry our griefs and heal us by His suffering.",
+      "Those words pointed to Jesus.",
+      "For you: When God puts a promise in the Bible, He keeps it.",
+      "You can trust Him with what worries you today."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
@@ -7699,7 +7699,7 @@
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
           "A spaceship landed in the parking lot.",
-          "Isaiah speaks God's word to Judah's king",
+          "God's prophet speaks — promises of the coming King",
           "A talking toaster became king of the city.",
           "Everyone decided to never sleep again."
         ],
@@ -7710,14 +7710,14 @@
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "God said what He would do — and Jesus came. You can trust every promise in His Word.",
+          "When God puts a promise in the Bible, He keeps it. You can trust Him with what worries you today.",
           "Only be kind to people who are exactly like us.",
           "Ignore God until we are older.",
           "Never say sorry when we do wrong."
         ],
         "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God said what He would do — and Jesus came. You can trust every promise in His Word..)"
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When God puts a promise in the Bible, He keeps it. You can trust Him with what worries….)"
       }
     ],
     "doneHeading": "You did it!",
@@ -7725,10 +7725,10 @@
     "takeaway": "God said what He would do — and Jesus came. You can trust every promise in His Word.",
     "prayer": "God, thank You for the Bible. Help me remember what You showed me in Isaiah's Messianic Prophecies. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Isaiah speaks God's word to Judah's king (isaiah)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God's prophet speaks — promises of the coming King (isaiah)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A promised child — Immanuel, God with us (prophet)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The suffering servant brings healing (immanuel)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Isaiah speaks God's word to Judah's king (jesus)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The suffering servant brings healing and peace (immanuel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God's prophet speaks — promises of the coming King (jesus)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A promised child — Immanuel, God with us (isaiah 7)"
     ]
   },
@@ -9519,7 +9519,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14:21",
+          "Exodus 14",
           "Ruth 1",
           "Acts 7",
           "John 11:1–44"
@@ -11025,7 +11025,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14:21",
+          "Exodus 14",
           "Jonah 1:17",
           "Acts 7",
           "Ruth 1"
@@ -13613,14 +13613,14 @@
     ]
   },
   "mosesSea": {
-    "kjvRef": "Exodus 14",
+    "kjvRef": "Exodus 14:21-31",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind.",
-      "The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed.",
-      "A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water.",
-      "When the Egyptians followed, God closed the sea and saved His people. God makes a way!",
-      "For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
+      "Moses Sea-Split – Exodus 14:21-31. God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea.",
+      "But Moses stretched out his hand over the sea, just as God told him. The Lord caused the sea to go back all night with a strong east wind. The waters divided.",
+      "The children of Israel walked on dry ground, with walls of water on their right and on their left. When the Egyptians tried to follow, God told Moses to stretch out his hand again.",
+      "The waters returned and covered the chariots and the horsemen—not one of them remained. That day the Lord saved Israel, and the people believed the Lord and His servant Moses.",
+      "For you: When you feel stuck or afraid, God can still make a way. Pray and trust Him."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
@@ -13629,12 +13629,12 @@
         "choices": [
           "Jude 1",
           "1 Timothy 1–6; 2 Timothy 1–4",
-          "Exodus 14",
+          "Exodus 14:21-31",
           "Matthew 13:1–23"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 14.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 14:21-31.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
@@ -13654,11 +13654,11 @@
           "God never hears when kids pray.",
           "We should hide from God when we mess up.",
           "The Bible is only pretend stories.",
-          "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they…"
+          "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him.…"
         ],
         "correctIndex": 3,
         "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to….)"
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God opened the sea, brought Israel through on dry ground, and closed the waters behind….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
@@ -13677,17 +13677,17 @@
         "choices": [
           "Ignore God until we are older.",
           "Never say sorry when we do wrong.",
-          "When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead…",
+          "When you feel stuck or afraid, God can still make a way. Pray and trust Him.",
           "Only be kind to people who are exactly like us."
         ],
         "correctIndex": 2,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When you feel trapped or don't know what to do, pray and trust God. He can make a path….)"
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When you feel stuck or afraid, God can still make a way. Pray and trust Him..)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Moses Parts the Sea with God's Word today.",
-    "takeaway": "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when…",
+    "takeaway": "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save.",
     "prayer": "God, thank You for the Bible. Help me remember what You showed me in Moses Parts the Sea. Amen.",
     "imagePrompts": [
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israelites trapped by the Red Sea – Pharaoh's army chasing (moses)",
@@ -14470,7 +14470,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Exodus 14",
+          "Exodus 14:21-31",
           "Genesis 37:3",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
@@ -15224,7 +15224,7 @@
           "Luke 18:1–8",
           "Acts 20:7–12",
           "Ruth 1",
-          "Exodus 14:21"
+          "Exodus 14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18300,38 +18300,73 @@
     ]
   },
   "redSea": {
-    "kjvRef": "Exodus 14:21",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Exodus 14:21-31 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. They had nowhere to go.",
+        "caption": "Trapped between the sea and the army",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "But Moses stretched out his hand over the sea, just as God told him.",
+        "caption": "Moses obeys God",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And the Lord caused the sea to go back all night with a strong east wind. The waters divided.",
+        "caption": "God opens a path",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The children of Israel walked into the sea upon dry ground, with walls of water on their right hand and on their left.",
+        "caption": "Safe road through the sea",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered all the chariots and the horsemen. Not one of them remained.",
+        "caption": "God saves His people",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "That day the Lord saved Israel. And the people feared the Lord, and believed the Lord and His servant Moses.",
+        "caption": "Israel trusts God and Moses",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind.",
-      "The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed.",
-      "A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water.",
-      "When the Egyptians followed, God closed the sea and saved His people. God makes a way!",
-      "For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
+      "God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. They had nowhere to go.",
+      "But Moses stretched out his hand over the sea, just as God told him.",
+      "And the Lord caused the sea to go back all night with a strong east wind. The waters divided.",
+      "The children of Israel walked into the sea upon dry ground, with walls of water on their right hand and on their left.",
+      "When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered all the chariots and the horsemen. Not one of them remained.",
+      "That day the Lord saved Israel. And the people feared the Lord, and believed the Lord and His servant Moses.",
+      "For you: When you feel stuck or afraid, God can still make a way. Pray and trust Him—He is strong to save."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
-          "Numbers 22",
-          "Mark 12",
-          "Exodus 14:21"
+          "Psalm 23",
+          "John 3:16",
+          "Genesis 1:1",
+          "Exodus 14:21-31"
         ],
         "correctIndex": 3,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 14:21.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 14:21-31.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Only Pharaoh",
           "God",
-          "Priscilla",
-          "Mary",
-          "Elisha"
+          "A talking animal",
+          "Nobody"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
         "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
@@ -18339,23 +18374,23 @@
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
           "We should hide from God when we mess up.",
-          "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they…",
           "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "The Bible is only pretend stories.",
+          "God made a way through the sea and saved His people when they trusted Him."
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to….)"
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God made a way through the sea….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Everyone decided to never sleep again.",
           "A spaceship landed in the parking lot.",
-          "Israelites trapped by the Red Sea – Pharaoh's army chasing",
-          "A talking toaster became king of the city."
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again.",
+          "Moses stretched out his hand over the sea, and the waters divided."
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
         "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
@@ -18365,24 +18400,25 @@
           "Ignore God until we are older.",
           "Never say sorry when we do wrong.",
           "Only be kind to people who are exactly like us.",
-          "When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead…"
+          "When you feel stuck or afraid, pray and trust God—He can make a way."
         ],
         "correctIndex": 3,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When you feel trapped or don't know what to do, pray and trust God. He can make a path….)"
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: pray and trust God….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Red Sea Crossing with God's Word today.",
-    "takeaway": "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when…",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Red Sea Crossing. Amen.",
+    "doneMessage": "Great job reading Moses Sea-Split with God's Word today.",
+    "takeaway": "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him.",
+    "prayer": "God, thank You for the Bible. Thank You that You save and lead Your people. Help me trust You when I feel afraid. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israelites trapped by the Red Sea – Pharaoh's army chasing (moses)",
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces for crayons, peaceful not scary, no text in image: Moses on dry ground with staff stretched over the Red Sea, sea parted into two gentle walls of water, wide safe path in the middle, families walking calmly through, soft sky lines, no chariots or soldiers visible, ages 3-8 coloring page style",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses stretching his hand over the sea – God parts the waters (red sea)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People walking on dry ground between walls of water – God makes a way (waters)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israelites trapped by the Red Sea – Pharaoh's army chasing (part)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses stretching his hand over the sea – God parts the waters (exodus 14)"
-    ]
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People walking on dry ground between walls of water – God makes a way (exodus 14)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israelites at the shore – sea about to open (moses)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Walls of water on each side – families walking through (staff)"
+    ],
+    "readAlongImages": []
   },
   "redSeaCrossing": {
     "kjvRef": "Exodus 14",
@@ -19484,7 +19520,7 @@
           "Luke 18:1–8",
           "2 Timothy 4:6–8",
           "the Bible",
-          "Exodus 14:21"
+          "Exodus 14"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20660,7 +20696,7 @@
           "Acts 28",
           "Judges 13",
           "Genesis 37:3",
-          "Exodus 14"
+          "Exodus 14:21-31"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23089,7 +23125,7 @@
         "choices": [
           "Luke 18:1–8",
           "Ruth 1",
-          "Exodus 14:21",
+          "Exodus 14",
           "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
         ],
         "correctIndex": 3,

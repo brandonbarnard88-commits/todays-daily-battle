@@ -4,6 +4,20 @@ Run **`npm run check`** in `next-app/` (same as **`npm run lint && npm run build
 
 ---
 
+## Right after `main` updates (no rush)
+
+Pilot work now lands on **`main`**. When you push or merge, do this in order:
+
+1. **GitHub → Actions** — Open the latest run for **`main`**. Confirm it finished **green** (including **Deploy Cloudflare Pages (Next.js export)** if that workflow applies). If secrets are missing, the Next deploy may **skip** with a notice; that is expected until you configure them.
+2. **Cloudflare Pages (Next project)** — If production was still tied to a feature branch, set **Production branch** to **`main`** so deploys track the default branch.
+3. **Optional speed** — Enable **build caching** (see below) and add **Cache Rules** for `/_next/static/*` and `/kjv-full.json` when you have five quiet minutes.
+4. **Optional env** — **`NEXT_PUBLIC_MAIN_SITE_ORIGIN`** = `https://todaysdailybattle.com` so classic-site links stay consistent during testing.
+5. **Heart check** — Open the **`*.pages.dev`** URL from the deploy log (or your custom domain) and run the **gentle 10-minute** section below on phone, then desktop.
+
+The **classic static site** is unchanged unless your other deploy workflow also updates it; both can coexist.
+
+---
+
 ## Cloudflare: Pages vs Workers Static Assets (2026 context)
 
 **Cloudflare Pages** remains an excellent fit for this pilot: static export to `out/`, clean URLs via `public/_redirects`, no server. **Workers Static Assets** is another path (often cited for new static-heavy projects with tighter Workers integration). **No migration required** unless you later want unified Workers + KV/R2/D1 next to the same deploy. Staying on Pages is simpler and matches our calm, static-first setup.
@@ -15,7 +29,7 @@ Run **`npm run check`** in `next-app/` (same as **`npm run lint && npm run build
 | Field | Value |
 |-------|--------|
 | **Project name** | e.g. `todaysdailybattle-next` or `tdb-next-pilot` |
-| **Production branch** | `cursor/verse-breakdowns-verse-room` (pilot) or `main` after merge |
+| **Production branch** | **`main`** (canonical). Use a feature branch only for experiments. |
 | **Root directory** | **`next-app`** (recommended) |
 | **Build command** | `npm ci && npm run build` |
 | **Build output directory** | **`out`** |
@@ -95,7 +109,7 @@ Legacy caches (`tdb-kjv-v1`, etc.) are cleared on activate.
 7. **PWA comfort** — Manifest (`/manifest.webmanifest`) and service worker. Does “Add to Home” still feel optional and non-pushy?
 8. **Overall humility** — Spend 60 quiet seconds on the homepage with no task. Does it still feel like the same humble, sacred space — or note one small thing that feels different?
 9. **Classic links** — If you set `NEXT_PUBLIC_MAIN_SITE_ORIGIN`, tap any link that should hit the classic site. Does it land on `https://todaysdailybattle.com`?
-10. **Gut check** — After the above, does the pilot feel like a deeper, gentler version of your quiet place — or is there one thing to soften before merging?
+10. **Gut check** — After the above, does the pilot feel like a deeper, gentler version of your quiet place — or is there one thing to soften before you point more traffic at it?
 
 ---
 

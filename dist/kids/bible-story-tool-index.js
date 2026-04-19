@@ -2187,16 +2187,6 @@
     "kw": "samuel call listen 1 samuel 3 eli temple night prophet"
   },
   {
-    "key": "samuelBirth",
-    "title": "Samuel's Birth & Dedication",
-    "kjvRef": "1 Samuel 1–2",
-    "who": "Hannah and God",
-    "to": "Samuel",
-    "apply": "When you promise God something, He helps you keep it. Samuel grew up loving God because Hannah gave him back to the Lord.",
-    "theme": "Obedience",
-    "kw": "samuel hannah dedication temple 1 samuel 1 1 samuel 2 eli promise prophet lent unto the lord lent to the lord"
-  },
-  {
     "key": "sarahLaughs",
     "title": "Sarah Laughs",
     "kjvRef": "Genesis 18:9–15",
@@ -2375,6 +2365,16 @@
     "apply": "If a crowd pushes you to dishonour Jesus, remember: His “Well done” matters more than likes, money, or fear.",
     "theme": "Obedience",
     "kw": "revelation beast 666 mark dragon worship faithful"
+  },
+  {
+    "key": "samuelBirth",
+    "title": "The Birth and Dedication of Samuel",
+    "kjvRef": "1 Samuel 1:21-28; 2:1-11, 18-21",
+    "who": "The Lord",
+    "to": "Hannah, Samuel, and every heart that keeps its word",
+    "apply": "Hannah did not forget her vow. She brought Samuel to God's house and thanked Him with her whole heart. God honors promises kept in love — and He blessed her home again.",
+    "theme": "Obedience",
+    "kw": "samuel hannah dedication weaned wean shiloh tabernacle temple 1 samuel 1 1 samuel 2 eli lent unto the lord lent to the lord for this child i prayed my heart rejoiceth none holy as the lord little coat linen ephod ministered yearly sacrifice visited hannah three sons two daughters thanksgiving horn is exalted"
   },
   {
     "key": "bronzeSerpent",

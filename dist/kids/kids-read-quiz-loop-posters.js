@@ -88,6 +88,7 @@
     hannahPray: 40,
     hannahPrayer: 40,
     hannahSamuel: 40,
+    samuelBirth: 173,
     healBlind: 72,
     healLeper: 73,
     holySpiritPentecost: 91,

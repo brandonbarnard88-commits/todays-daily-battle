@@ -2763,18 +2763,51 @@
       kidContext: { who: 'Jonathan', to: 'David', apply: 'Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.' }
     },
     samuelBirth: {
-      title: 'Samuel\'s Birth & Dedication',
+      title: 'The Birth and Dedication of Samuel',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Hannah brings young Samuel to Eli at the temple' },
-        { src: 'panel-noah-2.svg', alt: 'Hannah sings praise to God for His faithfulness' },
-        { src: 'panel-noah-3.svg', alt: 'Samuel grows up serving God as a prophet' }
+        { src: 'panel-noah-1.svg', alt: 'Weaned and brought to Shiloh — Hannah keeps her promise' },
+        { src: 'panel-noah-2.svg', alt: 'For this child I prayed — lent to the Lord all his days' },
+        { src: 'panel-noah-3.svg', alt: 'A little coat each year — Samuel ministers before the Lord' }
       ],
-      caption: 'Swipe to see Hannah keep her promise — Samuel serves God! 🙏',
+      caption: 'Swipe to see a thankful heart keep its promise to God.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samuel', 'hannah', 'dedication', 'temple', '1 samuel 1', '1 samuel 2', 'eli', 'promise', 'prophet', 'lent unto the lord', 'lent to the lord'],
-      kjvRef: '1 Samuel 1–2',
-      kidContext: { who: 'Hannah and God', to: 'Samuel', apply: 'When you promise God something, He helps you keep it. Samuel grew up loving God because Hannah gave him back to the Lord.' }
+      keywords: [
+        'samuel',
+        'hannah',
+        'dedication',
+        'weaned',
+        'wean',
+        'shiloh',
+        'tabernacle',
+        'temple',
+        '1 samuel 1',
+        '1 samuel 2',
+        'eli',
+        'lent unto the lord',
+        'lent to the lord',
+        'for this child i prayed',
+        'my heart rejoiceth',
+        'none holy as the lord',
+        'little coat',
+        'linen ephod',
+        'ministered',
+        'yearly sacrifice',
+        'visited hannah',
+        'three sons',
+        'two daughters',
+        'thanksgiving',
+        'horn is exalted'
+      ],
+      kjvRef: '1 Samuel 1:21-28; 2:1-11, 18-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Hannah, Samuel, and every heart that keeps its word',
+        apply:
+          "Hannah did not forget her vow. She brought Samuel to God's house and thanked Him with her whole heart. God honors promises kept in love — and He blessed her home again."
+      },
+      narration:
+        "The Birth and Dedication of Samuel – 1 Samuel 1:21-28; 2:1-11, 18-21. When Samuel was weaned, Hannah remembered her promise. She took him to the house of the Lord at Shiloh and said to Eli, For this child I prayed; and the LORD hath given me my petition which I asked of him. Therefore also I have lent him to the LORD; as long as he liveth he shall be lent to the LORD. Then Hannah prayed, My heart rejoiceth in the LORD… there is none holy as the LORD. She left Samuel with Eli to serve the Lord. Every year she made him a little coat when she came up with her husband for the yearly sacrifice. The LORD visited Hannah, and she had three more sons and two daughters. And the child Samuel grew before the LORD. For you: God blesses thankful hearts that keep their promises to Him."
     },
     samuelCalls: {
       title: 'Samuel Hears God Calling',
@@ -5383,7 +5416,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5445,12 +5478,30 @@
       return { type: 'carousel', story: 'davidSheep' };
     }
     if (
+      /\b1 samuel 1:\s*(?:2[1-8]|28)\b|\b1 sam 1:\s*(?:2[1-8]|28)\b/.test(low) ||
+      /\b1 samuel 2:\s*(?:[1-9]|1[01]|18|19|20|21)\b|\b1 sam 2:\s*(?:[1-9]|1[01]|18|19|20|21)\b/.test(low) ||
+      /for this child i prayed|therefore also i have lent him|as long as he liveth he shall be lent|my heart rejoiceth in the lord|mine horn is exalted|there is none holy as the lord|linen ephod|made him a little coat|from year to year.*yearly sacrifice|the lord visited hannah|three sons and two daughters|samuel grew before the lord|ministered before the lord.*child girded/.test(
+        low
+      ) ||
+      (/\bwean(ed|ing)?\b/.test(low) && /\bsamuel\b/.test(low) && /\bhannah\b/.test(low))
+    ) {
+      return { type: 'carousel', story: 'samuelBirth' };
+    }
+    if (
       (!/\b1 samuel 1:(?:2[1-9]|[3-9]\d)\b|\b1 sam 1:(?:2[1-9]|[3-9]\d)\b/.test(low)) &&
       (/\b1 samuel 1:\s*(?:[1-9]|1\d|20)\b|\b1 sam 1:\s*(?:[1-9]|1\d|20)\b|^1 samuel 1\b|\b1 samuel 1\s|^1 sam 1\b|\b1 sam 1\s/.test(low) ||
-        (/\bshiloh\b/.test(low) && /\bhannah\b/.test(low)) ||
+        (/\bshiloh\b/.test(low) &&
+          /\bhannah\b/.test(low) &&
+          !/\bwean(ed|ing)?\b|\blent him\b|\blittle coat\b|my heart rejoiceth|for this child i prayed/.test(low)) ||
         /\belkanah\b|\bpeninnah\b|poured out my soul|sorrowful spirit|grant thee thy petition|because i have asked him|the lord remembered her\b/.test(low))
     ) {
       return { type: 'carousel', story: 'hannahPrayer' };
+    }
+    if (
+      /\b1 samuel 3\b|\b1 sam 3\b/.test(low) ||
+      /speak,?\s*lord|for thy servant heareth|samuel.*here\s*i\s*am|here\s*i\s*am.*eli|the\s+lord\s+called\s+samuel|called\s+samuel/.test(low)
+    ) {
+      return { type: 'carousel', story: 'samuelCalls' };
     }
     if (/david|goliath|battle|1 samuel|joshua 1:9|philippians 4:13|ephesians 6:10|brave|courage|strong|strength|strengthen|strengtheneth/.test(low)) {
       return { type: 'carousel', story: 'david' };

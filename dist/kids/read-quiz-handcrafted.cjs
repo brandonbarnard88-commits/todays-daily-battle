@@ -3453,6 +3453,134 @@ function buildHannahPrayerReadQuiz() {
   };
 }
 
+/** Samuel's dedication and Hannah's song — 1 Sam 1:21-28; 2:1-11, 18-21 (KJV). */
+function buildSamuelBirthReadQuiz() {
+  return {
+    kjvRef: '1 Samuel 1:21-28; 2:1-11, 18-21 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'And the man Elkanah, and all his house, went up to offer unto the LORD the yearly sacrifice, and his vow. But Hannah went not up; for she said unto her husband, I will not go up until the child be weaned, and then I will bring him, that he may appear before the LORD, and there abide for ever. And Elkanah her husband said unto her, Do what seemeth thee good; tarry until thou have weaned him; only the LORD establish his word. So the woman abode, and gave her son suck until she weaned him. And when she had weaned him, she took him up with her, with three bullocks, and one ephah of flour, and a bottle of wine, and brought him unto the house of the LORD in Shiloh: and the child was young.',
+        caption: 'Weaned — brought to the house of the Lord',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'And they slew a bullock, and brought the child to Eli. And she said, Oh my lord, as thy soul liveth, my lord, I am the woman that stood by thee here, praying unto the LORD. For this child I prayed; and the LORD hath given me my petition which I asked of him: Therefore also I have lent him to the LORD; as long as he liveth he shall be lent to the LORD. And he worshipped the LORD there.',
+        caption: 'For this child I prayed — lent to the Lord',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And Hannah prayed, and said, My heart rejoiceth in the LORD, mine horn is exalted in the LORD: my mouth is enlarged over mine enemies; because I rejoice in thy salvation. There is none holy as the LORD: for there is none beside thee: neither is there any rock like our God.',
+        caption: 'My heart rejoiceth — none holy as the Lord',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'Talk no more so exceeding proudly; let not arrogancy come out of your mouth: for the LORD is a God of knowledge, and by him actions are weighed. The bows of the mighty men are broken, and they that stumbled are girded with strength. They that were full have hired out themselves for bread; and they that were hungry ceased: so that the barren hath born seven; and she that hath many children is waxed feeble.',
+        caption: 'The Lord weighs the actions of all',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'The LORD killeth, and maketh alive: he bringeth down to the grave, and bringeth up. The LORD maketh poor, and maketh rich: he bringeth low, and lifteth up. He raiseth up the poor out of the dust, and lifteth up the beggar from the dunghill, to set them among princes, and to make them inherit the throne of glory: for the pillars of the earth are the LORD\'s, and he hath set the world upon them.',
+        caption: 'He raiseth up the poor — the pillars are the Lord\'s',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'He will keep the feet of his saints, and the wicked shall be silent in darkness; for by strength shall no man prevail. The adversaries of the LORD shall be broken to pieces; out of heaven shall he thunder upon them: the LORD shall judge the ends of the earth; and he shall give strength unto his king, and exalt the horn of his anointed. And Elkanah went to Ramah to his house. And the child did minister unto the LORD before Eli the priest.',
+        caption: 'Samuel ministers before Eli',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'But Samuel ministered before the LORD, being a child, girded with a linen ephod. Moreover his mother made him a little coat, and brought it to him from year to year, when she came up with her husband to offer the yearly sacrifice. And Eli blessed Elkanah and his wife, and said, The LORD give thee seed of this woman for the loan which is lent to the LORD. And they went unto their own home. And the LORD visited Hannah, so that she conceived, and bare three sons and two daughters. And the child Samuel grew before the LORD.',
+        caption: 'A little coat each year — the Lord visited Hannah',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    paragraphs: [
+      'When Samuel was weaned, Hannah remembered her promise to God. She took her little boy to the house of the Lord at Shiloh.',
+      'Hannah said to Eli the priest, "For this child I prayed; and the Lord hath given me my petition which I asked of him. Therefore also I have lent him to the Lord; as long as he liveth he shall be lent to the Lord."',
+      'Then Hannah prayed a beautiful prayer of thanks: "My heart rejoiceth in the Lord… there is none holy as the Lord."',
+      'Hannah left Samuel with Eli to serve the Lord. Every year she made him a little coat and brought it when she came up with her husband to offer the yearly sacrifice.',
+      'The Lord visited Hannah, and she had three more sons and two daughters. And the child Samuel grew on, and was in favour both with the Lord, and also with men.',
+      'For you: God honors promises kept in love and blesses thankful hearts.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['1 Samuel 3', '1 Samuel 1:21-28; 2:1-11, 18-21', 'Ruth 1', 'Psalm 23'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: 1 Samuel 1:21-28; 2:1-11, 18-21.)'
+      },
+      {
+        question: 'What did Hannah say she had done with Samuel?',
+        choices: [
+          'Hidden him at home forever.',
+          'Lent him to the Lord as long as he liveth.',
+          'Sold him.',
+          'Sent him to Egypt.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful — she kept her vow.',
+        wrongFeedback: 'Listen for lent. (Answer: Lent him to the Lord….)'
+      },
+      {
+        question: 'How did Hannah begin her prayer of thanks?',
+        choices: [
+          'My heart is heavy.',
+          'My heart rejoiceth in the LORD.',
+          'I will not pray.',
+          'Leave me alone.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes — thankful worship.',
+        wrongFeedback: 'Think rejoicing. (Answer: My heart rejoiceth….)'
+      },
+      {
+        question: 'What did Hannah make for Samuel each year?',
+        choices: ['A crown.', 'A little coat.', 'A chariot.', 'Nothing.'],
+        correctIndex: 1,
+        correctFeedback: 'Tender — a mother\'s faithful care.',
+        wrongFeedback: 'Think yearly visit. (Answer: A little coat….)'
+      },
+      {
+        question: 'After this, how did the Lord bless Hannah\'s home?',
+        choices: [
+          'She had no more children.',
+          'She bare three sons and two daughters.',
+          'They moved away.',
+          'The story does not say.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'God remembered her with kindness.',
+        wrongFeedback: 'Listen for visited. (Answer: Three sons and two daughters….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Samuel's dedication with God's Word today.",
+    takeaway:
+      'Hannah kept her promise — Samuel ministered before the Lord — and God visited her home with more children.',
+    prayer:
+      'Lord, thank You for Hannah\'s thankful heart. Help us keep our promises to You and trust Your kindness. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art young children bold thick outlines large open spaces Hannah standing calmly at tabernacle little Samuel beside her she holds small coat thankful joy Eli priest nearby gentle smile tabernacle curtains soft sky warm worshipful mood minimal plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Lent to the Lord (1 sam 1)',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text My heart rejoiceth',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little coat year to year',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Samuel grew before the Lord'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -3489,5 +3617,6 @@ module.exports = {
   ruthBoaz: buildRuthBoazReadQuiz(),
   ruthThreshing: buildRuthThreshingReadQuiz(),
   ruthRedemption: buildRuthRedemptionReadQuiz(),
-  hannahPrayer: buildHannahPrayerReadQuiz()
+  hannahPrayer: buildHannahPrayerReadQuiz(),
+  samuelBirth: buildSamuelBirthReadQuiz()
 };

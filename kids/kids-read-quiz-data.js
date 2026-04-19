@@ -26,9 +26,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 25",
-          "the Bible",
-          "Philippians 2:8–11",
-          "1 Corinthians 12"
+          "Acts 7",
+          "Acts 18:24–28",
+          "Ruth 3:1-18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -37,10 +37,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "Jonathan",
+          "Philip",
+          "The apostles",
           "God",
-          "Mary"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -110,9 +110,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 22",
-          "Genesis 39–40",
-          "Matthew 5–7",
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
+          "1 Samuel 16:11; 17:15, 34–37",
+          "Colossians 1:15–20; 3:1–4, 12–17",
+          "Acts 28:1–10"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -121,10 +121,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
+          "The apostles",
           "God",
-          "Elisha",
-          "Stephen"
+          "Philip",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -308,10 +308,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 11",
+          "Luke 15:11–32",
           "Acts 18:24–28",
-          "Matthew 19:16–22",
-          "1 Samuel 9–10"
+          "Exodus 12:1-14",
+          "Acts 2"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -320,10 +320,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "Philip",
+          "Mary",
+          "The Lord",
           "Priscilla",
-          "Paul"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -390,10 +390,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 13–14",
+          "James 2:14–26",
           "Acts 25–26",
-          "Matthew 3:13–17",
-          "Luke 15"
+          "2 Kings 4:1–7",
+          "Judges 6:11-40"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -403,9 +403,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "Holy Spirit",
-          "The Holy Ghost",
-          "God"
+          "Priscilla",
+          "James",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -473,9 +473,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 17:22–34",
-          "1 John 1–5",
-          "1 Corinthians 13",
-          "Acts 9:1–19"
+          "Hebrews 11",
+          "Matthew 28:16–20; Mark 16:15–18",
+          "Matthew 3:13–17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -484,9 +484,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Jonathan",
-          "The Lord",
+          "David",
+          "Philip",
+          "Joshua",
           "Paul"
         ],
         "correctIndex": 3,
@@ -556,10 +556,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 1:1-18",
-          "Revelation 17–18",
+          "Jonah 1:17",
+          "Luke 2:1–20",
           "Acts 28:1–10",
-          "Acts 6:8–7:60"
+          "Exodus 16:1-36"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -568,9 +568,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Mary",
-          "Priscilla",
+          "The apostles",
+          "God the Father",
+          "Peter",
           "God"
         ],
         "correctIndex": 3,
@@ -640,9 +640,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 3",
-          "Acts 28:1–10",
-          "Exodus 7–12",
-          "Judges 16:4-21"
+          "Judges 14:5-9",
+          "Revelation 19",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -651,10 +651,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "God the Father",
           "God",
-          "Hannah and God",
-          "Jonathan"
+          "The Holy Ghost",
+          "Jesus"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -723,10 +723,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Acts 27–28",
+          "Matthew 28",
+          "1 Samuel 13; 15",
           "Revelation 1:8, 11, 17–18",
-          "Revelation 19"
+          "Ephesians 6"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -735,9 +735,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Elisha",
-          "Stephen",
-          "Joshua",
+          "The Lord",
+          "Jude",
+          "Jonathan",
           "God"
         ],
         "correctIndex": 3,
@@ -807,10 +807,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Corinthians 13",
-          "1 John 1–5",
+          "Acts 16:16–40",
+          "Nehemiah 1–6",
           "Revelation 22:12–13",
-          "Acts 9:1–19"
+          "Romans 16:1–2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -819,9 +819,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
-          "Paul",
-          "John",
+          "God",
+          "Jonathan",
+          "Jude",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -892,10 +892,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 14:5-9",
+          "John 2:1–11",
           "Luke 1",
-          "Genesis 3",
-          "Matthew 25"
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Job 2"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -905,9 +905,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Philip",
-          "David",
-          "God the Father"
+          "Mary",
+          "Priscilla",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -976,10 +976,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15",
-          "Ezekiel 37:1–14",
+          "Revelation 13:16–18",
+          "2 Kings 4",
           "Luke 2:36–38",
-          "Acts 9:36–43"
+          "1 Samuel 16"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -989,9 +989,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The apostles",
-          "Peter",
-          "James"
+          "David",
+          "Philip",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1060,9 +1060,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:42–47",
-          "Ezra 1–10; Nehemiah 8–9",
-          "Luke 17",
+          "Psalm 23",
+          "Luke 24:13–35",
+          "1 Samuel 9–10",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1072,10 +1072,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
-          "John",
+          "God",
+          "Jude",
           "Paul",
-          "Jonathan"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1142,9 +1142,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13",
-          "Acts 27",
-          "Genesis 41:41",
+          "Matthew 13:1–23",
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Jude 1",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1155,9 +1155,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "Jesus",
           "The Holy Ghost",
-          "John"
+          "James",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1226,10 +1226,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22:1–20",
+          "Mark 12",
           "Ephesians 6",
-          "1 Kings 18",
-          "Daniel 6:22"
+          "Daniel 6",
+          "Numbers 22"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1240,7 +1240,7 @@
         "choices": [
           "Paul",
           "Priscilla",
-          "God the Father",
+          "James",
           "The crowds"
         ],
         "correctIndex": 0,
@@ -1310,9 +1310,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:11; 17:15, 34–37",
-          "1 Samuel 1",
-          "Esther 4–5",
+          "Revelation 1–3",
+          "Acts 7",
+          "Ruth 3:1-18",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1323,9 +1323,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "The apostles",
-          "Peter",
-          "Joshua"
+          "Holy Spirit",
+          "The Lord",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1394,10 +1394,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Acts 27–28",
+          "Luke 2; Matthew 1–2",
+          "Matthew 28:18–20",
           "Acts 1:6–11",
-          "Revelation 19"
+          "Luke 2:41–52"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1406,9 +1406,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "The Lord",
-          "James",
+          "Joshua",
+          "Philip",
+          "David",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -1479,10 +1479,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "Exodus 14:21-31",
           "Numbers 22:1–20",
-          "Daniel 3",
-          "Numbers 23–24"
+          "Acts 5:12–16",
+          "Acts 28"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1492,9 +1492,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
+          "Jonathan",
           "Jude",
-          "The Lord",
-          "David"
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1565,9 +1565,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Numbers 23–24",
-          "John 12:1–8",
-          "Jonah 4",
-          "Romans–Philemon"
+          "Jonah 1:17",
+          "Luke 2:1–20",
+          "Exodus 16:1-36"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1576,9 +1576,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "The apostles",
-          "Peter",
+          "The Lord",
+          "Jude",
+          "Jonathan",
           "God"
         ],
         "correctIndex": 3,
@@ -1648,10 +1648,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2–7",
-          "Luke 24:50–53; Acts 1:6–11",
+          "Acts 2:1–13",
+          "1 John 1–5",
           "Numbers 22",
-          "1 Samuel 17:8–11, 16, 23–30"
+          "Mark 2:1–12"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1661,9 +1661,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jesus",
-          "The Holy Ghost",
-          "Holy Spirit"
+          "Jude",
+          "Jonathan",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1851,10 +1851,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18–20",
-          "Luke 10",
+          "1 Samuel 17",
+          "1 Samuel 17:8–11, 16, 23–30",
           "Revelation 13:16–18",
-          "Esther 5–7"
+          "Esther 2–7"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1864,9 +1864,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "James",
           "Priscilla",
-          "Mary"
+          "Mary",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1935,10 +1935,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "Genesis 37:3",
           "Matthew 26",
-          "Daniel 3",
-          "Numbers 22:1–20"
+          "Ephesians, Philippians, Colossians, Philemon",
+          "Exodus 2:5"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1948,9 +1948,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jonathan",
-          "Mary",
-          "Hannah and God"
+          "Priscilla",
+          "James",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2261,9 +2261,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 4",
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "1 Samuel 16:11; 17:15, 34–37",
-          "Esther 4–5"
+          "Jonah 4",
+          "John 12:1–8",
+          "Romans–Philemon"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2272,9 +2272,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Stephen",
-          "Elisha",
+          "The Holy Ghost",
+          "Paul",
+          "James",
           "God"
         ],
         "correctIndex": 3,
@@ -2343,10 +2343,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philemon 1",
+          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
           "Colossians 1:15–20; 3:1–4, 12–17",
-          "Revelation 13",
-          "Acts 2:14–41"
+          "Mark 5:21–43",
+          "Matthew 26:36–46; Luke 22:44"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2356,9 +2356,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "David",
+          "Jonathan",
           "Jude",
-          "Philip"
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2429,9 +2429,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 22",
-          "Genesis 28:10–22",
-          "Galatians 5",
-          "2 Kings 6:1–7"
+          "1 Samuel 17:8–11, 16, 23–30",
+          "Esther 2–7",
+          "1 Samuel 17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2440,10 +2440,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
+          "The apostles",
           "Jesus",
-          "Paul",
-          "The Holy Ghost"
+          "Philip",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2511,10 +2511,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 27",
+          "2 Kings 2:1–14",
           "1 Corinthians 12",
-          "Revelation 14–15",
-          "Acts 8:26–40"
+          "Revelation 21",
+          "Matthew 17:20; Mark 11:23–24"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2524,9 +2524,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "Joshua",
-          "Stephen",
-          "The apostles"
+          "God the Father",
+          "Peter",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2596,9 +2596,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 15",
-          "Genesis 1",
-          "Acts 2:42–47",
-          "Ezra 1–10; Nehemiah 8–9"
+          "Matthew 3:13–17",
+          "Luke 15",
+          "Acts 13–14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2607,9 +2607,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "The crowds",
-          "Priscilla",
+          "God",
+          "Jonathan",
+          "Jude",
           "The apostles"
         ],
         "correctIndex": 3,
@@ -2680,10 +2680,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 5:21–43",
-          "Matthew 26:36–46; Luke 22:44",
+          "1 Samuel 16:11; 17:15, 34–37",
+          "Genesis 4",
           "Genesis 1",
-          "Luke 2:1–20"
+          "Esther 4–5"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2692,9 +2692,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "Paul",
-          "The crowds",
+          "The Lord",
+          "Jude",
+          "Jonathan",
           "God"
         ],
         "correctIndex": 3,
@@ -2766,9 +2766,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 1:3",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "John 20:1–18"
+          "Mark 5:21–43",
+          "Matthew 26:36–46; Luke 22:44",
+          "Luke 2:1–20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2777,9 +2777,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "The Lord",
-          "Jude",
+          "The apostles",
+          "Peter",
+          "God the Father",
           "God"
         ],
         "correctIndex": 3,
@@ -2848,9 +2848,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 23",
-          "Mark 5:21–43",
-          "Matthew 26:36–46; Luke 22:44",
-          "Luke 2:1–20"
+          "Revelation 4–5",
+          "Matthew 6",
+          "1 Samuel 1:21-28; 2:1-11, 18-21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2859,9 +2859,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Holy Spirit",
-          "The Lord",
+          "Joshua",
+          "David",
+          "Philip",
           "God"
         ],
         "correctIndex": 3,
@@ -2930,9 +2930,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "1 Samuel 16:11; 17:15, 34–37",
-          "Genesis 4",
-          "Esther 4–5"
+          "Exodus 7–12",
+          "Judges 14:5-9",
+          "Acts 28:1–10"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2941,9 +2941,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
-          "John",
-          "Jonathan",
+          "Peter",
+          "God the Father",
+          "The apostles",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -3015,9 +3015,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6:22",
-          "Hebrews 11",
-          "Matthew 17",
-          "Matthew 28:16–20; Mark 16:15–18"
+          "Revelation 17–18",
+          "Acts 12:1–19",
+          "Ruth 1:1-18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3026,8 +3026,8 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "God the Father",
+          "The Holy Ghost",
+          "James",
           "Paul",
           "God"
         ],
@@ -3098,9 +3098,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jude 1",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 13:1–23",
+          "Judges 6:11-40",
+          "John 10:1–18",
+          "James 2:14–26",
           "Daniel 3"
         ],
         "correctIndex": 3,
@@ -3111,9 +3111,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Holy Ghost",
-          "Jesus",
-          "John"
+          "Jude",
+          "The Lord",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3182,9 +3182,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6",
-          "Acts 2:4–21",
-          "Joshua 2:1-21",
-          "Acts 9:1–19"
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Lamentations 1–5"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3193,10 +3193,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "God the Father",
           "The Holy Ghost",
-          "The Lord",
           "God",
-          "Holy Spirit"
+          "Jesus"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3266,9 +3266,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6",
-          "Matthew 5–7",
-          "Genesis 39–40",
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
+          "Daniel 6:22",
+          "2 Kings 6:1–7",
+          "Numbers 22:1–20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3277,10 +3277,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Stephen",
+          "Joshua",
           "God",
-          "The crowds",
-          "Elisha"
+          "Jonathan",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3470,10 +3470,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Timothy 1:5–7; 3:15",
-          "Matthew 4:18–22; Luke 5:1–11",
+          "Daniel 3",
+          "Matthew 26:36–46; Luke 22:44",
           "1 Samuel 16",
-          "1 Samuel 1:1-20"
+          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3483,9 +3483,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Stephen",
-          "Joshua",
-          "The apostles"
+          "Priscilla",
+          "Mary",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3553,10 +3553,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18–20",
-          "Esther 5–7",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "John 20:1–18",
           "1 Samuel 22:1–2; 24",
-          "Numbers 21:1-9"
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3565,10 +3565,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
           "Mary",
+          "God",
           "David",
-          "The Lord"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3759,9 +3759,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 16",
-          "Exodus 16:1-36",
-          "Acts 20:7–12",
-          "Acts 3"
+          "John 12:1–8",
+          "Romans–Philemon",
+          "Acts 12:1–19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3771,7 +3771,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "James",
+          "God the Father",
           "Jesus",
           "David"
         ],
@@ -3842,9 +3842,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 18–20",
-          "Numbers 22:1–20",
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
-          "Luke 2"
+          "1 Samuel 17",
+          "Numbers 21:1-9",
+          "Acts 18:24–28"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3853,10 +3853,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
+          "Philip",
           "Jonathan",
-          "Holy Spirit",
-          "The Holy Ghost"
+          "Jesus",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3925,10 +3925,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 2",
-          "John 2:1–11",
+          "Acts 5:12–16",
+          "Acts 28",
           "1 Samuel 18–20",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23"
+          "Revelation 21–22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3938,8 +3938,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The Holy Ghost",
-          "God",
-          "Holy Spirit",
+          "Priscilla",
+          "James",
           "Jonathan"
         ],
         "correctIndex": 3,
@@ -4009,9 +4009,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 18–19",
-          "Matthew 26:36–46; Luke 22:44",
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-          "Daniel 3"
+          "Matthew 25",
+          "1 Samuel 16:1–13",
+          "Revelation 20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4020,10 +4020,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
+          "The apostles",
           "God",
           "Philip",
-          "God the Father"
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4092,10 +4092,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:42–47",
-          "Acts 15",
+          "Matthew 28:18–20",
+          "Esther 2:15–18",
           "1 Samuel 18–19",
-          "Ezra 1–10; Nehemiah 8–9"
+          "Luke 2; Matthew 1–2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4105,8 +4105,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The Holy Ghost",
-          "The Lord",
-          "Holy Spirit",
+          "Paul",
+          "James",
           "God"
         ],
         "correctIndex": 3,
@@ -4177,9 +4177,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 16:11; 17:15, 34–37",
-          "Jude 1",
-          "Matthew 14:22–33",
-          "Matthew 13:1–23"
+          "Revelation 13",
+          "Acts 2:14–41",
+          "Ruth 4:1-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4188,9 +4188,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Joshua",
           "The apostles",
           "Philip",
-          "God the Father",
           "David"
         ],
         "correctIndex": 3,
@@ -4382,10 +4382,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 19:19–21",
-          "Hebrews 11",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Exodus 2:5",
           "the Bible",
-          "Matthew 17"
+          "Genesis 37:3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4395,9 +4395,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Philip",
-          "God the Father",
-          "Paul"
+          "Priscilla",
+          "Mary",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4467,9 +4467,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 16:4-21",
-          "Exodus 7–12",
-          "Revelation 14–15",
+          "Revelation 21",
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+          "Matthew 17:20; Mark 11:23–24",
           "Acts 9:36–43"
         ],
         "correctIndex": 3,
@@ -4479,10 +4479,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Elisha",
-          "Stephen",
+          "The apostles",
+          "Peter",
           "God",
-          "The crowds"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4552,9 +4552,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Revelation 17–18",
-          "Acts 12:1–19",
-          "Romans–Philemon"
+          "Romans 3:23; 5:8; 6:23; 10:9–10",
+          "Joshua 2:1-21",
+          "Acts 2:4–21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4563,10 +4563,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "God",
           "God the Father",
-          "Philip"
+          "God",
+          "The Holy Ghost",
+          "Jesus"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4635,9 +4635,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
-          "Judges 16:4-21",
-          "Exodus 7–12",
+          "Philemon 1",
+          "Acts 2:14–41",
+          "Revelation 13",
           "Acts 2:42–47"
         ],
         "correctIndex": 3,
@@ -4647,10 +4647,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "Paul",
+          "Holy Spirit",
+          "Priscilla",
           "The Lord",
-          "Philip"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4720,9 +4720,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "2 Kings 2:1–14",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 7",
-          "Matthew 13:1–23"
+          "1 Samuel 25",
+          "Joshua 8:1-8, 18-23, 26-29",
+          "Numbers 13:1-33; 14:1-9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4731,10 +4731,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "Jude",
+          "Jonathan",
+          "Joshua",
           "God",
-          "The Lord"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4804,10 +4804,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Timothy 4:6–8",
+          "1 Samuel 22:1–2; 24",
           "1 Kings 19:19–21",
-          "Exodus 14",
-          "Luke 18:1–8"
+          "1 Samuel 17:8–11, 16, 23–30",
+          "Esther 2–7"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4817,9 +4817,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Elisha",
-          "The Holy Ghost",
-          "Holy Spirit",
-          "God"
+          "Peter",
+          "God the Father",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4889,9 +4889,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Kings 18:20–40",
-          "2 Kings 4:1–7",
-          "Daniel 6",
-          "Numbers 22"
+          "Revelation 20",
+          "Romans 16:1–2",
+          "Acts 16:16–40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4900,10 +4900,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
+          "The Holy Ghost",
           "God",
-          "The apostles",
-          "Peter"
+          "God the Father",
+          "Jesus"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4972,9 +4972,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 20:7–12",
-          "Acts 3",
-          "Revelation 1–22",
+          "Job 2",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Matthew 25:14–30",
           "1 Kings 18"
         ],
         "correctIndex": 3,
@@ -4984,10 +4984,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
           "The apostles",
+          "Peter",
           "God",
-          "Stephen"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5056,9 +5056,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 1:1-18",
-          "Genesis 22",
-          "Acts 6:8–7:60",
+          "Colossians 1:15–20; 3:1–4, 12–17",
+          "2 Timothy 1:5–7; 3:15",
+          "1 Samuel 16:11; 17:15, 34–37",
           "2 Kings 6:1–7"
         ],
         "correctIndex": 3,
@@ -5069,9 +5069,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Elisha",
-          "Stephen",
-          "The crowds"
+          "The Lord",
+          "Jude",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5141,10 +5141,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 23–24",
+          "Acts 6:8–7:60",
           "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-          "1 Kings 5–8",
-          "Mark 12"
+          "Revelation 13",
+          "Ruth 4:1-17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5153,10 +5153,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Joshua",
+          "Paul",
+          "James",
           "God",
-          "Peter"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5225,10 +5225,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 41:41",
+          "Acts 2",
           "2 Kings 4:1–7",
-          "Luke 2; Matthew 1–2",
-          "Luke 2:41–52"
+          "Luke 15:8–10",
+          "Exodus 12:1-14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5237,10 +5237,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "John",
-          "Hannah and God",
+          "Philip",
+          "David",
           "God",
-          "Jesus"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5309,9 +5309,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Hebrews 11",
-          "Matthew 3:13–17",
-          "Matthew 28:16–20; Mark 16:15–18",
+          "1 John 1–5",
+          "Acts 9:1–19",
+          "1 Corinthians 13",
           "2 Kings 4"
         ],
         "correctIndex": 3,
@@ -5324,7 +5324,7 @@
           "God",
           "The Lord",
           "Jude",
-          "Holy Spirit"
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5394,9 +5394,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 6–9",
-          "Matthew 6",
-          "Acts 18:23–21:17",
+          "Exodus 14:21-31",
+          "Acts 5:12–16",
+          "Acts 28",
           "Luke 24"
         ],
         "correctIndex": 3,
@@ -5407,9 +5407,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Stephen",
-          "Joshua",
-          "Elisha"
+          "The apostles",
+          "Peter",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5480,9 +5480,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Esther 2–7",
-          "Matthew 4:1–11",
-          "Mark 10:13–16",
-          "Genesis 37:28"
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
+          "Isaiah 7:14; 9:6–7; 53:4–6",
+          "Revelation 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5491,9 +5491,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "The Lord",
-          "Jude",
+          "Joshua",
+          "David",
+          "Philip",
           "God"
         ],
         "correctIndex": 3,
@@ -5563,10 +5563,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Peter 1–3",
-          "Ephesians, Philippians, Colossians, Philemon",
+          "Matthew 6",
+          "Acts 18:23–21:17",
           "Esther 5–7",
-          "Revelation 1–3"
+          "Revelation 4–5"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5575,9 +5575,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Peter",
           "The apostles",
+          "God the Father",
+          "Peter",
           "God"
         ],
         "correctIndex": 3,
@@ -5647,10 +5647,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 4:1-16",
+          "Revelation 12",
           "Esther 2:15–18",
-          "1 Samuel 1–2",
-          "Philippians 2:8–11"
+          "1 Timothy 4:12",
+          "Genesis 18:9–15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5660,9 +5660,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "John",
-          "Hannah and God",
-          "Jesus"
+          "Mary",
+          "Priscilla",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5732,10 +5732,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Exodus 20:1-17",
+          "Judges 16:4-21",
           "Esther 4–5",
-          "Genesis 37:3"
+          "Acts 17:22–34"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5744,9 +5744,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "The Lord",
-          "Jude",
+          "Joshua",
+          "David",
+          "Philip",
           "God"
         ],
         "correctIndex": 3,
@@ -5816,10 +5816,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 24",
-          "Luke 24:50–53; Acts 1:6–11",
+          "1 Corinthians 13",
+          "Acts 2:4–21",
           "2 Timothy 1:5–7; 3:15",
-          "1 Samuel 17:8–11, 16, 23–30"
+          "Acts 9:1–19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5828,10 +5828,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Jesus",
+          "Philip",
+          "David",
           "God",
-          "Holy Spirit"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5900,10 +5900,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Lamentations 1–5",
-          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Acts 18:23–21:17",
+          "Revelation 4–5",
           "Philippians 2:8–11",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
+          "Matthew 6"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5913,9 +5913,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jude",
-          "David",
-          "Philip"
+          "James",
+          "Paul",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5985,9 +5985,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Ezekiel 37:1–14",
-          "1 Samuel 18–20",
-          "Esther 5–7",
-          "Matthew 28:18–20"
+          "Joshua 6:1-21",
+          "Acts 2:1–13",
+          "Mark 2:1–12"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5997,7 +5997,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jude",
-          "David",
+          "Jonathan",
           "The Lord",
           "God"
         ],
@@ -6069,10 +6069,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 2",
+          "Luke 3; Matthew 3",
           "Ezra 1–10; Nehemiah 8–9",
-          "Luke 17",
-          "John 2:1–11"
+          "Revelation 21",
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6081,10 +6081,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "The apostles",
+          "Jonathan",
+          "Jude",
           "God",
-          "James"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6153,10 +6153,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
-          "Luke 24:13–35",
+          "Genesis 41:41",
+          "Luke 2:41–52",
           "Matthew 17:20; Mark 11:23–24",
-          "Matthew 17:1–13"
+          "Matthew 13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6165,9 +6165,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jude",
-          "Philip",
-          "David",
+          "The apostles",
+          "God the Father",
+          "Peter",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -6237,10 +6237,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 6:11-40",
+          "Matthew 17:20; Mark 11:23–24",
           "Matthew 17",
-          "Daniel 6",
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5"
+          "Genesis 1:3",
+          "2 Kings 2:1–14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6249,10 +6249,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "David",
+          "Priscilla",
+          "James",
           "Jesus",
-          "God the Father"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6438,9 +6438,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 3",
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
-          "Revelation 21",
-          "Luke 3; Matthew 3"
+          "Matthew 4:18–22; Luke 5:1–11",
+          "1 Samuel 1:1-20",
+          "Matthew 4:1–11; Luke 4:1–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6449,9 +6449,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Elisha",
-          "Stephen",
-          "Joshua",
+          "The Lord",
+          "Jude",
+          "Jonathan",
           "God"
         ],
         "correctIndex": 3,
@@ -6522,9 +6522,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 9",
-          "John 6:1–14",
-          "Philippians 2:8–11",
+          "Romans–Philemon",
+          "Acts 12:1–19",
+          "John 12:1–8",
           "Matthew 18:21–35"
         ],
         "correctIndex": 3,
@@ -6534,10 +6534,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
-          "John",
+          "God",
+          "Jude",
           "Jesus",
-          "Jonathan"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6607,9 +6607,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Kings 4:1–7",
-          "Judges 6:11-40",
-          "James 2:14–26"
+          "2 Kings 6:1–7",
+          "Galatians 5",
+          "Genesis 28:10–22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6618,9 +6618,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "The Lord",
-          "The Holy Ghost",
+          "Peter",
+          "God the Father",
+          "The apostles",
           "God"
         ],
         "correctIndex": 3,
@@ -6690,9 +6690,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Galatians 5",
-          "Joshua 7:1-26",
-          "Acts 7",
-          "Ruth 4:1-17"
+          "2 Kings 4",
+          "1 Samuel 16",
+          "Revelation 13:16–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6701,10 +6701,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "Mary",
           "Holy Spirit",
           "God",
-          "Elisha"
+          "Jonathan"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6773,10 +6773,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
+          "Exodus 12:1-14",
           "Matthew 26:36–46; Luke 22:44",
-          "Acts 27",
-          "Acts 8:26–40"
+          "Luke 3; Matthew 3",
+          "Luke 15:8–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6786,9 +6786,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Paul",
-          "John",
-          "The Holy Ghost"
+          "Jonathan",
+          "Jude",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7221,10 +7221,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:1–7",
-          "1 Samuel 17:45–50",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "Lamentations 1–5",
           "1 Samuel 17:8–11, 16, 23–30",
-          "Judges 6:11-40"
+          "Joshua 3:14-17; 4:1-7, 18-24"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7233,9 +7233,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Stephen",
-          "Elisha",
+          "Holy Spirit",
+          "Mary",
+          "The Lord",
           "David"
         ],
         "correctIndex": 3,
@@ -7304,9 +7304,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 10",
-          "Job 2",
-          "John 2:1–11",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23"
+          "James 2:14–26",
+          "Matthew 26:36–46; Luke 22:44",
+          "John 10:1–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7315,9 +7315,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Joshua",
+          "David",
           "Philip",
-          "God the Father",
-          "Priscilla",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -7387,10 +7387,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 13:1-25",
+          "Mark 5:21–43",
           "Matthew 28:18–20",
-          "Genesis 41",
-          "Revelation 6–8:1"
+          "2 Kings 6:1–7",
+          "Galatians 5"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7399,10 +7399,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
           "Jonathan",
+          "Jude",
           "Jesus",
-          "John"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7471,9 +7471,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1",
-          "2 Timothy 4:6–8",
-          "Acts 16:11–15",
+          "Jude 1",
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 13:1–23",
           "1 Samuel 1"
         ],
         "correctIndex": 3,
@@ -7484,9 +7484,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jonathan",
-          "Hannah and God",
-          "Mary"
+          "Joshua",
+          "David",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7685,9 +7685,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 1–2",
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Luke 24",
-          "1 Samuel 22:1–2; 24"
+          "Exodus 14:21-31",
+          "Genesis 40",
+          "Matthew 28; Mark 16; Luke 24; John 20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7696,10 +7696,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "God",
           "Joshua",
-          "The apostles"
+          "God",
+          "Jonathan",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7769,9 +7769,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 9",
-          "Acts 1:6–11",
-          "Matthew 27; Mark 15; Luke 23; John 19",
-          "Matthew 17:1–13"
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "Revelation 19",
+          "Acts 27–28"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7780,10 +7780,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "God",
+          "Jonathan",
+          "Joshua",
           "Jesus",
-          "Holy Spirit"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7853,10 +7853,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Corinthians 12",
+          "2 Peter 1–3",
           "Luke 17",
-          "Philippians 2:8–11",
-          "the Bible"
+          "Ruth 3:1-18",
+          "Revelation 1–3"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7866,9 +7866,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Peter",
-          "James",
-          "The Lord"
+          "Jude",
+          "Jonathan",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7939,9 +7939,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
-          "Joshua 24:14-15",
-          "Mark 4:35–41"
+          "1 Peter 1–5",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "Acts 19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7950,10 +7950,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
+          "The Holy Ghost",
           "Jesus",
-          "Hannah and God",
-          "John"
+          "God the Father",
+          "Paul"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8022,10 +8022,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezra 1–10; Nehemiah 8–9",
+          "Genesis 1:3",
           "Revelation 21",
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
-          "Luke 17"
+          "Matthew 17:20; Mark 11:23–24",
+          "2 Kings 2:1–14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8035,9 +8035,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jonathan",
-          "Hannah and God",
-          "John"
+          "Priscilla",
+          "Mary",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8104,9 +8104,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 41:41",
-          "Matthew 13",
-          "Acts 27",
+          "Genesis 40",
+          "Exodus 14:21-31",
+          "Acts 28",
           "Hebrews 11"
         ],
         "correctIndex": 3,
@@ -8117,9 +8117,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "John",
-          "Hannah and God",
-          "Jonathan"
+          "Peter",
+          "The apostles",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8189,9 +8189,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 18",
-          "Matthew 18:21–35",
-          "Daniel 6:22",
+          "Joshua 6:1-21",
+          "Isaiah 7:14; 9:6–7; 53:4–6",
+          "1 Kings 18:20–40",
           "Acts 2:1–13"
         ],
         "correctIndex": 3,
@@ -8201,10 +8201,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
           "Holy Spirit",
+          "Priscilla",
           "God",
-          "Jesus"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8275,9 +8275,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Isaiah 7:14; 9:6–7; 53:4–6",
-          "Exodus 40:1-38",
-          "Judges 16:23-30",
-          "Acts 25–26"
+          "Acts 2:1–13",
+          "Joshua 6:1-21",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8286,9 +8286,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "Philip",
           "Jude",
+          "Jonathan",
+          "The Lord",
           "God"
         ],
         "correctIndex": 3,
@@ -8359,10 +8359,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 2:5",
-          "Ephesians, Philippians, Colossians, Philemon",
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "Numbers 22:1–20",
           "Genesis 28:10–22",
-          "Genesis 37:3"
+          "Luke 2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8371,10 +8371,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "John",
+          "Paul",
           "God",
-          "The Holy Ghost",
-          "Jesus"
+          "Holy Spirit",
+          "The crowds"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8444,9 +8444,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Judges 14:5-9",
-          "Matthew 25",
-          "Revelation 19"
+          "Luke 24",
+          "Exodus 32:1-8, 15-20, 30-32",
+          "1 Samuel 16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8455,10 +8455,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
+          "The Holy Ghost",
           "God",
-          "Priscilla",
-          "Mary"
+          "God the Father",
+          "Jesus"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8524,9 +8524,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 3",
-          "Judges 4:1-16",
-          "Revelation 22",
+          "Revelation 14–15",
+          "Exodus 20:1-17",
+          "Judges 16:4-21",
           "Mark 5:21–43"
         ],
         "correctIndex": 3,
@@ -8537,9 +8537,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Elisha",
-          "Stephen",
-          "The crowds"
+          "The Holy Ghost",
+          "James",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8607,10 +8607,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 9",
+          "Exodus 14",
           "James 2:14–26",
-          "Job 2",
-          "John 2:1–11"
+          "Luke 2",
+          "Ruth 2:1-17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8620,9 +8620,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "James",
-          "The Lord",
-          "Holy Spirit",
-          "Mary"
+          "David",
+          "Jude",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8692,10 +8692,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 2",
+          "Joshua 7:1-11",
           "Lamentations 1–5",
-          "John 9",
-          "John 2:1–11"
+          "Matthew 4:18–22; Luke 5:1–11",
+          "Matthew 4:1–11; Luke 4:1–13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8704,10 +8704,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Peter",
+          "Philip",
+          "David",
           "God",
-          "Priscilla"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8891,8 +8891,8 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 20:1-17",
-          "Acts 17:22–34",
+          "Exodus 40:1-38",
+          "Acts 25–26",
           "Judges 13:1-25",
           "Matthew; Mark; Luke; John (Gospels overview)"
         ],
@@ -8903,10 +8903,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
-          "John",
+          "The Holy Ghost",
+          "James",
           "Jesus",
-          "Jonathan"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8976,9 +8976,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 24:50–53; Acts 1:6–11",
-          "Revelation 22:12–13",
-          "Acts 15",
-          "John 20:24–29"
+          "Matthew 6",
+          "Revelation 4–5",
+          "Acts 18:23–21:17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8987,10 +8987,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Hannah and God",
+          "God the Father",
+          "The Holy Ghost",
           "Jesus",
-          "Jonathan"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9059,9 +9059,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22",
-          "Daniel 6",
-          "Luke 19:1–10",
+          "1 Kings 19:19–21",
+          "Matthew 17",
+          "Luke 23",
           "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 3,
@@ -9072,9 +9072,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God the Father",
-          "Priscilla",
-          "The crowds",
-          "James"
+          "Jesus",
+          "Peter",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9144,9 +9144,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 2; Matthew 1–2",
-          "Matthew 28:18–20",
-          "Mark 10:13–16",
-          "Esther 2:15–18"
+          "Daniel 6",
+          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
+          "Numbers 22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9155,10 +9155,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Stephen",
+          "Jonathan",
+          "Joshua",
           "God",
-          "Elisha"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9228,9 +9228,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 28:10–22",
-          "Luke 2:1–20",
-          "Jonah 1:17",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "John 20:1–18",
           "Mark 10:13–16"
         ],
         "correctIndex": 3,
@@ -9241,9 +9241,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Hannah and God",
-          "Jonathan",
-          "Mary"
+          "Peter",
+          "The apostles",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9313,10 +9313,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "James 2:14–26",
+          "Matthew 28:16–20; Mark 16:15–18",
           "Matthew 4:18–22; Luke 5:1–11",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
+          "Luke 15",
+          "Matthew 3:13–17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9326,9 +9326,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The Holy Ghost",
-          "Paul",
-          "Holy Spirit"
+          "Philip",
+          "David",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9399,9 +9399,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Mark 4:35–41",
-          "Judges 13:1-25",
-          "Revelation 6–8:1",
-          "Exodus 20:1-17"
+          "James 2:14–26",
+          "Judges 6:11-40",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9410,9 +9410,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
+          "The Holy Ghost",
           "James",
+          "Priscilla",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -9483,10 +9483,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 21–22",
-          "Judges 16:23-30",
+          "1 Timothy 4:12",
+          "Luke 1",
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "Acts 5:12–16"
+          "Genesis 18:9–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9495,10 +9495,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jude",
           "Philip",
+          "The apostles",
           "Jesus",
-          "David"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9567,9 +9567,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 2:8–11",
-          "1 Samuel 1–2",
-          "Mark 4:35–41",
+          "Exodus 32:1-8, 15-20, 30-32",
+          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Matthew 28; Mark 16; Luke 24; John 20",
           "John 6:1–14"
         ],
         "correctIndex": 3,
@@ -9579,10 +9579,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Jonathan",
+          "Holy Spirit",
+          "The Lord",
           "Jesus",
-          "The Lord"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9651,10 +9651,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 10:13–16",
-          "1 Samuel 1",
+          "Daniel 6:22",
+          "Numbers 22:1–20",
           "John 2:1–11",
-          "Matthew 4:1–11; Luke 4:1–13"
+          "1 Kings 18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9663,9 +9663,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "The Lord",
-          "James",
+          "God",
+          "Jonathan",
+          "Jude",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -9736,9 +9736,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 8–11",
-          "1 Timothy 4:12",
-          "Genesis 18:9–15",
+          "Galatians 5",
+          "Luke 2:1–20",
+          "Genesis 28:10–22",
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 3,
@@ -9749,9 +9749,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Joshua",
-          "The apostles",
-          "Stephen"
+          "God",
+          "Jude",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9821,9 +9821,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16",
           "Judges 7:1-22",
-          "2 Kings 4",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Lamentations 1–5",
           "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 3,
@@ -9834,9 +9834,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "God the Father",
-          "Priscilla",
-          "Philip"
+          "Holy Spirit",
+          "The Lord",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9905,10 +9905,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:1–14",
-          "Hebrews 11",
+          "Daniel 6:22",
+          "Matthew 18:21–35",
           "John 9",
-          "Matthew 17:20; Mark 11:23–24"
+          "1 Kings 18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9918,9 +9918,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Mary",
-          "Jonathan",
-          "Hannah and God"
+          "James",
+          "Priscilla",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9990,10 +9990,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1",
+          "Luke 18:1–8",
           "Mark 2:1–12",
-          "Acts 2:1–13",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
+          "Acts 16:11–15",
+          "2 Timothy 4:6–8"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10002,8 +10002,8 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "John",
-          "Hannah and God",
+          "God the Father",
+          "Peter",
           "Jesus",
           "Paul"
         ],
@@ -10076,9 +10076,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Matthew 26",
-          "Joshua 7:1-26",
-          "1 Samuel 22:1–2; 24"
+          "Exodus 14",
+          "Luke 18:1–8",
+          "Ruth 2:1-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10087,9 +10087,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "God",
+          "Jude",
           "Jonathan",
-          "Hannah and God",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10160,9 +10160,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
-          "Ruth 4:1-17",
-          "Acts 7",
+          "Genesis 39–40",
+          "Exodus 7:8–13",
+          "Acts 15:36–18:22",
           "John 11:1–44"
         ],
         "correctIndex": 3,
@@ -10173,9 +10173,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Philip",
-          "David",
-          "Jude"
+          "James",
+          "The Holy Ghost",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10244,10 +10244,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
+          "1 Samuel 16:11; 17:15, 34–37",
           "Luke 2:1–20",
-          "Genesis 41:41",
-          "Luke 2:41–52"
+          "1 Samuel 1",
+          "Esther 4–5"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10257,9 +10257,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "God the Father",
-          "Philip",
-          "Paul"
+          "Jonathan",
+          "Jude",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10327,10 +10327,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 3:13–17",
-          "Luke 15",
+          "Revelation 4–5",
+          "1 Samuel 1:21-28; 2:1-11, 18-21",
           "John 10:1–18",
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
+          "Matthew 6"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10339,10 +10339,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
+          "God the Father",
           "Jesus",
-          "Jonathan",
-          "Mary"
+          "The Holy Ghost",
+          "Paul"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10412,9 +10412,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28; Mark 16; Luke 24; John 20",
-          "Genesis 40",
-          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Judges 14:5-9",
+          "Exodus 7–12",
+          "Revelation 19",
           "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 3,
@@ -10425,9 +10425,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "God the Father",
-          "Priscilla",
-          "Philip"
+          "Holy Spirit",
+          "The Lord",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10498,9 +10498,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Luke 1",
-          "Genesis 1",
-          "Acts 2:42–47"
+          "1 Samuel 1–2",
+          "Mark 4:35–41",
+          "Matthew 14:22–33"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10509,9 +10509,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God",
           "Jude",
-          "Holy Spirit",
+          "Jonathan",
+          "God",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10583,9 +10583,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28; Mark 16; Luke 24; John 20",
-          "Acts 19",
-          "Malachi 1–4",
-          "2 John; 3 John"
+          "Esther 5–7",
+          "1 Samuel 18–20",
+          "Exodus 3:1-15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10594,10 +10594,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
+          "Joshua",
           "Jesus",
-          "The Lord",
-          "Mary"
+          "Jonathan",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10665,10 +10665,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 19:1–10",
-          "1 Kings 3",
+          "Joshua 8:1-8, 18-23, 26-29",
+          "1 Samuel 25",
           "Matthew 5–7",
-          "Numbers 22"
+          "1 Samuel 17:45–50"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10677,9 +10677,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "Priscilla",
-          "God the Father",
+          "God",
+          "Jonathan",
+          "Jude",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10748,10 +10748,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 19:1–10",
-          "1 Kings 3",
+          "Matthew 7",
+          "1 Timothy 1–6; 2 Timothy 1–4",
           "Luke 2:41–52",
-          "Numbers 22"
+          "Revelation 8–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10760,9 +10760,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
           "God",
-          "Holy Spirit",
+          "Jonathan",
+          "Jude",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10832,9 +10832,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 3",
-          "Revelation 22:12–13",
-          "John 20:24–29",
+          "Acts 3",
+          "Ruth 1",
+          "Revelation 1–22",
           "Matthew 4:1–11"
         ],
         "correctIndex": 3,
@@ -10845,9 +10845,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Stephen",
-          "Joshua",
-          "Elisha"
+          "The apostles",
+          "Peter",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10914,10 +10914,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 19:1–10",
           "1 Kings 3",
+          "Ruth 1",
           "Matthew 4:1–11; Luke 4:1–13",
-          "Numbers 22"
+          "Luke 19:1–10"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10926,9 +10926,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Peter",
-          "The apostles",
+          "The Holy Ghost",
+          "Priscilla",
+          "James",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10998,9 +10998,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15:36–18:22",
-          "Genesis 41",
-          "Exodus 7:8–13",
+          "Acts 2:14–41",
+          "Revelation 13",
+          "Philemon 1",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -11011,9 +11011,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jude",
-          "David",
-          "God"
+          "The apostles",
+          "Peter",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11081,9 +11081,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 14:22–33",
-          "1 Samuel 16",
-          "Revelation 13:16–18",
-          "2 Kings 4"
+          "Numbers 13:1-33; 14:1-9",
+          "Ruth 1:1-18",
+          "1 Samuel 25"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11092,9 +11092,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "John",
-          "Paul",
-          "The Holy Ghost",
+          "The apostles",
+          "Peter",
+          "God the Father",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -11164,9 +11164,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Corinthians 13",
-          "Acts 2:4–21",
-          "Acts 9:1–19",
+          "Daniel 3",
+          "Galatians 5",
+          "2 Kings 6:1–7",
           "Job 2"
         ],
         "correctIndex": 3,
@@ -11177,9 +11177,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Holy Spirit",
-          "The Lord",
-          "The Holy Ghost"
+          "Joshua",
+          "David",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11249,10 +11249,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 8–11",
+          "Philippians 2:8–11",
           "Luke 3; Matthew 3",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 7"
+          "1 Corinthians 12",
+          "the Bible"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11261,10 +11261,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
-          "David",
+          "Mary",
+          "The Lord",
           "John",
-          "God the Father"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11333,9 +11333,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 21:1-9",
-          "1 Samuel 17",
-          "Acts 18:24–28",
+          "Matthew 13:1–23",
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Jude 1",
           "Matthew 3:13–17"
         ],
         "correctIndex": 3,
@@ -11346,9 +11346,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Holy Spirit",
-          "The Lord",
-          "The Holy Ghost"
+          "The Holy Ghost",
+          "James",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11416,10 +11416,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 23–24",
-          "Mark 12",
+          "Revelation 1",
+          "Mark 2:1–12",
           "1 John 1–5",
-          "Daniel 3"
+          "Acts 16:11–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11428,9 +11428,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Hannah and God",
-          "David",
+          "The Holy Ghost",
+          "Priscilla",
+          "Holy Spirit",
           "John"
         ],
         "correctIndex": 3,
@@ -11499,9 +11499,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1",
-          "Revelation 21–22",
-          "Judges 16:23-30",
-          "Acts 5:12–16"
+          "Acts 2:14–41",
+          "Revelation 13",
+          "Philemon 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11510,10 +11510,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Elisha",
+          "The Holy Ghost",
           "Jesus",
-          "Priscilla",
-          "The crowds"
+          "God the Father",
+          "Paul"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11581,10 +11581,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 23",
-          "Luke 24:13–35",
+          "1 Samuel 16:11; 17:15, 34–37",
+          "Esther 4–5",
           "2 John; 3 John",
-          "Acts 2:1–4"
+          "Colossians 1:15–20; 3:1–4, 12–17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11593,10 +11593,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
+          "Mary",
           "John",
-          "David",
-          "Mary"
+          "God",
+          "Jonathan"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11666,10 +11666,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 18:21–35",
+          "Luke 2:36–38",
           "Jonah 1:17",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Isaiah 7:14; 9:6–7; 53:4–6"
+          "2 Kings 2:1–14",
+          "Genesis 1:3"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11679,9 +11679,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "David",
-          "Jude",
-          "Philip"
+          "Paul",
+          "James",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11749,9 +11749,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 1–2",
-          "Mark 4:35–41",
-          "Philippians 2:8–11",
+          "Exodus 40:1-38",
+          "Acts 25–26",
+          "Judges 13:1-25",
           "Jonah 4"
         ],
         "correctIndex": 3,
@@ -11762,9 +11762,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Holy Spirit",
-          "The Lord",
-          "The Holy Ghost"
+          "The apostles",
+          "Peter",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11949,9 +11949,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
-          "Judges 16:4-21",
-          "Exodus 7–12",
+          "Revelation 8–11",
+          "1 Samuel 3",
+          "John 20:24–29",
           "Genesis 37:3"
         ],
         "correctIndex": 3,
@@ -11962,9 +11962,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Elisha",
-          "The crowds",
-          "Paul"
+          "Jude",
+          "The Lord",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12035,9 +12035,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 40",
-          "1 Samuel 18",
-          "Luke 24:13–35",
-          "Matthew 17:1–13"
+          "Luke 18:1–8",
+          "2 Timothy 4:6–8",
+          "Exodus 14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12046,9 +12046,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Jonathan",
-          "Hannah and God",
+          "The apostles",
+          "Peter",
+          "God the Father",
           "God"
         ],
         "correctIndex": 3,
@@ -12117,9 +12117,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 18:20–40",
-          "Joshua 6:1-21",
-          "Acts 2:1–13",
+          "1 Samuel 16:11; 17:15, 34–37",
+          "Esther 4–5",
+          "1 Samuel 1",
           "Genesis 39–40"
         ],
         "correctIndex": 3,
@@ -12130,9 +12130,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
+          "David",
           "Joshua",
-          "Stephen",
-          "Elisha"
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12202,9 +12202,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41:41",
-          "Exodus 12:1-14",
-          "Acts 2",
-          "Luke 15:11–32"
+          "Matthew 28:18–20",
+          "Luke 2; Matthew 1–2",
+          "Luke 2:41–52"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12213,9 +12213,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Hannah and God",
+          "Priscilla",
           "Mary",
+          "Holy Spirit",
           "God"
         ],
         "correctIndex": 3,
@@ -12287,9 +12287,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 37:28",
-          "Acts 2",
-          "Exodus 12:1-14",
-          "Luke 15:11–32"
+          "Hebrews 11",
+          "Matthew 17",
+          "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12298,9 +12298,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
+          "The Holy Ghost",
           "James",
+          "Paul",
           "God"
         ],
         "correctIndex": 3,
@@ -12371,9 +12371,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Thessalonians 4:13–18; 5:16–24",
-          "1 Corinthians 12",
-          "Revelation 1:8, 11, 17–18",
+          "Judges 16:23-30",
+          "Acts 18:24–28",
+          "Joshua 10:12-14",
           "Joshua 7:1-11"
         ],
         "correctIndex": 3,
@@ -12384,9 +12384,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The Lord",
-          "Hannah and God",
-          "John",
-          "Jonathan"
+          "Joshua",
+          "David",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12679,9 +12679,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26",
-          "1 Kings 5–8",
-          "Mark 12",
-          "Ruth 2:1-17"
+          "1 John 1–5",
+          "1 Corinthians 13",
+          "Mark 2:1–12"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12690,10 +12690,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "Priscilla",
+          "Jonathan",
+          "Joshua",
           "Jesus",
-          "God the Father"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12760,10 +12760,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 4:1-16",
-          "1 Samuel 1:1-20",
+          "Esther 4–5",
+          "Mark 10:13–16",
           "Jude 1",
-          "2 Timothy 1:5–7; 3:15"
+          "1 Samuel 1"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12773,9 +12773,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jude",
-          "Peter",
-          "Holy Spirit",
-          "The Lord"
+          "Joshua",
+          "David",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12845,9 +12845,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Matthew 27; Mark 15; Luke 23; John 19",
-          "1 Kings 18",
-          "Matthew 18:21–35"
+          "Luke 15:8–10",
+          "Exodus 12:1-14",
+          "Acts 2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12856,9 +12856,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Stephen",
+          "David",
+          "Philip",
           "Joshua",
-          "Elisha",
           "God"
         ],
         "correctIndex": 3,
@@ -12927,9 +12927,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Genesis 1",
-          "Luke 1",
-          "2 Kings 2:1–14"
+          "John 20:1–18",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Philemon 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12938,9 +12938,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "James",
-          "The apostles",
+          "David",
+          "Philip",
+          "Joshua",
           "God"
         ],
         "correctIndex": 3,
@@ -13011,9 +13011,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 7",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 13:1–23"
+          "Nehemiah 1–6",
+          "Genesis 37:28",
+          "Matthew 4:1–11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13022,10 +13022,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
+          "Jonathan",
           "Jesus",
-          "The Lord",
-          "James"
+          "Joshua",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13095,10 +13095,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 4:35–41",
-          "Jude 1",
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+          "Luke 15",
           "John 11:1–44",
-          "Matthew 14:22–33"
+          "Matthew 3:13–17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13108,8 +13108,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jonathan",
-          "Hannah and God",
+          "David",
+          "Philip",
           "John"
         ],
         "correctIndex": 0,
@@ -13180,9 +13180,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Genesis 39–40",
-          "Matthew 5–7",
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
+          "Matthew 4:1–11; Luke 4:1–13",
+          "Matthew 4:18–22; Luke 5:1–11",
+          "1 Samuel 1:1-20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13191,10 +13191,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
+          "The Lord",
           "God",
-          "Jude",
-          "David"
+          "Mary",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13264,9 +13264,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 15:8–10",
-          "Ruth 1",
-          "Revelation 1–22",
-          "Acts 3"
+          "1 Samuel 1",
+          "Esther 4–5",
+          "1 Samuel 16:11; 17:15, 34–37"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13275,10 +13275,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
+          "Holy Spirit",
           "Jesus",
-          "The apostles",
-          "Peter"
+          "Priscilla",
+          "The crowds"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13346,10 +13346,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 3",
-          "Matthew 25",
+          "Luke 15:8–10",
+          "Luke 3; Matthew 3",
           "Luke 15",
-          "Revelation 22"
+          "Acts 13–14"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13358,9 +13358,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Stephen",
-          "The apostles",
-          "Joshua",
+          "The Holy Ghost",
+          "Priscilla",
+          "James",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -13432,9 +13432,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Corinthians 13",
-          "1 Samuel 9–10",
-          "Genesis 11",
-          "Ephesians 6"
+          "1 Samuel 13; 15",
+          "Matthew 28",
+          "Luke 2:36–38"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13443,9 +13443,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "God the Father",
-          "Philip",
+          "God",
+          "Jonathan",
+          "Jude",
           "Paul"
         ],
         "correctIndex": 3,
@@ -13516,10 +13516,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14",
+          "Luke 2",
           "the Bible",
-          "2 Timothy 4:6–8",
-          "Luke 18:1–8"
+          "Exodus 14",
+          "Ruth 2:1-17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13529,9 +13529,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Holy Spirit",
-          "The Holy Ghost",
-          "God"
+          "God the Father",
+          "Peter",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13601,9 +13601,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 16:11–15",
-          "Luke 2:1–20",
-          "Jonah 1:17",
-          "Mark 5:21–43"
+          "Matthew 14:22–33",
+          "Jude 1",
+          "John 6:1–14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13612,10 +13612,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "Mary",
           "The Lord",
           "God",
-          "Holy Spirit"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13685,10 +13685,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philemon 1",
+          "Mark 4:35–41",
           "Malachi 1–4",
-          "Revelation 13",
-          "Acts 2:14–41"
+          "Joshua 24:14-15",
+          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13698,9 +13698,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Lord",
-          "Holy Spirit",
-          "Jude"
+          "Philip",
+          "David",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13886,10 +13886,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 3:1-18",
+          "Genesis 6–9",
           "the Bible",
-          "Acts 18:24–28",
-          "Joshua 10:12-14"
+          "Matthew 6",
+          "Acts 18:23–21:17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13899,9 +13899,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The crowds",
-          "Elisha",
-          "Stephen"
+          "James",
+          "Priscilla",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13969,10 +13969,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16",
+          "Matthew 25",
           "John 12:1–8",
-          "Genesis 22",
-          "Revelation 13:16–18"
+          "Revelation 20",
+          "1 Samuel 16:1–13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13981,10 +13981,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Elisha",
-          "The Holy Ghost",
+          "James",
+          "Peter",
           "Mary",
-          "God"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14054,10 +14054,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 9",
-          "John 6:1–14",
+          "1 Samuel 18",
+          "Matthew 17:1–13",
           "John 20:1–18",
-          "Ezekiel 37:1–14"
+          "Romans 3:23; 5:8; 6:23; 10:9–10"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14066,10 +14066,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
+          "Mary",
           "Jesus",
-          "The Lord",
-          "James"
+          "God",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14135,10 +14135,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jude 1",
-          "Matthew 14:22–33",
+          "Matthew 7",
+          "1 Timothy 1–6; 2 Timothy 1–4",
           "the Bible",
-          "Matthew 13:1–23"
+          "Revelation 8–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14147,9 +14147,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "The Lord",
-          "James",
+          "Joshua",
+          "Philip",
+          "David",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -14219,10 +14219,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 4:1-16",
+          "Ruth 2:1-17",
           "the Bible",
-          "1 Samuel 1–2",
-          "Philippians 2:8–11"
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "Luke 2"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14232,8 +14232,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The crowds",
-          "Paul",
+          "Mary",
+          "Priscilla",
           "Elisha"
         ],
         "correctIndex": 0,
@@ -14302,10 +14302,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 20:1–18",
-          "Ephesians, Philippians, Colossians, Philemon",
+          "Joshua 2:1-21",
+          "Romans 3:23; 5:8; 6:23; 10:9–10",
           "Exodus 2:5",
-          "Joshua 3:14-17; 4:1-7, 18-24"
+          "Acts 2:4–21"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14314,10 +14314,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
+          "Mary",
           "God",
-          "Peter",
-          "The apostles"
+          "The Lord",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14508,10 +14508,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 John; 3 John",
-          "Acts 20:7–12",
+          "John 2:1–11",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
           "Exodus 14:21-31",
-          "Malachi 1–4"
+          "Job 2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14520,10 +14520,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "David",
+          "Mary",
+          "Priscilla",
           "God",
-          "God the Father"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14590,9 +14590,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Exodus 7:8–13",
-          "Acts 27–28",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Revelation 19"
+          "Exodus 2:5",
+          "Acts 28",
+          "Acts 5:12–16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14601,9 +14601,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Holy Spirit",
-          "Jesus",
+          "Peter",
+          "God the Father",
+          "The apostles",
           "God"
         ],
         "correctIndex": 3,
@@ -14674,9 +14674,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13",
-          "John 2:1–11",
-          "Luke 17",
-          "Job 2"
+          "Exodus 7:8–13",
+          "Genesis 39–40",
+          "Acts 27"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14685,9 +14685,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "James",
+          "Priscilla",
           "The Holy Ghost",
-          "Holy Spirit",
-          "Paul",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -14757,10 +14757,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 22:12–13",
-          "Acts 9:36–43",
+          "Judges 13:1-25",
+          "Acts 25–26",
           "2 Kings 5:1–15",
-          "Acts 15"
+          "Exodus 40:1-38"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14770,9 +14770,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Hannah and God",
-          "John",
-          "Jesus"
+          "Jude",
+          "Jonathan",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14842,10 +14842,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 2:8–11",
-          "the Bible",
+          "Acts 8:26–40",
+          "Acts 27",
           "2 Kings 5:1–15",
-          "1 Samuel 1–2"
+          "Revelation 14–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14854,9 +14854,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Elisha",
-          "Stephen",
+          "The Lord",
+          "Jude",
+          "Jonathan",
           "God"
         ],
         "correctIndex": 3,
@@ -14926,9 +14926,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14:21-31",
-          "Acts 15:36–18:22",
-          "Genesis 41",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "Revelation 19",
+          "Judges 14:5-9",
           "Nehemiah 1–6"
         ],
         "correctIndex": 3,
@@ -14938,10 +14938,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "Mary",
+          "Joshua",
+          "David",
           "God",
-          "James"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15011,9 +15011,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 6:11-40",
-          "John 10:1–18",
-          "James 2:14–26",
+          "Esther 2:15–18",
+          "Luke 2; Matthew 1–2",
+          "Matthew 28:18–20",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -15024,9 +15024,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "David",
-          "Philip",
-          "Jude"
+          "The Lord",
+          "Jude",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15097,9 +15097,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Acts 2:14–41",
-          "Revelation 13",
-          "Ruth 4:1-17"
+          "John 6:1–14",
+          "Matthew 14:22–33",
+          "Jude 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15108,9 +15108,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Mary",
-          "Priscilla",
+          "The apostles",
+          "God the Father",
+          "Peter",
           "God"
         ],
         "correctIndex": 3,
@@ -15181,10 +15181,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 23",
+          "Acts 2:42–47",
           "Genesis 6–9",
-          "1 Samuel 18",
-          "Luke 24:13–35"
+          "Luke 17",
+          "Ezra 1–10; Nehemiah 8–9"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15194,9 +15194,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "John",
-          "Hannah and God",
-          "Jesus"
+          "Jonathan",
+          "Jude",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15266,9 +15266,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "John 11:1–44",
-          "Genesis 28:10–22",
-          "2 John; 3 John"
+          "Luke 24",
+          "1 Samuel 16",
+          "Exodus 32:1-8, 15-20, 30-32"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15277,9 +15277,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Elisha",
-          "Stephen",
+          "Holy Spirit",
+          "Priscilla",
+          "Mary",
           "God"
         ],
         "correctIndex": 3,
@@ -15350,9 +15350,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Exodus 2:5",
-          "Genesis 37:3",
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "Daniel 6:22",
+          "Numbers 22:1–20",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -15363,9 +15363,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The crowds",
-          "Priscilla",
-          "James",
-          "Philip"
+          "Holy Spirit",
+          "The Holy Ghost",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15435,9 +15435,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:1–23",
-          "Exodus 12:1-14",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Job 2"
+          "John 10:1–18",
+          "James 2:14–26",
+          "Judges 6:11-40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15446,10 +15446,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
+          "God the Father",
           "Jesus",
-          "Jonathan",
-          "Mary"
+          "The Holy Ghost",
+          "Paul"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15517,10 +15517,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
+          "Acts 18:24–28",
           "Matthew 25:14–30",
-          "Psalm 23",
-          "Luke 24:13–35"
+          "Judges 16:23-30",
+          "Joshua 10:12-14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15530,9 +15530,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Paul",
-          "John",
-          "The Holy Ghost"
+          "Jonathan",
+          "Jude",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15716,9 +15716,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 1–2",
-          "Mark 4:35–41",
-          "Philippians 2:8–11",
+          "1 Samuel 17",
+          "Esther 2–7",
+          "Numbers 21:1-9",
           "Acts 13–14"
         ],
         "correctIndex": 3,
@@ -15729,9 +15729,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The Holy Ghost",
-          "Paul",
-          "The crowds",
-          "God the Father"
+          "John",
+          "The apostles",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15801,9 +15801,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
-          "Ruth 4:1-17",
-          "Acts 7",
+          "1 Samuel 22:1–2; 24",
+          "Luke 24",
+          "Exodus 32:1-8, 15-20, 30-32",
           "Acts 9:1–19"
         ],
         "correctIndex": 3,
@@ -15814,9 +15814,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Holy Spirit",
-          "The Holy Ghost",
-          "Paul"
+          "Jude",
+          "God",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15886,10 +15886,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 16:1-36",
-          "Jonah 1:17",
+          "John 10:1–18",
+          "James 2:14–26",
           "Acts 9:1–19",
-          "Romans–Philemon"
+          "Jonah 4"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15898,9 +15898,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
-          "John",
-          "Paul",
+          "Holy Spirit",
+          "The Lord",
+          "Mary",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -15968,10 +15968,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18–19",
-          "Genesis 4",
+          "Mark 10:13–16",
+          "1 Samuel 1",
           "2 Timothy 4:6–8",
-          "Esther 2:15–18"
+          "Matthew 4:1–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15980,9 +15980,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "Priscilla",
+          "The apostles",
           "God the Father",
+          "Peter",
           "Paul"
         ],
         "correctIndex": 3,
@@ -16053,9 +16053,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 19",
-          "Acts 2:4–21",
-          "Joshua 2:1-21",
-          "Acts 13–14"
+          "Ezra 1–10; Nehemiah 8–9",
+          "Luke 17",
+          "Acts 2:42–47"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16065,9 +16065,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Mary",
-          "Hannah and God",
+          "The Lord",
           "God",
-          "Jonathan"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16135,10 +16135,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 37:3",
+          "John 9",
           "Acts 20:7–12",
-          "Acts 28",
-          "Exodus 2:5"
+          "Matthew 14:22–33",
+          "John 6:1–14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16148,9 +16148,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Stephen",
-          "Joshua",
-          "The apostles"
+          "David",
+          "Philip",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16217,10 +16217,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 12:1–19",
-          "Ruth 1:1-18",
+          "Numbers 22:1–20",
+          "1 Kings 18",
           "Acts 13–14",
-          "Revelation 17–18"
+          "Daniel 6:22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16230,9 +16230,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The crowds",
-          "Elisha",
-          "Stephen"
+          "James",
+          "Paul",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16299,10 +16299,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 13; 15",
-          "Matthew 28",
+          "Isaiah 7:14; 9:6–7; 53:4–6",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
           "Romans–Philemon",
-          "Revelation 12"
+          "Matthew 18:21–35"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16311,10 +16311,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "The crowds",
+          "Paul",
+          "Holy Spirit",
           "God",
-          "Paul"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16381,9 +16381,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 10",
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
-          "Esther 5–7",
+          "Acts 2:1–4",
+          "Psalm 23",
+          "Exodus 12:1-14",
           "Philemon 1"
         ],
         "correctIndex": 3,
@@ -16393,10 +16393,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Jonathan",
+          "Holy Spirit",
+          "The Lord",
           "Paul",
-          "The Lord"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16464,9 +16464,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
-          "Ruth 4:1-17",
-          "Acts 7",
+          "Matthew 4:1–11; Luke 4:1–13",
+          "Joshua 7:1-11",
+          "Nehemiah 1–6",
           "Ephesians, Philippians, Colossians, Philemon"
         ],
         "correctIndex": 3,
@@ -16477,9 +16477,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "God the Father",
-          "Philip",
-          "David"
+          "James",
+          "The Holy Ghost",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16547,9 +16547,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 28",
-          "Acts 16:11–15",
-          "2 Timothy 4:6–8",
-          "Revelation 1"
+          "1 Samuel 1",
+          "Mark 10:13–16",
+          "Esther 4–5"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16558,10 +16558,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Stephen",
+          "The apostles",
           "Paul",
-          "The crowds",
-          "Elisha"
+          "Philip",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16629,10 +16629,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 2:8–11",
+          "Mark 2:1–12",
           "Acts 15:36–18:22",
-          "1 Corinthians 12",
-          "the Bible"
+          "Joshua 6:1-21",
+          "Acts 2:1–13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16641,10 +16641,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "The Holy Ghost",
+          "Mary",
+          "Priscilla",
           "God",
-          "The Lord"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16713,10 +16713,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2:1–20",
+          "Exodus 7–12",
           "Acts 27",
-          "Exodus 16:1-36",
-          "Jonah 1:17"
+          "Colossians 1:15–20; 3:1–4, 12–17",
+          "Acts 28:1–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16726,9 +16726,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Lord",
-          "Holy Spirit",
-          "Jude"
+          "Paul",
+          "James",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16797,9 +16797,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:15–18",
-          "Matthew 28:18–20",
-          "1 Samuel 18–19",
+          "Acts 6:8–7:60",
+          "Genesis 22",
+          "Ruth 4:1-17",
           "Acts 27–28"
         ],
         "correctIndex": 3,
@@ -16809,10 +16809,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Elisha",
+          "Joshua",
+          "David",
           "God",
-          "Paul"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16882,10 +16882,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 5–8",
+          "Revelation 12",
           "Acts 16:16–40",
-          "Numbers 23–24",
-          "Mark 12"
+          "1 Timothy 4:12",
+          "Genesis 18:9–15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16895,9 +16895,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Hannah and God",
-          "Jonathan",
-          "John"
+          "Paul",
+          "James",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16965,10 +16965,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 7:1-22",
-          "Lamentations 1–5",
+          "Revelation 20",
+          "1 Samuel 16:1–13",
           "Acts 18:23–21:17",
-          "2 Kings 4"
+          "Romans 16:1–2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16977,10 +16977,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Elisha",
+          "Paul",
           "God",
-          "Joshua",
-          "Stephen"
+          "Holy Spirit",
+          "The crowds"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17047,9 +17047,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 2:1-17",
-          "1 Kings 5–8",
-          "Exodus 14",
+          "Luke 23",
+          "1 Kings 19:19–21",
+          "Ephesians 6",
           "1 Timothy 1–6; 2 Timothy 1–4"
         ],
         "correctIndex": 3,
@@ -17059,10 +17059,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
           "The apostles",
+          "Peter",
           "Paul",
-          "Stephen"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17130,9 +17130,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Titus 1–3",
-          "Acts 18:23–21:17",
-          "Matthew 7",
-          "Genesis 6–9"
+          "Genesis 4",
+          "1 Samuel 18–19",
+          "Acts 17:22–34"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17141,10 +17141,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "The apostles",
           "Paul",
-          "James",
-          "The Lord"
+          "Philip",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17213,9 +17213,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2",
-          "1 Samuel 18",
-          "Luke 24:13–35",
-          "Matthew 17:1–13"
+          "Genesis 41",
+          "Acts 28",
+          "Revelation 6–8:1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17224,9 +17224,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "The apostles",
-          "Stephen",
+          "Priscilla",
+          "Mary",
+          "Holy Spirit",
           "God"
         ],
         "correctIndex": 3,
@@ -17298,9 +17298,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2:1–4",
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-          "Daniel 6",
-          "Numbers 22"
+          "Acts 13–14",
+          "Luke 15",
+          "Matthew 3:13–17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17309,10 +17309,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
+          "Mary",
           "Holy Spirit",
-          "David",
-          "Mary"
+          "God",
+          "Jonathan"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17381,10 +17381,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
-          "Daniel 6:22",
+          "Acts 18:1–3, 18–19",
+          "Genesis 18:9–15",
           "Acts 2:4–21",
-          "Numbers 22:1–20"
+          "Revelation 12"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17393,10 +17393,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Priscilla",
+          "Philip",
+          "The apostles",
           "Holy Spirit",
-          "Jonathan"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17465,10 +17465,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18–19",
-          "Genesis 4",
+          "John 20:24–29",
+          "1 Samuel 3",
           "Luke 18:1–8",
-          "Esther 2:15–18"
+          "Revelation 22:12–13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17477,9 +17477,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Joshua",
           "Philip",
-          "Priscilla",
-          "God the Father",
+          "David",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -17547,9 +17547,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 14:22–33",
-          "Matthew 13:1–23",
-          "Jude 1",
+          "1 Samuel 22:1–2; 24",
+          "Exodus 32:1-8, 15-20, 30-32",
+          "Luke 24",
           "1 Peter 1–5"
         ],
         "correctIndex": 3,
@@ -17560,9 +17560,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "Paul",
-          "The crowds",
-          "God the Father"
+          "Elisha",
+          "The Lord",
+          "Mary"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17630,10 +17630,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 17",
+          "Revelation 1:8, 11, 17–18",
           "Acts 3",
-          "1 Samuel 17:8–11, 16, 23–30",
-          "Esther 2–7"
+          "the Bible",
+          "1 Corinthians 12"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17643,9 +17643,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "John",
-          "Jesus",
-          "The Holy Ghost"
+          "The Holy Ghost",
+          "James",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17713,10 +17713,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Timothy 4:12",
-          "Luke 1",
+          "1 Kings 3",
+          "Luke 19:1–10",
           "Acts 12:1–19",
-          "Genesis 18:9–15"
+          "Ruth 1"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17725,10 +17725,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "The crowds",
+          "Jonathan",
+          "Joshua",
           "God",
-          "Paul"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17798,10 +17798,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:24–28",
-          "Joshua 10:12-14",
+          "Revelation 17–18",
+          "Acts 3",
           "Acts 2:14–41",
-          "Numbers 21:1-9"
+          "Ruth 1:1-18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17810,9 +17810,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Mary",
+          "The crowds",
           "Priscilla",
+          "Holy Spirit",
           "Peter"
         ],
         "correctIndex": 3,
@@ -17881,9 +17881,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 14:22–33",
-          "Jude 1",
-          "Matthew 13:1–23",
+          "1 Samuel 9–10",
+          "Genesis 11",
+          "Ephesians 6",
           "2 Peter 1–3"
         ],
         "correctIndex": 3,
@@ -17894,9 +17894,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "David",
-          "Jude",
-          "The Lord"
+          "The apostles",
+          "John",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17965,10 +17965,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Titus 1–3",
+          "1 Kings 19:19–21",
           "Acts 5:12–16",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 25:14–30"
+          "Ephesians 6",
+          "Luke 23"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17977,10 +17977,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Joshua",
+          "Jonathan",
+          "Jude",
           "God",
-          "Peter"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18050,9 +18050,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41",
-          "Luke 23",
-          "1 Kings 19:19–21",
-          "Ephesians 6"
+          "Acts 2:4–21",
+          "Exodus 14",
+          "Acts 9:1–19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18061,10 +18061,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "The crowds",
+          "Mary",
+          "The Lord",
           "God",
-          "Paul"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18133,9 +18133,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:1–7",
-          "James 2:14–26",
-          "Judges 6:11-40",
+          "Matthew 6",
+          "1 Samuel 1:21-28; 2:1-11, 18-21",
+          "Revelation 4–5",
           "Acts 8:26–40"
         ],
         "correctIndex": 3,
@@ -18146,9 +18146,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Hannah and God",
-          "John",
-          "Jonathan"
+          "The Holy Ghost",
+          "James",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18219,9 +18219,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 8:26–40",
-          "Luke 15",
-          "Matthew 3:13–17",
-          "Acts 13–14"
+          "1 Samuel 1:21-28; 2:1-11, 18-21",
+          "Revelation 4–5",
+          "1 Thessalonians 4:13–18; 5:16–24"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18230,9 +18230,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "The Lord",
-          "Jude",
+          "Jesus",
+          "The Holy Ghost",
+          "James",
           "Philip"
         ],
         "correctIndex": 3,
@@ -18302,10 +18302,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezra 1–10; Nehemiah 8–9",
-          "Luke 17",
+          "Matthew 3:13–17",
+          "Luke 15",
           "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Acts 2:42–47"
+          "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18314,10 +18314,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
+          "God the Father",
           "Paul",
-          "Stephen",
-          "Elisha"
+          "The Holy Ghost",
+          "Jesus"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18387,9 +18387,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Romans 16:1–2",
-          "Mark 12",
-          "Numbers 23–24",
-          "Daniel 3"
+          "Revelation 17–18",
+          "Ruth 1:1-18",
+          "Numbers 13:1-33; 14:1-9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18398,9 +18398,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Stephen",
-          "Joshua",
-          "Elisha",
+          "James",
+          "Paul",
+          "The Holy Ghost",
           "God"
         ],
         "correctIndex": 3,
@@ -18471,9 +18471,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "1 Samuel 18–19",
-          "Genesis 4",
-          "Esther 2:15–18"
+          "Ruth 4:1-17",
+          "Revelation 13",
+          "Acts 6:8–7:60"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18482,9 +18482,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Joshua",
+          "David",
           "Philip",
-          "God the Father",
-          "Priscilla",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -18555,10 +18555,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 7–12",
-          "Acts 28:1–10",
+          "Matthew 19:16–22",
+          "1 Samuel 13; 15",
           "Matthew 7",
-          "Judges 16:4-21"
+          "Luke 15:11–32"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18567,8 +18567,8 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
-          "Paul",
+          "Philip",
+          "The apostles",
           "Jesus",
           "John"
         ],
@@ -18639,9 +18639,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 2",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 25:14–30",
+          "1 Samuel 18–19",
+          "Esther 2:15–18",
+          "Matthew 28:18–20",
           "Acts 18:24–28"
         ],
         "correctIndex": 3,
@@ -18652,9 +18652,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Priscilla",
-          "James",
-          "Peter"
+          "Peter",
+          "The apostles",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18723,9 +18723,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18–19",
-          "Matthew 28:18–20",
-          "Esther 2:15–18",
+          "Ruth 1:1-18",
+          "1 Samuel 25",
+          "Numbers 13:1-33; 14:1-9",
           "Acts 18:1–3, 18–19"
         ],
         "correctIndex": 3,
@@ -18736,9 +18736,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "God the Father",
-          "Paul",
-          "Philip"
+          "Holy Spirit",
+          "Priscilla",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18807,9 +18807,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Thessalonians 4:13–18; 5:16–24",
-          "Revelation 1:8, 11, 17–18",
-          "1 Corinthians 12",
+          "John 2:1–11",
+          "Job 2",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
           "Luke 15:11–32"
         ],
         "correctIndex": 3,
@@ -18820,9 +18820,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "John",
-          "Hannah and God",
-          "Jonathan"
+          "The Lord",
+          "Holy Spirit",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18891,10 +18891,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
-          "Luke 24:13–35",
+          "Ruth 4:1-17",
+          "Revelation 13",
           "Psalm 23",
-          "Matthew 17:1–13"
+          "Acts 6:8–7:60"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18903,9 +18903,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "John",
           "The Holy Ghost",
-          "Jesus",
+          "Paul",
+          "James",
           "God"
         ],
         "correctIndex": 3,
@@ -19580,10 +19580,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:22",
+          "Ruth 3:1-18",
           "Exodus 14",
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
-          "Numbers 22:1–20"
+          "Acts 2:14–41",
+          "Revelation 1–3"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19592,10 +19592,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Stephen",
+          "Jonathan",
+          "Jude",
           "God",
-          "The apostles"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -19666,9 +19666,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "1 Kings 3",
-          "Luke 19:1–10",
-          "Numbers 22"
+          "Acts 1:6–11",
+          "Matthew 27; Mark 15; Luke 23; John 19",
+          "1 Kings 18:20–40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19677,9 +19677,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Stephen",
-          "Elisha",
+          "The Holy Ghost",
+          "Paul",
+          "James",
           "God"
         ],
         "correctIndex": 3,
@@ -19749,9 +19749,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1–22",
-          "Numbers 22:1–20",
-          "Daniel 6:22",
-          "1 Kings 18"
+          "Luke 24",
+          "Exodus 32:1-8, 15-20, 30-32",
+          "Matthew; Mark; Luke; John (Gospels overview)"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19760,9 +19760,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "Philip",
-          "Jude",
+          "James",
+          "Priscilla",
+          "The Holy Ghost",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -19833,9 +19833,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 17–18",
-          "Exodus 3:1-15",
-          "1 Samuel 18–20",
-          "Acts 25–26"
+          "Acts 2:42–47",
+          "Ezra 1–10; Nehemiah 8–9",
+          "Genesis 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19844,10 +19844,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "God",
           "The Holy Ghost",
-          "Holy Spirit"
+          "God",
+          "God the Father",
+          "Jesus"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -19914,10 +19914,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16",
-          "Revelation 13:16–18",
+          "Luke 10",
+          "Esther 5–7",
           "Revelation 13",
-          "2 Kings 4"
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19926,9 +19926,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
-          "Elisha",
           "The Holy Ghost",
+          "Priscilla",
+          "Holy Spirit",
           "John"
         ],
         "correctIndex": 3,
@@ -19999,9 +19999,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "Acts 28:1–10",
-          "1 Samuel 16:11; 17:15, 34–37"
+          "1 Samuel 17",
+          "Numbers 21:1-9",
+          "Esther 5–7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20010,9 +20010,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "The Lord",
           "Jude",
-          "David",
-          "Philip",
+          "Jonathan",
           "God"
         ],
         "correctIndex": 3,
@@ -20080,9 +20080,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:1–3, 18–19",
-          "Matthew 19:16–22",
-          "Titus 1–3",
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+          "Luke 3; Matthew 3",
+          "Revelation 21",
           "Revelation 1–3"
         ],
         "correctIndex": 3,
@@ -20092,10 +20092,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Elisha",
+          "The Holy Ghost",
+          "James",
           "Jesus",
-          "Priscilla"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20165,10 +20165,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 7:1-22",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "Ezra 1–10; Nehemiah 8–9",
+          "John 2:1–11",
           "Revelation 21–22",
-          "Lamentations 1–5"
+          "Luke 17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20178,9 +20178,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
+          "James",
           "Paul",
-          "The crowds",
-          "Elisha"
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20247,10 +20247,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 17:8–11, 16, 23–30",
-          "Esther 2–7",
+          "Acts 18:1–3, 18–19",
+          "Titus 1–3",
           "Revelation 21–22",
-          "Luke 24:50–53; Acts 1:6–11"
+          "Matthew 19:16–22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20259,9 +20259,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Jonathan",
-          "Hannah and God",
+          "Joshua",
+          "David",
+          "Philip",
           "God"
         ],
         "correctIndex": 3,
@@ -20332,9 +20332,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 6–8:1",
-          "John 10:1–18",
-          "Jonah 4",
-          "John 12:1–8"
+          "2 Timothy 4:6–8",
+          "Luke 18:1–8",
+          "Exodus 14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20343,9 +20343,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Jonathan",
-          "The Lord",
+          "David",
+          "Philip",
+          "Joshua",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -20414,9 +20414,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 14–15",
-          "Acts 1:6–11",
-          "Matthew 27; Mark 15; Luke 23; John 19",
-          "Matthew 17:1–13"
+          "Revelation 20",
+          "1 Samuel 16:1–13",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20425,10 +20425,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jesus",
+          "The Lord",
           "God",
-          "Hannah and God",
-          "John"
+          "Mary",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20495,10 +20495,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13",
+          "Acts 19",
           "Revelation 19",
-          "Acts 8:26–40",
-          "Acts 27"
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "1 Peter 1–5"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20508,9 +20508,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Joshua",
-          "Stephen",
-          "The apostles"
+          "God the Father",
+          "Peter",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20579,10 +20579,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1–3",
-          "Judges 16:23-30",
+          "Judges 13:1-25",
+          "Exodus 40:1-38",
           "Revelation 20",
-          "2 Peter 1–3"
+          "Revelation 21–22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20591,10 +20591,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jesus",
+          "Jonathan",
           "God",
-          "Holy Spirit",
-          "The Holy Ghost"
+          "Joshua",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20663,10 +20663,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
-          "Acts 8:26–40",
+          "Exodus 3:1-15",
+          "Acts 25–26",
           "the Bible",
-          "Judges 16:4-21"
+          "1 Samuel 18–20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20676,7 +20676,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The apostles",
-          "James",
+          "God the Father",
           "Peter",
           "God"
         ],
@@ -20748,9 +20748,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 15",
-          "Acts 13–14",
-          "Acts 2:1–4",
+          "Revelation 8–11",
+          "1 Samuel 3",
+          "John 20:24–29",
           "Revelation 4–5"
         ],
         "correctIndex": 3,
@@ -20761,9 +20761,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The crowds",
-          "Paul",
-          "God the Father"
+          "Peter",
+          "The apostles",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20832,9 +20832,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 8–11",
-          "Luke 2; Matthew 1–2",
-          "Matthew 28:18–20",
-          "Esther 2:15–18"
+          "Daniel 6",
+          "Numbers 22",
+          "Luke 19:1–10"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20843,10 +20843,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jude",
+          "The Holy Ghost",
           "God",
-          "Holy Spirit",
-          "The Lord"
+          "God the Father",
+          "Jesus"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20915,9 +20915,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 18:20–40",
-          "Acts 2:1–13",
-          "Joshua 6:1-21",
+          "John 11:1–44",
+          "Malachi 1–4",
+          "2 John; 3 John",
           "Revelation 12"
         ],
         "correctIndex": 3,
@@ -20928,9 +20928,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "John",
-          "David",
-          "Hannah and God",
-          "Mary"
+          "Jesus",
+          "Peter",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20999,9 +20999,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2:36–38",
-          "2 Kings 2:1–14",
-          "Genesis 1:3",
+          "1 Samuel 17:45–50",
+          "Judges 6:11-40",
+          "2 Kings 4:1–7",
           "Matthew 19:16–22"
         ],
         "correctIndex": 3,
@@ -21012,9 +21012,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Hannah and God",
-          "John",
-          "Jonathan"
+          "The apostles",
+          "Peter",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21084,9 +21084,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Revelation 1",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Acts 16:11–15"
+          "1 Timothy 4:12",
+          "Genesis 18:9–15",
+          "Luke 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21095,9 +21095,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "The apostles",
-          "Stephen",
+          "Priscilla",
+          "Mary",
+          "Holy Spirit",
           "God"
         ],
         "correctIndex": 3,
@@ -21166,9 +21166,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 24:13–35",
-          "Revelation 13:16–18",
-          "Genesis 22",
-          "Acts 6:8–7:60"
+          "1 Samuel 1:21-28; 2:1-11, 18-21",
+          "Revelation 20",
+          "Romans 16:1–2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21177,10 +21177,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "God the Father",
           "Jesus",
-          "James",
-          "Peter"
+          "The Holy Ghost",
+          "Paul"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21248,10 +21248,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 7",
-          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Acts 16:16–40",
+          "Nehemiah 1–6",
           "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Revelation 8–11"
+          "Romans 16:1–2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21260,9 +21260,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God",
+          "Joshua",
+          "Philip",
           "David",
-          "Jude",
           "Paul"
         ],
         "correctIndex": 3,
@@ -21450,9 +21450,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "John 20:1–18",
-          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Acts 18:1–3, 18–19",
+          "1 Samuel 13; 15",
+          "Revelation 12",
           "Ruth 2"
         ],
         "correctIndex": 3,
@@ -21463,9 +21463,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Philip",
-          "God the Father",
-          "David"
+          "The Holy Ghost",
+          "James",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21535,9 +21535,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
-          "Acts 1:6–11",
-          "Matthew 17:1–13",
+          "John 20:24–29",
+          "Acts 15",
+          "Revelation 22:12–13",
           "Ruth 1"
         ],
         "correctIndex": 3,
@@ -21548,9 +21548,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Hannah and God",
-          "John",
-          "Jonathan"
+          "The apostles",
+          "Peter",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21986,9 +21986,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 25:14–30",
-          "Job 2",
+          "Joshua 24:14-15",
+          "Genesis 6–9",
+          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -21999,9 +21999,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Priscilla",
-          "The crowds",
-          "God the Father"
+          "The apostles",
+          "Peter",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -22529,9 +22529,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 16:1–13",
-          "Galatians 5",
-          "Genesis 28:10–22",
-          "John 11:1–44"
+          "Joshua 7:1-11",
+          "Nehemiah 1–6",
+          "Acts 16:16–40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22540,9 +22540,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "The Lord",
           "Holy Spirit",
+          "Mary",
+          "Priscilla",
           "God"
         ],
         "correctIndex": 3,
@@ -22599,87 +22599,129 @@
     ]
   },
   "samuelBirth": {
-    "kjvRef": "1 Samuel 1–2",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Samuel 1:21-28; 2:1-11, 18-21 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "And the man Elkanah, and all his house, went up to offer unto the LORD the yearly sacrifice, and his vow. But Hannah went not up; for she said unto her husband, I will not go up until the child be weaned, and then I will bring him, that he may appear before the LORD, and there abide for ever. And Elkanah her husband said unto her, Do what seemeth thee good; tarry until thou have weaned him; only the LORD establish his word. So the woman abode, and gave her son suck until she weaned him. And when she had weaned him, she took him up with her, with three bullocks, and one ephah of flour, and a bottle of wine, and brought him unto the house of the LORD in Shiloh: and the child was young.",
+        "caption": "Weaned — brought to the house of the Lord",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And they slew a bullock, and brought the child to Eli. And she said, Oh my lord, as thy soul liveth, my lord, I am the woman that stood by thee here, praying unto the LORD. For this child I prayed; and the LORD hath given me my petition which I asked of him: Therefore also I have lent him to the LORD; as long as he liveth he shall be lent to the LORD. And he worshipped the LORD there.",
+        "caption": "For this child I prayed — lent to the Lord",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And Hannah prayed, and said, My heart rejoiceth in the LORD, mine horn is exalted in the LORD: my mouth is enlarged over mine enemies; because I rejoice in thy salvation. There is none holy as the LORD: for there is none beside thee: neither is there any rock like our God.",
+        "caption": "My heart rejoiceth — none holy as the Lord",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Talk no more so exceeding proudly; let not arrogancy come out of your mouth: for the LORD is a God of knowledge, and by him actions are weighed. The bows of the mighty men are broken, and they that stumbled are girded with strength. They that were full have hired out themselves for bread; and they that were hungry ceased: so that the barren hath born seven; and she that hath many children is waxed feeble.",
+        "caption": "The Lord weighs the actions of all",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "The LORD killeth, and maketh alive: he bringeth down to the grave, and bringeth up. The LORD maketh poor, and maketh rich: he bringeth low, and lifteth up. He raiseth up the poor out of the dust, and lifteth up the beggar from the dunghill, to set them among princes, and to make them inherit the throne of glory: for the pillars of the earth are the LORD's, and he hath set the world upon them.",
+        "caption": "He raiseth up the poor — the pillars are the Lord's",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "He will keep the feet of his saints, and the wicked shall be silent in darkness; for by strength shall no man prevail. The adversaries of the LORD shall be broken to pieces; out of heaven shall he thunder upon them: the LORD shall judge the ends of the earth; and he shall give strength unto his king, and exalt the horn of his anointed. And Elkanah went to Ramah to his house. And the child did minister unto the LORD before Eli the priest.",
+        "caption": "Samuel ministers before Eli",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "But Samuel ministered before the LORD, being a child, girded with a linen ephod. Moreover his mother made him a little coat, and brought it to him from year to year, when she came up with her husband to offer the yearly sacrifice. And Eli blessed Elkanah and his wife, and said, The LORD give thee seed of this woman for the loan which is lent to the LORD. And they went unto their own home. And the LORD visited Hannah, so that she conceived, and bare three sons and two daughters. And the child Samuel grew before the LORD.",
+        "caption": "A little coat each year — the Lord visited Hannah",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Samuel's Birth & Dedication (1 Samuel 1–2).",
-      "Hannah brings young Samuel to Eli at the temple Hannah sings praise to God for His faithfulness Samuel grows up serving God as a prophet When you promise God something, He helps you keep it.",
-      "Samuel grew up loving God because Hannah gave him back to the Lord."
+      "When Samuel was weaned, Hannah remembered her promise to God. She took her little boy to the house of the Lord at Shiloh.",
+      "Hannah said to Eli the priest, \"For this child I prayed; and the Lord hath given me my petition which I asked of him. Therefore also I have lent him to the Lord; as long as he liveth he shall be lent to the Lord.\"",
+      "Then Hannah prayed a beautiful prayer of thanks: \"My heart rejoiceth in the Lord… there is none holy as the Lord.\"",
+      "Hannah left Samuel with Eli to serve the Lord. Every year she made him a little coat and brought it when she came up with her husband to offer the yearly sacrifice.",
+      "The Lord visited Hannah, and she had three more sons and two daughters. And the child Samuel grew on, and was in favour both with the Lord, and also with men.",
+      "For you: God honors promises kept in love and blesses thankful hearts."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 9:36–43",
-          "Ezekiel 37:1–14",
-          "Luke 17",
-          "1 Samuel 1–2"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 1–2.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Hannah and God",
-          "Stephen",
-          "Jonathan",
-          "Mary"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Hannah and God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "We should hide from God when we mess up.",
-          "When you promise God something, He helps you keep it. Samuel grew up loving God because Hannah gave him back to the Lord.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "1 Samuel 3",
+          "1 Samuel 1:21-28; 2:1-11, 18-21",
+          "Ruth 1",
+          "Psalm 23"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When you promise God something, He helps you keep it. Samuel grew up loving God because….)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the Bible line under the title. (Answer: 1 Samuel 1:21-28; 2:1-11, 18-21.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did Hannah say she had done with Samuel?",
         "choices": [
-          "Hannah brings young Samuel to Eli at the temple",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city."
+          "Hidden him at home forever.",
+          "Lent him to the Lord as long as he liveth.",
+          "Sold him.",
+          "Sent him to Egypt."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful — she kept her vow.",
+        "wrongFeedback": "Listen for lent. (Answer: Lent him to the Lord….)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "How did Hannah begin her prayer of thanks?",
         "choices": [
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "When you promise God something, He helps you keep it. Samuel grew up loving God because Hannah gave him back to the…"
+          "My heart is heavy.",
+          "My heart rejoiceth in the LORD.",
+          "I will not pray.",
+          "Leave me alone."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When you promise God something, He helps you keep it. Samuel grew up loving God because….)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes — thankful worship.",
+        "wrongFeedback": "Think rejoicing. (Answer: My heart rejoiceth….)"
+      },
+      {
+        "question": "What did Hannah make for Samuel each year?",
+        "choices": [
+          "A crown.",
+          "A little coat.",
+          "A chariot.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Tender — a mother's faithful care.",
+        "wrongFeedback": "Think yearly visit. (Answer: A little coat….)"
+      },
+      {
+        "question": "After this, how did the Lord bless Hannah's home?",
+        "choices": [
+          "She had no more children.",
+          "She bare three sons and two daughters.",
+          "They moved away.",
+          "The story does not say."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "God remembered her with kindness.",
+        "wrongFeedback": "Listen for visited. (Answer: Three sons and two daughters….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Samuel's Birth & Dedication with God's Word today.",
-    "takeaway": "When you promise God something, He helps you keep it. Samuel grew up loving God because Hannah gave him back to the Lord.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Samuel's Birth & Dedication. Amen.",
+    "doneMessage": "Great job reading Samuel's dedication with God's Word today.",
+    "takeaway": "Hannah kept her promise — Samuel ministered before the Lord — and God visited her home with more children.",
+    "prayer": "Lord, thank You for Hannah's thankful heart. Help us keep our promises to You and trust Your kindness. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Hannah brings young Samuel to Eli at the temple (samuel)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Hannah sings praise to God for His faithfulness (hannah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samuel grows up serving God as a prophet (dedication)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Hannah brings young Samuel to Eli at the temple (temple)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Hannah sings praise to God for His faithfulness (1 samuel 1)"
-    ]
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces Hannah standing calmly at tabernacle little Samuel beside her she holds small coat thankful joy Eli priest nearby gentle smile tabernacle curtains soft sky warm worshipful mood minimal plenty white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Lent to the Lord (1 sam 1)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text My heart rejoiceth",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little coat year to year",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Samuel grew before the Lord"
+    ],
+    "readAlongImages": []
   },
   "samuelCall": {
     "kjvRef": "1 Samuel 3",
@@ -22697,9 +22739,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 3",
-          "Mark 10:13–16",
-          "1 Samuel 1",
-          "Matthew 4:1–11"
+          "Luke 10",
+          "Esther 5–7",
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22708,9 +22750,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
-          "James",
+          "The Lord",
+          "Jude",
+          "Jonathan",
           "God"
         ],
         "correctIndex": 3,
@@ -22781,10 +22823,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 9",
-          "Matthew 14:22–33",
+          "Revelation 21",
+          "Luke 3; Matthew 3",
           "1 Samuel 3",
-          "John 6:1–14"
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22793,10 +22835,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "James",
+          "Jonathan",
+          "Jude",
           "God",
-          "Mary"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -22866,9 +22908,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 18:9–15",
-          "Matthew 4:1–11; Luke 4:1–13",
-          "Joshua 7:1-11",
-          "Matthew 4:18–22; Luke 5:1–11"
+          "Mark 12",
+          "Numbers 23–24",
+          "1 Kings 5–8"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22877,10 +22919,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
-          "Elisha",
+          "Mary",
+          "The Lord",
           "God",
-          "The crowds"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -22950,10 +22992,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:4–21",
+          "Luke 1",
           "the Bible",
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Joshua 2:1-21"
+          "2 Kings 2:1–14",
+          "Genesis 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22963,9 +23005,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "James",
-          "Peter",
-          "Priscilla"
+          "Jonathan",
+          "Jude",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23035,9 +23077,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 13; 15",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 13:1–23",
-          "Jude 1"
+          "Matthew 28; Mark 16; Luke 24; John 20",
+          "Luke 24:50–53; Acts 1:6–11",
+          "1 Samuel 17:8–11, 16, 23–30"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23046,10 +23088,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
+          "Holy Spirit",
           "God",
-          "Elisha",
-          "Stephen"
+          "Paul",
+          "The crowds"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23119,10 +23161,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 17",
+          "Genesis 4",
           "1 Samuel 9–10",
-          "Luke 23",
-          "1 Kings 19:19–21"
+          "Exodus 20:1-17",
+          "Acts 17:22–34"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23132,9 +23174,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The apostles",
-          "Joshua",
-          "Peter"
+          "Mary",
+          "Priscilla",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23203,10 +23245,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 3",
+          "Joshua 7:1-26",
           "1 Samuel 18",
-          "Ruth 1",
-          "Revelation 1–22"
+          "1 Samuel 22:1–2; 24",
+          "Matthew 26"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23216,9 +23258,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "David",
-          "Jude",
-          "Philip"
+          "Paul",
+          "James",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23288,9 +23330,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 17–18",
-          "Ruth 1:1-18",
-          "Acts 7",
+          "Acts 15:36–18:22",
+          "Genesis 41",
+          "Revelation 6–8:1",
           "Luke 2"
         ],
         "correctIndex": 3,
@@ -23301,9 +23343,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Paul",
-          "God the Father",
-          "Philip"
+          "James",
+          "The Holy Ghost",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23373,9 +23415,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 27–28",
-          "Revelation 19",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "1 Corinthians 13",
+          "Acts 2:4–21",
+          "Acts 9:1–19",
           "1 Kings 5–8"
         ],
         "correctIndex": 3,
@@ -23386,9 +23428,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The crowds",
-          "Elisha",
-          "Paul"
+          "Joshua",
+          "David",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23458,9 +23500,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 11:1–44",
-          "2 John; 3 John",
-          "Genesis 28:10–22",
+          "Acts 12:1–19",
+          "Revelation 17–18",
+          "Romans–Philemon",
           "1 Kings 3"
         ],
         "correctIndex": 3,
@@ -23470,10 +23512,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Elisha",
-          "Stephen",
+          "The Holy Ghost",
+          "James",
           "God",
-          "The crowds"
+          "Jesus"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23649,10 +23691,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 17",
-          "Esther 2–7",
+          "Revelation 13:16–18",
+          "1 Samuel 16",
           "Acts 6:8–7:60",
-          "Numbers 21:1-9"
+          "Genesis 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23661,10 +23703,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Stephen",
           "James",
-          "Peter"
+          "Stephen",
+          "The crowds",
+          "Paul"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23733,10 +23775,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 4:1-16",
-          "1 Samuel 1:1-20",
+          "1 Kings 18",
+          "Isaiah 7:14; 9:6–7; 53:4–6",
           "Acts 6:8–7:60",
-          "2 Timothy 1:5–7; 3:15"
+          "Matthew 18:21–35"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23746,8 +23788,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Stephen",
-          "Priscilla",
-          "Mary",
+          "The Lord",
+          "Jude",
           "Jonathan"
         ],
         "correctIndex": 0,
@@ -23818,9 +23860,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 7",
-          "2 Timothy 4:6–8",
-          "Luke 18:1–8",
-          "Exodus 14"
+          "Judges 14:5-9",
+          "Matthew 25",
+          "Genesis 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23829,9 +23871,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
-          "Joshua",
+          "Jude",
+          "Jonathan",
+          "God",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -24253,10 +24295,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ephesians, Philippians, Colossians, Philemon",
+          "Ezra 1–10; Nehemiah 8–9",
           "Exodus 7–12",
-          "Genesis 37:3",
-          "Exodus 2:5"
+          "Genesis 1",
+          "Acts 2:42–47"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24265,10 +24307,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jude",
-          "The Lord",
+          "Paul",
+          "James",
           "God",
-          "David"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24337,10 +24379,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28; Mark 16; Luke 24; John 20",
-          "Genesis 40",
+          "Mark 5:21–43",
+          "Luke 2:1–20",
           "Matthew 25",
-          "Luke 24:50–53; Acts 1:6–11"
+          "Matthew 26:36–46; Luke 22:44"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24349,10 +24391,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
+          "Philip",
           "Jesus",
-          "John",
-          "Hannah and God"
+          "The apostles",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24420,10 +24462,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 1",
+          "Psalm 23",
           "1 Thessalonians 4:13–18; 5:16–24",
-          "Acts 3",
-          "Revelation 1–22"
+          "Acts 13–14",
+          "Acts 2:1–4"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24432,10 +24474,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Joshua",
+          "God the Father",
+          "Peter",
           "Paul",
-          "Peter"
+          "Jesus"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24501,10 +24543,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 23",
+          "1 Peter 1–5",
           "John 20:24–29",
-          "Matthew 17",
-          "1 Kings 19:19–21"
+          "Ruth 2",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24514,8 +24556,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "John",
-          "Hannah and God",
+          "God the Father",
+          "Peter",
           "Paul"
         ],
         "correctIndex": 0,
@@ -24583,10 +24625,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:1–14",
-          "Matthew 17:20; Mark 11:23–24",
+          "1 Samuel 18",
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
           "1 Timothy 4:12",
-          "Genesis 1:3"
+          "Romans 3:23; 5:8; 6:23; 10:9–10"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24595,10 +24637,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
+          "Philip",
           "Paul",
-          "Stephen",
-          "Elisha"
+          "The apostles",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24668,10 +24710,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 23",
-          "1 Kings 19:19–21",
+          "Acts 5:12–16",
+          "Revelation 21–22",
           "Matthew 28",
-          "Ephesians 6"
+          "Acts 28"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24680,10 +24722,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God",
+          "Philip",
           "Jesus",
-          "David",
-          "Jude"
+          "The apostles",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24751,10 +24793,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 16:11–15",
-          "2 Timothy 4:6–8",
+          "Matthew 4:1–11; Luke 4:1–13",
+          "Joshua 7:1-11",
           "Genesis 11",
-          "Revelation 1"
+          "Matthew 4:18–22; Luke 5:1–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24763,10 +24805,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
+          "Jonathan",
           "God",
-          "Stephen",
-          "Elisha"
+          "Joshua",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24832,10 +24874,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:1–7",
+          "Matthew 17:20; Mark 11:23–24",
           "Matthew 17:1–13",
-          "Joshua 8:1-8, 18-23, 26-29",
-          "1 Samuel 17:45–50"
+          "Genesis 1:3",
+          "2 Kings 2:1–14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24844,10 +24886,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Stephen",
-          "Elisha",
+          "Jonathan",
+          "Jude",
           "God",
-          "Joshua"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24916,9 +24958,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:22",
-          "Galatians 5",
-          "2 Kings 6:1–7",
+          "1 Samuel 18–19",
+          "1 Samuel 1",
+          "Esther 4–5",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -24929,9 +24971,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Joshua",
-          "The apostles",
-          "Stephen"
+          "The Lord",
+          "Jude",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25001,9 +25043,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Ruth 1",
-          "Revelation 1–22",
-          "Acts 3"
+          "Esther 2:15–18",
+          "1 Samuel 18–20",
+          "Exodus 3:1-15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25012,10 +25054,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Holy Spirit",
           "God",
-          "Stephen",
-          "Joshua"
+          "Paul",
+          "The crowds"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25083,9 +25125,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 7",
-          "Genesis 18:9–15",
-          "Revelation 8–11",
+          "Numbers 21:1-9",
+          "Esther 2–7",
+          "1 Samuel 17",
           "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
         ],
         "correctIndex": 3,
@@ -25096,9 +25138,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The crowds",
-          "Priscilla",
-          "God the Father"
+          "Jude",
+          "God",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25168,9 +25210,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 2:1–11",
-          "1 Kings 5–8",
-          "Mark 12",
-          "Ruth 2:1-17"
+          "Genesis 4",
+          "1 Samuel 18–19",
+          "Acts 17:22–34"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25179,10 +25221,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Stephen",
+          "Joshua",
           "Jesus",
-          "The crowds",
-          "Elisha"
+          "Jonathan",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25251,10 +25293,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:22",
-          "Numbers 22:1–20",
+          "2 Kings 5:1–15",
+          "Genesis 37:28",
           "Mark 12",
-          "1 Kings 18"
+          "Acts 27–28"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25263,9 +25305,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "The Lord",
-          "James",
+          "God",
+          "Jonathan",
+          "Jude",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -25335,10 +25377,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
+          "Luke 23",
           "2 Kings 4:1–7",
-          "Philemon 1",
-          "Acts 2:14–41"
+          "Genesis 11",
+          "Ephesians 6"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25347,10 +25389,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Holy Spirit",
+          "Mary",
+          "Priscilla",
           "God",
-          "Jude"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25419,9 +25461,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 3",
-          "Judges 4:1-16",
-          "Revelation 22",
+          "2 Timothy 1:5–7; 3:15",
+          "Matthew 4:18–22; Luke 5:1–11",
+          "1 Samuel 1:1-20",
           "Mark 12"
         ],
         "correctIndex": 3,
@@ -25432,9 +25474,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Holy Spirit",
           "God",
-          "The Holy Ghost"
+          "Jude",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25504,9 +25546,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Esther 4–5",
-          "1 Samuel 1",
-          "1 Samuel 16:11; 17:15, 34–37"
+          "Judges 16:4-21",
+          "Exodus 20:1-17",
+          "Revelation 14–15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25515,10 +25557,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
-          "Holy Spirit",
+          "Jonathan",
+          "Joshua",
           "Jesus",
-          "The Holy Ghost"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25587,10 +25629,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 24:14-15",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
+          "Revelation 13:16–18",
+          "Genesis 22",
           "Luke 19:1–10",
-          "Genesis 6–9"
+          "1 Samuel 16"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25599,9 +25641,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Holy Spirit",
           "Mary",
-          "Hannah and God",
-          "Jonathan",
+          "The Lord",
           "Jesus"
         ],
         "correctIndex": 3,

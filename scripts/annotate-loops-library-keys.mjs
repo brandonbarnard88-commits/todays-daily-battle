@@ -143,7 +143,8 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   170: 'ruthBoaz',
   171: 'ruthThreshing',
   172: 'ruthRedemption',
-  40: 'hannahPrayer'
+  40: 'hannahPrayer',
+  173: 'samuelBirth'
 };
 
 const VALID_KEYS = new Set(loadStoryIndex().map((r) => r.key));

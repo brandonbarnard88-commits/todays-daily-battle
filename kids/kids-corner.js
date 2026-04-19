@@ -2356,6 +2356,30 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 1:17</text>'
       ),
 
+      /* Samuel's dedication — library samuelBirth / loop 173 */
+      samuelBirth: svg(
+        ground() + hills() +
+        sun(48, 46, 17) + cloud(298, 34) +
+        /* tabernacle */
+        '<path d="M255 112 L325 202 L185 202 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M255 122 L308 192 L202 192 Z" ' + s + ' stroke-width="1.5" fill="none"/>' +
+        /* Hannah standing — thankful */
+        person(168, 152, 10, 28) +
+        '<path d="M162 166 Q158 172 162 178" ' + s + ' stroke-width="1.3"/>' +
+        '<path d="M174 166 Q178 172 174 178" ' + s + ' stroke-width="1.3"/>' +
+        /* little Samuel */
+        person(205, 178, 8, 22) +
+        '<path d="M200 188 Q198 194 202 198" ' + s + ' stroke-width="1.2"/>' +
+        /* coat in Hannah's hands */
+        '<path d="M138 188 Q148 175 158 188 Q148 198 138 188 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="145" y1="182" x2="152" y2="192" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="150" y1="180" x2="155" y2="190" ' + s + ' stroke-width="1.2"/>' +
+        /* Eli */
+        person(278, 158, 10, 30) +
+        '<path d="M268 176 Q260 186 264 196" ' + s + ' stroke-width="1.8"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 2:19</text>'
+      ),
+
       /* ── Week 10: Mary Magdalene (126) ── */
       maryMagdalene: svg(
         ground() + hills() +
@@ -3188,7 +3212,7 @@
     davidSaul: 'saulSpear',
     davidJonathan: 'david',
     davidJonathanFriendship: 'david',
-    samuelBirth: 'samuelCall',
+    samuelBirth: 'samuelBirth',
     samuelCalls: 'samuelCall',
     saulKing: 'saulSpear',
     saulDisobedience: 'saulSpear',
@@ -4725,7 +4749,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

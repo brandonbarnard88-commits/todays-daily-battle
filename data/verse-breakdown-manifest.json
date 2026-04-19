@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T22:59:23.663Z",
-  "surfacedRefCount": 2786,
-  "overrideCount": 2786,
+  "generatedAt": "2026-04-19T23:10:41.786Z",
+  "surfacedRefCount": 2787,
+  "overrideCount": 2787,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 152,
+      "refs": 153,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 170,
+      "refs": 171,
       "pairs": 0
     },
     "kids/kids-corner.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 171,
+      "refs": 172,
       "pairs": 0
     },
     "memorize.html": {
@@ -734,6 +734,7 @@
     "1 Samuel 1:10-11",
     "1 Samuel 1:17",
     "1 Samuel 1:20",
+    "1 Samuel 1:21-28",
     "1 Samuel 1:27",
     "1 Samuel 1:27-28",
     "1 Samuel 1:9",
@@ -5268,6 +5269,14 @@
     "1 Samuel 1:20": {
       "general": {
         "plainExplanation": "Wherefore it came to pass, when the time was come about after Hannah had conceived, that she bare a son, and called his name Samuel, saying, Because I have asked him of the LORD.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Samuel",
+        "to": "Israel"
+      }
+    },
+    "1 Samuel 1:21-28": {
+      "general": {
+        "plainExplanation": "Key idea: And the man Elkanah, and all his house, went up to offer to the LORD the yearly sacrifice, and his vow. But Hannah went not up; for she said to her husband,...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Samuel",
         "to": "Israel"

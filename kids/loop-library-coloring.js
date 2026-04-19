@@ -131,6 +131,7 @@
   "samsonBirth": "samsonBirth",
   "samsonDelilah": "samsonDelilah",
   "samsonLion": "samsonLion",
+  "samuelBirth": "samuelBirth",
   "samuelCalls": "samuelCall",
   "shepherdsStar": "shepherdsStar",
   "solomonWisdom": "solomonWisdom",

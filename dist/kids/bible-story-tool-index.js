@@ -629,12 +629,12 @@
   {
     "key": "fallOfJericho",
     "title": "Fall of Jericho",
-    "kjvRef": "Joshua 6:1–21",
-    "who": "God",
-    "to": "Joshua and the Israelites",
-    "apply": "God told Joshua to march around Jericho for 7 days, blow trumpets, and shout. It seemed strange, but they obeyed. The walls fell down! When God asks you to do something that doesn't make sense, obey—He has a reason and will make it work.",
+    "kjvRef": "Joshua 6:1-21",
+    "who": "The Lord",
+    "to": "Joshua and Israel",
+    "apply": "God gave Joshua a careful plan: march, trumpets, then a great shout—and the wall fell flat. They did not win by their own strength; the Lord gave the city. When God's way seems surprising, obey one step at a time—He is able.",
     "theme": "Obedience",
-    "kw": "jericho walls trumpets joshua 6 march obey"
+    "kw": "jericho walls trumpets joshua 6 march obey shout ark faith victory"
   },
   {
     "key": "fieryFurnace",
@@ -2799,12 +2799,12 @@
   {
     "key": "jerichoWalls",
     "title": "Walls of Jericho Fall",
-    "kjvRef": "Joshua 6",
-    "who": "God",
+    "kjvRef": "Joshua 6:1-21",
+    "who": "The Lord",
     "to": "Joshua and Israel",
-    "apply": "God wins battles in surprising ways! Obey—then shout for joy.",
+    "apply": "They marched as God said, blew the trumpets, and shouted—and the wall fell flat. The Lord gave Jericho; their part was to obey. God still calls His people to trust His Word and take the next right step.",
     "theme": "Obedience",
-    "kw": "jericho walls trumpets joshua 6 march shout victory"
+    "kw": "jericho walls trumpets joshua 6 march shout ark obey faith victory"
   },
   {
     "key": "weddingWine",

@@ -13,86 +13,123 @@
 
 const davidReadQuizPack = require('./read-quiz-david-pack.cjs');
 
-/** Shared read+quiz for both Jericho library cards (same event, Joshua 6). */
+/** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
+  var lordWord =
+    'The Lord told Joshua, "See, I have given into thine hand Jericho. Ye shall compass the city, all ye men of war, and go round about the city once. Thus shalt thou do six days. And seven priests shall bear before the ark seven trumpets of rams\' horns. On the seventh day ye shall compass the city seven times, and the priests shall blow with the trumpets. And it shall come to pass, that when they make a long blast with the ram\'s horn, all the people shall shout with a great shout; and the wall of the city shall fall down flat."';
+
   return {
-    kjvRef: 'Joshua 6',
-    hintAboveQuiz: "Read the story carefully — God's plan was different than usual!",
-    paragraphs: [
-      'God told Joshua that His people would take the city of Jericho. The walls were tall and very strong.',
-      'God gave a special plan: "March around the city once a day for six days. Be quiet. Priests carry the ark and blow trumpets."',
-      'The people obeyed. They marched quietly every day. On the seventh day they marched seven times around the city.',
-      'After the seventh march, Joshua shouted, "Shout! The Lord has given you the city!"',
-      'The people shouted loud together. Suddenly the walls fell down flat! God gave them the victory because they trusted and obeyed Him.'
-    ],
-    quizHeading: 'What Do You Remember?',
-    questions: [
+    kjvRef: 'Joshua 6:1-5, 11-16, 20 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
       {
-        question: 'What did God tell Joshua to do with Jericho?',
-        choices: [
-          'Fight with swords right away',
-          'March around the city quietly',
-          'Climb the walls with ladders',
-          'Wait for the walls to fall alone'
-        ],
-        correctIndex: 1,
-        correctFeedback: 'Yes! God had a special obedience plan — marching showed trust in Him.',
-        wrongFeedback:
-          "Not quite. The Bible doesn't say to fight with swords or climb. God told them to march around quietly for six days, then seven times on the seventh day — that was the way to win!"
+        text:
+          "God's people had come to the strong city of Jericho. The walls were tall and thick, and the gates were shut tight.",
+        caption: 'A city with strong walls',
+        image: 'panel-david-1.svg'
       },
       {
-        question: 'How many times did they march on the seventh day?',
-        choices: ['One time', 'Three times', 'Seven times', 'Ten times'],
-        correctIndex: 2,
-        correctFeedback: "Correct! Seven times on the seventh day — God's number for completeness.",
-        wrongFeedback:
-          "Let's check the story: God said to march around once each day for six days, but on the seventh day, march seven times. The answer is seven!"
+        text: lordWord,
+        caption: 'The Lord tells Joshua the plan',
+        image: 'panel-david-1.svg'
       },
       {
-        question: 'What did the people do after the last march?',
-        choices: ['Ran away', 'Shouted loudly', 'Sang a song', 'Threw stones'],
-        correctIndex: 1,
-        correctFeedback: 'Exactly! They shouted together when Joshua gave the command — and the walls fell!',
-        wrongFeedback:
-          "Close, but they didn't run or sing. After marching, Joshua said \"Shout!\" and they shouted loud — that's when the walls came down (Joshua 6:20)."
+        text:
+          'Joshua and the people did exactly as the Lord commanded. For six days they marched around the city once each day. On the seventh day they marched around it seven times. The priests blew the trumpets, and at the long blast the people shouted with a great shout.',
+        caption: 'They obeyed every step',
+        image: 'panel-david-2.svg'
       },
       {
-        question: 'Why did the walls fall down?',
-        choices: [
-          'Because the trumpets were loud',
-          'Because the people shouted',
-          'Because God made it happen',
-          'Because the walls were old'
-        ],
-        correctIndex: 2,
-        correctFeedback: 'Right! God gave the victory — the people obeyed, and He did the miracle.',
-        wrongFeedback:
-          "The trumpets and shouting were part of the plan, but they weren't magic. The real reason is that God made the walls fall when His people obeyed Him."
+        text: 'And the wall fell down flat.',
+        caption: 'God made the walls fall',
+        image: 'panel-david-2.svg'
       },
       {
-        question: 'What can we learn from Jericho?',
-        choices: [
-          'God likes quiet marching',
-          'Obeying God brings victory',
-          'Shouting always wins',
-          'Walls fall by themselves'
-        ],
-        correctIndex: 1,
-        correctFeedback: 'Perfect! When we trust and obey God, even impossible things can happen.',
-        wrongFeedback:
-          "Almost! The story shows that victory came from obedience, not just noise or time passing. Trust and obey God — that is the lesson!"
+        text:
+          'The people went up into the city, every man straight before him, and they took the city — because the Lord had given it to them.',
+        caption: 'The Lord gave the victory',
+        image: 'panel-david-3.svg'
       }
     ],
-    doneHeading: 'You Did It!',
-    doneMessage: 'Great job listening to the story and answering! You earned a star.',
-    takeaway: 'Obeying God, even when the plan seems strange, leads to victory.',
-    prayer: "Dear God, help me obey You even when I don't understand. I trust You. Amen.",
+    paragraphs: [
+      "God's people had come to the strong city of Jericho. The walls were tall and thick, and the gates were shut tight.",
+      lordWord,
+      'Joshua and the people did exactly as the Lord commanded. For six days they marched around the city once each day. On the seventh day they marched around it seven times. The priests blew the trumpets, and at the long blast the people shouted with a great shout.',
+      'And the wall fell down flat.',
+      'The people went up into the city, every man straight before him, and they took the city — because the Lord had given it to them.',
+      'For you: When God asks you to obey—even when the plan feels strange—He can do what no one else can do. Trust Him step by step.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Genesis 1:1', 'Joshua 6:1-5, 11-16, 20', 'John 3:16'],
+        correctIndex: 2,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the first paragraph\'s Bible note. (Answer: Joshua 6:1-5, 11-16, 20.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['Nobody', 'Only sheep', 'Joshua and the Lord', 'Pharaoh only'],
+        correctIndex: 2,
+        correctFeedback: 'Right—keep that person (or group) in mind as you think about God.',
+        wrongFeedback:
+          'Look for who gave the plan and who obeyed. (Answer: Joshua and the Lord.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never helps His people.',
+          'The Bible is only pretend stories.',
+          'We should hide from God when we mess up.',
+          'When God\'s people obeyed His plan, He brought the walls down and gave them the city.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the “For you” heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When God's people obeyed….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship knocked the walls down.',
+          'On the seventh day they marched around the city seven times, then shouted, and the wall fell down flat.',
+          'A talking toaster became king of Jericho.',
+          'Everyone decided to never sleep again.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.',
+          'Ask God to help you obey His Word—trust Him even when His way seems surprising.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Ask God to help you obey….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading the Fall of Jericho with God's Word today.",
+    takeaway:
+      'God gave Joshua a careful plan—march, trumpets, shout—and the wall fell flat. Obedience and faith belong together.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You are mighty and true. Help me obey You and trust You today. Amen.',
     imagePrompts: [
-      'bright bouncy cartoon for kids: Israelite army marching silently around tall Jericho walls, priests with trumpets and ark of the covenant, sunny day, no text',
-      'colorful kid illustration: Joshua leading people in a circle around the city, serious faces, dust on ground, big strong walls, no text',
-      'fun cartoon style for children: seventh day march, people going around Jericho seven times, trumpets blowing, excitement in air, no text',
-      "exciting Bible scene for kids: huge Jericho walls crumbling and falling down flat, Israelites shouting in joy, dust cloud, God's power shown",
-      'happy ending cartoon: Israelites walking into the city of Jericho, smiling, praising God, bright colors, no text'
+      'Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, wonder-filled victorious mood, no soldiers fighting, no weapons, no fear, no text in image: great walls of Jericho falling down flat in gentle broken sections, Joshua and priests calmly in foreground with trumpets raised, people of Israel shouting with happy trusting faces, soft sky minimal city background, plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: March around Jericho — day by day (joshua 6)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Priests with ram\'s horn trumpets and the ark',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Seventh day — seven times around the city',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Walls fall flat — God gave the city (jericho)'
     ],
     readAlongImages: []
   };

@@ -1123,17 +1123,23 @@
     fallOfJericho: {
       title: 'Fall of Jericho',
       panels: [
-        { src: 'panel-david-1.svg', alt: "Israelites marching around Jericho – Obeying God's strange plan" },
-        { src: 'panel-david-2.svg', alt: "Trumpets blowing on day 7 – Time to shout" },
-        { src: 'panel-david-3.svg', alt: "Walls of Jericho falling down – God gives victory" }
+        { src: 'panel-david-1.svg', alt: 'Jericho — tall walls, gates shut; God speaks to Joshua' },
+        { src: 'panel-david-2.svg', alt: 'Marching, trumpets, and a great shout — the people obey' },
+        { src: 'panel-david-3.svg', alt: 'The wall falls flat — the Lord gave the city' }
       ],
       caption: 'Swipe to see God make the walls fall—trust Him! 🏛️',
       videoId: 'Ertlm3D9Cfs',
       videoTitle: 'The Walls of Jericho – Bible Story for Kids!',
-      keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'obey'],
-      kjvRef: 'Joshua 6:1–21',
-      kidContext: { who: 'God', to: 'Joshua and the Israelites', apply: "God told Joshua to march around Jericho for 7 days, blow trumpets, and shout. It seemed strange, but they obeyed. The walls fell down! When God asks you to do something that doesn't make sense, obey—He has a reason and will make it work." },
-      narration: "Fall of Jericho – Joshua 6:20. The Israelites came to Jericho, a strong city with big walls. God told Joshua, 'March around the city once a day for 6 days. On day 7, march 7 times, blow trumpets, and shout!' The people obeyed, even though it seemed weird. On day 7, they marched, trumpets blew, they shouted—and the walls fell flat! The Israelites marched in and took the city. God gave them the victory because they obeyed. For you: Sometimes God asks us to do things that seem odd or hard. Trust Him and obey. He makes impossible things happen when we follow His way."
+      keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'obey', 'shout', 'ark', 'faith', 'victory'],
+      kjvRef: 'Joshua 6:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel',
+        apply:
+          "God gave Joshua a careful plan: march, trumpets, then a great shout—and the wall fell flat. They did not win by their own strength; the Lord gave the city. When God's way seems surprising, obey one step at a time—He is able."
+      },
+      narration:
+        "Fall of Jericho – Joshua 6:1-5, 11-16, 20. God's people had come to the strong city of Jericho. The walls were tall and thick, and the gates were shut tight. The Lord told Joshua, 'See, I have given into thine hand Jericho. Ye shall compass the city, all ye men of war, and go round about the city once. Thus shalt thou do six days. And seven priests shall bear before the ark seven trumpets of rams' horns. On the seventh day ye shall compass the city seven times, and the priests shall blow with the trumpets. And it shall come to pass, that when they make a long blast with the ram's horn, all the people shall shout with a great shout; and the wall of the city shall fall down flat.' Joshua and the people did exactly as the Lord commanded. For six days they marched around the city once each day. On the seventh day they marched around it seven times. The priests blew the trumpets, and at the long blast the people shouted with a great shout. And the wall fell down flat. The people went up into the city, every man straight before him, and they took the city—because the Lord had given it to them. For you: Trust and obey God—He does what only He can do."
     },
     davidSheep: {
       title: 'David & the Sheep',
@@ -1940,16 +1946,23 @@
     jerichoWalls: {
       title: 'Walls of Jericho Fall',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Israel marches around Jericho' },
-        { src: 'panel-david-2.svg', alt: 'Trumpets blow—people shout!' },
-        { src: 'panel-david-3.svg', alt: 'The walls fall down—God wins!' }
+        { src: 'panel-david-1.svg', alt: 'Jericho — strong walls; the Lord\'s plan for Joshua' },
+        { src: 'panel-david-2.svg', alt: 'Seven days of obedience — trumpets and the great shout' },
+        { src: 'panel-david-3.svg', alt: 'The wall falls flat — the Lord gave the city' }
       ],
       caption: 'Swipe to see God tumble those walls—He wins every battle! 🎺',
       videoId: '',
       videoTitle: '',
-      keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'shout', 'victory'],
-      kjvRef: 'Joshua 6',
-      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God wins battles in surprising ways! Obey—then shout for joy.' }
+      keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'shout', 'ark', 'obey', 'faith', 'victory'],
+      kjvRef: 'Joshua 6:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel',
+        apply:
+          "They marched as God said, blew the trumpets, and shouted—and the wall fell flat. The Lord gave Jericho; their part was to obey. God still calls His people to trust His Word and take the next right step."
+      },
+      narration:
+        "Walls of Jericho – Joshua 6:1-5, 11-16, 20. God's people came to Jericho with its high walls and shut gates. The Lord told Joshua exactly how to compass the city—once a day for six days, seven times on the seventh day, with seven priests bearing rams' horns before the ark, and a long blast and a great shout at God's command. They obeyed fully. The priests blew, the people shouted, and the wall fell down flat. They took the city because the Lord had given it. For you: Obedience and faith go together—follow the Lord's voice."
     },
     joshuaAi: {
       title: 'Joshua and Ai',

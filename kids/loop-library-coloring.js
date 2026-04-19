@@ -47,7 +47,7 @@
   "fieryFurnace": "fieryFurnace",
   "fruitSpirit": "fruitSpirit",
   "gardenPrayer": "prayerCloset",
-  "gideonFleece": "faithMustard",
+  "gideonFleece": "gideonFleece",
   "gideonMidianites": "jerichoWalls",
   "goldenCalf": "tenCommandments",
   "goodSamaritan": "loveNeighbor",

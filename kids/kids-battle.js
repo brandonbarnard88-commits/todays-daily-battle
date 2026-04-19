@@ -2100,16 +2100,25 @@
     gideonFleece: {
       title: 'Gideon\'s Fleece',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Gideon lays a fleece on the ground at night' },
-        { src: 'panel-noah-2.svg', alt: 'Dew on the fleece only — then dew on the ground only' },
-        { src: 'panel-noah-3.svg', alt: 'Gideon trusts God to lead Israel against Midian' }
+        { src: 'panel-noah-1.svg', alt: 'The angel finds Gideon threshing wheat — The Lord is with thee, mighty man of valour' },
+        { src: 'panel-noah-2.svg', alt: 'Gideon lays the fleece — dew on the wool only, then the ground wet all around' },
+        { src: 'panel-noah-3.svg', alt: 'God answered twice — Gideon rises to obey' }
       ],
-      caption: 'Swipe to see God answer Gideon with the wet and dry fleece! 🐑',
+      caption: 'Swipe to see God meet Gideon gently — and answer his fleece prayer! 🐑',
       videoId: '',
       videoTitle: '',
-      keywords: ['gideon', 'fleece', 'dew', 'judges 6', 'sign', 'trust', 'midian'],
-      kjvRef: 'Judges 6:36–40',
-      kidContext: { who: 'God', to: 'Gideon (and us)', apply: 'When you are scared, you can ask God honestly — He is patient and powerful.' }
+      keywords: [
+        'gideon', 'fleece', 'dew', 'judges 6', 'sign', 'trust', 'midian', 'angel', 'winepress', 'valour', 'pray', 'wonder'
+      ],
+      kjvRef: 'Judges 6:11-40',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Gideon — and every small, honest heart',
+        apply:
+          "God called Gideon brave even when Gideon felt afraid — and He patiently showed him the fleece signs. When you feel little, you can still talk to God; He hears and helps everyone who trusts Him."
+      },
+      narration:
+        "Gideon's Fleece – Judges 6:11-40. The children of Israel did evil; the Lord delivered them into the hand of Midian seven years, and they cried unto the Lord. The angel of the Lord appeared unto Gideon as he threshed wheat by the winepress, to hide it from the Midianites, and said, 'The Lord is with thee, thou mighty man of valour.' Gideon asked why trouble had come if the Lord were with them. The Lord looked on him and said, 'Go in this thy might, and thou shalt save Israel from the hand of the Midianites: have not I sent thee?' Gideon asked for a sign and prepared a kid and unleavened cakes; the angel touched them with his staff, and fire consumed the offering — then the angel departed. That night Gideon put a fleece of wool on the threshingfloor and said, 'If the dew be on the fleece only, and it be dry upon all the earth beside, then shall I know that thou wilt save Israel by mine hand, as thou hast said.' It was so: he wrung a bowl full of dew out of the fleece, while all the ground was dry. He asked once more that the fleece be dry and the ground wet with dew — and God did so. Then Gideon knew that the Lord was with him. For you: God is gentle with honest fear — keep talking to Him; He is faithful."
     },
     gideonMidianites: {
       title: 'Gideon\'s Three Hundred',
@@ -5286,6 +5295,19 @@
       /deborah|barak|sisera|jabin|mount tabor|river kishon|judges 4/.test(low)
     ) {
       return { type: 'carousel', story: 'deborahBarak' };
+    }
+    if (
+      /judges 7|gideon.*\b300\b|\b300\b.*gideon|three hundred men|trumpets.*torch|torch.*trumpet|pitchers.*lamp/.test(low)
+    ) {
+      return { type: 'carousel', story: 'gideonMidianites' };
+    }
+    if (
+      /judges 6|gideon.*fleece|fleece.*gideon|dew.*fleece|mighty man of valour|winepress.*gideon|angel of the lord.*gideon/.test(low)
+    ) {
+      return { type: 'carousel', story: 'gideonFleece' };
+    }
+    if (/\bgideon\b/.test(low)) {
+      return { type: 'carousel', story: 'gideonFleece' };
     }
     if (/elijah|baal|carmel|1 kings 18|fire.*heaven/.test(low)) {
       return { type: 'carousel', story: 'elijahFire' };

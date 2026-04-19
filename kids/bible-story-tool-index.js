@@ -689,12 +689,12 @@
   {
     "key": "gideonFleece",
     "title": "Gideon's Fleece",
-    "kjvRef": "Judges 6:36–40",
-    "who": "God",
-    "to": "Gideon (and us)",
-    "apply": "When you are scared, you can ask God honestly — He is patient and powerful.",
+    "kjvRef": "Judges 6:11-40",
+    "who": "The Lord",
+    "to": "Gideon — and every small, honest heart",
+    "apply": "God called Gideon brave even when Gideon felt afraid — and He patiently showed him the fleece signs. When you feel little, you can still talk to God; He hears and helps everyone who trusts Him.",
     "theme": "Miracles",
-    "kw": "gideon fleece dew judges 6 sign trust midian"
+    "kw": "gideon fleece dew judges 6 sign trust midian angel winepress valour pray wonder"
   },
   {
     "key": "gideonMidianites",

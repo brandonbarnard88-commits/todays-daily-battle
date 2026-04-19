@@ -2134,6 +2134,131 @@ function buildDeborahBarakReadQuiz() {
   };
 }
 
+/** Gideon's fleece — Judges 6:11-40 (KJV); angel, signs, gentle patience. */
+function buildGideonFleeceReadQuiz() {
+  return {
+    kjvRef: 'Judges 6:11-40 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text: 'The children of Israel cried out to the Lord because the Midianites were troubling them.',
+        caption: 'A cry for help',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text:
+          'God chose a man named Gideon to deliver His people. The angel of the Lord came to Gideon and said, "The Lord is with thee, thou mighty man of valour."',
+        caption: 'A gentle, strong word',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Gideon felt small and afraid. He put a fleece of wool on the ground and prayed for a sign.',
+        caption: 'Honest prayer',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'In the morning the fleece was wet with dew, but the ground all around was dry.',
+        caption: 'The first sign',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'Gideon asked for one more sign: let the fleece be dry only, and let the ground be covered with dew. God did exactly as Gideon asked.',
+        caption: 'The second sign',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Gideon knew the Lord was with him, and he began to obey God\'s call.',
+        caption: 'Trust grows',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    paragraphs: [
+      'The children of Israel cried out to the Lord because the Midianites were troubling them. God chose a man named Gideon to deliver His people.',
+      'One day Gideon was threshing wheat in a winepress, hiding from the Midianites, when the angel of the Lord appeared to him and said, "The Lord is with thee, thou mighty man of valour."',
+      'Gideon felt small and afraid. He asked for a sign. That night he put a fleece of wool on the threshingfloor. He prayed, "If the dew be on the fleece only, and it be dry upon all the earth beside, then shall I know that thou wilt save Israel by mine hand."',
+      'In the morning the fleece was wet with dew, but the ground was dry. Gideon asked for one more sign: "Let it now be dry only upon the fleece, and upon all the ground let there be dew."',
+      'God did exactly as Gideon asked. The fleece was dry, but the ground was covered with dew.',
+      'Gideon knew the Lord was with him, and he began to obey God\'s call.',
+      'For you: God is patient when we pray — He loves honest hearts that look to Him.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Judges 7', 'Judges 6:11-40', 'Ruth 2', 'Genesis 12'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: Judges 6:11-40.)'
+      },
+      {
+        question: 'What did the angel call Gideon?',
+        choices: [
+          'A sleepy shepherd.',
+          'Thou mighty man of valour — the Lord is with thee.',
+          'A man too proud to pray.',
+          'Someone God forgot.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Right — God saw courage in him before Gideon felt brave.',
+        wrongFeedback: 'Listen for the angel\'s words in the story. (Answer: Mighty man of valour….)'
+      },
+      {
+        question: 'What was special about the first morning with the fleece?',
+        choices: [
+          'Everything was underwater.',
+          'The fleece was full of dew, but the ground around it was dry.',
+          'The fleece disappeared.',
+          'Nothing happened.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes — God answered Gideon\'s prayer clearly.',
+        wrongFeedback: 'Remember wet wool, dry earth. (Answer: Dew on the fleece only….)'
+      },
+      {
+        question: 'What happened the second time Gideon asked?',
+        choices: [
+          'God was too busy.',
+          'The fleece was dry, but the ground was wet with dew.',
+          'Gideon ran away.',
+          'The Midianites won at once.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Exactly — God did exactly as Gideon asked.',
+        wrongFeedback: 'Flip the first sign in your mind. (Answer: Fleece dry, ground dewy….)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Never tell God when we feel afraid.',
+          'Talk to God honestly when we feel small — He is patient and near.',
+          'Only brave people may pray.',
+          'Hide every question from God.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful — that is faith with honest words.',
+        wrongFeedback: 'Pick the choice that shows trust and talking to God. (Answer: Talk to God honestly….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Gideon's Fleece with God's Word today.",
+    takeaway:
+      'God called Gideon brave when he still felt afraid — and answered his prayers so he could trust and obey.',
+    prayer:
+      'God, thank You for the Bible. Thank You that You hear me when I pray. Help me trust You like Gideon learned to. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, wonder-filled trusting mood, no army, no fear face, no text in image: Gideon kneeling calmly beside large piece of fleece wool on ground, soft dew drops on fleece sparkling simple circles, ground all around fleece clearly dry open space, Gideon face hopeful thankful looking up, gentle night sky few small stars soft hills background minimal lines plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel speaks — mighty man of valour (judges 6)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Fleece on the threshingfloor',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Dew on the fleece only',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God answers again — dry fleece, wet ground'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -2159,5 +2284,6 @@ module.exports = {
   sunStandsStill: buildSunStandsStillReadQuiz(),
   achan: buildAchanReadQuiz(),
   battleOfAi: buildBattleOfAiReadQuiz(),
-  deborahBarak: buildDeborahBarakReadQuiz()
+  deborahBarak: buildDeborahBarakReadQuiz(),
+  gideonFleece: buildGideonFleeceReadQuiz()
 };

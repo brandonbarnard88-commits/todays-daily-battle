@@ -934,6 +934,26 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 4:6</text>'
       ),
 
+      /* Gideon's fleece — loop 38 / library gideonFleece */
+      gideonFleece: svg(
+        ground() + hills() +
+        star(52, 38, 5) + star(78, 52, 4) + star(95, 34, 4) + star(118, 48, 5) +
+        '<ellipse cx="200" cy="228" rx="62" ry="22" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<circle cx="175" cy="220" r="3.5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="192" cy="214" r="3" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="210" cy="218" r="3.5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="228" cy="224" r="3" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="188" cy="232" r="2.8" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<circle cx="215" cy="232" r="2.8" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        person(200, 168, 11, 30) +
+        '<line x1="200" y1="198" x2="200" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="188" y1="208" x2="178" y2="218" ' + s + ' stroke-width="2"/>' +
+        '<line x1="212" y1="208" x2="222" y2="218" ' + s + ' stroke-width="2"/>' +
+        '<line x1="200" y1="228" x2="194" y2="242" ' + s + ' stroke-width="2"/>' +
+        '<line x1="200" y1="228" x2="206" y2="242" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 6:37</text>'
+      ),
+
       /* Victory at Ai — loop 165 / library battleOfAi */
       battleOfAi: svg(
         ground() + hills() +
@@ -2898,7 +2918,7 @@
     cainAbel: 'adamEve',
     lostCoin: 'widowMite',
     parableTalents: 'richYoungRuler',
-    gideonFleece: 'faithMustard',
+    gideonFleece: 'gideonFleece',
     gideonMidianites: 'jerichoWalls',
     deborahBarak: 'deborahBarak',
     samsonBirth: 'samsonHair',
@@ -4447,7 +4467,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'fallOfJericho', 'ruthBoaz',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'fallOfJericho', 'ruthBoaz',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

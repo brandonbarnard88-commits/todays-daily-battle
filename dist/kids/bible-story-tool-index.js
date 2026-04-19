@@ -2282,9 +2282,9 @@
     "kjvRef": "Exodus 20:1-17",
     "who": "God",
     "to": "Moses and the Israelites",
-    "apply": "God gave Moses ten rules on stone tablets to help people love God and love others. They were good laws to live by. God's rules show us how to live happy and right. When you follow them, you honor God and treat people well.",
+    "apply": "At Mount Sinai God spoke His holy law and wrote the ten commandments on stone for Moses. His words teach us to love Him with all our heart and to honor one another with truth and kindness. When we need help to obey, we can pray—God hears and gives a willing heart.",
     "theme": "Obedience",
-    "kw": "ten commandments moses mountain tablets exodus 20 rules law"
+    "kw": "ten commandments moses mountain tablets exodus 20 sinai sabbath stone law rules"
   },
   {
     "key": "tenPlagues",

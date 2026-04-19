@@ -592,6 +592,137 @@ function buildMannaReadQuiz() {
   };
 }
 
+/** Ten Commandments — read-along + quiz (Exodus 20:1-17). */
+function buildTenCommandmentsReadQuiz() {
+  var commandmentsBlock =
+    'God spoke these words:\n\n' +
+    '"I am the Lord thy God, which have brought thee out of the land of Egypt, out of the house of bondage.\n\n' +
+    'Thou shalt have no other gods before me.\n\n' +
+    'Thou shalt not make unto thee any graven image.\n\n' +
+    'Thou shalt not take the name of the Lord thy God in vain.\n\n' +
+    'Remember the sabbath day, to keep it holy.\n\n' +
+    'Honour thy father and thy mother.\n\n' +
+    'Thou shalt not kill.\n\n' +
+    'Thou shalt not commit adultery.\n\n' +
+    'Thou shalt not steal.\n\n' +
+    'Thou shalt not bear false witness against thy neighbour.\n\n' +
+    'Thou shalt not covet thy neighbour\'s house, thou shalt not covet thy neighbour\'s wife, nor his manservant, nor his maidservant, nor his ox, nor his ass, nor any thing that is thy neighbour\'s."';
+
+  return {
+    kjvRef: 'Exodus 20:1-17 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          "God's people had come to the foot of Mount Sinai. A thick cloud covered the mountain, and there was thunder and lightning. The mountain shook, and the people were afraid.",
+        caption: 'At the holy mountain',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text: 'Moses went up the mountain to meet with God.',
+        caption: 'Moses goes up to God',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text: commandmentsBlock,
+        caption: 'God speaks His law',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'God wrote these ten commandments on two tables of stone and gave them to Moses so His people would know how to love Him and love each other.',
+        caption: 'Written on stone',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text: 'The people stood far off, but Moses drew near to the thick darkness where God was.',
+        caption: 'Moses draws near',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    paragraphs: [
+      "God's people had come to the foot of Mount Sinai. A thick cloud covered the mountain, and there was thunder and lightning. The mountain shook, and the people were afraid.",
+      'Moses went up the mountain to meet with God.',
+      commandmentsBlock,
+      'God wrote these ten commandments on two tables of stone and gave them to Moses so His people would know how to love Him and love each other.',
+      'The people stood far off, but Moses drew near to the thick darkness where God was.',
+      "For you: God's commandments teach us to love Him first and to honor others with truth and kindness. When we need help to obey, we can pray and ask Him for a willing heart."
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Genesis 1:1', 'Exodus 20:1-17', 'John 3:16'],
+        correctIndex: 2,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the first paragraph\'s Bible note. (Answer: Exodus 20:1-17.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['Nobody', 'Only sheep', 'God', 'Pharaoh only'],
+        correctIndex: 2,
+        correctFeedback: 'Right—keep that person (or group) in mind as you think about God.',
+        wrongFeedback: 'Look for who the story follows first—names in the title often help. (Answer: God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never hears when kids pray.',
+          'The Bible is only pretend stories.',
+          'We should hide from God when we mess up.',
+          'God gave His commandments so His people would know how to love Him and love each other.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Exactly—that lines up with the story and the “For you” heart of it.',
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God gave His commandments….)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed on the mountain.',
+          'God wrote the ten commandments on two tables of stone for Moses.',
+          'A talking toaster gave new laws to Egypt.',
+          'The people built a roller coaster on the moon.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.',
+          'Ask God to help you honor Him and love others the way His words say.'
+        ],
+        correctIndex: 3,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Ask God to help you….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading the Ten Commandments with God's Word today.",
+    takeaway:
+      'God spoke His law on Sinai and gave Moses stone tablets—holy words that teach us to love God and love our neighbor.',
+    prayer:
+      'God, thank You for the Bible. Thank You for Your good commandments. Help me honor You and care for others. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children, bold thick outlines, large open spaces, reverent wonder not fear, soft lightning only, no scary faces, no dark shadows, no text in image: Moses on Mount Sinai holding two blank stone tablets, gentle clouds and soft lightning lines around mountain top, calm reverent Moses, God shown only as soft light rays from heaven, minimal sky and mountain lines, plenty of white space, ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses on the mountain – God speaks (exodus 20)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Two stone tablets – Ten Commandments',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Cloud and thunder at Sinai – holy ground',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses brings God\'s law to the people (tablets)'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -601,5 +732,6 @@ module.exports = {
   mosesBush: buildMosesBushReadQuiz(),
   burningBush: buildMosesBushReadQuiz(),
   passoverLamb: buildPassoverLambReadQuiz(),
-  manna: buildMannaReadQuiz()
+  manna: buildMannaReadQuiz(),
+  tenCommandments: buildTenCommandmentsReadQuiz()
 };

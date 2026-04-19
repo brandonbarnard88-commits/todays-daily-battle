@@ -2735,6 +2735,121 @@ function buildSamsonDelilahReadQuiz() {
   };
 }
 
+/** Samson and the Pillars — Judges 16:23-30 (KJV); prayer, pillars, God hears. */
+function buildSamsonPillarsReadQuiz() {
+  return {
+    kjvRef: 'Judges 16:23-30 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'Then the lords of the Philistines gathered them together for to offer a great sacrifice unto Dagon their god, and to rejoice: for they said, Our god hath delivered Samson our enemy into our hand. And when the people saw him, they praised their god: for they said, Our god hath delivered into our hands our enemy, and the destroyer of our country, which slew many of us. And it came to pass, when their hearts were merry, that they said, Call for Samson, that he may make us sport. And they called for Samson out of the prison house; and he made them sport: and they set him between the pillars.',
+        caption: 'They did not know the Lord had not forgotten him',
+        image: 'panel-daniel-1.svg'
+      },
+      {
+        text:
+          'And Samson said unto the lad that held him by the hand, Suffer me that I may feel the pillars whereupon the house standeth, that I may lean upon them. Now the house was full of men and women; and all the lords of the Philistines were there; and there were upon the roof about three thousand men and women, that beheld while Samson made sport.',
+        caption: 'Between the two middle pillars',
+        image: 'panel-daniel-2.svg'
+      },
+      {
+        text:
+          'And Samson called unto the LORD, and said, O Lord GOD, remember me, I pray thee, and strengthen me, I pray thee, only this once, O God, that I may be at once avenged of the Philistines for my two eyes.',
+        caption: 'One honest prayer',
+        image: 'panel-daniel-2.svg'
+      },
+      {
+        text:
+          'And Samson took hold of the two middle pillars upon which the house stood, and on which it was borne up, of the one with his right hand, and of the other with his left. And Samson said, Let me die with the Philistines. And he bowed himself with all his might; and the house fell upon the lords, and upon all the people that were therein. So the dead which he slew at his death were more than they which he slew in his life.',
+        caption: 'The Lord gave strength one last time',
+        image: 'panel-daniel-3.svg'
+      }
+    ],
+    paragraphs: [
+      'The Philistines brought Samson out to make sport of him in the house of Dagon their god. They did not know that the Lord had not forgotten him.',
+      'Samson was placed between the two middle pillars that held up the house. He prayed, "O Lord God, remember me, I pray thee, and strengthen me, I pray thee, only this once, O God."',
+      'Then Samson took hold of the two middle pillars, one with his right hand and the other with his left. He bowed himself with all his might and said, "Let me die with the Philistines."',
+      'The house fell upon the lords and all the people that were in it. So the dead which he slew at his death were more than they which he slew in his life.',
+      'In this way the Lord gave Samson strength one last time to deliver His people from their enemies.',
+      'For you: God hears prayer — even when the room feels loud, He can give quiet strength.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Judges 16:4', 'Judges 16:23-30', 'Judges 14', 'Ruth 2'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: Judges 16:23-30.)'
+      },
+      {
+        question: 'What did Samson pray?',
+        choices: [
+          'To forget God.',
+          'O Lord GOD, remember me, I pray thee, and strengthen me, I pray thee, only this once, O God.',
+          'To hide forever.',
+          'To never speak again.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Right — honest words to the Lord.',
+        wrongFeedback: 'Listen for remember and strengthen. (Answer: Remember me… strengthen me… only this once….)'
+      },
+      {
+        question: 'What did Samson take hold of?',
+        choices: [
+          'A small stone only.',
+          'The two middle pillars upon which the house stood.',
+          'A river.',
+          'Nothing at all.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes — both pillars, right and left.',
+        wrongFeedback: 'Think pillars. (Answer: Two middle pillars….)'
+      },
+      {
+        question: 'What happened when he bowed himself with all his might?',
+        choices: [
+          'The house fell upon the lords and all the people that were therein.',
+          'Everyone went home quietly.',
+          'Nothing moved.',
+          'The sun stood still.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Exactly — the record says the house fell.',
+        wrongFeedback: 'Think house and fell. (Answer: The house fell….)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Talk to Him honestly — He still hears when we pray.',
+          'Never pray when we feel weak.',
+          'Only grown-ups may pray.',
+          'Hide from the Bible.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful — quiet trust in prayer.',
+        wrongFeedback: 'Pick honest prayer. (Answer: Talk to Him honestly….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Samson and the Pillars with God's Word today.",
+    takeaway:
+      'Samson prayed — remember me, strengthen me this once — and the Lord answered with strength for His people.',
+    prayer:
+      'Lord God, thank You that You hear prayer. When I feel small or tired, help me speak honestly to You. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art young children bold thick outlines large open spaces hopeful reverent mood calm prayerful face looking up no fear no falling debris no text Samson standing between two large pillars indoors hands resting gently on each pillar long hair simple robe simple beams ceiling minimal plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text House of Dagon crowd (judges 16)',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Samson between the pillars',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text O Lord God remember me',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text God gives strength one last time'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -2765,5 +2880,6 @@ module.exports = {
   gideonMidianites: buildGideonMidianitesReadQuiz(),
   samsonBirth: buildSamsonBirthReadQuiz(),
   samsonLion: buildSamsonLionReadQuiz(),
-  samsonDelilah: buildSamsonDelilahReadQuiz()
+  samsonDelilah: buildSamsonDelilahReadQuiz(),
+  samson: buildSamsonPillarsReadQuiz()
 };

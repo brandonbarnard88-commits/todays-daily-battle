@@ -2119,12 +2119,12 @@
   {
     "key": "samson",
     "title": "Samson and the Pillars",
-    "kjvRef": "Judges 16:28-30",
+    "kjvRef": "Judges 16:23-30",
     "who": "The Lord",
-    "to": "Samson — and every heart that turns back to God",
-    "apply": "Samson had lost much, but he did not stop talking to God. He asked the Lord to remember him and strengthen him once more — not to show off, but because God's name was mocked. God heard. When you are sorry and honest with God, He still listens.",
+    "to": "Samson — and every heart that prays honestly",
+    "apply": "The crowd did not know that God had not forgotten Samson. He prayed a simple, honest prayer — remember me, strengthen me this once — and God answered. When you feel at the end of your rope, you can still speak to God; He hears.",
     "theme": "Protection",
-    "kw": "samson pillars judges 16 strength temple dagon philistines pray remember me"
+    "kw": "samson pillars judges 16 strength dagon philistines pray remember me middle pillars lord god deliver sport"
   },
   {
     "key": "samsonBirth",

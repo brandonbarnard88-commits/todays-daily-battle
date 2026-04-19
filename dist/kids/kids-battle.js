@@ -950,23 +950,36 @@
     samson: {
       title: 'Samson and the Pillars',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Samson prays — O Lord God, remember me, I pray thee' },
-        { src: 'panel-daniel-2.svg', alt: 'Between the two pillars — one last trust in God' },
-        { src: 'panel-daniel-3.svg', alt: 'The Lord gave strength — the house fell upon the lords and all the people' }
+        { src: 'panel-daniel-1.svg', alt: 'They set Samson between the pillars — he asks to lean upon the house' },
+        { src: 'panel-daniel-2.svg', alt: 'Samson prays — O Lord God, remember me, and strengthen me only this once' },
+        { src: 'panel-daniel-3.svg', alt: 'He bowed himself with all his might — the Lord heard his prayer' }
       ],
-      caption: 'Swipe to see God answer one more prayer — strength for what is right.',
+      caption: 'Swipe to see God hear one last honest prayer — and give strength for His people.',
       videoId: 'vnRAdASpsz4',
       videoTitle: 'Samson and the Pillars – Bible Lessons for Kids!',
-      keywords: ['samson', 'pillars', 'judges 16', 'strength', 'temple', 'dagon', 'philistines', 'pray', 'remember me'],
-      kjvRef: 'Judges 16:28-30',
+      keywords: [
+        'samson',
+        'pillars',
+        'judges 16',
+        'strength',
+        'dagon',
+        'philistines',
+        'pray',
+        'remember me',
+        'middle pillars',
+        'lord god',
+        'deliver',
+        'sport'
+      ],
+      kjvRef: 'Judges 16:23-30',
       kidContext: {
         who: 'The Lord',
-        to: 'Samson — and every heart that turns back to God',
+        to: 'Samson — and every heart that prays honestly',
         apply:
-          "Samson had lost much, but he did not stop talking to God. He asked the Lord to remember him and strengthen him once more — not to show off, but because God's name was mocked. God heard. When you are sorry and honest with God, He still listens."
+          "The crowd did not know that God had not forgotten Samson. He prayed a simple, honest prayer — remember me, strengthen me this once — and God answered. When you feel at the end of your rope, you can still speak to God; He hears."
       },
       narration:
-        "Samson and the Pillars – Judges 16:28-30. The Philistines brought Samson out to make sport before their god. Samson said unto the lad that held him by the hand, Suffer me that I may feel the pillars whereupon the house standeth. And Samson called unto the LORD, and said, O Lord GOD, remember me, I pray thee, and strengthen me, I pray thee, only this once, O God, that I may be at once avenged of the Philistines for my two eyes. And Samson took hold of the two middle pillars upon which the house stood, and on which it was borne up, and he bowed himself with all his might; and the house fell upon the lords, and upon all the people that were therein. For you: God hears an honest prayer — ask Him for strength to honor Him, not to boast."
+        "Samson and the Pillars – Judges 16:23-30. The lords of the Philistines gathered to offer sacrifice unto Dagon their god and to rejoice, for they said, Our god hath delivered Samson our enemy into our hand. When their hearts were merry, they called for Samson out of the prison house; he made them sport, and they set him between the pillars. Samson said unto the lad that held him by the hand, Suffer me that I may feel the pillars whereupon the house standeth, that I may lean upon them. Samson called unto the LORD, and said, O Lord GOD, remember me, I pray thee, and strengthen me, I pray thee, only this once, O God, that I may be at once avenged of the Philistines for my two eyes. He took hold of the two middle pillars, of the one with his right hand, and of the other with his left; and he said, Let me die with the Philistines. He bowed himself with all his might; and the house fell upon the lords, and upon all the people that were therein. So the dead which he slew at his death were more than they which he slew in his life. For you: God gave strength one last time — He still listens when we pray."
     },
     fieryFurnace: {
       title: 'Fiery Furnace',
@@ -5321,7 +5334,9 @@
       return { type: 'carousel', story: 'samsonDelilah' };
     }
     if (
-      /judges 16:28|judges 16:29|judges 16:30|pillars|middle pillars|dagon|remember me.*samson|samson.*remember me|die with the philistines|avenged.*philistines/.test(low)
+      /judges 16:2[3-9]|judges 16:30|pillars|middle pillars|dagon|remember me.*samson|samson.*remember me|die with the philistines|avenged.*philistines|samson.*pillars|lean upon them|make us sport|made them sport/.test(
+        low
+      )
     ) {
       return { type: 'carousel', story: 'samson' };
     }

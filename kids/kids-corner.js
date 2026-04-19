@@ -1144,19 +1144,31 @@
 
       /* Samson and the Pillars — loop 7 / library key samson */
       samson: svg(
-        ground() +
-        person(180, 155, 16, 48) +
-        '<path d="M164 168 Q148 180 140 210 Q136 225 145 235" ' + s + ' stroke-width="3"/>' +
-        '<path d="M196 168 Q215 178 220 208 Q224 225 215 235" ' + s + ' stroke-width="3"/>' +
-        '<line x1="164" y1="168" x2="155" y2="205" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="172" y1="166" x2="165" y2="208" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="196" y1="168" x2="205" y2="205" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="188" y1="166" x2="195" y2="208" ' + s + ' stroke-width="2.5"/>' +
-        person(270, 168, 12, 35) +
-        '<path d="M268 182 Q258 195 263 205" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M272 182 Q282 192 278 202" ' + s + ' stroke-width="2.5"/>' +
-        sun(50, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 16:30</text>'
+        '<rect x="48" y="58" width="304" height="188" rx="8" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="48" y1="228" x2="352" y2="228" ' + s + ' stroke-width="2.5"/>' +
+        /* two middle pillars */
+        '<rect x="118" y="78" width="36" height="152" rx="4" ' + sf + ' fill="white" stroke-width="3.5"/>' +
+        '<rect x="246" y="78" width="36" height="152" rx="4" ' + sf + ' fill="white" stroke-width="3.5"/>' +
+        '<line x1="136" y1="88" x2="136" y2="98" ' + s + ' stroke-width="2" stroke-dasharray="5,4"/>' +
+        '<line x1="264" y1="88" x2="264" y2="98" ' + s + ' stroke-width="2" stroke-dasharray="5,4"/>' +
+        /* Samson between pillars — prayerful, hands on pillars */
+        '<circle cx="200" cy="138" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M187 128 Q200 118 213 128" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M178 148 Q178 175 178 205" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M222 148 Q222 175 222 205" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="200" y1="161" x2="200" y2="205" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="178" y1="205" x2="168" y2="228" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="222" y1="205" x2="232" y2="228" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="191" y1="168" x2="154" y2="168" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="209" y1="168" x2="246" y2="168" ' + s + ' stroke-width="2.8"/>' +
+        '<ellipse cx="154" cy="168" rx="7" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="246" cy="168" rx="7" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* long hair locks */
+        '<path d="M186 128 Q172 145 170 168" ' + s + ' stroke-width="2"/>' +
+        '<path d="M200 132 Q200 155 198 172" ' + s + ' stroke-width="2"/>' +
+        '<path d="M214 128 Q228 145 230 168" ' + s + ' stroke-width="2"/>' +
+        star(200, 52, 10) + star(168, 62, 6) + star(232, 62, 6) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 16:28</text>'
       ),
 
       /* ── Week 3: Ruth Glean (42) ── */
@@ -4576,7 +4588,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'fallOfJericho', 'ruthBoaz',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthBoaz',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

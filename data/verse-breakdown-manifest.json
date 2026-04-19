@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T19:04:28.247Z",
-  "surfacedRefCount": 2758,
-  "overrideCount": 2758,
+  "generatedAt": "2026-04-19T19:10:57.173Z",
+  "surfacedRefCount": 2760,
+  "overrideCount": 2760,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 133,
+      "refs": 134,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 151,
+      "refs": 153,
       "pairs": 0
     },
     "kids/kids-corner.js": {
@@ -2671,7 +2671,9 @@
     "Numbers 12:10",
     "Numbers 12:3",
     "Numbers 12:6",
-    "Numbers 13:27",
+    "Numbers 13:1-3",
+    "Numbers 13:1-33",
+    "Numbers 13:17-33",
     "Numbers 13:30",
     "Numbers 14:24",
     "Numbers 16:37",
@@ -20621,10 +20623,26 @@
         "to": "Israel"
       }
     },
-    "Numbers 13:27": {
+    "Numbers 13:1-3": {
       "general": {
-        "plainExplanation": "And they told him, and said, We came to the land whither you sentest us, and surely it floweth with milk and honey; and this is the fruit of it.",
+        "plainExplanation": "Key idea: And the LORD spake to Moses, saying, Send you men, that they may search the land of Canaan, which I give to the children of Israel: of every tribe of their...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Numbers 13:1-33": {
+      "general": {
+        "plainExplanation": "Key idea: And the LORD spake to Moses, saying, Send you men, that they may search the land of Canaan, which I give to the children of Israel: of every tribe of their...",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Numbers 13:17-33": {
+      "general": {
+        "plainExplanation": "Key idea: And Moses sent them to spy out the land of Canaan, and said to them, Get you up this way southward, and go up into the mountain: And see the land, what it i...",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Moses",
         "to": "Israel"
       }

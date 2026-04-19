@@ -2239,12 +2239,12 @@
   {
     "key": "spiesInCanaan",
     "title": "Spies in Canaan",
-    "kjvRef": "Numbers 13",
+    "kjvRef": "Numbers 13:1-33; 14:1-9",
     "who": "God",
-    "to": "Israel",
-    "apply": "Giants look big, but God is bigger — trust His promise.",
+    "to": "Israel through Moses",
+    "apply": "God sent twelve spies to see the land He promised. Ten focused on fear, but Joshua and Caleb said, 'The Lord is with us—do not fear.' When scary voices get loud, remember: God's Word is true, and He is stronger than anything. Trust Him like Joshua and Caleb.",
     "theme": "Obedience",
-    "kw": "spies canaan numbers 13 joshua caleb grapes giants"
+    "kw": "spies canaan numbers 13 numbers 14 joshua caleb grapes promise trust faith courage"
   },
   {
     "key": "stephen",

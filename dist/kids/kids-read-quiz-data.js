@@ -10052,7 +10052,7 @@
           "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
           "Psalm 23",
           "Luke 24:13–35",
-          "Numbers 13"
+          "Numbers 13:1-33; 14:1-9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12815,7 +12815,7 @@
           "1 Corinthians 13",
           "Psalm 23",
           "Luke 24:13–35",
-          "Numbers 13"
+          "Numbers 13:1-33; 14:1-9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17516,7 +17516,7 @@
         "choices": [
           "Luke 24:13–35",
           "Genesis 22",
-          "Numbers 13",
+          "Numbers 13:1-33; 14:1-9",
           "Acts 8:26–40"
         ],
         "correctIndex": 3,
@@ -21494,7 +21494,7 @@
           "Genesis 18:9–15",
           "Genesis 22",
           "Matthew 26",
-          "Numbers 13"
+          "Numbers 13:1-33; 14:1-9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22155,88 +22155,113 @@
     ]
   },
   "spiesInCanaan": {
-    "kjvRef": "Numbers 13",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Numbers 13:1-3, 17-33; 14:1-9 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "God told Moses to send twelve men to spy out the land of Canaan that He had promised to give His people.",
+        "caption": "Twelve men go to see the land",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The men went and explored the land for forty days. They saw beautiful fruit, strong cities, and tall people. When they returned, ten of the spies said, \"The land is good, but the people are too strong for us. We cannot go up against them.\"",
+        "caption": "A good land — hard news from ten",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "But Caleb and Joshua said, \"Let us go up at once, and possess it; for we are well able to overcome it. The Lord is with us. Do not fear the people of the land.\"",
+        "caption": "Caleb and Joshua trust the Lord",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "The people listened to the ten fearful spies and began to cry and complain. But Joshua and Caleb trusted God and tried to encourage the people to believe the Lord.",
+        "caption": "Faithful words in a hard moment",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Spies in Canaan (Numbers 13).",
-      "Twelve spies see how good the land is Huge grapes.",
-      "ten spies are afraid of giants Joshua and Caleb trust God to give the land Giants look big, but God is bigger.",
-      "trust His promise."
+      "God told Moses to send twelve men to spy out the land of Canaan that He had promised to give His people.",
+      "The men went and explored the land for forty days. They saw beautiful fruit, strong cities, and tall people. When they returned, ten of the spies said, \"The land is good, but the people are too strong for us. We cannot go up against them.\"",
+      "But Caleb and Joshua said, \"Let us go up at once, and possess it; for we are well able to overcome it. The Lord is with us. Do not fear the people of the land.\"",
+      "The people listened to the ten fearful spies and began to cry and complain. But Joshua and Caleb trusted God and tried to encourage the people to believe the Lord.",
+      "For you: When others are afraid, you can still trust God—He is bigger than any problem. Listen for His promise and take courage."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 13",
-          "1 Samuel 18",
-          "Mark 12",
-          "Revelation 4–5"
+          "Psalm 23",
+          "Genesis 1:1",
+          "Numbers 13:1-3, 17-33; 14:1-9",
+          "John 3:16"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Numbers 13.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph's Bible note. (Answer: Numbers 13:1-3, 17-33; 14:1-9.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Hannah and God",
-          "David",
-          "God",
-          "John"
+          "Nobody",
+          "Only sheep",
+          "Joshua and Caleb",
+          "Pharaoh only"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "wrongFeedback": "Look for who trusted God and spoke with courage. (Answer: Joshua and Caleb.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
+          "God never helps when we are scared.",
           "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "Giants look big, but God is bigger — trust His promise.",
-          "We should hide from God when we mess up."
+          "We should hide from God when we mess up.",
+          "God keeps His promises—when we trust Him, we can be brave like Joshua and Caleb."
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Giants look big, but God is bigger — trust His promise..)"
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God keeps His promises….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "Twelve spies see how good the land is"
+          "A spaceship landed in the grape patch.",
+          "Caleb and Joshua said the Lord was with them and the people should not fear.",
+          "A talking toaster became king of Canaan.",
+          "Everyone decided to never sleep again."
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
         "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Giants look big, but God is bigger — trust His promise.",
-          "Only be kind to people who are exactly like us.",
+          "Ignore God until we are older.",
           "Never say sorry when we do wrong.",
-          "Ignore God until we are older."
+          "Only be kind to people who are exactly like us.",
+          "Pray for courage to trust God's promises—even when others feel afraid."
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Giants look big, but God is bigger — trust His promise..)"
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Pray for courage….)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Spies in Canaan with God's Word today.",
-    "takeaway": "Giants look big, but God is bigger — trust His promise.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Spies in Canaan. Amen.",
+    "takeaway": "Joshua and Caleb looked to the Lord—the good land was His gift, and His strength was enough.",
+    "prayer": "God, thank You for the Bible. Thank You that You keep Your promises. Help me trust You when I feel afraid. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Twelve spies see how good the land is (spies)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Huge grapes — ten spies are afraid of giants (canaan)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joshua and Caleb trust God to give the land (numbers 13)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Twelve spies see how good the land is (joshua)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Huge grapes — ten spies are afraid of giants (caleb)"
-    ]
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, hopeful trusting mood, no giants, no angry crowd, no scary faces, no text in image: Joshua and Caleb standing bravely but calmly each helping hold a large cluster of grapes on a pole between them, grapes big and beautiful with open coloring areas, soft background gentle hills few trees good land promised, kind confident faces looking toward people, optional tiny simple fig or pomegranate shapes far in background, minimal lines plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Twelve spies see the good land (numbers 13)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Big grape cluster from Canaan",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joshua and Caleb encourage the people",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Trust God—He is with us (caleb joshua)"
+    ],
+    "readAlongImages": []
   },
   "stephen": {
     "kjvRef": "Acts 6:8–7:60",

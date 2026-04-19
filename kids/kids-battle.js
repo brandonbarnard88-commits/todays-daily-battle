@@ -917,16 +917,35 @@
     spiesInCanaan: {
       title: 'Spies in Canaan',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Twelve spies see how good the land is' },
-        { src: 'panel-noah-2.svg', alt: 'Huge grapes — ten spies are afraid of giants' },
-        { src: 'panel-noah-3.svg', alt: 'Joshua and Caleb trust God to give the land' }
+        { src: 'panel-noah-1.svg', alt: 'Twelve spies explore the good land God promised' },
+        { src: 'panel-noah-2.svg', alt: 'A cluster of beautiful grapes from Canaan' },
+        { src: 'panel-noah-3.svg', alt: 'Joshua and Caleb say the Lord is with us—do not fear' }
       ],
       caption: 'Swipe to see faith beat fear! 🍇',
       videoId: '',
       videoTitle: '',
-      keywords: ['spies', 'canaan', 'numbers 13', 'joshua', 'caleb', 'grapes', 'giants'],
-      kjvRef: 'Numbers 13',
-      kidContext: { who: 'God', to: 'Israel', apply: 'Giants look big, but God is bigger — trust His promise.' }
+      keywords: [
+        'spies',
+        'canaan',
+        'numbers 13',
+        'numbers 14',
+        'joshua',
+        'caleb',
+        'grapes',
+        'promise',
+        'trust',
+        'faith',
+        'courage'
+      ],
+      kjvRef: 'Numbers 13:1-33; 14:1-9',
+      kidContext: {
+        who: 'God',
+        to: 'Israel through Moses',
+        apply:
+          "God sent twelve spies to see the land He promised. Ten focused on fear, but Joshua and Caleb said, 'The Lord is with us—do not fear.' When scary voices get loud, remember: God's Word is true, and He is stronger than anything. Trust Him like Joshua and Caleb."
+      },
+      narration:
+        "Spies in Canaan – Numbers 13:17-33; 14:1-9. God told Moses to send twelve men to spy out the land of Canaan that He had promised to give His people. The men went and explored the land for forty days. They saw beautiful fruit, strong cities, and tall people. When they returned, ten of the spies said, 'The land is good, but the people are too strong for us. We cannot go up against them.' But Caleb and Joshua said, 'Let us go up at once, and possess it; for we are well able to overcome it. The Lord is with us. Do not fear the people of the land.' The people listened to the ten fearful spies and began to cry and complain. But Joshua and Caleb trusted God and tried to encourage the people to believe the Lord. For you: God keeps His promises. When you feel afraid, pray and trust Him—He is with you."
     },
     samson: {
       title: 'Samson & His Strength',

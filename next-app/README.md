@@ -18,6 +18,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Deploy (Cloudflare Pages)
+
+The app is built as a **static export** (`next-app/out` via `output: "export"` in `next.config.ts`).
+
+1. In Cloudflare, create a **second** Pages project (do not reuse the static `dist/` site).
+2. In GitHub → **Settings → Secrets**, set **`CF_PAGES_NEXT_PROJECT_NAME`** to that project’s name (slug). Reuse **`CLOUDFLARE_API_TOKEN`** (or **`CF_API_TOKEN`**) and **`CLOUDFLARE_ACCOUNT_ID`** from the main site workflow.
+3. Push to **`main`** — workflow **Deploy Cloudflare Pages (Next.js export)** runs `npm ci && npm run build` in `next-app` and deploys **`next-app/out`**.
+4. Optional: attach a custom domain (e.g. `app.yourdomain.com`) in the Pages project.
+
+If **`CF_PAGES_NEXT_PROJECT_NAME`** is unset, that workflow skips deploy so the static site pipeline keeps working.
+
 ## Troubleshooting (local dev)
 
 - **`ENOENT` / `scandir .../next-app/app` or `app_dir must be a directory`** — the App Router folder is missing locally. From the repo root: `git checkout HEAD -- next-app/app` or `git pull origin main`, then `cd next-app && rm -rf .next && npm run dev`.

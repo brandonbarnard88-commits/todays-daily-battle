@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Canonical daily verse for this Next.js app — bump version when today or catalog changes; keep KJV text exact. For static-site parity, mirror into root script.js ROTATING_HERO_VERSES / daily pickers when you change pilot day.",
-    "version": 2,
+    "version": 3,
     "updatedAt": "2026-04-19T00:00:00.000Z"
   },
   "today": {
@@ -133,6 +133,198 @@
       "verseEchoPrompts": [
         "Jesus, I come as I am — give me Your rest.",
         "Thank You that I don’t have to carry this alone."
+      ]
+    },
+    {
+      "reference": "1 Peter 5:7",
+      "text": "Casting all your care upon him; for he careth for you.",
+      "breakdown": {
+        "speaker": "Peter, writing to scattered believers under pressure",
+        "audience": "People carrying worry like a second job — and anyone who thinks they have to hold it all alone",
+        "relatesToToday": "In 2026 we juggle bills, kids, health, and headlines. This verse doesn’t shame the weight — it points you to hand the whole pile to God because He actually cares.",
+        "relatesToYou": "You’re allowed to offload. God isn’t annoyed by your anxiety; He invites you to cast — throw — your cares on Him.",
+        "realTalk": "Picture literally handing God a heavy bag. That’s the move. He cares for you on purpose, not as a favor you earned."
+      },
+      "byAudience": {
+        "kid": {
+          "relatesToToday": "When worries feel huge, God says give them to Him — He cares about you.",
+          "relatesToYou": "You can tell Jesus what scares you. He wants to help carry it.",
+          "realTalk": "Throw your worries to God like a softball — He catches every one."
+        },
+        "teen": {
+          "relatesToToday": "School pressure, friend drama, future noise — this verse says transfer the weight instead of white-knuckling it.",
+          "relatesToYou": "God cares isn’t empty talk here. It’s permission to stop pretending you’re fine.",
+          "realTalk": "Casting cares means honest prayer: here’s what’s eating me — I’m giving it to You."
+        },
+        "adult": {
+          "relatesToToday": "Night-shift brain fog, parenting guilt, grief waves — Peter says cast, not manage perfectly.",
+          "relatesToYou": "His care covers the messy middle, not just the tidy prayers.",
+          "realTalk": "One honest unload counts. God’s shoulders are the right place for what you can’t fix tonight."
+        }
+      },
+      "verseEchoPrompts": [
+        "Lord, I cast this care on You — You care for me.",
+        "Thank You that I don’t have to carry this alone tonight."
+      ]
+    },
+    {
+      "reference": "Psalm 23:4",
+      "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+      "breakdown": {
+        "speaker": "David, led by the Spirit",
+        "audience": "Anyone walking through dark valleys — grief, fear, danger, depression’s tunnel",
+        "relatesToToday": "Some days feel like a long hallway with no exit. This verse doesn’t promise the hallway disappears — it promises company: God with you, guiding, comforting.",
+        "relatesToYou": "Evil and fear don’t get the last word when you’re not walking alone. His presence is the point.",
+        "realTalk": "Valley walking is real. So is His nearness — rod and staff mean guidance and rescue, not judgment."
+      },
+      "byAudience": {
+        "kid": {
+          "relatesToToday": "Scary times feel like a dark path. God walks right beside you.",
+          "relatesToYou": "You don’t have to be brave alone — God helps your heart feel safer.",
+          "realTalk": "Even in the scariest part, God stays close like a good shepherd."
+        },
+        "teen": {
+          "relatesToToday": "When life feels heavy or hopeless, this line says fear doesn’t have to boss you — God is with you in it.",
+          "relatesToYou": "The valley isn’t proof He left. It’s where shepherds stay closest.",
+          "realTalk": "You can tell God you’re scared and still choose to trust He’s with you."
+        },
+        "adult": {
+          "relatesToToday": "Grief, trauma, chronic pain, night shifts in empty buildings — valleys look different, but the promise holds.",
+          "relatesToYou": "Comfort here is shepherd comfort: steady, patient, close.",
+          "realTalk": "You’re not melodramatic for needing this verse. Dark paths are real; His company is too."
+        }
+      },
+      "verseEchoPrompts": [
+        "Lord, walk with me in this valley — I don’t want to go alone.",
+        "Thank You that Your rod and staff still comfort me."
+      ]
+    },
+    {
+      "reference": "Joshua 1:9",
+      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
+      "breakdown": {
+        "speaker": "The LORD, to Joshua after Moses died",
+        "audience": "Leaders and ordinary people facing a scary next step — new territory, new responsibility",
+        "relatesToToday": "Starting over, moving cities, solo parenting, recovery — courage here isn’t swagger. It’s strength tied to God’s presence wherever you go.",
+        "relatesToYou": "Dismayed doesn’t disqualify you; it’s the very state He speaks into. He goes with you.",
+        "realTalk": "Strong and courageous doesn’t mean you’re not shaking. It means you’re not alone in the shaking."
+      },
+      "byAudience": {
+        "kid": {
+          "relatesToToday": "New things can feel scary. God says be brave — He goes with you.",
+          "relatesToYou": "When you’re nervous, God is like a grown-up holding your hand in a crowd.",
+          "realTalk": "Courage with God means trying the hard thing knowing He’s there."
+        },
+        "teen": {
+          "relatesToToday": "Big changes hit different. This verse ties courage to God’s presence, not to pretending you’re fearless.",
+          "relatesToYou": "Afraid and courageous can coexist when God is the with-you part.",
+          "realTalk": "Take the next step scared — His “with thee” is the fuel."
+        },
+        "adult": {
+          "relatesToToday": "Court dates, hospital halls, first day alone with three kids — dismay is human; His command comes with His company.",
+          "relatesToYou": "You don’t manufacture courage from coffee alone. You borrow it from who walks with you.",
+          "realTalk": "Whithersoever is blanket coverage — night shift, funeral home, empty nursery. He’s there."
+        }
+      },
+      "verseEchoPrompts": [
+        "Lord, I’m stepping forward afraid — go with me.",
+        "Thank You that Your presence is my courage today."
+      ]
+    },
+    {
+      "reference": "John 14:27",
+      "text": "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.",
+      "breakdown": {
+        "speaker": "Jesus Christ, preparing His disciples for His departure",
+        "audience": "Friends about to feel abandoned and afraid — and anyone whose heart won’t settle",
+        "relatesToToday": "The world sells peace as escape, distraction, or control. Jesus gives His own peace — different source, deeper root.",
+        "relatesToYou": "Troubled hearts get addressed directly: His peace is a gift, not a prize for having it together.",
+        "realTalk": "Let not doesn’t mean flip a switch. It means His peace is real enough to lean on when your chest is tight."
+      },
+      "byAudience": {
+        "kid": {
+          "relatesToToday": "When your heart feels jumpy, Jesus gives a special kind of quiet inside.",
+          "relatesToYou": "Jesus’ peace is stronger than scary thoughts — you can ask Him for it.",
+          "realTalk": "His peace is like a soft blanket for your insides — not fake happy, just real help."
+        },
+        "teen": {
+          "relatesToToday": "Noise is loud online and at school. This peace isn’t the world’s cheap version.",
+          "relatesToYou": "You can name fear out loud and still receive what He gives.",
+          "realTalk": "Gift peace means you don’t earn it — you take it from His hand."
+        },
+        "adult": {
+          "relatesToToday": "2 AM spirals, marriage tension, money fear — trouble and afraid are named; so is His answer.",
+          "relatesToYou": "Your heart isn’t too messy for this promise.",
+          "realTalk": "World peace is mood. His peace holds when the circumstance doesn’t."
+        }
+      },
+      "verseEchoPrompts": [
+        "Jesus, give me Your peace — not the world’s fake calm.",
+        "Quiet my heart with what only You can give."
+      ]
+    },
+    {
+      "reference": "Psalm 34:18",
+      "text": "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.",
+      "breakdown": {
+        "speaker": "David, teaching God’s people to bless the Lord at all times",
+        "audience": "The crushed — brokenhearted, humbled, people who feel too messy to approach God",
+        "relatesToToday": "Grief, betrayal, diagnosis, loneliness — broken heart isn’t hidden from God; it’s where He draws near.",
+        "relatesToYou": "You don’t have to glue your heart together before you come. Near is His move toward you.",
+        "realTalk": "Contrite just means honest about the ache. That’s the exact person He saves — not the polished story."
+      },
+      "byAudience": {
+        "kid": {
+          "relatesToToday": "When your heart feels broken, God comes close — not far away.",
+          "relatesToYou": "Crying doesn’t scare God off. He stays near sad kids too.",
+          "realTalk": "Broken hearts get God’s nearness — like a hug when words fail."
+        },
+        "teen": {
+          "relatesToToday": "Heartbreak hits hard at any age. This verse says God isn’t waiting for you to “get over it.”",
+          "relatesToYou": "Honest sadness is a door He walks through, not a wall He avoids.",
+          "realTalk": "Near beats perfect every time."
+        },
+        "adult": {
+          "relatesToToday": "Miscarriage, divorce, death, estrangement — broken is descriptive, not disqualifying.",
+          "relatesToYou": "Salvation here includes rescue in the ache, not only after the ache ends.",
+          "realTalk": "You’re not too far gone if you’re honest. That’s who He saves."
+        }
+      },
+      "verseEchoPrompts": [
+        "Lord, my heart is broken — come near.",
+        "Thank You for saving me in my honest ache, not after I fake fine."
+      ]
+    },
+    {
+      "reference": "Psalm 55:22",
+      "text": "Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.",
+      "breakdown": {
+        "speaker": "David, in turmoil yet preaching wisdom to his own soul",
+        "audience": "Anyone overloaded — betrayed, overwhelmed, carrying what they didn’t choose",
+        "relatesToToday": "Burdens stack: caregiving, injustice, bills, burnout. Cast isn’t poetic fluff — it’s transfer the weight and let God sustain what you cannot.",
+        "relatesToYou": "Sustain means held up when legs shake. Moved means you won’t be knocked off His care.",
+        "realTalk": "You were never meant to solo-carry infinite weight. Hand it up; He holds you up."
+      },
+      "byAudience": {
+        "kid": {
+          "relatesToToday": "When stuff feels too heavy for your size, God says give it to Him.",
+          "relatesToYou": "God helps hold you up when life feels too big.",
+          "realTalk": "Give God your heavy backpack — He won’t drop you."
+        },
+        "teen": {
+          "relatesToToday": "Pressure to fix everything yourself is a lie. This verse licenses transfer, not toughness theater.",
+          "relatesToYou": "Sustain beats swagger. Let Him hold you upright.",
+          "realTalk": "Cast the burden — name it, give it — then breathe."
+        },
+        "adult": {
+          "relatesToToday": "Parenting alone, night shifts, legal fights — burdens have names. God sustains real people, not ideals.",
+          "relatesToYou": "Righteous here isn’t perfection; it’s His-side-of-the-covenant people leaning on Him.",
+          "realTalk": "Moved means you won’t slide off His help when you’re honest about the load."
+        }
+      },
+      "verseEchoPrompts": [
+        "Lord, this burden is Yours — sustain me today.",
+        "I cast what I cannot carry; hold me upright."
       ]
     }
   ]

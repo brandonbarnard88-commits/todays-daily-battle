@@ -125,6 +125,7 @@
   "ruthBoaz": "ruthBoaz",
   "ruthGlean": "ruthGlean",
   "ruthNaomi": "ruthNaomi",
+  "ruthThreshing": "ruthThreshing",
   "samson": "samson",
   "samsonBirth": "samsonBirth",
   "samsonDelilah": "samsonDelilah",

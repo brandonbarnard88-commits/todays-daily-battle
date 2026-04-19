@@ -2077,6 +2077,16 @@
     "kw": "ruth naomi moab bethlehem famine orpah loyal ruth 1 whither thou goest thy people shall be my people thy god my god daughter in law clave"
   },
   {
+    "key": "ruthThreshing",
+    "title": "Ruth at the Threshing Floor",
+    "kjvRef": "Ruth 3:1-18",
+    "who": "The Lord",
+    "to": "Ruth — and every heart that obeys with trust",
+    "apply": "Naomi loved Ruth and wanted a safe home for her. Ruth obeyed with a quiet heart. Boaz answered with kindness and kept his word about the kinsman's part. God honors loyal love and provides a redeemer.",
+    "theme": "Love",
+    "kw": "ruth boaz naomi threshing threshing floor midnight kinsman redeem redeemer skirt handmaid virtuous barley measures ruth 3 obedience kindness"
+  },
+  {
     "key": "ruthGlean",
     "title": "Ruth Gleans in the Field",
     "kjvRef": "Ruth 2",

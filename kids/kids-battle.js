@@ -1602,6 +1602,45 @@
       narration:
         "Ruth and Boaz in the Field – Ruth 2:1-17. Naomi had a kinsman, a mighty man of wealth, Boaz, of Elimelech's kindred. Ruth said unto Naomi, Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace. She came into the field of Boaz. Boaz came from Bethlehem, and said unto the reapers, The LORD be with you. He asked his servant whose damsel this was; it was the Moabitish damsel that came back with Naomi. Boaz said unto Ruth, Hearest thou not, my daughter? Go not to glean in another field… abide here fast by my maidens… when thou art athirst, go unto the vessels, and drink. She bowed herself to the ground, and said, Why have I found grace in thine eyes? Boaz answered, The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust. She gleaned in the field until evening, and beat out that she had gleaned: and it was about an ephah of barley. For you: God provides — often through gentle people He places beside you."
     },
+    ruthThreshing: {
+      title: 'Ruth at the Threshing Floor',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Naomi\'s loving plan — rest for Ruth' },
+        { src: 'panel-david-2.svg', alt: 'A quiet night — Ruth at Boaz\'s feet' },
+        { src: 'panel-david-3.svg', alt: 'Kind words — fear not, I will do all thou requirest' }
+      ],
+      caption: 'Swipe to see brave obedience and Boaz\'s gentle promise.',
+      videoId: 'irThVpdeSXk',
+      videoTitle: "God's Story: Ruth – Bible Story for Kids!",
+      keywords: [
+        'ruth',
+        'boaz',
+        'naomi',
+        'threshing',
+        'threshing floor',
+        'midnight',
+        'kinsman',
+        'redeem',
+        'redeemer',
+        'skirt',
+        'handmaid',
+        'virtuous',
+        'barley',
+        'measures',
+        'ruth 3',
+        'obedience',
+        'kindness'
+      ],
+      kjvRef: 'Ruth 3:1-18',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Ruth — and every heart that obeys with trust',
+        apply:
+          "Naomi loved Ruth and wanted a safe home for her. Ruth obeyed with a quiet heart. Boaz answered with kindness and kept his word about the kinsman's part. God honors loyal love and provides a redeemer."
+      },
+      narration:
+        "Ruth at the Threshing Floor – Ruth 3:1-18. Naomi loved Ruth and wanted to find rest for her. She told Ruth what to do. That night, when Boaz had eaten and drunk and his heart was merry, he went to lie down at the end of the heap of corn; and Ruth came softly, uncovered his feet, and laid her down. At midnight the man was afraid, and turned: and, behold, a woman lay at his feet. He said, Who art thou? And she answered, I am Ruth thine handmaid: spread therefore thy skirt over thine handmaid; for thou art a near kinsman. He said, Blessed be thou of the LORD, my daughter… fear not; I will do to thee all that thou requirest: for all the city of my people doth know that thou art a virtuous woman. He gave her six measures of barley to carry to Naomi, and said that if the nearer kinsman would not do the part of a kinsman, he would. Ruth returned, and Naomi said, The man will not be in rest, until he have finished the thing this day. For you: When we trust God and obey kindly, He works redemption in His time."
+    },
     parableTalents: {
       title: 'Parable of Talents',
       panels: [
@@ -5157,7 +5196,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 288, color: '#e5e4e2' }
+      { name: 'Platinum', min: 289, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5256,7 +5295,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5264,7 +5303,7 @@
       'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
-      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'ruthNaomi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samson',
+      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samson',
       'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
       'saulSpear', 'davidCave',
       'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
@@ -5532,7 +5571,12 @@
     ) {
       return { type: 'carousel', story: 'ruthNaomi' };
     }
-    if (/naomi/.test(low) && !/boaz/.test(low) && !/glean|harvest|barley|ephah|reap|field.*ruth/.test(low)) {
+    if (
+      /ruth 3:|^ruth 3\b|ruth 3 |threshing|heap of corn|spread therefore thy skirt|spread thy skirt|who art thou|virtuous woman|six measures|lodging place|tarry this night|perform the part of a kinsman|nearer kinsman|will not be in rest/.test(low)
+    ) {
+      return { type: 'carousel', story: 'ruthThreshing' };
+    }
+    if (/naomi/.test(low) && !/boaz/.test(low) && !/glean|harvest|barley|ephah|reap|field.*ruth|threshing|skirt|kinsman.*redeem|redeemer/.test(low)) {
       return { type: 'carousel', story: 'ruthNaomi' };
     }
     if (
@@ -8063,7 +8107,7 @@
     jesusTemptation: 'Obedience', parableSower: 'Protection', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
-    ruthBoaz: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',
+    ruthBoaz: 'Love', ruthThreshing: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',
     /* Week 1 */
     mosesSea: 'Miracles', burningBush: 'Obedience', tenPlagues: 'Miracles', naamanDip: 'Obedience',
     creationLight: 'Miracles', elijahFire: 'Miracles', elishaOil: 'Miracles', towerBabel: 'Obedience',

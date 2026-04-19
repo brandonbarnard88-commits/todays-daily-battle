@@ -225,6 +225,7 @@
     romansRoadKids: 88,
     riverOfLife: 158,
     ruthBoaz: 170,
+    ruthThreshing: 171,
     ruthGlean: 8,
     ruthMoab: 124,
     ruthNaomi: 169,

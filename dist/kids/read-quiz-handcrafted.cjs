@@ -3090,6 +3090,125 @@ function buildRuthBoazReadQuiz() {
   };
 }
 
+/** Ruth at the threshing floor — Ruth 3:1-18 (KJV); obedience, kindness, redemption. */
+function buildRuthThreshingReadQuiz() {
+  return {
+    kjvRef: 'Ruth 3:1-18 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'Then Naomi her mother in law said unto her, My daughter, shall I not seek rest for thee, that it may be well with thee? And now is not Boaz of our kindred, with whose maidens thou wast? Behold, he winnoweth barley to night in the threshingfloor. Wash thyself therefore, and anoint thee, and put thy raiment upon thee, and get thee down to the floor: but make not thyself known unto the man, until he shall have done eating and drinking. And it shall be, when he lieth down, that thou shalt mark the place where he shall lie, and thou shalt go in, and uncover his feet, and lay thee down; and he will tell thee what thou shalt do. And she said unto her, All that thou sayest unto me I will do.',
+        caption: 'Naomi\'s loving plan — rest for Ruth',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'And she went down unto the floor, and did according to all that her mother in law bade her. And when Boaz had eaten and drunk, and his heart was merry, he went to lie down at the end of the heap of corn: and she came softly, and uncovered his feet, and laid her down.',
+        caption: 'A quiet night — at the heap of corn',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And it came to pass at midnight, that the man was afraid, and turned: and, behold, a woman lay at his feet. And he said, Who art thou? And she answered, I am Ruth thine handmaid: spread therefore thy skirt over thine handmaid; for thou art a near kinsman.',
+        caption: 'Who art thou? — spread thy skirt',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And he said, Blessed be thou of the LORD, my daughter: thou hast shewed more kindness in the latter end than at the beginning, inasmuch as thou followedst not young men, whether poor or rich. And now, my daughter, fear not; I will do to thee all that thou requirest: for all the city of my people doth know that thou art a virtuous woman.',
+        caption: 'Fear not — thou art a virtuous woman',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'And now it is true that I am thy near kinsman: howbeit there is a kinsman nearer than I. Tarry this night, and it shall be in the morning, that if he will perform unto thee the part of a kinsman, well; let him do the kinsman\'s part: but if he will not do the part of a kinsman to thee, then will I do the part of a kinsman to thee, as the LORD liveth: lie down until the morning.',
+        caption: 'The kinsman\'s part — lie down until the morning',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text:
+          'And she lay at his feet until the morning: and she rose up before one could know another. And he said, Let it not be known that a woman came into the floor. Also he said, Bring the vail that thou hast upon thee, and hold it. And when she held it, he measured six measures of barley, and laid it on her: and she went into the city. And when she came to her mother in law, she said, Who art thou, my daughter? And she told her all that the man had done unto her. And she said, These six measures of barley gave he me; for he said to me, Go not empty unto thy mother in law. Then said she, Sit still, my daughter, until thou know how the matter will fall: for the man will not be in rest, until he have finished the thing this day.',
+        caption: 'Six measures — Naomi waits with hope',
+        image: 'panel-david-1.svg'
+      }
+    ],
+    paragraphs: [
+      'Naomi loved Ruth and wanted to find a safe home for her. She told Ruth what to do.',
+      'That night, when Boaz had finished eating and drinking and was sleeping at the threshing floor, Ruth came quietly. She lay down at his feet.',
+      'At midnight Boaz woke and saw a woman at his feet. He asked, "Who art thou?"',
+      'Ruth answered, "I am Ruth thine handmaid: spread therefore thy skirt over thine handmaid; for thou art a near kinsman."',
+      'Boaz said kindly, "Blessed be thou of the Lord… fear not. I will do to thee all that thou requirest: for all the city of my people doth know that thou art a virtuous woman."',
+      'Boaz gave Ruth six measures of barley to take home to Naomi and said he would do the part of a kinsman if the nearer kinsman would not.',
+      'Ruth returned to Naomi with a full heart, and Naomi said, "The man will not be in rest until he have finished the thing this day."',
+      'For you: God honors loyal love and works redemption in His time.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Ruth 2:1', 'Ruth 3:1-18', 'Judges 16', 'Psalm 23'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: Ruth 3:1-18.)'
+      },
+      {
+        question: 'What did Ruth say to Boaz when he asked who she was?',
+        choices: [
+          'I will go home and forget.',
+          'I am Ruth thine handmaid: spread therefore thy skirt over thine handmaid; for thou art a near kinsman.',
+          'I want to fight a giant.',
+          'I will never glean again.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful — honest and trusting words.',
+        wrongFeedback: 'Listen for handmaid and kinsman. (Answer: I am Ruth thine handmaid….)'
+      },
+      {
+        question: 'What did Boaz tell Ruth not to do?',
+        choices: ['Fear.', 'Sing.', 'Run away from Bethlehem.', 'Help Naomi.'],
+        correctIndex: 0,
+        correctFeedback: 'Right — fear not.',
+        wrongFeedback: 'He spoke peace first. (Answer: Fear not.)'
+      },
+      {
+        question: 'How much barley did Boaz give Ruth to carry home?',
+        choices: ['None.', 'Six measures of barley.', 'One tiny grain.', 'A whole city.'],
+        correctIndex: 1,
+        correctFeedback: 'Yes — generous care for the table.',
+        wrongFeedback: 'Think counted gift. (Answer: Six measures….)'
+      },
+      {
+        question: 'What did Naomi say the man would do about the matter?',
+        choices: [
+          'Forget it forever.',
+          'Not be in rest until he have finished the thing this day.',
+          'Send them away.',
+          'Hide in the field.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Hopeful — she trusted he would finish it well.',
+        wrongFeedback: 'Listen for rest and finished. (Answer: Not be in rest until….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Ruth at the Threshing Floor with God's Word today.",
+    takeaway:
+      'Ruth obeyed with a quiet heart; Boaz answered with kindness and kept his word about the kinsman\'s part.',
+    prayer:
+      'God, thank You for people who speak kindly and keep their word. Thank You that You are our Redeemer. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art young children bold thick outlines large open spaces Ruth kneeling calmly at feet of Boaz on threshing floor at night Boaz sitting up gently kind face few barley stalks nearby soft night sky gentle stars simple floor lines hopeful trusting mood minimal plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Naomi seek rest (ruth 3)',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Who art thou spread skirt',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Fear not virtuous woman',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Six measures barley home'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -3123,5 +3242,6 @@ module.exports = {
   samsonDelilah: buildSamsonDelilahReadQuiz(),
   samson: buildSamsonPillarsReadQuiz(),
   ruthNaomi: buildRuthNaomiReadQuiz(),
-  ruthBoaz: buildRuthBoazReadQuiz()
+  ruthBoaz: buildRuthBoazReadQuiz(),
+  ruthThreshing: buildRuthThreshingReadQuiz()
 };

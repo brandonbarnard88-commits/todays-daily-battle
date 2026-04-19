@@ -63,6 +63,7 @@
     'samson',
     'ruthNaomi',
     'ruthBoaz',
+    'ruthThreshing',
     'ruthMoab',
     'ruthGlean',
     'hannahSamuel',

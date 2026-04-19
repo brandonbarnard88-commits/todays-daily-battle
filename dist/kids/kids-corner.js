@@ -1214,6 +1214,36 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 2:12</text>'
       ),
 
+      /* Ruth at the threshing floor — library ruthThreshing / loop 171 */
+      ruthThreshing: svg(
+        ground() +
+        '<path d="M0 248 Q120 232 200 246 Q280 232 400 248" ' + s + ' stroke-width="2" fill="none"/>' +
+        /* night sky */
+        star(62, 52, 5) + star(108, 40, 4) + star(292, 46, 5) + star(338, 58, 4) + star(188, 36, 3) +
+        /* floor lines */
+        '<line x1="40" y1="238" x2="360" y2="238" ' + s + ' stroke-width="1.5" stroke-dasharray="6,5"/>' +
+        /* barley stalks */
+        '<line x1="88" y1="246" x2="88" y2="214" ' + s + ' stroke-width="2"/>' +
+        '<line x1="105" y1="248" x2="105" y2="222" ' + s + ' stroke-width="2"/>' +
+        '<line x1="72" y1="246" x2="72" y2="228" ' + s + ' stroke-width="2"/>' +
+        /* Ruth kneeling */
+        '<ellipse cx="168" cy="230" rx="24" ry="15" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="168" cy="196" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="168" y1="207" x2="168" y2="222" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="150" y1="216" x2="186" y2="216" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="168" y1="222" x2="152" y2="238" ' + s + ' stroke-width="2"/>' +
+        '<line x1="168" y1="222" x2="184" y2="238" ' + s + ' stroke-width="2"/>' +
+        /* Boaz — sitting up gently */
+        '<ellipse cx="262" cy="226" rx="22" ry="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="262" cy="186" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="262" y1="198" x2="262" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="246" y1="210" x2="278" y2="210" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="262" y1="218" x2="244" y2="236" ' + s + ' stroke-width="2"/>' +
+        '<line x1="262" y1="218" x2="280" y2="236" ' + s + ' stroke-width="2"/>' +
+        '<path d="M232 188 Q242 168 256 178" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 3:11</text>'
+      ),
+
       /* ── Week 3: Samuel Call (43) ── */
       samuelCall: svg(
         '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
@@ -2874,6 +2904,8 @@
     samsonDelilah: 'samsonDelilah',
     ruthGlean: 'ruthGlean',
     ruthBoaz: 'ruthBoaz',
+    ruthThreshing: 'ruthThreshing',
+    ruthBoazNight: 'ruthThreshing',
     samuelCall: 'samuelCall',
     davidHarp: 'davidHarp',
     davidSheep: 'davidHarp',
@@ -4637,7 +4669,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

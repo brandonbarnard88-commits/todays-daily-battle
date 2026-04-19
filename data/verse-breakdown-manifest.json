@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T22:14:02.223Z",
-  "surfacedRefCount": 2782,
-  "overrideCount": 2782,
+  "generatedAt": "2026-04-19T22:28:21.185Z",
+  "surfacedRefCount": 2783,
+  "overrideCount": 2783,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 149,
+      "refs": 150,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 167,
+      "refs": 168,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 147,
+      "refs": 148,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 169,
+      "refs": 170,
       "pairs": 0
     },
     "memorize.html": {
@@ -3296,6 +3296,7 @@
     "Ruth 2:20",
     "Ruth 2:3",
     "Ruth 2:8",
+    "Ruth 3:1-18",
     "Ruth 3:11",
     "Ruth 4:13",
     "Ruth 4:14",
@@ -25641,6 +25642,14 @@
       "general": {
         "plainExplanation": "Then said Boaz to Ruth, Hearest you not, my daughter? Go not to glean in another field, neither go from hence, but abide here fast by my maidens:",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Ruth 3:1-18": {
+      "general": {
+        "plainExplanation": "Key idea: Then Naomi her mother in law said to her, My daughter, shall I not seek rest for you, that it may be well with you? And now is not Boaz of our kindred, with...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Unknown",
         "to": "Israel"
       }

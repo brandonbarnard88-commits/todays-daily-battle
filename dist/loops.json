@@ -67,7 +67,7 @@
     "ref": "Judges 16:30",
     "week": 0,
     "kjvText": "Let me die with the Philistines. And he bowed himself with all his might.",
-    "libraryKey": "samsonHair"
+    "libraryKey": "samson"
   },
   {
     "id": 8,
@@ -1513,5 +1513,14 @@
     "ref": "Judges 14:5-9",
     "week": 12,
     "libraryKey": "samsonLion"
+  },
+  {
+    "id": 168,
+    "title": "Samson and Delilah",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 16:4-21",
+    "week": 12,
+    "libraryKey": "samsonDelilah"
   }
 ]

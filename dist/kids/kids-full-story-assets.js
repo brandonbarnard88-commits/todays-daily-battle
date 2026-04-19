@@ -1267,10 +1267,10 @@
       webm: '/media/kids-stories/samson-birth.webm',
       captionsVtt: '/media/kids-stories/samson-birth.vtt'
     },
-    samsonHair: {
-      mp4: '/media/kids-stories/samson-hair.mp4',
-      webm: '/media/kids-stories/samson-hair.webm',
-      captionsVtt: '/media/kids-stories/samson-hair.vtt'
+    samsonDelilah: {
+      mp4: '/media/kids-stories/samson-delilah.mp4',
+      webm: '/media/kids-stories/samson-delilah.webm',
+      captionsVtt: '/media/kids-stories/samson-delilah.vtt'
     },
     samsonLion: {
       mp4: '/media/kids-stories/samson-lion.mp4',

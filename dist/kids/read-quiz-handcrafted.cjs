@@ -2614,6 +2614,127 @@ function buildSamsonLionReadQuiz() {
   };
 }
 
+/** Samson and Delilah — Judges 16:4-21 (KJV); secret, Nazarite, mercy. */
+function buildSamsonDelilahReadQuiz() {
+  return {
+    kjvRef: 'Judges 16:4-21 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'And it came to pass afterward, that he loved a woman in the valley of Sorek, whose name was Delilah. And the lords of the Philistines came up unto her, and said unto her, Entice him, and see wherein his great strength lieth, and by what means we may prevail against him, that we may bind him to afflict him: and we will give thee every one of us eleven hundred pieces of silver.',
+        caption: 'Love and a hard ask',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text:
+          'And it came to pass, when she pressed him daily with her words, and urged him, so that his soul was vexed unto death; That he told her all his heart, and said unto her, There hath not come a razor upon mine head; for I have been a Nazarite unto God from my mother\'s womb: if I be shaven, then my strength will go from me, and I shall become weak, and be like any other man.',
+        caption: 'The secret he should have kept for God',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'And when Delilah saw that he had told her all his heart, she sent and called for the lords of the Philistines, saying, Come up this once, for he hath shewed me all his heart. Then the lords of the Philistines came up unto her, and brought money in their hand. And she made him sleep upon her knees; and she called for a man, and she caused him to shave off the seven locks of his head; and she began to afflict him, and his strength went from him.',
+        caption: 'While he slept — his strength went',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'And she said, The Philistines be upon thee, Samson. And he awoke out of his sleep, and said, I will go out as at other times before, and shake myself. And he wist not that the LORD was departed from him.',
+        caption: 'He did not know — yet',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text:
+          'But the Philistines took him, and put out his eyes, and brought him down to Gaza, and bound him with fetters of brass; and he did grind in the prison house.',
+        caption: 'A hard turn — the Lord had not left him forever',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    paragraphs: [
+      'Samson loved a woman named Delilah who lived in the valley of Sorek. The lords of the Philistines came to her and said, "Entice him, and see wherein his great strength lieth."',
+      'Delilah asked Samson many times, "Tell me, I pray thee, wherein thy great strength lieth." At first Samson gave her wrong answers, but she kept pressing him.',
+      'Finally Samson told her all his heart: "There hath not come a razor upon mine head; for I have been a Nazarite unto God from my mother\'s womb. If I be shaven, then my strength will go from me, and I shall become weak, and be like any other man."',
+      'While Samson slept on her knees, Delilah called a man to shave off the seven locks of his head. His strength went from him.',
+      'The Philistines took Samson and put out his eyes. But even then the Lord had not left him forever.',
+      'For you: Some secrets belong to God and to wise grown-ups you trust — and when we are sorry, God\'s mercy is still near.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Judges 14', 'Judges 16:4-21', 'Ruth 1', 'Judges 7'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: Judges 16:4-21.)'
+      },
+      {
+        question: 'What did the lords of the Philistines want Delilah to find out?',
+        choices: [
+          'What Samson liked to eat.',
+          'Wherein Samson\'s great strength lieth.',
+          'How tall Samson was.',
+          'Samson\'s favorite color.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Right — they wanted his secret.',
+        wrongFeedback: 'Listen for strength. (Answer: Wherein his great strength….)'
+      },
+      {
+        question: 'What did Samson finally say was tied to his strength?',
+        choices: [
+          'His sandals.',
+          'No razor on his head — a Nazarite unto God; if shaven, he would become weak.',
+          'A golden belt.',
+          'How much he slept.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes — God had set him apart.',
+        wrongFeedback: 'Think Nazarite and razor. (Answer: No razor… Nazarite… if shaven….)'
+      },
+      {
+        question: 'What happened after the seven locks were shaved?',
+        choices: [
+          'He grew taller.',
+          'His strength went from him.',
+          'He sang a song.',
+          'Nothing changed.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Exactly — a sad consequence.',
+        wrongFeedback: 'Think strength. (Answer: His strength went from him.)'
+      },
+      {
+        question: 'What is one gentle lesson for today?',
+        choices: [
+          'Guard precious things God gives you; ask a trusted grown-up when you are not sure what to share.',
+          'Tell every secret to everyone.',
+          'Never talk to God.',
+          'Hide the Bible.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful — wisdom and honesty together.',
+        wrongFeedback: 'Pick wisdom and trust. (Answer: Guard… ask a trusted grown-up….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Samson and Delilah with God's Word today.",
+    takeaway:
+      'Samson told a secret meant for God — his strength left — yet God\'s mercy would not end there.',
+    prayer:
+      'God, thank You for the Bible. Help me be honest with You. Teach me what to keep sacred and whom to trust. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art young children bold thick outlines large open spaces honest calm mood sad not mean faces no anger no text Samson sleeping head on Delilah lap long hair locks Delilah seated gentle sad face holding shears near hair simple tent room background plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Delilah asks Samson (judges 16)',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Samson tells his heart Nazarite razor',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Seven locks shorn strength departs',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text God\'s mercy still ahead'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -2643,5 +2764,6 @@ module.exports = {
   gideonFleece: buildGideonFleeceReadQuiz(),
   gideonMidianites: buildGideonMidianitesReadQuiz(),
   samsonBirth: buildSamsonBirthReadQuiz(),
-  samsonLion: buildSamsonLionReadQuiz()
+  samsonLion: buildSamsonLionReadQuiz(),
+  samsonDelilah: buildSamsonDelilahReadQuiz()
 };

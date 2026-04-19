@@ -2097,14 +2097,14 @@
     "kw": "ruth naomi moab ruth 2 loyal wherever field faithful"
   },
   {
-    "key": "samson",
-    "title": "Samson & His Strength",
-    "kjvRef": "Judges 13–16",
-    "who": "God",
-    "to": "Samson (a strong man)",
-    "apply": "Samson was super strong because God gave him power, but he didn't always use it wisely. In the end, he prayed for strength one last time and brought down the pillars to defeat the enemies. God gives us strength too—use it to help others and honor Him, not for selfish things.",
-    "theme": "Protection",
-    "kw": "samson hair strength pillars judges 16 power delilah"
+    "key": "samsonDelilah",
+    "title": "Samson and Delilah",
+    "kjvRef": "Judges 16:4-21",
+    "who": "The Lord",
+    "to": "Samson — and every child learning honesty and boundaries",
+    "apply": "Samson told a precious secret he should have kept for God. His strength left — a sad lesson. But God did not forget him forever. When you are not sure what to share, ask a trusted grown-up and talk to God; His mercy is longer than our mistakes.",
+    "theme": "Obedience",
+    "kw": "samson delilah sorek philistines judges 16 hair razor nazarite secret strength seven locks"
   },
   {
     "key": "samsonLion",
@@ -2117,6 +2117,16 @@
     "kw": "samson lion honey bees timnath spirit of the lord judges 14 strength nazarite young lion"
   },
   {
+    "key": "samson",
+    "title": "Samson and the Pillars",
+    "kjvRef": "Judges 16:28-30",
+    "who": "The Lord",
+    "to": "Samson — and every heart that turns back to God",
+    "apply": "Samson had lost much, but he did not stop talking to God. He asked the Lord to remember him and strengthen him once more — not to show off, but because God's name was mocked. God heard. When you are sorry and honest with God, He still listens.",
+    "theme": "Protection",
+    "kw": "samson pillars judges 16 strength temple dagon philistines pray remember me"
+  },
+  {
     "key": "samsonBirth",
     "title": "Samson's Birth and Call",
     "kjvRef": "Judges 13:1-25",
@@ -2125,16 +2135,6 @@
     "apply": "Long before Samson was strong, God had a plan — a child set apart for Him from the womb. Your story matters to God too; He knows your name and hears when you pray.",
     "theme": "Protection",
     "kw": "samson manoah nazirite nazarite judges 13 angel baby promise philistines deliver womb blessed"
-  },
-  {
-    "key": "samsonHair",
-    "title": "Samson's Hair",
-    "kjvRef": "Judges 16",
-    "who": "God",
-    "to": "Samson",
-    "apply": "Your strength comes from God! Stay close to Him and nothing can stop you.",
-    "theme": "Protection",
-    "kw": "samson hair delilah judges 16 strength cut power"
   },
   {
     "key": "samuelAnointsDavid",

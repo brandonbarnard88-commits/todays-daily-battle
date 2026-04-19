@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T20:53:36.678Z",
-  "surfacedRefCount": 2777,
-  "overrideCount": 2777,
+  "generatedAt": "2026-04-19T21:50:09.429Z",
+  "surfacedRefCount": 2780,
+  "overrideCount": 2780,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 145,
+      "refs": 147,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 164,
+      "refs": 165,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 144,
+      "refs": 145,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 166,
+      "refs": 167,
       "pairs": 0
     },
     "memorize.html": {
@@ -2026,9 +2026,12 @@
     "Judges 14:8",
     "Judges 15:8",
     "Judges 16:17",
+    "Judges 16:19",
     "Judges 16:28",
+    "Judges 16:28-30",
     "Judges 16:3",
     "Judges 16:30",
+    "Judges 16:4-21",
     "Judges 18:11",
     "Judges 4:1-16",
     "Judges 4:14",
@@ -15480,7 +15483,23 @@
         "to": "Israel"
       }
     },
+    "Judges 16:19": {
+      "general": {
+        "plainExplanation": "Key idea: And she made him sleep upon her knees; and she called for a man, and she caused him to shave off the seven locks of his head; and she began to afflict him,...",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
     "Judges 16:28": {
+      "general": {
+        "plainExplanation": "Key idea: And Samson called to the LORD, and said, O Lord God, remember me, I pray you, and strengthen me, I pray you, only this once, O God, that I may be at once av...",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Judges 16:28-30": {
       "general": {
         "plainExplanation": "Key idea: And Samson called to the LORD, and said, O Lord God, remember me, I pray you, and strengthen me, I pray you, only this once, O God, that I may be at once av...",
         "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
@@ -15500,6 +15519,14 @@
       "general": {
         "plainExplanation": "Key idea: And Samson said, Let me die with the Philistines. And he bowed himself with all his might; and the house fell upon the lords, and upon all the people that w...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Judges 16:4-21": {
+      "general": {
+        "plainExplanation": "Key idea: And it came to pass afterward, that he loved a woman in the valley of Sorek, whose name was Delilah. And the lords of the Philistines came up to her, and sa...",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "Unknown",
         "to": "Israel"
       }

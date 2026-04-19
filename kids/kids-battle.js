@@ -948,19 +948,25 @@
         "Spies in Canaan – Numbers 13:17-33; 14:1-9. God told Moses to send twelve men to spy out the land of Canaan that He had promised to give His people. The men went and explored the land for forty days. They saw beautiful fruit, strong cities, and tall people. When they returned, ten of the spies said, 'The land is good, but the people are too strong for us. We cannot go up against them.' But Caleb and Joshua said, 'Let us go up at once, and possess it; for we are well able to overcome it. The Lord is with us. Do not fear the people of the land.' The people listened to the ten fearful spies and began to cry and complain. But Joshua and Caleb trusted God and tried to encourage the people to believe the Lord. For you: God keeps His promises. When you feel afraid, pray and trust Him—He is with you."
     },
     samson: {
-      title: 'Samson & His Strength',
+      title: 'Samson and the Pillars',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: "Samson with long hair – Strong because of God" },
-        { src: 'panel-daniel-2.svg', alt: "Delilah cutting Samson's hair – Losing his strength" },
-        { src: 'panel-daniel-3.svg', alt: "Samson pushing the pillars – God gives power one last time" }
+        { src: 'panel-daniel-1.svg', alt: 'Samson prays — O Lord God, remember me, I pray thee' },
+        { src: 'panel-daniel-2.svg', alt: 'Between the two pillars — one last trust in God' },
+        { src: 'panel-daniel-3.svg', alt: 'The Lord gave strength — the house fell upon the lords and all the people' }
       ],
-      caption: 'Swipe to see God give Samson strength! 💪',
+      caption: 'Swipe to see God answer one more prayer — strength for what is right.',
       videoId: 'vnRAdASpsz4',
-      videoTitle: "Samson and Delilah – Bible Lessons for Kids!",
-      keywords: ['samson', 'hair', 'strength', 'pillars', 'judges 16', 'power', 'delilah'],
-      kjvRef: 'Judges 13–16',
-      kidContext: { who: 'God', to: 'Samson (a strong man)', apply: "Samson was super strong because God gave him power, but he didn't always use it wisely. In the end, he prayed for strength one last time and brought down the pillars to defeat the enemies. God gives us strength too—use it to help others and honor Him, not for selfish things." },
-      narration: "Samson and the Pillars – Judges 16:30. Samson was born with special strength from God—no razor on his head. He fought bad guys and did amazing things. But Samson made mistakes and told his secret to Delilah. She cut his hair, and his strength left. The enemies captured him and made fun of him in their temple. Samson prayed, 'Lord, remember me and give me strength just this once.' God answered! Samson pushed the two middle pillars, and the whole building fell on the enemies and himself. God gave him power one last time. For you: God gives you strength in different ways. Use it to do good, help others, and follow Him—not for showing off or getting even."
+      videoTitle: 'Samson and the Pillars – Bible Lessons for Kids!',
+      keywords: ['samson', 'pillars', 'judges 16', 'strength', 'temple', 'dagon', 'philistines', 'pray', 'remember me'],
+      kjvRef: 'Judges 16:28-30',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Samson — and every heart that turns back to God',
+        apply:
+          "Samson had lost much, but he did not stop talking to God. He asked the Lord to remember him and strengthen him once more — not to show off, but because God's name was mocked. God heard. When you are sorry and honest with God, He still listens."
+      },
+      narration:
+        "Samson and the Pillars – Judges 16:28-30. The Philistines brought Samson out to make sport before their god. Samson said unto the lad that held him by the hand, Suffer me that I may feel the pillars whereupon the house standeth. And Samson called unto the LORD, and said, O Lord GOD, remember me, I pray thee, and strengthen me, I pray thee, only this once, O God, that I may be at once avenged of the Philistines for my two eyes. And Samson took hold of the two middle pillars upon which the house stood, and on which it was borne up, and he bowed himself with all his might; and the house fell upon the lords, and upon all the people that were therein. For you: God hears an honest prayer — ask Him for strength to honor Him, not to boast."
     },
     fieryFurnace: {
       title: 'Fiery Furnace',
@@ -2221,6 +2227,39 @@
       narration:
         "Samson and the Lion – Judges 14:5-9. Samson went down with his father and mother to Timnath; and a young lion roared against him. The Spirit of the LORD came mightily upon him, and he rent him as he would have rent a kid, and he had nothing in his hand. After a time he turned aside to see the carcass of the lion: and, behold, there was a swarm of bees and honey in the carcass of the lion. He took thereof in his hands, and went on eating, and came to his father and mother, and he gave them, and they did eat: but he told not them that he had taken the honey out of the carcass of the lion. For you: The Lord gives strength when you need it — and He can bring sweetness after the hard part."
     },
+    samsonDelilah: {
+      title: 'Samson and Delilah',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Delilah asks — wherein lieth thy great strength?' },
+        { src: 'panel-noah-2.svg', alt: 'Samson tells his heart — no razor; a Nazarite unto God' },
+        { src: 'panel-noah-3.svg', alt: 'His strength went from him — yet the Lord had not left him forever' }
+      ],
+      caption: 'Swipe to see why God\'s gifts need wise, honest care — and mercy that lasts.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'samson',
+        'delilah',
+        'sorek',
+        'philistines',
+        'judges 16',
+        'hair',
+        'razor',
+        'nazarite',
+        'secret',
+        'strength',
+        'seven locks'
+      ],
+      kjvRef: 'Judges 16:4-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Samson — and every child learning honesty and boundaries',
+        apply:
+          "Samson told a precious secret he should have kept for God. His strength left — a sad lesson. But God did not forget him forever. When you are not sure what to share, ask a trusted grown-up and talk to God; His mercy is longer than our mistakes."
+      },
+      narration:
+        "Samson and Delilah – Judges 16:4-21. Samson loved a woman in the valley of Sorek, whose name was Delilah. The lords of the Philistines came up unto her, and said unto her, Entice him, and see wherein his great strength lieth. Delilah pressed Samson; at last he told her all his heart: There hath not come a razor upon mine head; for I have been a Nazarite unto God from my mother's womb: if I be shaven, then my strength will go from me, and I shall become weak, and be like any other man. She made him sleep upon her knees, and called for a man, and shaved off the seven locks of his head; and his strength went from him. She said, The Philistines be upon thee, Samson. And he wist not that the LORD was departed from him. But the Philistines took him, and put out his eyes, and brought him down to Gaza. For you: Guard what God gives you; tell Him when you are sorry — He is still merciful."
+    },
     ruthNaomi: {
       title: 'Ruth and Naomi',
       panels: [
@@ -2342,20 +2381,6 @@
       keywords: ['balaam', 'blessing', 'balak', 'numbers 23', 'numbers 24', 'israel', 'prophecy'],
       kjvRef: 'Numbers 23–24',
       kidContext: { who: 'God', to: 'Israel', apply: 'What God blesses, no one can curse — His word stands.' }
-    },
-    samsonHair: {
-      title: 'Samson\'s Hair',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Samson has long hair—God\'s strength' },
-        { src: 'panel-noah-2.svg', alt: 'Delilah cuts his hair while he sleeps' },
-        { src: 'panel-noah-3.svg', alt: 'Samson calls on God one last time' }
-      ],
-      caption: 'Swipe to see Samson\'s story—stay close to God! 💪',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['samson', 'hair', 'delilah', 'judges 16', 'strength', 'cut', 'power'],
-      kjvRef: 'Judges 16',
-      kidContext: { who: 'God', to: 'Samson', apply: 'Your strength comes from God! Stay close to Him and nothing can stop you.' }
     },
     ruthGlean: {
       title: 'Ruth Gleans in the Field',
@@ -5183,7 +5208,7 @@
       'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
-      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'ruthNaomi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samsonHair',
+      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'ruthNaomi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samson',
       'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
       'saulSpear', 'davidCave',
       'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
@@ -5288,8 +5313,20 @@
     ) {
       return { type: 'carousel', story: 'samsonLion' };
     }
-    if (/samson|delilah|pillars|judges 16|hair.*strength/.test(low)) {
+    if (
+      /delilah|sorek|entice him.*strength|wherein.*great strength|seven locks|shav(e|en).*samson|samson.*shav|razor.*samson|nazarite.*mother.*womb.*shav|judges 16:4|judges 16:5|judges 16:6|judges 16:7|judges 16:8|judges 16:9|judges 16:10|judges 16:11|judges 16:12|judges 16:13|judges 16:14|judges 16:15|judges 16:16|judges 16:17|judges 16:18|judges 16:19|judges 16:20|judges 16:21/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'samsonDelilah' };
+    }
+    if (
+      /judges 16:28|judges 16:29|judges 16:30|pillars|middle pillars|dagon|remember me.*samson|samson.*remember me|die with the philistines|avenged.*philistines/.test(low)
+    ) {
       return { type: 'carousel', story: 'samson' };
+    }
+    if (/samson|judges 16/.test(low)) {
+      return { type: 'carousel', story: 'samsonDelilah' };
     }
     if (/fiery furnace|shadrach|meshach|abednego|daniel 3/.test(low)) {
       return { type: 'carousel', story: 'fieryFurnace' };
@@ -7970,7 +8007,7 @@
     sunStandsStill: 'Miracles',
     gideonFleece: 'Miracles', gideonMidianites: 'Miracles', deborahBarak: 'Protection', samsonBirth: 'Protection', samsonLion: 'Miracles', ruthNaomi: 'Love',
     rahab: 'Obedience', rahabRope: 'Obedience', rahabJericho: 'Obedience',
-    balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonHair: 'Protection', ruthGlean: 'Love',
+    balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonDelilah: 'Obedience', ruthGlean: 'Love',
     samuelCall: 'Obedience', davidHarp: 'Love', goliathChallenge: 'Protection',
     davidAnointed: 'Obedience', saulSpear: 'Protection', davidCave: 'Protection',
     hannahSamuel: 'Miracles', samuelBirth: 'Obedience', samuelCalls: 'Obedience',

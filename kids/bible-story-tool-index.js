@@ -699,12 +699,12 @@
   {
     "key": "gideonMidianites",
     "title": "Gideon's Three Hundred",
-    "kjvRef": "Judges 7",
-    "who": "God",
-    "to": "Gideon and Israel",
-    "apply": "God's power beats big numbers — obey His strange plans and watch Him win.",
+    "kjvRef": "Judges 7:1-22",
+    "who": "The Lord",
+    "to": "Gideon, Israel — and every small band that trusts God",
+    "apply": "God did not need a huge crowd — only people who would listen and obey His strange, brave plan. When you feel outnumbered, remember: the Lord's strength is not counted like soldiers; He saves everyone who trusts Him.",
     "theme": "Miracles",
-    "kw": "gideon 300 midian judges 7 trumpet jar torch victory"
+    "kw": "gideon 300 midian midianites judges 7 trumpet pitcher torch lamp jar victory obey sword of the lord"
   },
   {
     "key": "samuelCall",

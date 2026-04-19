@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T20:32:24.327Z",
-  "surfacedRefCount": 2773,
-  "overrideCount": 2773,
+  "generatedAt": "2026-04-19T20:38:01.591Z",
+  "surfacedRefCount": 2774,
+  "overrideCount": 2774,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 142,
+      "refs": 143,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 161,
+      "refs": 162,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 141,
+      "refs": 142,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -2041,7 +2041,8 @@
     "Judges 6:37",
     "Judges 6:38",
     "Judges 6:40",
-    "Judges 7:21",
+    "Judges 7:1-22",
+    "Judges 7:20",
     "Judges 7:7",
     "Judges 7:9-15",
     "Lamentations 3:22",
@@ -15596,9 +15597,17 @@
         "to": "Israel"
       }
     },
-    "Judges 7:21": {
+    "Judges 7:1-22": {
       "general": {
-        "plainExplanation": "And they stood every man in his place round about the camp; and all the host ran, and cried, and fled.",
+        "plainExplanation": "Key idea: Then Jerubbaal, who is Gideon, and all the people that were with him, rose up early, and pitched beside the well of Harod: so that the host of the Midianite...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Judges 7:20": {
+      "general": {
+        "plainExplanation": "Key idea: And the three companies blew the trumpets, and brake the pitchers, and held the lamps in their left hands, and the trumpets in their right hands to blow wit...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"

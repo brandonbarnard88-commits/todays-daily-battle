@@ -2123,16 +2123,25 @@
     gideonMidianites: {
       title: 'Gideon\'s Three Hundred',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'God shrinks Gideon\'s army — trust Me, not numbers' },
-        { src: 'panel-david-2.svg', alt: 'Three hundred with jars, torches, and trumpets at night' },
-        { src: 'panel-david-3.svg', alt: 'God gives victory — the enemy panics' }
+        { src: 'panel-david-1.svg', alt: 'The fearful go home — then the water test leaves only three hundred' },
+        { src: 'panel-david-2.svg', alt: 'Three hundred with trumpets, pitchers, and torches in the dark' },
+        { src: 'panel-david-3.svg', alt: 'They blow, break the pitchers, hold up the lights — the Lord wins the night' }
       ],
-      caption: 'Swipe to see God win with only three hundred brave men! 🎺',
+      caption: 'Swipe to see God win with only three hundred who obeyed! 🎺',
       videoId: '',
       videoTitle: '',
-      keywords: ['gideon', '300', 'midian', 'judges 7', 'trumpet', 'jar', 'torch', 'victory'],
-      kjvRef: 'Judges 7',
-      kidContext: { who: 'God', to: 'Gideon and Israel', apply: 'God\'s power beats big numbers — obey His strange plans and watch Him win.' }
+      keywords: [
+        'gideon', '300', 'midian', 'midianites', 'judges 7', 'trumpet', 'pitcher', 'torch', 'lamp', 'jar', 'victory', 'obey', 'sword of the lord'
+      ],
+      kjvRef: 'Judges 7:1-22',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Gideon, Israel — and every small band that trusts God',
+        apply:
+          "God did not need a huge crowd — only people who would listen and obey His strange, brave plan. When you feel outnumbered, remember: the Lord's strength is not counted like soldiers; He saves everyone who trusts Him."
+      },
+      narration:
+        "Gideon's Three Hundred – Judges 7:1-22. The Midianites and the Amalekites lay along the valley like grasshoppers for multitude. Gideon gathered Israel, but the Lord said, 'The people that are with thee are too many.' Twenty-two thousand who were fearful returned; ten thousand remained. Still the Lord said they were too many. By the water, three hundred lapped, putting their hand to their mouth; the Lord said, 'By the three hundred men that lapped will I save you.' That night those three hundred took trumpets, empty pitchers, and lamps within the pitchers, and surrounded the camp. At the watch, they blew the trumpets, brake the pitchers, held the lamps in their left hands and the trumpets in their right, and cried, 'The sword of the LORD, and of Gideon.' The LORD set every man's sword against his fellow throughout all the host: the host fled. For you: Obey God's Word — He fights for those who trust Him, not for big numbers alone."
     },
     deborahBarak: {
       title: 'Deborah and Barak',

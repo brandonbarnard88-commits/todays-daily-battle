@@ -129,6 +129,7 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   161: 'tabernacle',
   121: 'rahab',
   38: 'gideonFleece',
+  39: 'gideonMidianites',
   122: 'deborahBarak',
   162: 'joshuaCharge',
   163: 'sunStandsStill',

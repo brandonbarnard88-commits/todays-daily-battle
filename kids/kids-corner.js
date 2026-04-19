@@ -954,6 +954,35 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 6:37</text>'
       ),
 
+      /* Gideon's 300 — loop 39 / library gideonMidianites */
+      gideonMidianites: svg(
+        ground() + hills() +
+        star(38, 32, 4) + star(62, 48, 3) + star(88, 28, 4) + star(312, 36, 4) + star(338, 52, 3) + star(358, 30, 4) +
+        '<path d="M268 198 L292 188 L316 198 L316 212 L268 212 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="292" y1="188" x2="292" y2="178" ' + s + ' stroke-width="2"/>' +
+        '<path d="M248 200 L268 192 L288 200" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M72 202 L92 194 L112 202" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(95, 175, 9, 26) +
+        '<path d="M88 168 L82 152 M88 168 L94 152" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="102" cy="218" rx="8" ry="11" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M98 208 L104 198 L108 208" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M94 222 L100 232 L106 222" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="100" cy="228" r="5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        person(155, 178, 9, 26) +
+        '<path d="M148 170 L142 154 M148 170 L154 154" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="168" cy="220" rx="8" ry="11" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="168" cy="228" r="5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        person(245, 178, 9, 26) +
+        '<path d="M238 170 L232 154 M238 170 L244 154" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="258" cy="220" rx="8" ry="11" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="258" cy="228" r="5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        person(305, 175, 9, 26) +
+        '<path d="M298 168 L292 152 M298 168 L304 152" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="318" cy="218" rx="8" ry="11" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="318" cy="226" r="5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 7:20</text>'
+      ),
+
       /* Victory at Ai — loop 165 / library battleOfAi */
       battleOfAi: svg(
         ground() + hills() +
@@ -2919,7 +2948,7 @@
     lostCoin: 'widowMite',
     parableTalents: 'richYoungRuler',
     gideonFleece: 'gideonFleece',
-    gideonMidianites: 'jerichoWalls',
+    gideonMidianites: 'gideonMidianites',
     deborahBarak: 'deborahBarak',
     samsonBirth: 'samsonHair',
     ruthNaomi: 'ruthMoab',
@@ -4467,7 +4496,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'fallOfJericho', 'ruthBoaz',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'fallOfJericho', 'ruthBoaz',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

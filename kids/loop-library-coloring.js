@@ -48,7 +48,7 @@
   "fruitSpirit": "fruitSpirit",
   "gardenPrayer": "prayerCloset",
   "gideonFleece": "gideonFleece",
-  "gideonMidianites": "jerichoWalls",
+  "gideonMidianites": "gideonMidianites",
   "goldenCalf": "tenCommandments",
   "goodSamaritan": "loveNeighbor",
   "greatCommission": "greatCommission",

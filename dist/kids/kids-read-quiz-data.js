@@ -1062,7 +1062,7 @@
         "choices": [
           "1 Samuel 16",
           "2 Kings 4",
-          "Judges 7",
+          "Judges 7:1-22",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -6965,89 +6965,125 @@
     "readAlongImages": []
   },
   "gideonMidianites": {
-    "kjvRef": "Judges 7",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Judges 7:1-22 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "The Midianites came against Israel like many grasshoppers. Gideon gathered many men, but the Lord said the people were too many.",
+        "caption": "Too many soldiers?",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He sent home everyone who was afraid — twenty-two thousand left. Ten thousand remained, and still the Lord said there were too many.",
+        "caption": "Listening to God's count",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "At the water, three hundred lapped with their hand to their mouth. The Lord said, \"By the three hundred men that lapped will I save you.\"",
+        "caption": "Three hundred chosen",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "That night each man took a trumpet, an empty pitcher, and a torch inside the pitcher. They surrounded the Midianite camp in the dark.",
+        "caption": "A quiet circle of trust",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "They blew their trumpets, brake the pitchers, held up the torches, and cried, \"The sword of the LORD, and of Gideon!\"",
+        "caption": "The Lord's sword",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "The Lord set every man's sword against his fellow; the host fled. God gave Israel the victory with only three hundred men.",
+        "caption": "Victory — God's way",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Gideon's Three Hundred (Judges 7).",
-      "God shrinks Gideon's army.",
-      "trust Me, not numbers Three hundred with jars, torches, and trumpets at night God gives victory.",
-      "the enemy panics God's power beats big numbers.",
-      "obey His strange plans and watch Him win."
+      "The Midianites had come against Israel like a great swarm of grasshoppers. Gideon gathered many men to fight, but the Lord said the people were too many.",
+      "God told Gideon to send home everyone who was afraid. Twenty-two thousand men left, and only ten thousand remained. Still the Lord said there were too many.",
+      "Then God told Gideon to take the men down to the water. Three hundred men lapped the water with their hand to their mouth. The rest bowed down to drink. The Lord said, \"By the three hundred men that lapped will I save you.\"",
+      "That night God gave Gideon a strange plan. The three hundred men each took a trumpet, an empty pitcher, and a torch inside the pitcher. They surrounded the Midianite camp in the dark.",
+      "At the right time they blew their trumpets, brake the pitchers, and held up the torches. They cried, \"The sword of the LORD, and of Gideon!\"",
+      "The Lord set every man's sword against his fellow, even throughout all the host: and the host fled. God gave Israel the victory that night with only three hundred men.",
+      "For you: God does not need a big crowd — He blesses the few who listen and obey."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 7",
-          "Luke 17",
-          "Philippians 2:8–11",
-          "the Bible"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Judges 7.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Joshua",
-          "God",
-          "Peter",
-          "The apostles"
+          "Judges 6",
+          "Judges 7:1-22",
+          "Judges 8",
+          "1 Samuel 17"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the Bible line under the title. (Answer: Judges 7:1-22.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "How many men did the Lord keep with Gideon after the water test?",
         "choices": [
-          "God's power beats big numbers — obey His strange plans and watch Him win.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up."
+          "Three thousand",
+          "Three hundred",
+          "Thirty",
+          "Three"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God's power beats big numbers — obey His strange plans and watch Him win..)"
+        "correctIndex": 1,
+        "correctFeedback": "Right — a small band God could use for His glory.",
+        "wrongFeedback": "Remember the title: three hundred. (Answer: Three hundred.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did each of the three hundred carry that night?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "God shrinks Gideon's army — trust Me, not numbers"
+          "Only shields.",
+          "A trumpet, an empty pitcher, and a torch (lamp) in the pitcher.",
+          "Nothing — they hid.",
+          "Only spears."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes — a strange plan that showed God's power.",
+        "wrongFeedback": "Listen for trumpet, pitcher, and light. (Answer: Trumpet, pitcher, torch….)"
+      },
+      {
+        "question": "What did they cry when the pitchers broke?",
+        "choices": [
+          "We are afraid!",
+          "The sword of the LORD, and of Gideon!",
+          "Run away!",
+          "We want more soldiers!"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly — the battle belonged to the Lord.",
+        "wrongFeedback": "Think of whose sword they trusted. (Answer: The sword of the LORD….)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "God's power beats big numbers — obey His strange plans and watch Him win.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older."
+          "Trust only big crowds.",
+          "When God asks you to obey, take the next step — He is mighty to save.",
+          "Never try hard things.",
+          "Hide from the Bible."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God's power beats big numbers — obey His strange plans and watch Him win..)"
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful — faith with feet, like those three hundred.",
+        "wrongFeedback": "Pick trust and obedience. (Answer: Obey — He is mighty to save….)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Gideon's Three Hundred with God's Word today.",
-    "takeaway": "God's power beats big numbers — obey His strange plans and watch Him win.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Gideon's Three Hundred. Amen.",
+    "takeaway": "God trimmed the army to show His strength — three hundred who obeyed saw the Lord win the night.",
+    "prayer": "God, thank You for the Bible. Thank You that You are strong when I feel small. Help me obey You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God shrinks Gideon's army — trust Me, not numbers (gideon)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three hundred with jars, torches, and trumpets at night (300)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God gives victory — the enemy panics (midian)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God shrinks Gideon's army — trust Me, not numbers (judges 7)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three hundred with jars, torches, and trumpets at night (trumpet)"
-    ]
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, wonder-filled victorious mood, no fighting, no scared faces, no blood, no text in image: night scene soft starry sky distant simple tent shapes, row of several soldiers of Israel calm brave faces each holding trumpet one hand and broken pitcher pieces other hand with bright torch flame glowing upward simple flame shapes, plenty open areas on robes trumpets shards torches, minimal background plenty white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Too many soldiers — God chooses (judges 7)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three hundred at the water",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Trumpets, pitchers, lamps in the dark",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The sword of the LORD, and of Gideon"
+    ],
+    "readAlongImages": []
   },
   "goldenCalf": {
     "kjvRef": "Exodus 32:1-8, 15-20, 30-32 (KJV)",
@@ -9062,7 +9098,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 7",
+          "Judges 7:1-22",
           "Matthew; Mark; Luke; John (Gospels overview)",
           "Matthew 28; Mark 16; Luke 24; John 20",
           "Mark 10:13–16"
@@ -9996,7 +10032,7 @@
         "choices": [
           "1 Samuel 16",
           "2 Kings 4",
-          "Judges 7",
+          "Judges 7:1-22",
           "John 11:1–44"
         ],
         "correctIndex": 3,
@@ -17302,7 +17338,7 @@
           "2 Kings 4",
           "1 Samuel 16",
           "Luke 18:1–8",
-          "Judges 7"
+          "Judges 7:1-22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18305,7 +18341,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Judges 7",
+          "Judges 7:1-22",
           "2 Kings 4",
           "Matthew; Mark; Luke; John (Gospels overview)"
         ],

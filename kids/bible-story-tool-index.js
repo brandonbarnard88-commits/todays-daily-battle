@@ -2829,12 +2829,12 @@
   {
     "key": "battleOfAi",
     "title": "Victory at Ai",
-    "kjvRef": "Joshua 8",
-    "who": "God",
-    "to": "Joshua and Israel",
-    "apply": "After sin was removed, God's plan worked — obey Him and watch Him fight for you.",
+    "kjvRef": "Joshua 8:1-8, 18-23, 26-29",
+    "who": "The Lord",
+    "to": "Joshua and Israel (and us)",
+    "apply": "After the camp was right with God again, Joshua listened to every step the Lord gave — ambush, drawing the city out, and the sign with the spear. The Lord gave the victory. When we obey God's Word, we can trust Him to help us in His way and His time.",
     "theme": "Obedience",
-    "kw": "joshua ai victory joshua 8 ambush obey second battle"
+    "kw": "joshua ai victory joshua 8 ambush obey spear fire restoration lord gave"
   },
   {
     "key": "jerichoWalls",

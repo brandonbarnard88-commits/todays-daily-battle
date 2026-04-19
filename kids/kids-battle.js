@@ -2031,16 +2031,25 @@
     battleOfAi: {
       title: 'Victory at Ai',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Joshua follows God\'s new battle plan' },
-        { src: 'panel-david-2.svg', alt: 'Israel draws Ai out — ambush closes behind' },
-        { src: 'panel-david-3.svg', alt: 'The city is taken — God gives the win' }
+        { src: 'panel-david-1.svg', alt: 'The Lord tells Joshua — Fear not; I have given Ai into thy hand' },
+        { src: 'panel-david-2.svg', alt: 'Men hide in ambush; the army draws the men of Ai out' },
+        { src: 'panel-david-3.svg', alt: 'Joshua stretches out his spear — the Lord gives victory' }
       ],
       caption: 'Swipe to see God give victory when His people obey! ⚔️',
       videoId: '',
       videoTitle: '',
-      keywords: ['joshua', 'ai', 'victory', 'joshua 8', 'ambush', 'obey', 'second battle'],
-      kjvRef: 'Joshua 8',
-      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'After sin was removed, God\'s plan worked — obey Him and watch Him fight for you.' }
+      keywords: [
+        'joshua', 'ai', 'victory', 'joshua 8', 'ambush', 'obey', 'spear', 'fire', 'restoration', 'lord gave'
+      ],
+      kjvRef: 'Joshua 8:1-8, 18-23, 26-29',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel (and us)',
+        apply:
+          "After the camp was right with God again, Joshua listened to every step the Lord gave — ambush, drawing the city out, and the sign with the spear. The Lord gave the victory. When we obey God's Word, we can trust Him to help us in His way and His time."
+      },
+      narration:
+        "Victory at Ai – Joshua 8:1-8, 18-23, 26-29. After the trouble in the camp was taken away, the Lord spoke to Joshua again: 'Fear not, neither be thou dismayed. Take all the people of war with thee, and go up to Ai: see, I have given into thy hand the king of Ai, and his people, and his city, and his land.' Joshua obeyed the Lord. He chose men to hide in ambush behind the city. The main army marched toward Ai as before. When the men of Ai came out to fight, Joshua and his army pretended to run away. The men of Ai chased them. Then Joshua stretched out his spear toward Ai. The hidden men rose up quickly, entered the city, and set it on fire. The army of Israel turned back and fought. The Lord gave them the victory that day. Joshua did exactly as the Lord commanded, and the people remembered that the Lord fights for those who obey Him. For you: Listen to God step by step — He is faithful when we obey."
     },
     sunStandsStill: {
       title: 'The Sun Stands Still',
@@ -5251,6 +5260,9 @@
     }
     if (/jericho|walls fall|joshua 6|trumpets/.test(low)) {
       return { type: 'carousel', story: 'fallOfJericho' };
+    }
+    if (/joshua 8|victory at ai|battle of ai|\bai\b.*ambush|ambush.*\bai\b|stretched.*spear.*ai/.test(low)) {
+      return { type: 'carousel', story: 'battleOfAi' };
     }
     if (/achan|accursed thing|joshua 7|sin against the lord god of israel|hidden.*jericho/.test(low)) {
       return { type: 'carousel', story: 'achan' };

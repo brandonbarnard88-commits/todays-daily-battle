@@ -917,6 +917,23 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 7:20</text>'
       ),
 
+      /* Victory at Ai — loop 165 / library battleOfAi */
+      battleOfAi: svg(
+        ground() + hills() +
+        '<rect x="268" y="78" width="72" height="56" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="276" y="86" width="14" height="18" rx="1" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<rect x="296" y="88" width="12" height="16" rx="1" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<rect x="314" y="90" width="10" height="14" rx="1" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M278 72 L282 62 L286 72 M292 70 L296 58 L300 70 M306 72 L310 62 L314 72" ' + s + ' stroke-width="1.8"/>' +
+        person(200, 148, 13, 38) +
+        '<path d="M186 140 L248 95" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M248 95 L252 88 M248 95 L244 88" ' + s + ' stroke-width="2"/>' +
+        person(95, 188, 9, 26) + person(118, 192, 9, 24) +
+        person(288, 192, 9, 24) + person(312, 188, 9, 26) +
+        sun(48, 48, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 8:18</text>'
+      ),
+
       /* Sun stands still — loop 163 / library sunStandsStill */
       sunStandsStill: svg(
         ground() + hills() +
@@ -2635,7 +2652,7 @@
     /* ── Week 3 ── */
     joshuaJordan: 'joshuaJordan',
     jordanCrossing: 'joshuaJordan',
-    battleOfAi: 'jerichoWalls',
+    battleOfAi: 'battleOfAi',
     balaakCurse: 'balaamDonkey',
     balaamBlessing: 'balaamDonkey',
     jerichoWalls: 'jerichoWalls',

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-19T20:12:28.027Z",
-  "surfacedRefCount": 2768,
-  "overrideCount": 2768,
+  "generatedAt": "2026-04-19T20:20:00.209Z",
+  "surfacedRefCount": 2770,
+  "overrideCount": 2770,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 140,
+      "refs": 141,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 159,
+      "refs": 160,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 138,
+      "refs": 139,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 163,
+      "refs": 164,
       "pairs": 0
     },
     "memorize.html": {
@@ -2011,6 +2011,8 @@
     "Joshua 7:1-11",
     "Joshua 7:1-26",
     "Joshua 7:20",
+    "Joshua 8:1-8",
+    "Joshua 8:18",
     "Jude 1:1",
     "Jude 1:14",
     "Jude 1:7",
@@ -15346,6 +15348,22 @@
     "Joshua 7:20": {
       "general": {
         "plainExplanation": "And Achan answered Joshua, and said, Indeed I have sinned against the LORD God of Israel, and thus and thus have I done:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Joshua",
+        "to": "Israel"
+      }
+    },
+    "Joshua 8:1-8": {
+      "general": {
+        "plainExplanation": "Key idea: And the LORD said to Joshua, Fear not, neither be you discouraged: take all the people of war with you, and arise, go up to Ai: see, I have given into your...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Joshua",
+        "to": "Israel"
+      }
+    },
+    "Joshua 8:18": {
+      "general": {
+        "plainExplanation": "Key idea: And the LORD said to Joshua, Stretch out the spear that is in your hand toward Ai; for I will give it into thine hand. And Joshua stretched out the spear th...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Joshua",
         "to": "Israel"

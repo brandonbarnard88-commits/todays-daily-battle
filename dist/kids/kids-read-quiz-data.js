@@ -642,7 +642,7 @@
           "Genesis 3",
           "2 Kings 4:1–7",
           "1 Samuel 17:45–50",
-          "Joshua 8"
+          "Joshua 8:1-8, 18-23, 26-29"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1719,89 +1719,123 @@
     ]
   },
   "battleOfAi": {
-    "kjvRef": "Joshua 8",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Joshua 8:1-8, 18-23, 26-29 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "After the trouble was taken away, the Lord spoke to Joshua again.",
+        "caption": "The Lord speaks again",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "\"Fear not, neither be thou dismayed. Go up to Ai. I have given into thy hand the king of Ai and his city.\"",
+        "caption": "Do not fear — I have given Ai",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "Joshua obeyed the Lord. He sent some men to hide behind the city. The army marched toward Ai.",
+        "caption": "Hide, then march",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "When the men of Ai chased them, Joshua stretched out his spear.",
+        "caption": "The sign with the spear",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "The hidden men rose up and set the city on fire.",
+        "caption": "The city awakens to fire",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Then Israel turned back and the Lord gave them the victory. Joshua did exactly as the Lord commanded.",
+        "caption": "Victory — the Lord fought for them",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Victory at Ai (Joshua 8).",
-      "Joshua follows God's new battle plan Israel draws Ai out.",
-      "ambush closes behind The city is taken.",
-      "God gives the win After sin was removed, God's plan worked.",
-      "obey Him and watch Him fight for you."
+      "After the trouble in the camp was taken away, the Lord spoke to Joshua again. \"Fear not, neither be thou dismayed. Take all the people of war with thee, and go up to Ai. See, I have given into thy hand the king of Ai, and his people, and his city, and his land.\"",
+      "Joshua obeyed the Lord. He chose men to hide in ambush behind the city. The main army marched toward Ai as before. When the men of Ai came out to fight, Joshua and his army pretended to run away. The men of Ai chased them.",
+      "Then Joshua stretched out his spear toward Ai. The hidden men rose up quickly, entered the city, and set it on fire. The army of Israel turned back and fought. The Lord gave them the victory that day.",
+      "Joshua did exactly as the Lord commanded, and the people remembered that the Lord fights for those who obey Him.",
+      "For you: When God gives a step, take it — He is with everyone who trusts and obeys Him."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 8",
-          "Numbers 23–24",
-          "Mark 12",
-          "Daniel 6"
+          "Joshua 6",
+          "Joshua 8:1-8, 18-23, 26-29",
+          "Judges 4",
+          "1 Samuel 17"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Joshua 8.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the Bible note. (Answer: Joshua 8:1-8, 18-23, 26-29.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did the Lord tell Joshua at the start?",
         "choices": [
-          "The Holy Ghost",
-          "Holy Spirit",
-          "The Lord",
-          "God"
+          "Stay home and do nothing.",
+          "Fear not — go up to Ai; I have given the king of Ai into thy hand.",
+          "Forget about Ai forever.",
+          "Build a boat instead."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes—God gave courage and a clear promise.",
+        "wrongFeedback": "Listen for God's words to Joshua in the read-along. (Answer: Fear not… I have given….)"
+      },
+      {
+        "question": "What did Joshua do when the men of Ai chased Israel's army?",
+        "choices": [
+          "He went to sleep.",
+          "He stretched out his spear toward Ai.",
+          "He left the camp.",
+          "He hid in a whale."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Right—that was the sign for the ambush.",
+        "wrongFeedback": "Remember the moment when the chase turned. (Answer: He stretched out his spear….)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "After sin was removed, God's plan worked — obey Him and watch Him fight for you.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: After sin was removed, God's plan worked — obey Him and watch Him fight for you..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A spaceship landed in the parking lot.",
-          "Joshua follows God's new battle plan",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again."
+          "God never helps His people.",
+          "Obeying the Lord step by step — He gives victory in His way.",
+          "We never need to say sorry to God.",
+          "Battles are only luck."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Exactly—that matches the story and the \"For you\" heart of it.",
+        "wrongFeedback": "Reread the close about Joshua obeying and the Lord fighting for those who obey. (Answer: Obeying the Lord step by step….)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "After sin was removed, God's plan worked — obey Him and watch Him fight for you.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Ignore what God says in the Bible.",
+          "Only obey when it is easy.",
+          "Ask God to help you listen and obey today — He is faithful.",
+          "Never pray about hard things."
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: After sin was removed, God's plan worked — obey Him and watch Him fight for you..)"
+        "wrongFeedback": "Pick the choice that shows trust and obedience. (Answer: Ask God to help you listen….)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Victory at Ai with God's Word today.",
-    "takeaway": "After sin was removed, God's plan worked — obey Him and watch Him fight for you.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Victory at Ai. Amen.",
+    "takeaway": "Joshua obeyed every step the Lord gave — and the Lord gave the victory. God is faithful when we listen.",
+    "prayer": "God, thank You for the Bible. Thank You that You help us when we obey. Teach me to listen to You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joshua follows God's new battle plan (joshua)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israel draws Ai out — ambush closes behind (ai)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The city is taken — God gives the win (victory)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joshua follows God's new battle plan (joshua 8)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israel draws Ai out — ambush closes behind (ambush)"
-    ]
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open spaces, hopeful obedient mood, no fighting, no fear on faces, no scary battle, no text in image: Joshua standing on gentle hill with spear stretched out toward distant city walls of Ai, soft simple flame shapes rising gently from city large open areas for coloring, a few soldiers of Israel walking back toward Joshua with calm thankful faces, soft hills and sky minimal lines plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The Lord speaks — Fear not, go up to Ai (joshua 8)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ambush and obedient march",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joshua stretches out his spear",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The Lord gives victory at Ai"
+    ],
+    "readAlongImages": []
   },
   "beastMark": {
     "kjvRef": "Revelation 13:16–18",
@@ -8787,7 +8821,7 @@
         "choices": [
           "1 Samuel 17:45–50",
           "2 Kings 4:1–7",
-          "Joshua 8",
+          "Joshua 8:1-8, 18-23, 26-29",
           "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 3,

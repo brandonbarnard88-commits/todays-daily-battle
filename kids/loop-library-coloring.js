@@ -19,6 +19,7 @@
   "armorSword": "armorSword",
   "ascension": "ascension",
   "balaamDonkey": "balaamDonkey",
+  "battleOfAi": "battleOfAi",
   "bronzeSerpent": "mosesStaffSnake",
   "burningBush": "burningBush",
   "comeLordJesus": "comeLordJesus",

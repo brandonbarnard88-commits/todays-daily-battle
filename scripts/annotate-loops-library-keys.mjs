@@ -130,7 +130,8 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   121: 'rahab',
   162: 'joshuaCharge',
   163: 'sunStandsStill',
-  164: 'achan'
+  164: 'achan',
+  165: 'battleOfAi'
 };
 
 const VALID_KEYS = new Set(loadStoryIndex().map((r) => r.key));

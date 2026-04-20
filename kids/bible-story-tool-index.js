@@ -578,13 +578,13 @@
   },
   {
     "key": "elishaShunammite",
-    "title": "Elisha Raises the Shunammite's Son",
+    "title": "Elisha Prays and the Boy Lives",
     "kjvRef": "2 Kings 4:8-37",
     "who": "The LORD",
     "to": "A mother, a prophet, and a child — through Elisha",
-    "apply": "God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.",
+    "apply": "God hears when we pray. He cares for families — tender mercy that brings life and joy.",
     "theme": "Miracles",
-    "kw": "elisha shunammite shunem great woman 2 kings 4 2 kings 4:8 2 kings 4:16 2 kings 4:35 little chamber man of God sneezed seven times take up thy son raise miracle"
+    "kw": "elisha elisha prays boy lives shunammite shunem great woman 2 kings 4 2 kings 4:8 2 kings 4:16 2 kings 4:35 little chamber man of God mount carmel sneezed seven times take up thy son miracle gentle"
   },
   {
     "key": "elishaMiracles",

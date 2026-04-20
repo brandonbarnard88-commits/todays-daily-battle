@@ -3341,17 +3341,19 @@
     },
     /* ── Week 4 (49–60) ── */
     elishaShunammite: {
-      title: 'Elisha Raises the Shunammite\'s Son',
+      title: 'Elisha Prays and the Boy Lives',
       panels: [
         { src: 'panel-jesus-1.svg', alt: 'A little chamber on the wall — bed, table, stool, and candlestick for Elisha' },
-        { src: 'panel-jesus-2.svg', alt: 'Elisha prays — the child’s flesh waxes warm; he sneezes seven times' },
-        { src: 'panel-jesus-3.svg', alt: 'Take up thy son — the mother’s quiet joy' }
+        { src: 'panel-jesus-2.svg', alt: 'Elisha prays quietly — the child grows warm; he sneezes seven times and opens his eyes' },
+        { src: 'panel-jesus-3.svg', alt: 'Take up thy son — the mother holds her boy with joy' }
       ],
-      caption: 'Swipe to see God’s tender mercy — prayer, warmth, and take up thy son.',
+      caption: 'Swipe to see a quiet prayer, warmth returning, and a mother’s joy — God’s tender care.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elisha',
+        'elisha prays',
+        'boy lives',
         'shunammite',
         'shunem',
         'great woman',
@@ -3361,20 +3363,21 @@
         '2 kings 4:35',
         'little chamber',
         'man of God',
+        'mount carmel',
         'sneezed seven times',
         'take up thy son',
-        'raise',
-        'miracle'
+        'miracle',
+        'gentle'
       ],
       kjvRef: '2 Kings 4:8-37',
       kidContext: {
         who: 'The LORD',
         to: 'A mother, a prophet, and a child — through Elisha',
         apply:
-          'God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.'
+          'God hears when we pray. He cares for families — tender mercy that brings life and joy.'
       },
       narration:
-        "Elisha Raises the Shunammite's Son — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall for Elisha — bed, table, stool, and candlestick. Elisha promised her a son; she bare a son in the season he named. One day the boy became sick; she laid him on the prophet's bed, shut the door, and went quickly to find Elisha at Mount Carmel. When Gehazi asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me? Elisha prayed, lay upon the child, and the flesh waxed warm. The child sneezed seven times and opened his eyes. Take up thy son. She took him and went out. For you: Run to God with your tears — He is merciful."
+        "Elisha Prays and the Boy Lives — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall for Elisha — bed, table, stool, and candlestick. Elisha promised her a son; she had a little boy just as he said. One day the child became sick and died on his mother’s knees. She laid him on Elisha’s bed, shut the door, and hurried to find Elisha on Mount Carmel. Elisha came, went in, shut the door, prayed, and lay upon the child. The flesh waxed warm; he went up and down, then lay upon him again. The child sneezed seven times and opened his eyes. Take up thy son — she took her boy and was full of joy. The Lord used Elisha to show His tender care for families. For you: God hears prayer — run to Him with your heart."
     },
     gehaziGreed: {
       title: 'Gehazi and Honest Hearts',

@@ -1915,9 +1915,11 @@
       /* Shunammite son raised — chamber, prayer, warmth (2 Kings 4:33-36) */
       elishaShunammite: svg(
         '<rect x="52" y="72" width="296" height="178" rx="8" ' + sf + ' fill="white" stroke-width="2.8"/>' +
-        /* soft window light */
+        /* soft window light + gentle rays */
         '<path d="M72 92 L108 88 L108 148 L72 152 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
         '<path d="M78 98 L98 94 M82 120 L102 116 M86 138 L104 134" ' + s + ' stroke-width="1.2" opacity="0.5"/>' +
+        '<path d="M108 118 L128 108 M108 128 L132 122 M108 138 L130 134" ' + s + ' stroke-width="1.1" opacity="0.35"/>' +
+        '<path d="M72 110 L58 100 M76 125 L58 118 M74 140 L56 132" ' + s + ' stroke-width="1" opacity="0.3"/>' +
         '<rect x="92" y="96" width="10" height="6" rx="1" ' + sf + ' fill="white" stroke-width="1.5"/>' +
         /* table + stool */
         '<rect x="72" y="168" width="56" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +

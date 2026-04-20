@@ -2645,42 +2645,45 @@
         "Samuel Hears God's Voice at Night – 1 Samuel 3:1-21. The word of the LORD was precious; there was no open vision. The child Samuel ministered before Eli. One night Eli was laid down in his place, and Samuel was laid down to sleep in the temple of the LORD. The LORD called Samuel — and he ran to Eli, Here am I; for thou calledst me. Eli said, I called not; lie down again. This happened again until Eli perceived that the LORD had called the child. He said, If he call thee, thou shalt say, Speak, LORD; for thy servant heareth. The LORD came and stood, and called, Samuel, Samuel. Then Samuel answered, Speak; for thy servant heareth. The LORD told Samuel weighty things about Eli's house. In the morning Samuel opened the doors; he told Eli every word. Samuel grew, and the LORD was with him, and let none of his words fall to the ground. All Israel knew Samuel was the LORD's prophet. For you: God knows your name — listen for Him in His Word, and answer with a gentle heart."
     },
     davidHarp: {
-      title: 'David Plays the Harp',
+      title: 'Young David Plays the Harp for King Saul',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'David watches his sheep in the field' },
-        { src: 'panel-david-2.svg', alt: 'He plays and sings to God' },
-        { src: 'panel-david-3.svg', alt: 'God listens—worship from the heart!' }
+        { src: 'panel-david-1.svg', alt: 'Servants speak — seek a cunning player on an harp' },
+        { src: 'panel-david-2.svg', alt: 'David comes — the LORD is with him' },
+        { src: 'panel-david-3.svg', alt: 'David plays; Saul is refreshed — the evil spirit departs' }
       ],
-      caption: 'Swipe to see David worship God in the fields! 🎶',
+      caption: 'Swipe for quiet music and God-given peace before the king.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'david',
         'harp',
-        'worship',
-        'sheep',
+        'young david',
+        'king saul',
+        'saul',
         '1 samuel 16',
         '1 samuel 16:14',
         '1 samuel 16:23',
-        'music',
-        'praise',
-        'saul',
         'evil spirit',
         'refreshed',
+        'played with his hand',
+        'cunning player on an harp',
         'armourbearer',
         'armorbearer',
-        'played with his hand',
-        'cunning player'
+        'send me david thy son',
+        'son of jesse the bethlehemite',
+        'music',
+        'comfort',
+        'peace'
       ],
       kjvRef: '1 Samuel 16:14-23',
       kidContext: {
-        who: 'David',
-        to: 'King Saul (and us)',
+        who: 'The Lord (through David)',
+        to: 'King Saul — and every heart that needs quiet',
         apply:
-          'David\'s music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.'
+          'God used David\'s gentle playing to bring ease. The gifts God gives you — a song, a calm voice, a steady hand — can be a kindness to someone who is hurting.'
       },
       narration:
-        "David Plays the Harp – 1 Samuel 16:14-23. An evil spirit troubled King Saul. His servants said, Find a man who plays the harp well. One said, I have seen a son of Jesse who plays skillfully—and the LORD is with him. Saul sent for David. When the distressing spirit came, David played with his hand on the harp, and Saul was refreshed and well. For you: God can use your simple gifts to bring calm where it is needed."
+        "Young David Plays the Harp for King Saul — 1 Samuel 16:14-23. But the Spirit of the LORD departed from Saul, and an evil spirit from the LORD troubled him. His servants said, Behold now, an evil spirit from God troubleth thee — let our lord command thy servants to seek out a man, who is a cunning player on an harp: when the evil spirit from God is upon thee, he shall play with his hand, and thou shalt be well. Saul said, Provide me a man that can play well. One servant told of David the Bethlehemite — cunning in playing, and the LORD is with him. Saul sent for him. David came and stood before Saul; Saul loved him greatly, and David became his armourbearer. And it came to pass, when the evil spirit from God was upon Saul, that David took an harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him. For you: Speak to the Lord when music or quiet helps your heart — He is near."
     },
     goliathChallenge: {
       title: 'Goliath\'s Challenge',
@@ -5851,7 +5854,7 @@
     if (/armor of god|ephesians 6|helmet|sword.*spirit|breastplate/.test(low)) {
       return { type: 'carousel', story: 'armorOfGod' };
     }
-    if (/david.*sheep|shepherd.*david|1 samuel 17:34|harp|lion.*bear/.test(low)) {
+    if (/david.*sheep|shepherd.*david|1 samuel 17:34|lion.*bear/.test(low)) {
       return { type: 'carousel', story: 'davidSheep' };
     }
     if (

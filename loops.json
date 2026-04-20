@@ -1595,5 +1595,15 @@
     "week": 12,
     "libraryKey": "davidCave",
     "kjvText": "The LORD forbid that I should do this thing unto my master, the LORD's anointed, to stretch forth mine hand against him, seeing he is the anointed of the LORD."
+  },
+  {
+    "id": 176,
+    "title": "David Plays the Harp for Saul",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 16:14-23",
+    "week": 12,
+    "libraryKey": "davidHarp",
+    "kjvText": "And it came to pass, when the evil spirit from God was upon Saul, that David took an harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him."
   }
 ]

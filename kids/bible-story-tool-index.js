@@ -437,16 +437,6 @@
     "kw": "samuel anoints david samuel david anoint anointed 1 samuel 16 jesse heart sheep bethlehem horn of oil looketh on the heart"
   },
   {
-    "key": "davidHarp",
-    "title": "David Plays the Harp",
-    "kjvRef": "1 Samuel 16:14-23",
-    "who": "David",
-    "to": "King Saul (and us)",
-    "apply": "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
-    "theme": "Love",
-    "kw": "david harp worship sheep 1 samuel 16 1 samuel 16:14 1 samuel 16:23 music praise saul evil spirit refreshed armourbearer armorbearer played with his hand cunning player"
-  },
-  {
     "key": "davidCave",
     "title": "David Spares Saul in the Cave",
     "kjvRef": "1 Samuel 24:1-22",
@@ -2925,6 +2915,16 @@
     "apply": "Small gifts matter—God sees! Give what you have from the heart!",
     "theme": "Love",
     "kw": "widow mite coins mark 12 luke 21 small gift"
+  },
+  {
+    "key": "davidHarp",
+    "title": "Young David Plays the Harp for King Saul",
+    "kjvRef": "1 Samuel 16:14-23",
+    "who": "The Lord (through David)",
+    "to": "King Saul — and every heart that needs quiet",
+    "apply": "God used David's gentle playing to bring ease. The gifts God gives you — a song, a calm voice, a steady hand — can be a kindness to someone who is hurting.",
+    "theme": "Love",
+    "kw": "david harp young david king saul saul 1 samuel 16 1 samuel 16:14 1 samuel 16:23 evil spirit refreshed played with his hand cunning player on an harp armourbearer armorbearer send me david thy son son of jesse the bethlehemite music comfort peace"
   },
   {
     "key": "zacchaeus",

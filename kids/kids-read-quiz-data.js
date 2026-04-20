@@ -3955,88 +3955,123 @@
     ]
   },
   "davidHarp": {
-    "kjvRef": "1 Samuel 16:14-23",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Samuel 16:14-23 (KJV)",
+    "verseExcerpt": "And it came to pass, when the evil spirit from God was upon Saul, that David took an harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him. — 1 Samuel 16:23 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "God used David's hands and heart — He still uses gentle gifts today.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "But the Spirit of the LORD departed from Saul, and an evil spirit from the LORD troubled him. And Saul's servants said unto him, Behold now, an evil spirit from God troubleth thee.",
+        "caption": "An evil spirit troubled Saul",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "Let our lord now command thy servants, which are before thee, to seek out a man, who is a cunning player on an harp: and it shall come to pass, when the evil spirit from God is upon thee, that he shall play with his hand, and thou shalt be well.",
+        "caption": "Seek a cunning player on an harp",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And Saul said unto his servants, Provide me now a man that can play well, and bring him to me. Then answered one of the servants, and said, Behold, I have seen a son of Jesse the Bethlehemite, that is cunning in playing, and a mighty valiant man, and a man of war, and prudent in matters, and a comely person, and the LORD is with him.",
+        "caption": "A son of Jesse — the LORD is with him",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Wherefore Saul sent messengers unto Jesse, and said, Send me David thy son, which is with the sheep. And Jesse took an ass laden with bread, and a bottle of wine, and a kid, and sent them by David his son unto Saul. And David came to Saul, and stood before him: and he loved him greatly; and he became his armourbearer.",
+        "caption": "David came — he became his armourbearer",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And Saul sent to Jesse, saying, Let David, I pray thee, stand before me; for he hath found favour in my sight.",
+        "caption": "Let David stand before me",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "And it came to pass, when the evil spirit from God was upon Saul, that David took an harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him.",
+        "caption": "David played — Saul was refreshed",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "David Plays the Harp – 1 Samuel 16:14-23. An evil spirit troubled King Saul.",
-      "His servants said, Find a man who plays the harp well. One said, I have seen a son of Jesse who plays skillfully—and the LORD is with him.",
-      "Saul sent for David.",
-      "When the distressing spirit came, David played with his hand on the harp, and Saul was refreshed and well.",
-      "For you: God can use your simple gifts to bring calm where it is needed."
+      "King Saul was troubled by an evil spirit. His servants said, Let our lord now command thy servants, which are before thee, to seek out a man, who is a cunning player on an harp: and it shall come to pass, when the evil spirit from God is upon thee, that he shall play with his hand, and thou shalt be well.",
+      "They brought young David, who was a skillful harp player. Whenever the evil spirit came upon Saul, David took the harp and played with his hand.",
+      "Then Saul was refreshed, and the evil spirit departed from him.",
+      "The Lord used David's music to bring peace and comfort to the king.",
+      "For you: God can use a gentle song, a kind word, or a simple gift to help someone feel safe — ask Him how you may comfort others today."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What troubled King Saul in this story?",
         "choices": [
-          "1 Samuel 16:14-23",
-          "Exodus 16:1-36",
-          "Acts 20:7–12",
-          "Acts 3"
+          "A loud storm only.",
+          "An evil spirit from the LORD.",
+          "A broken harp.",
+          "Nothing troubled him."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 16:14-23.)"
+        "correctIndex": 1,
+        "correctFeedback": "The Bible says an evil spirit from the LORD troubled him.",
+        "wrongFeedback": "Listen for troubled. (Answer: An evil spirit from the LORD.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did the servants want to find for Saul?",
         "choices": [
-          "Peter",
-          "James",
-          "Jesus",
-          "David"
+          "A new crown.",
+          "A man who is a cunning player on an harp.",
+          "A giant.",
+          "More sheep."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: David.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes — music to bring ease when the distress came.",
+        "wrongFeedback": "Listen for harp. (Answer: A cunning player on an harp.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "Who did they bring to play?",
         "choices": [
-          "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
+          "Goliath.",
+          "David, Jesse's son.",
+          "Samuel only.",
+          "Jonathan."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: David's music was a gift from God. When we use what God gives us to help others, His….)"
+        "correctIndex": 1,
+        "correctFeedback": "David — the LORD was with him.",
+        "wrongFeedback": "Listen for Jesse. (Answer: David, Jesse's son.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did David do when the evil spirit was upon Saul?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "David watches his sheep in the field",
-          "Everyone decided to never sleep again."
+          "He hid.",
+          "David took an harp, and played with his hand.",
+          "He ran away.",
+          "The Bible does not say."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "He played — calm and steady.",
+        "wrongFeedback": "Listen for harp and hand. (Answer: David took an harp, and played with his hand.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "How did Saul respond after David played?",
         "choices": [
-          "God can use your simple gifts to bring calm where it is needed.",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong."
+          "He was unchanged.",
+          "Saul was refreshed, and was well, and the evil spirit departed from him.",
+          "He broke the harp.",
+          "He sent David home at once."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God can use your simple gifts to bring calm where it is needed..)"
+        "correctIndex": 1,
+        "correctFeedback": "Refreshed and well — the spirit departed.",
+        "wrongFeedback": "Listen for refreshed. (Answer: Saul was refreshed… the evil spirit departed.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading David Plays the Harp with God's Word today.",
-    "takeaway": "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in David Plays the Harp. Amen.",
+    "doneMessage": "Well done resting in God's Word with David's gentle music today.",
+    "takeaway": "God used David's harp to quiet a heavy heart — He still gives peace through humble gifts offered in love.",
+    "prayer": "Lord, thank You for peace. Use the simple good things You give us to bless others. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David watches his sheep in the field (david)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He plays and sings to God (harp)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God listens—worship from the heart! (worship)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David watches his sheep in the field (sheep)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He plays and sings to God (1 samuel 16)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David sitting beside seated King Saul gently playing small harp Saul face peaceful rested thick robe folds harp strings simple indoor tent room background minimal soothing comforting mood no scary shadows white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text David played with his hand",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Saul was refreshed",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD is with him",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Evil spirit departed"
     ]
   },
   "davidJonathan": {

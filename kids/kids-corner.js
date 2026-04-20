@@ -101,7 +101,7 @@
       david: 'david',
       davidGoliath: 'davidGoliath',
       davidSheep: 'david',
-      davidHarp: 'david',
+      davidHarp: 'davidHarp',
       davidAnointed: 'david',
       davidCave: 'davidCave',
       davidSaul: 'david',
@@ -1366,20 +1366,41 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 3:10</text>'
       ),
 
-      /* ── Week 3: David Harp (44) ── */
+      /* David harp for Saul — indoor calm (library davidHarp / loop 176) */
       davidHarp: svg(
-        ground() + hills() +
-        '<ellipse cx="100" cy="225" rx="20" ry="15" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="85" cy="212" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="145" cy="230" rx="18" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(200, 175, 12, 35) +
-        '<path d="M185 192 Q170 182 162 165 Q175 155 192 162 L200 182" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="172" y1="163" x2="197" y2="185" ' + s + ' stroke-width="1.5"/>' +
-        '<line x1="176" y1="160" x2="198" y2="180" ' + s + ' stroke-width="1.5"/>' +
-        '<line x1="180" y1="158" x2="199" y2="176" ' + s + ' stroke-width="1.5"/>' +
-        '<line x1="185" y1="157" x2="200" y2="172" ' + s + ' stroke-width="1.5"/>' +
-        sun(320, 50, 20) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 16:23</text>'
+        /* floor */
+        '<rect x="0" y="248" width="400" height="52" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* simple back wall */
+        '<rect x="48" y="72" width="304" height="178" rx="6" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        /* doorway hint */
+        '<rect x="300" y="118" width="40" height="132" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* Saul seated right — peaceful */
+        '<ellipse cx="278" cy="248" rx="38" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="248" y="188" width="64" height="62" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="280" cy="168" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M268 162 Q280 154 292 162" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="274" cy="166" r="1.4" fill="#111"/><circle cx="286" cy="166" r="1.4" fill="#111"/>' +
+        '<path d="M276 176 Q280 180 284 176" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        /* young David left — seated, harp prominent */
+        '<ellipse cx="128" cy="252" rx="34" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="98" y="198" width="52" height="56" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="124" cy="178" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M116 172 Q124 166 132 172" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="118" cy="176" r="1.4" fill="#111"/><circle cx="130" cy="176" r="1.4" fill="#111"/>' +
+        /* harp — larger frame */
+        '<path d="M138 158 Q168 120 198 158 Q168 200 138 158" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="152" y1="138" x2="152" y2="178" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="162" y1="132" x2="162" y2="182" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="172" y1="130" x2="172" y2="184" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="182" y1="132" x2="182" y2="182" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="192" y1="138" x2="192" y2="178" ' + s + ' stroke-width="1.8"/>' +
+        /* David's hands on strings */
+        '<line x1="124" y1="210" x2="148" y2="168" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="132" y1="212" x2="158" y2="172" ' + s + ' stroke-width="2"/>' +
+        /* soft note arcs — minimal */
+        '<path d="M210 140 Q228 120 246 138" ' + s + ' stroke-width="1.6" fill="none" opacity="0.7"/>' +
+        '<path d="M218 128 Q236 108 254 126" ' + s + ' stroke-width="1.4" fill="none" opacity="0.55"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 16:23</text>'
       ),
 
       /* ── Week 3: Goliath Challenge (45) ── */
@@ -3117,7 +3138,7 @@
     samuelCall: 'samuelCall',
     samuelCalls: 'samuelCall',
     davidHarp: 'davidHarp',
-    davidSheep: 'davidHarp',
+    davidSheep: 'david',
     goliathChallenge: 'davidGoliath',
     davidJonathan: 'davidJonathan',
     davidJonathanFriendship: 'davidJonathan',
@@ -4885,7 +4906,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

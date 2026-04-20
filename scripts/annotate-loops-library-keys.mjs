@@ -150,6 +150,7 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   174: 'davidAnointed',
   43: 'davidJonathan',
   175: 'davidCave',
+  176: 'davidHarp',
   125: 'davidAbigail',
   44: 'psalm23'
 };

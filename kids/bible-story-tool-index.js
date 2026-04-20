@@ -437,6 +437,16 @@
     "kw": "samuel anoints david samuel david anoint anointed 1 samuel 16 jesse heart sheep bethlehem horn of oil looketh on the heart"
   },
   {
+    "key": "davidKing",
+    "title": "David Becomes King",
+    "kjvRef": "2 Samuel 5:1-5, 9-12",
+    "who": "The LORD",
+    "to": "Israel — and every heart that waits on God",
+    "apply": "The long road led to a thankful crown: God placed David where He promised. When answers take time, the Lord is still working.",
+    "theme": "Obedience",
+    "kw": "david king david becomes king king over israel anointed david king hebron jerusalem city of david strong hold of zion 2 samuel 5 2 sam 5 bone and thy flesh thirty years old reigned forty years seven years and six months thirty and three years lord god of hosts established him king"
+  },
+  {
     "key": "davidCave",
     "title": "David Spares Saul in the Cave",
     "kjvRef": "1 Samuel 24:1-22",

@@ -5155,6 +5155,45 @@
       narration:
         "David & Abigail – 1 Samuel 25:1-42. David asked Nabal for food for his men who had kept Nabal's flocks safe; Nabal answered with insult. David set out in anger — but Abigail heard, loaded donkeys with food, and hurried down the hill to meet him. She bowed and spoke with wisdom: let not my lord regard this man of Belial; folly is with him. She asked forgiveness and gave what she had brought. David blessed the LORD God of Israel for sending her and blessed her advice, for she had kept him from bloodshed. He sent her home in peace. After Nabal died, David took Abigail to be his wife. For you: God honors peacemakers."
     },
+    davidKing: {
+      title: 'David Becomes King',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Tribes at Hebron — Behold, we are thy bone and thy flesh' },
+        { src: 'panel-david-2.svg', alt: 'Elders anoint David king over Israel before the LORD' },
+        { src: 'panel-david-3.svg', alt: 'The city of David — the LORD God of hosts was with him' }
+      ],
+      caption: 'Swipe for the day Israel\'s tribes crowned David — God kept His promise.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'david king',
+        'david becomes king',
+        'king over israel',
+        'anointed david king',
+        'hebron',
+        'jerusalem',
+        'city of david',
+        'strong hold of zion',
+        '2 samuel 5',
+        '2 sam 5',
+        'bone and thy flesh',
+        'thirty years old',
+        'reigned forty years',
+        'seven years and six months',
+        'thirty and three years',
+        'lord god of hosts',
+        'established him king'
+      ],
+      kjvRef: '2 Samuel 5:1-5, 9-12',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Israel — and every heart that waits on God',
+        apply:
+          'The long road led to a thankful crown: God placed David where He promised. When answers take time, the Lord is still working.'
+      },
+      narration:
+        "David Becomes King – 2 Samuel 5:1-5, 9-12. Then came all the tribes of Israel to David unto Hebron, and said, Behold, we are thy bone and thy flesh. So all the elders of Israel came to the king to Hebron; and king David made a league with them in Hebron before the LORD: and they anointed David king over Israel. David was thirty years old when he began to reign, and he reigned forty years. In Hebron he reigned over Judah seven years and six months: and in Jerusalem he reigned thirty and three years over all Israel and Judah. So David dwelt in the fort, and called it the city of David. And David went on, and grew great, and the LORD God of hosts was with him. And David perceived that the LORD had established him king over Israel, and that he had exalted his kingdom for his people Israel's sake. For you: Give thanks — God is faithful."
+    },
     hannahPray: {
       title: 'Hannah Prays for a Baby',
       panels: [
@@ -5697,7 +5736,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 293, color: '#e5e4e2' }
+      { name: 'Platinum', min: 294, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5796,7 +5835,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5811,7 +5850,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23',
+      'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing',
       'solomonWisdom', 'solomonTemple',
       'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
@@ -5944,6 +5983,16 @@
       )
     ) {
       return { type: 'carousel', story: 'davidAbigail' };
+    }
+    if (
+      /\b2 samuel 5:(?:[1-5]|9|1[0-2])\b|\b2 sam 5:(?:[1-5]|9|1[0-2])\b/.test(low) ||
+      /\b2 samuel 5\b|\b2 sam 5\b/.test(low) ||
+      /\bhebron\b.*\banoint\b.*\bdavid\b|\banoint\b.*\bdavid\b.*\bhebron\b|bone and thy flesh|anointed david king over israel|city of david|reigned forty years|thirty years old when he began to reign|seven years and six months|thirty and three years|lord god of hosts was with him|established him king over israel|exalted his kingdom for his people/.test(
+        low
+      ) ||
+      /\bdavid\b.*\bking over israel\b|\bking over israel\b.*\bdavid\b|david became king|david becomes king/.test(low)
+    ) {
+      return { type: 'carousel', story: 'davidKing' };
     }
     if (
       /\b1 samuel 18\b|\b1 sam 18\b/.test(low) &&
@@ -8742,7 +8791,7 @@
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaRaised: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', solomonWisdom: 'Obedience', solomonTemple: 'Obedience',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTemple: 'Obedience',
     elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
     elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',

@@ -109,6 +109,7 @@
       davidJonathan: 'davidJonathan',
       davidJonathanFriendship: 'davidJonathan',
       davidAbigail: 'abigailWise',
+      davidKing: 'davidKing',
       psalm23: 'psalm23Shepherd',
       psalm23Shepherd: 'psalm23Shepherd',
       goliathChallenge: 'david',
@@ -1438,6 +1439,31 @@
         person(72, 182, 8, 22) + person(108, 186, 8, 22) + person(142, 184, 8, 22) +
         person(258, 186, 8, 22) + person(292, 184, 8, 22) + person(328, 186, 8, 22) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 16:13</text>'
+      ),
+
+      /* David king — elders, horn of oil, city hint (library davidKing / loop 177) */
+      davidKing: svg(
+        ground() + hills() +
+        /* simple city wall silhouette */
+        '<path d="M32 200 L32 138 L48 132 L64 140 L80 134 L96 142 L112 136 L128 144 L144 138 L160 146 L176 140 L176 200" ' +
+          sf +
+          ' fill="white" stroke-width="2.2"/>' +
+        sun(52, 44, 16) + cloud(312, 34) +
+        /* David — humble face, crown outline */
+        person(200, 170, 12, 34) +
+        '<path d="M192 174 Q200 168 208 174" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="196" cy="172" r="1.6" fill="#111"/><circle cx="204" cy="172" r="1.6" fill="#111"/>' +
+        '<path d="M184 146 L190 156 L196 148 L202 156 L208 148 L214 156 L220 146 L220 160 L184 160 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* elder pours from horn */
+        person(118, 180, 9, 28) +
+        '<path d="M124 168 L128 154 L138 162 L132 176 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M132 162 Q165 172 192 176" ' + s + ' stroke-width="1.4" fill="none" opacity="0.55"/>' +
+        /* thankful elders */
+        person(262, 184, 8, 24) +
+        person(292, 186, 8, 22) +
+        '<path d="M256 170 Q262 174 268 170" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M286 172 Q292 176 298 172" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 5:3</text>'
       ),
 
       /* ── Week 3: Saul Spear (47) ── */
@@ -3143,6 +3169,7 @@
     davidJonathan: 'davidJonathan',
     davidJonathanFriendship: 'davidJonathan',
     davidAnointed: 'davidAnointed',
+    davidKing: 'davidKing',
     saulSpear: 'saulSpear',
     davidCave: 'davidCave',
     /* ── Week 4 ── */
@@ -4906,7 +4933,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

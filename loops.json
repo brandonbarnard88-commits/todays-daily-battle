@@ -1605,5 +1605,15 @@
     "week": 12,
     "libraryKey": "davidHarp",
     "kjvText": "And it came to pass, when the evil spirit from God was upon Saul, that David took an harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him."
+  },
+  {
+    "id": 177,
+    "title": "David Becomes King over Israel",
+    "file": "",
+    "audio": "",
+    "ref": "2 Samuel 5:1-5, 9-12",
+    "week": 12,
+    "kjvText": "So all the elders of Israel came to the king to Hebron; and king David made a league with them in Hebron before the LORD: and they anointed David king over Israel.",
+    "libraryKey": "davidKing"
   }
 ]

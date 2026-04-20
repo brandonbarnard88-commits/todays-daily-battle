@@ -80,6 +80,7 @@
     'davidCave',
     'davidAbigail',
     'psalm23',
+    'davidKing',
     'davidSaul',
     'davidSaulJealousy',
     'saulSpear',

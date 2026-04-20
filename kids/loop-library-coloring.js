@@ -31,6 +31,7 @@
   "davidGoliath": "davidGoliath",
   "davidHarp": "davidHarp",
   "davidJonathan": "davidJonathan",
+  "davidKing": "davidKing",
   "davidSheep": "david",
   "deborahBarak": "deborahBarak",
   "dorcasRaise": "dorcasRaise",

@@ -11,6 +11,7 @@
  * David & Abigail: read-quiz-david-abigail-pack.cjs (keys davidAbigail + abigailWise).
  * Psalm 23: read-quiz-psalm23-pack.cjs (keys psalm23 + psalm23Shepherd).
  * David harp before Saul: read-quiz-david-harp-pack.cjs (key davidHarp).
+ * David king over Israel: read-quiz-david-king-pack.cjs (key davidKing).
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
@@ -22,6 +23,7 @@ const davidCaveReadQuizPack = require('./read-quiz-david-cave-pack.cjs');
 const davidAbigailReadQuizPack = require('./read-quiz-david-abigail-pack.cjs');
 const psalm23ReadQuizPack = require('./read-quiz-psalm23-pack.cjs');
 const davidHarpReadQuizPack = require('./read-quiz-david-harp-pack.cjs');
+const davidKingReadQuizPack = require('./read-quiz-david-king-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3861,5 +3863,6 @@ module.exports = {
   abigailWise: davidAbigailReadQuizPack,
   psalm23: psalm23ReadQuizPack,
   psalm23Shepherd: psalm23ReadQuizPack,
-  davidHarp: davidHarpReadQuizPack
+  davidHarp: davidHarpReadQuizPack,
+  davidKing: davidKingReadQuizPack
 };

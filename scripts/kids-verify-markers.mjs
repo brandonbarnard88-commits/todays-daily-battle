@@ -28,7 +28,7 @@ export const STORY_HTML_MARKERS = [
   'pdf-export',
   'aria-describedby="pdf-export-count-hint pdf-export-hint"',
   'story-library-fonts.css?v=1',
-  'kids-corner.js?v=20260405kidsrollout',
+  'kids-corner.js?v=20260420kidsbones',
   'kids-page-sky.css?v=20260326playful',
   'uFuzzy.iife.min.js',
   'kids-verses-365.js?v=20260325kidsmeans',

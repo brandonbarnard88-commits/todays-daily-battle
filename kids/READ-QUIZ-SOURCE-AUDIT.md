@@ -14,7 +14,7 @@ Generated: **2026-03-23** (run `npm run kids:audit-read-quiz-sources` to refresh
 
 | Category | Count |
 |----------|------:|
-| Total `bibleStories` keys | 281 |
+| Total `bibleStories` keys | 282 |
 | **Handcrafted** full-pack override | 4 |
 | **Generator** (`buildPack`) | 277 |
 | …with non-empty `narration:` in battle | 20 |

@@ -2463,6 +2463,20 @@
       kjvRef: '2 Kings 6:1–7',
       kidContext: { who: 'God', to: 'the worried builder', apply: 'God notices little worries too. Tell Him what you need — He is kind.' }
     },
+    elishaBones: {
+      title: 'God\'s Power Even in Elisha\'s Bones',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elisha rested — God\'s servant buried with honor' },
+        { src: 'panel-noah-2.svg', alt: 'Friends hurry — they lay a man beside Elisha\'s rest' },
+        { src: 'panel-noah-3.svg', alt: 'He stands up alive — God alone gives life!' }
+      ],
+      caption: 'Swipe to see God\'s surprising power — He alone gives life! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['elisha', 'bones', 'life', 'miracle', '2 kings 13', 'bury', 'grave', 'revived'],
+      kjvRef: '2 Kings 13:20–21',
+      kidContext: { who: 'God', to: 'everyone who hears', apply: 'God\'s power is greater than anything. He can do wonderful things — we can trust Him.' }
+    },
     isaiahMessianic: {
       title: 'Isaiah\'s Messianic Prophecies',
       panels: [
@@ -4752,7 +4766,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 281, color: '#e5e4e2' }
+      { name: 'Platinum', min: 282, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -4868,7 +4882,7 @@
       /* Week 4 */
       'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd',
       'solomonWisdom', 'solomonTemple',
-      'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
+      'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe', 'elishaBones',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
       'ezraReturn', 'malachiMessage',
       'jonahVine', 'danielPray', 'estherBanquet',
@@ -7602,7 +7616,7 @@
     elishaRaised: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', solomonWisdom: 'Obedience', solomonTemple: 'Obedience',
     elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
-    elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles',
+    elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles', elishaBones: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',
     danielFieryFurnace: 'Miracles', danielLionsDen: 'Miracles',
     ezraReturn: 'Obedience', malachiMessage: 'Obedience',

@@ -1043,6 +1043,44 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:35</text>'
       ),
 
+      /* ── Elisha arc: God's power — bones (2 Kings 13:20–21) ── */
+      elishaBones: svg(
+        ground() +
+        hills() +
+        sun(340, 48, 18) +
+        '<path d="M80 210 Q120 175 160 200 Q200 185 240 200 Q280 178 320 210 L320 268 L80 268 Z" ' +
+        sf +
+        ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="200" cy="248" rx="28" ry="14" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M172 248 Q200 230 228 248" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        person(200, 148, 13, 36) +
+        '<path d="M188 152 L182 128 M212 152 L218 128" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        '<path d="M175 175 L165 158 M225 175 L235 158" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        person(95, 178, 11, 32) +
+        person(305, 178, 11, 32) +
+        '<circle cx="48" cy="208" r="16" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="44" y="218" width="8" height="22" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<circle cx="352" cy="210" r="14" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="348" y="218" width="8" height="24" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 13:21</text>'
+      ),
+
       /* ── Week 4: Jonah Whale already exists ── */
       /* ── Week 4: Daniel Lions already exists ── */
 
@@ -2593,6 +2631,7 @@
     elijahChariot: 'elijahChariot',
     elishaMiracles: 'elishaOil',
     elishaFloatingAxe: 'naamanDip',
+    elishaBones: 'elishaBones',
     isaiahMessianic: 'angelMary',
     jeremiahWeeping: 'jobSuffering',
     ezekielValleyBones: 'elishaRaised',
@@ -3615,7 +3654,7 @@
     return /^\/media\/kids-stories\/[a-zA-Z0-9][a-zA-Z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(s);
   }
 
-  /** Optional loop-library poster: /assets/loops/{1–160}.png only (matches loops.json ids). */
+  /** Optional loop-library poster: /assets/loops/{1–192}.png when shipped (read-quiz poster map). */
   function isSafeLoopPosterPath(src) {
     if (typeof src !== 'string') return false;
     var s = src.trim();
@@ -3625,7 +3664,7 @@
     var m = /^\/assets\/loops\/(\d{1,3})\.png$/i.exec(s);
     if (!m) return false;
     var n = parseInt(m[1], 10);
-    return n >= 1 && n <= 160;
+    return n >= 1 && n <= 192;
   }
 
   /** First comic panel from bibleStories (same files as the modal carousel). */
@@ -4049,7 +4088,7 @@
       if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
         var posters = window.TDB_READ_QUIZ_LOOP_POSTERS || {};
         var lid = posters[key];
-        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 160) {
+        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 192) {
           var posterPath = '/assets/loops/' + Math.floor(lid) + '.png';
           if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
         }

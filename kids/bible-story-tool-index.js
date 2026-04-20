@@ -2357,6 +2357,16 @@
     "kw": "elisha axe jordan 2 kings 6 borrowed float miracle iron"
   },
   {
+    "key": "elishaBones",
+    "title": "God's Power Even in Elisha's Bones",
+    "kjvRef": "2 Kings 13:20–21",
+    "who": "God",
+    "to": "everyone who hears",
+    "apply": "God's power is greater than anything. He can do wonderful things — we can trust Him.",
+    "theme": "Miracles",
+    "kw": "elisha bones life miracle 2 kings 13 bury grave revived sepulchre"
+  },
+  {
     "key": "fourHorsemen",
     "title": "The Four Horsemen",
     "kjvRef": "",

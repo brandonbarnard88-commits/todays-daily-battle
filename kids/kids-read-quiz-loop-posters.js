@@ -58,6 +58,7 @@
     elijahFire: 18,
     elijahFireFromHeaven: 18,
     elishaFloatingAxe: 21,
+    elishaBones: 192,
     elishaMiracles: 19,
     elishaOil: 19,
     elishaRaised: 49,

@@ -582,7 +582,7 @@ const header = `/**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
  * Keys match TDB_BIBLE_STORIES (${keys.length} stories).
  * Regenerate: npm run kids:generate-read-quiz
- * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath read-along sections).
+ * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath; Elisha bones read-along sections).
  *
  * Paragraph style: short beats for kids—split sentences, no generic filler lines.
  * Missing narration uses panel alts + apply only (faithful; no invented story beats).

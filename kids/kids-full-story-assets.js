@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (281 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (282 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -291,6 +291,11 @@
       mp4: '/media/kids-stories/elijah-fire-from-heaven.mp4',
       webm: '/media/kids-stories/elijah-fire-from-heaven.webm',
       captionsVtt: '/media/kids-stories/elijah-fire-from-heaven.vtt'
+    },
+    elishaBones: {
+      mp4: '/media/kids-stories/elisha-bones.mp4',
+      webm: '/media/kids-stories/elisha-bones.webm',
+      captionsVtt: '/media/kids-stories/elisha-bones.vtt'
     },
     elishaFloatingAxe: {
       mp4: '/media/kids-stories/elisha-floating-axe.mp4',

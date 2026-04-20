@@ -96,6 +96,7 @@
     'naaman',
     'naamanDip',
     'elishaFloatingAxe',
+    'elishaBones',
     'ezraReturn',
     'nehemiahWalls',
     'esther',

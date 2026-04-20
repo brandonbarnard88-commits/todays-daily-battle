@@ -9,6 +9,7 @@
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
+ * Elisha bones (2 Kings 13:20–21): full read-along + quiz in buildElishaBonesReadQuiz().
  */
 
 const davidReadQuizPack = require('./read-quiz-david-pack.cjs');
@@ -98,9 +99,128 @@ function buildJerichoReadQuiz() {
   };
 }
 
+/** Elisha arc close — 2 Kings 13:20–21; calm read-along taps + quiz. */
+function buildElishaBonesReadQuiz() {
+  return {
+    kjvRef: '2 Kings 13:20–21',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the comic pictures above while you read.',
+    paragraphs: [
+      "God's Power Even in Elisha's Bones (2 Kings 13:20–21).",
+      'Elisha died and was buried. Later, some men were burying another man.',
+      "They saw danger coming and quickly laid the man in Elisha's grave.",
+      'As soon as the man touched the bones of Elisha, he came back to life and stood up on his feet.',
+      "The Lord showed that His power was so great that even Elisha's bones could bring a dead man back to life. God is mighty and can do wonderful things!"
+    ],
+    readAlongSections: [
+      {
+        text: 'Elisha died and was buried.',
+        caption: 'Quiet rest',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Some men were burying another man.',
+        caption: 'Carrying a friend',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: "They saw danger coming and quickly laid the man in Elisha's grave.",
+        caption: 'A hurried, kind choice',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'As soon as the man touched the bones of Elisha, he came back to life.',
+        caption: 'God gives life',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He stood up on his feet!',
+        caption: 'Standing up',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: "God showed His great power—even through Elisha's bones. God is mighty and can do wonderful things!",
+        caption: 'For you',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', '2 Kings 13:20–21', 'John 3:16', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 13:20–21.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'A talking animal', 'Pharaoh', 'Goliath'],
+        correctIndex: 0,
+        correctFeedback: 'Right—keep the Lord in mind as you think about His power and kindness.',
+        wrongFeedback: "Look for who the story shows is mighty over life itself. (Answer: God.)"
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God is weak when we are scared.',
+          'God cannot do miracles today.',
+          "God's power is great—He alone gives life and can do wonderful things.",
+          'The Bible is only pretend stories.'
+        ],
+        correctIndex: 2,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God's power is great—He alone gives life and can do wonderful things.)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'He stood up on his feet.',
+          'Everyone decided to never sleep again.',
+          'A talking toaster became king of the city.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: He stood up on his feet.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Remember that God is mighty and we can trust Him.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust and humility before God? Pick the one that honors Him. (Answer: Remember that God is mighty and we can trust Him.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading God's Power Even in Elisha's Bones with God's Word today.",
+    takeaway: "God's power is greater than anything. He can do wonderful things — we can trust Him.",
+    prayer:
+      "God, thank You for the Bible. Help me remember what You showed me in God's Power Even in Elisha's Bones. Amen.",
+    imagePrompts: [
+      "Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: quiet hill country, simple rounded grave opening, one man standing up with a gentle glad face, two friends nearby with thankful faces, soft hills and a few simple trees, wonder-filled hopeful mood, no text, no scary soldiers, plenty of white space",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha rested — God's servant buried with honor (elisha)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Friends hurry — they lay a man beside Elisha's rest (grave)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He stands up alive — God alone gives life! (2 kings 13)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He stands up alive — God alone gives life! (miracle)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
   david: davidReadQuizPack,
-  davidGoliath: davidReadQuizPack
+  davidGoliath: davidReadQuizPack,
+  elishaBones: buildElishaBonesReadQuiz()
 };

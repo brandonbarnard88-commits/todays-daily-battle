@@ -6043,10 +6043,10 @@
       title: 'David Shows Kindness to Mephibosheth',
       panels: [
         { src: 'panel-david-1.svg', alt: 'David asks — Is there any left of Saul\'s house to show kindness for Jonathan\'s sake?' },
-        { src: 'panel-david-2.svg', alt: 'Fear not — I will show thee kindness; eat bread at my table continually' },
-        { src: 'panel-david-3.svg', alt: 'Mephibosheth dwelt in Jerusalem — he ate continually at the king\'s table' }
+        { src: 'panel-david-2.svg', alt: 'Fear not — I will shew thee kindness; thou shalt eat bread at my table continually' },
+        { src: 'panel-david-3.svg', alt: 'Mephibosheth dwelt in Jerusalem — welcome at the king\'s table as one of the king\'s sons' }
       ],
-      caption: 'David remembered Jonathan and welcomed his son — a place at the king\'s table.',
+      caption: 'David remembered Jonathan and gave his son a seat of honor — mercy at the king\'s table.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -6072,10 +6072,10 @@
         who: 'David — and the Lord',
         to: 'Every heart that feels small — and every listener',
         apply:
-          'God loves when we remember friends and welcome others kindly. Jesus welcomes us to His table too.'
+          'God loves when we remember friends and make room for others — especially when someone feels small. Jesus welcomes us to His table too.'
       },
       narration:
-        "David Shows Kindness – 2 Samuel 9:1-13. David remembered Jonathan and asked, Is there yet any left of the house of Saul, that I may shew him kindness for Jonathan's sake? They brought Mephibosheth, Jonathan's son, who was lame in his feet. David said, Fear not: I will shew thee kindness for Jonathan thy father's sake, restore the land of Saul, and thou shalt eat bread at my table continually. Mephibosheth bowed low; David treated him as a son of the king. So he dwelt in Jerusalem and ate at the king's table. For you: God is kind — we can show His gentle welcome to others."
+        "David Shows Kindness – 2 Samuel 9:1-13. David remembered Jonathan and asked, Is there yet any left of the house of Saul, that I may shew him kindness for Jonathan's sake? They brought Mephibosheth, Jonathan's son, who was lame in his feet. David said, Fear not: I will shew thee kindness for Jonathan thy father's sake, restore the land of Saul, and thou shalt eat bread at my table continually. Mephibosheth bowed low; David treated him as a son of the king — a place at the table, not a place far off. So he dwelt in Jerusalem and ate at the king's table. For you: God is kind to the humble — we can show His gentle welcome to others."
     },
     absalomRebellion: {
       title: 'David\'s Sadness and God\'s Care',

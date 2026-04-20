@@ -452,7 +452,7 @@
     "kjvRef": "2 Samuel 9:1-13",
     "who": "David — and the Lord",
     "to": "Every heart that feels small — and every listener",
-    "apply": "God loves when we remember friends and welcome others kindly. Jesus welcomes us to His table too.",
+    "apply": "God loves when we remember friends and make room for others — especially when someone feels small. Jesus welcomes us to His table too.",
     "theme": "Love",
     "kw": "mephibosheth david kindness jonathan king's table fear not lodebar ziba 2 samuel 9 2 sam 9 shew him kindness dead dog jonathan's son lame jerusalem restore house of saul"
   },

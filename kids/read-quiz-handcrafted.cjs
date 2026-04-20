@@ -12,7 +12,7 @@
  * Psalm 23: read-quiz-psalm23-pack.cjs (keys psalm23 + psalm23Shepherd).
  * David harp before Saul: read-quiz-david-harp-pack.cjs (key davidHarp).
  * David is anointed king (gentle): read-quiz-david-king-pack.cjs (key davidKing).
- * David's kindness to Mephibosheth: read-quiz-mephibosheth-pack.cjs (key mephibosheth).
+ * David's kindness to Mephibosheth (gentle deepen): read-quiz-mephibosheth-pack.cjs (key mephibosheth).
  * David's sadness and prayer (Absalom, gentle): read-quiz-absalom-rebellion-pack.cjs (key absalomRebellion).
  * Solomon asks for wisdom: read-quiz-solomon-wisdom-pack.cjs (key solomonWisdom).
  * Solomon and the two mothers: read-quiz-solomon-two-mothers-pack.cjs (key solomonTwoMothers).

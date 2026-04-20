@@ -1734,7 +1734,7 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 5:1-12</text>'
       ),
 
-      /* David & Mephibosheth — king's table, kindness (library mephibosheth / loop 193) */
+      /* David & Mephibosheth — king's table, meal, kindness (library mephibosheth / loop 193) */
       mephibosheth: svg(
         ground() +
         '<rect x="48" y="92" width="304" height="110" rx="6" ' + sf + ' fill="white" stroke-width="2.2"/>' +
@@ -1744,15 +1744,22 @@
         '<ellipse cx="118" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<ellipse cx="200" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<ellipse cx="282" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="118" cy="214" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
-        '<circle cx="200" cy="214" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* simple meal — bread + cup */
+        '<ellipse cx="118" cy="210" rx="10" ry="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M112 208 L124 208 M118 204 L118 212" ' + s + ' stroke-width="1.2"/>' +
+        '<ellipse cx="200" cy="210" rx="9" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="282" cy="208" rx="5" ry="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="282" cy="200" rx="2" ry="1" ' + sf + ' fill="white" stroke-width="1.2"/>' +
         person(118, 132, 11, 30) +
         '<path d="M106 126 L112 118 L118 124 L124 118 L130 126 L130 136 L106 136 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M112 158 Q118 162 124 158" ' + s + ' stroke-width="1.1" fill="none"/>' +
         '<path d="M128 170 Q188 162 248 172" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<circle cx="248" cy="172" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         person(268, 138, 10, 26) +
-        '<path d="M262 132 Q268 136 274 132" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<path d="M262 132 Q268 128 274 132" ' + s + ' stroke-width="1.1" fill="none"/>' +
         '<path d="M268 200 L264 222 M272 200 L276 222" ' + s + ' stroke-width="1.8"/>' +
+        /* glad smile */
+        '<path d="M262 144 Q268 150 274 144" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<ellipse cx="118" cy="228" rx="22" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<ellipse cx="278" cy="228" rx="22" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 9:7</text>'

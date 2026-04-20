@@ -16184,9 +16184,9 @@
   },
   "mephibosheth": {
     "kjvRef": "2 Samuel 9:1-13 (KJV)",
-    "verseExcerpt": "And David said unto him, Fear not: for I will surely shew thee kindness for Jonathan thy father's sake, and will restore thee all the land of Saul thy father; and thou shalt eat bread at my table continually. — 2 Samuel 9:7 (KJV)",
-    "readAlongTitle": "David Shows Kindness to Mephibosheth",
-    "quizWrongHumilityHint": "David remembered Jonathan and welcomed his son — God loves kindness that honors others.",
+    "verseExcerpt": "As for Mephibosheth, said the king, he shall eat at my table, as one of the king's sons. — 2 Samuel 9:11 (KJV)",
+    "readAlongTitle": "David Shows Kindness to Mephibosheth — Welcome at the Table",
+    "quizWrongHumilityHint": "David remembered Jonathan and made room at the table — God loves kindness that honors others.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "readAlongSections": [
       {
@@ -16196,7 +16196,7 @@
       },
       {
         "text": "And the king said, Is there not yet any of the house of Saul, that I may shew the kindness of God unto him? And Ziba said unto the king, Jonathan hath yet a son, which is lame on his feet. Then king David sent, and fetched him out of the house of Machir, the son of Ammiel, from Lodebar.",
-        "caption": "They brought Jonathan's son — lame on his feet",
+        "caption": "They brought Jonathan's son — God saw him too",
         "image": "panel-david-1.svg"
       },
       {
@@ -16206,28 +16206,28 @@
       },
       {
         "text": "And he bowed himself, and said, What is thy servant, that thou shouldest look upon such a dead dog as I am?",
-        "caption": "Humble words — yet the king welcomed him",
+        "caption": "Humble words — the king still chose to bless him",
         "image": "panel-david-2.svg"
       },
       {
         "text": "Then the king called to Ziba, Saul's servant, and said unto him, I have given unto thy master's son all that pertained to Saul and to all his house. Then said Ziba unto the king, According to all that my lord the king hath commanded his servant, so shall thy servant do. As for Mephibosheth, said the king, he shall eat at my table, as one of the king's sons.",
-        "caption": "As one of the king's sons — a place at the table",
+        "caption": "A place at the table — as one of the king's sons",
         "image": "panel-david-3.svg"
       },
       {
         "text": "So Mephibosheth dwelt in Jerusalem: for he did eat continually at the king's table; and was lame on both his feet.",
-        "caption": "He dwelt in Jerusalem — bread at the king's table",
+        "caption": "He dwelt in Jerusalem — always welcome at the king's table",
         "image": "panel-david-3.svg"
       }
     ],
     "paragraphs": [
-      "David remembered his friend Jonathan and asked if anyone was left of Saul's house so he could show kindness.",
+      "David remembered his friend Jonathan and asked if anyone was left of Saul's house so he could show kindness for Jonathan's sake.",
       "They told him about Mephibosheth, Jonathan's son, who was lame in his feet. David sent for him.",
       "David said, Fear not: I will show you kindness for Jonathan your father's sake, restore what belonged to Saul, and you shall eat bread at my table continually.",
       "Mephibosheth bowed low and said, What is your servant, that you should look on such a dead dog as I am?",
-      "David gave him back what belonged to Saul's house and welcomed him — he would eat at the king's table as one of the king's sons.",
+      "David gave him back what belonged to Saul's house and said he would eat at the king's table as one of the king's sons — a seat of honor.",
       "So Mephibosheth lived in Jerusalem and ate continually at the king's table.",
-      "God shows kindness to us too — we need not stay afraid or small when He invites us near.",
+      "God shows kindness to us when we feel small — He invites us close, just as David welcomed Jonathan's son.",
       "For you: We can show gentle kindness to others, the way God shows kindness to us."
     ],
     "quizHeading": "Quiz — think it through",
@@ -16294,11 +16294,11 @@
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Wonderful — you read how David showed kindness and gave a place at the table. God loves that kind of heart.",
-    "takeaway": "David remembered Jonathan and welcomed his son — God invites us to kindness that lifts others up.",
-    "prayer": "Lord, thank You for Your kindness to us. Help us welcome others and remember our friends with love. Amen.",
+    "doneMessage": "Beautiful — you read how David made room at the table for someone who felt small. God loves that welcoming heart.",
+    "takeaway": "David remembered Jonathan and gave his son honor at the king's table — God lifts up those who trust Him.",
+    "prayer": "Lord, thank You for Your kindness when we feel small. Help us welcome others the way You welcome us. Amen.",
     "imagePrompts": [
-      "A simple peaceful black-and-white line-art scene for young children: King David sitting at a table with a kind smile reaching out gently to Mephibosheth sitting nearby with a surprised but happy face. A simple meal on the table. Thick bold outlines large open spaces on robes table chairs. Soft room walls and a window with minimal lines. Kind welcoming mood focus on mercy and friendship. Clean minimal no sadness or fear plenty of white space ages 3-8 coloring page",
+      "A simple peaceful black-and-white line-art scene for young children: King David sitting at a table with a warm kind smile reaching out gently toward Mephibosheth seated nearby with a surprised joyful happy face. Simple meal on the table: bread loaves on plates and a small cup thick bold outlines large open spaces on robes table chairs. Soft room walls and a window with minimal lines. Kind welcoming mood focus on mercy and friendship. Clean minimal no sadness or fear plenty of white space ages 3-8 coloring page",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text: Kindness for Jonathan's sake",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text: Fear not — eat at my table",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text: As one of the king's sons",

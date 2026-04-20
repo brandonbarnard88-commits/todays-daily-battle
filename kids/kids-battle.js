@@ -2972,13 +2972,13 @@
       kidContext: { who: 'God', to: 'David', apply: 'When people are unkind, trust God! He is your protection.' }
     },
     davidCave: {
-      title: 'David Spares Saul in the Cave',
+      title: 'David Spares Saul — David Trusts God',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Engedi — Saul rests in the cave; David and his men in the sides of the cave' },
-        { src: 'panel-david-2.svg', alt: 'David cuts only the skirt of the robe — The LORD\'s anointed' },
-        { src: 'panel-david-3.svg', alt: 'The skirt in his hand — Saul weeps, Thou art more righteous than I' }
+        { src: 'panel-david-1.svg', alt: 'David and his men in the cave — Saul rests; a quiet day to show mercy' },
+        { src: 'panel-david-2.svg', alt: 'David honors the Lord\'s anointed — only the hem of the robe' },
+        { src: 'panel-david-3.svg', alt: 'David shows the robe — Saul\'s heart is touched; mercy wins' }
       ],
-      caption: 'Swipe to see mercy — David will not harm the king God chose.',
+      caption: 'Swipe to see David trust God — mercy for the king God chose.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -3004,10 +3004,10 @@
         who: 'David',
         to: 'Every heart learning mercy',
         apply:
-          'David could have hurt Saul, but he honored the king God had anointed. God sees when we choose kindness over revenge — ask Him for a gentle heart.'
+          'David could have hurt Saul, but he honored the king God had anointed. God helps us show mercy even when others are unkind — ask Him for a gentle heart.'
       },
       narration:
-        "David Spares Saul in the Cave – 1 Samuel 24:1-22. Saul hunted David to the wilderness of Engedi. Saul entered a cave to rest, not knowing David and his men hid in its sides. David's men said the Lord had delivered the enemy into his hand — yet David would not kill Saul. He cut only the skirt of Saul's robe; then his heart smote him. He told his men, The LORD forbid that I should stretch forth mine hand against my lord, the LORD's anointed. When Saul left, David called after him and showed the piece of robe: The LORD judge between me and thee, but mine hand shall not be upon thee. Saul wept and said, Thou art more righteous than I. For you: Mercy honors God."
+        "David Trusts God in the Cave — 1 Samuel 24:1-22. Saul was jealous and chased David. David and his men hid in a cave. Saul came into the same cave to rest, not knowing they were there. David's men said this was the day the Lord had given Saul into David's hand — yet David said, I will not stretch forth mine hand against the Lord's anointed. He cut only a piece of Saul's robe; then his heart smote him. When Saul left, David called after him and showed the piece: I could have hurt thee, but I did not. Saul's heart was touched. For you: The Lord sees when we choose kindness."
     },
     hannahSamuel: {
       title: 'Hannah & Samuel',

@@ -1743,30 +1743,24 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 18:11</text>'
       ),
 
-      /* ── Week 3: David spares Saul — Engedi cave (mercy, robe corner) ── */
+      /* ── Week 3: David spares Saul — Engedi cave (mercy, robe piece; no weapons) ── */
       davidCave: svg(
-        /* cave mouth — soft light from entrance right */
+        /* cave mouth — gentle light from entrance */
         '<path d="M20 280 L20 95 Q200 40 380 95 L380 280 Z" ' + sf + ' fill="white" stroke-width="3.5"/>' +
-        '<path d="M340 96 Q360 140 355 220" ' + s + ' stroke-width="2" opacity="0.45"/>' +
-        '<path d="M330 100 Q348 150 342 230" ' + s + ' stroke-width="1.5" opacity="0.35"/>' +
-        /* Saul resting — left, peaceful */
-        '<ellipse cx="118" cy="218" rx="36" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="118" cy="188" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M110 192 Q118 186 126 192" ' + s + ' stroke-width="1.2"/>' +
-        '<ellipse cx="118" cy="205" rx="22" ry="16" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<path d="M96 208 L96 232 M140 208 L140 232" ' + s + ' stroke-width="2.2"/>' +
-        /* robe skirt — small separated piece for clarity */
-        '<path d="M152 212 Q168 205 178 218 Q172 232 158 228 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* David kneeling — right of Saul, small blade to hem only */
-        '<circle cx="252" cy="178" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M246 182 Q252 176 258 182" ' + s + ' stroke-width="1.2"/>' +
-        '<circle cx="248" cy="176" r="1.1" fill="#111"/><circle cx="256" cy="176" r="1.1" fill="#111"/>' +
-        '<path d="M252 189 L248 228 L256 228 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M238 200 L232 222 M264 198 L268 218" ' + s + ' stroke-width="2"/>' +
-        '<line x1="248" y1="232" x2="242" y2="258" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="256" y1="232" x2="262" y2="258" ' + s + ' stroke-width="2.2"/>' +
-        /* tiny knife — low, toward hem only (not raised) */
-        '<line x1="210" y1="222" x2="228" y2="228" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M332 92 Q352 130 348 210" ' + s + ' stroke-width="2" opacity="0.4"/>' +
+        '<path d="M348 100 L372 82 M352 118 L378 104 M356 138 L380 124" ' + s + ' stroke-width="1.3" opacity="0.45"/>' +
+        /* Saul resting — left, peaceful distance */
+        '<ellipse cx="108" cy="222" rx="34" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="108" cy="192" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M102 196 Q108 190 114 196" ' + s + ' stroke-width="1.2"/>' +
+        '<ellipse cx="108" cy="208" rx="20" ry="14" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M88 210 L88 234 M128 210 L128 234" ' + s + ' stroke-width="2.2"/>' +
+        /* David standing calmly — holds small piece of robe */
+        person(268, 162, 11, 26) +
+        '<path d="M262 168 Q268 164 274 168" ' + s + ' stroke-width="1.1"/>' +
+        '<circle cx="265" cy="164" r="0.9" fill="#111"/><circle cx="272" cy="164" r="0.9" fill="#111"/>' +
+        /* small robe piece in hand */
+        '<path d="M232 188 L244 182 L248 196 L236 202 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 24:6</text>'
       ),
 

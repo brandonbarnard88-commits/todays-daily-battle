@@ -61,7 +61,7 @@ Update this file by running: `npm run kids:generate-animation-queue`
 | ☐ | 39 | `david` | `david.mp4` / `david.vtt` | David & Goliath |
 | ☐ | 40 | `davidAbigail` | `david-abigail.mp4` / `david-abigail.vtt` | David & Abigail |
 | ☐ | 41 | `davidAnointed` | `david-anointed.mp4` / `david-anointed.vtt` | David Anointed by Samuel |
-| ☐ | 42 | `davidCave` | `david-cave.mp4` / `david-cave.vtt` | David Spares Saul in the Cave |
+| ☐ | 42 | `davidCave` | `david-cave.mp4` / `david-cave.vtt` | David Spares Saul — David Trusts God |
 | ☐ | 43 | `davidGoliath` | `david-goliath.mp4` / `david-goliath.vtt` | David & Goliath |
 | ☐ | 44 | `davidHarp` | `david-harp.mp4` / `david-harp.vtt` | Young David Plays the Harp for King Saul |
 | ☐ | 45 | `davidJonathan` | `david-jonathan.mp4` / `david-jonathan.vtt` | David & Jonathan's Friendship |

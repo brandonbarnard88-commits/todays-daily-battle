@@ -448,11 +448,11 @@
   },
   {
     "key": "davidCave",
-    "title": "David Spares Saul in the Cave",
+    "title": "David Spares Saul — David Trusts God",
     "kjvRef": "1 Samuel 24:1-22",
     "who": "David",
     "to": "Every heart learning mercy",
-    "apply": "David could have hurt Saul, but he honored the king God had anointed. God sees when we choose kindness over revenge — ask Him for a gentle heart.",
+    "apply": "David could have hurt Saul, but he honored the king God had anointed. God helps us show mercy even when others are unkind — ask Him for a gentle heart.",
     "theme": "Protection",
     "kw": "david saul cave engedi wild goats skirt robe anointed lord's anointed spare mercy heart smote 1 samuel 24 cover his feet sheepcotes thou art more righteous"
   },
@@ -685,16 +685,6 @@
     "apply": "One day everyone will know Jesus is Lord! Choose to bow your heart to Him now—gladly.",
     "theme": "Obedience",
     "kw": "knee bow philippians 2 every tongue lord throne praise glory"
-  },
-  {
-    "key": "ezraReturn",
-    "title": "The Return from Exile",
-    "kjvRef": "Ezra 1:1–11; 3:1–6",
-    "who": "God",
-    "to": "His people",
-    "apply": "Even after long years away, God remembers you. You can come to Him with thanks and praise.",
-    "theme": "Obedience",
-    "kw": "ezra cyrus exile return temple ezra 1 ezra 3 altar jerusalem persia worship thanks"
   },
   {
     "key": "faithMustard",
@@ -1154,7 +1144,7 @@
     "to": "Job (and us)",
     "apply": "God is with us even in our saddest days — we can still trust Him and bless His name.",
     "theme": "Protection",
-    "kw": "job trust sad friends job 1 job 2 grief faith bless silence lord gave"
+    "kw": "job trust sad friends job 1 job 2 grief faith bless silence"
   },
   {
     "key": "johnBaptize",
@@ -1584,7 +1574,7 @@
     "to": "Nehemiah and His people",
     "apply": "God hears prayer and helps His people work together to restore what was broken.",
     "theme": "Obedience",
-    "kw": "nehemiah walls jerusalem nehemiah 1 nehemiah 2 nehemiah 3 artaxerxes rebuild pray teamwork gates rise up build"
+    "kw": "nehemiah walls jerusalem nehemiah 1 nehemiah 2 nehemiah 3 artaxerxes rebuild pray teamwork gates"
   },
   {
     "key": "newHeaven",
@@ -2745,6 +2735,16 @@
     "apply": "Don't give up in prayer! God always answers those who keep coming to Him.",
     "theme": "Obedience",
     "kw": "widow persistent judge luke 18 keep asking prayer justice"
+  },
+  {
+    "key": "ezraReturn",
+    "title": "The Return from Exile",
+    "kjvRef": "Ezra 1:1–11; 3:1–6",
+    "who": "God",
+    "to": "His people",
+    "apply": "Even after long years away, God remembers you. You can come to Him with thanks and praise.",
+    "theme": "Obedience",
+    "kw": "ezra cyrus exile return temple ezra 1 ezra 3 altar jerusalem persia worship"
   },
   {
     "key": "riverOfLife",

@@ -7,7 +7,7 @@
  * Two library cards share one Joshua 6 read+quiz — same pack for both keys.
  * David & Goliath: full read-along sections + quiz live in read-quiz-david-pack.cjs (keys david + davidGoliath).
  * David & Jonathan: read-quiz-david-jonathan-pack.cjs (keys davidJonathan + davidJonathanFriendship).
- * David spares Saul in the cave: read-quiz-david-cave-pack.cjs (key davidCave).
+ * David spares Saul — David Trusts God: read-quiz-david-cave-pack.cjs (key davidCave).
  * David & Abigail: read-quiz-david-abigail-pack.cjs (keys davidAbigail + abigailWise).
  * Psalm 23: read-quiz-psalm23-pack.cjs (keys psalm23 + psalm23Shepherd).
  * David harp before Saul: read-quiz-david-harp-pack.cjs (key davidHarp).

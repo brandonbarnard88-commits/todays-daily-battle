@@ -104,6 +104,7 @@
     'naamanHealed',
     'naamanDip',
     'elishaShunammite',
+    'gehaziGreed',
     'ezraReturn',
     'nehemiahWalls',
     'esther',

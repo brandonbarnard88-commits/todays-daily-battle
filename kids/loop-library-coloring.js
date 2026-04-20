@@ -59,6 +59,7 @@
   "fieryFurnace": "fieryFurnace",
   "fruitSpirit": "fruitSpirit",
   "gardenPrayer": "prayerCloset",
+  "gehaziGreed": "gehaziGreed",
   "gideonFleece": "gideonFleece",
   "gideonMidianites": "gideonMidianites",
   "goldenCalf": "tenCommandments",

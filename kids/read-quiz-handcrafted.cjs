@@ -60,6 +60,7 @@ const elishaFloatingAxeReadQuizPack = require('./read-quiz-elisha-floating-axe-p
 const elishaChariotsReadQuizPack = require('./read-quiz-elisha-chariots-pack.cjs');
 const elishaPoisonStewReadQuizPack = require('./read-quiz-elisha-poison-stew-pack.cjs');
 const elishaBlindArmyReadQuizPack = require('./read-quiz-elisha-blind-army-pack.cjs');
+const gehaziGreedReadQuizPack = require('./read-quiz-gehazi-greed-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3919,5 +3920,6 @@ module.exports = {
   elishaFloatingAxe: elishaFloatingAxeReadQuizPack,
   elishaChariots: elishaChariotsReadQuizPack,
   elishaPoisonStew: elishaPoisonStewReadQuizPack,
-  elishaBlindArmy: elishaBlindArmyReadQuizPack
+  elishaBlindArmy: elishaBlindArmyReadQuizPack,
+  gehaziGreed: gehaziGreedReadQuizPack
 };

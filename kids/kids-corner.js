@@ -1801,6 +1801,26 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:36</text>'
       ),
 
+      /* Gehazi — honest hearts (2 Kings 5:25-26) Elisha calm, gifts on ground */
+      gehaziGreed: svg(
+        ground() + hills() +
+        sun(48, 42, 16) + cloud(300, 34) +
+        '<rect x="48" y="118" width="140" height="92" rx="8" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<rect x="64" y="132" width="28" height="22" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M76 132 L88 118 L100 132" ' + s + ' stroke-width="2"/>' +
+        person(118, 168, 11, 34) +
+        '<path d="M108 152 Q114 148 120 152" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        person(268, 172, 10, 30) +
+        '<path d="M262 158 Q268 162 274 158" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<path d="M268 200 L252 218" ' + s + ' stroke-width="1.8"/>' +
+        /* bundles + bags */
+        '<ellipse cx="210" cy="238" rx="36" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="228" y="228" width="28" height="18" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="258" y="232" width="22" height="14" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M200 244 L188 252 M222 242 L230 252" ' + s + ' stroke-width="1.5"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:26</text>'
+      ),
+
       /* ── Week 4: Jonah Whale already exists ── */
       /* ── Week 4: Daniel Lions already exists ── */
 
@@ -3530,6 +3550,7 @@
     davidCave: 'davidCave',
     /* ── Week 4 ── */
     elishaShunammite: 'elishaShunammite',
+    gehaziGreed: 'gehaziGreed',
     estherCrown: 'estherCrown',
     esther: 'estherCrown',
     nehemiahWalls: 'nehemiahWalls',
@@ -5301,7 +5322,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
@@ -5523,6 +5544,7 @@
       elisharaised: 'elishaShunammite',
       naamanhealed: 'naamanHealed',
       naamandip: 'naamanDip',
+      gehazigreed: 'gehaziGreed',
       elishachariots: 'elishaChariots',
       elishapoisonstew: 'elishaPoisonStew',
       elishablindarmy: 'elishaBlindArmy',

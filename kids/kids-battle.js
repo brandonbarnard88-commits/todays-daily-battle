@@ -3428,6 +3428,44 @@
       narration:
         "Elisha Raises the Shunammite's Son — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall for Elisha — bed, table, stool, and candlestick. Elisha promised her a son; she bare a son in the season he named. One day the boy became sick; she laid him on the prophet's bed, shut the door, and went quickly to find Elisha at Mount Carmel. When Gehazi asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me? Elisha prayed, lay upon the child, and the flesh waxed warm. The child sneezed seven times and opened his eyes. Take up thy son. She took him and went out. For you: Run to God with your tears — He is merciful."
     },
+    gehaziGreed: {
+      title: 'Gehazi and Honest Hearts',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Elisha stands firm — I will receive none of Naaman’s gifts' },
+        { src: 'panel-jesus-2.svg', alt: 'Gehazi returns — Elisha asks, Whence comest thou?' },
+        { src: 'panel-jesus-3.svg', alt: 'Elisha speaks truth — Is it a time to receive money?' }
+      ],
+      caption: 'Swipe to see truth spoken kindly — God cares about an honest heart.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'gehazi',
+        'gehazi elisha',
+        '2 kings 5',
+        '2 kings 5:20',
+        '2 kings 5:25',
+        '2 kings 5:26',
+        'whence comest thou',
+        'went no whither',
+        'mine heart with thee',
+        'two talents',
+        'mount ephraim',
+        'sons of the prophets',
+        'receive money',
+        'naaman gifts',
+        'elisha servant',
+        'syrian'
+      ],
+      kjvRef: '2 Kings 5:20-27',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elisha’s servant — and every tempted heart',
+        apply:
+          'God sees the heart. Truth and thankfulness to Him are better than silver or gold.'
+      },
+      narration:
+        "Gehazi and Honest Hearts — 2 Kings 5:20-27. After Naaman was healed, Elisha would not take his gifts. Gehazi ran after Naaman and asked for silver and clothing. When he came back, Elisha asked, Whence comest thou? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments? For you: When we are sorry for wrong, God still teaches mercy — and a heart that loves Him is better than treasure."
+    },
     estherCrown: {
       title: 'Queen Esther\'s Courage',
       panels: [
@@ -6412,7 +6450,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 301, color: '#e5e4e2' }
+      { name: 'Platinum', min: 302, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6526,7 +6564,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -6962,6 +7000,13 @@
       /floating axe|axe head|axe.*float|iron.*float|iron did swim|head.*jordan.*axe/.test(low)
     ) {
       return { type: 'carousel', story: 'elishaFloatingAxe' };
+    }
+    if (
+      /\b2 kings 5:(?:2[0-7])\b|\b2 kgs 5:(?:2[0-7])\b/.test(low) ||
+      /\bgehazi\b/.test(low) ||
+      /whence comest thou|went no whither|mine heart with thee|is it a time to receive money|two talents of silver|mount ephraim.*prophets|sons of the prophets.*talent|spared naaman.*syrian|take somewhat of him/.test(low)
+    ) {
+      return { type: 'carousel', story: 'gehaziGreed' };
     }
     if (
       /\b2 kings 5:(?:1[5-9]|19)\b|\b2 kgs 5:(?:1[5-9]|19)\b/.test(low) ||
@@ -9609,7 +9654,7 @@
     davidSaulJealousy: 'Protection', davidJonathanFriendship: 'Love',
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
-    elishaShunammite: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
+    elishaShunammite: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',

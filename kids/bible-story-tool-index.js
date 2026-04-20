@@ -767,6 +767,16 @@
     "kw": "gethsemane garden prayer matthew 26 mark 14 luke 22"
   },
   {
+    "key": "gehaziGreed",
+    "title": "Gehazi and Honest Hearts",
+    "kjvRef": "2 Kings 5:20-27",
+    "who": "The LORD",
+    "to": "Elisha’s servant — and every tempted heart",
+    "apply": "God sees the heart. Truth and thankfulness to Him are better than silver or gold.",
+    "theme": "Obedience",
+    "kw": "gehazi gehazi elisha 2 kings 5 2 kings 5:20 2 kings 5:25 2 kings 5:26 whence comest thou went no whither mine heart with thee two talents mount ephraim sons of the prophets receive money naaman gifts elisha servant syrian"
+  },
+  {
     "key": "gideonFleece",
     "title": "Gideon's Fleece",
     "kjvRef": "Judges 6:11-40",

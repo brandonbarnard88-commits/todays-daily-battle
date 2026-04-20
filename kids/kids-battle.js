@@ -3385,13 +3385,13 @@
         "Elisha Prays and the Boy Lives — 2 Kings 4:8-37. A kind woman in Shunem made a little chamber on the wall with a bed, table, stool, and candlestick for Elisha whenever he passed by. Elisha promised her a son; she had a little boy just as he said. One day the child became sick and died on his mother’s knees. She laid him on Elisha’s bed, shut the door, and hurried to find Elisha on Mount Carmel. Elisha came, went in, shut the door, prayed, and lay upon the child. The flesh waxed warm; he went up and down, then lay upon him again. The child sneezed seven times and opened his eyes. Elisha said, Take up thy son. She took her boy and was full of joy. The Lord used Elisha to bring the child back to life and show His tender care for families. For you: God hears prayer — He cares for mothers and children."
     },
     gehaziGreed: {
-      title: 'Gehazi and Honest Hearts',
+      title: 'Honest Hearts Are Better Than Silver',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Elisha stands firm — I will receive none of Naaman’s gifts' },
-        { src: 'panel-jesus-2.svg', alt: 'Gehazi returns — Elisha asks, Whence comest thou?' },
-        { src: 'panel-jesus-3.svg', alt: 'Elisha speaks truth — Is it a time to receive money?' }
+        { src: 'panel-jesus-1.svg', alt: 'Naaman wished to give gifts — Elisha would not take them; Gehazi ran after him' },
+        { src: 'panel-jesus-2.svg', alt: 'Silver and garments — Gehazi brought them back' },
+        { src: 'panel-jesus-3.svg', alt: 'Elisha asks kindly — Whence comest thou? Went not mine heart with thee?' }
       ],
-      caption: 'Swipe to see truth spoken kindly — God cares about an honest heart.',
+      caption: 'Swipe to see Elisha’s calm mercy — honesty and a thankful heart matter more than treasure.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -3420,7 +3420,7 @@
           'God sees the heart. Truth and thankfulness to Him are better than silver or gold.'
       },
       narration:
-        "Gehazi and Honest Hearts — 2 Kings 5:20-27. After Naaman was healed, Elisha would not take his gifts. Gehazi ran after Naaman and asked for silver and clothing. When he came back, Elisha asked, Whence comest thou? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments? For you: When we are sorry for wrong, God still teaches mercy — and a heart that loves Him is better than treasure."
+        "Honest Hearts Are Better Than Silver — 2 Kings 5:20-27. After Naaman was healed, he wanted to give Elisha gifts of silver, gold, and clothing. Elisha said, As the LORD liveth, I will receive none. Gehazi ran after Naaman and took silver and garments. When he returned, Elisha asked, Whence comest thou? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments? Gehazi learned that a heart that loves God is better than silver or gold. For you: God sees the heart — honesty and a thankful heart please Him more than riches."
     },
     widowOil: {
       title: 'The Widow\'s Oil Multiplied',

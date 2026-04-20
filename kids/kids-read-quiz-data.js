@@ -8639,8 +8639,9 @@
   "gehaziGreed": {
     "kjvRef": "2 Kings 5:20-27 (KJV)",
     "verseExcerpt": "And he said unto him, Went not mine heart with thee, when the man turned again from his chariot to meet thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants? — 2 Kings 5:26 (KJV)",
-    "readAlongTitle": "Read along",
-    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongTitle": "Honest Hearts Are Better Than Silver",
+    "quizWrongHumilityHint": "Listen again — Whence comest thou? Went not mine heart with thee? A heart that loves God is better than silver or gold.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "readAlongSections": [
       {
         "text": "But Gehazi, the servant of Elisha the man of God, said, Behold, my master hath spared Naaman this Syrian, in not receiving at his hands that which he brought: but, as the LORD liveth, I will run after him, and take somewhat of him.",
@@ -8673,16 +8674,23 @@
         "image": "panel-jesus-3.svg"
       },
       {
-        "text": "And he said unto him, Went not mine heart with thee, when the man turned again from his chariot to meet thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants?",
-        "caption": "Went not mine heart with thee? — Is it a time to receive money?",
+        "text": "And he said unto him, Went not mine heart with thee, when the man turned again from his chariot to meet thee?",
+        "caption": "Went not mine heart with thee?",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants?",
+        "caption": "Is it a time to receive money, and to receive garments?",
         "image": "panel-jesus-3.svg"
       }
     ],
     "paragraphs": [
-      "After Naaman was healed, he wished to thank Elisha with gifts. Elisha said, As the LORD liveth, I will receive none. But Gehazi, Elisha’s servant, ran after Naaman and asked for silver and clothing. Naaman gave him two talents of silver and two changes of garments.",
-      "When Gehazi came back, Elisha asked, Whence comest thou? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants? The story shows how much God cares about an honest heart.",
-      "For you: A heart that loves God is better than silver or gold. When we are sorry for wrong, God can still teach us mercy.",
-      "Reference: 2 Kings 5:20-27 (KJV). The last verse names a heavy consequence; the taps stop before it so little listeners stay with Elisha’s gentle words."
+      "After Naaman was healed, he wanted to give Elisha gifts of silver, gold, and clothing. Elisha said, As the LORD liveth, I will receive none.",
+      "But Gehazi, Elisha’s servant, thought in his heart, My master hath spared Naaman this Syrian, in not receiving at his hands that which he brought. Gehazi ran after Naaman and asked for silver and clothing. Naaman gave him two talents of silver and two changes of garments.",
+      "When Gehazi returned, Elisha asked, Whence comest thou, Gehazi? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants?",
+      "Gehazi learned that a heart that loves God is better than silver or gold. The Lord used Elisha to teach that honesty and a thankful heart please God more than riches.",
+      "For you: When we are sorry for wrong, God still teaches mercy — and He loves a heart that trusts Him more than treasure.",
+      "Reference: 2 Kings 5:20-27 (KJV). The last verse names a heavy consequence; the taps stop before it so little listeners stay with Elisha’s calm words."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
@@ -8752,7 +8760,7 @@
     "takeaway": "Elisha spoke truth — a heart that loves God is better than silver or gold.",
     "prayer": "Lord, thank You for mercy. Help us speak truth and love You more than things. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha standing calmly outside simple house Gehazi before him sorry humble face bundles clothing bags silver on ground soft path thick outlines white space merciful honest mood ages 3-8 coloring page",
+      "Simple peaceful black-and-white line-art for young children ages 3–8: Elisha standing calmly outside his house with a kind thoughtful face; Gehazi before him looking sorry humble; bundles of clothing and bags of silver on the ground nearby; thick bold outlines large open spaces on robes tunics bundles ground; soft house walls gentle path minimal lines; honest merciful mood Elisha calm presence thankful heart lesson; clean minimal no anger plenty of white space coloring page",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Gehazi ran after Naaman",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Whence comest thou Gehazi",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Went not mine heart with thee",

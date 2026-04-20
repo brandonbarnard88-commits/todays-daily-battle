@@ -1959,7 +1959,7 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:36</text>'
       ),
 
-      /* Gehazi — honest hearts (2 Kings 5:25-26) Elisha calm, gifts on ground */
+      /* Gehazi — honest hearts (2 Kings 5:25-26) Elisha calm, gifts on ground, Gehazi sorry-humble */
       gehaziGreed: svg(
         ground() + hills() +
         sun(48, 42, 16) + cloud(300, 34) +
@@ -1970,6 +1970,10 @@
         '<path d="M108 152 Q114 148 120 152" ' + s + ' stroke-width="1.1" fill="none"/>' +
         person(268, 172, 10, 30) +
         '<path d="M262 158 Q268 162 274 158" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        /* gentle sorry posture — eyes down, hands together */
+        '<path d="M266 154 L262 158 M274 154 L278 158" ' + s + ' stroke-width="1"/>' +
+        '<path d="M262 188 L258 202 M274 188 L278 202" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M258 198 Q268 204 278 198" ' + s + ' stroke-width="1.4" fill="none"/>' +
         '<path d="M268 200 L252 218" ' + s + ' stroke-width="1.8"/>' +
         /* bundles + bags */
         '<ellipse cx="210" cy="238" rx="36" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +

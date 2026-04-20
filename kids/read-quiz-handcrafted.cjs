@@ -19,7 +19,7 @@
  * Solomon and the two mothers: read-quiz-solomon-two-mothers-pack.cjs (key solomonTwoMothers).
  * Solomon builds God’s house (gentle): read-quiz-solomon-temple-pack.cjs (key solomonTemple).
  * God feeds Elijah (ravens at Cherith, gentle): read-quiz-elijah-ravens-pack.cjs (key elijahRavens).
- * Elijah and the widow of Zarephath: read-quiz-elijah-widow-pack.cjs (key elijahWidow).
+ * God multiplies the widow’s oil and meal (gentle): read-quiz-elijah-widow-pack.cjs (key elijahWidow).
  * Elijah and the fire on Mount Carmel: read-quiz-elijah-fire-carmel-pack.cjs (key elijahFire).
  * Elijah and the still small voice (Horeb): read-quiz-elijah-horeb-pack.cjs (key elijahHoreb).
  * Elijah calls Elisha (field / mantle): read-quiz-elijah-calls-elisha-pack.cjs (key elijahElijahElisha).

@@ -754,39 +754,51 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 17:6</text>'
       ),
 
-      /* Elijah and the widow of Zarephath — meal & oil (loop 180) */
+      /* God multiplies oil and meal — widow pouring into jars, son helps, Elijah watches (loop 180) */
       elijahWidow: svg(
-        ground() +
-        '<path d="M0 248 Q120 220 200 248 Q280 220 400 248" ' + s + ' stroke-width="2" fill="none"/>' +
-        /* simple town gate / doorway */
-        '<rect x="48" y="118" width="120" height="132" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<rect x="88" y="158" width="48" height="92" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* barrel + cruse */
-        '<ellipse cx="118" cy="228" rx="22" ry="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="118" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<ellipse cx="158" cy="232" rx="10" ry="12" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<ellipse cx="158" cy="224" rx="7" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
-        /* widow — hopeful, near barrel */
-        '<circle cx="95" cy="168" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M88 164 Q95 160 102 164" ' + s + ' stroke-width="1.2"/>' +
-        '<line x1="95" y1="179" x2="95" y2="218" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="95" y1="192" x2="72" y2="205" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="95" y1="192" x2="118" y2="200" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="95" y1="218" x2="82" y2="242" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="95" y1="218" x2="108" y2="242" ' + s + ' stroke-width="2.2"/>' +
-        /* small child — gentle hint near door */
-        person(132, 198, 7, 20) +
-        /* Elijah — kind face */
-        '<circle cx="288" cy="172" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M282 168 Q288 164 294 168" ' + s + ' stroke-width="1.2"/>' +
-        '<line x1="288" y1="183" x2="288" y2="232" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="288" y1="200" x2="262" y2="212" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="288" y1="200" x2="314" y2="208" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="288" y1="232" x2="274" y2="256" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="288" y1="232" x2="302" y2="256" ' + s + ' stroke-width="2.2"/>' +
-        /* sticks bundle hint */
-        '<line x1="210" y1="238" x2="218" y2="200" ' + s + ' stroke-width="2"/>' +
-        '<line x1="218" y1="236" x2="226" y2="202" ' + s + ' stroke-width="2"/>' +
+        ground() + hills() +
+        sun(48, 42, 15) + cloud(300, 38) +
+        /* house + doorway */
+        '<rect x="36" y="108" width="112" height="142" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="72" y="158" width="44" height="92" rx="3" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* barrel by wall */
+        '<ellipse cx="118" cy="232" rx="20" ry="16" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<ellipse cx="118" cy="222" rx="16" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* widow — kind smile, pouring from cruse */
+        '<circle cx="148" cy="162" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M140 158 Q148 154 156 158" ' + s + ' stroke-width="1.2"/>' +
+        '<path d="M138 162 Q148 168 158 162" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<line x1="148" y1="173" x2="148" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="148" y1="188" x2="128" y2="198" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="148" y1="188" x2="168" y2="182" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="148" y1="218" x2="136" y2="242" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="148" y1="218" x2="160" y2="242" ' + s + ' stroke-width="2.2"/>' +
+        /* small cruse tilted */
+        '<ellipse cx="128" cy="188" rx="8" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M120 182 L132 178" ' + s + ' stroke-width="1.8"/>' +
+        /* pour toward jars */
+        '<path d="M132 198 Q180 210 210 232" ' + s + ' stroke-width="1.6" opacity="0.55"/>' +
+        /* many jars — open tops for coloring */
+        '<ellipse cx="218" cy="244" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="218" cy="236" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="248" cy="244" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="248" cy="236" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="278" cy="244" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="278" cy="236" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="308" cy="244" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="308" cy="236" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="338" cy="244" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="338" cy="236" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* son — helping, small smile */
+        person(178, 208, 7, 18) +
+        '<path d="M172 200 Q178 204 184 200" ' + s + ' stroke-width="1" fill="none"/>' +
+        /* Elijah — gentle watch */
+        person(88, 178, 10, 26) +
+        '<path d="M82 172 Q88 168 94 172" ' + s + ' stroke-width="1.1"/>' +
+        /* few sticks */
+        '<line x1="42" y1="248" x2="48" y2="218" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="50" y1="246" x2="56" y2="220" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="58" y1="248" x2="62" y2="222" ' + s + ' stroke-width="1.8"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 17:16</text>'
       ),
 

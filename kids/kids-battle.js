@@ -3863,18 +3863,19 @@
         "God Feeds Elijah – 1 Kings 17:1-7. Elijah the prophet loved God and spoke His word: there shall not be dew nor rain these years, but according to my word. The LORD said, Hide thyself by the brook Cherith; drink of the brook, and I have commanded the ravens to feed thee there. Elijah went and stayed there. The ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. After a while the brook dried up, because there had been no rain in the land. For you: The Lord can feed and care for you when you trust Him."
     },
     elijahWidow: {
-      title: 'Elijah and the Widow of Zarephath',
+      title: 'God Multiplies the Widow\'s Oil and Meal',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'The word of the Lord — arise, get thee to Zarephath' },
-        { src: 'panel-noah-2.svg', alt: 'At the city gate — a widow gathering sticks' },
+        { src: 'panel-noah-1.svg', alt: 'Zarephath — the Lord sends Elijah; a widow at the gate' },
+        { src: 'panel-noah-2.svg', alt: 'Fear not — make me a little cake first; God’s promise' },
         { src: 'panel-noah-3.svg', alt: 'The barrel wasted not — the cruse of oil failed not' }
       ],
-      caption: 'Swipe for Zarephath — where God\'s promise filled the barrel and the cruse.',
+      caption: 'Swipe for Zarephath — where God multiplied meal and oil for a mother, her son, and Elijah.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elijah widow',
         'widow of zarephath',
+        'god multiplies oil',
         'zarephath',
         'zidon',
         'sidon',
@@ -3890,17 +3891,18 @@
         '1 kings 17:14',
         '1 kings 17:16',
         'sustain thee',
-        'eat many days'
+        'eat many days',
+        'fear not'
       ],
       kjvRef: '1 Kings 17:8-16',
       kidContext: {
         who: 'The LORD',
-        to: 'A widow and her son — and every heart afraid of empty cupboards',
+        to: 'A widow and her son — and every heart that trusts God',
         apply:
-          'God asked her to trust Him with the first little cake — and He kept the barrel and the cruse from failing. His word holds.'
+          'She obeyed and put God first — and the barrel and the cruse did not fail. God can multiply what little we have when we obey Him.'
       },
       narration:
-        "Elijah and the Widow of Zarephath – 1 Kings 17:8-16. The word of the LORD came: Arise, get thee to Zarephath, which belongeth to Zidon, and dwell there: behold, I have commanded a widow woman there to sustain thee. At the gate he found her gathering sticks. Fetch me a little water, he said — then, Bring me a morsel of bread. She answered, I have an handful of meal in a barrel, and a little oil in a cruse; I am gathering two sticks to dress one last meal for me and my son, that we may eat it, and die. Elijah said, Fear not; make me a little cake first, and after for thee and thy son. For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail, until the day that the LORD sendeth rain upon the earth. She obeyed. She, and he, and her house, did eat many days — the barrel wasted not, neither did the cruse of oil fail, according to the word of the LORD. For you: When you put God first, He can care for what you love."
+        "God Multiplies the Widow's Oil and Meal – 1 Kings 17:8-16. The LORD sent Elijah to Zarephath; a widow there would sustain him. At the gate she was gathering sticks. He asked for water and bread. She said, I have only a handful of meal and a little oil. Elijah said, Fear not; make me a little cake first, then for thee and thy son. For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail. She obeyed. The barrel wasted not, neither did the cruse of oil fail, according to the word of the LORD. For you: The Lord cares for those who trust and obey Him."
     },
     elijahFireFromHeaven: {
       title: 'Elijah on Mount Carmel',

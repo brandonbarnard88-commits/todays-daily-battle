@@ -1022,19 +1022,39 @@
       narration: "Fiery Furnace Three – Daniel 3:25. King Nebuchadnezzar made a huge gold statue and said everyone must bow to it or be thrown into a fiery furnace. Shadrach, Meshach, and Abednego loved God and said, 'We will not bow.' The king was furious and made the furnace seven times hotter. The soldiers who threw them in died from the heat. But the king looked in and saw four men walking around! The fourth looked like the Son of God. The three friends came out unharmed—no burns, no smoke smell. God was with them in the fire! For you: When you face hard times or pressure to do wrong, stand strong for God. He is with you in the fire and will protect you."
     },
     esther: {
-      title: 'Esther Saves Her People',
+      title: 'Esther Helps Her People',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Esther becomes queen – God puts her in place' },
-        { src: 'panel-jesus-2.svg', alt: 'Esther goes to the king – Brave when it mattered' },
-        { src: 'panel-jesus-3.svg', alt: 'God uses her to save the people – Such a time as this!' }
+        { src: 'panel-jesus-1.svg', alt: 'Chosen queen — Esther’s heart belongs to the LORD' },
+        { src: 'panel-jesus-2.svg', alt: 'Prayer and fasting — who knoweth whether thou art come… for such a time as this?' },
+        { src: 'panel-jesus-3.svg', alt: 'Brave words to the king — God turns the king’s heart to save His people' }
       ],
-      caption: 'Swipe to see Esther be brave—God uses you! 👑',
+      caption: 'Swipe to see prayer, courage, and God’s quiet protection for His people.',
       videoId: '7945Bh5iG_A',
       videoTitle: 'The Story of Esther – Bible Stories for Kids!',
-      keywords: ['esther', 'queen', 'king', 'brave', 'save', 'such a time'],
-      kjvRef: 'Esther 2–7',
-      kidContext: { who: 'God', to: 'Esther (queen who saved her people)', apply: "Esther was chosen to be queen. When bad men wanted to hurt God's people, her uncle told her, 'Who knows? Maybe you were made queen for such a time as this.' Esther bravely went to the king and asked for help. God used her to save her people! You are where you are for a reason. Be brave when it matters." },
-      narration: "Esther Saves Her People – Esther 4. Esther was a queen, but a bad man named Haman wanted to hurt all of God's people. Esther's uncle Mordecai said, 'Who knows? Maybe you were made queen for such a time as this.' Esther was scared—but she prayed and went to the king. She told him the truth. The king listened and stopped Haman. God used Esther to save her people! For you: God put you where you are for a reason. When it's hard to be brave, pray and step forward. He uses you."
+      keywords: [
+        'esther',
+        'queen',
+        'mordecai',
+        'haman',
+        'fast',
+        'banquet',
+        'such a time',
+        'esther 4',
+        'esther 5',
+        'esther 7',
+        'persia',
+        'save',
+        'brave'
+      ],
+      kjvRef: 'Esther 4:1–17; 5:1–8; 7:1–10',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Esther and His people in Persia',
+        apply:
+          'God hears when we pray together. He can give courage to speak truth and turn a king’s heart to save many.'
+      },
+      narration:
+        "Esther Helps Her People — Esther 4:1–17; 5:1–8; 7:1–10. The king of Persia chose Esther to be queen; she was Jewish, but the king did not know it. Haman planned to hurt all the Jewish people. Mordecai asked, who knoweth whether thou art come to the kingdom for such a time as this? Esther asked the Jews to fast and pray for her. Then she went to the king, and Esther answered, If it seem good unto the king, let the king and Haman come this day unto the banquet that I have prepared for him. At the right time she told the king about Haman’s wicked plan. The king was angry with Haman and stopped the evil plan. The Jewish people were saved. For you: God can use courage, prayer, and brave truth — even from one person — to help many."
     },
     jesusBirth: {
       title: 'Birth of Jesus',

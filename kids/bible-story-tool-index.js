@@ -618,13 +618,13 @@
   },
   {
     "key": "esther",
-    "title": "Esther Saves Her People",
-    "kjvRef": "Esther 2–7",
-    "who": "God",
-    "to": "Esther (queen who saved her people)",
-    "apply": "Esther was chosen to be queen. When bad men wanted to hurt God's people, her uncle told her, 'Who knows? Maybe you were made queen for such a time as this.' Esther bravely went to the king and asked for help. God used her to save her people! You are where you are for a reason. Be brave when it matters.",
+    "title": "Esther Helps Her People",
+    "kjvRef": "Esther 4:1–17; 5:1–8; 7:1–10",
+    "who": "The LORD",
+    "to": "Esther and His people in Persia",
+    "apply": "God hears when we pray together. He can give courage to speak truth and turn a king’s heart to save many.",
     "theme": "Protection",
-    "kw": "esther queen king brave save such a time"
+    "kw": "esther queen mordecai haman fast banquet such a time esther 4 esther 5 esther 7 persia save brave"
   },
   {
     "key": "estherBanquet",

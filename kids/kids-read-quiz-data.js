@@ -7222,89 +7222,131 @@
     ]
   },
   "esther": {
-    "kjvRef": "Esther 2–7",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Esther 4:1–17; 5:1–8; 7:1–10 (KJV)",
+    "verseExcerpt": "and who knoweth whether thou art come to the kingdom for such a time as this? — Esther 4:14 (KJV)",
+    "readAlongTitle": "Esther Helps Her People",
+    "quizWrongHumilityHint": "Listen again — prayer and fasting; brave words to the king; God turned the king’s heart to save His people.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Esther Saves Her People – Esther 4. Esther was a queen, but a bad man named Haman wanted to hurt all of God's people.",
-      "Esther's uncle Mordecai said, 'Who knows? Maybe you were made queen for such a time as this.' Esther was scared—but she prayed and went to the king. She told him the truth.",
-      "The king listened and stopped Haman. God used Esther to save her people!",
-      "For you: God put you where you are for a reason. When it's hard to be brave, pray and step forward.",
-      "He uses you."
+      "The king of Persia chose Esther to be queen. Esther was a Jewish girl, but the king did not know it.",
+      "A wicked man named Haman made a plan to hurt all the Jewish people. Mordecai asked who knoweth whether thou art come to the kingdom for such a time as this?",
+      "Esther asked all the Jews to fast and pray for her. Then she went to the king.",
+      "She prepared a banquet. At the right time she told the king about Haman’s wicked plan. The king was angry with Haman and stopped the evil plan. The Jewish people were saved.",
+      "God used Esther’s courage and prayer to protect His people.",
+      "Reference: Esther 4:1–17; 5:1–8; 7:1–10 (KJV)."
+    ],
+    "readAlongSections": [
+      {
+        "text": "The king chose Esther to be queen.",
+        "caption": "A queen for such a time",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "A wicked man made a plan to hurt the Jewish people.",
+        "caption": "A hard day for God’s people",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Mordecai said, Who knoweth whether thou art come to the kingdom for such a time as this?",
+        "caption": "Such a time as this",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Esther asked the Jews to pray and fast for her.",
+        "caption": "Pray together",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And Esther answered, If it seem good unto the king, let the king and Haman come this day unto the banquet that I have prepared for him.",
+        "caption": "Come to the banquet",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "At the right time Esther told the king. The king stopped the evil plan.",
+        "caption": "Truth spoken bravely",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God used Esther to protect her people.",
+        "caption": "For you",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2–7",
-          "Mark 2:1–12",
-          "Acts 2:1–13",
-          "1 John 1–5"
+          "Psalm 23",
+          "Esther 4:1–17; 5:1–8; 7:1–10",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Esther 2–7.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Esther 4:1–17; 5:1–8; 7:1–10.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David — and the Lord",
-          "Jonathan",
-          "Philip",
-          "God"
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 0,
+        "correctFeedback": "Right—God heard prayer and used Esther to save His people.",
+        "wrongFeedback": "Look for who turns the king's heart and keeps His promises. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Esther was chosen to be queen. When bad men wanted to hurt God's people, her uncle told her, 'Who knows? Maybe you were made queen for…",
-          "We should hide from God when we mess up.",
+          "God never hears when kids pray.",
           "The Bible is only pretend stories.",
-          "God never hears when kids pray."
+          "God can use courage, prayer, and brave truth to protect His people.",
+          "We should never help anyone."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Esther was chosen to be queen. When bad men wanted to hurt God's people, her uncle told….)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God's kindness and truth? (Answer: God can use courage, prayer, and brave truth to protect His people.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Esther becomes queen – God puts her in place",
           "A spaceship landed in the parking lot.",
+          "The people answered, Let us rise up and build.",
+          "Mordecai asked who knoweth whether thou art come to the kingdom for such a time as this.",
           "Everyone decided to never sleep again."
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Mordecai asked who knoweth whether thou art come to the kingdom for such a time as this.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "God put you where you are for a reason. When it's hard to be brave, pray and step forward. He uses you.",
-          "Only be kind to people who are exactly like us.",
           "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Pray, tell the truth, and trust God to help in hard moments.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God put you where you are for a reason. When it's hard to be brave, pray and step….)"
+        "wrongFeedback": "Think: does this choice show trust and courage with God’s help? Pick the one that honors Him. (Answer: Pray, tell the truth, and trust God to help in hard moments.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Esther Saves Her People with God's Word today.",
-    "takeaway": "Esther was chosen to be queen. When bad men wanted to hurt God's people, her uncle told her, 'Who knows? Maybe you were made queen for such a time as this.' Esther bravely went to the king and asked…",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Esther Saves Her People. Amen.",
+    "doneMessage": "Great job reading Esther Helps Her People with God's Word today.",
+    "takeaway": "God can use courage, prayer, and brave truth to protect His people.",
+    "prayer": "Lord, thank You for Esther’s brave heart. Help us pray, speak truth, and trust You. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther becomes queen – God puts her in place (esther)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther goes to the king – Brave when it mattered (queen)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God uses her to save the people – Such a time as this! (king)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther becomes queen – God puts her in place (brave)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther goes to the king – Brave when it mattered (save)"
-    ]
+      "Simple peaceful black-and-white line-art for young children ages 3–8: Queen Esther standing calmly before the seated king on a simple throne kind brave faces thick bold outlines large open spaces on robes throne floor soft palace wall arched window minimal lines courageous hopeful mood no anger no fear plenty of white space coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther prays with God’s people (esther)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther speaks to the king (queen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God protects His people (purim)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Such a time as this (mordecai)"
+    ],
+    "readAlongImages": []
   },
   "estherBanquet": {
     "kjvRef": "Esther 5–7",
@@ -14643,7 +14685,7 @@
         "choices": [
           "Matthew 26",
           "Acts 9:36–43",
-          "Esther 2–7",
+          "Esther 4:1–17; 5:1–8; 7:1–10",
           "Genesis 1:3"
         ],
         "correctIndex": 0,
@@ -17534,7 +17576,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2–7",
+          "Esther 4:1–17; 5:1–8; 7:1–10",
           "Matthew; Mark; Luke; John (Gospels overview)",
           "Exodus 32:1-8, 15-20, 30-32",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
@@ -19816,7 +19858,7 @@
         "choices": [
           "Genesis 1:3",
           "Acts 3",
-          "Esther 2–7",
+          "Esther 4:1–17; 5:1–8; 7:1–10",
           "Acts 9:36–43"
         ],
         "correctIndex": 1,
@@ -23092,7 +23134,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2–7",
+          "Esther 4:1–17; 5:1–8; 7:1–10",
           "Exodus 32:1-8, 15-20, 30-32",
           "Matthew; Mark; Luke; John (Gospels overview)",
           "Revelation 4–5"

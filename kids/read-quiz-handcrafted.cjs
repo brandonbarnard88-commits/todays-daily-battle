@@ -4245,6 +4245,141 @@ function buildNehemiahWallsReadQuiz() {
   };
 }
 
+/** Esther — courage, prayer, God’s protection (Esther 4–7); gentle taps + quiz. Library key: esther */
+function buildEstherReadQuiz() {
+  return {
+    kjvRef: 'Esther 4:1–17; 5:1–8; 7:1–10 (KJV)',
+    verseExcerpt:
+      'and who knoweth whether thou art come to the kingdom for such a time as this? — Esther 4:14 (KJV)',
+    readAlongTitle: 'Esther Helps Her People',
+    quizWrongHumilityHint:
+      'Listen again — prayer and fasting; brave words to the king; God turned the king’s heart to save His people.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'The king of Persia chose Esther to be queen. Esther was a Jewish girl, but the king did not know it.',
+      'A wicked man named Haman made a plan to hurt all the Jewish people. Mordecai asked who knoweth whether thou art come to the kingdom for such a time as this?',
+      'Esther asked all the Jews to fast and pray for her. Then she went to the king.',
+      'She prepared a banquet. At the right time she told the king about Haman’s wicked plan. The king was angry with Haman and stopped the evil plan. The Jewish people were saved.',
+      'God used Esther’s courage and prayer to protect His people.',
+      'Reference: Esther 4:1–17; 5:1–8; 7:1–10 (KJV).'
+    ],
+    readAlongSections: [
+      {
+        text: 'The king chose Esther to be queen.',
+        caption: 'A queen for such a time',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'A wicked man made a plan to hurt the Jewish people.',
+        caption: 'A hard day for God’s people',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text:
+          'Mordecai said, Who knoweth whether thou art come to the kingdom for such a time as this?',
+        caption: 'Such a time as this',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Esther asked the Jews to pray and fast for her.',
+        caption: 'Pray together',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text:
+          'And Esther answered, If it seem good unto the king, let the king and Haman come this day unto the banquet that I have prepared for him.',
+        caption: 'Come to the banquet',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'At the right time Esther told the king. The king stopped the evil plan.',
+        caption: 'Truth spoken bravely',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'God used Esther to protect her people.',
+        caption: 'For you',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Psalm 23',
+          'Esther 4:1–17; 5:1–8; 7:1–10',
+          'Jonah 1',
+          'Genesis 1'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Esther 4:1–17; 5:1–8; 7:1–10.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'A giant fish', 'Pharaoh', 'Goliath'],
+        correctIndex: 0,
+        correctFeedback: 'Right—God heard prayer and used Esther to save His people.',
+        wrongFeedback: "Look for who turns the king's heart and keeps His promises. (Answer: God.)"
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never hears when kids pray.',
+          'The Bible is only pretend stories.',
+          'God can use courage, prayer, and brave truth to protect His people.',
+          'We should never help anyone.'
+        ],
+        correctIndex: 2,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          "Reread the last paragraphs slowly. Which option matches God's kindness and truth? (Answer: God can use courage, prayer, and brave truth to protect His people.)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'The people answered, Let us rise up and build.',
+          'Mordecai asked who knoweth whether thou art come to the kingdom for such a time as this.',
+          'Everyone decided to never sleep again.'
+        ],
+        correctIndex: 2,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Mordecai asked who knoweth whether thou art come to the kingdom for such a time as this.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Pray, tell the truth, and trust God to help in hard moments.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust and courage with God’s help? Pick the one that honors Him. (Answer: Pray, tell the truth, and trust God to help in hard moments.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Esther Helps Her People with God's Word today.",
+    takeaway: 'God can use courage, prayer, and brave truth to protect His people.',
+    prayer:
+      'Lord, thank You for Esther’s brave heart. Help us pray, speak truth, and trust You. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children ages 3–8: Queen Esther standing calmly before the seated king on a simple throne kind brave faces thick bold outlines large open spaces on robes throne floor soft palace wall arched window minimal lines courageous hopeful mood no anger no fear plenty of white space coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther prays with God’s people (esther)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther speaks to the king (queen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God protects His people (purim)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Such a time as this (mordecai)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Job trusts God — Job 1–2; honest sadness, quiet friends, KJV heart line. */
 function buildJobSufferingReadQuiz() {
   return {
@@ -4445,5 +4580,6 @@ module.exports = {
   elishaBones: buildElishaBonesReadQuiz(),
   ezraReturn: buildEzraReturnReadQuiz(),
   nehemiahWalls: buildNehemiahWallsReadQuiz(),
+  esther: buildEstherReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

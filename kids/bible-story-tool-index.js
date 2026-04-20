@@ -527,16 +527,6 @@
     "kw": "dorcas raise acts 9 peter clothes poor widow life"
   },
   {
-    "key": "elijahFire",
-    "title": "Elijah & Fire on Carmel",
-    "kjvRef": "1 Kings 18:17-39",
-    "who": "The LORD",
-    "to": "Israel — and every heart that wonders who is truly God",
-    "apply": "He answered Elijah’s prayer with fire from heaven — calm awe, not noise: The LORD, he is the God. Trust Him first.",
-    "theme": "Miracles",
-    "kw": "elijah mount carmel carmel baal fire altar 1 kings 18 1 kings 18:17 1 kings 18:21 1 kings 18:24 1 kings 18:36 1 kings 18:38 two opinions answereth by fire prophets of baal ahab"
-  },
-  {
     "key": "elijahRavens",
     "title": "Elijah & the Ravens",
     "kjvRef": "1 Kings 17:1-7",
@@ -565,16 +555,6 @@
     "apply": "She obeyed God first — and the meal and oil held until rain returned. He keeps His word.",
     "theme": "Miracles",
     "kw": "elijah widow widow of zarephath zarephath zidon barrel of meal cruse of oil handful of meal 1 kings 17 1 kings 17:8 gathering sticks little cake sustain thee"
-  },
-  {
-    "key": "elijahFireFromHeaven",
-    "title": "Elijah on Mount Carmel",
-    "kjvRef": "1 Kings 18",
-    "who": "God",
-    "to": "Israel",
-    "apply": "There is only one true God. He hears when we pray — trust Him, not pretend gods.",
-    "theme": "Miracles",
-    "kw": "elijah carmel baal 1 kings 18 fire altar ahab jezebel"
   },
   {
     "key": "elijahChariot",
@@ -815,6 +795,26 @@
     "apply": "God did not need a huge crowd — only people who would listen and obey His strange, brave plan. When you feel outnumbered, remember: the Lord's strength is not counted like soldiers; He saves everyone who trusts Him.",
     "theme": "Miracles",
     "kw": "gideon 300 midian midianites judges 7 trumpet pitcher torch lamp jar victory obey sword of the lord"
+  },
+  {
+    "key": "elijahFire",
+    "title": "God Answers by Fire",
+    "kjvRef": "1 Kings 18:17-39",
+    "who": "The LORD",
+    "to": "Israel — and every heart that wonders who is truly God",
+    "apply": "God answered by fire when Elijah prayed — calm, awe-filled wonder: the LORD alone is the true God. He hears when we call on Him.",
+    "theme": "Miracles",
+    "kw": "elijah mount carmel carmel god answers by fire baal fire altar 1 kings 18 1 kings 18:17 1 kings 18:21 1 kings 18:24 1 kings 18:36 1 kings 18:38 two opinions answereth by fire prophets of baal ahab the lord he is the god"
+  },
+  {
+    "key": "elijahFireFromHeaven",
+    "title": "God Answers by Fire",
+    "kjvRef": "1 Kings 18:17-39",
+    "who": "The LORD",
+    "to": "Israel",
+    "apply": "There is only one true God. He answered Elijah’s prayer — and He hears when we call on Him.",
+    "theme": "Miracles",
+    "kw": "elijah carmel god answers by fire baal 1 kings 18 fire altar ahab jezebel two opinions"
   },
   {
     "key": "samariaSiege",

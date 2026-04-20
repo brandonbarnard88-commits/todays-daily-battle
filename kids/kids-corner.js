@@ -802,34 +802,39 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 17:16</text>'
       ),
 
-      /* ── Week 1: Elijah Fire on Carmel (18) — gentle awe, soft heavenward flame */
+      /* ── Week 1: Elijah Fire on Carmel (18) — gentle awe, hands raised, soft fire, thankful faces */
       elijahFire: svg(
-        '<path d="M0 255 Q100 200 200 248 Q300 200 400 255" ' + s + ' stroke-width="2.5" fill="none"/>' +
+        ground() + hills() +
+        sun(48, 44, 16) + cloud(292, 38) +
         /* altar stones */
-        '<rect x="138" y="198" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<rect x="162" y="198" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<rect x="186" y="198" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<rect x="150" y="176" width="52" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="158" y="202" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="182" y="202" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="206" y="202" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="170" y="180" width="52" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
         /* wood / sacrifice hint */
-        '<path d="M168 172 L175 158 L182 172 M178 168 L188 155 L195 168" ' + s + ' stroke-width="2"/>' +
-        /* soft fire from heaven */
-        '<path d="M175 155 Q185 125 200 95 Q215 125 205 155 Q200 140 195 155 Q190 130 185 150" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M192 150 Q200 118 208 88 Q218 118 212 148" ' + sf + ' fill="white" stroke-width="1.8"/>' +
-        '<line x1="200" y1="78" x2="195" y2="95" ' + s + ' stroke-width="1.2" stroke-dasharray="4,3"/>' +
-        '<line x1="200" y1="78" x2="205" y2="95" ' + s + ' stroke-width="1.2" stroke-dasharray="4,3"/>' +
-        /* Elijah — praying, calm */
-        '<circle cx="108" cy="178" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M102 174 Q108 170 114 174" ' + s + ' stroke-width="1.2"/>' +
-        '<line x1="108" y1="189" x2="108" y2="248" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="108" y1="205" x2="88" y2="218" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="108" y1="205" x2="128" y2="218" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="108" y1="248" x2="96" y2="272" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="108" y1="248" x2="120" y2="272" ' + s + ' stroke-width="2.2"/>' +
-        /* distant watchers — small, calm */
-        person(288, 210, 7, 18) +
-        person(312, 212, 7, 18) +
-        person(336, 210, 7, 18) +
-        sun(52, 48, 16) +
+        '<path d="M188 176 L195 162 L202 176 M198 172 L208 159 L215 172" ' + s + ' stroke-width="2"/>' +
+        /* very soft fire from heaven — one smooth plume, no jagged spikes */
+        '<path d="M198 172 Q200 148 202 108 Q204 148 206 172 Q202 160 198 172" ' + sf + ' fill="white" stroke-width="1.9"/>' +
+        '<path d="M192 168 Q198 138 200 98 Q202 138 208 168" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<line x1="200" y1="88" x2="198" y2="102" ' + s + ' stroke-width="1" stroke-dasharray="5,4" opacity="0.65"/>' +
+        '<line x1="200" y1="88" x2="202" y2="102" ' + s + ' stroke-width="1" stroke-dasharray="5,4" opacity="0.65"/>' +
+        /* Elijah — calm, hands raised in prayer */
+        '<circle cx="98" cy="182" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M92 178 Q98 174 104 178" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="98" y1="193" x2="98" y2="248" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="98" y1="208" x2="72" y2="148" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="98" y1="208" x2="124" y2="148" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="98" y1="248" x2="86" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="98" y1="248" x2="110" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        /* thankful onlookers — small calm smiles */
+        person(262, 208, 7, 18) +
+        '<path d="M256 214 Q262 218 268 214" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(286, 210, 7, 18) +
+        '<path d="M280 216 Q286 220 292 216" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(310, 208, 7, 18) +
+        '<path d="M304 214 Q310 218 316 214" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(334, 210, 7, 18) +
+        '<path d="M328 216 Q334 220 340 216" ' + s + ' stroke-width="1" fill="none"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 18:38</text>'
       ),
 

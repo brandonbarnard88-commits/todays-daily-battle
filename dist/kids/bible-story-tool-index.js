@@ -629,7 +629,7 @@
   {
     "key": "elishaFinal",
     "title": "Elisha's Last Words",
-    "kjvRef": "2 Kings 13:14-20",
+    "kjvRef": "2 Kings 13:14-19",
     "who": "The LORD",
     "to": "King Joash — and every listening heart",
     "apply": "God speaks hope through faithful people — even in quiet, hard moments.",
@@ -805,6 +805,16 @@
     "apply": "God can feed His people when things look impossible — trust His promise one day at a time.",
     "theme": "Miracles",
     "kw": "samaria siege of samaria samaria siege besieged samaria gate of samaria fine flour barley shekel windows in heaven noise of chariots syrians fled spoiled the tents 2 kings 6 2 kings 6:24 2 kings 7 2 kings 7:1 2 kings 7:16 elisha benhadad famine samaria"
+  },
+  {
+    "key": "elishaBones",
+    "title": "God's Power in Elisha's Bones",
+    "kjvRef": "2 Kings 13:20-21",
+    "who": "The LORD",
+    "to": "A man raised — and every heart that wonders",
+    "apply": "God's power is greater than we can guess — He can do wonderful things.",
+    "theme": "Miracles",
+    "kw": "elisha bones bones of elisha touched the bones sepulchre of elisha revived stood up on his feet 2 kings 13 2 kings 13:21 burying a man man of god elisha grave"
   },
   {
     "key": "goliathChallenge",

@@ -1,13 +1,13 @@
 'use strict';
 /**
- * Elisha's last words to King Joash — 2 Kings 13:14-20 (KJV). Library key: elishaFinal
+ * Elisha's last words to King Joash — 2 Kings 13:14-19 (KJV). Library key: elishaFinal
  *
- * Tap-through: strict KJV for 13:14-18. Verses 13:19-20 summarized in paragraphs only
- * (gentle tone for ages 3–8).
+ * Tap-through: strict KJV for 13:14-18. Verse 13:19 summarized in paragraphs only
+ * (gentle tone for ages 3–8). Verses 13:20-21 are the separate elishaBones card.
  */
 
 module.exports = {
-  kjvRef: '2 Kings 13:14-20 (KJV)',
+  kjvRef: '2 Kings 13:14-19 (KJV)',
   verseExcerpt:
     'The arrow of the LORD\'s deliverance, and the arrow of deliverance from Syria — 2 Kings 13:17 (KJV)',
   readAlongTitle: 'Read along',
@@ -49,7 +49,7 @@ module.exports = {
   paragraphs: [
     'Elisha was very weak, yet he still helped King Joash. He put his hands on the king\u2019s hands, opened the window toward the east, and had him shoot — God\u2019s arrow of deliverance. Then Elisha asked him to strike the ground with the arrows; the king struck three times.',
     'Elisha wished the king had trusted God\u2019s help a little more fully that day. Even so, God had spoken hope: help for His people against Syria.',
-    'Afterward Elisha died, and they buried him — a faithful servant who loved God\u2019s word to the end. The last verse names other days in the land; this gentle path stays with Elisha\u2019s kindness to the king and God\u2019s care.',
+    'Verse 19 tells how the man of God felt toward the king\u2019s small trust; 13:20-21 tell another wonder — see the elishaBones story.',
     'For you: God can use quiet moments — a bow, a window, a promise — to remind us that He is near.'
   ],
   quizHeading: 'Quiz — think it through',

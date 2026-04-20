@@ -108,6 +108,7 @@
     'shunammiteReturn',
     'samariaSiege',
     'elishaFinal',
+    'elishaBones',
     'ezraReturn',
     'nehemiahWalls',
     'esther',

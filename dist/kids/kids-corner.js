@@ -1882,6 +1882,22 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 13:17</text>'
       ),
 
+      /* Elisha's bones — 2 Kings 13:21 */
+      elishaBones: svg(
+        ground() + hills() +
+        '<ellipse cx="200" cy="248" rx="95" ry="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M125 248 Q200 218 275 248" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(200, 168, 13, 38) +
+        '<path d="M192 182 Q200 188 208 182" ' + s + ' stroke-width="2"/>' +
+        '<path d="M175 205 L165 225 M225 205 L235 225" ' + s + ' stroke-width="2"/>' +
+        person(95, 178, 11, 32) +
+        person(305, 178, 11, 32) +
+        '<path d="M108 172 Q112 168 118 172" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M292 172 Q288 168 282 172" ' + s + ' stroke-width="1.8"/>' +
+        sun(330, 42, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 13:21</text>'
+      ),
+
       /* ── Week 4: Jonah Whale already exists ── */
       /* ── Week 4: Daniel Lions already exists ── */
 
@@ -3796,6 +3812,7 @@
     shunammiteReturn: 'shunammiteReturn',
     samariaSiege: 'samariaSiege',
     elishaFinal: 'elishaFinal',
+    elishaBones: 'elishaBones',
     persistentWidow: 'persistentWidow',
     samaritanWoman: 'samaritanWoman',
     marthaServe: 'marthaServe',
@@ -5386,7 +5403,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',

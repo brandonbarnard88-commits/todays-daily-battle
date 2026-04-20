@@ -43,6 +43,7 @@
   "elijahRavens": "elijahRavens",
   "elijahWidow": "elijahWidow",
   "elishaBlindArmy": "elishaBlindArmy",
+  "elishaBones": "elishaBones",
   "elishaChariots": "elishaChariots",
   "elishaFinal": "elishaFinal",
   "elishaFloatingAxe": "elishaFloatingAxe",

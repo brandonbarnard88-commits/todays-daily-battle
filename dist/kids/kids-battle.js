@@ -3542,7 +3542,7 @@
         'man of god',
         'elisha died'
       ],
-      kjvRef: '2 Kings 13:14-20',
+      kjvRef: '2 Kings 13:14-19',
       kidContext: {
         who: 'The LORD',
         to: 'King Joash — and every listening heart',
@@ -3550,7 +3550,40 @@
           'God speaks hope through faithful people — even in quiet, hard moments.'
       },
       narration:
-        "Elisha's Last Words — 2 Kings 13:14-20. When Elisha was fallen sick, Joash the king of Israel came down unto him and wept, O my father, my father, the chariot of Israel, and the horsemen thereof. Elisha said, Take bow and arrows — and put thine hand upon the bow; Elisha put his hands upon the king's hands. Open the window eastward. Shoot. The arrow of the LORD's deliverance — thou shalt smite the Syrians in Aphek. Take the arrows; smite upon the ground; the king smote thrice. For you: God still guides through gentle hands and His promises."
+        "Elisha's Last Words — 2 Kings 13:14-19. When Elisha was fallen sick, Joash the king of Israel came down unto him and wept, O my father, my father, the chariot of Israel, and the horsemen thereof. Elisha said, Take bow and arrows — and put thine hand upon the bow; Elisha put his hands upon the king's hands. Open the window eastward. Shoot. The arrow of the LORD's deliverance — thou shalt smite the Syrians in Aphek. Take the arrows; smite upon the ground; the king smote thrice. For you: God still guides through gentle hands and His promises."
+    },
+    elishaBones: {
+      title: 'God\'s Power in Elisha\'s Bones',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Elisha died and was buried — quiet rest' },
+        { src: 'panel-jesus-2.svg', alt: 'They laid a man in Elisha\'s sepulchre — he touched the bones of Elisha' },
+        { src: 'panel-jesus-3.svg', alt: 'He revived and stood up on his feet — God\'s wonder' }
+      ],
+      caption: 'Swipe to see God\'s power still working — life where only wonder fits.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha bones',
+        'bones of elisha',
+        'touched the bones',
+        'sepulchre of elisha',
+        'revived',
+        'stood up on his feet',
+        '2 kings 13',
+        '2 kings 13:21',
+        'burying a man',
+        'man of god',
+        'elisha grave'
+      ],
+      kjvRef: '2 Kings 13:20-21',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A man raised — and every heart that wonders',
+        apply:
+          'God\'s power is greater than we can guess — He can do wonderful things.'
+      },
+      narration:
+        "God's Power in Elisha's Bones — 2 Kings 13:20-21. Elisha died and was buried. Later, as men were burying another man, they saw danger and cast him into the sepulchre of Elisha. When the man touched the bones of Elisha, he revived and stood up on his feet. For you: God is mighty — His kindness can surprise us in the quietest places."
     },
     estherCrown: {
       title: 'Queen Esther\'s Courage',
@@ -6523,7 +6556,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 306, color: '#e5e4e2' }
+      { name: 'Platinum', min: 307, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6637,7 +6670,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -7090,6 +7123,12 @@
         /shunammite|woman of shunem|philistines|cry unto the king|her house and for her land|restore all that was hers|fruits of the field|great things that elisha|gehazi.*servant of the man of god|tell me.*great things/.test(low))
     ) {
       return { type: 'carousel', story: 'shunammiteReturn' };
+    }
+    if (
+      /\b2 kings 13:21\b|\b2 kgs 13:21\b/.test(low) ||
+      /touched the bones of elisha|bones of elisha|sepulchre of elisha|elisha.*bones|cast the man into the sepulchre of elisha|burying a man.*elisha|revived.*stood up on his feet/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaBones' };
     }
     if (
       /\b2 kings 13:(?:1[4-9]|20)\b|\b2 kgs 13:(?:1[4-9]|20)\b/.test(low) ||
@@ -9751,7 +9790,7 @@
     davidSaulJealousy: 'Protection', davidJonathanFriendship: 'Love',
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
-    elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
+    elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
@@ -9846,7 +9885,7 @@
     lydiaSell: 'Obedience', priscillaTeach: 'Obedience', ruthMoab: 'Love',
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */
-    annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', persistentWidow: 'Obedience',
+    annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', persistentWidow: 'Obedience',
     samaritanWoman: 'Love', marthaServe: 'Obedience', marySit: 'Obedience',
     dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
     loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',

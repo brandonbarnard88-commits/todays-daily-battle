@@ -78,6 +78,7 @@
     shunammiteReturn: 189,
     samariaSiege: 190,
     elishaFinal: 191,
+    elishaBones: 192,
     elishaMiracles: 182,
     elishaOil: 19,
     elishaShunammite: 49,

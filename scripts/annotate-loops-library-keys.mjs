@@ -1,6 +1,6 @@
 /**
  * Adds optional `libraryKey` to each loops.json entry by matching title + KJV ref
- * to rows in kids/bible-story-tool-index.js (306 Bible Story Library keys; keys match bibleStories).
+ * to rows in kids/bible-story-tool-index.js (307 Bible Story Library keys; keys match bibleStories).
  *
  * Run: node scripts/annotate-loops-library-keys.mjs
  * Then bump LOOPS_URL ?v= in script.js so browsers fetch fresh JSON.
@@ -96,6 +96,7 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   189: 'shunammiteReturn',
   190: 'samariaSiege',
   191: 'elishaFinal',
+  192: 'elishaBones',
   186: 'elishaBlindArmy',
   185: 'elishaPoisonStew',
   184: 'elishaChariots',
@@ -181,8 +182,8 @@ function main() {
   const loops = JSON.parse(fs.readFileSync(LOOPS_PATH, 'utf8'));
   if (!Array.isArray(loops)) throw new Error('loops.json must be an array');
   const rows = loadStoryIndex();
-  if (rows.length !== 306) {
-    console.warn('warn: expected 306 index rows, got', rows.length);
+  if (rows.length !== 307) {
+    console.warn('warn: expected 307 index rows, got', rows.length);
   }
 
   let filled = 0;

@@ -1759,9 +1759,19 @@
     "title": "Elisha's Last Words",
     "file": "",
     "audio": "",
-    "ref": "2 Kings 13:14-20",
+    "ref": "2 Kings 13:14-19",
     "week": 12,
     "libraryKey": "elishaFinal",
     "kjvText": "And he said, Open the window eastward. And he opened it. Then Elisha said, Shoot. And he shot. And he said, The arrow of the LORD's deliverance, and the arrow of deliverance from Syria: for thou shalt smite the Syrians in Aphek, till thou have consumed them."
+  },
+  {
+    "id": 192,
+    "title": "God's Power in Elisha's Bones",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 13:20-21",
+    "week": 12,
+    "libraryKey": "elishaBones",
+    "kjvText": "And it came to pass, as they were burying a man, that, behold, they spied a band of men; and they cast the man into the sepulchre of Elisha: and when the man was let down, and touched the bones of Elisha, he revived, and stood up on his feet."
   }
 ]

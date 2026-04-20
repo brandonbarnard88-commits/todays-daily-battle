@@ -70,7 +70,7 @@
     elijahFire: 18,
     elijahFireFromHeaven: 18,
     elishaFloatingAxe: 21,
-    elishaMiracles: 19,
+    elishaMiracles: 182,
     elishaOil: 19,
     elishaRaised: 49,
     emmausRoad: 89,

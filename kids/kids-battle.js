@@ -3719,18 +3719,47 @@
         "Elijah Taken Up in the Fiery Chariot — 2 Kings 2:1-14. The LORD would take Elijah into heaven by a whirlwind; Elijah went with Elisha from Gilgal. Again and again Elijah said, Tarry here — and Elisha answered, As the LORD liveth, and as thy soul liveth, I will not leave thee. At Jordan Elijah smote the waters with his mantle; they divided, and they two went over on dry ground. Elijah said, Ask what I shall do for thee, before I am taken away from thee. Elisha asked for a double portion of his spirit. As they still went on and talked, behold, there appeared a chariot of fire, and horses of fire; Elijah went up by a whirlwind into heaven. Elisha saw it, cried out, then took up the mantle that fell, smote Jordan again, and went over — Where is the LORD God of Elijah? For you: When someone you love serves God with their whole heart, you can thank God for them — and keep walking in His strength."
     },
     elishaMiracles: {
-      title: 'Elisha\'s Miracles',
+      title: 'Elisha\'s First Miracles',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Salt in the water — Jericho\'s spring made clean' },
-        { src: 'panel-david-2.svg', alt: 'Oil fills every jar for the widow' },
-        { src: 'panel-david-3.svg', alt: 'Naaman washes in the Jordan — skin like a child\'s' }
+        { src: 'panel-noah-1.svg', alt: 'Elisha casts salt into Jericho\'s spring — the waters are healed' },
+        { src: 'panel-noah-2.svg', alt: 'A widow pours oil — vessel after vessel fills up' },
+        { src: 'panel-noah-3.svg', alt: 'Sell the oil, pay the debt — God cares for the family' }
       ],
-      caption: 'Swipe to see God help people through Elisha! ✨',
+      caption: 'Swipe to see God heal the water and fill every jar! ✨',
       videoId: '',
       videoTitle: '',
-      keywords: ['elisha', 'miracle', 'widow', 'oil', 'naaman', '2 kings 4', '2 kings 5', 'jordan', 'jericho'],
-      kjvRef: '2 Kings 2:19–22; 4:1–7; 4:8–37; 5',
-      kidContext: { who: 'God', to: 'His people', apply: 'God can heal, provide, and raise the dead. He still cares about our troubles today.' }
+      keywords: [
+        'elisha',
+        'elisha first miracles',
+        '2 kings 2',
+        '2 kings 2:19',
+        '2 kings 2:20',
+        '2 kings 2:21',
+        '2 kings 2:22',
+        'jericho',
+        'spring',
+        'salt',
+        'cruse',
+        'waters healed',
+        'barren',
+        '2 kings 4',
+        '2 kings 4:1',
+        'widow',
+        'oil',
+        'vessels',
+        'creditor',
+        'bondmen',
+        'pot of oil'
+      ],
+      kjvRef: '2 Kings 2:19-22; 4:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Jericho and a widow\'s home — through Elisha',
+        apply:
+          'God can heal what is bitter and stretch what is little. He cares for towns, moms, and children.'
+      },
+      narration:
+        "Elisha's First Miracles — 2 Kings 2:19-22; 4:1-7. The men of the city told Elisha, The water is naught, and the ground barren. He said, Bring me a new cruse, and put salt therein. He cast it into the spring and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land — and the waters were healed. Later a widow cried that the creditor would take her sons; she had only a pot of oil. Elisha sent her to borrow empty vessels, pour behind closed doors — and the oil flowed until every vessel was full. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: When needs feel big and your little feels small, God can still provide — ask Him and obey one step at a time."
     },
     elishaFloatingAxe: {
       title: 'The Floating Axe Head',
@@ -6633,6 +6662,12 @@
       return { type: 'carousel', story: 'elijahChariot' };
     }
     if (
+      /\b2 kings 2:(?:19|2[0-2])\b|\b2 kgs 2:(?:19|2[0-2])\b/.test(low) ||
+      /waters were healed.*elisha|elisha.*waters were healed|healed these waters|water is naught|ground barren|barren land.*elisha|jericho.*spring|spring.*jericho|salt.*spring|new cruse.*salt/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaMiracles' };
+    }
+    if (
       /\b1 kings 18:(?:1[7-9]|[2-3][0-9])\b|\b1 kgs 18:(?:1[7-9]|[2-3][0-9])\b/.test(low) ||
       /elijah.*\b(carmel|baal|altar|fire|18)\b|\b(baal|carmel|mount carmel)\b.*elijah|1 kings 18|fire.*heaven.*altar|elijah.*fire from heaven|two opinions|answereth by fire|prophets of baal/.test(low)
     ) {
@@ -6646,13 +6681,40 @@
       return { type: 'carousel', story: 'elijahRavens' };
     }
     if (
-      /\belisha\b|2 kings 4/.test(low) ||
-      (/(?:widow.*oil|oil.*jar)/.test(low) && !/zarephath|1 kings 17|\belijah\b|barrel|cruse|handful of meal/.test(low))
+      /\belisha\b/.test(low) &&
+      /\b2 kings 4\b/.test(low) &&
+      !/\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\bshunammite|son of the woman|raise.*child|bed.*stick/.test(low)
     ) {
       return { type: 'carousel', story: 'elishaOil' };
     }
+    if (
+      /\b2 kings 4:(?:[1-7])\b|\b2 kgs 4:(?:[1-7])\b/.test(low) ||
+      (/(?:widow.*oil|oil.*vessel|pot of oil|borrow.*vessel|oil stayed)/.test(low) &&
+        !/zarephath|1 kings 17|\belijah\b|barrel|cruse|handful of meal|jericho|2 kings 2|water is naught|healed these waters|spring/.test(low))
+    ) {
+      return { type: 'carousel', story: 'elishaOil' };
+    }
+    if (
+      /\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\b2 kgs 4:(?:8|9|[12][0-9]|3[0-7])\b/.test(low) ||
+      /shunammite|woman of shunem|raise.*dead.*elisha|elisha.*raise|son of the woman|bed.*stick|great woman.*shunem/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaRaised' };
+    }
+    if (
+      /\b2 kings 6\b|\b2 kgs 6\b/.test(low) ||
+      /floating axe|axe head|axe.*float|iron.*float|head.*jordan.*axe/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaFloatingAxe' };
+    }
     if (/naaman|jordan.*dip|2 kings 5|leprosy/.test(low)) {
       return { type: 'carousel', story: 'naaman' };
+    }
+    if (
+      /\belisha\b/.test(low) &&
+      !/\belijah\b/.test(low) &&
+      !/naaman|leprosy|2 kings 5|2 kings 6|axe|float|shunammite|woman of shunem/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaMiracles' };
     }
     if (/walks on water|walk.*water|matthew 14:25|peter.*water/.test(low)) {
       return { type: 'carousel', story: 'jesusWalksWater' };

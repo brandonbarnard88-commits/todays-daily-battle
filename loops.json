@@ -176,12 +176,13 @@
   },
   {
     "id": 19,
-    "title": "Elisha Oil Pots",
+    "title": "Elisha and the Widow's Oil",
     "file": "",
     "audio": "",
-    "ref": "2 Kings 4:6",
+    "ref": "2 Kings 4:1-7",
     "week": 1,
-    "libraryKey": "elishaOil"
+    "libraryKey": "elishaOil",
+    "kjvText": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed."
   },
   {
     "id": 20,
@@ -1660,5 +1661,15 @@
     "week": 12,
     "libraryKey": "elijahElijahElisha",
     "kjvText": "So he departed thence, and found Elisha the son of Shaphat, who was plowing with twelve yoke of oxen before him, and he with the twelfth: and Elijah passed by him, and cast his mantle upon him."
+  },
+  {
+    "id": 182,
+    "title": "Elisha's First Miracles",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 2:19-22; 4:1-7",
+    "week": 12,
+    "libraryKey": "elishaMiracles",
+    "kjvText": "And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land."
   }
 ]

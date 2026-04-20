@@ -15,12 +15,12 @@ Generated: **2026-04-20** (run `npm run kids:audit-read-quiz-sources` to refresh
 | Category | Count |
 |----------|------:|
 | Total `bibleStories` keys | 298 |
-| **Handcrafted** full-pack override | 59 |
-| **Generator** (`buildPack`) | 239 |
+| **Handcrafted** full-pack override | 60 |
+| **Generator** (`buildPack`) | 238 |
 | …with non-empty `narration:` in battle | 17 |
-| …no narration (alt + apply path) | 222 |
+| …no narration (alt + apply path) | 221 |
 
-## Handcrafted keys (59)
+## Handcrafted keys (60)
 
 Shared packs (same object used for two library cards each):
 
@@ -50,6 +50,7 @@ Keys:
 - `elijahHoreb`
 - `elijahRavens`
 - `elijahWidow`
+- `elishaMiracles`
 - `fallOfJericho`
 - `gideonFleece`
 - `gideonMidianites`
@@ -109,7 +110,7 @@ Keys:
 - `ruthGlean`
 - `tenPlagues`
 
-## Generator keys without narration — alt/apply only (222)
+## Generator keys without narration — alt/apply only (221)
 
 - `abrahamIsaac`
 - `actsApollosPriscilla`
@@ -151,7 +152,6 @@ Keys:
 - `earlyChurchLife`
 - `elijahFireFromHeaven`
 - `elishaFloatingAxe`
-- `elishaMiracles`
 - `elishaOil`
 - `elishaRaised`
 - `emmausRoad`

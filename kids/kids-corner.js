@@ -116,6 +116,7 @@
       elijahRavens: 'elijahRavens',
       elijahWidow: 'elijahWidow',
       elijahHoreb: 'elijahHoreb',
+      elishaMiracles: 'elishaMiracles',
       psalm23: 'psalm23Shepherd',
       psalm23Shepherd: 'psalm23Shepherd',
       goliathChallenge: 'david',
@@ -836,6 +837,30 @@
         person(55, 185, 10, 30) +
         sun(350, 45, 18) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:6</text>'
+      ),
+
+      /* Elisha's first miracles — Jericho spring + widow's oil (2:19-22; 4:1-7) */
+      elishaMiracles: svg(
+        ground() + hills() +
+        sun(52, 42, 16) + cloud(300, 34) +
+        /* spring pool */
+        '<ellipse cx="118" cy="238" rx="52" ry="14" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M78 238 Q118 228 158 238" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3"/>' +
+        /* Elisha — salt to water */
+        person(118, 158, 11, 32) +
+        '<ellipse cx="108" cy="188" rx="9" ry="11" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M108 188 L105 210 L118 222" ' + s + ' stroke-width="2"/>' +
+        person(48, 178, 9, 26) + person(188, 180, 9, 26) +
+        /* inset — widow + vessels */
+        '<rect x="232" y="118" width="150" height="118" rx="6" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<text x="307" y="132" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#666">2 Kings 4</text>' +
+        person(300, 138, 8, 22) +
+        '<ellipse cx="278" cy="198" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="302" cy="200" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="326" cy="198" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="350" cy="200" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M292 168 L288 192" ' + s + ' stroke-width="1.8"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kgs 2:21 · 4:4</text>'
       ),
 
       /* ── Week 1: Fiery Furnace already exists, skip; Naaman Dip (21) ── */
@@ -3372,7 +3397,7 @@
     elijahFireFromHeaven: 'elijahFire',
     elijahElijahElisha: 'elijahElijahElisha',
     elijahChariot: 'elijahChariot',
-    elishaMiracles: 'elishaOil',
+    elishaMiracles: 'elishaMiracles',
     elishaFloatingAxe: 'naamanDip',
     isaiahMessianic: 'angelMary',
     jeremiahWeeping: 'jobSuffering',
@@ -5125,7 +5150,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',

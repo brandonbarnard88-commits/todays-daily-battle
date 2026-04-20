@@ -577,16 +577,6 @@
     "kw": "elisha chariots of fire dothan 2 kings 6 2 kings 6:16 2 kings 6:17 fear not open his eyes they that be with us syria servant of the man of God horses and chariots mountain"
   },
   {
-    "key": "elishaFloatingAxe",
-    "title": "Elisha and the Floating Axe Head",
-    "kjvRef": "2 Kings 6:1-7",
-    "who": "The LORD",
-    "to": "a worried builder — through Elisha",
-    "apply": "God cares about honest, everyday troubles — even a small, borrowed thing. Tell Him what you need.",
-    "theme": "Miracles",
-    "kw": "elisha floating axe axe head axe jordan 2 kings 6 2 kings 6:1 2 kings 6:6 sons of the prophets borrowed iron did swim stick beam man of God"
-  },
-  {
     "key": "elishaPoisonStew",
     "title": "Elisha and the Poisoned Stew",
     "kjvRef": "2 Kings 4:38-41",
@@ -815,6 +805,16 @@
     "apply": "God can feed His people when things look impossible — trust His promise one day at a time.",
     "theme": "Miracles",
     "kw": "samaria siege of samaria samaria siege besieged samaria gate of samaria fine flour barley shekel windows in heaven noise of chariots syrians fled spoiled the tents 2 kings 6 2 kings 6:24 2 kings 7 2 kings 7:1 2 kings 7:16 elisha benhadad famine samaria"
+  },
+  {
+    "key": "elishaFloatingAxe",
+    "title": "God Makes the Iron Swim",
+    "kjvRef": "2 Kings 6:1-7",
+    "who": "The LORD",
+    "to": "a worried young man — through Elisha",
+    "apply": "God cares about small, honest needs — even a borrowed tool. You can tell Him everything.",
+    "theme": "Miracles",
+    "kw": "elisha god makes the iron swim floating axe axe head axe jordan 2 kings 6 2 kings 6:1 2 kings 6:6 sons of the prophets borrowed iron did swim stick beam man of God"
   },
   {
     "key": "elijahHoreb",

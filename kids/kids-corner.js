@@ -959,25 +959,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:15</text>'
       ),
 
-      /* Floating axe head — 2 Kings 6:1-7 (Jordan, ripples, stick on bank, thankful reach) */
+      /* Floating axe — gentle Jordan, extra ripples, stick on bank, thankful reach (2 Kings 6:6) */
       elishaFloatingAxe: svg(
         ground() + hills() +
-        sun(52, 42, 18) + cloud(300, 34) +
+        sun(52, 40, 16) + cloud(300, 34) + cloud(64, 40) +
         '<path d="M28 248 Q120 222 200 242 Q280 222 372 248" ' + s + ' stroke-width="2.5" fill="none"/>' +
         '<ellipse cx="200" cy="254" rx="150" ry="11" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        /* gentle ripples around floating iron */
+        /* gentle ripples — iron floating */
         '<path d="M218 232 Q232 228 246 232 M212 236 Q228 232 244 236" ' + s + ' stroke-width="1.4" fill="none" opacity="0.85"/>' +
+        '<path d="M200 240 Q218 234 236 240 M194 244 Q210 238 226 244" ' + s + ' stroke-width="1.2" fill="none" opacity="0.75"/>' +
+        '<path d="M176 236 Q200 228 224 236" ' + s + ' stroke-width="1.1" fill="none" opacity="0.65"/>' +
         /* stick resting on bank */
         '<line x1="72" y1="244" x2="98" y2="232" ' + s + ' stroke-width="2.6" stroke-linecap="round"/>' +
         /* Elisha — calm by the water */
         person(108, 158, 11, 32) +
         '<path d="M102 148 Q108 152 112 148" ' + s + ' stroke-width="1.2" fill="none"/>' +
-        /* floating iron — wedge + eye (readable as axe head) */
+        /* floating iron — axe head */
         '<ellipse cx="232" cy="228" rx="22" ry="10" ' + sf + ' fill="white" stroke-width="2.4"/>' +
         '<path d="M210 228 L248 228 M238 220 L242 236" ' + s + ' stroke-width="2"/>' +
-        /* young man reaching — soft thankful smile */
+        /* young man reaching — thankful smile */
         person(292, 168, 10, 28) +
-        '<path d="M288 152 Q294 154 300 152" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M286 150 Q292 156 300 150" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<path d="M292 196 L252 222" ' + s + ' stroke-width="2.4"/>' +
         '<path d="M248 218 L256 224 L250 230" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         /* distant trees */

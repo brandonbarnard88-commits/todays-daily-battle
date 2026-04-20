@@ -1,41 +1,28 @@
 'use strict';
 /**
- * Elisha and the floating axe head — 2 Kings 6:1-7 (KJV).
- *
- * Full handcrafted tap-through: one section per verse (6:1–7). Paragraphs carry
- * travel-to-Jordan and wood-cutting context (6:3–4) for a calm read-aloud.
+ * Elisha and the floating axe (gentle) — 2 Kings 6:1-7 (KJV). Library key: elishaFloatingAxe
  */
 
 module.exports = {
   kjvRef: '2 Kings 6:1-7 (KJV)',
   verseExcerpt:
     'And he cut down a stick, and cast it in thither; and the iron did swim. — 2 Kings 6:6 (KJV)',
-  readAlongTitle: 'Read along',
-  hintAboveQuiz: 'Read slowly. Tap each part when you are ready.',
+  readAlongTitle: 'God Makes the Iron Swim',
+  quizWrongHumilityHint:
+    'Listen again — the iron did swim; God cares about even small, borrowed things.',
+  hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
   readAlongSections: [
     {
       text:
-        'And the sons of the prophets said unto Elisha, Behold now, the place where we dwell with thee is too strait for us.',
-      caption: 'The place where we dwell with thee is too strait',
+        'And the sons of the prophets said unto Elisha, Behold now, the place where we dwell with thee is too strait for us. Let us go, we pray thee, unto Jordan, and take thence every man a beam, and let us make us a place there, where we may dwell. And he answered, Go ye.',
+      caption: 'The place was too strait — let us go to Jordan for beams',
       image: 'panel-jesus-1.svg'
     },
     {
       text:
-        'Let us go, we pray thee, unto Jordan, and take thence every man a beam, and let us make us a place there, where we may dwell. And he answered, Go ye.',
-      caption: 'Unto Jordan — every man a beam',
-      image: 'panel-jesus-1.svg'
-    },
-    {
-      text:
-        'And one said, Be content, I pray thee, and go with thy servants. And he answered, I will go.',
-      caption: 'Go with thy servants — I will go',
-      image: 'panel-jesus-1.svg'
-    },
-    {
-      text:
-        'So he went with them. And when they came to Jordan, they cut down wood.',
+        'And one said, Be content, I pray thee, and go with thy servants. And he answered, I will go. So he went with them. And when they came to Jordan, they cut down wood.',
       caption: 'They came to Jordan — they cut down wood',
-      image: 'panel-jesus-2.svg'
+      image: 'panel-jesus-1.svg'
     },
     {
       text:
@@ -50,16 +37,18 @@ module.exports = {
       image: 'panel-jesus-2.svg'
     },
     {
-      text: 'Therefore said he, Take it up to thee. And he put out his hand, and took it.',
+      text:
+        'Therefore said he, Take it up to thee. And he put out his hand, and took it.',
       caption: 'Take it up to thee — he took it',
       image: 'panel-jesus-3.svg'
     }
   ],
   paragraphs: [
-    'The sons of the prophets said to Elisha, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams for a new place. As one was cutting down a beam, the axe head fell into the water, and he cried, Alas, master! for it was borrowed.',
-    'Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee — and the man put out his hand and took it.',
-    'For you: The Lord used Elisha to make the borrowed iron swim so the young man would not lose what was not his own. God cares about honest, everyday troubles — even a small, borrowed thing.',
-    'Reference: 2 Kings 6:1-7 (KJV).'
+    'The sons of the prophets said to Elisha, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams.',
+    'As one was felling a beam, the axe head fell into the water. He cried, Alas, master! for it was borrowed.',
+    'Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee. And the man put out his hand and took it.',
+    'The Lord used Elisha to make the borrowed iron swim so the young man would not lose what was not his own.',
+    'For you: God cares about the everyday needs of His servants — even small, borrowed things.'
   ],
   quizHeading: 'Quiz — think it through',
   questions: [
@@ -68,7 +57,7 @@ module.exports = {
       choices: [
         'Forget their teacher.',
         'Take every man a beam and make a place to dwell.',
-        'Swim in the river only.',
+        'Swim only.',
         'Leave Elisha behind.'
       ],
       correctIndex: 1,
@@ -131,10 +120,10 @@ module.exports = {
   prayer:
     'Lord, thank You that nothing is too small to bring to You. Help us trust You today. Amen.',
   imagePrompts: [
-    'Simple peaceful black-and-white line-art young children bold thick outlines Elisha standing calmly by river Jordan young man reaching thankful face toward water gentle ripples iron axe head floating on surface simple stick on bank riverbank trees minimal white space wonder-filled kind mood ages 3-8 coloring page',
+    'Simple peaceful black-and-white line-art young children bold thick outlines Elisha standing calmly by river Jordan young man reaching thankful face toward water gentle ripples iron axe head floating on surface simple stick on bank riverbank soft trees minimal white space wonder-filled kind mood ages 3-8 coloring page no text',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sons of prophets Jordan beams',
-    'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrowed axe head water alas master',
+    'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrowed alas master',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Stick cast iron did swim',
-    'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Take it up to thee hand took iron'
+    'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Take it up to thee'
   ]
 };

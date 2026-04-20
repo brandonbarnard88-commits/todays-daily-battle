@@ -4068,17 +4068,18 @@
         "Elisha's First Miracles — 2 Kings 2:19-22; 4:1-7. The men of the city told Elisha, The water is naught, and the ground barren. He said, Bring me a new cruse, and put salt therein. He cast it into the spring and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land — and the waters were healed. Later a widow cried that the creditor would take her sons; she had only a pot of oil. Elisha sent her to borrow empty vessels, pour behind closed doors — and the oil flowed until every vessel was full. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: When needs feel big and your little feels small, God can still provide — ask Him and obey one step at a time."
     },
     elishaFloatingAxe: {
-      title: 'Elisha and the Floating Axe Head',
+      title: 'God Makes the Iron Swim',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Sons of the prophets — the place is too strait; beams from Jordan' },
-        { src: 'panel-jesus-2.svg', alt: 'The axe head falls in the water — Alas, master! it was borrowed' },
-        { src: 'panel-jesus-3.svg', alt: 'Elisha casts a stick — the iron swims — take it up to thee' }
+        { src: 'panel-jesus-1.svg', alt: 'More room needed — to Jordan for beams' },
+        { src: 'panel-jesus-2.svg', alt: 'The axe head fell — Alas, master! it was borrowed' },
+        { src: 'panel-jesus-3.svg', alt: 'A stick cast in — the iron swam — take it up to thee' }
       ],
-      caption: 'Swipe to see gentle wonder — borrowed iron that swam home.',
+      caption: 'Swipe for Jordan — God made the borrowed iron swim; take it up to thee.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elisha',
+        'god makes the iron swim',
         'floating axe',
         'axe head',
         'axe',
@@ -4096,12 +4097,12 @@
       kjvRef: '2 Kings 6:1-7',
       kidContext: {
         who: 'The LORD',
-        to: 'a worried builder — through Elisha',
+        to: 'a worried young man — through Elisha',
         apply:
-          'God cares about honest, everyday troubles — even a small, borrowed thing. Tell Him what you need.'
+          'God cares about small, honest needs — even a borrowed tool. You can tell Him everything.'
       },
       narration:
-        "Elisha and the Floating Axe Head — 2 Kings 6:1-7. The sons of the prophets said, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams for a new place. As one was cutting down a beam, the axe head fell into the water, and he cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee — and the man put out his hand and took it. For you: The Lord used Elisha to make the borrowed iron swim so the young man would not lose what was not his own."
+        "God Makes the Iron Swim — 2 Kings 6:1-7. The sons of the prophets said, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams. As one was felling a beam, the axe head fell into the water, and he cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee — and the man put out his hand and took it. For you: The Lord cares about everyday needs — even little borrowed things."
     },
     elishaChariots: {
       title: 'Elisha and the Chariots of Fire',

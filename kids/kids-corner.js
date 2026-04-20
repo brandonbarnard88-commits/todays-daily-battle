@@ -2156,7 +2156,7 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 4:6</text>'
       ),
 
-      /* ── Return from exile: Ezra 1 & 3 — thankful journey home ── */
+      /* ── Return from exile: Ezra 1 & 3 — thankful journey home, gates, altar smoke ── */
       ezraReturn: svg(
         ground() +
         hills() +
@@ -2164,6 +2164,9 @@
         '<path d="M20 255 Q200 228 380 255" ' +
         s +
         ' stroke-width="2.5" stroke-dasharray="5,4"/>' +
+        /* open gate toward the city */
+        '<path d="M218 248 L218 198 M242 248 L242 198" ' + s + ' stroke-width="2.8"/>' +
+        '<path d="M218 198 Q230 188 242 198" ' + s + ' stroke-width="2.5" fill="none"/>' +
         '<rect x="228" y="108" width="130" height="68" rx="6" ' +
         sf +
         ' fill="white" stroke-width="3"/>' +
@@ -2179,6 +2182,9 @@
         '<path d="M68 196 L74 178 M85 196 L88 172 M100 196 L96 178" ' +
         s +
         ' stroke-width="1.5" stroke-dasharray="2,2"/>' +
+        /* soft smoke from altar */
+        '<path d="M72 178 Q76 158 80 172 Q84 152 88 168" ' + s + ' stroke-width="1.4" fill="none" opacity="0.55"/>' +
+        '<path d="M92 180 Q96 162 100 176" ' + s + ' stroke-width="1.2" fill="none" opacity="0.45"/>' +
         person(138, 188, 10, 28) +
         person(165, 185, 11, 32) +
         person(192, 187, 10, 28) +

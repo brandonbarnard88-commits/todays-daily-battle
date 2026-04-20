@@ -3989,27 +3989,31 @@ function buildElishaBonesReadQuiz() {
 /** Return from exile — Ezra 1 & 3; calm read-along taps + quiz. */
 function buildEzraReturnReadQuiz() {
   return {
-    kjvRef: 'Ezra 1:1–11; 3:1–6',
-    readAlongTitle: 'Read along',
-    hintAboveQuiz: 'Use the comic pictures above while you read.',
+    kjvRef: 'Ezra 1:1–11; 3:1–6 (KJV)',
+    verseExcerpt:
+      'Now in the first year of Cyrus king of Persia, that the word of the LORD by the mouth of Jeremiah might be accomplished, the LORD stirred up the spirit of Cyrus king of Persia, that he made a proclamation throughout all his kingdom, and put it also in writing, saying, — Ezra 1:1 (KJV)',
+    readAlongTitle: 'Coming Home to Worship',
+    quizWrongHumilityHint:
+      'Listen again — God stirred Cyrus’s heart; His people went up with joy; they set the altar and gave thanks.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'The Return from Exile (Ezra 1:1–11; 3:1–6).',
       'The people of Israel had been far away from their land for many years.',
-      'But the Lord stirred the heart of Cyrus the king of Persia, and he made a proclamation: All the people of the Lord were free to go up to Jerusalem and build the house of the Lord God of Israel.',
+      'But the LORD stirred the heart of Cyrus the king of Persia, and he made a proclamation: Who is there among you of all his people? his God be with him, and let him go up to Jerusalem, which is in Judah, and build the house of the LORD God of Israel, (he is the God,) which is in Jerusalem.',
       'Many of the fathers’ houses, the priests, and the Levites rose up with joy and went to Jerusalem.',
-      'They set the altar upon its bases and offered burnt offerings unto the Lord, even though they were still a little afraid of the people around them.',
-      'Day by day they praised the Lord and gave thanks, because He had turned the heart of the king and brought them home.',
-      'The Lord showed His people that even after long years away, He remembers them and brings them back to worship Him.'
+      'They set the altar in his place upon his bases and offered burnt offerings unto the LORD, as it is written in the law of Moses the man of God, even though they were still a little afraid of the people around them.',
+      'Day by day they praised the LORD and gave thanks, because He had turned the heart of the king and brought them home.',
+      'The LORD showed His people that even after long years away, He remembers them and brings them back to worship Him.',
+      'Reference: Ezra 1:1–11; 3:1–6 (KJV).'
     ],
     readAlongSections: [
       {
         text: 'The people of Israel had been far away.',
-        caption: 'Long years',
+        caption: 'Long years away',
         image: 'panel-noah-1.svg'
       },
       {
-        text: 'But the Lord stirred the heart of the king.',
-        caption: 'God moves the king',
+        text: 'But the LORD stirred the heart of the king.',
+        caption: 'God stirred the king’s heart',
         image: 'panel-noah-1.svg'
       },
       {
@@ -4023,8 +4027,8 @@ function buildEzraReturnReadQuiz() {
         image: 'panel-noah-2.svg'
       },
       {
-        text: 'They built the altar and offered thanks to the Lord.',
-        caption: 'Thankful worship',
+        text: 'They built the altar and offered thanks to the LORD.',
+        caption: 'Thankful worship at the altar',
         image: 'panel-noah-3.svg'
       },
       {
@@ -4067,14 +4071,14 @@ function buildEzraReturnReadQuiz() {
         question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
         choices: [
           'A spaceship landed in the parking lot.',
-          'They set the altar upon its bases and offered burnt offerings unto the Lord.',
+          'They set the altar in his place upon his bases and offered burnt offerings unto the LORD.',
           'Everyone decided to never sleep again.',
           'A talking toaster became king of the city.'
         ],
         correctIndex: 1,
         correctFeedback: 'Yes—that detail comes from the story God gave us.',
         wrongFeedback:
-          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: They set the altar upon its bases and offered burnt offerings unto the Lord.)'
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: They set the altar in his place upon his bases and offered burnt offerings unto the LORD.)'
       },
       {
         question: 'What is one good way to respond to God after this story?',
@@ -4091,12 +4095,12 @@ function buildEzraReturnReadQuiz() {
       }
     ],
     doneHeading: 'You did it!',
-    doneMessage: "Great job reading The Return from Exile with God's Word today.",
+    doneMessage: "Great job reading Coming Home to Worship with God's Word today.",
     takeaway: 'Even after long years away, God remembers His people and brings them home to worship Him.',
     prayer:
-      "God, thank You for the Bible. Help me remember what You showed me in The Return from Exile. Amen.",
+      'Lord, thank You that You remember Your people. Help us worship You with thankful hearts. Amen.',
     imagePrompts: [
-      'Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: thankful people (fathers, priests, children) walking on a road toward Jerusalem, open city gates, simple altar with soft smoke rising, gentle hills, hopeful restoring mood, no text, no fear or sadness, plenty of white space',
+      'Simple peaceful black-and-white line-art for young children ages 3–8: thankful people fathers priests and children walking toward Jerusalem with joy; background city walls simple altar soft smoke rising; thick bold outlines large open spaces on robes road altar stones sky; gentle hills open gates minimal lines; hopeful restoring mood coming home to worship God; clean minimal plenty of white space coloring page',
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Cyrus proclaims — God's people may go up to Jerusalem (ezra)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Many rise up with joy and go toward home (jerusalem)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The altar on its bases — thanks and praise to the Lord (altar)",

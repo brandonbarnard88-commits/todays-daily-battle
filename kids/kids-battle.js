@@ -4316,18 +4316,25 @@
       kidContext: { who: 'God', to: 'Daniel', apply: 'Keep talking to God — He hears you and can hush every fear.' }
     },
     ezraReturn: {
-      title: 'The Return from Exile',
+      title: 'Coming Home to Worship',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Cyrus proclaims — God\'s people may go up to Jerusalem' },
-        { src: 'panel-noah-2.svg', alt: 'Many rise up with joy and go toward home' },
-        { src: 'panel-noah-3.svg', alt: 'The altar on its bases — thanks and praise to the Lord' }
+        { src: 'panel-noah-1.svg', alt: 'The LORD stirred Cyrus — a proclamation to go up and build God’s house in Jerusalem' },
+        { src: 'panel-noah-2.svg', alt: 'Fathers, priests, and Levites rise with joy on the way home' },
+        { src: 'panel-noah-3.svg', alt: 'The altar in his place upon his bases — burnt offerings and thanks to the LORD' }
       ],
-      caption: 'Swipe to see God remember His people and bring them home to worship! 🏛️',
+      caption: 'Swipe to see God stir the king’s heart and bring His people home to worship with thankful hearts.',
       videoId: '',
       videoTitle: '',
       keywords: ['ezra', 'cyrus', 'exile', 'return', 'temple', 'ezra 1', 'ezra 3', 'altar', 'jerusalem', 'persia', 'worship'],
       kjvRef: 'Ezra 1:1–11; 3:1–6',
-      kidContext: { who: 'God', to: 'His people', apply: 'Even after long years away, God remembers you. You can come to Him with thanks and praise.' }
+      kidContext: {
+        who: 'The LORD',
+        to: 'His people — after long years away',
+        apply:
+          'God remembers you. He can turn a king’s heart and bring you home to thank and praise Him.'
+      },
+      narration:
+        "Coming Home to Worship — Ezra 1:1–11; 3:1–6. The people of Israel had been far away from their land for many years. But the LORD stirred the heart of Cyrus the king of Persia, and he made a proclamation so they could go up to Jerusalem and build the house of the LORD God of Israel. Many of the fathers’ houses, the priests, and the Levites rose up with joy and went to Jerusalem. They set the altar in his place upon his bases and offered burnt offerings unto the LORD, even though they were still a little afraid of the people around them. Day by day they praised the LORD and gave thanks, because He had turned the heart of the king and brought them home. The LORD showed His people that even after long years away, He remembers them and brings them back to worship Him. For you: God faithfully brings His people home to Himself."
     },
     malachiMessage: {
       title: 'Malachi\'s Message',

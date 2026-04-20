@@ -277,6 +277,16 @@
     "kw": "colossians christ supreme creation church above mercy peace"
   },
   {
+    "key": "ezraReturn",
+    "title": "Coming Home to Worship",
+    "kjvRef": "Ezra 1:1–11; 3:1–6",
+    "who": "The LORD",
+    "to": "His people — after long years away",
+    "apply": "God remembers you. He can turn a king’s heart and bring you home to thank and praise Him.",
+    "theme": "Obedience",
+    "kw": "ezra cyrus exile return temple ezra 1 ezra 3 altar jerusalem persia worship"
+  },
+  {
     "key": "creation",
     "title": "Creation",
     "kjvRef": "Genesis 1",
@@ -2765,16 +2775,6 @@
     "apply": "Don't give up in prayer! God always answers those who keep coming to Him.",
     "theme": "Obedience",
     "kw": "widow persistent judge luke 18 keep asking prayer justice"
-  },
-  {
-    "key": "ezraReturn",
-    "title": "The Return from Exile",
-    "kjvRef": "Ezra 1:1–11; 3:1–6",
-    "who": "God",
-    "to": "His people",
-    "apply": "Even after long years away, God remembers you. You can come to Him with thanks and praise.",
-    "theme": "Obedience",
-    "kw": "ezra cyrus exile return temple ezra 1 ezra 3 altar jerusalem persia worship"
   },
   {
     "key": "riverOfLife",

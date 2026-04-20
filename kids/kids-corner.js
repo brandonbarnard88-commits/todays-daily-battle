@@ -971,6 +971,8 @@
         '<path d="M218 232 Q232 228 246 232 M212 236 Q228 232 244 236" ' + s + ' stroke-width="1.4" fill="none" opacity="0.85"/>' +
         '<path d="M200 240 Q218 234 236 240 M194 244 Q210 238 226 244" ' + s + ' stroke-width="1.2" fill="none" opacity="0.75"/>' +
         '<path d="M176 236 Q200 228 224 236" ' + s + ' stroke-width="1.1" fill="none" opacity="0.65"/>' +
+        '<path d="M188 248 Q200 244 212 248" ' + s + ' stroke-width="1" fill="none" opacity="0.55"/>' +
+        '<path d="M160 242 Q178 238 196 244" ' + s + ' stroke-width="0.9" fill="none" opacity="0.5"/>' +
         /* stick resting on bank */
         '<line x1="72" y1="244" x2="98" y2="232" ' + s + ' stroke-width="2.6" stroke-linecap="round"/>' +
         /* Elisha — calm by the water */
@@ -979,9 +981,9 @@
         /* floating iron — axe head */
         '<ellipse cx="232" cy="228" rx="22" ry="10" ' + sf + ' fill="white" stroke-width="2.4"/>' +
         '<path d="M210 228 L248 228 M238 220 L242 236" ' + s + ' stroke-width="2"/>' +
-        /* young man reaching — thankful smile */
+        /* young man reaching — soft thankful smile */
         person(292, 168, 10, 28) +
-        '<path d="M286 150 Q292 156 300 150" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M284 152 Q292 158 300 152" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<path d="M292 196 L252 222" ' + s + ' stroke-width="2.4"/>' +
         '<path d="M248 218 L256 224 L250 230" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         /* distant trees */

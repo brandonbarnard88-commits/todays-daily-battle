@@ -9,19 +9,13 @@ module.exports = {
     'And he cut down a stick, and cast it in thither; and the iron did swim. — 2 Kings 6:6 (KJV)',
   readAlongTitle: 'God Makes the Iron Swim',
   quizWrongHumilityHint:
-    'Listen again — the iron did swim; God cares about even small, borrowed things.',
+    'Listen again — Where fell it? The iron did swim; take it up to thee.',
   hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
   readAlongSections: [
     {
       text:
-        'And the sons of the prophets said unto Elisha, Behold now, the place where we dwell with thee is too strait for us. Let us go, we pray thee, unto Jordan, and take thence every man a beam, and let us make us a place there, where we may dwell. And he answered, Go ye.',
-      caption: 'The place was too strait — let us go to Jordan for beams',
-      image: 'panel-jesus-1.svg'
-    },
-    {
-      text:
-        'And one said, Be content, I pray thee, and go with thy servants. And he answered, I will go. So he went with them. And when they came to Jordan, they cut down wood.',
-      caption: 'They came to Jordan — they cut down wood',
+        'And the sons of the prophets said unto Elisha, Behold now, the place where we dwell with thee is too strait for us. Let us go, we pray thee, unto Jordan, and take thence every man a beam, and let us make us a place there, where we may dwell. And he answered, Go ye. And one said, Be content, I pray thee, and go with thy servants. And he answered, I will go. So he went with them. And when they came to Jordan, they cut down wood.',
+      caption: 'Too strait for us — to Jordan for beams, and they cut down wood',
       image: 'panel-jesus-1.svg'
     },
     {
@@ -32,14 +26,8 @@ module.exports = {
     },
     {
       text:
-        'And the man of God said, Where fell it? And he shewed him the place. And he cut down a stick, and cast it in thither; and the iron did swim.',
-      caption: 'Where fell it? — the iron did swim',
-      image: 'panel-jesus-2.svg'
-    },
-    {
-      text:
-        'Therefore said he, Take it up to thee. And he put out his hand, and took it.',
-      caption: 'Take it up to thee — he took it',
+        'And the man of God said, Where fell it? And he shewed him the place. And he cut down a stick, and cast it in thither; and the iron did swim. Therefore said he, Take it up to thee. And he put out his hand, and took it.',
+      caption: 'Where fell it? — the iron did swim — take it up to thee',
       image: 'panel-jesus-3.svg'
     }
   ],
@@ -120,7 +108,7 @@ module.exports = {
   prayer:
     'Lord, thank You that nothing is too small to bring to You. Help us trust You today. Amen.',
   imagePrompts: [
-    'Simple peaceful black-and-white line-art young children bold thick outlines Elisha standing calmly by river Jordan young man reaching thankful face toward water gentle ripples iron axe head floating on surface simple stick on bank riverbank soft trees minimal white space wonder-filled kind mood ages 3-8 coloring page no text',
+    'Simple peaceful black-and-white line-art young children bold thick outlines Elisha standing calmly by river Jordan young man reaching toward water axe head gently floating on top simple stick nearby on bank thick bold outlines large open spaces Elisha robe young man tunic water riverbank soft trees gentle river lines background minimal wonder-filled kind mood surprising floating iron helpful presence no fear no loss plenty white space ages 3-8 coloring page no text',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sons of prophets Jordan beams',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrowed alas master',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Stick cast iron did swim',

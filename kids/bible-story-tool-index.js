@@ -782,9 +782,9 @@
     "kjvRef": "2 Kings 6:1-7",
     "who": "The LORD",
     "to": "a worried young man — through Elisha",
-    "apply": "God cares about small, honest needs — even a borrowed tool. You can tell Him everything.",
+    "apply": "God cares about small, honest needs — even a borrowed tool — so you can tell Him everything.",
     "theme": "Miracles",
-    "kw": "elisha god makes the iron swim floating axe axe head axe jordan 2 kings 6 2 kings 6:1 2 kings 6:6 sons of the prophets borrowed iron did swim stick beam man of God"
+    "kw": "elisha god makes the iron swim floating axe axe head axe jordan 2 kings 6 2 kings 6:1 2 kings 6:6 sons of the prophets borrowed iron did swim stick beam man of God gentle everyday"
   },
   {
     "key": "elishaPoisonStew",

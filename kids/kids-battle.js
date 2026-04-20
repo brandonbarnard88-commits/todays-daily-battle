@@ -4078,11 +4078,11 @@
     elishaFloatingAxe: {
       title: 'God Makes the Iron Swim',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'More room needed — to Jordan for beams' },
-        { src: 'panel-jesus-2.svg', alt: 'The axe head fell — Alas, master! it was borrowed' },
-        { src: 'panel-jesus-3.svg', alt: 'A stick cast in — the iron swam — take it up to thee' }
+        { src: 'panel-jesus-1.svg', alt: 'Too strait for us — sons of the prophets go to Jordan for beams' },
+        { src: 'panel-jesus-2.svg', alt: 'The axe head fell — Alas, master! for it was borrowed' },
+        { src: 'panel-jesus-3.svg', alt: 'Where fell it? — the iron did swim — take it up to thee' }
       ],
-      caption: 'Swipe for Jordan — God made the borrowed iron swim; take it up to thee.',
+      caption: 'Swipe for Jordan — borrowed iron, a stick, and God’s kind help.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -4100,17 +4100,19 @@
         'iron did swim',
         'stick',
         'beam',
-        'man of God'
+        'man of God',
+        'gentle',
+        'everyday'
       ],
       kjvRef: '2 Kings 6:1-7',
       kidContext: {
         who: 'The LORD',
         to: 'a worried young man — through Elisha',
         apply:
-          'God cares about small, honest needs — even a borrowed tool. You can tell Him everything.'
+          'God cares about small, honest needs — even a borrowed tool — so you can tell Him everything.'
       },
       narration:
-        "God Makes the Iron Swim — 2 Kings 6:1-7. The sons of the prophets said, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams. As one was felling a beam, the axe head fell into the water, and he cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee — and the man put out his hand and took it. For you: The Lord cares about everyday needs — even little borrowed things."
+        "God Makes the Iron Swim — 2 Kings 6:1-7. The sons of the prophets said to Elisha, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams. As one was felling a beam, the axe head fell into the water. He cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee. And the man put out his hand and took it. The Lord used Elisha to make the borrowed iron swim so the young man would not lose what was not his own. For you: God cares about everyday needs — even little borrowed things."
     },
     elishaChariots: {
       title: 'God’s Army Protects Elisha',

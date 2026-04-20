@@ -537,16 +537,6 @@
     "kw": "elijah ravens cherith brook 1 kings 17 bread flesh ahab"
   },
   {
-    "key": "elijahHoreb",
-    "title": "Elijah & the Still Small Voice",
-    "kjvRef": "1 Kings 19:9-18",
-    "who": "The LORD",
-    "to": "Elijah — and every tired heart that needs a gentle word",
-    "apply": "God was not in the wind, earthquake, or fire — but He spoke in a still small voice. Listen quietly; He is near.",
-    "theme": "Love",
-    "kw": "elijah horeb mount horeb still small voice still small 1 kings 19 1 kings 19:12 1 kings 19:9 cave mantle earthquake jealous for the lord seven thousand baal"
-  },
-  {
     "key": "elijahWidow",
     "title": "Elijah & the Widow",
     "kjvRef": "1 Kings 17:8-16",
@@ -825,6 +815,16 @@
     "apply": "God can feed His people when things look impossible — trust His promise one day at a time.",
     "theme": "Miracles",
     "kw": "samaria siege of samaria samaria siege besieged samaria gate of samaria fine flour barley shekel windows in heaven noise of chariots syrians fled spoiled the tents 2 kings 6 2 kings 6:24 2 kings 7 2 kings 7:1 2 kings 7:16 elisha benhadad famine samaria"
+  },
+  {
+    "key": "elijahHoreb",
+    "title": "God Speaks in a Still Small Voice",
+    "kjvRef": "1 Kings 19:9-18",
+    "who": "The LORD",
+    "to": "Elijah — and every tired heart that needs a gentle word",
+    "apply": "The loud things passed — then God spoke in a still small voice. He often speaks gently; listen with a quiet heart.",
+    "theme": "Love",
+    "kw": "elijah horeb mount horeb god speaks in a still small voice still small voice still small 1 kings 19 1 kings 19:12 1 kings 19:9 cave mantle earthquake jealous for the lord seven thousand baal what doest thou here"
   },
   {
     "key": "elishaBones",

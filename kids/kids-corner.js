@@ -838,25 +838,31 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 18:38</text>'
       ),
 
-      /* Elijah and the still small voice — Horeb, cave (loop 47) */
+      /* Elijah — still small voice (loop 47): gentle mountain, soft rays, mantle, no harsh storm */
       elijahHoreb: svg(
-        '<path d="M0 255 Q120 200 200 248 Q280 200 400 255" ' + s + ' stroke-width="2.5" fill="none"/>' +
-        /* cave arch */
-        '<path d="M60 260 L60 140 Q200 95 340 140 L340 260" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<ellipse cx="200" cy="155" rx="95" ry="48" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* soft light — still small */
-        '<line x1="200" y1="35" x2="200" y2="95" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
-        '<line x1="185" y1="42" x2="192" y2="88" ' + s + ' stroke-width="1.2" stroke-dasharray="4,4"/>' +
-        '<line x1="215" y1="42" x2="208" y2="88" ' + s + ' stroke-width="1.2" stroke-dasharray="4,4"/>' +
-        '<circle cx="200" cy="28" r="10" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* Elijah at entrance — mantle to face */
-        '<circle cx="200" cy="198" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M168 188 Q200 175 232 188 Q228 210 200 215 Q172 210 168 188" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<line x1="200" y1="209" x2="200" y2="252" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="200" y1="225" x2="178" y2="238" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="200" y1="225" x2="222" y2="238" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="200" y1="252" x2="188" y2="278" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="200" y1="252" x2="212" y2="278" ' + s + ' stroke-width="2.2"/>' +
+        ground() + hills() +
+        sun(52, 40, 14) + cloud(268, 34) + cloud(88, 42) +
+        /* distant soft ridge */
+        '<path d="M20 248 Q120 218 200 242 Q280 220 380 248" ' + s + ' stroke-width="2" fill="none" opacity="0.75"/>' +
+        /* very soft breeze */
+        '<path d="M118 168 Q138 162 158 170 M122 178 Q138 174 154 182" ' + s + ' stroke-width="1.1" opacity="0.5"/>' +
+        /* soft light rays — still small */
+        '<circle cx="200" cy="24" r="9" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="200" y1="33" x2="200" y2="88" ' + s + ' stroke-width="1.3" stroke-dasharray="5,5" opacity="0.7"/>' +
+        '<line x1="178" y1="38" x2="190" y2="92" ' + s + ' stroke-width="1.1" stroke-dasharray="5,5" opacity="0.65"/>' +
+        '<line x1="222" y1="38" x2="210" y2="92" ' + s + ' stroke-width="1.1" stroke-dasharray="5,5" opacity="0.65"/>' +
+        '<line x1="158" y1="48" x2="176" y2="98" ' + s + ' stroke-width="1" stroke-dasharray="5,5" opacity="0.55"/>' +
+        '<line x1="242" y1="48" x2="224" y2="98" ' + s + ' stroke-width="1" stroke-dasharray="5,5" opacity="0.55"/>' +
+        /* gentle rock underfoot */
+        '<ellipse cx="188" cy="254" rx="38" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* Elijah — calm, mantle wrapped around face */
+        '<ellipse cx="188" cy="168" rx="20" ry="18" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<circle cx="188" cy="188" r="10" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="188" y1="198" x2="188" y2="248" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="188" y1="218" x2="168" y2="232" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="188" y1="218" x2="208" y2="232" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="188" y1="248" x2="176" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="188" y1="248" x2="200" y2="272" ' + s + ' stroke-width="2.2"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 19:12</text>'
       ),
 

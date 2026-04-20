@@ -1289,11 +1289,11 @@
         "God Answers by Fire – 1 Kings 18:17-39. The people were not sure who to worship. Elijah said, How long halt ye between two opinions? If the Lord be God, follow him. The God that answereth by fire, let him be God. The prophets of Baal called all day, but no fire came. Elijah repaired the altar of the Lord, put wood and the sacrifice, and poured water until all was wet. He prayed, LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel. Then the fire of the LORD fell — it consumed the sacrifice, the wood, the stones, the dust, and licked up the water. The people fell on their faces: The LORD, he is the God. For you: The Lord is the true God who answers when we call on Him."
     },
     elijahHoreb: {
-      title: 'Elijah & the Still Small Voice',
+      title: 'God Speaks in a Still Small Voice',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah in the cave at Horeb — What doest thou here?' },
-        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire — then a still small voice' },
-        { src: 'panel-noah-3.svg', alt: 'Elijah wraps his face — God speaks gently' }
+        { src: 'panel-noah-1.svg', alt: 'Elijah at Horeb — sad, and the LORD asks, What doest thou here?' },
+        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire passed — the LORD was not in them' },
+        { src: 'panel-noah-3.svg', alt: 'A still small voice — Elijah wraps his face; the LORD speaks gently' }
       ],
       caption: 'Swipe for Horeb — after the loud came a still small voice.',
       videoId: '',
@@ -1301,6 +1301,7 @@
       keywords: [
         'elijah horeb',
         'mount horeb',
+        'god speaks in a still small voice',
         'still small voice',
         'still small',
         '1 kings 19',
@@ -1311,15 +1312,18 @@
         'earthquake',
         'jealous for the lord',
         'seven thousand',
-        'baal'
+        'baal',
+        'what doest thou here'
       ],
       kjvRef: '1 Kings 19:9-18',
       kidContext: {
         who: 'The LORD',
         to: 'Elijah — and every tired heart that needs a gentle word',
         apply:
-          'God was not in the wind, earthquake, or fire — but He spoke in a still small voice. Listen quietly; He is near.'
-      }
+          'The loud things passed — then God spoke in a still small voice. He often speaks gently; listen with a quiet heart.'
+      },
+      narration:
+        "God Speaks in a Still Small Voice – 1 Kings 19:9-18. Elijah was sad and went to Mount Horeb. He lodged in a cave, and the LORD asked, What doest thou here, Elijah? The LORD told him to stand on the mount. A great wind came, but the LORD was not in the wind. An earthquake came, but the LORD was not in the earthquake. A fire came, but the LORD was not in the fire. After the fire came a still small voice. When Elijah heard it, he wrapped his face in his mantle and went out. The LORD spoke to him gently — and showed him faithful work ahead, and that seven thousand in Israel had not bowed unto Baal. For you: God often speaks in a quiet, tender way — lean in and listen."
     },
     elijahElijahElisha: {
       title: 'Elisha Plows the Field',
@@ -2048,19 +2052,20 @@
         "God Answers by Fire – 1 Kings 18:17-39. The people were not sure who to worship. Elijah said, How long halt ye between two opinions? If the Lord be God, follow him. The God that answereth by fire, let him be God. The prophets of Baal called all day, but no fire came. Elijah repaired the altar of the Lord, put wood and the sacrifice, and poured water until all was wet. He prayed, LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel. Then the fire of the LORD fell — it consumed the sacrifice, the wood, the stones, the dust, and licked up the water. The people fell on their faces: The LORD, he is the God. For you: The Lord is the true God who answers when we call on Him."
     },
     elijahHoreb: {
-      title: 'Elijah and the Still Small Voice',
+      title: 'God Speaks in a Still Small Voice',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'At Horeb — the word of the LORD in the cave' },
-        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire — then a still small voice' },
-        { src: 'panel-noah-3.svg', alt: 'Elijah wraps his face — seven thousand have not bowed to Baal' }
+        { src: 'panel-noah-1.svg', alt: 'Elijah at Horeb — sad, and the LORD asks, What doest thou here?' },
+        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire passed — the LORD was not in them' },
+        { src: 'panel-noah-3.svg', alt: 'A still small voice — Elijah wraps his face; the LORD speaks gently' }
       ],
-      caption: 'Swipe for Horeb — God spoke in a still small voice.',
+      caption: 'Swipe for Horeb — after the loud came a still small voice.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elijah horeb',
         'mount horeb',
         'mountain of god',
+        'god speaks in a still small voice',
         'still small voice',
         'still small',
         '1 kings 19',
@@ -2079,10 +2084,10 @@
         who: 'The LORD',
         to: 'Elijah — and every heart that needs quiet courage',
         apply:
-          'The LORD was not in the storm — but He met Elijah gently. He still speaks in quiet ways; listen for Him.'
+          'The loud things passed — then God spoke in a still small voice. He often speaks gently; listen with a quiet heart.'
       },
       narration:
-        "Elijah and the Still Small Voice – 1 Kings 19:9-18. Elijah lodged in a cave; the word of the LORD came: What doest thou here, Elijah? He told how he had been jealous for the LORD — and felt alone. Go forth, stand upon the mount before the LORD. The LORD passed by: a great wind rent the mountains — the LORD was not in the wind; an earthquake — the LORD was not in the earthquake; a fire — the LORD was not in the fire; and after the fire a still small voice. When Elijah heard it, he wrapped his face in his mantle and stood in the entering in of the cave. The LORD spoke again — and showed him faithful work ahead, and this comfort: Yet I have left me seven thousand in Israel, all the knees which have not bowed unto Baal. For you: When life feels loud inside, God can still speak softly — lean in and listen."
+        "God Speaks in a Still Small Voice – 1 Kings 19:9-18. Elijah was sad and went to Mount Horeb. He lodged in a cave, and the LORD asked, What doest thou here, Elijah? The LORD told him to stand on the mount. A great wind came, but the LORD was not in the wind. An earthquake came, but the LORD was not in the earthquake. A fire came, but the LORD was not in the fire. After the fire came a still small voice. When Elijah heard it, he wrapped his face in his mantle and went out. The LORD spoke to him gently — and showed him faithful work ahead, and that seven thousand in Israel had not bowed unto Baal. For you: God often speaks in a quiet, tender way — lean in and listen."
     },
     naamanDip: {
       title: 'Naaman Returns with Thanks',

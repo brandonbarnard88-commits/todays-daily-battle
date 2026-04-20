@@ -49,12 +49,12 @@
   {
     "key": "abigailWise",
     "title": "Abigail's Wisdom",
-    "kjvRef": "1 Samuel 25",
-    "who": "God",
-    "to": "Abigail (and us)",
-    "apply": "Wise words stop anger and save lives! Be quick to bring peace, not fuel.",
+    "kjvRef": "1 Samuel 25:1-42",
+    "who": "The Lord",
+    "to": "Abigail — and every heart that can bring peace",
+    "apply": "Abigail listened, hurried with gifts, and spoke humbly. God used her to keep David from shedding blood. When trouble rises, ask God for wise, kind words.",
     "theme": "Love",
-    "kw": "abigail wise nabal 1 samuel 25 bread donkey peace wisdom"
+    "kw": "abigail abigail wise nabal carmel maon 1 samuel 25 bread wine cakes of figs loaves folly is with him bundle of life blessed be thy advice go up in peace david peace wisdom good understanding"
   },
   {
     "key": "abrahamIsaac",
@@ -65,6 +65,16 @@
     "apply": "When you trust God, He takes care of you. Abraham obeyed—and God provided!",
     "theme": "Obedience",
     "kw": "abraham isaac sacrifice ram trust faith"
+  },
+  {
+    "key": "achan",
+    "title": "Achan's Sin and Restoration",
+    "kjvRef": "Joshua 7:1-26",
+    "who": "The Lord",
+    "to": "Israel — and every heart today",
+    "apply": "God is holy — He cannot bless what is hidden and wrong. When Achan told the truth, the trouble was removed from the camp. When you are sorry and tell God and a trusted grown-up, He forgives and helps you start clean in Jesus.",
+    "theme": "Obedience",
+    "kw": "achan joshua 7 ai confess sin forgive jericho stolen truth camp israel"
   },
   {
     "key": "adamEve",
@@ -177,16 +187,6 @@
     "kw": "moses basket nile princess exodus 2 protect baby"
   },
   {
-    "key": "samsonBirth",
-    "title": "Baby Samson",
-    "kjvRef": "Judges 13",
-    "who": "God",
-    "to": "Samson's parents (and us)",
-    "apply": "God has a purpose for your life too — even before anyone sees it.",
-    "theme": "Protection",
-    "kw": "samson manoah nazirite judges 13 angel baby promise"
-  },
-  {
     "key": "revelationBabylonFall",
     "title": "Babylon Falls",
     "kjvRef": "Revelation 17–18",
@@ -289,12 +289,12 @@
   {
     "key": "jordanCrossing",
     "title": "Crossing the Jordan",
-    "kjvRef": "Joshua 3–4",
-    "who": "God",
-    "to": "Joshua and Israel",
-    "apply": "High water cannot stop God — He makes a path when you obey.",
+    "kjvRef": "Joshua 3:14-17; 4:1-7, 18-24",
+    "who": "The Lord",
+    "to": "Joshua and Israel (and us)",
+    "apply": "High water cannot stop God when He calls His people forward. The twelve stones were for remembering—tell someone what God has done for you, and thank Him for Jesus, our living way.",
     "theme": "Miracles",
-    "kw": "jordan joshua ark crossing joshua 3 joshua 4 stones memorial"
+    "kw": "jordan joshua ark crossing joshua 3 joshua 4 stones memorial heap dry ground priests promised land obey miracle"
   },
   {
     "key": "crucifixion",
@@ -337,64 +337,74 @@
     "kw": "daniel pray window daniel 6 law brave lions"
   },
   {
+    "key": "davidAbigail",
+    "title": "David & Abigail",
+    "kjvRef": "1 Samuel 25:1-42",
+    "who": "The Lord",
+    "to": "David — and every listener",
+    "apply": "David was angry, but he listened to Abigail and to God. Mercy and wisdom together kept him from doing wrong. When you are hurt, pause and ask God what is right.",
+    "theme": "Love",
+    "kw": "david and abigail david abigail abigail nabal 1 samuel 25 carmel wise gifts bread wine blessed be the lord god of israel folly is with him bundle of life became his wife"
+  },
+  {
     "key": "david",
     "title": "David & Goliath",
-    "kjvRef": "1 Samuel 17",
-    "who": "David",
-    "to": "Goliath (and us)",
-    "apply": "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord's!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you.",
+    "kjvRef": "1 Samuel 17:1-11, 32-51",
+    "who": "The Lord",
+    "to": "David and every heart that feels small",
+    "apply": "Goliath looked strong; David looked to God. The Lord saved — not by sword in David's hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord's.",
     "theme": "Protection",
-    "kw": "david goliath brave battle shepherd slingshot"
+    "kw": "david goliath sling stone stones smooth stones 1 samuel 17 valley of elah living god uncircumcised philistine defy brave faith shepherd giant philistine lord of hosts battle is the lord"
   },
   {
     "key": "davidGoliath",
     "title": "David & Goliath",
-    "kjvRef": "1 Samuel 17",
-    "who": "David",
-    "to": "God's people",
-    "apply": "Trust God more than your own size or strength. He wins when we come in His name.",
+    "kjvRef": "1 Samuel 17:1-11, 32-51",
+    "who": "The Lord",
+    "to": "David and every heart that feels small",
+    "apply": "Goliath looked strong; David looked to God. The Lord saved — not by sword in David's hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord's.",
     "theme": "Protection",
-    "kw": "david goliath sling 1 samuel 17 faith giant stone brave"
+    "kw": "david and goliath david goliath sling stone stones smooth stones 1 samuel 17 valley of elah living god uncircumcised philistine defy faith giant philistine lord of hosts five stones brook"
   },
   {
     "key": "davidJonathanFriendship",
     "title": "David & Jonathan — True Friends",
-    "kjvRef": "1 Samuel 18–20",
+    "kjvRef": "1 Samuel 18:1-4; 20:1-42",
     "who": "Jonathan",
-    "to": "David",
-    "apply": "Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.",
+    "to": "David — and every listener",
+    "apply": "Real friends share, warn when trouble is near, and keep their word before God. Thank the Lord for friends who stand with you.",
     "theme": "Love",
-    "kw": "david jonathan friend covenant 1 samuel 18 loyal love escape"
+    "kw": "david jonathan friend friendship covenant loyal love knit robe sword 1 samuel 18 1 samuel 20 escape warned peace"
   },
   {
     "key": "davidJonathan",
     "title": "David & Jonathan's Friendship",
-    "kjvRef": "1 Samuel 18–20",
+    "kjvRef": "1 Samuel 18:1-4; 20:1-42",
     "who": "Jonathan",
-    "to": "David",
-    "apply": "True friends keep promises and protect each other. Ask God to help you be a loyal friend.",
+    "to": "David — and every heart that needs a true friend",
+    "apply": "Jonathan kept covenant: he shared what he had, warned David when danger came, and parted in peace. Ask God to help you love friends loyally and tell the truth kindly.",
     "theme": "Love",
-    "kw": "david jonathan friend 1 samuel 18 covenant loyal love brother"
+    "kw": "david jonathan friend friendship covenant loyal love knit soul robe sword bow girdle 1 samuel 18 1 samuel 20 naioth ramah stone ezel arrow beyond go in peace seed and thy seed"
   },
   {
     "key": "davidSaulJealousy",
     "title": "David & Saul's Jealousy",
-    "kjvRef": "1 Samuel 18–19",
+    "kjvRef": "1 Samuel 18:6-11, 17-19:17",
     "who": "God",
     "to": "David",
     "apply": "Jealousy can make people do scary things. Stay humble like David — God is your shield.",
     "theme": "Protection",
-    "kw": "david saul jealous spear harp 1 samuel 18 jonathan protect"
+    "kw": "david saul jealous spear harp 1 samuel 18 jonathan protect javelin evil spirit"
   },
   {
     "key": "davidSaul",
     "title": "David & Saul's Jealousy",
-    "kjvRef": "1 Samuel 18–19",
+    "kjvRef": "1 Samuel 18:6-11, 17-19:17",
     "who": "God",
     "to": "David",
     "apply": "Jealousy hurts people, but God protects those who stay faithful. Let God guard your heart from envy.",
     "theme": "Protection",
-    "kw": "david saul jealous spear 1 samuel 18 jonathan protect army"
+    "kw": "david saul jealous spear 1 samuel 18 jonathan protect army javelin"
   },
   {
     "key": "davidSheep",
@@ -407,44 +417,54 @@
     "kw": "david sheep shepherd harp lion 1 samuel 17"
   },
   {
-    "key": "davidCave",
-    "title": "David Hides in the Cave",
-    "kjvRef": "1 Samuel 22:1–2; 24",
-    "who": "David",
-    "to": "God",
-    "apply": "Even in dark or scary times, God is with you! Talk to Him wherever you are.",
-    "theme": "Protection",
-    "kw": "david cave adullam 1 samuel 22 hiding prayer psalm"
-  },
-  {
     "key": "davidAnointed",
-    "title": "David Is Anointed King",
-    "kjvRef": "1 Samuel 16",
-    "who": "God",
-    "to": "David",
-    "apply": "God looks at your heart! Be faithful where you are—He sees you.",
+    "title": "David Anointed by Samuel",
+    "kjvRef": "1 Samuel 16:1-13",
+    "who": "The Lord",
+    "to": "David — and every heart God sees",
+    "apply": "People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.",
     "theme": "Obedience",
-    "kw": "david anoint samuel 1 samuel 16 king heart chosen"
+    "kw": "david anoint anointed samuel 1 samuel 16 1 samuel 16:1 1 samuel 16:13 jesse bethlehem bethlehemite horn of oil king heart looketh on the heart outward appearance youngest keeping the sheep ruddy spirit of the lord came upon david eliab abinadab shammah chosen"
   },
   {
-    "key": "davidHarp",
-    "title": "David Plays the Harp",
-    "kjvRef": "1 Samuel 16",
+    "key": "samuelAnointsDavid",
+    "title": "David Anointed by Samuel",
+    "kjvRef": "1 Samuel 16:1-13",
+    "who": "The Lord",
+    "to": "David — and every heart God sees",
+    "apply": "People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.",
+    "theme": "Obedience",
+    "kw": "samuel anoints david samuel david anoint anointed 1 samuel 16 jesse heart sheep bethlehem horn of oil looketh on the heart"
+  },
+  {
+    "key": "davidKing",
+    "title": "David Becomes King",
+    "kjvRef": "2 Samuel 5:1-5, 9-12",
+    "who": "The LORD",
+    "to": "Israel — and every heart that waits on God",
+    "apply": "The long road led to a thankful crown: God placed David where He promised. When answers take time, the Lord is still working.",
+    "theme": "Obedience",
+    "kw": "david king david becomes king king over israel anointed david king hebron jerusalem city of david strong hold of zion 2 samuel 5 2 sam 5 bone and thy flesh thirty years old reigned forty years seven years and six months thirty and three years lord god of hosts established him king"
+  },
+  {
+    "key": "davidCave",
+    "title": "David Spares Saul in the Cave",
+    "kjvRef": "1 Samuel 24:1-22",
     "who": "David",
-    "to": "God",
-    "apply": "God loves your worship! Sing and praise wherever you are.",
-    "theme": "Love",
-    "kw": "david harp worship sheep 1 samuel 16 music praise"
+    "to": "Every heart learning mercy",
+    "apply": "David could have hurt Saul, but he honored the king God had anointed. God sees when we choose kindness over revenge — ask Him for a gentle heart.",
+    "theme": "Protection",
+    "kw": "david saul cave engedi wild goats skirt robe anointed lord's anointed spare mercy heart smote 1 samuel 24 cover his feet sheepcotes thou art more righteous"
   },
   {
     "key": "deborahBarak",
     "title": "Deborah and Barak",
-    "kjvRef": "Judges 4",
-    "who": "God",
-    "to": "Deborah and Barak (and us)",
-    "apply": "Listen to God and step out brave — He fights for those who trust Him.",
+    "kjvRef": "Judges 4:1-16",
+    "who": "The Lord",
+    "to": "Israel — and every listener today",
+    "apply": "Deborah did not rush or shout — she sat under the palm tree and helped people hear what God said. When Barak obeyed God's command, the Lord cleared the way. You can ask God to help you listen like Deborah and obey like Barak — Jesus is with you.",
     "theme": "Protection",
-    "kw": "deborah barak sisera judges 4 judge prophetess chariot victory"
+    "kw": "deborah barak sisera jabin judges 4 judge prophetess palm tree tabor victory listen obey"
   },
   {
     "key": "deborahJudge",
@@ -478,23 +498,43 @@
   },
   {
     "key": "elijahFire",
-    "title": "Elijah & Fire",
-    "kjvRef": "1 Kings 18:20–40",
-    "who": "God",
-    "to": "Elijah and all Israel",
-    "apply": "God answers with fire—He's real! The LORD is God—trust Him alone!",
+    "title": "Elijah & Fire on Carmel",
+    "kjvRef": "1 Kings 18:17-39",
+    "who": "The LORD",
+    "to": "Israel — and every heart that wonders who is truly God",
+    "apply": "He answered Elijah’s prayer with fire from heaven — calm awe, not noise: The LORD, he is the God. Trust Him first.",
     "theme": "Miracles",
-    "kw": "elijah baal fire carmel 1 kings 18 altar"
+    "kw": "elijah mount carmel carmel baal fire altar 1 kings 18 1 kings 18:17 1 kings 18:21 1 kings 18:24 1 kings 18:36 1 kings 18:38 two opinions answereth by fire prophets of baal ahab"
   },
   {
-    "key": "elijahElijahElisha",
-    "title": "Elijah Calls Elisha",
-    "kjvRef": "1 Kings 19:19–21",
-    "who": "Elisha",
-    "to": "God",
-    "apply": "When God calls, be willing to obey — even when it means leaving something good behind.",
-    "theme": "Obedience",
-    "kw": "elijah elisha cloak oxen 1 kings 19 prophet follow call"
+    "key": "elijahRavens",
+    "title": "Elijah & the Ravens",
+    "kjvRef": "1 Kings 17:1-7",
+    "who": "The LORD",
+    "to": "Elijah",
+    "apply": "God commanded the ravens — morning and evening. He still knows how to feed His children.",
+    "theme": "Miracles",
+    "kw": "elijah ravens cherith brook 1 kings 17 bread flesh ahab"
+  },
+  {
+    "key": "elijahHoreb",
+    "title": "Elijah & the Still Small Voice",
+    "kjvRef": "1 Kings 19:9-18",
+    "who": "The LORD",
+    "to": "Elijah — and every tired heart that needs a gentle word",
+    "apply": "God was not in the wind, earthquake, or fire — but He spoke in a still small voice. Listen quietly; He is near.",
+    "theme": "Love",
+    "kw": "elijah horeb mount horeb still small voice still small 1 kings 19 1 kings 19:12 1 kings 19:9 cave mantle earthquake jealous for the lord seven thousand baal"
+  },
+  {
+    "key": "elijahWidow",
+    "title": "Elijah & the Widow",
+    "kjvRef": "1 Kings 17:8-16",
+    "who": "The LORD",
+    "to": "The widow and her house",
+    "apply": "She obeyed God first — and the meal and oil held until rain returned. He keeps His word.",
+    "theme": "Miracles",
+    "kw": "elijah widow widow of zarephath zarephath zidon barrel of meal cruse of oil handful of meal 1 kings 17 1 kings 17:8 gathering sticks little cake sustain thee"
   },
   {
     "key": "elijahFireFromHeaven",
@@ -508,43 +548,93 @@
   },
   {
     "key": "elijahChariot",
-    "title": "Elijah's Fiery Chariot",
-    "kjvRef": "2 Kings 2:1–14",
-    "who": "God",
-    "to": "Elijah",
-    "apply": "God honors His faithful servants! Heaven is real—and it's wonderful.",
+    "title": "Elijah Taken Up in the Fiery Chariot",
+    "kjvRef": "2 Kings 2:1-14",
+    "who": "The LORD",
+    "to": "Elijah, Elisha, and us",
+    "apply": "God keeps every promise — even the hard goodbyes. His strength passes on to those who follow Him faithfully.",
     "theme": "Miracles",
-    "kw": "elijah chariot fire 2 kings 2 whirlwind heaven elisha"
+    "kw": "elijah elisha chariot fire 2 kings 2 whirlwind heaven jordan mantle double portion gilgal bethel jericho"
   },
   {
-    "key": "elishaOil",
-    "title": "Elisha & the Widow's Oil",
-    "kjvRef": "2 Kings 4:1–7",
-    "who": "God",
-    "to": "The widow through Elisha",
-    "apply": "God multiplies—He provides! Give God what you have—He can do more!",
-    "theme": "Miracles",
-    "kw": "elisha oil widow 2 kings 4 multiply jar"
+    "key": "elishaBlindArmy",
+    "title": "Elisha and the Blind Syrian Army",
+    "kjvRef": "2 Kings 6:18-23",
+    "who": "The LORD",
+    "to": "Elisha, the king of Israel, and the Syrian army",
+    "apply": "God can protect His servants and show mercy — even kindness to those who came as enemies.",
+    "theme": "Love",
+    "kw": "elisha blind syrian syrian army blindness samaria 2 kings 6 2 kings 6:18 2 kings 6:22 smite with blindness open the eyes of these men bread and water thou shalt not smite great provision dothan"
   },
   {
-    "key": "elishaRaised",
-    "title": "Elisha Raises a Boy",
-    "kjvRef": "2 Kings 4",
-    "who": "God",
-    "to": "Elisha and the Shunammite",
-    "apply": "God can bring life back! Nothing is too hard for Him.",
+    "key": "elishaChariots",
+    "title": "Elisha and the Chariots of Fire",
+    "kjvRef": "2 Kings 6:8-17",
+    "who": "The LORD",
+    "to": "Elisha's servant — and every afraid heart",
+    "apply": "When trouble looks big, God's help is bigger than we see yet — ask Him to open your eyes to trust Him.",
+    "theme": "Protection",
+    "kw": "elisha chariots of fire dothan 2 kings 6 2 kings 6:16 2 kings 6:17 fear not open his eyes they that be with us syria servant of the man of God horses and chariots mountain"
+  },
+  {
+    "key": "elishaFloatingAxe",
+    "title": "Elisha and the Floating Axe Head",
+    "kjvRef": "2 Kings 6:1-7",
+    "who": "The LORD",
+    "to": "a worried builder — through Elisha",
+    "apply": "God cares about honest, everyday troubles — even a small, borrowed thing. Tell Him what you need.",
     "theme": "Miracles",
-    "kw": "elisha raise shunammite 2 kings 4 boy dead life miracle"
+    "kw": "elisha floating axe axe head axe jordan 2 kings 6 2 kings 6:1 2 kings 6:6 sons of the prophets borrowed iron did swim stick beam man of God"
+  },
+  {
+    "key": "elishaPoisonStew",
+    "title": "Elisha and the Poisoned Stew",
+    "kjvRef": "2 Kings 4:38-41",
+    "who": "The LORD",
+    "to": "the sons of the prophets — through Elisha",
+    "apply": "God cares about daily needs — He can make what looked harmful become safe when we trust Him.",
+    "theme": "Miracles",
+    "kw": "elisha poisoned stew death in the pot gilgal pottage great pot wild gourds meal 2 kings 4 2 kings 4:38 2 kings 4:41 sons of the prophets seethe no harm in the pot"
+  },
+  {
+    "key": "elijahElijahElisha",
+    "title": "Elisha Plows the Field",
+    "kjvRef": "1 Kings 19:19-21",
+    "who": "Elisha",
+    "to": "God — through Elijah's call",
+    "apply": "Elisha did not rush past home — he honored his parents, then rose and followed. God blesses willing, orderly obedience.",
+    "theme": "Obedience",
+    "kw": "elisha plows elijah calls elisha cast his mantle twelve yoke of oxen abelmeholah son of shaphat 1 kings 19 1 kings 19:19 1 kings 19:20 1 kings 19:21 kiss my father and my mother ministered unto him plowing oxen"
+  },
+  {
+    "key": "elishaShunammite",
+    "title": "Elisha Raises the Shunammite's Son",
+    "kjvRef": "2 Kings 4:8-37",
+    "who": "The LORD",
+    "to": "A mother, a prophet, and a child — through Elisha",
+    "apply": "God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.",
+    "theme": "Miracles",
+    "kw": "elisha shunammite shunem great woman 2 kings 4 2 kings 4:8 2 kings 4:16 2 kings 4:35 little chamber man of God sneezed seven times take up thy son raise miracle"
   },
   {
     "key": "elishaMiracles",
-    "title": "Elisha's Miracles",
-    "kjvRef": "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-    "who": "God",
-    "to": "His people",
-    "apply": "God can heal, provide, and raise the dead. He still cares about our troubles today.",
+    "title": "Elisha's First Miracles",
+    "kjvRef": "2 Kings 2:19-22; 4:1-7",
+    "who": "The LORD",
+    "to": "Jericho and a widow's home — through Elisha",
+    "apply": "God can heal what is bitter and stretch what is little. He cares for towns, moms, and children.",
     "theme": "Miracles",
-    "kw": "elisha miracle widow oil naaman 2 kings 4 2 kings 5 jordan jericho"
+    "kw": "elisha elisha first miracles 2 kings 2 2 kings 2:19 2 kings 2:20 2 kings 2:21 2 kings 2:22 jericho spring salt cruse waters healed barren 2 kings 4 2 kings 4:1 widow oil vessels creditor bondmen pot of oil"
+  },
+  {
+    "key": "elishaFinal",
+    "title": "Elisha's Last Words",
+    "kjvRef": "2 Kings 13:14-19",
+    "who": "The LORD",
+    "to": "King Joash — and every listening heart",
+    "apply": "God speaks hope through faithful people — even in quiet, hard moments.",
+    "theme": "Miracles",
+    "kw": "elisha elisha last words joash king of israel 2 kings 13 2 kings 13:14 2 kings 13:17 take bow and arrows arrow of the lord deliverance from syria open the window eastward chariot of israel smite upon the ground man of god elisha died"
   },
   {
     "key": "estherFast",
@@ -629,12 +719,12 @@
   {
     "key": "fallOfJericho",
     "title": "Fall of Jericho",
-    "kjvRef": "Joshua 6:1–21",
-    "who": "God",
-    "to": "Joshua and the Israelites",
-    "apply": "God told Joshua to march around Jericho for 7 days, blow trumpets, and shout. It seemed strange, but they obeyed. The walls fell down! When God asks you to do something that doesn't make sense, obey—He has a reason and will make it work.",
+    "kjvRef": "Joshua 6:1-21",
+    "who": "The Lord",
+    "to": "Joshua and Israel",
+    "apply": "God gave Joshua a careful plan: march, trumpets, then a great shout—and the wall fell flat. They did not win by their own strength; the Lord gave the city. When God's way seems surprising, obey one step at a time—He is able.",
     "theme": "Obedience",
-    "kw": "jericho walls trumpets joshua 6 march obey"
+    "kw": "jericho walls trumpets joshua 6 march obey shout ark faith victory"
   },
   {
     "key": "fieryFurnace",
@@ -677,34 +767,54 @@
     "kw": "gethsemane garden prayer matthew 26 mark 14 luke 22"
   },
   {
+    "key": "gehaziGreed",
+    "title": "Gehazi and Honest Hearts",
+    "kjvRef": "2 Kings 5:20-27",
+    "who": "The LORD",
+    "to": "Elisha’s servant — and every tempted heart",
+    "apply": "God sees the heart. Truth and thankfulness to Him are better than silver or gold.",
+    "theme": "Obedience",
+    "kw": "gehazi gehazi elisha 2 kings 5 2 kings 5:20 2 kings 5:25 2 kings 5:26 whence comest thou went no whither mine heart with thee two talents mount ephraim sons of the prophets receive money naaman gifts elisha servant syrian"
+  },
+  {
     "key": "gideonFleece",
     "title": "Gideon's Fleece",
-    "kjvRef": "Judges 6:36–40",
-    "who": "God",
-    "to": "Gideon (and us)",
-    "apply": "When you are scared, you can ask God honestly — He is patient and powerful.",
+    "kjvRef": "Judges 6:11-40",
+    "who": "The Lord",
+    "to": "Gideon — and every small, honest heart",
+    "apply": "God called Gideon brave even when Gideon felt afraid — and He patiently showed him the fleece signs. When you feel little, you can still talk to God; He hears and helps everyone who trusts Him.",
     "theme": "Miracles",
-    "kw": "gideon fleece dew judges 6 sign trust midian"
+    "kw": "gideon fleece dew judges 6 sign trust midian angel winepress valour pray wonder"
   },
   {
     "key": "gideonMidianites",
     "title": "Gideon's Three Hundred",
-    "kjvRef": "Judges 7",
-    "who": "God",
-    "to": "Gideon and Israel",
-    "apply": "God's power beats big numbers — obey His strange plans and watch Him win.",
+    "kjvRef": "Judges 7:1-22",
+    "who": "The Lord",
+    "to": "Gideon, Israel — and every small band that trusts God",
+    "apply": "God did not need a huge crowd — only people who would listen and obey His strange, brave plan. When you feel outnumbered, remember: the Lord's strength is not counted like soldiers; He saves everyone who trusts Him.",
     "theme": "Miracles",
-    "kw": "gideon 300 midian judges 7 trumpet jar torch victory"
+    "kw": "gideon 300 midian midianites judges 7 trumpet pitcher torch lamp jar victory obey sword of the lord"
   },
   {
-    "key": "samuelCall",
-    "title": "God Calls Samuel",
-    "kjvRef": "1 Samuel 3",
-    "who": "God",
-    "to": "Young Samuel",
-    "apply": "God calls children! Say yes: \"Speak, Lord—I am listening.\"",
-    "theme": "Obedience",
-    "kw": "samuel call temple 1 samuel 3 eli voice listen"
+    "key": "samariaSiege",
+    "title": "God Feeds His People at Samaria",
+    "kjvRef": "2 Kings 6:24-7:20",
+    "who": "The LORD",
+    "to": "The people of Samaria — through Elisha's word",
+    "apply": "God can feed His people when things look impossible — trust His promise one day at a time.",
+    "theme": "Miracles",
+    "kw": "samaria siege of samaria samaria siege besieged samaria gate of samaria fine flour barley shekel windows in heaven noise of chariots syrians fled spoiled the tents 2 kings 6 2 kings 6:24 2 kings 7 2 kings 7:1 2 kings 7:16 elisha benhadad famine samaria"
+  },
+  {
+    "key": "elishaBones",
+    "title": "God's Power in Elisha's Bones",
+    "kjvRef": "2 Kings 13:20-21",
+    "who": "The LORD",
+    "to": "A man raised — and every heart that wonders",
+    "apply": "God's power is greater than we can guess — He can do wonderful things.",
+    "theme": "Miracles",
+    "kw": "elisha bones bones of elisha touched the bones sepulchre of elisha revived stood up on his feet 2 kings 13 2 kings 13:21 burying a man man of god elisha grave"
   },
   {
     "key": "goliathChallenge",
@@ -734,7 +844,7 @@
     "to": "Hannah and Samuel",
     "apply": "Pray with all your heart—God hears. Hannah kept her promise and gave Samuel to serve God.",
     "theme": "Miracles",
-    "kw": "hannah samuel prayer 1 samuel 1 eli temple promise vow"
+    "kw": "hannah samuel dedication 1 samuel 2 eli temple promise vow lent unto the lord"
   },
   {
     "key": "hannahPray",
@@ -745,6 +855,16 @@
     "apply": "God hears every prayer! Pour out your heart—He is listening and He cares.",
     "theme": "Miracles",
     "kw": "hannah pray baby 1 samuel 1 temple samuel vow answer"
+  },
+  {
+    "key": "hannahPrayer",
+    "title": "Hannah's Prayer",
+    "kjvRef": "1 Samuel 1:1-20",
+    "who": "The Lord",
+    "to": "Hannah — and every heart that weeps honestly",
+    "apply": "God hears when we pour out our souls to Him — not too loud, not too proud, just true. Eli's blessing was gentle; the Lord's answer came in His time.",
+    "theme": "Miracles",
+    "kw": "hannah hannah prayer 1 samuel 1 shiloh elkanah peninnah eli tabernacle temple lord of hosts poured out my soul sorrowful spirit go in peace grant thee thy petition samuel because i have asked him remembered weep vow nazarite razor"
   },
   {
     "key": "jesusResurrection",
@@ -1149,22 +1269,32 @@
   {
     "key": "joshuaAi",
     "title": "Joshua and Ai",
-    "kjvRef": "Joshua 8",
-    "who": "God",
+    "kjvRef": "Joshua 7:1-11",
+    "who": "The Lord",
     "to": "Joshua and Israel",
-    "apply": "Hidden sin blocked the win — when the camp obeyed God again, He gave the city.",
+    "apply": "They thought Ai was small and easy — but God had said all the spoil of Jericho was devoted to Him. When someone hid what belonged to the Lord, the whole camp felt it. When we hide wrong, it hurts everyone; telling the truth is the way back.",
     "theme": "Obedience",
-    "kw": "joshua ai achan joshua 7 joshua 8 obey ambush"
+    "kw": "joshua ai achan joshua 7 defeat sin camp obey jericho"
   },
   {
     "key": "joshuaJordan",
     "title": "Joshua at the Jordan",
-    "kjvRef": "Joshua 3–4",
-    "who": "God",
-    "to": "Joshua and Israel",
-    "apply": "God leads you into the new! Step forward in faith—He holds the water back.",
+    "kjvRef": "Joshua 3:14-17; 4:1-7, 18-24",
+    "who": "The Lord",
+    "to": "Joshua and Israel (and us)",
+    "apply": "When the priests obeyed and stepped in, God held the river back—just like He made a way at the Red Sea. His hand is mighty. When He asks you to take the next step, you can trust Him to go with you.",
     "theme": "Miracles",
-    "kw": "joshua jordan ark river joshua 3 priests miracle"
+    "kw": "joshua jordan ark river joshua 3 joshua 4 priests miracle heap dry ground twelve stones covenant obey promised land"
+  },
+  {
+    "key": "joshuaCharge",
+    "title": "Joshua's Charge to the People",
+    "kjvRef": "Joshua 24:14-15",
+    "who": "Joshua (and the Lord through His Word)",
+    "to": "Israel — and every heart today",
+    "apply": "Joshua did not rush anyone. He put the Lord's kindness in front of them and said: choose whom you will serve. His own house had already decided — they would serve the Lord. You can tell God the same in prayer: 'Lord, I choose You.'",
+    "theme": "Obedience",
+    "kw": "joshua joshua 24 serve the lord choose house covenant faithful israel farewell charge"
   },
   {
     "key": "judasKiss",
@@ -1319,12 +1449,12 @@
   {
     "key": "manna",
     "title": "Manna from Heaven",
-    "kjvRef": "Exodus 16",
+    "kjvRef": "Exodus 16:1-36",
     "who": "God",
     "to": "The Israelites in the wilderness",
-    "apply": "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time.",
+    "apply": "God rained bread from heaven every morning—small, sweet manna, enough for each day. He fed His people for forty years until they reached the land He promised. When you worry about tomorrow, trust Him; He still gives daily bread—and Jesus is the true bread of life.",
     "theme": "Miracles",
-    "kw": "manna bread heaven desert exodus 16 food provide"
+    "kw": "manna bread heaven desert exodus 16 wilderness forty years honey wafers food provide"
   },
   {
     "key": "marthaServe",
@@ -1389,20 +1519,20 @@
   {
     "key": "mosesBush",
     "title": "Moses & the Burning Bush",
-    "kjvRef": "Exodus 3",
+    "kjvRef": "Exodus 3:1-15",
     "who": "God",
     "to": "Moses (in the desert)",
-    "apply": "God called Moses from a burning bush! When God calls you, say yes—He will help you!",
+    "apply": "God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, \"Here am I.\"",
     "theme": "Protection",
-    "kw": "moses bush fire staff call exodus 3 burning"
+    "kw": "moses bush fire staff call exodus 3 burning holy ground horeb"
   },
   {
     "key": "mosesSea",
     "title": "Moses Parts the Sea",
-    "kjvRef": "Exodus 14",
+    "kjvRef": "Exodus 14:21-31",
     "who": "God",
     "to": "Moses and Israel",
-    "apply": "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through.",
+    "apply": "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save.",
     "theme": "Miracles",
     "kw": "moses red sea staff parting exodus 14 miracle"
   },
@@ -1417,24 +1547,34 @@
     "kw": "moses staff snake exodus 7 pharaoh sign power"
   },
   {
-    "key": "naaman",
-    "title": "Naaman & the River",
-    "kjvRef": "2 Kings 5:1–15",
-    "who": "God",
-    "to": "Naaman (through Elisha)",
-    "apply": "Obey God—get healed! Even when it seems simple, do what He says!",
+    "key": "naamanHealed",
+    "title": "Naaman Is Healed of Leprosy",
+    "kjvRef": "2 Kings 5:1-15",
+    "who": "The LORD",
+    "to": "Naaman — through Elisha’s word",
+    "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
     "theme": "Obedience",
-    "kw": "naaman river leprosy dip jordan 2 kings 5 elisha"
+    "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
+  },
+  {
+    "key": "naaman",
+    "title": "Naaman Is Healed of Leprosy",
+    "kjvRef": "2 Kings 5:1-15",
+    "who": "The LORD",
+    "to": "Naaman — through Elisha’s word",
+    "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
+    "theme": "Obedience",
+    "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
   },
   {
     "key": "naamanDip",
-    "title": "Naaman Dips in the River",
-    "kjvRef": "2 Kings 5:1–15",
-    "who": "God",
-    "to": "Naaman through Elisha",
-    "apply": "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He can heal and help in ways you don't expect.",
+    "title": "Naaman Returns with Thanks",
+    "kjvRef": "2 Kings 5:15-19",
+    "who": "The LORD",
+    "to": "Naaman — through Elisha",
+    "apply": "God’s mercy is a gift — not something we buy. A thankful heart is a beautiful offering.",
     "theme": "Obedience",
-    "kw": "naaman river jordan 2 kings 5 leprosy heal obey"
+    "kw": "naaman naaman returns after naaman healed take a blessing two mules earth go in peace 2 kings 5:15 2 kings 5:16 2 kings 5:17 2 kings 5:19 2 kings 5 gifts thanks elisha syria"
   },
   {
     "key": "nehemiahWalls",
@@ -1927,6 +2067,26 @@
     "kw": "prodigal son run away come back party forgiveness luke 15"
   },
   {
+    "key": "psalm23Shepherd",
+    "title": "Psalm 23 — The Lord Is My Shepherd",
+    "kjvRef": "Psalm 23:1-6",
+    "who": "The LORD",
+    "to": "Every listener who needs quiet rest",
+    "apply": "The same Shepherd who led David leads His people still — beside quiet water, through hard valleys, and home to Himself. Say the words slowly; He hears.",
+    "theme": "Love",
+    "kw": "psalm 23 psalms 23 ps 23 shepherd still waters green pastures valley of the shadow rod and staff cup runneth over goodness and mercy house of the lord i shall not want restoreth my soul david comfort"
+  },
+  {
+    "key": "psalm23",
+    "title": "Psalm 23 — The Lord Is My Shepherd",
+    "kjvRef": "Psalm 23:1-6",
+    "who": "The LORD",
+    "to": "Children and grown-ups on hard days",
+    "apply": "This psalm is a quiet place to breathe — the Shepherd knows you, leads you, and will not leave you. Read it slowly; each line is true.",
+    "theme": "Love",
+    "kw": "psalm 23 psalms 23 ps 23 the lord is my shepherd shepherd still waters green pastures valley of the shadow of death fear no evil thou art with me rod and staff cup runneth over goodness and mercy dwell in the house of the lord david psalm comfort psalm"
+  },
+  {
     "key": "estherCrown",
     "title": "Queen Esther's Courage",
     "kjvRef": "Esther 2:15–18",
@@ -1937,42 +2097,52 @@
     "kw": "esther crown queen esther 5 scepter courage save"
   },
   {
+    "key": "rahab",
+    "title": "Rahab and the Scarlet Cord",
+    "kjvRef": "Joshua 2:1-21",
+    "who": "The Lord",
+    "to": "Rahab (and everyone who believes Him)",
+    "apply": "Rahab heard what God had done for His people and trusted Him. She hid the spies, tied the scarlet cord, and God kept His word—her whole household was safe. When you are afraid, you can tell God you trust Him too; Jesus is the greater rescue.",
+    "theme": "Obedience",
+    "kw": "rahab scarlet cord thread jericho spies joshua 2 window flax faith kindness promise save believe"
+  },
+  {
     "key": "rahabJericho",
     "title": "Rahab at Jericho",
-    "kjvRef": "Joshua 2",
-    "who": "God",
-    "to": "Rahab",
-    "apply": "She believed the Lord is God in heaven above — and He kept her safe.",
+    "kjvRef": "Joshua 2:1-21",
+    "who": "The Lord",
+    "to": "Rahab (and us)",
+    "apply": "She believed the Lord is God in heaven above and in earth beneath—and He remembered her. You can believe Him too; Jesus died and rose so everyone who trusts Him can be safe forever.",
     "theme": "Obedience",
-    "kw": "rahab jericho spies joshua 2 cord scarlet faith"
+    "kw": "rahab jericho spies joshua 2 cord scarlet faith promise kindness"
   },
   {
     "key": "rahabWindow",
     "title": "Rahab Hangs the Cord",
-    "kjvRef": "",
-    "who": "God",
-    "to": "Rahab",
-    "apply": "Even outsiders are welcomed by God! Faith is the cord that saves—hold on!",
+    "kjvRef": "Joshua 2:1-21",
+    "who": "The Lord",
+    "to": "Rahab (and us)",
+    "apply": "God welcomes everyone who turns to Him in faith. The cord was a quiet picture of trust—Jesus is the lasting sign of God's kindness; hold fast to Him.",
     "theme": "Obedience",
-    "kw": "rahab window cord scarlet joshua 2 rope faith save"
+    "kw": "rahab window cord scarlet joshua 2 rope faith save promise"
   },
   {
     "key": "rahabRope",
     "title": "Rahab's Scarlet Cord",
-    "kjvRef": "Joshua 2",
-    "who": "God",
-    "to": "Rahab",
-    "apply": "Faith saves! Even when you're afraid, trust God and He rescues you.",
+    "kjvRef": "Joshua 2:1-21",
+    "who": "The Lord",
+    "to": "Rahab (and us)",
+    "apply": "The scarlet cord was a simple sign of trust. God honored Rahab's faith and kept her family safe. When you trust Jesus, He is your safety—tell Him so in prayer.",
     "theme": "Obedience",
-    "kw": "rahab cord spies joshua 2 window scarlet faith save"
+    "kw": "rahab cord spies joshua 2 window scarlet faith save promise"
   },
   {
     "key": "redSea",
     "title": "Red Sea Crossing",
-    "kjvRef": "Exodus 14:21",
+    "kjvRef": "Exodus 14:21-31",
     "who": "God",
     "to": "Moses and the Israelites",
-    "apply": "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through.",
+    "apply": "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save.",
     "theme": "Miracles",
     "kw": "moses red sea waters part exodus 14 egypt escape"
   },
@@ -2038,23 +2208,33 @@
   },
   {
     "key": "ruthBoaz",
-    "title": "Ruth & Boaz",
-    "kjvRef": "Ruth 1",
-    "who": "God",
-    "to": "Ruth and Boaz",
-    "apply": "Be kind—God sees! Loyalty and kindness matter to Him!",
+    "title": "Ruth and Boaz in the Field",
+    "kjvRef": "Ruth 2:1-17",
+    "who": "The Lord",
+    "to": "Ruth — and every heart that works faithfully",
+    "apply": "Boaz noticed Ruth's loyal heart and spoke with gentleness. God often cares for us through the kindness of others — and He sees every faithful step.",
     "theme": "Love",
-    "kw": "ruth boaz loyalty harvest naomi ruth 1"
+    "kw": "ruth boaz glean barley harvest bethlehem naomi kinsman reapers ephah ruth 2 moabitess grace wings"
   },
   {
     "key": "ruthNaomi",
     "title": "Ruth and Naomi",
-    "kjvRef": "Ruth 1–4",
-    "who": "God",
-    "to": "Ruth (and us)",
-    "apply": "Stay loyal and choose God — He weaves faithful love into His big story.",
+    "kjvRef": "Ruth 1:1-18",
+    "who": "The Lord",
+    "to": "Ruth, Naomi — and every heart that chooses kindness",
+    "apply": "When Naomi felt empty, Ruth stayed. Her words were simple and strong: your people will be my people, and your God my God. God blesses that kind of love — the kind that walks beside someone in a hard road.",
     "theme": "Love",
-    "kw": "ruth naomi boaz obed ruth 1 loyal bethlehem david"
+    "kw": "ruth naomi moab bethlehem famine orpah loyal ruth 1 whither thou goest thy people shall be my people thy god my god daughter in law clave"
+  },
+  {
+    "key": "ruthThreshing",
+    "title": "Ruth at the Threshing Floor",
+    "kjvRef": "Ruth 3:1-18",
+    "who": "The Lord",
+    "to": "Ruth — and every heart that obeys with trust",
+    "apply": "Naomi loved Ruth and wanted a safe home for her. Ruth obeyed with a quiet heart. Boaz answered with kindness and kept his word about the kinsman's part. God honors loyal love and provides a redeemer.",
+    "theme": "Love",
+    "kw": "ruth boaz naomi threshing threshing floor midnight kinsman redeem redeemer skirt handmaid virtuous barley measures ruth 3 obedience kindness"
   },
   {
     "key": "ruthGlean",
@@ -2077,54 +2257,74 @@
     "kw": "ruth naomi moab ruth 2 loyal wherever field faithful"
   },
   {
-    "key": "samson",
-    "title": "Samson & His Strength",
-    "kjvRef": "Judges 13–16",
-    "who": "God",
-    "to": "Samson (a strong man)",
-    "apply": "Samson was super strong because God gave him power, but he didn't always use it wisely. In the end, he prayed for strength one last time and brought down the pillars to defeat the enemies. God gives us strength too—use it to help others and honor Him, not for selfish things.",
-    "theme": "Protection",
-    "kw": "samson hair strength pillars judges 16 power delilah"
+    "key": "ruthRedemption",
+    "title": "Ruth's Redemption (The Happy Ending)",
+    "kjvRef": "Ruth 4:1-17",
+    "who": "The Lord",
+    "to": "Naomi, Ruth, Boaz — and every heart that needs hope",
+    "apply": "At the gate, Boaz kept his word as kinsman-redeemer. The Lord gave a son; Naomi's arms were filled again. God turns sorrow into joy and weaves faithful love into His bigger story.",
+    "theme": "Love",
+    "kw": "ruth ruth 4 boaz naomi obed jesse david gate redeem redeemer kinsman witnesses sandal shoe bethlehem moabitess rachel leah ephraah restorer nourisher joy faithful"
   },
   {
-    "key": "samsonHair",
-    "title": "Samson's Hair",
-    "kjvRef": "Judges 16",
-    "who": "God",
-    "to": "Samson",
-    "apply": "Your strength comes from God! Stay close to Him and nothing can stop you.",
-    "theme": "Protection",
-    "kw": "samson hair delilah judges 16 strength cut power"
-  },
-  {
-    "key": "samuelAnointsDavid",
-    "title": "Samuel Anoints David",
-    "kjvRef": "1 Samuel 16:1–13",
-    "who": "God",
-    "to": "David",
-    "apply": "God looks at your heart. You do not have to be the tallest or oldest—be faithful where you are.",
+    "key": "samsonDelilah",
+    "title": "Samson and Delilah",
+    "kjvRef": "Judges 16:4-21",
+    "who": "The Lord",
+    "to": "Samson — and every child learning honesty and boundaries",
+    "apply": "Samson told a precious secret he should have kept for God. His strength left — a sad lesson. But God did not forget him forever. When you are not sure what to share, ask a trusted grown-up and talk to God; His mercy is longer than our mistakes.",
     "theme": "Obedience",
-    "kw": "samuel david anoint 1 samuel 16 jesse heart sheep bethlehem"
+    "kw": "samson delilah sorek philistines judges 16 hair razor nazarite secret strength seven locks"
+  },
+  {
+    "key": "samsonLion",
+    "title": "Samson and the Lion",
+    "kjvRef": "Judges 14:5-9",
+    "who": "The Lord",
+    "to": "Samson (and every child who needs courage)",
+    "apply": "When something fierce faced Samson, the Spirit of the Lord came mightily upon him — God's strength, not boasting. God can turn hard moments into kindness you did not expect. You can ask Him for courage and thank Him when He gives help.",
+    "theme": "Miracles",
+    "kw": "samson lion honey bees timnath spirit of the lord judges 14 strength nazarite young lion"
+  },
+  {
+    "key": "samson",
+    "title": "Samson and the Pillars",
+    "kjvRef": "Judges 16:23-30",
+    "who": "The Lord",
+    "to": "Samson — and every heart that prays honestly",
+    "apply": "The crowd did not know that God had not forgotten Samson. He prayed a simple, honest prayer — remember me, strengthen me this once — and God answered. When you feel at the end of your rope, you can still speak to God; He hears.",
+    "theme": "Protection",
+    "kw": "samson pillars judges 16 strength dagon philistines pray remember me middle pillars lord god deliver sport"
+  },
+  {
+    "key": "samsonBirth",
+    "title": "Samson's Birth and Call",
+    "kjvRef": "Judges 13:1-25",
+    "who": "The Lord",
+    "to": "Manoah, his wife — and every family who trusts God's Word",
+    "apply": "Long before Samson was strong, God had a plan — a child set apart for Him from the womb. Your story matters to God too; He knows your name and hears when you pray.",
+    "theme": "Protection",
+    "kw": "samson manoah nazirite nazarite judges 13 angel baby promise philistines deliver womb blessed"
+  },
+  {
+    "key": "samuelCall",
+    "title": "Samuel Hears God's Voice at Night",
+    "kjvRef": "1 Samuel 3:1-21",
+    "who": "The Lord",
+    "to": "Young Samuel — and every child learning to listen",
+    "apply": "God called Samuel by name in the quiet night. Eli helped him understand — and Samuel learned to say, Speak, LORD; for thy servant heareth. God still speaks through His Word; we answer with open hearts.",
+    "theme": "Obedience",
+    "kw": "samuel call called night temple shiloh 1 samuel 3 eli here am i speak lord thy servant heareth lamp of god word of the lord was precious no open vision ministered unto the lord listen prophet"
   },
   {
     "key": "samuelCalls",
-    "title": "Samuel Hears God Calling",
-    "kjvRef": "1 Samuel 3",
-    "who": "God",
-    "to": "Samuel",
-    "apply": "God still speaks today through His Word. Say, \"Speak, Lord\" — and listen with a quiet heart.",
+    "title": "Samuel Hears God's Voice at Night",
+    "kjvRef": "1 Samuel 3:1-21",
+    "who": "The Lord",
+    "to": "Young Samuel — and every child learning to listen",
+    "apply": "God called Samuel by name in the quiet night. Eli helped him understand — and Samuel learned to say, Speak, LORD; for thy servant heareth. God still speaks through His Word; we answer with open hearts.",
     "theme": "Obedience",
-    "kw": "samuel call listen 1 samuel 3 eli temple night prophet"
-  },
-  {
-    "key": "samuelBirth",
-    "title": "Samuel's Birth & Dedication",
-    "kjvRef": "1 Samuel 1–2",
-    "who": "Hannah and God",
-    "to": "Samuel",
-    "apply": "When you promise God something, He helps you keep it. Samuel grew up loving God because Hannah gave him back to the Lord.",
-    "theme": "Obedience",
-    "kw": "samuel hannah dedication temple 1 samuel 1 eli promise prophet"
+    "kw": "samuel samuel calls call called night temple shiloh 1 samuel 3 eli here am i speak lord thy servant heareth lamp of god word of the lord was precious no open vision ministered unto the lord listen prophet samuel samuel"
   },
   {
     "key": "sarahLaughs",
@@ -2207,24 +2407,34 @@
     "kw": "cross simon carry luke 23 cyrene help burden"
   },
   {
-    "key": "solomonTemple",
-    "title": "Solomon Builds the Temple",
-    "kjvRef": "1 Kings 5–8",
-    "who": "God",
-    "to": "Israel",
-    "apply": "God is not far off — He wants His people to meet Him in worship. Today we come to Him through Jesus, anywhere we pray.",
+    "key": "solomonTwoMothers",
+    "title": "Solomon and the Two Mothers",
+    "kjvRef": "1 Kings 3:16-28",
+    "who": "God (through Solomon)",
+    "to": "Israel — and every heart that wants truth",
+    "apply": "Love that protects told the truth. God had given Solomon wisdom — and a whole nation saw it.",
     "theme": "Obedience",
-    "kw": "solomon temple jerusalem 1 kings 5 1 kings 8 ark glory worship"
+    "kw": "solomon baby two mothers two women bring me a sword divide the living child living child 1 kings 3:16 1 kings 3:24 1 kings 3:27 wisdom of god was in him judgment harlots unto the king"
   },
   {
     "key": "solomonWisdom",
-    "title": "Solomon's Wisdom",
-    "kjvRef": "1 Kings 3",
-    "who": "God",
-    "to": "Solomon",
-    "apply": "Ask God for wisdom! He gives it freely to those who ask.",
+    "title": "Solomon Asks for Wisdom",
+    "kjvRef": "1 Kings 3:5-15",
+    "who": "The LORD",
+    "to": "Young Solomon — and every listener",
+    "apply": "God smiled on a king who asked for wisdom before wealth. When you pray, ask God for a heart that loves what is right — He is glad to give it.",
     "theme": "Obedience",
-    "kw": "solomon wisdom baby sword 1 kings 3 judge moms"
+    "kw": "solomon solomon wisdom ask for wisdom understanding heart 1 kings 3 1 kings 3:5 1 kings 3:9 1 kings 3:12 dream gibeon ask what i shall give thee little child discern between good and bad speech pleased the lord riches and honour ark of the covenant jerusalem david my father"
+  },
+  {
+    "key": "solomonTemple",
+    "title": "Solomon Builds the Temple",
+    "kjvRef": "1 Kings 6:1-14; 8:1-13, 22-30",
+    "who": "The LORD",
+    "to": "Israel — and every heart that prays",
+    "apply": "God's glory filled the house Solomon built — yet heaven itself cannot hold Him. He still bends low to hear prayer; we meet Him with reverence and thanks.",
+    "theme": "Obedience",
+    "kw": "solomon temple builds the temple house of the lord 1 kings 6 1 kings 8 1 kings 6:1 1 kings 8:10 1 kings 8:11 ark of the covenant most holy place cloud filled the house glory of the lord priests could not stand there is no god like thee heaven of heavens cannot contain thee pray toward this house when thou hearest forgive jerusalem cedar cherubims"
   },
   {
     "key": "revelationSongsAndHarvest",
@@ -2239,12 +2449,12 @@
   {
     "key": "spiesInCanaan",
     "title": "Spies in Canaan",
-    "kjvRef": "Numbers 13",
+    "kjvRef": "Numbers 13:1-33; 14:1-9",
     "who": "God",
-    "to": "Israel",
-    "apply": "Giants look big, but God is bigger — trust His promise.",
+    "to": "Israel through Moses",
+    "apply": "God sent twelve spies to see the land He promised. Ten focused on fear, but Joshua and Caleb said, 'The Lord is with us—do not fear.' When scary voices get loud, remember: God's Word is true, and He is stronger than anything. Trust Him like Joshua and Caleb.",
     "theme": "Obedience",
-    "kw": "spies canaan numbers 13 joshua caleb grapes giants"
+    "kw": "spies canaan numbers 13 numbers 14 joshua caleb grapes promise trust faith courage"
   },
   {
     "key": "stephen",
@@ -2282,9 +2492,9 @@
     "kjvRef": "Exodus 20:1-17",
     "who": "God",
     "to": "Moses and the Israelites",
-    "apply": "God gave Moses ten rules on stone tablets to help people love God and love others. They were good laws to live by. God's rules show us how to live happy and right. When you follow them, you honor God and treat people well.",
+    "apply": "At Mount Sinai God spoke His holy law and wrote the ten commandments on stone for Moses. His words teach us to love Him with all our heart and to honor one another with truth and kindness. When we need help to obey, we can pray—God hears and gives a willing heart.",
     "theme": "Obedience",
-    "kw": "ten commandments moses mountain tablets exodus 20 rules law"
+    "kw": "ten commandments moses mountain tablets exodus 20 sinai sabbath stone law rules"
   },
   {
     "key": "tenPlagues",
@@ -2307,14 +2517,34 @@
     "kw": "revelation beast 666 mark dragon worship faithful"
   },
   {
+    "key": "samuelBirth",
+    "title": "The Birth and Dedication of Samuel",
+    "kjvRef": "1 Samuel 1:21-28; 2:1-11, 18-21",
+    "who": "The Lord",
+    "to": "Hannah, Samuel, and every heart that keeps its word",
+    "apply": "Hannah did not forget her vow. She brought Samuel to God's house and thanked Him with her whole heart. God honors promises kept in love — and He blessed her home again.",
+    "theme": "Obedience",
+    "kw": "samuel hannah dedication weaned wean shiloh tabernacle temple 1 samuel 1 1 samuel 2 eli lent unto the lord lent to the lord for this child i prayed my heart rejoiceth none holy as the lord little coat linen ephod ministered yearly sacrifice visited hannah three sons two daughters thanksgiving horn is exalted"
+  },
+  {
+    "key": "bronzeSerpent",
+    "title": "The Bronze Serpent",
+    "kjvRef": "Numbers 21:1-9",
+    "who": "God",
+    "to": "Israel through Moses",
+    "apply": "When God's people complained, He disciplined them—but when they were sorry, Moses prayed, and God gave a brass serpent on a pole. Everyone who looked lived. It points to Jesus: when we trust Him lifted on the cross, we find life. Tell God you're sorry, and look to Him—not away.",
+    "theme": "Miracles",
+    "kw": "bronze serpent brass serpent numbers 21 wilderness moses pole look and live heal mercy faith"
+  },
+  {
     "key": "burningBush",
     "title": "The Burning Bush",
-    "kjvRef": "Exodus 3:1–10",
+    "kjvRef": "Exodus 3:1-15",
     "who": "God",
     "to": "Moses",
-    "apply": "Moses saw a bush on fire but not burning up. God spoke from the bush and told Moses His name and plan. God speaks to us too—through His Word, prayer, and quiet moments. Listen for His voice and obey when He calls you.",
+    "apply": "God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, \"Here am I.\"",
     "theme": "Obedience",
-    "kw": "moses burning bush fire exodus 3 holy ground call"
+    "kw": "moses burning bush fire exodus 3 holy ground call horeb"
   },
   {
     "key": "heavenDoor",
@@ -2347,16 +2577,6 @@
     "kw": "shadrach meshach abednego furnace daniel 3 fire bow nebuchadnezzar"
   },
   {
-    "key": "elishaFloatingAxe",
-    "title": "The Floating Axe Head",
-    "kjvRef": "2 Kings 6:1–7",
-    "who": "God",
-    "to": "the worried builder",
-    "apply": "God notices little worries too. Tell Him what you need — He is kind.",
-    "theme": "Miracles",
-    "kw": "elisha axe jordan 2 kings 6 borrowed float miracle iron"
-  },
-  {
     "key": "fourHorsemen",
     "title": "The Four Horsemen",
     "kjvRef": "",
@@ -2369,12 +2589,12 @@
   {
     "key": "goldenCalf",
     "title": "The Golden Calf",
-    "kjvRef": "Exodus 32",
+    "kjvRef": "Exodus 32:1-8, 15-20, 30-32",
     "who": "God",
-    "to": "Israel",
-    "apply": "Impatience led to idolatry — wait for God and worship Him only.",
+    "to": "Moses and Israel",
+    "apply": "While Moses was with God, the people made a golden calf and worshiped it—but Moses prayed, and God showed mercy. Wrong choices are serious; so is God's kindness when we turn back to Him. Wait for God, worship Him alone, and when you mess up, tell Him you are sorry and trust Jesus.",
     "theme": "Obedience",
-    "kw": "golden calf exodus 32 idol moses aaron worship sinai"
+    "kw": "golden calf exodus 32 idol moses aaron worship sinai mercy forgive tablets intercession"
   },
   {
     "key": "jesusParableGoodShepherd",
@@ -2447,16 +2667,6 @@
     "kw": "last supper passover bread cup covenant luke 22 matthew 26 remembrance judas"
   },
   {
-    "key": "psalm23Shepherd",
-    "title": "The Lord Is My Shepherd",
-    "kjvRef": "Psalm 23",
-    "who": "God",
-    "to": "David (and us)",
-    "apply": "God is your Good Shepherd! He leads you, protects you, and gives you rest.",
-    "theme": "Love",
-    "kw": "psalm 23 shepherd sheep staff peace david green pastures"
-  },
-  {
     "key": "mustardSeed",
     "title": "The Mustard Seed",
     "kjvRef": "Matthew 13",
@@ -2519,12 +2729,12 @@
   {
     "key": "passoverLamb",
     "title": "The Passover Lamb",
-    "kjvRef": "Exodus 12",
+    "kjvRef": "Exodus 12:1-14",
     "who": "God",
     "to": "Israel in Egypt",
-    "apply": "Jesus is our Passover Lamb! He saves us—just believe and be covered.",
+    "apply": "God told His people to put blood on the door. When He saw it, He passed over them and kept them safe. Jesus is God's Passover Lamb—when we trust Him, we are safe in His rescue.",
     "theme": "Love",
-    "kw": "passover lamb blood doorposts exodus 12 rescue save"
+    "kw": "passover lamb blood doorposts hyssop exodus 12 rescue save"
   },
   {
     "key": "persistentWidow",
@@ -2587,6 +2797,26 @@
     "kw": "armor shield faith ephesians 6 arrows protect stand"
   },
   {
+    "key": "shunammiteReturn",
+    "title": "The Shunammite Woman Returns",
+    "kjvRef": "2 Kings 8:1-6",
+    "who": "The LORD",
+    "to": "The Shunammite woman and her son — through the king's care",
+    "apply": "God remembers the same family through hard years — and He can give back what feels lost when we trust Him.",
+    "theme": "Miracles",
+    "kw": "shunammite shunammite return shunem 2 kings 8 2 kings 8:1 2 kings 8:6 seven years philistines cry unto the king her house and her land restore all that was hers fruits of the field gehazi great things that elisha officer famine elisha son restored to life"
+  },
+  {
+    "key": "sunStandsStill",
+    "title": "The Sun Stands Still",
+    "kjvRef": "Joshua 10:12-14",
+    "who": "The Lord",
+    "to": "Joshua and Israel (and us)",
+    "apply": "Joshua spoke to God where everyone could hear — and God answered in a way no one had ever seen. The Lord fights for His people still; you can pray honestly and trust His power and care.",
+    "theme": "Miracles",
+    "kw": "joshua joshua 10 sun moon gibeon ajalon miracle prayer long day lord fought for israel"
+  },
+  {
     "key": "armorSword",
     "title": "The Sword of the Spirit",
     "kjvRef": "Ephesians 6",
@@ -2595,6 +2825,16 @@
     "apply": "Know your Bible! God's Word is a sword—it defeats darkness and confusion.",
     "theme": "Protection",
     "kw": "armor sword word ephesians 6 scripture spirit fight"
+  },
+  {
+    "key": "tabernacle",
+    "title": "The Tabernacle",
+    "kjvRef": "Exodus 40:1-38",
+    "who": "The Lord",
+    "to": "Israel through Moses",
+    "apply": "God told Moses how to build the tabernacle—His house in the middle of the camp. When it was finished, His glory filled it: cloud by day, fire by night. He stayed with His people on the journey. God still wants to be near us; Jesus is 'God with us'—draw near to Him in prayer.",
+    "theme": "Love",
+    "kw": "tabernacle tent exodus 40 moses glory cloud covenant ark dwell wilderness"
   },
   {
     "key": "tenVirgins",
@@ -2638,13 +2878,23 @@
   },
   {
     "key": "widowOil",
-    "title": "The Widow's Endless Oil",
-    "kjvRef": "2 Kings 4:1–7",
-    "who": "God",
-    "to": "The widow through Elisha",
-    "apply": "God's supply never runs out! Bring what little you have—He multiplies it.",
+    "title": "The Widow's Oil Multiplied",
+    "kjvRef": "2 Kings 4:1-7",
+    "who": "The LORD",
+    "to": "A widow and her sons — through Elisha",
+    "apply": "God can multiply what little we have when we obey and trust Him step by step.",
     "theme": "Miracles",
-    "kw": "widow oil elisha 2 kings 4 jars multiply provide"
+    "kw": "widow oil widow's oil widow oil multiplied pot of oil creditor bondmen borrow not a few empty vessels oil stayed pay thy debt sons of the prophets 2 kings 4 2 kings 4:1 2 kings 4:6 elisha multiply oil"
+  },
+  {
+    "key": "elishaOil",
+    "title": "The Widow's Oil Multiplied",
+    "kjvRef": "2 Kings 4:1-7",
+    "who": "The LORD",
+    "to": "A widow and her sons — through Elisha",
+    "apply": "God can multiply what little we have when we obey and trust Him step by step.",
+    "theme": "Miracles",
+    "kw": "widow oil widow's oil widow oil multiplied pot of oil creditor bondmen borrow not a few empty vessels oil stayed pay thy debt sons of the prophets 2 kings 4 2 kings 4:1 2 kings 4:6 elisha multiply oil"
   },
   {
     "key": "widowMite",
@@ -2769,22 +3019,22 @@
   {
     "key": "battleOfAi",
     "title": "Victory at Ai",
-    "kjvRef": "Joshua 8",
-    "who": "God",
-    "to": "Joshua and Israel",
-    "apply": "After sin was removed, God's plan worked — obey Him and watch Him fight for you.",
+    "kjvRef": "Joshua 8:1-8, 18-23, 26-29",
+    "who": "The Lord",
+    "to": "Joshua and Israel (and us)",
+    "apply": "After the camp was right with God again, Joshua listened to every step the Lord gave — ambush, drawing the city out, and the sign with the spear. The Lord gave the victory. When we obey God's Word, we can trust Him to help us in His way and His time.",
     "theme": "Obedience",
-    "kw": "joshua ai victory joshua 8 ambush obey second battle"
+    "kw": "joshua ai victory joshua 8 ambush obey spear fire restoration lord gave"
   },
   {
     "key": "jerichoWalls",
     "title": "Walls of Jericho Fall",
-    "kjvRef": "Joshua 6",
-    "who": "God",
+    "kjvRef": "Joshua 6:1-21",
+    "who": "The Lord",
     "to": "Joshua and Israel",
-    "apply": "God wins battles in surprising ways! Obey—then shout for joy.",
+    "apply": "They marched as God said, blew the trumpets, and shouted—and the wall fell flat. The Lord gave Jericho; their part was to obey. God still calls His people to trust His Word and take the next right step.",
     "theme": "Obedience",
-    "kw": "jericho walls trumpets joshua 6 march shout victory"
+    "kw": "jericho walls trumpets joshua 6 march shout ark obey faith victory"
   },
   {
     "key": "weddingWine",
@@ -2805,6 +3055,16 @@
     "apply": "Small gifts matter—God sees! Give what you have from the heart!",
     "theme": "Love",
     "kw": "widow mite coins mark 12 luke 21 small gift"
+  },
+  {
+    "key": "davidHarp",
+    "title": "Young David Plays the Harp for King Saul",
+    "kjvRef": "1 Samuel 16:14-23",
+    "who": "The Lord (through David)",
+    "to": "King Saul — and every heart that needs quiet",
+    "apply": "God used David's gentle playing to bring ease. The gifts God gives you — a song, a calm voice, a steady hand — can be a kindness to someone who is hurting.",
+    "theme": "Love",
+    "kw": "david harp young david king saul saul 1 samuel 16 1 samuel 16:14 1 samuel 16:23 evil spirit refreshed played with his hand cunning player on an harp armourbearer armorbearer send me david thy son son of jesse the bethlehemite music comfort peace"
   },
   {
     "key": "zacchaeus",

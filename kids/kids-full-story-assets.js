@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (282 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (307 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -26,6 +26,11 @@
       mp4: '/media/kids-stories/abraham-isaac.mp4',
       webm: '/media/kids-stories/abraham-isaac.webm',
       captionsVtt: '/media/kids-stories/abraham-isaac.vtt'
+    },
+    achan: {
+      mp4: '/media/kids-stories/achan.mp4',
+      webm: '/media/kids-stories/achan.webm',
+      captionsVtt: '/media/kids-stories/achan.vtt'
     },
     actsApollosPriscilla: {
       mp4: '/media/kids-stories/acts-apollos-priscilla.mp4',
@@ -127,6 +132,11 @@
       webm: '/media/kids-stories/betrayal.webm',
       captionsVtt: '/media/kids-stories/betrayal.vtt'
     },
+    bronzeSerpent: {
+      mp4: '/media/kids-stories/bronze-serpent.mp4',
+      webm: '/media/kids-stories/bronze-serpent.webm',
+      captionsVtt: '/media/kids-stories/bronze-serpent.vtt'
+    },
     burningBush: {
       mp4: '/media/kids-stories/burning-bush.mp4',
       webm: '/media/kids-stories/burning-bush.webm',
@@ -202,6 +212,11 @@
       webm: '/media/kids-stories/david.webm',
       captionsVtt: '/media/kids-stories/david.vtt'
     },
+    davidAbigail: {
+      mp4: '/media/kids-stories/david-abigail.mp4',
+      webm: '/media/kids-stories/david-abigail.webm',
+      captionsVtt: '/media/kids-stories/david-abigail.vtt'
+    },
     davidAnointed: {
       mp4: '/media/kids-stories/david-anointed.mp4',
       webm: '/media/kids-stories/david-anointed.webm',
@@ -231,6 +246,11 @@
       mp4: '/media/kids-stories/david-jonathan-friendship.mp4',
       webm: '/media/kids-stories/david-jonathan-friendship.webm',
       captionsVtt: '/media/kids-stories/david-jonathan-friendship.vtt'
+    },
+    davidKing: {
+      mp4: '/media/kids-stories/david-king.mp4',
+      webm: '/media/kids-stories/david-king.webm',
+      captionsVtt: '/media/kids-stories/david-king.vtt'
     },
     davidSaul: {
       mp4: '/media/kids-stories/david-saul.mp4',
@@ -292,10 +312,40 @@
       webm: '/media/kids-stories/elijah-fire-from-heaven.webm',
       captionsVtt: '/media/kids-stories/elijah-fire-from-heaven.vtt'
     },
+    elijahHoreb: {
+      mp4: '/media/kids-stories/elijah-horeb.mp4',
+      webm: '/media/kids-stories/elijah-horeb.webm',
+      captionsVtt: '/media/kids-stories/elijah-horeb.vtt'
+    },
+    elijahRavens: {
+      mp4: '/media/kids-stories/elijah-ravens.mp4',
+      webm: '/media/kids-stories/elijah-ravens.webm',
+      captionsVtt: '/media/kids-stories/elijah-ravens.vtt'
+    },
+    elijahWidow: {
+      mp4: '/media/kids-stories/elijah-widow.mp4',
+      webm: '/media/kids-stories/elijah-widow.webm',
+      captionsVtt: '/media/kids-stories/elijah-widow.vtt'
+    },
+    elishaBlindArmy: {
+      mp4: '/media/kids-stories/elisha-blind-army.mp4',
+      webm: '/media/kids-stories/elisha-blind-army.webm',
+      captionsVtt: '/media/kids-stories/elisha-blind-army.vtt'
+    },
     elishaBones: {
       mp4: '/media/kids-stories/elisha-bones.mp4',
       webm: '/media/kids-stories/elisha-bones.webm',
       captionsVtt: '/media/kids-stories/elisha-bones.vtt'
+    },
+    elishaChariots: {
+      mp4: '/media/kids-stories/elisha-chariots.mp4',
+      webm: '/media/kids-stories/elisha-chariots.webm',
+      captionsVtt: '/media/kids-stories/elisha-chariots.vtt'
+    },
+    elishaFinal: {
+      mp4: '/media/kids-stories/elisha-final.mp4',
+      webm: '/media/kids-stories/elisha-final.webm',
+      captionsVtt: '/media/kids-stories/elisha-final.vtt'
     },
     elishaFloatingAxe: {
       mp4: '/media/kids-stories/elisha-floating-axe.mp4',
@@ -312,10 +362,15 @@
       webm: '/media/kids-stories/elisha-oil.webm',
       captionsVtt: '/media/kids-stories/elisha-oil.vtt'
     },
-    elishaRaised: {
-      mp4: '/media/kids-stories/elisha-raised.mp4',
-      webm: '/media/kids-stories/elisha-raised.webm',
-      captionsVtt: '/media/kids-stories/elisha-raised.vtt'
+    elishaPoisonStew: {
+      mp4: '/media/kids-stories/elisha-poison-stew.mp4',
+      webm: '/media/kids-stories/elisha-poison-stew.webm',
+      captionsVtt: '/media/kids-stories/elisha-poison-stew.vtt'
+    },
+    elishaShunammite: {
+      mp4: '/media/kids-stories/elisha-shunammite.mp4',
+      webm: '/media/kids-stories/elisha-shunammite.webm',
+      captionsVtt: '/media/kids-stories/elisha-shunammite.vtt'
     },
     emmausRoad: {
       mp4: '/media/kids-stories/emmaus-road.mp4',
@@ -402,6 +457,11 @@
       webm: '/media/kids-stories/garden-prayer.webm',
       captionsVtt: '/media/kids-stories/garden-prayer.vtt'
     },
+    gehaziGreed: {
+      mp4: '/media/kids-stories/gehazi-greed.mp4',
+      webm: '/media/kids-stories/gehazi-greed.webm',
+      captionsVtt: '/media/kids-stories/gehazi-greed.vtt'
+    },
     gideonFleece: {
       mp4: '/media/kids-stories/gideon-fleece.mp4',
       webm: '/media/kids-stories/gideon-fleece.webm',
@@ -436,6 +496,11 @@
       mp4: '/media/kids-stories/hannah-pray.mp4',
       webm: '/media/kids-stories/hannah-pray.webm',
       captionsVtt: '/media/kids-stories/hannah-pray.vtt'
+    },
+    hannahPrayer: {
+      mp4: '/media/kids-stories/hannah-prayer.mp4',
+      webm: '/media/kids-stories/hannah-prayer.webm',
+      captionsVtt: '/media/kids-stories/hannah-prayer.vtt'
     },
     hannahSamuel: {
       mp4: '/media/kids-stories/hannah-samuel.mp4',
@@ -717,6 +782,11 @@
       webm: '/media/kids-stories/joshua-ai.webm',
       captionsVtt: '/media/kids-stories/joshua-ai.vtt'
     },
+    joshuaCharge: {
+      mp4: '/media/kids-stories/joshua-charge.mp4',
+      webm: '/media/kids-stories/joshua-charge.webm',
+      captionsVtt: '/media/kids-stories/joshua-charge.vtt'
+    },
     joshuaJordan: {
       mp4: '/media/kids-stories/joshua-jordan.mp4',
       webm: '/media/kids-stories/joshua-jordan.webm',
@@ -851,6 +921,11 @@
       mp4: '/media/kids-stories/naaman-dip.mp4',
       webm: '/media/kids-stories/naaman-dip.webm',
       captionsVtt: '/media/kids-stories/naaman-dip.vtt'
+    },
+    naamanHealed: {
+      mp4: '/media/kids-stories/naaman.mp4',
+      webm: '/media/kids-stories/naaman.webm',
+      captionsVtt: '/media/kids-stories/naaman.vtt'
     },
     nehemiahWalls: {
       mp4: '/media/kids-stories/nehemiah-walls.mp4',
@@ -1087,10 +1162,20 @@
       webm: '/media/kids-stories/prodigal-son.webm',
       captionsVtt: '/media/kids-stories/prodigal-son.vtt'
     },
+    psalm23: {
+      mp4: '/media/kids-stories/psalm23.mp4',
+      webm: '/media/kids-stories/psalm23.webm',
+      captionsVtt: '/media/kids-stories/psalm23.vtt'
+    },
     psalm23Shepherd: {
       mp4: '/media/kids-stories/psalm23-shepherd.mp4',
       webm: '/media/kids-stories/psalm23-shepherd.webm',
       captionsVtt: '/media/kids-stories/psalm23-shepherd.vtt'
+    },
+    rahab: {
+      mp4: '/media/kids-stories/rahab.mp4',
+      webm: '/media/kids-stories/rahab.webm',
+      captionsVtt: '/media/kids-stories/rahab.vtt'
     },
     rahabJericho: {
       mp4: '/media/kids-stories/rahab-jericho.mp4',
@@ -1237,6 +1322,21 @@
       webm: '/media/kids-stories/ruth-naomi.webm',
       captionsVtt: '/media/kids-stories/ruth-naomi.vtt'
     },
+    ruthRedemption: {
+      mp4: '/media/kids-stories/ruth-redemption.mp4',
+      webm: '/media/kids-stories/ruth-redemption.webm',
+      captionsVtt: '/media/kids-stories/ruth-redemption.vtt'
+    },
+    ruthThreshing: {
+      mp4: '/media/kids-stories/ruth-threshing.mp4',
+      webm: '/media/kids-stories/ruth-threshing.webm',
+      captionsVtt: '/media/kids-stories/ruth-threshing.vtt'
+    },
+    samariaSiege: {
+      mp4: '/media/kids-stories/samaria-siege.mp4',
+      webm: '/media/kids-stories/samaria-siege.webm',
+      captionsVtt: '/media/kids-stories/samaria-siege.vtt'
+    },
     samaritanWoman: {
       mp4: '/media/kids-stories/samaritan-woman.mp4',
       webm: '/media/kids-stories/samaritan-woman.webm',
@@ -1252,10 +1352,15 @@
       webm: '/media/kids-stories/samson-birth.webm',
       captionsVtt: '/media/kids-stories/samson-birth.vtt'
     },
-    samsonHair: {
-      mp4: '/media/kids-stories/samson-hair.mp4',
-      webm: '/media/kids-stories/samson-hair.webm',
-      captionsVtt: '/media/kids-stories/samson-hair.vtt'
+    samsonDelilah: {
+      mp4: '/media/kids-stories/samson-delilah.mp4',
+      webm: '/media/kids-stories/samson-delilah.webm',
+      captionsVtt: '/media/kids-stories/samson-delilah.vtt'
+    },
+    samsonLion: {
+      mp4: '/media/kids-stories/samson-lion.mp4',
+      webm: '/media/kids-stories/samson-lion.webm',
+      captionsVtt: '/media/kids-stories/samson-lion.vtt'
     },
     samuelAnointsDavid: {
       mp4: '/media/kids-stories/samuel-anoints-david.mp4',
@@ -1307,10 +1412,20 @@
       webm: '/media/kids-stories/shepherds-star.webm',
       captionsVtt: '/media/kids-stories/shepherds-star.vtt'
     },
+    shunammiteReturn: {
+      mp4: '/media/kids-stories/shunammite-return.mp4',
+      webm: '/media/kids-stories/shunammite-return.webm',
+      captionsVtt: '/media/kids-stories/shunammite-return.vtt'
+    },
     solomonTemple: {
       mp4: '/media/kids-stories/solomon-temple.mp4',
       webm: '/media/kids-stories/solomon-temple.webm',
       captionsVtt: '/media/kids-stories/solomon-temple.vtt'
+    },
+    solomonTwoMothers: {
+      mp4: '/media/kids-stories/solomon-two-mothers.mp4',
+      webm: '/media/kids-stories/solomon-two-mothers.webm',
+      captionsVtt: '/media/kids-stories/solomon-two-mothers.vtt'
     },
     solomonWisdom: {
       mp4: '/media/kids-stories/solomon-wisdom.mp4',
@@ -1336,6 +1451,16 @@
       mp4: '/media/kids-stories/stephen-stones.mp4',
       webm: '/media/kids-stories/stephen-stones.webm',
       captionsVtt: '/media/kids-stories/stephen-stones.vtt'
+    },
+    sunStandsStill: {
+      mp4: '/media/kids-stories/sun-stands-still.mp4',
+      webm: '/media/kids-stories/sun-stands-still.webm',
+      captionsVtt: '/media/kids-stories/sun-stands-still.vtt'
+    },
+    tabernacle: {
+      mp4: '/media/kids-stories/tabernacle.mp4',
+      webm: '/media/kids-stories/tabernacle.webm',
+      captionsVtt: '/media/kids-stories/tabernacle.vtt'
     },
     tenCommandments: {
       mp4: '/media/kids-stories/ten-commandments.mp4',

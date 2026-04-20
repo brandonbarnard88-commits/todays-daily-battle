@@ -1167,11 +1167,11 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
   var STORAGE_KEY = 'tdb_loop_library_state_v2';
   /* Bump ?v= when loops.json shape/media URLs change so CDN/browsers skip stale JSON. */
-  var LOOPS_URL = '/loops.json?v=20260324v7';
-  var LOOPS_CACHE_KEY = 'tdb_loops_json_cache_v7';
+  var LOOPS_URL = '/loops.json?v=20260420elishabones';
+  var LOOPS_CACHE_KEY = 'tdb_loops_json_cache_v68';
   var MAX_WEEK = 12;
   var STAR_GOAL = 12;
-  var TOTAL_LOOPS = 160;
+  var TOTAL_LOOPS = 192;
   /* Google Form: set in loop-feedback-config.js (edit that file when ready) or leave null for mailto fallback */
   var LOOP_FEEDBACK_FORM = (typeof window !== 'undefined' && window.LOOP_FEEDBACK_FORM) || null;
 
@@ -1357,6 +1357,9 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 
   function scoreGentleLoopMatch(loop) {
     if (!gentleLoopBridge.active || !loop) return -1;
+    var sk = String(gentleLoopBridge.storyKey || '').trim();
+    var lk = String(loop.libraryKey || '').trim();
+    if (sk && lk && sk === lk) return 100;
     var score = 0;
     var loopTitle = normalizeGentleText(loop.title);
     var loopRefStem = getGentleRefStem(loop.ref);
@@ -1968,7 +1971,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
           audio: item.audio ? String(item.audio).trim() : '',
           ref: String(item.ref),
           kjvText: item.kjvText ? String(item.kjvText) : '',
-          week: Number(item.week)
+          week: Number(item.week),
+          libraryKey: item.libraryKey ? String(item.libraryKey).trim() : ''
         };
       });
     try { localStorage.setItem(LOOPS_CACHE_KEY, JSON.stringify(json)); } catch (e) {}

@@ -613,17 +613,42 @@
     david: {
       title: 'David & Goliath',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'David as shepherd boy – Small but faithful' },
-        { src: 'panel-david-2.svg', alt: 'David faces Goliath – God is bigger than any giant' },
-        { src: 'panel-david-3.svg', alt: "David wins with God's help – One stone, one faith" }
+        { src: 'panel-david-1.svg', alt: 'Goliath defies Israel — the armies stand afraid in the valley' },
+        { src: 'panel-david-2.svg', alt: 'David trusts the living God — five stones, a sling, no sword in his hand' },
+        { src: 'panel-david-3.svg', alt: 'In the name of the LORD of hosts — one stone; the Lord gives victory' }
       ],
-      caption: 'Swipe to see how God helped David be brave! ⚔️',
+      caption: 'Swipe to see courage that trusts the Lord — not size or armor.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'goliath', 'brave', 'battle', 'shepherd', 'slingshot'],
-      kjvRef: '1 Samuel 17:45–50',
-      kidContext: { who: 'David', to: 'Goliath (and us)', apply: "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord\'s!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you." },
-      narration: "David and Goliath – 1 Samuel 17. Goliath was a huge giant. He shouted at God's army every day. Everyone was scared—except David. David was young and small, but he knew God. He said, 'Who is this giant? The Lord will deliver him into my hand.' David ran toward Goliath with a sling and five stones. He swung once—and the stone hit Goliath. The giant fell. God gave David the victory! For you: Your giants might be fear, worry, or someone who hurts you. God is bigger. Trust Him and be brave."
+      keywords: [
+        'david',
+        'goliath',
+        'sling',
+        'stone',
+        'stones',
+        'smooth stones',
+        '1 samuel 17',
+        'valley of elah',
+        'living god',
+        'uncircumcised philistine',
+        'defy',
+        'brave',
+        'faith',
+        'shepherd',
+        'giant',
+        'philistine',
+        'lord of hosts',
+        'battle is the lord'
+      ],
+      kjvRef: '1 Samuel 17:1-11, 32-51',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David and every heart that feels small',
+        apply:
+          'Goliath looked strong; David looked to God. The Lord saved — not by sword in David\'s hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord\'s.'
+      },
+      narration:
+        "David and Goliath – 1 Samuel 17:1-11, 32-51. The Philistines gathered against Israel; their champion Goliath defied the armies of the living God day after day, and all Israel were afraid. Young David came to the camp and asked, Who is this uncircumcised Philistine, that he should defy the armies of the living God? He told Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. Saul's armor did not fit David's heart — David took his staff, five smooth stones, and his sling. He ran toward the giant in the name of the LORD of hosts. One stone sank into the giant's forehead; he fell. David prevailed with a sling and a stone, and there was no sword in David's hand — the Lord gave victory. For you: Courage is trusting God when the problem looks huge."
     },
     noah: {
       title: "Noah's Ark",
@@ -779,9 +804,10 @@
       caption: 'Swipe to see God call Moses from the burning bush! 🔥',
       videoId: 'bWcwZIV-ip8',
       videoTitle: "Moses and the Burning Bush – Bible Stories for Kids!",
-      keywords: ['moses', 'bush', 'fire', 'staff', 'call', 'exodus 3', 'burning'],
-      kjvRef: 'Exodus 3',
-      kidContext: { who: 'God', to: 'Moses (in the desert)', apply: 'God called Moses from a burning bush! When God calls you, say yes—He will help you!' }
+      keywords: ['moses', 'bush', 'fire', 'staff', 'call', 'exodus 3', 'burning', 'holy ground', 'horeb'],
+      kjvRef: 'Exodus 3:1-15',
+      kidContext: { who: 'God', to: 'Moses (in the desert)', apply: 'God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, "Here am I."' },
+      narration: "The Burning Bush – Exodus 3:1-6. Moses was keeping his father-in-law's sheep in the desert when he came to Horeb, the mountain of God. He saw a bush burning with fire, yet the bush was not burned up. Moses turned aside to see why. When the Lord saw he looked, God called from the bush, 'Moses, Moses!' Moses said, 'Here am I.' God said to put off his shoes, for the ground was holy. Then God made Himself known as the God of Abraham, Isaac, and Jacob—and Moses hid his face, afraid to look upon God. For you: God still speaks. Listen with a quiet heart; His presence is holy."
     },
     redSea: {
       title: 'Red Sea Crossing',
@@ -794,9 +820,9 @@
       videoId: 'GYZh5eY6FGg',
       videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
       keywords: ['moses', 'red sea', 'waters', 'part', 'exodus 14', 'egypt', 'escape'],
-      kjvRef: 'Exodus 14:21',
-      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through." },
-      narration: "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind. The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed. A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water. When the Egyptians followed, God closed the sea and saved His people. God makes a way! For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
+      kjvRef: 'Exodus 14:21-31',
+      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save." },
+      narration: "Moses Sea-Split – Exodus 14:21-31. God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. But Moses stretched out his hand over the sea, just as God told him. The Lord caused the sea to go back all night with a strong east wind. The waters divided. The children of Israel walked on dry ground, with walls of water on their right and on their left. When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered the chariots and the horsemen—not one of them remained. That day the Lord saved Israel, and the people believed the Lord and His servant Moses. For you: When you feel stuck or afraid, God can still make a way. Pray and trust Him."
     },
     manna: {
       title: 'Manna from Heaven',
@@ -808,10 +834,10 @@
       caption: 'Swipe to see God give bread from heaven! 🍞',
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
-      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'food', 'provide'],
-      kjvRef: 'Exodus 16',
-      kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time." },
-      narration: "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost. It tasted like honey wafers! They called it manna. God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath. God provided every morning! For you: God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just enough, right when you need it."
+      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'wilderness', 'forty years', 'honey', 'wafers', 'food', 'provide'],
+      kjvRef: 'Exodus 16:1-36',
+      kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: "God rained bread from heaven every morning—small, sweet manna, enough for each day. He fed His people for forty years until they reached the land He promised. When you worry about tomorrow, trust Him; He still gives daily bread—and Jesus is the true bread of life." },
+      narration: "Manna from Heaven – Exodus 16:4-5, 13-15, 31. The children of Israel had been walking in the wilderness for many days. They were hungry and began to grumble. God heard them and spoke to Moses: 'Behold, I will rain bread from heaven for you. The people shall go out and gather a certain amount every day.' The next morning, when the dew was gone, there on the ground lay small, white flakes like frost. The people looked at it and said, 'What is it?' for they did not know what it was. Moses said, 'This is the bread which the Lord hath given you to eat.' Every morning the manna came. It tasted sweet, like wafers made with honey. The people gathered just enough for each day, and on the sixth day they gathered twice as much so they could rest on the Sabbath. God gave them this bread from heaven every single day for forty years, until they came to the land He promised. For you: God gives enough for today. When you worry, remember His daily kindness—and thank Him for Jesus."
     },
     tenCommandments: {
       title: 'Ten Commandments',
@@ -823,10 +849,10 @@
       caption: 'Swipe to see God give rules to keep us safe! 📜',
       videoId: 'P12cLzy1-3Q',
       videoTitle: 'The Ten Commandments – Bible Stories for Kids!',
-      keywords: ['ten commandments', 'moses', 'mountain', 'tablets', 'exodus 20', 'rules', 'law'],
+      keywords: ['ten commandments', 'moses', 'mountain', 'tablets', 'exodus 20', 'sinai', 'sabbath', 'stone', 'law', 'rules'],
       kjvRef: 'Exodus 20:1-17',
-      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "God gave Moses ten rules on stone tablets to help people love God and love others. They were good laws to live by. God's rules show us how to live happy and right. When you follow them, you honor God and treat people well." },
-      narration: "Ten Commandments – Exodus 20:1-17. The Israelites came to Mount Sinai. God called Moses up the mountain. There, God spoke ten important rules and wrote them on stone tablets. The first four were about loving God: no other gods, no idols, honor His name, keep the Sabbath. The last six were about loving others: honor parents, no murder, no stealing, no lying, no wanting what others have. God gave these rules to help His people live good lives. For you: God's rules are like guardrails—they keep you safe and happy. Love God with all your heart, and love others like yourself. Following them makes life better."
+      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "At Mount Sinai God spoke His holy law and wrote the ten commandments on stone for Moses. His words teach us to love Him with all our heart and to honor one another with truth and kindness. When we need help to obey, we can pray—God hears and gives a willing heart." },
+      narration: "Ten Commandments – Exodus 20:1-17. God's people had come to the foot of Mount Sinai. A thick cloud covered the mountain, and there was thunder and lightning. The mountain shook, and the people were afraid. Moses went up the mountain to meet with God. God spoke: 'I am the Lord thy God, which have brought thee out of the land of Egypt, out of the house of bondage. Thou shalt have no other gods before me. Thou shalt not make unto thee any graven image. Thou shalt not take the name of the Lord thy God in vain. Remember the sabbath day, to keep it holy. Honour thy father and thy mother. Thou shalt not kill. Thou shalt not commit adultery. Thou shalt not steal. Thou shalt not bear false witness against thy neighbour. Thou shalt not covet thy neighbour's house, thou shalt not covet thy neighbour's wife, nor his manservant, nor his maidservant, nor his ox, nor his ass, nor any thing that is thy neighbour's.' God wrote these ten commandments on two tables of stone and gave them to Moses so His people would know how to love Him and love each other. The people stood far off, but Moses drew near to the thick darkness where God was. For you: God's commandments are a gift—they show us how to love Him first and care for others well."
     },
     goldenCalf: {
       title: 'The Golden Calf',
@@ -838,38 +864,147 @@
       caption: 'Swipe to see why we worship God alone! 🐂',
       videoId: '',
       videoTitle: '',
-      keywords: ['golden calf', 'exodus 32', 'idol', 'moses', 'aaron', 'worship', 'sinai'],
-      kjvRef: 'Exodus 32',
-      kidContext: { who: 'God', to: 'Israel', apply: 'Impatience led to idolatry — wait for God and worship Him only.' }
+      keywords: ['golden calf', 'exodus 32', 'idol', 'moses', 'aaron', 'worship', 'sinai', 'mercy', 'forgive', 'tablets', 'intercession'],
+      kjvRef: 'Exodus 32:1-8, 15-20, 30-32',
+      kidContext: {
+        who: 'God',
+        to: 'Moses and Israel',
+        apply:
+          "While Moses was with God, the people made a golden calf and worshiped it—but Moses prayed, and God showed mercy. Wrong choices are serious; so is God's kindness when we turn back to Him. Wait for God, worship Him alone, and when you mess up, tell Him you are sorry and trust Jesus."
+      },
+      narration:
+        "The Golden Calf – Exodus 32:1-8, 15-20, 30-32. While Moses was still on the mountain with God, the people grew impatient. They asked Aaron to make them a god they could see. Aaron took their golden earrings, melted them, and made a golden calf. The people bowed down and danced around it. When Moses came down from the mountain carrying the two stone tablets, he saw the calf and the dancing. His anger burned, and he threw the tablets and broke them at the foot of the mountain. Moses burned the golden calf, ground it to powder, scattered it on the water, and made the people drink it. Then Moses stood before the Lord and prayed, 'Oh, this people have sinned a great sin. Yet now, if thou wilt forgive their sin—; and if not, blot me, I pray thee, out of thy book which thou hast written.' God heard Moses' prayer and showed mercy to His people. For you: God is merciful. When we choose wrong, we can say sorry, worship Him alone, and trust Jesus."
+    },
+    bronzeSerpent: {
+      title: 'The Bronze Serpent',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Israel weary in the wilderness — hard words and a hard lesson' },
+        { src: 'panel-david-2.svg', alt: 'The people tell Moses they have sinned — please pray' },
+        { src: 'panel-david-3.svg', alt: 'Brass serpent on a pole — look and live' }
+      ],
+      caption: 'Swipe to see God give a way to live — look and trust! 🐍',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'bronze serpent',
+        'brass serpent',
+        'numbers 21',
+        'wilderness',
+        'moses',
+        'pole',
+        'look and live',
+        'heal',
+        'mercy',
+        'faith'
+      ],
+      kjvRef: 'Numbers 21:1-9',
+      kidContext: {
+        who: 'God',
+        to: 'Israel through Moses',
+        apply:
+          "When God's people complained, He disciplined them—but when they were sorry, Moses prayed, and God gave a brass serpent on a pole. Everyone who looked lived. It points to Jesus: when we trust Him lifted on the cross, we find life. Tell God you're sorry, and look to Him—not away."
+      },
+      narration:
+        "The Bronze Serpent – Numbers 21:4-9. The children of Israel grew tired and discouraged on their long journey through the wilderness. They spoke against God and against Moses. So the Lord sent fiery serpents among the people, and the serpents bit them. Many people died. The people came to Moses and said, 'We have sinned, for we have spoken against the Lord, and against thee. Pray unto the Lord, that he take away the serpents from us.' Moses prayed for the people. And the Lord said unto Moses, 'Make thee a fiery serpent, and set it upon a pole: and it shall come to pass, that every one that is bitten, when he looketh upon it, shall live.' Moses made a serpent of brass and put it upon a pole. And it came to pass, that if a serpent had bitten any man, when he beheld the serpent of brass, he lived. For you: God is merciful when we turn back. Look to Jesus—He is the way to live forever."
+    },
+    tabernacle: {
+      title: 'The Tabernacle',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'God\'s special tent in the camp — a place for His presence' },
+        { src: 'panel-david-2.svg', alt: 'Glad gifts and skilled hands — building what God commanded' },
+        { src: 'panel-david-3.svg', alt: 'Cloud and glory — the Lord dwells with His people' }
+      ],
+      caption: 'Swipe to see God come close to His people in the tabernacle! ⛺',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'tabernacle',
+        'tent',
+        'exodus 40',
+        'moses',
+        'glory',
+        'cloud',
+        'covenant',
+        'ark',
+        'dwell',
+        'wilderness'
+      ],
+      kjvRef: 'Exodus 40:1-38',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Israel through Moses',
+        apply:
+          "God told Moses how to build the tabernacle—His house in the middle of the camp. When it was finished, His glory filled it: cloud by day, fire by night. He stayed with His people on the journey. God still wants to be near us; Jesus is 'God with us'—draw near to Him in prayer."
+      },
+      narration:
+        "The Tabernacle – Exodus 40:34-38. God told Moses exactly how to build a special tent called the tabernacle. It would be God's house in the middle of the camp so He could dwell with His people. The people brought gifts with glad hearts—gold, silver, fine cloth, wood, and more. Skilled workers made the curtains, the altar, the lampstand, the table, and the beautiful ark of the covenant. When everything was finished just as God commanded, Moses set up the tabernacle. He put the furniture in its place and hung the veil. Then a cloud covered the tent of the congregation, and the glory of the Lord filled the tabernacle. The cloud stayed over the tabernacle by day, and fire was on it by night. When the cloud moved, the people followed. When the cloud stayed, they rested. In this way the Lord was with His people everywhere they went. For you: God loves to be near His people—thank Him, and come to Jesus."
     },
     spiesInCanaan: {
       title: 'Spies in Canaan',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Twelve spies see how good the land is' },
-        { src: 'panel-noah-2.svg', alt: 'Huge grapes — ten spies are afraid of giants' },
-        { src: 'panel-noah-3.svg', alt: 'Joshua and Caleb trust God to give the land' }
+        { src: 'panel-noah-1.svg', alt: 'Twelve spies explore the good land God promised' },
+        { src: 'panel-noah-2.svg', alt: 'A cluster of beautiful grapes from Canaan' },
+        { src: 'panel-noah-3.svg', alt: 'Joshua and Caleb say the Lord is with us—do not fear' }
       ],
       caption: 'Swipe to see faith beat fear! 🍇',
       videoId: '',
       videoTitle: '',
-      keywords: ['spies', 'canaan', 'numbers 13', 'joshua', 'caleb', 'grapes', 'giants'],
-      kjvRef: 'Numbers 13',
-      kidContext: { who: 'God', to: 'Israel', apply: 'Giants look big, but God is bigger — trust His promise.' }
+      keywords: [
+        'spies',
+        'canaan',
+        'numbers 13',
+        'numbers 14',
+        'joshua',
+        'caleb',
+        'grapes',
+        'promise',
+        'trust',
+        'faith',
+        'courage'
+      ],
+      kjvRef: 'Numbers 13:1-33; 14:1-9',
+      kidContext: {
+        who: 'God',
+        to: 'Israel through Moses',
+        apply:
+          "God sent twelve spies to see the land He promised. Ten focused on fear, but Joshua and Caleb said, 'The Lord is with us—do not fear.' When scary voices get loud, remember: God's Word is true, and He is stronger than anything. Trust Him like Joshua and Caleb."
+      },
+      narration:
+        "Spies in Canaan – Numbers 13:17-33; 14:1-9. God told Moses to send twelve men to spy out the land of Canaan that He had promised to give His people. The men went and explored the land for forty days. They saw beautiful fruit, strong cities, and tall people. When they returned, ten of the spies said, 'The land is good, but the people are too strong for us. We cannot go up against them.' But Caleb and Joshua said, 'Let us go up at once, and possess it; for we are well able to overcome it. The Lord is with us. Do not fear the people of the land.' The people listened to the ten fearful spies and began to cry and complain. But Joshua and Caleb trusted God and tried to encourage the people to believe the Lord. For you: God keeps His promises. When you feel afraid, pray and trust Him—He is with you."
     },
     samson: {
-      title: 'Samson & His Strength',
+      title: 'Samson and the Pillars',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: "Samson with long hair – Strong because of God" },
-        { src: 'panel-daniel-2.svg', alt: "Delilah cutting Samson's hair – Losing his strength" },
-        { src: 'panel-daniel-3.svg', alt: "Samson pushing the pillars – God gives power one last time" }
+        { src: 'panel-daniel-1.svg', alt: 'They set Samson between the pillars — he asks to lean upon the house' },
+        { src: 'panel-daniel-2.svg', alt: 'Samson prays — O Lord God, remember me, and strengthen me only this once' },
+        { src: 'panel-daniel-3.svg', alt: 'He bowed himself with all his might — the Lord heard his prayer' }
       ],
-      caption: 'Swipe to see God give Samson strength! 💪',
+      caption: 'Swipe to see God hear one last honest prayer — and give strength for His people.',
       videoId: 'vnRAdASpsz4',
-      videoTitle: "Samson and Delilah – Bible Lessons for Kids!",
-      keywords: ['samson', 'hair', 'strength', 'pillars', 'judges 16', 'power', 'delilah'],
-      kjvRef: 'Judges 13–16',
-      kidContext: { who: 'God', to: 'Samson (a strong man)', apply: "Samson was super strong because God gave him power, but he didn't always use it wisely. In the end, he prayed for strength one last time and brought down the pillars to defeat the enemies. God gives us strength too—use it to help others and honor Him, not for selfish things." },
-      narration: "Samson and the Pillars – Judges 16:30. Samson was born with special strength from God—no razor on his head. He fought bad guys and did amazing things. But Samson made mistakes and told his secret to Delilah. She cut his hair, and his strength left. The enemies captured him and made fun of him in their temple. Samson prayed, 'Lord, remember me and give me strength just this once.' God answered! Samson pushed the two middle pillars, and the whole building fell on the enemies and himself. God gave him power one last time. For you: God gives you strength in different ways. Use it to do good, help others, and follow Him—not for showing off or getting even."
+      videoTitle: 'Samson and the Pillars – Bible Lessons for Kids!',
+      keywords: [
+        'samson',
+        'pillars',
+        'judges 16',
+        'strength',
+        'dagon',
+        'philistines',
+        'pray',
+        'remember me',
+        'middle pillars',
+        'lord god',
+        'deliver',
+        'sport'
+      ],
+      kjvRef: 'Judges 16:23-30',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Samson — and every heart that prays honestly',
+        apply:
+          "The crowd did not know that God had not forgotten Samson. He prayed a simple, honest prayer — remember me, strengthen me this once — and God answered. When you feel at the end of your rope, you can still speak to God; He hears."
+      },
+      narration:
+        "Samson and the Pillars – Judges 16:23-30. The lords of the Philistines gathered to offer sacrifice unto Dagon their god and to rejoice, for they said, Our god hath delivered Samson our enemy into our hand. When their hearts were merry, they called for Samson out of the prison house; he made them sport, and they set him between the pillars. Samson said unto the lad that held him by the hand, Suffer me that I may feel the pillars whereupon the house standeth, that I may lean upon them. Samson called unto the LORD, and said, O Lord GOD, remember me, I pray thee, and strengthen me, I pray thee, only this once, O God, that I may be at once avenged of the Philistines for my two eyes. He took hold of the two middle pillars, of the one with his right hand, and of the other with his left; and he said, Let me die with the Philistines. He bowed himself with all his might; and the house fell upon the lords, and upon all the people that were therein. So the dead which he slew at his death were more than they which he slew in his life. For you: God gave strength one last time — He still listens when we pray."
     },
     fieryFurnace: {
       title: 'Fiery Furnace',
@@ -1032,17 +1167,23 @@
     fallOfJericho: {
       title: 'Fall of Jericho',
       panels: [
-        { src: 'panel-david-1.svg', alt: "Israelites marching around Jericho – Obeying God's strange plan" },
-        { src: 'panel-david-2.svg', alt: "Trumpets blowing on day 7 – Time to shout" },
-        { src: 'panel-david-3.svg', alt: "Walls of Jericho falling down – God gives victory" }
+        { src: 'panel-david-1.svg', alt: 'Jericho — tall walls, gates shut; God speaks to Joshua' },
+        { src: 'panel-david-2.svg', alt: 'Marching, trumpets, and a great shout — the people obey' },
+        { src: 'panel-david-3.svg', alt: 'The wall falls flat — the Lord gave the city' }
       ],
       caption: 'Swipe to see God make the walls fall—trust Him! 🏛️',
       videoId: 'Ertlm3D9Cfs',
       videoTitle: 'The Walls of Jericho – Bible Story for Kids!',
-      keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'obey'],
-      kjvRef: 'Joshua 6:1–21',
-      kidContext: { who: 'God', to: 'Joshua and the Israelites', apply: "God told Joshua to march around Jericho for 7 days, blow trumpets, and shout. It seemed strange, but they obeyed. The walls fell down! When God asks you to do something that doesn't make sense, obey—He has a reason and will make it work." },
-      narration: "Fall of Jericho – Joshua 6:20. The Israelites came to Jericho, a strong city with big walls. God told Joshua, 'March around the city once a day for 6 days. On day 7, march 7 times, blow trumpets, and shout!' The people obeyed, even though it seemed weird. On day 7, they marched, trumpets blew, they shouted—and the walls fell flat! The Israelites marched in and took the city. God gave them the victory because they obeyed. For you: Sometimes God asks us to do things that seem odd or hard. Trust Him and obey. He makes impossible things happen when we follow His way."
+      keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'obey', 'shout', 'ark', 'faith', 'victory'],
+      kjvRef: 'Joshua 6:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel',
+        apply:
+          "God gave Joshua a careful plan: march, trumpets, then a great shout—and the wall fell flat. They did not win by their own strength; the Lord gave the city. When God's way seems surprising, obey one step at a time—He is able."
+      },
+      narration:
+        "Fall of Jericho – Joshua 6:1-5, 11-16, 20. God's people had come to the strong city of Jericho. The walls were tall and thick, and the gates were shut tight. The Lord told Joshua, 'See, I have given into thine hand Jericho. Ye shall compass the city, all ye men of war, and go round about the city once. Thus shalt thou do six days. And seven priests shall bear before the ark seven trumpets of rams' horns. On the seventh day ye shall compass the city seven times, and the priests shall blow with the trumpets. And it shall come to pass, that when they make a long blast with the ram's horn, all the people shall shout with a great shout; and the wall of the city shall fall down flat.' Joshua and the people did exactly as the Lord commanded. For six days they marched around the city once each day. On the seventh day they marched around it seven times. The priests blew the trumpets, and at the long blast the people shouted with a great shout. And the wall fell down flat. The people went up into the city, every man straight before him, and they took the city—because the Lord had given it to them. For you: Trust and obey God—He does what only He can do."
     },
     davidSheep: {
       title: 'David & the Sheep',
@@ -1058,47 +1199,193 @@
       kjvRef: '1 Samuel 16:11; 17:15, 34–37',
       kidContext: { who: 'David', to: 'King Saul (and us)', apply: 'David protected sheep—God protects us! Like a shepherd cares for his flock!' }
     },
-    elijahFire: {
-      title: 'Elijah & Fire',
+    elijahRavens: {
+      title: 'Elijah & the Ravens',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Elijah vs prophets of Baal' },
-        { src: 'panel-jonah-2.svg', alt: 'Baal does nothing' },
-        { src: 'panel-jonah-3.svg', alt: 'God sends fire—He\'s real!' }
+        { src: 'panel-noah-1.svg', alt: 'Elijah speaks God\'s word to Ahab' },
+        { src: 'panel-noah-2.svg', alt: 'By Cherith — ravens bring bread and flesh' },
+        { src: 'panel-noah-3.svg', alt: 'He drinks of the brook — God cares each day' }
       ],
-      caption: 'Swipe to see God answer with fire—He\'s real! 🔥',
+      caption: 'Swipe for Cherith — God fed Elijah by the brook.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['elijah', 'ravens', 'cherith', 'brook', '1 kings 17', 'bread', 'flesh', 'ahab'],
+      kjvRef: '1 Kings 17:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah',
+        apply: 'God commanded the ravens — morning and evening. He still knows how to feed His children.'
+      }
+    },
+    elijahWidow: {
+      title: 'Elijah & the Widow',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'God sends Elijah to Zarephath — a widow will sustain thee' },
+        { src: 'panel-noah-2.svg', alt: 'At the gate — a handful of meal and a little oil' },
+        { src: 'panel-noah-3.svg', alt: 'The barrel wasted not — the cruse failed not' }
+      ],
+      caption: 'Swipe for Zarephath — God\'s promise at the barrel and the cruse.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elijah widow',
+        'widow of zarephath',
+        'zarephath',
+        'zidon',
+        'barrel of meal',
+        'cruse of oil',
+        'handful of meal',
+        '1 kings 17',
+        '1 kings 17:8',
+        'gathering sticks',
+        'little cake',
+        'sustain thee'
+      ],
+      kjvRef: '1 Kings 17:8-16',
+      kidContext: {
+        who: 'The LORD',
+        to: 'The widow and her house',
+        apply: 'She obeyed God first — and the meal and oil held until rain returned. He keeps His word.'
+      }
+    },
+    elijahFire: {
+      title: 'Elijah & Fire on Carmel',
+      panels: [
+        { src: 'panel-jonah-1.svg', alt: 'Mount Carmel — Elijah calls Israel to choose the LORD' },
+        { src: 'panel-jonah-2.svg', alt: 'Prophets of Baal call all day — no answer' },
+        { src: 'panel-jonah-3.svg', alt: 'Fire from heaven — The LORD, he is the God' }
+      ],
+      caption: 'Swipe for Mount Carmel — God answered by fire; the LORD, he is the God.',
       videoId: 'dKcQHonmOi8',
       videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
-      keywords: ['elijah', 'baal', 'fire', 'carmel', '1 kings 18', 'altar'],
-      kjvRef: '1 Kings 18:20–40',
-      kidContext: { who: 'God', to: 'Elijah and all Israel', apply: 'God answers with fire—He\'s real! The LORD is God—trust Him alone!' }
-    },
-    elishaOil: {
-      title: 'Elisha & the Widow\'s Oil',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Widow has only a little oil' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha says: pour into jars' },
-        { src: 'panel-noah-3.svg', alt: 'Oil multiplies—God provides!' }
+      keywords: [
+        'elijah',
+        'mount carmel',
+        'carmel',
+        'baal',
+        'fire',
+        'altar',
+        '1 kings 18',
+        '1 kings 18:17',
+        '1 kings 18:21',
+        '1 kings 18:24',
+        '1 kings 18:36',
+        '1 kings 18:38',
+        'two opinions',
+        'answereth by fire',
+        'prophets of baal',
+        'ahab'
       ],
-      caption: 'Swipe to see God multiply oil—He provides! 🫙',
-      videoId: '6E2WJ0vp4g4',
-      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
-      keywords: ['elisha', 'oil', 'widow', '2 kings 4', 'multiply', 'jar'],
-      kjvRef: '2 Kings 4:1–7',
-      kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God multiplies—He provides! Give God what you have—He can do more!' }
+      kjvRef: '1 Kings 18:17-39',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Israel — and every heart that wonders who is truly God',
+        apply:
+          'He answered Elijah’s prayer with fire from heaven — calm awe, not noise: The LORD, he is the God. Trust Him first.'
+      }
     },
-    naaman: {
-      title: 'Naaman & the River',
+    elijahHoreb: {
+      title: 'Elijah & the Still Small Voice',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Naaman has leprosy' },
-        { src: 'panel-jesus-2.svg', alt: 'Elisha says: dip in Jordan' },
-        { src: 'panel-jesus-3.svg', alt: 'Naaman obeys—healed!' }
+        { src: 'panel-noah-1.svg', alt: 'Elijah in the cave at Horeb — What doest thou here?' },
+        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire — then a still small voice' },
+        { src: 'panel-noah-3.svg', alt: 'Elijah wraps his face — God speaks gently' }
       ],
-      caption: 'Swipe to see Naaman obey—get healed! 💧',
+      caption: 'Swipe for Horeb — after the loud came a still small voice.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elijah horeb',
+        'mount horeb',
+        'still small voice',
+        'still small',
+        '1 kings 19',
+        '1 kings 19:12',
+        '1 kings 19:9',
+        'cave',
+        'mantle',
+        'earthquake',
+        'jealous for the lord',
+        'seven thousand',
+        'baal'
+      ],
+      kjvRef: '1 Kings 19:9-18',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah — and every tired heart that needs a gentle word',
+        apply:
+          'God was not in the wind, earthquake, or fire — but He spoke in a still small voice. Listen quietly; He is near.'
+      }
+    },
+    elijahElijahElisha: {
+      title: 'Elisha Plows the Field',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Twelve yoke of oxen — Elijah casts his mantle on Elisha' },
+        { src: 'panel-noah-2.svg', alt: 'Let me kiss my father and my mother — then I will follow thee' },
+        { src: 'panel-noah-3.svg', alt: 'He arose and went after Elijah — and ministered unto him' }
+      ],
+      caption: 'Swipe for the field where Elisha left the plow to follow God\'s call.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha plows',
+        'elijah calls elisha',
+        'cast his mantle',
+        'twelve yoke of oxen',
+        'abelmeholah',
+        'son of shaphat',
+        '1 kings 19',
+        '1 kings 19:19',
+        '1 kings 19:20',
+        '1 kings 19:21',
+        'kiss my father and my mother',
+        'ministered unto him',
+        'plowing',
+        'oxen'
+      ],
+      kjvRef: '1 Kings 19:19-21',
+      kidContext: {
+        who: 'Elisha',
+        to: 'God — through Elijah\'s call',
+        apply:
+          'Elisha did not rush past home — he honored his parents, then rose and followed. God blesses willing, orderly obedience.'
+      }
+    },
+    naamanHealed: {
+      title: 'Naaman Is Healed of Leprosy',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'A great captain — a little maid points to God’s prophet' },
+        { src: 'panel-jesus-2.svg', alt: 'Wash in Jordan seven times — Wash, and be clean' },
+        { src: 'panel-jesus-3.svg', alt: 'Seven times in the river — clean like a little child' }
+      ],
+      caption: 'Swipe to see God heal Naaman — simple obedience, gentle mercy.',
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
-      keywords: ['naaman', 'river', 'leprosy', 'dip', 'jordan', '2 kings 5', 'elisha'],
-      kjvRef: '2 Kings 5:1–15',
-      kidContext: { who: 'God', to: 'Naaman (through Elisha)', apply: 'Obey God—get healed! Even when it seems simple, do what He says!' }
+      keywords: [
+        'naaman',
+        'naaman healed',
+        '2 kings 5',
+        '2 kings 5:1',
+        '2 kings 5:10',
+        '2 kings 5:14',
+        'jordan',
+        'seven times',
+        'leprosy',
+        'elisha',
+        'little maid',
+        'samaria',
+        'wash and be clean',
+        'syria'
+      ],
+      kjvRef: '2 Kings 5:1-15',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Naaman — through Elisha’s word',
+        apply:
+          'God’s healing often comes through simple obedience — even when pride wants a louder way.'
+      },
+      narration:
+        "Naaman Is Healed of Leprosy — 2 Kings 5:1-15. Naaman was captain of the king of Syria, a great man, but he was a leper. A little maid said, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy. Naaman came with horses and chariot and stood at the door of Elisha’s house. Elisha sent word, Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman was wroth — but his servants said, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean? Naaman dipped seven times; his flesh came again like unto the flesh of a little child, and he was clean. He returned and said, Behold, now I know that there is no God in all the earth, but in Israel. For you: Simple obedience brings cleansing — God is mighty to heal."
     },
     jesusWalksWater: {
       title: 'Jesus Walks on Water',
@@ -1451,18 +1738,167 @@
       kidContext: { who: 'God', to: 'Everyone who believes', apply: 'God makes new home—no more sad! No tears, no pain—forever with Him!' }
     },
     ruthBoaz: {
-      title: 'Ruth & Boaz',
+      title: 'Ruth and Boaz in the Field',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Ruth stays with Naomi' },
-        { src: 'panel-david-2.svg', alt: 'Ruth gleans in Boaz\'s field' },
-        { src: 'panel-david-3.svg', alt: 'Boaz is kind—God sees!' }
+        { src: 'panel-david-1.svg', alt: 'Harvest in Bethlehem — Ruth asks to glean in the field' },
+        { src: 'panel-david-2.svg', alt: 'Boaz speaks kindly — abide here, drink when athirst' },
+        { src: 'panel-david-3.svg', alt: 'The Lord recompense thy work — Ruth gathers barley till evening' }
       ],
-      caption: 'Swipe to see Ruth and Boaz—be kind, God sees! 🌾',
+      caption: 'Swipe to see God\'s quiet kindness in the harvest field.',
       videoId: 'irThVpdeSXk',
       videoTitle: "God's Story: Ruth – Bible Story for Kids!",
-      keywords: ['ruth', 'boaz', 'loyalty', 'harvest', 'naomi', 'ruth 1'],
-      kjvRef: 'Ruth 1',
-      kidContext: { who: 'God', to: 'Ruth and Boaz', apply: 'Be kind—God sees! Loyalty and kindness matter to Him!' }
+      keywords: [
+        'ruth',
+        'boaz',
+        'glean',
+        'barley',
+        'harvest',
+        'bethlehem',
+        'naomi',
+        'kinsman',
+        'reapers',
+        'ephah',
+        'ruth 2',
+        'moabitess',
+        'grace',
+        'wings'
+      ],
+      kjvRef: 'Ruth 2:1-17',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Ruth — and every heart that works faithfully',
+        apply:
+          "Boaz noticed Ruth's loyal heart and spoke with gentleness. God often cares for us through the kindness of others — and He sees every faithful step."
+      },
+      narration:
+        "Ruth and Boaz in the Field – Ruth 2:1-17. Naomi had a kinsman, a mighty man of wealth, Boaz, of Elimelech's kindred. Ruth said unto Naomi, Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace. She came into the field of Boaz. Boaz came from Bethlehem, and said unto the reapers, The LORD be with you. He asked his servant whose damsel this was; it was the Moabitish damsel that came back with Naomi. Boaz said unto Ruth, Hearest thou not, my daughter? Go not to glean in another field… abide here fast by my maidens… when thou art athirst, go unto the vessels, and drink. She bowed herself to the ground, and said, Why have I found grace in thine eyes? Boaz answered, The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust. She gleaned in the field until evening, and beat out that she had gleaned: and it was about an ephah of barley. For you: God provides — often through gentle people He places beside you."
+    },
+    ruthThreshing: {
+      title: 'Ruth at the Threshing Floor',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Naomi\'s loving plan — rest for Ruth' },
+        { src: 'panel-david-2.svg', alt: 'A quiet night — Ruth at Boaz\'s feet' },
+        { src: 'panel-david-3.svg', alt: 'Kind words — fear not, I will do all thou requirest' }
+      ],
+      caption: 'Swipe to see brave obedience and Boaz\'s gentle promise.',
+      videoId: 'irThVpdeSXk',
+      videoTitle: "God's Story: Ruth – Bible Story for Kids!",
+      keywords: [
+        'ruth',
+        'boaz',
+        'naomi',
+        'threshing',
+        'threshing floor',
+        'midnight',
+        'kinsman',
+        'redeem',
+        'redeemer',
+        'skirt',
+        'handmaid',
+        'virtuous',
+        'barley',
+        'measures',
+        'ruth 3',
+        'obedience',
+        'kindness'
+      ],
+      kjvRef: 'Ruth 3:1-18',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Ruth — and every heart that obeys with trust',
+        apply:
+          "Naomi loved Ruth and wanted a safe home for her. Ruth obeyed with a quiet heart. Boaz answered with kindness and kept his word about the kinsman's part. God honors loyal love and provides a redeemer."
+      },
+      narration:
+        "Ruth at the Threshing Floor – Ruth 3:1-18. Naomi loved Ruth and wanted to find rest for her. She told Ruth what to do. That night, when Boaz had eaten and drunk and his heart was merry, he went to lie down at the end of the heap of corn; and Ruth came softly, uncovered his feet, and laid her down. At midnight the man was afraid, and turned: and, behold, a woman lay at his feet. He said, Who art thou? And she answered, I am Ruth thine handmaid: spread therefore thy skirt over thine handmaid; for thou art a near kinsman. He said, Blessed be thou of the LORD, my daughter… fear not; I will do to thee all that thou requirest: for all the city of my people doth know that thou art a virtuous woman. He gave her six measures of barley to carry to Naomi, and said that if the nearer kinsman would not do the part of a kinsman, he would. Ruth returned, and Naomi said, The man will not be in rest, until he have finished the thing this day. For you: When we trust God and obey kindly, He works redemption in His time."
+    },
+    ruthRedemption: {
+      title: 'Ruth\'s Redemption (The Happy Ending)',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'At the city gate — Boaz, the nearer kinsman, and witnesses' },
+        { src: 'panel-david-2.svg', alt: 'Ye are witnesses — Boaz redeems Naomi\'s line and takes Ruth as his wife' },
+        { src: 'panel-david-3.svg', alt: 'Naomi holds baby Obed — joy where sorrow had been' }
+      ],
+      caption: 'Swipe to see God\'s faithful happy ending at the gate.',
+      videoId: 'irThVpdeSXk',
+      videoTitle: "God's Story: Ruth – Bible Story for Kids!",
+      keywords: [
+        'ruth',
+        'ruth 4',
+        'boaz',
+        'naomi',
+        'obed',
+        'jesse',
+        'david',
+        'gate',
+        'redeem',
+        'redeemer',
+        'kinsman',
+        'witnesses',
+        'sandal',
+        'shoe',
+        'bethlehem',
+        'moabitess',
+        'rachel',
+        'leah',
+        'ephraah',
+        'restorer',
+        'nourisher',
+        'joy',
+        'faithful'
+      ],
+      kjvRef: 'Ruth 4:1-17',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Naomi, Ruth, Boaz — and every heart that needs hope',
+        apply:
+          "At the gate, Boaz kept his word as kinsman-redeemer. The Lord gave a son; Naomi's arms were filled again. God turns sorrow into joy and weaves faithful love into His bigger story."
+      },
+      narration:
+        "Ruth's Redemption – Ruth 4:1-17. Boaz went up to the gate and sat down; the nearer kinsman came, and Boaz called ten elders to sit. He spoke of Naomi's land and of redeeming it; the kinsman first said he would redeem, but when he heard he must also take Ruth the Moabitess to raise up the name of the dead upon his inheritance, he could not — and plucked off his shoe and gave his right to Boaz. Boaz said to the elders and all the people, Ye are witnesses this day, that I have bought all that was Elimelech's, and all that was Chilion's and Mahlon's, of the hand of Naomi. Moreover Ruth the Moabitess, the wife of Mahlon, have I purchased to be my wife. The people blessed him and prayed the Lord would make her like Rachel and like Leah, and be famous in Bethlehem. So Boaz took Ruth, and she bare a son. The women blessed Naomi and said the child would be a restorer of her life; Naomi took the child and laid him in her bosom. They called his name Obed: he is the father of Jesse, the father of David. For you: God keeps His promises — He cares for His people and gives a Redeemer."
+    },
+    hannahPrayer: {
+      title: 'Hannah\'s Prayer',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Year after year — Hannah\'s sad heart at the house of the Lord' },
+        { src: 'panel-noah-2.svg', alt: 'She prays with moving lips — Eli watches by the temple door' },
+        { src: 'panel-noah-3.svg', alt: 'Go in peace — the Lord remembers; a son named Samuel' }
+      ],
+      caption: 'Swipe to see God hear a poured-out heart and remember.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'hannah',
+        'hannah prayer',
+        '1 samuel 1',
+        'shiloh',
+        'elkanah',
+        'peninnah',
+        'eli',
+        'tabernacle',
+        'temple',
+        'lord of hosts',
+        'poured out my soul',
+        'sorrowful spirit',
+        'go in peace',
+        'grant thee thy petition',
+        'samuel',
+        'because i have asked him',
+        'remembered',
+        'weep',
+        'vow',
+        'nazarite',
+        'razor'
+      ],
+      kjvRef: '1 Samuel 1:1-20',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Hannah — and every heart that weeps honestly',
+        apply:
+          "God hears when we pour out our souls to Him — not too loud, not too proud, just true. Eli's blessing was gentle; the Lord's answer came in His time."
+      },
+      narration:
+        "Hannah's Prayer – 1 Samuel 1:1-20. There was a woman named Hannah who had no children, and her heart was very sad. Every year she went with her husband to the house of the Lord at Shiloh, but she cried and could not eat. One day Hannah prayed at the tabernacle with all her heart. She wept sore and made a promise to God: O LORD of hosts, if thou wilt… give unto thine handmaid a man child, then I will give him unto the LORD all the days of his life. Eli the priest saw her lips moving but heard no voice. He thought she was drunk, but Hannah told him, I am a woman of a sorrowful spirit… I have poured out my soul before the LORD. Eli answered, Go in peace: and the God of Israel grant thee thy petition that thou hast asked of him. Hannah went away with a happy face. The LORD remembered Hannah, and in time she had a son. She called his name Samuel, saying, Because I have asked him of the LORD. For you: God listens to sad hearts and answers in His kind time."
     },
     parableTalents: {
       title: 'Parable of Talents',
@@ -1504,9 +1940,9 @@
       videoId: 'GYZh5eY6FGg',
       videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
       keywords: ['moses', 'red sea', 'staff', 'parting', 'exodus 14', 'miracle'],
-      kjvRef: 'Exodus 14',
-      kidContext: { who: 'God', to: 'Moses and Israel', apply: "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through." },
-      narration: "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind. The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed. A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water. When the Egyptians followed, God closed the sea and saved His people. God makes a way! For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
+      kjvRef: 'Exodus 14:21-31',
+      kidContext: { who: 'God', to: 'Moses and Israel', apply: "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save." },
+      narration: "Moses Sea-Split – Exodus 14:21-31. God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. But Moses stretched out his hand over the sea, just as God told him. The Lord caused the sea to go back all night with a strong east wind. The waters divided. The children of Israel walked on dry ground, with walls of water on their right and on their left. When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered the chariots and the horsemen—not one of them remained. That day the Lord saved Israel, and the people believed the Lord and His servant Moses. For you: When you feel stuck or afraid, God can still make a way. Pray and trust Him."
     },
     burningBush: {
       title: 'The Burning Bush',
@@ -1518,10 +1954,10 @@
       caption: 'Swipe to see God call Moses from the burning bush! 🔥',
       videoId: 'bWcwZIV-ip8',
       videoTitle: "Moses and the Burning Bush – Bible Stories for Kids!",
-      keywords: ['moses', 'burning bush', 'fire', 'exodus 3', 'holy ground', 'call'],
-      kjvRef: 'Exodus 3:1–10',
-      kidContext: { who: 'God', to: 'Moses', apply: "Moses saw a bush on fire but not burning up. God spoke from the bush and told Moses His name and plan. God speaks to us too—through His Word, prayer, and quiet moments. Listen for His voice and obey when He calls you." },
-      narration: "Burning Bush – Exodus 3:2. Moses was taking care of sheep when he saw something amazing—a bush burning with fire but not burning up. He went closer. God called from the bush, 'Moses, Moses!' God said, 'I am the God of your fathers. I have seen My people's suffering in Egypt. Go tell Pharaoh to let them go.' Moses was afraid, but God promised, 'I will be with you.' God even told Moses His name: 'I AM THAT I AM.' God speaks to us! For you: God still speaks today—through the Bible, prayer, and when your heart feels a gentle nudge. Listen, trust, and obey when He calls your name."
+      keywords: ['moses', 'burning bush', 'fire', 'exodus 3', 'holy ground', 'call', 'horeb'],
+      kjvRef: 'Exodus 3:1-15',
+      kidContext: { who: 'God', to: 'Moses', apply: 'God spoke from a bush that burned but was not consumed. His ground is holy—He calls us to listen and draw near with reverence. When God calls your name, you can answer, "Here am I."' },
+      narration: "The Burning Bush – Exodus 3:1-6. Moses was keeping his father-in-law's sheep in the desert when he came to Horeb, the mountain of God. He saw a bush burning with fire, yet the bush was not burned up. Moses turned aside to see why. When the Lord saw he looked, God called from the bush, 'Moses, Moses!' Moses said, 'Here am I.' God said to put off his shoes, for the ground was holy. Then God made Himself known as the God of Abraham, Isaac, and Jacob—and Moses hid his face, afraid to look upon God. For you: God still speaks. Listen with a quiet heart; His presence is holy."
     },
     tenPlagues: {
       title: 'Ten Plagues of Egypt',
@@ -1548,10 +1984,10 @@
       caption: 'Swipe to see God feed His people with bread from heaven! 🍞',
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
-      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'provide'],
-      kjvRef: 'Exodus 16',
-      kidContext: { who: 'God', to: 'Israel in the wilderness', apply: "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time." },
-      narration: "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost. It tasted like honey wafers! They called it manna. God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath. God provided every morning! For you: God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just enough, right when you need it."
+      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'wilderness', 'forty years', 'honey', 'wafers', 'provide'],
+      kjvRef: 'Exodus 16:1-36',
+      kidContext: { who: 'God', to: 'Israel in the wilderness', apply: "God rained bread from heaven every morning—small, sweet manna, enough for each day. He fed His people for forty years until they reached the land He promised. When you worry about tomorrow, trust Him; He still gives daily bread—and Jesus is the true bread of life." },
+      narration: "Manna from Heaven – Exodus 16:4-5, 13-15, 31. The children of Israel had been walking in the wilderness for many days. They were hungry and began to grumble. God heard them and spoke to Moses: 'Behold, I will rain bread from heaven for you. The people shall go out and gather a certain amount every day.' The next morning, when the dew was gone, there on the ground lay small, white flakes like frost. The people looked at it and said, 'What is it?' for they did not know what it was. Moses said, 'This is the bread which the Lord hath given you to eat.' Every morning the manna came. It tasted sweet, like wafers made with honey. The people gathered just enough for each day, and on the sixth day they gathered twice as much so they could rest on the Sabbath. God gave them this bread from heaven every single day for forty years, until they came to the land He promised. For you: God gives enough for today. When you worry, remember His daily kindness—and thank Him for Jesus."
     },
     tenCommandments: {
       title: 'Ten Commandments',
@@ -1563,55 +1999,122 @@
       caption: 'Swipe to see God give rules to keep us safe! 📜',
       videoId: 'P12cLzy1-3Q',
       videoTitle: 'The Ten Commandments – Bible Stories for Kids!',
-      keywords: ['ten commandments', 'moses', 'mountain', 'tablets', 'exodus 20', 'rules'],
+      keywords: ['ten commandments', 'moses', 'mountain', 'tablets', 'exodus 20', 'sinai', 'sabbath', 'stone', 'law', 'rules'],
       kjvRef: 'Exodus 20:1-17',
-      kidContext: { who: 'God', to: 'Moses and Israel', apply: "God gave Moses ten rules on stone tablets to help people love God and love others. They were good laws to live by. God's rules show us how to live happy and right. When you follow them, you honor God and treat people well." },
-      narration: "Ten Commandments – Exodus 20:1-17. The Israelites came to Mount Sinai. God called Moses up the mountain. There, God spoke ten important rules and wrote them on stone tablets. The first four were about loving God: no other gods, no idols, honor His name, keep the Sabbath. The last six were about loving others: honor parents, no murder, no stealing, no lying, no wanting what others have. God gave these rules to help His people live good lives. For you: God's rules are like guardrails—they keep you safe and happy. Love God with all your heart, and love others like yourself. Following them makes life better."
+      kidContext: { who: 'God', to: 'Moses and Israel', apply: "At Mount Sinai God spoke His holy law and wrote the ten commandments on stone for Moses. His words teach us to love Him with all our heart and to honor one another with truth and kindness. When we need help to obey, we can pray—God hears and gives a willing heart." },
+      narration: "Ten Commandments – Exodus 20:1-17. God's people had come to the foot of Mount Sinai. A thick cloud covered the mountain, and there was thunder and lightning. The mountain shook, and the people were afraid. Moses went up the mountain to meet with God. God spoke: 'I am the Lord thy God, which have brought thee out of the land of Egypt, out of the house of bondage. Thou shalt have no other gods before me. Thou shalt not make unto thee any graven image. Thou shalt not take the name of the Lord thy God in vain. Remember the sabbath day, to keep it holy. Honour thy father and thy mother. Thou shalt not kill. Thou shalt not commit adultery. Thou shalt not steal. Thou shalt not bear false witness against thy neighbour. Thou shalt not covet thy neighbour's house, thou shalt not covet thy neighbour's wife, nor his manservant, nor his maidservant, nor his ox, nor his ass, nor any thing that is thy neighbour's.' God wrote these ten commandments on two tables of stone and gave them to Moses so His people would know how to love Him and love each other. The people stood far off, but Moses drew near to the thick darkness where God was. For you: God's commandments are a gift—they show us how to love Him first and care for others well."
     },
     elijahFire: {
-      title: 'Elijah and the Fire',
+      title: 'Elijah and the Fire on Mount Carmel',
       panels: [
-        { src: 'panel-david-1.svg', alt: "Elijah building the altar and pouring water – Setting up the challenge" },
-        { src: 'panel-david-2.svg', alt: "Prophets of Baal praying with no answer – False gods fail" },
-        { src: 'panel-david-3.svg', alt: "Fire falling from heaven on Elijah's altar – God answers prayer" }
+        { src: 'panel-david-1.svg', alt: 'All Israel gathers at Carmel — How long halt ye between two opinions?' },
+        { src: 'panel-david-2.svg', alt: 'The prophets of Baal call all day — no voice answers' },
+        { src: 'panel-david-3.svg', alt: 'Elijah prays — the fire of the LORD falls; the people worship' }
       ],
-      caption: 'Swipe to see God answer Elijah with fire! 🔥',
+      caption: 'Swipe for Carmel — the LORD answered by fire; the LORD, he is the God.',
       videoId: 'dKcQHonmOi8',
       videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
-      keywords: ['elijah', 'fire', 'altar', '1 kings 18', 'baal', 'miracle'],
-      kjvRef: '1 Kings 18:38',
-      kidContext: { who: 'God', to: 'Elijah and Israel', apply: "Elijah prayed for fire from heaven to show God was real, and God sent fire that burned everything. The people saw and believed. When you pray and trust God, He hears and answers in His perfect way. Keep praying—God shows up!" },
-      narration: "Elijah Fire on Carmel – 1 Kings 18:38. The people of Israel were worshiping false gods. Elijah said, 'Let's see whose God is real.' He built an altar, put a sacrifice on it, and poured water over it three times. The prophets of Baal prayed all day, but nothing happened. Elijah prayed, 'Lord God, let it be known that You are God in Israel.' Suddenly fire fell from heaven! It burned the sacrifice, the wood, the stones, and even licked up the water in the trench. The people shouted, 'The Lord, He is God!' For you: When things seem impossible or people doubt God, pray and trust Him. God hears your prayers and shows His power in amazing ways."
-    },
-    elishaOil: {
-      title: 'Elisha and the Oil',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "Widow asking Elisha for help – She has only a little oil" },
-        { src: 'panel-noah-2.svg', alt: "Widow borrowing pots from neighbors – Obeying Elisha" },
-        { src: 'panel-noah-3.svg', alt: "Oil filling every pot – God multiplies abundantly" }
+      keywords: [
+        'elijah carmel',
+        'elijah mount carmel',
+        'mount carmel',
+        'fire from heaven',
+        'altar',
+        'baal',
+        '1 kings 18',
+        '1 kings 18:21',
+        '1 kings 18:24',
+        '1 kings 18:36',
+        '1 kings 18:38',
+        'two opinions',
+        'answereth by fire',
+        'prophets of baal',
+        'ahab'
       ],
-      caption: 'Swipe to see God multiply oil—He provides! 🫙',
-      videoId: '6E2WJ0vp4g4',
-      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
-      keywords: ['elisha', 'oil', 'widow', '2 kings 4', 'multiply', 'miracle'],
-      kjvRef: '2 Kings 4:6',
-      kidContext: { who: 'God', to: 'The widow through Elisha', apply: "A widow had only a little oil. Elisha told her to borrow pots—God filled them all! She sold the oil and paid her debts. God can multiply the little you have when you trust Him and obey. Bring what you have to God—He can make it enough." },
-      narration: "Elisha Oil Pots – 2 Kings 4:6. A poor widow owed money and was afraid her sons would be taken as slaves. She asked Elisha for help. Elisha asked, 'What do you have in the house?' She said, 'Only a little oil.' Elisha told her, 'Go borrow empty pots from your neighbors—don't borrow just a few.' She obeyed. She poured her little oil into the pots. God made the oil keep flowing until every pot was full! She sold the oil, paid her debts, and had money left. God multiplies! For you: When you feel like you don't have enough—time, money, courage—bring it to God. Obey Him, and watch Him multiply what you have to meet your needs."
+      kjvRef: '1 Kings 18:17-39',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah and all the people',
+        apply:
+          'False gods stayed silent; the LORD answered by fire. When you pray in His name, He hears — and He alone is God.'
+      },
+      narration:
+        "Elijah and the Fire on Mount Carmel – 1 Kings 18:17-39. Ahab met Elijah; the prophet called Israel to Carmel with the prophets of Baal. Elijah asked, How long halt ye between two opinions? If the LORD be God, follow him. The God that answereth by fire, let him be God. Baal’s prophets called from morning — no voice answered. At evening Elijah repaired the altar, set the sacrifice, poured water until the trench was full, and prayed: LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel. Hear me, O LORD, that this people may know that thou art the LORD God. Then the fire of the LORD fell — it consumed the sacrifice, the wood, the stones, the dust, and licked up the water. The people fell on their faces: The LORD, he is the God. For you: The true God is near when we pray — put Him first, and trust His answer."
+    },
+    elijahHoreb: {
+      title: 'Elijah and the Still Small Voice',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'At Horeb — the word of the LORD in the cave' },
+        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire — then a still small voice' },
+        { src: 'panel-noah-3.svg', alt: 'Elijah wraps his face — seven thousand have not bowed to Baal' }
+      ],
+      caption: 'Swipe for Horeb — God spoke in a still small voice.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elijah horeb',
+        'mount horeb',
+        'mountain of god',
+        'still small voice',
+        'still small',
+        '1 kings 19',
+        '1 kings 19:9',
+        '1 kings 19:12',
+        '1 kings 19:18',
+        'cave',
+        'mantle',
+        'what doest thou here',
+        'jealous for the lord',
+        'seven thousand',
+        'not bowed unto baal'
+      ],
+      kjvRef: '1 Kings 19:9-18',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah — and every heart that needs quiet courage',
+        apply:
+          'The LORD was not in the storm — but He met Elijah gently. He still speaks in quiet ways; listen for Him.'
+      },
+      narration:
+        "Elijah and the Still Small Voice – 1 Kings 19:9-18. Elijah lodged in a cave; the word of the LORD came: What doest thou here, Elijah? He told how he had been jealous for the LORD — and felt alone. Go forth, stand upon the mount before the LORD. The LORD passed by: a great wind rent the mountains — the LORD was not in the wind; an earthquake — the LORD was not in the earthquake; a fire — the LORD was not in the fire; and after the fire a still small voice. When Elijah heard it, he wrapped his face in his mantle and stood in the entering in of the cave. The LORD spoke again — and showed him faithful work ahead, and this comfort: Yet I have left me seven thousand in Israel, all the knees which have not bowed unto Baal. For you: When life feels loud inside, God can still speak softly — lean in and listen."
     },
     naamanDip: {
-      title: 'Naaman Dips in the River',
+      title: 'Naaman Returns with Thanks',
       panels: [
-        { src: 'panel-noah-1.svg', alt: "Naaman with leprosy – Proud captain needing help" },
-        { src: 'panel-noah-2.svg', alt: "Naaman dipping in the Jordan River – Obeying Elisha" },
-        { src: 'panel-noah-3.svg', alt: "Naaman healed – Skin clean like new" }
+        { src: 'panel-jesus-1.svg', alt: 'Naaman stands before Elisha — thankful, with company' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha will take no payment — God gave the healing freely' },
+        { src: 'panel-jesus-3.svg', alt: 'Go in peace — Naaman turns toward home with a glad heart' }
       ],
-      caption: 'Swipe to see Naaman healed—obey and be made new! 💧',
+      caption: 'Swipe for thanks after the river — God’s healing was not for sale.',
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
-      keywords: ['naaman', 'river', 'jordan', '2 kings 5', 'leprosy', 'heal', 'obey'],
-      kjvRef: '2 Kings 5:1–15',
-      kidContext: { who: 'God', to: 'Naaman through Elisha', apply: "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He can heal and help in ways you don't expect." },
-      narration: "Naaman Washed Clean – 2 Kings 5:14. Naaman was a great army captain, but he had leprosy. A little servant girl said, 'Go to the prophet in Israel—God can heal you.' Naaman went to Elisha. Elisha said, 'Go wash in the Jordan River seven times.' Naaman was angry—'The rivers in my country are better!' But his servants said, 'If he asked something hard, you would do it—why not this?' Naaman obeyed, dipped seven times, and his skin became clean like a child's! God healed him. For you: Sometimes God asks us to do simple things like pray, forgive, or be kind. Obey even if it seems small—God can do big miracles when we trust and follow Him."
+      keywords: [
+        'naaman',
+        'naaman returns',
+        'after naaman healed',
+        'take a blessing',
+        'two mules',
+        'earth',
+        'go in peace',
+        '2 kings 5:15',
+        '2 kings 5:16',
+        '2 kings 5:17',
+        '2 kings 5:19',
+        '2 kings 5',
+        'gifts',
+        'thanks',
+        'elisha',
+        'syria'
+      ],
+      kjvRef: '2 Kings 5:15-19',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Naaman — through Elisha',
+        apply:
+          'God’s mercy is a gift — not something we buy. A thankful heart is a beautiful offering.'
+      },
+      narration:
+        "Naaman Returns with Thanks — 2 Kings 5:15-19. After Naaman was clean, he came and stood before the man of God and said, Behold, now I know that there is no God in all the earth, but in Israel. He wished to give a blessing; Elisha said, As the LORD liveth, I will receive none. Naaman asked for earth to remember the LORD, and Elisha sent him, Go in peace. For you: The river was not the end — a thankful heart still had more to learn about God’s free gift."
     },
     creationLight: {
       title: '"Let There Be Light"',
@@ -1798,9 +2301,10 @@
       caption: 'Swipe to see God\'s rescue—the Passover lamb! 🐑',
       videoId: '',
       videoTitle: '',
-      keywords: ['passover', 'lamb', 'blood', 'doorposts', 'exodus 12', 'rescue', 'save'],
-      kjvRef: 'Exodus 12',
-      kidContext: { who: 'God', to: 'Israel in Egypt', apply: 'Jesus is our Passover Lamb! He saves us—just believe and be covered.' }
+      keywords: ['passover', 'lamb', 'blood', 'doorposts', 'hyssop', 'exodus 12', 'rescue', 'save'],
+      kjvRef: 'Exodus 12:1-14',
+      kidContext: { who: 'God', to: 'Israel in Egypt', apply: "God told His people to put blood on the door. When He saw it, He passed over them and kept them safe. Jesus is God's Passover Lamb—when we trust Him, we are safe in His rescue." },
+      narration: "The Passover Lamb – Exodus 12:7-13. God told Moses and Aaron what Israel must do. Each home took a lamb, and at evening they put its blood on the doorposts with hyssop. The Lord said, When I see the blood, I will pass over you, and the plague shall not destroy you. They obeyed, stayed inside, and ate the meal God said to eat. Because of the blood on the door, the Lord passed over and kept them safe. For you: Trust God's way of rescue—Jesus gave His life so we could be safe forever."
     },
     redSeaCrossing: {
       title: 'Red Sea Crossing',
@@ -1820,170 +2324,442 @@
     joshuaJordan: {
       title: 'Joshua at the Jordan',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Priests carry the ark to the Jordan' },
-        { src: 'panel-noah-2.svg', alt: 'They step in—the river stops!' },
-        { src: 'panel-noah-3.svg', alt: 'Israel crosses on dry ground' }
+        { src: 'panel-noah-1.svg', alt: 'God\'s people at the Jordan — time to enter the land He promised' },
+        { src: 'panel-noah-2.svg', alt: 'Priests bear the ark into the water — the river stops; a heap of water stands' },
+        { src: 'panel-noah-3.svg', alt: 'Twelve stones — tell the children what the Lord did' }
       ],
       caption: 'Swipe to see God stop the Jordan River—He always leads! 🏞️',
       videoId: '',
       videoTitle: '',
-      keywords: ['joshua', 'jordan', 'ark', 'river', 'joshua 3', 'priests', 'miracle'],
-      kjvRef: 'Joshua 3–4',
-      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God leads you into the new! Step forward in faith—He holds the water back.' }
+      keywords: [
+        'joshua', 'jordan', 'ark', 'river', 'joshua 3', 'joshua 4', 'priests', 'miracle', 'heap', 'dry ground',
+        'twelve stones', 'covenant', 'obey', 'promised land'
+      ],
+      kjvRef: 'Joshua 3:14-17; 4:1-7, 18-24',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel (and us)',
+        apply:
+          "When the priests obeyed and stepped in, God held the river back—just like He made a way at the Red Sea. His hand is mighty. When He asks you to take the next step, you can trust Him to go with you."
+      },
+      narration:
+        "Joshua at the Jordan – Joshua 3:14-17; 4:1-7, 18-24. God's people came to the Jordan River. It was time to cross into the land the Lord had promised them. The Lord told Joshua, 'When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap.' The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over. After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place. Joshua set up twelve stones from the middle of the river as a reminder. He told the people, 'When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty.' For you: God's hand is mighty—remember what He has done and trust Him today."
     },
     jordanCrossing: {
       title: 'Crossing the Jordan',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Israel at the Jordan — priests bear the ark' },
-        { src: 'panel-noah-2.svg', alt: 'Feet touch the water — the river stops upstream' },
-        { src: 'panel-noah-3.svg', alt: 'Twelve stones — remember this miracle' }
+        { src: 'panel-noah-1.svg', alt: 'The camp at the Jordan — the Lord will open the way' },
+        { src: 'panel-noah-2.svg', alt: 'Feet of the priests touch the flood — the waters stand in a heap' },
+        { src: 'panel-noah-3.svg', alt: 'Dry ground and twelve stones — so we never forget His mighty hand' }
       ],
       caption: 'Swipe to see God dry up the river — step forward! 🏞️',
       videoId: '',
       videoTitle: '',
-      keywords: ['jordan', 'joshua', 'ark', 'crossing', 'joshua 3', 'joshua 4', 'stones', 'memorial'],
-      kjvRef: 'Joshua 3–4',
-      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'High water cannot stop God — He makes a path when you obey.' }
+      keywords: [
+        'jordan', 'joshua', 'ark', 'crossing', 'joshua 3', 'joshua 4', 'stones', 'memorial', 'heap', 'dry ground',
+        'priests', 'promised land', 'obey', 'miracle'
+      ],
+      kjvRef: 'Joshua 3:14-17; 4:1-7, 18-24',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel (and us)',
+        apply:
+          "High water cannot stop God when He calls His people forward. The twelve stones were for remembering—tell someone what God has done for you, and thank Him for Jesus, our living way."
+      },
+      narration:
+        "Crossing the Jordan – Joshua 3:14-17; 4:1-7, 18-24. God's people came to the Jordan River. It was time to cross into the land the Lord had promised them. The Lord told Joshua, 'When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap.' The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over. After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place. Joshua set up twelve stones from the middle of the river as a reminder. He told the people, 'When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty.' For you: God's hand is mighty—remember what He has done and trust Him today."
     },
     jerichoWalls: {
       title: 'Walls of Jericho Fall',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Israel marches around Jericho' },
-        { src: 'panel-david-2.svg', alt: 'Trumpets blow—people shout!' },
-        { src: 'panel-david-3.svg', alt: 'The walls fall down—God wins!' }
+        { src: 'panel-david-1.svg', alt: 'Jericho — strong walls; the Lord\'s plan for Joshua' },
+        { src: 'panel-david-2.svg', alt: 'Seven days of obedience — trumpets and the great shout' },
+        { src: 'panel-david-3.svg', alt: 'The wall falls flat — the Lord gave the city' }
       ],
       caption: 'Swipe to see God tumble those walls—He wins every battle! 🎺',
       videoId: '',
       videoTitle: '',
-      keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'shout', 'victory'],
-      kjvRef: 'Joshua 6',
-      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God wins battles in surprising ways! Obey—then shout for joy.' }
+      keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'shout', 'ark', 'obey', 'faith', 'victory'],
+      kjvRef: 'Joshua 6:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel',
+        apply:
+          "They marched as God said, blew the trumpets, and shouted—and the wall fell flat. The Lord gave Jericho; their part was to obey. God still calls His people to trust His Word and take the next right step."
+      },
+      narration:
+        "Walls of Jericho – Joshua 6:1-5, 11-16, 20. God's people came to Jericho with its high walls and shut gates. The Lord told Joshua exactly how to compass the city—once a day for six days, seven times on the seventh day, with seven priests bearing rams' horns before the ark, and a long blast and a great shout at God's command. They obeyed fully. The priests blew, the people shouted, and the wall fell down flat. They took the city because the Lord had given it. For you: Obedience and faith go together—follow the Lord's voice."
     },
     joshuaAi: {
       title: 'Joshua and Ai',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'First attack on Ai — Israel stumbles' },
-        { src: 'panel-david-2.svg', alt: 'Sin is found and removed from the camp' },
-        { src: 'panel-david-3.svg', alt: 'God gives Joshua victory at Ai' }
+        { src: 'panel-david-1.svg', alt: 'After Jericho — Israel goes up against little Ai' },
+        { src: 'panel-david-2.svg', alt: 'The first attack fails — Joshua falls on his face before God' },
+        { src: 'panel-david-3.svg', alt: 'The Lord says there is sin in the camp — truth must come out' }
       ],
-      caption: 'Swipe to see obedience bring victory! 🏙️',
+      caption: 'Swipe to see why the first try at Ai failed — God is holy and true. 🏙️',
       videoId: '',
       videoTitle: '',
-      keywords: ['joshua', 'ai', 'achan', 'joshua 7', 'joshua 8', 'obey', 'ambush'],
-      kjvRef: 'Joshua 8',
-      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'Hidden sin blocked the win — when the camp obeyed God again, He gave the city.' }
+      keywords: ['joshua', 'ai', 'achan', 'joshua 7', 'defeat', 'sin', 'camp', 'obey', 'jericho'],
+      kjvRef: 'Joshua 7:1-11',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel',
+        apply:
+          "They thought Ai was small and easy — but God had said all the spoil of Jericho was devoted to Him. When someone hid what belonged to the Lord, the whole camp felt it. When we hide wrong, it hurts everyone; telling the truth is the way back."
+      },
+      narration:
+        "Joshua and Ai – Joshua 7:1-11. After Jericho, Joshua sent men to look at Ai. They said only a few thousand men were needed. But Israel went up and were chased and beaten; thirty-six men died. Joshua tore his clothes and fell on his face before the ark until evening. The Lord told him someone had taken of the accursed thing — there was sin in the camp. For you: God is holy; He calls His people to honesty together."
+    },
+    achan: {
+      title: 'Achan\'s Sin and Restoration',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Joshua gathers Israel — tribe by tribe, family by family' },
+        { src: 'panel-david-2.svg', alt: 'Achan kneels and tells the truth — I have sinned against the Lord' },
+        { src: 'panel-david-3.svg', alt: 'The camp is clean again — God can lead His people forward' }
+      ],
+      caption: 'Swipe to see the Lord\'s mercy when we tell the truth. 🙏',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'achan', 'joshua 7', 'ai', 'confess', 'sin', 'forgive', 'jericho', 'stolen', 'truth', 'camp', 'israel'
+      ],
+      kjvRef: 'Joshua 7:1-26',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Israel — and every heart today',
+        apply:
+          "God is holy — He cannot bless what is hidden and wrong. When Achan told the truth, the trouble was removed from the camp. When you are sorry and tell God and a trusted grown-up, He forgives and helps you start clean in Jesus."
+      },
+      narration:
+        "Achan's Sin and Restoration – Joshua 7:1-26. After Jericho, the children of Israel went to fight against the small city of Ai. But they were defeated and some men died. Joshua was sad and asked the Lord why this had happened. The Lord told him that someone in the camp had taken things from Jericho that belonged to the Lord and had hidden them. Joshua called all the people together. One by one the tribes came forward until the sin was found with a man named Achan. Achan confessed, 'Indeed I have sinned against the Lord God of Israel.' The trouble was taken away from the camp. Then the Lord was no longer angry, and He helped His people win the next battle against Ai. God showed both His holiness and His mercy that day. When we do wrong and tell the truth, He forgives and makes things right again. For you: Tell God the truth — He is kind to forgive everyone who trusts in Jesus."
     },
     battleOfAi: {
       title: 'Victory at Ai',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Joshua follows God\'s new battle plan' },
-        { src: 'panel-david-2.svg', alt: 'Israel draws Ai out — ambush closes behind' },
-        { src: 'panel-david-3.svg', alt: 'The city is taken — God gives the win' }
+        { src: 'panel-david-1.svg', alt: 'The Lord tells Joshua — Fear not; I have given Ai into thy hand' },
+        { src: 'panel-david-2.svg', alt: 'Men hide in ambush; the army draws the men of Ai out' },
+        { src: 'panel-david-3.svg', alt: 'Joshua stretches out his spear — the Lord gives victory' }
       ],
       caption: 'Swipe to see God give victory when His people obey! ⚔️',
       videoId: '',
       videoTitle: '',
-      keywords: ['joshua', 'ai', 'victory', 'joshua 8', 'ambush', 'obey', 'second battle'],
-      kjvRef: 'Joshua 8',
-      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'After sin was removed, God\'s plan worked — obey Him and watch Him fight for you.' }
+      keywords: [
+        'joshua', 'ai', 'victory', 'joshua 8', 'ambush', 'obey', 'spear', 'fire', 'restoration', 'lord gave'
+      ],
+      kjvRef: 'Joshua 8:1-8, 18-23, 26-29',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel (and us)',
+        apply:
+          "After the camp was right with God again, Joshua listened to every step the Lord gave — ambush, drawing the city out, and the sign with the spear. The Lord gave the victory. When we obey God's Word, we can trust Him to help us in His way and His time."
+      },
+      narration:
+        "Victory at Ai – Joshua 8:1-8, 18-23, 26-29. After the trouble in the camp was taken away, the Lord spoke to Joshua again: 'Fear not, neither be thou dismayed. Take all the people of war with thee, and go up to Ai: see, I have given into thy hand the king of Ai, and his people, and his city, and his land.' Joshua obeyed the Lord. He chose men to hide in ambush behind the city. The main army marched toward Ai as before. When the men of Ai came out to fight, Joshua and his army pretended to run away. The men of Ai chased them. Then Joshua stretched out his spear toward Ai. The hidden men rose up quickly, entered the city, and set it on fire. The army of Israel turned back and fought. The Lord gave them the victory that day. Joshua did exactly as the Lord commanded, and the people remembered that the Lord fights for those who obey Him. For you: Listen to God step by step — He is faithful when we obey."
+    },
+    sunStandsStill: {
+      title: 'The Sun Stands Still',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Kings gather against God\'s people — Joshua leads Israel forward' },
+        { src: 'panel-david-2.svg', alt: 'Joshua prays aloud — Sun, stand still; Moon, stay in the valley' },
+        { src: 'panel-david-3.svg', alt: 'Sun and moon hold their places — the Lord fights for Israel' }
+      ],
+      caption: 'Swipe to see God hear Joshua — even day and night obey Him! ☀️🌙',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'joshua', 'joshua 10', 'sun', 'moon', 'gibeon', 'ajalon', 'miracle', 'prayer', 'long day', 'lord fought for israel'
+      ],
+      kjvRef: 'Joshua 10:12-14',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Joshua and Israel (and us)',
+        apply:
+          "Joshua spoke to God where everyone could hear — and God answered in a way no one had ever seen. The Lord fights for His people still; you can pray honestly and trust His power and care."
+      },
+      narration:
+        "The Sun Stands Still – Joshua 10:12-14. The kings of the land gathered together to fight against God's people. Joshua and the children of Israel went out to meet them. In the middle of the battle, Joshua prayed to the Lord where all Israel could hear: 'Sun, stand thou still upon Gibeon; and thou, Moon, in the valley of Ajalon.' And the sun stood still, and the moon stayed, until the people had avenged themselves upon their enemies. So the sun stood still in the midst of heaven, and hasted not to go down about a whole day. There was no day like that before it or after it, that the Lord hearkened unto the voice of a man: for the Lord fought for Israel. For you: God hears prayer — and He is mighty to help everyone who trusts Him."
+    },
+    joshuaCharge: {
+      title: 'Joshua\'s Charge to the People',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Joshua, old and faithful, speaks God\'s Word to all Israel' },
+        { src: 'panel-david-2.svg', alt: 'Families listen — a quiet moment to choose whom they will serve' },
+        { src: 'panel-david-3.svg', alt: 'Joshua\'s brave words: as for me and my house, we will serve the Lord' }
+      ],
+      caption: 'Swipe to hear Joshua\'s gentle, strong invitation — choose the Lord! 🏠',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'joshua', 'joshua 24', 'serve the lord', 'choose', 'house', 'covenant', 'faithful', 'israel', 'farewell', 'charge'
+      ],
+      kjvRef: 'Joshua 24:14-15',
+      kidContext: {
+        who: 'Joshua (and the Lord through His Word)',
+        to: 'Israel — and every heart today',
+        apply:
+          "Joshua did not rush anyone. He put the Lord's kindness in front of them and said: choose whom you will serve. His own house had already decided — they would serve the Lord. You can tell God the same in prayer: 'Lord, I choose You.'"
+      },
+      narration:
+        "Joshua's Charge – Joshua 24:14-15. Joshua had seen God keep every promise. When he was old, he gathered the people and called them to serve the Lord in sincerity and in truth. He said, 'Now therefore fear the Lord, and serve him in sincerity and in truth: and put away the gods which your fathers served on the other side of the flood, and in Egypt; and serve ye the Lord. And if it seem evil unto you to serve the Lord, choose you this day whom ye will serve; whether the gods which your fathers served that were on the other side of the flood, or the gods of the Amorites, in whose land ye dwell: but as for me and my house, we will serve the Lord.' For you: Choosing the Lord is not a mean test — it is a loving invitation. You can say with Joshua's house: we will serve the Lord — and Jesus helps us mean it."
     },
     gideonFleece: {
       title: 'Gideon\'s Fleece',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Gideon lays a fleece on the ground at night' },
-        { src: 'panel-noah-2.svg', alt: 'Dew on the fleece only — then dew on the ground only' },
-        { src: 'panel-noah-3.svg', alt: 'Gideon trusts God to lead Israel against Midian' }
+        { src: 'panel-noah-1.svg', alt: 'The angel finds Gideon threshing wheat — The Lord is with thee, mighty man of valour' },
+        { src: 'panel-noah-2.svg', alt: 'Gideon lays the fleece — dew on the wool only, then the ground wet all around' },
+        { src: 'panel-noah-3.svg', alt: 'God answered twice — Gideon rises to obey' }
       ],
-      caption: 'Swipe to see God answer Gideon with the wet and dry fleece! 🐑',
+      caption: 'Swipe to see God meet Gideon gently — and answer his fleece prayer! 🐑',
       videoId: '',
       videoTitle: '',
-      keywords: ['gideon', 'fleece', 'dew', 'judges 6', 'sign', 'trust', 'midian'],
-      kjvRef: 'Judges 6:36–40',
-      kidContext: { who: 'God', to: 'Gideon (and us)', apply: 'When you are scared, you can ask God honestly — He is patient and powerful.' }
+      keywords: [
+        'gideon', 'fleece', 'dew', 'judges 6', 'sign', 'trust', 'midian', 'angel', 'winepress', 'valour', 'pray', 'wonder'
+      ],
+      kjvRef: 'Judges 6:11-40',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Gideon — and every small, honest heart',
+        apply:
+          "God called Gideon brave even when Gideon felt afraid — and He patiently showed him the fleece signs. When you feel little, you can still talk to God; He hears and helps everyone who trusts Him."
+      },
+      narration:
+        "Gideon's Fleece – Judges 6:11-40. The children of Israel did evil; the Lord delivered them into the hand of Midian seven years, and they cried unto the Lord. The angel of the Lord appeared unto Gideon as he threshed wheat by the winepress, to hide it from the Midianites, and said, 'The Lord is with thee, thou mighty man of valour.' Gideon asked why trouble had come if the Lord were with them. The Lord looked on him and said, 'Go in this thy might, and thou shalt save Israel from the hand of the Midianites: have not I sent thee?' Gideon asked for a sign and prepared a kid and unleavened cakes; the angel touched them with his staff, and fire consumed the offering — then the angel departed. That night Gideon put a fleece of wool on the threshingfloor and said, 'If the dew be on the fleece only, and it be dry upon all the earth beside, then shall I know that thou wilt save Israel by mine hand, as thou hast said.' It was so: he wrung a bowl full of dew out of the fleece, while all the ground was dry. He asked once more that the fleece be dry and the ground wet with dew — and God did so. Then Gideon knew that the Lord was with him. For you: God is gentle with honest fear — keep talking to Him; He is faithful."
     },
     gideonMidianites: {
       title: 'Gideon\'s Three Hundred',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'God shrinks Gideon\'s army — trust Me, not numbers' },
-        { src: 'panel-david-2.svg', alt: 'Three hundred with jars, torches, and trumpets at night' },
-        { src: 'panel-david-3.svg', alt: 'God gives victory — the enemy panics' }
+        { src: 'panel-david-1.svg', alt: 'The fearful go home — then the water test leaves only three hundred' },
+        { src: 'panel-david-2.svg', alt: 'Three hundred with trumpets, pitchers, and torches in the dark' },
+        { src: 'panel-david-3.svg', alt: 'They blow, break the pitchers, hold up the lights — the Lord wins the night' }
       ],
-      caption: 'Swipe to see God win with only three hundred brave men! 🎺',
+      caption: 'Swipe to see God win with only three hundred who obeyed! 🎺',
       videoId: '',
       videoTitle: '',
-      keywords: ['gideon', '300', 'midian', 'judges 7', 'trumpet', 'jar', 'torch', 'victory'],
-      kjvRef: 'Judges 7',
-      kidContext: { who: 'God', to: 'Gideon and Israel', apply: 'God\'s power beats big numbers — obey His strange plans and watch Him win.' }
+      keywords: [
+        'gideon', '300', 'midian', 'midianites', 'judges 7', 'trumpet', 'pitcher', 'torch', 'lamp', 'jar', 'victory', 'obey', 'sword of the lord'
+      ],
+      kjvRef: 'Judges 7:1-22',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Gideon, Israel — and every small band that trusts God',
+        apply:
+          "God did not need a huge crowd — only people who would listen and obey His strange, brave plan. When you feel outnumbered, remember: the Lord's strength is not counted like soldiers; He saves everyone who trusts Him."
+      },
+      narration:
+        "Gideon's Three Hundred – Judges 7:1-22. The Midianites and the Amalekites lay along the valley like grasshoppers for multitude. Gideon gathered Israel, but the Lord said, 'The people that are with thee are too many.' Twenty-two thousand who were fearful returned; ten thousand remained. Still the Lord said they were too many. By the water, three hundred lapped, putting their hand to their mouth; the Lord said, 'By the three hundred men that lapped will I save you.' That night those three hundred took trumpets, empty pitchers, and lamps within the pitchers, and surrounded the camp. At the watch, they blew the trumpets, brake the pitchers, held the lamps in their left hands and the trumpets in their right, and cried, 'The sword of the LORD, and of Gideon.' The LORD set every man's sword against his fellow throughout all the host: the host fled. For you: Obey God's Word — He fights for those who trust Him, not for big numbers alone."
     },
     deborahBarak: {
       title: 'Deborah and Barak',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Deborah judges under the palm tree' },
-        { src: 'panel-noah-2.svg', alt: 'Barak leads the army — Deborah goes too' },
-        { src: 'panel-noah-3.svg', alt: 'God gives victory over Sisera\'s chariots' }
+        { src: 'panel-noah-1.svg', alt: 'Deborah under the palm tree — the Lord\'s word for the people' },
+        { src: 'panel-noah-2.svg', alt: 'Deborah tells Barak the Lord\'s command — he asks her to go with him' },
+        { src: 'panel-noah-3.svg', alt: 'The Lord delivers Israel — rest after listening to God\'s voice' }
       ],
-      caption: 'Swipe to see Deborah and Barak trust God for the battle! 🌴',
+      caption: 'Swipe to see God speak through Deborah — and give His people victory! 🌴',
       videoId: '',
       videoTitle: '',
-      keywords: ['deborah', 'barak', 'sisera', 'judges 4', 'judge', 'prophetess', 'chariot', 'victory'],
-      kjvRef: 'Judges 4',
-      kidContext: { who: 'God', to: 'Deborah and Barak (and us)', apply: 'Listen to God and step out brave — He fights for those who trust Him.' }
+      keywords: [
+        'deborah', 'barak', 'sisera', 'jabin', 'judges 4', 'judge', 'prophetess', 'palm tree', 'tabor', 'victory', 'listen', 'obey'
+      ],
+      kjvRef: 'Judges 4:1-16',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Israel — and every listener today',
+        apply:
+          "Deborah did not rush or shout — she sat under the palm tree and helped people hear what God said. When Barak obeyed God's command, the Lord cleared the way. You can ask God to help you listen like Deborah and obey like Barak — Jesus is with you."
+      },
+      narration:
+        "Deborah and Barak – Judges 4:1-16. The children of Israel did evil in the sight of the Lord, and He sold them into the hand of Jabin king of Canaan, who mightily oppressed them twenty years. Deborah, a prophetess, judged Israel under the palm tree between Ramah and Bethel; the children of Israel came up to her for judgment. She called Barak and told him the Lord God of Israel commanded him to take ten thousand men to mount Tabor, for the Lord would draw Sisera, Jabin's captain, with his chariots and his multitude, unto the river Kishon, and deliver him into Barak's hand. Barak would go if Deborah went with him; she said she would go, and that the Lord would sell Sisera into the hand of a woman. They went up; the Lord discomfited Sisera, and all his chariots, and all his host, with the edge of the sword before Barak; Sisera lighted down off his chariot, and fled on his feet. Barak pursued; all the host of Sisera fell by the edge of the sword; and there was not a man left. For you: Listen for God's voice in His Word — He still leads and delivers those who trust Him."
     },
     samsonBirth: {
-      title: 'Baby Samson',
+      title: 'Samson\'s Birth and Call',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'An angel tells Manoah\'s wife she will have a son' },
-        { src: 'panel-noah-2.svg', alt: 'A Nazirite — set apart for God from the womb' },
-        { src: 'panel-noah-3.svg', alt: 'Samson is born — the Spirit of the Lord begins to move him' }
+        { src: 'panel-noah-1.svg', alt: 'The angel of the Lord speaks to Manoah\'s wife — a son, a Nazarite unto God' },
+        { src: 'panel-noah-2.svg', alt: 'Manoah\'s offering — the angel ascends in the flame of the altar' },
+        { src: 'panel-noah-3.svg', alt: 'Samson is born — the child grew, and the Lord blessed him' }
       ],
-      caption: 'Swipe to see God\'s plan for baby Samson before he was born! 👶',
+      caption: 'Swipe to see God promise a deliverer — before Samson ever took his first step! 👶',
       videoId: '',
       videoTitle: '',
-      keywords: ['samson', 'manoah', 'nazirite', 'judges 13', 'angel', 'baby', 'promise'],
-      kjvRef: 'Judges 13',
-      kidContext: { who: 'God', to: 'Samson\'s parents (and us)', apply: 'God has a purpose for your life too — even before anyone sees it.' }
+      keywords: [
+        'samson', 'manoah', 'nazirite', 'nazarite', 'judges 13', 'angel', 'baby', 'promise', 'philistines', 'deliver', 'womb', 'blessed'
+      ],
+      kjvRef: 'Judges 13:1-25',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Manoah, his wife — and every family who trusts God\'s Word',
+        apply:
+          "Long before Samson was strong, God had a plan — a child set apart for Him from the womb. Your story matters to God too; He knows your name and hears when you pray."
+      },
+      narration:
+        "Samson's Birth and Call – Judges 13:1-25. The children of Israel did evil again in the sight of the LORD; and the LORD delivered them into the hand of the Philistines forty years. There was a certain man of Zorah, of the family of the Danites, whose name was Manoah; and his wife was barren. The angel of the LORD appeared unto the woman, and said unto her, 'Behold now, thou art barren, and bearest not: but thou shalt conceive, and bear a son. Now therefore beware, I pray thee, and drink not wine nor strong drink, and eat not any unclean thing: for the child shall be a Nazarite unto God from the womb to the day of his death; and he shall begin to deliver Israel out of the hand of the Philistines.' She told Manoah; he besought the LORD, and the angel came again. Manoah offered a kid upon a rock unto the LORD; when the flame went up toward heaven from off the altar, the angel of the LORD ascended in the flame. Manoah and his wife looked on it, and fell on their faces to the ground. The woman bare a son, and called his name Samson: and the child grew, and the LORD blessed him. For you: God's plans start in His kindness — trust Him with your tomorrow."
+    },
+    samsonLion: {
+      title: 'Samson and the Lion',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A young lion roars — the Spirit of the Lord comes mightily upon Samson' },
+        { src: 'panel-noah-2.svg', alt: 'Later, bees and honey in the lion — a sweet surprise from God' },
+        { src: 'panel-noah-3.svg', alt: 'Samson shares honey with his father and mother' }
+      ],
+      caption: 'Swipe to see God give strength — and sweetness after something fierce! 🍯',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'samson',
+        'lion',
+        'honey',
+        'bees',
+        'timnath',
+        'spirit of the lord',
+        'judges 14',
+        'strength',
+        'nazarite',
+        'young lion'
+      ],
+      kjvRef: 'Judges 14:5-9',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Samson (and every child who needs courage)',
+        apply:
+          "When something fierce faced Samson, the Spirit of the Lord came mightily upon him — God's strength, not boasting. God can turn hard moments into kindness you did not expect. You can ask Him for courage and thank Him when He gives help."
+      },
+      narration:
+        "Samson and the Lion – Judges 14:5-9. Samson went down with his father and mother to Timnath; and a young lion roared against him. The Spirit of the LORD came mightily upon him, and he rent him as he would have rent a kid, and he had nothing in his hand. After a time he turned aside to see the carcass of the lion: and, behold, there was a swarm of bees and honey in the carcass of the lion. He took thereof in his hands, and went on eating, and came to his father and mother, and he gave them, and they did eat: but he told not them that he had taken the honey out of the carcass of the lion. For you: The Lord gives strength when you need it — and He can bring sweetness after the hard part."
+    },
+    samsonDelilah: {
+      title: 'Samson and Delilah',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Delilah asks — wherein lieth thy great strength?' },
+        { src: 'panel-noah-2.svg', alt: 'Samson tells his heart — no razor; a Nazarite unto God' },
+        { src: 'panel-noah-3.svg', alt: 'His strength went from him — yet the Lord had not left him forever' }
+      ],
+      caption: 'Swipe to see why God\'s gifts need wise, honest care — and mercy that lasts.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'samson',
+        'delilah',
+        'sorek',
+        'philistines',
+        'judges 16',
+        'hair',
+        'razor',
+        'nazarite',
+        'secret',
+        'strength',
+        'seven locks'
+      ],
+      kjvRef: 'Judges 16:4-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Samson — and every child learning honesty and boundaries',
+        apply:
+          "Samson told a precious secret he should have kept for God. His strength left — a sad lesson. But God did not forget him forever. When you are not sure what to share, ask a trusted grown-up and talk to God; His mercy is longer than our mistakes."
+      },
+      narration:
+        "Samson and Delilah – Judges 16:4-21. Samson loved a woman in the valley of Sorek, whose name was Delilah. The lords of the Philistines came up unto her, and said unto her, Entice him, and see wherein his great strength lieth. Delilah pressed Samson; at last he told her all his heart: There hath not come a razor upon mine head; for I have been a Nazarite unto God from my mother's womb: if I be shaven, then my strength will go from me, and I shall become weak, and be like any other man. She made him sleep upon her knees, and called for a man, and shaved off the seven locks of his head; and his strength went from him. She said, The Philistines be upon thee, Samson. And he wist not that the LORD was departed from him. But the Philistines took him, and put out his eyes, and brought him down to Gaza. For you: Guard what God gives you; tell Him when you are sorry — He is still merciful."
     },
     ruthNaomi: {
       title: 'Ruth and Naomi',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ruth stays with Naomi on the road to Bethlehem' },
-        { src: 'panel-noah-2.svg', alt: 'Ruth gleans in Boaz\'s field — kindness and care' },
-        { src: 'panel-noah-3.svg', alt: 'Boaz and Ruth — Obed, and the line to King David' }
+        { src: 'panel-noah-1.svg', alt: 'A famine in Bethlehem — Naomi\'s family sojourns in Moab' },
+        { src: 'panel-noah-2.svg', alt: 'Ruth\'s promise — thy people shall be my people, and thy God my God' },
+        { src: 'panel-noah-3.svg', alt: 'Two women walking together toward Bethlehem — the Lord with them' }
       ],
-      caption: 'Swipe to see Ruth\'s loyal love and God\'s kindness! 🌾',
+      caption: 'Swipe to see loyal love — whither thou goest, I will go.',
       videoId: '',
       videoTitle: '',
-      keywords: ['ruth', 'naomi', 'boaz', 'obed', 'ruth 1', 'loyal', 'bethlehem', 'david'],
-      kjvRef: 'Ruth 1–4',
-      kidContext: { who: 'God', to: 'Ruth (and us)', apply: 'Stay loyal and choose God — He weaves faithful love into His big story.' }
+      keywords: [
+        'ruth',
+        'naomi',
+        'moab',
+        'bethlehem',
+        'famine',
+        'orpah',
+        'loyal',
+        'ruth 1',
+        'whither thou goest',
+        'thy people shall be my people',
+        'thy god my god',
+        'daughter in law',
+        'clave'
+      ],
+      kjvRef: 'Ruth 1:1-18',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Ruth, Naomi — and every heart that chooses kindness',
+        apply:
+          "When Naomi felt empty, Ruth stayed. Her words were simple and strong: your people will be my people, and your God my God. God blesses that kind of love — the kind that walks beside someone in a hard road."
+      },
+      narration:
+        "Ruth and Naomi – Ruth 1:1-18. In the days when the judges ruled there was a famine in the land; and a certain man of Bethlehemjudah went to sojourn in the country of Moab, he, and his wife, and his two sons. The name of the man was Elimelech, and the name of his wife Naomi. Elimelech died; and her two sons took them wives of the women of Moab; the name of the one was Orpah, and the name of the other Ruth. Mahlon and Chilion died also; and the woman was left of her two sons and her husband. Then she arose with her daughters in law, that she might return from the country of Moab; for she had heard that the LORD had visited his people in giving them bread. Naomi kissed them; they lifted up their voice, and wept. Orpah kissed her mother in law; but Ruth clave unto her. Naomi said, Behold, thy sister in law is gone back unto her people, and unto her gods: return thou after thy sister in law. And Ruth said, Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God: where thou diest, will I die, and there will I be buried: the LORD do so to me, and more also, if ought but death part thee and me. When Naomi saw that she was stedfastly minded to go with her, then she left speaking unto her. For you: God walks with loyal love — choose His people and His ways, and He keeps you."
+    },
+    rahab: {
+      title: 'Rahab and the Scarlet Cord',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Two quiet spies — Rahab welcomes them into her home' },
+        { src: 'panel-noah-2.svg', alt: 'Flax on the roof — a gentle hiding place' },
+        { src: 'panel-noah-3.svg', alt: 'Scarlet cord in the window — God\'s promise to keep her safe' }
+      ],
+      caption: 'Swipe to see Rahab trust the Lord — and the cord that meant rescue! 🔴',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'rahab', 'scarlet', 'cord', 'thread', 'jericho', 'spies', 'joshua 2', 'window', 'flax', 'faith',
+        'kindness', 'promise', 'save', 'believe'
+      ],
+      kjvRef: 'Joshua 2:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Rahab (and everyone who believes Him)',
+        apply:
+          "Rahab heard what God had done for His people and trusted Him. She hid the spies, tied the scarlet cord, and God kept His word—her whole household was safe. When you are afraid, you can tell God you trust Him too; Jesus is the greater rescue."
+      },
+      narration:
+        "Rahab and the Scarlet Cord – Joshua 2:1-21. Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab. The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax. When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.' Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family. The men said, 'Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.' Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord. For you: God keeps His promises to everyone who trusts Him—look to Jesus."
     },
     rahabRope: {
       title: 'Rahab\'s Scarlet Cord',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Rahab hides the spies' },
-        { src: 'panel-noah-2.svg', alt: 'She hangs a scarlet cord in the window' },
-        { src: 'panel-noah-3.svg', alt: 'Rahab and her family are saved!' }
+        { src: 'panel-noah-1.svg', alt: 'Rahab welcomes the spies — a brave, kind choice' },
+        { src: 'panel-noah-2.svg', alt: 'She ties the scarlet cord in the window' },
+        { src: 'panel-noah-3.svg', alt: 'God keeps His word — Rahab and her family are safe' }
       ],
       caption: 'Swipe to see how faith in God saves! 🔴',
       videoId: '',
       videoTitle: '',
-      keywords: ['rahab', 'cord', 'spies', 'joshua 2', 'window', 'scarlet', 'faith', 'save'],
-      kjvRef: 'Joshua 2',
-      kidContext: { who: 'God', to: 'Rahab', apply: 'Faith saves! Even when you\'re afraid, trust God and He rescues you.' }
+      keywords: ['rahab', 'cord', 'spies', 'joshua 2', 'window', 'scarlet', 'faith', 'save', 'promise'],
+      kjvRef: 'Joshua 2:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Rahab (and us)',
+        apply:
+          "The scarlet cord was a simple sign of trust. God honored Rahab's faith and kept her family safe. When you trust Jesus, He is your safety—tell Him so in prayer."
+      },
+      narration:
+        "Rahab's Scarlet Cord – Joshua 2:1-21. Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab. The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax. When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.' Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family. The men said, 'Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.' Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord. For you: God keeps His promises to everyone who trusts Him—look to Jesus."
     },
     rahabJericho: {
       title: 'Rahab at Jericho',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Rahab hides the two spies on her roof' },
-        { src: 'panel-noah-2.svg', alt: 'Scarlet cord in the window — a sign of faith' },
-        { src: 'panel-noah-3.svg', alt: 'Rahab and her family brought out safe' }
+        { src: 'panel-noah-1.svg', alt: 'Rahab hides the two spies beneath flax on the roof' },
+        { src: 'panel-noah-2.svg', alt: 'Scarlet cord in the window — a peaceful sign of trust' },
+        { src: 'panel-noah-3.svg', alt: 'When God gave the city, Rahab and her household were kept safe' }
       ],
       caption: 'Swipe to see faith in God save a whole family! 🏠',
       videoId: '',
       videoTitle: '',
-      keywords: ['rahab', 'jericho', 'spies', 'joshua 2', 'cord', 'scarlet', 'faith'],
-      kjvRef: 'Joshua 2',
-      kidContext: { who: 'God', to: 'Rahab', apply: 'She believed the Lord is God in heaven above — and He kept her safe.' }
+      keywords: ['rahab', 'jericho', 'spies', 'joshua 2', 'cord', 'scarlet', 'faith', 'promise', 'kindness'],
+      kjvRef: 'Joshua 2:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Rahab (and us)',
+        apply:
+          "She believed the Lord is God in heaven above and in earth beneath—and He remembered her. You can believe Him too; Jesus died and rose so everyone who trusts Him can be safe forever."
+      },
+      narration:
+        "Rahab at Jericho – Joshua 2:1-21. Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab. The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax. When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.' Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family. The men said, 'Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.' Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord. For you: God keeps His promises to everyone who trusts Him—look to Jesus."
     },
     balaakCurse: {
       title: 'Balak Sends for Balaam',
@@ -2027,20 +2803,6 @@
       kjvRef: 'Numbers 23–24',
       kidContext: { who: 'God', to: 'Israel', apply: 'What God blesses, no one can curse — His word stands.' }
     },
-    samsonHair: {
-      title: 'Samson\'s Hair',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Samson has long hair—God\'s strength' },
-        { src: 'panel-noah-2.svg', alt: 'Delilah cuts his hair while he sleeps' },
-        { src: 'panel-noah-3.svg', alt: 'Samson calls on God one last time' }
-      ],
-      caption: 'Swipe to see Samson\'s story—stay close to God! 💪',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['samson', 'hair', 'delilah', 'judges 16', 'strength', 'cut', 'power'],
-      kjvRef: 'Judges 16',
-      kidContext: { who: 'God', to: 'Samson', apply: 'Your strength comes from God! Stay close to Him and nothing can stop you.' }
-    },
     ruthGlean: {
       title: 'Ruth Gleans in the Field',
       panels: [
@@ -2057,32 +2819,84 @@
       narration: "Ruth Gleans – Ruth 2:2. Ruth's husband died, and she could have gone back home. But she said to Naomi, 'Your people will be my people, and your God my God.' They went to Bethlehem. Ruth worked in the fields picking leftover grain. The owner, Boaz, noticed her kindness and hard work. He told his workers to leave extra grain for her and protected her. Boaz married Ruth, and they had a son who became part of Jesus' family line! God saw Ruth's faithfulness and blessed her. For you: When you stay loyal, help others, and work hard, God sees it. He blesses faithfulness and can turn hard times into joy."
     },
     samuelCall: {
-      title: 'God Calls Samuel',
+      title: 'Samuel Hears God\'s Voice at Night',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Samuel sleeps in the temple' },
-        { src: 'panel-noah-2.svg', alt: 'A voice calls: Samuel! Samuel!' },
-        { src: 'panel-noah-3.svg', alt: 'Samuel answers: Speak, Lord—I\'m listening!' }
+        { src: 'panel-noah-1.svg', alt: 'Lamp still burning — young Samuel lies down in the Lord\'s house' },
+        { src: 'panel-noah-2.svg', alt: 'Samuel runs to Eli — Here am I; for thou calledst me' },
+        { src: 'panel-noah-3.svg', alt: 'Speak; for thy servant heareth — the Lord calls by name' }
       ],
-      caption: 'Swipe to see God call Samuel—He calls you too! 👂',
+      caption: 'Swipe to see God call a child by name — and teach him how to answer.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samuel', 'call', 'temple', '1 samuel 3', 'eli', 'voice', 'listen'],
-      kjvRef: '1 Samuel 3',
-      kidContext: { who: 'God', to: 'Young Samuel', apply: 'God calls children! Say yes: "Speak, Lord—I am listening."' }
+      keywords: [
+        'samuel',
+        'call',
+        'called',
+        'night',
+        'temple',
+        'shiloh',
+        '1 samuel 3',
+        'eli',
+        'here am i',
+        'speak lord',
+        'thy servant heareth',
+        'lamp of god',
+        'word of the lord was precious',
+        'no open vision',
+        'ministered unto the lord',
+        'listen',
+        'prophet'
+      ],
+      kjvRef: '1 Samuel 3:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Young Samuel — and every child learning to listen',
+        apply:
+          'God called Samuel by name in the quiet night. Eli helped him understand — and Samuel learned to say, Speak, LORD; for thy servant heareth. God still speaks through His Word; we answer with open hearts.'
+      },
+      narration:
+        "Samuel Hears God's Voice at Night – 1 Samuel 3:1-21. The word of the LORD was precious; there was no open vision. The child Samuel ministered before Eli. One night Eli was laid down in his place, and Samuel was laid down to sleep in the temple of the LORD. The LORD called Samuel — and he ran to Eli, Here am I; for thou calledst me. Eli said, I called not; lie down again. This happened again until Eli perceived that the LORD had called the child. He said, If he call thee, thou shalt say, Speak, LORD; for thy servant heareth. The LORD came and stood, and called, Samuel, Samuel. Then Samuel answered, Speak; for thy servant heareth. The LORD told Samuel weighty things about Eli's house. In the morning Samuel opened the doors; he told Eli every word. Samuel grew, and the LORD was with him, and let none of his words fall to the ground. All Israel knew Samuel was the LORD's prophet. For you: God knows your name — listen for Him in His Word, and answer with a gentle heart."
     },
     davidHarp: {
-      title: 'David Plays the Harp',
+      title: 'Young David Plays the Harp for King Saul',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'David watches his sheep in the field' },
-        { src: 'panel-david-2.svg', alt: 'He plays and sings to God' },
-        { src: 'panel-david-3.svg', alt: 'God listens—worship from the heart!' }
+        { src: 'panel-david-1.svg', alt: 'Servants speak — seek a cunning player on an harp' },
+        { src: 'panel-david-2.svg', alt: 'David comes — the LORD is with him' },
+        { src: 'panel-david-3.svg', alt: 'David plays; Saul is refreshed — the evil spirit departs' }
       ],
-      caption: 'Swipe to see David worship God in the fields! 🎶',
+      caption: 'Swipe for quiet music and God-given peace before the king.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'harp', 'worship', 'sheep', '1 samuel 16', 'music', 'praise'],
-      kjvRef: '1 Samuel 16',
-      kidContext: { who: 'David', to: 'God', apply: 'God loves your worship! Sing and praise wherever you are.' }
+      keywords: [
+        'david',
+        'harp',
+        'young david',
+        'king saul',
+        'saul',
+        '1 samuel 16',
+        '1 samuel 16:14',
+        '1 samuel 16:23',
+        'evil spirit',
+        'refreshed',
+        'played with his hand',
+        'cunning player on an harp',
+        'armourbearer',
+        'armorbearer',
+        'send me david thy son',
+        'son of jesse the bethlehemite',
+        'music',
+        'comfort',
+        'peace'
+      ],
+      kjvRef: '1 Samuel 16:14-23',
+      kidContext: {
+        who: 'The Lord (through David)',
+        to: 'King Saul — and every heart that needs quiet',
+        apply:
+          'God used David\'s gentle playing to bring ease. The gifts God gives you — a song, a calm voice, a steady hand — can be a kindness to someone who is hurting.'
+      },
+      narration:
+        "Young David Plays the Harp for King Saul — 1 Samuel 16:14-23. But the Spirit of the LORD departed from Saul, and an evil spirit from the LORD troubled him. His servants said, Behold now, an evil spirit from God troubleth thee — let our lord command thy servants to seek out a man, who is a cunning player on an harp: when the evil spirit from God is upon thee, he shall play with his hand, and thou shalt be well. Saul said, Provide me a man that can play well. One servant told of David the Bethlehemite — cunning in playing, and the LORD is with him. Saul sent for him. David came and stood before Saul; Saul loved him greatly, and David became his armourbearer. And it came to pass, when the evil spirit from God was upon Saul, that David took an harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him. For you: Speak to the Lord when music or quiet helps your heart — He is near."
     },
     goliathChallenge: {
       title: 'Goliath\'s Challenge',
@@ -2099,18 +2913,49 @@
       kidContext: { who: 'David', to: 'Goliath (and us)', apply: 'God is bigger than any giant! Face your fears—He\'s with you.' }
     },
     davidAnointed: {
-      title: 'David Is Anointed King',
+      title: 'David Anointed by Samuel',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Samuel visits Jesse\'s family' },
-        { src: 'panel-david-2.svg', alt: 'God says: man looks at the outside—I look at the heart' },
-        { src: 'panel-david-3.svg', alt: 'Oil on David\'s head—the youngest chosen!' }
+        { src: 'panel-david-1.svg', alt: 'Samuel comes to Bethlehem with oil — Jesse and his sons at the sacrifice' },
+        { src: 'panel-david-2.svg', alt: 'The Lord looketh on the heart — not as man seeth' },
+        { src: 'panel-david-3.svg', alt: 'The youngest from the sheep — oil poured; the Spirit of the Lord comes on David' }
       ],
-      caption: 'Swipe to see God choose David—He looks at your heart! 💛',
+      caption: 'Swipe to see God choose the shepherd boy — He looketh on the heart.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'anoint', 'samuel', '1 samuel 16', 'king', 'heart', 'chosen'],
-      kjvRef: '1 Samuel 16',
-      kidContext: { who: 'God', to: 'David', apply: 'God looks at your heart! Be faithful where you are—He sees you.' }
+      keywords: [
+        'david',
+        'anoint',
+        'anointed',
+        'samuel',
+        '1 samuel 16',
+        '1 samuel 16:1',
+        '1 samuel 16:13',
+        'jesse',
+        'bethlehem',
+        'bethlehemite',
+        'horn of oil',
+        'king',
+        'heart',
+        'looketh on the heart',
+        'outward appearance',
+        'youngest',
+        'keeping the sheep',
+        'ruddy',
+        'spirit of the lord came upon david',
+        'eliab',
+        'abinadab',
+        'shammah',
+        'chosen'
+      ],
+      kjvRef: '1 Samuel 16:1-13',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David — and every heart God sees',
+        apply:
+          'People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.'
+      },
+      narration:
+        "David Anointed by Samuel – 1 Samuel 16:1-13. The LORD told Samuel to fill his horn with oil and go to Jesse the Bethlehemite; He had provided a king among his sons. Samuel came to Bethlehem and called Jesse and his sons to the sacrifice. Seven sons passed before him, but the LORD said, Look not on his countenance or stature — the LORD seeth not as man seeth; man looketh on the outward appearance, but the LORD looketh on the heart. Jesse's youngest was keeping the sheep; they fetched him — ruddy, fair, and pleasant to look upon. The LORD said, Arise, anoint him: for this is he. Samuel anointed David in the midst of his brethren, and the Spirit of the LORD came upon David from that day forward. For you: God sees your heart; walk humbly with Him."
     },
     saulSpear: {
       title: 'Saul Throws a Spear at David',
@@ -2127,18 +2972,42 @@
       kidContext: { who: 'God', to: 'David', apply: 'When people are unkind, trust God! He is your protection.' }
     },
     davidCave: {
-      title: 'David Hides in the Cave',
+      title: 'David Spares Saul in the Cave',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'David hides in the cave of Adullam' },
-        { src: 'panel-noah-2.svg', alt: 'He writes songs to God even here' },
-        { src: 'panel-noah-3.svg', alt: 'God is with David in the dark place' }
+        { src: 'panel-david-1.svg', alt: 'Engedi — Saul rests in the cave; David and his men in the sides of the cave' },
+        { src: 'panel-david-2.svg', alt: 'David cuts only the skirt of the robe — The LORD\'s anointed' },
+        { src: 'panel-david-3.svg', alt: 'The skirt in his hand — Saul weeps, Thou art more righteous than I' }
       ],
-      caption: 'Swipe to see David trust God even in the cave! 🕳️',
+      caption: 'Swipe to see mercy — David will not harm the king God chose.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'cave', 'adullam', '1 samuel 22', 'hiding', 'prayer', 'psalm'],
-      kjvRef: '1 Samuel 22:1–2; 24',
-      kidContext: { who: 'David', to: 'God', apply: 'Even in dark or scary times, God is with you! Talk to Him wherever you are.' }
+      keywords: [
+        'david',
+        'saul',
+        'cave',
+        'engedi',
+        'wild goats',
+        'skirt',
+        'robe',
+        'anointed',
+        'lord\'s anointed',
+        'spare',
+        'mercy',
+        'heart smote',
+        '1 samuel 24',
+        'cover his feet',
+        'sheepcotes',
+        'thou art more righteous'
+      ],
+      kjvRef: '1 Samuel 24:1-22',
+      kidContext: {
+        who: 'David',
+        to: 'Every heart learning mercy',
+        apply:
+          'David could have hurt Saul, but he honored the king God had anointed. God sees when we choose kindness over revenge — ask Him for a gentle heart.'
+      },
+      narration:
+        "David Spares Saul in the Cave – 1 Samuel 24:1-22. Saul hunted David to the wilderness of Engedi. Saul entered a cave to rest, not knowing David and his men hid in its sides. David's men said the Lord had delivered the enemy into his hand — yet David would not kill Saul. He cut only the skirt of Saul's robe; then his heart smote him. He told his men, The LORD forbid that I should stretch forth mine hand against my lord, the LORD's anointed. When Saul left, David called after him and showed the piece of robe: The LORD judge between me and thee, but mine hand shall not be upon thee. Saul wept and said, Thou art more righteous than I. For you: Mercy honors God."
     },
     hannahSamuel: {
       title: 'Hannah & Samuel',
@@ -2150,37 +3019,83 @@
       caption: 'Swipe to see God answer Hannah\'s prayer! 🙏',
       videoId: '',
       videoTitle: '',
-      keywords: ['hannah', 'samuel', 'prayer', '1 samuel 1', 'eli', 'temple', 'promise', 'vow'],
+      keywords: ['hannah', 'samuel', 'dedication', '1 samuel 2', 'eli', 'temple', 'promise', 'vow', 'lent unto the lord'],
       kjvRef: '1 Samuel 1–2',
       kidContext: { who: 'God', to: 'Hannah and Samuel', apply: 'Pray with all your heart—God hears. Hannah kept her promise and gave Samuel to serve God.' }
     },
     samuelAnointsDavid: {
-      title: 'Samuel Anoints David',
+      title: 'David Anointed by Samuel',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Samuel arrives at Jesse\'s house with oil' },
-        { src: 'panel-david-2.svg', alt: 'God says: look at the heart, not just height' },
-        { src: 'panel-david-3.svg', alt: 'Samuel anoints David—God\'s Spirit comes on him' }
+        { src: 'panel-david-1.svg', alt: 'Samuel comes to Bethlehem with oil — Jesse and his sons at the sacrifice' },
+        { src: 'panel-david-2.svg', alt: 'The Lord looketh on the heart — not as man seeth' },
+        { src: 'panel-david-3.svg', alt: 'The youngest from the sheep — oil poured; the Spirit of the Lord comes on David' }
       ],
-      caption: 'Swipe to see God choose David by his heart! 💛',
+      caption: 'Swipe to see God choose the shepherd boy — He looketh on the heart.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samuel', 'david', 'anoint', '1 samuel 16', 'jesse', 'heart', 'sheep', 'bethlehem'],
-      kjvRef: '1 Samuel 16:1–13',
-      kidContext: { who: 'God', to: 'David', apply: 'God looks at your heart. You do not have to be the tallest or oldest—be faithful where you are.' }
+      keywords: [
+        'samuel anoints david',
+        'samuel',
+        'david',
+        'anoint',
+        'anointed',
+        '1 samuel 16',
+        'jesse',
+        'heart',
+        'sheep',
+        'bethlehem',
+        'horn of oil',
+        'looketh on the heart'
+      ],
+      kjvRef: '1 Samuel 16:1-13',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David — and every heart God sees',
+        apply:
+          'People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.'
+      },
+      narration:
+        "David Anointed by Samuel – 1 Samuel 16:1-13. The LORD told Samuel to fill his horn with oil and go to Jesse the Bethlehemite; He had provided a king among his sons. Samuel came to Bethlehem and called Jesse and his sons to the sacrifice. Seven sons passed before him, but the LORD said, Look not on his countenance or stature — the LORD seeth not as man seeth; man looketh on the outward appearance, but the LORD looketh on the heart. Jesse's youngest was keeping the sheep; they fetched him — ruddy, fair, and pleasant to look upon. The LORD said, Arise, anoint him: for this is he. Samuel anointed David in the midst of his brethren, and the Spirit of the LORD came upon David from that day forward. For you: God sees your heart; walk humbly with Him."
     },
     davidGoliath: {
       title: 'David & Goliath',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Goliath taunts God\'s army—everyone is afraid' },
-        { src: 'panel-david-2.svg', alt: 'David trusts God with his sling and stones' },
-        { src: 'panel-david-3.svg', alt: 'The stone flies—God gives victory over the giant' }
+        { src: 'panel-david-1.svg', alt: 'Goliath defies Israel — the armies stand afraid in the valley' },
+        { src: 'panel-david-2.svg', alt: 'David trusts the living God — five stones, a sling, no sword in his hand' },
+        { src: 'panel-david-3.svg', alt: 'In the name of the LORD of hosts — one stone; the Lord gives victory' }
       ],
-      caption: 'Swipe to see God win over the giant! ⚔️',
+      caption: 'Swipe to see courage that trusts the Lord — not size or armor.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'goliath', 'sling', '1 samuel 17', 'faith', 'giant', 'stone', 'brave'],
-      kjvRef: '1 Samuel 17',
-      kidContext: { who: 'David', to: 'God\'s people', apply: 'Trust God more than your own size or strength. He wins when we come in His name.' }
+      keywords: [
+        'david and goliath',
+        'david',
+        'goliath',
+        'sling',
+        'stone',
+        'stones',
+        'smooth stones',
+        '1 samuel 17',
+        'valley of elah',
+        'living god',
+        'uncircumcised philistine',
+        'defy',
+        'faith',
+        'giant',
+        'philistine',
+        'lord of hosts',
+        'five stones',
+        'brook'
+      ],
+      kjvRef: '1 Samuel 17:1-11, 32-51',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David and every heart that feels small',
+        apply:
+          'Goliath looked strong; David looked to God. The Lord saved — not by sword in David\'s hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord\'s.'
+      },
+      narration:
+        "David and Goliath – 1 Samuel 17:1-11, 32-51. The Philistines gathered against Israel; their champion Goliath defied the armies of the living God day after day, and all Israel were afraid. Young David came to the camp and asked, Who is this uncircumcised Philistine, that he should defy the armies of the living God? He told Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. Saul's armor did not fit David's heart — David took his staff, five smooth stones, and his sling. He ran toward the giant in the name of the LORD of hosts. One stone sank into the giant's forehead; he fell. David prevailed with a sling and a stone, and there was no sword in David's hand — the Lord gave victory. For you: Courage is trusting God when the problem looks huge."
     },
     davidSaulJealousy: {
       title: 'David & Saul\'s Jealousy',
@@ -2192,8 +3107,8 @@
       caption: 'Swipe to see God guard David when jealousy gets ugly! 🛡️',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'saul', 'jealous', 'spear', 'harp', '1 samuel 18', 'jonathan', 'protect'],
-      kjvRef: '1 Samuel 18–19',
+      keywords: ['david', 'saul', 'jealous', 'spear', 'harp', '1 samuel 18', 'jonathan', 'protect', 'javelin', 'evil spirit'],
+      kjvRef: '1 Samuel 18:6-11, 17-19:17',
       kidContext: { who: 'God', to: 'David', apply: 'Jealousy can make people do scary things. Stay humble like David — God is your shield.' }
     },
     davidSaul: {
@@ -2206,65 +3121,177 @@
       caption: 'Swipe to see God protect David when Saul is jealous! 🛡️',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'saul', 'jealous', 'spear', '1 samuel 18', 'jonathan', 'protect', 'army'],
-      kjvRef: '1 Samuel 18–19',
+      keywords: ['david', 'saul', 'jealous', 'spear', '1 samuel 18', 'jonathan', 'protect', 'army', 'javelin'],
+      kjvRef: '1 Samuel 18:6-11, 17-19:17',
       kidContext: { who: 'God', to: 'David', apply: 'Jealousy hurts people, but God protects those who stay faithful. Let God guard your heart from envy.' }
     },
     davidJonathan: {
       title: 'David & Jonathan\'s Friendship',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Jonathan loves David like a brother' },
-        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and belt' },
-        { src: 'panel-david-3.svg', alt: 'They weep and promise—The Lord be between us forever' }
+        { src: 'panel-david-1.svg', alt: 'Souls knit together — Jonathan loved David as his own soul' },
+        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and girdle to David' },
+        { src: 'panel-david-3.svg', alt: 'They weep together — The LORD be between me and thee for ever' }
       ],
       caption: 'Swipe to see loyal friendship—Jonathan and David! 🤝',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'jonathan', 'friend', '1 samuel 18', 'covenant', 'loyal', 'love', 'brother'],
-      kjvRef: '1 Samuel 18–20',
-      kidContext: { who: 'Jonathan', to: 'David', apply: 'True friends keep promises and protect each other. Ask God to help you be a loyal friend.' }
+      keywords: [
+        'david',
+        'jonathan',
+        'friend',
+        'friendship',
+        'covenant',
+        'loyal',
+        'love',
+        'knit',
+        'soul',
+        'robe',
+        'sword',
+        'bow',
+        'girdle',
+        '1 samuel 18',
+        '1 samuel 20',
+        'naioth',
+        'ramah',
+        'stone ezel',
+        'arrow beyond',
+        'go in peace',
+        'seed and thy seed'
+      ],
+      kjvRef: '1 Samuel 18:1-4; 20:1-42',
+      kidContext: {
+        who: 'Jonathan',
+        to: 'David — and every heart that needs a true friend',
+        apply:
+          'Jonathan kept covenant: he shared what he had, warned David when danger came, and parted in peace. Ask God to help you love friends loyally and tell the truth kindly.'
+      },
+      narration:
+        "David and Jonathan's Friendship – 1 Samuel 18:1-4; 20:1-42. After David's great day, Jonathan's soul was knit with David's — he loved him as his own soul. They made covenant; Jonathan stripped off his robe and gave David his garments, sword, bow, and girdle. When Saul sought David's life, Jonathan did not hide the danger — he helped David escape. In the field they wept and kissed; Jonathan sent David in peace with this promise: The LORD be between me and thee, and between my seed and thy seed for ever. For you: God can plant deep, loyal love in our hearts."
     },
     davidJonathanFriendship: {
       title: 'David & Jonathan — True Friends',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Jonathan and David — souls knit together' },
-        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and belt to David' },
-        { src: 'panel-david-3.svg', alt: 'They weep and promise: the Lord be between us forever' }
+        { src: 'panel-david-1.svg', alt: 'Souls knit together — covenant of love' },
+        { src: 'panel-david-2.svg', alt: 'Robe, sword, bow, and girdle — costly kindness' },
+        { src: 'panel-david-3.svg', alt: 'Weeping, kiss, and Go in peace — the LORD between us' }
       ],
       caption: 'Swipe to see friendship that costs something — and keeps its promise! 🤝',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'jonathan', 'friend', 'covenant', '1 samuel 18', 'loyal', 'love', 'escape'],
-      kjvRef: '1 Samuel 18–20',
-      kidContext: { who: 'Jonathan', to: 'David', apply: 'Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.' }
+      keywords: [
+        'david',
+        'jonathan',
+        'friend',
+        'friendship',
+        'covenant',
+        'loyal',
+        'love',
+        'knit',
+        'robe',
+        'sword',
+        '1 samuel 18',
+        '1 samuel 20',
+        'escape',
+        'warned',
+        'peace'
+      ],
+      kjvRef: '1 Samuel 18:1-4; 20:1-42',
+      kidContext: {
+        who: 'Jonathan',
+        to: 'David — and every listener',
+        apply:
+          'Real friends share, warn when trouble is near, and keep their word before God. Thank the Lord for friends who stand with you.'
+      },
+      narration:
+        "David and Jonathan – 1 Samuel 18:1-4; 20:1-42. Jonathan loved David as himself; they covenanted, and Jonathan gave his robe and arms to David. When hatred rose in the palace, Jonathan chose truth and mercy — he shewed David the danger and sent him away in peace, weeping with him. Their promise echoed: The LORD be between me and thee, and between my seed and thy seed for ever. For you: Loyal friendship is a gift; treat it gently and honestly."
     },
     samuelBirth: {
-      title: 'Samuel\'s Birth & Dedication',
+      title: 'The Birth and Dedication of Samuel',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Hannah brings young Samuel to Eli at the temple' },
-        { src: 'panel-noah-2.svg', alt: 'Hannah sings praise to God for His faithfulness' },
-        { src: 'panel-noah-3.svg', alt: 'Samuel grows up serving God as a prophet' }
+        { src: 'panel-noah-1.svg', alt: 'Weaned and brought to Shiloh — Hannah keeps her promise' },
+        { src: 'panel-noah-2.svg', alt: 'For this child I prayed — lent to the Lord all his days' },
+        { src: 'panel-noah-3.svg', alt: 'A little coat each year — Samuel ministers before the Lord' }
       ],
-      caption: 'Swipe to see Hannah keep her promise — Samuel serves God! 🙏',
+      caption: 'Swipe to see a thankful heart keep its promise to God.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samuel', 'hannah', 'dedication', 'temple', '1 samuel 1', 'eli', 'promise', 'prophet'],
-      kjvRef: '1 Samuel 1–2',
-      kidContext: { who: 'Hannah and God', to: 'Samuel', apply: 'When you promise God something, He helps you keep it. Samuel grew up loving God because Hannah gave him back to the Lord.' }
+      keywords: [
+        'samuel',
+        'hannah',
+        'dedication',
+        'weaned',
+        'wean',
+        'shiloh',
+        'tabernacle',
+        'temple',
+        '1 samuel 1',
+        '1 samuel 2',
+        'eli',
+        'lent unto the lord',
+        'lent to the lord',
+        'for this child i prayed',
+        'my heart rejoiceth',
+        'none holy as the lord',
+        'little coat',
+        'linen ephod',
+        'ministered',
+        'yearly sacrifice',
+        'visited hannah',
+        'three sons',
+        'two daughters',
+        'thanksgiving',
+        'horn is exalted'
+      ],
+      kjvRef: '1 Samuel 1:21-28; 2:1-11, 18-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Hannah, Samuel, and every heart that keeps its word',
+        apply:
+          "Hannah did not forget her vow. She brought Samuel to God's house and thanked Him with her whole heart. God honors promises kept in love — and He blessed her home again."
+      },
+      narration:
+        "The Birth and Dedication of Samuel – 1 Samuel 1:21-28; 2:1-11, 18-21. When Samuel was weaned, Hannah remembered her promise. She took him to the house of the Lord at Shiloh and said to Eli, For this child I prayed; and the LORD hath given me my petition which I asked of him. Therefore also I have lent him to the LORD; as long as he liveth he shall be lent to the LORD. Then Hannah prayed, My heart rejoiceth in the LORD… there is none holy as the LORD. She left Samuel with Eli to serve the Lord. Every year she made him a little coat when she came up with her husband for the yearly sacrifice. The LORD visited Hannah, and she had three more sons and two daughters. And the child Samuel grew before the LORD. For you: God blesses thankful hearts that keep their promises to Him."
     },
     samuelCalls: {
-      title: 'Samuel Hears God Calling',
+      title: 'Samuel Hears God\'s Voice at Night',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Samuel sleeping in the temple at night' },
-        { src: 'panel-noah-2.svg', alt: 'Samuel runs to Eli — "Here I am!"' },
-        { src: 'panel-noah-3.svg', alt: 'Samuel says: Speak, Lord — Your servant listens' }
+        { src: 'panel-noah-1.svg', alt: 'Lamp still burning — young Samuel lies down in the Lord\'s house' },
+        { src: 'panel-noah-2.svg', alt: 'Samuel runs to Eli — Here am I; for thou calledst me' },
+        { src: 'panel-noah-3.svg', alt: 'Speak; for thy servant heareth — the Lord calls by name' }
       ],
-      caption: 'Swipe to see Samuel learn to listen for God\'s voice! 👂',
+      caption: 'Swipe to see God call a child by name — and teach him how to answer.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samuel', 'call', 'listen', '1 samuel 3', 'eli', 'temple', 'night', 'prophet'],
-      kjvRef: '1 Samuel 3',
-      kidContext: { who: 'God', to: 'Samuel', apply: 'God still speaks today through His Word. Say, "Speak, Lord" — and listen with a quiet heart.' }
+      keywords: [
+        'samuel',
+        'samuel calls',
+        'call',
+        'called',
+        'night',
+        'temple',
+        'shiloh',
+        '1 samuel 3',
+        'eli',
+        'here am i',
+        'speak lord',
+        'thy servant heareth',
+        'lamp of god',
+        'word of the lord was precious',
+        'no open vision',
+        'ministered unto the lord',
+        'listen',
+        'prophet',
+        'samuel samuel'
+      ],
+      kjvRef: '1 Samuel 3:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Young Samuel — and every child learning to listen',
+        apply:
+          'God called Samuel by name in the quiet night. Eli helped him understand — and Samuel learned to say, Speak, LORD; for thy servant heareth. God still speaks through His Word; we answer with open hearts.'
+      },
+      narration:
+        "Samuel Hears God's Voice at Night – 1 Samuel 3:1-21. The word of the LORD was precious; there was no open vision. The child Samuel ministered before Eli. One night Eli was laid down in his place, and Samuel was laid down to sleep in the temple of the LORD. The LORD called Samuel — and he ran to Eli, Here am I; for thou calledst me. Eli said, I called not; lie down again. This happened again until Eli perceived that the LORD had called the child. He said, If he call thee, thou shalt say, Speak, LORD; for thy servant heareth. The LORD came and stood, and called, Samuel, Samuel. Then Samuel answered, Speak; for thy servant heareth. The LORD told Samuel weighty things about Eli's house. In the morning Samuel opened the doors; he told Eli every word. Samuel grew, and the LORD was with him, and let none of his words fall to the ground. All Israel knew Samuel was the LORD's prophet. For you: God knows your name — listen for Him in His Word, and answer with a gentle heart."
     },
     saulKing: {
       title: 'Saul Becomes King',
@@ -2295,19 +3322,268 @@
       kidContext: { who: 'God', to: 'Saul (and us)', apply: 'Doing things our own way can look holy but still be wrong. God wants a heart that obeys fully — not half.' }
     },
     /* ── Week 4 (49–60) ── */
-    elishaRaised: {
-      title: 'Elisha Raises a Boy',
+    elishaShunammite: {
+      title: 'Elisha Raises the Shunammite\'s Son',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A Shunammite\'s son dies' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha stretches over him and prays' },
-        { src: 'panel-noah-3.svg', alt: 'The boy sneezes seven times—alive!' }
+        { src: 'panel-jesus-1.svg', alt: 'A little chamber on the wall — bed, table, stool, and candlestick for Elisha' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha prays — the child’s flesh waxes warm; he sneezes seven times' },
+        { src: 'panel-jesus-3.svg', alt: 'Take up thy son — the mother’s quiet joy' }
       ],
-      caption: 'Swipe to see God bring a boy back to life! 🤧',
+      caption: 'Swipe to see God’s tender mercy — prayer, warmth, and take up thy son.',
       videoId: '',
       videoTitle: '',
-      keywords: ['elisha', 'raise', 'shunammite', '2 kings 4', 'boy', 'dead', 'life', 'miracle'],
-      kjvRef: '2 Kings 4',
-      kidContext: { who: 'God', to: 'Elisha and the Shunammite', apply: 'God can bring life back! Nothing is too hard for Him.' }
+      keywords: [
+        'elisha',
+        'shunammite',
+        'shunem',
+        'great woman',
+        '2 kings 4',
+        '2 kings 4:8',
+        '2 kings 4:16',
+        '2 kings 4:35',
+        'little chamber',
+        'man of God',
+        'sneezed seven times',
+        'take up thy son',
+        'raise',
+        'miracle'
+      ],
+      kjvRef: '2 Kings 4:8-37',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A mother, a prophet, and a child — through Elisha',
+        apply:
+          'God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.'
+      },
+      narration:
+        "Elisha Raises the Shunammite's Son — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall for Elisha — bed, table, stool, and candlestick. Elisha promised her a son; she bare a son in the season he named. One day the boy became sick; she laid him on the prophet's bed, shut the door, and went quickly to find Elisha at Mount Carmel. When Gehazi asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me? Elisha prayed, lay upon the child, and the flesh waxed warm. The child sneezed seven times and opened his eyes. Take up thy son. She took him and went out. For you: Run to God with your tears — He is merciful."
+    },
+    gehaziGreed: {
+      title: 'Gehazi and Honest Hearts',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Elisha stands firm — I will receive none of Naaman’s gifts' },
+        { src: 'panel-jesus-2.svg', alt: 'Gehazi returns — Elisha asks, Whence comest thou?' },
+        { src: 'panel-jesus-3.svg', alt: 'Elisha speaks truth — Is it a time to receive money?' }
+      ],
+      caption: 'Swipe to see truth spoken kindly — God cares about an honest heart.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'gehazi',
+        'gehazi elisha',
+        '2 kings 5',
+        '2 kings 5:20',
+        '2 kings 5:25',
+        '2 kings 5:26',
+        'whence comest thou',
+        'went no whither',
+        'mine heart with thee',
+        'two talents',
+        'mount ephraim',
+        'sons of the prophets',
+        'receive money',
+        'naaman gifts',
+        'elisha servant',
+        'syrian'
+      ],
+      kjvRef: '2 Kings 5:20-27',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elisha’s servant — and every tempted heart',
+        apply:
+          'God sees the heart. Truth and thankfulness to Him are better than silver or gold.'
+      },
+      narration:
+        "Gehazi and Honest Hearts — 2 Kings 5:20-27. After Naaman was healed, Elisha would not take his gifts. Gehazi ran after Naaman and asked for silver and clothing. When he came back, Elisha asked, Whence comest thou? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments? For you: When we are sorry for wrong, God still teaches mercy — and a heart that loves Him is better than treasure."
+    },
+    widowOil: {
+      title: 'The Widow\'s Oil Multiplied',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'A widow cries — the creditor would take her two sons' },
+        { src: 'panel-jesus-2.svg', alt: 'Borrow many empty vessels — shut the door and pour' },
+        { src: 'panel-jesus-3.svg', alt: 'Every vessel full — sell the oil and pay the debt' }
+      ],
+      caption: 'Swipe to see God multiply little into enough — pour, fill, pay, live.',
+      videoId: '6E2WJ0vp4g4',
+      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
+      keywords: [
+        'widow oil',
+        'widow\'s oil',
+        'widow oil multiplied',
+        'pot of oil',
+        'creditor',
+        'bondmen',
+        'borrow not a few',
+        'empty vessels',
+        'oil stayed',
+        'pay thy debt',
+        'sons of the prophets',
+        '2 kings 4',
+        '2 kings 4:1',
+        '2 kings 4:6',
+        'elisha',
+        'multiply oil'
+      ],
+      kjvRef: '2 Kings 4:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A widow and her sons — through Elisha',
+        apply:
+          'God can multiply what little we have when we obey and trust Him step by step.'
+      },
+      narration:
+        "The Widow's Oil Multiplied — 2 Kings 4:1-7. A certain woman of the wives of the sons of the prophets cried unto Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When there was not a vessel more, the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too."
+    },
+    shunammiteReturn: {
+      title: 'The Shunammite Woman Returns',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Elisha\'s word — take your household; a famine is coming seven years' },
+        { src: 'panel-jesus-2.svg', alt: 'She returns — cry unto the king for her house and for her land' },
+        { src: 'panel-jesus-3.svg', alt: 'The king listens — restore all that was hers, and the fruits of the field' }
+      ],
+      caption: 'Swipe to see God remember a faithful family — home, land, and quiet kindness from the king.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'shunammite',
+        'shunammite return',
+        'shunem',
+        '2 kings 8',
+        '2 kings 8:1',
+        '2 kings 8:6',
+        'seven years',
+        'philistines',
+        'cry unto the king',
+        'her house and her land',
+        'restore all that was hers',
+        'fruits of the field',
+        'gehazi',
+        'great things that elisha',
+        'officer',
+        'famine',
+        'elisha',
+        'son restored to life'
+      ],
+      kjvRef: '2 Kings 8:1-6',
+      kidContext: {
+        who: 'The LORD',
+        to: 'The Shunammite woman and her son — through the king\'s care',
+        apply:
+          'God remembers the same family through hard years — and He can give back what feels lost when we trust Him.'
+      },
+      narration:
+        "The Shunammite Woman Returns — 2 Kings 8:1-6. Elisha told the woman whose son he had raised to take her household and sojourn while a famine came seven years; she obeyed. When those years ended, she returned and asked the king for her house and her land. The king was speaking with Gehazi about the great things Elisha had done — and she came in. Gehazi said, This is the woman, and this is her son, whom Elisha restored to life. The king listened and sent an officer: restore all that was hers, and all the fruits of the field since she left. For you: God keeps His kindness on one family's story — He does not forget."
+    },
+    samariaSiege: {
+      title: 'God Feeds His People at Samaria',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'A great famine — the king of Syria besieged Samaria' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha speaks God\'s word — tomorrow flour and barley in the gate' },
+        { src: 'panel-jesus-3.svg', alt: 'The people find plenty — according to the word of the LORD' }
+      ],
+      caption: 'Swipe to see God\'s word come true — quiet plenty when the city was hungry.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'samaria',
+        'siege of samaria',
+        'samaria siege',
+        'besieged samaria',
+        'gate of samaria',
+        'fine flour',
+        'barley shekel',
+        'windows in heaven',
+        'noise of chariots',
+        'syrians fled',
+        'spoiled the tents',
+        '2 kings 6',
+        '2 kings 6:24',
+        '2 kings 7',
+        '2 kings 7:1',
+        '2 kings 7:16',
+        'elisha',
+        'benhadad',
+        'famine samaria'
+      ],
+      kjvRef: '2 Kings 6:24-7:20',
+      kidContext: {
+        who: 'The LORD',
+        to: 'The people of Samaria — through Elisha\'s word',
+        apply:
+          'God can feed His people when things look impossible — trust His promise one day at a time.'
+      },
+      narration:
+        "God Feeds His People at Samaria — 2 Kings 6:24–7:20. The king of Syria besieged Samaria, and hunger was very great in the city. Elisha said, Thus saith the LORD, To morrow about this time shall a measure of fine flour be sold for a shekel, and two measures of barley for a shekel, in the gate of Samaria. A lord wondered if the LORD would make windows in heaven; Elisha said, Thou shalt see it with thine eyes, but shalt not eat thereof. That night the LORD made the Syrian army hear a noise of chariots and horses; they fled and left food behind. The people went out and spoiled the tents — and flour and barley were sold as God had said. For you: God still speaks kindly when we are afraid and empty."
+    },
+    elishaFinal: {
+      title: 'Elisha\'s Last Words',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'The king weeps beside Elisha — O my father, the chariot of Israel' },
+        { src: 'panel-jesus-2.svg', alt: 'Bow and arrows — Elisha\'s hands upon the king\'s hands at the open window' },
+        { src: 'panel-jesus-3.svg', alt: 'Shoot — the arrow of the LORD\'s deliverance; smite upon the ground' }
+      ],
+      caption: 'Swipe to see God\'s faithful prophet speak hope to the very end.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha',
+        'elisha last words',
+        'joash',
+        'king of israel',
+        '2 kings 13',
+        '2 kings 13:14',
+        '2 kings 13:17',
+        'take bow and arrows',
+        'arrow of the lord',
+        'deliverance from syria',
+        'open the window eastward',
+        'chariot of israel',
+        'smite upon the ground',
+        'man of god',
+        'elisha died'
+      ],
+      kjvRef: '2 Kings 13:14-19',
+      kidContext: {
+        who: 'The LORD',
+        to: 'King Joash — and every listening heart',
+        apply:
+          'God speaks hope through faithful people — even in quiet, hard moments.'
+      },
+      narration:
+        "Elisha's Last Words — 2 Kings 13:14-19. When Elisha was fallen sick, Joash the king of Israel came down unto him and wept, O my father, my father, the chariot of Israel, and the horsemen thereof. Elisha said, Take bow and arrows — and put thine hand upon the bow; Elisha put his hands upon the king's hands. Open the window eastward. Shoot. The arrow of the LORD's deliverance — thou shalt smite the Syrians in Aphek. Take the arrows; smite upon the ground; the king smote thrice. For you: God still guides through gentle hands and His promises."
+    },
+    elishaBones: {
+      title: 'God\'s Power in Elisha\'s Bones',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Elisha died and was buried — quiet rest' },
+        { src: 'panel-jesus-2.svg', alt: 'They laid a man in Elisha\'s sepulchre — he touched the bones of Elisha' },
+        { src: 'panel-jesus-3.svg', alt: 'He revived and stood up on his feet — God\'s wonder' }
+      ],
+      caption: 'Swipe to see God\'s power still working — life where only wonder fits.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha bones',
+        'bones of elisha',
+        'touched the bones',
+        'sepulchre of elisha',
+        'revived',
+        'stood up on his feet',
+        '2 kings 13',
+        '2 kings 13:21',
+        'burying a man',
+        'man of god',
+        'elisha grave'
+      ],
+      kjvRef: '2 Kings 13:20-21',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A man raised — and every heart that wonders',
+        apply:
+          'God\'s power is greater than we can guess — He can do wonderful things.'
+      },
+      narration:
+        "God's Power in Elisha's Bones — 2 Kings 13:20-21. Elisha died and was buried. Later, as men were burying another man, they saw danger and cast him into the sepulchre of Elisha. When the man touched the bones of Elisha, he revived and stood up on his feet. For you: God is mighty — His kindness can surprise us in the quietest places."
     },
     estherCrown: {
       title: 'Queen Esther\'s Courage',
@@ -2352,46 +3628,273 @@
       kidContext: { who: 'God', to: 'Job (and us)', apply: 'God is with us even in our saddest days — we can still trust Him and bless His name.' }
     },
     psalm23Shepherd: {
-      title: 'The Lord Is My Shepherd',
+      title: 'Psalm 23 — The Lord Is My Shepherd',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A shepherd leads sheep to green pastures' },
-        { src: 'panel-noah-2.svg', alt: 'Still waters—rest and peace' },
-        { src: 'panel-noah-3.svg', alt: 'God leads us—we shall not want!' }
+        { src: 'panel-david-1.svg', alt: 'The LORD is my shepherd — green pastures, still waters' },
+        { src: 'panel-david-2.svg', alt: 'Thou art with me — thy rod and thy staff comfort me' },
+        { src: 'panel-david-3.svg', alt: 'Surely goodness and mercy — I will dwell in the house of the LORD for ever' }
       ],
-      caption: 'Swipe to see God as your Good Shepherd! 🐑',
+      caption: 'Swipe to rest in the whole psalm — the Shepherd who stays with you.',
       videoId: '',
       videoTitle: '',
-      keywords: ['psalm 23', 'shepherd', 'sheep', 'staff', 'peace', 'david', 'green pastures'],
-      kjvRef: 'Psalm 23',
-      kidContext: { who: 'God', to: 'David (and us)', apply: 'God is your Good Shepherd! He leads you, protects you, and gives you rest.' }
+      keywords: [
+        'psalm 23',
+        'psalms 23',
+        'ps 23',
+        'shepherd',
+        'still waters',
+        'green pastures',
+        'valley of the shadow',
+        'rod and staff',
+        'cup runneth over',
+        'goodness and mercy',
+        'house of the lord',
+        'i shall not want',
+        'restoreth my soul',
+        'david',
+        'comfort'
+      ],
+      kjvRef: 'Psalm 23:1-6',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Every listener who needs quiet rest',
+        apply:
+          'The same Shepherd who led David leads His people still — beside quiet water, through hard valleys, and home to Himself. Say the words slowly; He hears.'
+      },
+      narration:
+        "Psalm 23 — The Lord Is My Shepherd. The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me. Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over. Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever. For you: You can speak this psalm to the Lord like a quiet prayer — He is with you."
+    },
+    psalm23: {
+      title: 'Psalm 23 — The Lord Is My Shepherd',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Green pastures and still waters — the LORD leads His sheep' },
+        { src: 'panel-david-2.svg', alt: 'Even in the valley — thou art with me; rod and staff comfort' },
+        { src: 'panel-david-3.svg', alt: 'A table prepared — goodness and mercy — home with the LORD for ever' }
+      ],
+      caption: 'Swipe for the whole psalm — rest, courage, and home with the Shepherd.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'psalm 23',
+        'psalms 23',
+        'ps 23',
+        'the lord is my shepherd',
+        'shepherd',
+        'still waters',
+        'green pastures',
+        'valley of the shadow of death',
+        'fear no evil',
+        'thou art with me',
+        'rod and staff',
+        'cup runneth over',
+        'goodness and mercy',
+        'dwell in the house of the lord',
+        'david psalm',
+        'comfort psalm'
+      ],
+      kjvRef: 'Psalm 23:1-6',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Children and grown-ups on hard days',
+        apply:
+          'This psalm is a quiet place to breathe — the Shepherd knows you, leads you, and will not leave you. Read it slowly; each line is true.'
+      },
+      narration:
+        "Psalm 23 — 1-6. The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me. Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over. Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever. For you: Keep this psalm like a lamp for dark evenings — the Lord is still your Shepherd."
     },
     solomonWisdom: {
-      title: 'Solomon\'s Wisdom',
+      title: 'Solomon Asks for Wisdom',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Two moms argue about a baby' },
-        { src: 'panel-david-2.svg', alt: 'Solomon says: bring a sword!' },
-        { src: 'panel-david-3.svg', alt: 'The real mom speaks up—God gives wisdom!' }
+        { src: 'panel-david-1.svg', alt: 'In Gibeon — the LORD in a dream: Ask what I shall give thee' },
+        { src: 'panel-david-2.svg', alt: 'I am but a little child — give an understanding heart' },
+        { src: 'panel-david-3.svg', alt: 'God gives a wise heart — Solomon worships before the ark in Jerusalem' }
       ],
-      caption: 'Swipe to see Solomon use God\'s wisdom! 👶',
+      caption: 'Swipe for the dream where Solomon asks God for wisdom, not riches.',
       videoId: '',
       videoTitle: '',
-      keywords: ['solomon', 'wisdom', 'baby', 'sword', '1 kings 3', 'judge', 'moms'],
-      kjvRef: '1 Kings 3',
-      kidContext: { who: 'God', to: 'Solomon', apply: 'Ask God for wisdom! He gives it freely to those who ask.' }
+      keywords: [
+        'solomon',
+        'solomon wisdom',
+        'ask for wisdom',
+        'understanding heart',
+        '1 kings 3',
+        '1 kings 3:5',
+        '1 kings 3:9',
+        '1 kings 3:12',
+        'dream',
+        'gibeon',
+        'ask what i shall give thee',
+        'little child',
+        'discern between good and bad',
+        'speech pleased the lord',
+        'riches and honour',
+        'ark of the covenant',
+        'jerusalem',
+        'david my father'
+      ],
+      kjvRef: '1 Kings 3:5-15',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Young Solomon — and every listener',
+        apply:
+          'God smiled on a king who asked for wisdom before wealth. When you pray, ask God for a heart that loves what is right — He is glad to give it.'
+      },
+      narration:
+        "Solomon Asks for Wisdom – 1 Kings 3:5-15. In Gibeon the LORD appeared to Solomon in a dream by night: Ask what I shall give thee. Solomon remembered David his father, and said, O LORD my God, I am but a little child; give thy servant an understanding heart to judge thy people, that I may discern between good and bad. The speech pleased the LORD. Because Solomon had not asked long life, nor riches, nor the life of his enemies, but understanding, God said, I have given thee a wise and an understanding heart, and riches and honour also. Solomon awoke — it was a dream — and came to Jerusalem, and stood before the ark of the covenant, and offered sacrifices. For you: Ask God first for wisdom; He knows what you need next."
+    },
+    solomonTwoMothers: {
+      title: 'Solomon and the Two Mothers',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Two women stand before the king with a hard dispute' },
+        { src: 'panel-david-2.svg', alt: 'Each says the living child is hers' },
+        { src: 'panel-david-3.svg', alt: 'Bring me a sword — the true mother begs, Give her the living child' }
+      ],
+      caption: 'Swipe to see how God\'s wisdom showed the real mother\'s love.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'solomon baby',
+        'two mothers',
+        'two women',
+        'bring me a sword',
+        'divide the living child',
+        'living child',
+        '1 kings 3:16',
+        '1 kings 3:24',
+        '1 kings 3:27',
+        'wisdom of god was in him',
+        'judgment',
+        'harlots unto the king'
+      ],
+      kjvRef: '1 Kings 3:16-28',
+      kidContext: {
+        who: 'God (through Solomon)',
+        to: 'Israel — and every heart that wants truth',
+        apply:
+          'Love that protects told the truth. God had given Solomon wisdom — and a whole nation saw it.'
+      },
+      narration:
+        "Solomon and the Two Mothers – 1 Kings 3:16-28. Two women came before the king; each claimed the living baby. Solomon said, Bring me a sword — divide the child in two. The real mother cried, Give her the living child, and in no wise slay it. Solomon knew her heart — and gave the child to her. All Israel saw that the wisdom of God was in him. For you: God helps us tell right from wrong when we listen to Him."
     },
     solomonTemple: {
       title: 'Solomon Builds the Temple',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Workers build the temple — cedar, gold, stone' },
-        { src: 'panel-noah-2.svg', alt: 'Priests carry the ark into the Holy of Holies' },
-        { src: 'panel-noah-3.svg', alt: 'God\'s glory fills the house like a cloud' }
+        { src: 'panel-noah-1.svg', alt: 'Solomon began to build the house of the LORD — cedar, finished with care' },
+        { src: 'panel-noah-2.svg', alt: 'The ark of the covenant brought into the most holy place' },
+        { src: 'panel-noah-3.svg', alt: 'The cloud filled the house — the glory of the LORD; Solomon prays with hands toward heaven' }
       ],
-      caption: 'Swipe to see God fill His house with glory! ✨',
+      caption: 'Swipe for the house Solomon finished — and the glory that filled it.',
       videoId: '',
       videoTitle: '',
-      keywords: ['solomon', 'temple', 'jerusalem', '1 kings 5', '1 kings 8', 'ark', 'glory', 'worship'],
-      kjvRef: '1 Kings 5–8',
-      kidContext: { who: 'God', to: 'Israel', apply: 'God is not far off — He wants His people to meet Him in worship. Today we come to Him through Jesus, anywhere we pray.' }
+      keywords: [
+        'solomon temple',
+        'builds the temple',
+        'house of the lord',
+        '1 kings 6',
+        '1 kings 8',
+        '1 kings 6:1',
+        '1 kings 8:10',
+        '1 kings 8:11',
+        'ark of the covenant',
+        'most holy place',
+        'cloud filled the house',
+        'glory of the lord',
+        'priests could not stand',
+        'there is no god like thee',
+        'heaven of heavens cannot contain thee',
+        'pray toward this house',
+        'when thou hearest forgive',
+        'jerusalem',
+        'cedar',
+        'cherubims'
+      ],
+      kjvRef: '1 Kings 6:1-14; 8:1-13, 22-30',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Israel — and every heart that prays',
+        apply:
+          'God\'s glory filled the house Solomon built — yet heaven itself cannot hold Him. He still bends low to hear prayer; we meet Him with reverence and thanks.'
+      },
+      narration:
+        "Solomon Builds the Temple – 1 Kings 6:1-14; 8:1-13, 22-30. In the fourth year of his reign Solomon began to build the house of the LORD — cedar beams, careful work, and the word of the LORD: walk in my ways, and I will dwell among Israel. He finished the house. Then he assembled Israel; the priests brought the ark into the most holy place. When they came out, a cloud filled the house — the glory of the LORD — so the priests could not stand to minister. Solomon spread his hands toward heaven: LORD God of Israel, there is no God like thee; the heaven of heavens cannot contain thee; how much less this house — yet hear thy servant; let thine eyes be open toward this house; when thy people pray toward this place, hear, and forgive. For you: The true God is great — and He still listens."
+    },
+    elijahRavens: {
+      title: 'Elijah and the Ravens',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elijah speaks God\'s word — no dew nor rain according to my word' },
+        { src: 'panel-noah-2.svg', alt: 'By the brook Cherith — the LORD commanded the ravens to feed thee there' },
+        { src: 'panel-noah-3.svg', alt: 'Bread and flesh morning and evening — he drank of the brook' }
+      ],
+      caption: 'Swipe for Cherith — where God fed His prophet by the brook.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elijah ravens',
+        'elijah and the ravens',
+        'brook cherith',
+        'cherith',
+        '1 kings 17',
+        '1 kings 17:1',
+        '1 kings 17:4',
+        '1 kings 17:6',
+        'bread and flesh',
+        'commanded the ravens',
+        'no dew nor rain',
+        'ahab',
+        'tishbite',
+        'gilead',
+        'drink of the brook',
+        'brook dried up'
+      ],
+      kjvRef: '1 Kings 17:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah — and every heart that needs daily bread',
+        apply:
+          'God hid Elijah by the brook and sent ravens with food — morning and evening. When the land was dry, heaven still obeyed His voice.'
+      },
+      narration:
+        "Elijah and the Ravens – 1 Kings 17:1-7. Elijah the Tishbite said unto Ahab, As the LORD God of Israel liveth, there shall not be dew nor rain these years, but according to my word. The word of the LORD came: Get thee hence, and hide thyself by the brook Cherith, that is before Jordan; thou shalt drink of the brook, and I have commanded the ravens to feed thee there. So he dwelt by Cherith. The ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. After a while the brook dried up, because there had been no rain in the land. For you: God knows how to care for you — even one day at a time."
+    },
+    elijahWidow: {
+      title: 'Elijah and the Widow of Zarephath',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The word of the Lord — arise, get thee to Zarephath' },
+        { src: 'panel-noah-2.svg', alt: 'At the city gate — a widow gathering sticks' },
+        { src: 'panel-noah-3.svg', alt: 'The barrel wasted not — the cruse of oil failed not' }
+      ],
+      caption: 'Swipe for Zarephath — where God\'s promise filled the barrel and the cruse.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elijah widow',
+        'widow of zarephath',
+        'zarephath',
+        'zidon',
+        'sidon',
+        'barrel of meal',
+        'cruse',
+        'handful of meal',
+        'gathering sticks',
+        'little cake',
+        'morsel of bread',
+        '1 kings 17:8',
+        '1 kings 17:9',
+        '1 kings 17:12',
+        '1 kings 17:14',
+        '1 kings 17:16',
+        'sustain thee',
+        'eat many days'
+      ],
+      kjvRef: '1 Kings 17:8-16',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A widow and her son — and every heart afraid of empty cupboards',
+        apply:
+          'God asked her to trust Him with the first little cake — and He kept the barrel and the cruse from failing. His word holds.'
+      },
+      narration:
+        "Elijah and the Widow of Zarephath – 1 Kings 17:8-16. The word of the LORD came: Arise, get thee to Zarephath, which belongeth to Zidon, and dwell there: behold, I have commanded a widow woman there to sustain thee. At the gate he found her gathering sticks. Fetch me a little water, he said — then, Bring me a morsel of bread. She answered, I have an handful of meal in a barrel, and a little oil in a cruse; I am gathering two sticks to dress one last meal for me and my son, that we may eat it, and die. Elijah said, Fear not; make me a little cake first, and after for thee and thy son. For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail, until the day that the LORD sendeth rain upon the earth. She obeyed. She, and he, and her house, did eat many days — the barrel wasted not, neither did the cruse of oil fail, according to the word of the LORD. For you: When you put God first, He can care for what you love."
     },
     elijahFireFromHeaven: {
       title: 'Elijah on Mount Carmel',
@@ -2408,60 +3911,263 @@
       kidContext: { who: 'God', to: 'Israel', apply: 'There is only one true God. He hears when we pray — trust Him, not pretend gods.' }
     },
     elijahElijahElisha: {
-      title: 'Elijah Calls Elisha',
+      title: 'Elisha Plows the Field — Elijah Calls Him',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elisha plows with oxen — Elijah throws his cloak' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha says goodbye and follows Elijah' },
-        { src: 'panel-noah-3.svg', alt: 'Elisha serves and learns — ready for God\'s work' }
+        { src: 'panel-noah-1.svg', alt: 'Elisha with the twelfth yoke — Elijah casts his mantle' },
+        { src: 'panel-noah-2.svg', alt: 'Kiss my father and my mother — Elijah says, Go back again' },
+        { src: 'panel-noah-3.svg', alt: 'A feast for the people — then he followed and ministered' }
       ],
-      caption: 'Swipe to see Elisha leave the field to follow God\'s call! 🌾',
+      caption: 'Swipe for the mantle in the field — Elisha rose and ministered unto Elijah.',
       videoId: '',
       videoTitle: '',
-      keywords: ['elijah', 'elisha', 'cloak', 'oxen', '1 kings 19', 'prophet', 'follow', 'call'],
-      kjvRef: '1 Kings 19:19–21',
-      kidContext: { who: 'Elisha', to: 'God', apply: 'When God calls, be willing to obey — even when it means leaving something good behind.' }
+      keywords: [
+        'elijah calls elisha',
+        'elisha plows the field',
+        'elisha plowing',
+        'twelve yoke of oxen',
+        'cast his mantle',
+        'mantle upon him',
+        'abelmeholah',
+        'elisha son of shaphat',
+        '1 kings 19:19',
+        '1 kings 19:20',
+        '1 kings 19:21',
+        'kiss my father and my mother',
+        'go back again',
+        'ministered unto him',
+        'slew them',
+        'boiled their flesh'
+      ],
+      kjvRef: '1 Kings 19:19-21',
+      kidContext: {
+        who: 'Elisha',
+        to: 'The LORD — through Elijah',
+        apply:
+          'The call did not erase love for family — it ordered it. Then Elisha rose, followed, and served. God honors a willing heart.'
+      },
+      narration:
+        "Elisha Plows the Field – 1 Kings 19:19-21. Elijah found Elisha the son of Shaphat plowing with twelve yoke of oxen — he with the twelfth — and passed by him, and cast his mantle upon him. Elisha left the oxen, ran after Elijah, and asked, Let me kiss my father and my mother, and then I will follow thee. Elijah answered, Go back again: for what have I done to thee? Elisha returned: he took a yoke of oxen, slew them, boiled their flesh with the instruments of the oxen, gave unto the people, and they did eat. Then he arose, and went after Elijah, and ministered unto him. For you: When God calls, you can answer with honor — and follow Him with your whole heart."
     },
     elijahChariot: {
-      title: 'Elijah\'s Fiery Chariot',
+      title: 'Elijah Taken Up in the Fiery Chariot',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah and Elisha walk together' },
-        { src: 'panel-noah-2.svg', alt: 'Fiery horses and chariot appear' },
-        { src: 'panel-noah-3.svg', alt: 'Elijah goes up to heaven in a whirlwind!' }
+        { src: 'panel-noah-1.svg', alt: 'Elijah and Elisha walk the long road — I will not leave thee' },
+        { src: 'panel-noah-2.svg', alt: 'Jordan divides — they cross on dry ground' },
+        { src: 'panel-noah-3.svg', alt: 'Chariot of fire — Elijah goes up by a whirlwind into heaven' }
       ],
-      caption: 'Swipe to see Elijah taken up to heaven! 🔥',
+      caption: 'Swipe to see God take Elijah home in wonder! ✨',
       videoId: '',
       videoTitle: '',
-      keywords: ['elijah', 'chariot', 'fire', '2 kings 2', 'whirlwind', 'heaven', 'elisha'],
-      kjvRef: '2 Kings 2:1–14',
-      kidContext: { who: 'God', to: 'Elijah', apply: 'God honors His faithful servants! Heaven is real—and it\'s wonderful.' }
+      keywords: [
+        'elijah',
+        'elisha',
+        'chariot',
+        'fire',
+        '2 kings 2',
+        'whirlwind',
+        'heaven',
+        'jordan',
+        'mantle',
+        'double portion',
+        'gilgal',
+        'bethel',
+        'jericho'
+      ],
+      kjvRef: '2 Kings 2:1-14',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah, Elisha, and us',
+        apply:
+          'God keeps every promise — even the hard goodbyes. His strength passes on to those who follow Him faithfully.'
+      },
+      narration:
+        "Elijah Taken Up in the Fiery Chariot — 2 Kings 2:1-14. The LORD would take Elijah into heaven by a whirlwind; Elijah went with Elisha from Gilgal. Again and again Elijah said, Tarry here — and Elisha answered, As the LORD liveth, and as thy soul liveth, I will not leave thee. At Jordan Elijah smote the waters with his mantle; they divided, and they two went over on dry ground. Elijah said, Ask what I shall do for thee, before I am taken away from thee. Elisha asked for a double portion of his spirit. As they still went on and talked, behold, there appeared a chariot of fire, and horses of fire; Elijah went up by a whirlwind into heaven. Elisha saw it, cried out, then took up the mantle that fell, smote Jordan again, and went over — Where is the LORD God of Elijah? For you: When someone you love serves God with their whole heart, you can thank God for them — and keep walking in His strength."
     },
     elishaMiracles: {
-      title: 'Elisha\'s Miracles',
+      title: 'Elisha\'s First Miracles',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Salt in the water — Jericho\'s spring made clean' },
-        { src: 'panel-david-2.svg', alt: 'Oil fills every jar for the widow' },
-        { src: 'panel-david-3.svg', alt: 'Naaman washes in the Jordan — skin like a child\'s' }
+        { src: 'panel-noah-1.svg', alt: 'Elisha casts salt into Jericho\'s spring — the waters are healed' },
+        { src: 'panel-noah-2.svg', alt: 'A widow pours oil — vessel after vessel fills up' },
+        { src: 'panel-noah-3.svg', alt: 'Sell the oil, pay the debt — God cares for the family' }
       ],
-      caption: 'Swipe to see God help people through Elisha! ✨',
+      caption: 'Swipe to see God heal the water and fill every jar! ✨',
       videoId: '',
       videoTitle: '',
-      keywords: ['elisha', 'miracle', 'widow', 'oil', 'naaman', '2 kings 4', '2 kings 5', 'jordan', 'jericho'],
-      kjvRef: '2 Kings 2:19–22; 4:1–7; 4:8–37; 5',
-      kidContext: { who: 'God', to: 'His people', apply: 'God can heal, provide, and raise the dead. He still cares about our troubles today.' }
+      keywords: [
+        'elisha',
+        'elisha first miracles',
+        '2 kings 2',
+        '2 kings 2:19',
+        '2 kings 2:20',
+        '2 kings 2:21',
+        '2 kings 2:22',
+        'jericho',
+        'spring',
+        'salt',
+        'cruse',
+        'waters healed',
+        'barren',
+        '2 kings 4',
+        '2 kings 4:1',
+        'widow',
+        'oil',
+        'vessels',
+        'creditor',
+        'bondmen',
+        'pot of oil'
+      ],
+      kjvRef: '2 Kings 2:19-22; 4:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Jericho and a widow\'s home — through Elisha',
+        apply:
+          'God can heal what is bitter and stretch what is little. He cares for towns, moms, and children.'
+      },
+      narration:
+        "Elisha's First Miracles — 2 Kings 2:19-22; 4:1-7. The men of the city told Elisha, The water is naught, and the ground barren. He said, Bring me a new cruse, and put salt therein. He cast it into the spring and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land — and the waters were healed. Later a widow cried that the creditor would take her sons; she had only a pot of oil. Elisha sent her to borrow empty vessels, pour behind closed doors — and the oil flowed until every vessel was full. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: When needs feel big and your little feels small, God can still provide — ask Him and obey one step at a time."
     },
     elishaFloatingAxe: {
-      title: 'The Floating Axe Head',
+      title: 'Elisha and the Floating Axe Head',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Builders by the Jordan — the axe head splashes in' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha throws a stick — iron floats!' },
-        { src: 'panel-noah-3.svg', alt: 'The man lifts the borrowed axe — God cared' }
+        { src: 'panel-jesus-1.svg', alt: 'Sons of the prophets — the place is too strait; beams from Jordan' },
+        { src: 'panel-jesus-2.svg', alt: 'The axe head falls in the water — Alas, master! it was borrowed' },
+        { src: 'panel-jesus-3.svg', alt: 'Elisha casts a stick — the iron swims — take it up to thee' }
       ],
-      caption: 'Swipe to see God care about a small, borrowed tool! 🪓',
+      caption: 'Swipe to see gentle wonder — borrowed iron that swam home.',
       videoId: '',
       videoTitle: '',
-      keywords: ['elisha', 'axe', 'jordan', '2 kings 6', 'borrowed', 'float', 'miracle', 'iron'],
-      kjvRef: '2 Kings 6:1–7',
-      kidContext: { who: 'God', to: 'the worried builder', apply: 'God notices little worries too. Tell Him what you need — He is kind.' }
+      keywords: [
+        'elisha',
+        'floating axe',
+        'axe head',
+        'axe',
+        'jordan',
+        '2 kings 6',
+        '2 kings 6:1',
+        '2 kings 6:6',
+        'sons of the prophets',
+        'borrowed',
+        'iron did swim',
+        'stick',
+        'beam',
+        'man of God'
+      ],
+      kjvRef: '2 Kings 6:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'a worried builder — through Elisha',
+        apply:
+          'God cares about honest, everyday troubles — even a small, borrowed thing. Tell Him what you need.'
+      },
+      narration:
+        "Elisha and the Floating Axe Head — 2 Kings 6:1-7. The sons of the prophets said, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams for a new place. As one was cutting down a beam, the axe head fell into the water, and he cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee — and the man put out his hand and took it. For you: The Lord used Elisha to make the borrowed iron swim so the young man would not lose what was not his own."
+    },
+    elishaChariots: {
+      title: 'Elisha and the Chariots of Fire',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Night at Dothan — a host with horses and chariots compass the city' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha says, Fear not — they that be with us are more than they that be with them' },
+        { src: 'panel-jesus-3.svg', alt: 'The mountain full of horses and chariots of fire round about Elisha' }
+      ],
+      caption: 'Swipe to see God’s unseen army — more are with us than with them.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha',
+        'chariots of fire',
+        'dothan',
+        '2 kings 6',
+        '2 kings 6:16',
+        '2 kings 6:17',
+        'fear not',
+        'open his eyes',
+        'they that be with us',
+        'syria',
+        'servant of the man of God',
+        'horses and chariots',
+        'mountain'
+      ],
+      kjvRef: '2 Kings 6:8-17',
+      kidContext: {
+        who: 'The LORD',
+        to: "Elisha's servant — and every afraid heart",
+        apply:
+          "When trouble looks big, God's help is bigger than we see yet — ask Him to open your eyes to trust Him."
+      },
+      narration:
+        "Elisha and the Chariots of Fire — 2 Kings 6:8-17. The king of Syria sent a great host; they came by night and compassed Dothan. The servant of the man of God rose early and cried, Alas, my master! how shall we do? Elisha said, Fear not: for they that be with us are more than they that be with them. He prayed, Lord, open his eyes, that he may see. The Lord opened the young man’s eyes — and the mountain was full of horses and chariots of fire round about Elisha. For you: God’s protection is real, even when fear feels loud."
+    },
+    elishaPoisonStew: {
+      title: 'Elisha and the Poisoned Stew',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Gilgal — a great pot of pottage for the sons of the prophets' },
+        { src: 'panel-jesus-2.svg', alt: 'They cry, O man of God, there is death in the pot' },
+        { src: 'panel-jesus-3.svg', alt: 'Elisha casts meal into the pot — no harm' }
+      ],
+      caption: 'Swipe to see meal heal the pot — no harm for God’s servants.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha',
+        'poisoned stew',
+        'death in the pot',
+        'gilgal',
+        'pottage',
+        'great pot',
+        'wild gourds',
+        'meal',
+        '2 kings 4',
+        '2 kings 4:38',
+        '2 kings 4:41',
+        'sons of the prophets',
+        'seethe',
+        'no harm in the pot'
+      ],
+      kjvRef: '2 Kings 4:38-41',
+      kidContext: {
+        who: 'The LORD',
+        to: 'the sons of the prophets — through Elisha',
+        apply:
+          'God cares about daily needs — He can make what looked harmful become safe when we trust Him.'
+      },
+      narration:
+        "Elisha and the Poisoned Stew — 2 Kings 4:38-41. At Gilgal, in a dearth, Elisha said, Set on the great pot, and seethe pottage for the sons of the prophets. Wild gourds were shred into the pot — they knew them not. As they ate, they cried, O thou man of God, there is death in the pot. Elisha said, Then bring meal. He cast it into the pot — Pour out for the people, that they may eat. And there was no harm in the pot. For you: Bring your worry to God — He can restore what feels spoiled."
+    },
+    elishaBlindArmy: {
+      title: 'Elisha and the Blind Syrian Army',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Elisha prays — the Lord smites the army with blindness' },
+        { src: 'panel-jesus-2.svg', alt: 'Follow me — he led them to Samaria; their eyes were opened' },
+        { src: 'panel-jesus-3.svg', alt: 'Bread and water — they ate and drank, and went in peace' }
+      ],
+      caption: 'Swipe to see mercy — bread and water instead of fighting.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha',
+        'blind syrian',
+        'syrian army',
+        'blindness',
+        'samaria',
+        '2 kings 6',
+        '2 kings 6:18',
+        '2 kings 6:22',
+        'smite with blindness',
+        'open the eyes of these men',
+        'bread and water',
+        'thou shalt not smite',
+        'great provision',
+        'dothan'
+      ],
+      kjvRef: '2 Kings 6:18-23',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elisha, the king of Israel, and the Syrian army',
+        apply:
+          'God can protect His servants and show mercy — even kindness to those who came as enemies.'
+      },
+      narration:
+        "Elisha and the Blind Syrian Army — 2 Kings 6:18-23. When they came down to him, Elisha prayed, Smite this people, I pray thee, with blindness — and the Lord smote them according to the word of Elisha. Elisha said, Follow me — and he led them to Samaria. Then, Lord, open the eyes of these men — and they saw they were in the midst of Samaria. The king asked, Shall I smite them? Elisha said, Thou shalt not smite them: set bread and water before them. They ate and drank, and went to their master — and the bands of Syria came no more into the land of Israel. For you: Mercy can go farther than fear expects."
     },
     elishaBones: {
       title: 'God\'s Power Even in Elisha\'s Bones',
@@ -4174,15 +5880,23 @@
     rahabWindow: {
       title: 'Rahab Hangs the Cord',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Rahab lets the spies down by a rope' },
-        { src: 'panel-noah-2.svg', alt: 'She ties the scarlet cord in the window' },
-        { src: 'panel-noah-3.svg', alt: 'God keeps His promise—she is saved!' }
+        { src: 'panel-noah-1.svg', alt: 'Rahab lets the spies down by the window — a gentle escape' },
+        { src: 'panel-noah-2.svg', alt: 'She ties the scarlet cord where they asked — a sign of trust' },
+        { src: 'panel-noah-3.svg', alt: 'God remembers His promise — Rahab and her family are safe' }
       ],
       caption: 'Swipe to see Rahab\'s faith and God\'s promise! 🔴',
       videoId: '',
       videoTitle: '',
-      keywords: ['rahab', 'window', 'cord', 'scarlet', 'joshua 2', 'rope', 'faith', 'save'],
-      kidContext: { who: 'God', to: 'Rahab', apply: 'Even outsiders are welcomed by God! Faith is the cord that saves—hold on!' }
+      keywords: ['rahab', 'window', 'cord', 'scarlet', 'joshua 2', 'rope', 'faith', 'save', 'promise'],
+      kjvRef: 'Joshua 2:1-21',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Rahab (and us)',
+        apply:
+          "God welcomes everyone who turns to Him in faith. The cord was a quiet picture of trust—Jesus is the lasting sign of God's kindness; hold fast to Him."
+      },
+      narration:
+        "Rahab Hangs the Cord – Joshua 2:1-21. Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab. The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax. When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.' Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family. The men said, 'Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.' Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord. For you: God keeps His promises to everyone who trusts Him—look to Jesus."
     },
     deborahJudge: {
       title: 'Deborah the Judge',
@@ -4213,16 +5927,117 @@
     abigailWise: {
       title: 'Abigail\'s Wisdom',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'David\'s men are angry—Nabal was rude' },
-        { src: 'panel-noah-2.svg', alt: 'Abigail quickly brings bread and gifts' },
-        { src: 'panel-noah-3.svg', alt: 'David\'s anger calms—wise words prevent disaster!' }
+        { src: 'panel-david-1.svg', alt: 'Nabal answers rudely — David\'s men turned away grieved' },
+        { src: 'panel-david-2.svg', alt: 'Abigail makes haste — loaves, wine, sheep, and figs on asses' },
+        { src: 'panel-david-3.svg', alt: 'She bows before David — Blessed be the LORD which sent thee' }
       ],
-      caption: 'Swipe to see Abigail use wisdom to stop a fight! 🍞',
+      caption: 'Swipe to see wise words and gifts turn anger into peace.',
       videoId: '',
       videoTitle: '',
-      keywords: ['abigail', 'wise', 'nabal', '1 samuel 25', 'bread', 'donkey', 'peace', 'wisdom'],
-      kjvRef: '1 Samuel 25',
-      kidContext: { who: 'God', to: 'Abigail (and us)', apply: 'Wise words stop anger and save lives! Be quick to bring peace, not fuel.' }
+      keywords: [
+        'abigail',
+        'abigail wise',
+        'nabal',
+        'carmel',
+        'maon',
+        '1 samuel 25',
+        'bread',
+        'wine',
+        'cakes of figs',
+        'loaves',
+        'folly is with him',
+        'bundle of life',
+        'blessed be thy advice',
+        'go up in peace',
+        'david',
+        'peace',
+        'wisdom',
+        'good understanding'
+      ],
+      kjvRef: '1 Samuel 25:1-42',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Abigail — and every heart that can bring peace',
+        apply:
+          'Abigail listened, hurried with gifts, and spoke humbly. God used her to keep David from shedding blood. When trouble rises, ask God for wise, kind words.'
+      },
+      narration:
+        "Abigail's Wisdom – 1 Samuel 25:1-42. Nabal was harsh; his wife Abigail was a woman of good understanding. David's men had guarded Nabal's shepherds, yet Nabal answered David's messengers with scorn. When Abigail heard it, she made haste — bread, wine, dressed sheep, parched corn, raisins, and figs on asses — and went to meet David. She bowed low and asked him not to regard her husband's folly: as his name was, so was he. She begged forgiveness and gave the food she brought. David blessed the LORD for sending her and for keeping him that day from shedding blood; he received her gift and sent her in peace. Later, when Nabal died, David sent for Abigail, and she became his wife. For you: God can use a humble, wise heart to protect many."
+    },
+    davidAbigail: {
+      title: 'David & Abigail',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Messengers ask Nabal for food — he refuses with harsh words' },
+        { src: 'panel-david-2.svg', alt: 'Abigail meets David on the path — baskets of blessing' },
+        { src: 'panel-david-3.svg', alt: 'David listens — Blessed be the LORD God of Israel which sent thee' }
+      ],
+      caption: 'Swipe to see God send a wise woman to keep the peace.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'david and abigail',
+        'david abigail',
+        'abigail',
+        'nabal',
+        '1 samuel 25',
+        'carmel',
+        'wise',
+        'gifts',
+        'bread',
+        'wine',
+        'blessed be the lord god of israel',
+        'folly is with him',
+        'bundle of life',
+        'became his wife'
+      ],
+      kjvRef: '1 Samuel 25:1-42',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David — and every listener',
+        apply:
+          'David was angry, but he listened to Abigail and to God. Mercy and wisdom together kept him from doing wrong. When you are hurt, pause and ask God what is right.'
+      },
+      narration:
+        "David & Abigail – 1 Samuel 25:1-42. David asked Nabal for food for his men who had kept Nabal's flocks safe; Nabal answered with insult. David set out in anger — but Abigail heard, loaded donkeys with food, and hurried down the hill to meet him. She bowed and spoke with wisdom: let not my lord regard this man of Belial; folly is with him. She asked forgiveness and gave what she had brought. David blessed the LORD God of Israel for sending her and blessed her advice, for she had kept him from bloodshed. He sent her home in peace. After Nabal died, David took Abigail to be his wife. For you: God honors peacemakers."
+    },
+    davidKing: {
+      title: 'David Becomes King',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Tribes at Hebron — Behold, we are thy bone and thy flesh' },
+        { src: 'panel-david-2.svg', alt: 'Elders anoint David king over Israel before the LORD' },
+        { src: 'panel-david-3.svg', alt: 'The city of David — the LORD God of hosts was with him' }
+      ],
+      caption: 'Swipe for the day Israel\'s tribes crowned David — God kept His promise.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'david king',
+        'david becomes king',
+        'king over israel',
+        'anointed david king',
+        'hebron',
+        'jerusalem',
+        'city of david',
+        'strong hold of zion',
+        '2 samuel 5',
+        '2 sam 5',
+        'bone and thy flesh',
+        'thirty years old',
+        'reigned forty years',
+        'seven years and six months',
+        'thirty and three years',
+        'lord god of hosts',
+        'established him king'
+      ],
+      kjvRef: '2 Samuel 5:1-5, 9-12',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Israel — and every heart that waits on God',
+        apply:
+          'The long road led to a thankful crown: God placed David where He promised. When answers take time, the Lord is still working.'
+      },
+      narration:
+        "David Becomes King – 2 Samuel 5:1-5, 9-12. Then came all the tribes of Israel to David unto Hebron, and said, Behold, we are thy bone and thy flesh. So all the elders of Israel came to the king to Hebron; and king David made a league with them in Hebron before the LORD: and they anointed David king over Israel. David was thirty years old when he began to reign, and he reigned forty years. In Hebron he reigned over Judah seven years and six months: and in Jerusalem he reigned thirty and three years over all Israel and Judah. So David dwelt in the fort, and called it the city of David. And David went on, and grew great, and the LORD God of hosts was with him. And David perceived that the LORD had established him king over Israel, and that he had exalted his kingdom for his people Israel's sake. For you: Give thanks — God is faithful."
     },
     hannahPray: {
       title: 'Hannah Prays for a Baby',
@@ -4348,20 +6163,6 @@
       keywords: ['anna', 'prophet', 'temple', 'luke 2', 'baby jesus', 'pray', 'praise'],
       kjvRef: 'Luke 2:36–38',
       kidContext: { who: 'God', to: 'Anna', apply: 'Never stop praying! Like Anna—stay close to God and He will show you His glory.' }
-    },
-    widowOil: {
-      title: 'The Widow\'s Endless Oil',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A widow owes money—only a little oil left' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha says: pour into every jar you can find' },
-        { src: 'panel-noah-3.svg', alt: 'Oil fills every jar—God provides more than enough!' }
-      ],
-      caption: 'Swipe to see God\'s endless supply for the widow! 🫙',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['widow', 'oil', 'elisha', '2 kings 4', 'jars', 'multiply', 'provide'],
-      kjvRef: '2 Kings 4:1–7',
-      kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God\'s supply never runs out! Bring what little you have—He multiplies it.' }
     },
     persistentWidow: {
       title: 'The Persistent Widow',
@@ -4751,6 +6552,9 @@
   /** Export stories before any init() so defer + sync-ready pages always have window.TDB_BIBLE_STORIES (Kids Corner, coloring, RPC helpers). */
   if (typeof window !== 'undefined') {
     normalizeBibleStoriesForUi(bibleStories);
+    /** Legacy key — same card as naamanHealed (journey URLs, older links). */
+    bibleStories.naaman = bibleStories.naamanHealed;
+    bibleStories.elishaOil = bibleStories.widowOil;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -4766,7 +6570,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 282, color: '#e5e4e2' }
+      { name: 'Platinum', min: 307, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -4858,14 +6662,14 @@
     var isWeeklyStory = (dayIndex % 7) === 0;
     var storyKeys = [
       'david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel',
-      'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'battleOfAi',
+      'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'joshuaAi', 'achan', 'battleOfAi',
       'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
-      'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater',
+      'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naamanHealed', 'jesusWalksWater',
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -4873,16 +6677,18 @@
       'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
-      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'ruthNaomi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samsonHair',
-      'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
+      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samson',
+      'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidGoliath', 'davidAnointed',
       'saulSpear', 'davidCave',
-      'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
+      'hannahPrayer', 'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd',
-      'solomonWisdom', 'solomonTemple',
-      'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe', 'elishaBones',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
+      'solomonTemple',
+      'elijahRavens',
+      'elijahWidow',
+      'elijahHoreb', 'elijahElijahElisha', 'elijahFireFromHeaven', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe', 'elishaChariots', 'elishaBlindArmy', 'elishaPoisonStew',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
       'ezraReturn', 'malachiMessage',
       'jonahVine', 'danielPray', 'estherBanquet',
@@ -4907,7 +6713,7 @@
       'alphaOmega', 'newHeaven', 'revelationNewHeaven', 'treeOfLife', 'riverOfLife', 'lambBook',
       'dragonFight', 'beastMark',
       /* Week 10 */
-      'rahabWindow', 'deborahJudge', 'jaelTent', 'abigailWise', 'hannahPray',
+      'rahabWindow', 'deborahJudge', 'jaelTent', 'abigailWise', 'davidAbigail', 'hannahPray', 'hannahPrayer',
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
@@ -4923,8 +6729,147 @@
     if (/armor of god|ephesians 6|helmet|sword.*spirit|breastplate/.test(low)) {
       return { type: 'carousel', story: 'armorOfGod' };
     }
-    if (/david.*sheep|shepherd.*david|1 samuel 17:34|harp|lion.*bear/.test(low)) {
+    if (/david.*sheep|shepherd.*david|1 samuel 17:34|lion.*bear/.test(low)) {
       return { type: 'carousel', story: 'davidSheep' };
+    }
+    if (
+      /\b1 samuel 1:\s*(?:2[1-8]|28)\b|\b1 sam 1:\s*(?:2[1-8]|28)\b/.test(low) ||
+      /\b1 samuel 2:\s*(?:[1-9]|1[01]|18|19|20|21)\b|\b1 sam 2:\s*(?:[1-9]|1[01]|18|19|20|21)\b/.test(low) ||
+      /for this child i prayed|therefore also i have lent him|as long as he liveth he shall be lent|my heart rejoiceth in the lord|mine horn is exalted|there is none holy as the lord|linen ephod|made him a little coat|from year to year.*yearly sacrifice|the lord visited hannah|three sons and two daughters|samuel grew before the lord|ministered before the lord.*child girded/.test(
+        low
+      ) ||
+      (/\bwean(ed|ing)?\b/.test(low) && /\bsamuel\b/.test(low) && /\bhannah\b/.test(low))
+    ) {
+      return { type: 'carousel', story: 'samuelBirth' };
+    }
+    if (
+      (!/\b1 samuel 1:(?:2[1-9]|[3-9]\d)\b|\b1 sam 1:(?:2[1-9]|[3-9]\d)\b/.test(low)) &&
+      (/\b1 samuel 1:\s*(?:[1-9]|1\d|20)\b|\b1 sam 1:\s*(?:[1-9]|1\d|20)\b|^1 samuel 1\b|\b1 samuel 1\s|^1 sam 1\b|\b1 sam 1\s/.test(low) ||
+        (/\bshiloh\b/.test(low) &&
+          /\bhannah\b/.test(low) &&
+          !/\bwean(ed|ing)?\b|\blent him\b|\blittle coat\b|my heart rejoiceth|for this child i prayed/.test(low)) ||
+        /\belkanah\b|\bpeninnah\b|poured out my soul|sorrowful spirit|grant thee thy petition|because i have asked him|the lord remembered her\b/.test(low))
+    ) {
+      return { type: 'carousel', story: 'hannahPrayer' };
+    }
+    if (
+      /\b1 samuel 3\b|\b1 sam 3\b/.test(low) ||
+      /speak,?\s*lord|for thy servant heareth|samuel.*here\s*i\s*am|here\s*i\s*am.*eli|the\s+lord\s+called\s+samuel|called\s+samuel|word of the lord was precious|no open vision|lamp of god went out|eli perceived that the lord had called|none of his words fall to the ground|samuel,?\s*samuel/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'samuelCalls' };
+    }
+    if (
+      /\b1 samuel 16:(?:1[4-9]|2[0-3])\b|\b1 sam 16:(?:1[4-9]|2[0-3])\b/.test(low) ||
+      /\bdavid\b.*\bharp\b|\bharp\b.*\bdavid\b|plays? the harp|played the harp|david took an harp/.test(low) ||
+      (/\b1 samuel 16\b|\b1 sam 16\b/.test(low) &&
+        /\bharp\b|refreshed|evil spirit|armourbearer|armorbearer|cunning player|played with his hand|send me david thy son/.test(low)) ||
+      /played with his hand.*saul|saul was refreshed|evil spirit from god.*trouble|cunning player on an harp/.test(low)
+    ) {
+      return { type: 'carousel', story: 'davidHarp' };
+    }
+    if (
+      /samuel anoints david|samuel.*anoint.*david|\bdavid\b.*\banoint\b|\banoint\b.*\bdavid\b/.test(low) ||
+      /\b1 samuel 16:(?:1[0-3]|[1-9])\b|\b1 sam 16:(?:1[0-3]|[1-9])\b/.test(low) ||
+      /\b1 samuel 16\b|\b1 sam 16\b/.test(low) ||
+      /jesse the bethlehemite.*king|fill thine horn with oil|horn with oil.*bethlehem|looketh on the heart|lord looketh on the heart|outward appearance.*heart|arise, anoint him|anoint him: for this is he|spirit of the lord came upon david from that day|samuel took the horn of oil.*anointed him in the midst/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidAnointed' };
+    }
+    if (
+      /\b1 samuel 17:(?:[1-9]|1[01])\b|\b1 sam 17:(?:[1-9]|1[01])\b/.test(low) ||
+      /\b1 samuel 17:(?:3[2-9]|4[0-9]|5[01])\b|\b1 sam 17:(?:3[2-9]|4[0-9]|5[01])\b/.test(low) ||
+      (/\b1 samuel 17\b|\b1 sam 17\b/.test(low) &&
+        !/\b1 samuel 17:34\b|\b1 sam 17:34\b|lion.*bear|kept his father.*sheep|thy servant kept/.test(low)) ||
+      /\bgoliath\b|\bdefy the armies of the living god\b|uncircumcised philistine|five smooth stones|smooth stones out of the brook|valley of elah|ephesdammim|six cubits and a span|david prevailed over the philistine with a sling|no sword in the hand of david|battle is the lord/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidGoliath' };
+    }
+    if (
+      /\b1 samuel 18:\s*1\s*[-–]\s*4\b|\b1 sam 18:\s*1\s*[-–]\s*4\b/.test(low) ||
+      /\b1 samuel 20\b|\b1 sam 20\b/.test(low) ||
+      /soul of jonathan was knit|knit with the soul of david|loved him as his own soul|between my seed and thy seed|stone ezel|is not the arrow beyond thee|david earnestly asked leave/.test(
+        low
+      ) ||
+      (/\bjonathan\b/.test(low) &&
+        /\bdavid\b/.test(low) &&
+        !/\bgoliath\b|valley of elah|five smooth stones|1 samuel 17|1 sam 17/.test(low))
+    ) {
+      return { type: 'carousel', story: 'davidJonathan' };
+    }
+    if (
+      /\b1 samuel 24\b|\b1 sam 24\b/.test(low) ||
+      /wilderness of engedi|engedi|rocks of the wild goats|cover his feet|cut off the skirt|skirt of saul|skirt of thy robe|heart smote him|suffered them not to rise against saul|cried after saul|skirt of thy robe in my hand|thou art more righteous than i|thou killedst me not|david sware unto saul/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidCave' };
+    }
+    if (
+      /\b1 samuel 25\b|\b1 sam 25\b/.test(low) ||
+      /\babigail\b/.test(low) ||
+      /\bnabal\b/.test(low) ||
+      /woman of good understanding|beautiful countenance|churlish and evil|sheepcotes by the way|wilderness of paran|cakes of figs|two hundred loaves|two bottles of wine|five sheep ready dressed|bundle of life|blessed be thy advice|go up in peace to thine house|folly is with him|pisseth against the wall/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidAbigail' };
+    }
+    if (
+      /\b2 samuel 5:(?:[1-5]|9|1[0-2])\b|\b2 sam 5:(?:[1-5]|9|1[0-2])\b/.test(low) ||
+      /\b2 samuel 5\b|\b2 sam 5\b/.test(low) ||
+      /\bhebron\b.*\banoint\b.*\bdavid\b|\banoint\b.*\bdavid\b.*\bhebron\b|bone and thy flesh|anointed david king over israel|city of david|reigned forty years|thirty years old when he began to reign|seven years and six months|thirty and three years|lord god of hosts was with him|established him king over israel|exalted his kingdom for his people/.test(
+        low
+      ) ||
+      /\bdavid\b.*\bking over israel\b|\bking over israel\b.*\bdavid\b|david became king|david becomes king/.test(low)
+    ) {
+      return { type: 'carousel', story: 'davidKing' };
+    }
+    if (
+      /\b1 kings 3:(?:1[6-9]|2[0-8])\b|\b1 kgs 3:(?:1[6-9]|2[0-8])\b/.test(low) ||
+      /\bsolomon\b.*\b(divide the living|bring me a sword|two women|two mothers|living child)\b|\b(divide the living|bring me a sword)\b.*\bsolomon\b/.test(
+        low
+      ) ||
+      /divide the living child in two|give her the living child|wisdom of god was in him.*do judgment|two women.*harlots.*king/.test(low)
+    ) {
+      return { type: 'carousel', story: 'solomonTwoMothers' };
+    }
+    if (
+      /\b1 kings 3:(?:[5-9]|1[0-5])\b|\b1 kgs 3:(?:[5-9]|1[0-5])\b/.test(low) ||
+      (/\b1 kings 3\b|\b1 kgs 3\b/.test(low) &&
+        !/\b1 kings 3:(?:1[6-9]|2[0-8])\b|\b1 kgs 3:(?:1[6-9]|2[0-8])\b/.test(low)) ||
+      /in gibeon the lord appeared to solomon|ask what i shall give thee|understanding heart to judge|i am but a little child.*know not how to go out|speech pleased the lord.*solomon|riches, and honour.*kings like unto thee|solomon awoke.*it was a dream/.test(
+        low
+      ) ||
+      (/\bsolomon\b/.test(low) &&
+        /\bwisdom\b/.test(low) &&
+        !/\b(divide the living|bring me a sword|two women|two mothers|baby and)\b/.test(low))
+    ) {
+      return { type: 'carousel', story: 'solomonWisdom' };
+    }
+    if (
+      /\b1 kings 6:(?:[1-9]|1[0-4])\b|\b1 kgs 6:(?:[1-9]|1[0-4])\b/.test(low) ||
+      /\b1 kings 8:(?:(?:[1-9]|1[0-3])|(?:2[2-9]|30))\b|\b1 kgs 8:(?:(?:[1-9]|1[0-3])|(?:2[2-9]|30))\b/.test(low) ||
+      /\bsolomon\b.*\b(build|built)\b.*\b(temple|house of the lord)\b|\b(temple|house of the lord)\b.*\bsolomon\b/.test(low) ||
+      /cloud filled the house of the lord|glory of the lord had filled the house|priests could not stand to minister because of the cloud|ark of the covenant.*most holy|oracle of the house.*most holy|heaven of heavens cannot contain thee|how much less this house that i have builded|pray toward this place|when thou hearest, forgive/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'solomonTemple' };
+    }
+    if (
+      /\b1 samuel 18\b|\b1 sam 18\b/.test(low) &&
+      /jealous|javelin|spear|evil spirit|played with his hand|singing women|ten thousands|saul sought|saul spake to jonathan his son, wherefore/.test(low) &&
+      !/\b1 samuel 18:\s*[1-4]\b|\b1 sam 18:\s*[1-4]\b/.test(low) &&
+      !/\b1 samuel 20\b|\b1 sam 20\b/.test(low) &&
+      !/soul.*knit|knit.*soul|covenant.*jonathan|jonathan stripped|robe.*upon him.*gave it to david/.test(low)
+    ) {
+      return { type: 'carousel', story: 'davidSaulJealousy' };
     }
     if (/david|goliath|battle|1 samuel|joshua 1:9|philippians 4:13|ephesians 6:10|brave|courage|strong|strength|strengthen|strengtheneth/.test(low)) {
       return { type: 'carousel', story: 'david' };
@@ -4932,7 +6877,15 @@
     if (/noah|ark|rainbow|promise|flood|matthew 6:26|bird|fowl|feedeth|two by two/.test(low)) {
       return { type: 'carousel', story: 'noah' };
     }
-    if (/shepherd|psalm 23|children|matthew 19|jesus|love|john 10|john 3:16|come unto me/.test(low)) {
+    if (
+      /\bpsalms?\s*23\b|\bps\s*23\b/.test(low) ||
+      /the lord is my shepherd|i shall not want|green pastures|still waters|restoreth my soul|paths of righteousness for his name|valley of the shadow of death|fear no evil|thou art with me|thy rod and thy staff|preparest a table before me|anointest my head with oil|my cup runneth over|goodness and mercy shall follow me|dwell in the house of the lord for ever/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'psalm23' };
+    }
+    if (/shepherd|children|matthew 19|jesus|love|john 10|john 3:16|come unto me/.test(low)) {
       return { type: 'carousel', story: 'jesus' };
     }
     if (/jonah|whale|fish|obey|nineveh|big fish|run away/.test(low)) {
@@ -4968,8 +6921,32 @@
     if (/ten commandments|commandments|exodus 20|tablets|mountain.*moses/.test(low)) {
       return { type: 'carousel', story: 'tenCommandments' };
     }
-    if (/samson|delilah|pillars|judges 16|hair.*strength/.test(low)) {
+    if (
+      /judges 13|manoah|nazarite unto god from the womb|barren.*bear a son.*samson|samson.*womb|angel.*manoah/.test(low)
+    ) {
+      return { type: 'carousel', story: 'samsonBirth' };
+    }
+    if (
+      /judges 14:5|judges 14:6|judges 14:7|judges 14:8|judges 14:9|timnath|timnah|young lion.*samson|samson.*young lion|samson.*lion|lion.*samson|samson.*honey|honey.*lion|bees.*lion|swarm of bees/.test(low)
+    ) {
+      return { type: 'carousel', story: 'samsonLion' };
+    }
+    if (
+      /delilah|sorek|entice him.*strength|wherein.*great strength|seven locks|shav(e|en).*samson|samson.*shav|razor.*samson|nazarite.*mother.*womb.*shav|judges 16:4|judges 16:5|judges 16:6|judges 16:7|judges 16:8|judges 16:9|judges 16:10|judges 16:11|judges 16:12|judges 16:13|judges 16:14|judges 16:15|judges 16:16|judges 16:17|judges 16:18|judges 16:19|judges 16:20|judges 16:21/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'samsonDelilah' };
+    }
+    if (
+      /judges 16:2[3-9]|judges 16:30|pillars|middle pillars|dagon|remember me.*samson|samson.*remember me|die with the philistines|avenged.*philistines|samson.*pillars|lean upon them|make us sport|made them sport/.test(
+        low
+      )
+    ) {
       return { type: 'carousel', story: 'samson' };
+    }
+    if (/samson|judges 16/.test(low)) {
+      return { type: 'carousel', story: 'samsonDelilah' };
     }
     if (/fiery furnace|shadrach|meshach|abednego|daniel 3/.test(low)) {
       return { type: 'carousel', story: 'fieryFurnace' };
@@ -5004,17 +6981,205 @@
     if (/creation|genesis 1|let there be light|god made/.test(low)) {
       return { type: 'carousel', story: 'creation' };
     }
+    if (/rahab|scarlet cord|scarlet thread|joshua 2/.test(low)) {
+      return { type: 'carousel', story: 'rahab' };
+    }
+    if (/joshua 3|joshua 4|cross.*jordan|jordan.*cross|ark.*jordan|waters.*heap/.test(low)) {
+      return { type: 'carousel', story: 'jordanCrossing' };
+    }
+    if (/joshua 10|gibeon|ajalon|sun stand|moon.*ajalon|long day/.test(low)) {
+      return { type: 'carousel', story: 'sunStandsStill' };
+    }
+    if (/joshua 24|serve the lord|as for me and my house|choose you this day/.test(low)) {
+      return { type: 'carousel', story: 'joshuaCharge' };
+    }
     if (/jericho|walls fall|joshua 6|trumpets/.test(low)) {
       return { type: 'carousel', story: 'fallOfJericho' };
     }
-    if (/elijah|baal|carmel|1 kings 18|fire.*heaven/.test(low)) {
+    if (/joshua 8|victory at ai|battle of ai|\bai\b.*ambush|ambush.*\bai\b|stretched.*spear.*ai/.test(low)) {
+      return { type: 'carousel', story: 'battleOfAi' };
+    }
+    if (/achan|accursed thing|joshua 7|sin against the lord god of israel|hidden.*jericho/.test(low)) {
+      return { type: 'carousel', story: 'achan' };
+    }
+    if (/jael|judges 4:21|judges 4:22|sisera.*tent|tent.*sisera/.test(low)) {
+      return { type: 'carousel', story: 'jaelTent' };
+    }
+    if (/judges 4:4|between ramah and bethel|deborah.*judge|judge.*israel.*palm|under the palm tree/.test(low)) {
+      return { type: 'carousel', story: 'deborahJudge' };
+    }
+    if (
+      /deborah|barak|sisera|jabin|mount tabor|river kishon|judges 4/.test(low)
+    ) {
+      return { type: 'carousel', story: 'deborahBarak' };
+    }
+    if (
+      /judges 7|gideon.*\b300\b|\b300\b.*gideon|three hundred men|trumpets.*torch|torch.*trumpet|pitchers.*lamp/.test(low)
+    ) {
+      return { type: 'carousel', story: 'gideonMidianites' };
+    }
+    if (
+      /judges 6|gideon.*fleece|fleece.*gideon|dew.*fleece|mighty man of valour|winepress.*gideon|angel of the lord.*gideon/.test(low)
+    ) {
+      return { type: 'carousel', story: 'gideonFleece' };
+    }
+    if (/\bgideon\b/.test(low)) {
+      return { type: 'carousel', story: 'gideonFleece' };
+    }
+    if (
+      /\b1 kings 17:(?:[1-7])\b|\b1 kgs 17:(?:[1-7])\b/.test(low) ||
+      /brook cherith|cherith.*jordan|commanded the ravens|ravens brought him bread and flesh|elijah.*raven|raven.*elijah|no dew nor rain.*elijah|tishbite.*ahab/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elijahRavens' };
+    }
+    if (
+      /\b1 kings 17:(?:8|9|1[0-6])\b|\b1 kgs 17:(?:8|9|1[0-6])\b/.test(low) ||
+      /\b1 kings 17\b.*\bwidow\b|\bwidow\b.*\b1 kings 17\b/.test(low) ||
+      /zarephath|widow.*zarephath|zidon|barrel of meal|cruse of oil|handful of meal|gathering.*sticks.*elijah|morsel of bread.*elijah|little cake first|meal shall not waste|cruse of oil fail/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elijahWidow' };
+    }
+    if (
+      /\b1 kings 19:(?:9|1[0-8])\b|\b1 kgs 19:(?:9|1[0-8])\b/.test(low) ||
+      (/mount horeb|horeb.*elijah|elijah.*horeb|still small voice|still small|what doest thou here|seven thousand|not bowed unto baal|not kissed him/.test(low) &&
+        !/(19:19|19:20|19:21|abelmeholah|oxen|plow|cloak|elisha.*plow|plow.*elisha)/.test(low)) ||
+      (/\b1 kings 19\b/.test(low) && !/(19:19|19:20|19:21|abelmeholah|oxen|plow|cloak)/.test(low))
+    ) {
+      return { type: 'carousel', story: 'elijahHoreb' };
+    }
+    if (
+      /\b1 kings 19:(?:19|20|21)\b|\b1 kgs 19:(?:19|20|21)\b/.test(low) ||
+      /abelmeholah|elisha.*\b(oxen|plow|cloak)\b|\b(oxen|plow|cloak)\b.*elisha|anoint.*elisha.*prophet|prophet in thy room/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elijahElijahElisha' };
+    }
+    if (
+      /2 kings 2:11|whirlwind.*elijah|elijah.*whirlwind|elijah.*chariot|chariot.*elijah|fiery chariot|taken up.*heaven.*elijah/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elijahChariot' };
+    }
+    if (
+      /\b2 kings 2:(?:19|2[0-2])\b|\b2 kgs 2:(?:19|2[0-2])\b/.test(low) ||
+      /waters were healed.*elisha|elisha.*waters were healed|healed these waters|water is naught|ground barren|barren land.*elisha|jericho.*spring|spring.*jericho|salt.*spring|new cruse.*salt/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaMiracles' };
+    }
+    if (
+      /\b1 kings 18:(?:1[7-9]|[2-3][0-9])\b|\b1 kgs 18:(?:1[7-9]|[2-3][0-9])\b/.test(low) ||
+      /elijah.*\b(carmel|baal|altar|fire|18)\b|\b(baal|carmel|mount carmel)\b.*elijah|1 kings 18|fire.*heaven.*altar|elijah.*fire from heaven|two opinions|answereth by fire|prophets of baal/.test(low)
+    ) {
       return { type: 'carousel', story: 'elijahFire' };
     }
-    if (/elisha|widow.*oil|2 kings 4|oil.*jar/.test(low)) {
-      return { type: 'carousel', story: 'elishaOil' };
+    if (
+      /\belijah\b/.test(low) &&
+      !/elisha/.test(low) &&
+      !/(carmel|baal|altar|1 kings 18|1 kings 19|2 kings 2|whirlwind|chariot|still small|zarephath|zidon|barrel|cruse|horeb)/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elijahRavens' };
     }
-    if (/naaman|jordan.*dip|2 kings 5|leprosy/.test(low)) {
-      return { type: 'carousel', story: 'naaman' };
+    if (
+      /\b2 kings 4:(?:38|39|40|41)\b|\b2 kgs 4:(?:38|39|40|41)\b/.test(low) ||
+      /death in the pot|wild gourd|wild gourds|gilgal.*pottage|pottage.*gilgal|poison.*stew|seethe pottage|great pot.*pottage|meal.*pot.*harm|no harm in the pot/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaPoisonStew' };
+    }
+    if (
+      /\belisha\b/.test(low) &&
+      /\b2 kings 4\b/.test(low) &&
+      !/\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\b2 kings 4:(?:38|39|40|41)\b|\bshunammite|son of the woman|raise.*child|bed.*stick/.test(low)
+    ) {
+      return { type: 'carousel', story: 'widowOil' };
+    }
+    if (
+      /\b2 kings 4:(?:[1-7])\b|\b2 kgs 4:(?:[1-7])\b/.test(low) ||
+      (/(?:widow.*oil|oil.*vessel|pot of oil|borrow.*vessel|oil stayed|bondmen|creditor.*sons)/.test(low) &&
+        !/zarephath|1 kings 17|\belijah\b|barrel|cruse|handful of meal|jericho|2 kings 2|water is naught|healed these waters|spring|shunammite|gehazi/.test(low))
+    ) {
+      return { type: 'carousel', story: 'widowOil' };
+    }
+    if (
+      /\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\b2 kgs 4:(?:8|9|[12][0-9]|3[0-7])\b/.test(low) ||
+      /shunammite|woman of shunem|raise.*dead.*elisha|elisha.*raise|son of the woman|bed.*stick|great woman.*shunem/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaShunammite' };
+    }
+    if (
+      /\b2 kings 6:(?:2[4-9]|3[0-3])\b|\b2 kgs 6:(?:2[4-9]|3[0-3])\b/.test(low) ||
+      /\b2 kings 7:(?:[1-9]|1[0-9]|20)\b|\b2 kgs 7:(?:[1-9]|1[0-9]|20)\b/.test(low) ||
+      (/\b2 kings 6\b|\b2 kgs 6\b/.test(low) &&
+        /besieged samaria|great famine in samaria|benhadad|gate of samaria|measure of fine flour|two measures of barley|windows in heaven|noise of chariots|noise of horses|spoiled the tents|according to the word of the lord.*gate of samaria/.test(low)) ||
+      (/\b2 kings 7\b|\b2 kgs 7\b/.test(low) &&
+        /fine flour|barley|gate of samaria|windows in heaven|noise of chariots|spoiled the tents|syrian|fled.*twilight|according to the word of the lord/.test(low))
+    ) {
+      return { type: 'carousel', story: 'samariaSiege' };
+    }
+    if (
+      /\b2 kings 6:(?:18|19|20|21|22|23)\b|\b2 kgs 6:(?:18|19|20|21|22|23)\b/.test(low) ||
+      /smite.*blindness|open the eyes of these men|led.*samaria|thou shalt not smite them|set bread and water before them|great provision.*eaten and drunk|bands of syria came no more/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaBlindArmy' };
+    }
+    if (
+      /\b2 kings 6:(?:8|9|1[0-7])\b|\b2 kgs 6:(?:8|9|1[0-7])\b/.test(low) ||
+      /dothan|chariots of fire|open his eyes, that he may see|they that be with us are more|more than they that be with them|mountain.*horses.*chariots.*fire/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaChariots' };
+    }
+    if (
+      /\b2 kings 6:(?:[1-7])\b|\b2 kgs 6:(?:[1-7])\b/.test(low) ||
+      /floating axe|axe head|axe.*float|iron.*float|iron did swim|head.*jordan.*axe/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaFloatingAxe' };
+    }
+    if (
+      /\b2 kings 8:(?:[1-6])\b|\b2 kgs 8:(?:[1-6])\b/.test(low) ||
+      (/\b2 kings 8\b|\b2 kgs 8\b/.test(low) &&
+        /shunammite|woman of shunem|philistines|cry unto the king|her house and for her land|restore all that was hers|fruits of the field|great things that elisha|gehazi.*servant of the man of god|tell me.*great things/.test(low))
+    ) {
+      return { type: 'carousel', story: 'shunammiteReturn' };
+    }
+    if (
+      /\b2 kings 13:21\b|\b2 kgs 13:21\b/.test(low) ||
+      /touched the bones of elisha|bones of elisha|sepulchre of elisha|elisha.*bones|cast the man into the sepulchre of elisha|burying a man.*elisha|revived.*stood up on his feet/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaBones' };
+    }
+    if (
+      /\b2 kings 13:(?:1[4-9]|20)\b|\b2 kgs 13:(?:1[4-9]|20)\b/.test(low) ||
+      (/\b2 kings 13\b|\b2 kgs 13\b/.test(low) &&
+        /\bjoash\b|jehoash|take bow and arrows|arrow of the lord|arrow of deliverance|open the window eastward|smite upon the ground|chariot of israel|horsemen thereof|elisha.*sick|elisha died/.test(low))
+    ) {
+      return { type: 'carousel', story: 'elishaFinal' };
+    }
+    if (
+      /\b2 kings 5:(?:2[0-7])\b|\b2 kgs 5:(?:2[0-7])\b/.test(low) ||
+      (/\bgehazi\b/.test(low) && !/\b2 kings 8\b|\b2 kgs 8\b/.test(low)) ||
+      /whence comest thou|went no whither|mine heart with thee|is it a time to receive money|two talents of silver|mount ephraim.*prophets|sons of the prophets.*talent|spared naaman.*syrian|take somewhat of him/.test(low)
+    ) {
+      return { type: 'carousel', story: 'gehaziGreed' };
+    }
+    if (
+      /\b2 kings 5:(?:1[5-9]|19)\b|\b2 kgs 5:(?:1[5-9]|19)\b/.test(low) ||
+      (/naaman|2 kings 5|2 kgs 5/.test(low) &&
+        /go in peace|two mules|take a blessing|take a blessing of thy servant|no god in all the earth, but in israel|returned to the man of god|stood before him/.test(low) &&
+        !/gehazi|two talents|is all well|mount ephraim|cleave unto thee|leper as white/.test(low))
+    ) {
+      return { type: 'carousel', story: 'naamanDip' };
+    }
+    if (
+      /\b2 kings 5\b|\b2 kgs 5\b/.test(low) ||
+      /\bnaaman\b/.test(low) ||
+      (/\bleprosy\b/.test(low) && /\b(?:jordan|samaria|syria|elisha|dip|wash)\b/.test(low)) ||
+      /jordan.*dip|dip.*jordan|wash.*clean.*jordan|seven times.*jordan/.test(low)
+    ) {
+      return { type: 'carousel', story: 'naamanHealed' };
+    }
+    if (
+      /\belisha\b/.test(low) &&
+      !/\belijah\b/.test(low) &&
+      !/naaman|leprosy|2 kings 5|2 kings 6|axe|float|shunammite|woman of shunem/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaMiracles' };
     }
     if (/walks on water|walk.*water|matthew 14:25|peter.*water/.test(low)) {
       return { type: 'carousel', story: 'jesusWalksWater' };
@@ -5070,7 +7235,30 @@
     if (/revelation 21|no tears|new jerusalem|heaven.*promise/.test(low)) {
       return { type: 'carousel', story: 'heavenPromise' };
     }
-    if (/ruth|boaz|naomi|ruth 1|glean|harvest/.test(low)) {
+    if (
+      /ruth 1:|^ruth 1\b|ruth 1 |orpah|naomi.*moab|moab.*naomi|sojourn.*moab|elimelech|mahlon|chilion|whither thou goest|intreat me not to leave|thy people shall be my people|thy god my god|stedfastly minded|clave unto her/.test(low)
+    ) {
+      return { type: 'carousel', story: 'ruthNaomi' };
+    }
+    if (
+      /ruth 4:|^ruth 4\b|ruth 4 |\bobed\b|father of jesse|father of david|jesse.*david|david.*jesse|there is a son born to naomi|laid it in her bosom|nourisher of thine old age|restorer of thy life|like rachel and like leah|ye are witnesses this day.*bought|bought all that was elimelech|purchased to be my wife|drew off his shoe|plucked off his shoe|cannot redeem it for myself|raise up the name of the dead upon his inheritance/.test(low)
+    ) {
+      return { type: 'carousel', story: 'ruthRedemption' };
+    }
+    if (
+      /ruth 3:|^ruth 3\b|ruth 3 |threshing|heap of corn|spread therefore thy skirt|spread thy skirt|who art thou|virtuous woman|six measures|lodging place|tarry this night|perform the part of a kinsman|nearer kinsman|will not be in rest/.test(low)
+    ) {
+      return { type: 'carousel', story: 'ruthThreshing' };
+    }
+    if (/naomi/.test(low) && !/boaz/.test(low) && !/glean|harvest|barley|ephah|reap|field.*ruth|threshing|skirt|kinsman.*redeem|redeemer|\bobed\b|jesse|david|ruth 4|gate.*witness|witnesses this day/.test(low)) {
+      return { type: 'carousel', story: 'ruthNaomi' };
+    }
+    if (
+      /ruth 2:1|ruth 2:2|ruth 2:3|ruth 2:4|ruth 2:5|ruth 2:6|ruth 2:7|ruth 2:8|ruth 2:9|ruth 2:1[0-7]|boaz|glean|harvest|barley|ephah|reapers|reap|kinsman/.test(low)
+    ) {
+      return { type: 'carousel', story: 'ruthBoaz' };
+    }
+    if (/ruth/.test(low)) {
       return { type: 'carousel', story: 'ruthBoaz' };
     }
     if (/parable.*talent|talents|matthew 25|servants.*money/.test(low)) {
@@ -7585,15 +9773,15 @@
   var STORY_THEMES = {
     david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
     adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection', josephSold: 'Protection',
-    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
+    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', bronzeSerpent: 'Miracles', tabernacle: 'Love', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
     fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
-    naaman: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
+    naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
     jesusTemptation: 'Obedience', parableSower: 'Protection', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
-    ruthBoaz: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',
+    ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',
     /* Week 1 */
     mosesSea: 'Miracles', burningBush: 'Obedience', tenPlagues: 'Miracles', naamanDip: 'Obedience',
     creationLight: 'Miracles', elijahFire: 'Miracles', elishaOil: 'Miracles', towerBabel: 'Obedience',
@@ -7603,20 +9791,30 @@
     mosesStaffSnake: 'Miracles', passoverLamb: 'Love', redSeaCrossing: 'Protection',
     /* Week 3 */
     joshuaJordan: 'Miracles', jordanCrossing: 'Miracles', jerichoWalls: 'Obedience', joshuaAi: 'Obedience', battleOfAi: 'Obedience',
-    gideonFleece: 'Miracles', gideonMidianites: 'Miracles', deborahBarak: 'Protection', samsonBirth: 'Protection', ruthNaomi: 'Love',
-    rahabRope: 'Obedience', rahabJericho: 'Obedience',
-    balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonHair: 'Protection', ruthGlean: 'Love',
+    achan: 'Obedience',
+    joshuaCharge: 'Obedience',
+    sunStandsStill: 'Miracles',
+    gideonFleece: 'Miracles', gideonMidianites: 'Miracles', deborahBarak: 'Protection', samsonBirth: 'Protection', samsonLion: 'Miracles', ruthNaomi: 'Love',
+    rahab: 'Obedience', rahabRope: 'Obedience', rahabJericho: 'Obedience',
+    balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonDelilah: 'Obedience', ruthGlean: 'Love',
     samuelCall: 'Obedience', davidHarp: 'Love', goliathChallenge: 'Protection',
     davidAnointed: 'Obedience', saulSpear: 'Protection', davidCave: 'Protection',
-    hannahSamuel: 'Miracles', samuelBirth: 'Obedience', samuelCalls: 'Obedience',
+    hannahPrayer: 'Miracles', hannahSamuel: 'Miracles', samuelBirth: 'Obedience', samuelCalls: 'Obedience',
     samuelAnointsDavid: 'Obedience', davidGoliath: 'Protection',
     davidSaulJealousy: 'Protection', davidJonathanFriendship: 'Love',
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
-    elishaRaised: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', psalm23Shepherd: 'Love', solomonWisdom: 'Obedience', solomonTemple: 'Obedience',
+    elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
+    elijahRavens: 'Miracles',
+    elijahWidow: 'Miracles',
+    elijahHoreb: 'Love',
     elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
-    elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles', elishaBones: 'Miracles',
+    elishaMiracles: 'Miracles',
+    elishaFloatingAxe: 'Miracles',
+    elishaChariots: 'Protection',
+    elishaBlindArmy: 'Love',
+    elishaPoisonStew: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',
     danielFieryFurnace: 'Miracles', danielLionsDen: 'Miracles',
     ezraReturn: 'Obedience', malachiMessage: 'Obedience',
@@ -7697,11 +9895,11 @@
     dragonFight: 'Protection', beastMark: 'Obedience',
     /* Week 10 */
     rahabWindow: 'Obedience', deborahJudge: 'Protection', jaelTent: 'Protection',
-    abigailWise: 'Love', hannahPray: 'Miracles', maryMagdalene: 'Love',
+    abigailWise: 'Love', davidAbigail: 'Love', hannahPray: 'Miracles', hannahPrayer: 'Miracles', maryMagdalene: 'Love',
     lydiaSell: 'Obedience', priscillaTeach: 'Obedience', ruthMoab: 'Love',
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */
-    annaProphet: 'Obedience', widowOil: 'Miracles', persistentWidow: 'Obedience',
+    annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', persistentWidow: 'Obedience',
     samaritanWoman: 'Love', marthaServe: 'Obedience', marySit: 'Obedience',
     dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
     loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',

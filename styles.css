@@ -4763,6 +4763,68 @@ body:has(.search-hero-home) #search-hero {
 #search-hero, #quick-search-hero { scroll-margin-top: calc(var(--tdb-header-offset, 5rem) + 0.25rem); }
 #feel-results { scroll-margin-top: 1rem; scroll-margin-bottom: 2rem; }
 #quick-search-hero { position: sticky; top: var(--tdb-header-offset, 0px); z-index: 40; background: linear-gradient(180deg, rgba(10, 12, 20, 0.98) 0%, rgba(10, 12, 20, 0.95) 100%); padding-top: 0.5rem; padding-bottom: 0.75rem; margin-bottom: -0.25rem; }
+
+/* Bible Tool — search hero + results: inherit appearance tokens (Quiet night / Daylight / Dawn parchment) */
+body.bible-tool-page #search-hero.search-hero.glass,
+body.bible-tool-page #search-hero.search-hero.glass .search-hero-label,
+body.bible-tool-page #search-hero.search-hero.glass .quick-searches-label,
+body.bible-tool-page #search-hero.search-hero.glass .section-note {
+  color: var(--text);
+}
+body.bible-tool-page #search-hero.search-hero.glass .search-hero-input,
+body.bible-tool-page #search-hero.search-hero.glass .hero-search-stack #query {
+  color: var(--text);
+  background: var(--tdb-surface-panel-bg);
+  border-color: var(--tdb-surface-panel-border);
+  box-shadow: var(--tdb-surface-panel-shadow);
+}
+body.bible-tool-page #search-hero.search-hero.glass .search-hero-input:focus,
+body.bible-tool-page #search-hero.search-hero.glass .hero-search-stack #query:focus {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 45%, var(--tdb-surface-panel-border));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold, #e3bc67) 25%, transparent), var(--tdb-surface-panel-shadow);
+}
+body.bible-tool-page #search-hero.search-hero.glass .quick-actions-hero,
+body.bible-tool-page #search-hero.search-hero.glass #quick-actions-accordion {
+  border-top-color: var(--tdb-surface-panel-border);
+}
+body.bible-tool-page #search-hero.search-hero.glass .quick-actions-hero .btn-secondary,
+body.bible-tool-page #search-hero.search-hero.glass #quick-actions-accordion .btn-secondary,
+body.bible-tool-page #search-hero.search-hero.glass .bible-tool-quick-query {
+  color: var(--text);
+  background: color-mix(in srgb, var(--tdb-surface-panel-bg) 92%, transparent);
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 35%, var(--tdb-surface-panel-border));
+}
+body.bible-tool-page #search-hero.search-hero.glass #output.results {
+  border-top-color: var(--tdb-surface-panel-border);
+}
+body.bible-tool-page #search-hero.search-hero.glass .verse-card {
+  background-color: var(--tdb-surface-card-bg) !important;
+  background-image: var(--tdb-surface-veil-subtle) !important;
+  border-color: var(--tdb-surface-card-border) !important;
+  box-shadow: var(--tdb-surface-card-shadow) !important;
+  color: var(--text);
+}
+body.bible-tool-page #search-hero.search-hero.glass .verse-card.verse-item p,
+body.bible-tool-page #search-hero.search-hero.glass .verse-card.glass p {
+  color: var(--text);
+}
+body.bible-tool-page #search-hero.search-hero.glass .card-action-dropdown-menu {
+  background: var(--tdb-surface-panel-bg);
+  border-color: var(--tdb-surface-panel-border);
+  box-shadow: var(--tdb-surface-panel-shadow);
+}
+body.bible-tool-page #search-hero.search-hero.glass .card-action-dropdown-menu [role='menuitem'] {
+  color: var(--text);
+}
+body.bible-tool-page #search-hero.search-hero.glass .card-action-dropdown-menu [role='menuitem']:hover {
+  background: color-mix(in srgb, var(--tdb-surface-panel-border) 35%, transparent);
+}
+body.bible-tool-page #search-hero.search-hero.glass .verse-breakdown-content {
+  color: var(--muted-readable);
+}
+body.bible-tool-page #search-hero.search-hero.glass .verse-breakdown-content strong {
+  color: var(--text);
+}
 .quick-search-hero-wrap { text-align: center; margin: 20px 0; }
 .search-hero-input-inline { width: 80%; max-width: 500px; padding: 12px; border: 2px solid gold; border-radius: 8px; font-size: 16px; box-shadow: 0 0 8px rgba(212, 175, 55, 0.3); background: rgba(15, 20, 32, 0.95); color: #e2e8f0; }
 .search-hero-btn-mt { margin-top: 8px; }
@@ -9823,7 +9885,7 @@ button:active {
 .result-section h3 {
   margin: 0 0 0.25rem;
   font-size: 1.1rem;
-  color: rgba(226, 232, 240, 0.95);
+  color: var(--text);
 }
 
 .view-more {
@@ -10313,6 +10375,7 @@ button:active {
   padding: 0.9rem 1rem;
   border-radius: 12px;
   background: rgba(109, 40, 217, 0.12);
+  color: var(--text);
   font-weight: 600;
   text-align: center;
   margin-bottom: 0.5rem;
@@ -10338,7 +10401,7 @@ button:active {
 .related-verses {
   margin-top: 0.75rem;
   font-size: 0.9rem;
-  color: rgba(226, 232, 240, 0.85);
+  color: var(--muted-readable);
 }
 .related-label {
   margin-right: 0.25rem;
@@ -11369,7 +11432,7 @@ body.kids-battle-page.kids-parent-dashboard .kids-parent-note {
 }
 
 .empty {
-  color: #94a3b8;
+  color: var(--muted-readable);
   text-align: center;
   margin: 0.75rem 0;
   font-size: 1rem;
@@ -11443,7 +11506,7 @@ body.kids-battle-page.kids-parent-dashboard .kids-parent-note {
 .verse-reflection-prompt {
   font-size: 0.95rem;
   font-weight: 500;
-  color: rgba(226, 232, 240, 0.9);
+  color: var(--text);
   margin: 0 0 0.5rem;
 }
 .verse-prayer-prompt {
@@ -17167,12 +17230,13 @@ html[data-theme="light"] .home-qa-result {
 }
 
 .smart-card {
-  background: var(--card-dark, rgba(12, 18, 30, 0.94));
-  border: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.14));
+  background-color: var(--tdb-surface-panel-bg);
+  background-image: var(--tdb-surface-veil-subtle);
+  border: 1px solid var(--tdb-surface-panel-border);
   border-radius: var(--radius-md, 18px);
   padding: 1.25rem 1rem;
   margin: 0.75rem 0 0;
-  box-shadow: var(--shadow-card, 0 28px 64px rgba(0, 0, 0, 0.38));
+  box-shadow: var(--tdb-surface-panel-shadow);
 }
 
 .smart-heartfelt {
@@ -17188,14 +17252,14 @@ html[data-theme="light"] .home-qa-result {
   font-family: var(--font-display, 'Playfair Display', Georgia, serif);
   font-size: 1.1rem;
   line-height: 1.55;
-  color: var(--text-dark, #f0f2f7);
+  color: var(--text);
   margin: 0 0 0.35rem;
 }
 
 .smart-ref {
   font-family: var(--font-ui, 'Inter', sans-serif);
   font-size: 0.82rem;
-  color: var(--text-muted, rgba(240, 242, 247, 0.65));
+  color: var(--muted-readable);
   margin: 0 0 0.75rem;
   letter-spacing: 0.02em;
 }
@@ -17204,7 +17268,7 @@ html[data-theme="light"] .home-qa-result {
   list-style: disc;
   padding-left: 1.2rem;
   margin: 0 0 0.75rem;
-  color: var(--text-dark, #f0f2f7);
+  color: var(--text);
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -17221,7 +17285,7 @@ html[data-theme="light"] .home-qa-result {
 }
 
 .smart-outcome {
-  color: var(--text-muted, rgba(240, 242, 247, 0.72));
+  color: var(--muted-readable);
   font-size: 0.88rem;
   margin: 0;
 }

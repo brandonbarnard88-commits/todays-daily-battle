@@ -1,6 +1,6 @@
 # Kids read-quiz source map
 
-Generated: **2026-03-23** (run `npm run kids:audit-read-quiz-sources` to refresh)
+Generated: **2026-04-20** (run `npm run kids:audit-read-quiz-sources` to refresh)
 
 **Note:** This file describes **today’s** pipeline only: what `generate-kids-read-quiz-data.mjs` would do on the next `npm run kids:generate-read-quiz`. Older commits may have edited `kids-read-quiz-data.js` directly for batches of stories; unless those edits were **moved into** `read-quiz-handcrafted.cjs` (or into `narration:` / panel / `kidContext` in `kids-battle.js`), a full regen would rebuild those keys from the generator.
 
@@ -14,13 +14,13 @@ Generated: **2026-03-23** (run `npm run kids:audit-read-quiz-sources` to refresh
 
 | Category | Count |
 |----------|------:|
-| Total `bibleStories` keys | 282 |
-| **Handcrafted** full-pack override | 4 |
-| **Generator** (`buildPack`) | 277 |
-| …with non-empty `narration:` in battle | 20 |
-| …no narration (alt + apply path) | 257 |
+| Total `bibleStories` keys | 305 |
+| **Handcrafted** full-pack override | 78 |
+| **Generator** (`buildPack`) | 229 |
+| …with non-empty `narration:` in battle | 16 |
+| …no narration (alt + apply path) | 213 |
 
-## Handcrafted keys (4)
+## Handcrafted keys (78)
 
 Shared packs (same object used for two library cards each):
 
@@ -29,37 +29,106 @@ Shared packs (same object used for two library cards each):
 
 Keys:
 
-- `david`
-- `davidGoliath`
-- `fallOfJericho`
-- `jerichoWalls`
-
-## Generator keys with `narration:` (20)
-
+- `abigailWise`
+- `achan`
+- `battleOfAi`
+- `bronzeSerpent`
 - `burningBush`
+- `david`
+- `davidAbigail`
+- `davidAnointed`
+- `davidCave`
+- `davidGoliath`
+- `davidHarp`
+- `davidJonathan`
+- `davidJonathanFriendship`
+- `davidKing`
+- `deborahBarak`
+- `elijahChariot`
+- `elijahElijahElisha`
+- `elijahFire`
+- `elijahHoreb`
+- `elijahRavens`
+- `elijahWidow`
+- `elishaBlindArmy`
+- `elishaBones`
+- `elishaChariots`
+- `elishaFinal`
+- `elishaFloatingAxe`
+- `elishaMiracles`
+- `elishaOil`
+- `elishaPoisonStew`
+- `elishaShunammite`
+- `ezraReturn`
+- `fallOfJericho`
+- `gehaziGreed`
+- `gideonFleece`
+- `gideonMidianites`
+- `goldenCalf`
+- `hannahPrayer`
+- `jerichoWalls`
+- `jobSuffering`
+- `jordanCrossing`
+- `joshuaCharge`
+- `joshuaJordan`
+- `manna`
+- `mosesBush`
+- `naaman`
+- `naamanDip`
+- `naamanHealed`
+- `nehemiahWalls`
+- `passoverLamb`
+- `psalm23`
+- `psalm23Shepherd`
+- `rahab`
+- `rahabJericho`
+- `rahabRope`
+- `rahabWindow`
+- `redSea`
+- `ruthBoaz`
+- `ruthNaomi`
+- `ruthRedemption`
+- `ruthThreshing`
+- `samariaSiege`
+- `samson`
+- `samsonBirth`
+- `samsonDelilah`
+- `samsonLion`
+- `samuelAnointsDavid`
+- `samuelBirth`
+- `samuelCall`
+- `samuelCalls`
+- `shunammiteReturn`
+- `solomonTemple`
+- `solomonTwoMothers`
+- `solomonWisdom`
+- `spiesInCanaan`
+- `sunStandsStill`
+- `tabernacle`
+- `tenCommandments`
+- `widowOil`
+
+## Generator keys with `narration:` (16)
+
 - `creationLight`
 - `daniel`
 - `esther`
 - `fieryFurnace`
+- `isaiahMessianic`
 - `jacobLadder`
 - `jesusCalmsStorm`
 - `jonah`
 - `josephCoat`
+- `joshuaAi`
 - `lazarus`
-- `manna`
 - `mosesBaby`
 - `mosesSea`
-- `naamanDip`
 - `noah`
-- `redSea`
 - `ruthGlean`
-- `samson`
-- `tenCommandments`
 - `tenPlagues`
 
-## Generator keys without narration — alt/apply only (257)
+## Generator keys without narration — alt/apply only (213)
 
-- `abigailWise`
 - `abrahamIsaac`
 - `actsApollosPriscilla`
 - `actsPaulBeforeAgrippa`
@@ -78,7 +147,6 @@ Keys:
 - `balaakCurse`
 - `balaamBlessing`
 - `balaamDonkey`
-- `battleOfAi`
 - `beastMark`
 - `betrayal`
 - `cainAbel`
@@ -92,27 +160,14 @@ Keys:
 - `danielFieryFurnace`
 - `danielLionsDen`
 - `danielPray`
-- `davidAnointed`
-- `davidCave`
-- `davidHarp`
-- `davidJonathan`
-- `davidJonathanFriendship`
 - `davidSaul`
 - `davidSaulJealousy`
 - `davidSheep`
-- `deborahBarak`
 - `deborahJudge`
 - `dorcasRaise`
 - `dragonFight`
 - `earlyChurchLife`
-- `elijahChariot`
-- `elijahElijahElisha`
-- `elijahFire`
 - `elijahFireFromHeaven`
-- `elishaFloatingAxe`
-- `elishaMiracles`
-- `elishaOil`
-- `elishaRaised`
 - `emmausRoad`
 - `estherBanquet`
 - `estherCrown`
@@ -120,16 +175,12 @@ Keys:
 - `euniceMother`
 - `everyKneeBow`
 - `ezekielValleyBones`
-- `ezraReturn`
 - `faithMountain`
 - `faithMustard`
 - `forgive70x7`
 - `fourHorsemen`
 - `fruitSpirit`
 - `gardenPrayer`
-- `gideonFleece`
-- `gideonMidianites`
-- `goldenCalf`
 - `goliathChallenge`
 - `goodSamaritan`
 - `greatCommission`
@@ -141,7 +192,6 @@ Keys:
 - `heavenPromise`
 - `hebrewsFaith`
 - `holySpiritPentecost`
-- `isaiahMessianic`
 - `jaelTent`
 - `jairus`
 - `jamesFaithWorks`
@@ -172,20 +222,16 @@ Keys:
 - `jesusTemptation`
 - `jesusTriumphalEntry`
 - `jesusWalksWater`
-- `jobSuffering`
 - `johnBaptist`
 - `johnBaptize`
 - `johnFirstLetter`
 - `johnPatmos`
 - `johnSecondThirdLetters`
 - `jonahVine`
-- `jordanCrossing`
 - `josephDreams`
 - `josephPrison`
 - `josephRuler`
 - `josephSold`
-- `joshuaAi`
-- `joshuaJordan`
 - `judasKiss`
 - `judeWarning`
 - `juniaApostle`
@@ -203,18 +249,14 @@ Keys:
 - `maryMagdalene`
 - `marySit`
 - `miriamSong`
-- `mosesBush`
 - `mosesStaffSnake`
 - `mustardSeed`
-- `naaman`
-- `nehemiahWalls`
 - `newEarth`
 - `newHeaven`
 - `noNight`
 - `palmSunday`
 - `parableSower`
 - `parableTalents`
-- `passoverLamb`
 - `paulBarnabas`
 - `paulConversion`
 - `paulDamascus`
@@ -253,10 +295,6 @@ Keys:
 - `priscillaTeach`
 - `priscillaTent`
 - `prodigalSon`
-- `psalm23Shepherd`
-- `rahabJericho`
-- `rahabRope`
-- `rahabWindow`
 - `redSeaCrossing`
 - `resurrection`
 - `revelation`
@@ -278,25 +316,14 @@ Keys:
 - `riverOfLife`
 - `roadToEmmaus`
 - `romansRoadKids`
-- `ruthBoaz`
 - `ruthMoab`
-- `ruthNaomi`
 - `samaritanWoman`
-- `samsonBirth`
-- `samsonHair`
-- `samuelAnointsDavid`
-- `samuelBirth`
-- `samuelCall`
-- `samuelCalls`
 - `sarahLaughs`
 - `sarahPromise`
 - `saulDisobedience`
 - `saulKing`
 - `saulSpear`
 - `shepherdsStar`
-- `solomonTemple`
-- `solomonWisdom`
-- `spiesInCanaan`
 - `stephen`
 - `stephenMartyr`
 - `stephenStones`
@@ -312,7 +339,6 @@ Keys:
 - `trial`
 - `weddingWine`
 - `widowMite`
-- `widowOil`
 - `widowsMite`
 - `worryBirds`
 - `zacchaeus`

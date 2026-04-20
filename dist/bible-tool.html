@@ -334,15 +334,15 @@
       min-height: 44px;
       font-size: 1.05rem;
       padding: 0.55rem 0.7rem;
-      background-color: color-mix(in srgb, var(--tdb-surface-panel-bg) 88%, #0f172a);
-      color: var(--text-dark, #f1f5f9);
+      background-color: var(--tdb-surface-panel-bg);
+      color: var(--text);
       border: 1px solid var(--tdb-surface-panel-border);
       border-radius: 10px;
       display: block;
       visibility: visible;
     }
     #bible-qa-search:focus { outline: 2px solid rgba(212,175,55,0.6); outline-offset: 2px; }
-    #bible-qa-search::placeholder { color: #94a3b8; }
+    #bible-qa-search::placeholder { color: var(--input-placeholder-on-dark); }
     .qa-btn {
       background: #d4af37;
       color: #000;
@@ -380,16 +380,16 @@
       border-left: 4px solid #d4af37;
       border-radius: calc(var(--tdb-surface-radius, 12px) - 2px);
       box-shadow: var(--tdb-surface-panel-shadow);
-      color: var(--text, #e2e8f0);
+      color: var(--text);
     }
     .qa-result.hidden { display: none; }
     .qa-result .qa-answer { 
       margin: 0; 
       line-height: 1.65; 
-      color: var(--text, #e2e8f0); 
+      color: var(--text); 
       font-size: 1.02rem;
     }
-    .qa-result .qa-sources { margin-top: 0.75rem; font-size: 0.9rem; color: #94a3b8; }
+    .qa-result .qa-sources { margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted-readable); }
     .qa-result .qa-sources a { color: #d4af37; text-decoration: none; }
     .qa-result .qa-sources a:hover { text-decoration: underline; }
     .qa-server-note {
@@ -398,13 +398,13 @@
       gap: 0.5rem;
       font-size: 0.875rem;
       line-height: 1.45;
-      color: #94a3b8;
+      color: var(--muted-readable);
       margin: 0.65rem 0 0;
       max-width: 42rem;
     }
     .qa-server-note-icon-link {
       flex-shrink: 0;
-      color: #94a3b8;
+      color: var(--muted-readable);
       margin-top: 0.12rem;
       border-radius: 6px;
       line-height: 0;
@@ -418,15 +418,15 @@
     }
     .qa-server-note-icon { display: block; }
     .qa-server-note-inline {
-      color: #a8c4e8;
+      color: var(--link-content);
       text-decoration: underline;
       text-underline-offset: 2px;
     }
     .qa-server-note-inline:hover,
     .qa-server-note-inline:focus-visible {
-      color: #d4af37;
+      color: var(--link-content-hover);
     }
-    .qa-disclaimer { font-size: 0.8rem; color: #a8b8cc; margin-top: 1rem; font-style: italic; }
+    .qa-disclaimer { font-size: 0.8rem; color: var(--muted); margin-top: 1rem; font-style: italic; }
     #win-topic {
       background: #242830;
       color: #eceef2;

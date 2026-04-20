@@ -45,15 +45,24 @@
     }
     return tokens;
   }
+  /** classList.add/remove with multiple tokens throws InvalidCharacterError if any token is invalid (e.g. empty after trim edge cases). */
+  function applyClassTokens(el, method, tokens) {
+    if (!el || !el.classList || !tokens || !tokens.length) return;
+    for (var i = 0; i < tokens.length; i++) {
+      try {
+        el.classList[method](tokens[i]);
+      } catch (e) { /* skip bad token */ }
+    }
+  }
   function addClasses(el) {
     if (!el || !el.classList) return;
     var tokens = normalizeClassTokens(arguments.length > 1 ? Array.prototype.slice.call(arguments, 1) : []);
-    if (tokens.length) el.classList.add.apply(el.classList, tokens);
+    applyClassTokens(el, 'add', tokens);
   }
   function removeClasses(el) {
     if (!el || !el.classList) return;
     var tokens = normalizeClassTokens(arguments.length > 1 ? Array.prototype.slice.call(arguments, 1) : []);
-    if (tokens.length) el.classList.remove.apply(el.classList, tokens);
+    applyClassTokens(el, 'remove', tokens);
   }
   /** CSP require-trusted-types-for: use default policy (tt-bootstrap tdbSetHtml). */
   function setHtml(el, html) {
@@ -230,7 +239,8 @@
 
   function createToast(message, className, duration) {
     var toast = document.createElement('div');
-    toast.className = className || 'easter-triple-toast';
+    applyClassTokens(toast, 'add', normalizeClassTokens([className || 'easter-triple-toast']));
+    if (!toast.classList.length) toast.classList.add('easter-triple-toast');
     toast.setAttribute('role', 'status');
     toast.setAttribute('aria-live', 'polite');
     toast.textContent = message;

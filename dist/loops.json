@@ -1,12 +1,13 @@
 [
   {
     "id": 1,
-    "title": "David vs Goliath",
+    "title": "David & Goliath",
     "file": "",
     "audio": "",
-    "ref": "1 Samuel 17:49",
+    "ref": "1 Samuel 17:1-11, 32-51",
     "week": 0,
-    "kjvText": "David prevailed over the Philistine with a sling and with a stone."
+    "kjvText": "And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands.",
+    "libraryKey": "davidGoliath"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "audio": "",
     "ref": "Genesis 7:7",
     "week": 0,
-    "kjvText": "And Noah went in, and his sons, and his wife, and his sons' wives with him, into the ark."
+    "kjvText": "And Noah went in, and his sons, and his wife, and his sons' wives with him, into the ark.",
+    "libraryKey": "noah"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "audio": "",
     "ref": "Jonah 1:17",
     "week": 0,
-    "kjvText": "Now the LORD had prepared a great fish to swallow up Jonah."
+    "kjvText": "Now the LORD had prepared a great fish to swallow up Jonah.",
+    "libraryKey": "jonah"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "audio": "",
     "ref": "Daniel 6:22",
     "week": 0,
-    "kjvText": "My God hath sent his angel, and hath shut the lions' mouths."
+    "kjvText": "My God hath sent his angel, and hath shut the lions' mouths.",
+    "libraryKey": "daniel"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "audio": "",
     "ref": "Esther 4:14",
     "week": 0,
-    "kjvText": "Who knoweth whether thou art come to the kingdom for such a time as this?"
+    "kjvText": "Who knoweth whether thou art come to the kingdom for such a time as this?",
+    "libraryKey": "estherFast"
   },
   {
     "id": 6,
@@ -51,16 +56,18 @@
     "audio": "",
     "ref": "Genesis 37:3",
     "week": 0,
-    "kjvText": "Now Israel loved Joseph more than all his children, and he made him a coat of many colours."
+    "kjvText": "Now Israel loved Joseph more than all his children, and he made him a coat of many colours.",
+    "libraryKey": "josephCoat"
   },
   {
     "id": 7,
     "title": "Samson and the Pillars",
     "file": "",
     "audio": "",
-    "ref": "Judges 16:30",
+    "ref": "Judges 16:23-30",
     "week": 0,
-    "kjvText": "Let me die with the Philistines. And he bowed himself with all his might."
+    "kjvText": "Let me die with the Philistines. And he bowed himself with all his might.",
+    "libraryKey": "samson"
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "audio": "",
     "ref": "Ruth 2:2",
     "week": 0,
-    "kjvText": "Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace."
+    "kjvText": "Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace.",
+    "libraryKey": "ruthGlean"
   },
   {
     "id": 9,
@@ -78,16 +86,18 @@
     "audio": "",
     "ref": "Exodus 2:5",
     "week": 0,
-    "kjvText": "And the daughter of Pharaoh came down to wash herself at the river, and she saw the ark among the flags."
+    "kjvText": "And the daughter of Pharaoh came down to wash herself at the river, and she saw the ark among the flags.",
+    "libraryKey": "mosesBaby"
   },
   {
     "id": 10,
     "title": "Jericho Walls Tumble",
     "file": "",
     "audio": "",
-    "ref": "Joshua 6:20",
+    "ref": "Joshua 6:1-5, 11-16, 20",
     "week": 0,
-    "kjvText": "So the people shouted with a great shout, and the wall fell down flat."
+    "kjvText": "So the people shouted with a great shout, and the wall fell down flat.",
+    "libraryKey": "fallOfJericho"
   },
   {
     "id": 11,
@@ -96,7 +106,8 @@
     "audio": "",
     "ref": "John 11:43-44",
     "week": 0,
-    "kjvText": "And when he thus had spoken, he cried with a loud voice, Lazarus, come forth."
+    "kjvText": "And when he thus had spoken, he cried with a loud voice, Lazarus, come forth.",
+    "libraryKey": "lazarus"
   },
   {
     "id": 12,
@@ -105,63 +116,73 @@
     "audio": "",
     "ref": "Mark 4:39",
     "week": 0,
-    "kjvText": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still."
+    "kjvText": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still.",
+    "libraryKey": "jesusCalmsStorm"
   },
   {
     "id": 13,
     "title": "Moses Sea-Split",
     "file": "",
     "audio": "",
-    "ref": "Exodus 14:21",
-    "week": 1
+    "ref": "Exodus 14:21-31",
+    "week": 1,
+    "libraryKey": "mosesSea"
   },
   {
     "id": 14,
     "title": "Burning Bush",
     "file": "",
     "audio": "",
-    "ref": "Exodus 3:2",
-    "week": 1
+    "ref": "Exodus 3:1-6",
+    "week": 1,
+    "libraryKey": "burningBush"
   },
   {
     "id": 15,
-    "title": "Ten Plagues",
+    "title": "Passover Door",
     "file": "",
     "audio": "",
-    "ref": "Exodus 12:29",
-    "week": 1
+    "ref": "Exodus 12:7-13",
+    "week": 1,
+    "libraryKey": "passoverLamb"
   },
   {
     "id": 16,
     "title": "Manna from Heaven",
     "file": "",
     "audio": "",
-    "ref": "Exodus 16:15",
-    "week": 1
+    "ref": "Exodus 16:4-5, 13-15, 31",
+    "week": 1,
+    "libraryKey": "manna"
   },
   {
     "id": 17,
     "title": "Ten Commandments",
     "file": "",
     "audio": "",
-    "ref": "Exodus 20:1-2",
-    "week": 1
+    "ref": "Exodus 20:1-17",
+    "week": 1,
+    "libraryKey": "tenCommandments"
   },
   {
     "id": 18,
-    "title": "Elijah Fire on Carmel",
+    "title": "Elijah and the Fire on Mount Carmel",
     "file": "",
     "audio": "",
-    "ref": "1 Kings 18:38",
-    "week": 1
+    "ref": "1 Kings 18:17-39",
+    "week": 1,
+    "libraryKey": "elijahFire",
+    "kjvText": "Then the fire of the LORD fell, and consumed the burnt sacrifice, and the wood, and the stones, and the dust, and licked up the water that was in the trench."
   },
   {
     "id": 19,
-    "title": "Elisha Oil Pots",
+    "title": "The Widow's Oil Multiplied",
     "file": "",
     "audio": "",
-    "ref": "2 Kings 4:6",
-    "week": 1
+    "ref": "2 Kings 4:1-7",
+    "week": 1,
+    "libraryKey": "widowOil",
+    "kjvText": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed."
   },
   {
     "id": 20,
@@ -169,15 +190,18 @@
     "file": "",
     "audio": "",
     "ref": "Daniel 3:25",
-    "week": 1
+    "week": 1,
+    "libraryKey": "fieryFurnace"
   },
   {
     "id": 21,
-    "title": "Naaman Washed Clean",
+    "title": "Naaman Is Healed of Leprosy",
     "file": "",
     "audio": "",
-    "ref": "2 Kings 5:14",
-    "week": 1
+    "ref": "2 Kings 5:1-15",
+    "week": 1,
+    "kjvText": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
+    "libraryKey": "naamanHealed"
   },
   {
     "id": 22,
@@ -185,7 +209,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 1:3",
-    "week": 1
+    "week": 1,
+    "libraryKey": "creation"
   },
   {
     "id": 23,
@@ -193,7 +218,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 2:15",
-    "week": 1
+    "week": 1,
+    "libraryKey": "adamEve"
   },
   {
     "id": 24,
@@ -201,7 +227,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 11:4",
-    "week": 1
+    "week": 1,
+    "libraryKey": "towerBabel"
   },
   {
     "id": 25,
@@ -209,7 +236,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 22:12",
-    "week": 2
+    "week": 2,
+    "libraryKey": "abrahamIsaac"
   },
   {
     "id": 26,
@@ -217,7 +245,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 28:12",
-    "week": 2
+    "week": 2,
+    "libraryKey": "jacobLadder"
   },
   {
     "id": 27,
@@ -225,7 +254,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 39:21",
-    "week": 2
+    "week": 2,
+    "libraryKey": "josephPrison"
   },
   {
     "id": 28,
@@ -233,7 +263,8 @@
     "file": "",
     "audio": "",
     "ref": "Genesis 41:39-40",
-    "week": 2
+    "week": 2,
+    "libraryKey": "pharaohDreams"
   },
   {
     "id": 29,
@@ -241,7 +272,8 @@
     "file": "",
     "audio": "",
     "ref": "Exodus 2:10",
-    "week": 2
+    "week": 2,
+    "libraryKey": "mosesBaby"
   },
   {
     "id": 30,
@@ -249,7 +281,8 @@
     "file": "",
     "audio": "",
     "ref": "Exodus 12:13",
-    "week": 2
+    "week": 2,
+    "libraryKey": "passoverLamb"
   },
   {
     "id": 31,
@@ -257,7 +290,8 @@
     "file": "",
     "audio": "",
     "ref": "Exodus 13:21",
-    "week": 2
+    "week": 2,
+    "libraryKey": "burningBush"
   },
   {
     "id": 32,
@@ -265,31 +299,35 @@
     "file": "",
     "audio": "",
     "ref": "Exodus 17:6",
-    "week": 2
+    "week": 2,
+    "libraryKey": "manna"
   },
   {
     "id": 33,
     "title": "Golden Calf",
     "file": "",
     "audio": "",
-    "ref": "Exodus 32:4",
-    "week": 2
+    "ref": "Exodus 32:1-8, 15-20, 30-32",
+    "week": 2,
+    "libraryKey": "goldenCalf"
   },
   {
     "id": 34,
     "title": "Twelve Spies",
     "file": "",
     "audio": "",
-    "ref": "Numbers 13:27",
-    "week": 2
+    "ref": "Numbers 13:1-3, 17-33; 14:1-9",
+    "week": 2,
+    "libraryKey": "spiesInCanaan"
   },
   {
     "id": 35,
     "title": "Bronze Serpent",
     "file": "",
     "audio": "",
-    "ref": "Numbers 21:9",
-    "week": 2
+    "ref": "Numbers 21:4-9",
+    "week": 2,
+    "libraryKey": "bronzeSerpent"
   },
   {
     "id": 36,
@@ -297,47 +335,55 @@
     "file": "",
     "audio": "",
     "ref": "Numbers 22:28",
-    "week": 2
+    "week": 2,
+    "libraryKey": "balaamDonkey"
   },
   {
     "id": 37,
     "title": "Joshua Cross Jordan",
     "file": "",
     "audio": "",
-    "ref": "Joshua 3:17",
-    "week": 3
+    "ref": "Joshua 3:14-17; 4:1-7, 18-24",
+    "week": 3,
+    "libraryKey": "jordanCrossing"
   },
   {
     "id": 38,
     "title": "Gideon Fleece",
     "file": "",
     "audio": "",
-    "ref": "Judges 6:38",
-    "week": 3
+    "ref": "Judges 6:11-40",
+    "week": 3,
+    "libraryKey": "gideonFleece"
   },
   {
     "id": 39,
     "title": "Gideon Three Hundred",
     "file": "",
     "audio": "",
-    "ref": "Judges 7:21",
-    "week": 3
+    "ref": "Judges 7:1-22",
+    "week": 3,
+    "libraryKey": "gideonMidianites"
   },
   {
     "id": 40,
-    "title": "Hannah Prayer",
+    "title": "Hannah's Prayer",
     "file": "",
     "audio": "",
-    "ref": "1 Samuel 1:27",
-    "week": 3
+    "ref": "1 Samuel 1:1-20",
+    "week": 3,
+    "libraryKey": "hannahPrayer",
+    "kjvText": "Then Eli answered and said, Go in peace: and the God of Israel grant thee thy petition that thou hast asked of him."
   },
   {
     "id": 41,
-    "title": "Samuel Called at Night",
+    "title": "Samuel Hears God's Voice at Night",
     "file": "",
     "audio": "",
-    "ref": "1 Samuel 3:10",
-    "week": 3
+    "ref": "1 Samuel 3:1-21",
+    "week": 3,
+    "libraryKey": "samuelCalls",
+    "kjvText": "And the LORD came, and stood, and called as at other times, Samuel, Samuel. Then Samuel answered, Speak; for thy servant heareth."
   },
   {
     "id": 42,
@@ -345,63 +391,78 @@
     "file": "",
     "audio": "",
     "ref": "1 Samuel 16:12",
-    "week": 3
+    "week": 3,
+    "libraryKey": "davidSheep"
   },
   {
     "id": 43,
-    "title": "David and Jonathan",
+    "title": "David & Jonathan's Friendship",
     "file": "",
     "audio": "",
-    "ref": "1 Samuel 18:1",
-    "week": 3
+    "ref": "1 Samuel 18:1-4; 20:1-42",
+    "week": 3,
+    "kjvText": "And Jonathan stripped himself of the robe that was upon him, and gave it to David, and his garments, even to his sword, and to his bow, and to his girdle.",
+    "libraryKey": "davidJonathan"
   },
   {
     "id": 44,
-    "title": "David Psalm of Praise",
+    "title": "Psalm 23 — The Lord Is My Shepherd",
     "file": "",
     "audio": "",
-    "ref": "Psalm 23:1",
-    "week": 3
+    "ref": "Psalm 23:1-6",
+    "week": 3,
+    "libraryKey": "psalm23",
+    "kjvText": "The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters."
   },
   {
     "id": 45,
-    "title": "Solomon Wisdom Crown",
+    "title": "Solomon Asks for Wisdom",
     "file": "",
     "audio": "",
-    "ref": "1 Kings 3:12",
-    "week": 3
+    "ref": "1 Kings 3:5-15",
+    "week": 3,
+    "libraryKey": "solomonWisdom",
+    "kjvText": "Give therefore thy servant an understanding heart to judge thy people, that I may discern between good and bad: for who is able to judge this thy so great a people?"
   },
   {
     "id": 46,
-    "title": "Elijah Raven Fed",
+    "title": "Elijah and the Ravens",
     "file": "",
     "audio": "",
-    "ref": "1 Kings 17:6",
-    "week": 3
+    "ref": "1 Kings 17:1-7",
+    "week": 3,
+    "libraryKey": "elijahRavens",
+    "kjvText": "And the ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook."
   },
   {
     "id": 47,
-    "title": "Elijah Still Small Voice",
+    "title": "Elijah and the Still Small Voice",
     "file": "",
     "audio": "",
-    "ref": "1 Kings 19:12",
-    "week": 3
+    "ref": "1 Kings 19:9-18",
+    "week": 3,
+    "libraryKey": "elijahHoreb",
+    "kjvText": "And after the earthquake a fire; but the LORD was not in the fire: and after the fire a still small voice."
   },
   {
     "id": 48,
-    "title": "Elijah Chariot of Fire",
+    "title": "Elijah Taken Up in the Fiery Chariot",
     "file": "",
     "audio": "",
-    "ref": "2 Kings 2:11",
-    "week": 3
+    "ref": "2 Kings 2:1-14",
+    "week": 3,
+    "libraryKey": "elijahChariot",
+    "kjvText": "And it came to pass, as they still went on, and talked, that, behold, there appeared a chariot of fire, and horses of fire, and parted them both asunder; and Elijah went up by a whirlwind into heaven."
   },
   {
     "id": 49,
-    "title": "Elisha Raises a Boy",
+    "title": "Elisha Raises the Shunammite's Son",
     "file": "",
     "audio": "",
-    "ref": "2 Kings 4:35",
-    "week": 4
+    "ref": "2 Kings 4:8-37",
+    "week": 4,
+    "libraryKey": "elishaShunammite",
+    "kjvText": "And he called Gehazi, and said, Call this Shunammite. So he called her. And when she was come in unto him, he said, Take up thy son."
   },
   {
     "id": 50,
@@ -409,7 +470,8 @@
     "file": "",
     "audio": "",
     "ref": "2 Kings 20:11",
-    "week": 4
+    "week": 4,
+    "libraryKey": "faithMountain"
   },
   {
     "id": 51,
@@ -417,7 +479,8 @@
     "file": "",
     "audio": "",
     "ref": "Nehemiah 4:6",
-    "week": 4
+    "week": 4,
+    "libraryKey": "nehemiahWalls"
   },
   {
     "id": 52,
@@ -425,7 +488,8 @@
     "file": "",
     "audio": "",
     "ref": "Nehemiah 8:8",
-    "week": 4
+    "week": 4,
+    "libraryKey": "ezraReturn"
   },
   {
     "id": 53,
@@ -433,7 +497,8 @@
     "file": "",
     "audio": "",
     "ref": "Jonah 3:5",
-    "week": 4
+    "week": 4,
+    "libraryKey": "jonah"
   },
   {
     "id": 54,
@@ -441,7 +506,8 @@
     "file": "",
     "audio": "",
     "ref": "Isaiah 6:1",
-    "week": 4
+    "week": 4,
+    "libraryKey": "isaiahMessianic"
   },
   {
     "id": 55,
@@ -449,7 +515,8 @@
     "file": "",
     "audio": "",
     "ref": "Jeremiah 1:9",
-    "week": 4
+    "week": 4,
+    "libraryKey": "jeremiahWeeping"
   },
   {
     "id": 56,
@@ -457,7 +524,8 @@
     "file": "",
     "audio": "",
     "ref": "Ezekiel 37:10",
-    "week": 4
+    "week": 4,
+    "libraryKey": "ezekielValleyBones"
   },
   {
     "id": 57,
@@ -465,7 +533,8 @@
     "file": "",
     "audio": "",
     "ref": "Daniel 5:25",
-    "week": 4
+    "week": 4,
+    "libraryKey": "daniel"
   },
   {
     "id": 58,
@@ -473,7 +542,8 @@
     "file": "",
     "audio": "",
     "ref": "Joel 2:28",
-    "week": 4
+    "week": 4,
+    "libraryKey": "holySpiritPentecost"
   },
   {
     "id": 59,
@@ -481,7 +551,8 @@
     "file": "",
     "audio": "",
     "ref": "Micah 5:2",
-    "week": 4
+    "week": 4,
+    "libraryKey": "shepherdsStar"
   },
   {
     "id": 60,
@@ -489,7 +560,8 @@
     "file": "",
     "audio": "",
     "ref": "Malachi 4:2",
-    "week": 4
+    "week": 4,
+    "libraryKey": "malachiMessage"
   },
   {
     "id": 61,
@@ -497,7 +569,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 1:31",
-    "week": 5
+    "week": 5,
+    "libraryKey": "angelMary"
   },
   {
     "id": 62,
@@ -505,7 +578,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 2:7",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusBirth"
   },
   {
     "id": 63,
@@ -513,7 +587,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 2:13-14",
-    "week": 5
+    "week": 5,
+    "libraryKey": "shepherdsStar"
   },
   {
     "id": 64,
@@ -521,7 +596,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 2:11",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusBirth"
   },
   {
     "id": 65,
@@ -529,7 +605,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 2:46",
-    "week": 5
+    "week": 5,
+    "libraryKey": "annaProphet"
   },
   {
     "id": 66,
@@ -537,7 +614,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 3:16",
-    "week": 5
+    "week": 5,
+    "libraryKey": "johnBaptize"
   },
   {
     "id": 67,
@@ -545,7 +623,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 4:11",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusTemptation"
   },
   {
     "id": 68,
@@ -553,7 +632,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 4:19",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusCallingDisciples"
   },
   {
     "id": 69,
@@ -561,7 +641,8 @@
     "file": "",
     "audio": "",
     "ref": "John 2:9",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusFirstMiracle"
   },
   {
     "id": 70,
@@ -569,7 +650,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 5:3",
-    "week": 5
+    "week": 5,
+    "libraryKey": "jesusSermonMount"
   },
   {
     "id": 71,
@@ -577,7 +659,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 6:9",
-    "week": 5
+    "week": 5,
+    "libraryKey": "prayerCloset"
   },
   {
     "id": 72,
@@ -585,7 +668,8 @@
     "file": "",
     "audio": "",
     "ref": "John 9:7",
-    "week": 5
+    "week": 5,
+    "libraryKey": "healBlind"
   },
   {
     "id": 73,
@@ -593,7 +677,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 17:14",
-    "week": 6
+    "week": 6,
+    "libraryKey": "healLeper"
   },
   {
     "id": 74,
@@ -601,7 +686,8 @@
     "file": "",
     "audio": "",
     "ref": "John 6:11",
-    "week": 6
+    "week": 6,
+    "libraryKey": "jesusFeeds5000"
   },
   {
     "id": 75,
@@ -609,7 +695,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 14:29",
-    "week": 6
+    "week": 6,
+    "libraryKey": "jesusWalksWater"
   },
   {
     "id": 76,
@@ -617,7 +704,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 13:8",
-    "week": 6
+    "week": 6,
+    "libraryKey": "parableSower"
   },
   {
     "id": 77,
@@ -625,7 +713,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 10:33",
-    "week": 6
+    "week": 6,
+    "libraryKey": "goodSamaritan"
   },
   {
     "id": 78,
@@ -633,7 +722,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 15:5",
-    "week": 6
+    "week": 6,
+    "libraryKey": "lostSheep"
   },
   {
     "id": 79,
@@ -641,7 +731,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 15:20",
-    "week": 6
+    "week": 6,
+    "libraryKey": "prodigalSon"
   },
   {
     "id": 80,
@@ -649,7 +740,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 19:5",
-    "week": 6
+    "week": 6,
+    "libraryKey": "zacchaeus"
   },
   {
     "id": 81,
@@ -657,7 +749,8 @@
     "file": "",
     "audio": "",
     "ref": "Mark 10:21",
-    "week": 6
+    "week": 6,
+    "libraryKey": "jesusBlessKids"
   },
   {
     "id": 82,
@@ -665,7 +758,8 @@
     "file": "",
     "audio": "",
     "ref": "Mark 12:44",
-    "week": 6
+    "week": 6,
+    "libraryKey": "widowsMite"
   },
   {
     "id": 83,
@@ -673,7 +767,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 17:2",
-    "week": 6
+    "week": 6,
+    "libraryKey": "transfigure"
   },
   {
     "id": 84,
@@ -681,7 +776,8 @@
     "file": "",
     "audio": "",
     "ref": "Mark 10:16",
-    "week": 6
+    "week": 6,
+    "libraryKey": "jesusBlessKids"
   },
   {
     "id": 85,
@@ -689,7 +785,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 21:9",
-    "week": 7
+    "week": 7,
+    "libraryKey": "palmSunday"
   },
   {
     "id": 86,
@@ -697,7 +794,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 22:19",
-    "week": 7
+    "week": 7,
+    "libraryKey": "lastSupper"
   },
   {
     "id": 87,
@@ -705,7 +803,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 26:39",
-    "week": 7
+    "week": 7,
+    "libraryKey": "gardenPrayer"
   },
   {
     "id": 88,
@@ -713,7 +812,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 28:6",
-    "week": 7
+    "week": 7,
+    "libraryKey": "resurrection"
   },
   {
     "id": 89,
@@ -721,7 +821,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 24:31",
-    "week": 7
+    "week": 7,
+    "libraryKey": "roadToEmmaus"
   },
   {
     "id": 90,
@@ -729,7 +830,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 1:9",
-    "week": 7
+    "week": 7,
+    "libraryKey": "ascension"
   },
   {
     "id": 91,
@@ -737,7 +839,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 2:3-4",
-    "week": 7
+    "week": 7,
+    "libraryKey": "pentecost"
   },
   {
     "id": 92,
@@ -745,7 +848,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 3:8",
-    "week": 7
+    "week": 7,
+    "libraryKey": "peterHealsLame"
   },
   {
     "id": 93,
@@ -753,7 +857,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 8:38",
-    "week": 7
+    "week": 7,
+    "libraryKey": "philipChariot"
   },
   {
     "id": 94,
@@ -761,7 +866,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 9:3",
-    "week": 7
+    "week": 7,
+    "libraryKey": "paulDamascus"
   },
   {
     "id": 95,
@@ -769,7 +875,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 10:28",
-    "week": 7
+    "week": 7,
+    "libraryKey": "earlyChurchLife"
   },
   {
     "id": 96,
@@ -777,7 +884,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 16:25",
-    "week": 7
+    "week": 7,
+    "libraryKey": "paulSilas"
   },
   {
     "id": 97,
@@ -785,7 +893,8 @@
     "file": "",
     "audio": "",
     "ref": "Ephesians 6:11",
-    "week": 8
+    "week": 8,
+    "libraryKey": "armorOfGod"
   },
   {
     "id": 98,
@@ -793,7 +902,8 @@
     "file": "",
     "audio": "",
     "ref": "Ephesians 6:16",
-    "week": 8
+    "week": 8,
+    "libraryKey": "armorShield"
   },
   {
     "id": 99,
@@ -801,7 +911,8 @@
     "file": "",
     "audio": "",
     "ref": "Ephesians 6:17",
-    "week": 8
+    "week": 8,
+    "libraryKey": "armorOfGod"
   },
   {
     "id": 100,
@@ -809,7 +920,8 @@
     "file": "",
     "audio": "",
     "ref": "Ephesians 6:17",
-    "week": 8
+    "week": 8,
+    "libraryKey": "armorSword"
   },
   {
     "id": 101,
@@ -817,7 +929,8 @@
     "file": "",
     "audio": "",
     "ref": "Galatians 5:22",
-    "week": 8
+    "week": 8,
+    "libraryKey": "fruitSpirit"
   },
   {
     "id": 102,
@@ -825,7 +938,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Corinthians 13:4",
-    "week": 8
+    "week": 8,
+    "libraryKey": "loveChapter"
   },
   {
     "id": 103,
@@ -833,7 +947,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 17:20",
-    "week": 8
+    "week": 8,
+    "libraryKey": "faithMountain"
   },
   {
     "id": 104,
@@ -841,7 +956,8 @@
     "file": "",
     "audio": "",
     "ref": "John 14:6",
-    "week": 8
+    "week": 8,
+    "libraryKey": "jesus"
   },
   {
     "id": 105,
@@ -849,7 +965,8 @@
     "file": "",
     "audio": "",
     "ref": "John 8:12",
-    "week": 8
+    "week": 8,
+    "libraryKey": "creationLight"
   },
   {
     "id": 106,
@@ -857,7 +974,8 @@
     "file": "",
     "audio": "",
     "ref": "John 10:11",
-    "week": 8
+    "week": 8,
+    "libraryKey": "jesusParableGoodShepherd"
   },
   {
     "id": 107,
@@ -865,7 +983,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 25:21",
-    "week": 8
+    "week": 8,
+    "libraryKey": "parableTalents"
   },
   {
     "id": 108,
@@ -873,7 +992,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 25:4",
-    "week": 8
+    "week": 8,
+    "libraryKey": "tenVirgins"
   },
   {
     "id": 109,
@@ -881,7 +1001,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 7:55",
-    "week": 9
+    "week": 9,
+    "libraryKey": "stephenStones"
   },
   {
     "id": 110,
@@ -889,7 +1010,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 10:44",
-    "week": 9
+    "week": 9,
+    "libraryKey": "earlyChurchLife"
   },
   {
     "id": 111,
@@ -897,7 +1019,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 16:14",
-    "week": 9
+    "week": 9,
+    "libraryKey": "lydiaSell"
   },
   {
     "id": 112,
@@ -905,7 +1028,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 17:28",
-    "week": 9
+    "week": 9,
+    "libraryKey": "actsPaulMarsHill"
   },
   {
     "id": 113,
@@ -913,7 +1037,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 27:44",
-    "week": 9
+    "week": 9,
+    "libraryKey": "paulShipwreck"
   },
   {
     "id": 114,
@@ -921,7 +1046,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 28:5",
-    "week": 9
+    "week": 9,
+    "libraryKey": "actsPaulMelita"
   },
   {
     "id": 115,
@@ -929,7 +1055,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 4:2",
-    "week": 9
+    "week": 9,
+    "libraryKey": "revelationThroneRoom"
   },
   {
     "id": 116,
@@ -937,7 +1064,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 6:2",
-    "week": 9
+    "week": 9,
+    "libraryKey": "revelationSeals"
   },
   {
     "id": 117,
@@ -945,7 +1073,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 12:9",
-    "week": 9
+    "week": 9,
+    "libraryKey": "revelationWomanDragon"
   },
   {
     "id": 118,
@@ -953,7 +1082,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 21:2",
-    "week": 9
+    "week": 9,
+    "libraryKey": "revelationNewJerusalem"
   },
   {
     "id": 119,
@@ -961,7 +1091,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 22:2",
-    "week": 9
+    "week": 9,
+    "libraryKey": "comeLordJesus"
   },
   {
     "id": 120,
@@ -969,23 +1100,26 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 22:13",
-    "week": 9
+    "week": 9,
+    "libraryKey": "alphaOmega2"
   },
   {
     "id": 121,
     "title": "Rahab Red Rope",
     "file": "",
     "audio": "",
-    "ref": "Joshua 2:21",
-    "week": 10
+    "ref": "Joshua 2:1-21",
+    "week": 10,
+    "libraryKey": "rahab"
   },
   {
     "id": 122,
     "title": "Deborah Leads Victory",
     "file": "",
     "audio": "",
-    "ref": "Judges 4:14",
-    "week": 10
+    "ref": "Judges 4:1-16",
+    "week": 10,
+    "libraryKey": "deborahBarak"
   },
   {
     "id": 123,
@@ -993,7 +1127,8 @@
     "file": "",
     "audio": "",
     "ref": "Judges 11:34",
-    "week": 10
+    "week": 10,
+    "libraryKey": "jairus"
   },
   {
     "id": 124,
@@ -1001,15 +1136,18 @@
     "file": "",
     "audio": "",
     "ref": "Ruth 2:8",
-    "week": 10
+    "week": 10,
+    "libraryKey": "ruthGlean"
   },
   {
     "id": 125,
-    "title": "Abigail Wisdom",
+    "title": "David & Abigail",
     "file": "",
     "audio": "",
-    "ref": "1 Samuel 25:32",
-    "week": 10
+    "ref": "1 Samuel 25:1-42",
+    "week": 10,
+    "libraryKey": "davidAbigail",
+    "kjvText": "Blessed be the LORD God of Israel, which sent thee this day to meet me: And blessed be thy advice, and blessed be thou, which hast kept me this day from coming to shed blood, and from avenging myself with mine own hand."
   },
   {
     "id": 126,
@@ -1017,7 +1155,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Kings 1:30",
-    "week": 10
+    "week": 10,
+    "libraryKey": "solomonWisdom"
   },
   {
     "id": 127,
@@ -1025,7 +1164,8 @@
     "file": "",
     "audio": "",
     "ref": "2 Chronicles 20:22",
-    "week": 10
+    "week": 10,
+    "libraryKey": "miriamSong"
   },
   {
     "id": 128,
@@ -1033,7 +1173,8 @@
     "file": "",
     "audio": "",
     "ref": "1 Chronicles 4:10",
-    "week": 10
+    "week": 10,
+    "libraryKey": "hannahPray"
   },
   {
     "id": 129,
@@ -1041,7 +1182,8 @@
     "file": "",
     "audio": "",
     "ref": "Job 42:10",
-    "week": 10
+    "week": 10,
+    "libraryKey": "jobSuffering"
   },
   {
     "id": 130,
@@ -1049,7 +1191,8 @@
     "file": "",
     "audio": "",
     "ref": "Proverbs 22:6",
-    "week": 10
+    "week": 10,
+    "libraryKey": "solomonWisdom"
   },
   {
     "id": 131,
@@ -1057,7 +1200,8 @@
     "file": "",
     "audio": "",
     "ref": "Song of Solomon 2:1",
-    "week": 10
+    "week": 10,
+    "libraryKey": "miriamSong"
   },
   {
     "id": 132,
@@ -1065,7 +1209,8 @@
     "file": "",
     "audio": "",
     "ref": "Psalm 150:6",
-    "week": 10
+    "week": 10,
+    "libraryKey": "revelationSongsAndHarvest"
   },
   {
     "id": 133,
@@ -1073,7 +1218,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 2:36",
-    "week": 11
+    "week": 11,
+    "libraryKey": "annaProphet"
   },
   {
     "id": 134,
@@ -1081,7 +1227,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 1:44",
-    "week": 11
+    "week": 11,
+    "libraryKey": "angelMary"
   },
   {
     "id": 135,
@@ -1089,7 +1236,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 8:48",
-    "week": 11
+    "week": 11,
+    "libraryKey": "healLeper"
   },
   {
     "id": 136,
@@ -1097,7 +1245,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 10:42",
-    "week": 11
+    "week": 11,
+    "libraryKey": "goodSamaritan"
   },
   {
     "id": 137,
@@ -1105,7 +1254,8 @@
     "file": "",
     "audio": "",
     "ref": "John 12:3",
-    "week": 11
+    "week": 11,
+    "libraryKey": "maryAnoint"
   },
   {
     "id": 138,
@@ -1113,7 +1263,8 @@
     "file": "",
     "audio": "",
     "ref": "John 20:16",
-    "week": 11
+    "week": 11,
+    "libraryKey": "maryMagdalene"
   },
   {
     "id": 139,
@@ -1121,7 +1272,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 18:26",
-    "week": 11
+    "week": 11,
+    "libraryKey": "priscillaTeach"
   },
   {
     "id": 140,
@@ -1129,7 +1281,8 @@
     "file": "",
     "audio": "",
     "ref": "Acts 9:40",
-    "week": 11
+    "week": 11,
+    "libraryKey": "dorcasRaise"
   },
   {
     "id": 141,
@@ -1137,7 +1290,8 @@
     "file": "",
     "audio": "",
     "ref": "Romans 16:1",
-    "week": 11
+    "week": 11,
+    "libraryKey": "phoebeDeacon"
   },
   {
     "id": 142,
@@ -1145,7 +1299,8 @@
     "file": "",
     "audio": "",
     "ref": "2 Timothy 1:5",
-    "week": 11
+    "week": 11,
+    "libraryKey": "euniceMother"
   },
   {
     "id": 143,
@@ -1153,7 +1308,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 15:9",
-    "week": 11
+    "week": 11,
+    "libraryKey": "lostCoin"
   },
   {
     "id": 144,
@@ -1161,7 +1317,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 18:7",
-    "week": 11
+    "week": 11,
+    "libraryKey": "persistentWidow"
   },
   {
     "id": 145,
@@ -1169,7 +1326,8 @@
     "file": "",
     "audio": "",
     "ref": "John 11:17",
-    "week": 12
+    "week": 12,
+    "libraryKey": "lazarus"
   },
   {
     "id": 146,
@@ -1177,7 +1335,8 @@
     "file": "",
     "audio": "",
     "ref": "Luke 10:3",
-    "week": 12
+    "week": 12,
+    "libraryKey": "goodSamaritan"
   },
   {
     "id": 147,
@@ -1185,7 +1344,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 13:47",
-    "week": 12
+    "week": 12,
+    "libraryKey": "parableSower"
   },
   {
     "id": 148,
@@ -1193,7 +1353,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 13:45-46",
-    "week": 12
+    "week": 12,
+    "libraryKey": "parableSower"
   },
   {
     "id": 149,
@@ -1201,7 +1362,8 @@
     "file": "",
     "audio": "",
     "ref": "Mark 8:9",
-    "week": 12
+    "week": 12,
+    "libraryKey": "jesusFeeds5000"
   },
   {
     "id": 150,
@@ -1209,7 +1371,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 21:31",
-    "week": 12
+    "week": 12,
+    "libraryKey": "palmSunday"
   },
   {
     "id": 151,
@@ -1217,7 +1380,8 @@
     "file": "",
     "audio": "",
     "ref": "John 13:5",
-    "week": 12
+    "week": 12,
+    "libraryKey": "maryAnoint"
   },
   {
     "id": 152,
@@ -1225,7 +1389,8 @@
     "file": "",
     "audio": "",
     "ref": "John 15:5",
-    "week": 12
+    "week": 12,
+    "libraryKey": "fruitSpirit"
   },
   {
     "id": 153,
@@ -1233,7 +1398,8 @@
     "file": "",
     "audio": "",
     "ref": "Matthew 28:19",
-    "week": 12
+    "week": 12,
+    "libraryKey": "greatCommission"
   },
   {
     "id": 154,
@@ -1241,7 +1407,8 @@
     "file": "",
     "audio": "",
     "ref": "Philippians 4:13",
-    "week": 12
+    "week": 12,
+    "libraryKey": "philippiansJoy"
   },
   {
     "id": 155,
@@ -1249,7 +1416,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 1:3",
-    "week": 12
+    "week": 12,
+    "libraryKey": "johnPatmos"
   },
   {
     "id": 156,
@@ -1257,7 +1425,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 5:12",
-    "week": 12
+    "week": 12,
+    "libraryKey": "revelationThroneRoom"
   },
   {
     "id": 157,
@@ -1265,7 +1434,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 7:4",
-    "week": 12
+    "week": 12,
+    "libraryKey": "revelationSeals"
   },
   {
     "id": 158,
@@ -1273,7 +1443,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 22:1",
-    "week": 12
+    "week": 12,
+    "libraryKey": "comeLordJesus"
   },
   {
     "id": 159,
@@ -1281,7 +1452,8 @@
     "file": "",
     "audio": "",
     "ref": "Revelation 22:20",
-    "week": 12
+    "week": 12,
+    "libraryKey": "comeLordJesus"
   },
   {
     "id": 160,
@@ -1289,6 +1461,317 @@
     "file": "",
     "audio": "",
     "ref": "Philippians 2:10",
-    "week": 12
+    "week": 12,
+    "libraryKey": "everyKneeBow"
+  },
+  {
+    "id": 161,
+    "title": "Tabernacle Glory",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 40:34-38",
+    "week": 12,
+    "libraryKey": "tabernacle"
+  },
+  {
+    "id": 162,
+    "title": "Joshua's Charge",
+    "file": "",
+    "audio": "",
+    "ref": "Joshua 24:14-15",
+    "week": 12,
+    "libraryKey": "joshuaCharge"
+  },
+  {
+    "id": 163,
+    "title": "Sun Stands Still",
+    "file": "",
+    "audio": "",
+    "ref": "Joshua 10:12-14",
+    "week": 12,
+    "libraryKey": "sunStandsStill"
+  },
+  {
+    "id": 164,
+    "title": "Achan's Sin",
+    "file": "",
+    "audio": "",
+    "ref": "Joshua 7:1-26",
+    "week": 12,
+    "libraryKey": "achan"
+  },
+  {
+    "id": 165,
+    "title": "Victory at Ai",
+    "file": "",
+    "audio": "",
+    "ref": "Joshua 8:1-8, 18-23, 26-29",
+    "week": 12,
+    "libraryKey": "battleOfAi"
+  },
+  {
+    "id": 166,
+    "title": "Samson's Birth",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 13:1-25",
+    "week": 12,
+    "libraryKey": "samsonBirth"
+  },
+  {
+    "id": 167,
+    "title": "Samson and the Lion",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 14:5-9",
+    "week": 12,
+    "libraryKey": "samsonLion"
+  },
+  {
+    "id": 168,
+    "title": "Samson and Delilah",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 16:4-21",
+    "week": 12,
+    "libraryKey": "samsonDelilah"
+  },
+  {
+    "id": 169,
+    "title": "Ruth and Naomi",
+    "file": "",
+    "audio": "",
+    "ref": "Ruth 1:1-18",
+    "week": 12,
+    "libraryKey": "ruthNaomi"
+  },
+  {
+    "id": 170,
+    "title": "Ruth and Boaz in the Field",
+    "file": "",
+    "audio": "",
+    "ref": "Ruth 2:1-17",
+    "week": 12,
+    "libraryKey": "ruthBoaz"
+  },
+  {
+    "id": 171,
+    "title": "Ruth at the Threshing Floor",
+    "file": "",
+    "audio": "",
+    "ref": "Ruth 3:1-18",
+    "week": 12,
+    "libraryKey": "ruthThreshing",
+    "kjvText": "And he said, Blessed be thou of the LORD, my daughter: thou hast shewed more kindness in the latter end than at the beginning, inasmuch as thou followedst not young men, whether poor or rich."
+  },
+  {
+    "id": 172,
+    "title": "Ruth's Redemption (The Happy Ending)",
+    "file": "",
+    "audio": "",
+    "ref": "Ruth 4:1-17",
+    "week": 12,
+    "libraryKey": "ruthRedemption",
+    "kjvText": "And all the people that were in the gate, and the elders, said, We are witnesses. The LORD make the woman that is come into thine house like Rachel and like Leah, which two did build the house of Israel."
+  },
+  {
+    "id": 173,
+    "title": "Samuel's Dedication",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 1:21-28; 2:1-11, 18-21",
+    "week": 12,
+    "libraryKey": "samuelBirth",
+    "kjvText": "Moreover his mother made him a little coat, and brought it to him from year to year, when she came up with her husband to offer the yearly sacrifice."
+  },
+  {
+    "id": 174,
+    "title": "David Anointed by Samuel",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 16:1-13",
+    "week": 12,
+    "libraryKey": "davidAnointed",
+    "kjvText": "But the LORD said unto Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for the LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart."
+  },
+  {
+    "id": 175,
+    "title": "David Spares Saul in the Cave",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 24:1-22",
+    "week": 12,
+    "libraryKey": "davidCave",
+    "kjvText": "The LORD forbid that I should do this thing unto my master, the LORD's anointed, to stretch forth mine hand against him, seeing he is the anointed of the LORD."
+  },
+  {
+    "id": 176,
+    "title": "David Plays the Harp for Saul",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 16:14-23",
+    "week": 12,
+    "libraryKey": "davidHarp",
+    "kjvText": "And it came to pass, when the evil spirit from God was upon Saul, that David took an harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him."
+  },
+  {
+    "id": 177,
+    "title": "David Becomes King over Israel",
+    "file": "",
+    "audio": "",
+    "ref": "2 Samuel 5:1-5, 9-12",
+    "week": 12,
+    "kjvText": "So all the elders of Israel came to the king to Hebron; and king David made a league with them in Hebron before the LORD: and they anointed David king over Israel.",
+    "libraryKey": "davidKing"
+  },
+  {
+    "id": 178,
+    "title": "Solomon and the Two Mothers",
+    "file": "",
+    "audio": "",
+    "ref": "1 Kings 3:16-28",
+    "week": 12,
+    "libraryKey": "solomonTwoMothers",
+    "kjvText": "Then the king answered and said, Give her the living child, and in no wise slay it: she is the mother thereof."
+  },
+  {
+    "id": 179,
+    "title": "Solomon Builds the Temple",
+    "file": "",
+    "audio": "",
+    "ref": "1 Kings 6:1-14; 8:1-13, 22-30",
+    "week": 12,
+    "libraryKey": "solomonTemple",
+    "kjvText": "And it came to pass, when the priests were come out of the holy place, that the cloud filled the house of the LORD, So that the priests could not stand to minister because of the cloud: for the glory of the LORD had filled the house of the LORD."
+  },
+  {
+    "id": 180,
+    "title": "Elijah and the Widow of Zarephath",
+    "file": "",
+    "audio": "",
+    "ref": "1 Kings 17:8-16",
+    "week": 12,
+    "libraryKey": "elijahWidow",
+    "kjvText": "And the barrel of meal wasted not, neither did the cruse of oil fail, according to the word of the LORD, which he spake by Elijah."
+  },
+  {
+    "id": 181,
+    "title": "Elijah Calls Elisha in the Field",
+    "file": "",
+    "audio": "",
+    "ref": "1 Kings 19:19-21",
+    "week": 12,
+    "libraryKey": "elijahElijahElisha",
+    "kjvText": "So he departed thence, and found Elisha the son of Shaphat, who was plowing with twelve yoke of oxen before him, and he with the twelfth: and Elijah passed by him, and cast his mantle upon him."
+  },
+  {
+    "id": 182,
+    "title": "Elisha's First Miracles",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 2:19-22; 4:1-7",
+    "week": 12,
+    "libraryKey": "elishaMiracles",
+    "kjvText": "And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land."
+  },
+  {
+    "id": 183,
+    "title": "Elisha and the Floating Axe Head",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 6:1-7",
+    "week": 12,
+    "libraryKey": "elishaFloatingAxe",
+    "kjvText": "And he cut down a stick, and cast it in thither; and the iron did swim."
+  },
+  {
+    "id": 184,
+    "title": "Elisha and the Chariots of Fire",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 6:8-17",
+    "week": 12,
+    "libraryKey": "elishaChariots",
+    "kjvText": "And he answered, Fear not: for they that be with us are more than they that be with them."
+  },
+  {
+    "id": 185,
+    "title": "Elisha and the Poisoned Stew",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 4:38-41",
+    "week": 12,
+    "libraryKey": "elishaPoisonStew",
+    "kjvText": "And there was no harm in the pot."
+  },
+  {
+    "id": 186,
+    "title": "Elisha and the Blind Syrian Army",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 6:18-23",
+    "week": 12,
+    "libraryKey": "elishaBlindArmy",
+    "kjvText": "Thou shalt not smite them: wouldest thou smite those whom thou hast taken captive with thy sword and with thy bow? set bread and water before them, that they may eat and drink, and go to their master."
+  },
+  {
+    "id": 187,
+    "title": "Gehazi and Honest Hearts",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 5:20-27",
+    "week": 12,
+    "libraryKey": "gehaziGreed",
+    "kjvText": "And he said unto him, Went not mine heart with thee, when the man turned again from his chariot to meet thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants?"
+  },
+  {
+    "id": 188,
+    "title": "The Widow's Oil Multiplied",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 4:1-7",
+    "week": 12,
+    "libraryKey": "widowOil",
+    "kjvText": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed."
+  },
+  {
+    "id": 189,
+    "title": "The Shunammite Woman Returns",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 8:1-6",
+    "week": 12,
+    "libraryKey": "shunammiteReturn",
+    "kjvText": "So the king appointed unto her a certain officer, saying, Restore all that was hers, and all the fruits of the field since the day that she left the land, even until now."
+  },
+  {
+    "id": 190,
+    "title": "God Feeds His People at Samaria",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 6:24-7:20",
+    "week": 12,
+    "libraryKey": "samariaSiege",
+    "kjvText": "And the people went out, and spoiled the tents of the Syrians. So a measure of fine flour was sold for a shekel, and two measures of barley for a shekel, according to the word of the LORD."
+  },
+  {
+    "id": 191,
+    "title": "Elisha's Last Words",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 13:14-19",
+    "week": 12,
+    "libraryKey": "elishaFinal",
+    "kjvText": "And he said, Open the window eastward. And he opened it. Then Elisha said, Shoot. And he shot. And he said, The arrow of the LORD's deliverance, and the arrow of deliverance from Syria: for thou shalt smite the Syrians in Aphek, till thou have consumed them."
+  },
+  {
+    "id": 192,
+    "title": "God's Power in Elisha's Bones",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 13:20-21",
+    "week": 12,
+    "libraryKey": "elishaBones",
+    "kjvText": "And it came to pass, as they were burying a man, that, behold, they spied a band of men; and they cast the man into the sepulchre of Elisha: and when the man was let down, and touched the bones of Elisha, he revived, and stood up on his feet."
   }
 ]

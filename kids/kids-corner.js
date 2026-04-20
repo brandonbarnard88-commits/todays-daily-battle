@@ -824,18 +824,31 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 19:12</text>'
       ),
 
-      /* ── Week 1: Elisha Oil (19) ── */
+      /* ── Week 1: Elisha Oil (19) — widow, sons, many vessels (2 Kings 4:1-7) ── */
       elishaOil: svg(
+        /* simple room */
+        '<rect x="48" y="88" width="304" height="168" rx="8" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<line x1="48" y1="118" x2="352" y2="118" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
+        /* table */
+        '<rect x="88" y="198" width="224" height="14" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        /* vessels on table */
+        '<ellipse cx="128" cy="192" rx="14" ry="18" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="168" cy="190" rx="14" ry="18" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="208" cy="192" rx="14" ry="18" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="248" cy="190" rx="14" ry="18" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="288" cy="192" rx="14" ry="18" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* widow pouring — center */
+        person(200, 128, 11, 30) +
+        '<path d="M188 158 Q200 150 212 158" ' + s + ' stroke-width="1.2"/>' +
+        '<ellipse cx="175" cy="175" rx="10" ry="13" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M175 175 L172 198 L188 205" ' + s + ' stroke-width="1.8"/>' +
+        /* sons with vessels */
+        person(118, 148, 9, 24) +
+        '<ellipse cx="95" cy="200" rx="11" ry="15" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(282, 148, 9, 24) +
+        '<ellipse cx="305" cy="200" rx="11" ry="15" ' + sf + ' fill="white" stroke-width="2"/>' +
         ground() +
-        '<ellipse cx="120" cy="210" rx="18" ry="28" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<ellipse cx="165" cy="215" rx="15" ry="24" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="205" cy="218" rx="14" ry="22" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="242" cy="216" rx="14" ry="23" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        person(290, 175, 13, 38) +
-        '<path d="M285 200 Q260 195 250 215" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M258 213 Q250 240 248 230 Q240 250 242 238" ' + s + ' stroke-width="2.5"/>' +
-        person(55, 185, 10, 30) +
-        sun(350, 45, 18) +
+        sun(350, 42, 16) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:6</text>'
       ),
 

@@ -1352,18 +1352,41 @@
       }
     },
     elishaOil: {
-      title: 'Elisha & the Widow\'s Oil',
+      title: 'Elisha and the Widow\'s Oil',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Widow has only a little oil' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha says: pour into jars' },
-        { src: 'panel-noah-3.svg', alt: 'Oil multiplies—God provides!' }
+        { src: 'panel-noah-1.svg', alt: 'A widow cries — the creditor would take her two sons' },
+        { src: 'panel-noah-2.svg', alt: 'Borrow many empty vessels — shut the door and pour' },
+        { src: 'panel-noah-3.svg', alt: 'Every vessel full — sell the oil and pay the debt' }
       ],
-      caption: 'Swipe to see God multiply oil—He provides! 🫙',
+      caption: 'Swipe to see God fill every vessel — He provides! 🫙',
       videoId: '6E2WJ0vp4g4',
       videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
-      keywords: ['elisha', 'oil', 'widow', '2 kings 4', 'multiply', 'jar'],
-      kjvRef: '2 Kings 4:1–7',
-      kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God multiplies—He provides! Give God what you have—He can do more!' }
+      keywords: [
+        'elisha',
+        'widow',
+        'oil',
+        '2 kings 4',
+        '2 kings 4:1',
+        '2 kings 4:3',
+        '2 kings 4:6',
+        'creditor',
+        'bondmen',
+        'vessels',
+        'pot of oil',
+        'sons of the prophets',
+        'pour out',
+        'oil stayed',
+        'pay thy debt'
+      ],
+      kjvRef: '2 Kings 4:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A widow and her sons — through Elisha',
+        apply:
+          'God can turn a little into enough when we obey Him step by step — He cares for mothers and children.'
+      },
+      narration:
+        "Elisha and the Widow's Oil — 2 Kings 4:1-7. A woman cried to Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When the vessels were full, there was not a vessel more — and the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too. He can provide more than you see yet."
     },
     naaman: {
       title: 'Naaman & the River',
@@ -2071,19 +2094,37 @@
         "Elijah and the Still Small Voice – 1 Kings 19:9-18. Elijah lodged in a cave; the word of the LORD came: What doest thou here, Elijah? He told how he had been jealous for the LORD — and felt alone. Go forth, stand upon the mount before the LORD. The LORD passed by: a great wind rent the mountains — the LORD was not in the wind; an earthquake — the LORD was not in the earthquake; a fire — the LORD was not in the fire; and after the fire a still small voice. When Elijah heard it, he wrapped his face in his mantle and stood in the entering in of the cave. The LORD spoke again — and showed him faithful work ahead, and this comfort: Yet I have left me seven thousand in Israel, all the knees which have not bowed unto Baal. For you: When life feels loud inside, God can still speak softly — lean in and listen."
     },
     elishaOil: {
-      title: 'Elisha and the Oil',
+      title: 'Elisha and the Widow\'s Oil',
       panels: [
-        { src: 'panel-noah-1.svg', alt: "Widow asking Elisha for help – She has only a little oil" },
-        { src: 'panel-noah-2.svg', alt: "Widow borrowing pots from neighbors – Obeying Elisha" },
-        { src: 'panel-noah-3.svg', alt: "Oil filling every pot – God multiplies abundantly" }
+        { src: 'panel-noah-1.svg', alt: 'A widow cries — the creditor would take her two sons' },
+        { src: 'panel-noah-2.svg', alt: 'Borrow many empty vessels — shut the door and pour' },
+        { src: 'panel-noah-3.svg', alt: 'Every vessel full — sell the oil and pay the debt' }
       ],
-      caption: 'Swipe to see God multiply oil—He provides! 🫙',
+      caption: 'Swipe to see God fill every vessel — He provides! 🫙',
       videoId: '6E2WJ0vp4g4',
       videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
-      keywords: ['elisha', 'oil', 'widow', '2 kings 4', 'multiply', 'miracle'],
-      kjvRef: '2 Kings 4:6',
-      kidContext: { who: 'God', to: 'The widow through Elisha', apply: "A widow had only a little oil. Elisha told her to borrow pots—God filled them all! She sold the oil and paid her debts. God can multiply the little you have when you trust Him and obey. Bring what you have to God—He can make it enough." },
-      narration: "Elisha Oil Pots – 2 Kings 4:6. A poor widow owed money and was afraid her sons would be taken as slaves. She asked Elisha for help. Elisha asked, 'What do you have in the house?' She said, 'Only a little oil.' Elisha told her, 'Go borrow empty pots from your neighbors—don't borrow just a few.' She obeyed. She poured her little oil into the pots. God made the oil keep flowing until every pot was full! She sold the oil, paid her debts, and had money left. God multiplies! For you: When you feel like you don't have enough—time, money, courage—bring it to God. Obey Him, and watch Him multiply what you have to meet your needs."
+      keywords: [
+        'elisha',
+        'widow',
+        'oil',
+        '2 kings 4',
+        'creditor',
+        'bondmen',
+        'vessels',
+        'pot of oil',
+        'pour out',
+        'miracle',
+        'multiply'
+      ],
+      kjvRef: '2 Kings 4:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A widow and her sons — through Elisha',
+        apply:
+          'God can turn a little into enough when we obey Him step by step — He cares for mothers and children.'
+      },
+      narration:
+        "Elisha and the Widow's Oil — 2 Kings 4:1-7. A woman cried to Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When the vessels were full, there was not a vessel more — and the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too. He can provide more than you see yet."
     },
     naamanDip: {
       title: 'Naaman Dips in the River',

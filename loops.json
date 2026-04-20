@@ -444,12 +444,13 @@
   },
   {
     "id": 48,
-    "title": "Elijah Chariot of Fire",
+    "title": "Elijah Taken Up in the Fiery Chariot",
     "file": "",
     "audio": "",
-    "ref": "2 Kings 2:11",
+    "ref": "2 Kings 2:1-14",
     "week": 3,
-    "libraryKey": "elijahChariot"
+    "libraryKey": "elijahChariot",
+    "kjvText": "And it came to pass, as they still went on, and talked, that, behold, there appeared a chariot of fire, and horses of fire, and parted them both asunder; and Elijah went up by a whirlwind into heaven."
   },
   {
     "id": 49,

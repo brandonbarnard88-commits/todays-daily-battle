@@ -5159,87 +5159,152 @@
     ]
   },
   "elijahChariot": {
-    "kjvRef": "2 Kings 2:1–14",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "2 Kings 2:1-14 (KJV)",
+    "verseExcerpt": "And it came to pass, as they still went on, and talked, that, behold, there appeared a chariot of fire, and horses of fire, and parted them both asunder; and Elijah went up by a whirlwind into heaven. — 2 Kings 2:11 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — a chariot of fire and horses of fire; and Elijah went up by a whirlwind into heaven.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "And it came to pass, when the LORD would take up Elijah into heaven by a whirlwind, that Elijah went with Elisha from Gilgal.",
+        "caption": "The LORD would take up Elijah into heaven by a whirlwind",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And Elijah said unto Elisha, Tarry here, I pray thee; for the LORD hath sent me to Bethel. And Elisha said unto him, As the LORD liveth, and as thy soul liveth, I will not leave thee. So they went down to Bethel.",
+        "caption": "I will not leave thee — they went down to Bethel",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And Elijah said unto him, Elisha, tarry here, I pray thee; for the LORD hath sent me to Jericho. And he said, As the LORD liveth, and as thy soul liveth, I will not leave thee. So they came to Jericho.",
+        "caption": "They came to Jericho — still together",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Elijah said unto him, Tarry, I pray thee, here; for the LORD hath sent me to Jordan. And he said, As the LORD liveth, and as thy soul liveth, I will not leave thee. And they two went on.",
+        "caption": "The LORD sent me to Jordan — they two went on",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And fifty men of the sons of the prophets went, and stood to view afar off: and they two stood by Jordan.",
+        "caption": "They two stood by Jordan",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Elijah took his mantle, and wrapped it together, and smote the waters, and they were divided hither and thither, so that they two went over on dry ground.",
+        "caption": "The waters divided — they went over on dry ground",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And it came to pass, when they were gone over, that Elijah said unto Elisha, Ask what I shall do for thee, before I be taken away from thee. And Elisha said, I pray thee, let a double portion of thy spirit be upon me.",
+        "caption": "Ask what I shall do for thee — a double portion of thy spirit",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And he said, Thou hast asked a hard thing: nevertheless, if thou see me when I am taken from thee, it shall be so unto thee; but if not, it shall not be so.",
+        "caption": "If thou see me when I am taken from thee, it shall be so unto thee",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And it came to pass, as they still went on, and talked, that, behold, there appeared a chariot of fire, and horses of fire, and parted them both asunder; and Elijah went up by a whirlwind into heaven.",
+        "caption": "A chariot of fire — Elijah went up by a whirlwind into heaven",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And Elisha saw it, and he cried, My father, my father, the chariot of Israel, and the horsemen thereof. And he saw him no more: and he took hold of his own clothes, and rent them in two pieces.",
+        "caption": "My father, my father — he saw him no more",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "He took up also the mantle of Elijah that fell from him, and went back, and stood by the bank of Jordan;",
+        "caption": "He took up the mantle of Elijah that fell from him",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he took the mantle of Elijah that fell from him, and smote the waters, and said, Where is the LORD God of Elijah? and when he also had smitten the waters, they parted hither and thither: and Elisha went over.",
+        "caption": "Where is the LORD God of Elijah? — Elisha went over",
+        "image": "panel-noah-2.svg"
+      }
+    ],
     "paragraphs": [
-      "Elijah's Fiery Chariot (2 Kings 2:1–14).",
-      "Elijah and Elisha walk together Fiery horses and chariot appear Elijah goes up to heaven in a whirlwind!",
-      "God honors His faithful servants!",
-      "Heaven is real—and it's wonderful."
+      "The LORD was going to take Elijah up to heaven by a whirlwind. Elijah and Elisha traveled together — from Gilgal toward Bethel, then Jericho, then the Jordan. Along the way, the sons of the prophets asked Elisha whether he knew that the LORD would take his master that day; Elisha said, Yea, I know it; hold ye your peace — and he would not leave Elijah.",
+      "At the Jordan, Elijah smote the water with his mantle; the river divided, and they crossed on dry ground. Elijah said, Ask what I shall do for thee, before I be taken away from thee. Elisha asked for a double portion of Elijah's spirit — a hard thing — yet if he saw Elijah taken, it would be so.",
+      "As they walked and talked, a chariot of fire and horses of fire appeared; Elijah went up by a whirlwind into heaven. Elisha saw it and cried out; then he took up Elijah’s mantle, smote the Jordan again, and crossed back — the LORD God of Elijah was with him.",
+      "For you: God is faithful to those who love Him — and His power and kindness do not end when one servant’s work on earth is done."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "How was Elijah going to be taken up, according to the first verse?",
         "choices": [
-          "2 Kings 2:1–14",
-          "Revelation 21–22",
-          "Judges 16:23-30",
-          "Acts 5:12–16"
+          "By a whirlwind into heaven.",
+          "By ship across the sea.",
+          "Only in a dream.",
+          "He stayed in Gilgal forever."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 2:1–14.)"
+        "correctFeedback": "When the LORD would take up Elijah into heaven by a whirlwind.",
+        "wrongFeedback": "Listen for whirlwind and heaven. (Answer: By a whirlwind into heaven.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did Elisha say when Elijah asked him to tarry behind?",
         "choices": [
-          "Elisha",
-          "Joshua",
-          "God",
-          "The Lord"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God honors His faithful servants! Heaven is real—and it's wonderful.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up."
+          "I will not leave thee.",
+          "I am too tired.",
+          "I will go home.",
+          "I do not know the way."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God honors His faithful servants! Heaven is real—and it's wonderful..)"
+        "correctFeedback": "As the LORD liveth, and as thy soul liveth, I will not leave thee.",
+        "wrongFeedback": "Listen for “I will not leave thee.” (Answer: I will not leave thee.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did Elijah do at the Jordan so they could cross?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "Elijah and Elisha walk together"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "God honors His faithful servants! Heaven is real—and it's wonderful.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Ignore God until we are older."
+          "He took his mantle, smote the waters, and they divided.",
+          "He built a bridge.",
+          "He turned back.",
+          "He swam alone."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God honors His faithful servants! Heaven is real—and it's wonderful..)"
+        "correctFeedback": "He smote the waters — they went over on dry ground.",
+        "wrongFeedback": "Listen for mantle and waters. (Answer: Smote the waters — they divided.)"
+      },
+      {
+        "question": "What did Elisha ask for before Elijah was taken away?",
+        "choices": [
+          "Let a double portion of thy spirit be upon me.",
+          "Only silver and gold.",
+          "A new city.",
+          "Nothing at all."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "A double portion of thy spirit — humbly asked.",
+        "wrongFeedback": "Listen for double portion. (Answer: A double portion of thy spirit.)"
+      },
+      {
+        "question": "What happened to Elijah at the end of the chariot scene?",
+        "choices": [
+          "Elijah went up by a whirlwind into heaven.",
+          "Elijah hid in a cave.",
+          "Elijah stayed by the river.",
+          "Elisha went alone first."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Elijah went up by a whirlwind into heaven.",
+        "wrongFeedback": "Listen for whirlwind into heaven. (Answer: Went up by a whirlwind into heaven.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Elijah's Fiery Chariot with God's Word today.",
-    "takeaway": "God honors His faithful servants! Heaven is real—and it's wonderful.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Elijah's Fiery Chariot. Amen.",
+    "doneMessage": "Well done — God’s faithfulness shines in every step of this story.",
+    "takeaway": "Elijah and Elisha walked together to the Jordan; God took Elijah up in a whirlwind — and Elisha picked up the mantle to serve in His strength.",
+    "prayer": "Lord, thank You for faithful servants and for Your Spirit. Help us trust You and follow You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elijah and Elisha walk together (elijah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Fiery horses and chariot appear (chariot)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elijah goes up to heaven in a whirlwind! (fire)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elijah and Elisha walk together (2 kings 2)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Fiery horses and chariot appear (whirlwind)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elijah and Elisha walking together soft hills Gilgal journey calm faces thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Jordan river waters parting dry ground two men crossing",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Chariot of fire horses of fire gentle upward swirl not frightening",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Elisha holding mantle by river bank thankful peaceful",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Whirlwind heaven wonder soft stars minimal"
     ]
   },
   "elijahElijahElisha": {
@@ -10142,7 +10207,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 23",
-          "2 Kings 2:1–14",
+          "2 Kings 2:1-14",
           "Philippians 2:8–11",
           "Mark 10:13–16"
         ],

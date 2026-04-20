@@ -3684,18 +3684,39 @@
         "Elisha Plows the Field – 1 Kings 19:19-21. Elijah found Elisha the son of Shaphat plowing with twelve yoke of oxen — he with the twelfth — and passed by him, and cast his mantle upon him. Elisha left the oxen, ran after Elijah, and asked, Let me kiss my father and my mother, and then I will follow thee. Elijah answered, Go back again: for what have I done to thee? Elisha returned: he took a yoke of oxen, slew them, boiled their flesh with the instruments of the oxen, gave unto the people, and they did eat. Then he arose, and went after Elijah, and ministered unto him. For you: When God calls, you can answer with honor — and follow Him with your whole heart."
     },
     elijahChariot: {
-      title: 'Elijah\'s Fiery Chariot',
+      title: 'Elijah Taken Up in the Fiery Chariot',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah and Elisha walk together' },
-        { src: 'panel-noah-2.svg', alt: 'Fiery horses and chariot appear' },
-        { src: 'panel-noah-3.svg', alt: 'Elijah goes up to heaven in a whirlwind!' }
+        { src: 'panel-noah-1.svg', alt: 'Elijah and Elisha walk the long road — I will not leave thee' },
+        { src: 'panel-noah-2.svg', alt: 'Jordan divides — they cross on dry ground' },
+        { src: 'panel-noah-3.svg', alt: 'Chariot of fire — Elijah goes up by a whirlwind into heaven' }
       ],
-      caption: 'Swipe to see Elijah taken up to heaven! 🔥',
+      caption: 'Swipe to see God take Elijah home in wonder! ✨',
       videoId: '',
       videoTitle: '',
-      keywords: ['elijah', 'chariot', 'fire', '2 kings 2', 'whirlwind', 'heaven', 'elisha'],
-      kjvRef: '2 Kings 2:1–14',
-      kidContext: { who: 'God', to: 'Elijah', apply: 'God honors His faithful servants! Heaven is real—and it\'s wonderful.' }
+      keywords: [
+        'elijah',
+        'elisha',
+        'chariot',
+        'fire',
+        '2 kings 2',
+        'whirlwind',
+        'heaven',
+        'jordan',
+        'mantle',
+        'double portion',
+        'gilgal',
+        'bethel',
+        'jericho'
+      ],
+      kjvRef: '2 Kings 2:1-14',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah, Elisha, and us',
+        apply:
+          'God keeps every promise — even the hard goodbyes. His strength passes on to those who follow Him faithfully.'
+      },
+      narration:
+        "Elijah Taken Up in the Fiery Chariot — 2 Kings 2:1-14. The LORD would take Elijah into heaven by a whirlwind; Elijah went with Elisha from Gilgal. Again and again Elijah said, Tarry here — and Elisha answered, As the LORD liveth, and as thy soul liveth, I will not leave thee. At Jordan Elijah smote the waters with his mantle; they divided, and they two went over on dry ground. Elijah said, Ask what I shall do for thee, before I am taken away from thee. Elisha asked for a double portion of his spirit. As they still went on and talked, behold, there appeared a chariot of fire, and horses of fire; Elijah went up by a whirlwind into heaven. Elisha saw it, cried out, then took up the mantle that fell, smote Jordan again, and went over — Where is the LORD God of Elijah? For you: When someone you love serves God with their whole heart, you can thank God for them — and keep walking in His strength."
     },
     elishaMiracles: {
       title: 'Elisha\'s Miracles',

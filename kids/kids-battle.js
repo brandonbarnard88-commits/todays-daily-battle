@@ -4146,19 +4146,19 @@
         "God’s Army Protects Elisha — 2 Kings 6:8-17. The king of Syria sent a great army with horses and chariots to take Elisha at Dothan. When the servant rose early, he saw the army all around the city and cried, Alas, my master! How shall we do? Elisha said, Fear not: for they that be with us are more than they that be with them. Elisha prayed, Lord, I pray thee, open his eyes, that he may see. The Lord opened the eyes of the young man, and he saw the mountain full of horses and chariots of fire round about Elisha. For you: The Lord showed them that God’s army is always greater and protects His servants."
     },
     elishaPoisonStew: {
-      title: 'Elisha and the Poisoned Stew',
+      title: 'God Makes the Stew Safe',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Gilgal — a great pot of pottage for the sons of the prophets' },
-        { src: 'panel-jesus-2.svg', alt: 'They cry, O man of God, there is death in the pot' },
-        { src: 'panel-jesus-3.svg', alt: 'Elisha casts meal into the pot — no harm' }
+        { src: 'panel-jesus-1.svg', alt: 'Gilgal — great pot, pottage, wild gourds in the stew' },
+        { src: 'panel-jesus-2.svg', alt: 'They cry to the man of God — something wrong in the pot' },
+        { src: 'panel-jesus-3.svg', alt: 'Bring meal — pour out; no harm in the pot' }
       ],
-      caption: 'Swipe to see meal heal the pot — no harm for God’s servants.',
+      caption: 'Swipe for Gilgal — calm words, meal in the pot, stew safe for God’s servants.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elisha',
-        'poisoned stew',
-        'death in the pot',
+        'god makes the stew safe',
+        'stew safe',
         'gilgal',
         'pottage',
         'great pot',
@@ -4168,18 +4168,20 @@
         '2 kings 4:38',
         '2 kings 4:41',
         'sons of the prophets',
-        'seethe',
-        'no harm in the pot'
+        'death in the pot',
+        'no harm in the pot',
+        'bring meal',
+        'gentle'
       ],
       kjvRef: '2 Kings 4:38-41',
       kidContext: {
         who: 'The LORD',
         to: 'the sons of the prophets — through Elisha',
         apply:
-          'God cares about daily needs — He can make what looked harmful become safe when we trust Him.'
+          'God cares for everyday meals — He made the stew safe so His servants could eat without fear.'
       },
       narration:
-        "Elisha and the Poisoned Stew — 2 Kings 4:38-41. At Gilgal, in a dearth, Elisha said, Set on the great pot, and seethe pottage for the sons of the prophets. Wild gourds were shred into the pot — they knew them not. As they ate, they cried, O thou man of God, there is death in the pot. Elisha said, Then bring meal. He cast it into the pot — Pour out for the people, that they may eat. And there was no harm in the pot. For you: Bring your worry to God — He can restore what feels spoiled."
+        "God Makes the Stew Safe — 2 Kings 4:38-41. The sons of the prophets were making pottage at Gilgal. One gathered wild gourds and put them into the great pot. When they poured out for the men to eat, they cried, O man of God, there is death in the pot! They could not eat it. Elisha said, Bring meal. He cast the meal into the pot and said, Pour out for the people, that they may eat. And there was no harm in the pot. The Lord used Elisha to make the stew safe. For you: God cares for the small things — trust His kindness."
     },
     elishaBlindArmy: {
       title: 'God Protects Elisha with Kindness',

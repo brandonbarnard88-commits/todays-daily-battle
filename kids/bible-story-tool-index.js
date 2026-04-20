@@ -557,16 +557,6 @@
     "kw": "elijah elisha chariot fire 2 kings 2 whirlwind heaven jordan mantle double portion gilgal bethel jericho"
   },
   {
-    "key": "elishaPoisonStew",
-    "title": "Elisha and the Poisoned Stew",
-    "kjvRef": "2 Kings 4:38-41",
-    "who": "The LORD",
-    "to": "the sons of the prophets — through Elisha",
-    "apply": "God cares about daily needs — He can make what looked harmful become safe when we trust Him.",
-    "theme": "Miracles",
-    "kw": "elisha poisoned stew death in the pot gilgal pottage great pot wild gourds meal 2 kings 4 2 kings 4:38 2 kings 4:41 sons of the prophets seethe no harm in the pot"
-  },
-  {
     "key": "elijahElijahElisha",
     "title": "Elisha Follows Elijah",
     "kjvRef": "1 Kings 19:19-21",
@@ -795,6 +785,16 @@
     "apply": "God cares about small, honest needs — even a borrowed tool. You can tell Him everything.",
     "theme": "Miracles",
     "kw": "elisha god makes the iron swim floating axe axe head axe jordan 2 kings 6 2 kings 6:1 2 kings 6:6 sons of the prophets borrowed iron did swim stick beam man of God"
+  },
+  {
+    "key": "elishaPoisonStew",
+    "title": "God Makes the Stew Safe",
+    "kjvRef": "2 Kings 4:38-41",
+    "who": "The LORD",
+    "to": "the sons of the prophets — through Elisha",
+    "apply": "God cares for everyday meals — He made the stew safe so His servants could eat without fear.",
+    "theme": "Miracles",
+    "kw": "elisha god makes the stew safe stew safe gilgal pottage great pot wild gourds meal 2 kings 4 2 kings 4:38 2 kings 4:41 sons of the prophets death in the pot no harm in the pot bring meal gentle"
   },
   {
     "key": "elishaBlindArmy",

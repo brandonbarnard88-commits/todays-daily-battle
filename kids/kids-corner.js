@@ -1047,12 +1047,14 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:22</text>'
       ),
 
-      /* Poisoned stew — 2 Kings 4:38-41 (Gilgal, great pot, meal, no harm) */
+      /* Stew at Gilgal — meal, no harm (2 Kings 4:38-41); soft fire, thankful faces */
       elishaPoisonStew: svg(
         ground() + hills() +
         sun(52, 42, 16) + cloud(300, 36) +
-        /* fire under pot */
-        '<path d="M168 248 L172 232 L176 248 M188 248 L192 230 L196 248 M208 248 L212 234 L216 248" ' + s + ' stroke-width="2"/>' +
+        /* gentle fire under pot */
+        '<path d="M168 250 Q170 236 172 248 Q174 232 176 248 Q178 236 180 250" ' + s + ' stroke-width="1.6" fill="none"/>' +
+        '<path d="M188 250 Q190 234 192 248 Q194 230 196 248 Q198 234 200 250" ' + s + ' stroke-width="1.6" fill="none"/>' +
+        '<path d="M208 250 Q210 236 212 248 Q214 232 216 248 Q218 236 220 250" ' + s + ' stroke-width="1.6" fill="none"/>' +
         /* pot */
         '<ellipse cx="200" cy="218" rx="48" ry="14" ' + sf + ' fill="white" stroke-width="2.8"/>' +
         '<path d="M152 218 L152 188 Q200 175 248 188 L248 218" ' + sf + ' fill="white" stroke-width="2.8"/>' +
@@ -1061,8 +1063,13 @@
         person(118, 148, 10, 28) +
         '<path d="M128 178 L188 200" ' + s + ' stroke-width="2.2"/>' +
         '<ellipse cx="108" cy="168" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* thankful watchers */
-        person(288, 158, 9, 26) + person(318, 162, 8, 24) +
+        /* thankful watchers — soft smiles */
+        person(288, 158, 9, 26) +
+        '<path d="M284 150 Q288 154 292 150" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(318, 162, 8, 24) +
+        '<path d="M314 154 Q318 158 322 154" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(258, 168, 8, 22) +
+        '<path d="M254 160 Q258 164 262 160" ' + s + ' stroke-width="1" fill="none"/>' +
         /* gourds on ground */
         '<ellipse cx="72" cy="258" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<ellipse cx="92" cy="262" rx="12" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +

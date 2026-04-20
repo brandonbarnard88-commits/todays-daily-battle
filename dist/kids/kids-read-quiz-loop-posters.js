@@ -69,7 +69,7 @@
     elijahHoreb: 47,
     elijahFire: 18,
     elijahFireFromHeaven: 18,
-    elishaFloatingAxe: 21,
+    elishaFloatingAxe: 183,
     elishaMiracles: 182,
     elishaOil: 19,
     elishaShunammite: 49,

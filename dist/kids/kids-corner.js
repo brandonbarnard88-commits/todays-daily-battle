@@ -889,18 +889,26 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:14</text>'
       ),
 
-      /* Floating axe head — 2 Kings 6:1-7 (Jordan bank, stick, iron floats) */
+      /* Floating axe — 2 Kings 6:1-7 (Jordan, stick cast, iron swim, man reaches) */
       elishaFloatingAxe: svg(
         ground() + hills() +
         sun(52, 42, 18) + cloud(300, 34) +
-        '<path d="M40 248 Q120 228 200 248 Q280 228 360 248" ' + s + ' stroke-width="2.5" fill="none"/>' +
-        '<ellipse cx="200" cy="252" rx="140" ry="10" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        person(120, 168, 10, 30) +
-        '<line x1="145" y1="188" x2="210" y2="232" ' + s + ' stroke-width="2.8"/>' +
-        '<path d="M210 232 L218 238 L214 244 Z" ' + sf + ' fill="white" stroke-width="1.8"/>' +
-        '<ellipse cx="248" cy="238" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        person(268, 162, 9, 26) +
-        '<path d="M268 188 L275 220" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M28 248 Q120 222 200 242 Q280 222 372 248" ' + s + ' stroke-width="2.5" fill="none"/>' +
+        '<ellipse cx="200" cy="254" rx="150" ry="11" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* Elisha — casting stick toward water */
+        person(108, 158, 11, 32) +
+        '<line x1="118" y1="188" x2="168" y2="218" ' + s + ' stroke-width="2.4"/>' +
+        '<line x1="168" y1="218" x2="188" y2="232" ' + s + ' stroke-width="2.2"/>' +
+        /* floating iron — wedge + eye (readable as axe head) */
+        '<ellipse cx="232" cy="228" rx="22" ry="10" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M210 228 L248 228 M238 220 L242 236" ' + s + ' stroke-width="2"/>' +
+        /* young man reaching from right bank */
+        person(292, 168, 10, 28) +
+        '<path d="M292 196 L252 222" ' + s + ' stroke-width="2.4"/>' +
+        '<path d="M248 218 L256 224 L250 230" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* distant trees */
+        '<path d="M32 248 L38 228 L44 248 M52 248 L58 220 L64 248" ' + s + ' stroke-width="2"/>' +
+        '<path d="M336 248 L342 232 L348 248 M356 248 L362 224 L368 248" ' + s + ' stroke-width="2"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:6</text>'
       ),
 
@@ -5190,7 +5198,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'naamanHealed', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'naamanHealed', 'elishaFloatingAxe', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',

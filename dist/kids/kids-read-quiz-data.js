@@ -2964,7 +2964,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "2 Kings 6:1–7",
+          "2 Kings 6:1-7",
           "1 Samuel 24:1-22",
           "Galatians 5"
         ],
@@ -6021,87 +6021,116 @@
     ]
   },
   "elishaFloatingAxe": {
-    "kjvRef": "2 Kings 6:1–7",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "2 Kings 6:1-7 (KJV)",
+    "verseExcerpt": "And he cut down a stick, and cast it in thither; and the iron did swim. — 2 Kings 6:6 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "And the sons of the prophets said unto Elisha, Behold now, the place where we dwell with thee is too strait for us.",
+        "caption": "The place where we dwell is too strait for us",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Let us go, we pray thee, unto Jordan, and take thence every man a beam, and let us make us a place there, where we may dwell. And he answered, Go ye.",
+        "caption": "Let us go unto Jordan — every man a beam",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "But as one was felling a beam, the axe head fell into the water: and he cried, and said, Alas, master! for it was borrowed.",
+        "caption": "Alas, master! for it was borrowed",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And the man of God said, Where fell it? And he shewed him the place. And he cut down a stick, and cast it in thither; and the iron did swim.",
+        "caption": "Where fell it? — the iron did swim",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Therefore said he, Take it up to thee. And he put out his hand, and took it.",
+        "caption": "Take it up to thee — he took it",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
     "paragraphs": [
-      "The Floating Axe Head (2 Kings 6:1–7).",
-      "Builders by the Jordan — the axe head splashes in Elisha throws a stick — iron floats!",
-      "The man lifts the borrowed axe — God cared God notices little worries too.",
-      "Tell Him what you need — He is kind."
+      "The sons of the prophets said, The place where we dwell with thee is too strait for us. Let us go to Jordan, take every man a beam, and make a place there. Elisha went with them; when they came to Jordan, they cut down wood.",
+      "As one was felling a beam, the axe head fell into the water. The man cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place.",
+      "Elisha cut down a stick, cast it in thither, and the iron did swim. Then he said, Take it up to thee — and the man put out his hand and took it. For you: God cares about little worries — even a borrowed tool.",
+      "Reference: 2 Kings 6:1-7 (KJV)."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What did the sons of the prophets want to do at Jordan?",
         "choices": [
-          "Matthew 4:18–22; Luke 5:1–11",
-          "Joshua 7:1-11",
-          "Matthew 4:1–11; Luke 4:1–13",
-          "2 Kings 6:1–7"
+          "Forget their teacher.",
+          "Take every man a beam and make a place to dwell.",
+          "Swim in the river only.",
+          "Leave Elisha behind."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 6:1–7.)"
+        "correctIndex": 1,
+        "correctFeedback": "They wanted beams for a bigger place to dwell.",
+        "wrongFeedback": "Listen for beam and Jordan. (Answer: take a beam and make a place.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What happened while one man was felling a beam?",
         "choices": [
-          "God",
-          "The LORD",
-          "Stephen",
-          "Mary"
+          "The river dried up.",
+          "The axe head fell into the water.",
+          "They went home.",
+          "Nothing happened."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 1,
+        "correctFeedback": "The axe head fell in — and it was borrowed.",
+        "wrongFeedback": "Listen for axe head and water. (Answer: the axe head fell into the water.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "Why was the man so upset about the axe head?",
         "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "God notices little worries too. Tell Him what you need — He is kind.",
-          "The Bible is only pretend stories."
+          "He did not like wood.",
+          "It was borrowed.",
+          "He wanted a new axe.",
+          "The river was too cold."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God notices little worries too. Tell Him what you need — He is kind..)"
+        "correctIndex": 1,
+        "correctFeedback": "Borrowed — so he wanted it back for the owner.",
+        "wrongFeedback": "Listen for borrowed. (Answer: it was borrowed.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did Elisha do after the man showed him the place?",
         "choices": [
-          "Builders by the Jordan — the axe head splashes in",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city."
+          "He walked away.",
+          "He cut down a stick, cast it in, and the iron did swim.",
+          "He bought a new axe.",
+          "He shouted at the river."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "A stick — and God made the iron swim.",
+        "wrongFeedback": "Listen for stick and iron did swim. (Answer: stick cast in — iron swam.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What does this story help us remember about God?",
         "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "God notices little worries too. Tell Him what you need — He is kind."
+          "He only cares about big things.",
+          "He cares about everyday needs — even small ones.",
+          "He never helps when we lose something.",
+          "Borrowed things do not matter."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God notices little worries too. Tell Him what you need — He is kind..)"
+        "correctIndex": 1,
+        "correctFeedback": "Even a lost borrowed tool mattered — God is kind in little things.",
+        "wrongFeedback": "Think: God helped with a small, borrowed axe head. (Answer: He cares about everyday needs.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Floating Axe Head with God's Word today.",
-    "takeaway": "God notices little worries too. Tell Him what you need — He is kind.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Floating Axe Head. Amen.",
+    "doneMessage": "Well done — God sees the little things that worry us.",
+    "takeaway": "Elisha cast in a stick — the iron swam. God cares about honest, everyday troubles.",
+    "prayer": "Lord, thank You that nothing is too small to bring to You. Help us trust You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Builders by the Jordan — the axe head splashes in (elisha)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha throws a stick — iron floats! (axe)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The man lifts the borrowed axe — God cared (jordan)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Builders by the Jordan — the axe head splashes in (2 kings 6)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha throws a stick — iron floats! (borrowed)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha by Jordan casting stick into water iron axe head floating young prophet reaching thankful riverbank trees minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sons of prophets Jordan beams",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrowed axe head water alas master",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Stick cast iron did swim",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Take it up to thee hand took iron"
     ]
   },
   "elishaMiracles": {
@@ -18283,7 +18312,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 6:1–7",
+          "2 Kings 6:1-7",
           "Galatians 5",
           "1 Samuel 24:1-22",
           "1 Timothy 1–6; 2 Timothy 1–4"
@@ -27252,7 +27281,7 @@
           "Matthew 6",
           "Galatians 5",
           "Genesis 28:10–22",
-          "2 Kings 6:1–7"
+          "2 Kings 6:1-7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",

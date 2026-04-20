@@ -90,6 +90,7 @@ function bestLibraryKey(loop, rows) {
  * (Animated loop ≠ full library card yet; this still lands families on the closest read-and-quiz story.)
  */
 const LIBRARY_KEY_BY_LOOP_ID = {
+  183: 'elishaFloatingAxe',
   21: 'naamanHealed',
   18: 'elijahFire',
   1: 'davidGoliath',

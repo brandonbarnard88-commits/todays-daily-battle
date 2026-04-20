@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-20T13:54:20.015Z",
+  "generatedAt": "2026-04-20T14:06:27.945Z",
   "surfacedRefCount": 2801,
   "overrideCount": 2801,
   "sourceCounts": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 181,
+      "refs": 182,
       "pairs": 0
     },
     "memorize.html": {

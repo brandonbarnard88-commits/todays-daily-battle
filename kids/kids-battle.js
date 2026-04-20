@@ -3847,18 +3847,40 @@
         "Elisha's First Miracles — 2 Kings 2:19-22; 4:1-7. The men of the city told Elisha, The water is naught, and the ground barren. He said, Bring me a new cruse, and put salt therein. He cast it into the spring and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land — and the waters were healed. Later a widow cried that the creditor would take her sons; she had only a pot of oil. Elisha sent her to borrow empty vessels, pour behind closed doors — and the oil flowed until every vessel was full. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: When needs feel big and your little feels small, God can still provide — ask Him and obey one step at a time."
     },
     elishaFloatingAxe: {
-      title: 'The Floating Axe Head',
+      title: 'Elisha and the Floating Axe',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Builders by the Jordan — the axe head splashes in' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha throws a stick — iron floats!' },
-        { src: 'panel-noah-3.svg', alt: 'The man lifts the borrowed axe — God cared' }
+        { src: 'panel-jesus-1.svg', alt: 'Sons of the prophets — the place is too strait; beams from Jordan' },
+        { src: 'panel-jesus-2.svg', alt: 'The axe head falls in the water — Alas, master! it was borrowed' },
+        { src: 'panel-jesus-3.svg', alt: 'Elisha casts a stick — the iron swims — take it up to thee' }
       ],
-      caption: 'Swipe to see God care about a small, borrowed tool! 🪓',
+      caption: 'Swipe to see God care about a borrowed axe — iron that swam.',
       videoId: '',
       videoTitle: '',
-      keywords: ['elisha', 'axe', 'jordan', '2 kings 6', 'borrowed', 'float', 'miracle', 'iron'],
-      kjvRef: '2 Kings 6:1–7',
-      kidContext: { who: 'God', to: 'the worried builder', apply: 'God notices little worries too. Tell Him what you need — He is kind.' }
+      keywords: [
+        'elisha',
+        'floating axe',
+        'axe head',
+        'axe',
+        'jordan',
+        '2 kings 6',
+        '2 kings 6:1',
+        '2 kings 6:6',
+        'sons of the prophets',
+        'borrowed',
+        'iron did swim',
+        'stick',
+        'beam',
+        'man of God'
+      ],
+      kjvRef: '2 Kings 6:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'a worried builder — through Elisha',
+        apply:
+          'God cares about honest, everyday troubles — even a small, borrowed thing. Tell Him what you need.'
+      },
+      narration:
+        "Elisha and the Floating Axe — 2 Kings 6:1-7. The sons of the prophets said, The place where we dwell with thee is too strait — let us go to Jordan, take every man a beam, and make a place there. At Jordan, as one was felling a beam, the axe head fell into the water. He cried, Alas, master! for it was borrowed. Elisha said, Where fell it? He showed him the place. Elisha cut down a stick, cast it in thither, and the iron did swim. Take it up to thee — and he took it. For you: Nothing honest is too small to bring to God."
     },
     isaiahMessianic: {
       title: 'Isaiah\'s Messianic Prophecies',

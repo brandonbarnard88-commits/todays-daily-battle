@@ -557,6 +557,16 @@
     "kw": "elijah elisha chariot fire 2 kings 2 whirlwind heaven jordan mantle double portion gilgal bethel jericho"
   },
   {
+    "key": "elishaFloatingAxe",
+    "title": "Elisha and the Floating Axe",
+    "kjvRef": "2 Kings 6:1-7",
+    "who": "The LORD",
+    "to": "a worried builder — through Elisha",
+    "apply": "God cares about honest, everyday troubles — even a small, borrowed thing. Tell Him what you need.",
+    "theme": "Miracles",
+    "kw": "elisha floating axe axe head axe jordan 2 kings 6 2 kings 6:1 2 kings 6:6 sons of the prophets borrowed iron did swim stick beam man of God"
+  },
+  {
     "key": "elishaOil",
     "title": "Elisha and the Widow's Oil",
     "kjvRef": "2 Kings 4:1-7",
@@ -2495,16 +2505,6 @@
     "apply": "Stand for what is right — God is with you even when it gets hot.",
     "theme": "Miracles",
     "kw": "shadrach meshach abednego furnace daniel 3 fire bow nebuchadnezzar"
-  },
-  {
-    "key": "elishaFloatingAxe",
-    "title": "The Floating Axe Head",
-    "kjvRef": "2 Kings 6:1–7",
-    "who": "God",
-    "to": "the worried builder",
-    "apply": "God notices little worries too. Tell Him what you need — He is kind.",
-    "theme": "Miracles",
-    "kw": "elisha axe jordan 2 kings 6 borrowed float miracle iron"
   },
   {
     "key": "fourHorsemen",

@@ -1028,13 +1028,13 @@
   },
   {
     "key": "jobSuffering",
-    "title": "Job's Suffering",
-    "kjvRef": "Job 2",
+    "title": "Job Trusts God",
+    "kjvRef": "Job 1:1–22; 2:11–13",
     "who": "God",
-    "to": "Job",
-    "apply": "You can trust God in hard times! He always comes through for those who hold on.",
+    "to": "Job (and us)",
+    "apply": "God is with us even in our saddest days — we can still trust Him and bless His name.",
     "theme": "Protection",
-    "kw": "job suffering boils friends job 2 trust faith restore"
+    "kw": "job trust sad friends job 1 job 2 grief faith bless silence lord gave"
   },
   {
     "key": "johnBaptize",

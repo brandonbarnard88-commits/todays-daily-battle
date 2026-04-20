@@ -1169,18 +1169,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ezra 3:6</text>'
       ),
 
-      /* ── Week 4: Job Suffering (54) ── */
+      /* ── Week 4: Job — honest sadness, friends sit with him (54) ── */
       jobSuffering: svg(
         ground() +
-        person(200, 185, 12, 35) +
-        '<path d="M188 188 Q178 195 180 208 Q186 215 190 210 Q185 220 188 228" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M212 188 Q222 195 220 208 Q214 215 210 210 Q215 220 212 228" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M192 200 Q188 208 190 215" ' + s + ' stroke-width="2"/>' +
-        '<path d="M208 200 Q212 208 210 215" ' + s + ' stroke-width="2"/>' +
-        person(80, 185, 11, 32) + person(105, 188, 10, 28) +
-        person(290, 185, 11, 32) + person(315, 188, 10, 28) +
-        cloud(160, 30) + cloud(60, 55) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Job 2:13</text>'
+        hills() +
+        sun(48, 42, 16) +
+        cloud(300, 55) +
+        cloud(70, 48) +
+        '<ellipse cx="88" cy="252" rx="20" ry="11" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="318" cy="255" rx="18" ry="10" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="258" rx="120" ry="14" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        person(200, 200, 12, 28) +
+        person(120, 202, 10, 26) +
+        person(165, 200, 10, 26) +
+        person(275, 202, 10, 26) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Job 1:21</text>'
       ),
 
       /* ── Week 4: Psalm 23 Shepherd (55) ── */
@@ -3704,7 +3713,7 @@
     return /^\/media\/kids-stories\/[a-zA-Z0-9][a-zA-Z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(s);
   }
 
-  /** Optional loop-library poster: /assets/loops/{1–194}.png when shipped (read-quiz poster map). */
+  /** Optional loop-library poster: /assets/loops/{1–195}.png when shipped (read-quiz poster map). */
   function isSafeLoopPosterPath(src) {
     if (typeof src !== 'string') return false;
     var s = src.trim();
@@ -3714,7 +3723,7 @@
     var m = /^\/assets\/loops\/(\d{1,3})\.png$/i.exec(s);
     if (!m) return false;
     var n = parseInt(m[1], 10);
-    return n >= 1 && n <= 194;
+    return n >= 1 && n <= 195;
   }
 
   /** First comic panel from bibleStories (same files as the modal carousel). */
@@ -4138,7 +4147,7 @@
       if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
         var posters = window.TDB_READ_QUIZ_LOOP_POSTERS || {};
         var lid = posters[key];
-        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 194) {
+        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 195) {
           var posterPath = '/assets/loops/' + Math.floor(lid) + '.png';
           if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
         }

@@ -2338,18 +2338,18 @@
       kidContext: { who: 'God', to: 'Nehemiah and His people', apply: 'God hears prayer and helps His people work together to restore what was broken.' }
     },
     jobSuffering: {
-      title: 'Job\'s Suffering',
+      title: 'Job Trusts God',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Job loses everything—still trusts God' },
-        { src: 'panel-noah-2.svg', alt: 'Friends sit with him but don\'t understand' },
-        { src: 'panel-noah-3.svg', alt: 'God speaks—and restores Job!' }
+        { src: 'panel-noah-1.svg', alt: 'Job loved God — then hard days came' },
+        { src: 'panel-noah-2.svg', alt: '“The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”' },
+        { src: 'panel-noah-3.svg', alt: 'Three friends sit with Job on the ground — quiet love' }
       ],
-      caption: 'Swipe to see Job\'s faith in hard times—God is enough! 🌧️',
+      caption: 'Swipe to see honest sadness, quiet friends, and trust in God — He is near. 🕊️',
       videoId: '',
       videoTitle: '',
-      keywords: ['job', 'suffering', 'boils', 'friends', 'job 2', 'trust', 'faith', 'restore'],
-      kjvRef: 'Job 2',
-      kidContext: { who: 'God', to: 'Job', apply: 'You can trust God in hard times! He always comes through for those who hold on.' }
+      keywords: ['job', 'trust', 'sad', 'friends', 'job 1', 'job 2', 'grief', 'faith', 'bless', 'silence'],
+      kjvRef: 'Job 1:1–22; 2:11–13',
+      kidContext: { who: 'God', to: 'Job (and us)', apply: 'God is with us even in our saddest days — we can still trust Him and bless His name.' }
     },
     psalm23Shepherd: {
       title: 'The Lord Is My Shepherd',

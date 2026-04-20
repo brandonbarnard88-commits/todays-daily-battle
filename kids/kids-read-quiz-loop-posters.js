@@ -119,7 +119,7 @@
     jesusGreatCommission: 153,
     jesusLastSupper: 86,
     jesusResurrection: 88,
-    jobSuffering: 129,
+    jobSuffering: 195,
     johnBaptist: 66,
     johnBaptize: 66,
     johnFirstLetter: 115,

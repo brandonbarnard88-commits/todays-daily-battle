@@ -145,7 +145,7 @@ Update this file by running: `npm run kids:generate-animation-queue`
 | ☐ | 123 | `jesusTemptation` | `jesus-temptation.mp4` / `jesus-temptation.vtt` | Jesus' Temptation |
 | ☐ | 124 | `jesusTriumphalEntry` | `jesus-triumphal-entry.mp4` / `jesus-triumphal-entry.vtt` | Triumphal Entry |
 | ☐ | 125 | `jesusWalksWater` | `jesus-walks-water.mp4` / `jesus-walks-water.vtt` | Jesus Walks on Water |
-| ☐ | 126 | `jobSuffering` | `job-suffering.mp4` / `job-suffering.vtt` | Job's Suffering |
+| ☐ | 126 | `jobSuffering` | `job-suffering.mp4` / `job-suffering.vtt` | Job Trusts God |
 | ☐ | 127 | `johnBaptist` | `john-baptist.mp4` / `john-baptist.vtt` | John the Baptist |
 | ☐ | 128 | `johnBaptize` | `john-baptize.mp4` / `john-baptize.vtt` | John Baptizes Jesus |
 | ☐ | 129 | `johnFirstLetter` | `john-first-letter.mp4` / `john-first-letter.vtt` | John’s First Letter (1 John) |

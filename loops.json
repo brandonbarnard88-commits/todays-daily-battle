@@ -403,12 +403,13 @@
   },
   {
     "id": 44,
-    "title": "David Psalm of Praise",
+    "title": "Psalm 23 — The Lord Is My Shepherd",
     "file": "",
     "audio": "",
-    "ref": "Psalm 23:1",
+    "ref": "Psalm 23:1-6",
     "week": 3,
-    "libraryKey": "psalm23Shepherd"
+    "libraryKey": "psalm23",
+    "kjvText": "The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters."
   },
   {
     "id": 45,

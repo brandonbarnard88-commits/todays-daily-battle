@@ -1957,6 +1957,26 @@
     "kw": "prodigal son run away come back party forgiveness luke 15"
   },
   {
+    "key": "psalm23Shepherd",
+    "title": "Psalm 23 — The Lord Is My Shepherd",
+    "kjvRef": "Psalm 23:1-6",
+    "who": "The LORD",
+    "to": "Every listener who needs quiet rest",
+    "apply": "The same Shepherd who led David leads His people still — beside quiet water, through hard valleys, and home to Himself. Say the words slowly; He hears.",
+    "theme": "Love",
+    "kw": "psalm 23 psalms 23 ps 23 shepherd still waters green pastures valley of the shadow rod and staff cup runneth over goodness and mercy house of the lord i shall not want restoreth my soul david comfort"
+  },
+  {
+    "key": "psalm23",
+    "title": "Psalm 23 — The Lord Is My Shepherd",
+    "kjvRef": "Psalm 23:1-6",
+    "who": "The LORD",
+    "to": "Children and grown-ups on hard days",
+    "apply": "This psalm is a quiet place to breathe — the Shepherd knows you, leads you, and will not leave you. Read it slowly; each line is true.",
+    "theme": "Love",
+    "kw": "psalm 23 psalms 23 ps 23 the lord is my shepherd shepherd still waters green pastures valley of the shadow of death fear no evil thou art with me rod and staff cup runneth over goodness and mercy dwell in the house of the lord david psalm comfort psalm"
+  },
+  {
     "key": "estherCrown",
     "title": "Queen Esther's Courage",
     "kjvRef": "Esther 2:15–18",
@@ -2535,16 +2555,6 @@
     "apply": "Jesus gave us a way to remember His death until He comes — His body and blood for us.",
     "theme": "Love",
     "kw": "last supper passover bread cup covenant luke 22 matthew 26 remembrance judas"
-  },
-  {
-    "key": "psalm23Shepherd",
-    "title": "The Lord Is My Shepherd",
-    "kjvRef": "Psalm 23",
-    "who": "God",
-    "to": "David (and us)",
-    "apply": "God is your Good Shepherd! He leads you, protects you, and gives you rest.",
-    "theme": "Love",
-    "kw": "psalm 23 shepherd sheep staff peace david green pastures"
   },
   {
     "key": "mustardSeed",

@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (292 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (293 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -1106,6 +1106,11 @@
       mp4: '/media/kids-stories/prodigal-son.mp4',
       webm: '/media/kids-stories/prodigal-son.webm',
       captionsVtt: '/media/kids-stories/prodigal-son.vtt'
+    },
+    psalm23: {
+      mp4: '/media/kids-stories/psalm23.mp4',
+      webm: '/media/kids-stories/psalm23.webm',
+      captionsVtt: '/media/kids-stories/psalm23.vtt'
     },
     psalm23Shepherd: {
       mp4: '/media/kids-stories/psalm23-shepherd.mp4',

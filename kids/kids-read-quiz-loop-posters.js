@@ -51,6 +51,8 @@
     davidJonathanFriendship: 43,
     davidCave: 175,
     davidHarp: 44,
+    psalm23: 44,
+    psalm23Shepherd: 44,
     davidSheep: 42,
     davidAnointed: 174,
     samuelAnointsDavid: 174,

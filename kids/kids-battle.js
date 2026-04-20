@@ -3163,18 +3163,79 @@
       kidContext: { who: 'God', to: 'Job', apply: 'You can trust God in hard times! He always comes through for those who hold on.' }
     },
     psalm23Shepherd: {
-      title: 'The Lord Is My Shepherd',
+      title: 'Psalm 23 — The Lord Is My Shepherd',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A shepherd leads sheep to green pastures' },
-        { src: 'panel-noah-2.svg', alt: 'Still waters—rest and peace' },
-        { src: 'panel-noah-3.svg', alt: 'God leads us—we shall not want!' }
+        { src: 'panel-david-1.svg', alt: 'The LORD is my shepherd — green pastures, still waters' },
+        { src: 'panel-david-2.svg', alt: 'Thou art with me — thy rod and thy staff comfort me' },
+        { src: 'panel-david-3.svg', alt: 'Surely goodness and mercy — I will dwell in the house of the LORD for ever' }
       ],
-      caption: 'Swipe to see God as your Good Shepherd! 🐑',
+      caption: 'Swipe to rest in the whole psalm — the Shepherd who stays with you.',
       videoId: '',
       videoTitle: '',
-      keywords: ['psalm 23', 'shepherd', 'sheep', 'staff', 'peace', 'david', 'green pastures'],
-      kjvRef: 'Psalm 23',
-      kidContext: { who: 'God', to: 'David (and us)', apply: 'God is your Good Shepherd! He leads you, protects you, and gives you rest.' }
+      keywords: [
+        'psalm 23',
+        'psalms 23',
+        'ps 23',
+        'shepherd',
+        'still waters',
+        'green pastures',
+        'valley of the shadow',
+        'rod and staff',
+        'cup runneth over',
+        'goodness and mercy',
+        'house of the lord',
+        'i shall not want',
+        'restoreth my soul',
+        'david',
+        'comfort'
+      ],
+      kjvRef: 'Psalm 23:1-6',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Every listener who needs quiet rest',
+        apply:
+          'The same Shepherd who led David leads His people still — beside quiet water, through hard valleys, and home to Himself. Say the words slowly; He hears.'
+      },
+      narration:
+        "Psalm 23 — The Lord Is My Shepherd. The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me. Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over. Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever. For you: You can speak this psalm to the Lord like a quiet prayer — He is with you."
+    },
+    psalm23: {
+      title: 'Psalm 23 — The Lord Is My Shepherd',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Green pastures and still waters — the LORD leads His sheep' },
+        { src: 'panel-david-2.svg', alt: 'Even in the valley — thou art with me; rod and staff comfort' },
+        { src: 'panel-david-3.svg', alt: 'A table prepared — goodness and mercy — home with the LORD for ever' }
+      ],
+      caption: 'Swipe for the whole psalm — rest, courage, and home with the Shepherd.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'psalm 23',
+        'psalms 23',
+        'ps 23',
+        'the lord is my shepherd',
+        'shepherd',
+        'still waters',
+        'green pastures',
+        'valley of the shadow of death',
+        'fear no evil',
+        'thou art with me',
+        'rod and staff',
+        'cup runneth over',
+        'goodness and mercy',
+        'dwell in the house of the lord',
+        'david psalm',
+        'comfort psalm'
+      ],
+      kjvRef: 'Psalm 23:1-6',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Children and grown-ups on hard days',
+        apply:
+          'This psalm is a quiet place to breathe — the Shepherd knows you, leads you, and will not leave you. Read it slowly; each line is true.'
+      },
+      narration:
+        "Psalm 23 — 1-6. The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me. Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over. Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever. For you: Keep this psalm like a lamp for dark evenings — the Lord is still your Shepherd."
     },
     solomonWisdom: {
       title: 'Solomon\'s Wisdom',
@@ -5633,7 +5694,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 292, color: '#e5e4e2' }
+      { name: 'Platinum', min: 293, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5732,7 +5793,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5747,7 +5808,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd',
+      'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23',
       'solomonWisdom', 'solomonTemple',
       'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
@@ -5896,7 +5957,15 @@
     if (/noah|ark|rainbow|promise|flood|matthew 6:26|bird|fowl|feedeth|two by two/.test(low)) {
       return { type: 'carousel', story: 'noah' };
     }
-    if (/shepherd|psalm 23|children|matthew 19|jesus|love|john 10|john 3:16|come unto me/.test(low)) {
+    if (
+      /\bpsalms?\s*23\b|\bps\s*23\b/.test(low) ||
+      /the lord is my shepherd|i shall not want|green pastures|still waters|restoreth my soul|paths of righteousness for his name|valley of the shadow of death|fear no evil|thou art with me|thy rod and thy staff|preparest a table before me|anointest my head with oil|my cup runneth over|goodness and mercy shall follow me|dwell in the house of the lord for ever/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'psalm23' };
+    }
+    if (/shepherd|children|matthew 19|jesus|love|john 10|john 3:16|come unto me/.test(low)) {
       return { type: 'carousel', story: 'jesus' };
     }
     if (/jonah|whale|fish|obey|nineveh|big fish|run away/.test(low)) {
@@ -8670,7 +8739,7 @@
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaRaised: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', psalm23Shepherd: 'Love', solomonWisdom: 'Obedience', solomonTemple: 'Obedience',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', solomonWisdom: 'Obedience', solomonTemple: 'Obedience',
     elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
     elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',

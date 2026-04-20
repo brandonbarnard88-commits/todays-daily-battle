@@ -109,6 +109,8 @@
       davidJonathan: 'davidJonathan',
       davidJonathanFriendship: 'davidJonathan',
       davidAbigail: 'abigailWise',
+      psalm23: 'psalm23Shepherd',
+      psalm23Shepherd: 'psalm23Shepherd',
       goliathChallenge: 'david',
       noah: 'noah',
       jonah: 'jonah',
@@ -1524,21 +1526,31 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Job 2:13</text>'
       ),
 
-      /* ── Week 4: Psalm 23 Shepherd (55) ── */
+      /* ── Week 4: Psalm 23 — shepherd, still water, sheep (psalm23 + psalm23Shepherd) ── */
       psalm23Shepherd: svg(
-        ground() + hills() +
-        '<path d="M0 240 Q100 210 200 240 Q300 270 400 240" ' + s + ' stroke-width="2"/>' +
-        person(200, 170, 13, 40) +
-        '<line x1="188" y1="200" x2="170" y2="258" ' + s + ' stroke-width="3"/>' +
-        '<path d="M162 258 Q170 268 178 258" ' + s + ' stroke-width="2.5"/>' +
-        '<ellipse cx="80" cy="228" rx="22" ry="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="62" cy="218" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="130" cy="232" rx="20" ry="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="115" cy="224" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="310" cy="228" rx="20" ry="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="295" cy="218" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        sun(330, 45, 20) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Psalm 23:1</text>'
+        ground() +
+        '<path d="M0 248 Q140 200 280 248 Q340 255 400 248" ' + s + ' stroke-width="2.5" fill="none"/>' +
+        /* pond */
+        '<ellipse cx="288" cy="238" rx="72" ry="18" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M228 238 Q288 228 348 238" ' + s + ' stroke-width="1.5" opacity="0.5"/>' +
+        /* shepherd — young, staff */
+        '<circle cx="168" cy="178" r="12" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<path d="M162 182 Q168 176 174 182" ' + s + ' stroke-width="1.2"/>' +
+        '<circle cx="164" cy="180" r="1.1" fill="#111"/><circle cx="172" cy="180" r="1.1" fill="#111"/>' +
+        '<line x1="168" y1="190" x2="168" y2="248" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="168" y1="208" x2="148" y2="222" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="168" y1="208" x2="188" y2="220" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="168" y1="248" x2="158" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="168" y1="248" x2="178" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="178" y1="198" x2="198" y2="168" ' + s + ' stroke-width="2.8"/>' +
+        '<path d="M198 168 Q204 162 210 168" ' + s + ' stroke-width="2"/>' +
+        /* sheep */
+        '<ellipse cx="118" cy="248" rx="20" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="104" cy="238" r="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="218" cy="252" rx="18" ry="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="206" cy="242" r="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(52, 46, 17) + cloud(320, 38) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ps 23:1</text>'
       ),
 
       /* ── Week 4: Solomon Wisdom (56) ── */
@@ -3119,6 +3131,7 @@
     nehemiahWalls: 'nehemiahWalls',
     jobSuffering: 'jobSuffering',
     psalm23Shepherd: 'psalm23Shepherd',
+    psalm23: 'psalm23Shepherd',
     solomonWisdom: 'solomonWisdom',
     elijahFireFromHeaven: 'elijahFire',
     elijahElijahElisha: 'elijahChariot',
@@ -4872,7 +4885,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

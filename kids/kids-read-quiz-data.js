@@ -1,6 +1,6 @@
 /**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
- * Keys match TDB_BIBLE_STORIES (292 stories).
+ * Keys match TDB_BIBLE_STORIES (293 stories).
  * Regenerate: npm run kids:generate-read-quiz
  * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath read-along sections).
  *
@@ -155,10 +155,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Joshua",
           "God",
-          "Philip",
-          "John"
+          "Elisha",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -354,10 +354,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "God",
+          "God the Father",
+          "Philip",
           "Priscilla",
-          "Elisha"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -437,9 +437,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "Priscilla",
-          "James",
-          "The crowds"
+          "Holy Spirit",
+          "The Holy Ghost",
+          "The Lord"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -518,9 +518,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "Philip",
-          "Joshua",
+          "Mary",
+          "Jonathan",
+          "God",
           "Paul"
         ],
         "correctIndex": 3,
@@ -602,9 +602,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "God the Father",
-          "Peter",
+          "James",
+          "Mary",
+          "Priscilla",
           "God"
         ],
         "correctIndex": 3,
@@ -685,10 +685,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "Mary",
           "God",
-          "The Holy Ghost",
-          "Jesus"
+          "The LORD",
+          "Jonathan"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -769,9 +769,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
+          "Elisha",
+          "Stephen",
+          "Joshua",
           "God"
         ],
         "correctIndex": 3,
@@ -853,9 +853,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "The LORD",
+          "Paul",
+          "John",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -939,9 +939,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Mary",
-          "Priscilla",
-          "Elisha"
+          "Philip",
+          "David",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1023,9 +1023,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "David",
-          "Philip",
-          "John"
+          "The apostles",
+          "Peter",
+          "James"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1106,10 +1106,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
+          "The LORD",
+          "John",
           "Paul",
-          "Elisha"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1189,9 +1189,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
+          "Jesus",
           "The Holy Ghost",
-          "James",
-          "Jesus"
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1274,7 +1274,7 @@
         "choices": [
           "Paul",
           "Priscilla",
-          "James",
+          "God the Father",
           "The crowds"
         ],
         "correctIndex": 0,
@@ -1357,9 +1357,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "Holy Spirit",
-          "God",
-          "The crowds"
+          "The apostles",
+          "Peter",
+          "Joshua"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1440,9 +1440,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Philip",
-          "David",
+          "Peter",
+          "God",
+          "James",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -1526,9 +1526,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jonathan",
           "Jude",
-          "Stephen"
+          "The Lord",
+          "David"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1610,9 +1610,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
+          "Joshua",
+          "The apostles",
+          "Peter",
           "God"
         ],
         "correctIndex": 3,
@@ -1695,9 +1695,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jude",
-          "Jonathan",
-          "Stephen"
+          "Jesus",
+          "The Holy Ghost",
+          "Holy Spirit"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1898,9 +1898,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
+          "James",
           "Priscilla",
-          "Mary",
-          "Elisha"
+          "Mary"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1982,9 +1982,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Priscilla",
-          "James",
-          "The crowds"
+          "Jonathan",
+          "Mary",
+          "The LORD"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2306,9 +2306,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Paul",
-          "James",
+          "The crowds",
+          "Stephen",
+          "Elisha",
           "God"
         ],
         "correctIndex": 3,
@@ -2390,9 +2390,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "Jonathan",
+          "David",
           "Jude",
-          "Stephen"
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2474,10 +2474,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Holy Spirit",
           "Jesus",
-          "Philip",
-          "John"
+          "Paul",
+          "The Holy Ghost"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2558,9 +2558,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "God the Father",
-          "Peter",
-          "Jesus"
+          "Joshua",
+          "Stephen",
+          "The apostles"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2641,9 +2641,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "God the Father",
+          "The crowds",
+          "Priscilla",
           "The apostles"
         ],
         "correctIndex": 3,
@@ -2726,9 +2726,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
+          "God the Father",
+          "Paul",
+          "The crowds",
           "God"
         ],
         "correctIndex": 3,
@@ -2811,9 +2811,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
-          "God the Father",
+          "Holy Spirit",
+          "The Lord",
+          "Jude",
           "God"
         ],
         "correctIndex": 3,
@@ -2893,9 +2893,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
-          "Philip",
+          "The Holy Ghost",
+          "Holy Spirit",
+          "The Lord",
           "God"
         ],
         "correctIndex": 3,
@@ -2975,9 +2975,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "God the Father",
-          "The apostles",
+          "The LORD",
+          "John",
+          "Jonathan",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -3060,8 +3060,8 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "James",
+          "Philip",
+          "God the Father",
           "Paul",
           "God"
         ],
@@ -3145,9 +3145,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jude",
-          "The Lord",
-          "Elisha"
+          "The Holy Ghost",
+          "Jesus",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3227,10 +3227,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
           "The Holy Ghost",
+          "The Lord",
           "God",
-          "Jesus"
+          "Holy Spirit"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3311,10 +3311,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
+          "Stephen",
           "God",
-          "Jonathan",
-          "Stephen"
+          "The crowds",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3982,7 +3982,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "God the Father",
+          "James",
           "Jesus",
           "David"
         ],
@@ -4316,10 +4316,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Paul",
           "God",
           "Philip",
-          "John"
+          "God the Father"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4401,8 +4401,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The Holy Ghost",
-          "Paul",
-          "James",
+          "The Lord",
+          "Holy Spirit",
           "God"
         ],
         "correctIndex": 3,
@@ -4484,9 +4484,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
           "The apostles",
           "Philip",
+          "God the Father",
           "David"
         ],
         "correctIndex": 3,
@@ -4691,9 +4691,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Priscilla",
-          "Mary",
-          "Elisha"
+          "Philip",
+          "God the Father",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4775,10 +4775,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
+          "Elisha",
+          "Stephen",
           "God",
-          "John"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4859,10 +4859,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "David",
           "God",
-          "The Holy Ghost",
-          "Jesus"
+          "God the Father",
+          "Philip"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4943,10 +4943,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "Priscilla",
+          "God the Father",
+          "Paul",
           "The Lord",
-          "The crowds"
+          "Philip"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5027,10 +5027,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "Holy Spirit",
+          "Jude",
           "God",
-          "Stephen"
+          "The Lord"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5113,9 +5113,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Elisha",
-          "Peter",
-          "God the Father",
-          "Paul"
+          "The Holy Ghost",
+          "Holy Spirit",
+          "The Lord"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5196,10 +5196,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "James",
           "God",
-          "God the Father",
-          "Jesus"
+          "The apostles",
+          "Peter"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5280,10 +5280,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Joshua",
           "The apostles",
-          "Peter",
           "God",
-          "John"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5365,9 +5365,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Lord",
-          "Jude",
-          "Elisha"
+          "Elisha",
+          "Stephen",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5449,10 +5449,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
-          "James",
+          "The apostles",
+          "Joshua",
           "God",
-          "The crowds"
+          "Peter"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5533,10 +5533,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "David",
+          "John",
+          "The LORD",
           "God",
-          "John"
+          "Jesus"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5620,7 +5620,7 @@
           "God",
           "The Lord",
           "Jude",
-          "Elisha"
+          "Holy Spirit"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5703,9 +5703,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The apostles",
-          "Peter",
-          "John"
+          "Stephen",
+          "Joshua",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5787,9 +5787,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
-          "Philip",
+          "Holy Spirit",
+          "The Lord",
+          "Jude",
           "God"
         ],
         "correctIndex": 3,
@@ -5871,9 +5871,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "God the Father",
+          "Joshua",
           "Peter",
+          "The apostles",
           "God"
         ],
         "correctIndex": 3,
@@ -5956,9 +5956,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Mary",
-          "Priscilla",
-          "Elisha"
+          "John",
+          "The LORD",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6040,9 +6040,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
-          "Philip",
+          "Holy Spirit",
+          "The Lord",
+          "Jude",
           "God"
         ],
         "correctIndex": 3,
@@ -6124,10 +6124,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "David",
+          "The Holy Ghost",
+          "Jesus",
           "God",
-          "John"
+          "Holy Spirit"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6209,9 +6209,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "James",
-          "Paul",
-          "The crowds"
+          "Jude",
+          "David",
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6293,7 +6293,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jude",
-          "Jonathan",
+          "David",
           "The Lord",
           "God"
         ],
@@ -6377,10 +6377,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Jude",
+          "Peter",
+          "The apostles",
           "God",
-          "Stephen"
+          "James"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6461,9 +6461,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "God the Father",
-          "Peter",
+          "Jude",
+          "Philip",
+          "David",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -6545,10 +6545,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "James",
+          "Philip",
+          "David",
           "Jesus",
-          "The crowds"
+          "God the Father"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6745,9 +6745,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
+          "Elisha",
+          "Stephen",
+          "Joshua",
           "God"
         ],
         "correctIndex": 3,
@@ -6830,10 +6830,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
+          "The LORD",
+          "John",
           "Jesus",
-          "Elisha"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6914,9 +6914,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "God the Father",
-          "The apostles",
+          "Holy Spirit",
+          "The Lord",
+          "The Holy Ghost",
           "God"
         ],
         "correctIndex": 3,
@@ -6997,10 +6997,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "The Holy Ghost",
           "Holy Spirit",
           "The Lord",
-          "Jonathan"
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7082,9 +7082,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "Paul",
+          "John",
+          "The Holy Ghost"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7529,9 +7529,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "Mary",
-          "God",
+          "The crowds",
+          "Stephen",
+          "Elisha",
           "David"
         ],
         "correctIndex": 3,
@@ -7611,9 +7611,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
           "Philip",
+          "God the Father",
+          "Priscilla",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -7695,10 +7695,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "The LORD",
           "Jonathan",
-          "Jude",
           "Jesus",
-          "Stephen"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7780,9 +7780,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Joshua",
-          "David",
-          "Stephen"
+          "Jonathan",
+          "The LORD",
+          "Mary"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7992,10 +7992,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
+          "Peter",
           "God",
-          "Jonathan",
-          "Stephen"
+          "Joshua",
+          "The apostles"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8076,10 +8076,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "The Holy Ghost",
+          "The Lord",
           "Jesus",
-          "Stephen"
+          "Holy Spirit"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8162,9 +8162,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jude",
-          "Jonathan",
-          "Stephen"
+          "Peter",
+          "James",
+          "God"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8246,10 +8246,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "Paul",
           "Jesus",
-          "God the Father",
-          "Paul"
+          "The LORD",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8331,9 +8331,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Priscilla",
-          "Mary",
-          "Elisha"
+          "Jonathan",
+          "The LORD",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8413,9 +8413,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Peter",
-          "The apostles",
-          "John"
+          "John",
+          "The LORD",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8497,10 +8497,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "The Holy Ghost",
           "Holy Spirit",
-          "Priscilla",
           "God",
-          "The crowds"
+          "Jesus"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8582,9 +8582,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "David",
+          "Philip",
           "Jude",
-          "Jonathan",
-          "The Lord",
           "God"
         ],
         "correctIndex": 3,
@@ -8667,10 +8667,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
+          "John",
           "God",
-          "Holy Spirit",
-          "The crowds"
+          "The Holy Ghost",
+          "Jesus"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8751,10 +8751,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "Jonathan",
           "God",
-          "God the Father",
-          "Jesus"
+          "Priscilla",
+          "Mary"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8833,9 +8833,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The Holy Ghost",
-          "James",
-          "Paul"
+          "Elisha",
+          "Stephen",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8916,9 +8916,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "James",
-          "David",
-          "Jude",
-          "Stephen"
+          "God",
+          "Holy Spirit",
+          "Mary"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9000,10 +9000,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "David",
+          "James",
+          "Peter",
           "God",
-          "John"
+          "Priscilla"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9199,10 +9199,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "James",
+          "The LORD",
+          "John",
           "Jesus",
-          "Paul"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9283,10 +9283,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "The Holy Ghost",
+          "Mary",
+          "The LORD",
           "Jesus",
-          "Paul"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9368,9 +9368,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God the Father",
-          "Jesus",
-          "Peter",
-          "John"
+          "Priscilla",
+          "The crowds",
+          "James"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9451,10 +9451,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "The crowds",
+          "Stephen",
           "God",
-          "Stephen"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9537,9 +9537,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Peter",
-          "The apostles",
-          "John"
+          "The LORD",
+          "Jonathan",
+          "Mary"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9622,9 +9622,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Philip",
-          "David",
-          "John"
+          "The Holy Ghost",
+          "Paul",
+          "Holy Spirit"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9706,9 +9706,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "The apostles",
+          "Peter",
           "James",
-          "Priscilla",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -9791,10 +9791,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Jude",
           "Philip",
-          "The apostles",
           "Jesus",
-          "John"
+          "David"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9875,10 +9875,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "God",
+          "Mary",
+          "Jonathan",
           "Jesus",
-          "The crowds"
+          "God"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9959,9 +9959,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "Peter",
+          "God",
+          "James",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10045,9 +10045,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The Lord",
-          "Jude",
-          "Elisha"
+          "Joshua",
+          "The apostles",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10130,9 +10130,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Holy Spirit",
-          "God",
-          "The crowds"
+          "God the Father",
+          "Priscilla",
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10214,9 +10214,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "James",
-          "Priscilla",
-          "The crowds"
+          "Mary",
+          "Jonathan",
+          "The LORD"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10298,8 +10298,8 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "Peter",
+          "John",
+          "The LORD",
           "Jesus",
           "Paul"
         ],
@@ -10383,9 +10383,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
+          "Mary",
           "Jonathan",
+          "The LORD",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10469,9 +10469,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "James",
-          "The Holy Ghost",
-          "Paul"
+          "Philip",
+          "David",
+          "Jude"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10553,9 +10553,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "God the Father",
+          "Philip",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10635,10 +10635,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "God",
           "Jesus",
-          "The Holy Ghost",
-          "Paul"
+          "Jonathan",
+          "Mary"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10721,9 +10721,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Holy Spirit",
-          "God",
-          "The crowds"
+          "God the Father",
+          "Priscilla",
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10805,9 +10805,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jude",
-          "Jonathan",
           "The Lord",
+          "Jude",
+          "Holy Spirit",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10890,10 +10890,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Jesus",
           "Jonathan",
-          "Stephen"
+          "Jesus",
+          "God",
+          "Mary"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10973,9 +10973,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "Philip",
+          "Priscilla",
+          "God the Father",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -11056,9 +11056,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "The Holy Ghost",
           "The Lord",
-          "Jonathan",
-          "Jude",
+          "Holy Spirit",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -11141,9 +11141,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The apostles",
-          "Peter",
-          "John"
+          "Stephen",
+          "Joshua",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11222,9 +11222,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Priscilla",
-          "James",
+          "Joshua",
+          "Peter",
+          "The apostles",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -11307,9 +11307,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The apostles",
-          "Peter",
-          "John"
+          "Jude",
+          "David",
+          "The Lord"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11388,9 +11388,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
-          "God the Father",
+          "John",
+          "Paul",
+          "The Holy Ghost",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -11473,9 +11473,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Joshua",
-          "David",
-          "Stephen"
+          "Holy Spirit",
+          "The Lord",
+          "The Holy Ghost"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11557,10 +11557,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "God",
+          "The LORD",
+          "David",
           "John",
-          "Jonathan"
+          "God the Father"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11642,9 +11642,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Holy Ghost",
-          "James",
-          "Jesus"
+          "Holy Spirit",
+          "The Lord",
+          "The Holy Ghost"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11724,9 +11724,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Priscilla",
-          "Holy Spirit",
+          "Mary",
+          "The LORD",
+          "David",
           "John"
         ],
         "correctIndex": 3,
@@ -11806,10 +11806,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "Elisha",
           "Jesus",
-          "God the Father",
-          "Paul"
+          "Priscilla",
+          "The crowds"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11877,7 +11877,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 23",
+          "Psalm 23:1-6",
           "Luke 24:13–35",
           "2 John; 3 John",
           "Acts 2:1–4"
@@ -11889,10 +11889,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "God",
           "John",
-          "The Lord",
-          "Jonathan"
+          "David",
+          "Mary"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11975,9 +11975,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Paul",
-          "James",
-          "The crowds"
+          "David",
+          "Jude",
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12058,9 +12058,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The apostles",
-          "Peter",
-          "John"
+          "Holy Spirit",
+          "The Lord",
+          "The Holy Ghost"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12258,9 +12258,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jude",
-          "The Lord",
-          "Elisha"
+          "Elisha",
+          "The crowds",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12342,9 +12342,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
-          "God the Father",
+          "Mary",
+          "Jonathan",
+          "The LORD",
           "God"
         ],
         "correctIndex": 3,
@@ -12426,9 +12426,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "David",
           "Joshua",
-          "Stephen"
+          "Stephen",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12509,9 +12509,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
+          "Jonathan",
+          "The LORD",
           "Mary",
-          "Holy Spirit",
           "God"
         ],
         "correctIndex": 3,
@@ -12594,9 +12594,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "The apostles",
+          "Peter",
           "James",
-          "Paul",
           "God"
         ],
         "correctIndex": 3,
@@ -12680,9 +12680,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The Lord",
-          "Joshua",
-          "David",
-          "Stephen"
+          "The LORD",
+          "John",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12986,10 +12986,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "Philip",
+          "Priscilla",
           "Jesus",
-          "Stephen"
+          "God the Father"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13069,9 +13069,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jude",
-          "Joshua",
-          "David",
-          "Stephen"
+          "Peter",
+          "Holy Spirit",
+          "God"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13152,9 +13152,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "Philip",
+          "Stephen",
           "Joshua",
+          "Elisha",
           "God"
         ],
         "correctIndex": 3,
@@ -13234,9 +13234,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "Philip",
-          "Joshua",
+          "Peter",
+          "James",
+          "The apostles",
           "God"
         ],
         "correctIndex": 3,
@@ -13318,10 +13318,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
+          "Peter",
           "Jesus",
-          "Joshua",
-          "Stephen"
+          "God",
+          "James"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13404,8 +13404,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "David",
-          "Philip",
+          "Jonathan",
+          "The LORD",
           "John"
         ],
         "correctIndex": 0,
@@ -13487,10 +13487,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
+          "Philip",
           "God",
-          "Mary",
-          "Elisha"
+          "Jude",
+          "David"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13571,10 +13571,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
+          "James",
           "Jesus",
-          "Priscilla",
-          "The crowds"
+          "The apostles",
+          "Peter"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13654,9 +13654,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Priscilla",
-          "James",
+          "Stephen",
+          "The apostles",
+          "Joshua",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -13739,9 +13739,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "David",
+          "God the Father",
+          "Philip",
           "Paul"
         ],
         "correctIndex": 3,
@@ -13825,9 +13825,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "God the Father",
-          "Peter",
-          "Paul"
+          "Holy Spirit",
+          "The Holy Ghost",
+          "The Lord"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13908,10 +13908,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "The Holy Ghost",
           "The Lord",
           "God",
-          "Elisha"
+          "Holy Spirit"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13994,9 +13994,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Philip",
-          "David",
-          "John"
+          "The Lord",
+          "Holy Spirit",
+          "Jude"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14195,9 +14195,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "James",
-          "Priscilla",
-          "The crowds"
+          "The crowds",
+          "Elisha",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14277,10 +14277,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Peter",
+          "Elisha",
+          "The Holy Ghost",
           "Mary",
-          "Paul"
+          "The Lord"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14362,10 +14362,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "Peter",
           "Jesus",
-          "The Lord",
-          "Elisha"
+          "God",
+          "James"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14443,9 +14443,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Philip",
-          "David",
+          "Peter",
+          "God",
+          "James",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -14528,8 +14528,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Mary",
-          "Priscilla",
+          "The crowds",
+          "Paul",
           "Elisha"
         ],
         "correctIndex": 0,
@@ -14610,10 +14610,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "Joshua",
           "God",
-          "The Lord",
-          "Elisha"
+          "Peter",
+          "The apostles"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14816,10 +14816,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Priscilla",
+          "Philip",
+          "David",
           "God",
-          "Elisha"
+          "God the Father"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14897,9 +14897,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "God the Father",
-          "The apostles",
+          "The Holy Ghost",
+          "Holy Spirit",
+          "Jesus",
           "God"
         ],
         "correctIndex": 3,
@@ -14981,9 +14981,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Priscilla",
           "The Holy Ghost",
+          "Holy Spirit",
+          "Paul",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -15066,9 +15066,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jude",
-          "Jonathan",
-          "Stephen"
+          "The LORD",
+          "John",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15150,9 +15150,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
+          "The crowds",
+          "Elisha",
+          "Stephen",
           "God"
         ],
         "correctIndex": 3,
@@ -15234,10 +15234,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
+          "Priscilla",
+          "Mary",
           "God",
-          "Stephen"
+          "James"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15320,9 +15320,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Lord",
-          "Jude",
-          "Elisha"
+          "David",
+          "Philip",
+          "Jude"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15404,9 +15404,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "God the Father",
-          "Peter",
+          "James",
+          "Mary",
+          "Priscilla",
           "God"
         ],
         "correctIndex": 3,
@@ -15477,7 +15477,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 23",
+          "Psalm 23:1-6",
           "Genesis 6–9",
           "1 Samuel 18",
           "Luke 24:13–35"
@@ -15490,9 +15490,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "John",
+          "The LORD",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15573,9 +15573,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "Priscilla",
-          "Mary",
+          "The crowds",
+          "Elisha",
+          "Stephen",
           "God"
         ],
         "correctIndex": 3,
@@ -15659,9 +15659,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The crowds",
-          "Holy Spirit",
-          "The Holy Ghost",
-          "Paul"
+          "Priscilla",
+          "James",
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15742,10 +15742,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "God",
           "Jesus",
-          "The Holy Ghost",
-          "Paul"
+          "Jonathan",
+          "Mary"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15815,7 +15815,7 @@
         "choices": [
           "1 Samuel 18",
           "Matthew 25:14–30",
-          "Psalm 23",
+          "Psalm 23:1-6",
           "Luke 24:13–35"
         ],
         "correctIndex": 1,
@@ -15826,9 +15826,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "Paul",
+          "John",
+          "The Holy Ghost"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16025,9 +16025,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The Holy Ghost",
-          "John",
-          "The apostles",
-          "Stephen"
+          "Paul",
+          "The crowds",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16110,9 +16110,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jude",
-          "The Lord",
-          "Elisha"
+          "Holy Spirit",
+          "The Holy Ghost",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16194,9 +16194,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "God",
-          "Mary",
+          "The LORD",
+          "John",
+          "Paul",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -16276,9 +16276,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Philip",
+          "Priscilla",
           "God the Father",
-          "Peter",
           "Paul"
         ],
         "correctIndex": 3,
@@ -16361,9 +16361,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Mary",
-          "The Lord",
+          "The LORD",
           "God",
-          "Elisha"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16444,9 +16444,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "David",
-          "Philip",
-          "John"
+          "Stephen",
+          "Joshua",
+          "The apostles"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16526,9 +16526,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "James",
-          "Paul",
-          "The crowds"
+          "The crowds",
+          "Elisha",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16607,10 +16607,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
-          "Holy Spirit",
+          "God the Father",
+          "The crowds",
           "God",
-          "The crowds"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16689,10 +16689,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "God",
+          "Mary",
+          "Jonathan",
           "Paul",
-          "The crowds"
+          "God"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16773,9 +16773,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "James",
-          "The Holy Ghost",
-          "Jesus"
+          "God the Father",
+          "Philip",
+          "David"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16854,10 +16854,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Stephen",
           "Paul",
-          "Philip",
-          "John"
+          "The crowds",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16937,10 +16937,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Priscilla",
+          "Holy Spirit",
+          "The Holy Ghost",
           "God",
-          "Elisha"
+          "The Lord"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17022,9 +17022,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Paul",
-          "James",
-          "The crowds"
+          "The Lord",
+          "Holy Spirit",
+          "Jude"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17105,10 +17105,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
+          "The crowds",
+          "Elisha",
           "God",
-          "Stephen"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17191,9 +17191,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Paul",
-          "James",
-          "The crowds"
+          "The LORD",
+          "Jonathan",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17273,10 +17273,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
+          "Elisha",
           "God",
-          "Holy Spirit",
-          "The crowds"
+          "Joshua",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17355,10 +17355,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Joshua",
           "The apostles",
-          "Peter",
           "Paul",
-          "John"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17437,10 +17437,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Mary",
           "Paul",
-          "Philip",
-          "John"
+          "James",
+          "God"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17520,9 +17520,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "Mary",
-          "Holy Spirit",
+          "Joshua",
+          "The apostles",
+          "Stephen",
           "God"
         ],
         "correctIndex": 3,
@@ -17605,10 +17605,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "God",
           "Holy Spirit",
-          "The Lord",
-          "Jonathan"
+          "David",
+          "Mary"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17689,10 +17689,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "The apostles",
+          "The crowds",
+          "Priscilla",
           "Holy Spirit",
-          "John"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17773,9 +17773,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
           "Philip",
-          "David",
+          "Priscilla",
+          "God the Father",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -17856,9 +17856,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "Elisha",
-          "God",
-          "Mary"
+          "Paul",
+          "The crowds",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17939,9 +17939,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "The Holy Ghost",
-          "James",
-          "Paul"
+          "John",
+          "Jesus",
+          "The Holy Ghost"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18021,10 +18021,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "God the Father",
+          "The crowds",
           "God",
-          "Stephen"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18106,9 +18106,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
+          "James",
+          "Mary",
           "Priscilla",
-          "Holy Spirit",
           "Peter"
         ],
         "correctIndex": 3,
@@ -18190,9 +18190,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "The apostles",
-          "John",
-          "Stephen"
+          "David",
+          "Jude",
+          "God"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18273,10 +18273,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Jude",
+          "The apostles",
+          "Joshua",
           "God",
-          "Stephen"
+          "Peter"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18357,10 +18357,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "The Lord",
+          "God the Father",
+          "The crowds",
           "God",
-          "Elisha"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18442,9 +18442,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Holy Ghost",
-          "James",
-          "Jesus"
+          "The LORD",
+          "John",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18526,9 +18526,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jesus",
-          "The Holy Ghost",
-          "James",
+          "Holy Spirit",
+          "God",
+          "Jude",
           "Philip"
         ],
         "correctIndex": 3,
@@ -18610,10 +18610,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "The crowds",
           "Paul",
-          "The Holy Ghost",
-          "Jesus"
+          "Stephen",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18694,9 +18694,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Paul",
-          "The Holy Ghost",
+          "Stephen",
+          "Joshua",
+          "Elisha",
           "God"
         ],
         "correctIndex": 3,
@@ -18778,9 +18778,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
           "Philip",
+          "God the Father",
+          "Priscilla",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -18863,8 +18863,8 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "The apostles",
+          "The LORD",
+          "Paul",
           "Jesus",
           "John"
         ],
@@ -18948,9 +18948,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Peter",
-          "The apostles",
-          "John"
+          "Priscilla",
+          "James",
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -19032,9 +19032,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Holy Spirit",
-          "Priscilla",
-          "The crowds"
+          "God the Father",
+          "Paul",
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -19116,9 +19116,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "God",
-          "Holy Spirit",
-          "The crowds"
+          "John",
+          "The LORD",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -19173,88 +19173,248 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Son comes back sorry (party)"
     ]
   },
-  "psalm23Shepherd": {
-    "kjvRef": "Psalm 23",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+  "psalm23": {
+    "kjvRef": "Psalm 23:1-6 (KJV)",
+    "verseExcerpt": "The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. — Psalm 23:1-2 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "The Good Shepherd knows His sheep — we can rest in His care.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "The LORD is my shepherd; I shall not want.",
+        "caption": "The LORD is my shepherd",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+        "caption": "Green pastures — still waters",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+        "caption": "He restoreth my soul",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+        "caption": "Thou art with me — rod and staff",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+        "caption": "Thou preparest a table — my cup runneth over",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+        "caption": "Goodness and mercy — dwell in the house of the LORD",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "The Lord Is My Shepherd (Psalm 23).",
-      "A shepherd leads sheep to green pastures Still waters—rest and peace God leads us—we shall not want!",
-      "God is your Good Shepherd!",
-      "He leads you, protects you, and gives you rest."
+      "The Lord is my shepherd; I shall not want.",
+      "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+      "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+      "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+      "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+      "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+      "For you: The same Lord who leads sheep beside quiet water leads His people with kindness — you can speak to Him anytime."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Who does the psalm say is our shepherd?",
         "choices": [
-          "1 Samuel 18",
-          "Luke 24:13–35",
-          "Psalm 23",
-          "Matthew 17:1–13"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Psalm 23.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Holy Ghost",
-          "Paul",
-          "James",
-          "God"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God is your Good Shepherd! He leads you, protects you, and gives you rest.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is your Good Shepherd! He leads you, protects you, and gives you rest..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A talking toaster became king of the city.",
-          "A shepherd leads sheep to green pastures",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "A sheep.",
+          "The LORD.",
+          "Only kings.",
+          "No one."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes — the LORD cares for His own.",
+        "wrongFeedback": "Listen for the first line. (Answer: The LORD.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "Where does He lead His sheep besides green pastures?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "God is your Good Shepherd! He leads you, protects you, and gives you rest.",
-          "Never say sorry when we do wrong."
+          "Into fear only.",
+          "Beside the still waters.",
+          "Away from rest.",
+          "The psalm does not say."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God is your Good Shepherd! He leads you, protects you, and gives you rest..)"
+        "correctIndex": 1,
+        "correctFeedback": "Quiet water — a picture of peace.",
+        "wrongFeedback": "Listen for waters. (Answer: Beside the still waters.)"
+      },
+      {
+        "question": "In the dark valley, why does the writer say, \"I will fear no evil\"?",
+        "choices": [
+          "Because evil is not real.",
+          "For thou art with me.",
+          "Because there is no valley.",
+          "Because sheep are never afraid."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "God's presence is the comfort.",
+        "wrongFeedback": "Listen for with me. (Answer: For thou art with me.)"
+      },
+      {
+        "question": "What comforts the writer alongside the rod?",
+        "choices": [
+          "A loud storm.",
+          "Thy staff.",
+          "Running away.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Rod and staff — gentle care.",
+        "wrongFeedback": "Listen for staff. (Answer: Thy staff.)"
+      },
+      {
+        "question": "How does the psalm end?",
+        "choices": [
+          "With anger.",
+          "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+          "With confusion.",
+          "With silence."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A peaceful home with the LORD — for ever.",
+        "wrongFeedback": "Listen for goodness and mercy. (Answer: …dwell in the house of the LORD for ever.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Lord Is My Shepherd with God's Word today.",
-    "takeaway": "God is your Good Shepherd! He leads you, protects you, and gives you rest.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Lord Is My Shepherd. Amen.",
+    "doneMessage": "Beautiful job resting in Psalm 23 with God's Word today.",
+    "takeaway": "The LORD is my shepherd — He gives rest, presence in hard places, and a home with Him.",
+    "prayer": "Lord, thank You that You are our Shepherd. Lead us beside still waters today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A shepherd leads sheep to green pastures (psalm 23)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Still waters—rest and peace (shepherd)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God leads us—we shall not want! (sheep)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A shepherd leads sheep to green pastures (staff)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Still waters—rest and peace (peace)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces gentle young shepherd boy staff in hand leading two sheep beside still pond water green pasture grass soft hills bright open sky kind protecting face restful safe mood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD is my shepherd",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Still waters green pastures",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Thou art with me",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Goodness and mercy"
+    ]
+  },
+  "psalm23Shepherd": {
+    "kjvRef": "Psalm 23:1-6 (KJV)",
+    "verseExcerpt": "The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. — Psalm 23:1-2 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "The Good Shepherd knows His sheep — we can rest in His care.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "The LORD is my shepherd; I shall not want.",
+        "caption": "The LORD is my shepherd",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+        "caption": "Green pastures — still waters",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+        "caption": "He restoreth my soul",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+        "caption": "Thou art with me — rod and staff",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+        "caption": "Thou preparest a table — my cup runneth over",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+        "caption": "Goodness and mercy — dwell in the house of the LORD",
+        "image": "panel-david-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "The Lord is my shepherd; I shall not want.",
+      "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+      "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+      "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+      "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+      "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+      "For you: The same Lord who leads sheep beside quiet water leads His people with kindness — you can speak to Him anytime."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Who does the psalm say is our shepherd?",
+        "choices": [
+          "A sheep.",
+          "The LORD.",
+          "Only kings.",
+          "No one."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes — the LORD cares for His own.",
+        "wrongFeedback": "Listen for the first line. (Answer: The LORD.)"
+      },
+      {
+        "question": "Where does He lead His sheep besides green pastures?",
+        "choices": [
+          "Into fear only.",
+          "Beside the still waters.",
+          "Away from rest.",
+          "The psalm does not say."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Quiet water — a picture of peace.",
+        "wrongFeedback": "Listen for waters. (Answer: Beside the still waters.)"
+      },
+      {
+        "question": "In the dark valley, why does the writer say, \"I will fear no evil\"?",
+        "choices": [
+          "Because evil is not real.",
+          "For thou art with me.",
+          "Because there is no valley.",
+          "Because sheep are never afraid."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "God's presence is the comfort.",
+        "wrongFeedback": "Listen for with me. (Answer: For thou art with me.)"
+      },
+      {
+        "question": "What comforts the writer alongside the rod?",
+        "choices": [
+          "A loud storm.",
+          "Thy staff.",
+          "Running away.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Rod and staff — gentle care.",
+        "wrongFeedback": "Listen for staff. (Answer: Thy staff.)"
+      },
+      {
+        "question": "How does the psalm end?",
+        "choices": [
+          "With anger.",
+          "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+          "With confusion.",
+          "With silence."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A peaceful home with the LORD — for ever.",
+        "wrongFeedback": "Listen for goodness and mercy. (Answer: …dwell in the house of the LORD for ever.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Beautiful job resting in Psalm 23 with God's Word today.",
+    "takeaway": "The LORD is my shepherd — He gives rest, presence in hard places, and a home with Him.",
+    "prayer": "Lord, thank You that You are our Shepherd. Lead us beside still waters today. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces gentle young shepherd boy staff in hand leading two sheep beside still pond water green pasture grass soft hills bright open sky kind protecting face restful safe mood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD is my shepherd",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Still waters green pastures",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Thou art with me",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Goodness and mercy"
     ]
   },
   "rahab": {
@@ -19888,10 +20048,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Jude",
+          "Joshua",
+          "Stephen",
           "God",
-          "Stephen"
+          "The apostles"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -19973,9 +20133,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Paul",
-          "James",
+          "The crowds",
+          "Stephen",
+          "Elisha",
           "God"
         ],
         "correctIndex": 3,
@@ -20056,9 +20216,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Priscilla",
-          "The Holy Ghost",
+          "David",
+          "Philip",
+          "Jude",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -20140,10 +20300,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "The Lord",
           "God",
-          "God the Father",
-          "Jesus"
+          "The Holy Ghost",
+          "Holy Spirit"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20222,9 +20382,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Paul",
+          "Elisha",
           "The Holy Ghost",
-          "Priscilla",
-          "Holy Spirit",
           "John"
         ],
         "correctIndex": 3,
@@ -20306,9 +20466,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
           "Jude",
-          "Jonathan",
+          "David",
+          "Philip",
           "God"
         ],
         "correctIndex": 3,
@@ -20388,10 +20548,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "James",
+          "The crowds",
+          "Elisha",
           "Jesus",
-          "Paul"
+          "Priscilla"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20474,9 +20634,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "James",
           "Paul",
-          "The crowds"
+          "The crowds",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20555,9 +20715,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
-          "Philip",
+          "Mary",
+          "Jonathan",
+          "The LORD",
           "God"
         ],
         "correctIndex": 3,
@@ -20639,9 +20799,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "Philip",
-          "Joshua",
+          "Mary",
+          "Jonathan",
+          "God",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -20721,10 +20881,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
+          "Jesus",
           "God",
-          "Mary",
-          "Elisha"
+          "The LORD",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20804,9 +20964,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "God the Father",
-          "Peter",
-          "Paul"
+          "Joshua",
+          "Stephen",
+          "The apostles"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20887,10 +21047,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
+          "Jesus",
           "God",
-          "Joshua",
-          "Stephen"
+          "Holy Spirit",
+          "The Holy Ghost"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20972,7 +21132,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The apostles",
-          "God the Father",
+          "James",
           "Peter",
           "God"
         ],
@@ -21057,9 +21217,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Peter",
-          "The apostles",
-          "John"
+          "The crowds",
+          "Paul",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21139,10 +21299,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "Jude",
           "God",
-          "God the Father",
-          "Jesus"
+          "Holy Spirit",
+          "The Lord"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21224,9 +21384,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "John",
-          "Jesus",
-          "Peter",
-          "God the Father"
+          "David",
+          "The LORD",
+          "Mary"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21308,9 +21468,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The apostles",
-          "Peter",
-          "John"
+          "The LORD",
+          "John",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21391,9 +21551,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "Mary",
-          "Holy Spirit",
+          "Joshua",
+          "The apostles",
+          "Stephen",
           "God"
         ],
         "correctIndex": 3,
@@ -21473,10 +21633,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "The apostles",
           "Jesus",
-          "The Holy Ghost",
-          "Paul"
+          "James",
+          "Peter"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21556,9 +21716,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Philip",
+          "The Lord",
           "David",
+          "Jude",
           "Paul"
         ],
         "correctIndex": 3,
@@ -21759,9 +21919,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Holy Ghost",
-          "James",
-          "Jesus"
+          "Philip",
+          "God the Father",
+          "David"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21844,9 +22004,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The apostles",
-          "Peter",
-          "John"
+          "The LORD",
+          "John",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -22295,9 +22455,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The apostles",
-          "Peter",
-          "John"
+          "Priscilla",
+          "The crowds",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23308,10 +23468,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "The Lord",
+          "Paul",
+          "Elisha",
           "God",
-          "Elisha"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23394,9 +23554,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "James",
+          "Peter",
+          "Priscilla"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23477,10 +23637,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
+          "Joshua",
           "God",
-          "Paul",
-          "The crowds"
+          "Elisha",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23563,9 +23723,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Mary",
-          "Priscilla",
-          "Elisha"
+          "The apostles",
+          "Joshua",
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23647,9 +23807,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Paul",
-          "James",
-          "The crowds"
+          "David",
+          "Jude",
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23732,9 +23892,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "James",
-          "The Holy Ghost",
-          "Jesus"
+          "Paul",
+          "God the Father",
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23817,9 +23977,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Joshua",
-          "David",
-          "Stephen"
+          "The crowds",
+          "Elisha",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23901,10 +24061,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "James",
+          "Elisha",
+          "Stephen",
           "God",
-          "Jesus"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24092,10 +24252,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
+          "The apostles",
           "Stephen",
-          "The crowds",
-          "Paul"
+          "James",
+          "Peter"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24177,8 +24337,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Stephen",
-          "God",
-          "Jude",
+          "Priscilla",
+          "Mary",
           "Jonathan"
         ],
         "correctIndex": 0,
@@ -24260,9 +24420,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jude",
-          "Jonathan",
-          "The Lord",
+          "The apostles",
+          "Peter",
+          "Joshua",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -24696,10 +24856,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
-          "James",
+          "Jude",
+          "The Lord",
           "God",
-          "The crowds"
+          "David"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24780,10 +24940,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
+          "Jonathan",
           "Jesus",
-          "The apostles",
-          "John"
+          "John",
+          "The LORD"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24863,10 +25023,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "Peter",
+          "The apostles",
+          "Joshua",
           "Paul",
-          "Jesus"
+          "Peter"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24945,8 +25105,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "God the Father",
-          "Peter",
+          "John",
+          "The LORD",
           "Paul"
         ],
         "correctIndex": 0,
@@ -25026,10 +25186,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
+          "The crowds",
           "Paul",
-          "The apostles",
-          "John"
+          "Stephen",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25111,10 +25271,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
+          "The Lord",
           "Jesus",
-          "The apostles",
-          "John"
+          "David",
+          "Jude"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25194,10 +25354,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
+          "The crowds",
           "God",
-          "Joshua",
-          "Stephen"
+          "Stephen",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25275,10 +25435,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Jude",
+          "Stephen",
+          "Elisha",
           "God",
-          "Stephen"
+          "Joshua"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25360,9 +25520,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Lord",
-          "Jude",
-          "Elisha"
+          "Joshua",
+          "The apostles",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25443,10 +25603,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
+          "The apostles",
           "God",
-          "Paul",
-          "The crowds"
+          "Stephen",
+          "Joshua"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25527,9 +25687,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jude",
-          "The Lord",
-          "Elisha"
+          "The crowds",
+          "Priscilla",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25610,10 +25770,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
+          "Stephen",
           "Jesus",
-          "Jonathan",
-          "Stephen"
+          "The crowds",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25694,9 +25854,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "Peter",
+          "God",
+          "James",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -25778,10 +25938,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Priscilla",
+          "The Lord",
+          "Holy Spirit",
           "God",
-          "Elisha"
+          "Jude"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25863,9 +26023,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
+          "Holy Spirit",
           "The Lord",
-          "Jude",
-          "Elisha"
+          "The Holy Ghost"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25946,10 +26106,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "Paul",
+          "Holy Spirit",
           "Jesus",
-          "Stephen"
+          "The Holy Ghost"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -26030,9 +26190,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
           "Mary",
-          "God",
+          "The LORD",
+          "Jonathan",
           "Jesus"
         ],
         "correctIndex": 3,

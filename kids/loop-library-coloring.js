@@ -115,7 +115,7 @@
   "prayerCloset": "prayerCloset",
   "priscillaTeach": "priscillaTeach",
   "prodigalSon": "forgive70x7",
-  "psalm23Shepherd": "psalm23Shepherd",
+  "psalm23": "psalm23Shepherd",
   "rahab": "rahabRope",
   "resurrection": "resurrection",
   "revelationNewJerusalem": "newHeaven",

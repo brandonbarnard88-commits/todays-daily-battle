@@ -250,6 +250,7 @@
     shepherdsStar: 63,
     solomonWisdom: 45,
     solomonTwoMothers: 178,
+    solomonTemple: 179,
     spiesInCanaan: 34,
     stephen: 109,
     stephenMartyr: 109,

@@ -153,6 +153,7 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   176: 'davidHarp',
   177: 'davidKing',
   178: 'solomonTwoMothers',
+  179: 'solomonTemple',
   125: 'davidAbigail',
   44: 'psalm23'
 };

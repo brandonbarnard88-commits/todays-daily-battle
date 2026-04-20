@@ -3317,16 +3317,44 @@
     solomonTemple: {
       title: 'Solomon Builds the Temple',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Workers build the temple — cedar, gold, stone' },
-        { src: 'panel-noah-2.svg', alt: 'Priests carry the ark into the Holy of Holies' },
-        { src: 'panel-noah-3.svg', alt: 'God\'s glory fills the house like a cloud' }
+        { src: 'panel-noah-1.svg', alt: 'Solomon began to build the house of the LORD — cedar, finished with care' },
+        { src: 'panel-noah-2.svg', alt: 'The ark of the covenant brought into the most holy place' },
+        { src: 'panel-noah-3.svg', alt: 'The cloud filled the house — the glory of the LORD; Solomon prays with hands toward heaven' }
       ],
-      caption: 'Swipe to see God fill His house with glory! ✨',
+      caption: 'Swipe for the house Solomon finished — and the glory that filled it.',
       videoId: '',
       videoTitle: '',
-      keywords: ['solomon', 'temple', 'jerusalem', '1 kings 5', '1 kings 8', 'ark', 'glory', 'worship'],
-      kjvRef: '1 Kings 5–8',
-      kidContext: { who: 'God', to: 'Israel', apply: 'God is not far off — He wants His people to meet Him in worship. Today we come to Him through Jesus, anywhere we pray.' }
+      keywords: [
+        'solomon temple',
+        'builds the temple',
+        'house of the lord',
+        '1 kings 6',
+        '1 kings 8',
+        '1 kings 6:1',
+        '1 kings 8:10',
+        '1 kings 8:11',
+        'ark of the covenant',
+        'most holy place',
+        'cloud filled the house',
+        'glory of the lord',
+        'priests could not stand',
+        'there is no god like thee',
+        'heaven of heavens cannot contain thee',
+        'pray toward this house',
+        'when thou hearest forgive',
+        'jerusalem',
+        'cedar',
+        'cherubims'
+      ],
+      kjvRef: '1 Kings 6:1-14; 8:1-13, 22-30',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Israel — and every heart that prays',
+        apply:
+          'God\'s glory filled the house Solomon built — yet heaven itself cannot hold Him. He still bends low to hear prayer; we meet Him with reverence and thanks.'
+      },
+      narration:
+        "Solomon Builds the Temple – 1 Kings 6:1-14; 8:1-13, 22-30. In the fourth year of his reign Solomon began to build the house of the LORD — cedar beams, careful work, and the word of the LORD: walk in my ways, and I will dwell among Israel. He finished the house. Then he assembled Israel; the priests brought the ark into the most holy place. When they came out, a cloud filled the house — the glory of the LORD — so the priests could not stand to minister. Solomon spread his hands toward heaven: LORD God of Israel, there is no God like thee; the heaven of heavens cannot contain thee; how much less this house — yet hear thy servant; let thine eyes be open toward this house; when thy people pray toward this place, hear, and forgive. For you: The true God is great — and He still listens."
     },
     elijahFireFromHeaven: {
       title: 'Elijah on Mount Carmel',
@@ -5895,7 +5923,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5911,7 +5939,7 @@
       'saulKing', 'saulDisobedience',
       /* Week 4 */
       'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
-      'solomonWisdom', 'solomonTemple',
+      'solomonTemple',
       'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
       'ezraReturn', 'malachiMessage',
@@ -6075,6 +6103,16 @@
         !/\b(divide the living|bring me a sword|two women|two mothers|baby and)\b/.test(low))
     ) {
       return { type: 'carousel', story: 'solomonWisdom' };
+    }
+    if (
+      /\b1 kings 6:(?:[1-9]|1[0-4])\b|\b1 kgs 6:(?:[1-9]|1[0-4])\b/.test(low) ||
+      /\b1 kings 8:(?:(?:[1-9]|1[0-3])|(?:2[2-9]|30))\b|\b1 kgs 8:(?:(?:[1-9]|1[0-3])|(?:2[2-9]|30))\b/.test(low) ||
+      /\bsolomon\b.*\b(build|built)\b.*\b(temple|house of the lord)\b|\b(temple|house of the lord)\b.*\bsolomon\b/.test(low) ||
+      /cloud filled the house of the lord|glory of the lord had filled the house|priests could not stand to minister because of the cloud|ark of the covenant.*most holy|oracle of the house.*most holy|heaven of heavens cannot contain thee|how much less this house that i have builded|pray toward this place|when thou hearest, forgive/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'solomonTemple' };
     }
     if (
       /\b1 samuel 18\b|\b1 sam 18\b/.test(low) &&

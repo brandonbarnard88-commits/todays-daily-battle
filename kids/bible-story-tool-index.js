@@ -2319,12 +2319,12 @@
   {
     "key": "solomonTemple",
     "title": "Solomon Builds the Temple",
-    "kjvRef": "1 Kings 5–8",
-    "who": "God",
-    "to": "Israel",
-    "apply": "God is not far off — He wants His people to meet Him in worship. Today we come to Him through Jesus, anywhere we pray.",
+    "kjvRef": "1 Kings 6:1-14; 8:1-13, 22-30",
+    "who": "The LORD",
+    "to": "Israel — and every heart that prays",
+    "apply": "God's glory filled the house Solomon built — yet heaven itself cannot hold Him. He still bends low to hear prayer; we meet Him with reverence and thanks.",
     "theme": "Obedience",
-    "kw": "solomon temple jerusalem 1 kings 5 1 kings 8 ark glory worship"
+    "kw": "solomon temple builds the temple house of the lord 1 kings 6 1 kings 8 1 kings 6:1 1 kings 8:10 1 kings 8:11 ark of the covenant most holy place cloud filled the house glory of the lord priests could not stand there is no god like thee heaven of heavens cannot contain thee pray toward this house when thou hearest forgive jerusalem cedar cherubims"
   },
   {
     "key": "revelationSongsAndHarvest",

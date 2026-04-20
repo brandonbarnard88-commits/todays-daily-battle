@@ -42,6 +42,7 @@
   "elijahHoreb": "elijahHoreb",
   "elijahRavens": "elijahRavens",
   "elijahWidow": "elijahWidow",
+  "elishaBlindArmy": "elishaBlindArmy",
   "elishaChariots": "elishaChariots",
   "elishaFloatingAxe": "elishaFloatingAxe",
   "elishaMiracles": "elishaMiracles",

@@ -935,6 +935,26 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:17</text>'
       ),
 
+      /* Blind Syrian army — 2 Kings 6:18-23 (prayer, Samaria, bread and water) */
+      elishaBlindArmy: svg(
+        ground() + hills() +
+        sun(48, 44, 18) + cloud(300, 34) +
+        /* city gates in distance */
+        '<rect x="300" y="168" width="72" height="52" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M316 168 L316 148 Q334 138 352 148 L352 168" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M324 200 L324 220 M340 200 L340 220" ' + s + ' stroke-width="2"/>' +
+        '<path d="M60 258 Q200 228 340 258" ' + s + ' stroke-width="2" stroke-dasharray="6,4"/>' +
+        person(160, 158, 11, 32) +
+        '<path d="M152 168 L148 152 M168 168 L172 152" ' + s + ' stroke-width="2"/>' +
+        person(220, 162, 10, 28) +
+        '<path d="M220 148 Q228 152 232 158" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M208 158 L212 162 M232 158 L228 162" ' + s + ' stroke-width="1.5"/>' +
+        person(252, 164, 10, 28) +
+        '<path d="M252 150 Q260 154 264 160" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M240 160 L244 164 M264 160 L260 164" ' + s + ' stroke-width="1.5"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:22</text>'
+      ),
+
       /* Poisoned stew — 2 Kings 4:38-41 (Gilgal, great pot, meal, no harm) */
       elishaPoisonStew: svg(
         ground() + hills() +
@@ -3493,6 +3513,7 @@
     elishaMiracles: 'elishaMiracles',
     elishaFloatingAxe: 'elishaFloatingAxe',
     elishaChariots: 'elishaChariots',
+    elishaBlindArmy: 'elishaBlindArmy',
     elishaPoisonStew: 'elishaPoisonStew',
     isaiahMessianic: 'angelMary',
     jeremiahWeeping: 'jobSuffering',
@@ -5245,7 +5266,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'elishaPoisonStew', 'naamanHealed', 'elishaFloatingAxe', 'elishaChariots', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'elishaPoisonStew', 'naamanHealed', 'elishaFloatingAxe', 'elishaChariots', 'elishaBlindArmy', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
@@ -5468,6 +5489,7 @@
       naamanhealed: 'naamanHealed',
       elishachariots: 'elishaChariots',
       elishapoisonstew: 'elishaPoisonStew',
+      elishablindarmy: 'elishaBlindArmy',
       davd: 'david',
       daveed: 'david',
       goliat: 'david',

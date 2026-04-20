@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (301 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (302 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -326,6 +326,11 @@
       mp4: '/media/kids-stories/elijah-widow.mp4',
       webm: '/media/kids-stories/elijah-widow.webm',
       captionsVtt: '/media/kids-stories/elijah-widow.vtt'
+    },
+    elishaBlindArmy: {
+      mp4: '/media/kids-stories/elisha-blind-army.mp4',
+      webm: '/media/kids-stories/elisha-blind-army.webm',
+      captionsVtt: '/media/kids-stories/elisha-blind-army.vtt'
     },
     elishaChariots: {
       mp4: '/media/kids-stories/elisha-chariots.mp4',

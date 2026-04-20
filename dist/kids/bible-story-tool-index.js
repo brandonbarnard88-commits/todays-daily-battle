@@ -557,6 +557,16 @@
     "kw": "elijah elisha chariot fire 2 kings 2 whirlwind heaven jordan mantle double portion gilgal bethel jericho"
   },
   {
+    "key": "elishaBlindArmy",
+    "title": "Elisha and the Blind Syrian Army",
+    "kjvRef": "2 Kings 6:18-23",
+    "who": "The LORD",
+    "to": "Elisha, the king of Israel, and the Syrian army",
+    "apply": "God can protect His servants and show mercy — even kindness to those who came as enemies.",
+    "theme": "Love",
+    "kw": "elisha blind syrian syrian army blindness samaria 2 kings 6 2 kings 6:18 2 kings 6:22 smite with blindness open the eyes of these men bread and water thou shalt not smite great provision dothan"
+  },
+  {
     "key": "elishaChariots",
     "title": "Elisha and the Chariots of Fire",
     "kjvRef": "2 Kings 6:8-17",

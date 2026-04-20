@@ -3953,6 +3953,42 @@
       narration:
         "Elisha and the Poisoned Stew — 2 Kings 4:38-41. At Gilgal, in a dearth, Elisha said, Set on the great pot, and seethe pottage for the sons of the prophets. Wild gourds were shred into the pot — they knew them not. As they ate, they cried, O thou man of God, there is death in the pot. Elisha said, Then bring meal. He cast it into the pot — Pour out for the people, that they may eat. And there was no harm in the pot. For you: Bring your worry to God — He can restore what feels spoiled."
     },
+    elishaBlindArmy: {
+      title: 'Elisha and the Blind Syrian Army',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Elisha prays — the Lord smites the army with blindness' },
+        { src: 'panel-jesus-2.svg', alt: 'Follow me — he led them to Samaria; their eyes were opened' },
+        { src: 'panel-jesus-3.svg', alt: 'Bread and water — they ate and drank, and went in peace' }
+      ],
+      caption: 'Swipe to see mercy — bread and water instead of fighting.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha',
+        'blind syrian',
+        'syrian army',
+        'blindness',
+        'samaria',
+        '2 kings 6',
+        '2 kings 6:18',
+        '2 kings 6:22',
+        'smite with blindness',
+        'open the eyes of these men',
+        'bread and water',
+        'thou shalt not smite',
+        'great provision',
+        'dothan'
+      ],
+      kjvRef: '2 Kings 6:18-23',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elisha, the king of Israel, and the Syrian army',
+        apply:
+          'God can protect His servants and show mercy — even kindness to those who came as enemies.'
+      },
+      narration:
+        "Elisha and the Blind Syrian Army — 2 Kings 6:18-23. When they came down to him, Elisha prayed, Smite this people, I pray thee, with blindness — and the Lord smote them according to the word of Elisha. Elisha said, Follow me — and he led them to Samaria. Then, Lord, open the eyes of these men — and they saw they were in the midst of Samaria. The king asked, Shall I smite them? Elisha said, Thou shalt not smite them: set bread and water before them. They ate and drank, and went to their master — and the bands of Syria came no more into the land of Israel. For you: Mercy can go farther than fear expects."
+    },
     isaiahMessianic: {
       title: 'Isaiah\'s Messianic Prophecies',
       panels: [
@@ -6353,7 +6389,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 300, color: '#e5e4e2' }
+      { name: 'Platinum', min: 301, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6471,7 +6507,7 @@
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
-      'elijahHoreb', 'elijahElijahElisha', 'elijahFireFromHeaven', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe', 'elishaChariots', 'elishaPoisonStew',
+      'elijahHoreb', 'elijahElijahElisha', 'elijahFireFromHeaven', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe', 'elishaChariots', 'elishaBlindArmy', 'elishaPoisonStew',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
       'ezraReturn', 'malachiMessage',
       'jonahVine', 'danielPray', 'estherBanquet',
@@ -6887,8 +6923,14 @@
       return { type: 'carousel', story: 'elishaShunammite' };
     }
     if (
+      /\b2 kings 6:(?:18|19|20|21|22|23)\b|\b2 kgs 6:(?:18|19|20|21|22|23)\b/.test(low) ||
+      /smite.*blindness|open the eyes of these men|led.*samaria|thou shalt not smite them|set bread and water before them|great provision.*eaten and drunk|bands of syria came no more/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaBlindArmy' };
+    }
+    if (
       /\b2 kings 6:(?:8|9|1[0-7])\b|\b2 kgs 6:(?:8|9|1[0-7])\b/.test(low) ||
-      /dothan|chariots of fire|open his eyes.*see|they that be with us are more|more than they that be with them|mountain.*horses.*chariots.*fire/.test(low)
+      /dothan|chariots of fire|open his eyes, that he may see|they that be with us are more|more than they that be with them|mountain.*horses.*chariots.*fire/.test(low)
     ) {
       return { type: 'carousel', story: 'elishaChariots' };
     }
@@ -9545,6 +9587,7 @@
     elishaMiracles: 'Miracles',
     elishaFloatingAxe: 'Miracles',
     elishaChariots: 'Protection',
+    elishaBlindArmy: 'Love',
     elishaPoisonStew: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',
     danielFieryFurnace: 'Miracles', danielLionsDen: 'Miracles',

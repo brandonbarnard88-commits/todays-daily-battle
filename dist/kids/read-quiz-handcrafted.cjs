@@ -28,6 +28,7 @@
  * Elisha and the floating axe: read-quiz-elisha-floating-axe-pack.cjs (key elishaFloatingAxe).
  * Elisha and the chariots of fire (Dothan): read-quiz-elisha-chariots-pack.cjs (key elishaChariots).
  * Elisha and the poisoned stew (meal heals the pot): read-quiz-elisha-poison-stew-pack.cjs (key elishaPoisonStew).
+ * Elisha and the blind Syrian army (Samaria): read-quiz-elisha-blind-army-pack.cjs (key elishaBlindArmy).
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
@@ -56,6 +57,7 @@ const naamanHealedReadQuizPack = require('./read-quiz-naaman-healed-pack.cjs');
 const elishaFloatingAxeReadQuizPack = require('./read-quiz-elisha-floating-axe-pack.cjs');
 const elishaChariotsReadQuizPack = require('./read-quiz-elisha-chariots-pack.cjs');
 const elishaPoisonStewReadQuizPack = require('./read-quiz-elisha-poison-stew-pack.cjs');
+const elishaBlindArmyReadQuizPack = require('./read-quiz-elisha-blind-army-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3914,5 +3916,6 @@ module.exports = {
   naaman: naamanHealedReadQuizPack,
   elishaFloatingAxe: elishaFloatingAxeReadQuizPack,
   elishaChariots: elishaChariotsReadQuizPack,
-  elishaPoisonStew: elishaPoisonStewReadQuizPack
+  elishaPoisonStew: elishaPoisonStewReadQuizPack,
+  elishaBlindArmy: elishaBlindArmyReadQuizPack
 };

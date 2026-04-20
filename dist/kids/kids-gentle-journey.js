@@ -102,6 +102,7 @@
     'naamanHealed',
     'elishaFloatingAxe',
     'elishaChariots',
+    'elishaBlindArmy',
     'naamanDip',
     'ezraReturn',
     'nehemiahWalls',

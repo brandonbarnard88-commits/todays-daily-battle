@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-20T14:24:02.292Z",
-  "surfacedRefCount": 2806,
-  "overrideCount": 2806,
+  "generatedAt": "2026-04-20T14:59:02.886Z",
+  "surfacedRefCount": 2808,
+  "overrideCount": 2808,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 170,
+      "refs": 171,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 186,
+      "refs": 187,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 156,
+      "refs": 158,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 184,
+      "refs": 185,
       "pairs": 0
     },
     "memorize.html": {
@@ -913,6 +913,8 @@
     "2 Kings 6:1-7",
     "2 Kings 6:14-17",
     "2 Kings 6:17",
+    "2 Kings 6:18-23",
+    "2 Kings 6:22",
     "2 Kings 6:6",
     "2 Kings 6:8-17",
     "2 Kings 9:1",
@@ -6656,6 +6658,22 @@
     "2 Kings 6:17": {
       "general": {
         "plainExplanation": "Key idea: And Elisha prayed, and said, LORD, I pray you, open his eyes, that he may see. And the LORD opened the eyes of the young man; and he saw: and, look, the mou...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 6:18-23": {
+      "general": {
+        "plainExplanation": "Key idea: And when they came down to him, Elisha prayed to the LORD, and said, Smite this people, I pray you, with blindness. And he smote them with blindness accordi...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 6:22": {
+      "general": {
+        "plainExplanation": "Key idea: And he answered, you shalt not smite them: wouldest you smite those whom you hast taken captive with your sword and with your bow? set bread and water befor...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"

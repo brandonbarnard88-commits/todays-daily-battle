@@ -72,6 +72,7 @@
     elishaFloatingAxe: 183,
     elishaChariots: 184,
     elishaPoisonStew: 185,
+    elishaBlindArmy: 186,
     elishaMiracles: 182,
     elishaOil: 19,
     elishaShunammite: 49,

@@ -154,7 +154,7 @@
     mosesSea: 13,
     naamanDip: 21,
     naaman: 21,
-    nehemiahWalls: 51,
+    nehemiahWalls: 194,
     newHeaven: 118,
     newEarth: 118,
     noNight: 118,

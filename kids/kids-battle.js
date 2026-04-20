@@ -2326,16 +2326,16 @@
     nehemiahWalls: {
       title: 'Nehemiah Rebuilds the Walls',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Nehemiah prays and makes a plan' },
-        { src: 'panel-david-2.svg', alt: 'Workers build with tools in one hand, sword in the other' },
-        { src: 'panel-david-3.svg', alt: 'The walls are rebuilt in 52 days—God did it!' }
+        { src: 'panel-noah-1.svg', alt: 'Nehemiah hears and prays to the God of heaven' },
+        { src: 'panel-noah-2.svg', alt: 'The king sends him — Nehemiah sees the broken walls at night' },
+        { src: 'panel-noah-3.svg', alt: '“Let us rise up and build” — people work together with joy' }
       ],
-      caption: 'Swipe to see Nehemiah rebuild—pray and work together! 🧱',
+      caption: 'Swipe to see God stir hearts to rebuild — pray and work together! 🧱',
       videoId: '',
       videoTitle: '',
-      keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 1', 'nehemiah 4', 'artaxerxes', 'rebuild', 'pray', 'sword', '52 days'],
-      kjvRef: 'Nehemiah 1–6',
-      kidContext: { who: 'God', to: 'Nehemiah and Israel', apply: 'Pray, then work! God helps us rebuild what\'s broken — even when others mock.' }
+      keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 1', 'nehemiah 2', 'nehemiah 3', 'artaxerxes', 'rebuild', 'pray', 'teamwork', 'gates'],
+      kjvRef: 'Nehemiah 1:1–4; 2:1–20; 3:1–32',
+      kidContext: { who: 'God', to: 'Nehemiah and His people', apply: 'God hears prayer and helps His people work together to restore what was broken.' }
     },
     jobSuffering: {
       title: 'Job\'s Suffering',

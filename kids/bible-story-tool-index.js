@@ -1439,12 +1439,12 @@
   {
     "key": "nehemiahWalls",
     "title": "Nehemiah Rebuilds the Walls",
-    "kjvRef": "Nehemiah 1–6",
+    "kjvRef": "Nehemiah 1:1–4; 2:1–20; 3:1–32",
     "who": "God",
-    "to": "Nehemiah and Israel",
-    "apply": "Pray, then work! God helps us rebuild what's broken — even when others mock.",
+    "to": "Nehemiah and His people",
+    "apply": "God hears prayer and helps His people work together to restore what was broken.",
     "theme": "Obedience",
-    "kw": "nehemiah walls jerusalem nehemiah 1 nehemiah 4 artaxerxes rebuild pray sword 52 days"
+    "kw": "nehemiah walls jerusalem nehemiah 1 nehemiah 2 nehemiah 3 artaxerxes rebuild pray teamwork gates rise up build"
   },
   {
     "key": "newHeaven",

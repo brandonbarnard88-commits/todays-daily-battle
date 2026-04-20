@@ -1101,22 +1101,42 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 5:2</text>'
       ),
 
-      /* ── Week 4: Nehemiah Walls (53) ── */
+      /* ── Week 4: Nehemiah Walls (53) — teamwork, stones, no weapons ── */
       nehemiahWalls: svg(
         ground() +
-        '<rect x="80" y="80" width="240" height="180" rx="4" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="88" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="138" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="182" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="232" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="282" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        person(180, 180, 12, 35) +
-        '<line x1="172" y1="198" x2="155" y2="245" ' + s + ' stroke-width="3.5"/>' +
-        '<polygon points="150,242 148,256 160,252" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M205 198 L215 235" ' + s + ' stroke-width="2.5"/>' +
-        person(60, 182, 10, 28) + person(320, 182, 10, 28) +
-        sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 4:17</text>'
+        hills() +
+        sun(340, 48, 18) +
+        '<rect x="72" y="158" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="108" y="150" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="144" y="142" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="180" y="135" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="216" y="128" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="92" cy="250" rx="16" ry="11" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="128" cy="254" rx="14" ry="9" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        person(168, 188, 11, 32) +
+        person(95, 198, 10, 28) +
+        person(275, 195, 10, 28) +
+        '<line x1="148" y1="212" x2="132" y2="228" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<line x1="248" y1="208" x2="262" y2="222" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 4:6</text>'
       ),
 
       /* ── Return from exile: Ezra 1 & 3 — thankful journey home ── */
@@ -3684,7 +3704,7 @@
     return /^\/media\/kids-stories\/[a-zA-Z0-9][a-zA-Z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(s);
   }
 
-  /** Optional loop-library poster: /assets/loops/{1–193}.png when shipped (read-quiz poster map). */
+  /** Optional loop-library poster: /assets/loops/{1–194}.png when shipped (read-quiz poster map). */
   function isSafeLoopPosterPath(src) {
     if (typeof src !== 'string') return false;
     var s = src.trim();
@@ -3694,7 +3714,7 @@
     var m = /^\/assets\/loops\/(\d{1,3})\.png$/i.exec(s);
     if (!m) return false;
     var n = parseInt(m[1], 10);
-    return n >= 1 && n <= 193;
+    return n >= 1 && n <= 194;
   }
 
   /** First comic panel from bibleStories (same files as the modal carousel). */
@@ -4118,7 +4138,7 @@
       if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
         var posters = window.TDB_READ_QUIZ_LOOP_POSTERS || {};
         var lid = posters[key];
-        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 193) {
+        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 194) {
           var posterPath = '/assets/loops/' + Math.floor(lid) + '.png';
           if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
         }

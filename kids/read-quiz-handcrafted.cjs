@@ -11,6 +11,7 @@
  * no filler (see generator).
  * Elisha bones (2 Kings 13:20–21): full read-along + quiz in buildElishaBonesReadQuiz().
  * Ezra return (Ezra 1:1–11; 3:1–6): full read-along + quiz in buildEzraReturnReadQuiz().
+ * Nehemiah walls (Nehemiah 1–3 focus): full read-along + quiz in buildNehemiahWallsReadQuiz().
  */
 
 const davidReadQuizPack = require('./read-quiz-david-pack.cjs');
@@ -338,11 +339,142 @@ function buildEzraReturnReadQuiz() {
   };
 }
 
+/** Nehemiah rebuilds the walls — Nehemiah 1–3; teamwork, prayer, gentle courage. */
+function buildNehemiahWallsReadQuiz() {
+  return {
+    kjvRef: 'Nehemiah 1:1–4; 2:1–20; 3:1–32',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the comic pictures above while you read.',
+    paragraphs: [
+      'Nehemiah Rebuilds the Walls (Nehemiah 1:1–4; 2:1–20; 3:1–32).',
+      'The walls of Jerusalem were broken down and the gates were burned with fire.',
+      'Nehemiah heard the sad news while he was far away serving the king. He prayed to the God of heaven and asked the king for permission to go and rebuild the walls.',
+      'The king sent him with letters and timber. When Nehemiah came to Jerusalem, he rose up at night and went out to see the broken walls.',
+      'Then he said to the people, “Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach.”',
+      'The people answered, “Let us rise up and build.” So they strengthened their hands for this good work.',
+      'The Lord used Nehemiah to stir the hearts of His people to rebuild the walls of Jerusalem together.'
+    ],
+    readAlongSections: [
+      {
+        text: 'The walls of Jerusalem were broken down.',
+        caption: 'Broken places',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Nehemiah heard the sad news and prayed to God.',
+        caption: 'Pray first',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The king let him go to rebuild the walls.',
+        caption: 'The king sends help',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Nehemiah saw the broken places at night.',
+        caption: 'Nehemiah looks with care',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He said to the people, “Come, let us build up the wall of Jerusalem.”',
+        caption: 'Let us build',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'The people answered, “Let us rise up and build.”',
+        caption: 'Together',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'They worked together with joy.',
+        caption: 'For you',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Psalm 23',
+          'Nehemiah 1:1–4; 2:1–20; 3:1–32',
+          'Jonah 1',
+          'Genesis 1'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Nehemiah 1:1–4; 2:1–20; 3:1–32.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'A giant fish', 'Pharaoh', 'Goliath'],
+        correctIndex: 0,
+        correctFeedback: 'Right—God heard prayer and stirred hearts to rebuild.',
+        wrongFeedback: "Look for who helps His people work together for good. (Answer: God.)"
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'We should never pray.',
+          'The Bible is only pretend stories.',
+          'God helps His people pray, work together, and rebuild what was broken.',
+          'Only one person can do God’s work alone.'
+        ],
+        correctIndex: 2,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God helps His people pray, work together, and rebuild what was broken.)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'The people answered, “Let us rise up and build.”',
+          'Everyone decided to never sleep again.',
+          'A talking toaster became king of the city.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: The people answered, “Let us rise up and build.”)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Pray to God and be willing to help with the good work He gives.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust and teamwork with God’s help? Pick the one that honors Him. (Answer: Pray to God and be willing to help with the good work He gives.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Nehemiah Rebuilds the Walls with God's Word today.",
+    takeaway: 'God helps His people pray, work together, and rebuild what was broken.',
+    prayer:
+      "God, thank You for the Bible. Help me remember what You showed me in Nehemiah Rebuilds the Walls. Amen.",
+    imagePrompts: [
+      'Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: Nehemiah and thankful people working together to rebuild a city wall, some carrying stones, some building with simple tools, wall rising, soft gates and hills in background, hopeful teamwork mood, no fighting, no weapons, no text, plenty of white space',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Nehemiah prays — God hears (nehemiah)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The king sends Nehemiah with letters (king)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Let us rise up and build — people together (jerusalem)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: They strengthened their hands for this good work (wall)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
   david: davidReadQuizPack,
   davidGoliath: davidReadQuizPack,
   elishaBones: buildElishaBonesReadQuiz(),
-  ezraReturn: buildEzraReturnReadQuiz()
+  ezraReturn: buildEzraReturnReadQuiz(),
+  nehemiahWalls: buildNehemiahWallsReadQuiz()
 };

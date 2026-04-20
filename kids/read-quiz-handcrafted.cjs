@@ -4527,8 +4527,9 @@ function buildFieryFurnaceReadQuiz() {
       'Listen again — they would not bow; God is able to deliver; four walked in the fire unhurt.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'The king of Babylon made a golden image and commanded everyone to bow down and worship it when they heard the music.',
-      'Shadrach, Meshach, and Abednego would not bow. They said, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.',
+      'The king of Babylon made a big golden image and commanded everyone to bow down and worship it when they heard the music.',
+      'Shadrach, Meshach, and Abednego would not bow down.',
+      'They told the king, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.',
       'The king was very angry and commanded the furnace to be heated seven times hotter. The three men were thrown into the burning fiery furnace.',
       'The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.',
       'The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them.',
@@ -4537,8 +4538,8 @@ function buildFieryFurnaceReadQuiz() {
     ],
     readAlongSections: [
       {
-        text: 'The king made a golden image and told everyone to bow down when they heard the music.',
-        caption: 'Bow to the image',
+        text: 'The king made a golden image and told everyone to bow down.',
+        caption: 'Bow when the music plays',
         image: 'panel-daniel-1.svg'
       },
       {
@@ -4547,31 +4548,27 @@ function buildFieryFurnaceReadQuiz() {
         image: 'panel-daniel-1.svg'
       },
       {
-        text:
-          'If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king.',
+        text: 'They said, Our God whom we serve is able to deliver us.',
         caption: 'Our God is able to deliver us',
         image: 'panel-daniel-2.svg'
       },
       {
-        text:
-          'But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.',
-        caption: 'But if not — we still will not bow',
-        image: 'panel-daniel-2.svg'
-      },
-      {
-        text: 'The furnace was heated seven times hotter, and they were cast into the midst of the burning fiery furnace.',
+        text: 'They were thrown into the hot furnace.',
         caption: 'Into the fire',
         image: 'panel-daniel-2.svg'
       },
       {
-        text:
-          'Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.',
+        text: 'The king saw four men walking in the fire.',
         caption: 'Four walking in the fire',
         image: 'panel-daniel-3.svg'
       },
       {
-        text:
-          'They came out, and no smell of fire had passed on them. God kept them safe because they trusted Him.',
+        text: 'The three men came out unhurt.',
+        caption: 'No hurt — no smell of fire',
+        image: 'panel-daniel-3.svg'
+      },
+      {
+        text: 'God walked with them and kept them safe.',
         caption: 'For you',
         image: 'panel-daniel-3.svg'
       }
@@ -4644,7 +4641,7 @@ function buildFieryFurnaceReadQuiz() {
     prayer:
       'Lord, thank You that You never leave us. Help us trust You and obey. Amen.',
     imagePrompts: [
-      'Simple peaceful black-and-white line-art for young children ages 3–8: three men standing calmly in furnace with fourth gentle figure beside them soft wavy flame outlines around them thick bold outlines large open spaces on robes flames ground soft furnace walls minimal lines trusting safe mood no scary faces plenty of white space coloring page',
+      'Simple peaceful black-and-white line-art for young children ages 3–8: three men standing calmly inside furnace with fourth gentle figure beside them soft gentle flame bands around them peaceful trusting faces thick bold outlines large open spaces on robes fourth figure flames ground soft furnace walls minimal lines trusting safe mood no fear no burning plenty of white space coloring page',
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow (shadrach)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace — seven times hotter (daniel 3)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — Son of God (angel)",

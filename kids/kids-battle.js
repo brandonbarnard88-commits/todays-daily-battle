@@ -1009,11 +1009,11 @@
     fieryFurnace: {
       title: 'God Walks with His Servants in the Fire',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Golden image — Shadrach, Meshach, and Abednego would not bow' },
+        { src: 'panel-daniel-1.svg', alt: 'Big golden image — Shadrach, Meshach, and Abednego would not bow' },
         { src: 'panel-daniel-2.svg', alt: 'The furnace heated seven times hotter — cast into the fire' },
         { src: 'panel-daniel-3.svg', alt: 'Four loose in the fire — the form of the fourth like the Son of God' }
       ],
-      caption: 'Swipe to see brave trust, soft flames, and God walking with His friends.',
+      caption: 'Swipe to see brave trust, soft flames, and the fourth walking with them unhurt.',
       videoId: 'kAzX-Icrbm0',
       videoTitle: 'God Walks with His Servants in the Fire — Shadrach, Meshach & Abednego',
       keywords: ['fiery furnace', 'shadrach', 'meshach', 'abednego', 'fire', 'angel', 'daniel 3', 'son of god', 'golden image'],
@@ -1025,7 +1025,7 @@
           'Even in a hard place, God is with us. We can tell Him we trust Him and stand for what is right.'
       },
       narration:
-        "God Walks with His Servants in the Fire — Daniel 3:1–30. The king made a golden image and commanded that when the music sounded, every one should fall down and worship it. Shadrach, Meshach, and Abednego answered, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up. The furnace was heated seven times hotter, and they were cast into the midst of the burning fiery furnace. The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. They came out, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them. For you: God walks with His servants in the fire — we can trust Him and stand for what is right."
+        "God Walks with His Servants in the Fire — Daniel 3:1–30. The king of Babylon made a big golden image and commanded everyone to bow down and worship it when they heard the music. Shadrach, Meshach, and Abednego would not bow down. They told the king, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up. The king was very angry and commanded the furnace to be heated seven times hotter. The three men were thrown into the burning fiery furnace. The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them. For you: The LORD walked with His servants in the fire and kept them safe because they trusted Him."
     },
     esther: {
       title: 'Esther Helps Her People',
@@ -4323,11 +4323,11 @@
     danielFieryFurnace: {
       title: 'God Walks with His Servants in the Fire',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Golden image — Shadrach, Meshach, and Abednego would not bow' },
+        { src: 'panel-daniel-1.svg', alt: 'Big golden image — Shadrach, Meshach, and Abednego would not bow' },
         { src: 'panel-daniel-2.svg', alt: 'The furnace heated seven times hotter — cast into the fire' },
         { src: 'panel-daniel-3.svg', alt: 'Four loose in the fire — the form of the fourth like the Son of God' }
       ],
-      caption: 'Swipe to see brave trust, soft flames, and God walking with His friends.',
+      caption: 'Swipe to see brave trust, soft flames, and the fourth walking with them unhurt.',
       videoId: '',
       videoTitle: '',
       keywords: ['shadrach', 'meshach', 'abednego', 'furnace', 'daniel 3', 'fire', 'bow', 'nebuchadnezzar', 'son of god', 'golden image'],
@@ -4339,7 +4339,7 @@
           'Even in a hard place, God is with us. We can tell Him we trust Him and stand for what is right.'
       },
       narration:
-        "God Walks with His Servants in the Fire — Daniel 3:1–30. The king made a golden image and commanded that when the music sounded, every one should fall down and worship it. Shadrach, Meshach, and Abednego answered, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up. The furnace was heated seven times hotter, and they were cast into the midst of the burning fiery furnace. The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. They came out, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them. For you: God walks with His servants in the fire — we can trust Him and stand for what is right."
+        "God Walks with His Servants in the Fire — Daniel 3:1–30. The king of Babylon made a big golden image and commanded everyone to bow down and worship it when they heard the music. Shadrach, Meshach, and Abednego would not bow down. They told the king, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up. The king was very angry and commanded the furnace to be heated seven times hotter. The three men were thrown into the burning fiery furnace. The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them. For you: The LORD walked with His servants in the fire and kept them safe because they trusted Him."
     },
     danielLionsDen: {
       title: 'Daniel Trusts God in the Lions’ Den',

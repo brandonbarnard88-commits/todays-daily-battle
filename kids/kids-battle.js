@@ -4105,17 +4105,18 @@
         "God Makes the Iron Swim — 2 Kings 6:1-7. The sons of the prophets said, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams. As one was felling a beam, the axe head fell into the water, and he cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee — and the man put out his hand and took it. For you: The Lord cares about everyday needs — even little borrowed things."
     },
     elishaChariots: {
-      title: 'Elisha and the Chariots of Fire',
+      title: 'God’s Army Protects Elisha',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Night at Dothan — a host with horses and chariots compass the city' },
-        { src: 'panel-jesus-2.svg', alt: 'Elisha says, Fear not — they that be with us are more than they that be with them' },
-        { src: 'panel-jesus-3.svg', alt: 'The mountain full of horses and chariots of fire round about Elisha' }
+        { src: 'panel-jesus-1.svg', alt: 'An army round the city — Alas, my master! how shall we do?' },
+        { src: 'panel-jesus-2.svg', alt: 'Fear not — they that be with us are more than they that be with them' },
+        { src: 'panel-jesus-3.svg', alt: 'Open his eyes — the mountain full of horses and chariots of fire' }
       ],
-      caption: 'Swipe to see God’s unseen army — more are with us than with them.',
+      caption: 'Swipe for Dothan — Fear not; God’s army is greater and protects His servants.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elisha',
+        'gods army protects elisha',
         'chariots of fire',
         'dothan',
         '2 kings 6',
@@ -4132,12 +4133,12 @@
       kjvRef: '2 Kings 6:8-17',
       kidContext: {
         who: 'The LORD',
-        to: "Elisha's servant — and every afraid heart",
+        to: 'Elisha’s servant — and every afraid heart',
         apply:
-          "When trouble looks big, God's help is bigger than we see yet — ask Him to open your eyes to trust Him."
+          'When trouble looks big, God’s help is greater than we see — ask Him to open your eyes to trust Him.'
       },
       narration:
-        "Elisha and the Chariots of Fire — 2 Kings 6:8-17. The king of Syria sent a great host; they came by night and compassed Dothan. The servant of the man of God rose early and cried, Alas, my master! how shall we do? Elisha said, Fear not: for they that be with us are more than they that be with them. He prayed, Lord, open his eyes, that he may see. The Lord opened the young man’s eyes — and the mountain was full of horses and chariots of fire round about Elisha. For you: God’s protection is real, even when fear feels loud."
+        "God’s Army Protects Elisha — 2 Kings 6:8-17. The king of Syria sent a great army with horses and chariots to take Elisha at Dothan. When the servant rose early, he saw the army all around the city and cried, Alas, my master! How shall we do? Elisha said, Fear not: for they that be with us are more than they that be with them. Elisha prayed, Lord, I pray thee, open his eyes, that he may see. The Lord opened the eyes of the young man, and he saw the mountain full of horses and chariots of fire round about Elisha. For you: The Lord showed them that God’s army is always greater and protects His servants."
     },
     elishaPoisonStew: {
       title: 'Elisha and the Poisoned Stew',

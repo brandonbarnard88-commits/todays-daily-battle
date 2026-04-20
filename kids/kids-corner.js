@@ -988,26 +988,30 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:6</text>'
       ),
 
-      /* Chariots of fire — 2 Kings 6:14-17 (Dothan, Fear not, mountain full of fire) */
+      /* Chariots of fire — gentle hill, soft flames, calm Elisha + wondering servant (2 Kings 6:17) */
       elishaChariots: svg(
-        '<rect x="0" y="0" width="400" height="165" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="320" cy="38" r="22" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="72" cy="48" r="1.4" fill="#111"/><circle cx="98" cy="36" r="1.2" fill="#111"/><circle cx="128" cy="52" r="1.3" fill="#111"/>' +
-        '<circle cx="280" cy="58" r="1.2" fill="#111"/><circle cx="340" cy="72" r="1.1" fill="#111"/>' +
-        hills() +
-        /* distant chariot + flame hints (soft, dashed) */
-        '<ellipse cx="88" cy="118" rx="28" ry="10" ' + sf + ' fill="white" stroke-width="2" stroke-dasharray="5,4"/>' +
-        '<ellipse cx="312" cy="112" rx="28" ry="10" ' + sf + ' fill="white" stroke-width="2" stroke-dasharray="5,4"/>' +
-        '<path d="M78 128 L78 142 M98 128 L98 142" ' + s + ' stroke-width="1.8"/>' +
-        '<path d="M302 122 L302 136 M322 122 L322 136" ' + s + ' stroke-width="1.8"/>' +
-        '<circle cx="92" cy="108" r="6" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3"/>' +
-        '<circle cx="318" cy="102" r="6" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3"/>' +
-        '<path d="M0 200 Q100 175 200 200 Q300 225 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(200, 168, 11, 30) +
-        person(248, 172, 9, 26) +
-        '<circle cx="254" cy="158" r="2.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
-        '<circle cx="260" cy="156" r="2.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
-        '<path d="M248 188 L268 168" ' + s + ' stroke-width="2"/>' +
+        ground() + hills() +
+        sun(48, 40, 14) + cloud(268, 34) + cloud(88, 42) +
+        /* mountain ridge — space for fire of God */
+        '<path d="M20 210 Q100 95 200 125 Q300 88 380 210" ' + s + ' stroke-width="2.8" fill="none"/>' +
+        /* soft chariots of fire — gentle flame shapes, large open areas */
+        '<path d="M72 148 Q88 118 104 148 Q96 132 88 140 Q80 128 72 148" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M118 138 Q132 108 148 138 Q140 122 132 128 Q124 115 118 138" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M252 132 Q268 102 284 132 Q276 116 268 122 Q260 110 252 132" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M298 142 Q314 112 330 142 Q322 126 314 132 Q306 120 298 142" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M168 152 Q184 128 200 152 Q192 138 184 145 Q176 132 168 152" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<path d="M200 118 Q208 88 216 118 Q212 104 208 110 Q204 98 200 118" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        /* simple horse + wheel hints (dashed, not weapons) */
+        '<ellipse cx="95" cy="168" rx="20" ry="8" ' + sf + ' fill="white" stroke-width="1.8" stroke-dasharray="4,3"/>' +
+        '<ellipse cx="318" cy="164" rx="20" ry="8" ' + sf + ' fill="white" stroke-width="1.8" stroke-dasharray="4,3"/>' +
+        '<circle cx="108" cy="162" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="332" cy="158" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        /* foreground — Elisha calm, servant wonder (soft smile) */
+        person(178, 198, 11, 28) +
+        '<path d="M172 188 Q178 192 184 188" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        person(238, 200, 9, 24) +
+        '<path d="M232 188 Q238 194 244 188" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<path d="M238 216 L218 148" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3" opacity="0.55"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:17</text>'
       ),
 

@@ -1,22 +1,23 @@
 'use strict';
 /**
- * Elisha and the chariots of fire — 2 Kings 6:8-17 (KJV).
+ * Elisha and the chariots of fire (gentle) — 2 Kings 6:8-17 (KJV). Library key: elishaChariots
  *
- * Tap-through: 6:14-17 (surround Dothan, servant’s cry, Fear not, opened eyes).
- * Verses 6:8-13 (war counsel, Elisha warns Israel, spy) summarized in paragraphs only — calmer for young taps.
+ * War counsel and earlier verses (6:8-13) stay in paragraphs; taps carry 6:14-17.
  */
 
 module.exports = {
   kjvRef: '2 Kings 6:8-17 (KJV)',
   verseExcerpt:
     'And he answered, Fear not: for they that be with us are more than they that be with them. — 2 Kings 6:16 (KJV)',
-  readAlongTitle: 'Read along',
-  hintAboveQuiz: 'Read slowly. Tap each part when you are ready.',
+  readAlongTitle: 'God’s Army Protects Elisha',
+  quizWrongHumilityHint:
+    'Listen again — Fear not: more are with us than with them.',
+  hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
   readAlongSections: [
     {
       text:
         'Therefore sent he thither horses, and chariots, and a great host: and they came by night, and compassed the city about.',
-      caption: 'They came by night and compassed the city about',
+      caption: 'A great army — horses and chariots round the city',
       image: 'panel-jesus-1.svg'
     },
     {
@@ -26,7 +27,8 @@ module.exports = {
       image: 'panel-jesus-1.svg'
     },
     {
-      text: 'And he answered, Fear not: for they that be with us are more than they that be with them.',
+      text:
+        'And he answered, Fear not: for they that be with us are more than they that be with them.',
       caption: 'Fear not — they that be with us are more',
       image: 'panel-jesus-2.svg'
     },
@@ -39,15 +41,16 @@ module.exports = {
     {
       text:
         'And the LORD opened the eyes of the young man; and he saw: and, behold, the mountain was full of horses and chariots of fire round about Elisha.',
-      caption: 'The mountain was full of horses and chariots of fire',
+      caption: 'The mountain full of horses and chariots of fire',
       image: 'panel-jesus-3.svg'
     }
   ],
   paragraphs: [
-    'The king of Syria warred against Israel and took counsel in secret — but Elisha, the man of God, told the king of Israel where not to pass, and Israel was spared more than once.',
-    'The king of Syria was troubled and learned that Elisha was in Dothan. He sent horses, chariots, and a great host; they came by night and compassed the city.',
-    'When the servant of the man of God rose early, he saw the host and cried, Alas, my master! how shall we do? Elisha answered, Fear not: for they that be with us are more than they that be with them. He prayed, Lord, open his eyes. The Lord opened the young man\u2019s eyes — and he saw the mountain full of horses and chariots of fire round about Elisha. For you: When trouble looks big, ask God to help you see His care.',
-    'Reference: 2 Kings 6:8-17 (KJV).'
+    'The king of Syria sent a great army with horses and chariots to take Elisha at Dothan.',
+    'When the servant rose early, he saw the army all around the city and cried, Alas, my master! How shall we do?',
+    'Elisha said, Fear not: for they that be with us are more than they that be with them. Elisha prayed, Lord, I pray thee, open his eyes, that he may see.',
+    'The Lord opened the eyes of the young man, and he saw the mountain full of horses and chariots of fire round about Elisha. The Lord showed them that God’s army is always greater and protects His servants.',
+    'For you: When trouble looks big, ask God to help you see His care — He is with His people.'
   ],
   quizHeading: 'Quiz — think it through',
   questions: [
@@ -110,14 +113,14 @@ module.exports = {
   doneHeading: 'You did it!',
   doneMessage: 'Well done — God’s help is greater than what our eyes first see.',
   takeaway:
-    'Elisha prayed, Open his eyes — and the mountain shone with horses and chariots of fire. God’s care is real, even when trouble looks loud.',
+    'Elisha prayed, Open his eyes — and the mountain shone with horses and chariots of fire. God protects His servants.',
   prayer:
     'Lord, when we feel afraid, help us remember You are greater. Open our eyes to trust You. Amen.',
   imagePrompts: [
-    'Simple peaceful black-and-white line-art young children bold thick outlines Elisha calm hill servant wonder eyes open mountain many horses chariots soft flame outlines dashed not scary night sky stars minimal ages 3-8 coloring page',
-    'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Dothan compassed city night',
+    'Simple peaceful black-and-white line-art young children bold thick outlines Elisha calm peaceful face on hill with servant mountain behind many soft flame shapes horses chariots dashed outlines gentle not scary no weapons plenty white space ages 3-8 coloring page no text',
+    'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Dothan compassed',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Alas my master Fear not',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Lord open his eyes',
-    'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Chariots of fire mountain round about Elisha'
+    'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Chariots of fire mountain'
   ]
 };

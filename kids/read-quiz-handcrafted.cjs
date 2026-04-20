@@ -30,7 +30,7 @@
  * Naaman healed of leprosy (gentle — obeys and is made clean): read-quiz-naaman-healed-pack.cjs (keys naamanHealed, naaman).
  * Naaman returns with thanks: read-quiz-naaman-dip-pack.cjs (key naamanDip).
  * Elisha and the floating axe (gentle — iron swims): read-quiz-elisha-floating-axe-pack.cjs (key elishaFloatingAxe).
- * Elisha and the chariots of fire (Dothan): read-quiz-elisha-chariots-pack.cjs (key elishaChariots).
+ * Elisha and the chariots of fire (gentle — God’s army protects): read-quiz-elisha-chariots-pack.cjs (key elishaChariots).
  * Elisha and the poisoned stew (meal heals the pot): read-quiz-elisha-poison-stew-pack.cjs (key elishaPoisonStew).
  * Elisha and the blind Syrian army (Samaria): read-quiz-elisha-blind-army-pack.cjs (key elishaBlindArmy).
  * Shunammite woman’s land restored: read-quiz-shunammite-return-pack.cjs (key shunammiteReturn).

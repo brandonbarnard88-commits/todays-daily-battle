@@ -567,16 +567,6 @@
     "kw": "elisha blind syrian syrian army blindness samaria 2 kings 6 2 kings 6:18 2 kings 6:22 smite with blindness open the eyes of these men bread and water thou shalt not smite great provision dothan"
   },
   {
-    "key": "elishaChariots",
-    "title": "Elisha and the Chariots of Fire",
-    "kjvRef": "2 Kings 6:8-17",
-    "who": "The LORD",
-    "to": "Elisha's servant — and every afraid heart",
-    "apply": "When trouble looks big, God's help is bigger than we see yet — ask Him to open your eyes to trust Him.",
-    "theme": "Protection",
-    "kw": "elisha chariots of fire dothan 2 kings 6 2 kings 6:16 2 kings 6:17 fear not open his eyes they that be with us syria servant of the man of God horses and chariots mountain"
-  },
-  {
     "key": "elishaPoisonStew",
     "title": "Elisha and the Poisoned Stew",
     "kjvRef": "2 Kings 4:38-41",
@@ -825,6 +815,16 @@
     "apply": "The loud things passed — then God spoke in a still small voice. He often speaks gently; listen with a quiet heart.",
     "theme": "Love",
     "kw": "elijah horeb mount horeb god speaks in a still small voice still small voice still small 1 kings 19 1 kings 19:12 1 kings 19:9 cave mantle earthquake jealous for the lord seven thousand baal what doest thou here"
+  },
+  {
+    "key": "elishaChariots",
+    "title": "God’s Army Protects Elisha",
+    "kjvRef": "2 Kings 6:8-17",
+    "who": "The LORD",
+    "to": "Elisha’s servant — and every afraid heart",
+    "apply": "When trouble looks big, God’s help is greater than we see — ask Him to open your eyes to trust Him.",
+    "theme": "Protection",
+    "kw": "elisha gods army protects elisha chariots of fire dothan 2 kings 6 2 kings 6:16 2 kings 6:17 fear not open his eyes they that be with us syria servant of the man of God horses and chariots mountain"
   },
   {
     "key": "elishaBones",

@@ -557,6 +557,16 @@
     "kw": "elijah elisha chariot fire 2 kings 2 whirlwind heaven jordan mantle double portion gilgal bethel jericho"
   },
   {
+    "key": "elishaChariots",
+    "title": "Elisha and the Chariots of Fire",
+    "kjvRef": "2 Kings 6:8-17",
+    "who": "The LORD",
+    "to": "Elisha's servant — and every afraid heart",
+    "apply": "When trouble looks big, God's help is bigger than we see yet — ask Him to open your eyes to trust Him.",
+    "theme": "Protection",
+    "kw": "elisha chariots of fire dothan 2 kings 6 2 kings 6:16 2 kings 6:17 fear not open his eyes they that be with us syria servant of the man of God horses and chariots mountain"
+  },
+  {
     "key": "elishaFloatingAxe",
     "title": "Elisha and the Floating Axe",
     "kjvRef": "2 Kings 6:1-7",

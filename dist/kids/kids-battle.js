@@ -3882,6 +3882,41 @@
       narration:
         "Elisha and the Floating Axe — 2 Kings 6:1-7. The sons of the prophets said, The place where we dwell with thee is too strait — let us go to Jordan, take every man a beam, and make a place there. At Jordan, as one was felling a beam, the axe head fell into the water. He cried, Alas, master! for it was borrowed. Elisha said, Where fell it? He showed him the place. Elisha cut down a stick, cast it in thither, and the iron did swim. Take it up to thee — and he took it. For you: Nothing honest is too small to bring to God."
     },
+    elishaChariots: {
+      title: 'Elisha and the Chariots of Fire',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Night at Dothan — a host with horses and chariots compass the city' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha says, Fear not — they that be with us are more than they that be with them' },
+        { src: 'panel-jesus-3.svg', alt: 'The mountain full of horses and chariots of fire round about Elisha' }
+      ],
+      caption: 'Swipe to see God’s unseen army — more are with us than with them.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha',
+        'chariots of fire',
+        'dothan',
+        '2 kings 6',
+        '2 kings 6:16',
+        '2 kings 6:17',
+        'fear not',
+        'open his eyes',
+        'they that be with us',
+        'syria',
+        'servant of the man of God',
+        'horses and chariots',
+        'mountain'
+      ],
+      kjvRef: '2 Kings 6:8-17',
+      kidContext: {
+        who: 'The LORD',
+        to: "Elisha's servant — and every afraid heart",
+        apply:
+          "When trouble looks big, God's help is bigger than we see yet — ask Him to open your eyes to trust Him."
+      },
+      narration:
+        "Elisha and the Chariots of Fire — 2 Kings 6:8-17. The king of Syria sent a great host; they came by night and compassed Dothan. The servant of the man of God rose early and cried, Alas, my master! how shall we do? Elisha said, Fear not: for they that be with us are more than they that be with them. He prayed, Lord, open his eyes, that he may see. The Lord opened the young man’s eyes — and the mountain was full of horses and chariots of fire round about Elisha. For you: God’s protection is real, even when fear feels loud."
+    },
     isaiahMessianic: {
       title: 'Isaiah\'s Messianic Prophecies',
       panels: [
@@ -6282,7 +6317,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 298, color: '#e5e4e2' }
+      { name: 'Platinum', min: 299, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6400,7 +6435,7 @@
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
-      'elijahHoreb', 'elijahElijahElisha', 'elijahFireFromHeaven', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
+      'elijahHoreb', 'elijahElijahElisha', 'elijahFireFromHeaven', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe', 'elishaChariots',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
       'ezraReturn', 'malachiMessage',
       'jonahVine', 'danielPray', 'estherBanquet',
@@ -6810,8 +6845,14 @@
       return { type: 'carousel', story: 'elishaShunammite' };
     }
     if (
-      /\b2 kings 6\b|\b2 kgs 6\b/.test(low) ||
-      /floating axe|axe head|axe.*float|iron.*float|head.*jordan.*axe/.test(low)
+      /\b2 kings 6:(?:8|9|1[0-7])\b|\b2 kgs 6:(?:8|9|1[0-7])\b/.test(low) ||
+      /dothan|chariots of fire|open his eyes.*see|they that be with us are more|more than they that be with them|mountain.*horses.*chariots.*fire/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaChariots' };
+    }
+    if (
+      /\b2 kings 6:(?:[1-7])\b|\b2 kgs 6:(?:[1-7])\b/.test(low) ||
+      /floating axe|axe head|axe.*float|iron.*float|iron did swim|head.*jordan.*axe/.test(low)
     ) {
       return { type: 'carousel', story: 'elishaFloatingAxe' };
     }
@@ -9459,7 +9500,7 @@
     elijahWidow: 'Miracles',
     elijahHoreb: 'Love',
     elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
-    elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles',
+    elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles', elishaChariots: 'Protection',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',
     danielFieryFurnace: 'Miracles', danielLionsDen: 'Miracles',
     ezraReturn: 'Obedience', malachiMessage: 'Obedience',

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-20T14:06:27.945Z",
-  "surfacedRefCount": 2801,
-  "overrideCount": 2801,
+  "generatedAt": "2026-04-20T14:17:29.203Z",
+  "surfacedRefCount": 2804,
+  "overrideCount": 2804,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 168,
+      "refs": 169,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 184,
+      "refs": 185,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 152,
+      "refs": 154,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 182,
+      "refs": 183,
       "pairs": 0
     },
     "memorize.html": {
@@ -909,7 +909,10 @@
     "2 Kings 5:14",
     "2 Kings 5:15",
     "2 Kings 6:1-7",
+    "2 Kings 6:14-17",
+    "2 Kings 6:17",
     "2 Kings 6:6",
+    "2 Kings 6:8-17",
     "2 Kings 9:1",
     "2 Kings 9:33",
     "2 Peter 1:10",
@@ -6624,10 +6627,34 @@
         "to": "Israel"
       }
     },
+    "2 Kings 6:14-17": {
+      "general": {
+        "plainExplanation": "Key idea: Therefore sent he thither horses, and chariots, and a great host: and they came by night, and compassed the city about. And when the servant of the man of G...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 6:17": {
+      "general": {
+        "plainExplanation": "Key idea: And Elisha prayed, and said, LORD, I pray you, open his eyes, that he may see. And the LORD opened the eyes of the young man; and he saw: and, look, the mou...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
     "2 Kings 6:6": {
       "general": {
         "plainExplanation": "And the man of God said, Where fell it? And he shewed him the place. And he cut down a stick, and cast it in thither; and the iron did swim.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 6:8-17": {
+      "general": {
+        "plainExplanation": "Key idea: Then the king of Syria warred against Israel, and took counsel with his servants, saying, In such and such a place shall be my camp. And the man of God sent...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Unknown",
         "to": "Israel"
       }

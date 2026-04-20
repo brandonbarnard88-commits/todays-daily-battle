@@ -100,6 +100,7 @@
     'widowOil',
     'naamanHealed',
     'elishaFloatingAxe',
+    'elishaChariots',
     'naamanDip',
     'ezraReturn',
     'nehemiahWalls',

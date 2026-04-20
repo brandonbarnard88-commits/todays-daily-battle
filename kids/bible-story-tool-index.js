@@ -574,7 +574,7 @@
     "to": "A mother, a prophet, and a child — through Elisha",
     "apply": "God hears when we pray. He cares for families — hospitality, faith, and tender mercy that brings life and joy.",
     "theme": "Miracles",
-    "kw": "elisha elisha prays boy lives shunammite shunem great woman 2 kings 4 2 kings 4:8 2 kings 4:16 2 kings 4:35 little chamber man of God mount carmel sneezed seven times take up thy son miracle gentle"
+    "kw": "elisha elisha prays boy lives shunammite shunem great woman kind woman 2 kings 4 2 kings 4:8 2 kings 4:16 2 kings 4:35 little chamber man of God mount carmel sneezed seven times take up thy son miracle gentle passed by hospitality"
   },
   {
     "key": "elishaMiracles",

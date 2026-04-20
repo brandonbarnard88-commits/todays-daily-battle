@@ -46,7 +46,7 @@ module.exports = {
     }
   ],
   paragraphs: [
-    'A great woman in Shunem made a little chamber on the wall with a bed, table, stool, and candlestick for Elisha whenever he passed by. Elisha promised her a son, and she had a little boy just as he said.',
+    'A kind woman in Shunem made a little chamber on the wall with a bed, table, stool, and candlestick for Elisha whenever he passed by. Elisha promised her a son, and she had a little boy just as he said.',
     'One day the child became sick and died on his mother’s knees. The mother laid him on Elisha’s bed, shut the door, and hurried to find Elisha on Mount Carmel.',
     'Elisha came to the house, went in, shut the door, prayed, and lay upon the child. The flesh of the child waxed warm. Elisha went up and down, then lay upon him again.',
     'The child sneezed seven times and opened his eyes. Elisha said, Take up thy son. The mother took her boy and was full of joy.',

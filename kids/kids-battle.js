@@ -3359,6 +3359,7 @@
         'shunammite',
         'shunem',
         'great woman',
+        'kind woman',
         '2 kings 4',
         '2 kings 4:8',
         '2 kings 4:16',
@@ -3381,7 +3382,7 @@
           'God hears when we pray. He cares for families — hospitality, faith, and tender mercy that brings life and joy.'
       },
       narration:
-        "Elisha Prays and the Boy Lives — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall with a bed, table, stool, and candlestick for Elisha whenever he passed by. Elisha promised her a son; she had a little boy just as he said. One day the child became sick and died on his mother’s knees. She laid him on Elisha’s bed, shut the door, and hurried to find Elisha on Mount Carmel. Elisha came, went in, shut the door, prayed, and lay upon the child. The flesh waxed warm; he went up and down, then lay upon him again. The child sneezed seven times and opened his eyes. Elisha said, Take up thy son. She took her boy and was full of joy. The Lord used Elisha to bring the child back to life and show His tender care for families. For you: God hears prayer — He cares for mothers and children."
+        "Elisha Prays and the Boy Lives — 2 Kings 4:8-37. A kind woman in Shunem made a little chamber on the wall with a bed, table, stool, and candlestick for Elisha whenever he passed by. Elisha promised her a son; she had a little boy just as he said. One day the child became sick and died on his mother’s knees. She laid him on Elisha’s bed, shut the door, and hurried to find Elisha on Mount Carmel. Elisha came, went in, shut the door, prayed, and lay upon the child. The flesh waxed warm; he went up and down, then lay upon him again. The child sneezed seven times and opened his eyes. Elisha said, Take up thy son. She took her boy and was full of joy. The Lord used Elisha to bring the child back to life and show His tender care for families. For you: God hears prayer — He cares for mothers and children."
     },
     gehaziGreed: {
       title: 'Gehazi and Honest Hearts',

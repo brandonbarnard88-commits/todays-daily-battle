@@ -1568,23 +1568,23 @@
   },
   {
     "key": "naamanHealed",
-    "title": "Naaman Is Healed of Leprosy",
-    "kjvRef": "2 Kings 5:1-15",
+    "title": "Naaman Obeys and Is Made Clean",
+    "kjvRef": "2 Kings 5:1-14",
     "who": "The LORD",
     "to": "Naaman — through Elisha’s word",
-    "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
+    "apply": "God heals when we obey simply and humbly — even when we want our own way first.",
     "theme": "Obedience",
-    "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
+    "kw": "naaman naaman obeys naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria little child servants"
   },
   {
     "key": "naaman",
-    "title": "Naaman Is Healed of Leprosy",
-    "kjvRef": "2 Kings 5:1-15",
+    "title": "Naaman Obeys and Is Made Clean",
+    "kjvRef": "2 Kings 5:1-14",
     "who": "The LORD",
     "to": "Naaman — through Elisha’s word",
-    "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
+    "apply": "God heals when we obey simply and humbly — even when we want our own way first.",
     "theme": "Obedience",
-    "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
+    "kw": "naaman naaman obeys naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria little child servants"
   },
   {
     "key": "naamanDip",

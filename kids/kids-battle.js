@@ -1364,17 +1364,18 @@
         "Elisha Follows Elijah – 1 Kings 19:19-21. Elijah found Elisha plowing with twelve yoke of oxen. Elijah passed by him and cast his mantle upon him. Elisha left the oxen, ran after Elijah, and said, Let me, I pray thee, kiss my father and my mother, and then I will follow thee. Elijah said, Go back again: for what have I done to thee? Elisha went back, took a yoke of oxen, slew them, boiled their flesh with the instruments, and gave unto the people, and they did eat. Then he arose, went after Elijah, and ministered unto him. For you: God calls us to follow Him with a willing heart."
     },
     naamanHealed: {
-      title: 'Naaman Is Healed of Leprosy',
+      title: 'Naaman Obeys and Is Made Clean',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A great captain — a little maid points to God’s prophet' },
+        { src: 'panel-jesus-1.svg', alt: 'A little maid’s faith — the prophet in Samaria' },
         { src: 'panel-jesus-2.svg', alt: 'Wash in Jordan seven times — Wash, and be clean' },
-        { src: 'panel-jesus-3.svg', alt: 'Seven times in the river — clean like a little child' }
+        { src: 'panel-jesus-3.svg', alt: 'Seven dips — clean like a little child' }
       ],
-      caption: 'Swipe to see God heal Naaman — simple obedience, gentle mercy.',
+      caption: 'Swipe for Naaman — simple obedience in the Jordan, gentle healing.',
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
       keywords: [
         'naaman',
+        'naaman obeys',
         'naaman healed',
         '2 kings 5',
         '2 kings 5:1',
@@ -1387,17 +1388,19 @@
         'little maid',
         'samaria',
         'wash and be clean',
-        'syria'
+        'syria',
+        'little child',
+        'servants'
       ],
-      kjvRef: '2 Kings 5:1-15',
+      kjvRef: '2 Kings 5:1-14',
       kidContext: {
         who: 'The LORD',
         to: 'Naaman — through Elisha’s word',
         apply:
-          'God’s healing often comes through simple obedience — even when pride wants a louder way.'
+          'God heals when we obey simply and humbly — even when we want our own way first.'
       },
       narration:
-        "Naaman Is Healed of Leprosy — 2 Kings 5:1-15. Naaman was captain of the king of Syria, a great man, but he was a leper. A little maid said, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy. Naaman came with horses and chariot and stood at the door of Elisha’s house. Elisha sent word, Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman was wroth — but his servants said, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean? Naaman dipped seven times; his flesh came again like unto the flesh of a little child, and he was clean. He returned and said, Behold, now I know that there is no God in all the earth, but in Israel. For you: Simple obedience brings cleansing — God is mighty to heal."
+        "Naaman Obeys and Is Made Clean — 2 Kings 5:1-14. Naaman was a great captain, but he had leprosy. A little maid from Israel told his wife about the prophet in Samaria. Naaman went to Elisha’s house. Elisha sent word, Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman was angry and wanted his own rivers — but his servants said gently, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean? So Naaman dipped seven times in Jordan. His flesh came again like unto the flesh of a little child, and he was clean. For you: The Lord used Elisha to show that simple obedience brings cleansing and healing."
     },
     jesusWalksWater: {
       title: 'Jesus Walks on Water',

@@ -517,6 +517,16 @@
     "kw": "elijah ravens cherith brook 1 kings 17 bread flesh ahab"
   },
   {
+    "key": "elijahHoreb",
+    "title": "Elijah & the Still Small Voice",
+    "kjvRef": "1 Kings 19:9-18",
+    "who": "The LORD",
+    "to": "Elijah — and every tired heart that needs a gentle word",
+    "apply": "God was not in the wind, earthquake, or fire — but He spoke in a still small voice. Listen quietly; He is near.",
+    "theme": "Love",
+    "kw": "elijah horeb mount horeb still small voice still small 1 kings 19 1 kings 19:12 1 kings 19:9 cave mantle earthquake jealous for the lord seven thousand baal"
+  },
+  {
     "key": "elijahWidow",
     "title": "Elijah & the Widow",
     "kjvRef": "1 Kings 17:8-16",
@@ -534,7 +544,7 @@
     "to": "God",
     "apply": "When God calls, be willing to obey — even when it means leaving something good behind.",
     "theme": "Obedience",
-    "kw": "elijah elisha cloak oxen 1 kings 19 prophet follow call"
+    "kw": "elijah calls elisha elisha plow abelmeholah cloak elisha oxen 1 kings 19:19 1 kings 19:20 1 kings 19:21 anoint elisha elisha son of shaphat follow elisha elisha prophet"
   },
   {
     "key": "elijahFireFromHeaven",

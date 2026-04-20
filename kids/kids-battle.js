@@ -1284,6 +1284,39 @@
           'He answered Elijah’s prayer with fire from heaven — calm awe, not noise: The LORD, he is the God. Trust Him first.'
       }
     },
+    elijahHoreb: {
+      title: 'Elijah & the Still Small Voice',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elijah in the cave at Horeb — What doest thou here?' },
+        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire — then a still small voice' },
+        { src: 'panel-noah-3.svg', alt: 'Elijah wraps his face — God speaks gently' }
+      ],
+      caption: 'Swipe for Horeb — after the loud came a still small voice.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elijah horeb',
+        'mount horeb',
+        'still small voice',
+        'still small',
+        '1 kings 19',
+        '1 kings 19:12',
+        '1 kings 19:9',
+        'cave',
+        'mantle',
+        'earthquake',
+        'jealous for the lord',
+        'seven thousand',
+        'baal'
+      ],
+      kjvRef: '1 Kings 19:9-18',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah — and every tired heart that needs a gentle word',
+        apply:
+          'God was not in the wind, earthquake, or fire — but He spoke in a still small voice. Listen quietly; He is near.'
+      }
+    },
     elishaOil: {
       title: 'Elisha & the Widow\'s Oil',
       panels: [
@@ -1965,6 +1998,43 @@
       },
       narration:
         "Elijah and the Fire on Mount Carmel – 1 Kings 18:17-39. Ahab met Elijah; the prophet called Israel to Carmel with the prophets of Baal. Elijah asked, How long halt ye between two opinions? If the LORD be God, follow him. The God that answereth by fire, let him be God. Baal’s prophets called from morning — no voice answered. At evening Elijah repaired the altar, set the sacrifice, poured water until the trench was full, and prayed: LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel. Hear me, O LORD, that this people may know that thou art the LORD God. Then the fire of the LORD fell — it consumed the sacrifice, the wood, the stones, the dust, and licked up the water. The people fell on their faces: The LORD, he is the God. For you: The true God is near when we pray — put Him first, and trust His answer."
+    },
+    elijahHoreb: {
+      title: 'Elijah and the Still Small Voice',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'At Horeb — the word of the LORD in the cave' },
+        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire — then a still small voice' },
+        { src: 'panel-noah-3.svg', alt: 'Elijah wraps his face — seven thousand have not bowed to Baal' }
+      ],
+      caption: 'Swipe for Horeb — God spoke in a still small voice.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elijah horeb',
+        'mount horeb',
+        'mountain of god',
+        'still small voice',
+        'still small',
+        '1 kings 19',
+        '1 kings 19:9',
+        '1 kings 19:12',
+        '1 kings 19:18',
+        'cave',
+        'mantle',
+        'what doest thou here',
+        'jealous for the lord',
+        'seven thousand',
+        'not bowed unto baal'
+      ],
+      kjvRef: '1 Kings 19:9-18',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah — and every heart that needs quiet courage',
+        apply:
+          'The LORD was not in the storm — but He met Elijah gently. He still speaks in quiet ways; listen for Him.'
+      },
+      narration:
+        "Elijah and the Still Small Voice – 1 Kings 19:9-18. Elijah lodged in a cave; the word of the LORD came: What doest thou here, Elijah? He told how he had been jealous for the LORD — and felt alone. Go forth, stand upon the mount before the LORD. The LORD passed by: a great wind rent the mountains — the LORD was not in the wind; an earthquake — the LORD was not in the earthquake; a fire — the LORD was not in the fire; and after the fire a still small voice. When Elijah heard it, he wrapped his face in his mantle and stood in the entering in of the cave. The LORD spoke again — and showed him faithful work ahead, and this comfort: Yet I have left me seven thousand in Israel, all the knees which have not bowed unto Baal. For you: When life feels loud inside, God can still speak softly — lean in and listen."
     },
     elishaOil: {
       title: 'Elisha and the Oil',
@@ -3551,7 +3621,20 @@
       caption: 'Swipe to see Elisha leave the field to follow God\'s call! 🌾',
       videoId: '',
       videoTitle: '',
-      keywords: ['elijah', 'elisha', 'cloak', 'oxen', '1 kings 19', 'prophet', 'follow', 'call'],
+      keywords: [
+        'elijah calls elisha',
+        'elisha plow',
+        'abelmeholah',
+        'cloak',
+        'elisha oxen',
+        '1 kings 19:19',
+        '1 kings 19:20',
+        '1 kings 19:21',
+        'anoint elisha',
+        'elisha son of shaphat',
+        'follow elisha',
+        'elisha prophet'
+      ],
       kjvRef: '1 Kings 19:19–21',
       kidContext: { who: 'Elisha', to: 'God', apply: 'When God calls, be willing to obey — even when it means leaving something good behind.' }
     },
@@ -5995,7 +6078,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 297, color: '#e5e4e2' }
+      { name: 'Platinum', min: 298, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6094,7 +6177,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -6113,7 +6196,7 @@
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
-      'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
+      'elijahFireFromHeaven', 'elijahHoreb', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
       'ezraReturn', 'malachiMessage',
       'jonahVine', 'danielPray', 'estherBanquet',
@@ -6465,15 +6548,34 @@
       return { type: 'carousel', story: 'elijahWidow' };
     }
     if (
+      /\b1 kings 19:(?:9|1[0-8])\b|\b1 kgs 19:(?:9|1[0-8])\b/.test(low) ||
+      (/mount horeb|horeb.*elijah|elijah.*horeb|still small voice|still small|what doest thou here|seven thousand|not bowed unto baal|not kissed him/.test(low) &&
+        !/(19:19|19:20|19:21|abelmeholah|oxen|plow|cloak|elisha.*plow|plow.*elisha)/.test(low)) ||
+      (/\b1 kings 19\b/.test(low) && !/(19:19|19:20|19:21|abelmeholah|oxen|plow|cloak)/.test(low))
+    ) {
+      return { type: 'carousel', story: 'elijahHoreb' };
+    }
+    if (
+      /\b1 kings 19:(?:19|20|21)\b|\b1 kgs 19:(?:19|20|21)\b/.test(low) ||
+      /abelmeholah|elisha.*\b(oxen|plow|cloak)\b|\b(oxen|plow|cloak)\b.*elisha|anoint.*elisha.*prophet|prophet in thy room/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elijahElijahElisha' };
+    }
+    if (
+      /2 kings 2:11|whirlwind.*elijah|elijah.*whirlwind|elijah.*chariot|chariot.*elijah|fiery chariot|taken up.*heaven.*elijah/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elijahChariot' };
+    }
+    if (
       /\b1 kings 18:(?:1[7-9]|[2-3][0-9])\b|\b1 kgs 18:(?:1[7-9]|[2-3][0-9])\b/.test(low) ||
-      /elijah.*\b(carmel|baal|altar|fire|18)\b|\b(baal|carmel|mount carmel)\b.*elijah|1 kings 18|2 kings 2:11|whirlwind.*elijah|fire.*heaven.*altar|elijah.*fire from heaven|two opinions|answereth by fire|prophets of baal/.test(low)
+      /elijah.*\b(carmel|baal|altar|fire|18)\b|\b(baal|carmel|mount carmel)\b.*elijah|1 kings 18|fire.*heaven.*altar|elijah.*fire from heaven|two opinions|answereth by fire|prophets of baal/.test(low)
     ) {
       return { type: 'carousel', story: 'elijahFire' };
     }
     if (
       /\belijah\b/.test(low) &&
       !/elisha/.test(low) &&
-      !/(carmel|baal|altar|1 kings 18|1 kings 19|2 kings 2|whirlwind|chariot|still small|zarephath|zidon|barrel|cruse)/.test(low)
+      !/(carmel|baal|altar|1 kings 18|1 kings 19|2 kings 2|whirlwind|chariot|still small|zarephath|zidon|barrel|cruse|horeb)/.test(low)
     ) {
       return { type: 'carousel', story: 'elijahRavens' };
     }
@@ -9113,6 +9215,7 @@
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
+    elijahHoreb: 'Love',
     elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
     elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',

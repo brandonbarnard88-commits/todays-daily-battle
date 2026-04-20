@@ -115,6 +115,7 @@
       solomonTemple: 'solomonTemple',
       elijahRavens: 'elijahRavens',
       elijahWidow: 'elijahWidow',
+      elijahHoreb: 'elijahHoreb',
       psalm23: 'psalm23Shepherd',
       psalm23Shepherd: 'psalm23Shepherd',
       goliathChallenge: 'david',
@@ -798,6 +799,28 @@
         person(336, 210, 7, 18) +
         sun(52, 48, 16) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 18:38</text>'
+      ),
+
+      /* Elijah and the still small voice — Horeb, cave (loop 47) */
+      elijahHoreb: svg(
+        '<path d="M0 255 Q120 200 200 248 Q280 200 400 255" ' + s + ' stroke-width="2.5" fill="none"/>' +
+        /* cave arch */
+        '<path d="M60 260 L60 140 Q200 95 340 140 L340 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="200" cy="155" rx="95" ry="48" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* soft light — still small */
+        '<line x1="200" y1="35" x2="200" y2="95" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
+        '<line x1="185" y1="42" x2="192" y2="88" ' + s + ' stroke-width="1.2" stroke-dasharray="4,4"/>' +
+        '<line x1="215" y1="42" x2="208" y2="88" ' + s + ' stroke-width="1.2" stroke-dasharray="4,4"/>' +
+        '<circle cx="200" cy="28" r="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* Elijah at entrance — mantle to face */
+        '<circle cx="200" cy="198" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M168 188 Q200 175 232 188 Q228 210 200 215 Q172 210 168 188" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="200" y1="209" x2="200" y2="252" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="200" y1="225" x2="178" y2="238" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="225" x2="222" y2="238" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="252" x2="188" y2="278" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="252" x2="212" y2="278" ' + s + ' stroke-width="2.2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 19:12</text>'
       ),
 
       /* ── Week 1: Elisha Oil (19) ── */
@@ -1728,6 +1751,25 @@
         person(315, 190, 10, 28) +
         sun(320, 45, 18) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kgs 3:27</text>'
+      ),
+
+      /* Elijah calls Elisha — oxen, field (1 Kings 19:19-21) */
+      elijahElijahElisha: svg(
+        ground() + hills() +
+        sun(48, 44, 18) +
+        /* ox */
+        '<ellipse cx="115" cy="218" rx="38" ry="22" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="88" cy="208" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M75 212 L68 228 M101 212 L108 228" ' + s + ' stroke-width="2"/>' +
+        /* plow */
+        '<path d="M125 232 L165 218 L175 238" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="165" y1="218" x2="155" y2="248" ' + s + ' stroke-width="2.5"/>' +
+        /* Elisha (right of plow) */
+        person(185, 188, 10, 28) +
+        /* Elijah casting mantle — simple arc */
+        person(268, 182, 11, 30) +
+        '<path d="M248 195 Q230 188 205 200" ' + s + ' stroke-width="2.5"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 19:19</text>'
       ),
 
       /* Solomon builds the temple — glory cloud, prayer (1 Kings 8:10-11) */
@@ -3322,8 +3364,9 @@
     solomonTemple: 'solomonTemple',
     elijahRavens: 'elijahRavens',
     elijahWidow: 'elijahWidow',
+    elijahHoreb: 'elijahHoreb',
     elijahFireFromHeaven: 'elijahFire',
-    elijahElijahElisha: 'elijahChariot',
+    elijahElijahElisha: 'elijahElijahElisha',
     elijahChariot: 'elijahChariot',
     elishaMiracles: 'elishaOil',
     elishaFloatingAxe: 'naamanDip',
@@ -3544,6 +3587,7 @@
     solomonTemple: 'solomonTemple',
     elijahRavens: 'elijahRavens',
     elijahWidow: 'elijahWidow',
+    elijahHoreb: 'elijahHoreb',
     /* ── creation / week-1 existing ── */
     creationLight: 'creationLight',
     adamEve: 'adamEve',
@@ -5076,8 +5120,8 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow',
-        'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb',
+        'davidSheep', 'david', 'elijahFire', 'elijahHoreb', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',

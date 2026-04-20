@@ -66,6 +66,7 @@
     elijahElijahElisha: 48,
     elijahRavens: 46,
     elijahWidow: 180,
+    elijahHoreb: 47,
     elijahFire: 18,
     elijahFireFromHeaven: 18,
     elishaFloatingAxe: 21,

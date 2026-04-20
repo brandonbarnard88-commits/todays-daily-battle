@@ -90,6 +90,7 @@
     'elijahRavens',
     'elijahWidow',
     'elijahFire',
+    'elijahHoreb',
     'elijahFireFromHeaven',
     'elijahElijahElisha',
     'elijahChariot',

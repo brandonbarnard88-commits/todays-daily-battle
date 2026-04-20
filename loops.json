@@ -434,12 +434,13 @@
   },
   {
     "id": 47,
-    "title": "Elijah Still Small Voice",
+    "title": "Elijah and the Still Small Voice",
     "file": "",
     "audio": "",
-    "ref": "1 Kings 19:12",
+    "ref": "1 Kings 19:9-18",
     "week": 3,
-    "libraryKey": "elijahElijahElisha"
+    "libraryKey": "elijahHoreb",
+    "kjvText": "And after the earthquake a fire; but the LORD was not in the fire: and after the fire a still small voice."
   },
   {
     "id": 48,

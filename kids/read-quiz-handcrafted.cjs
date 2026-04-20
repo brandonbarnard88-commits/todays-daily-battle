@@ -19,6 +19,7 @@
  * Elijah and the widow of Zarephath: read-quiz-elijah-widow-pack.cjs (key elijahWidow).
  * Elijah and the fire on Mount Carmel: read-quiz-elijah-fire-carmel-pack.cjs (key elijahFire).
  * Elijah and the still small voice (Horeb): read-quiz-elijah-horeb-pack.cjs (key elijahHoreb).
+ * Elijah calls Elisha (field / mantle): read-quiz-elijah-calls-elisha-pack.cjs (key elijahElijahElisha).
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
@@ -38,6 +39,7 @@ const elijahRavensReadQuizPack = require('./read-quiz-elijah-ravens-pack.cjs');
 const elijahWidowReadQuizPack = require('./read-quiz-elijah-widow-pack.cjs');
 const elijahFireCarmelReadQuizPack = require('./read-quiz-elijah-fire-carmel-pack.cjs');
 const elijahHorebReadQuizPack = require('./read-quiz-elijah-horeb-pack.cjs');
+const elijahCallsElishaReadQuizPack = require('./read-quiz-elijah-calls-elisha-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3885,5 +3887,6 @@ module.exports = {
   elijahRavens: elijahRavensReadQuizPack,
   elijahWidow: elijahWidowReadQuizPack,
   elijahFire: elijahFireCarmelReadQuizPack,
-  elijahHoreb: elijahHorebReadQuizPack
+  elijahHoreb: elijahHorebReadQuizPack,
+  elijahElijahElisha: elijahCallsElishaReadQuizPack
 };

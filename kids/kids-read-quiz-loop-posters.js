@@ -63,7 +63,7 @@
     dragonFight: 117,
     earlyChurchLife: 91,
     elijahChariot: 48,
-    elijahElijahElisha: 48,
+    elijahElijahElisha: 181,
     elijahRavens: 46,
     elijahWidow: 180,
     elijahHoreb: 47,

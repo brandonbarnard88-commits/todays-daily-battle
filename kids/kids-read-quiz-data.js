@@ -5243,88 +5243,107 @@
     ]
   },
   "elijahElijahElisha": {
-    "kjvRef": "1 Kings 19:19–21",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Kings 19:19-21 (KJV)",
+    "verseExcerpt": "So he departed thence, and found Elisha the son of Shaphat, who was plowing with twelve yoke of oxen before him, and he with the twelfth: and Elijah passed by him, and cast his mantle upon him. — 1 Kings 19:19 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — Elisha rose and followed, and ministered unto him.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "So he departed thence, and found Elisha the son of Shaphat, who was plowing with twelve yoke of oxen before him, and he with the twelfth: and Elijah passed by him, and cast his mantle upon him.",
+        "caption": "Plowing in the field — Elijah cast his mantle upon him",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he left the oxen, and ran after Elijah, and said, Let me, I pray thee, kiss my father and my mother, and then I will follow thee. And he said unto him, Go back again: for what have I done to thee?",
+        "caption": "Let me kiss my father and my mother — Go back again",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And he returned back from him, and took a yoke of oxen, and slew them, and boiled their flesh with the instruments of the oxen, and gave unto the people, and they did eat. Then he arose, and went after Elijah, and ministered unto him.",
+        "caption": "He arose, and went after Elijah, and ministered unto him",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Elijah Calls Elisha (1 Kings 19:19–21).",
-      "Elisha plows with oxen.",
-      "Elijah throws his cloak Elisha says goodbye and follows Elijah Elisha serves and learns.",
-      "ready for God's work When God calls, be willing to obey.",
-      "even when it means leaving something good behind."
+      "Elijah found Elisha the son of Shaphat plowing with twelve yoke of oxen — and Elijah passed by him, and cast his mantle upon him.",
+      "Elisha left the oxen and ran after Elijah. He asked to kiss his father and mother, and then follow. Elijah said, Go back again: for what have I done to thee?",
+      "Elisha returned, took a yoke of oxen, slew them, and boiled their flesh with the instruments of the oxen, and gave unto the people, and they did eat. Then he arose, and went after Elijah, and ministered unto him.",
+      "For you: When God calls, we can answer with a willing heart — and serve Him step by step."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What was Elisha doing when Elijah found him?",
         "choices": [
-          "Matthew 7",
-          "1 Kings 19:19–21",
-          "Genesis 18:9–15",
-          "Revelation 8–11"
+          "Sleeping.",
+          "Plowing with oxen.",
+          "Building a house.",
+          "Fishing."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Kings 19:19–21.)"
+        "correctFeedback": "Twelve yoke of oxen — he with the twelfth.",
+        "wrongFeedback": "Listen for plowing. (Answer: Plowing with oxen.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did Elijah cast upon Elisha?",
         "choices": [
-          "Elisha",
-          "The crowds",
-          "The LORD",
-          "The Lord"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Elisha.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray.",
-          "When God calls, be willing to obey — even when it means leaving something good behind."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When God calls, be willing to obey — even when it means leaving something good behind..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Elisha plows with oxen — Elijah throws his cloak",
-          "A spaceship landed in the parking lot."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Ignore God until we are older.",
-          "When God calls, be willing to obey — even when it means leaving something good behind.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us."
+          "A stone.",
+          "His mantle.",
+          "A crown.",
+          "Water only."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When God calls, be willing to obey — even when it means leaving something good behind..)"
+        "correctFeedback": "Elijah passed by him, and cast his mantle upon him.",
+        "wrongFeedback": "Listen for mantle. (Answer: His mantle.)"
+      },
+      {
+        "question": "What did Elisha ask before he followed?",
+        "choices": [
+          "For gold.",
+          "Let me kiss my father and my mother, and then I will follow thee.",
+          "To stay in the field.",
+          "For nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Honor parents — then follow God’s call.",
+        "wrongFeedback": "Listen for kiss my father and mother. (Answer: Kiss father and mother, then follow.)"
+      },
+      {
+        "question": "What did Elijah first say to him?",
+        "choices": [
+          "Run faster.",
+          "Go back again: for what have I done to thee?",
+          "Stop.",
+          "Go home forever."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Go back again — a quiet test of heart.",
+        "wrongFeedback": "Listen for “Go back again.” (Answer: Go back again….)"
+      },
+      {
+        "question": "What did Elisha do at the last?",
+        "choices": [
+          "Stayed in the field only.",
+          "He arose, and went after Elijah, and ministered unto him.",
+          "Refused.",
+          "Hid."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He ministered unto him — faithful service.",
+        "wrongFeedback": "Listen for ministered unto him. (Answer: Went after Elijah and ministered unto him.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Elijah Calls Elisha with God's Word today.",
-    "takeaway": "When God calls, be willing to obey — even when it means leaving something good behind.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Elijah Calls Elisha. Amen.",
+    "doneMessage": "Well done — following God often begins with one willing step.",
+    "takeaway": "Elisha left the oxen, honored his parents, fed the people, and rose to follow Elijah — and ministered unto him.",
+    "prayer": "Lord, when You call, give us willing hearts to follow and serve. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha plows with oxen — Elijah throws his cloak (elijah calls elisha)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha says goodbye and follows Elijah (elisha plow)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha serves and learns — ready for God's work (abelmeholah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha plows with oxen — Elijah throws his cloak (cloak)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha says goodbye and follows Elijah (elisha oxen)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha beside oxen and plow in field Elijah walking past mantle gently touching Elisha thoughtful peaceful face soft hills minimal obedient hopeful mood thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Abelmeholah field",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Cast his mantle",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Ministered unto him",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Twelve yoke of oxen"
     ]
   },
   "elijahFire": {
@@ -24394,7 +24413,7 @@
         "choices": [
           "Acts 1:6–11",
           "1 Samuel 18",
-          "1 Kings 19:19–21",
+          "1 Kings 19:19-21",
           "Matthew 27; Mark 15; Luke 23; John 19"
         ],
         "correctIndex": 1,

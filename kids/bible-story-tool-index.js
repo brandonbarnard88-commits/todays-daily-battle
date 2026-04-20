@@ -537,16 +537,6 @@
     "kw": "elijah widow widow of zarephath zarephath zidon barrel of meal cruse of oil handful of meal 1 kings 17 1 kings 17:8 gathering sticks little cake sustain thee"
   },
   {
-    "key": "elijahElijahElisha",
-    "title": "Elijah Calls Elisha",
-    "kjvRef": "1 Kings 19:19–21",
-    "who": "Elisha",
-    "to": "God",
-    "apply": "When God calls, be willing to obey — even when it means leaving something good behind.",
-    "theme": "Obedience",
-    "kw": "elijah calls elisha elisha plow abelmeholah cloak elisha oxen 1 kings 19:19 1 kings 19:20 1 kings 19:21 anoint elisha elisha son of shaphat follow elisha elisha prophet"
-  },
-  {
     "key": "elijahFireFromHeaven",
     "title": "Elijah on Mount Carmel",
     "kjvRef": "1 Kings 18",
@@ -575,6 +565,16 @@
     "apply": "God multiplies—He provides! Give God what you have—He can do more!",
     "theme": "Miracles",
     "kw": "elisha oil widow 2 kings 4 multiply jar"
+  },
+  {
+    "key": "elijahElijahElisha",
+    "title": "Elisha Plows the Field",
+    "kjvRef": "1 Kings 19:19-21",
+    "who": "Elisha",
+    "to": "God — through Elijah's call",
+    "apply": "Elisha did not rush past home — he honored his parents, then rose and followed. God blesses willing, orderly obedience.",
+    "theme": "Obedience",
+    "kw": "elisha plows elijah calls elisha cast his mantle twelve yoke of oxen abelmeholah son of shaphat 1 kings 19 1 kings 19:19 1 kings 19:20 1 kings 19:21 kiss my father and my mother ministered unto him plowing oxen"
   },
   {
     "key": "elishaRaised",

@@ -1757,19 +1757,23 @@
       elijahElijahElisha: svg(
         ground() + hills() +
         sun(48, 44, 18) +
-        /* ox */
-        '<ellipse cx="115" cy="218" rx="38" ry="22" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="88" cy="208" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M75 212 L68 228 M101 212 L108 228" ' + s + ' stroke-width="2"/>' +
+        /* two oxen — yoke hint */
+        '<ellipse cx="95" cy="222" rx="32" ry="20" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="72" cy="212" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="145" cy="222" rx="32" ry="20" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="122" cy="212" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="127" y1="218" x2="113" y2="218" ' + s + ' stroke-width="2"/>' +
         /* plow */
-        '<path d="M125 232 L165 218 L175 238" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="165" y1="218" x2="155" y2="248" ' + s + ' stroke-width="2.5"/>' +
-        /* Elisha (right of plow) */
-        person(185, 188, 10, 28) +
-        /* Elijah casting mantle — simple arc */
-        person(268, 182, 11, 30) +
-        '<path d="M248 195 Q230 188 205 200" ' + s + ' stroke-width="2.5"/>' +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 19:19</text>'
+        '<path d="M155 235 L188 222 L198 242" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="188" y1="222" x2="178" y2="252" ' + s + ' stroke-width="2.5"/>' +
+        /* Elisha */
+        person(218, 186, 10, 28) +
+        /* mantle falling on shoulders */
+        '<path d="M200 178 Q218 168 236 178 Q232 198 218 202 Q204 198 200 178" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* Elijah passing by */
+        person(288, 178, 11, 30) +
+        '<path d="M268 188 Q248 182 228 192" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 19:19-21</text>'
       ),
 
       /* Solomon builds the temple — glory cloud, prayer (1 Kings 8:10-11) */
@@ -5120,8 +5124,8 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb',
-        'davidSheep', 'david', 'elijahFire', 'elijahHoreb', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
+        'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',

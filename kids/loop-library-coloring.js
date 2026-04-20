@@ -37,6 +37,7 @@
   "dorcasRaise": "dorcasRaise",
   "earlyChurchLife": "pentecost",
   "elijahChariot": "elijahChariot",
+  "elijahElijahElisha": "elijahElijahElisha",
   "elijahFire": "elijahFire",
   "elijahHoreb": "elijahHoreb",
   "elijahRavens": "elijahRavens",

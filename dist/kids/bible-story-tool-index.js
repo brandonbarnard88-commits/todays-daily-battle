@@ -49,12 +49,12 @@
   {
     "key": "abigailWise",
     "title": "Abigail's Wisdom",
-    "kjvRef": "1 Samuel 25",
-    "who": "God",
-    "to": "Abigail (and us)",
-    "apply": "Wise words stop anger and save lives! Be quick to bring peace, not fuel.",
+    "kjvRef": "1 Samuel 25:1-42",
+    "who": "The Lord",
+    "to": "Abigail — and every heart that can bring peace",
+    "apply": "Abigail listened, hurried with gifts, and spoke humbly. God used her to keep David from shedding blood. When trouble rises, ask God for wise, kind words.",
     "theme": "Love",
-    "kw": "abigail wise nabal 1 samuel 25 bread donkey peace wisdom"
+    "kw": "abigail abigail wise nabal carmel maon 1 samuel 25 bread wine cakes of figs loaves folly is with him bundle of life blessed be thy advice go up in peace david peace wisdom good understanding"
   },
   {
     "key": "abrahamIsaac",
@@ -335,6 +335,16 @@
     "apply": "Nothing should stop you from praying! God sees your faithfulness.",
     "theme": "Obedience",
     "kw": "daniel pray window daniel 6 law brave lions"
+  },
+  {
+    "key": "davidAbigail",
+    "title": "David & Abigail",
+    "kjvRef": "1 Samuel 25:1-42",
+    "who": "The Lord",
+    "to": "David — and every listener",
+    "apply": "David was angry, but he listened to Abigail and to God. Mercy and wisdom together kept him from doing wrong. When you are hurt, pause and ask God what is right.",
+    "theme": "Love",
+    "kw": "david and abigail david abigail abigail nabal 1 samuel 25 carmel wise gifts bread wine blessed be the lord god of israel folly is with him bundle of life became his wife"
   },
   {
     "key": "david",

@@ -12,6 +12,7 @@
 
   var READ_QUIZ_LOOP_POSTER_MAP = {
     abigailWise: 125,
+    davidAbigail: 125,
     abrahamIsaac: 25,
     adamEve: 23,
     alphaOmega: 120,

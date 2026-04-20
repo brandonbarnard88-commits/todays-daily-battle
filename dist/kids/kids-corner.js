@@ -108,6 +108,7 @@
       davidSaulJealousy: 'david',
       davidJonathan: 'davidJonathan',
       davidJonathanFriendship: 'davidJonathan',
+      davidAbigail: 'abigailWise',
       goliathChallenge: 'david',
       noah: 'noah',
       jonah: 'jonah',
@@ -2398,19 +2399,36 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 4:21</text>'
       ),
 
-      /* ── Week 10: Abigail Wise (124) ── */
+      /* ── Week 10: Abigail / David & Abigail — wise gifts, peaceful path ── */
       abigailWise: svg(
         ground() + hills() +
-        '<path d="M30 260 Q200 230 370 260" ' + s + ' stroke-width="2.5"/>' +
-        person(165, 175, 12, 35) +
-        '<path d="M158 195 Q145 205 148 218" ' + s + ' stroke-width="2.5"/>' +
-        '<ellipse cx="258" cy="218" rx="24" ry="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="242" cy="207" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="145" cy="225" rx="20" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        person(290, 172, 13, 38) +
-        '<path d="M284 188 Q276 198 280 210" ' + s + ' stroke-width="2.5"/>' +
-        sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 25:18</text>'
+        '<path d="M28 258 Q200 232 372 258" ' + s + ' stroke-width="2.2"/>' +
+        /* Abigail kneeling — left */
+        '<ellipse cx="138" cy="248" rx="34" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="138" cy="198" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M132 202 Q138 196 144 202" ' + s + ' stroke-width="1.2"/>' +
+        '<circle cx="134" cy="200" r="1.1" fill="#111"/><circle cx="142" cy="200" r="1.1" fill="#111"/>' +
+        '<path d="M138 209 L138 236" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M126 218 L118 238 M150 218 L158 238" ' + s + ' stroke-width="2"/>' +
+        '<path d="M128 232 L138 222 L148 232" ' + s + ' stroke-width="1.8"/>' +
+        /* baskets — bread, wine, cakes */
+        '<ellipse cx="92" cy="228" rx="22" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="92" cy="214" rx="16" ry="10" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<rect x="178" y="212" width="14" height="22" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="175" y="208" width="20" height="6" rx="2" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="200" cy="232" rx="18" ry="11" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M192 226 Q200 220 208 226" ' + s + ' stroke-width="1.2"/>' +
+        /* David standing — thoughtful */
+        '<circle cx="278" cy="178" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M272 182 Q278 176 284 182" ' + s + ' stroke-width="1.2"/>' +
+        '<circle cx="274" cy="180" r="1.1" fill="#111"/><circle cx="282" cy="180" r="1.1" fill="#111"/>' +
+        '<line x1="278" y1="190" x2="278" y2="248" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="278" y1="210" x2="256" y2="228" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="278" y1="210" x2="300" y2="226" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="278" y1="248" x2="268" y2="268" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="278" y1="248" x2="288" y2="268" ' + s + ' stroke-width="2.2"/>' +
+        sun(48, 48, 16) + cloud(310, 38) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 25:33</text>'
       ),
 
       /* ── Week 10: Hannah Pray (125) ── */
@@ -3255,6 +3273,7 @@
     deborahJudge: 'deborahJudge',
     jaelTent: 'jaelTent',
     abigailWise: 'abigailWise',
+    davidAbigail: 'abigailWise',
     hannahPray: 'hannahPrayer',
     hannahPrayer: 'hannahPrayer',
     maryMagdalene: 'maryMagdalene',
@@ -4853,7 +4872,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

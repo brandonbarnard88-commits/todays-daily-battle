@@ -5,7 +5,6 @@
 (function (g) {
   'use strict';
   g.TDB_LOOP_COLORING_OUTLINE = {
-  "abigailWise": "abigailWise",
   "abrahamIsaac": "abrahamIsaac",
   "achan": "achan",
   "actsPaulMarsHill": "paulSilas",
@@ -26,6 +25,7 @@
   "creation": "creation",
   "creationLight": "creationLight",
   "daniel": "daniel",
+  "davidAbigail": "abigailWise",
   "davidAnointed": "davidAnointed",
   "davidCave": "davidCave",
   "davidGoliath": "davidGoliath",

@@ -1132,12 +1132,13 @@
   },
   {
     "id": 125,
-    "title": "Abigail Wisdom",
+    "title": "David & Abigail",
     "file": "",
     "audio": "",
-    "ref": "1 Samuel 25:32",
+    "ref": "1 Samuel 25:1-42",
     "week": 10,
-    "libraryKey": "abigailWise"
+    "libraryKey": "davidAbigail",
+    "kjvText": "Blessed be the LORD God of Israel, which sent thee this day to meet me: And blessed be thy advice, and blessed be thou, which hast kept me this day from coming to shed blood, and from avenging myself with mine own hand."
   },
   {
     "id": 126,

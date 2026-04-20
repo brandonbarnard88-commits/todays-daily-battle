@@ -5018,16 +5018,78 @@
     abigailWise: {
       title: 'Abigail\'s Wisdom',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'David\'s men are angry—Nabal was rude' },
-        { src: 'panel-noah-2.svg', alt: 'Abigail quickly brings bread and gifts' },
-        { src: 'panel-noah-3.svg', alt: 'David\'s anger calms—wise words prevent disaster!' }
+        { src: 'panel-david-1.svg', alt: 'Nabal answers rudely — David\'s men turned away grieved' },
+        { src: 'panel-david-2.svg', alt: 'Abigail makes haste — loaves, wine, sheep, and figs on asses' },
+        { src: 'panel-david-3.svg', alt: 'She bows before David — Blessed be the LORD which sent thee' }
       ],
-      caption: 'Swipe to see Abigail use wisdom to stop a fight! 🍞',
+      caption: 'Swipe to see wise words and gifts turn anger into peace.',
       videoId: '',
       videoTitle: '',
-      keywords: ['abigail', 'wise', 'nabal', '1 samuel 25', 'bread', 'donkey', 'peace', 'wisdom'],
-      kjvRef: '1 Samuel 25',
-      kidContext: { who: 'God', to: 'Abigail (and us)', apply: 'Wise words stop anger and save lives! Be quick to bring peace, not fuel.' }
+      keywords: [
+        'abigail',
+        'abigail wise',
+        'nabal',
+        'carmel',
+        'maon',
+        '1 samuel 25',
+        'bread',
+        'wine',
+        'cakes of figs',
+        'loaves',
+        'folly is with him',
+        'bundle of life',
+        'blessed be thy advice',
+        'go up in peace',
+        'david',
+        'peace',
+        'wisdom',
+        'good understanding'
+      ],
+      kjvRef: '1 Samuel 25:1-42',
+      kidContext: {
+        who: 'The Lord',
+        to: 'Abigail — and every heart that can bring peace',
+        apply:
+          'Abigail listened, hurried with gifts, and spoke humbly. God used her to keep David from shedding blood. When trouble rises, ask God for wise, kind words.'
+      },
+      narration:
+        "Abigail's Wisdom – 1 Samuel 25:1-42. Nabal was harsh; his wife Abigail was a woman of good understanding. David's men had guarded Nabal's shepherds, yet Nabal answered David's messengers with scorn. When Abigail heard it, she made haste — bread, wine, dressed sheep, parched corn, raisins, and figs on asses — and went to meet David. She bowed low and asked him not to regard her husband's folly: as his name was, so was he. She begged forgiveness and gave the food she brought. David blessed the LORD for sending her and for keeping him that day from shedding blood; he received her gift and sent her in peace. Later, when Nabal died, David sent for Abigail, and she became his wife. For you: God can use a humble, wise heart to protect many."
+    },
+    davidAbigail: {
+      title: 'David & Abigail',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Messengers ask Nabal for food — he refuses with harsh words' },
+        { src: 'panel-david-2.svg', alt: 'Abigail meets David on the path — baskets of blessing' },
+        { src: 'panel-david-3.svg', alt: 'David listens — Blessed be the LORD God of Israel which sent thee' }
+      ],
+      caption: 'Swipe to see God send a wise woman to keep the peace.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'david and abigail',
+        'david abigail',
+        'abigail',
+        'nabal',
+        '1 samuel 25',
+        'carmel',
+        'wise',
+        'gifts',
+        'bread',
+        'wine',
+        'blessed be the lord god of israel',
+        'folly is with him',
+        'bundle of life',
+        'became his wife'
+      ],
+      kjvRef: '1 Samuel 25:1-42',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David — and every listener',
+        apply:
+          'David was angry, but he listened to Abigail and to God. Mercy and wisdom together kept him from doing wrong. When you are hurt, pause and ask God what is right.'
+      },
+      narration:
+        "David & Abigail – 1 Samuel 25:1-42. David asked Nabal for food for his men who had kept Nabal's flocks safe; Nabal answered with insult. David set out in anger — but Abigail heard, loaded donkeys with food, and hurried down the hill to meet him. She bowed and spoke with wisdom: let not my lord regard this man of Belial; folly is with him. She asked forgiveness and gave what she had brought. David blessed the LORD God of Israel for sending her and blessed her advice, for she had kept him from bloodshed. He sent her home in peace. After Nabal died, David took Abigail to be his wife. For you: God honors peacemakers."
     },
     hannahPray: {
       title: 'Hannah Prays for a Baby',
@@ -5571,7 +5633,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 291, color: '#e5e4e2' }
+      { name: 'Platinum', min: 292, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5670,7 +5732,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5712,7 +5774,7 @@
       'alphaOmega', 'newHeaven', 'revelationNewHeaven', 'treeOfLife', 'riverOfLife', 'lambBook',
       'dragonFight', 'beastMark',
       /* Week 10 */
-      'rahabWindow', 'deborahJudge', 'jaelTent', 'abigailWise', 'hannahPray', 'hannahPrayer',
+      'rahabWindow', 'deborahJudge', 'jaelTent', 'abigailWise', 'davidAbigail', 'hannahPray', 'hannahPrayer',
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
@@ -5808,6 +5870,16 @@
       )
     ) {
       return { type: 'carousel', story: 'davidCave' };
+    }
+    if (
+      /\b1 samuel 25\b|\b1 sam 25\b/.test(low) ||
+      /\babigail\b/.test(low) ||
+      /\bnabal\b/.test(low) ||
+      /woman of good understanding|beautiful countenance|churlish and evil|sheepcotes by the way|wilderness of paran|cakes of figs|two hundred loaves|two bottles of wine|five sheep ready dressed|bundle of life|blessed be thy advice|go up in peace to thine house|folly is with him|pisseth against the wall/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidAbigail' };
     }
     if (
       /\b1 samuel 18\b|\b1 sam 18\b/.test(low) &&
@@ -8681,7 +8753,7 @@
     dragonFight: 'Protection', beastMark: 'Obedience',
     /* Week 10 */
     rahabWindow: 'Obedience', deborahJudge: 'Protection', jaelTent: 'Protection',
-    abigailWise: 'Love', hannahPray: 'Miracles', hannahPrayer: 'Miracles', maryMagdalene: 'Love',
+    abigailWise: 'Love', davidAbigail: 'Love', hannahPray: 'Miracles', hannahPrayer: 'Miracles', maryMagdalene: 'Love',
     lydiaSell: 'Obedience', priscillaTeach: 'Obedience', ruthMoab: 'Love',
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */

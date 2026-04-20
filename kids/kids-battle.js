@@ -3395,11 +3395,11 @@
     elishaShunammite: {
       title: 'Elisha Raises the Shunammite\'s Son',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A little room on the wall — bed and candlestick for Elisha' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha prays — the child opens his eyes' },
-        { src: 'panel-noah-3.svg', alt: 'Take up thy son — the mother\'s joy' }
+        { src: 'panel-jesus-1.svg', alt: 'A little chamber on the wall — bed, table, stool, and candlestick for Elisha' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha prays — the child’s flesh waxes warm; he sneezes seven times' },
+        { src: 'panel-jesus-3.svg', alt: 'Take up thy son — the mother’s quiet joy' }
       ],
-      caption: 'Swipe to see God\'s mercy — take up thy son! ✨',
+      caption: 'Swipe to see God’s tender mercy — prayer, warmth, and take up thy son.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -3426,7 +3426,7 @@
           'God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.'
       },
       narration:
-        "Elisha Raises the Shunammite's Son — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall for Elisha — bed, table, stool, and candlestick. Elisha promised her a son; she bare a son in the season he named. Later, deep trouble came to the child; the mother laid him on the prophet's bed and ran to Elisha. When asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me? Elisha prayed, lay upon the child, and the flesh waxed warm. The child sneezed seven times and opened his eyes. Take up thy son. She took him and went out. For you: Run to God with your tears — He is merciful."
+        "Elisha Raises the Shunammite's Son — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall for Elisha — bed, table, stool, and candlestick. Elisha promised her a son; she bare a son in the season he named. One day the boy became sick; she laid him on the prophet's bed, shut the door, and went quickly to find Elisha at Mount Carmel. When Gehazi asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me? Elisha prayed, lay upon the child, and the flesh waxed warm. The child sneezed seven times and opened his eyes. Take up thy son. She took him and went out. For you: Run to God with your tears — He is merciful."
     },
     estherCrown: {
       title: 'Queen Esther\'s Courage',

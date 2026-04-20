@@ -1770,23 +1770,31 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 24:6</text>'
       ),
 
-      /* ── Week 4: Shunammite son raised (49) — little room, prayer, joy (2 Kings 4:33-36) ── */
+      /* Shunammite son raised — chamber, prayer, warmth (2 Kings 4:33-36) */
       elishaShunammite: svg(
         '<rect x="52" y="72" width="296" height="178" rx="8" ' + sf + ' fill="white" stroke-width="2.8"/>' +
-        '<rect x="68" y="88" width="120" height="72" rx="4" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<line x1="88" y1="108" x2="168" y2="108" ' + s + ' stroke-width="1.5"/>' +
-        '<rect x="92" y="128" width="72" height="22" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* soft window light */
+        '<path d="M72 92 L108 88 L108 148 L72 152 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M78 98 L98 94 M82 120 L102 116 M86 138 L104 134" ' + s + ' stroke-width="1.2" opacity="0.5"/>' +
+        '<rect x="92" y="96" width="10" height="6" rx="1" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        /* table + stool */
+        '<rect x="72" y="168" width="56" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="100" cy="188" rx="14" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
         /* bed */
         '<rect x="200" y="138" width="130" height="44" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
         '<path d="M200 160 L330 160" ' + s + ' stroke-width="1.8"/>' +
-        /* child on bed */
-        '<ellipse cx="255" cy="152" rx="12" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* child — peaceful, eyes opening */
+        '<ellipse cx="255" cy="150" rx="12" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="250" cy="148" r="1.4" fill="#111"/><circle cx="260" cy="148" r="1.4" fill="#111"/>' +
+        '<path d="M248 154 Q256 158 264 154" ' + s + ' stroke-width="1.2"/>' +
         '<path d="M238 158 L272 158" ' + s + ' stroke-width="1.6"/>' +
-        /* Elisha kneeling */
+        /* Elisha kneeling — hands raised */
         person(218, 188, 9, 22) +
         '<path d="M210 205 L205 225 M226 205 L231 225" ' + s + ' stroke-width="2"/>' +
-        /* mother */
+        '<path d="M212 188 L198 168 M224 188 L238 168" ' + s + ' stroke-width="1.8"/>' +
+        /* mother — hopeful */
         person(95, 175, 10, 28) +
+        '<path d="M92 162 Q98 158 104 162" ' + s + ' stroke-width="1.1" fill="none"/>' +
         '<path d="M88 188 L108 168" ' + s + ' stroke-width="1.8"/>' +
         '<circle cx="108" cy="162" r="4" ' + sf + ' fill="white" stroke-width="1.5"/>' +
         sun(350, 42, 14) +
@@ -5293,7 +5301,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',

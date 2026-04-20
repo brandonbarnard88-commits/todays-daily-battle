@@ -1477,16 +1477,6 @@
     "kw": "moses staff snake exodus 7 pharaoh sign power"
   },
   {
-    "key": "naaman",
-    "title": "Naaman & the River",
-    "kjvRef": "2 Kings 5:1–15",
-    "who": "God",
-    "to": "Naaman (through Elisha)",
-    "apply": "Obey God—get healed! Even when it seems simple, do what He says!",
-    "theme": "Obedience",
-    "kw": "naaman river leprosy dip jordan 2 kings 5 elisha"
-  },
-  {
     "key": "naamanDip",
     "title": "Naaman Dips in the River",
     "kjvRef": "2 Kings 5:1–15",
@@ -1495,6 +1485,16 @@
     "apply": "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He can heal and help in ways you don't expect.",
     "theme": "Obedience",
     "kw": "naaman river jordan 2 kings 5 leprosy heal obey"
+  },
+  {
+    "key": "naamanHealed",
+    "title": "Naaman Is Healed of Leprosy",
+    "kjvRef": "2 Kings 5:1-14",
+    "who": "The LORD",
+    "to": "Naaman — through Elisha’s word",
+    "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
+    "theme": "Obedience",
+    "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
   },
   {
     "key": "nehemiahWalls",

@@ -9,6 +9,22 @@
  * David & Jonathan: read-quiz-david-jonathan-pack.cjs (keys davidJonathan + davidJonathanFriendship).
  * David spares Saul in the cave: read-quiz-david-cave-pack.cjs (key davidCave).
  * David & Abigail: read-quiz-david-abigail-pack.cjs (keys davidAbigail + abigailWise).
+ * Psalm 23: read-quiz-psalm23-pack.cjs (keys psalm23 + psalm23Shepherd).
+ * David harp before Saul: read-quiz-david-harp-pack.cjs (key davidHarp).
+ * David king over Israel: read-quiz-david-king-pack.cjs (key davidKing).
+ * Solomon asks for wisdom: read-quiz-solomon-wisdom-pack.cjs (key solomonWisdom).
+ * Solomon and the two mothers: read-quiz-solomon-two-mothers-pack.cjs (key solomonTwoMothers).
+ * Solomon builds the temple: read-quiz-solomon-temple-pack.cjs (key solomonTemple).
+ * Elijah and the ravens: read-quiz-elijah-ravens-pack.cjs (key elijahRavens).
+ * Elijah and the widow of Zarephath: read-quiz-elijah-widow-pack.cjs (key elijahWidow).
+ * Elijah and the fire on Mount Carmel: read-quiz-elijah-fire-carmel-pack.cjs (key elijahFire).
+ * Elijah and the still small voice (Horeb): read-quiz-elijah-horeb-pack.cjs (key elijahHoreb).
+ * Elijah calls Elisha (field / mantle): read-quiz-elijah-calls-elisha-pack.cjs (key elijahElijahElisha).
+ * Elijah taken up in the fiery chariot: read-quiz-elijah-chariot-pack.cjs (key elijahChariot).
+ * Elisha's first miracles (Jericho waters + widow's oil): read-quiz-elisha-miracles-pack.cjs (key elishaMiracles).
+ * Elisha and the widow's oil (full): read-quiz-elisha-oil-pack.cjs (key elishaOil).
+ * Elisha and the Shunammite's son: read-quiz-elisha-shunammite-pack.cjs (key elishaShunammite).
+ * Naaman healed of leprosy: read-quiz-naaman-healed-pack.cjs (keys naamanHealed, naamanDip, naaman).
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
@@ -18,6 +34,22 @@ const davidReadQuizPack = require('./read-quiz-david-pack.cjs');
 const davidJonathanReadQuizPack = require('./read-quiz-david-jonathan-pack.cjs');
 const davidCaveReadQuizPack = require('./read-quiz-david-cave-pack.cjs');
 const davidAbigailReadQuizPack = require('./read-quiz-david-abigail-pack.cjs');
+const psalm23ReadQuizPack = require('./read-quiz-psalm23-pack.cjs');
+const davidHarpReadQuizPack = require('./read-quiz-david-harp-pack.cjs');
+const davidKingReadQuizPack = require('./read-quiz-david-king-pack.cjs');
+const solomonWisdomReadQuizPack = require('./read-quiz-solomon-wisdom-pack.cjs');
+const solomonTwoMothersReadQuizPack = require('./read-quiz-solomon-two-mothers-pack.cjs');
+const solomonTempleReadQuizPack = require('./read-quiz-solomon-temple-pack.cjs');
+const elijahRavensReadQuizPack = require('./read-quiz-elijah-ravens-pack.cjs');
+const elijahWidowReadQuizPack = require('./read-quiz-elijah-widow-pack.cjs');
+const elijahFireCarmelReadQuizPack = require('./read-quiz-elijah-fire-carmel-pack.cjs');
+const elijahHorebReadQuizPack = require('./read-quiz-elijah-horeb-pack.cjs');
+const elijahCallsElishaReadQuizPack = require('./read-quiz-elijah-calls-elisha-pack.cjs');
+const elijahChariotReadQuizPack = require('./read-quiz-elijah-chariot-pack.cjs');
+const elishaMiraclesReadQuizPack = require('./read-quiz-elisha-miracles-pack.cjs');
+const elishaOilReadQuizPack = require('./read-quiz-elisha-oil-pack.cjs');
+const elishaShunammiteReadQuizPack = require('./read-quiz-elisha-shunammite-pack.cjs');
+const naamanHealedReadQuizPack = require('./read-quiz-naaman-healed-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3854,5 +3886,24 @@ module.exports = {
   davidJonathanFriendship: davidJonathanReadQuizPack,
   davidCave: davidCaveReadQuizPack,
   davidAbigail: davidAbigailReadQuizPack,
-  abigailWise: davidAbigailReadQuizPack
+  abigailWise: davidAbigailReadQuizPack,
+  psalm23: psalm23ReadQuizPack,
+  psalm23Shepherd: psalm23ReadQuizPack,
+  davidHarp: davidHarpReadQuizPack,
+  davidKing: davidKingReadQuizPack,
+  solomonWisdom: solomonWisdomReadQuizPack,
+  solomonTwoMothers: solomonTwoMothersReadQuizPack,
+  solomonTemple: solomonTempleReadQuizPack,
+  elijahRavens: elijahRavensReadQuizPack,
+  elijahWidow: elijahWidowReadQuizPack,
+  elijahFire: elijahFireCarmelReadQuizPack,
+  elijahHoreb: elijahHorebReadQuizPack,
+  elijahElijahElisha: elijahCallsElishaReadQuizPack,
+  elijahChariot: elijahChariotReadQuizPack,
+  elishaMiracles: elishaMiraclesReadQuizPack,
+  elishaOil: elishaOilReadQuizPack,
+  elishaShunammite: elishaShunammiteReadQuizPack,
+  naamanHealed: naamanHealedReadQuizPack,
+  naamanDip: naamanHealedReadQuizPack,
+  naaman: naamanHealedReadQuizPack
 };

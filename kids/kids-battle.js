@@ -1388,19 +1388,41 @@
       narration:
         "Elisha and the Widow's Oil — 2 Kings 4:1-7. A woman cried to Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When the vessels were full, there was not a vessel more — and the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too. He can provide more than you see yet."
     },
-    naaman: {
-      title: 'Naaman & the River',
+    naamanHealed: {
+      title: 'Naaman Is Healed of Leprosy',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Naaman has leprosy' },
-        { src: 'panel-jesus-2.svg', alt: 'Elisha says: dip in Jordan' },
-        { src: 'panel-jesus-3.svg', alt: 'Naaman obeys—healed!' }
+        { src: 'panel-jesus-1.svg', alt: 'A great captain — a little maid points to God’s prophet' },
+        { src: 'panel-jesus-2.svg', alt: 'Wash in Jordan seven times — Wash, and be clean' },
+        { src: 'panel-jesus-3.svg', alt: 'Seven times in the river — clean like a little child' }
       ],
-      caption: 'Swipe to see Naaman obey—get healed! 💧',
+      caption: 'Swipe to see God heal Naaman — simple faith, great mercy! 💧',
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
-      keywords: ['naaman', 'river', 'leprosy', 'dip', 'jordan', '2 kings 5', 'elisha'],
-      kjvRef: '2 Kings 5:1–15',
-      kidContext: { who: 'God', to: 'Naaman (through Elisha)', apply: 'Obey God—get healed! Even when it seems simple, do what He says!' }
+      keywords: [
+        'naaman',
+        'naaman healed',
+        '2 kings 5',
+        '2 kings 5:1',
+        '2 kings 5:10',
+        '2 kings 5:14',
+        'jordan',
+        'seven times',
+        'leprosy',
+        'elisha',
+        'little maid',
+        'samaria',
+        'wash and be clean',
+        'syria'
+      ],
+      kjvRef: '2 Kings 5:1-14',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Naaman — through Elisha’s word',
+        apply:
+          'God’s healing often comes through simple obedience — even when pride wants a louder way.'
+      },
+      narration:
+        "Naaman Is Healed of Leprosy — 2 Kings 5:1-14. Naaman was a great captain, but a leper. A little maid said, There is a prophet in Samaria — he would recover him. Naaman came to Elisha; the prophet sent word, Go and wash in Jordan seven times. At first Naaman’s heart was hot — but his servants said, If he had bid a great thing, would you not do it? How much more — Wash, and be clean? Naaman dipped seven times; his flesh came again like a little child’s — and he was clean. For you: When God asks something small, trust Him — His mercy is not small."
     },
     jesusWalksWater: {
       title: 'Jesus Walks on Water',
@@ -6221,6 +6243,8 @@
   /** Export stories before any init() so defer + sync-ready pages always have window.TDB_BIBLE_STORIES (Kids Corner, coloring, RPC helpers). */
   if (typeof window !== 'undefined') {
     normalizeBibleStoriesForUi(bibleStories);
+    /** Legacy key — same card as naamanHealed (journey URLs, older links). */
+    bibleStories.naaman = bibleStories.naamanHealed;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -6331,7 +6355,7 @@
       'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'joshuaAi', 'achan', 'battleOfAi',
       'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
-      'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater',
+      'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naamanHealed', 'jesusWalksWater',
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
@@ -6769,8 +6793,13 @@
     ) {
       return { type: 'carousel', story: 'elishaFloatingAxe' };
     }
-    if (/naaman|jordan.*dip|2 kings 5|leprosy/.test(low)) {
-      return { type: 'carousel', story: 'naaman' };
+    if (
+      /\b2 kings 5\b|\b2 kgs 5\b/.test(low) ||
+      /\bnaaman\b/.test(low) ||
+      (/\bleprosy\b/.test(low) && /\b(?:jordan|samaria|syria|elisha|dip|wash)\b/.test(low)) ||
+      /jordan.*dip|dip.*jordan|wash.*clean.*jordan|seven times.*jordan/.test(low)
+    ) {
+      return { type: 'carousel', story: 'naamanHealed' };
     }
     if (
       /\belisha\b/.test(low) &&
@@ -9375,7 +9404,7 @@
     fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
-    naaman: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
+    naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
     jesusTemptation: 'Obedience', parableSower: 'Protection', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',

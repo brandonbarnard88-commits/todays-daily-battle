@@ -166,6 +166,7 @@
     mosesBaby: 9,
     mosesStaffSnake: 14,
     mosesSea: 13,
+    naamanHealed: 21,
     naamanDip: 21,
     naaman: 21,
     nehemiahWalls: 51,

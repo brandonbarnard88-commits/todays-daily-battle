@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (298 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (299 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -343,9 +343,9 @@
       captionsVtt: '/media/kids-stories/elisha-oil.vtt'
     },
     elishaShunammite: {
-      mp4: '/media/kids-stories/elisha-raised.mp4',
-      webm: '/media/kids-stories/elisha-raised.webm',
-      captionsVtt: '/media/kids-stories/elisha-raised.vtt'
+      mp4: '/media/kids-stories/elisha-shunammite.mp4',
+      webm: '/media/kids-stories/elisha-shunammite.webm',
+      captionsVtt: '/media/kids-stories/elisha-shunammite.vtt'
     },
     emmausRoad: {
       mp4: '/media/kids-stories/emmaus-road.mp4',
@@ -891,6 +891,11 @@
       mp4: '/media/kids-stories/naaman-dip.mp4',
       webm: '/media/kids-stories/naaman-dip.webm',
       captionsVtt: '/media/kids-stories/naaman-dip.vtt'
+    },
+    naamanHealed: {
+      mp4: '/media/kids-stories/naaman.mp4',
+      webm: '/media/kids-stories/naaman.webm',
+      captionsVtt: '/media/kids-stories/naaman.vtt'
     },
     nehemiahWalls: {
       mp4: '/media/kids-stories/nehemiah-walls.mp4',

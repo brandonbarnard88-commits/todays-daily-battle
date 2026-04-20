@@ -1,6 +1,6 @@
 # Kids read-quiz source map
 
-Generated: **2026-03-23** (run `npm run kids:audit-read-quiz-sources` to refresh)
+Generated: **2026-04-20** (run `npm run kids:audit-read-quiz-sources` to refresh)
 
 **Note:** This file describes **today’s** pipeline only: what `generate-kids-read-quiz-data.mjs` would do on the next `npm run kids:generate-read-quiz`. Older commits may have edited `kids-read-quiz-data.js` directly for batches of stories; unless those edits were **moved into** `read-quiz-handcrafted.cjs` (or into `narration:` / panel / `kidContext` in `kids-battle.js`), a full regen would rebuild those keys from the generator.
 
@@ -14,13 +14,13 @@ Generated: **2026-03-23** (run `npm run kids:audit-read-quiz-sources` to refresh
 
 | Category | Count |
 |----------|------:|
-| Total `bibleStories` keys | 281 |
-| **Handcrafted** full-pack override | 4 |
-| **Generator** (`buildPack`) | 277 |
-| …with non-empty `narration:` in battle | 20 |
-| …no narration (alt + apply path) | 257 |
+| Total `bibleStories` keys | 298 |
+| **Handcrafted** full-pack override | 62 |
+| **Generator** (`buildPack`) | 236 |
+| …with non-empty `narration:` in battle | 17 |
+| …no narration (alt + apply path) | 219 |
 
-## Handcrafted keys (4)
+## Handcrafted keys (62)
 
 Shared packs (same object used for two library cards each):
 
@@ -29,37 +29,91 @@ Shared packs (same object used for two library cards each):
 
 Keys:
 
-- `david`
-- `davidGoliath`
-- `fallOfJericho`
-- `jerichoWalls`
-
-## Generator keys with `narration:` (20)
-
+- `abigailWise`
+- `achan`
+- `battleOfAi`
+- `bronzeSerpent`
 - `burningBush`
+- `david`
+- `davidAbigail`
+- `davidAnointed`
+- `davidCave`
+- `davidGoliath`
+- `davidHarp`
+- `davidJonathan`
+- `davidJonathanFriendship`
+- `davidKing`
+- `deborahBarak`
+- `elijahChariot`
+- `elijahElijahElisha`
+- `elijahFire`
+- `elijahHoreb`
+- `elijahRavens`
+- `elijahWidow`
+- `elishaMiracles`
+- `elishaOil`
+- `elishaShunammite`
+- `fallOfJericho`
+- `gideonFleece`
+- `gideonMidianites`
+- `goldenCalf`
+- `hannahPrayer`
+- `jerichoWalls`
+- `jordanCrossing`
+- `joshuaCharge`
+- `joshuaJordan`
+- `manna`
+- `mosesBush`
+- `passoverLamb`
+- `psalm23`
+- `psalm23Shepherd`
+- `rahab`
+- `rahabJericho`
+- `rahabRope`
+- `rahabWindow`
+- `redSea`
+- `ruthBoaz`
+- `ruthNaomi`
+- `ruthRedemption`
+- `ruthThreshing`
+- `samson`
+- `samsonBirth`
+- `samsonDelilah`
+- `samsonLion`
+- `samuelAnointsDavid`
+- `samuelBirth`
+- `samuelCall`
+- `samuelCalls`
+- `solomonTemple`
+- `solomonTwoMothers`
+- `solomonWisdom`
+- `spiesInCanaan`
+- `sunStandsStill`
+- `tabernacle`
+- `tenCommandments`
+
+## Generator keys with `narration:` (17)
+
 - `creationLight`
 - `daniel`
 - `esther`
 - `fieryFurnace`
+- `isaiahMessianic`
 - `jacobLadder`
 - `jesusCalmsStorm`
 - `jonah`
 - `josephCoat`
+- `joshuaAi`
 - `lazarus`
-- `manna`
 - `mosesBaby`
 - `mosesSea`
 - `naamanDip`
 - `noah`
-- `redSea`
 - `ruthGlean`
-- `samson`
-- `tenCommandments`
 - `tenPlagues`
 
-## Generator keys without narration — alt/apply only (257)
+## Generator keys without narration — alt/apply only (219)
 
-- `abigailWise`
 - `abrahamIsaac`
 - `actsApollosPriscilla`
 - `actsPaulBeforeAgrippa`
@@ -78,7 +132,6 @@ Keys:
 - `balaakCurse`
 - `balaamBlessing`
 - `balaamDonkey`
-- `battleOfAi`
 - `beastMark`
 - `betrayal`
 - `cainAbel`
@@ -92,27 +145,15 @@ Keys:
 - `danielFieryFurnace`
 - `danielLionsDen`
 - `danielPray`
-- `davidAnointed`
-- `davidCave`
-- `davidHarp`
-- `davidJonathan`
-- `davidJonathanFriendship`
 - `davidSaul`
 - `davidSaulJealousy`
 - `davidSheep`
-- `deborahBarak`
 - `deborahJudge`
 - `dorcasRaise`
 - `dragonFight`
 - `earlyChurchLife`
-- `elijahChariot`
-- `elijahElijahElisha`
-- `elijahFire`
 - `elijahFireFromHeaven`
 - `elishaFloatingAxe`
-- `elishaMiracles`
-- `elishaOil`
-- `elishaRaised`
 - `emmausRoad`
 - `estherBanquet`
 - `estherCrown`
@@ -127,9 +168,6 @@ Keys:
 - `fourHorsemen`
 - `fruitSpirit`
 - `gardenPrayer`
-- `gideonFleece`
-- `gideonMidianites`
-- `goldenCalf`
 - `goliathChallenge`
 - `goodSamaritan`
 - `greatCommission`
@@ -141,7 +179,6 @@ Keys:
 - `heavenPromise`
 - `hebrewsFaith`
 - `holySpiritPentecost`
-- `isaiahMessianic`
 - `jaelTent`
 - `jairus`
 - `jamesFaithWorks`
@@ -179,13 +216,10 @@ Keys:
 - `johnPatmos`
 - `johnSecondThirdLetters`
 - `jonahVine`
-- `jordanCrossing`
 - `josephDreams`
 - `josephPrison`
 - `josephRuler`
 - `josephSold`
-- `joshuaAi`
-- `joshuaJordan`
 - `judasKiss`
 - `judeWarning`
 - `juniaApostle`
@@ -203,7 +237,6 @@ Keys:
 - `maryMagdalene`
 - `marySit`
 - `miriamSong`
-- `mosesBush`
 - `mosesStaffSnake`
 - `mustardSeed`
 - `naaman`
@@ -214,7 +247,6 @@ Keys:
 - `palmSunday`
 - `parableSower`
 - `parableTalents`
-- `passoverLamb`
 - `paulBarnabas`
 - `paulConversion`
 - `paulDamascus`
@@ -253,10 +285,6 @@ Keys:
 - `priscillaTeach`
 - `priscillaTent`
 - `prodigalSon`
-- `psalm23Shepherd`
-- `rahabJericho`
-- `rahabRope`
-- `rahabWindow`
 - `redSeaCrossing`
 - `resurrection`
 - `revelation`
@@ -278,25 +306,14 @@ Keys:
 - `riverOfLife`
 - `roadToEmmaus`
 - `romansRoadKids`
-- `ruthBoaz`
 - `ruthMoab`
-- `ruthNaomi`
 - `samaritanWoman`
-- `samsonBirth`
-- `samsonHair`
-- `samuelAnointsDavid`
-- `samuelBirth`
-- `samuelCall`
-- `samuelCalls`
 - `sarahLaughs`
 - `sarahPromise`
 - `saulDisobedience`
 - `saulKing`
 - `saulSpear`
 - `shepherdsStar`
-- `solomonTemple`
-- `solomonWisdom`
-- `spiesInCanaan`
 - `stephen`
 - `stephenMartyr`
 - `stephenStones`

@@ -437,14 +437,14 @@
     "kw": "samuel anoints david samuel david anoint anointed 1 samuel 16 jesse heart sheep bethlehem horn of oil looketh on the heart"
   },
   {
-    "key": "davidHarp",
-    "title": "David Plays the Harp",
-    "kjvRef": "1 Samuel 16:14-23",
-    "who": "David",
-    "to": "King Saul (and us)",
-    "apply": "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
-    "theme": "Love",
-    "kw": "david harp worship sheep 1 samuel 16 1 samuel 16:14 1 samuel 16:23 music praise saul evil spirit refreshed armourbearer armorbearer played with his hand cunning player"
+    "key": "davidKing",
+    "title": "David Becomes King",
+    "kjvRef": "2 Samuel 5:1-5, 9-12",
+    "who": "The LORD",
+    "to": "Israel — and every heart that waits on God",
+    "apply": "The long road led to a thankful crown: God placed David where He promised. When answers take time, the Lord is still working.",
+    "theme": "Obedience",
+    "kw": "david king david becomes king king over israel anointed david king hebron jerusalem city of david strong hold of zion 2 samuel 5 2 sam 5 bone and thy flesh thirty years old reigned forty years seven years and six months thirty and three years lord god of hosts established him king"
   },
   {
     "key": "davidCave",
@@ -498,23 +498,43 @@
   },
   {
     "key": "elijahFire",
-    "title": "Elijah & Fire",
-    "kjvRef": "1 Kings 18:20–40",
-    "who": "God",
-    "to": "Elijah and all Israel",
-    "apply": "God answers with fire—He's real! The LORD is God—trust Him alone!",
+    "title": "Elijah & Fire on Carmel",
+    "kjvRef": "1 Kings 18:17-39",
+    "who": "The LORD",
+    "to": "Israel — and every heart that wonders who is truly God",
+    "apply": "He answered Elijah’s prayer with fire from heaven — calm awe, not noise: The LORD, he is the God. Trust Him first.",
     "theme": "Miracles",
-    "kw": "elijah baal fire carmel 1 kings 18 altar"
+    "kw": "elijah mount carmel carmel baal fire altar 1 kings 18 1 kings 18:17 1 kings 18:21 1 kings 18:24 1 kings 18:36 1 kings 18:38 two opinions answereth by fire prophets of baal ahab"
   },
   {
-    "key": "elijahElijahElisha",
-    "title": "Elijah Calls Elisha",
-    "kjvRef": "1 Kings 19:19–21",
-    "who": "Elisha",
-    "to": "God",
-    "apply": "When God calls, be willing to obey — even when it means leaving something good behind.",
-    "theme": "Obedience",
-    "kw": "elijah elisha cloak oxen 1 kings 19 prophet follow call"
+    "key": "elijahRavens",
+    "title": "Elijah & the Ravens",
+    "kjvRef": "1 Kings 17:1-7",
+    "who": "The LORD",
+    "to": "Elijah",
+    "apply": "God commanded the ravens — morning and evening. He still knows how to feed His children.",
+    "theme": "Miracles",
+    "kw": "elijah ravens cherith brook 1 kings 17 bread flesh ahab"
+  },
+  {
+    "key": "elijahHoreb",
+    "title": "Elijah & the Still Small Voice",
+    "kjvRef": "1 Kings 19:9-18",
+    "who": "The LORD",
+    "to": "Elijah — and every tired heart that needs a gentle word",
+    "apply": "God was not in the wind, earthquake, or fire — but He spoke in a still small voice. Listen quietly; He is near.",
+    "theme": "Love",
+    "kw": "elijah horeb mount horeb still small voice still small 1 kings 19 1 kings 19:12 1 kings 19:9 cave mantle earthquake jealous for the lord seven thousand baal"
+  },
+  {
+    "key": "elijahWidow",
+    "title": "Elijah & the Widow",
+    "kjvRef": "1 Kings 17:8-16",
+    "who": "The LORD",
+    "to": "The widow and her house",
+    "apply": "She obeyed God first — and the meal and oil held until rain returned. He keeps His word.",
+    "theme": "Miracles",
+    "kw": "elijah widow widow of zarephath zarephath zidon barrel of meal cruse of oil handful of meal 1 kings 17 1 kings 17:8 gathering sticks little cake sustain thee"
   },
   {
     "key": "elijahFireFromHeaven",
@@ -528,43 +548,53 @@
   },
   {
     "key": "elijahChariot",
-    "title": "Elijah's Fiery Chariot",
-    "kjvRef": "2 Kings 2:1–14",
-    "who": "God",
-    "to": "Elijah",
-    "apply": "God honors His faithful servants! Heaven is real—and it's wonderful.",
+    "title": "Elijah Taken Up in the Fiery Chariot",
+    "kjvRef": "2 Kings 2:1-14",
+    "who": "The LORD",
+    "to": "Elijah, Elisha, and us",
+    "apply": "God keeps every promise — even the hard goodbyes. His strength passes on to those who follow Him faithfully.",
     "theme": "Miracles",
-    "kw": "elijah chariot fire 2 kings 2 whirlwind heaven elisha"
+    "kw": "elijah elisha chariot fire 2 kings 2 whirlwind heaven jordan mantle double portion gilgal bethel jericho"
   },
   {
     "key": "elishaOil",
-    "title": "Elisha & the Widow's Oil",
-    "kjvRef": "2 Kings 4:1–7",
-    "who": "God",
-    "to": "The widow through Elisha",
-    "apply": "God multiplies—He provides! Give God what you have—He can do more!",
+    "title": "Elisha and the Widow's Oil",
+    "kjvRef": "2 Kings 4:1-7",
+    "who": "The LORD",
+    "to": "A widow and her sons — through Elisha",
+    "apply": "God can turn a little into enough when we obey Him step by step — He cares for mothers and children.",
     "theme": "Miracles",
-    "kw": "elisha oil widow 2 kings 4 multiply jar"
+    "kw": "elisha widow oil 2 kings 4 2 kings 4:1 2 kings 4:3 2 kings 4:6 creditor bondmen vessels pot of oil sons of the prophets pour out oil stayed pay thy debt"
   },
   {
-    "key": "elishaRaised",
-    "title": "Elisha Raises a Boy",
-    "kjvRef": "2 Kings 4",
-    "who": "God",
-    "to": "Elisha and the Shunammite",
-    "apply": "God can bring life back! Nothing is too hard for Him.",
+    "key": "elijahElijahElisha",
+    "title": "Elisha Plows the Field",
+    "kjvRef": "1 Kings 19:19-21",
+    "who": "Elisha",
+    "to": "God — through Elijah's call",
+    "apply": "Elisha did not rush past home — he honored his parents, then rose and followed. God blesses willing, orderly obedience.",
+    "theme": "Obedience",
+    "kw": "elisha plows elijah calls elisha cast his mantle twelve yoke of oxen abelmeholah son of shaphat 1 kings 19 1 kings 19:19 1 kings 19:20 1 kings 19:21 kiss my father and my mother ministered unto him plowing oxen"
+  },
+  {
+    "key": "elishaShunammite",
+    "title": "Elisha Raises the Shunammite's Son",
+    "kjvRef": "2 Kings 4:8-37",
+    "who": "The LORD",
+    "to": "A mother, a prophet, and a child — through Elisha",
+    "apply": "God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.",
     "theme": "Miracles",
-    "kw": "elisha raise shunammite 2 kings 4 boy dead life miracle"
+    "kw": "elisha shunammite shunem great woman 2 kings 4 2 kings 4:8 2 kings 4:16 2 kings 4:35 little chamber man of God sneezed seven times take up thy son raise miracle"
   },
   {
     "key": "elishaMiracles",
-    "title": "Elisha's Miracles",
-    "kjvRef": "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-    "who": "God",
-    "to": "His people",
-    "apply": "God can heal, provide, and raise the dead. He still cares about our troubles today.",
+    "title": "Elisha's First Miracles",
+    "kjvRef": "2 Kings 2:19-22; 4:1-7",
+    "who": "The LORD",
+    "to": "Jericho and a widow's home — through Elisha",
+    "apply": "God can heal what is bitter and stretch what is little. He cares for towns, moms, and children.",
     "theme": "Miracles",
-    "kw": "elisha miracle widow oil naaman 2 kings 4 2 kings 5 jordan jericho"
+    "kw": "elisha elisha first miracles 2 kings 2 2 kings 2:19 2 kings 2:20 2 kings 2:21 2 kings 2:22 jericho spring salt cruse waters healed barren 2 kings 4 2 kings 4:1 widow oil vessels creditor bondmen pot of oil"
   },
   {
     "key": "estherFast",
@@ -1447,16 +1477,6 @@
     "kw": "moses staff snake exodus 7 pharaoh sign power"
   },
   {
-    "key": "naaman",
-    "title": "Naaman & the River",
-    "kjvRef": "2 Kings 5:1–15",
-    "who": "God",
-    "to": "Naaman (through Elisha)",
-    "apply": "Obey God—get healed! Even when it seems simple, do what He says!",
-    "theme": "Obedience",
-    "kw": "naaman river leprosy dip jordan 2 kings 5 elisha"
-  },
-  {
     "key": "naamanDip",
     "title": "Naaman Dips in the River",
     "kjvRef": "2 Kings 5:1–15",
@@ -1465,6 +1485,16 @@
     "apply": "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He can heal and help in ways you don't expect.",
     "theme": "Obedience",
     "kw": "naaman river jordan 2 kings 5 leprosy heal obey"
+  },
+  {
+    "key": "naamanHealed",
+    "title": "Naaman Is Healed of Leprosy",
+    "kjvRef": "2 Kings 5:1-14",
+    "who": "The LORD",
+    "to": "Naaman — through Elisha’s word",
+    "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
+    "theme": "Obedience",
+    "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
   },
   {
     "key": "nehemiahWalls",
@@ -1957,6 +1987,26 @@
     "kw": "prodigal son run away come back party forgiveness luke 15"
   },
   {
+    "key": "psalm23Shepherd",
+    "title": "Psalm 23 — The Lord Is My Shepherd",
+    "kjvRef": "Psalm 23:1-6",
+    "who": "The LORD",
+    "to": "Every listener who needs quiet rest",
+    "apply": "The same Shepherd who led David leads His people still — beside quiet water, through hard valleys, and home to Himself. Say the words slowly; He hears.",
+    "theme": "Love",
+    "kw": "psalm 23 psalms 23 ps 23 shepherd still waters green pastures valley of the shadow rod and staff cup runneth over goodness and mercy house of the lord i shall not want restoreth my soul david comfort"
+  },
+  {
+    "key": "psalm23",
+    "title": "Psalm 23 — The Lord Is My Shepherd",
+    "kjvRef": "Psalm 23:1-6",
+    "who": "The LORD",
+    "to": "Children and grown-ups on hard days",
+    "apply": "This psalm is a quiet place to breathe — the Shepherd knows you, leads you, and will not leave you. Read it slowly; each line is true.",
+    "theme": "Love",
+    "kw": "psalm 23 psalms 23 ps 23 the lord is my shepherd shepherd still waters green pastures valley of the shadow of death fear no evil thou art with me rod and staff cup runneth over goodness and mercy dwell in the house of the lord david psalm comfort psalm"
+  },
+  {
     "key": "estherCrown",
     "title": "Queen Esther's Courage",
     "kjvRef": "Esther 2:15–18",
@@ -2277,24 +2327,34 @@
     "kw": "cross simon carry luke 23 cyrene help burden"
   },
   {
-    "key": "solomonTemple",
-    "title": "Solomon Builds the Temple",
-    "kjvRef": "1 Kings 5–8",
-    "who": "God",
-    "to": "Israel",
-    "apply": "God is not far off — He wants His people to meet Him in worship. Today we come to Him through Jesus, anywhere we pray.",
+    "key": "solomonTwoMothers",
+    "title": "Solomon and the Two Mothers",
+    "kjvRef": "1 Kings 3:16-28",
+    "who": "God (through Solomon)",
+    "to": "Israel — and every heart that wants truth",
+    "apply": "Love that protects told the truth. God had given Solomon wisdom — and a whole nation saw it.",
     "theme": "Obedience",
-    "kw": "solomon temple jerusalem 1 kings 5 1 kings 8 ark glory worship"
+    "kw": "solomon baby two mothers two women bring me a sword divide the living child living child 1 kings 3:16 1 kings 3:24 1 kings 3:27 wisdom of god was in him judgment harlots unto the king"
   },
   {
     "key": "solomonWisdom",
-    "title": "Solomon's Wisdom",
-    "kjvRef": "1 Kings 3",
-    "who": "God",
-    "to": "Solomon",
-    "apply": "Ask God for wisdom! He gives it freely to those who ask.",
+    "title": "Solomon Asks for Wisdom",
+    "kjvRef": "1 Kings 3:5-15",
+    "who": "The LORD",
+    "to": "Young Solomon — and every listener",
+    "apply": "God smiled on a king who asked for wisdom before wealth. When you pray, ask God for a heart that loves what is right — He is glad to give it.",
     "theme": "Obedience",
-    "kw": "solomon wisdom baby sword 1 kings 3 judge moms"
+    "kw": "solomon solomon wisdom ask for wisdom understanding heart 1 kings 3 1 kings 3:5 1 kings 3:9 1 kings 3:12 dream gibeon ask what i shall give thee little child discern between good and bad speech pleased the lord riches and honour ark of the covenant jerusalem david my father"
+  },
+  {
+    "key": "solomonTemple",
+    "title": "Solomon Builds the Temple",
+    "kjvRef": "1 Kings 6:1-14; 8:1-13, 22-30",
+    "who": "The LORD",
+    "to": "Israel — and every heart that prays",
+    "apply": "God's glory filled the house Solomon built — yet heaven itself cannot hold Him. He still bends low to hear prayer; we meet Him with reverence and thanks.",
+    "theme": "Obedience",
+    "kw": "solomon temple builds the temple house of the lord 1 kings 6 1 kings 8 1 kings 6:1 1 kings 8:10 1 kings 8:11 ark of the covenant most holy place cloud filled the house glory of the lord priests could not stand there is no god like thee heaven of heavens cannot contain thee pray toward this house when thou hearest forgive jerusalem cedar cherubims"
   },
   {
     "key": "revelationSongsAndHarvest",
@@ -2535,16 +2595,6 @@
     "apply": "Jesus gave us a way to remember His death until He comes — His body and blood for us.",
     "theme": "Love",
     "kw": "last supper passover bread cup covenant luke 22 matthew 26 remembrance judas"
-  },
-  {
-    "key": "psalm23Shepherd",
-    "title": "The Lord Is My Shepherd",
-    "kjvRef": "Psalm 23",
-    "who": "God",
-    "to": "David (and us)",
-    "apply": "God is your Good Shepherd! He leads you, protects you, and gives you rest.",
-    "theme": "Love",
-    "kw": "psalm 23 shepherd sheep staff peace david green pastures"
   },
   {
     "key": "mustardSeed",
@@ -2915,6 +2965,16 @@
     "apply": "Small gifts matter—God sees! Give what you have from the heart!",
     "theme": "Love",
     "kw": "widow mite coins mark 12 luke 21 small gift"
+  },
+  {
+    "key": "davidHarp",
+    "title": "Young David Plays the Harp for King Saul",
+    "kjvRef": "1 Samuel 16:14-23",
+    "who": "The Lord (through David)",
+    "to": "King Saul — and every heart that needs quiet",
+    "apply": "God used David's gentle playing to bring ease. The gifts God gives you — a song, a calm voice, a steady hand — can be a kindness to someone who is hurting.",
+    "theme": "Love",
+    "kw": "david harp young david king saul saul 1 samuel 16 1 samuel 16:14 1 samuel 16:23 evil spirit refreshed played with his hand cunning player on an harp armourbearer armorbearer send me david thy son son of jesse the bethlehemite music comfort peace"
   },
   {
     "key": "zacchaeus",

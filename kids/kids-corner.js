@@ -877,8 +877,8 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kgs 2:21 · 4:4</text>'
       ),
 
-      /* ── Week 1: Fiery Furnace already exists, skip; Naaman Dip (21) ── */
-      naamanDip: svg(
+      /* ── Week 1: Fiery Furnace already exists, skip; Naaman (21) — Jordan dip ── */
+      naamanHealed: svg(
         '<path d="M0 200 Q50 180 100 200 Q150 220 200 200 Q250 180 300 200 Q350 220 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
         person(200, 170, 13, 38) +
         '<path d="M190 220 L188 248 M210 220 L212 248" ' + s + ' stroke-width="2.5"/>' +
@@ -887,6 +887,21 @@
         person(50, 185, 10, 28) + person(350, 185, 10, 28) +
         sun(330, 45, 20) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:14</text>'
+      ),
+
+      /* Floating axe head — 2 Kings 6:1-7 (Jordan bank, stick, iron floats) */
+      elishaFloatingAxe: svg(
+        ground() + hills() +
+        sun(52, 42, 18) + cloud(300, 34) +
+        '<path d="M40 248 Q120 228 200 248 Q280 228 360 248" ' + s + ' stroke-width="2.5" fill="none"/>' +
+        '<ellipse cx="200" cy="252" rx="140" ry="10" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        person(120, 168, 10, 30) +
+        '<line x1="145" y1="188" x2="210" y2="232" ' + s + ' stroke-width="2.8"/>' +
+        '<path d="M210 232 L218 238 L214 244 Z" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="248" cy="238" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        person(268, 162, 9, 26) +
+        '<path d="M268 188 L275 220" ' + s + ' stroke-width="2.2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:6</text>'
       ),
 
       /* ── Week 1: Creation Light (22) ── */
@@ -3353,7 +3368,9 @@
     spiesInCanaan: 'jerichoWalls',
     elijahFire: 'elijahFire',
     elishaOil: 'elishaOil',
-    naaman: 'naamanDip',
+    naaman: 'naamanHealed',
+    naamanHealed: 'naamanHealed',
+    naamanDip: 'naamanHealed',
     /* ── Week 2 ── */
     abrahamIsaac: 'abrahamIsaac',
     josephCoat: 'josephCoat',
@@ -3421,7 +3438,7 @@
     elijahElijahElisha: 'elijahElijahElisha',
     elijahChariot: 'elijahChariot',
     elishaMiracles: 'elishaMiracles',
-    elishaFloatingAxe: 'naamanDip',
+    elishaFloatingAxe: 'elishaFloatingAxe',
     isaiahMessianic: 'angelMary',
     jeremiahWeeping: 'jobSuffering',
     ezekielValleyBones: 'elishaShunammite',
@@ -5173,7 +5190,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'naamanHealed', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
@@ -5393,6 +5410,7 @@
       'revelationseals': 'revelationSeals',
       'noaharkstory': 'noah',
       elisharaised: 'elishaShunammite',
+      naamanhealed: 'naamanHealed',
       davd: 'david',
       daveed: 'david',
       goliat: 'david',

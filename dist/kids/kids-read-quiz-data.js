@@ -1,6 +1,6 @@
 /**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
- * Keys match TDB_BIBLE_STORIES (292 stories).
+ * Keys match TDB_BIBLE_STORIES (299 stories).
  * Regenerate: npm run kids:generate-read-quiz
  * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath read-along sections).
  *
@@ -144,9 +144,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 22",
-          "Genesis 39–40",
-          "Matthew 5–7",
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Job 2",
+          "John 2:1–11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -155,10 +155,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "John",
           "God",
-          "Philip",
-          "John"
+          "The LORD",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -342,10 +342,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 11",
+          "Judges 16:4-21",
           "Acts 18:24–28",
-          "Matthew 19:16–22",
-          "1 Samuel 9–10"
+          "Acts 8:26–40",
+          "Revelation 14–15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -354,10 +354,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "God",
+          "James",
+          "Peter",
           "Priscilla",
-          "Elisha"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -424,10 +424,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 13–14",
+          "Acts 18:23–21:17",
           "Acts 25–26",
-          "Matthew 3:13–17",
-          "Luke 15"
+          "Jude 1",
+          "Genesis 6–9"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -437,9 +437,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "Priscilla",
-          "James",
-          "The crowds"
+          "Elisha",
+          "The crowds",
+          "The Lord"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -507,9 +507,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 17:22–34",
-          "1 John 1–5",
-          "1 Corinthians 13",
-          "Acts 9:1–19"
+          "Revelation 21",
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+          "Luke 3; Matthew 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -518,9 +518,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "Philip",
-          "Joshua",
+          "Jude",
+          "Jonathan",
+          "God",
           "Paul"
         ],
         "correctIndex": 3,
@@ -590,10 +590,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 1:1-18",
-          "Revelation 17–18",
+          "Genesis 3",
+          "Matthew 25",
           "Acts 28:1–10",
-          "Acts 6:8–7:60"
+          "Revelation 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -602,9 +602,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "God the Father",
-          "Peter",
+          "Holy Spirit",
+          "Jude",
+          "Priscilla",
           "God"
         ],
         "correctIndex": 3,
@@ -674,9 +674,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 3",
-          "Acts 28:1–10",
-          "Exodus 7–12",
-          "Judges 16:4-21"
+          "Revelation 17–18",
+          "Acts 12:1–19",
+          "Romans–Philemon"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -685,10 +685,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "Jude",
           "God",
-          "The Holy Ghost",
-          "Jesus"
+          "Philip",
+          "Jonathan"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -757,10 +757,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Acts 27–28",
+          "2 Kings 4:1-7",
+          "1 Samuel 18:1-4; 20:1-42",
           "Revelation 1:8, 11, 17–18",
-          "Revelation 19"
+          "Judges 6:11-40"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -769,9 +769,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
+          "The LORD",
+          "Stephen",
+          "John",
           "God"
         ],
         "correctIndex": 3,
@@ -841,10 +841,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Corinthians 13",
-          "1 John 1–5",
+          "Joshua 7:1-11",
+          "Matthew 4:1–11; Luke 4:1–13",
           "Revelation 22:12–13",
-          "Acts 9:1–19"
+          "2 Kings 5:1-14"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -853,9 +853,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "Philip",
+          "Paul",
+          "God the Father",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -926,10 +926,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 14:5-9",
+          "Acts 2:14–41",
           "Luke 1",
-          "Genesis 3",
-          "Matthew 25"
+          "Ruth 4:1-17",
+          "Revelation 13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -939,9 +939,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Mary",
-          "Priscilla",
-          "Elisha"
+          "Peter",
+          "David",
+          "James"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1010,10 +1010,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15",
-          "Ezekiel 37:1–14",
+          "Exodus 14",
+          "1 Kings 6:1-14; 8:1-13, 22-30",
           "Luke 2:36–38",
-          "Acts 9:36–43"
+          "Ruth 2:1-17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1023,9 +1023,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "David",
-          "Philip",
-          "John"
+          "The apostles",
+          "The Holy Ghost",
+          "Holy Spirit"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1094,9 +1094,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:42–47",
-          "Ezra 1–10; Nehemiah 8–9",
-          "Luke 17",
+          "Joshua 6:1-21",
+          "Acts 2:1–13",
+          "Mark 2:1–12",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1106,10 +1106,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
+          "Philip",
+          "God the Father",
           "Paul",
-          "Elisha"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1176,9 +1176,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13",
-          "Acts 27",
-          "Genesis 41:41",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "John 20:1–18",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1189,9 +1189,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "The Holy Ghost",
-          "James",
-          "Jesus"
+          "Jesus",
+          "The crowds",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1260,10 +1260,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22:1–20",
+          "Matthew 25",
           "Ephesians 6",
-          "1 Kings 18",
-          "Daniel 6:22"
+          "Revelation 22",
+          "Acts 28:1–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1275,7 +1275,7 @@
           "Paul",
           "Priscilla",
           "James",
-          "The crowds"
+          "Mary"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1344,9 +1344,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:11; 17:15, 34–37",
-          "1 Samuel 1",
-          "Esther 4–5",
+          "Luke 15",
+          "Acts 2",
+          "Exodus 12:1-14",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1357,9 +1357,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "Holy Spirit",
-          "God",
-          "The crowds"
+          "The apostles",
+          "The Holy Ghost",
+          "John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1428,10 +1428,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Acts 27–28",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Matthew; Mark; Luke; John (Gospels overview)",
           "Acts 1:6–11",
-          "Revelation 19"
+          "Genesis 37:3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1440,9 +1440,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Philip",
-          "David",
+          "The Holy Ghost",
+          "God",
+          "Holy Spirit",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -1513,10 +1513,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "2 John; 3 John",
           "Numbers 22:1–20",
-          "Daniel 3",
-          "Numbers 23–24"
+          "2 Timothy 4:6–8",
+          "Malachi 1–4"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1526,9 +1526,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "Joshua",
+          "The Lord",
+          "David"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1599,9 +1599,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Numbers 23–24",
-          "John 12:1–8",
-          "Jonah 4",
-          "Romans–Philemon"
+          "Ephesians, Philippians, Colossians, Philemon",
+          "Exodus 14:21-31",
+          "2 Peter 1–3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1610,9 +1610,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
+          "John",
+          "The apostles",
+          "The Holy Ghost",
           "God"
         ],
         "correctIndex": 3,
@@ -1682,10 +1682,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2–7",
-          "Luke 24:50–53; Acts 1:6–11",
+          "Revelation 1",
+          "Acts 9:1–19",
           "Numbers 22",
-          "1 Samuel 17:8–11, 16, 23–30"
+          "Acts 16:11–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1695,9 +1695,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jude",
-          "Jonathan",
-          "Stephen"
+          "Jesus",
+          "The crowds",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1885,10 +1885,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18:1-4; 20:1-42",
-          "Luke 10",
+          "Revelation 20",
+          "Matthew 25",
           "Revelation 13:16–18",
-          "Esther 5–7"
+          "1 Samuel 1:21-28; 2:1-11, 18-21"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1898,9 +1898,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
+          "Holy Spirit",
           "Priscilla",
-          "Mary",
-          "Elisha"
+          "Jude"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1969,10 +1969,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "1 Samuel 25:1-42",
           "Matthew 26",
-          "Daniel 3",
-          "Numbers 22:1–20"
+          "1 Samuel 16:1-13",
+          "Joshua 8:1-8, 18-23, 26-29"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1982,9 +1982,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Priscilla",
-          "James",
-          "The crowds"
+          "Jonathan",
+          "Jude",
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2295,9 +2295,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 4",
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "1 Samuel 16:11; 17:15, 34–37",
-          "Esther 4–5"
+          "Revelation 14–15",
+          "Judges 16:4-21",
+          "Exodus 20:1-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2306,9 +2306,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Paul",
-          "James",
+          "Mary",
+          "Stephen",
+          "The LORD",
           "God"
         ],
         "correctIndex": 3,
@@ -2377,10 +2377,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philemon 1",
+          "Mark 10:13–16",
           "Colossians 1:15–20; 3:1–4, 12–17",
-          "Revelation 13",
-          "Acts 2:14–41"
+          "Genesis 37:28",
+          "Matthew 4:1–11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2390,9 +2390,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "David",
+          "Joshua",
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2463,9 +2463,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 22",
-          "Genesis 28:10–22",
-          "Galatians 5",
-          "2 Kings 6:1–7"
+          "Matthew 26:36–46; Luke 22:44",
+          "2 Kings 2:19-22; 4:1-7",
+          "1 Samuel 16:14-23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2474,10 +2474,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Elisha",
           "Jesus",
-          "Philip",
-          "John"
+          "Paul",
+          "The crowds"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2545,10 +2545,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 27",
+          "Daniel 6",
           "1 Corinthians 12",
-          "Revelation 14–15",
-          "Acts 8:26–40"
+          "Matthew 17",
+          "1 Kings 19:9-18"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2558,9 +2558,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Paul",
-          "God the Father",
-          "Peter",
-          "Jesus"
+          "John",
+          "Stephen",
+          "The apostles"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2630,9 +2630,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 15",
-          "Genesis 1",
-          "Acts 2:42–47",
-          "Ezra 1–10; Nehemiah 8–9"
+          "Matthew 27; Mark 15; Luke 23; John 19",
+          "1 Kings 19:19-21",
+          "Ezekiel 37:1–14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2641,9 +2641,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "James",
+          "Mary",
+          "Priscilla",
           "The apostles"
         ],
         "correctIndex": 3,
@@ -2714,10 +2714,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 5:21–43",
-          "Matthew 26:36–46; Luke 22:44",
+          "Mark 4:35–41",
+          "1 Samuel 1–2",
           "Genesis 1",
-          "Luke 2:1–20"
+          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2726,9 +2726,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
+          "James",
+          "Paul",
+          "Mary",
           "God"
         ],
         "correctIndex": 3,
@@ -2800,9 +2800,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 1:3",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "John 20:1–18"
+          "1 Kings 18:17-39",
+          "Daniel 6:22",
+          "Ezra 1–10; Nehemiah 8–9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2811,9 +2811,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
-          "God the Father",
+          "Elisha",
+          "The Lord",
+          "Joshua",
           "God"
         ],
         "correctIndex": 3,
@@ -2882,9 +2882,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 23",
+          "Luke 2:1–20",
           "Mark 5:21–43",
-          "Matthew 26:36–46; Luke 22:44",
-          "Luke 2:1–20"
+          "Jonah 1:17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2893,9 +2893,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
-          "Philip",
+          "The crowds",
+          "Elisha",
+          "The Lord",
           "God"
         ],
         "correctIndex": 3,
@@ -2964,9 +2964,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "1 Samuel 16:11; 17:15, 34–37",
-          "Genesis 4",
-          "Esther 4–5"
+          "2 Kings 6:1–7",
+          "1 Samuel 24:1-22",
+          "Galatians 5"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2975,9 +2975,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
+          "Philip",
           "God the Father",
-          "The apostles",
+          "Jonathan",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -3049,9 +3049,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6:22",
-          "Hebrews 11",
-          "Matthew 17",
-          "Matthew 28:16–20; Mark 16:15–18"
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
+          "Isaiah 7:14; 9:6–7; 53:4–6",
+          "Revelation 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3060,7 +3060,7 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "Peter",
           "James",
           "Paul",
           "God"
@@ -3132,9 +3132,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jude 1",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 13:1–23",
+          "2 Kings 4:8-37",
+          "Lamentations 1–5",
+          "Judges 7:1-22",
           "Daniel 3"
         ],
         "correctIndex": 3,
@@ -3145,9 +3145,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jude",
-          "The Lord",
-          "Elisha"
+          "The crowds",
+          "Jesus",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3216,9 +3216,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6",
-          "Acts 2:4–21",
-          "Joshua 2:1-21",
-          "Acts 9:1–19"
+          "Matthew 4:1–11",
+          "Genesis 37:28",
+          "Mark 10:13–16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3227,10 +3227,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "The Holy Ghost",
+          "The crowds",
+          "The Lord",
           "God",
-          "Jesus"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3300,9 +3300,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6",
-          "Matthew 5–7",
-          "Genesis 39–40",
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
+          "Jonah 1:17",
+          "Exodus 16:1-36",
+          "Luke 2:1–20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3311,10 +3311,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
+          "Stephen",
           "God",
-          "Jonathan",
-          "Stephen"
+          "Mary",
+          "The LORD"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -3955,88 +3955,123 @@
     ]
   },
   "davidHarp": {
-    "kjvRef": "1 Samuel 16:14-23",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Samuel 16:14-23 (KJV)",
+    "verseExcerpt": "And it came to pass, when the evil spirit from God was upon Saul, that David took an harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him. — 1 Samuel 16:23 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "God used David's hands and heart — He still uses gentle gifts today.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "But the Spirit of the LORD departed from Saul, and an evil spirit from the LORD troubled him. And Saul's servants said unto him, Behold now, an evil spirit from God troubleth thee.",
+        "caption": "An evil spirit troubled Saul",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "Let our lord now command thy servants, which are before thee, to seek out a man, who is a cunning player on an harp: and it shall come to pass, when the evil spirit from God is upon thee, that he shall play with his hand, and thou shalt be well.",
+        "caption": "Seek a cunning player on an harp",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And Saul said unto his servants, Provide me now a man that can play well, and bring him to me. Then answered one of the servants, and said, Behold, I have seen a son of Jesse the Bethlehemite, that is cunning in playing, and a mighty valiant man, and a man of war, and prudent in matters, and a comely person, and the LORD is with him.",
+        "caption": "A son of Jesse — the LORD is with him",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Wherefore Saul sent messengers unto Jesse, and said, Send me David thy son, which is with the sheep. And Jesse took an ass laden with bread, and a bottle of wine, and a kid, and sent them by David his son unto Saul. And David came to Saul, and stood before him: and he loved him greatly; and he became his armourbearer.",
+        "caption": "David came — he became his armourbearer",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And Saul sent to Jesse, saying, Let David, I pray thee, stand before me; for he hath found favour in my sight.",
+        "caption": "Let David stand before me",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "And it came to pass, when the evil spirit from God was upon Saul, that David took an harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him.",
+        "caption": "David played — Saul was refreshed",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "David Plays the Harp – 1 Samuel 16:14-23. An evil spirit troubled King Saul.",
-      "His servants said, Find a man who plays the harp well. One said, I have seen a son of Jesse who plays skillfully—and the LORD is with him.",
-      "Saul sent for David.",
-      "When the distressing spirit came, David played with his hand on the harp, and Saul was refreshed and well.",
-      "For you: God can use your simple gifts to bring calm where it is needed."
+      "King Saul was troubled by an evil spirit. His servants said, Let our lord now command thy servants, which are before thee, to seek out a man, who is a cunning player on an harp: and it shall come to pass, when the evil spirit from God is upon thee, that he shall play with his hand, and thou shalt be well.",
+      "They brought young David, who was a skillful harp player. Whenever the evil spirit came upon Saul, David took the harp and played with his hand.",
+      "Then Saul was refreshed, and the evil spirit departed from him.",
+      "The Lord used David's music to bring peace and comfort to the king.",
+      "For you: God can use a gentle song, a kind word, or a simple gift to help someone feel safe — ask Him how you may comfort others today."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What troubled King Saul in this story?",
         "choices": [
-          "1 Samuel 16:14-23",
-          "Exodus 16:1-36",
-          "Acts 20:7–12",
-          "Acts 3"
+          "A loud storm only.",
+          "An evil spirit from the LORD.",
+          "A broken harp.",
+          "Nothing troubled him."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 16:14-23.)"
+        "correctIndex": 1,
+        "correctFeedback": "The Bible says an evil spirit from the LORD troubled him.",
+        "wrongFeedback": "Listen for troubled. (Answer: An evil spirit from the LORD.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did the servants want to find for Saul?",
         "choices": [
-          "Peter",
-          "God the Father",
-          "Jesus",
-          "David"
+          "A new crown.",
+          "A man who is a cunning player on an harp.",
+          "A giant.",
+          "More sheep."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: David.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes — music to bring ease when the distress came.",
+        "wrongFeedback": "Listen for harp. (Answer: A cunning player on an harp.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "Who did they bring to play?",
         "choices": [
-          "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
+          "Goliath.",
+          "David, Jesse's son.",
+          "Samuel only.",
+          "Jonathan."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: David's music was a gift from God. When we use what God gives us to help others, His….)"
+        "correctIndex": 1,
+        "correctFeedback": "David — the LORD was with him.",
+        "wrongFeedback": "Listen for Jesse. (Answer: David, Jesse's son.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did David do when the evil spirit was upon Saul?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "David watches his sheep in the field",
-          "Everyone decided to never sleep again."
+          "He hid.",
+          "David took an harp, and played with his hand.",
+          "He ran away.",
+          "The Bible does not say."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "He played — calm and steady.",
+        "wrongFeedback": "Listen for harp and hand. (Answer: David took an harp, and played with his hand.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "How did Saul respond after David played?",
         "choices": [
-          "God can use your simple gifts to bring calm where it is needed.",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong."
+          "He was unchanged.",
+          "Saul was refreshed, and was well, and the evil spirit departed from him.",
+          "He broke the harp.",
+          "He sent David home at once."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God can use your simple gifts to bring calm where it is needed..)"
+        "correctIndex": 1,
+        "correctFeedback": "Refreshed and well — the spirit departed.",
+        "wrongFeedback": "Listen for refreshed. (Answer: Saul was refreshed… the evil spirit departed.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading David Plays the Harp with God's Word today.",
-    "takeaway": "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in David Plays the Harp. Amen.",
+    "doneMessage": "Well done resting in God's Word with David's gentle music today.",
+    "takeaway": "God used David's harp to quiet a heavy heart — He still gives peace through humble gifts offered in love.",
+    "prayer": "Lord, thank You for peace. Use the simple good things You give us to bless others. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David watches his sheep in the field (david)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He plays and sings to God (harp)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God listens—worship from the heart! (worship)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David watches his sheep in the field (sheep)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He plays and sings to God (1 samuel 16)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David sitting beside seated King Saul gently playing small harp Saul face peaceful rested thick robe folds harp strings simple indoor tent room background minimal soothing comforting mood no scary shadows white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text David played with his hand",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Saul was refreshed",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD is with him",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Evil spirit departed"
     ]
   },
   "davidJonathan": {
@@ -4291,6 +4326,128 @@
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text True friends weep and kiss farewell"
     ]
   },
+  "davidKing": {
+    "kjvRef": "2 Samuel 5:1-5, 9-12 (KJV)",
+    "verseExcerpt": "So all the elders of Israel came to the king to Hebron; and king David made a league with them in Hebron before the LORD: and they anointed David king over Israel. — 2 Samuel 5:3 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "God keeps His promises — David's crown was the LORD's doing.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "Then came all the tribes of Israel to David unto Hebron, and spake, saying, Behold, we are thy bone and thy flesh.",
+        "caption": "All the tribes came to Hebron",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "So all the elders of Israel came to the king to Hebron; and king David made a league with them in Hebron before the LORD: and they anointed David king over Israel.",
+        "caption": "They anointed David king over Israel",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "David was thirty years old when he began to reign, and he reigned forty years.",
+        "caption": "Thirty years old — forty years",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "In Hebron he reigned over Judah seven years and six months: and in Jerusalem he reigned thirty and three years over all Israel and Judah.",
+        "caption": "Hebron — then Jerusalem",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "So David dwelt in the fort, and called it the city of David. And David built round about from Millo and inward. And David went on, and grew great, and the LORD God of hosts was with him.",
+        "caption": "The city of David — the LORD was with him",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "And David perceived that the LORD had established him king over Israel, and that he had exalted his kingdom for his people Israel's sake.",
+        "caption": "The LORD established his kingdom",
+        "image": "panel-david-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "All the tribes of Israel came to David at Hebron and said, Behold, we are thy bone and thy flesh.",
+      "They anointed David king over Israel.",
+      "David was thirty years old when he began to reign, and he reigned forty years.",
+      "He reigned over Judah seven years and six months in Hebron, and he reigned over all Israel and Judah thirty-three years in Jerusalem.",
+      "David dwelt in the fort, and called it the city of David. And David went on, and grew great, and the LORD God of hosts was with him.",
+      "The LORD had established him king over Israel, and had exalted his kingdom for his people Israel's sake.",
+      "For you: God's time is never late — He keeps every good promise to His people."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where did the tribes come to meet David?",
+        "choices": [
+          "Jerusalem only.",
+          "Unto Hebron.",
+          "Egypt.",
+          "Nineveh."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Hebron first — a place of covenant and anointing.",
+        "wrongFeedback": "Listen for Hebron. (Answer: Unto Hebron.)"
+      },
+      {
+        "question": "What did the elders do to David?",
+        "choices": [
+          "They hid from him.",
+          "They anointed David king over Israel.",
+          "They sent him away.",
+          "They refused to speak."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes — before the LORD.",
+        "wrongFeedback": "Listen for anointed. (Answer: They anointed David king over Israel.)"
+      },
+      {
+        "question": "How old was David when he began to reign?",
+        "choices": [
+          "Twenty years old.",
+          "Thirty years old.",
+          "Fifty years old.",
+          "The Bible does not say."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Thirty — and he reigned forty years.",
+        "wrongFeedback": "Listen for thirty. (Answer: Thirty years old.)"
+      },
+      {
+        "question": "What did David call the fort where he dwelt?",
+        "choices": [
+          "Bethlehem.",
+          "The city of David.",
+          "Zion only — no other name.",
+          "Goliath's camp."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The city of David — a thankful name.",
+        "wrongFeedback": "Listen for city of David. (Answer: The city of David.)"
+      },
+      {
+        "question": "Who was with David as he grew great?",
+        "choices": [
+          "No one.",
+          "The LORD God of hosts.",
+          "Only soldiers.",
+          "Only strangers."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The LORD God of hosts was with him.",
+        "wrongFeedback": "Listen for LORD God of hosts. (Answer: The LORD God of hosts.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Thankful work today — God is faithful to His king and His people.",
+    "takeaway": "When the waiting ended, Israel's tribes anointed David — and the LORD established his kingdom for His people's sake.",
+    "prayer": "Lord, thank You that You rule with wisdom and keep Your promises. Help us trust Your timing. Amen.",
+    "imagePrompts": [
+      "Simple joyful black-and-white line-art young children bold thick outlines David standing calmly elders of Israel around him one elder gently pours oil from horn onto David head humble peaceful David expression thankful elder faces soft hills simple Jerusalem city walls background minimal thankful hopeful mood white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text We are thy bone and thy flesh",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Anointed king over Israel",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The city of David",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD was with him"
+    ]
+  },
   "davidSaul": {
     "kjvRef": "1 Samuel 18:6-11, 17-19:17",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
@@ -4305,9 +4462,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 18:6-11, 17-19:17",
-          "Matthew 26:36–46; Luke 22:44",
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-          "Daniel 3"
+          "Joshua 7:1-26",
+          "Joshua 10:12-14",
+          "Judges 16:23-30"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4316,10 +4473,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Paul",
           "God",
-          "Philip",
-          "John"
+          "Peter",
+          "James"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4388,10 +4545,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:42–47",
-          "Acts 15",
+          "2 Kings 2:1-14",
+          "Genesis 1:3",
           "1 Samuel 18:6-11, 17-19:17",
-          "Ezra 1–10; Nehemiah 8–9"
+          "Philippians 2:8–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4400,9 +4557,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Paul",
-          "James",
+          "The crowds",
+          "The Lord",
+          "Elisha",
           "God"
         ],
         "correctIndex": 3,
@@ -4473,9 +4630,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 16:11; 17:15, 34–37",
-          "Jude 1",
-          "Matthew 14:22–33",
-          "Matthew 13:1–23"
+          "Matthew 28:18–20",
+          "Esther 2:15–18",
+          "Luke 2; Matthew 1–2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4484,9 +4641,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
           "The apostles",
-          "Philip",
+          "Peter",
+          "James",
           "David"
         ],
         "correctIndex": 3,
@@ -4678,10 +4835,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 19:19–21",
-          "Hebrews 11",
+          "Acts 27–28",
+          "Revelation 19",
           "the Bible",
-          "Matthew 17"
+          "Philippians 1:21; 2:5–11; 4:4–7, 13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4691,9 +4848,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Priscilla",
-          "Mary",
-          "Elisha"
+          "Peter",
+          "James",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4763,9 +4920,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 16:4-21",
-          "Exodus 7–12",
-          "Revelation 14–15",
+          "2 Kings 2:1-14",
+          "Philippians 2:8–11",
+          "Genesis 1:3",
           "Acts 9:36–43"
         ],
         "correctIndex": 3,
@@ -4775,10 +4932,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
+          "The LORD",
+          "Stephen",
           "God",
-          "John"
+          "Mary"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4848,9 +5005,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Revelation 17–18",
-          "Acts 12:1–19",
-          "Romans–Philemon"
+          "Joshua 6:1-21",
+          "1 Kings 17:1-7",
+          "Daniel 6"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4859,10 +5016,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "David",
           "God",
-          "The Holy Ghost",
-          "Jesus"
+          "James",
+          "Peter"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -4931,9 +5088,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
-          "Judges 16:4-21",
-          "Exodus 7–12",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "John 20:1–18",
+          "Romans–Philemon",
           "Acts 2:42–47"
         ],
         "correctIndex": 3,
@@ -4943,10 +5100,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "Priscilla",
+          "James",
+          "Paul",
           "The Lord",
-          "The crowds"
+          "Peter"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5002,256 +5159,391 @@
     ]
   },
   "elijahChariot": {
-    "kjvRef": "2 Kings 2:1–14",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "2 Kings 2:1-14 (KJV)",
+    "verseExcerpt": "And it came to pass, as they still went on, and talked, that, behold, there appeared a chariot of fire, and horses of fire, and parted them both asunder; and Elijah went up by a whirlwind into heaven. — 2 Kings 2:11 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — a chariot of fire and horses of fire; and Elijah went up by a whirlwind into heaven.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "And it came to pass, when the LORD would take up Elijah into heaven by a whirlwind, that Elijah went with Elisha from Gilgal.",
+        "caption": "The LORD would take up Elijah into heaven by a whirlwind",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And Elijah said unto Elisha, Tarry here, I pray thee; for the LORD hath sent me to Bethel. And Elisha said unto him, As the LORD liveth, and as thy soul liveth, I will not leave thee. So they went down to Bethel.",
+        "caption": "I will not leave thee — they went down to Bethel",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And Elijah said unto him, Elisha, tarry here, I pray thee; for the LORD hath sent me to Jericho. And he said, As the LORD liveth, and as thy soul liveth, I will not leave thee. So they came to Jericho.",
+        "caption": "They came to Jericho — still together",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Elijah said unto him, Tarry, I pray thee, here; for the LORD hath sent me to Jordan. And he said, As the LORD liveth, and as thy soul liveth, I will not leave thee. And they two went on.",
+        "caption": "The LORD sent me to Jordan — they two went on",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And fifty men of the sons of the prophets went, and stood to view afar off: and they two stood by Jordan.",
+        "caption": "They two stood by Jordan",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Elijah took his mantle, and wrapped it together, and smote the waters, and they were divided hither and thither, so that they two went over on dry ground.",
+        "caption": "The waters divided — they went over on dry ground",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And it came to pass, when they were gone over, that Elijah said unto Elisha, Ask what I shall do for thee, before I be taken away from thee. And Elisha said, I pray thee, let a double portion of thy spirit be upon me.",
+        "caption": "Ask what I shall do for thee — a double portion of thy spirit",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And he said, Thou hast asked a hard thing: nevertheless, if thou see me when I am taken from thee, it shall be so unto thee; but if not, it shall not be so.",
+        "caption": "If thou see me when I am taken from thee, it shall be so unto thee",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And it came to pass, as they still went on, and talked, that, behold, there appeared a chariot of fire, and horses of fire, and parted them both asunder; and Elijah went up by a whirlwind into heaven.",
+        "caption": "A chariot of fire — Elijah went up by a whirlwind into heaven",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And Elisha saw it, and he cried, My father, my father, the chariot of Israel, and the horsemen thereof. And he saw him no more: and he took hold of his own clothes, and rent them in two pieces.",
+        "caption": "My father, my father — he saw him no more",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "He took up also the mantle of Elijah that fell from him, and went back, and stood by the bank of Jordan;",
+        "caption": "He took up the mantle of Elijah that fell from him",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he took the mantle of Elijah that fell from him, and smote the waters, and said, Where is the LORD God of Elijah? and when he also had smitten the waters, they parted hither and thither: and Elisha went over.",
+        "caption": "Where is the LORD God of Elijah? — Elisha went over",
+        "image": "panel-noah-2.svg"
+      }
+    ],
     "paragraphs": [
-      "Elijah's Fiery Chariot (2 Kings 2:1–14).",
-      "Elijah and Elisha walk together Fiery horses and chariot appear Elijah goes up to heaven in a whirlwind!",
-      "God honors His faithful servants!",
-      "Heaven is real—and it's wonderful."
+      "The LORD was going to take Elijah up to heaven by a whirlwind. Elijah and Elisha traveled together — from Gilgal toward Bethel, then Jericho, then the Jordan. Along the way, the sons of the prophets asked Elisha whether he knew that the LORD would take his master that day; Elisha said, Yea, I know it; hold ye your peace — and he would not leave Elijah.",
+      "At the Jordan, Elijah smote the water with his mantle; the river divided, and they crossed on dry ground. Elijah said, Ask what I shall do for thee, before I be taken away from thee. Elisha asked for a double portion of Elijah's spirit — a hard thing — yet if he saw Elijah taken, it would be so.",
+      "As they walked and talked, a chariot of fire and horses of fire appeared; Elijah went up by a whirlwind into heaven. Elisha saw it and cried out; then he took up Elijah’s mantle, smote the Jordan again, and crossed back — the LORD God of Elijah was with him.",
+      "For you: God is faithful to those who love Him — and His power and kindness do not end when one servant’s work on earth is done."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "How was Elijah going to be taken up, according to the first verse?",
         "choices": [
-          "2 Kings 2:1–14",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 7",
-          "Matthew 13:1–23"
+          "By a whirlwind into heaven.",
+          "By ship across the sea.",
+          "Only in a dream.",
+          "He stayed in Gilgal forever."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 2:1–14.)"
+        "correctFeedback": "When the LORD would take up Elijah into heaven by a whirlwind.",
+        "wrongFeedback": "Listen for whirlwind and heaven. (Answer: By a whirlwind into heaven.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did Elisha say when Elijah asked him to tarry behind?",
         "choices": [
-          "Jonathan",
-          "Joshua",
-          "God",
-          "Stephen"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God honors His faithful servants! Heaven is real—and it's wonderful.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up."
+          "I will not leave thee.",
+          "I am too tired.",
+          "I will go home.",
+          "I do not know the way."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God honors His faithful servants! Heaven is real—and it's wonderful..)"
+        "correctFeedback": "As the LORD liveth, and as thy soul liveth, I will not leave thee.",
+        "wrongFeedback": "Listen for “I will not leave thee.” (Answer: I will not leave thee.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did Elijah do at the Jordan so they could cross?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "Elijah and Elisha walk together"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "God honors His faithful servants! Heaven is real—and it's wonderful.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Ignore God until we are older."
+          "He took his mantle, smote the waters, and they divided.",
+          "He built a bridge.",
+          "He turned back.",
+          "He swam alone."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God honors His faithful servants! Heaven is real—and it's wonderful..)"
+        "correctFeedback": "He smote the waters — they went over on dry ground.",
+        "wrongFeedback": "Listen for mantle and waters. (Answer: Smote the waters — they divided.)"
+      },
+      {
+        "question": "What did Elisha ask for before Elijah was taken away?",
+        "choices": [
+          "Let a double portion of thy spirit be upon me.",
+          "Only silver and gold.",
+          "A new city.",
+          "Nothing at all."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "A double portion of thy spirit — humbly asked.",
+        "wrongFeedback": "Listen for double portion. (Answer: A double portion of thy spirit.)"
+      },
+      {
+        "question": "What happened to Elijah at the end of the chariot scene?",
+        "choices": [
+          "Elijah went up by a whirlwind into heaven.",
+          "Elijah hid in a cave.",
+          "Elijah stayed by the river.",
+          "Elisha went alone first."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Elijah went up by a whirlwind into heaven.",
+        "wrongFeedback": "Listen for whirlwind into heaven. (Answer: Went up by a whirlwind into heaven.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Elijah's Fiery Chariot with God's Word today.",
-    "takeaway": "God honors His faithful servants! Heaven is real—and it's wonderful.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Elijah's Fiery Chariot. Amen.",
+    "doneMessage": "Well done — God’s faithfulness shines in every step of this story.",
+    "takeaway": "Elijah and Elisha walked together to the Jordan; God took Elijah up in a whirlwind — and Elisha picked up the mantle to serve in His strength.",
+    "prayer": "Lord, thank You for faithful servants and for Your Spirit. Help us trust You and follow You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elijah and Elisha walk together (elijah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Fiery horses and chariot appear (chariot)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elijah goes up to heaven in a whirlwind! (fire)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elijah and Elisha walk together (2 kings 2)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Fiery horses and chariot appear (whirlwind)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elijah and Elisha walking together soft hills Gilgal journey calm faces thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Jordan river waters parting dry ground two men crossing",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Chariot of fire horses of fire gentle upward swirl not frightening",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Elisha holding mantle by river bank thankful peaceful",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Whirlwind heaven wonder soft stars minimal"
     ]
   },
   "elijahElijahElisha": {
-    "kjvRef": "1 Kings 19:19–21",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Kings 19:19-21 (KJV)",
+    "verseExcerpt": "So he departed thence, and found Elisha the son of Shaphat, who was plowing with twelve yoke of oxen before him, and he with the twelfth: and Elijah passed by him, and cast his mantle upon him. — 1 Kings 19:19 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — Elisha rose and followed, and ministered unto him.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "So he departed thence, and found Elisha the son of Shaphat, who was plowing with twelve yoke of oxen before him, and he with the twelfth: and Elijah passed by him, and cast his mantle upon him.",
+        "caption": "Plowing in the field — Elijah cast his mantle upon him",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he left the oxen, and ran after Elijah, and said, Let me, I pray thee, kiss my father and my mother, and then I will follow thee. And he said unto him, Go back again: for what have I done to thee?",
+        "caption": "Let me kiss my father and my mother — Go back again",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And he returned back from him, and took a yoke of oxen, and slew them, and boiled their flesh with the instruments of the oxen, and gave unto the people, and they did eat. Then he arose, and went after Elijah, and ministered unto him.",
+        "caption": "He arose, and went after Elijah, and ministered unto him",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Elijah Calls Elisha (1 Kings 19:19–21).",
-      "Elisha plows with oxen.",
-      "Elijah throws his cloak Elisha says goodbye and follows Elijah Elisha serves and learns.",
-      "ready for God's work When God calls, be willing to obey.",
-      "even when it means leaving something good behind."
+      "Elijah found Elisha the son of Shaphat plowing with twelve yoke of oxen — and Elijah passed by him, and cast his mantle upon him.",
+      "Elisha left the oxen and ran after Elijah. He asked to kiss his father and mother, and then follow. Elijah said, Go back again: for what have I done to thee?",
+      "Elisha returned, took a yoke of oxen, slew them, and boiled their flesh with the instruments of the oxen, and gave unto the people, and they did eat. Then he arose, and went after Elijah, and ministered unto him.",
+      "For you: When God calls, we can answer with a willing heart — and serve Him step by step."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What was Elisha doing when Elijah found him?",
         "choices": [
-          "2 Timothy 4:6–8",
-          "1 Kings 19:19–21",
-          "Exodus 14",
-          "Luke 18:1–8"
+          "Sleeping.",
+          "Plowing with oxen.",
+          "Building a house.",
+          "Fishing."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Kings 19:19–21.)"
+        "correctFeedback": "Twelve yoke of oxen — he with the twelfth.",
+        "wrongFeedback": "Listen for plowing. (Answer: Plowing with oxen.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did Elijah cast upon Elisha?",
         "choices": [
-          "Elisha",
-          "Peter",
-          "God the Father",
-          "Paul"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Elisha.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray.",
-          "When God calls, be willing to obey — even when it means leaving something good behind."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When God calls, be willing to obey — even when it means leaving something good behind..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Elisha plows with oxen — Elijah throws his cloak",
-          "A spaceship landed in the parking lot."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Ignore God until we are older.",
-          "When God calls, be willing to obey — even when it means leaving something good behind.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us."
+          "A stone.",
+          "His mantle.",
+          "A crown.",
+          "Water only."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When God calls, be willing to obey — even when it means leaving something good behind..)"
+        "correctFeedback": "Elijah passed by him, and cast his mantle upon him.",
+        "wrongFeedback": "Listen for mantle. (Answer: His mantle.)"
+      },
+      {
+        "question": "What did Elisha ask before he followed?",
+        "choices": [
+          "For gold.",
+          "Let me kiss my father and my mother, and then I will follow thee.",
+          "To stay in the field.",
+          "For nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Honor parents — then follow God’s call.",
+        "wrongFeedback": "Listen for kiss my father and mother. (Answer: Kiss father and mother, then follow.)"
+      },
+      {
+        "question": "What did Elijah first say to him?",
+        "choices": [
+          "Run faster.",
+          "Go back again: for what have I done to thee?",
+          "Stop.",
+          "Go home forever."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Go back again — a quiet test of heart.",
+        "wrongFeedback": "Listen for “Go back again.” (Answer: Go back again….)"
+      },
+      {
+        "question": "What did Elisha do at the last?",
+        "choices": [
+          "Stayed in the field only.",
+          "He arose, and went after Elijah, and ministered unto him.",
+          "Refused.",
+          "Hid."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He ministered unto him — faithful service.",
+        "wrongFeedback": "Listen for ministered unto him. (Answer: Went after Elijah and ministered unto him.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Elijah Calls Elisha with God's Word today.",
-    "takeaway": "When God calls, be willing to obey — even when it means leaving something good behind.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Elijah Calls Elisha. Amen.",
+    "doneMessage": "Well done — following God often begins with one willing step.",
+    "takeaway": "Elisha left the oxen, honored his parents, fed the people, and rose to follow Elijah — and ministered unto him.",
+    "prayer": "Lord, when You call, give us willing hearts to follow and serve. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha plows with oxen — Elijah throws his cloak (elijah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha says goodbye and follows Elijah (elisha)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha serves and learns — ready for God's work (cloak)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha plows with oxen — Elijah throws his cloak (oxen)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha says goodbye and follows Elijah (1 kings 19)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha beside oxen and plow in field Elijah walking past mantle gently touching Elisha thoughtful peaceful face soft hills minimal obedient hopeful mood thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Abelmeholah field",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Cast his mantle",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Ministered unto him",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Twelve yoke of oxen"
     ]
   },
   "elijahFire": {
-    "kjvRef": "1 Kings 18:20–40",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Kings 18:17-39 (KJV)",
+    "verseExcerpt": "Then the fire of the LORD fell, and consumed the burnt sacrifice, and the wood, and the stones, and the dust, and licked up the water that was in the trench. — 1 Kings 18:38 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — the Lord answered by fire.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "And it came to pass, when Ahab saw Elijah, that Ahab said unto him, Art thou he that troubleth Israel? And he answered, I have not troubled Israel; but thou, and thy father’s house, in that ye have forsaken the commandments of the LORD, and thou hast followed Baalim.",
+        "caption": "Mount Carmel — who troubleth Israel?",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Now therefore send, and gather to me all Israel unto mount Carmel, and the prophets of Baal four hundred and fifty, and the prophets of the groves four hundred, which eat at Jezebel’s table. So Ahab sent unto all the children of Israel, and gathered the prophets together unto mount Carmel.",
+        "caption": "Gather all Israel unto mount Carmel",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And Elijah came unto all the people, and said, How long halt ye between two opinions? if the LORD be God, follow him: but if Baal, then follow him. And the people answered him not a word. Then said Elijah unto the people, I, even I only, remain a prophet of the LORD; but Baal’s prophets are four hundred and fifty men.",
+        "caption": "How long halt ye between two opinions?",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Let them therefore give us two bullocks; and let them choose one bullock for themselves, and cut it in pieces, and lay it on wood, and put no fire under: and I will dress the other bullock, and lay it on wood, and put no fire under: And call ye on the name of your gods, and I will call on the name of the LORD: and the God that answereth by fire, let him be God. And all the people answered and said, It is well spoken.",
+        "caption": "The God that answereth by fire, let him be God",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Elijah said unto the prophets of Baal, Choose you one bullock for yourselves, and dress it first; for ye are many; and call on the name of your gods, but put no fire under. And they took the bullock which was given them, and they dressed it, and called on the name of Baal from morning even until noon, saying, O Baal, hear us. But there was no voice, nor any that answered. And they leaped upon the altar which was made.",
+        "caption": "From morning even until noon — no voice",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Elijah said unto all the people, Come near unto me. And all the people came near unto him. And he repaired the altar of the LORD that was broken down. And Elijah took twelve stones, according to the number of the tribes of the sons of Jacob, unto whom the word of the LORD came, saying, Israel shall be thy name: And with the stones he built an altar in the name of the LORD: and he made a trench about the altar, as great as would contain two measures of seed.",
+        "caption": "He repaired the altar of the LORD",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And he put the wood in order, and cut the bullock in pieces, and laid him on the wood, and said, Fill four barrels with water, and pour it on the burnt sacrifice, and on the wood. And he said, Do it the second time. And they did it the second time. And he said, Do it the third time. And they did it the third time. And the water ran round about the altar; and he filled the trench also with water.",
+        "caption": "Water on the sacrifice — the trench full of water",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And it came to pass at the time of the offering of the evening sacrifice, that Elijah the prophet came near, and said, LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel, and that I am thy servant, and that I have done all these things at thy word. Hear me, O LORD, hear me, that this people may know that thou art the LORD God, and that thou hast turned their heart back again.",
+        "caption": "Hear me, O LORD — that this people may know",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Then the fire of the LORD fell, and consumed the burnt sacrifice, and the wood, and the stones, and the dust, and licked up the water that was in the trench. And when all the people saw it, they fell on their faces: and they said, The LORD, he is the God; the LORD, he is the God.",
+        "caption": "The fire of the LORD fell — The LORD, he is the God",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Elijah & Fire (1 Kings 18:20–40).",
-      "Elijah vs prophets of Baal Baal does nothing God sends fire—He's real!",
-      "God answers with fire—He's real!",
-      "The LORD is God—trust Him alone!"
+      "King Ahab and many in Israel had turned to follow Baal. Elijah called them to mount Carmel — to see who is truly God.",
+      "The prophets of Baal called from morning until evening, but their god did not answer. Elijah repaired the altar of the LORD, put the sacrifice in order, and poured water until the trench was full.",
+      "At the time of the evening sacrifice, Elijah prayed a simple prayer: LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel. Hear me, O LORD, that this people may know that thou art the LORD God.",
+      "Then the fire of the LORD fell. It consumed the sacrifice, the wood, the stones, the dust, and licked up the water in the trench. When the people saw it, they fell on their faces and said, The LORD, he is the God.",
+      "For you: The true God hears prayer — and He alone is worthy of our whole heart."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Where did Elijah tell them to gather?",
         "choices": [
-          "1 Kings 18:20–40",
-          "2 Kings 4:1–7",
-          "Daniel 6",
-          "Numbers 22"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Kings 18:20–40.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Holy Ghost",
-          "God",
-          "God the Father",
-          "Jesus"
+          "Jericho only.",
+          "Mount Carmel.",
+          "The Red Sea.",
+          "Nineveh."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "All Israel — unto mount Carmel.",
+        "wrongFeedback": "Listen for Carmel. (Answer: Mount Carmel.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did Elijah ask — how long halt ye between two what?",
         "choices": [
-          "God answers with fire—He's real! The LORD is God—trust Him alone!",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up."
+          "Two cities.",
+          "Two opinions.",
+          "Two ships.",
+          "Two songs."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God answers with fire—He's real! The LORD is God—trust Him alone!.)"
+        "correctIndex": 1,
+        "correctFeedback": "If the LORD be God, follow him: but if Baal, then follow him.",
+        "wrongFeedback": "Listen for opinions. (Answer: Two opinions.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "How did the LORD say He would answer?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Elijah vs prophets of Baal"
+          "By wind only.",
+          "By fire.",
+          "By rain first.",
+          "By silence only."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "The God that answereth by fire, let him be God.",
+        "wrongFeedback": "Listen for fire. (Answer: By fire.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What did Elijah pour on the burnt sacrifice and on the wood?",
         "choices": [
-          "God answers with fire—He's real! The LORD is God—trust Him alone!",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older."
+          "Oil only.",
+          "Water.",
+          "Sand.",
+          "Nothing."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God answers with fire—He's real! The LORD is God—trust Him alone!.)"
+        "correctIndex": 1,
+        "correctFeedback": "Again and again — until the trench was full.",
+        "wrongFeedback": "Listen for water. (Answer: Water.)"
+      },
+      {
+        "question": "What did the people say when they saw the fire of the LORD?",
+        "choices": [
+          "We will not believe.",
+          "The LORD, he is the God; the LORD, he is the God.",
+          "Baal is God.",
+          "We saw nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "They fell on their faces — the LORD, he is the God.",
+        "wrongFeedback": "Listen for “The LORD, he is the God.” (Answer: The LORD, he is the God.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Elijah & Fire with God's Word today.",
-    "takeaway": "God answers with fire—He's real! The LORD is God—trust Him alone!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Elijah & Fire. Amen.",
+    "doneMessage": "Well done — the LORD is God, and He hears those who call on Him.",
+    "takeaway": "On Carmel, heaven answered by fire — the sacrifice, the stones, the water in the trench — and Israel confessed: The LORD, he is the God.",
+    "prayer": "Lord, Thou art God. Thank You that You hear prayer. Turn our hearts to follow Thee alone. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elijah vs prophets of Baal (elijah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Baal does nothing (baal)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God sends fire—He's real! (fire)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elijah vs prophets of Baal (carmel)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Baal does nothing (1 kings 18)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines prophet Elijah standing calmly beside stone altar hands raised gentle prayer soft flames from heaven above sacrifice wonder holy not scary thick outlines distant small people watching amazed calm faces Mount Carmel minimal mountain sky white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Mount Carmel",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Fire of the LORD",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD he is the God",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Altar repaired"
     ]
   },
   "elijahFireFromHeaven": {
@@ -5268,9 +5560,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 20:7–12",
-          "Acts 3",
-          "Revelation 1–22",
+          "Matthew 27; Mark 15; Luke 23; John 19",
+          "1 Kings 19:19-21",
+          "Ezra 1–10; Nehemiah 8–9",
           "1 Kings 18"
         ],
         "correctIndex": 3,
@@ -5280,10 +5572,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "John",
           "The apostles",
-          "Peter",
           "God",
-          "John"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5338,6 +5630,396 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Fire from heaven consumes the altar (fire)"
     ]
   },
+  "elijahHoreb": {
+    "kjvRef": "1 Kings 19:9-18 (KJV)",
+    "verseExcerpt": "And after the earthquake a fire; but the LORD was not in the fire: and after the fire a still small voice. — 1 Kings 19:12 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — the Lord was in the still small voice.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "And he came thither unto a cave, and lodged there; and, behold, the word of the LORD came to him, and he said unto him, What doest thou here, Elijah?",
+        "caption": "In the cave — What doest thou here, Elijah?",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he said, I have been very jealous for the LORD God of hosts: for the children of Israel have forsaken thy covenant, thrown down thine altars, and slain thy prophets with the sword; and I, even I only, am left; and they seek my life, to take it away.",
+        "caption": "I have been very jealous for the LORD God of hosts",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he said, Go forth, and stand upon the mount before the LORD. And, behold, the LORD passed by, and a great and strong wind rent the mountains, and brake in pieces the rocks before the LORD; but the LORD was not in the wind: and after the wind an earthquake; but the LORD was not in the earthquake:",
+        "caption": "Wind and earthquake — the LORD was not in them",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And after the earthquake a fire; but the LORD was not in the fire: and after the fire a still small voice.",
+        "caption": "After the fire — a still small voice",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And it was so, when Elijah heard it, that he wrapped his face in his mantle, and went out, and stood in the entering in of the cave. And, behold, there came a voice unto him, and said, What doest thou here, Elijah?",
+        "caption": "He wrapped his face in his mantle — What doest thou here?",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And he said, I have been very jealous for the LORD God of hosts: because the children of Israel have forsaken thy covenant, thrown down thine altars, and slain thy prophets with the sword; and I, even I only, am left; and they seek my life, to take it away.",
+        "caption": "Elijah answered again before the LORD",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And the LORD said unto him, Go, return on thy way to the wilderness of Damascus: and when thou comest, anoint Hazael to be king over Syria:",
+        "caption": "Go, return on thy way — anoint Hazael",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And Jehu the son of Nimshi shalt thou anoint to be king over Israel: and Elisha the son of Shaphat of Abelmeholah shalt thou anoint to be prophet in thy room.",
+        "caption": "Anoint Jehu — anoint Elisha to be prophet in thy room",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And it shall come to pass, that him that escapeth the sword of Hazael shall Jehu slay: and him that escapeth from the sword of Jehu shall Elisha slay.",
+        "caption": "Thus saith the LORD concerning what shall come to pass",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Yet I have left me seven thousand in Israel, all the knees which have not bowed unto Baal, and every mouth which hath not kissed him.",
+        "caption": "Seven thousand in Israel — knees which have not bowed unto Baal",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "After Mount Carmel, Elijah journeyed to Horeb, the mountain of God. He lodged in a cave; the word of the LORD came: What doest thou here, Elijah?",
+      "The LORD passed by — a great wind, an earthquake, and a fire — yet the LORD was not in them. After the fire came a still small voice.",
+      "When Elijah heard it, he wrapped his face in his mantle and stood in the entering in of the cave. The LORD spoke again and sent him with a commission — and gave this gentle hope: I have left me seven thousand in Israel who have not bowed unto Baal.",
+      "For you: God often speaks in a quiet voice. Listen with a still heart — He is near."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where did Elijah lodge when the word of the LORD came to him?",
+        "choices": [
+          "In a palace.",
+          "In a cave.",
+          "On a ship.",
+          "In Egypt only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He came thither unto a cave, and lodged there.",
+        "wrongFeedback": "Listen for cave. (Answer: In a cave.)"
+      },
+      {
+        "question": "What did the LORD ask Elijah?",
+        "choices": [
+          "Who are you?",
+          "What doest thou here, Elijah?",
+          "Where is Baal?",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "What doest thou here, Elijah?",
+        "wrongFeedback": "Listen for “What doest thou here.” (Answer: What doest thou here, Elijah?)"
+      },
+      {
+        "question": "After the wind, earthquake, and fire, what came?",
+        "choices": [
+          "Thunder only.",
+          "A still small voice.",
+          "Rain only.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "After the fire — a still small voice.",
+        "wrongFeedback": "Listen for still small voice. (Answer: A still small voice.)"
+      },
+      {
+        "question": "What did Elijah do when he heard it?",
+        "choices": [
+          "He ran away.",
+          "He wrapped his face in his mantle and stood in the entering in of the cave.",
+          "He slept.",
+          "He shouted."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Humble — wrapped his face, stood in the cave door.",
+        "wrongFeedback": "Listen for mantle. (Answer: Wrapped his face in his mantle….)"
+      },
+      {
+        "question": "How many in Israel had not bowed unto Baal?",
+        "choices": [
+          "Seventy.",
+          "Seven thousand.",
+          "Seven.",
+          "Zero."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yet I have left me seven thousand in Israel.",
+        "wrongFeedback": "Listen for seven thousand. (Answer: Seven thousand.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God speaks in quiet ways too.",
+    "takeaway": "At Horeb, the LORD was not in the wind, earthquake, or fire — but after the fire came a still small voice.",
+    "prayer": "Lord, help us listen for Your gentle voice and trust You when we feel alone. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines prophet Elijah at cave entrance Mount Horeb wrapping face in mantle soft gentle light rays from sky still small voice mood holy calm thick outlines mountain hint minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Horeb",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Still small voice",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Cave entrance",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Seven thousand"
+    ]
+  },
+  "elijahRavens": {
+    "kjvRef": "1 Kings 17:1-7 (KJV)",
+    "verseExcerpt": "And the ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. — 1 Kings 17:6 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "God knows how to feed His servants — even by the brook.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "And Elijah the Tishbite, who was of the inhabitants of Gilead, said unto Ahab, As the LORD God of Israel liveth, before whom I stand, there shall not be dew nor rain these years, but according to my word.",
+        "caption": "No dew nor rain — but according to my word",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And the word of the LORD came unto him, saying,",
+        "caption": "The word of the LORD came",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Get thee hence, and turn thee eastward, and hide thyself by the brook Cherith, that is before Jordan. And it shall be, that thou shalt drink of the brook; and I have commanded the ravens to feed thee there.",
+        "caption": "Cherith — I have commanded the ravens",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "So he went and did according unto the word of the LORD: for he went and dwelt by the brook Cherith, that is before Jordan.",
+        "caption": "He dwelt by the brook Cherith",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And the ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook.",
+        "caption": "Bread and flesh morning and evening",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And it came to pass after a while, that the brook dried up, because there had been no rain in the land.",
+        "caption": "The brook dried up — no rain in the land",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "Elijah the prophet told King Ahab, As the LORD God of Israel liveth, there shall not be dew nor rain these years, but according to my word.",
+      "Then the LORD said to Elijah, Get thee hence, and turn thee eastward, and hide thyself by the brook Cherith, that is before Jordan. And it shall be, that thou shalt drink of the brook; and I have commanded the ravens to feed thee there.",
+      "So Elijah went and dwelt by the brook Cherith. The ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook.",
+      "The Lord took care of Elijah every single day, even when there was no rain in the land. When the brook dried up, God would lead him onward — but first He fed him faithfully by the water.",
+      "For you: When days feel dry, God can still send what you need — sometimes in the humblest way."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What did Elijah say would not fall on the land?",
+        "choices": [
+          "Only snow.",
+          "Dew nor rain — according to his word.",
+          "Only leaves.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes — as the LORD God of Israel liveth.",
+        "wrongFeedback": "Listen for dew and rain. (Answer: Dew nor rain… according to my word.)"
+      },
+      {
+        "question": "Where did the LORD tell Elijah to hide?",
+        "choices": [
+          "Nineveh.",
+          "By the brook Cherith, that is before Jordan.",
+          "Egypt.",
+          "The sea only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Cherith — eastward, before Jordan.",
+        "wrongFeedback": "Listen for Cherith. (Answer: By the brook Cherith….)"
+      },
+      {
+        "question": "What did the LORD command to feed Elijah?",
+        "choices": [
+          "Lions.",
+          "The ravens.",
+          "Bears.",
+          "Fish only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Ravens — morning and evening.",
+        "wrongFeedback": "Listen for ravens. (Answer: The ravens.)"
+      },
+      {
+        "question": "What did the ravens bring?",
+        "choices": [
+          "Stones only.",
+          "Bread and flesh in the morning, and bread and flesh in the evening.",
+          "Nothing.",
+          "Only water."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Food twice a day — and he drank of the brook.",
+        "wrongFeedback": "Listen for bread and flesh. (Answer: Bread and flesh morning and evening.)"
+      },
+      {
+        "question": "Why did the brook dry up?",
+        "choices": [
+          "No reason is given.",
+          "Because there had been no rain in the land.",
+          "Elijah stopped it.",
+          "The ravens drank it all."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The drought touched the brook too — God would lead Elijah next.",
+        "wrongFeedback": "Listen for no rain. (Answer: Because there had been no rain in the land.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God feeds His people in quiet, faithful ways.",
+    "takeaway": "By Cherith, God commanded the ravens — Elijah had bread, flesh, and water until the brook dried.",
+    "prayer": "Lord, thank You that You provide day by day. Help us trust You when the brook runs low. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines prophet Elijah sitting calmly by small brook two gentle ravens bringing bread and meat thankful peaceful face dry soft hills background minimal wonder cared-for mood thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Brook Cherith",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Ravens brought bread",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text He drank of the brook",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text According to my word"
+    ]
+  },
+  "elijahWidow": {
+    "kjvRef": "1 Kings 17:8-16 (KJV)",
+    "verseExcerpt": "And the barrel of meal wasted not, neither did the cruse of oil fail, according to the word of the LORD, which he spake by Elijah. — 1 Kings 17:16 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "God keeps His word — the barrel and the cruse held fast.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "And the word of the LORD came unto him, saying, Arise, get thee to Zarephath, which belongeth to Zidon, and dwell there: behold, I have commanded a widow woman there to sustain thee.",
+        "caption": "Zarephath — I have commanded a widow woman there",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "So he arose and went to Zarephath. And when he came to the gate of the city, behold, the widow woman was there gathering of sticks: and he called to her, and said, Fetch me, I pray thee, a little water in a vessel, that I may drink.",
+        "caption": "At the gate — fetch me a little water",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And as she was going to fetch it, he called to her, and said, Bring me, I pray thee, a morsel of bread in thine hand.",
+        "caption": "Bring me a morsel of bread in thine hand",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And she said, As the LORD thy God liveth, I have not a cake, but an handful of meal in a barrel, and a little oil in a cruse: and, behold, I am gathering two sticks, that I may go in and dress it for me and my son, that we may eat it, and die.",
+        "caption": "An handful of meal — a little oil in a cruse",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Elijah said unto her, Fear not; go and do as thou hast said: but make me thereof a little cake first, and bring it unto me, and after make for thee and for thy son.",
+        "caption": "Fear not — make me a little cake first",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail, until the day that the LORD sendeth rain upon the earth.",
+        "caption": "The barrel shall not waste — the cruse shall not fail",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And she went and did according to the saying of Elijah: and she, and he, and her house, did eat many days.",
+        "caption": "She did according to the saying — they did eat many days",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And the barrel of meal wasted not, neither did the cruse of oil fail, according to the word of the LORD, which he spake by Elijah.",
+        "caption": "The meal wasted not — the oil failed not",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "The Lord told Elijah, Arise, get thee to Zarephath, which belongeth to Zidon, and dwell there: behold, I have commanded a widow woman there to sustain thee.",
+      "When Elijah came to the gate of the city, he saw a widow woman gathering sticks. He called to her, Fetch me, I pray thee, a little water in a vessel, that I may drink. As she was going to fetch it, he called again, Bring me, I pray thee, a morsel of bread in thine hand.",
+      "The widow answered, As the LORD thy God liveth, I have not a cake, but an handful of meal in a barrel, and a little oil in a cruse: and, behold, I am gathering two sticks, that I may go in and dress it for me and my son, that we may eat it, and die.",
+      "Elijah said, Fear not; go and do as thou hast said: but make me thereof a little cake first, and bring it unto me, and after make for thee and for thy son. For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail, until the day that the LORD sendeth rain upon the earth.",
+      "The widow went and did according to the saying of Elijah. And she, and he, and her house, did eat many days. The barrel of meal wasted not, neither did the cruse of oil fail, according to the word of the LORD.",
+      "For you: When the cupboard feels small, God can still keep His promise — one quiet day at a time."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where did the LORD send Elijah to dwell?",
+        "choices": [
+          "Nineveh.",
+          "Zarephath, which belongeth to Zidon.",
+          "Egypt only.",
+          "The sea alone."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Zarephath — a widow woman there would sustain him.",
+        "wrongFeedback": "Listen for Zarephath. (Answer: Zarephath, which belongeth to Zidon.)"
+      },
+      {
+        "question": "What was the widow doing when Elijah met her?",
+        "choices": [
+          "Sleeping.",
+          "Gathering of sticks at the gate of the city.",
+          "Building a house.",
+          "Singing only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "At the gate — gathering sticks.",
+        "wrongFeedback": "Listen for gathering of sticks. (Answer: Gathering of sticks at the gate.)"
+      },
+      {
+        "question": "What did she say she had in the barrel and cruse?",
+        "choices": [
+          "Much gold.",
+          "An handful of meal in a barrel, and a little oil in a cruse.",
+          "Nothing at all.",
+          "Only water."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A little — yet God would multiply His promise.",
+        "wrongFeedback": "Listen for meal and oil. (Answer: Handful of meal — little oil in a cruse.)"
+      },
+      {
+        "question": "What did Elijah tell her to do first?",
+        "choices": [
+          "Run away.",
+          "Make him a little cake first, then for herself and her son.",
+          "Hide the meal.",
+          "Buy more oil."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Obey God first — then trust Him for the rest.",
+        "wrongFeedback": "Listen for “little cake first.” (Answer: Make him a little cake first….)"
+      },
+      {
+        "question": "What happened to the barrel and the cruse?",
+        "choices": [
+          "They broke the first day.",
+          "The barrel of meal wasted not, neither did the cruse of oil fail.",
+          "They were empty every night.",
+          "No one ate."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "According to the word of the LORD — many days.",
+        "wrongFeedback": "Listen for wasted not… failed not. (Answer: Meal wasted not — oil failed not.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God keeps His word for His people.",
+    "takeaway": "At Zarephath, the widow obeyed; the barrel of meal wasted not, neither did the cruse of oil fail.",
+    "prayer": "Lord, thank You for daily bread and for faithful promises. Help us obey You first. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines prophet Elijah kind face widow woman hopeful smile doorway small barrel of meal little cruse of oil town gate hint minimal background thick outlines white space ages 3-8 coloring page God provides",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Zarephath",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Barrel of meal",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Cruse of oil",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Fear not"
+    ]
+  },
   "elishaFloatingAxe": {
     "kjvRef": "2 Kings 6:1–7",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
@@ -5352,9 +6034,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 1:1-18",
-          "Genesis 22",
-          "Acts 6:8–7:60",
+          "Matthew 4:18–22; Luke 5:1–11",
+          "Joshua 7:1-11",
+          "Matthew 4:1–11; Luke 4:1–13",
           "2 Kings 6:1–7"
         ],
         "correctIndex": 3,
@@ -5365,9 +6047,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Lord",
-          "Jude",
-          "Elisha"
+          "The LORD",
+          "Stephen",
+          "Mary"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5423,256 +6105,425 @@
     ]
   },
   "elishaMiracles": {
-    "kjvRef": "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "2 Kings 2:19-22; 4:1-7 (KJV)",
+    "verseExcerpt": "And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land. — 2 Kings 2:21 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — the waters were healed; and the oil flowed until every vessel was full.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "And the men of the city said unto Elisha, Behold, I pray thee, the situation of this city is pleasant, as my lord seeth: but the water is naught, and the ground barren.",
+        "caption": "The water is naught, and the ground barren",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he said, Bring me a new cruse, and put salt therein. And they brought it to him.",
+        "caption": "Bring me a new cruse, and put salt therein",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land.",
+        "caption": "Thus saith the LORD, I have healed these waters",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "So the waters were healed unto this day, according to the saying of Elisha which he spake.",
+        "caption": "So the waters were healed",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
+        "caption": "The creditor is come to take unto him my two sons to be bondmen",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
+        "caption": "Save a pot of oil",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
+        "caption": "Borrow empty vessels — borrow not a few",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
+        "caption": "Pour out into all those vessels",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
+        "caption": "She poured out",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
+        "caption": "There is not a vessel more — and the oil stayed",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+        "caption": "Pay thy debt, and live thou and thy children of the rest",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Elisha's Miracles (2 Kings 2:19–22; 4:1–7; 4:8–37; 5).",
-      "Salt in the water.",
-      "Jericho's spring made clean Oil fills every jar for the widow Naaman washes in the Jordan.",
-      "skin like a child's God can heal, provide, and raise the dead.",
-      "He still cares about our troubles today."
+      "After Elijah was taken up, Elisha began to serve the Lord in his place. The men of Jericho came to Elisha and said, The water is naught, and the ground barren.",
+      "Elisha said, Bring me a new cruse, and put salt therein. He went to the spring of the waters, cast the salt in, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land. So the waters were healed.",
+      "Another time a widow cried to Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. She had only a pot of oil left. Elisha told her to borrow vessels from her neighbours, shut the door, and pour — and the oil filled every vessel until there were no more to fill. Then he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+      "For you: The Lord used Elisha to help His people in simple, kind ways — healing what was bitter and stretching what was little. God still cares for families today."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What did the men of the city say was wrong with the water?",
         "choices": [
-          "Numbers 23–24",
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-          "1 Kings 5–8",
-          "Mark 12"
+          "It was too hot.",
+          "The water is naught, and the ground barren.",
+          "They had no cups.",
+          "They wanted rain only."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 2:19–22; 4:1–7; 4:8–37; 5.)"
+        "correctFeedback": "The water is naught, and the ground barren.",
+        "wrongFeedback": "Listen for naught and barren. (Answer: The water is naught, and the ground barren.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did Elisha put into the spring?",
         "choices": [
-          "Paul",
-          "James",
-          "God",
-          "The crowds"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God can heal, provide, and raise the dead. He still cares about our troubles today."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God can heal, provide, and raise the dead. He still cares about our troubles today..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Salt in the water — Jericho's spring made clean",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Never say sorry when we do wrong.",
-          "God can heal, provide, and raise the dead. He still cares about our troubles today.",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us."
+          "Sand only.",
+          "Salt from a new cruse.",
+          "Rocks only.",
+          "Nothing."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God can heal, provide, and raise the dead. He still cares about our troubles today..)"
+        "correctFeedback": "Bring me a new cruse, and put salt therein — cast into the spring.",
+        "wrongFeedback": "Listen for salt and cruse. (Answer: Salt from a new cruse.)"
+      },
+      {
+        "question": "Why was the widow afraid for her sons?",
+        "choices": [
+          "They were too young to walk.",
+          "The creditor was come to take them to be bondmen.",
+          "They were lost.",
+          "They would not eat."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The creditor was come to take unto him my two sons to be bondmen.",
+        "wrongFeedback": "Listen for creditor and bondmen. (Answer: Creditor would take her sons.)"
+      },
+      {
+        "question": "What did she have in the house besides empty borrowed vessels?",
+        "choices": [
+          "Much gold.",
+          "Only a pot of oil.",
+          "Many sheep.",
+          "New clothes only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Thine handmaid hath not any thing in the house, save a pot of oil.",
+        "wrongFeedback": "Listen for pot of oil. (Answer: Only a pot of oil.)"
+      },
+      {
+        "question": "What did Elisha tell her to do after the oil miracle?",
+        "choices": [
+          "Hide the oil forever.",
+          "Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+          "Give all away with no plan.",
+          "Leave the city."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Pay debt — then live on the rest. God provides with order.",
+        "wrongFeedback": "Listen for sell the oil and pay thy debt. (Answer: Sell the oil, pay debt, live on the rest.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Elisha's Miracles with God's Word today.",
-    "takeaway": "God can heal, provide, and raise the dead. He still cares about our troubles today.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Elisha's Miracles. Amen.",
+    "doneMessage": "Well done — God heals what is bitter and multiplies what is little.",
+    "takeaway": "Elisha cast salt into the spring — the waters were healed. The widow poured oil — God filled every vessel until the need was met.",
+    "prayer": "Lord, thank You for kindness through Your servants. Help us trust You for daily needs. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Salt in the water — Jericho's spring made clean (elisha)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Oil fills every jar for the widow (miracle)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Naaman washes in the Jordan — skin like a child's (widow)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Salt in the water — Jericho's spring made clean (oil)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Oil fills every jar for the widow (naaman)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha by spring pouring salt from small cruse thankful men of city watching soft hills Jericho mood thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text New cruse salt spring waters healed",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Widow pouring oil into borrowed vessels door closed peaceful",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Oil stayed when vessels full",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sell oil pay debt live children"
     ]
   },
   "elishaOil": {
-    "kjvRef": "2 Kings 4:1–7",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "2 Kings 4:1-7 (KJV)",
+    "verseExcerpt": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few. — 2 Kings 4:3 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — she poured out; and when there was not a vessel more, the oil stayed.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
+        "caption": "The creditor is come to take unto him my two sons to be bondmen",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
+        "caption": "Save a pot of oil",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
+        "caption": "Borrow empty vessels — borrow not a few",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
+        "caption": "Shut the door — pour out into all those vessels",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
+        "caption": "She poured out",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
+        "caption": "There is not a vessel more — and the oil stayed",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+        "caption": "Sell the oil — pay thy debt — live thou and thy children of the rest",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Elisha & the Widow's Oil (2 Kings 4:1–7).",
-      "Widow has only a little oil Elisha says: pour into jars Oil multiplies—God provides!",
-      "God multiplies—He provides!",
-      "Give God what you have—He can do more!"
+      "A certain woman of the wives of the sons of the prophets cried unto Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen.",
+      "Elisha asked what she had in the house; she had only a pot of oil. He said, Go, borrow empty vessels from thy neighbours — borrow not a few. Shut the door upon thee and thy sons, and pour out into all those vessels.",
+      "She obeyed: her sons brought the vessels, and she poured out. When every vessel was full, there was not a vessel more — and the oil stayed. Elisha said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+      "For you: God sees a mother's worry — and He can do much with what feels like almost nothing when we trust Him and obey."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Why was the widow afraid for her sons?",
         "choices": [
-          "Genesis 41:41",
-          "2 Kings 4:1–7",
-          "Luke 2; Matthew 1–2",
-          "Luke 2:41–52"
+          "They were hungry only.",
+          "The creditor was come to take them to be bondmen.",
+          "They would not sleep.",
+          "They were lost in the city."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 4:1–7.)"
+        "correctFeedback": "She told Elisha plainly — the creditor would take her sons.",
+        "wrongFeedback": "Listen for creditor and bondmen. (Answer: Creditor would take her sons.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did she have in the house besides borrowed vessels?",
         "choices": [
-          "Philip",
-          "David",
-          "God",
-          "John"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God multiplies—He provides! Give God what you have—He can do more!"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God multiplies—He provides! Give God what you have—He can do more!.)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Widow has only a little oil",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Never say sorry when we do wrong.",
-          "God multiplies—He provides! Give God what you have—He can do more!",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us."
+          "Much silver.",
+          "Save a pot of oil.",
+          "Many sheep.",
+          "New robes only."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God multiplies—He provides! Give God what you have—He can do more!.)"
+        "correctFeedback": "Only a pot of oil — a small start for a big God.",
+        "wrongFeedback": "Listen for pot of oil. (Answer: Save a pot of oil.)"
+      },
+      {
+        "question": "What did Elisha tell her to borrow?",
+        "choices": [
+          "Stones only.",
+          "Empty vessels — borrow not a few.",
+          "Food only.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Empty vessels — and not just a few.",
+        "wrongFeedback": "Listen for empty vessels. (Answer: Empty vessels — borrow not a few.)"
+      },
+      {
+        "question": "When did the oil stop flowing?",
+        "choices": [
+          "When she was tired.",
+          "When there was not a vessel more.",
+          "At noon only.",
+          "Before any vessel was full."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "There is not a vessel more — and the oil stayed.",
+        "wrongFeedback": "Listen for “not a vessel more.” (Answer: When there were no more vessels.)"
+      },
+      {
+        "question": "What did Elisha tell her to do after the miracle?",
+        "choices": [
+          "Hide the oil.",
+          "Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+          "Leave the city.",
+          "Give nothing to the creditor."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Pay the debt — then live on the rest. God provides with care.",
+        "wrongFeedback": "Listen for sell the oil and pay thy debt. (Answer: Sell the oil, pay debt, live on the rest.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Elisha & the Widow's Oil with God's Word today.",
-    "takeaway": "God multiplies—He provides! Give God what you have—He can do more!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Elisha & the Widow's Oil. Amen.",
+    "doneMessage": "Well done — God cares for widows and children, and He can bless little into enough.",
+    "takeaway": "She poured the little oil God gave — and it filled every borrowed vessel until there were no more. Then she could pay her debt and care for her children.",
+    "prayer": "Lord, thank You for caring for families. Help us trust You with what feels small. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Widow has only a little oil (elisha)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha says: pour into jars (oil)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Oil multiplies—God provides! (widow)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Widow has only a little oil (2 kings 4)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha says: pour into jars (multiply)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines widow indoors pouring from small pot into many jars sons carrying empty vessels thankful hopeful faces thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrow empty vessels borrow not a few",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Shut the door pour out vessels",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Oil stayed when no vessel more",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sell oil pay debt live children"
     ]
   },
-  "elishaRaised": {
-    "kjvRef": "2 Kings 4",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+  "elishaShunammite": {
+    "kjvRef": "2 Kings 4:8-37 (KJV)",
+    "verseExcerpt": "And he called Gehazi, and said, Call this Shunammite. So he called her. And when she was come in unto him, he said, Take up thy son. — 2 Kings 4:36 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — the child sneezed seven times, and the child opened his eyes; and he said, Take up thy son.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "And it fell on a day, that Elisha passed to Shunem, where was a great woman; and she constrained him to eat bread. And so it was, that as oft as he passed by, he turned in thither to eat bread.",
+        "caption": "A great woman in Shunem — she constrained him to eat bread",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Let us make a little chamber, I pray thee, on the wall; and let us set for him there a bed, and a table, and a stool, and a candlestick: and it shall be, when he cometh to us, that he shall turn in thither.",
+        "caption": "A little chamber on the wall — bed, table, stool, and candlestick",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he said, About this season, according to the time of life, thou shalt embrace a son. And she said, Nay, my lord, thou man of God, do not lie unto thine handmaid.",
+        "caption": "Thou shalt embrace a son — thou man of God, do not lie unto thine handmaid",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And the woman conceived, and bare a son at that season that Elisha had said unto her, according to the time of life.",
+        "caption": "She bare a son — according to the time of life",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And when the child was grown, it fell on a day, that he went out to his father to the reapers.",
+        "caption": "When the child was grown — he went out to his father to the reapers",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And she went up, and laid him on the bed of the man of God, and shut the door upon him, and went out.",
+        "caption": "She laid him on the bed of the man of God — and shut the door",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Run now, I pray thee, to meet her, and say unto her, Is it well with thee? is it well with thy husband? is it well with the child? And she answered, It is well.",
+        "caption": "Is it well with the child? And she answered, It is well",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Then she said, Did I desire a son of my lord? did I not say, Do not deceive me?",
+        "caption": "Did I not say, Do not deceive me?",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "He went in therefore, and shut the door upon them twain, and prayed unto the LORD.",
+        "caption": "He shut the door — and prayed unto the LORD",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And he went up, and lay upon the child, and put his mouth upon his mouth, and his eyes upon his eyes, and his hands upon his hands: and he stretched himself upon the child; and the flesh of the child waxed warm.",
+        "caption": "He lay upon the child — the flesh of the child waxed warm",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Then he returned, and walked in the house to and fro; and went up, and stretched himself upon him: and the child sneezed seven times, and the child opened his eyes.",
+        "caption": "The child sneezed seven times — and the child opened his eyes",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And he called Gehazi, and said, Call this Shunammite. So he called her. And when she was come in unto him, he said, Take up thy son.",
+        "caption": "Take up thy son",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Then she went in, and fell at his feet, and bowed herself to the ground, and took up her son, and went out.",
+        "caption": "She took up her son — and went out",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Elisha Raises a Boy (2 Kings 4).",
-      "A Shunammite's son dies Elisha stretches over him and prays The boy sneezes seven times—alive!",
-      "God can bring life back!",
-      "Nothing is too hard for Him."
+      "There was a great woman in Shunem who made a little room on the wall for Elisha — a bed, table, stool, and candlestick — so he could rest when he passed by. Elisha promised her a son; she conceived and bare a son at that season he had named.",
+      "When the child was older, he became very sick in his mother's arms — and the sorrow was great. She laid him on the prophet's bed, shut the door, and hurried to find Elisha. When Gehazi asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me?",
+      "Elisha came to the house, went in, shut the door, and prayed unto the LORD. He lay upon the child; the flesh waxed warm. He walked to and fro, then stretched himself upon him again — the child sneezed seven times and opened his eyes. Elisha said, Take up thy son. She fell at his feet, took her son, and went out. The LORD had been merciful.",
+      "For you: When sadness feels too big to carry, you can still run to God — He hears prayer and can restore joy."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Where did the great woman live?",
         "choices": [
-          "Hebrews 11",
-          "Matthew 3:13–17",
-          "Matthew 28:16–20; Mark 16:15–18",
-          "2 Kings 4"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 4.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "God",
-          "The Lord",
-          "Jude",
-          "Elisha"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "We should hide from God when we mess up.",
-          "God can bring life back! Nothing is too hard for Him.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "Jericho only.",
+          "Shunem.",
+          "Egypt.",
+          "Nineveh."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God can bring life back! Nothing is too hard for Him..)"
+        "correctFeedback": "Elisha passed to Shunem, where was a great woman.",
+        "wrongFeedback": "Listen for Shunem. (Answer: Shunem.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did she make for Elisha on the wall?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "A Shunammite's son dies",
-          "A talking toaster became king of the city."
+          "Only a tent.",
+          "A little chamber with a bed, table, stool, and candlestick.",
+          "A tall tower.",
+          "A boat."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "A little chamber — a resting place for God’s prophet.",
+        "wrongFeedback": "Listen for chamber, bed, table. (Answer: Little chamber with bed, table, stool, candlestick.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What did Elisha say she would embrace?",
         "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "God can bring life back! Nothing is too hard for Him."
+          "A lamb.",
+          "A son.",
+          "Gold only.",
+          "Nothing."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God can bring life back! Nothing is too hard for Him..)"
+        "correctIndex": 1,
+        "correctFeedback": "About this season… thou shalt embrace a son.",
+        "wrongFeedback": "Listen for son. (Answer: A son.)"
+      },
+      {
+        "question": "After Elisha prayed and lay upon the child, what happened?",
+        "choices": [
+          "The child sneezed seven times, and the child opened his eyes.",
+          "Nothing changed.",
+          "They left the city.",
+          "The room went dark."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Seven times — then opened his eyes.",
+        "wrongFeedback": "Listen for sneezed seven times. (Answer: Sneezed seven times and opened his eyes.)"
+      },
+      {
+        "question": "What did Elisha say to the mother at the last?",
+        "choices": [
+          "Hide away.",
+          "Take up thy son.",
+          "Run faster.",
+          "Stay outside."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Take up thy son — mercy spoken plain.",
+        "wrongFeedback": "Listen for Take up thy son. (Answer: Take up thy son.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Elisha Raises a Boy with God's Word today.",
-    "takeaway": "God can bring life back! Nothing is too hard for Him.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Elisha Raises a Boy. Amen.",
+    "doneMessage": "Well done — the LORD hears when we cry to Him.",
+    "takeaway": "God used Elisha’s prayer to bring life back — the Shunammite took up her son with joy.",
+    "prayer": "Lord, thank You for mercy. Help us trust You in hard moments. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A Shunammite's son dies (elisha)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha stretches over him and prays (raise)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The boy sneezes seven times—alive! (shunammite)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A Shunammite's son dies (2 kings 4)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha stretches over him and prays (boy)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha kneeling beside small bed in room on wall mother reaching thankful child eyes opening soft window thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little chamber bed table stool candlestick Shunem",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Prayed unto the LORD shut the door",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Child sneezed seven times opened eyes merciful",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Take up thy son mother joy"
     ]
   },
   "emmausRoad": {
@@ -5690,9 +6541,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 6–9",
-          "Matthew 6",
-          "Acts 18:23–21:17",
+          "Esther 2–7",
+          "Luke 24:50–53; Acts 1:6–11",
+          "1 Samuel 17:8–11, 16, 23–30",
           "Luke 24"
         ],
         "correctIndex": 3,
@@ -5703,9 +6554,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The apostles",
-          "Peter",
-          "John"
+          "Stephen",
+          "John",
+          "The LORD"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5776,9 +6627,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Esther 2–7",
-          "Matthew 4:1–11",
-          "Mark 10:13–16",
-          "Genesis 37:28"
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Genesis 37:3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5787,9 +6638,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Elisha",
+          "The Lord",
           "Joshua",
-          "David",
-          "Philip",
           "God"
         ],
         "correctIndex": 3,
@@ -5859,10 +6710,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Peter 1–3",
-          "Ephesians, Philippians, Colossians, Philemon",
+          "Luke 10",
+          "Esther 2–7",
           "Esther 5–7",
-          "Revelation 1–3"
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5871,9 +6722,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "John",
+          "The Holy Ghost",
           "The apostles",
-          "God the Father",
-          "Peter",
           "God"
         ],
         "correctIndex": 3,
@@ -5943,10 +6794,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 4:1-16",
+          "Joshua 24:14-15",
           "Esther 2:15–18",
-          "1 Samuel 1–2",
-          "Philippians 2:8–11"
+          "Acts 16:16–40",
+          "Nehemiah 1–6"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5956,9 +6807,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Mary",
-          "Priscilla",
-          "Elisha"
+          "God the Father",
+          "Philip",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6028,10 +6879,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Psalm 23:1-6",
+          "Acts 2:1–4",
           "Esther 4–5",
-          "Genesis 37:3"
+          "Luke 24:13–35"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6040,9 +6891,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Elisha",
+          "The Lord",
           "Joshua",
-          "David",
-          "Philip",
           "God"
         ],
         "correctIndex": 3,
@@ -6112,10 +6963,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 24",
-          "Luke 24:50–53; Acts 1:6–11",
+          "Hebrews 11",
+          "Matthew 3:13–17",
           "2 Timothy 1:5–7; 3:15",
-          "1 Samuel 17:8–11, 16, 23–30"
+          "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6124,10 +6975,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "David",
+          "The crowds",
+          "Jesus",
           "God",
-          "John"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6196,10 +7047,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Lamentations 1–5",
-          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Luke 24:50–53; Acts 1:6–11",
+          "Genesis 40",
           "Philippians 2:8–11",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
+          "Matthew 28; Mark 16; Luke 24; John 20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6209,9 +7060,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "James",
-          "Paul",
-          "The crowds"
+          "Joshua",
+          "David",
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6281,9 +7132,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Ezekiel 37:1–14",
-          "1 Samuel 18:1-4; 20:1-42",
-          "Esther 5–7",
-          "Matthew 28:18–20"
+          "Acts 2:42–47",
+          "2 Timothy 1:5–7; 3:15",
+          "1 Samuel 1–2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6292,8 +7143,8 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jude",
-          "Jonathan",
+          "Joshua",
+          "David",
           "The Lord",
           "God"
         ],
@@ -6365,10 +7216,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 2",
+          "1 Timothy 4:12",
           "Ezra 1–10; Nehemiah 8–9",
-          "Luke 17",
-          "John 2:1–11"
+          "Revelation 12",
+          "1 Samuel 13; 15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6377,10 +7228,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Jude",
+          "The Holy Ghost",
+          "The apostles",
           "God",
-          "Stephen"
+          "Holy Spirit"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6449,10 +7300,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
-          "Luke 24:13–35",
+          "Acts 9:1–19",
+          "Acts 16:11–15",
           "Matthew 17:20; Mark 11:23–24",
-          "Matthew 17:1–13"
+          "Acts 2:4–21"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6461,9 +7312,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "God the Father",
+          "Joshua",
           "Peter",
+          "David",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -6533,10 +7384,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 6:11-40",
+          "Jonah 4",
           "Matthew 17",
-          "Daniel 6",
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5"
+          "James 2:14–26",
+          "John 10:1–18"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6545,10 +7396,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "James",
+          "Peter",
+          "David",
           "Jesus",
-          "The crowds"
+          "James"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6734,9 +7585,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 3",
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
-          "Revelation 21",
-          "Luke 3; Matthew 3"
+          "Exodus 12:1-14",
+          "Luke 15",
+          "Acts 2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6745,9 +7596,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
+          "The LORD",
+          "Stephen",
+          "John",
           "God"
         ],
         "correctIndex": 3,
@@ -6818,9 +7669,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 9",
-          "John 6:1–14",
-          "Philippians 2:8–11",
+          "Acts 7",
+          "Genesis 22",
+          "Ruth 3:1-18",
           "Matthew 18:21–35"
         ],
         "correctIndex": 3,
@@ -6830,10 +7681,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
+          "Philip",
+          "God the Father",
           "Jesus",
-          "Elisha"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -6903,9 +7754,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Kings 4:1–7",
-          "Judges 6:11-40",
-          "James 2:14–26"
+          "Ezekiel 37:1–14",
+          "John 9",
+          "John 6:1–14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6914,9 +7765,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "God the Father",
-          "The apostles",
+          "Elisha",
+          "The Lord",
+          "The crowds",
           "God"
         ],
         "correctIndex": 3,
@@ -6986,9 +7837,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Galatians 5",
-          "Joshua 7:1-26",
-          "Acts 7",
-          "Ruth 4:1-17"
+          "Exodus 40:1-38",
+          "Judges 13:1-25",
+          "Revelation 6–8:1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6997,10 +7848,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "The crowds",
           "Holy Spirit",
           "The Lord",
-          "Jonathan"
+          "The LORD"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7069,10 +7920,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
+          "Matthew 28",
           "Matthew 26:36–46; Luke 22:44",
-          "Acts 27",
-          "Acts 8:26–40"
+          "Matthew 19:16–22",
+          "1 Samuel 9–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7082,9 +7933,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "Paul",
+          "God the Father",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7517,10 +8368,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:1–7",
-          "1 Samuel 17:1-11, 32-51",
+          "1 Kings 6:1-14; 8:1-13, 22-30",
+          "Ruth 2:1-17",
           "1 Samuel 17:8–11, 16, 23–30",
-          "Judges 6:11-40"
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7529,9 +8380,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
           "Mary",
-          "God",
+          "Stephen",
+          "The LORD",
           "David"
         ],
         "correctIndex": 3,
@@ -7600,9 +8451,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 10",
-          "Job 2",
-          "John 2:1–11",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23"
+          "Matthew 4:1–11",
+          "Mark 10:13–16",
+          "Genesis 37:28"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7611,9 +8462,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
-          "Philip",
+          "Peter",
+          "James",
+          "Priscilla",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -7683,10 +8534,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 13:1-25",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
           "Matthew 28:18–20",
-          "Genesis 41",
-          "Revelation 6–8:1"
+          "Judges 7:1-22",
+          "Matthew; Mark; Luke; John (Gospels overview)"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7695,10 +8546,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "Philip",
           "Jonathan",
-          "Jude",
           "Jesus",
-          "Stephen"
+          "God the Father"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7767,9 +8618,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1",
-          "2 Timothy 4:6–8",
-          "Acts 16:11–15",
+          "Acts 6:8–7:60",
+          "Joshua 8:1-8, 18-23, 26-29",
+          "1 Samuel 25:1-42",
           "1 Samuel 1"
         ],
         "correctIndex": 3,
@@ -7780,9 +8631,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Joshua",
-          "David",
-          "Stephen"
+          "Jonathan",
+          "Philip",
+          "Jude"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -7981,9 +8832,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 1–2",
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Luke 24",
-          "1 Samuel 24:1-22"
+          "Philippians 2:8–11",
+          "2 Kings 2:1-14",
+          "Luke 23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7992,10 +8843,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
+          "The Holy Ghost",
           "God",
-          "Jonathan",
-          "Stephen"
+          "John",
+          "The apostles"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8065,9 +8916,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 9",
-          "Acts 1:6–11",
-          "Matthew 27; Mark 15; Luke 23; John 19",
-          "Matthew 17:1–13"
+          "Ruth 1:1-18",
+          "Numbers 13:1-33; 14:1-9",
+          "Revelation 17–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8076,10 +8927,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "The crowds",
+          "The Lord",
           "Jesus",
-          "Stephen"
+          "Elisha"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8149,10 +9000,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Corinthians 12",
+          "Matthew 3:13–17",
           "Luke 17",
-          "Philippians 2:8–11",
-          "the Bible"
+          "Exodus 12:1-14",
+          "Luke 15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8162,9 +9013,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jude",
-          "Jonathan",
-          "Stephen"
+          "The Holy Ghost",
+          "Holy Spirit",
+          "God"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8235,9 +9086,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
-          "Joshua 24:14-15",
-          "Mark 4:35–41"
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
+          "Matthew 5–7",
+          "Luke 10"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8246,10 +9097,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "Paul",
           "Jesus",
-          "God the Father",
-          "Paul"
+          "Philip",
+          "God the Father"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8318,10 +9169,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezra 1–10; Nehemiah 8–9",
+          "Genesis 18:9–15",
           "Revelation 21",
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
-          "Luke 17"
+          "Revelation 1:8, 11, 17–18",
+          "John 20:24–29"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8331,9 +9182,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Priscilla",
-          "Mary",
-          "Elisha"
+          "Jonathan",
+          "Philip",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8400,9 +9251,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 41:41",
-          "Matthew 13",
-          "Acts 27",
+          "Genesis 18:9–15",
+          "John 20:24–29",
+          "Revelation 1:8, 11, 17–18",
           "Hebrews 11"
         ],
         "correctIndex": 3,
@@ -8413,9 +9264,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Peter",
-          "The apostles",
-          "John"
+          "God the Father",
+          "Philip",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8485,9 +9336,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 18",
-          "Matthew 18:21–35",
-          "Daniel 6:22",
+          "Acts 27–28",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "2 Kings 5:1-14",
           "Acts 2:1–13"
         ],
         "correctIndex": 3,
@@ -8497,10 +9348,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "Priscilla",
+          "The crowds",
+          "Elisha",
           "God",
-          "The crowds"
+          "Jesus"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8571,9 +9422,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Isaiah 7:14; 9:6–7; 53:4–6",
-          "Exodus 40:1-38",
-          "Judges 16:23-30",
-          "Acts 25–26"
+          "Acts 28:1–10",
+          "Matthew 25",
+          "Colossians 1:15–20; 3:1–4, 12–17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8582,9 +9433,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jude",
-          "Jonathan",
-          "The Lord",
+          "David",
+          "Peter",
+          "Joshua",
           "God"
         ],
         "correctIndex": 3,
@@ -8655,10 +9506,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 2:5",
-          "Ephesians, Philippians, Colossians, Philemon",
+          "Luke 18:1–8",
+          "Exodus 14",
           "Genesis 28:10–22",
-          "Genesis 37:3"
+          "2 Timothy 4:6–8"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8667,10 +9518,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
+          "God the Father",
           "God",
-          "Holy Spirit",
-          "The crowds"
+          "The crowds",
+          "Jesus"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8740,9 +9591,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Judges 14:5-9",
-          "Matthew 25",
-          "Revelation 19"
+          "Numbers 22",
+          "Daniel 6",
+          "Luke 19:1–10"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8751,10 +9602,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "Jonathan",
           "God",
-          "God the Father",
-          "Jesus"
+          "Priscilla",
+          "Jude"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8820,9 +9671,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 3",
-          "Judges 4:1-16",
-          "Revelation 22",
+          "Acts 19",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "1 Peter 1–5",
           "Mark 5:21–43"
         ],
         "correctIndex": 3,
@@ -8833,9 +9684,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The Holy Ghost",
-          "James",
-          "Paul"
+          "The LORD",
+          "Stephen",
+          "Mary"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8903,10 +9754,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 9",
+          "Romans 3:23; 5:8; 6:23; 10:9–10",
           "James 2:14–26",
-          "Job 2",
-          "John 2:1–11"
+          "Matthew 17:1–13",
+          "Luke 2"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8916,9 +9767,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "James",
-          "David",
-          "Jude",
-          "Stephen"
+          "God",
+          "Elisha",
+          "Jude"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -8988,10 +9839,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 2",
+          "Revelation 1:8, 11, 17–18",
           "Lamentations 1–5",
-          "John 9",
-          "John 2:1–11"
+          "Genesis 18:9–15",
+          "John 20:24–29"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9000,10 +9851,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "David",
+          "Holy Spirit",
+          "The Holy Ghost",
           "God",
-          "John"
+          "Priscilla"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9187,9 +10038,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 20:1-17",
-          "Acts 17:22–34",
-          "Judges 13:1-25",
+          "Matthew 26:36–46; Luke 22:44",
+          "Mark 5:21–43",
+          "2 Kings 2:19-22; 4:1-7",
           "Matthew; Mark; Luke; John (Gospels overview)"
         ],
         "correctIndex": 3,
@@ -9199,10 +10050,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "James",
+          "Philip",
+          "God the Father",
           "Jesus",
-          "Paul"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9272,9 +10123,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 24:50–53; Acts 1:6–11",
-          "Revelation 22:12–13",
-          "Acts 15",
-          "John 20:24–29"
+          "Luke 24",
+          "Exodus 32:1-8, 15-20, 30-32",
+          "1 Samuel 18:6-11, 17-19:17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9283,10 +10134,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "The Holy Ghost",
+          "Jude",
+          "Philip",
           "Jesus",
-          "Paul"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9355,9 +10206,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22",
-          "Daniel 6",
-          "Luke 19:1–10",
+          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Matthew 28; Mark 16; Luke 24; John 20",
+          "Exodus 32:1-8, 15-20, 30-32",
           "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 3,
@@ -9368,9 +10219,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God the Father",
-          "Jesus",
-          "Peter",
-          "John"
+          "Priscilla",
+          "Mary",
+          "Holy Spirit"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9440,9 +10291,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 2; Matthew 1–2",
-          "Matthew 28:18–20",
-          "Mark 10:13–16",
-          "Esther 2:15–18"
+          "Revelation 22:12–13",
+          "Acts 15",
+          "1 Timothy 4:12"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9451,10 +10302,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "Mary",
+          "Stephen",
           "God",
-          "Stephen"
+          "The LORD"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9524,9 +10375,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 28:10–22",
-          "Luke 2:1–20",
-          "Jonah 1:17",
+          "Revelation 22",
+          "1 Samuel 16:11; 17:15, 34–37",
+          "Esther 2–7",
           "Mark 10:13–16"
         ],
         "correctIndex": 3,
@@ -9537,9 +10388,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Peter",
-          "The apostles",
-          "John"
+          "Philip",
+          "Jonathan",
+          "Jude"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9609,10 +10460,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "James 2:14–26",
+          "Luke 24",
           "Matthew 4:18–22; Luke 5:1–11",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
+          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Exodus 32:1-8, 15-20, 30-32"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9622,9 +10473,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Philip",
-          "David",
-          "John"
+          "The crowds",
+          "Paul",
+          "Elisha"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9695,9 +10546,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Mark 4:35–41",
-          "Judges 13:1-25",
-          "Revelation 6–8:1",
-          "Exodus 20:1-17"
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 13:1–23",
+          "Matthew 7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9706,9 +10557,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "The apostles",
           "The Holy Ghost",
-          "James",
-          "Priscilla",
+          "Holy Spirit",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -9779,10 +10630,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 21–22",
-          "Judges 16:23-30",
+          "1 Kings 17:1-7",
+          "Joshua 6:1-21",
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "Acts 5:12–16"
+          "1 Samuel 17:1-11, 32-51"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9791,10 +10642,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "The apostles",
+          "Joshua",
+          "Peter",
           "Jesus",
-          "John"
+          "David"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9863,9 +10714,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 2:8–11",
-          "1 Samuel 1–2",
-          "Mark 4:35–41",
+          "1 Samuel 17:1-11, 32-51",
+          "1 Kings 17:1-7",
+          "Joshua 6:1-21",
           "John 6:1–14"
         ],
         "correctIndex": 3,
@@ -9875,10 +10726,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "God",
+          "Jude",
+          "Jonathan",
           "Jesus",
-          "The crowds"
+          "God"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9947,10 +10798,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 10:13–16",
-          "1 Samuel 1",
+          "Revelation 14–15",
+          "Acts 8:26–40",
           "John 2:1–11",
-          "Matthew 4:1–11; Luke 4:1–13"
+          "Judges 16:4-21"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9959,9 +10810,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "The Holy Ghost",
+          "God",
+          "Holy Spirit",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10032,9 +10883,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 8–11",
-          "1 Timothy 4:12",
-          "Genesis 18:9–15",
+          "1 Kings 17:1-7",
+          "Acts 2:1–13",
+          "Joshua 6:1-21",
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 3,
@@ -10045,9 +10896,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The Lord",
-          "Jude",
-          "Elisha"
+          "John",
+          "The apostles",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10117,9 +10968,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:1-13",
-          "Judges 7:1-22",
-          "2 Kings 4",
+          "Hebrews 11",
+          "1 John 1–5",
+          "Mark 2:1–12",
           "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 3,
@@ -10130,9 +10981,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Holy Spirit",
-          "God",
-          "The crowds"
+          "James",
+          "Priscilla",
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10201,10 +11052,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:1–14",
-          "Hebrews 11",
+          "Jonah 1:17",
+          "Acts 19",
           "John 9",
-          "Matthew 17:20; Mark 11:23–24"
+          "Exodus 16:1-36"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10214,9 +11065,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "James",
-          "Priscilla",
-          "The crowds"
+          "Jude",
+          "Jonathan",
+          "Philip"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10286,10 +11137,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1",
+          "2 Kings 5:1–15",
           "Mark 2:1–12",
-          "Acts 2:1–13",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
+          "Matthew 4:1–11",
+          "Genesis 37:28"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10299,7 +11150,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God the Father",
-          "Peter",
+          "Philip",
           "Jesus",
           "Paul"
         ],
@@ -10372,9 +11223,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Matthew 26",
-          "Joshua 7:1-26",
-          "1 Samuel 24:1-22"
+          "Genesis 39–40",
+          "Matthew 5–7",
+          "Exodus 7:8–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10383,9 +11234,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
           "Jude",
           "Jonathan",
+          "Philip",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10456,9 +11307,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
-          "Ruth 4:1-17",
-          "Acts 7",
+          "Luke 19:1–10",
+          "Numbers 22",
+          "Daniel 6",
           "John 11:1–44"
         ],
         "correctIndex": 3,
@@ -10469,9 +11320,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "James",
-          "The Holy Ghost",
-          "Paul"
+          "Peter",
+          "David",
+          "Joshua"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10540,10 +11391,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
+          "Exodus 12:1-14",
           "Luke 2:1–20",
-          "Genesis 41:41",
-          "Luke 2:41–52"
+          "Luke 15:11–32",
+          "Acts 2"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10553,9 +11404,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "James",
+          "Peter",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10623,10 +11474,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 3:13–17",
-          "Luke 15",
+          "Luke 24:13–35",
+          "1 Samuel 18",
           "John 10:1–18",
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
+          "Psalm 23:1-6"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10635,10 +11486,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "God",
           "Jesus",
-          "The Holy Ghost",
-          "Paul"
+          "Jonathan",
+          "Jude"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10708,9 +11559,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28; Mark 16; Luke 24; John 20",
-          "Genesis 40",
-          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Jude 1",
+          "Genesis 6–9",
+          "Matthew 14:22–33",
           "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 3,
@@ -10721,9 +11572,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Holy Spirit",
-          "God",
-          "The crowds"
+          "James",
+          "Priscilla",
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10794,9 +11645,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Luke 1",
-          "Genesis 1",
-          "Acts 2:42–47"
+          "Jonah 1:17",
+          "Exodus 16:1-36",
+          "Acts 19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10805,9 +11656,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jude",
-          "Jonathan",
           "The Lord",
+          "Joshua",
+          "Elisha",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -10879,9 +11730,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28; Mark 16; Luke 24; John 20",
-          "Acts 19",
-          "Malachi 1–4",
-          "2 John; 3 John"
+          "Acts 25–26",
+          "Exodus 20:1-17",
+          "Judges 16:4-21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10890,10 +11741,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Jesus",
           "Jonathan",
-          "Stephen"
+          "Jesus",
+          "God",
+          "Jude"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10961,10 +11812,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 19:1–10",
-          "1 Kings 3",
+          "Acts 17:22–34",
+          "Exodus 7–12",
           "Matthew 5–7",
-          "Numbers 22"
+          "Genesis 4"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10973,9 +11824,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "Peter",
+          "Priscilla",
+          "James",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -11044,10 +11895,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 19:1–10",
-          "1 Kings 3",
+          "Exodus 12:1-14",
+          "Luke 15",
           "Luke 2:41–52",
-          "Numbers 22"
+          "Acts 2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11056,9 +11907,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "The crowds",
           "The Lord",
-          "Jonathan",
-          "Jude",
+          "Elisha",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -11128,9 +11979,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 3:1-21",
-          "Revelation 22:12–13",
-          "John 20:24–29",
+          "Daniel 6",
+          "Matthew 17",
+          "1 Kings 19:9-18",
           "Matthew 4:1–11"
         ],
         "correctIndex": 3,
@@ -11141,9 +11992,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The apostles",
-          "Peter",
-          "John"
+          "Stephen",
+          "John",
+          "The LORD"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11210,10 +12061,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 19:1–10",
-          "1 Kings 3",
+          "Nehemiah 1–6",
+          "Joshua 24:14-15",
           "Matthew 4:1–11; Luke 4:1–13",
-          "Numbers 22"
+          "Acts 16:16–40"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11222,9 +12073,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "John",
           "The Holy Ghost",
-          "Priscilla",
-          "James",
+          "The apostles",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -11294,9 +12145,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15:36–18:22",
-          "Genesis 41",
-          "Exodus 7:8–13",
+          "1 Samuel 16:1-13",
+          "1 Kings 17:8-16",
+          "Revelation 13:16–18",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -11307,9 +12158,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The apostles",
-          "Peter",
-          "John"
+          "Joshua",
+          "David",
+          "The Lord"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11377,9 +12228,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 14:22–33",
-          "1 Samuel 16:1-13",
-          "Revelation 13:16–18",
-          "2 Kings 4"
+          "Judges 7:1-22",
+          "2 Kings 4:8-37",
+          "Lamentations 1–5"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11388,9 +12239,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
           "God the Father",
+          "Paul",
+          "The crowds",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -11460,9 +12311,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Corinthians 13",
-          "Acts 2:4–21",
-          "Acts 9:1–19",
+          "Luke 3; Matthew 3",
+          "Matthew 25:14–30",
+          "Luke 15:8–10",
           "Job 2"
         ],
         "correctIndex": 3,
@@ -11473,9 +12324,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Joshua",
-          "David",
-          "Stephen"
+          "Elisha",
+          "The Lord",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11545,10 +12396,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 8–11",
+          "Daniel 3",
           "Luke 3; Matthew 3",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 7"
+          "2 Kings 4:1–7",
+          "Numbers 23–24"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11557,10 +12408,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "God",
+          "Philip",
+          "David",
           "John",
-          "Jonathan"
+          "James"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11629,9 +12480,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 21:1-9",
-          "1 Samuel 16:14-23",
-          "Acts 18:24–28",
+          "Acts 20:7–12",
+          "Acts 3",
+          "John 12:1–8",
           "Matthew 3:13–17"
         ],
         "correctIndex": 3,
@@ -11642,9 +12493,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Holy Ghost",
-          "James",
-          "Jesus"
+          "Elisha",
+          "The Lord",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11712,10 +12563,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 23–24",
-          "Mark 12",
+          "Acts 28",
+          "Exodus 7:8–13",
           "1 John 1–5",
-          "Daniel 3"
+          "Acts 5:12–16"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11724,9 +12575,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Priscilla",
-          "Holy Spirit",
+          "Jude",
+          "Philip",
+          "David",
           "John"
         ],
         "correctIndex": 3,
@@ -11795,9 +12646,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1",
-          "Revelation 21–22",
-          "Judges 16:23-30",
-          "Acts 5:12–16"
+          "Matthew 5–7",
+          "Genesis 41:41",
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11806,10 +12657,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "The LORD",
           "Jesus",
-          "God the Father",
-          "Paul"
+          "Priscilla",
+          "Mary"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11877,10 +12728,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 23",
-          "Luke 24:13–35",
+          "Esther 4–5",
+          "1 Samuel 1",
           "2 John; 3 John",
-          "Acts 2:1–4"
+          "Acts 9:36–43"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11889,10 +12740,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "God",
           "John",
-          "The Lord",
-          "Jonathan"
+          "David",
+          "Jude"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -11962,10 +12813,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 18:21–35",
+          "Revelation 21–22",
           "Jonah 1:17",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Isaiah 7:14; 9:6–7; 53:4–6"
+          "Joshua 10:12-14",
+          "Judges 16:23-30"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11975,9 +12826,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Paul",
-          "James",
-          "The crowds"
+          "David",
+          "Joshua",
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12045,9 +12896,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 1–2",
-          "Mark 4:35–41",
-          "Philippians 2:8–11",
+          "Acts 7",
+          "Genesis 22",
+          "Ruth 3:1-18",
           "Jonah 4"
         ],
         "correctIndex": 3,
@@ -12058,9 +12909,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The apostles",
-          "Peter",
-          "John"
+          "Elisha",
+          "The Lord",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12245,9 +13096,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
-          "Judges 16:4-21",
-          "Exodus 7–12",
+          "Revelation 20",
+          "1 Samuel 1:21-28; 2:1-11, 18-21",
+          "Matthew 25",
           "Genesis 37:3"
         ],
         "correctIndex": 3,
@@ -12258,9 +13109,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jude",
-          "The Lord",
-          "Elisha"
+          "The LORD",
+          "Mary",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12331,9 +13182,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 40",
-          "1 Samuel 18",
-          "Luke 24:13–35",
-          "Matthew 17:1–13"
+          "Acts 18:1–3, 18–19",
+          "Titus 1–3",
+          "Revelation 12"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12342,9 +13193,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "Peter",
-          "God the Father",
+          "Jude",
+          "Jonathan",
+          "Philip",
           "God"
         ],
         "correctIndex": 3,
@@ -12413,9 +13264,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 18:20–40",
-          "Joshua 6:1-21",
-          "Acts 2:1–13",
+          "Luke 10",
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
+          "Matthew 5–7",
           "Genesis 39–40"
         ],
         "correctIndex": 3,
@@ -12426,9 +13277,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "David",
-          "Joshua",
-          "Stephen"
+          "John",
+          "Stephen",
+          "The LORD"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12498,9 +13349,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41:41",
-          "Exodus 12:1-14",
-          "Acts 2",
-          "Luke 15:11–32"
+          "Revelation 14–15",
+          "Judges 16:4-21",
+          "Exodus 20:1-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12509,9 +13360,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "Mary",
-          "Holy Spirit",
+          "Jonathan",
+          "Philip",
+          "Jude",
           "God"
         ],
         "correctIndex": 3,
@@ -12583,9 +13434,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 37:28",
-          "Acts 2",
-          "Exodus 12:1-14",
-          "Luke 15:11–32"
+          "Matthew 28",
+          "1 Samuel 9–10",
+          "Luke 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12594,9 +13445,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "The apostles",
           "The Holy Ghost",
-          "James",
-          "Paul",
+          "Holy Spirit",
           "God"
         ],
         "correctIndex": 3,
@@ -12667,9 +13518,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Thessalonians 4:13–18; 5:16–24",
-          "1 Corinthians 12",
-          "Revelation 1:8, 11, 17–18",
+          "Acts 16:16–40",
+          "Revelation 20",
+          "Romans 16:1–2",
           "Joshua 7:1-11"
         ],
         "correctIndex": 3,
@@ -12680,9 +13531,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The Lord",
-          "Joshua",
-          "David",
-          "Stephen"
+          "Philip",
+          "God the Father",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -12975,9 +13826,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26",
-          "1 Kings 5–8",
-          "Mark 12",
-          "Ruth 2:1-17"
+          "Matthew 3:13–17",
+          "Luke 15",
+          "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12986,10 +13837,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "Peter",
+          "Priscilla",
           "Jesus",
-          "Stephen"
+          "James"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13056,10 +13907,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 4:1-16",
-          "1 Samuel 1:1-20",
+          "Numbers 23–24",
+          "1 Kings 18",
           "Jude 1",
-          "2 Timothy 1:5–7; 3:15"
+          "Daniel 3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13069,9 +13920,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jude",
-          "Joshua",
-          "David",
-          "Stephen"
+          "The Holy Ghost",
+          "Elisha",
+          "God"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13141,9 +13992,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Matthew 27; Mark 15; Luke 23; John 19",
-          "1 Kings 18",
-          "Matthew 18:21–35"
+          "Matthew 4:1–11",
+          "Genesis 37:28",
+          "2 Kings 5:1–15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13152,9 +14003,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "Philip",
-          "Joshua",
+          "Stephen",
+          "John",
+          "The LORD",
           "God"
         ],
         "correctIndex": 3,
@@ -13223,9 +14074,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Genesis 1",
-          "Luke 1",
-          "2 Kings 2:1–14"
+          "Acts 25–26",
+          "Exodus 20:1-17",
+          "Exodus 3:1-15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13234,9 +14085,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "Philip",
-          "Joshua",
+          "The Holy Ghost",
+          "Holy Spirit",
+          "The apostles",
           "God"
         ],
         "correctIndex": 3,
@@ -13307,9 +14158,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 7",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 13:1–23"
+          "the Bible",
+          "Acts 15",
+          "Revelation 22:12–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13318,10 +14169,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
+          "The Holy Ghost",
           "Jesus",
-          "Joshua",
-          "Stephen"
+          "God",
+          "Holy Spirit"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13391,10 +14242,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 4:35–41",
-          "Jude 1",
+          "Exodus 3:1-15",
+          "2 Kings 4:1-7",
           "John 11:1–44",
-          "Matthew 14:22–33"
+          "1 Samuel 18:1-4; 20:1-42"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13404,9 +14255,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "David",
+          "Jonathan",
           "Philip",
-          "John"
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13476,9 +14327,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Genesis 39–40",
-          "Matthew 5–7",
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
+          "Matthew 13",
+          "Genesis 41:41",
+          "Luke 2:41–52"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13487,10 +14338,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
+          "Peter",
           "God",
-          "Mary",
-          "Elisha"
+          "Joshua",
+          "David"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13560,9 +14411,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 15:8–10",
-          "Ruth 1",
-          "Revelation 1–22",
-          "Acts 3"
+          "Luke 2",
+          "Romans 3:23; 5:8; 6:23; 10:9–10",
+          "Joshua 2:1-21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13573,8 +14424,8 @@
         "choices": [
           "Holy Spirit",
           "Jesus",
-          "Priscilla",
-          "The crowds"
+          "The apostles",
+          "The Holy Ghost"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13642,10 +14493,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 3",
-          "Matthew 25",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Job 2",
           "Luke 15",
-          "Revelation 22"
+          "Matthew 25:14–30"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13654,9 +14505,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Priscilla",
-          "James",
+          "Stephen",
+          "The apostles",
+          "John",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -13728,9 +14579,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Corinthians 13",
-          "1 Samuel 9–10",
-          "Genesis 11",
-          "Ephesians 6"
+          "Luke 17",
+          "John 2:1–11",
+          "Job 2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13739,9 +14590,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "David",
+          "James",
+          "Peter",
           "Paul"
         ],
         "correctIndex": 3,
@@ -13812,10 +14663,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14",
+          "Matthew 25",
           "the Bible",
-          "2 Timothy 4:6–8",
-          "Luke 18:1–8"
+          "Revelation 20",
+          "1 Samuel 1:21-28; 2:1-11, 18-21"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13825,9 +14676,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "God the Father",
-          "Peter",
-          "Paul"
+          "Elisha",
+          "The crowds",
+          "The Lord"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -13897,9 +14748,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 16:11–15",
-          "Luke 2:1–20",
-          "Jonah 1:17",
-          "Mark 5:21–43"
+          "Luke 2:41–52",
+          "Genesis 41:41",
+          "Luke 2; Matthew 1–2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13908,7 +14759,7 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "The crowds",
           "The Lord",
           "God",
           "Elisha"
@@ -13981,10 +14832,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philemon 1",
+          "Matthew 25:14–30",
           "Malachi 1–4",
-          "Revelation 13",
-          "Acts 2:14–41"
+          "Acts 18:1–3, 18–19",
+          "Titus 1–3"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13994,9 +14845,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Philip",
-          "David",
-          "John"
+          "The Lord",
+          "Elisha",
+          "Joshua"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14182,10 +15033,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 3:1-18",
+          "Acts 16:16–40",
           "the Bible",
-          "Acts 18:24–28",
-          "Joshua 10:12-14"
+          "Revelation 20",
+          "Romans 16:1–2"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14195,9 +15046,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "James",
-          "Priscilla",
-          "The crowds"
+          "Mary",
+          "The LORD",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14265,10 +15116,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:1-13",
+          "Mark 10:13–16",
           "John 12:1–8",
-          "Genesis 22",
-          "Revelation 13:16–18"
+          "Esther 4–5",
+          "1 Samuel 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14277,10 +15128,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Peter",
+          "The LORD",
+          "The crowds",
           "Mary",
-          "Paul"
+          "The Lord"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14350,10 +15201,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 9",
-          "John 6:1–14",
+          "Judges 4:1-16",
+          "Esther 5–7",
           "John 20:1–18",
-          "Ezekiel 37:1–14"
+          "1 Corinthians 12"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14362,10 +15213,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "The Holy Ghost",
           "Jesus",
-          "The Lord",
-          "Elisha"
+          "God",
+          "Holy Spirit"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14431,10 +15282,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jude 1",
-          "Matthew 14:22–33",
+          "Acts 6:8–7:60",
+          "Ruth 4:1-17",
           "the Bible",
-          "Matthew 13:1–23"
+          "1 Samuel 25:1-42"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14443,9 +15294,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Philip",
-          "David",
+          "The Holy Ghost",
+          "God",
+          "Holy Spirit",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -14515,10 +15366,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 4:1-16",
+          "Acts 17:22–34",
           "the Bible",
-          "1 Samuel 1–2",
-          "Philippians 2:8–11"
+          "2 Samuel 5:1-5, 9-12",
+          "Genesis 4"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14529,8 +15380,8 @@
         "choices": [
           "God",
           "Mary",
-          "Priscilla",
-          "Elisha"
+          "Paul",
+          "The LORD"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14598,10 +15449,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 20:1–18",
-          "Ephesians, Philippians, Colossians, Philemon",
+          "1 Samuel 1–2",
+          "Mark 4:35–41",
           "Exodus 2:5",
-          "Joshua 3:14-17; 4:1-7, 18-24"
+          "Philippians 2:8–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14610,10 +15461,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "John",
           "God",
-          "The Lord",
-          "Elisha"
+          "The Holy Ghost",
+          "The apostles"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14804,10 +15655,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 John; 3 John",
-          "Acts 20:7–12",
+          "Exodus 14",
+          "1 Kings 6:1-14; 8:1-13, 22-30",
           "Exodus 14:21-31",
-          "Malachi 1–4"
+          "Ruth 2:1-17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14816,10 +15667,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Priscilla",
+          "Peter",
+          "David",
           "God",
-          "Elisha"
+          "James"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -14886,9 +15737,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Exodus 7:8–13",
-          "Acts 27–28",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Revelation 19"
+          "Nehemiah 1–6",
+          "Acts 16:16–40",
+          "Romans 16:1–2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14897,9 +15748,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Peter",
-          "God the Father",
-          "The apostles",
+          "The crowds",
+          "Elisha",
+          "Jesus",
           "God"
         ],
         "correctIndex": 3,
@@ -14970,9 +15821,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13",
-          "John 2:1–11",
-          "Luke 17",
-          "Job 2"
+          "Revelation 19",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "Judges 14:5-9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14981,9 +15832,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Priscilla",
-          "The Holy Ghost",
+          "The crowds",
+          "Elisha",
+          "Paul",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -15039,173 +15890,262 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: It's planted in the ground (kingdom)"
     ]
   },
-  "naaman": {
-    "kjvRef": "2 Kings 5:1–15",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
-    "paragraphs": [
-      "Naaman & the River (2 Kings 5:1–15).",
-      "Naaman has leprosy Elisha says: dip in Jordan Naaman obeys—healed!",
-      "Obey God—get healed!",
-      "Even when it seems simple, do what He says!"
-    ],
-    "quizHeading": "Quiz — think it through",
-    "questions": [
+  "naamanDip": {
+    "kjvRef": "2 Kings 5:1-14 (KJV)",
+    "verseExcerpt": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — Wash, and be clean — and his flesh came again like unto the flesh of a little child.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
       {
-        "question": "Where is this story found in the Bible?",
-        "choices": [
-          "Revelation 22:12–13",
-          "Acts 9:36–43",
-          "2 Kings 5:1–15",
-          "Acts 15"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 5:1–15.)"
+        "text": "Now Naaman, captain of the host of the king of Syria, was a great man with his master, and honourable, because by him the LORD had given deliverance unto Syria: he was also a mighty man in valour, but he was a leper.",
+        "caption": "A great captain — but he was a leper",
+        "image": "panel-jesus-1.svg"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "God",
-          "Jude",
-          "Jonathan",
-          "Stephen"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "text": "And the Syrians had gone out by companies, and had brought away captive out of the land of Israel a little maid; and she waited on Naaman’s wife.",
+        "caption": "A little maid waited on Naaman’s wife",
+        "image": "panel-jesus-1.svg"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray.",
-          "Obey God—get healed! Even when it seems simple, do what He says!"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Obey God—get healed! Even when it seems simple, do what He says!.)"
+        "text": "And she said unto her mistress, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
+        "caption": "The prophet in Samaria — he would recover him of his leprosy",
+        "image": "panel-jesus-1.svg"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Naaman has leprosy",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "text": "And it was so, when Elisha the man of God had heard that the king of Israel had rent his clothes, that he sent to the king, saying, Wherefore hast thou rent thy clothes? let him come now to me, and he shall know that there is a prophet in Israel.",
+        "caption": "Let him come now to me — there is a prophet in Israel",
+        "image": "panel-jesus-2.svg"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Obey God—get healed! Even when it seems simple, do what He says!",
-          "Only be kind to people who are exactly like us."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Obey God—get healed! Even when it seems simple, do what He says!.)"
+        "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha.",
+        "caption": "Naaman stood at the door of the house of Elisha",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
+        "caption": "Go and wash in Jordan seven times — thou shalt be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And his servants came near, and spake unto him, and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? how much rather then, when he saith to thee, Wash, and be clean?",
+        "caption": "Wash, and be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
+        "caption": "Seven times in Jordan — like unto the flesh of a little child — and he was clean",
+        "image": "panel-jesus-3.svg"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Naaman & the River with God's Word today.",
-    "takeaway": "Obey God—get healed! Even when it seems simple, do what He says!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Naaman & the River. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Naaman has leprosy (naaman)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha says: dip in Jordan (river)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Naaman obeys—healed! (leprosy)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Naaman has leprosy (dip)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha says: dip in Jordan (jordan)"
-    ]
-  },
-  "naamanDip": {
-    "kjvRef": "2 Kings 5:1–15",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "Naaman Washed Clean – 2 Kings 5:14. Naaman was a great army captain, but he had leprosy.",
-      "A little servant girl said, 'Go to the prophet in Israel—God can heal you.' Naaman went to Elisha. Elisha said, 'Go wash in the Jordan River seven times.' Naaman was angry—'The rivers in my country are better!' But his servants said, 'If he asked something hard, you would do it—why not this?' Naaman obeyed, dipped seven times, and his skin became clean like a child's!",
-      "God healed him.",
-      "For you: Sometimes God asks us to do simple things like pray, forgive, or be kind.",
-      "Obey even if it seems small—God can do big miracles when we trust and follow Him."
+      "Naaman was captain of the king of Syria — honourable and brave — but he was a leper. A little maid who served his wife said, Would God my lord were with the prophet in Samaria — he would recover him of his leprosy.",
+      "Naaman came to Elisha’s house with horses and chariot. Elisha sent word: Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman’s heart was hot — he thought the rivers of Damascus were better. His servants spoke kindly: If the prophet had bid a great thing, would you not do it? How much more when he saith, Wash, and be clean?",
+      "Then Naaman went down and dipped himself seven times in Jordan, as the man of God said. His flesh came again like a little child’s — and he was clean. For you: God’s way can feel surprisingly simple — humble obedience opens the door to His mercy.",
+      "Reference: 2 Kings 5:1-14 (KJV)."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What was Naaman’s trouble at the first?",
         "choices": [
-          "Philippians 2:8–11",
-          "the Bible",
-          "2 Kings 5:1–15",
-          "1 Samuel 1–2"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 5:1–15.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
-          "God"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him…",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times.….)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A talking toaster became king of the city.",
-          "Naaman with leprosy – Proud captain needing help",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "He could not walk.",
+          "He was a leper.",
+          "He was a fisherman.",
+          "He had no house."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "A great man — but he was a leper.",
+        "wrongFeedback": "Listen for leper. (Answer: He was a leper.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "Who pointed Naaman toward the prophet in Samaria?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Sometimes God asks us to do simple things like pray, forgive, or be kind. Obey even if it seems small—God can do big…",
-          "Never say sorry when we do wrong."
+          "The king of Egypt only.",
+          "A little maid from Israel.",
+          "No one.",
+          "Only Naaman’s horse."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Sometimes God asks us to do simple things like pray, forgive, or be kind. Obey even if….)"
+        "correctIndex": 1,
+        "correctFeedback": "A little maid — God used her faithful words.",
+        "wrongFeedback": "Listen for little maid. (Answer: A little maid from Israel.)"
+      },
+      {
+        "question": "What did Elisha tell Naaman to do?",
+        "choices": [
+          "Stay home.",
+          "Go and wash in Jordan seven times.",
+          "Bring gold only.",
+          "Never speak again."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Wash in Jordan seven times — simple and clear.",
+        "wrongFeedback": "Listen for Jordan seven times. (Answer: Wash in Jordan seven times.)"
+      },
+      {
+        "question": "What did Naaman’s servants wisely say?",
+        "choices": [
+          "Run away.",
+          "If the prophet had bid a great thing, would you not do it? How much more — Wash, and be clean?",
+          "Do nothing.",
+          "Shout at the river."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Gentle words — and Naaman obeyed.",
+        "wrongFeedback": "Listen for Wash, and be clean. (Answer: the servants’ wise question about doing a great thing.)"
+      },
+      {
+        "question": "What happened after he dipped seven times?",
+        "choices": [
+          "Nothing changed.",
+          "His flesh came again like a little child’s — and he was clean.",
+          "He stayed in the water all day.",
+          "The river dried up."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Clean — like a little child.",
+        "wrongFeedback": "Listen for little child and clean. (Answer: Flesh like a little child — he was clean.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Naaman Dips in the River with God's Word today.",
-    "takeaway": "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He…",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Naaman Dips in the River. Amen.",
+    "doneMessage": "Well done — God heals when we trust and obey.",
+    "takeaway": "Naaman dipped seven times in Jordan — God made him clean. Simple obedience can hold great mercy.",
+    "prayer": "Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Naaman with leprosy – Proud captain needing help (naaman)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Naaman dipping in the Jordan River – Obeying Elisha (river)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Naaman healed – Skin clean like new (jordan)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Naaman with leprosy – Proud captain needing help (2 kings 5)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Naaman dipping in the Jordan River – Obeying Elisha (leprosy)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing in Jordan river seventh dip servants on bank thankful faces clean peaceful skin thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants wise words Wash and be clean",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan"
+    ]
+  },
+  "naamanHealed": {
+    "kjvRef": "2 Kings 5:1-14 (KJV)",
+    "verseExcerpt": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — Wash, and be clean — and his flesh came again like unto the flesh of a little child.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "Now Naaman, captain of the host of the king of Syria, was a great man with his master, and honourable, because by him the LORD had given deliverance unto Syria: he was also a mighty man in valour, but he was a leper.",
+        "caption": "A great captain — but he was a leper",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And the Syrians had gone out by companies, and had brought away captive out of the land of Israel a little maid; and she waited on Naaman’s wife.",
+        "caption": "A little maid waited on Naaman’s wife",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And she said unto her mistress, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
+        "caption": "The prophet in Samaria — he would recover him of his leprosy",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And it was so, when Elisha the man of God had heard that the king of Israel had rent his clothes, that he sent to the king, saying, Wherefore hast thou rent thy clothes? let him come now to me, and he shall know that there is a prophet in Israel.",
+        "caption": "Let him come now to me — there is a prophet in Israel",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha.",
+        "caption": "Naaman stood at the door of the house of Elisha",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
+        "caption": "Go and wash in Jordan seven times — thou shalt be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And his servants came near, and spake unto him, and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? how much rather then, when he saith to thee, Wash, and be clean?",
+        "caption": "Wash, and be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
+        "caption": "Seven times in Jordan — like unto the flesh of a little child — and he was clean",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "Naaman was captain of the king of Syria — honourable and brave — but he was a leper. A little maid who served his wife said, Would God my lord were with the prophet in Samaria — he would recover him of his leprosy.",
+      "Naaman came to Elisha’s house with horses and chariot. Elisha sent word: Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman’s heart was hot — he thought the rivers of Damascus were better. His servants spoke kindly: If the prophet had bid a great thing, would you not do it? How much more when he saith, Wash, and be clean?",
+      "Then Naaman went down and dipped himself seven times in Jordan, as the man of God said. His flesh came again like a little child’s — and he was clean. For you: God’s way can feel surprisingly simple — humble obedience opens the door to His mercy.",
+      "Reference: 2 Kings 5:1-14 (KJV)."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What was Naaman’s trouble at the first?",
+        "choices": [
+          "He could not walk.",
+          "He was a leper.",
+          "He was a fisherman.",
+          "He had no house."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A great man — but he was a leper.",
+        "wrongFeedback": "Listen for leper. (Answer: He was a leper.)"
+      },
+      {
+        "question": "Who pointed Naaman toward the prophet in Samaria?",
+        "choices": [
+          "The king of Egypt only.",
+          "A little maid from Israel.",
+          "No one.",
+          "Only Naaman’s horse."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A little maid — God used her faithful words.",
+        "wrongFeedback": "Listen for little maid. (Answer: A little maid from Israel.)"
+      },
+      {
+        "question": "What did Elisha tell Naaman to do?",
+        "choices": [
+          "Stay home.",
+          "Go and wash in Jordan seven times.",
+          "Bring gold only.",
+          "Never speak again."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Wash in Jordan seven times — simple and clear.",
+        "wrongFeedback": "Listen for Jordan seven times. (Answer: Wash in Jordan seven times.)"
+      },
+      {
+        "question": "What did Naaman’s servants wisely say?",
+        "choices": [
+          "Run away.",
+          "If the prophet had bid a great thing, would you not do it? How much more — Wash, and be clean?",
+          "Do nothing.",
+          "Shout at the river."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Gentle words — and Naaman obeyed.",
+        "wrongFeedback": "Listen for Wash, and be clean. (Answer: the servants’ wise question about doing a great thing.)"
+      },
+      {
+        "question": "What happened after he dipped seven times?",
+        "choices": [
+          "Nothing changed.",
+          "His flesh came again like a little child’s — and he was clean.",
+          "He stayed in the water all day.",
+          "The river dried up."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Clean — like a little child.",
+        "wrongFeedback": "Listen for little child and clean. (Answer: Flesh like a little child — he was clean.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God heals when we trust and obey.",
+    "takeaway": "Naaman dipped seven times in Jordan — God made him clean. Simple obedience can hold great mercy.",
+    "prayer": "Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing in Jordan river seventh dip servants on bank thankful faces clean peaceful skin thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants wise words Wash and be clean",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan"
     ]
   },
   "nehemiahWalls": {
@@ -15222,9 +16162,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14:21-31",
-          "Acts 15:36–18:22",
-          "Genesis 41",
+          "Acts 2:1–4",
+          "Psalm 23:1-6",
+          "Luke 24:13–35",
           "Nehemiah 1–6"
         ],
         "correctIndex": 3,
@@ -15234,10 +16174,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
+          "Priscilla",
+          "Jude",
           "God",
-          "Stephen"
+          "Holy Spirit"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15307,9 +16247,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 6:11-40",
-          "John 10:1–18",
-          "James 2:14–26",
+          "Matthew 4:1–11; Luke 4:1–13",
+          "2 Kings 5:1-14",
+          "Joshua 7:1-11",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -15320,9 +16260,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Lord",
-          "Jude",
-          "Elisha"
+          "David",
+          "Peter",
+          "Joshua"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15393,9 +16333,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Acts 2:14–41",
-          "Revelation 13",
-          "Ruth 4:1-17"
+          "1 Corinthians 13",
+          "Acts 13–14",
+          "Acts 2:1–4"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15404,9 +16344,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "God the Father",
-          "Peter",
+          "Holy Spirit",
+          "Jude",
+          "Priscilla",
           "God"
         ],
         "correctIndex": 3,
@@ -15477,10 +16417,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 23",
+          "Esther 5–7",
           "Genesis 6–9",
-          "1 Samuel 18",
-          "Luke 24:13–35"
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
+          "Luke 10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15490,9 +16430,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "God the Father",
+          "Philip",
+          "Jesus"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15562,9 +16502,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "John 11:1–44",
-          "Genesis 28:10–22",
-          "2 John; 3 John"
+          "Revelation 21",
+          "Matthew 17:20; Mark 11:23–24",
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15573,9 +16513,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "Priscilla",
           "Mary",
+          "The LORD",
+          "Stephen",
           "God"
         ],
         "correctIndex": 3,
@@ -15646,9 +16586,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Exodus 2:5",
-          "Genesis 37:3",
+          "1 Samuel 25:1-42",
+          "1 Samuel 17:1-11, 32-51",
+          "Joshua 8:1-8, 18-23, 26-29",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -15659,9 +16599,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The crowds",
+          "Priscilla",
           "Holy Spirit",
-          "The Holy Ghost",
-          "Paul"
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15731,9 +16671,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:1–23",
-          "Exodus 12:1-14",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Job 2"
+          "Matthew 7",
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Genesis 6–9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15742,10 +16682,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "God",
           "Jesus",
-          "The Holy Ghost",
-          "Paul"
+          "Jonathan",
+          "Jude"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15813,10 +16753,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
+          "Ruth 3:1-18",
           "Matthew 25:14–30",
-          "Psalm 23",
-          "Luke 24:13–35"
+          "2 Peter 1–3",
+          "Revelation 1–3"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15826,9 +16766,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "Paul",
+          "God the Father",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16012,9 +16952,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 1–2",
-          "Mark 4:35–41",
-          "Philippians 2:8–11",
+          "Genesis 3",
+          "Revelation 22",
+          "1 Thessalonians 4:13–18; 5:16–24",
           "Acts 13–14"
         ],
         "correctIndex": 3,
@@ -16025,9 +16965,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The Holy Ghost",
-          "John",
-          "The apostles",
-          "Stephen"
+          "Paul",
+          "Mary",
+          "James"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16097,9 +17037,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
-          "Ruth 4:1-17",
-          "Acts 7",
+          "2 Kings 5:1-14",
+          "Acts 16:16–40",
+          "Romans 16:1–2",
           "Acts 9:1–19"
         ],
         "correctIndex": 3,
@@ -16110,9 +17050,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jude",
-          "The Lord",
-          "Elisha"
+          "Elisha",
+          "The crowds",
+          "Paul"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16182,10 +17122,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 16:1-36",
-          "Jonah 1:17",
+          "Revelation 22",
+          "Genesis 3",
           "Acts 9:1–19",
-          "Romans–Philemon"
+          "1 Samuel 16:11; 17:15, 34–37"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16194,9 +17134,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "God",
-          "Mary",
+          "Philip",
+          "God the Father",
+          "Paul",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -16264,10 +17204,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18:6-11, 17-19:17",
-          "Genesis 4",
+          "Judges 7:1-22",
+          "2 Kings 4:8-37",
           "2 Timothy 4:6–8",
-          "Esther 2:15–18"
+          "Lamentations 1–5"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16276,9 +17216,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
-          "God the Father",
           "Peter",
+          "Priscilla",
+          "James",
           "Paul"
         ],
         "correctIndex": 3,
@@ -16349,9 +17289,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 19",
-          "Acts 2:4–21",
-          "Joshua 2:1-21",
-          "Acts 13–14"
+          "Daniel 6:22",
+          "1 Kings 18:17-39",
+          "Numbers 22:1–20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16360,10 +17300,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "The Lord",
+          "Jude",
+          "Philip",
           "God",
-          "Elisha"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16431,10 +17371,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 37:3",
+          "Luke 24:13–35",
           "Acts 20:7–12",
-          "Acts 28",
-          "Exodus 2:5"
+          "Genesis 11",
+          "1 Samuel 18"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16444,9 +17384,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "David",
-          "Philip",
-          "John"
+          "Stephen",
+          "John",
+          "The apostles"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16513,10 +17453,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 12:1–19",
-          "Ruth 1:1-18",
+          "Matthew 28",
+          "Genesis 1",
           "Acts 13–14",
-          "Revelation 17–18"
+          "Luke 1"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16526,9 +17466,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "James",
-          "Paul",
-          "The crowds"
+          "Mary",
+          "The LORD",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16595,10 +17535,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 13; 15",
-          "Matthew 28",
+          "Genesis 1:3",
+          "Acts 2:42–47",
           "Romans–Philemon",
-          "Revelation 12"
+          "Luke 2:36–38"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16607,10 +17547,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
-          "Holy Spirit",
+          "James",
+          "Mary",
           "God",
-          "The crowds"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16677,9 +17617,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 10",
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
-          "Esther 5–7",
+          "Ruth 2",
+          "1 Kings 3:16-28",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
           "Philemon 1"
         ],
         "correctIndex": 3,
@@ -16689,10 +17629,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "God",
+          "Jude",
+          "Jonathan",
           "Paul",
-          "The crowds"
+          "God"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16760,9 +17700,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
-          "Ruth 4:1-17",
-          "Acts 7",
+          "Joshua 7:1-11",
+          "2 Kings 5:1-14",
+          "Acts 16:16–40",
           "Ephesians, Philippians, Colossians, Philemon"
         ],
         "correctIndex": 3,
@@ -16774,8 +17714,8 @@
         "choices": [
           "Paul",
           "James",
-          "The Holy Ghost",
-          "Jesus"
+          "Peter",
+          "David"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16843,9 +17783,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 28",
-          "Acts 16:11–15",
-          "2 Timothy 4:6–8",
-          "Revelation 1"
+          "Luke 15:11–32",
+          "Matthew 19:16–22",
+          "Acts 2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16854,10 +17794,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Stephen",
           "Paul",
-          "Philip",
-          "John"
+          "Mary",
+          "The LORD"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -16925,10 +17865,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 2:8–11",
+          "Matthew 28",
           "Acts 15:36–18:22",
-          "1 Corinthians 12",
-          "the Bible"
+          "Matthew 19:16–22",
+          "1 Samuel 9–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16937,10 +17877,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Priscilla",
+          "Elisha",
+          "The crowds",
           "God",
-          "Elisha"
+          "The Lord"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17009,10 +17949,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2:1–20",
+          "Luke 2; Matthew 1–2",
           "Acts 27",
-          "Exodus 16:1-36",
-          "Jonah 1:17"
+          "Genesis 41:41",
+          "Luke 2:41–52"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17022,9 +17962,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Paul",
-          "James",
-          "The crowds"
+          "The Lord",
+          "Elisha",
+          "Joshua"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17093,9 +18033,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:15–18",
-          "Matthew 28:18–20",
-          "1 Samuel 18:6-11, 17-19:17",
+          "1 Samuel 16:11; 17:15, 34–37",
+          "Esther 2–7",
+          "Revelation 22",
           "Acts 27–28"
         ],
         "correctIndex": 3,
@@ -17105,10 +18045,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
+          "Mary",
+          "The LORD",
           "God",
-          "Stephen"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17178,10 +18118,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 5–8",
+          "the Bible",
           "Acts 16:16–40",
-          "Numbers 23–24",
-          "Mark 12"
+          "Matthew 28:18–20",
+          "Esther 2:15–18"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17191,9 +18131,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Paul",
-          "James",
-          "The crowds"
+          "Philip",
+          "Jonathan",
+          "God the Father"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17261,10 +18201,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 7:1-22",
-          "Lamentations 1–5",
+          "Numbers 22",
+          "Daniel 6",
           "Acts 18:23–21:17",
-          "2 Kings 4"
+          "Luke 19:1–10"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17273,10 +18213,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
+          "The LORD",
           "God",
-          "Holy Spirit",
-          "The crowds"
+          "John",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17343,9 +18283,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 2:1-17",
-          "1 Kings 5–8",
-          "Exodus 14",
+          "2 Kings 6:1–7",
+          "Galatians 5",
+          "1 Samuel 24:1-22",
           "1 Timothy 1–6; 2 Timothy 1–4"
         ],
         "correctIndex": 3,
@@ -17355,10 +18295,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "John",
           "The apostles",
-          "Peter",
           "Paul",
-          "John"
+          "Stephen"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17426,9 +18366,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Titus 1–3",
-          "Acts 18:23–21:17",
-          "Matthew 7",
-          "Genesis 6–9"
+          "Luke 17",
+          "John 2:1–11",
+          "Ezra 1–10; Nehemiah 8–9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17437,10 +18377,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The apostles",
+          "Jude",
           "Paul",
-          "Philip",
-          "John"
+          "Holy Spirit",
+          "God"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17509,9 +18449,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2",
-          "1 Samuel 18",
-          "Luke 24:13–35",
-          "Matthew 17:1–13"
+          "1 John 1–5",
+          "Mark 2:1–12",
+          "1 Corinthians 13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17520,9 +18460,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "Mary",
-          "Holy Spirit",
+          "John",
+          "The apostles",
+          "Stephen",
           "God"
         ],
         "correctIndex": 3,
@@ -17594,9 +18534,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2:1–4",
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-          "Daniel 6",
-          "Numbers 22"
+          "the Bible",
+          "Acts 15",
+          "Revelation 22:12–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17605,10 +18545,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "God",
           "Holy Spirit",
-          "The Lord",
-          "Jonathan"
+          "David",
+          "Jude"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17677,10 +18617,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
-          "Daniel 6:22",
+          "Luke 24:50–53; Acts 1:6–11",
+          "Genesis 40",
           "Acts 2:4–21",
-          "Numbers 22:1–20"
+          "Matthew 28; Mark 16; Luke 24; John 20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17689,10 +18629,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
-          "The apostles",
+          "Mary",
+          "Priscilla",
           "Holy Spirit",
-          "John"
+          "Jonathan"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17761,10 +18701,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18:6-11, 17-19:17",
-          "Genesis 4",
+          "Romans 16:1–2",
+          "Acts 27–28",
           "Luke 18:1–8",
-          "Esther 2:15–18"
+          "Revelation 20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17773,9 +18713,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Philip",
-          "David",
+          "Peter",
+          "Priscilla",
+          "James",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -17843,9 +18783,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 14:22–33",
-          "Matthew 13:1–23",
-          "Jude 1",
+          "Ephesians 6",
+          "2 Kings 2:1-14",
+          "Luke 23",
           "1 Peter 1–5"
         ],
         "correctIndex": 3,
@@ -17856,9 +18796,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "Elisha",
-          "God",
-          "Mary"
+          "Paul",
+          "Mary",
+          "James"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -17926,10 +18866,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:14-23",
+          "Genesis 41:41",
           "Acts 3",
-          "1 Samuel 17:8–11, 16, 23–30",
-          "Esther 2–7"
+          "Acts 15:36–18:22",
+          "Matthew 13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17939,9 +18879,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "The Holy Ghost",
-          "James",
-          "Paul"
+          "God the Father",
+          "Jesus",
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18009,10 +18949,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Timothy 4:12",
-          "Luke 1",
+          "Revelation 13:16–18",
+          "1 Samuel 16:1-13",
           "Acts 12:1–19",
-          "Genesis 18:9–15"
+          "Genesis 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18021,10 +18961,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "James",
+          "Mary",
           "God",
-          "Stephen"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18094,10 +19034,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:24–28",
-          "Joshua 10:12-14",
+          "Revelation 13:16–18",
+          "Genesis 22",
           "Acts 2:14–41",
-          "Numbers 21:1-9"
+          "1 Samuel 16:1-13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18106,9 +19046,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The crowds",
-          "Priscilla",
           "Holy Spirit",
+          "Jude",
+          "Priscilla",
           "Peter"
         ],
         "correctIndex": 3,
@@ -18177,9 +19117,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 14:22–33",
-          "Jude 1",
-          "Matthew 13:1–23",
+          "Luke 2:36–38",
+          "Genesis 1:3",
+          "Acts 2:42–47",
           "2 Peter 1–3"
         ],
         "correctIndex": 3,
@@ -18190,9 +19130,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Peter",
-          "The apostles",
-          "John",
-          "Stephen"
+          "David",
+          "Joshua",
+          "God"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18261,10 +19201,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Titus 1–3",
+          "1 Samuel 16:14-23",
           "Acts 5:12–16",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 25:14–30"
+          "Acts 18:24–28",
+          "Numbers 21:1-9"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18273,10 +19213,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Jude",
+          "The apostles",
+          "John",
           "God",
-          "Stephen"
+          "The Holy Ghost"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18346,9 +19286,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41",
-          "Luke 23",
-          "1 Kings 19:19–21",
-          "Ephesians 6"
+          "Luke 10",
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
+          "Esther 5–7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18357,10 +19297,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
+          "James",
           "Mary",
-          "The Lord",
           "God",
-          "Elisha"
+          "Paul"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18429,9 +19369,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:1–7",
-          "James 2:14–26",
-          "Judges 6:11-40",
+          "1 Samuel 3:1-21",
+          "Genesis 3",
+          "1 Thessalonians 4:13–18; 5:16–24",
           "Acts 8:26–40"
         ],
         "correctIndex": 3,
@@ -18442,9 +19382,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Holy Ghost",
-          "James",
-          "Jesus"
+          "Philip",
+          "God the Father",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18515,9 +19455,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 8:26–40",
-          "Luke 15",
-          "Matthew 3:13–17",
-          "Acts 13–14"
+          "Romans 16:1–2",
+          "Acts 27–28",
+          "Revelation 20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18526,9 +19466,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jesus",
-          "The Holy Ghost",
-          "James",
+          "Elisha",
+          "God",
+          "Joshua",
           "Philip"
         ],
         "correctIndex": 3,
@@ -18598,10 +19538,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezra 1–10; Nehemiah 8–9",
-          "Luke 17",
+          "Matthew 4:18–22; Luke 5:1–11",
+          "Matthew 4:1–11; Luke 4:1–13",
           "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Acts 2:42–47"
+          "1 Samuel 1:1-20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18610,10 +19550,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "Mary",
           "Paul",
-          "The Holy Ghost",
-          "Jesus"
+          "Stephen",
+          "The LORD"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18683,9 +19623,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Romans 16:1–2",
-          "Mark 12",
-          "Numbers 23–24",
-          "Daniel 3"
+          "1 Kings 6:1-14; 8:1-13, 22-30",
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "Acts 1:6–11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18694,9 +19634,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Paul",
-          "The Holy Ghost",
+          "Stephen",
+          "John",
+          "The LORD",
           "God"
         ],
         "correctIndex": 3,
@@ -18767,9 +19707,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "1 Samuel 18:6-11, 17-19:17",
-          "Genesis 4",
-          "Esther 2:15–18"
+          "Ruth 1",
+          "Revelation 1–22",
+          "1 Kings 3:5-15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18778,9 +19718,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
-          "Philip",
+          "Peter",
+          "James",
+          "Priscilla",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -18851,10 +19791,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 7–12",
-          "Acts 28:1–10",
+          "Revelation 19",
+          "Judges 14:5-9",
           "Matthew 7",
-          "Judges 16:4-21"
+          "Acts 8:26–40"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18864,9 +19804,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Philip",
-          "The apostles",
+          "Paul",
           "Jesus",
-          "John"
+          "God the Father"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -18935,9 +19875,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 2",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 25:14–30",
+          "Acts 15:36–18:22",
+          "Genesis 41",
+          "Revelation 6–8:1",
           "Acts 18:24–28"
         ],
         "correctIndex": 3,
@@ -18948,9 +19888,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Peter",
-          "The apostles",
-          "John"
+          "Priscilla",
+          "Holy Spirit",
+          "The Holy Ghost"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -19019,9 +19959,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
+          "Colossians 1:15–20; 3:1–4, 12–17",
+          "Luke 24",
           "1 Samuel 18:6-11, 17-19:17",
-          "Matthew 28:18–20",
-          "Esther 2:15–18",
           "Acts 18:1–3, 18–19"
         ],
         "correctIndex": 3,
@@ -19032,9 +19972,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Holy Spirit",
-          "Priscilla",
-          "The crowds"
+          "James",
+          "Paul",
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -19103,9 +20043,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Thessalonians 4:13–18; 5:16–24",
-          "Revelation 1:8, 11, 17–18",
-          "1 Corinthians 12",
+          "Genesis 6–9",
+          "Acts 18:23–21:17",
+          "Matthew 6",
           "Luke 15:11–32"
         ],
         "correctIndex": 3,
@@ -19116,9 +20056,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "God",
-          "Holy Spirit",
-          "The crowds"
+          "God the Father",
+          "Philip",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -19173,88 +20113,248 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Son comes back sorry (party)"
     ]
   },
-  "psalm23Shepherd": {
-    "kjvRef": "Psalm 23",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+  "psalm23": {
+    "kjvRef": "Psalm 23:1-6 (KJV)",
+    "verseExcerpt": "The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. — Psalm 23:1-2 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "The Good Shepherd knows His sheep — we can rest in His care.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "The LORD is my shepherd; I shall not want.",
+        "caption": "The LORD is my shepherd",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+        "caption": "Green pastures — still waters",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+        "caption": "He restoreth my soul",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+        "caption": "Thou art with me — rod and staff",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+        "caption": "Thou preparest a table — my cup runneth over",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+        "caption": "Goodness and mercy — dwell in the house of the LORD",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "The Lord Is My Shepherd (Psalm 23).",
-      "A shepherd leads sheep to green pastures Still waters—rest and peace God leads us—we shall not want!",
-      "God is your Good Shepherd!",
-      "He leads you, protects you, and gives you rest."
+      "The Lord is my shepherd; I shall not want.",
+      "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+      "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+      "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+      "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+      "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+      "For you: The same Lord who leads sheep beside quiet water leads His people with kindness — you can speak to Him anytime."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Who does the psalm say is our shepherd?",
         "choices": [
-          "1 Samuel 18",
-          "Luke 24:13–35",
-          "Psalm 23",
-          "Matthew 17:1–13"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Psalm 23.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Holy Ghost",
-          "Paul",
-          "James",
-          "God"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God is your Good Shepherd! He leads you, protects you, and gives you rest.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is your Good Shepherd! He leads you, protects you, and gives you rest..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A talking toaster became king of the city.",
-          "A shepherd leads sheep to green pastures",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "A sheep.",
+          "The LORD.",
+          "Only kings.",
+          "No one."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes — the LORD cares for His own.",
+        "wrongFeedback": "Listen for the first line. (Answer: The LORD.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "Where does He lead His sheep besides green pastures?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "God is your Good Shepherd! He leads you, protects you, and gives you rest.",
-          "Never say sorry when we do wrong."
+          "Into fear only.",
+          "Beside the still waters.",
+          "Away from rest.",
+          "The psalm does not say."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God is your Good Shepherd! He leads you, protects you, and gives you rest..)"
+        "correctIndex": 1,
+        "correctFeedback": "Quiet water — a picture of peace.",
+        "wrongFeedback": "Listen for waters. (Answer: Beside the still waters.)"
+      },
+      {
+        "question": "In the dark valley, why does the writer say, \"I will fear no evil\"?",
+        "choices": [
+          "Because evil is not real.",
+          "For thou art with me.",
+          "Because there is no valley.",
+          "Because sheep are never afraid."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "God's presence is the comfort.",
+        "wrongFeedback": "Listen for with me. (Answer: For thou art with me.)"
+      },
+      {
+        "question": "What comforts the writer alongside the rod?",
+        "choices": [
+          "A loud storm.",
+          "Thy staff.",
+          "Running away.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Rod and staff — gentle care.",
+        "wrongFeedback": "Listen for staff. (Answer: Thy staff.)"
+      },
+      {
+        "question": "How does the psalm end?",
+        "choices": [
+          "With anger.",
+          "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+          "With confusion.",
+          "With silence."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A peaceful home with the LORD — for ever.",
+        "wrongFeedback": "Listen for goodness and mercy. (Answer: …dwell in the house of the LORD for ever.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Lord Is My Shepherd with God's Word today.",
-    "takeaway": "God is your Good Shepherd! He leads you, protects you, and gives you rest.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Lord Is My Shepherd. Amen.",
+    "doneMessage": "Beautiful job resting in Psalm 23 with God's Word today.",
+    "takeaway": "The LORD is my shepherd — He gives rest, presence in hard places, and a home with Him.",
+    "prayer": "Lord, thank You that You are our Shepherd. Lead us beside still waters today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A shepherd leads sheep to green pastures (psalm 23)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Still waters—rest and peace (shepherd)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God leads us—we shall not want! (sheep)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A shepherd leads sheep to green pastures (staff)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Still waters—rest and peace (peace)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces gentle young shepherd boy staff in hand leading two sheep beside still pond water green pasture grass soft hills bright open sky kind protecting face restful safe mood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD is my shepherd",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Still waters green pastures",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Thou art with me",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Goodness and mercy"
+    ]
+  },
+  "psalm23Shepherd": {
+    "kjvRef": "Psalm 23:1-6 (KJV)",
+    "verseExcerpt": "The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. — Psalm 23:1-2 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "The Good Shepherd knows His sheep — we can rest in His care.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "The LORD is my shepherd; I shall not want.",
+        "caption": "The LORD is my shepherd",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+        "caption": "Green pastures — still waters",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+        "caption": "He restoreth my soul",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+        "caption": "Thou art with me — rod and staff",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+        "caption": "Thou preparest a table — my cup runneth over",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+        "caption": "Goodness and mercy — dwell in the house of the LORD",
+        "image": "panel-david-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "The Lord is my shepherd; I shall not want.",
+      "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+      "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+      "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+      "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+      "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+      "For you: The same Lord who leads sheep beside quiet water leads His people with kindness — you can speak to Him anytime."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Who does the psalm say is our shepherd?",
+        "choices": [
+          "A sheep.",
+          "The LORD.",
+          "Only kings.",
+          "No one."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes — the LORD cares for His own.",
+        "wrongFeedback": "Listen for the first line. (Answer: The LORD.)"
+      },
+      {
+        "question": "Where does He lead His sheep besides green pastures?",
+        "choices": [
+          "Into fear only.",
+          "Beside the still waters.",
+          "Away from rest.",
+          "The psalm does not say."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Quiet water — a picture of peace.",
+        "wrongFeedback": "Listen for waters. (Answer: Beside the still waters.)"
+      },
+      {
+        "question": "In the dark valley, why does the writer say, \"I will fear no evil\"?",
+        "choices": [
+          "Because evil is not real.",
+          "For thou art with me.",
+          "Because there is no valley.",
+          "Because sheep are never afraid."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "God's presence is the comfort.",
+        "wrongFeedback": "Listen for with me. (Answer: For thou art with me.)"
+      },
+      {
+        "question": "What comforts the writer alongside the rod?",
+        "choices": [
+          "A loud storm.",
+          "Thy staff.",
+          "Running away.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Rod and staff — gentle care.",
+        "wrongFeedback": "Listen for staff. (Answer: Thy staff.)"
+      },
+      {
+        "question": "How does the psalm end?",
+        "choices": [
+          "With anger.",
+          "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+          "With confusion.",
+          "With silence."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A peaceful home with the LORD — for ever.",
+        "wrongFeedback": "Listen for goodness and mercy. (Answer: …dwell in the house of the LORD for ever.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Beautiful job resting in Psalm 23 with God's Word today.",
+    "takeaway": "The LORD is my shepherd — He gives rest, presence in hard places, and a home with Him.",
+    "prayer": "Lord, thank You that You are our Shepherd. Lead us beside still waters today. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces gentle young shepherd boy staff in hand leading two sheep beside still pond water green pasture grass soft hills bright open sky kind protecting face restful safe mood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD is my shepherd",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Still waters green pastures",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Thou art with me",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Goodness and mercy"
     ]
   },
   "rahab": {
@@ -19876,10 +20976,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:22",
+          "Matthew 26",
           "Exodus 14",
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
-          "Numbers 22:1–20"
+          "Joshua 10:12-14",
+          "Joshua 7:1-26"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19888,10 +20988,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Jude",
+          "John",
+          "Stephen",
           "God",
-          "Stephen"
+          "The apostles"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -19962,9 +21062,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "1 Kings 3",
-          "Luke 19:1–10",
-          "Numbers 22"
+          "2 Kings 4:1–7",
+          "Numbers 23–24",
+          "Daniel 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19973,9 +21073,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Paul",
-          "James",
+          "Mary",
+          "Stephen",
+          "The LORD",
           "God"
         ],
         "correctIndex": 3,
@@ -20045,9 +21145,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1–22",
-          "Numbers 22:1–20",
-          "Daniel 6:22",
-          "1 Kings 18"
+          "Acts 17:22–34",
+          "Genesis 4",
+          "2 Samuel 5:1-5, 9-12"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20056,9 +21156,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "Priscilla",
-          "The Holy Ghost",
+          "David",
+          "Peter",
+          "Joshua",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -20129,9 +21229,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 17–18",
-          "Exodus 3:1-15",
-          "1 Samuel 18:1-4; 20:1-42",
-          "Acts 25–26"
+          "Luke 2",
+          "Matthew 17:1–13",
+          "Romans 3:23; 5:8; 6:23; 10:9–10"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20140,10 +21240,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "The Lord",
           "God",
-          "God the Father",
-          "Jesus"
+          "The crowds",
+          "Elisha"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20210,10 +21310,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:1-13",
-          "Revelation 13:16–18",
+          "Mark 12",
+          "1 Kings 3:16-28",
           "Revelation 13",
-          "2 Kings 4"
+          "Numbers 22:1–20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20222,9 +21322,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "Priscilla",
-          "Holy Spirit",
+          "Paul",
+          "The LORD",
+          "The crowds",
           "John"
         ],
         "correctIndex": 3,
@@ -20295,9 +21395,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
+          "1 Samuel 18:6-11, 17-19:17",
           "Colossians 1:15–20; 3:1–4, 12–17",
-          "Acts 28:1–10",
-          "1 Samuel 16:11; 17:15, 34–37"
+          "Esther 2–7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20306,9 +21406,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jude",
-          "Jonathan",
+          "Joshua",
+          "David",
+          "Peter",
           "God"
         ],
         "correctIndex": 3,
@@ -20376,9 +21476,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:1–3, 18–19",
-          "Matthew 19:16–22",
-          "Titus 1–3",
+          "Acts 8:26–40",
+          "Revelation 19",
+          "Acts 27",
           "Revelation 1–3"
         ],
         "correctIndex": 3,
@@ -20388,10 +21488,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "James",
+          "Mary",
+          "The LORD",
           "Jesus",
-          "Paul"
+          "Priscilla"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20474,9 +21574,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "James",
           "Paul",
-          "The crowds"
+          "Mary",
+          "The LORD"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20543,10 +21643,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 17:8–11, 16, 23–30",
-          "Esther 2–7",
+          "Judges 6:11-40",
+          "2 Kings 4:1-7",
           "Revelation 21–22",
-          "Luke 24:50–53; Acts 1:6–11"
+          "James 2:14–26"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20555,8 +21655,8 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "David",
+          "Jude",
+          "Jonathan",
           "Philip",
           "God"
         ],
@@ -20628,9 +21728,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 6–8:1",
-          "John 10:1–18",
-          "Jonah 4",
-          "John 12:1–8"
+          "1 Kings 18:17-39",
+          "Ezra 1–10; Nehemiah 8–9",
+          "Luke 17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20639,9 +21739,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David",
-          "Philip",
-          "Joshua",
+          "Jude",
+          "Jonathan",
+          "God",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -20710,9 +21810,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 14–15",
-          "Acts 1:6–11",
-          "Matthew 27; Mark 15; Luke 23; John 19",
-          "Matthew 17:1–13"
+          "Ephesians, Philippians, Colossians, Philemon",
+          "2 Peter 1–3",
+          "Exodus 14:21-31"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20721,10 +21821,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
+          "Jesus",
           "God",
-          "Mary",
-          "Elisha"
+          "Philip",
+          "God the Father"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20791,10 +21891,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13",
+          "Luke 17",
           "Revelation 19",
-          "Acts 8:26–40",
-          "Acts 27"
+          "Job 2",
+          "John 2:1–11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20804,9 +21904,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "God the Father",
-          "Peter",
-          "Paul"
+          "John",
+          "Stephen",
+          "The apostles"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20875,10 +21975,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1–3",
-          "Judges 16:23-30",
+          "Daniel 6",
+          "1 Kings 19:9-18",
           "Revelation 20",
-          "2 Peter 1–3"
+          "Numbers 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20887,10 +21987,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
+          "Jesus",
           "God",
-          "Joshua",
-          "Stephen"
+          "Elisha",
+          "The crowds"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -20959,10 +22059,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
-          "Acts 8:26–40",
+          "Genesis 1",
+          "Luke 1",
           "the Bible",
-          "Judges 16:4-21"
+          "Acts 2:42–47"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20972,8 +22072,8 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "The apostles",
-          "God the Father",
-          "Peter",
+          "Holy Spirit",
+          "The Holy Ghost",
           "God"
         ],
         "correctIndex": 3,
@@ -21044,9 +22144,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 15",
-          "Acts 13–14",
-          "Acts 2:1–4",
+          "Numbers 13:1-33; 14:1-9",
+          "Luke 19:1–10",
+          "Numbers 22",
           "Revelation 4–5"
         ],
         "correctIndex": 3,
@@ -21057,9 +22157,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Peter",
-          "The apostles",
-          "John"
+          "Mary",
+          "Paul",
+          "James"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21128,9 +22228,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 8–11",
-          "Luke 2; Matthew 1–2",
-          "Matthew 28:18–20",
-          "Esther 2:15–18"
+          "Philippians 2:8–11",
+          "2 Kings 2:1-14",
+          "Luke 23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21139,10 +22239,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
+          "Joshua",
           "God",
-          "God the Father",
-          "Jesus"
+          "Elisha",
+          "The Lord"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21211,9 +22311,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 18:20–40",
-          "Acts 2:1–13",
-          "Joshua 6:1-21",
+          "Luke 17",
+          "Job 2",
+          "John 2:1–11",
           "Revelation 12"
         ],
         "correctIndex": 3,
@@ -21224,9 +22324,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "John",
-          "Jesus",
-          "Peter",
-          "God the Father"
+          "David",
+          "Philip",
+          "Jude"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21295,9 +22395,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2:36–38",
-          "2 Kings 2:1–14",
-          "Genesis 1:3",
+          "1 Timothy 4:12",
+          "Acts 15",
+          "Revelation 22:12–13",
           "Matthew 19:16–22"
         ],
         "correctIndex": 3,
@@ -21308,9 +22408,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The apostles",
-          "Peter",
-          "John"
+          "Philip",
+          "God the Father",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21380,9 +22480,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Revelation 1",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Acts 16:11–15"
+          "Matthew 17:20; Mark 11:23–24",
+          "1 Kings 18",
+          "Revelation 21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21391,9 +22491,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "Mary",
-          "Holy Spirit",
+          "John",
+          "The apostles",
+          "Stephen",
           "God"
         ],
         "correctIndex": 3,
@@ -21462,9 +22562,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 24:13–35",
-          "Revelation 13:16–18",
-          "Genesis 22",
-          "Acts 6:8–7:60"
+          "Acts 12:1–19",
+          "Romans–Philemon",
+          "John 20:1–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21473,10 +22573,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
+          "The apostles",
           "Jesus",
-          "The Holy Ghost",
-          "Paul"
+          "Holy Spirit",
+          "The Holy Ghost"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21544,10 +22644,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 7",
-          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Luke 1",
+          "Matthew 28",
           "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Revelation 8–11"
+          "Genesis 1"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21556,9 +22656,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
-          "Philip",
+          "The Lord",
           "David",
+          "Joshua",
           "Paul"
         ],
         "correctIndex": 3,
@@ -21746,9 +22846,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "John 20:1–18",
-          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Luke 24:13–35",
+          "Matthew 17:1–13",
+          "Luke 2",
           "Ruth 2"
         ],
         "correctIndex": 3,
@@ -21759,9 +22859,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Holy Ghost",
+          "Peter",
           "James",
-          "Jesus"
+          "David"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -21831,9 +22931,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
-          "Acts 1:6–11",
-          "Matthew 17:1–13",
+          "Matthew 4:1–11",
+          "2 Kings 5:1–15",
+          "Genesis 37:28",
           "Ruth 1"
         ],
         "correctIndex": 3,
@@ -21844,9 +22944,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The apostles",
-          "Peter",
-          "John"
+          "Philip",
+          "God the Father",
+          "Jonathan"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -22282,9 +23382,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 25:14–30",
-          "Job 2",
+          "Esther 4–5",
+          "1 Samuel 1",
+          "Acts 9:36–43",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -22295,9 +23395,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "The apostles",
-          "Peter",
-          "John"
+          "Priscilla",
+          "Mary",
+          "James"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23297,9 +24397,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 18:9–15",
-          "Matthew 4:1–11; Luke 4:1–13",
-          "Joshua 7:1-11",
-          "Matthew 4:18–22; Luke 5:1–11"
+          "Acts 18:23–21:17",
+          "Matthew 6",
+          "Genesis 6–9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23308,10 +24408,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "The Lord",
+          "Paul",
+          "The LORD",
           "God",
-          "Elisha"
+          "Mary"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23381,10 +24481,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:4–21",
+          "Mark 10:13–16",
           "the Bible",
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Joshua 2:1-21"
+          "Genesis 37:28",
+          "Matthew 4:1–11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23394,9 +24494,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Jonathan",
-          "Jude",
-          "Stephen"
+          "Holy Spirit",
+          "The Holy Ghost",
+          "Priscilla"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23466,9 +24566,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 13; 15",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 13:1–23",
-          "Jude 1"
+          "Genesis 37:28",
+          "Matthew 4:1–11",
+          "Mark 10:13–16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23477,10 +24577,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
+          "John",
           "God",
-          "Paul",
-          "The crowds"
+          "The LORD",
+          "Stephen"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23550,10 +24650,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 17",
+          "Mark 4:35–41",
           "1 Samuel 9–10",
-          "Luke 23",
-          "1 Kings 19:19–21"
+          "Philippians 2:8–11",
+          "1 Samuel 1–2"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23563,9 +24663,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Mary",
-          "Priscilla",
-          "Elisha"
+          "The apostles",
+          "John",
+          "The Holy Ghost"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23634,10 +24734,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 3",
+          "Revelation 1:8, 11, 17–18",
           "1 Samuel 18",
-          "Ruth 1",
-          "Revelation 1–22"
+          "Judges 4:1-16",
+          "1 Corinthians 12"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23647,9 +24747,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Paul",
-          "James",
-          "The crowds"
+          "David",
+          "Joshua",
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23719,9 +24819,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 17–18",
-          "Ruth 1:1-18",
-          "Acts 7",
+          "Acts 20:7–12",
+          "Acts 3",
+          "Revelation 1–22",
           "Luke 2"
         ],
         "correctIndex": 3,
@@ -23732,9 +24832,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
+          "Paul",
           "James",
-          "The Holy Ghost",
-          "Jesus"
+          "Peter"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23790,173 +24890,388 @@
     ]
   },
   "solomonTemple": {
-    "kjvRef": "1 Kings 5–8",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Kings 6:1-14; 8:1-13, 22-30 (KJV)",
+    "verseExcerpt": "And it came to pass, when the priests were come out of the holy place, that the cloud filled the house of the LORD, So that the priests could not stand to minister because of the cloud: for the glory of the LORD had filled the house of the LORD. — 1 Kings 8:10-11 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "God's glory is greater than any building — yet He hears prayer offered in faith.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "And it came to pass in the four hundred and eightieth year after the children of Israel were come out of the land of Egypt, in the fourth year of Solomon's reign over Israel, in the month Zif, which is the second month, that he began to build the house of the LORD. And the house which king Solomon built for the LORD, the length thereof was threescore cubits, and the breadth thereof twenty cubits, and the height thereof thirty cubits.",
+        "caption": "Solomon began to build the house of the LORD",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "So he built the house, and finished it; and covered the house with beams and boards of cedar. And then he built chambers against all the house, five cubits high: and they rested on the house with timber of cedar.",
+        "caption": "Cedar — the house finished with care",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And the word of the LORD came to Solomon, saying, Concerning this house which thou art in building, if thou wilt walk in my statutes, and execute my judgments, and keep all my commandments to walk in them; then will I perform my word with thee, which I spake unto David thy father: And I will dwell among the children of Israel, and will not forsake my people Israel.",
+        "caption": "The word of the LORD — I will dwell among Israel",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "So Solomon built the house, and finished it.",
+        "caption": "So Solomon built the house, and finished it",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Then Solomon assembled the elders of Israel, and all the heads of the tribes, the chief of the fathers of the children of Israel, unto king Solomon in Jerusalem, that they might bring up the ark of the covenant of the LORD out of the city of David, which is Zion. And all the elders of Israel came, and the priests took up the ark. And the priests brought in the ark of the covenant of the LORD unto his place, into the oracle of the house, to the most holy place, even under the wings of the cherubims.",
+        "caption": "They brought up the ark into the most holy place",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And it came to pass, when the priests were come out of the holy place, that the cloud filled the house of the LORD, So that the priests could not stand to minister because of the cloud: for the glory of the LORD had filled the house of the LORD. Then spake Solomon, The LORD said that he would dwell in the thick darkness. I have surely built thee an house to dwell in, a settled place for thee to abide in for ever.",
+        "caption": "The cloud — the glory of the LORD filled the house",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And Solomon stood before the altar of the LORD in the presence of all the congregation of Israel, and spread forth his hands toward heaven: And he said, LORD God of Israel, there is no God like thee, in heaven above, or on earth beneath, who keepest covenant and mercy with thy servants that walk before thee with all their heart:",
+        "caption": "Solomon prayed — there is no God like thee",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "But will God indeed dwell on the earth? behold, the heaven and heaven of heavens cannot contain thee; how much less this house that I have builded? Yet have thou respect unto the prayer of thy servant, and to his supplication, O LORD my God, to hearken unto the cry and to the prayer, which thy servant prayeth before thee to day:",
+        "caption": "Heaven cannot contain thee — yet hear thy servant",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "That thine eyes may be open toward this house night and day, even toward the place of which thou hast said, My name shall be there: that thou mayest hearken unto the prayer which thy servant shall make toward this place. And hearken thou to the supplication of thy servant, and of thy people Israel, when they shall pray toward this place: and hear thou in heaven thy dwelling place: and when thou hearest, forgive.",
+        "caption": "Thine eyes toward this house — when thou hearest, forgive",
+        "image": "panel-noah-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Solomon Builds the Temple (1 Kings 5–8).",
-      "Workers build the temple.",
-      "cedar, gold, stone Priests carry the ark into the Holy of Holies God's glory fills the house like a cloud God is not far off.",
-      "He wants His people to meet Him in worship.",
-      "Today we come to Him through Jesus, anywhere we pray."
+      "Solomon began to build the house of the Lord in Jerusalem. For seven years the workers carefully built the Temple with cedar wood and great care. Everything was done as the Lord commanded.",
+      "When the Temple was finished, Solomon gathered the elders and the priests. They brought the ark of the covenant into the most holy place.",
+      "Then a cloud filled the house of the Lord, and the glory of the Lord filled the Temple so that the priests could not stand to minister.",
+      "Solomon stood before the altar and prayed: O Lord God of Israel, there is no God like thee… Behold, the heaven and heaven of heavens cannot contain thee; how much less this house that I have builded! Yet have thou respect unto the prayer of thy servant… that thine eyes may be open toward this house night and day.",
+      "For you: God is too great for any roof — and still He bends to hear His people when they pray."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Who began to build the house of the LORD?",
         "choices": [
-          "Acts 27–28",
-          "Revelation 19",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "1 Kings 5–8"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Kings 5–8.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "God",
-          "Joshua",
-          "David",
-          "Stephen"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "We should hide from God when we mess up.",
-          "God is not far off — He wants His people to meet Him in worship. Today we come to Him through Jesus, anywhere we pray.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "David only.",
+          "King Solomon.",
+          "Samuel.",
+          "Goliath."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is not far off — He wants His people to meet Him in worship. Today we come to Him….)"
+        "correctFeedback": "Solomon built it for the LORD.",
+        "wrongFeedback": "Listen for Solomon. (Answer: King Solomon.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did the priests bring into the most holy place?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "Workers build the temple — cedar, gold, stone",
-          "A talking toaster became king of the city."
+          "A giant stone.",
+          "The ark of the covenant of the LORD.",
+          "Only bread.",
+          "Nothing."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "The ark — God's covenant reminder.",
+        "wrongFeedback": "Listen for ark. (Answer: The ark of the covenant of the LORD.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What filled the house of the LORD after the priests came out?",
         "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "God is not far off — He wants His people to meet Him in worship. Today we come to Him through Jesus, anywhere we pray."
+          "Only wind.",
+          "The cloud — the glory of the LORD.",
+          "Rain only.",
+          "Darkness only."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God is not far off — He wants His people to meet Him in worship. Today we come to Him….)"
+        "correctIndex": 1,
+        "correctFeedback": "God's glory — so full the priests could not stand to minister.",
+        "wrongFeedback": "Listen for cloud and glory. (Answer: The cloud… the glory of the LORD.)"
+      },
+      {
+        "question": "What did Solomon say about God compared to the Temple?",
+        "choices": [
+          "God is smaller than the Temple.",
+          "The heaven and heaven of heavens cannot contain thee; how much less this house that I have builded?",
+          "The Temple holds all of God.",
+          "He did not speak of it."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Humble truth — God is greater than any building.",
+        "wrongFeedback": "Listen for cannot contain thee. (Answer: …how much less this house….)"
+      },
+      {
+        "question": "What did Solomon ask God to do toward this house?",
+        "choices": [
+          "Forget it.",
+          "That thine eyes may be open toward this house night and day… and when thou hearest, forgive.",
+          "Close the doors forever.",
+          "Send only thunder."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Open eyes, listening ears, forgiving heart.",
+        "wrongFeedback": "Listen for eyes open and forgive. (Answer: …eyes may be open… when thou hearest, forgive.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Solomon Builds the Temple with God's Word today.",
-    "takeaway": "God is not far off — He wants His people to meet Him in worship. Today we come to Him through Jesus, anywhere we pray.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Solomon Builds the Temple. Amen.",
+    "doneMessage": "Thankful worship today — God hears when His people pray.",
+    "takeaway": "The Temple was beautiful — yet God's glory was greater still. He promised to hear prayer offered toward that place.",
+    "prayer": "Lord, You are greater than heaven — thank You that You hear us when we pray. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Workers build the temple — cedar, gold, stone (solomon)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Priests carry the ark into the Holy of Holies (temple)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God's glory fills the house like a cloud (jerusalem)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Workers build the temple — cedar, gold, stone (1 kings 5)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Priests carry the ark into the Holy of Holies (1 kings 8)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines Temple of the Lord Jerusalem doors open soft cloud of glory visible inside Solomon standing outside hands raised in prayer awe thankful face gentle hills sky minimal wonder holy mood thick pillars plenty white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The house of the LORD",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The ark brought in",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The glory filled the house",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text There is no God like thee"
+    ]
+  },
+  "solomonTwoMothers": {
+    "kjvRef": "1 Kings 3:16-28 (KJV)",
+    "verseExcerpt": "And all Israel heard of the judgment which the king had judged; and they feared the king: for they saw that the wisdom of God was in him, to do judgment. — 1 Kings 3:28 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "True love protects — God gave Solomon wisdom to see it.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "Then came there two women, that were harlots, unto the king, and stood before him. And the one woman said, O my lord, I and this woman dwell in one house; and I was delivered of a child with her in the house.",
+        "caption": "Two women stand before the king",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And it came to pass the third day after that I was delivered, that this woman was delivered also: and we were together; there was no stranger with us in the house, save we two in the house.",
+        "caption": "Two mothers, one house",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And this woman's child died in the night; because she overlaid it. And she arose at midnight, and took my son from beside me, while thine handmaid slept, and laid it in her bosom, and laid her dead child in my bosom.",
+        "caption": "A hard night — the living child",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And when I rose in the morning to give my child suck, behold, it was dead: but when I had considered it in the morning, behold, it was not my son, which I did bear. And the other woman said, Nay; but the living is my son, and the dead is thy son. And this said, No; but the dead is thy son, and the living is my son. Thus they spake before the king.",
+        "caption": "Each says the living child is hers",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Then said the king, The one saith, This is my son that liveth, and thy son is the dead: and the other saith, Nay; but thy son is the dead, and my son is the living. And the king said, Bring me a sword. And they brought a sword before the king. And the king said, Divide the living child in two, and give half to the one, and half to the other.",
+        "caption": "Bring me a sword",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "Then spake the woman whose the living child was unto the king, for her bowels yearned upon her son, and she said, O my lord, give her the living child, and in no wise slay it. But the other said, Let it be neither mine nor thine, but divide it.",
+        "caption": "Give her the living child — in no wise slay it",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "Then the king answered and said, Give her the living child, and in no wise slay it: she is the mother thereof. And all Israel heard of the judgment which the king had judged; and they feared the king: for they saw that the wisdom of God was in him, to do judgment.",
+        "caption": "The wisdom of God was in him",
+        "image": "panel-david-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "Two mothers came to King Solomon; each said the living baby was hers.",
+      "Solomon said, Bring me a sword — divide the living child in two. The real mother cried, Give her the living child, and in no wise slay it.",
+      "Solomon knew love would protect the child — and gave the baby to her.",
+      "All Israel saw that the wisdom of God was in the king.",
+      "For you: God's wisdom helps us tell truth from lies — and love from selfishness."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Who came to Solomon in this story?",
+        "choices": [
+          "Two soldiers.",
+          "Two women.",
+          "Two kings.",
+          "No one."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Two women with a hard dispute.",
+        "wrongFeedback": "Listen for women. (Answer: Two women.)"
+      },
+      {
+        "question": "What did the king say to bring?",
+        "choices": [
+          "A ladder.",
+          "A sword.",
+          "A boat.",
+          "A harp."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A sword — to test the mothers' hearts.",
+        "wrongFeedback": "Listen for sword. (Answer: A sword.)"
+      },
+      {
+        "question": "What did the true mother beg?",
+        "choices": [
+          "Divide the child.",
+          "Give her the living child, and in no wise slay it.",
+          "Go home.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "She chose the baby's life over winning.",
+        "wrongFeedback": "Listen for slay it. (Answer: Give her the living child… in no wise slay it.)"
+      },
+      {
+        "question": "Whom did Solomon give the living child to?",
+        "choices": [
+          "The king kept the baby.",
+          "Her that would not let the child be slain — the mother thereof.",
+          "A stranger.",
+          "No one."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The mother whose love protected the child.",
+        "wrongFeedback": "Listen for mother. (Answer: She is the mother thereof.)"
+      },
+      {
+        "question": "What did Israel see in Solomon?",
+        "choices": [
+          "Fear only.",
+          "The wisdom of God was in him, to do judgment.",
+          "Nothing special.",
+          "Only riches."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "God's wisdom — plain for all to see.",
+        "wrongFeedback": "Listen for wisdom of God. (Answer: The wisdom of God was in him….)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God still gives wisdom to those who seek Him.",
+    "takeaway": "Love that protects told the truth — and God's wisdom in Solomon brought peace.",
+    "prayer": "Lord, help us love others more than winning. Give us wisdom. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines King Solomon on simple throne two women before him one holds baby gently sword on stand nearby calm courtroom mood no gore thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Bring me a sword",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Give her the living child",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text She is the mother thereof",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wisdom of God in him"
     ]
   },
   "solomonWisdom": {
-    "kjvRef": "1 Kings 3",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Kings 3:5-15 (KJV)",
+    "verseExcerpt": "Give therefore thy servant an understanding heart to judge thy people, that I may discern between good and bad: for who is able to judge this thy so great a people? — 1 Kings 3:9 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "God loves a heart that asks for wisdom more than for riches.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "In Gibeon the LORD appeared to Solomon in a dream by night: and God said, Ask what I shall give thee.",
+        "caption": "The LORD in a dream — Ask what I shall give thee",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And Solomon said, Thou hast shewed unto thy servant David my father great mercy, according as he walked before thee in truth, and in righteousness, and in uprightness of heart with thee; and thou hast kept for him this great kindness, that thou hast given him a son to sit on his throne, as it is this day.",
+        "caption": "Solomon remembers David",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And now, O LORD my God, thou hast made thy servant king instead of David my father: and I am but a little child: I know not how to go out or come in. And thy servant is in the midst of thy people which thou hast chosen, a great people, that cannot be numbered nor counted for multitude.",
+        "caption": "I am but a little child",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Give therefore thy servant an understanding heart to judge thy people, that I may discern between good and bad: for who is able to judge this thy so great a people?",
+        "caption": "An understanding heart",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And the speech pleased the LORD, that Solomon had asked this thing. And God said unto him, Because thou hast asked this thing, and hast not asked for thyself long life; neither hast asked riches for thyself, nor hast asked the life of thine enemies; but hast asked for thyself understanding to discern judgment;",
+        "caption": "The speech pleased the LORD",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "Behold, I have done according to thy words: lo, I have given thee a wise and an understanding heart; so that there was none like thee before thee, neither after thee shall any arise like unto thee. And I have also given thee that which thou hast not asked, both riches, and honour: so that there shall not be any among the kings like unto thee all thy days.",
+        "caption": "A wise heart — riches and honour also",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "And if thou wilt walk in my ways, to keep my statutes and my commandments, as thy father David did walk, then I will lengthen thy days. And Solomon awoke; and, behold, it was a dream. And he came to Jerusalem, and stood before the ark of the covenant of the LORD, and offered up burnt offerings, and offered peace offerings, and made a feast to all his servants.",
+        "caption": "He awoke — offerings before the ark",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Solomon's Wisdom (1 Kings 3).",
-      "Two moms argue about a baby Solomon says: bring a sword!",
-      "The real mom speaks up—God gives wisdom!",
-      "Ask God for wisdom!",
-      "He gives it freely to those who ask."
+      "Solomon had become king after his father David. One night the Lord appeared to him in a dream and said, Ask what I shall give thee.",
+      "Solomon answered, O LORD my God, thou hast made thy servant king… and I am but a little child: I know not how to go out or come in. Give therefore thy servant an understanding heart to judge thy people, that I may discern between good and bad.",
+      "The speech pleased the LORD. God gave him a wise and an understanding heart, and riches and honour besides.",
+      "Solomon awoke; it was a dream. He came to Jerusalem, stood before the ark of the covenant of the LORD, and offered sacrifices.",
+      "For you: When you ask God for a heart that loves what is right, He hears — and He knows what else you truly need."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "How did the LORD first speak to Solomon in this story?",
         "choices": [
-          "John 11:1–44",
-          "2 John; 3 John",
-          "Genesis 28:10–22",
-          "1 Kings 3"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Kings 3.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Holy Ghost",
-          "James",
-          "God",
-          "Jesus"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God never hears when kids pray.",
-          "Ask God for wisdom! He gives it freely to those who ask.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories."
+          "Only through a letter.",
+          "In a dream by night.",
+          "From a whale.",
+          "The Bible does not say."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Ask God for wisdom! He gives it freely to those who ask..)"
+        "correctFeedback": "In Gibeon — in a dream by night.",
+        "wrongFeedback": "Listen for dream. (Answer: In a dream by night.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did God tell Solomon to do?",
         "choices": [
-          "Two moms argue about a baby",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city."
+          "Run away.",
+          "Ask what I shall give thee.",
+          "Build the temple first.",
+          "Stay silent."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "God invited him to ask.",
+        "wrongFeedback": "Listen for Ask what I shall give thee. (Answer: Ask what I shall give thee.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What did Solomon say he needed most for the people?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Ignore God until we are older.",
-          "Ask God for wisdom! He gives it freely to those who ask."
+          "Only gold.",
+          "An understanding heart to judge thy people, that I may discern between good and bad.",
+          "A bigger palace.",
+          "Nothing."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Ask God for wisdom! He gives it freely to those who ask..)"
+        "correctIndex": 1,
+        "correctFeedback": "Wisdom to judge rightly — not for himself first.",
+        "wrongFeedback": "Listen for understanding heart. (Answer: An understanding heart… discern between good and bad.)"
+      },
+      {
+        "question": "How did the LORD feel about Solomon's request?",
+        "choices": [
+          "Angry.",
+          "The speech pleased the LORD.",
+          "Sleepy.",
+          "Unmoved."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Pleased — Solomon asked well.",
+        "wrongFeedback": "Listen for pleased. (Answer: The speech pleased the LORD.)"
+      },
+      {
+        "question": "After Solomon woke, where did he go to worship?",
+        "choices": [
+          "Nineveh.",
+          "Jerusalem — before the ark of the covenant of the LORD.",
+          "He stayed in Gibeon only.",
+          "Egypt."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Jerusalem — offerings before the ark.",
+        "wrongFeedback": "Listen for Jerusalem and ark. (Answer: Jerusalem — before the ark….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Solomon's Wisdom with God's Word today.",
-    "takeaway": "Ask God for wisdom! He gives it freely to those who ask.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Solomon's Wisdom. Amen.",
+    "doneMessage": "Beautiful asking today — God loves a humble heart that seeks wisdom.",
+    "takeaway": "Solomon asked for an understanding heart — and God was pleased, and gave even more than he asked.",
+    "prayer": "Lord, give us hearts that love wisdom and truth. Teach us to ask You first. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Two moms argue about a baby (solomon)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Solomon says: bring a sword! (wisdom)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The real mom speaks up—God gives wisdom! (baby)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Two moms argue about a baby (sword)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Solomon says: bring a sword! (1 kings 3)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines young King Solomon kneeling in prayer at night soft gentle light rays from above humble thoughtful face simple crown beside him on ground soft stars minimal bed or altar hint wonder-filled humble mood no fear white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Ask what I shall give thee",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Understanding heart",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The speech pleased the LORD",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Stood before the ark"
     ]
   },
   "spiesInCanaan": {
@@ -24080,10 +25395,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:14-23",
-          "Esther 2–7",
+          "John 20:24–29",
+          "Revelation 1:8, 11, 17–18",
           "Acts 6:8–7:60",
-          "Numbers 21:1-9"
+          "1 Samuel 3:1-21"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24092,10 +25407,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
+          "The apostles",
           "Stephen",
-          "The crowds",
-          "Paul"
+          "Holy Spirit",
+          "The Holy Ghost"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24164,10 +25479,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 4:1-16",
-          "1 Samuel 1:1-20",
+          "Hebrews 11",
+          "Matthew 3:13–17",
           "Acts 6:8–7:60",
-          "2 Timothy 1:5–7; 3:15"
+          "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24177,7 +25492,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Stephen",
-          "God",
+          "Priscilla",
           "Jude",
           "Jonathan"
         ],
@@ -24249,9 +25564,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 7",
-          "2 Timothy 4:6–8",
-          "Luke 18:1–8",
-          "Exodus 14"
+          "Mark 12",
+          "Numbers 22:1–20",
+          "Daniel 6:22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24260,9 +25575,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jude",
-          "Jonathan",
-          "The Lord",
+          "The apostles",
+          "The Holy Ghost",
+          "John",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -24684,10 +25999,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ephesians, Philippians, Colossians, Philemon",
+          "Judges 7:1-22",
           "Exodus 7–12",
-          "Genesis 37:3",
-          "Exodus 2:5"
+          "2 Samuel 5:1-5, 9-12",
+          "2 Kings 4:8-37"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24696,10 +26011,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
-          "James",
+          "Joshua",
+          "The Lord",
           "God",
-          "The crowds"
+          "David"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24768,10 +26083,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28; Mark 16; Luke 24; John 20",
-          "Genesis 40",
+          "Revelation 22:12–13",
+          "Acts 15",
           "Matthew 25",
-          "Luke 24:50–53; Acts 1:6–11"
+          "1 Timothy 4:12"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24780,10 +26095,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
+          "Jonathan",
           "Jesus",
-          "The apostles",
-          "John"
+          "God the Father",
+          "Philip"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24851,10 +26166,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 1",
+          "Colossians 1:15–20; 3:1–4, 12–17",
           "1 Thessalonians 4:13–18; 5:16–24",
-          "Acts 3",
-          "Revelation 1–22"
+          "Exodus 7–12",
+          "Acts 28:1–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24863,10 +26178,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "God the Father",
-          "Peter",
+          "The apostles",
+          "John",
           "Paul",
-          "Jesus"
+          "The Holy Ghost"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -24932,10 +26247,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 23",
+          "Genesis 37:28",
           "John 20:24–29",
-          "Matthew 17",
-          "1 Kings 19:19–21"
+          "Acts 27",
+          "2 Kings 5:1–15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24946,7 +26261,7 @@
         "choices": [
           "Jesus",
           "God the Father",
-          "Peter",
+          "Philip",
           "Paul"
         ],
         "correctIndex": 0,
@@ -25014,10 +26329,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:1–14",
-          "Matthew 17:20; Mark 11:23–24",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "Ruth 2",
           "1 Timothy 4:12",
-          "Genesis 1:3"
+          "1 Peter 1–5"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25026,10 +26341,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
+          "Mary",
           "Paul",
-          "The apostles",
-          "John"
+          "Stephen",
+          "The LORD"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25099,10 +26414,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 23",
-          "1 Kings 19:19–21",
+          "Revelation 1:8, 11, 17–18",
+          "1 Corinthians 12",
           "Matthew 28",
-          "Ephesians 6"
+          "1 Thessalonians 4:13–18; 5:16–24"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25111,10 +26426,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Philip",
+          "The Lord",
           "Jesus",
-          "The apostles",
-          "John"
+          "David",
+          "Joshua"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25182,10 +26497,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 16:11–15",
-          "2 Timothy 4:6–8",
+          "Acts 1:6–11",
+          "Matthew 27; Mark 15; Luke 23; John 19",
           "Genesis 11",
-          "Revelation 1"
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25194,10 +26509,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
+          "Mary",
           "God",
-          "Joshua",
-          "Stephen"
+          "Stephen",
+          "The LORD"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25263,10 +26578,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:1–7",
+          "Luke 2:36–38",
           "Matthew 17:1–13",
-          "Joshua 8:1-8, 18-23, 26-29",
-          "1 Samuel 17:1-11, 32-51"
+          "1 Samuel 9–10",
+          "Matthew 28"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25275,10 +26590,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Jude",
+          "Stephen",
+          "The LORD",
           "God",
-          "Stephen"
+          "John"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25347,9 +26662,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:22",
-          "Galatians 5",
-          "2 Kings 6:1–7",
+          "Acts 27",
+          "Revelation 14–15",
+          "Acts 8:26–40",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -25360,9 +26675,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The Lord",
-          "Jude",
-          "Elisha"
+          "John",
+          "The apostles",
+          "Stephen"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25432,9 +26747,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Ruth 1",
-          "Revelation 1–22",
-          "Acts 3"
+          "Revelation 21",
+          "Matthew 17:20; Mark 11:23–24",
+          "1 Kings 18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25443,10 +26758,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
+          "The apostles",
           "God",
-          "Paul",
-          "The crowds"
+          "Stephen",
+          "John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25514,9 +26829,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 7",
-          "Genesis 18:9–15",
-          "Revelation 8–11",
+          "Luke 2:36–38",
+          "Acts 2:42–47",
+          "Genesis 1:3",
           "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
         ],
         "correctIndex": 3,
@@ -25527,9 +26842,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
-          "Jude",
-          "The Lord",
-          "Elisha"
+          "Mary",
+          "Priscilla",
+          "James"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25599,9 +26914,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 2:1–11",
-          "1 Kings 5–8",
-          "Mark 12",
-          "Ruth 2:1-17"
+          "Matthew 26",
+          "1 Samuel 24:1-22",
+          "Joshua 7:1-26"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25610,10 +26925,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Joshua",
+          "Stephen",
           "Jesus",
-          "Jonathan",
-          "Stephen"
+          "Mary",
+          "The LORD"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25682,10 +26997,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:22",
-          "Numbers 22:1–20",
+          "1 Samuel 9–10",
+          "Matthew 19:16–22",
           "Mark 12",
-          "1 Kings 18"
+          "Matthew 28"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25694,9 +27009,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Jonathan",
-          "Jude",
+          "The Holy Ghost",
+          "God",
+          "Holy Spirit",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -25766,10 +27081,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
+          "Revelation 4–5",
           "2 Kings 4:1–7",
-          "Philemon 1",
-          "Acts 2:14–41"
+          "Acts 18:23–21:17",
+          "Matthew 6"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25778,10 +27093,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
-          "Priscilla",
+          "The Lord",
+          "Elisha",
           "God",
-          "Elisha"
+          "Joshua"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25850,9 +27165,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 3",
-          "Judges 4:1-16",
-          "Revelation 22",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "1 Kings 3:16-28",
+          "Ruth 2",
           "Mark 12"
         ],
         "correctIndex": 3,
@@ -25863,9 +27178,9 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Jesus",
+          "Elisha",
           "The Lord",
-          "Jude",
-          "Elisha"
+          "The crowds"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25935,9 +27250,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Esther 4–5",
-          "1 Samuel 1",
-          "1 Samuel 16:11; 17:15, 34–37"
+          "Galatians 5",
+          "Genesis 28:10–22",
+          "2 Kings 6:1–7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25946,10 +27261,10 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Jonathan",
-          "Joshua",
+          "Paul",
+          "Elisha",
           "Jesus",
-          "Stephen"
+          "The crowds"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -26018,10 +27333,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 24:14-15",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
+          "Acts 19",
+          "Exodus 16:1-36",
           "Luke 19:1–10",
-          "Genesis 6–9"
+          "1 Peter 1–5"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -26030,9 +27345,9 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Holy Spirit",
-          "Mary",
-          "God",
+          "Jude",
+          "Philip",
+          "Jonathan",
           "Jesus"
         ],
         "correctIndex": 3,
@@ -26086,6 +27401,135 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: I'm coming to your house! (short)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Zacchaeus climbs a tree to see (jesus calls)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus looks up and sees him (luke 19)"
+    ]
+  },
+  "naaman": {
+    "kjvRef": "2 Kings 5:1-14 (KJV)",
+    "verseExcerpt": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — Wash, and be clean — and his flesh came again like unto the flesh of a little child.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "Now Naaman, captain of the host of the king of Syria, was a great man with his master, and honourable, because by him the LORD had given deliverance unto Syria: he was also a mighty man in valour, but he was a leper.",
+        "caption": "A great captain — but he was a leper",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And the Syrians had gone out by companies, and had brought away captive out of the land of Israel a little maid; and she waited on Naaman’s wife.",
+        "caption": "A little maid waited on Naaman’s wife",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And she said unto her mistress, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
+        "caption": "The prophet in Samaria — he would recover him of his leprosy",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And it was so, when Elisha the man of God had heard that the king of Israel had rent his clothes, that he sent to the king, saying, Wherefore hast thou rent thy clothes? let him come now to me, and he shall know that there is a prophet in Israel.",
+        "caption": "Let him come now to me — there is a prophet in Israel",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha.",
+        "caption": "Naaman stood at the door of the house of Elisha",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
+        "caption": "Go and wash in Jordan seven times — thou shalt be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And his servants came near, and spake unto him, and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? how much rather then, when he saith to thee, Wash, and be clean?",
+        "caption": "Wash, and be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
+        "caption": "Seven times in Jordan — like unto the flesh of a little child — and he was clean",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "Naaman was captain of the king of Syria — honourable and brave — but he was a leper. A little maid who served his wife said, Would God my lord were with the prophet in Samaria — he would recover him of his leprosy.",
+      "Naaman came to Elisha’s house with horses and chariot. Elisha sent word: Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman’s heart was hot — he thought the rivers of Damascus were better. His servants spoke kindly: If the prophet had bid a great thing, would you not do it? How much more when he saith, Wash, and be clean?",
+      "Then Naaman went down and dipped himself seven times in Jordan, as the man of God said. His flesh came again like a little child’s — and he was clean. For you: God’s way can feel surprisingly simple — humble obedience opens the door to His mercy.",
+      "Reference: 2 Kings 5:1-14 (KJV)."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What was Naaman’s trouble at the first?",
+        "choices": [
+          "He could not walk.",
+          "He was a leper.",
+          "He was a fisherman.",
+          "He had no house."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A great man — but he was a leper.",
+        "wrongFeedback": "Listen for leper. (Answer: He was a leper.)"
+      },
+      {
+        "question": "Who pointed Naaman toward the prophet in Samaria?",
+        "choices": [
+          "The king of Egypt only.",
+          "A little maid from Israel.",
+          "No one.",
+          "Only Naaman’s horse."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A little maid — God used her faithful words.",
+        "wrongFeedback": "Listen for little maid. (Answer: A little maid from Israel.)"
+      },
+      {
+        "question": "What did Elisha tell Naaman to do?",
+        "choices": [
+          "Stay home.",
+          "Go and wash in Jordan seven times.",
+          "Bring gold only.",
+          "Never speak again."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Wash in Jordan seven times — simple and clear.",
+        "wrongFeedback": "Listen for Jordan seven times. (Answer: Wash in Jordan seven times.)"
+      },
+      {
+        "question": "What did Naaman’s servants wisely say?",
+        "choices": [
+          "Run away.",
+          "If the prophet had bid a great thing, would you not do it? How much more — Wash, and be clean?",
+          "Do nothing.",
+          "Shout at the river."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Gentle words — and Naaman obeyed.",
+        "wrongFeedback": "Listen for Wash, and be clean. (Answer: the servants’ wise question about doing a great thing.)"
+      },
+      {
+        "question": "What happened after he dipped seven times?",
+        "choices": [
+          "Nothing changed.",
+          "His flesh came again like a little child’s — and he was clean.",
+          "He stayed in the water all day.",
+          "The river dried up."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Clean — like a little child.",
+        "wrongFeedback": "Listen for little child and clean. (Answer: Flesh like a little child — he was clean.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God heals when we trust and obey.",
+    "takeaway": "Naaman dipped seven times in Jordan — God made him clean. Simple obedience can hold great mercy.",
+    "prayer": "Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing in Jordan river seventh dip servants on bank thankful faces clean peaceful skin thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants wise words Wash and be clean",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan"
     ]
   }
 };

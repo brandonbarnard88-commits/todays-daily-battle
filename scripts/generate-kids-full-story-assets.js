@@ -24,6 +24,8 @@ let m;
 while ((m = re.exec(s))) {
   if (!seen.has(m[1])) seen.set(m[1], true);
 }
+/* Alias key assigned after the object — keep media paths aligned with naamanHealed. */
+if (seen.has('naamanHealed')) seen.set('naaman', true);
 const keys = [...seen.keys()].sort();
 
 function keyToKebab(k) {
@@ -52,7 +54,8 @@ lines.push('  /** @type {Object.<string, Object>} */');
 lines.push('  var FULL_STORY_MEDIA = {');
 
 for (const key of keys) {
-  const slug = keyToKebab(key);
+  var slug = keyToKebab(key);
+  if (key === 'naamanHealed' || key === 'naaman') slug = 'naaman';
   lines.push('    ' + key + ': {');
   lines.push("      mp4: '/media/kids-stories/" + slug + ".mp4',");
   lines.push("      webm: '/media/kids-stories/" + slug + ".webm',");

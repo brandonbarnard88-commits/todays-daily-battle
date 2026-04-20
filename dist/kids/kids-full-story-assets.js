@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (292 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (299 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -247,6 +247,11 @@
       webm: '/media/kids-stories/david-jonathan-friendship.webm',
       captionsVtt: '/media/kids-stories/david-jonathan-friendship.vtt'
     },
+    davidKing: {
+      mp4: '/media/kids-stories/david-king.mp4',
+      webm: '/media/kids-stories/david-king.webm',
+      captionsVtt: '/media/kids-stories/david-king.vtt'
+    },
     davidSaul: {
       mp4: '/media/kids-stories/david-saul.mp4',
       webm: '/media/kids-stories/david-saul.webm',
@@ -307,6 +312,21 @@
       webm: '/media/kids-stories/elijah-fire-from-heaven.webm',
       captionsVtt: '/media/kids-stories/elijah-fire-from-heaven.vtt'
     },
+    elijahHoreb: {
+      mp4: '/media/kids-stories/elijah-horeb.mp4',
+      webm: '/media/kids-stories/elijah-horeb.webm',
+      captionsVtt: '/media/kids-stories/elijah-horeb.vtt'
+    },
+    elijahRavens: {
+      mp4: '/media/kids-stories/elijah-ravens.mp4',
+      webm: '/media/kids-stories/elijah-ravens.webm',
+      captionsVtt: '/media/kids-stories/elijah-ravens.vtt'
+    },
+    elijahWidow: {
+      mp4: '/media/kids-stories/elijah-widow.mp4',
+      webm: '/media/kids-stories/elijah-widow.webm',
+      captionsVtt: '/media/kids-stories/elijah-widow.vtt'
+    },
     elishaFloatingAxe: {
       mp4: '/media/kids-stories/elisha-floating-axe.mp4',
       webm: '/media/kids-stories/elisha-floating-axe.webm',
@@ -322,10 +342,10 @@
       webm: '/media/kids-stories/elisha-oil.webm',
       captionsVtt: '/media/kids-stories/elisha-oil.vtt'
     },
-    elishaRaised: {
-      mp4: '/media/kids-stories/elisha-raised.mp4',
-      webm: '/media/kids-stories/elisha-raised.webm',
-      captionsVtt: '/media/kids-stories/elisha-raised.vtt'
+    elishaShunammite: {
+      mp4: '/media/kids-stories/elisha-shunammite.mp4',
+      webm: '/media/kids-stories/elisha-shunammite.webm',
+      captionsVtt: '/media/kids-stories/elisha-shunammite.vtt'
     },
     emmausRoad: {
       mp4: '/media/kids-stories/emmaus-road.mp4',
@@ -872,6 +892,11 @@
       webm: '/media/kids-stories/naaman-dip.webm',
       captionsVtt: '/media/kids-stories/naaman-dip.vtt'
     },
+    naamanHealed: {
+      mp4: '/media/kids-stories/naaman.mp4',
+      webm: '/media/kids-stories/naaman.webm',
+      captionsVtt: '/media/kids-stories/naaman.vtt'
+    },
     nehemiahWalls: {
       mp4: '/media/kids-stories/nehemiah-walls.mp4',
       webm: '/media/kids-stories/nehemiah-walls.webm',
@@ -1106,6 +1131,11 @@
       mp4: '/media/kids-stories/prodigal-son.mp4',
       webm: '/media/kids-stories/prodigal-son.webm',
       captionsVtt: '/media/kids-stories/prodigal-son.vtt'
+    },
+    psalm23: {
+      mp4: '/media/kids-stories/psalm23.mp4',
+      webm: '/media/kids-stories/psalm23.webm',
+      captionsVtt: '/media/kids-stories/psalm23.vtt'
     },
     psalm23Shepherd: {
       mp4: '/media/kids-stories/psalm23-shepherd.mp4',
@@ -1351,6 +1381,11 @@
       mp4: '/media/kids-stories/solomon-temple.mp4',
       webm: '/media/kids-stories/solomon-temple.webm',
       captionsVtt: '/media/kids-stories/solomon-temple.vtt'
+    },
+    solomonTwoMothers: {
+      mp4: '/media/kids-stories/solomon-two-mothers.mp4',
+      webm: '/media/kids-stories/solomon-two-mothers.webm',
+      captionsVtt: '/media/kids-stories/solomon-two-mothers.vtt'
     },
     solomonWisdom: {
       mp4: '/media/kids-stories/solomon-wisdom.mp4',

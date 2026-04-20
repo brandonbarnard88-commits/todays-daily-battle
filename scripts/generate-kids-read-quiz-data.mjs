@@ -575,6 +575,11 @@ for (const [key] of storyEntries) {
   merged[key] = buildPack(key, chunk, meta);
 }
 
+/** Runtime alias bibleStories.naaman → naamanHealed (not a top-level parse key). */
+if (merged.naamanHealed && !merged.naaman) {
+  merged.naaman = merged.naamanHealed;
+}
+
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);
 

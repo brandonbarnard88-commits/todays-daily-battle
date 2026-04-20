@@ -72,7 +72,7 @@
     elishaFloatingAxe: 21,
     elishaMiracles: 182,
     elishaOil: 19,
-    elishaRaised: 49,
+    elishaShunammite: 49,
     emmausRoad: 89,
     esther: 5,
     estherBanquet: 5,

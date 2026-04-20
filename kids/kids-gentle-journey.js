@@ -96,7 +96,7 @@
     'elijahChariot',
     'elishaMiracles',
     'elishaOil',
-    'elishaRaised',
+    'elishaShunammite',
     'widowOil',
     'naaman',
     'naamanDip',

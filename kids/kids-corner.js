@@ -117,6 +117,7 @@
       elijahWidow: 'elijahWidow',
       elijahHoreb: 'elijahHoreb',
       elishaMiracles: 'elishaMiracles',
+      elishaShunammite: 'elishaShunammite',
       psalm23: 'psalm23Shepherd',
       psalm23Shepherd: 'psalm23Shepherd',
       goliathChallenge: 'david',
@@ -1654,18 +1655,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 24:6</text>'
       ),
 
-      /* ── Week 4: Elisha Boy Raised (49) ── */
-      elishaRaised: svg(
-        '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M60 100 L200 80 L340 100" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M130 260 Q160 220 200 218 Q240 220 270 260" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="200" cy="210" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M192 210 Q200 202 208 210" ' + s + ' stroke-width="2"/>' +
-        person(200, 145, 13, 40) +
-        '<path d="M192 160 L183 185 M208 160 L217 185" ' + s + ' stroke-width="2.5"/>' +
-        person(55, 180, 12, 35) +
-        sun(320, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:35</text>'
+      /* ── Week 4: Shunammite son raised (49) — little room, prayer, joy (2 Kings 4:33-36) ── */
+      elishaShunammite: svg(
+        '<rect x="52" y="72" width="296" height="178" rx="8" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<rect x="68" y="88" width="120" height="72" rx="4" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="88" y1="108" x2="168" y2="108" ' + s + ' stroke-width="1.5"/>' +
+        '<rect x="92" y="128" width="72" height="22" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* bed */
+        '<rect x="200" y="138" width="130" height="44" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M200 160 L330 160" ' + s + ' stroke-width="1.8"/>' +
+        /* child on bed */
+        '<ellipse cx="255" cy="152" rx="12" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M238 158 L272 158" ' + s + ' stroke-width="1.6"/>' +
+        /* Elisha kneeling */
+        person(218, 188, 9, 22) +
+        '<path d="M210 205 L205 225 M226 205 L231 225" ' + s + ' stroke-width="2"/>' +
+        /* mother */
+        person(95, 175, 10, 28) +
+        '<path d="M88 188 L108 168" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="108" cy="162" r="4" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        sun(350, 42, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:36</text>'
       ),
 
       /* ── Week 4: Jonah Whale already exists ── */
@@ -3394,7 +3404,7 @@
     saulSpear: 'saulSpear',
     davidCave: 'davidCave',
     /* ── Week 4 ── */
-    elishaRaised: 'elishaRaised',
+    elishaShunammite: 'elishaShunammite',
     estherCrown: 'estherCrown',
     esther: 'estherCrown',
     nehemiahWalls: 'nehemiahWalls',
@@ -3414,7 +3424,7 @@
     elishaFloatingAxe: 'naamanDip',
     isaiahMessianic: 'angelMary',
     jeremiahWeeping: 'jobSuffering',
-    ezekielValleyBones: 'elishaRaised',
+    ezekielValleyBones: 'elishaShunammite',
     danielFieryFurnace: 'fieryFurnace',
     danielLionsDen: 'daniel',
     ezraReturn: 'nehemiahWalls',
@@ -5163,7 +5173,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
@@ -5382,6 +5392,7 @@
       'revelation-seals': 'revelationSeals',
       'revelationseals': 'revelationSeals',
       'noaharkstory': 'noah',
+      elisharaised: 'elishaShunammite',
       davd: 'david',
       daveed: 'david',
       goliat: 'david',

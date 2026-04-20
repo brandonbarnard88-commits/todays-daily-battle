@@ -3347,19 +3347,41 @@
       kidContext: { who: 'God', to: 'Saul (and us)', apply: 'Doing things our own way can look holy but still be wrong. God wants a heart that obeys fully — not half.' }
     },
     /* ── Week 4 (49–60) ── */
-    elishaRaised: {
-      title: 'Elisha Raises a Boy',
+    elishaShunammite: {
+      title: 'Elisha Raises the Shunammite\'s Son',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A Shunammite\'s son dies' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha stretches over him and prays' },
-        { src: 'panel-noah-3.svg', alt: 'The boy sneezes seven times—alive!' }
+        { src: 'panel-noah-1.svg', alt: 'A little room on the wall — bed and candlestick for Elisha' },
+        { src: 'panel-noah-2.svg', alt: 'Elisha prays — the child opens his eyes' },
+        { src: 'panel-noah-3.svg', alt: 'Take up thy son — the mother\'s joy' }
       ],
-      caption: 'Swipe to see God bring a boy back to life! 🤧',
+      caption: 'Swipe to see God\'s mercy — take up thy son! ✨',
       videoId: '',
       videoTitle: '',
-      keywords: ['elisha', 'raise', 'shunammite', '2 kings 4', 'boy', 'dead', 'life', 'miracle'],
-      kjvRef: '2 Kings 4',
-      kidContext: { who: 'God', to: 'Elisha and the Shunammite', apply: 'God can bring life back! Nothing is too hard for Him.' }
+      keywords: [
+        'elisha',
+        'shunammite',
+        'shunem',
+        'great woman',
+        '2 kings 4',
+        '2 kings 4:8',
+        '2 kings 4:16',
+        '2 kings 4:35',
+        'little chamber',
+        'man of God',
+        'sneezed seven times',
+        'take up thy son',
+        'raise',
+        'miracle'
+      ],
+      kjvRef: '2 Kings 4:8-37',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A mother, a prophet, and a child — through Elisha',
+        apply:
+          'God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.'
+      },
+      narration:
+        "Elisha Raises the Shunammite's Son — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall for Elisha — bed, table, stool, and candlestick. Elisha promised her a son; she bare a son in the season he named. Later, deep trouble came to the child; the mother laid him on the prophet's bed and ran to Elisha. When asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me? Elisha prayed, lay upon the child, and the flesh waxed warm. The child sneezed seven times and opened his eyes. Take up thy son. She took him and went out. For you: Run to God with your tears — He is merciful."
     },
     estherCrown: {
       title: 'Queen Esther\'s Courage',
@@ -6328,7 +6350,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -6739,7 +6761,7 @@
       /\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\b2 kgs 4:(?:8|9|[12][0-9]|3[0-7])\b/.test(low) ||
       /shunammite|woman of shunem|raise.*dead.*elisha|elisha.*raise|son of the woman|bed.*stick|great woman.*shunem/.test(low)
     ) {
-      return { type: 'carousel', story: 'elishaRaised' };
+      return { type: 'carousel', story: 'elishaShunammite' };
     }
     if (
       /\b2 kings 6\b|\b2 kgs 6\b/.test(low) ||
@@ -9380,7 +9402,7 @@
     davidSaulJealousy: 'Protection', davidJonathanFriendship: 'Love',
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
-    elishaRaised: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
+    elishaShunammite: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',

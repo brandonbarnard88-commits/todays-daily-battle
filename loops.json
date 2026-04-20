@@ -455,12 +455,13 @@
   },
   {
     "id": 49,
-    "title": "Elisha Raises a Boy",
+    "title": "Elisha Raises the Shunammite's Son",
     "file": "",
     "audio": "",
-    "ref": "2 Kings 4:35",
+    "ref": "2 Kings 4:8-37",
     "week": 4,
-    "libraryKey": "elishaRaised"
+    "libraryKey": "elishaShunammite",
+    "kjvText": "And he called Gehazi, and said, Call this Shunammite. So he called her. And when she was come in unto him, he said, Take up thy son."
   },
   {
     "id": 50,

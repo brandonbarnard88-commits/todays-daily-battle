@@ -342,7 +342,7 @@
       webm: '/media/kids-stories/elisha-oil.webm',
       captionsVtt: '/media/kids-stories/elisha-oil.vtt'
     },
-    elishaRaised: {
+    elishaShunammite: {
       mp4: '/media/kids-stories/elisha-raised.mp4',
       webm: '/media/kids-stories/elisha-raised.webm',
       captionsVtt: '/media/kids-stories/elisha-raised.vtt'

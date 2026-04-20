@@ -23,6 +23,7 @@
  * Elijah taken up in the fiery chariot: read-quiz-elijah-chariot-pack.cjs (key elijahChariot).
  * Elisha's first miracles (Jericho waters + widow's oil): read-quiz-elisha-miracles-pack.cjs (key elishaMiracles).
  * Elisha and the widow's oil (full): read-quiz-elisha-oil-pack.cjs (key elishaOil).
+ * Elisha and the Shunammite's son: read-quiz-elisha-shunammite-pack.cjs (key elishaShunammite).
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
@@ -46,6 +47,7 @@ const elijahCallsElishaReadQuizPack = require('./read-quiz-elijah-calls-elisha-p
 const elijahChariotReadQuizPack = require('./read-quiz-elijah-chariot-pack.cjs');
 const elishaMiraclesReadQuizPack = require('./read-quiz-elisha-miracles-pack.cjs');
 const elishaOilReadQuizPack = require('./read-quiz-elisha-oil-pack.cjs');
+const elishaShunammiteReadQuizPack = require('./read-quiz-elisha-shunammite-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3897,5 +3899,6 @@ module.exports = {
   elijahElijahElisha: elijahCallsElishaReadQuizPack,
   elijahChariot: elijahChariotReadQuizPack,
   elishaMiracles: elishaMiraclesReadQuizPack,
-  elishaOil: elishaOilReadQuizPack
+  elishaOil: elishaOilReadQuizPack,
+  elishaShunammite: elishaShunammiteReadQuizPack
 };

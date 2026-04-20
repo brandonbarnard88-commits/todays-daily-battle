@@ -75,7 +75,7 @@ Update this file by running: `npm run kids:generate-animation-queue`
 | ☐ | 53 | `elishaFloatingAxe` | `elisha-floating-axe.mp4` / `elisha-floating-axe.vtt` | The Floating Axe Head |
 | ☐ | 54 | `elishaMiracles` | `elisha-miracles.mp4` / `elisha-miracles.vtt` | Elisha's Miracles |
 | ☐ | 55 | `elishaOil` | `elisha-oil.mp4` / `elisha-oil.vtt` | Elisha & the Widow's Oil |
-| ☐ | 56 | `elishaRaised` | `elisha-raised.mp4` / `elisha-raised.vtt` | Elisha Raises a Boy |
+| ☐ | 56 | `elishaShunammite` | `elisha-raised.mp4` / `elisha-raised.vtt` | Elisha Raises the Shunammite's Son |
 | ☐ | 57 | `emmausRoad` | `emmaus-road.mp4` / `emmaus-road.vtt` | Road to Emmaus |
 | ☐ | 58 | `esther` | `esther.mp4` / `esther.vtt` | Esther Saves Her People |
 | ☐ | 59 | `estherBanquet` | `esther-banquet.mp4` / `esther-banquet.vtt` | Esther's Banquet |

@@ -548,23 +548,23 @@
   },
   {
     "key": "elijahChariot",
-    "title": "Elijah's Fiery Chariot",
-    "kjvRef": "2 Kings 2:1–14",
-    "who": "God",
-    "to": "Elijah",
-    "apply": "God honors His faithful servants! Heaven is real—and it's wonderful.",
+    "title": "Elijah Taken Up in the Fiery Chariot",
+    "kjvRef": "2 Kings 2:1-14",
+    "who": "The LORD",
+    "to": "Elijah, Elisha, and us",
+    "apply": "God keeps every promise — even the hard goodbyes. His strength passes on to those who follow Him faithfully.",
     "theme": "Miracles",
-    "kw": "elijah chariot fire 2 kings 2 whirlwind heaven elisha"
+    "kw": "elijah elisha chariot fire 2 kings 2 whirlwind heaven jordan mantle double portion gilgal bethel jericho"
   },
   {
     "key": "elishaOil",
-    "title": "Elisha & the Widow's Oil",
-    "kjvRef": "2 Kings 4:1–7",
-    "who": "God",
-    "to": "The widow through Elisha",
-    "apply": "God multiplies—He provides! Give God what you have—He can do more!",
+    "title": "Elisha and the Widow's Oil",
+    "kjvRef": "2 Kings 4:1-7",
+    "who": "The LORD",
+    "to": "A widow and her sons — through Elisha",
+    "apply": "God can turn a little into enough when we obey Him step by step — He cares for mothers and children.",
     "theme": "Miracles",
-    "kw": "elisha oil widow 2 kings 4 multiply jar"
+    "kw": "elisha widow oil 2 kings 4 2 kings 4:1 2 kings 4:3 2 kings 4:6 creditor bondmen vessels pot of oil sons of the prophets pour out oil stayed pay thy debt"
   },
   {
     "key": "elijahElijahElisha",
@@ -577,24 +577,24 @@
     "kw": "elisha plows elijah calls elisha cast his mantle twelve yoke of oxen abelmeholah son of shaphat 1 kings 19 1 kings 19:19 1 kings 19:20 1 kings 19:21 kiss my father and my mother ministered unto him plowing oxen"
   },
   {
-    "key": "elishaRaised",
-    "title": "Elisha Raises a Boy",
-    "kjvRef": "2 Kings 4",
-    "who": "God",
-    "to": "Elisha and the Shunammite",
-    "apply": "God can bring life back! Nothing is too hard for Him.",
+    "key": "elishaShunammite",
+    "title": "Elisha Raises the Shunammite's Son",
+    "kjvRef": "2 Kings 4:8-37",
+    "who": "The LORD",
+    "to": "A mother, a prophet, and a child — through Elisha",
+    "apply": "God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.",
     "theme": "Miracles",
-    "kw": "elisha raise shunammite 2 kings 4 boy dead life miracle"
+    "kw": "elisha shunammite shunem great woman 2 kings 4 2 kings 4:8 2 kings 4:16 2 kings 4:35 little chamber man of God sneezed seven times take up thy son raise miracle"
   },
   {
     "key": "elishaMiracles",
-    "title": "Elisha's Miracles",
-    "kjvRef": "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-    "who": "God",
-    "to": "His people",
-    "apply": "God can heal, provide, and raise the dead. He still cares about our troubles today.",
+    "title": "Elisha's First Miracles",
+    "kjvRef": "2 Kings 2:19-22; 4:1-7",
+    "who": "The LORD",
+    "to": "Jericho and a widow's home — through Elisha",
+    "apply": "God can heal what is bitter and stretch what is little. He cares for towns, moms, and children.",
     "theme": "Miracles",
-    "kw": "elisha miracle widow oil naaman 2 kings 4 2 kings 5 jordan jericho"
+    "kw": "elisha elisha first miracles 2 kings 2 2 kings 2:19 2 kings 2:20 2 kings 2:21 2 kings 2:22 jericho spring salt cruse waters healed barren 2 kings 4 2 kings 4:1 widow oil vessels creditor bondmen pot of oil"
   },
   {
     "key": "estherFast",

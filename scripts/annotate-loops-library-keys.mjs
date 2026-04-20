@@ -1,6 +1,6 @@
 /**
  * Adds optional `libraryKey` to each loops.json entry by matching title + KJV ref
- * to rows in kids/bible-story-tool-index.js (298 Bible Story Library keys).
+ * to rows in kids/bible-story-tool-index.js (298 Bible Story Library keys; keys match bibleStories).
  *
  * Run: node scripts/annotate-loops-library-keys.mjs
  * Then bump LOOPS_URL ?v= in script.js so browsers fetch fresh JSON.
@@ -159,6 +159,7 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   180: 'elijahWidow',
   181: 'elijahElijahElisha',
   182: 'elishaMiracles',
+  49: 'elishaShunammite',
   125: 'davidAbigail',
   44: 'psalm23'
 };

@@ -2244,26 +2244,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kgs 3:27</text>'
       ),
 
-      /* Elijah calls Elisha — oxen, field (1 Kings 19:19-21) */
+      /* Elijah calls Elisha — gentle field: mantle clear, oxen + plow, Elijah ahead (1 Kings 19:19-21) */
       elijahElijahElisha: svg(
         ground() + hills() +
-        sun(48, 44, 18) +
+        sun(48, 42, 16) + cloud(268, 38) +
         /* two oxen — yoke hint */
-        '<ellipse cx="95" cy="222" rx="32" ry="20" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="72" cy="212" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="145" cy="222" rx="32" ry="20" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="122" cy="212" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="127" y1="218" x2="113" y2="218" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="88" cy="224" rx="30" ry="19" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="66" cy="214" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="138" cy="224" rx="30" ry="19" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="116" cy="214" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="121" y1="220" x2="108" y2="220" ' + s + ' stroke-width="2"/>' +
         /* plow */
-        '<path d="M155 235 L188 222 L198 242" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="188" y1="222" x2="178" y2="252" ' + s + ' stroke-width="2.5"/>' +
-        /* Elisha */
-        person(218, 186, 10, 28) +
-        /* mantle falling on shoulders */
-        '<path d="M200 178 Q218 168 236 178 Q232 198 218 202 Q204 198 200 178" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        /* Elijah passing by */
-        person(288, 178, 11, 30) +
-        '<path d="M268 188 Q248 182 228 192" ' + s + ' stroke-width="2"/>' +
+        '<path d="M148 236 L182 222 L192 242" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="182" y1="222" x2="172" y2="252" ' + s + ' stroke-width="2.5"/>' +
+        /* Elisha — mantle on shoulders (bold outline) */
+        person(210, 188, 10, 28) +
+        '<path d="M188 176 L232 176 L228 206 L194 210 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M194 198 Q210 192 226 198" ' + s + ' stroke-width="2"/>' +
+        /* Elijah ahead — kind smile */
+        person(298, 176, 11, 30) +
+        '<path d="M292 182 Q298 186 304 182" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M248 194 Q272 188 286 200" ' + s + ' stroke-width="1.8" stroke-dasharray="4,4" opacity="0.55"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 19:19-21</text>'
       ),
 

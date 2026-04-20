@@ -22,7 +22,7 @@
  * God multiplies the widow’s oil and meal (gentle): read-quiz-elijah-widow-pack.cjs (key elijahWidow).
  * Elijah on Mount Carmel (gentle — God answers by fire): read-quiz-elijah-fire-carmel-pack.cjs (key elijahFire).
  * Elijah at Horeb (gentle — still small voice): read-quiz-elijah-horeb-pack.cjs (key elijahHoreb).
- * Elijah calls Elisha (field / mantle): read-quiz-elijah-calls-elisha-pack.cjs (key elijahElijahElisha).
+ * Elijah calls Elisha (gentle — Elisha follows): read-quiz-elijah-calls-elisha-pack.cjs (key elijahElijahElisha).
  * Elijah taken up in the fiery chariot: read-quiz-elijah-chariot-pack.cjs (key elijahChariot).
  * Elisha's first miracles (Jericho waters + widow's oil): read-quiz-elisha-miracles-pack.cjs (key elishaMiracles).
  * The widow's oil multiplied: read-quiz-widow-oil-pack.cjs (keys widowOil, elishaOil legacy).

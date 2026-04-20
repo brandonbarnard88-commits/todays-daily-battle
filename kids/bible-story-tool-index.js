@@ -598,13 +598,13 @@
   },
   {
     "key": "elijahElijahElisha",
-    "title": "Elisha Plows the Field",
+    "title": "Elisha Follows Elijah",
     "kjvRef": "1 Kings 19:19-21",
     "who": "Elisha",
-    "to": "God — through Elijah's call",
-    "apply": "Elisha did not rush past home — he honored his parents, then rose and followed. God blesses willing, orderly obedience.",
+    "to": "God — through Elijah’s call",
+    "apply": "Elisha honored his parents, then rose and followed with a willing heart. God calls us to follow Him one step at a time.",
     "theme": "Obedience",
-    "kw": "elisha plows elijah calls elisha cast his mantle twelve yoke of oxen abelmeholah son of shaphat 1 kings 19 1 kings 19:19 1 kings 19:20 1 kings 19:21 kiss my father and my mother ministered unto him plowing oxen"
+    "kw": "elisha follows elijah elisha plows elijah calls elisha cast his mantle twelve yoke of oxen abelmeholah son of shaphat 1 kings 19 1 kings 19:19 1 kings 19:20 1 kings 19:21 kiss my father and my mother ministered unto him plowing oxen willing heart"
   },
   {
     "key": "elishaShunammite",

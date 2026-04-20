@@ -1326,16 +1326,17 @@
         "God Speaks in a Still Small Voice – 1 Kings 19:9-18. Elijah was sad and went to Mount Horeb. He lodged in a cave, and the LORD asked, What doest thou here, Elijah? The LORD told him to stand on the mount. A great wind came, but the LORD was not in the wind. An earthquake came, but the LORD was not in the earthquake. A fire came, but the LORD was not in the fire. After the fire came a still small voice. When Elijah heard it, he wrapped his face in his mantle and went out. The LORD spoke to him gently — and showed him faithful work ahead, and that seven thousand in Israel had not bowed unto Baal. For you: God often speaks in a quiet, tender way — lean in and listen."
     },
     elijahElijahElisha: {
-      title: 'Elisha Plows the Field',
+      title: 'Elisha Follows Elijah',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Twelve yoke of oxen — Elijah casts his mantle on Elisha' },
+        { src: 'panel-noah-1.svg', alt: 'Oxen in the field — Elijah casts his mantle on Elisha' },
         { src: 'panel-noah-2.svg', alt: 'Let me kiss my father and my mother — then I will follow thee' },
-        { src: 'panel-noah-3.svg', alt: 'He arose and went after Elijah — and ministered unto him' }
+        { src: 'panel-noah-3.svg', alt: 'He arose and followed — and ministered unto Elijah' }
       ],
-      caption: 'Swipe for the field where Elisha left the plow to follow God\'s call.',
+      caption: 'Swipe for the field — mantle, oxen, and a willing heart to follow God’s call.',
       videoId: '',
       videoTitle: '',
       keywords: [
+        'elisha follows elijah',
         'elisha plows',
         'elijah calls elisha',
         'cast his mantle',
@@ -1349,15 +1350,18 @@
         'kiss my father and my mother',
         'ministered unto him',
         'plowing',
-        'oxen'
+        'oxen',
+        'willing heart'
       ],
       kjvRef: '1 Kings 19:19-21',
       kidContext: {
         who: 'Elisha',
-        to: 'God — through Elijah\'s call',
+        to: 'God — through Elijah’s call',
         apply:
-          'Elisha did not rush past home — he honored his parents, then rose and followed. God blesses willing, orderly obedience.'
-      }
+          'Elisha honored his parents, then rose and followed with a willing heart. God calls us to follow Him one step at a time.'
+      },
+      narration:
+        "Elisha Follows Elijah – 1 Kings 19:19-21. Elijah found Elisha plowing with twelve yoke of oxen. Elijah passed by him and cast his mantle upon him. Elisha left the oxen, ran after Elijah, and said, Let me, I pray thee, kiss my father and my mother, and then I will follow thee. Elijah said, Go back again: for what have I done to thee? Elisha went back, took a yoke of oxen, slew them, boiled their flesh with the instruments, and gave unto the people, and they did eat. Then he arose, went after Elijah, and ministered unto him. For you: God calls us to follow Him with a willing heart."
     },
     naamanHealed: {
       title: 'Naaman Is Healed of Leprosy',
@@ -3945,16 +3949,17 @@
       }
     },
     elijahElijahElisha: {
-      title: 'Elisha Plows the Field — Elijah Calls Him',
+      title: 'Elisha Follows Elijah',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elisha with the twelfth yoke — Elijah casts his mantle' },
-        { src: 'panel-noah-2.svg', alt: 'Kiss my father and my mother — Elijah says, Go back again' },
-        { src: 'panel-noah-3.svg', alt: 'A feast for the people — then he followed and ministered' }
+        { src: 'panel-noah-1.svg', alt: 'Oxen in the field — Elijah casts his mantle on Elisha' },
+        { src: 'panel-noah-2.svg', alt: 'Let me kiss my father and my mother — then I will follow thee' },
+        { src: 'panel-noah-3.svg', alt: 'He arose and followed — and ministered unto Elijah' }
       ],
-      caption: 'Swipe for the mantle in the field — Elisha rose and ministered unto Elijah.',
+      caption: 'Swipe for the field — mantle, oxen, and a willing heart to follow God’s call.',
       videoId: '',
       videoTitle: '',
       keywords: [
+        'elisha follows elijah',
         'elijah calls elisha',
         'elisha plows the field',
         'elisha plowing',
@@ -3969,18 +3974,17 @@
         'kiss my father and my mother',
         'go back again',
         'ministered unto him',
-        'slew them',
-        'boiled their flesh'
+        'willing heart'
       ],
       kjvRef: '1 Kings 19:19-21',
       kidContext: {
         who: 'Elisha',
         to: 'The LORD — through Elijah',
         apply:
-          'The call did not erase love for family — it ordered it. Then Elisha rose, followed, and served. God honors a willing heart.'
+          'Elisha honored his parents, then rose and followed with a willing heart. God calls us to follow Him one step at a time.'
       },
       narration:
-        "Elisha Plows the Field – 1 Kings 19:19-21. Elijah found Elisha the son of Shaphat plowing with twelve yoke of oxen — he with the twelfth — and passed by him, and cast his mantle upon him. Elisha left the oxen, ran after Elijah, and asked, Let me kiss my father and my mother, and then I will follow thee. Elijah answered, Go back again: for what have I done to thee? Elisha returned: he took a yoke of oxen, slew them, boiled their flesh with the instruments of the oxen, gave unto the people, and they did eat. Then he arose, and went after Elijah, and ministered unto him. For you: When God calls, you can answer with honor — and follow Him with your whole heart."
+        "Elisha Follows Elijah – 1 Kings 19:19-21. Elijah found Elisha plowing with twelve yoke of oxen. Elijah passed by him and cast his mantle upon him. Elisha left the oxen, ran after Elijah, and said, Let me, I pray thee, kiss my father and my mother, and then I will follow thee. Elijah said, Go back again: for what have I done to thee? Elisha went back, took a yoke of oxen, slew them, boiled their flesh with the instruments, and gave unto the people, and they did eat. Then he arose, went after Elijah, and ministered unto him. For you: God calls us to follow Him with a willing heart."
     },
     elijahChariot: {
       title: 'Elijah Taken Up in the Fiery Chariot',

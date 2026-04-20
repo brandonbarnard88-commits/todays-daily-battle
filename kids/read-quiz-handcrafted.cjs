@@ -15,7 +15,7 @@
  * David's kindness to Mephibosheth (gentle deepen): read-quiz-mephibosheth-pack.cjs (key mephibosheth).
  * David's repentance and God's mercy (gentle): read-quiz-david-bathsheba-pack.cjs (keys davidBathsheba, davidRepentance).
  * David's sadness and prayer (Absalom, gentle): read-quiz-absalom-rebellion-pack.cjs (key absalomRebellion).
- * Solomon asks for wisdom: read-quiz-solomon-wisdom-pack.cjs (key solomonWisdom).
+ * Solomon asks God for a wise heart (gentle): read-quiz-solomon-wisdom-pack.cjs (key solomonWisdom).
  * Solomon and the two mothers: read-quiz-solomon-two-mothers-pack.cjs (key solomonTwoMothers).
  * Solomon builds the temple: read-quiz-solomon-temple-pack.cjs (key solomonTemple).
  * Elijah and the ravens: read-quiz-elijah-ravens-pack.cjs (key elijahRavens).

@@ -3703,13 +3703,13 @@
         "Psalm 23 — 1-6. The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me. Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over. Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever. For you: Keep this psalm like a lamp for dark evenings — the Lord is still your Shepherd."
     },
     solomonWisdom: {
-      title: 'Solomon Asks for Wisdom',
+      title: 'Solomon Asks God for a Wise Heart',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'In Gibeon — the LORD in a dream: Ask what I shall give thee' },
+        { src: 'panel-david-1.svg', alt: 'Night dream — the LORD says, Ask what I shall give thee' },
         { src: 'panel-david-2.svg', alt: 'I am but a little child — give an understanding heart' },
         { src: 'panel-david-3.svg', alt: 'God gives a wise heart — Solomon worships before the ark in Jerusalem' }
       ],
-      caption: 'Swipe for the dream where Solomon asks God for wisdom, not riches.',
+      caption: 'Swipe for the dream where Solomon humbly asks God for wisdom — and God is pleased.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -3730,17 +3730,18 @@
         'riches and honour',
         'ark of the covenant',
         'jerusalem',
-        'david my father'
+        'david my father',
+        'wise heart'
       ],
       kjvRef: '1 Kings 3:5-15',
       kidContext: {
         who: 'The LORD',
         to: 'Young Solomon — and every listener',
         apply:
-          'God smiled on a king who asked for wisdom before wealth. When you pray, ask God for a heart that loves what is right — He is glad to give it.'
+          'God is pleased when we ask for a wise and understanding heart. When you pray, ask Him for what honors Him — He answers with kindness.'
       },
       narration:
-        "Solomon Asks for Wisdom – 1 Kings 3:5-15. In Gibeon the LORD appeared to Solomon in a dream by night: Ask what I shall give thee. Solomon remembered David his father, and said, O LORD my God, I am but a little child; give thy servant an understanding heart to judge thy people, that I may discern between good and bad. The speech pleased the LORD. Because Solomon had not asked long life, nor riches, nor the life of his enemies, but understanding, God said, I have given thee a wise and an understanding heart, and riches and honour also. Solomon awoke — it was a dream — and came to Jerusalem, and stood before the ark of the covenant, and offered sacrifices. For you: Ask God first for wisdom; He knows what you need next."
+        "Solomon Asks God for a Wise Heart – 1 Kings 3:5-15. In Gibeon the LORD appeared to Solomon in a dream by night: Ask what I shall give thee. Solomon said, I am but a little child; give thy servant an understanding heart to judge thy people, that I may discern between good and bad. The speech pleased the LORD. God gave him a wise and an understanding heart, and riches and honour besides. Solomon awoke — it was a dream — and came to Jerusalem, and stood before the ark of the covenant, and worshiped. For you: Ask God first for wisdom; He knows what you need."
     },
     solomonTwoMothers: {
       title: 'Solomon and the Two Mothers',

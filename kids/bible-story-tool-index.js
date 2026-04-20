@@ -2438,13 +2438,13 @@
   },
   {
     "key": "solomonWisdom",
-    "title": "Solomon Asks for Wisdom",
+    "title": "Solomon Asks God for a Wise Heart",
     "kjvRef": "1 Kings 3:5-15",
     "who": "The LORD",
     "to": "Young Solomon — and every listener",
-    "apply": "God smiled on a king who asked for wisdom before wealth. When you pray, ask God for a heart that loves what is right — He is glad to give it.",
+    "apply": "God is pleased when we ask for a wise and understanding heart. When you pray, ask Him for what honors Him — He answers with kindness.",
     "theme": "Obedience",
-    "kw": "solomon solomon wisdom ask for wisdom understanding heart 1 kings 3 1 kings 3:5 1 kings 3:9 1 kings 3:12 dream gibeon ask what i shall give thee little child discern between good and bad speech pleased the lord riches and honour ark of the covenant jerusalem david my father"
+    "kw": "solomon solomon wisdom ask for wisdom understanding heart 1 kings 3 1 kings 3:5 1 kings 3:9 1 kings 3:12 dream gibeon ask what i shall give thee little child discern between good and bad speech pleased the lord riches and honour ark of the covenant jerusalem david my father wise heart"
   },
   {
     "key": "solomonTemple",

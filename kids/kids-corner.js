@@ -2156,30 +2156,36 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ps 23:1</text>'
       ),
 
-      /* Solomon asks for wisdom — dream, light from heaven (1 Kings 3:5-15) */
+      /* Solomon asks for wisdom — kneeling prayer, stars, soft light, simple bed (1 Kings 3:5-15) */
       solomonWisdom: svg(
-        /* night ground */
-        '<rect x="0" y="248" width="400" height="52" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* star field */
-        '<circle cx="62" cy="48" r="2" fill="#222"/><circle cx="98" cy="72" r="1.5" fill="#222"/><circle cx="340" cy="58" r="2" fill="#222"/>' +
-        '<circle cx="310" cy="88" r="1.2" fill="#222"/><circle cx="128" cy="44" r="1.3" fill="#222"/><circle cx="268" cy="38" r="1.6" fill="#222"/>' +
-        /* gentle rays */
-        '<path d="M200 28 L188 120 M200 28 L200 125 M200 28 L212 120 M200 28 L175 105 M200 28 L225 105" ' +
+        ground() +
+        /* star field — wonder-filled night */
+        '<circle cx="42" cy="40" r="2" fill="#222"/><circle cx="78" cy="58" r="1.5" fill="#222"/>' +
+        '<circle cx="118" cy="36" r="1.3" fill="#222"/><circle cx="152" cy="52" r="1.6" fill="#222"/>' +
+        '<circle cx="88" cy="88" r="1.1" fill="#222"/><circle cx="200" cy="48" r="1.8" fill="#222"/>' +
+        '<circle cx="268" cy="42" r="2" fill="#222"/><circle cx="308" cy="64" r="1.4" fill="#222"/>' +
+        '<circle cx="342" cy="38" r="1.2" fill="#222"/><circle cx="358" cy="78" r="1.5" fill="#222"/>' +
+        '<circle cx="328" cy="102" r="1.1" fill="#222"/><circle cx="58" cy="108" r="1.2" fill="#222"/>' +
+        /* soft light from above */
+        '<path d="M200 20 L172 118 M200 20 L200 120 M200 20 L228 118 M200 20 L158 100 M200 20 L242 100 M200 24 L186 110 M200 24 L214 110" ' +
           s +
-          ' stroke-width="2" stroke-linecap="round" opacity="0.55"/>' +
-        /* simple resting mat */
-        '<rect x="118" y="232" width="100" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* kneeling young king — humble */
-        '<ellipse cx="200" cy="248" rx="36" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<rect x="176" y="188" width="48" height="62" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="200" cy="170" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M192 164 Q200 158 208 164" ' + s + ' stroke-width="1.5"/>' +
-        '<circle cx="194" cy="168" r="1.5" fill="#111"/><circle cx="206" cy="168" r="1.5" fill="#111"/>' +
-        /* hands lifted lightly */
-        '<line x1="176" y1="210" x2="158" y2="198" ' + s + ' stroke-width="2"/>' +
-        '<line x1="224" y1="210" x2="242" y2="198" ' + s + ' stroke-width="2"/>' +
+          ' stroke-width="1.8" stroke-linecap="round" opacity="0.32"/>' +
+        /* simple bed — headboard + pillow (background, left) */
+        '<path d="M44 224 L44 166 L48 162 L102 162 L106 166 L106 224" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="50" y="186" width="58" height="30" rx="3" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="72" cy="194" rx="16" ry="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        /* kneeling young king — folded hands, humble */
+        '<ellipse cx="220" cy="242" rx="50" ry="14" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<circle cx="220" cy="132" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M214 136 Q220 130 226 136" ' + s + ' stroke-width="1.3"/>' +
+        '<path d="M220 144 L220 188" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M208 158 L220 174 L232 158" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M214 174 L214 196 L226 174 L226 196" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M196 198 L196 228 M244 198 L244 228" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M196 228 Q220 242 244 228" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M212 186 L220 194 L228 186" ' + s + ' stroke-width="1.4" fill="none"/>' +
         /* crown set aside */
-        '<path d="M268 228 L274 244 L280 228 L286 244 L292 228 L298 244 L304 228 L304 244 L268 244 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M302 226 L306 236 L310 226 L314 236 L318 226 L322 236 L326 226 L326 240 L302 240 Z" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kgs 3:9</text>'
       ),
 

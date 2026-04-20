@@ -17053,47 +17053,49 @@
     ]
   },
   "nehemiahWalls": {
-    "kjvRef": "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-    "readAlongTitle": "Read along",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Nehemiah 1:1–4; 2:1–20; 3:1–32 (KJV)",
+    "verseExcerpt": "And I told them of the hand of my God which was good upon me; as also the king’s words that he had spoken unto me. And they said, Let us rise up and build. So they strengthened their hands for this good work. — Nehemiah 2:18 (KJV)",
+    "readAlongTitle": "Nehemiah and the People Rebuild Together",
+    "quizWrongHumilityHint": "Listen again — Nehemiah prayed; the king sent him; the people said, Let us rise up and build.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Nehemiah Rebuilds the Walls (Nehemiah 1:1–4; 2:1–20; 3:1–32).",
       "The walls of Jerusalem were broken down and the gates were burned with fire.",
       "Nehemiah heard the sad news while he was far away serving the king. He prayed to the God of heaven and asked the king for permission to go and rebuild the walls.",
       "The king sent him with letters and timber. When Nehemiah came to Jerusalem, he rose up at night and went out to see the broken walls.",
-      "Then he said to the people, “Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach.”",
-      "The people answered, “Let us rise up and build.” So they strengthened their hands for this good work.",
-      "The Lord used Nehemiah to stir the hearts of His people to rebuild the walls of Jerusalem together."
+      "Then said I unto them, Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach.",
+      "The people answered, Let us rise up and build. So they strengthened their hands for this good work.",
+      "The LORD used Nehemiah to stir the hearts of His people to rebuild the walls of Jerusalem together.",
+      "Reference: Nehemiah 1:1–4; 2:1–20; 3:1–32 (KJV)."
     ],
     "readAlongSections": [
       {
         "text": "The walls of Jerusalem were broken down.",
-        "caption": "Broken places",
+        "caption": "Broken gates and walls",
         "image": "panel-noah-1.svg"
       },
       {
         "text": "Nehemiah heard the sad news and prayed to God.",
-        "caption": "Pray first",
+        "caption": "Pray to the God of heaven",
         "image": "panel-noah-1.svg"
       },
       {
         "text": "The king let him go to rebuild the walls.",
-        "caption": "The king sends help",
+        "caption": "Letters and timber",
         "image": "panel-noah-2.svg"
       },
       {
         "text": "Nehemiah saw the broken places at night.",
-        "caption": "Nehemiah looks with care",
+        "caption": "A quiet look at the city",
         "image": "panel-noah-2.svg"
       },
       {
-        "text": "He said to the people, “Come, let us build up the wall of Jerusalem.”",
-        "caption": "Let us build",
+        "text": "Then said I unto them, Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach.",
+        "caption": "Come, let us build up the wall",
         "image": "panel-noah-3.svg"
       },
       {
-        "text": "The people answered, “Let us rise up and build.”",
-        "caption": "Together",
+        "text": "And they said, Let us rise up and build. So they strengthened their hands for this good work.",
+        "caption": "Let us rise up and build",
         "image": "panel-noah-3.svg"
       },
       {
@@ -17150,7 +17152,7 @@
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: The people answered, “Let us rise up and build.”)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: The people answered, “Let us rise up and build.”)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
@@ -17166,11 +17168,11 @@
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Nehemiah Rebuilds the Walls with God's Word today.",
+    "doneMessage": "Great job reading Nehemiah and the People Rebuild Together with God's Word today.",
     "takeaway": "God helps His people pray, work together, and rebuild what was broken.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Nehemiah Rebuilds the Walls. Amen.",
+    "prayer": "Lord, thank You that You hear prayer. Help us work together in the good work You give. Amen.",
     "imagePrompts": [
-      "Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: Nehemiah and thankful people working together to rebuild a city wall, some carrying stones, some building with simple tools, wall rising, soft gates and hills in background, hopeful teamwork mood, no fighting, no weapons, no text, plenty of white space",
+      "Simple peaceful black-and-white line-art for young children ages 3–8: Nehemiah and thankful people working together to rebuild the wall of Jerusalem some carrying stones others building with simple tools wall rising large open spaces thick bold outlines on robes stones tools ground soft city gates and hills in background minimal lines hopeful teamwork mood no fighting no fear plenty of white space coloring page",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Nehemiah prays — God hears (nehemiah)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The king sends Nehemiah with letters (king)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Let us rise up and build — people together (jerusalem)",

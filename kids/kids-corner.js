@@ -2118,11 +2118,13 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 5:2</text>'
       ),
 
-      /* ── Week 4: Nehemiah Walls (53) — teamwork, stones, no weapons ── */
+      /* ── Week 4: Nehemiah — wall rising, teamwork, stones, soft gate, no weapons ── */
       nehemiahWalls: svg(
         ground() +
         hills() +
         sun(340, 48, 18) +
+        /* distant gate and city hint */
+        '<path d="M48 195 L48 168 M62 195 L62 168 M48 168 Q55 158 62 168" ' + s + ' stroke-width="2.2" fill="none"/>' +
         '<rect x="72" y="158" width="34" height="20" ' +
         sf +
         ' fill="white" stroke-width="2.5"/>' +
@@ -2138,22 +2140,29 @@
         '<rect x="216" y="128" width="34" height="20" ' +
         sf +
         ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="248" y="122" width="34" height="18" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
         '<ellipse cx="92" cy="250" rx="16" ry="11" ' +
         sf +
         ' fill="white" stroke-width="2"/>' +
         '<ellipse cx="128" cy="254" rx="14" ry="9" ' +
         sf +
         ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="300" cy="252" rx="15" ry="10" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
         person(168, 188, 11, 32) +
         person(95, 198, 10, 28) +
         person(275, 195, 10, 28) +
+        person(218, 200, 9, 26) +
         '<line x1="148" y1="212" x2="132" y2="228" ' +
         s +
         ' stroke-width="2"/>' +
         '<line x1="248" y1="208" x2="262" y2="222" ' +
         s +
         ' stroke-width="2"/>' +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 4:6</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 2:18</text>'
       ),
 
       /* ── Return from exile: Ezra 1 & 3 — thankful journey home, gates, altar smoke ── */

@@ -3626,18 +3626,25 @@
       kidContext: { who: 'God', to: 'Esther', apply: 'God puts you where you are for a reason! Be brave—maybe it\'s for such a time as this.' }
     },
     nehemiahWalls: {
-      title: 'Nehemiah Rebuilds the Walls',
+      title: 'Nehemiah and the People Rebuild Together',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Nehemiah hears and prays to the God of heaven' },
-        { src: 'panel-noah-2.svg', alt: 'The king sends him — Nehemiah sees the broken walls at night' },
-        { src: 'panel-noah-3.svg', alt: '“Let us rise up and build” — people work together with joy' }
+        { src: 'panel-noah-1.svg', alt: 'Broken walls and gates — Nehemiah prays to the God of heaven' },
+        { src: 'panel-noah-2.svg', alt: 'The king sends letters and timber — Nehemiah surveys the city at night' },
+        { src: 'panel-noah-3.svg', alt: 'Let us rise up and build — people strengthen their hands for this good work' }
       ],
-      caption: 'Swipe to see God stir hearts to rebuild — pray and work together! 🧱',
+      caption: 'Swipe to see prayer, quiet courage, and joyful teamwork as God helps His people rebuild.',
       videoId: '',
       videoTitle: '',
       keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 1', 'nehemiah 2', 'nehemiah 3', 'artaxerxes', 'rebuild', 'pray', 'teamwork', 'gates'],
       kjvRef: 'Nehemiah 1:1–4; 2:1–20; 3:1–32',
-      kidContext: { who: 'God', to: 'Nehemiah and His people', apply: 'God hears prayer and helps His people work together to restore what was broken.' }
+      kidContext: {
+        who: 'The LORD',
+        to: 'Nehemiah and the people of Jerusalem',
+        apply:
+          'God hears prayer and helps His people work together to restore what was broken — with thankful hearts.'
+      },
+      narration:
+        "Nehemiah and the People Rebuild Together — Nehemiah 1:1–4; 2:1–20; 3:1–32. The walls of Jerusalem were broken down and the gates were burned with fire. Nehemiah heard the sad news while he was far away serving the king. He prayed to the God of heaven and asked the king for permission to go and rebuild the walls. The king sent him with letters and timber. When Nehemiah came to Jerusalem, he rose up at night and went out to see the broken walls. Then said I unto them, Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach. The people answered, Let us rise up and build. So they strengthened their hands for this good work. The LORD used Nehemiah to stir the hearts of His people to rebuild the walls of Jerusalem together. For you: God helps His people pray, work together, and rebuild."
     },
     jobSuffering: {
       title: 'Job Trusts God',

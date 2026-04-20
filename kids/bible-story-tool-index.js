@@ -1608,11 +1608,11 @@
   },
   {
     "key": "nehemiahWalls",
-    "title": "Nehemiah Rebuilds the Walls",
+    "title": "Nehemiah and the People Rebuild Together",
     "kjvRef": "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-    "who": "God",
-    "to": "Nehemiah and His people",
-    "apply": "God hears prayer and helps His people work together to restore what was broken.",
+    "who": "The LORD",
+    "to": "Nehemiah and the people of Jerusalem",
+    "apply": "God hears prayer and helps His people work together to restore what was broken — with thankful hearts.",
     "theme": "Obedience",
     "kw": "nehemiah walls jerusalem nehemiah 1 nehemiah 2 nehemiah 3 artaxerxes rebuild pray teamwork gates"
   },

@@ -85,6 +85,7 @@
     'davidSaulJealousy',
     'saulSpear',
     'solomonWisdom',
+    'solomonTwoMothers',
     'solomonTemple',
     'elijahFire',
     'elijahFireFromHeaven',

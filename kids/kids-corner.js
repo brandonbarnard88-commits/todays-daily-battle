@@ -110,6 +110,8 @@
       davidJonathanFriendship: 'davidJonathan',
       davidAbigail: 'abigailWise',
       davidKing: 'davidKing',
+      solomonWisdom: 'solomonWisdom',
+      solomonTwoMothers: 'solomonTwoMothers',
       psalm23: 'psalm23Shepherd',
       psalm23Shepherd: 'psalm23Shepherd',
       goliathChallenge: 'david',
@@ -1600,8 +1602,35 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ps 23:1</text>'
       ),
 
-      /* ── Week 4: Solomon Wisdom (56) ── */
+      /* Solomon asks for wisdom — dream, light from heaven (1 Kings 3:5-15) */
       solomonWisdom: svg(
+        /* night ground */
+        '<rect x="0" y="248" width="400" height="52" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* star field */
+        '<circle cx="62" cy="48" r="2" fill="#222"/><circle cx="98" cy="72" r="1.5" fill="#222"/><circle cx="340" cy="58" r="2" fill="#222"/>' +
+        '<circle cx="310" cy="88" r="1.2" fill="#222"/><circle cx="128" cy="44" r="1.3" fill="#222"/><circle cx="268" cy="38" r="1.6" fill="#222"/>' +
+        /* gentle rays */
+        '<path d="M200 28 L188 120 M200 28 L200 125 M200 28 L212 120 M200 28 L175 105 M200 28 L225 105" ' +
+          s +
+          ' stroke-width="2" stroke-linecap="round" opacity="0.55"/>' +
+        /* simple resting mat */
+        '<rect x="118" y="232" width="100" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* kneeling young king — humble */
+        '<ellipse cx="200" cy="248" rx="36" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="176" y="188" width="48" height="62" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="200" cy="170" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M192 164 Q200 158 208 164" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="194" cy="168" r="1.5" fill="#111"/><circle cx="206" cy="168" r="1.5" fill="#111"/>' +
+        /* hands lifted lightly */
+        '<line x1="176" y1="210" x2="158" y2="198" ' + s + ' stroke-width="2"/>' +
+        '<line x1="224" y1="210" x2="242" y2="198" ' + s + ' stroke-width="2"/>' +
+        /* crown set aside */
+        '<path d="M268 228 L274 244 L280 228 L286 244 L292 228 L298 244 L304 228 L304 244 L268 244 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kgs 3:9</text>'
+      ),
+
+      /* Solomon and the two mothers — sword test (1 Kings 3:16-28) */
+      solomonTwoMothers: svg(
         ground() +
         '<rect x="80" y="100" width="240" height="160" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
         '<path d="M80 140 L200 118 L320 140" ' + sf + ' fill="white" stroke-width="3"/>' +
@@ -1614,7 +1643,7 @@
         person(300, 185, 11, 32) +
         person(315, 190, 10, 28) +
         sun(320, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 3:25</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kgs 3:27</text>'
       ),
 
       /* ── Week 4: Elijah Chariot (57) ── */
@@ -3181,6 +3210,7 @@
     psalm23Shepherd: 'psalm23Shepherd',
     psalm23: 'psalm23Shepherd',
     solomonWisdom: 'solomonWisdom',
+    solomonTwoMothers: 'solomonTwoMothers',
     elijahFireFromHeaven: 'elijahFire',
     elijahElijahElisha: 'elijahChariot',
     elijahChariot: 'elijahChariot',
@@ -3400,7 +3430,7 @@
     samuelCalls: 'samuelCall',
     saulKing: 'saulSpear',
     saulDisobedience: 'saulSpear',
-    solomonTemple: 'solomonWisdom',
+    solomonTemple: 'solomonTwoMothers',
     /* ── creation / week-1 existing ── */
     creationLight: 'creationLight',
     adamEve: 'adamEve',
@@ -4933,7 +4963,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

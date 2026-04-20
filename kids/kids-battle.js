@@ -3241,18 +3241,78 @@
         "Psalm 23 — 1-6. The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me. Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over. Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever. For you: Keep this psalm like a lamp for dark evenings — the Lord is still your Shepherd."
     },
     solomonWisdom: {
-      title: 'Solomon\'s Wisdom',
+      title: 'Solomon Asks for Wisdom',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Two moms argue about a baby' },
-        { src: 'panel-david-2.svg', alt: 'Solomon says: bring a sword!' },
-        { src: 'panel-david-3.svg', alt: 'The real mom speaks up—God gives wisdom!' }
+        { src: 'panel-david-1.svg', alt: 'In Gibeon — the LORD in a dream: Ask what I shall give thee' },
+        { src: 'panel-david-2.svg', alt: 'I am but a little child — give an understanding heart' },
+        { src: 'panel-david-3.svg', alt: 'God gives a wise heart — Solomon worships before the ark in Jerusalem' }
       ],
-      caption: 'Swipe to see Solomon use God\'s wisdom! 👶',
+      caption: 'Swipe for the dream where Solomon asks God for wisdom, not riches.',
       videoId: '',
       videoTitle: '',
-      keywords: ['solomon', 'wisdom', 'baby', 'sword', '1 kings 3', 'judge', 'moms'],
-      kjvRef: '1 Kings 3',
-      kidContext: { who: 'God', to: 'Solomon', apply: 'Ask God for wisdom! He gives it freely to those who ask.' }
+      keywords: [
+        'solomon',
+        'solomon wisdom',
+        'ask for wisdom',
+        'understanding heart',
+        '1 kings 3',
+        '1 kings 3:5',
+        '1 kings 3:9',
+        '1 kings 3:12',
+        'dream',
+        'gibeon',
+        'ask what i shall give thee',
+        'little child',
+        'discern between good and bad',
+        'speech pleased the lord',
+        'riches and honour',
+        'ark of the covenant',
+        'jerusalem',
+        'david my father'
+      ],
+      kjvRef: '1 Kings 3:5-15',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Young Solomon — and every listener',
+        apply:
+          'God smiled on a king who asked for wisdom before wealth. When you pray, ask God for a heart that loves what is right — He is glad to give it.'
+      },
+      narration:
+        "Solomon Asks for Wisdom – 1 Kings 3:5-15. In Gibeon the LORD appeared to Solomon in a dream by night: Ask what I shall give thee. Solomon remembered David his father, and said, O LORD my God, I am but a little child; give thy servant an understanding heart to judge thy people, that I may discern between good and bad. The speech pleased the LORD. Because Solomon had not asked long life, nor riches, nor the life of his enemies, but understanding, God said, I have given thee a wise and an understanding heart, and riches and honour also. Solomon awoke — it was a dream — and came to Jerusalem, and stood before the ark of the covenant, and offered sacrifices. For you: Ask God first for wisdom; He knows what you need next."
+    },
+    solomonTwoMothers: {
+      title: 'Solomon and the Two Mothers',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Two women stand before the king with a hard dispute' },
+        { src: 'panel-david-2.svg', alt: 'Each says the living child is hers' },
+        { src: 'panel-david-3.svg', alt: 'Bring me a sword — the true mother begs, Give her the living child' }
+      ],
+      caption: 'Swipe to see how God\'s wisdom showed the real mother\'s love.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'solomon baby',
+        'two mothers',
+        'two women',
+        'bring me a sword',
+        'divide the living child',
+        'living child',
+        '1 kings 3:16',
+        '1 kings 3:24',
+        '1 kings 3:27',
+        'wisdom of god was in him',
+        'judgment',
+        'harlots unto the king'
+      ],
+      kjvRef: '1 Kings 3:16-28',
+      kidContext: {
+        who: 'God (through Solomon)',
+        to: 'Israel — and every heart that wants truth',
+        apply:
+          'Love that protects told the truth. God had given Solomon wisdom — and a whole nation saw it.'
+      },
+      narration:
+        "Solomon and the Two Mothers – 1 Kings 3:16-28. Two women came before the king; each claimed the living baby. Solomon said, Bring me a sword — divide the child in two. The real mother cried, Give her the living child, and in no wise slay it. Solomon knew her heart — and gave the child to her. All Israel saw that the wisdom of God was in him. For you: God helps us tell right from wrong when we listen to Him."
     },
     solomonTemple: {
       title: 'Solomon Builds the Temple',
@@ -5736,7 +5796,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 294, color: '#e5e4e2' }
+      { name: 'Platinum', min: 295, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5835,7 +5895,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5850,7 +5910,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing',
+      'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
       'solomonWisdom', 'solomonTemple',
       'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
@@ -5993,6 +6053,28 @@
       /\bdavid\b.*\bking over israel\b|\bking over israel\b.*\bdavid\b|david became king|david becomes king/.test(low)
     ) {
       return { type: 'carousel', story: 'davidKing' };
+    }
+    if (
+      /\b1 kings 3:(?:1[6-9]|2[0-8])\b|\b1 kgs 3:(?:1[6-9]|2[0-8])\b/.test(low) ||
+      /\bsolomon\b.*\b(divide the living|bring me a sword|two women|two mothers|living child)\b|\b(divide the living|bring me a sword)\b.*\bsolomon\b/.test(
+        low
+      ) ||
+      /divide the living child in two|give her the living child|wisdom of god was in him.*do judgment|two women.*harlots.*king/.test(low)
+    ) {
+      return { type: 'carousel', story: 'solomonTwoMothers' };
+    }
+    if (
+      /\b1 kings 3:(?:[5-9]|1[0-5])\b|\b1 kgs 3:(?:[5-9]|1[0-5])\b/.test(low) ||
+      (/\b1 kings 3\b|\b1 kgs 3\b/.test(low) &&
+        !/\b1 kings 3:(?:1[6-9]|2[0-8])\b|\b1 kgs 3:(?:1[6-9]|2[0-8])\b/.test(low)) ||
+      /in gibeon the lord appeared to solomon|ask what i shall give thee|understanding heart to judge|i am but a little child.*know not how to go out|speech pleased the lord.*solomon|riches, and honour.*kings like unto thee|solomon awoke.*it was a dream/.test(
+        low
+      ) ||
+      (/\bsolomon\b/.test(low) &&
+        /\bwisdom\b/.test(low) &&
+        !/\b(divide the living|bring me a sword|two women|two mothers|baby and)\b/.test(low))
+    ) {
+      return { type: 'carousel', story: 'solomonWisdom' };
     }
     if (
       /\b1 samuel 18\b|\b1 sam 18\b/.test(low) &&
@@ -8791,7 +8873,7 @@
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaRaised: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTemple: 'Obedience',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
     elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',

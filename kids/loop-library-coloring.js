@@ -138,6 +138,7 @@
   "samuelBirth": "samuelBirth",
   "samuelCalls": "samuelCall",
   "shepherdsStar": "shepherdsStar",
+  "solomonTwoMothers": "solomonTwoMothers",
   "solomonWisdom": "solomonWisdom",
   "spiesInCanaan": "jerichoWalls",
   "stephenStones": "stephenStones",

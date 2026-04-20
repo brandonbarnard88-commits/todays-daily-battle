@@ -2297,6 +2297,26 @@
     "kw": "cross simon carry luke 23 cyrene help burden"
   },
   {
+    "key": "solomonTwoMothers",
+    "title": "Solomon and the Two Mothers",
+    "kjvRef": "1 Kings 3:16-28",
+    "who": "God (through Solomon)",
+    "to": "Israel — and every heart that wants truth",
+    "apply": "Love that protects told the truth. God had given Solomon wisdom — and a whole nation saw it.",
+    "theme": "Obedience",
+    "kw": "solomon baby two mothers two women bring me a sword divide the living child living child 1 kings 3:16 1 kings 3:24 1 kings 3:27 wisdom of god was in him judgment harlots unto the king"
+  },
+  {
+    "key": "solomonWisdom",
+    "title": "Solomon Asks for Wisdom",
+    "kjvRef": "1 Kings 3:5-15",
+    "who": "The LORD",
+    "to": "Young Solomon — and every listener",
+    "apply": "God smiled on a king who asked for wisdom before wealth. When you pray, ask God for a heart that loves what is right — He is glad to give it.",
+    "theme": "Obedience",
+    "kw": "solomon solomon wisdom ask for wisdom understanding heart 1 kings 3 1 kings 3:5 1 kings 3:9 1 kings 3:12 dream gibeon ask what i shall give thee little child discern between good and bad speech pleased the lord riches and honour ark of the covenant jerusalem david my father"
+  },
+  {
     "key": "solomonTemple",
     "title": "Solomon Builds the Temple",
     "kjvRef": "1 Kings 5–8",
@@ -2305,16 +2325,6 @@
     "apply": "God is not far off — He wants His people to meet Him in worship. Today we come to Him through Jesus, anywhere we pray.",
     "theme": "Obedience",
     "kw": "solomon temple jerusalem 1 kings 5 1 kings 8 ark glory worship"
-  },
-  {
-    "key": "solomonWisdom",
-    "title": "Solomon's Wisdom",
-    "kjvRef": "1 Kings 3",
-    "who": "God",
-    "to": "Solomon",
-    "apply": "Ask God for wisdom! He gives it freely to those who ask.",
-    "theme": "Obedience",
-    "kw": "solomon wisdom baby sword 1 kings 3 judge moms"
   },
   {
     "key": "revelationSongsAndHarvest",

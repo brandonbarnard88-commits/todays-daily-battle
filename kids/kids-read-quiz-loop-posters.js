@@ -249,6 +249,7 @@
     samuelCalls: 41,
     shepherdsStar: 63,
     solomonWisdom: 45,
+    solomonTwoMothers: 178,
     spiesInCanaan: 34,
     stephen: 109,
     stephenMartyr: 109,

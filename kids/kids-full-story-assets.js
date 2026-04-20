@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (294 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (295 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -1361,6 +1361,11 @@
       mp4: '/media/kids-stories/solomon-temple.mp4',
       webm: '/media/kids-stories/solomon-temple.webm',
       captionsVtt: '/media/kids-stories/solomon-temple.vtt'
+    },
+    solomonTwoMothers: {
+      mp4: '/media/kids-stories/solomon-two-mothers.mp4',
+      webm: '/media/kids-stories/solomon-two-mothers.webm',
+      captionsVtt: '/media/kids-stories/solomon-two-mothers.vtt'
     },
     solomonWisdom: {
       mp4: '/media/kids-stories/solomon-wisdom.mp4',

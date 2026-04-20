@@ -413,11 +413,13 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 14:21</text>'
       ),
 
-      /* Daniel in Lions Den */
+      /* Daniel in lions’ den — peaceful lions, soft light from the opening (Daniel 6:22) */
       daniel: svg(
         ground() +
         /* cave arch */
         '<path d="M60 260 L60 140 Q200 60 340 140 L340 260" ' + sf + ' fill="white" stroke-width="4"/>' +
+        /* soft light from opening above */
+        '<ellipse cx="200" cy="118" rx="42" ry="22" ' + sf + ' fill="white" stroke-width="1.8" opacity="0.85"/>' +
         /* stone blocks */
         '<rect x="55" y="230" width="30" height="30" ' + s + ' stroke-width="2"/>' +
         '<rect x="315" y="230" width="30" height="30" ' + s + ' stroke-width="2"/>' +
@@ -427,20 +429,16 @@
         '<line x1="182" y1="192" x2="218" y2="192" ' + s + ' stroke-width="2.5"/>' +
         /* prayer hands */
         '<path d="M200 192 L192 210 M200 192 L208 210" ' + s + ' stroke-width="2"/>' +
-        /* lion left */
-        '<ellipse cx="110" cy="220" rx="38" ry="26" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="90" cy="205" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* mane */
-        '<circle cx="90" cy="205" r="28" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        /* lion eyes */
-        '<circle cx="83" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="97" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* lion left — resting, gentle closed eyes */
+        '<ellipse cx="110" cy="222" rx="38" ry="24" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="90" cy="207" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="90" cy="207" r="28" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        '<path d="M78 200 Q83 203 88 200 M92 200 Q97 203 102 200" ' + s + ' stroke-width="1.4" fill="none"/>' +
         /* lion right */
-        '<ellipse cx="290" cy="220" rx="38" ry="26" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="310" cy="205" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="310" cy="205" r="28" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        '<circle cx="303" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="317" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="290" cy="222" rx="38" ry="24" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="310" cy="207" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="310" cy="207" r="28" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        '<path d="M298 200 Q303 203 308 200 M312 200 Q317 203 322 200" ' + s + ' stroke-width="1.4" fill="none"/>' +
         /* angel light rays */
         '<line x1="200" y1="80" x2="180" y2="140" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
         '<line x1="200" y1="80" x2="200" y2="145" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +

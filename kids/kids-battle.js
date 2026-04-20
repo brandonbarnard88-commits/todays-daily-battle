@@ -4329,18 +4329,38 @@
       kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: 'Stand for what is right — God is with you even when it gets hot.' }
     },
     danielLionsDen: {
-      title: 'Daniel in the Lions\' Den',
+      title: 'Daniel Trusts God in the Lions’ Den',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Daniel prays toward Jerusalem three times a day' },
-        { src: 'panel-daniel-2.svg', alt: 'Daniel is thrown to the lions' },
-        { src: 'panel-daniel-3.svg', alt: 'God stills the lions — Daniel is safe' }
+        { src: 'panel-daniel-1.svg', alt: 'Daniel prays to God three times a day — faithful when the law forbids it' },
+        { src: 'panel-daniel-2.svg', alt: 'The den of lions — the king is sad and cannot sleep' },
+        { src: 'panel-daniel-3.svg', alt: 'My God sent his angel and shut the lions’ mouths — no hurt was found' }
       ],
-      caption: 'Swipe to see Daniel pray and trust God in the den! 🦁',
+      caption: 'Swipe to see faithful prayer, a sad king, and God’s angel quieting every fear.',
       videoId: '',
       videoTitle: '',
-      keywords: ['daniel', 'lions', 'den', 'pray', 'daniel 6', 'law', 'babylon', 'angel'],
-      kjvRef: 'Daniel 6',
-      kidContext: { who: 'God', to: 'Daniel', apply: 'Keep talking to God — He hears you and can hush every fear.' }
+      keywords: [
+        'daniel',
+        'lions',
+        'den',
+        'pray',
+        'daniel 6',
+        'daniel 6:22',
+        'law',
+        'babylon',
+        'angel',
+        'darius',
+        'living God',
+        'shut the lions mouths'
+      ],
+      kjvRef: 'Daniel 6:1–23',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Daniel — and every heart that prays',
+        apply:
+          'Keep talking to God. He hears you and can send help — even when the way feels dark.'
+      },
+      narration:
+        "Daniel Trusts God in the Lions’ Den — Daniel 6:1–23. Daniel loved God and prayed three times every day, even when the king made a law that no one could pray to anyone but the king. Daniel was thrown into a den of lions. The king was very sad and could not sleep. In the morning he called, O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions? Daniel answered, My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me. The king commanded that Daniel be taken up out of the den. No hurt was found upon him, because he believed in his God. For you: God protects those who trust Him and pray."
     },
     ezraReturn: {
       title: 'Coming Home to Worship',

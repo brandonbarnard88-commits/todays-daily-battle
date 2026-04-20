@@ -4380,6 +4380,141 @@ function buildEstherReadQuiz() {
   };
 }
 
+/** Daniel in the lions’ den — Daniel 6; prayer, protection, gentle hope. Library key: danielLionsDen */
+function buildDanielLionsDenReadQuiz() {
+  return {
+    kjvRef: 'Daniel 6:1–23 (KJV)',
+    verseExcerpt:
+      'My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me. — Daniel 6:22 (KJV)',
+    readAlongTitle: 'Daniel Trusts God in the Lions’ Den',
+    quizWrongHumilityHint:
+      'Listen again — Daniel prayed; the king called; God sent his angel and shut the lions’ mouths.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Daniel was a good man who loved God. He prayed to God three times every day, even when the king made a law that no one could pray to anyone but the king.',
+      'Daniel was thrown into a den of lions. The king was very sad and could not sleep.',
+      'Early the next morning the king called, O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions?',
+      'Daniel answered, My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me. The king was glad and commanded that Daniel be taken up out of the den.',
+      'No hurt was found upon him, because he believed in his God. The LORD protected Daniel because he trusted and prayed to Him every day.',
+      'Reference: Daniel 6:1–23 (KJV).'
+    ],
+    readAlongSections: [
+      {
+        text: 'Daniel prayed to God three times every day.',
+        caption: 'Prayer every day',
+        image: 'panel-daniel-1.svg'
+      },
+      {
+        text: 'The king made a law that no one could pray to God.',
+        caption: 'A hard law',
+        image: 'panel-daniel-1.svg'
+      },
+      {
+        text: 'Daniel was thrown into a den of lions.',
+        caption: 'Into the den',
+        image: 'panel-daniel-2.svg'
+      },
+      {
+        text: 'The king was sad and could not sleep.',
+        caption: 'The king’s heart was heavy',
+        image: 'panel-daniel-2.svg'
+      },
+      {
+        text:
+          'O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions?',
+        caption: 'The king called at morning',
+        image: 'panel-daniel-3.svg'
+      },
+      {
+        text:
+          'My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me.',
+        caption: 'God shut the lions’ mouths',
+        image: 'panel-daniel-3.svg'
+      },
+      {
+        text: 'No hurt was found upon him, because he believed in his God.',
+        caption: 'For you',
+        image: 'panel-daniel-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Psalm 23',
+          'Daniel 6:1–23',
+          'Jonah 1',
+          'Genesis 1'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the reference line in the story, or check the first paragraph’s Bible note. (Answer: Daniel 6:1–23.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'A giant fish', 'Pharaoh', 'Goliath'],
+        correctIndex: 0,
+        correctFeedback: 'Right—God sent his angel and kept Daniel safe.',
+        wrongFeedback: "Look for who hears prayer and shuts the lions’ mouths. (Answer: God.)"
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never hears when kids pray.',
+          'The Bible is only pretend stories.',
+          'When we trust God and keep praying, He can protect us — even in scary places.',
+          'We should hide from God when we mess up.'
+        ],
+        correctIndex: 2,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          "Reread the last paragraphs slowly. Which option matches God's kindness and truth? (Answer: When we trust God and keep praying, He can protect us — even in scary places.)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me.',
+          'Everyone decided to never sleep again.',
+          'A talking toaster became king of the city.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: My God hath sent his angel, and hath shut the lions’ mouths….)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Keep praying and trusting God — He hears you.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust and prayer? Pick the one that honors Him. (Answer: Keep praying and trusting God — He hears you.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Daniel Trusts God in the Lions’ Den with God's Word today.",
+    takeaway: 'God protects those who trust Him and pray — He can even still lions’ mouths.',
+    prayer:
+      'Lord, thank You that You hear us when we pray. Help us trust You every day. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children ages 3–8: Daniel standing calmly in lions den hands folded in prayer lions lying peacefully around him thick bold outlines large open spaces on robe lions ground soft cave walls small opening with light above minimal lines trusting safe mood no scary faces plenty of white space coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel prays toward Jerusalem (daniel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel in the den — lions quiet (lions)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel — God shuts lions mouths (daniel 6)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The king calls to Daniel at morning (king)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Job trusts God — Job 1–2; honest sadness, quiet friends, KJV heart line. */
 function buildJobSufferingReadQuiz() {
   return {
@@ -4581,5 +4716,6 @@ module.exports = {
   ezraReturn: buildEzraReturnReadQuiz(),
   nehemiahWalls: buildNehemiahWallsReadQuiz(),
   esther: buildEstherReadQuiz(),
+  danielLionsDen: buildDanielLionsDenReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

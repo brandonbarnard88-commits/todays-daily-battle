@@ -327,16 +327,6 @@
     "kw": "daniel lion lions den pray protect"
   },
   {
-    "key": "danielLionsDen",
-    "title": "Daniel in the Lions' Den",
-    "kjvRef": "Daniel 6",
-    "who": "God",
-    "to": "Daniel",
-    "apply": "Keep talking to God — He hears you and can hush every fear.",
-    "theme": "Miracles",
-    "kw": "daniel lions den pray daniel 6 law babylon angel"
-  },
-  {
     "key": "danielPray",
     "title": "Daniel Prays Three Times a Day",
     "kjvRef": "Daniel 6",
@@ -345,6 +335,16 @@
     "apply": "Nothing should stop you from praying! God sees your faithfulness.",
     "theme": "Obedience",
     "kw": "daniel pray window daniel 6 law brave lions"
+  },
+  {
+    "key": "danielLionsDen",
+    "title": "Daniel Trusts God in the Lions’ Den",
+    "kjvRef": "Daniel 6:1–23",
+    "who": "The LORD",
+    "to": "Daniel — and every heart that prays",
+    "apply": "Keep talking to God. He hears you and can send help — even when the way feels dark.",
+    "theme": "Miracles",
+    "kw": "daniel lions den pray daniel 6 daniel 6:22 law babylon angel darius living God shut the lions mouths"
   },
   {
     "key": "davidAbigail",

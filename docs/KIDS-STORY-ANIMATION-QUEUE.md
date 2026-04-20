@@ -66,7 +66,7 @@ Update this file by running: `npm run kids:generate-animation-queue`
 | ☐ | 44 | `davidHarp` | `david-harp.mp4` / `david-harp.vtt` | Young David Plays the Harp for King Saul |
 | ☐ | 45 | `davidJonathan` | `david-jonathan.mp4` / `david-jonathan.vtt` | David & Jonathan's Friendship |
 | ☐ | 46 | `davidJonathanFriendship` | `david-jonathan-friendship.mp4` / `david-jonathan-friendship.vtt` | David & Jonathan — True Friends |
-| ☐ | 47 | `davidKing` | `david-king.mp4` / `david-king.vtt` | David Becomes King |
+| ☐ | 47 | `davidKing` | `david-king.mp4` / `david-king.vtt` | David Becomes King — David Is Anointed King |
 | ☐ | 48 | `davidSaul` | `david-saul.mp4` / `david-saul.vtt` | David & Saul's Jealousy |
 | ☐ | 49 | `davidSaulJealousy` | `david-saul-jealousy.mp4` / `david-saul-jealousy.vtt` | David & Saul's Jealousy |
 | ☐ | 50 | `davidSheep` | `david-sheep.mp4` / `david-sheep.vtt` | David & the Sheep |

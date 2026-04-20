@@ -1704,7 +1704,7 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 16:13</text>'
       ),
 
-      /* David king — elders, horn of oil, city hint (library davidKing / loop 177) */
+      /* David king — gentle anointing: horn, thankful faces, soft hills, city wall (library davidKing / loop 177) */
       davidKing: svg(
         ground() + hills() +
         /* simple city wall silhouette */
@@ -1712,21 +1712,24 @@
           sf +
           ' fill="white" stroke-width="2.2"/>' +
         sun(52, 44, 16) + cloud(312, 34) +
-        /* David — humble face, crown outline */
+        /* David — calm face, crown outline */
         person(200, 170, 12, 34) +
         '<path d="M192 174 Q200 168 208 174" ' + s + ' stroke-width="1.5"/>' +
         '<circle cx="196" cy="172" r="1.6" fill="#111"/><circle cx="204" cy="172" r="1.6" fill="#111"/>' +
         '<path d="M184 146 L190 156 L196 148 L202 156 L208 148 L214 156 L220 146 L220 160 L184 160 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        /* elder pours from horn */
+        /* elder — horn of oil, opening toward David */
         person(118, 180, 9, 28) +
         '<path d="M124 168 L128 154 L138 162 L132 176 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="130" cy="158" rx="5" ry="3" ' + sf + ' fill="white" stroke-width="1.4"/>' +
         '<path d="M132 162 Q165 172 192 176" ' + s + ' stroke-width="1.4" fill="none" opacity="0.55"/>' +
-        /* thankful elders */
+        /* thankful people — joyful small smiles */
+        person(56, 186, 7, 22) +
+        '<path d="M52 174 Q56 178 60 174" ' + s + ' stroke-width="1.1" fill="none"/>' +
         person(262, 184, 8, 24) +
         person(292, 186, 8, 22) +
         '<path d="M256 170 Q262 174 268 170" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<path d="M286 172 Q292 176 298 172" ' + s + ' stroke-width="1.2" fill="none"/>' +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 5:3</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 5:1-12</text>'
       ),
 
       /* ── Week 3: Saul Spear (47) ── */

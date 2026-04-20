@@ -6001,13 +6001,13 @@
         "David & Abigail – 1 Samuel 25:1-42. David asked Nabal for food for his men who had kept Nabal's flocks safe; Nabal answered with insult. David set out in anger — but Abigail heard, loaded donkeys with food, and hurried down the hill to meet him. She bowed and spoke with wisdom: let not my lord regard this man of Belial; folly is with him. She asked forgiveness and gave what she had brought. David blessed the LORD God of Israel for sending her and blessed her advice, for she had kept him from bloodshed. He sent her home in peace. After Nabal died, David took Abigail to be his wife. For you: God honors peacemakers."
     },
     davidKing: {
-      title: 'David Becomes King',
+      title: 'David Becomes King — David Is Anointed King',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Tribes at Hebron — Behold, we are thy bone and thy flesh' },
-        { src: 'panel-david-2.svg', alt: 'Elders anoint David king over Israel before the LORD' },
-        { src: 'panel-david-3.svg', alt: 'The city of David — the LORD God of hosts was with him' }
+        { src: 'panel-david-1.svg', alt: 'Elders at Hebron — Behold, we are thy bone and thy flesh' },
+        { src: 'panel-david-2.svg', alt: 'They anointed David king over Israel before the LORD' },
+        { src: 'panel-david-3.svg', alt: 'The city of David — the LORD established him and was with him' }
       ],
-      caption: 'Swipe for the day Israel\'s tribes crowned David — God kept His promise.',
+      caption: 'God chose and honored David — the elders anointed him, and the LORD was with him.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -6029,15 +6029,15 @@
         'lord god of hosts',
         'established him king'
       ],
-      kjvRef: '2 Samuel 5:1-5, 9-12',
+      kjvRef: '2 Samuel 5:1-12',
       kidContext: {
         who: 'The LORD',
         to: 'Israel — and every heart that waits on God',
         apply:
-          'The long road led to a thankful crown: God placed David where He promised. When answers take time, the Lord is still working.'
+          'God kept His promise to David. When the LORD lifts someone up, He is with them — we can trust His timing and His kindness.'
       },
       narration:
-        "David Becomes King – 2 Samuel 5:1-5, 9-12. Then came all the tribes of Israel to David unto Hebron, and said, Behold, we are thy bone and thy flesh. So all the elders of Israel came to the king to Hebron; and king David made a league with them in Hebron before the LORD: and they anointed David king over Israel. David was thirty years old when he began to reign, and he reigned forty years. In Hebron he reigned over Judah seven years and six months: and in Jerusalem he reigned thirty and three years over all Israel and Judah. So David dwelt in the fort, and called it the city of David. And David went on, and grew great, and the LORD God of hosts was with him. And David perceived that the LORD had established him king over Israel, and that he had exalted his kingdom for his people Israel's sake. For you: Give thanks — God is faithful."
+        "David Is Anointed King – 2 Samuel 5:1-12. The tribes came to David at Hebron and said, Behold, we are thy bone and thy flesh. The elders anointed him king over Israel before the LORD. David was thirty when he began to reign; he reigned over Judah in Hebron, then over all Israel and Judah from Jerusalem. He called the stronghold the city of David, and the LORD God of hosts was with him. God had established him for His people's sake. For you: the Lord is faithful — He chooses, anoints, and stays near those who trust Him."
     },
     hannahPray: {
       title: 'Hannah Prays for a Baby',

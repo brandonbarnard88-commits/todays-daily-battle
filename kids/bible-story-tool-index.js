@@ -438,11 +438,11 @@
   },
   {
     "key": "davidKing",
-    "title": "David Becomes King",
-    "kjvRef": "2 Samuel 5:1-5, 9-12",
+    "title": "David Becomes King — David Is Anointed King",
+    "kjvRef": "2 Samuel 5:1-12",
     "who": "The LORD",
     "to": "Israel — and every heart that waits on God",
-    "apply": "The long road led to a thankful crown: God placed David where He promised. When answers take time, the Lord is still working.",
+    "apply": "God kept His promise to David. When the LORD lifts someone up, He is with them — we can trust His timing and His kindness.",
     "theme": "Obedience",
     "kw": "david king david becomes king king over israel anointed david king hebron jerusalem city of david strong hold of zion 2 samuel 5 2 sam 5 bone and thy flesh thirty years old reigned forty years seven years and six months thirty and three years lord god of hosts established him king"
   },

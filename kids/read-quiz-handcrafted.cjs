@@ -11,7 +11,7 @@
  * David & Abigail: read-quiz-david-abigail-pack.cjs (keys davidAbigail + abigailWise).
  * Psalm 23: read-quiz-psalm23-pack.cjs (keys psalm23 + psalm23Shepherd).
  * David harp before Saul: read-quiz-david-harp-pack.cjs (key davidHarp).
- * David king over Israel: read-quiz-david-king-pack.cjs (key davidKing).
+ * David is anointed king (gentle): read-quiz-david-king-pack.cjs (key davidKing).
  * Solomon asks for wisdom: read-quiz-solomon-wisdom-pack.cjs (key solomonWisdom).
  * Solomon and the two mothers: read-quiz-solomon-two-mothers-pack.cjs (key solomonTwoMothers).
  * Solomon builds the temple: read-quiz-solomon-temple-pack.cjs (key solomonTemple).

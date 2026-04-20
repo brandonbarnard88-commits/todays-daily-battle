@@ -1249,18 +1249,40 @@
       }
     },
     elijahFire: {
-      title: 'Elijah & Fire',
+      title: 'Elijah & Fire on Carmel',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Elijah vs prophets of Baal' },
-        { src: 'panel-jonah-2.svg', alt: 'Baal does nothing' },
-        { src: 'panel-jonah-3.svg', alt: 'God sends fire—He\'s real!' }
+        { src: 'panel-jonah-1.svg', alt: 'Mount Carmel — Elijah calls Israel to choose the LORD' },
+        { src: 'panel-jonah-2.svg', alt: 'Prophets of Baal call all day — no answer' },
+        { src: 'panel-jonah-3.svg', alt: 'Fire from heaven — The LORD, he is the God' }
       ],
-      caption: 'Swipe to see God answer with fire—He\'s real! 🔥',
+      caption: 'Swipe for Mount Carmel — God answered by fire; the LORD, he is the God.',
       videoId: 'dKcQHonmOi8',
       videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
-      keywords: ['elijah', 'baal', 'fire', 'carmel', '1 kings 18', 'altar'],
-      kjvRef: '1 Kings 18:20–40',
-      kidContext: { who: 'God', to: 'Elijah and all Israel', apply: 'God answers with fire—He\'s real! The LORD is God—trust Him alone!' }
+      keywords: [
+        'elijah',
+        'mount carmel',
+        'carmel',
+        'baal',
+        'fire',
+        'altar',
+        '1 kings 18',
+        '1 kings 18:17',
+        '1 kings 18:21',
+        '1 kings 18:24',
+        '1 kings 18:36',
+        '1 kings 18:38',
+        'two opinions',
+        'answereth by fire',
+        'prophets of baal',
+        'ahab'
+      ],
+      kjvRef: '1 Kings 18:17-39',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Israel — and every heart that wonders who is truly God',
+        apply:
+          'He answered Elijah’s prayer with fire from heaven — calm awe, not noise: The LORD, he is the God. Trust Him first.'
+      }
     },
     elishaOil: {
       title: 'Elisha & the Widow\'s Oil',
@@ -1908,19 +1930,41 @@
       narration: "Ten Commandments – Exodus 20:1-17. God's people had come to the foot of Mount Sinai. A thick cloud covered the mountain, and there was thunder and lightning. The mountain shook, and the people were afraid. Moses went up the mountain to meet with God. God spoke: 'I am the Lord thy God, which have brought thee out of the land of Egypt, out of the house of bondage. Thou shalt have no other gods before me. Thou shalt not make unto thee any graven image. Thou shalt not take the name of the Lord thy God in vain. Remember the sabbath day, to keep it holy. Honour thy father and thy mother. Thou shalt not kill. Thou shalt not commit adultery. Thou shalt not steal. Thou shalt not bear false witness against thy neighbour. Thou shalt not covet thy neighbour's house, thou shalt not covet thy neighbour's wife, nor his manservant, nor his maidservant, nor his ox, nor his ass, nor any thing that is thy neighbour's.' God wrote these ten commandments on two tables of stone and gave them to Moses so His people would know how to love Him and love each other. The people stood far off, but Moses drew near to the thick darkness where God was. For you: God's commandments are a gift—they show us how to love Him first and care for others well."
     },
     elijahFire: {
-      title: 'Elijah and the Fire',
+      title: 'Elijah and the Fire on Mount Carmel',
       panels: [
-        { src: 'panel-david-1.svg', alt: "Elijah building the altar and pouring water – Setting up the challenge" },
-        { src: 'panel-david-2.svg', alt: "Prophets of Baal praying with no answer – False gods fail" },
-        { src: 'panel-david-3.svg', alt: "Fire falling from heaven on Elijah's altar – God answers prayer" }
+        { src: 'panel-david-1.svg', alt: 'All Israel gathers at Carmel — How long halt ye between two opinions?' },
+        { src: 'panel-david-2.svg', alt: 'The prophets of Baal call all day — no voice answers' },
+        { src: 'panel-david-3.svg', alt: 'Elijah prays — the fire of the LORD falls; the people worship' }
       ],
-      caption: 'Swipe to see God answer Elijah with fire! 🔥',
+      caption: 'Swipe for Carmel — the LORD answered by fire; the LORD, he is the God.',
       videoId: 'dKcQHonmOi8',
       videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
-      keywords: ['elijah', 'fire', 'altar', '1 kings 18', 'baal', 'miracle'],
-      kjvRef: '1 Kings 18:38',
-      kidContext: { who: 'God', to: 'Elijah and Israel', apply: "Elijah prayed for fire from heaven to show God was real, and God sent fire that burned everything. The people saw and believed. When you pray and trust God, He hears and answers in His perfect way. Keep praying—God shows up!" },
-      narration: "Elijah Fire on Carmel – 1 Kings 18:38. The people of Israel were worshiping false gods. Elijah said, 'Let's see whose God is real.' He built an altar, put a sacrifice on it, and poured water over it three times. The prophets of Baal prayed all day, but nothing happened. Elijah prayed, 'Lord God, let it be known that You are God in Israel.' Suddenly fire fell from heaven! It burned the sacrifice, the wood, the stones, and even licked up the water in the trench. The people shouted, 'The Lord, He is God!' For you: When things seem impossible or people doubt God, pray and trust Him. God hears your prayers and shows His power in amazing ways."
+      keywords: [
+        'elijah carmel',
+        'elijah mount carmel',
+        'mount carmel',
+        'fire from heaven',
+        'altar',
+        'baal',
+        '1 kings 18',
+        '1 kings 18:21',
+        '1 kings 18:24',
+        '1 kings 18:36',
+        '1 kings 18:38',
+        'two opinions',
+        'answereth by fire',
+        'prophets of baal',
+        'ahab'
+      ],
+      kjvRef: '1 Kings 18:17-39',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah and all the people',
+        apply:
+          'False gods stayed silent; the LORD answered by fire. When you pray in His name, He hears — and He alone is God.'
+      },
+      narration:
+        "Elijah and the Fire on Mount Carmel – 1 Kings 18:17-39. Ahab met Elijah; the prophet called Israel to Carmel with the prophets of Baal. Elijah asked, How long halt ye between two opinions? If the LORD be God, follow him. The God that answereth by fire, let him be God. Baal’s prophets called from morning — no voice answered. At evening Elijah repaired the altar, set the sacrifice, poured water until the trench was full, and prayed: LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel. Hear me, O LORD, that this people may know that thou art the LORD God. Then the fire of the LORD fell — it consumed the sacrifice, the wood, the stones, the dust, and licked up the water. The people fell on their faces: The LORD, he is the God. For you: The true God is near when we pray — put Him first, and trust His answer."
     },
     elishaOil: {
       title: 'Elisha and the Oil',
@@ -6421,7 +6465,8 @@
       return { type: 'carousel', story: 'elijahWidow' };
     }
     if (
-      /elijah.*\b(carmel|baal|altar|fire|18)\b|\b(baal|carmel|mount carmel)\b.*elijah|1 kings 18|2 kings 2:11|whirlwind.*elijah|fire.*heaven.*altar|elijah.*fire from heaven/.test(low)
+      /\b1 kings 18:(?:1[7-9]|[2-3][0-9])\b|\b1 kgs 18:(?:1[7-9]|[2-3][0-9])\b/.test(low) ||
+      /elijah.*\b(carmel|baal|altar|fire|18)\b|\b(baal|carmel|mount carmel)\b.*elijah|1 kings 18|2 kings 2:11|whirlwind.*elijah|fire.*heaven.*altar|elijah.*fire from heaven|two opinions|answereth by fire|prophets of baal/.test(low)
     ) {
       return { type: 'carousel', story: 'elijahFire' };
     }

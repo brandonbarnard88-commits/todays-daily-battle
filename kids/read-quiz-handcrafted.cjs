@@ -17,6 +17,7 @@
  * Solomon builds the temple: read-quiz-solomon-temple-pack.cjs (key solomonTemple).
  * Elijah and the ravens: read-quiz-elijah-ravens-pack.cjs (key elijahRavens).
  * Elijah and the widow of Zarephath: read-quiz-elijah-widow-pack.cjs (key elijahWidow).
+ * Elijah and the fire on Mount Carmel: read-quiz-elijah-fire-carmel-pack.cjs (key elijahFire).
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
@@ -34,6 +35,7 @@ const solomonTwoMothersReadQuizPack = require('./read-quiz-solomon-two-mothers-p
 const solomonTempleReadQuizPack = require('./read-quiz-solomon-temple-pack.cjs');
 const elijahRavensReadQuizPack = require('./read-quiz-elijah-ravens-pack.cjs');
 const elijahWidowReadQuizPack = require('./read-quiz-elijah-widow-pack.cjs');
+const elijahFireCarmelReadQuizPack = require('./read-quiz-elijah-fire-carmel-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3879,5 +3881,6 @@ module.exports = {
   solomonTwoMothers: solomonTwoMothersReadQuizPack,
   solomonTemple: solomonTempleReadQuizPack,
   elijahRavens: elijahRavensReadQuizPack,
-  elijahWidow: elijahWidowReadQuizPack
+  elijahWidow: elijahWidowReadQuizPack,
+  elijahFire: elijahFireCarmelReadQuizPack
 };

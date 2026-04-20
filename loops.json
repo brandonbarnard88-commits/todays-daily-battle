@@ -166,12 +166,13 @@
   },
   {
     "id": 18,
-    "title": "Elijah Fire on Carmel",
+    "title": "Elijah and the Fire on Mount Carmel",
     "file": "",
     "audio": "",
-    "ref": "1 Kings 18:38",
+    "ref": "1 Kings 18:17-39",
     "week": 1,
-    "libraryKey": "elijahFire"
+    "libraryKey": "elijahFire",
+    "kjvText": "Then the fire of the LORD fell, and consumed the burnt sacrifice, and the wood, and the stones, and the dust, and licked up the water that was in the trench."
   },
   {
     "id": 19,

@@ -498,13 +498,13 @@
   },
   {
     "key": "elijahFire",
-    "title": "Elijah & Fire",
-    "kjvRef": "1 Kings 18:20–40",
-    "who": "God",
-    "to": "Elijah and all Israel",
-    "apply": "God answers with fire—He's real! The LORD is God—trust Him alone!",
+    "title": "Elijah & Fire on Carmel",
+    "kjvRef": "1 Kings 18:17-39",
+    "who": "The LORD",
+    "to": "Israel — and every heart that wonders who is truly God",
+    "apply": "He answered Elijah’s prayer with fire from heaven — calm awe, not noise: The LORD, he is the God. Trust Him first.",
     "theme": "Miracles",
-    "kw": "elijah baal fire carmel 1 kings 18 altar"
+    "kw": "elijah mount carmel carmel baal fire altar 1 kings 18 1 kings 18:17 1 kings 18:21 1 kings 18:24 1 kings 18:36 1 kings 18:38 two opinions answereth by fire prophets of baal ahab"
   },
   {
     "key": "elijahRavens",

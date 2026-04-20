@@ -4115,11 +4115,11 @@
     elishaChariots: {
       title: 'God’s Army Protects Elisha',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'An army round the city — Alas, my master! how shall we do?' },
-        { src: 'panel-jesus-2.svg', alt: 'Fear not — they that be with us are more than they that be with them' },
-        { src: 'panel-jesus-3.svg', alt: 'Open his eyes — the mountain full of horses and chariots of fire' }
+        { src: 'panel-jesus-1.svg', alt: 'A great army round the city — the servant cries, Alas, my master! how shall we do?' },
+        { src: 'panel-jesus-2.svg', alt: 'Fear not — and Lord, open his eyes, that he may see' },
+        { src: 'panel-jesus-3.svg', alt: 'The mountain full of horses and chariots of fire round about Elisha' }
       ],
-      caption: 'Swipe for Dothan — Fear not; God’s army is greater and protects His servants.',
+      caption: 'Swipe for Dothan — Fear not, opened eyes, and God’s greater army.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -4136,17 +4136,19 @@
         'syria',
         'servant of the man of God',
         'horses and chariots',
-        'mountain'
+        'mountain',
+        'gentle',
+        'protection'
       ],
       kjvRef: '2 Kings 6:8-17',
       kidContext: {
         who: 'The LORD',
         to: 'Elisha’s servant — and every afraid heart',
         apply:
-          'When trouble looks big, God’s help is greater than we see — ask Him to open your eyes to trust Him.'
+          'God’s army is always greater — ask Him to open your eyes and help you trust Him.'
       },
       narration:
-        "God’s Army Protects Elisha — 2 Kings 6:8-17. The king of Syria sent a great army with horses and chariots to take Elisha at Dothan. When the servant rose early, he saw the army all around the city and cried, Alas, my master! How shall we do? Elisha said, Fear not: for they that be with us are more than they that be with them. Elisha prayed, Lord, I pray thee, open his eyes, that he may see. The Lord opened the eyes of the young man, and he saw the mountain full of horses and chariots of fire round about Elisha. For you: The Lord showed them that God’s army is always greater and protects His servants."
+        "God’s Army Protects Elisha — 2 Kings 6:8-17. The king of Syria sent a great army with horses and chariots to take Elisha at Dothan. When the servant rose early, he saw the army all around the city and cried, Alas, my master! How shall we do? Elisha said, Fear not: for they that be with us are more than they that be with them. Elisha prayed, Lord, I pray thee, open his eyes, that he may see. The Lord opened the eyes of the young man, and he saw the mountain full of horses and chariots of fire round about Elisha. The Lord showed Elisha and his servant that God’s army is always greater and protects His servants. For you: When trouble looks big, remember God is with His people."
     },
     elishaPoisonStew: {
       title: 'God Makes the Stew Safe',

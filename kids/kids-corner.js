@@ -1003,16 +1003,18 @@
         '<path d="M298 142 Q314 112 330 142 Q322 126 314 132 Q306 120 298 142" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         '<path d="M168 152 Q184 128 200 152 Q192 138 184 145 Q176 132 168 152" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         '<path d="M200 118 Q208 88 216 118 Q212 104 208 110 Q204 98 200 118" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M140 128 Q152 100 164 128 Q156 112 148 118" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<path d="M228 122 Q240 96 252 122 Q244 108 236 114" ' + sf + ' fill="white" stroke-width="1.4"/>' +
         /* simple horse + wheel hints (dashed, not weapons) */
         '<ellipse cx="95" cy="168" rx="20" ry="8" ' + sf + ' fill="white" stroke-width="1.8" stroke-dasharray="4,3"/>' +
         '<ellipse cx="318" cy="164" rx="20" ry="8" ' + sf + ' fill="white" stroke-width="1.8" stroke-dasharray="4,3"/>' +
         '<circle cx="108" cy="162" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         '<circle cx="332" cy="158" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
-        /* foreground — Elisha calm, servant wonder (soft smile) */
+        /* foreground — Elisha calm, servant gentle wonder (softer mouth) */
         person(178, 198, 11, 28) +
         '<path d="M172 188 Q178 192 184 188" ' + s + ' stroke-width="1.1" fill="none"/>' +
         person(238, 200, 9, 24) +
-        '<path d="M232 188 Q238 194 244 188" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<path d="M232 190 Q238 186 244 190" ' + s + ' stroke-width="1.1" fill="none"/>' +
         '<path d="M238 216 L218 148" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3" opacity="0.55"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:17</text>'
       ),

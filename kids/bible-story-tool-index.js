@@ -822,9 +822,9 @@
     "kjvRef": "2 Kings 6:8-17",
     "who": "The LORD",
     "to": "Elisha’s servant — and every afraid heart",
-    "apply": "When trouble looks big, God’s help is greater than we see — ask Him to open your eyes to trust Him.",
+    "apply": "God’s army is always greater — ask Him to open your eyes and help you trust Him.",
     "theme": "Protection",
-    "kw": "elisha gods army protects elisha chariots of fire dothan 2 kings 6 2 kings 6:16 2 kings 6:17 fear not open his eyes they that be with us syria servant of the man of God horses and chariots mountain"
+    "kw": "elisha gods army protects elisha chariots of fire dothan 2 kings 6 2 kings 6:16 2 kings 6:17 fear not open his eyes they that be with us syria servant of the man of God horses and chariots mountain gentle protection"
   },
   {
     "key": "elishaBones",

@@ -802,9 +802,9 @@
     "kjvRef": "2 Kings 6:18-23",
     "who": "The LORD",
     "to": "Elisha, the king of Israel, and the Syrian army",
-    "apply": "God protects His servants and can show mercy to others — even a feast instead of a fight.",
+    "apply": "The Lord protected Elisha and showed mercy even to his enemies — kindness instead of fighting.",
     "theme": "Love",
-    "kw": "elisha god protects elisha with kindness blind syrian syrian army blindness samaria 2 kings 6 2 kings 6:18 2 kings 6:22 smite with blindness open the eyes of these men bread and water thou shalt not smite great provision dothan kindness"
+    "kw": "elisha god protects elisha with kindness blind syrian syrian army blindness samaria 2 kings 6 2 kings 6:18 2 kings 6:22 smite with blindness open the eyes of these men bread and water thou shalt not smite great provision dothan kindness gentle mercy"
   },
   {
     "key": "elijahHoreb",

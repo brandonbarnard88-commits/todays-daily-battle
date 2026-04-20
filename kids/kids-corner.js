@@ -1035,16 +1035,16 @@
         '<line x1="148" y1="176" x2="132" y2="148" ' + s + ' stroke-width="2.2"/>' +
         '<line x1="148" y1="176" x2="164" y2="148" ' + s + ' stroke-width="2.2"/>' +
         '<path d="M142 160 Q148 164 154 160" ' + s + ' stroke-width="1.1" fill="none"/>' +
-        /* soldiers — calm faces, closed eyes (gentle lines) */
+        /* soldiers — calm faces, closed eyes (soft arcs) */
         person(212, 160, 10, 28) +
-        '<line x1="206" y1="168" x2="218" y2="168" ' + s + ' stroke-width="1.3"/>' +
-        '<path d="M206 174 Q212 176 218 174" ' + s + ' stroke-width="1" fill="none"/>' +
+        '<path d="M206 166 Q212 170 218 166 M206 170 Q212 172 218 170" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M206 176 Q212 178 218 176" ' + s + ' stroke-width="1" fill="none"/>' +
         person(244, 162, 10, 28) +
-        '<line x1="238" y1="170" x2="250" y2="170" ' + s + ' stroke-width="1.3"/>' +
-        '<path d="M238 176 Q244 178 250 176" ' + s + ' stroke-width="1" fill="none"/>' +
+        '<path d="M238 168 Q244 172 250 168 M238 172 Q244 174 250 172" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M238 178 Q244 180 250 178" ' + s + ' stroke-width="1" fill="none"/>' +
         person(276, 160, 10, 28) +
-        '<line x1="270" y1="168" x2="282" y2="168" ' + s + ' stroke-width="1.3"/>' +
-        '<path d="M270 174 Q276 176 282 174" ' + s + ' stroke-width="1" fill="none"/>' +
+        '<path d="M270 166 Q276 170 282 166 M270 170 Q276 172 282 170" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M270 176 Q276 178 282 176" ' + s + ' stroke-width="1" fill="none"/>' +
         /* hint of feast — simple plates, no weapons */
         '<ellipse cx="118" cy="258" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         '<ellipse cx="158" cy="258" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +

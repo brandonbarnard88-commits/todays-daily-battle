@@ -4193,11 +4193,11 @@
     elishaBlindArmy: {
       title: 'God Protects Elisha with Kindness',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Elisha prays — the Lord keeps them safe with blindness' },
-        { src: 'panel-jesus-2.svg', alt: 'Follow me — to Samaria; Lord, open their eyes' },
-        { src: 'panel-jesus-3.svg', alt: 'Bread and water — a feast of kindness, then peace' }
+        { src: 'panel-jesus-1.svg', alt: 'Blindness for safety — follow me toward Samaria' },
+        { src: 'panel-jesus-2.svg', alt: 'Open their eyes — they saw they were in the midst of Samaria' },
+        { src: 'panel-jesus-3.svg', alt: 'Thou shalt not smite — bread, water, and peace' }
       ],
-      caption: 'Swipe for Samaria — God protected Elisha; kindness instead of fighting.',
+      caption: 'Swipe for Dothan to Samaria — protection, open eyes, and a feast of kindness.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -4216,17 +4216,19 @@
         'thou shalt not smite',
         'great provision',
         'dothan',
-        'kindness'
+        'kindness',
+        'gentle',
+        'mercy'
       ],
       kjvRef: '2 Kings 6:18-23',
       kidContext: {
         who: 'The LORD',
         to: 'Elisha, the king of Israel, and the Syrian army',
         apply:
-          'God protects His servants and can show mercy to others — even a feast instead of a fight.'
+          'The Lord protected Elisha and showed mercy even to his enemies — kindness instead of fighting.'
       },
       narration:
-        "God Protects Elisha with Kindness — 2 Kings 6:18-23. The Syrian army came to take Elisha. Elisha prayed, Lord, smite this people with blindness — and the Lord smote them with blindness. Elisha said, Follow me — and he led them safely to Samaria. Then he prayed, Lord, open the eyes of these men — and they saw they were in the midst of Samaria. The king asked, Shall I smite them? Elisha said, Thou shalt not smite them — set bread and water before them. They ate and drank, and went to their master. For you: The Lord showed mercy through kindness — He can turn enemies toward peace."
+        "God Protects Elisha with Kindness — 2 Kings 6:18-23. The Syrian army came to Dothan to take Elisha. Elisha prayed, Lord, I pray thee, smite this people with blindness — and the Lord smote them with blindness. Elisha said, This is not the way, neither is this the city: follow me, and I will bring you to the man whom ye seek. He led them safely to Samaria. When they came to Samaria, Elisha prayed, Lord, open the eyes of these men, that they may see — and they saw they were in the midst of Samaria. The king asked, Shall I smite them? Elisha answered, Thou shalt not smite them — set bread and water before them. So the king prepared a great feast; they ate and drank, and went back to their master in peace. The Lord protected Elisha and showed mercy through kindness. For you: God can turn enemies toward peace."
     },
     elishaBones: {
       title: 'God\'s Power Even in Elisha\'s Bones',

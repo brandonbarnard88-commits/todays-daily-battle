@@ -578,7 +578,7 @@
   },
   {
     "key": "elishaFloatingAxe",
-    "title": "Elisha and the Floating Axe",
+    "title": "Elisha and the Floating Axe Head",
     "kjvRef": "2 Kings 6:1-7",
     "who": "The LORD",
     "to": "a worried builder — through Elisha",

@@ -889,21 +889,25 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:14</text>'
       ),
 
-      /* Floating axe — 2 Kings 6:1-7 (Jordan, stick cast, iron swim, man reaches) */
+      /* Floating axe head — 2 Kings 6:1-7 (Jordan, ripples, stick on bank, thankful reach) */
       elishaFloatingAxe: svg(
         ground() + hills() +
         sun(52, 42, 18) + cloud(300, 34) +
         '<path d="M28 248 Q120 222 200 242 Q280 222 372 248" ' + s + ' stroke-width="2.5" fill="none"/>' +
         '<ellipse cx="200" cy="254" rx="150" ry="11" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        /* Elisha — casting stick toward water */
+        /* gentle ripples around floating iron */
+        '<path d="M218 232 Q232 228 246 232 M212 236 Q228 232 244 236" ' + s + ' stroke-width="1.4" fill="none" opacity="0.85"/>' +
+        /* stick resting on bank */
+        '<line x1="72" y1="244" x2="98" y2="232" ' + s + ' stroke-width="2.6" stroke-linecap="round"/>' +
+        /* Elisha — calm by the water */
         person(108, 158, 11, 32) +
-        '<line x1="118" y1="188" x2="168" y2="218" ' + s + ' stroke-width="2.4"/>' +
-        '<line x1="168" y1="218" x2="188" y2="232" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M102 148 Q108 152 112 148" ' + s + ' stroke-width="1.2" fill="none"/>' +
         /* floating iron — wedge + eye (readable as axe head) */
         '<ellipse cx="232" cy="228" rx="22" ry="10" ' + sf + ' fill="white" stroke-width="2.4"/>' +
         '<path d="M210 228 L248 228 M238 220 L242 236" ' + s + ' stroke-width="2"/>' +
-        /* young man reaching from right bank */
+        /* young man reaching — soft thankful smile */
         person(292, 168, 10, 28) +
+        '<path d="M288 152 Q294 154 300 152" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<path d="M292 196 L252 222" ' + s + ' stroke-width="2.4"/>' +
         '<path d="M248 218 L256 224 L250 230" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         /* distant trees */
@@ -5266,7 +5270,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'elishaPoisonStew', 'naamanHealed', 'elishaFloatingAxe', 'elishaChariots', 'elishaBlindArmy', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'elishaPoisonStew', 'naamanHealed', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',

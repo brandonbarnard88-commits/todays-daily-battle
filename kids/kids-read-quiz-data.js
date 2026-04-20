@@ -6254,13 +6254,23 @@
     "readAlongSections": [
       {
         "text": "And the sons of the prophets said unto Elisha, Behold now, the place where we dwell with thee is too strait for us.",
-        "caption": "The place where we dwell is too strait for us",
+        "caption": "The place where we dwell with thee is too strait",
         "image": "panel-jesus-1.svg"
       },
       {
         "text": "Let us go, we pray thee, unto Jordan, and take thence every man a beam, and let us make us a place there, where we may dwell. And he answered, Go ye.",
-        "caption": "Let us go unto Jordan — every man a beam",
+        "caption": "Unto Jordan — every man a beam",
         "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And one said, Be content, I pray thee, and go with thy servants. And he answered, I will go.",
+        "caption": "Go with thy servants — I will go",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "So he went with them. And when they came to Jordan, they cut down wood.",
+        "caption": "They came to Jordan — they cut down wood",
+        "image": "panel-jesus-2.svg"
       },
       {
         "text": "But as one was felling a beam, the axe head fell into the water: and he cried, and said, Alas, master! for it was borrowed.",
@@ -6279,9 +6289,9 @@
       }
     ],
     "paragraphs": [
-      "The sons of the prophets said, The place where we dwell with thee is too strait for us. Let us go to Jordan, take every man a beam, and make a place there. Elisha went with them; when they came to Jordan, they cut down wood.",
-      "As one was felling a beam, the axe head fell into the water. The man cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place.",
-      "Elisha cut down a stick, cast it in thither, and the iron did swim. Then he said, Take it up to thee — and the man put out his hand and took it. For you: God cares about little worries — even a borrowed tool.",
+      "The sons of the prophets said to Elisha, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams for a new place. As one was cutting down a beam, the axe head fell into the water, and he cried, Alas, master! for it was borrowed.",
+      "Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee — and the man put out his hand and took it.",
+      "For you: The Lord used Elisha to make the borrowed iron swim so the young man would not lose what was not his own. God cares about honest, everyday troubles — even a small, borrowed thing.",
       "Reference: 2 Kings 6:1-7 (KJV)."
     ],
     "quizHeading": "Quiz — think it through",
@@ -6352,7 +6362,7 @@
     "takeaway": "Elisha cast in a stick — the iron swam. God cares about honest, everyday troubles.",
     "prayer": "Lord, thank You that nothing is too small to bring to You. Help us trust You today. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha by Jordan casting stick into water iron axe head floating young prophet reaching thankful riverbank trees minimal white space ages 3-8 coloring page",
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha standing calmly by river Jordan young man reaching thankful face toward water gentle ripples iron axe head floating on surface simple stick on bank riverbank trees minimal white space wonder-filled kind mood ages 3-8 coloring page",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sons of prophets Jordan beams",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrowed axe head water alas master",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Stick cast iron did swim",

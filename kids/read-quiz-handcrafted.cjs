@@ -4388,7 +4388,7 @@ function buildDanielLionsDenReadQuiz() {
       'My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me. — Daniel 6:22 (KJV)',
     readAlongTitle: 'Daniel Trusts God in the Lions’ Den',
     quizWrongHumilityHint:
-      'Listen again — Daniel prayed; the king called; God sent his angel and shut the lions’ mouths.',
+      'Listen again — Daniel prayed; the king was sad; God sent his angel and shut the lions’ mouths.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
       'Daniel was a good man who loved God. He prayed to God three times every day, even when the king made a law that no one could pray to anyone but the king.',
@@ -4416,23 +4416,24 @@ function buildDanielLionsDenReadQuiz() {
       },
       {
         text: 'The king was sad and could not sleep.',
-        caption: 'The king’s heart was heavy',
+        caption: 'The king could not sleep',
         image: 'panel-daniel-2.svg'
       },
       {
         text:
-          'O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions?',
-        caption: 'The king called at morning',
+          'In the morning the king called, O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions?',
+        caption: 'The king called to Daniel',
         image: 'panel-daniel-3.svg'
       },
       {
         text:
-          'My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me.',
+          'Daniel said, My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me.',
         caption: 'God shut the lions’ mouths',
         image: 'panel-daniel-3.svg'
       },
       {
-        text: 'No hurt was found upon him, because he believed in his God.',
+        text:
+          'No hurt was found on Daniel because he trusted God. The king was glad, and Daniel was taken up out of the den.',
         caption: 'For you',
         image: 'panel-daniel-3.svg'
       }
@@ -4464,13 +4465,13 @@ function buildDanielLionsDenReadQuiz() {
         choices: [
           'God never hears when kids pray.',
           'The Bible is only pretend stories.',
-          'When we trust God and keep praying, He can protect us — even in scary places.',
+          'When we trust God and keep praying, He can protect us — even when it is hard.',
           'We should hide from God when we mess up.'
         ],
         correctIndex: 2,
         correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
         wrongFeedback:
-          "Reread the last paragraphs slowly. Which option matches God's kindness and truth? (Answer: When we trust God and keep praying, He can protect us — even in scary places.)"
+          "Reread the last paragraphs slowly. Which option matches God's kindness and truth? (Answer: When we trust God and keep praying, He can protect us — even when it is hard.)"
       },
       {
         question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
@@ -4501,11 +4502,11 @@ function buildDanielLionsDenReadQuiz() {
     ],
     doneHeading: 'You did it!',
     doneMessage: "Great job reading Daniel Trusts God in the Lions’ Den with God's Word today.",
-    takeaway: 'God protects those who trust Him and pray — He can even still lions’ mouths.',
+    takeaway: 'God protects those who trust Him and pray — He can even shut lions’ mouths.',
     prayer:
       'Lord, thank You that You hear us when we pray. Help us trust You every day. Amen.',
     imagePrompts: [
-      'Simple peaceful black-and-white line-art for young children ages 3–8: Daniel standing calmly in lions den hands folded in prayer lions lying peacefully around him thick bold outlines large open spaces on robe lions ground soft cave walls small opening with light above minimal lines trusting safe mood no scary faces plenty of white space coloring page',
+      'Simple peaceful black-and-white line-art for young children ages 3–8: Daniel standing calmly in lions den hands folded in prayer lions lying low and peaceful around him thick bold outlines large open spaces on robe lions bodies ground soft cave walls small opening with gentle light behind minimal lines trusting safe mood no scary lions plenty of white space coloring page',
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel prays toward Jerusalem (daniel)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel in the den — lions quiet (lions)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel — God shuts lions mouths (daniel 6)",

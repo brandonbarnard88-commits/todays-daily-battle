@@ -413,38 +413,29 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 14:21</text>'
       ),
 
-      /* Daniel in lions’ den — peaceful lions, soft light from the opening (Daniel 6:22) */
+      /* Daniel in lions’ den — standing, folded hands; lions low and calm; soft light (Daniel 6:1–23) */
       daniel: svg(
         ground() +
-        /* cave arch */
-        '<path d="M60 260 L60 140 Q200 60 340 140 L340 260" ' + sf + ' fill="white" stroke-width="4"/>' +
-        /* soft light from opening above */
-        '<ellipse cx="200" cy="118" rx="42" ry="22" ' + sf + ' fill="white" stroke-width="1.8" opacity="0.85"/>' +
-        /* stone blocks */
-        '<rect x="55" y="230" width="30" height="30" ' + s + ' stroke-width="2"/>' +
-        '<rect x="315" y="230" width="30" height="30" ' + s + ' stroke-width="2"/>' +
-        /* Daniel kneeling */
-        '<circle cx="200" cy="165" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M200 178 L200 210 L185 235 M200 210 L215 235" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="182" y1="192" x2="218" y2="192" ' + s + ' stroke-width="2.5"/>' +
-        /* prayer hands */
-        '<path d="M200 192 L192 210 M200 192 L208 210" ' + s + ' stroke-width="2"/>' +
-        /* lion left — resting, gentle closed eyes */
-        '<ellipse cx="110" cy="222" rx="38" ry="24" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="90" cy="207" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="90" cy="207" r="28" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        '<path d="M78 200 Q83 203 88 200 M92 200 Q97 203 102 200" ' + s + ' stroke-width="1.4" fill="none"/>' +
-        /* lion right */
-        '<ellipse cx="290" cy="222" rx="38" ry="24" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="310" cy="207" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="310" cy="207" r="28" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        '<path d="M298 200 Q303 203 308 200 M312 200 Q317 203 322 200" ' + s + ' stroke-width="1.4" fill="none"/>' +
-        /* angel light rays */
-        '<line x1="200" y1="80" x2="180" y2="140" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
-        '<line x1="200" y1="80" x2="200" y2="145" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
-        '<line x1="200" y1="80" x2="220" y2="140" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
-        star(200, 75, 14) +
-        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 6:22</text>'
+        /* cave arch — minimal inner curve */
+        '<path d="M60 260 L60 145 Q200 68 340 145 L340 260" ' + sf + ' fill="white" stroke-width="3.5"/>' +
+        /* gentle light from opening */
+        '<ellipse cx="200" cy="112" rx="50" ry="26" ' + sf + ' fill="white" stroke-width="1.5" opacity="0.88"/>' +
+        '<line x1="200" y1="78" x2="178" y2="128" ' + s + ' stroke-width="1.2" stroke-dasharray="7,6" opacity="0.65"/>' +
+        '<line x1="200" y1="78" x2="222" y2="128" ' + s + ' stroke-width="1.2" stroke-dasharray="7,6" opacity="0.65"/>' +
+        /* lions lying low — simple, rounded, peaceful */
+        '<ellipse cx="105" cy="232" rx="46" ry="16" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<circle cx="82" cy="218" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M74 214 Q78 216 82 214 Q86 216 90 214" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<ellipse cx="295" cy="232" rx="46" ry="16" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<circle cx="318" cy="218" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M310 214 Q314 216 318 214 Q322 216 326 214" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<ellipse cx="200" cy="242" rx="36" ry="12" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* Daniel standing — folded hands in prayer */
+        person(200, 138, 12, 30) +
+        '<path d="M188 176 Q200 186 212 176" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="194" y1="178" x2="194" y2="188" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="206" y1="178" x2="206" y2="188" ' + s + ' stroke-width="1.6"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 6:1–23</text>'
       ),
 
       /* Jonah and the Whale */

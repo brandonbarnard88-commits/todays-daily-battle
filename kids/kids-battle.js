@@ -4345,10 +4345,10 @@
       title: 'Daniel Trusts God in the Lions’ Den',
       panels: [
         { src: 'panel-daniel-1.svg', alt: 'Daniel prays to God three times a day — faithful when the law forbids it' },
-        { src: 'panel-daniel-2.svg', alt: 'The den of lions — the king is sad and cannot sleep' },
-        { src: 'panel-daniel-3.svg', alt: 'My God sent his angel and shut the lions’ mouths — no hurt was found' }
+        { src: 'panel-daniel-2.svg', alt: 'The den of lions — the king is very sad and cannot sleep' },
+        { src: 'panel-daniel-3.svg', alt: 'My God hath sent his angel, and hath shut the lions’ mouths — no hurt was found' }
       ],
-      caption: 'Swipe to see faithful prayer, a sad king, and God’s angel quieting every fear.',
+      caption: 'Swipe to see honest prayer, a sad king, and God protecting Daniel in the den.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -4370,10 +4370,10 @@
         who: 'The LORD',
         to: 'Daniel — and every heart that prays',
         apply:
-          'Keep talking to God. He hears you and can send help — even when the way feels dark.'
+          'Keep talking to God every day. He hears you and can keep you safe when you trust Him.'
       },
       narration:
-        "Daniel Trusts God in the Lions’ Den — Daniel 6:1–23. Daniel loved God and prayed three times every day, even when the king made a law that no one could pray to anyone but the king. Daniel was thrown into a den of lions. The king was very sad and could not sleep. In the morning he called, O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions? Daniel answered, My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me. The king commanded that Daniel be taken up out of the den. No hurt was found upon him, because he believed in his God. For you: God protects those who trust Him and pray."
+        "Daniel Trusts God in the Lions’ Den — Daniel 6:1–23. Daniel was a good man who loved God. He prayed to God three times every day, even when the king made a law that no one could pray to anyone but the king. Daniel was thrown into a den of lions. The king was very sad and could not sleep. Early the next morning the king called, O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions? Daniel answered, My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me. The king was glad and commanded that Daniel be taken up out of the den. No hurt was found upon him, because he believed in his God. For you: The LORD protected Daniel because he trusted and prayed — God protects those who trust Him."
     },
     ezraReturn: {
       title: 'Coming Home to Worship',

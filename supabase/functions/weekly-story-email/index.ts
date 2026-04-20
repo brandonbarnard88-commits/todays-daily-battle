@@ -29,7 +29,7 @@ const STORIES: Record<string, { title: string; talkAbout: string }> = {
   noah: { title: "Noah's Ark", talkAbout: "God's promise with Noah and the rainbow—He keeps His word!" },
   jesus: { title: "Jesus the Good Shepherd", talkAbout: "Jesus loves kids! You can always come to Him—no matter what." },
   jonah: { title: "Jonah & the Big Fish", talkAbout: "When you run from God, He still loves you—come back and obey!" },
-  daniel: { title: "Daniel & the Lions", talkAbout: "When you're in trouble for praying, God protects you—just keep talking to Him!" },
+  daniel: { title: "Daniel Trusts God in the Lions’ Den", talkAbout: "Pray every day—God hears you and can send help to keep you safe when you trust Him." },
   adamEve: { title: "Adam & Eve", talkAbout: "God made you special! Even when we make mistakes, He still loves us." },
   cainAbel: { title: "Cain & Abel", talkAbout: "Give God your best! When you feel jealous, talk to God instead of getting angry." },
   towerBabel: { title: "Tower of Babel", talkAbout: "God is bigger than any tower! He made all the languages." },

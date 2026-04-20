@@ -342,7 +342,7 @@
     "kjvRef": "Daniel 6:1–23",
     "who": "The LORD",
     "to": "Daniel — and every heart that prays",
-    "apply": "Keep talking to God. He hears you and can send help — even when the way feels dark.",
+    "apply": "Keep talking to God every day. He hears you and can keep you safe when you trust Him.",
     "theme": "Miracles",
     "kw": "daniel lions den pray daniel 6 daniel 6:22 law babylon angel darius living God shut the lions mouths"
   },

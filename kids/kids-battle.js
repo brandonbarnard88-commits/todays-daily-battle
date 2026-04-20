@@ -1007,19 +1007,25 @@
         "Samson and the Pillars – Judges 16:23-30. The lords of the Philistines gathered to offer sacrifice unto Dagon their god and to rejoice, for they said, Our god hath delivered Samson our enemy into our hand. When their hearts were merry, they called for Samson out of the prison house; he made them sport, and they set him between the pillars. Samson said unto the lad that held him by the hand, Suffer me that I may feel the pillars whereupon the house standeth, that I may lean upon them. Samson called unto the LORD, and said, O Lord GOD, remember me, I pray thee, and strengthen me, I pray thee, only this once, O God, that I may be at once avenged of the Philistines for my two eyes. He took hold of the two middle pillars, of the one with his right hand, and of the other with his left; and he said, Let me die with the Philistines. He bowed himself with all his might; and the house fell upon the lords, and upon all the people that were therein. So the dead which he slew at his death were more than they which he slew in his life. For you: God gave strength one last time — He still listens when we pray."
     },
     fieryFurnace: {
-      title: 'Fiery Furnace',
+      title: 'God Walks with His Servants in the Fire',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: "Three friends refusing to bow – Standing for God" },
-        { src: 'panel-daniel-2.svg', alt: "Thrown into the fiery furnace – Heat so hot it kills soldiers" },
-        { src: 'panel-daniel-3.svg', alt: "Four men walking in the fire – God protects His friends" }
+        { src: 'panel-daniel-1.svg', alt: 'Golden image — Shadrach, Meshach, and Abednego would not bow' },
+        { src: 'panel-daniel-2.svg', alt: 'The furnace heated seven times hotter — cast into the fire' },
+        { src: 'panel-daniel-3.svg', alt: 'Four loose in the fire — the form of the fourth like the Son of God' }
       ],
-      caption: 'Swipe to see God keep friends safe in the fire! 🔥',
+      caption: 'Swipe to see brave trust, soft flames, and God walking with His friends.',
       videoId: 'kAzX-Icrbm0',
-      videoTitle: 'The Fiery Furnace – Shadrach, Meshach & Abednego!',
-      keywords: ['fiery furnace', 'shadrach', 'meshach', 'abednego', 'fire', 'angel', 'daniel 3'],
-      kjvRef: 'Daniel 3',
-      kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: "Shadrach, Meshach, and Abednego refused to bow to a statue. They were thrown into a hot furnace, but God walked with them and kept them safe. When you're in a tough or scary situation, God is right there with you—He never leaves you alone." },
-      narration: "Fiery Furnace Three – Daniel 3:25. King Nebuchadnezzar made a huge gold statue and said everyone must bow to it or be thrown into a fiery furnace. Shadrach, Meshach, and Abednego loved God and said, 'We will not bow.' The king was furious and made the furnace seven times hotter. The soldiers who threw them in died from the heat. But the king looked in and saw four men walking around! The fourth looked like the Son of God. The three friends came out unharmed—no burns, no smoke smell. God was with them in the fire! For you: When you face hard times or pressure to do wrong, stand strong for God. He is with you in the fire and will protect you."
+      videoTitle: 'God Walks with His Servants in the Fire — Shadrach, Meshach & Abednego',
+      keywords: ['fiery furnace', 'shadrach', 'meshach', 'abednego', 'fire', 'angel', 'daniel 3', 'son of god', 'golden image'],
+      kjvRef: 'Daniel 3:1–30',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Shadrach, Meshach, and Abednego — and every heart that trusts Him',
+        apply:
+          'Even in a hard place, God is with us. We can tell Him we trust Him and stand for what is right.'
+      },
+      narration:
+        "God Walks with His Servants in the Fire — Daniel 3:1–30. The king made a golden image and commanded that when the music sounded, every one should fall down and worship it. Shadrach, Meshach, and Abednego answered, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up. The furnace was heated seven times hotter, and they were cast into the midst of the burning fiery furnace. The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. They came out, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them. For you: God walks with His servants in the fire — we can trust Him and stand for what is right."
     },
     esther: {
       title: 'Esther Helps Her People',
@@ -4315,18 +4321,25 @@
       kidContext: { who: 'God', to: 'His people', apply: 'Nothing is too dead or dry for God. He can make your heart alive again.' }
     },
     danielFieryFurnace: {
-      title: 'The Fiery Furnace',
+      title: 'God Walks with His Servants in the Fire',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Three friends refuse to bow to the golden image' },
-        { src: 'panel-daniel-2.svg', alt: 'The furnace blazes seven times hotter' },
-        { src: 'panel-daniel-3.svg', alt: 'Four walk in the fire — God protects' }
+        { src: 'panel-daniel-1.svg', alt: 'Golden image — Shadrach, Meshach, and Abednego would not bow' },
+        { src: 'panel-daniel-2.svg', alt: 'The furnace heated seven times hotter — cast into the fire' },
+        { src: 'panel-daniel-3.svg', alt: 'Four loose in the fire — the form of the fourth like the Son of God' }
       ],
-      caption: 'Swipe to see three brave friends — God in the fire with them! 🔥',
+      caption: 'Swipe to see brave trust, soft flames, and God walking with His friends.',
       videoId: '',
       videoTitle: '',
-      keywords: ['shadrach', 'meshach', 'abednego', 'furnace', 'daniel 3', 'fire', 'bow', 'nebuchadnezzar'],
-      kjvRef: 'Daniel 3',
-      kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: 'Stand for what is right — God is with you even when it gets hot.' }
+      keywords: ['shadrach', 'meshach', 'abednego', 'furnace', 'daniel 3', 'fire', 'bow', 'nebuchadnezzar', 'son of god', 'golden image'],
+      kjvRef: 'Daniel 3:1–30',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Shadrach, Meshach, and Abednego — and every heart that trusts Him',
+        apply:
+          'Even in a hard place, God is with us. We can tell Him we trust Him and stand for what is right.'
+      },
+      narration:
+        "God Walks with His Servants in the Fire — Daniel 3:1–30. The king made a golden image and commanded that when the music sounded, every one should fall down and worship it. Shadrach, Meshach, and Abednego answered, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up. The furnace was heated seven times hotter, and they were cast into the midst of the burning fiery furnace. The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. They came out, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them. For you: God walks with His servants in the fire — we can trust Him and stand for what is right."
     },
     danielLionsDen: {
       title: 'Daniel Trusts God in the Lions’ Den',

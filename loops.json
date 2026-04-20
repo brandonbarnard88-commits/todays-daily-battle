@@ -186,12 +186,13 @@
   },
   {
     "id": 20,
-    "title": "Fiery Furnace Three",
+    "title": "God Walks with His Servants in the Fire",
     "file": "",
     "audio": "",
-    "ref": "Daniel 3:25",
+    "ref": "Daniel 3:1-30",
     "week": 1,
-    "libraryKey": "fieryFurnace"
+    "libraryKey": "fieryFurnace",
+    "kjvText": "Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God."
   },
   {
     "id": 21,

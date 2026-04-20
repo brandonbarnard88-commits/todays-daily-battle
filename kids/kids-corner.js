@@ -549,27 +549,22 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 1:1</text>'
       ),
 
-      /* Fiery Furnace */
+      /* Fiery Furnace — soft flames, four figures (gentle fourth beside the three) */
       fieryFurnace: svg(
         ground() +
-        /* furnace structure */
-        '<rect x="120" y="100" width="160" height="160" rx="8" ' + sf + ' fill="white" stroke-width="4"/>' +
-        /* furnace door */
-        '<path d="M165 260 L165 180 Q200 155 235 180 L235 260" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* flames outline */
-        '<path d="M145 260 Q130 220 150 190 Q160 215 155 235 Q170 200 165 170 Q185 205 180 230 Q195 185 200 155 Q205 185 220 230 Q215 200 235 170 Q230 200 245 235 Q240 215 250 190 Q270 220 255 260" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        /* three figures inside flames */
-        person(170, 185, 9, 25) +
-        person(200, 180, 9, 25) +
-        person(230, 185, 9, 25) +
-        /* angel (4th figure) */
-        '<circle cx="200" cy="145" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M182 150 Q170 135 182 125 Q192 135 200 148" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M218 150 Q230 135 218 125 Q208 135 200 148" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* spectators */
-        person(60, 200, 10, 28) +
-        person(340, 200, 10, 28) +
-        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 3:25</text>'
+        /* furnace — simple rounded box, calm arch */
+        '<rect x="88" y="88" width="224" height="182" rx="14" ' + sf + ' fill="white" stroke-width="3.5"/>' +
+        '<path d="M118 270 L118 118 Q200 92 282 118 L282 270" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        /* soft layered flames — low, wavy, easy to color */
+        '<path d="M 92 270 Q 130 218 168 208 Q 200 198 232 208 Q 270 218 308 270" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M 108 270 Q 150 232 200 222 Q 250 232 292 270" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M 125 270 Q 168 245 200 238 Q 232 245 275 270" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* three friends + fourth walking beside them */
+        person(148, 178, 9, 26) +
+        person(182, 176, 9, 26) +
+        person(216, 178, 9, 26) +
+        person(252, 172, 10, 28) +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 3:1–30</text>'
       ),
 
       /* Jesus Feeds 5000 */

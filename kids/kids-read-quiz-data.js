@@ -3242,88 +3242,132 @@
     ]
   },
   "danielFieryFurnace": {
-    "kjvRef": "Daniel 3",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Daniel 3:1–30 (KJV)",
+    "verseExcerpt": "Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. — Daniel 3:25 (KJV)",
+    "readAlongTitle": "God Walks with His Servants in the Fire",
+    "quizWrongHumilityHint": "Listen again — they would not bow; God is able to deliver; four walked in the fire unhurt.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "The Fiery Furnace (Daniel 3).",
-      "Three friends refuse to bow to the golden image The furnace blazes seven times hotter Four walk in the fire.",
-      "God protects Stand for what is right.",
-      "God is with you even when it gets hot."
+      "The king of Babylon made a golden image and commanded everyone to bow down and worship it when they heard the music.",
+      "Shadrach, Meshach, and Abednego would not bow. They said, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.",
+      "The king was very angry and commanded the furnace to be heated seven times hotter. The three men were thrown into the burning fiery furnace.",
+      "The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.",
+      "The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them.",
+      "The LORD walked with His servants in the fire and kept them safe because they trusted Him.",
+      "Reference: Daniel 3:1–30 (KJV)."
+    ],
+    "readAlongSections": [
+      {
+        "text": "The king made a golden image and told everyone to bow down when they heard the music.",
+        "caption": "Bow to the image",
+        "image": "panel-daniel-1.svg"
+      },
+      {
+        "text": "Shadrach, Meshach, and Abednego would not bow.",
+        "caption": "We will not bow",
+        "image": "panel-daniel-1.svg"
+      },
+      {
+        "text": "If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king.",
+        "caption": "Our God is able to deliver us",
+        "image": "panel-daniel-2.svg"
+      },
+      {
+        "text": "But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.",
+        "caption": "But if not — we still will not bow",
+        "image": "panel-daniel-2.svg"
+      },
+      {
+        "text": "The furnace was heated seven times hotter, and they were cast into the midst of the burning fiery furnace.",
+        "caption": "Into the fire",
+        "image": "panel-daniel-2.svg"
+      },
+      {
+        "text": "Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.",
+        "caption": "Four walking in the fire",
+        "image": "panel-daniel-3.svg"
+      },
+      {
+        "text": "They came out, and no smell of fire had passed on them. God kept them safe because they trusted Him.",
+        "caption": "For you",
+        "image": "panel-daniel-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 12",
-          "1 Thessalonians 4:13–18; 5:16–24",
-          "Genesis 18:9–15",
-          "Daniel 3"
+          "Psalm 23",
+          "Daniel 3:1–30",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Daniel 3.)"
+        "wrongFeedback": "Skim the reference line in the story, or check the first paragraph’s Bible note. (Answer: Daniel 3:1–30.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Joshua",
-          "The Lord",
-          "Holy Spirit"
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Right—God walked with His servants in the fire.",
+        "wrongFeedback": "Look for who keeps the four safe in the flames. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "We should hide from God when we mess up.",
-          "Stand for what is right — God is with you even when it gets hot.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "God forgets His people when life is hard.",
+          "The Bible is only pretend stories.",
+          "Even in the hardest place, God is with us — we can trust Him and stand for what is right.",
+          "We should hide from God when we mess up."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Stand for what is right — God is with you even when it gets hot..)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God's kindness and truth? (Answer: Even in the hardest place, God is with us — we can trust Him and stand for what is right.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Everyone decided to never sleep again.",
           "A spaceship landed in the parking lot.",
-          "Three friends refuse to bow to the golden image",
+          "Lo, I see four men loose, walking in the midst of the fire.",
+          "Everyone decided to never sleep again.",
           "A talking toaster became king of the city."
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Lo, I see four men loose, walking in the midst of the fire.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
           "Ignore God until we are older.",
+          "Trust God and stand for what is right — talk to Him when it is hard.",
           "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "Stand for what is right — God is with you even when it gets hot."
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Stand for what is right — God is with you even when it gets hot..)"
+        "wrongFeedback": "Think: does this choice show trust and courage with God’s help? Pick the one that honors Him. (Answer: Trust God and stand for what is right — talk to Him when it is hard.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Fiery Furnace with God's Word today.",
-    "takeaway": "Stand for what is right — God is with you even when it gets hot.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Fiery Furnace. Amen.",
+    "doneMessage": "Great job reading God Walks with His Servants in the Fire with God's Word today.",
+    "takeaway": "God is with us in hard places — we can trust Him and stand for what is right.",
+    "prayer": "Lord, thank You that You never leave us. Help us trust You and obey. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow to the golden image (shadrach)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace blazes seven times hotter (meshach)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — God protects (abednego)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow to the golden image (furnace)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace blazes seven times hotter (daniel 3)"
-    ]
+      "Simple peaceful black-and-white line-art for young children ages 3–8: three men standing calmly in furnace with fourth gentle figure beside them soft wavy flame outlines around them thick bold outlines large open spaces on robes flames ground soft furnace walls minimal lines trusting safe mood no scary faces plenty of white space coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow (shadrach)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace — seven times hotter (daniel 3)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — Son of God (angel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: No smell of fire on their coats (safe)"
+    ],
+    "readAlongImages": []
   },
   "danielLionsDen": {
     "kjvRef": "Daniel 6:1–23 (KJV)",
@@ -8304,89 +8348,132 @@
     "readAlongImages": []
   },
   "fieryFurnace": {
-    "kjvRef": "Daniel 3",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Daniel 3:1–30 (KJV)",
+    "verseExcerpt": "Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. — Daniel 3:25 (KJV)",
+    "readAlongTitle": "God Walks with His Servants in the Fire",
+    "quizWrongHumilityHint": "Listen again — they would not bow; God is able to deliver; four walked in the fire unhurt.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Fiery Furnace Three – Daniel 3:25. King Nebuchadnezzar made a huge gold statue and said everyone must bow to it or be thrown into a fiery furnace.",
-      "Shadrach, Meshach, and Abednego loved God and said, 'We will not bow.' The king was furious and made the furnace seven times hotter. The soldiers who threw them in died from the heat.",
-      "But the king looked in and saw four men walking around! The fourth looked like the Son of God.",
-      "The three friends came out unharmed—no burns, no smoke smell. God was with them in the fire!",
-      "For you: When you face hard times or pressure to do wrong, stand strong for God. He is with you in the fire and will protect you."
+      "The king of Babylon made a golden image and commanded everyone to bow down and worship it when they heard the music.",
+      "Shadrach, Meshach, and Abednego would not bow. They said, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.",
+      "The king was very angry and commanded the furnace to be heated seven times hotter. The three men were thrown into the burning fiery furnace.",
+      "The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.",
+      "The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them.",
+      "The LORD walked with His servants in the fire and kept them safe because they trusted Him.",
+      "Reference: Daniel 3:1–30 (KJV)."
+    ],
+    "readAlongSections": [
+      {
+        "text": "The king made a golden image and told everyone to bow down when they heard the music.",
+        "caption": "Bow to the image",
+        "image": "panel-daniel-1.svg"
+      },
+      {
+        "text": "Shadrach, Meshach, and Abednego would not bow.",
+        "caption": "We will not bow",
+        "image": "panel-daniel-1.svg"
+      },
+      {
+        "text": "If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king.",
+        "caption": "Our God is able to deliver us",
+        "image": "panel-daniel-2.svg"
+      },
+      {
+        "text": "But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.",
+        "caption": "But if not — we still will not bow",
+        "image": "panel-daniel-2.svg"
+      },
+      {
+        "text": "The furnace was heated seven times hotter, and they were cast into the midst of the burning fiery furnace.",
+        "caption": "Into the fire",
+        "image": "panel-daniel-2.svg"
+      },
+      {
+        "text": "Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.",
+        "caption": "Four walking in the fire",
+        "image": "panel-daniel-3.svg"
+      },
+      {
+        "text": "They came out, and no smell of fire had passed on them. God kept them safe because they trusted Him.",
+        "caption": "For you",
+        "image": "panel-daniel-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 3",
-          "Luke 24",
-          "the Bible",
-          "Judges 7:1-22"
+          "Psalm 23",
+          "Daniel 3:1–30",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Daniel 3.)"
+        "wrongFeedback": "Skim the reference line in the story, or check the first paragraph’s Bible note. (Answer: Daniel 3:1–30.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "James",
-          "The LORD",
-          "Jude",
-          "God"
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 0,
+        "correctFeedback": "Right—God walked with His servants in the fire.",
+        "wrongFeedback": "Look for who keeps the four safe in the flames. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Shadrach, Meshach, and Abednego refused to bow to a statue. They were thrown into a hot furnace, but God walked with them and kept them…",
-          "We should hide from God when we mess up.",
+          "God forgets His people when life is hard.",
           "The Bible is only pretend stories.",
-          "God never hears when kids pray."
+          "Even in the hardest place, God is with us — we can trust Him and stand for what is right.",
+          "We should hide from God when we mess up."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Shadrach, Meshach, and Abednego refused to bow to a statue. They were thrown into a hot….)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God's kindness and truth? (Answer: Even in the hardest place, God is with us — we can trust Him and stand for what is right.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Three friends refusing to bow – Standing for God",
           "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "Lo, I see four men loose, walking in the midst of the fire.",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city."
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Lo, I see four men loose, walking in the midst of the fire.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
           "Ignore God until we are older.",
-          "When you face hard times or pressure to do wrong, stand strong for God. He is with you in the fire and will protect you.",
-          "Never say sorry when we do wrong."
+          "Trust God and stand for what is right — talk to Him when it is hard.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When you face hard times or pressure to do wrong, stand strong for God. He is with you….)"
+        "wrongFeedback": "Think: does this choice show trust and courage with God’s help? Pick the one that honors Him. (Answer: Trust God and stand for what is right — talk to Him when it is hard.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Fiery Furnace with God's Word today.",
-    "takeaway": "Shadrach, Meshach, and Abednego refused to bow to a statue. They were thrown into a hot furnace, but God walked with them and kept them safe. When you're in a tough or scary situation, God is right…",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Fiery Furnace. Amen.",
+    "doneMessage": "Great job reading God Walks with His Servants in the Fire with God's Word today.",
+    "takeaway": "God is with us in hard places — we can trust Him and stand for what is right.",
+    "prayer": "Lord, thank You that You never leave us. Help us trust You and obey. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refusing to bow – Standing for God (fiery furnace)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Thrown into the fiery furnace – Heat so hot it kills soldiers (shadrach)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four men walking in the fire – God protects His friends (meshach)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refusing to bow – Standing for God (abednego)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Thrown into the fiery furnace – Heat so hot it kills soldiers (fire)"
-    ]
+      "Simple peaceful black-and-white line-art for young children ages 3–8: three men standing calmly in furnace with fourth gentle figure beside them soft wavy flame outlines around them thick bold outlines large open spaces on robes flames ground soft furnace walls minimal lines trusting safe mood no scary faces plenty of white space coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow (shadrach)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace — seven times hotter (daniel 3)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — Son of God (angel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: No smell of fire on their coats (safe)"
+    ],
+    "readAlongImages": []
   },
   "forgive70x7": {
     "kjvRef": "Matthew 18:21–35",
@@ -9953,7 +10040,7 @@
           "the Bible",
           "1 Kings 18:17-39",
           "2 Timothy 1:5–7; 3:15",
-          "Daniel 3"
+          "Daniel 3:1–30"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19483,7 +19570,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2",
-          "Daniel 3",
+          "Daniel 3:1–30",
           "Numbers 23–24",
           "1 Kings 19:19-21"
         ],
@@ -28250,7 +28337,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Kings 19:19-21",
-          "Daniel 3",
+          "Daniel 3:1–30",
           "Mark 12",
           "Esther 4–5"
         ],

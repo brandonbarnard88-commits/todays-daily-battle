@@ -40,7 +40,7 @@ const STORIES: Record<string, { title: string; talkAbout: string }> = {
   manna: { title: "Manna from Heaven", talkAbout: "God gives what we need! Trust Him for your food, your family—He takes care of you!" },
   tenCommandments: { title: "Ten Commandments", talkAbout: "God gives rules to keep us safe! Love God and love others—that's what matters!" },
   samson: { title: "Samson & His Strength", talkAbout: "God gives power—use it right! Be strong for good, not for showing off." },
-  fieryFurnace: { title: "Fiery Furnace", talkAbout: "God keeps friends safe! When you stand for God, He stands with you!" },
+  fieryFurnace: { title: "God Walks with His Servants in the Fire", talkAbout: "God is with you in hard places—like the fourth who walked with His friends in the fire!" },
   esther: { title: "Esther Saves Her People", talkAbout: "Be brave—God uses you! You were made for such a time as this!" },
   jesusBirth: { title: "Jesus Birth", talkAbout: "Jesus came as a baby—God loves us! Christmas is about God's greatest gift!" },
   jesusCalmsStorm: { title: "Jesus Calms the Storm", talkAbout: "When you're scared, He says: Don't be afraid—I'm here!" },

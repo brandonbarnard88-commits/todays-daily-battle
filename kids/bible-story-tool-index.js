@@ -687,16 +687,6 @@
     "kw": "jericho walls trumpets joshua 6 march obey shout ark faith victory"
   },
   {
-    "key": "fieryFurnace",
-    "title": "Fiery Furnace",
-    "kjvRef": "Daniel 3",
-    "who": "God",
-    "to": "Shadrach, Meshach, and Abednego",
-    "apply": "Shadrach, Meshach, and Abednego refused to bow to a statue. They were thrown into a hot furnace, but God walked with them and kept them safe. When you're in a tough or scary situation, God is right there with you—He never leaves you alone.",
-    "theme": "Miracles",
-    "kw": "fiery furnace shadrach meshach abednego fire angel daniel 3"
-  },
-  {
     "key": "forgive70x7",
     "title": "Forgive Seventy Times Seven",
     "kjvRef": "Matthew 18:21–35",
@@ -815,6 +805,26 @@
     "apply": "The loud things passed — then God spoke in a still small voice. He often speaks gently; listen with a quiet heart.",
     "theme": "Love",
     "kw": "elijah horeb mount horeb god speaks in a still small voice still small voice still small 1 kings 19 1 kings 19:12 1 kings 19:9 cave mantle earthquake jealous for the lord seven thousand baal what doest thou here"
+  },
+  {
+    "key": "fieryFurnace",
+    "title": "God Walks with His Servants in the Fire",
+    "kjvRef": "Daniel 3:1–30",
+    "who": "The LORD",
+    "to": "Shadrach, Meshach, and Abednego — and every heart that trusts Him",
+    "apply": "Even in a hard place, God is with us. We can tell Him we trust Him and stand for what is right.",
+    "theme": "Miracles",
+    "kw": "fiery furnace shadrach meshach abednego fire angel daniel 3 son of god golden image"
+  },
+  {
+    "key": "danielFieryFurnace",
+    "title": "God Walks with His Servants in the Fire",
+    "kjvRef": "Daniel 3:1–30",
+    "who": "The LORD",
+    "to": "Shadrach, Meshach, and Abednego — and every heart that trusts Him",
+    "apply": "Even in a hard place, God is with us. We can tell Him we trust Him and stand for what is right.",
+    "theme": "Miracles",
+    "kw": "shadrach meshach abednego furnace daniel 3 fire bow nebuchadnezzar son of god golden image"
   },
   {
     "key": "elishaChariots",
@@ -2595,16 +2605,6 @@
     "apply": "Jesus is alive! Death couldn't hold Him—and He gives that life to you!",
     "theme": "Miracles",
     "kw": "tomb empty risen matthew 28 angel stone resurrection"
-  },
-  {
-    "key": "danielFieryFurnace",
-    "title": "The Fiery Furnace",
-    "kjvRef": "Daniel 3",
-    "who": "God",
-    "to": "Shadrach, Meshach, and Abednego",
-    "apply": "Stand for what is right — God is with you even when it gets hot.",
-    "theme": "Miracles",
-    "kw": "shadrach meshach abednego furnace daniel 3 fire bow nebuchadnezzar"
   },
   {
     "key": "fourHorsemen",

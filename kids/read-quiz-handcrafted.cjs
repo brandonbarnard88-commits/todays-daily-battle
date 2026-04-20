@@ -4515,6 +4515,144 @@ function buildDanielLionsDenReadQuiz() {
   };
 }
 
+/** Fiery furnace — Daniel 3; Shadrach, Meshach, Abednego; gentle hope. Keys: fieryFurnace, danielFieryFurnace */
+function buildFieryFurnaceReadQuiz() {
+  return {
+    kjvRef: 'Daniel 3:1–30 (KJV)',
+    verseExcerpt:
+      'Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. — Daniel 3:25 (KJV)',
+    readAlongTitle: 'God Walks with His Servants in the Fire',
+    quizWrongHumilityHint:
+      'Listen again — they would not bow; God is able to deliver; four walked in the fire unhurt.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'The king of Babylon made a golden image and commanded everyone to bow down and worship it when they heard the music.',
+      'Shadrach, Meshach, and Abednego would not bow. They said, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.',
+      'The king was very angry and commanded the furnace to be heated seven times hotter. The three men were thrown into the burning fiery furnace.',
+      'The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.',
+      'The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them.',
+      'The LORD walked with His servants in the fire and kept them safe because they trusted Him.',
+      'Reference: Daniel 3:1–30 (KJV).'
+    ],
+    readAlongSections: [
+      {
+        text: 'The king made a golden image and told everyone to bow down when they heard the music.',
+        caption: 'Bow to the image',
+        image: 'panel-daniel-1.svg'
+      },
+      {
+        text: 'Shadrach, Meshach, and Abednego would not bow.',
+        caption: 'We will not bow',
+        image: 'panel-daniel-1.svg'
+      },
+      {
+        text:
+          'If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king.',
+        caption: 'Our God is able to deliver us',
+        image: 'panel-daniel-2.svg'
+      },
+      {
+        text:
+          'But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.',
+        caption: 'But if not — we still will not bow',
+        image: 'panel-daniel-2.svg'
+      },
+      {
+        text: 'The furnace was heated seven times hotter, and they were cast into the midst of the burning fiery furnace.',
+        caption: 'Into the fire',
+        image: 'panel-daniel-2.svg'
+      },
+      {
+        text:
+          'Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.',
+        caption: 'Four walking in the fire',
+        image: 'panel-daniel-3.svg'
+      },
+      {
+        text:
+          'They came out, and no smell of fire had passed on them. God kept them safe because they trusted Him.',
+        caption: 'For you',
+        image: 'panel-daniel-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Psalm 23',
+          'Daniel 3:1–30',
+          'Jonah 1',
+          'Genesis 1'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the reference line in the story, or check the first paragraph’s Bible note. (Answer: Daniel 3:1–30.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'A giant fish', 'Pharaoh', 'Goliath'],
+        correctIndex: 0,
+        correctFeedback: 'Right—God walked with His servants in the fire.',
+        wrongFeedback: "Look for who keeps the four safe in the flames. (Answer: God.)"
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God forgets His people when life is hard.',
+          'The Bible is only pretend stories.',
+          'Even in the hardest place, God is with us — we can trust Him and stand for what is right.',
+          'We should hide from God when we mess up.'
+        ],
+        correctIndex: 2,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          "Reread the last paragraphs slowly. Which option matches God's kindness and truth? (Answer: Even in the hardest place, God is with us — we can trust Him and stand for what is right.)"
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'Lo, I see four men loose, walking in the midst of the fire.',
+          'Everyone decided to never sleep again.',
+          'A talking toaster became king of the city.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Lo, I see four men loose, walking in the midst of the fire.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Trust God and stand for what is right — talk to Him when it is hard.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust and courage with God’s help? Pick the one that honors Him. (Answer: Trust God and stand for what is right — talk to Him when it is hard.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading God Walks with His Servants in the Fire with God's Word today.",
+    takeaway: 'God is with us in hard places — we can trust Him and stand for what is right.',
+    prayer:
+      'Lord, thank You that You never leave us. Help us trust You and obey. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art for young children ages 3–8: three men standing calmly in furnace with fourth gentle figure beside them soft wavy flame outlines around them thick bold outlines large open spaces on robes flames ground soft furnace walls minimal lines trusting safe mood no scary faces plenty of white space coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow (shadrach)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace — seven times hotter (daniel 3)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — Son of God (angel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: No smell of fire on their coats (safe)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Job trusts God — Job 1–2; honest sadness, quiet friends, KJV heart line. */
 function buildJobSufferingReadQuiz() {
   return {
@@ -4717,5 +4855,7 @@ module.exports = {
   nehemiahWalls: buildNehemiahWallsReadQuiz(),
   esther: buildEstherReadQuiz(),
   danielLionsDen: buildDanielLionsDenReadQuiz(),
+  fieryFurnace: buildFieryFurnaceReadQuiz(),
+  danielFieryFurnace: buildFieryFurnaceReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

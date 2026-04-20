@@ -192,7 +192,7 @@ Update this file by running: `npm run kids:generate-animation-queue`
 | ☐ | 170 | `maryAnoint` | `mary-anoint.mp4` / `mary-anoint.vtt` | Mary Anoints Jesus' Feet |
 | ☐ | 171 | `maryMagdalene` | `mary-magdalene.mp4` / `mary-magdalene.vtt` | Mary Magdalene at the Tomb |
 | ☐ | 172 | `marySit` | `mary-sit.mp4` / `mary-sit.vtt` | Mary Sits at Jesus' Feet |
-| ☐ | 173 | `mephibosheth` | `mephibosheth.mp4` / `mephibosheth.vtt` | David Shows Kindness to Mephibosheth — David Shows Kindness |
+| ☐ | 173 | `mephibosheth` | `mephibosheth.mp4` / `mephibosheth.vtt` | David Shows Kindness to Mephibosheth |
 | ☐ | 174 | `miriamSong` | `miriam-song.mp4` / `miriam-song.vtt` | Miriam Sings to the Lord |
 | ☐ | 175 | `mosesBaby` | `moses-baby.mp4` / `moses-baby.vtt` | Baby Moses in the Basket |
 | ☐ | 176 | `mosesBush` | `moses-bush.mp4` / `moses-bush.vtt` | Moses & the Burning Bush |

@@ -9,7 +9,7 @@ module.exports = {
   kjvRef: '2 Samuel 9:1-13 (KJV)',
   verseExcerpt:
     'And David said unto him, Fear not: for I will surely shew thee kindness for Jonathan thy father\'s sake, and will restore thee all the land of Saul thy father; and thou shalt eat bread at my table continually. — 2 Samuel 9:7 (KJV)',
-  readAlongTitle: 'David Shows Kindness — Welcome at the King\'s Table',
+  readAlongTitle: 'David Shows Kindness to Mephibosheth',
   quizWrongHumilityHint:
     'David remembered Jonathan and welcomed his son — God loves kindness that honors others.',
   hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',

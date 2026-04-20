@@ -448,7 +448,7 @@
   },
   {
     "key": "mephibosheth",
-    "title": "David Shows Kindness to Mephibosheth — David Shows Kindness",
+    "title": "David Shows Kindness to Mephibosheth",
     "kjvRef": "2 Samuel 9:1-13",
     "who": "David — and the Lord",
     "to": "Every heart that feels small — and every listener",

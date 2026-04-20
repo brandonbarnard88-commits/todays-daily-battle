@@ -6040,7 +6040,7 @@
         "David Is Anointed King – 2 Samuel 5:1-12. The tribes came to David at Hebron and said, Behold, we are thy bone and thy flesh. The elders anointed him king over Israel before the LORD. David was thirty when he began to reign; he reigned over Judah in Hebron, then over all Israel and Judah from Jerusalem. He called the stronghold the city of David, and the LORD God of hosts was with him. God had established him for His people's sake. For you: the Lord is faithful — He chooses, anoints, and stays near those who trust Him."
     },
     mephibosheth: {
-      title: 'David Shows Kindness to Mephibosheth — David Shows Kindness',
+      title: 'David Shows Kindness to Mephibosheth',
       panels: [
         { src: 'panel-david-1.svg', alt: 'David asks — Is there any left of Saul\'s house to show kindness for Jonathan\'s sake?' },
         { src: 'panel-david-2.svg', alt: 'Fear not — I will show thee kindness; eat bread at my table continually' },

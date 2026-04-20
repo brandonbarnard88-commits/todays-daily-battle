@@ -1929,6 +1929,7 @@
         '<path d="M78 98 L98 94 M82 120 L102 116 M86 138 L104 134" ' + s + ' stroke-width="1.2" opacity="0.5"/>' +
         '<path d="M108 118 L128 108 M108 128 L132 122 M108 138 L130 134" ' + s + ' stroke-width="1.1" opacity="0.35"/>' +
         '<path d="M72 110 L58 100 M76 125 L58 118 M74 140 L56 132" ' + s + ' stroke-width="1" opacity="0.3"/>' +
+        '<path d="M88 104 L82 96 M96 108 L90 100" ' + s + ' stroke-width="0.9" opacity="0.28"/>' +
         '<rect x="92" y="96" width="10" height="6" rx="1" ' + sf + ' fill="white" stroke-width="1.5"/>' +
         /* table + stool */
         '<rect x="72" y="168" width="56" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
@@ -1936,9 +1937,9 @@
         /* bed */
         '<rect x="200" y="138" width="130" height="44" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
         '<path d="M200 160 L330 160" ' + s + ' stroke-width="1.8"/>' +
-        /* child — peaceful, eyes opening */
+        /* child — peaceful, eyes beginning to open */
         '<ellipse cx="255" cy="150" rx="12" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="250" cy="148" r="1.4" fill="#111"/><circle cx="260" cy="148" r="1.4" fill="#111"/>' +
+        '<path d="M246 149 Q250 146 254 149 M256 149 Q260 146 264 149" ' + s + ' stroke-width="1.3" fill="none"/>' +
         '<path d="M248 154 Q256 158 264 154" ' + s + ' stroke-width="1.2"/>' +
         '<path d="M238 158 L272 158" ' + s + ' stroke-width="1.6"/>' +
         /* Elisha kneeling — hands raised */

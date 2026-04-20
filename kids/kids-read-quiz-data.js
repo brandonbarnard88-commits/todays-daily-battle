@@ -7074,11 +7074,11 @@
       }
     ],
     "paragraphs": [
-      "A great woman in Shunem made a little chamber on the wall with a bed, table, stool, and candlestick for Elisha. Elisha promised her a son, and she had a little boy just as he said.",
+      "A great woman in Shunem made a little chamber on the wall with a bed, table, stool, and candlestick for Elisha whenever he passed by. Elisha promised her a son, and she had a little boy just as he said.",
       "One day the child became sick and died on his mother’s knees. The mother laid him on Elisha’s bed, shut the door, and hurried to find Elisha on Mount Carmel.",
       "Elisha came to the house, went in, shut the door, prayed, and lay upon the child. The flesh of the child waxed warm. Elisha went up and down, then lay upon him again.",
       "The child sneezed seven times and opened his eyes. Elisha said, Take up thy son. The mother took her boy and was full of joy.",
-      "The Lord used Elisha to bring the child back to life and show His tender care for families. For you: God hears when we pray — He cares for mothers and children."
+      "The Lord used Elisha to bring the child back to life and show His tender care for families. For you: God hears when we pray — He tenderly cares for mothers and children."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
@@ -7148,7 +7148,7 @@
     "takeaway": "God used Elisha’s prayer to bring life back — the Shunammite took up her son with joy.",
     "prayer": "Lord, thank You for mercy. Help us trust You in hard moments. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines quiet little chamber small bed Elisha kneeling hands raised in prayer mother standing hopeful thankful child on bed eyes peaceful opening soft window gentle light rays thick outlines white space ages 3-8 coloring page no text",
+      "Simple peaceful black-and-white line-art young children bold thick outlines quiet little chamber small bed Elisha kneeling calmly beside bed hands raised in prayer mother standing nearby hopeful thankful face child lying peacefully on bed eyes beginning to open thick outlines large open spaces Elisha robe mother dress blanket bed floor soft walls small window gentle light minimal lines merciful comforting mood quiet prayer warmth mother joy no sadness no fear plenty white space ages 3-8 coloring page no text",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little chamber Shunem bed table stool",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Mount Carmel man of God",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Prayed unto the LORD sneezed seven times",

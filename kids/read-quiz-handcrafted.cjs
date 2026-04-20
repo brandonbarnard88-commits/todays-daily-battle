@@ -22,7 +22,7 @@
  * Elijah calls Elisha (field / mantle): read-quiz-elijah-calls-elisha-pack.cjs (key elijahElijahElisha).
  * Elijah taken up in the fiery chariot: read-quiz-elijah-chariot-pack.cjs (key elijahChariot).
  * Elisha's first miracles (Jericho waters + widow's oil): read-quiz-elisha-miracles-pack.cjs (key elishaMiracles).
- * Elisha and the widow's oil (full): read-quiz-elisha-oil-pack.cjs (key elishaOil).
+ * The widow's oil multiplied: read-quiz-widow-oil-pack.cjs (keys widowOil, elishaOil legacy).
  * Elisha and the Shunammite's son: read-quiz-elisha-shunammite-pack.cjs (key elishaShunammite).
  * Naaman healed of leprosy: read-quiz-naaman-healed-pack.cjs (keys naamanHealed, naaman).
  * Naaman returns with thanks: read-quiz-naaman-dip-pack.cjs (key naamanDip).
@@ -52,7 +52,7 @@ const elijahHorebReadQuizPack = require('./read-quiz-elijah-horeb-pack.cjs');
 const elijahCallsElishaReadQuizPack = require('./read-quiz-elijah-calls-elisha-pack.cjs');
 const elijahChariotReadQuizPack = require('./read-quiz-elijah-chariot-pack.cjs');
 const elishaMiraclesReadQuizPack = require('./read-quiz-elisha-miracles-pack.cjs');
-const elishaOilReadQuizPack = require('./read-quiz-elisha-oil-pack.cjs');
+const widowOilReadQuizPack = require('./read-quiz-widow-oil-pack.cjs');
 const elishaShunammiteReadQuizPack = require('./read-quiz-elisha-shunammite-pack.cjs');
 const naamanHealedReadQuizPack = require('./read-quiz-naaman-healed-pack.cjs');
 const naamanDipReadQuizPack = require('./read-quiz-naaman-dip-pack.cjs');
@@ -3912,7 +3912,8 @@ module.exports = {
   elijahElijahElisha: elijahCallsElishaReadQuizPack,
   elijahChariot: elijahChariotReadQuizPack,
   elishaMiracles: elishaMiraclesReadQuizPack,
-  elishaOil: elishaOilReadQuizPack,
+  widowOil: widowOilReadQuizPack,
+  elishaOil: widowOilReadQuizPack,
   elishaShunammite: elishaShunammiteReadQuizPack,
   naamanHealed: naamanHealedReadQuizPack,
   naamanDip: naamanDipReadQuizPack,

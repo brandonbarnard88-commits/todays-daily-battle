@@ -1,6 +1,7 @@
 'use strict';
 /**
- * Elisha and the widow's oil — 2 Kings 4:1-7 (KJV). Library key: elishaOil
+ * The widow's oil multiplied — 2 Kings 4:1-7 (KJV). Library key: widowOil.
+ * Legacy key elishaOil uses the same pack (see read-quiz-handcrafted.cjs).
  */
 
 module.exports = {
@@ -16,43 +17,43 @@ module.exports = {
       text:
         'Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.',
       caption: 'The creditor is come to take unto him my two sons to be bondmen',
-      image: 'panel-noah-1.svg'
+      image: 'panel-jesus-1.svg'
     },
     {
       text:
         'And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.',
       caption: 'Save a pot of oil',
-      image: 'panel-noah-1.svg'
+      image: 'panel-jesus-1.svg'
     },
     {
       text:
         'Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.',
       caption: 'Borrow empty vessels — borrow not a few',
-      image: 'panel-noah-2.svg'
+      image: 'panel-jesus-2.svg'
     },
     {
       text:
         'And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.',
       caption: 'Shut the door — pour out into all those vessels',
-      image: 'panel-noah-2.svg'
+      image: 'panel-jesus-2.svg'
     },
     {
       text:
         'So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.',
       caption: 'She poured out',
-      image: 'panel-noah-3.svg'
+      image: 'panel-jesus-3.svg'
     },
     {
       text:
         'And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.',
       caption: 'There is not a vessel more — and the oil stayed',
-      image: 'panel-noah-3.svg'
+      image: 'panel-jesus-3.svg'
     },
     {
       text:
         'Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.',
       caption: 'Sell the oil — pay thy debt — live thou and thy children of the rest',
-      image: 'panel-noah-3.svg'
+      image: 'panel-jesus-3.svg'
     }
   ],
   paragraphs: [

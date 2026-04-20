@@ -46,7 +46,6 @@
   "elishaChariots": "elishaChariots",
   "elishaFloatingAxe": "elishaFloatingAxe",
   "elishaMiracles": "elishaMiracles",
-  "elishaOil": "elishaOil",
   "elishaPoisonStew": "elishaPoisonStew",
   "elishaShunammite": "elishaShunammite",
   "estherFast": "estherFast",
@@ -59,6 +58,7 @@
   "fieryFurnace": "fieryFurnace",
   "fruitSpirit": "fruitSpirit",
   "gardenPrayer": "prayerCloset",
+  "gehaziGreed": "gehaziGreed",
   "gideonFleece": "gideonFleece",
   "gideonMidianites": "gideonMidianites",
   "goldenCalf": "tenCommandments",
@@ -157,6 +157,7 @@
   "tenVirgins": "tenVirgins",
   "towerBabel": "towerBabel",
   "transfigure": "transfigure",
+  "widowOil": "widowOil",
   "widowsMite": "widowMite",
   "zacchaeus": "prayerKnock"
   };

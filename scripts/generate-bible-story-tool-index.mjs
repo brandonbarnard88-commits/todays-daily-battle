@@ -159,6 +159,20 @@ for (const [key, chunk] of byKey.entries()) {
   });
 }
 
+/** Legacy keys: same card as canonical story (matches read-quiz + deep links). */
+const ALIAS_TO_CANON = [
+  ['naaman', 'naamanHealed'],
+  ['elishaOil', 'widowOil']
+];
+for (let ai = 0; ai < ALIAS_TO_CANON.length; ai++) {
+  const aliasKey = ALIAS_TO_CANON[ai][0];
+  const canonKey = ALIAS_TO_CANON[ai][1];
+  if (rows.some((r) => r.key === aliasKey)) continue;
+  const canon = rows.find((r) => r.key === canonKey);
+  if (!canon) continue;
+  rows.push(Object.assign({}, canon, { key: aliasKey }));
+}
+
 rows.sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base' }));
 
 const header = `/**

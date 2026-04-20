@@ -1351,43 +1351,6 @@
           'Elisha did not rush past home — he honored his parents, then rose and followed. God blesses willing, orderly obedience.'
       }
     },
-    elishaOil: {
-      title: 'Elisha and the Widow\'s Oil',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A widow cries — the creditor would take her two sons' },
-        { src: 'panel-noah-2.svg', alt: 'Borrow many empty vessels — shut the door and pour' },
-        { src: 'panel-noah-3.svg', alt: 'Every vessel full — sell the oil and pay the debt' }
-      ],
-      caption: 'Swipe to see God fill every vessel — He provides! 🫙',
-      videoId: '6E2WJ0vp4g4',
-      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
-      keywords: [
-        'elisha',
-        'widow',
-        'oil',
-        '2 kings 4',
-        '2 kings 4:1',
-        '2 kings 4:3',
-        '2 kings 4:6',
-        'creditor',
-        'bondmen',
-        'vessels',
-        'pot of oil',
-        'sons of the prophets',
-        'pour out',
-        'oil stayed',
-        'pay thy debt'
-      ],
-      kjvRef: '2 Kings 4:1-7',
-      kidContext: {
-        who: 'The LORD',
-        to: 'A widow and her sons — through Elisha',
-        apply:
-          'God can turn a little into enough when we obey Him step by step — He cares for mothers and children.'
-      },
-      narration:
-        "Elisha and the Widow's Oil — 2 Kings 4:1-7. A woman cried to Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When the vessels were full, there was not a vessel more — and the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too. He can provide more than you see yet."
-    },
     naamanHealed: {
       title: 'Naaman Is Healed of Leprosy',
       panels: [
@@ -2114,39 +2077,6 @@
       },
       narration:
         "Elijah and the Still Small Voice – 1 Kings 19:9-18. Elijah lodged in a cave; the word of the LORD came: What doest thou here, Elijah? He told how he had been jealous for the LORD — and felt alone. Go forth, stand upon the mount before the LORD. The LORD passed by: a great wind rent the mountains — the LORD was not in the wind; an earthquake — the LORD was not in the earthquake; a fire — the LORD was not in the fire; and after the fire a still small voice. When Elijah heard it, he wrapped his face in his mantle and stood in the entering in of the cave. The LORD spoke again — and showed him faithful work ahead, and this comfort: Yet I have left me seven thousand in Israel, all the knees which have not bowed unto Baal. For you: When life feels loud inside, God can still speak softly — lean in and listen."
-    },
-    elishaOil: {
-      title: 'Elisha and the Widow\'s Oil',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A widow cries — the creditor would take her two sons' },
-        { src: 'panel-noah-2.svg', alt: 'Borrow many empty vessels — shut the door and pour' },
-        { src: 'panel-noah-3.svg', alt: 'Every vessel full — sell the oil and pay the debt' }
-      ],
-      caption: 'Swipe to see God fill every vessel — He provides! 🫙',
-      videoId: '6E2WJ0vp4g4',
-      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
-      keywords: [
-        'elisha',
-        'widow',
-        'oil',
-        '2 kings 4',
-        'creditor',
-        'bondmen',
-        'vessels',
-        'pot of oil',
-        'pour out',
-        'miracle',
-        'multiply'
-      ],
-      kjvRef: '2 Kings 4:1-7',
-      kidContext: {
-        who: 'The LORD',
-        to: 'A widow and her sons — through Elisha',
-        apply:
-          'God can turn a little into enough when we obey Him step by step — He cares for mothers and children.'
-      },
-      narration:
-        "Elisha and the Widow's Oil — 2 Kings 4:1-7. A woman cried to Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When the vessels were full, there was not a vessel more — and the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too. He can provide more than you see yet."
     },
     naamanDip: {
       title: 'Naaman Returns with Thanks',
@@ -3465,6 +3395,44 @@
       },
       narration:
         "Gehazi and Honest Hearts — 2 Kings 5:20-27. After Naaman was healed, Elisha would not take his gifts. Gehazi ran after Naaman and asked for silver and clothing. When he came back, Elisha asked, Whence comest thou? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments? For you: When we are sorry for wrong, God still teaches mercy — and a heart that loves Him is better than treasure."
+    },
+    widowOil: {
+      title: 'The Widow\'s Oil Multiplied',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'A widow cries — the creditor would take her two sons' },
+        { src: 'panel-jesus-2.svg', alt: 'Borrow many empty vessels — shut the door and pour' },
+        { src: 'panel-jesus-3.svg', alt: 'Every vessel full — sell the oil and pay the debt' }
+      ],
+      caption: 'Swipe to see God multiply little into enough — pour, fill, pay, live.',
+      videoId: '6E2WJ0vp4g4',
+      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
+      keywords: [
+        'widow oil',
+        'widow\'s oil',
+        'widow oil multiplied',
+        'pot of oil',
+        'creditor',
+        'bondmen',
+        'borrow not a few',
+        'empty vessels',
+        'oil stayed',
+        'pay thy debt',
+        'sons of the prophets',
+        '2 kings 4',
+        '2 kings 4:1',
+        '2 kings 4:6',
+        'elisha',
+        'multiply oil'
+      ],
+      kjvRef: '2 Kings 4:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A widow and her sons — through Elisha',
+        apply:
+          'God can multiply what little we have when we obey and trust Him step by step.'
+      },
+      narration:
+        "The Widow's Oil Multiplied — 2 Kings 4:1-7. A certain woman of the wives of the sons of the prophets cried unto Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When there was not a vessel more, the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too."
     },
     estherCrown: {
       title: 'Queen Esther\'s Courage',
@@ -6031,20 +5999,6 @@
       kjvRef: 'Luke 2:36–38',
       kidContext: { who: 'God', to: 'Anna', apply: 'Never stop praying! Like Anna—stay close to God and He will show you His glory.' }
     },
-    widowOil: {
-      title: 'The Widow\'s Endless Oil',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A widow owes money—only a little oil left' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha says: pour into every jar you can find' },
-        { src: 'panel-noah-3.svg', alt: 'Oil fills every jar—God provides more than enough!' }
-      ],
-      caption: 'Swipe to see God\'s endless supply for the widow! 🫙',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['widow', 'oil', 'elisha', '2 kings 4', 'jars', 'multiply', 'provide'],
-      kjvRef: '2 Kings 4:1–7',
-      kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God\'s supply never runs out! Bring what little you have—He multiplies it.' }
-    },
     persistentWidow: {
       title: 'The Persistent Widow',
       panels: [
@@ -6435,6 +6389,7 @@
     normalizeBibleStoriesForUi(bibleStories);
     /** Legacy key — same card as naamanHealed (journey URLs, older links). */
     bibleStories.naaman = bibleStories.naamanHealed;
+    bibleStories.elishaOil = bibleStories.widowOil;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -6450,7 +6405,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 302, color: '#e5e4e2' }
+      { name: 'Platinum', min: 303, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6968,14 +6923,14 @@
       /\b2 kings 4\b/.test(low) &&
       !/\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\b2 kings 4:(?:38|39|40|41)\b|\bshunammite|son of the woman|raise.*child|bed.*stick/.test(low)
     ) {
-      return { type: 'carousel', story: 'elishaOil' };
+      return { type: 'carousel', story: 'widowOil' };
     }
     if (
       /\b2 kings 4:(?:[1-7])\b|\b2 kgs 4:(?:[1-7])\b/.test(low) ||
-      (/(?:widow.*oil|oil.*vessel|pot of oil|borrow.*vessel|oil stayed)/.test(low) &&
-        !/zarephath|1 kings 17|\belijah\b|barrel|cruse|handful of meal|jericho|2 kings 2|water is naught|healed these waters|spring/.test(low))
+      (/(?:widow.*oil|oil.*vessel|pot of oil|borrow.*vessel|oil stayed|bondmen|creditor.*sons)/.test(low) &&
+        !/zarephath|1 kings 17|\belijah\b|barrel|cruse|handful of meal|jericho|2 kings 2|water is naught|healed these waters|spring|shunammite|gehazi/.test(low))
     ) {
-      return { type: 'carousel', story: 'elishaOil' };
+      return { type: 'carousel', story: 'widowOil' };
     }
     if (
       /\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\b2 kgs 4:(?:8|9|[12][0-9]|3[0-7])\b/.test(low) ||

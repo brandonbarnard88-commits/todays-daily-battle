@@ -1,6 +1,6 @@
 /**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
- * Keys match TDB_BIBLE_STORIES (302 stories).
+ * Keys match TDB_BIBLE_STORIES (303 stories).
  * Regenerate: npm run kids:generate-read-quiz
  * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath read-along sections).
  *
@@ -591,7 +591,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Judges 7:1-22",
-          "2 Kings 4:8-37",
+          "Luke 24",
           "Acts 28:1–10",
           "Lamentations 1–5"
         ],
@@ -928,7 +928,7 @@
         "choices": [
           "Acts 15",
           "Luke 1",
-          "Luke 24",
+          "Esther 2–7",
           "the Bible"
         ],
         "correctIndex": 1,
@@ -1176,7 +1176,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezekiel 37:1–14",
+          "Ezra 1–10; Nehemiah 8–9",
           "John 9",
           "1 Kings 19:9-18",
           "Ephesians 6"
@@ -1682,7 +1682,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 18:21–35",
+          "Galatians 5",
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
           "Numbers 22",
           "Isaiah 7:14; 9:6–7; 53:4–6"
@@ -1886,7 +1886,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 17:1-11, 32-51",
-          "Ezra 1–10; Nehemiah 8–9",
+          "Matthew 17:20; Mark 11:23–24",
           "Revelation 13:16–18",
           "1 Kings 17:1-7"
         ],
@@ -2463,7 +2463,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 22",
-          "Joshua 6:1-21",
+          "Matthew 18:21–35",
           "2 Kings 6:8-17",
           "1 Samuel 16:14-23"
         ],
@@ -3218,7 +3218,7 @@
           "Daniel 6",
           "Numbers 23–24",
           "Daniel 3",
-          "2 Kings 4:1–7"
+          "2 Kings 4:1-7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4921,7 +4921,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "2 Kings 6:1-7",
-          "Matthew 18:21–35",
+          "Galatians 5",
           "1 Samuel 16:14-23",
           "Acts 9:36–43"
         ],
@@ -5005,7 +5005,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Kings 4:8-37",
+          "Luke 24",
           "1 Samuel 16:11; 17:15, 34–37",
           "Revelation 22"
         ],
@@ -6254,13 +6254,23 @@
     "readAlongSections": [
       {
         "text": "And the sons of the prophets said unto Elisha, Behold now, the place where we dwell with thee is too strait for us.",
-        "caption": "The place where we dwell is too strait for us",
+        "caption": "The place where we dwell with thee is too strait",
         "image": "panel-jesus-1.svg"
       },
       {
         "text": "Let us go, we pray thee, unto Jordan, and take thence every man a beam, and let us make us a place there, where we may dwell. And he answered, Go ye.",
-        "caption": "Let us go unto Jordan — every man a beam",
+        "caption": "Unto Jordan — every man a beam",
         "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And one said, Be content, I pray thee, and go with thy servants. And he answered, I will go.",
+        "caption": "Go with thy servants — I will go",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "So he went with them. And when they came to Jordan, they cut down wood.",
+        "caption": "They came to Jordan — they cut down wood",
+        "image": "panel-jesus-2.svg"
       },
       {
         "text": "But as one was felling a beam, the axe head fell into the water: and he cried, and said, Alas, master! for it was borrowed.",
@@ -6279,9 +6289,9 @@
       }
     ],
     "paragraphs": [
-      "The sons of the prophets said, The place where we dwell with thee is too strait for us. Let us go to Jordan, take every man a beam, and make a place there. Elisha went with them; when they came to Jordan, they cut down wood.",
-      "As one was felling a beam, the axe head fell into the water. The man cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place.",
-      "Elisha cut down a stick, cast it in thither, and the iron did swim. Then he said, Take it up to thee — and the man put out his hand and took it. For you: God cares about little worries — even a borrowed tool.",
+      "The sons of the prophets said to Elisha, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams for a new place. As one was cutting down a beam, the axe head fell into the water, and he cried, Alas, master! for it was borrowed.",
+      "Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee — and the man put out his hand and took it.",
+      "For you: The Lord used Elisha to make the borrowed iron swim so the young man would not lose what was not his own. God cares about honest, everyday troubles — even a small, borrowed thing.",
       "Reference: 2 Kings 6:1-7 (KJV)."
     ],
     "quizHeading": "Quiz — think it through",
@@ -6352,7 +6362,7 @@
     "takeaway": "Elisha cast in a stick — the iron swam. God cares about honest, everyday troubles.",
     "prayer": "Lord, thank You that nothing is too small to bring to You. Help us trust You today. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha by Jordan casting stick into water iron axe head floating young prophet reaching thankful riverbank trees minimal white space ages 3-8 coloring page",
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha standing calmly by river Jordan young man reaching thankful face toward water gentle ripples iron axe head floating on surface simple stick on bank riverbank trees minimal white space wonder-filled kind mood ages 3-8 coloring page",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sons of prophets Jordan beams",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrowed axe head water alas master",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Stick cast iron did swim",
@@ -6503,130 +6513,6 @@
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sell oil pay debt live children"
     ]
   },
-  "elishaOil": {
-    "kjvRef": "2 Kings 4:1-7 (KJV)",
-    "verseExcerpt": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few. — 2 Kings 4:3 (KJV)",
-    "readAlongTitle": "Read along",
-    "quizWrongHumilityHint": "Listen again — she poured out; and when there was not a vessel more, the oil stayed.",
-    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
-    "readAlongSections": [
-      {
-        "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
-        "caption": "The creditor is come to take unto him my two sons to be bondmen",
-        "image": "panel-noah-1.svg"
-      },
-      {
-        "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
-        "caption": "Save a pot of oil",
-        "image": "panel-noah-1.svg"
-      },
-      {
-        "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
-        "caption": "Borrow empty vessels — borrow not a few",
-        "image": "panel-noah-2.svg"
-      },
-      {
-        "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
-        "caption": "Shut the door — pour out into all those vessels",
-        "image": "panel-noah-2.svg"
-      },
-      {
-        "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
-        "caption": "She poured out",
-        "image": "panel-noah-3.svg"
-      },
-      {
-        "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
-        "caption": "There is not a vessel more — and the oil stayed",
-        "image": "panel-noah-3.svg"
-      },
-      {
-        "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
-        "caption": "Sell the oil — pay thy debt — live thou and thy children of the rest",
-        "image": "panel-noah-3.svg"
-      }
-    ],
-    "paragraphs": [
-      "A certain woman of the wives of the sons of the prophets cried unto Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen.",
-      "Elisha asked what she had in the house; she had only a pot of oil. He said, Go, borrow empty vessels from thy neighbours — borrow not a few. Shut the door upon thee and thy sons, and pour out into all those vessels.",
-      "She obeyed: her sons brought the vessels, and she poured out. When every vessel was full, there was not a vessel more — and the oil stayed. Elisha said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
-      "For you: God sees a mother's worry — and He can do much with what feels like almost nothing when we trust Him and obey."
-    ],
-    "quizHeading": "Quiz — think it through",
-    "questions": [
-      {
-        "question": "Why was the widow afraid for her sons?",
-        "choices": [
-          "They were hungry only.",
-          "The creditor was come to take them to be bondmen.",
-          "They would not sleep.",
-          "They were lost in the city."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "She told Elisha plainly — the creditor would take her sons.",
-        "wrongFeedback": "Listen for creditor and bondmen. (Answer: Creditor would take her sons.)"
-      },
-      {
-        "question": "What did she have in the house besides borrowed vessels?",
-        "choices": [
-          "Much silver.",
-          "Save a pot of oil.",
-          "Many sheep.",
-          "New robes only."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Only a pot of oil — a small start for a big God.",
-        "wrongFeedback": "Listen for pot of oil. (Answer: Save a pot of oil.)"
-      },
-      {
-        "question": "What did Elisha tell her to borrow?",
-        "choices": [
-          "Stones only.",
-          "Empty vessels — borrow not a few.",
-          "Food only.",
-          "Nothing."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Empty vessels — and not just a few.",
-        "wrongFeedback": "Listen for empty vessels. (Answer: Empty vessels — borrow not a few.)"
-      },
-      {
-        "question": "When did the oil stop flowing?",
-        "choices": [
-          "When she was tired.",
-          "When there was not a vessel more.",
-          "At noon only.",
-          "Before any vessel was full."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "There is not a vessel more — and the oil stayed.",
-        "wrongFeedback": "Listen for “not a vessel more.” (Answer: When there were no more vessels.)"
-      },
-      {
-        "question": "What did Elisha tell her to do after the miracle?",
-        "choices": [
-          "Hide the oil.",
-          "Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
-          "Leave the city.",
-          "Give nothing to the creditor."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Pay the debt — then live on the rest. God provides with care.",
-        "wrongFeedback": "Listen for sell the oil and pay thy debt. (Answer: Sell the oil, pay debt, live on the rest.)"
-      }
-    ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Well done — God cares for widows and children, and He can bless little into enough.",
-    "takeaway": "She poured the little oil God gave — and it filled every borrowed vessel until there were no more. Then she could pay her debt and care for her children.",
-    "prayer": "Lord, thank You for caring for families. Help us trust You with what feels small. Amen.",
-    "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines widow indoors pouring from small pot into many jars sons carrying empty vessels thankful hopeful faces thick outlines white space ages 3-8 coloring page",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrow empty vessels borrow not a few",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Shut the door pour out vessels",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Oil stayed when no vessel more",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sell oil pay debt live children"
-    ]
-  },
   "elishaPoisonStew": {
     "kjvRef": "2 Kings 4:38-41 (KJV)",
     "verseExcerpt": "And there was no harm in the pot. — 2 Kings 4:41 (KJV)",
@@ -6745,74 +6631,89 @@
       {
         "text": "And it fell on a day, that Elisha passed to Shunem, where was a great woman; and she constrained him to eat bread. And so it was, that as oft as he passed by, he turned in thither to eat bread.",
         "caption": "A great woman in Shunem — she constrained him to eat bread",
-        "image": "panel-noah-1.svg"
+        "image": "panel-jesus-1.svg"
       },
       {
         "text": "Let us make a little chamber, I pray thee, on the wall; and let us set for him there a bed, and a table, and a stool, and a candlestick: and it shall be, when he cometh to us, that he shall turn in thither.",
         "caption": "A little chamber on the wall — bed, table, stool, and candlestick",
-        "image": "panel-noah-1.svg"
+        "image": "panel-jesus-1.svg"
       },
       {
         "text": "And he said, About this season, according to the time of life, thou shalt embrace a son. And she said, Nay, my lord, thou man of God, do not lie unto thine handmaid.",
-        "caption": "Thou shalt embrace a son — thou man of God, do not lie unto thine handmaid",
-        "image": "panel-noah-2.svg"
+        "caption": "Thou shalt embrace a son — do not lie unto thine handmaid",
+        "image": "panel-jesus-2.svg"
       },
       {
         "text": "And the woman conceived, and bare a son at that season that Elisha had said unto her, according to the time of life.",
         "caption": "She bare a son — according to the time of life",
-        "image": "panel-noah-2.svg"
+        "image": "panel-jesus-2.svg"
       },
       {
         "text": "And when the child was grown, it fell on a day, that he went out to his father to the reapers.",
         "caption": "When the child was grown — he went out to his father to the reapers",
-        "image": "panel-noah-2.svg"
+        "image": "panel-jesus-2.svg"
       },
       {
         "text": "And she went up, and laid him on the bed of the man of God, and shut the door upon him, and went out.",
         "caption": "She laid him on the bed of the man of God — and shut the door",
-        "image": "panel-noah-2.svg"
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And she called unto her husband, and said, Send me, I pray thee, one of the young men, and one of the asses, that I may run to the man of God, and come again.",
+        "caption": "Send me an ass — that I may run to the man of God",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Then she saddled an ass, and said to her servant, Drive, and go forward; slack not thy riding for me, except I bid thee.",
+        "caption": "She saddled an ass — slack not thy riding for me",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "So she went and came unto the man of God to mount Carmel. And it came to pass, when the man of God saw her afar off, that he said to Gehazi his servant, Behold, yonder is that Shunammite:",
+        "caption": "She came unto the man of God to mount Carmel",
+        "image": "panel-jesus-3.svg"
       },
       {
         "text": "Run now, I pray thee, to meet her, and say unto her, Is it well with thee? is it well with thy husband? is it well with the child? And she answered, It is well.",
         "caption": "Is it well with the child? And she answered, It is well",
-        "image": "panel-noah-3.svg"
+        "image": "panel-jesus-3.svg"
       },
       {
         "text": "Then she said, Did I desire a son of my lord? did I not say, Do not deceive me?",
         "caption": "Did I not say, Do not deceive me?",
-        "image": "panel-noah-3.svg"
+        "image": "panel-jesus-3.svg"
       },
       {
         "text": "He went in therefore, and shut the door upon them twain, and prayed unto the LORD.",
         "caption": "He shut the door — and prayed unto the LORD",
-        "image": "panel-noah-3.svg"
+        "image": "panel-jesus-1.svg"
       },
       {
         "text": "And he went up, and lay upon the child, and put his mouth upon his mouth, and his eyes upon his eyes, and his hands upon his hands: and he stretched himself upon the child; and the flesh of the child waxed warm.",
         "caption": "He lay upon the child — the flesh of the child waxed warm",
-        "image": "panel-noah-1.svg"
+        "image": "panel-jesus-1.svg"
       },
       {
         "text": "Then he returned, and walked in the house to and fro; and went up, and stretched himself upon him: and the child sneezed seven times, and the child opened his eyes.",
         "caption": "The child sneezed seven times — and the child opened his eyes",
-        "image": "panel-noah-2.svg"
+        "image": "panel-jesus-2.svg"
       },
       {
         "text": "And he called Gehazi, and said, Call this Shunammite. So he called her. And when she was come in unto him, he said, Take up thy son.",
         "caption": "Take up thy son",
-        "image": "panel-noah-3.svg"
+        "image": "panel-jesus-2.svg"
       },
       {
         "text": "Then she went in, and fell at his feet, and bowed herself to the ground, and took up her son, and went out.",
         "caption": "She took up her son — and went out",
-        "image": "panel-noah-3.svg"
+        "image": "panel-jesus-3.svg"
       }
     ],
     "paragraphs": [
-      "There was a great woman in Shunem who made a little room on the wall for Elisha — a bed, table, stool, and candlestick — so he could rest when he passed by. Elisha promised her a son; she conceived and bare a son at that season he had named.",
-      "When the child was older, he became very sick in his mother's arms — and the sorrow was great. She laid him on the prophet's bed, shut the door, and hurried to find Elisha. When Gehazi asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me?",
-      "Elisha came to the house, went in, shut the door, and prayed unto the LORD. He lay upon the child; the flesh waxed warm. He walked to and fro, then stretched himself upon him again — the child sneezed seven times and opened his eyes. Elisha said, Take up thy son. She fell at his feet, took her son, and went out. The LORD had been merciful.",
-      "For you: When sadness feels too big to carry, you can still run to God — He hears prayer and can restore joy."
+      "There was a great woman in Shunem who made a little chamber on the wall with a bed, table, stool, and candlestick for Elisha whenever he passed by. Elisha asked what could be done for her. She had no child. Elisha said, About this season, thou shalt embrace a son. The woman had a son, just as Elisha had spoken.",
+      "One day the child went out to the reapers and cried, My head, my head. They carried him to his mother; he sat on her knees until noon, and died. She laid him on Elisha’s bed, shut the door, and hurried toward the man of God. Gehazi went ahead with Elisha’s staff, but the child did not awake. When Elisha came into the house, the child was dead upon the bed — yet the mother’s faith held fast.",
+      "Elisha went in, shut the door, and prayed unto the LORD. He lay upon the child, and the flesh waxed warm. He walked to and fro, then stretched himself upon him again. The child sneezed seven times and opened his eyes. Elisha said, Take up thy son. She fell at his feet, took her boy, and went out. The Lord used Elisha to show His tender mercy.",
+      "For you: When sorrow feels too big to carry, you can still run to God — He hears prayer and can restore joy."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
@@ -6853,6 +6754,18 @@
         "wrongFeedback": "Listen for son. (Answer: A son.)"
       },
       {
+        "question": "Where did the mother go to find the man of God?",
+        "choices": [
+          "The sea.",
+          "Mount Carmel.",
+          "Damascus.",
+          "Jericho only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "She came unto the man of God to mount Carmel.",
+        "wrongFeedback": "Listen for Carmel. (Answer: Mount Carmel.)"
+      },
+      {
         "question": "After Elisha prayed and lay upon the child, what happened?",
         "choices": [
           "The child sneezed seven times, and the child opened his eyes.",
@@ -6882,7 +6795,7 @@
     "takeaway": "God used Elisha’s prayer to bring life back — the Shunammite took up her son with joy.",
     "prayer": "Lord, thank You for mercy. Help us trust You in hard moments. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha kneeling beside small bed in room on wall mother reaching thankful child eyes opening soft window thick outlines white space ages 3-8 coloring page",
+      "Simple peaceful black-and-white line-art young children bold thick outlines quiet little chamber on wall small bed Elisha kneeling hands raised in prayer mother standing hopeful thankful child on bed eyes peaceful soft window gentle light rays thick outlines white space ages 3-8 coloring page",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little chamber bed table stool candlestick Shunem",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Prayed unto the LORD shut the door",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Child sneezed seven times opened eyes merciful",
@@ -7073,7 +6986,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:1-7",
+          "2 Kings 4:38-41",
           "1 Samuel 18:6-11, 17-19:17",
           "Esther 5–7",
           "Judges 6:11-40"
@@ -7410,7 +7323,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezra 1–10; Nehemiah 8–9",
+          "Matthew 17:20; Mark 11:23–24",
           "John 2:1–11",
           "Philippians 2:8–11",
           "Luke 17"
@@ -7750,7 +7663,7 @@
           "John 9",
           "Matthew 17",
           "1 Kings 18",
-          "Philippians 2:8–11"
+          "Ezekiel 37:1–14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8033,7 +7946,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Kings 19:9-18",
-          "Ezekiel 37:1–14",
+          "Ezra 1–10; Nehemiah 8–9",
           "Daniel 6",
           "Matthew 18:21–35"
         ],
@@ -8117,7 +8030,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Esther 2–7",
+          "Esther 5–7",
           "1 Samuel 17:8–11, 16, 23–30",
           "Luke 24:50–53; Acts 1:6–11"
         ],
@@ -8351,6 +8264,129 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Not My will—Your will be done! (prayer)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus in the garden (matthew 26)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus prays to the Father (mark 14)"
+    ]
+  },
+  "gehaziGreed": {
+    "kjvRef": "2 Kings 5:20-27 (KJV)",
+    "verseExcerpt": "And he said unto him, Went not mine heart with thee, when the man turned again from his chariot to meet thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants? — 2 Kings 5:26 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "But Gehazi, the servant of Elisha the man of God, said, Behold, my master hath spared Naaman this Syrian, in not receiving at his hands that which he brought: but, as the LORD liveth, I will run after him, and take somewhat of him.",
+        "caption": "Gehazi said, I will run after him, and take somewhat of him",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "So Gehazi followed after Naaman. And when Naaman saw him running after him, he lighted down from the chariot to meet him, and said, Is all well?",
+        "caption": "Gehazi followed — Is all well?",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And he said, All is well. My master hath sent me, saying, Behold, even now there be come to me from mount Ephraim two young men of the sons of the prophets: give them, I pray thee, a talent of silver, and two changes of garments.",
+        "caption": "Two young men of the sons of the prophets — silver and garments",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And Naaman said, Be content, take two talents. And he urged him, and bound two talents of silver in two bags, with two changes of garments, and laid them upon two of his servants; and they bare them before him.",
+        "caption": "Take two talents — two bags of silver and garments",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And when he came to the tower, he took them from their hand, and bestowed them in the house: and he let the men go, and they departed.",
+        "caption": "He bestowed them in the house",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "But he went in, and stood before his master. And Elisha said unto him, Whence comest thou, Gehazi? And he said, Thy servant went no whither.",
+        "caption": "Whence comest thou, Gehazi? — Thy servant went no whither",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And he said unto him, Went not mine heart with thee, when the man turned again from his chariot to meet thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants?",
+        "caption": "Went not mine heart with thee? — Is it a time to receive money?",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "After Naaman was healed, he wished to thank Elisha with gifts. Elisha said, As the LORD liveth, I will receive none. But Gehazi, Elisha’s servant, ran after Naaman and asked for silver and clothing. Naaman gave him two talents of silver and two changes of garments.",
+      "When Gehazi came back, Elisha asked, Whence comest thou? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants? The story shows how much God cares about an honest heart.",
+      "For you: A heart that loves God is better than silver or gold. When we are sorry for wrong, God can still teach us mercy.",
+      "Reference: 2 Kings 5:20-27 (KJV). The last verse names a heavy consequence; the taps stop before it so little listeners stay with Elisha’s gentle words."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What did Elisha want Naaman’s gifts to be?",
+        "choices": [
+          "Taken secretly by a servant.",
+          "Not taken — I will receive none.",
+          "Doubled.",
+          "Hidden in the house."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Elisha would not take payment — God gave the healing.",
+        "wrongFeedback": "Listen for I will receive none."
+      },
+      {
+        "question": "What did Gehazi do after Naaman left?",
+        "choices": [
+          "He stayed home.",
+          "He ran after Naaman to take silver and garments.",
+          "He prayed only.",
+          "He went to Jericho."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He ran after Naaman — not God’s way.",
+        "wrongFeedback": "Listen for ran after him."
+      },
+      {
+        "question": "What did Gehazi say when Elisha asked where he had been?",
+        "choices": [
+          "I went to the river.",
+          "Thy servant went no whither.",
+          "I was with friends.",
+          "I do not remember."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He did not tell the truth at first.",
+        "wrongFeedback": "Listen for went no whither."
+      },
+      {
+        "question": "What did Elisha ask Gehazi about receiving money?",
+        "choices": [
+          "Is it a time to receive money, and to receive garments?",
+          "Did you buy bread?",
+          "Where is the river?",
+          "Who is Naaman?"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Elisha cared about God’s honor — not greed.",
+        "wrongFeedback": "Listen for time to receive money."
+      },
+      {
+        "question": "What does this story help us remember?",
+        "choices": [
+          "Silver is always best.",
+          "God sees the heart — honesty and a thankful heart matter more than treasure.",
+          "We should hide what we do.",
+          "Servants never help."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Truth and a heart for God — better than silver or gold.",
+        "wrongFeedback": "Think: Elisha pointed to God — not to money."
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God loves truth and a thankful heart.",
+    "takeaway": "Elisha spoke truth — a heart that loves God is better than silver or gold.",
+    "prayer": "Lord, thank You for mercy. Help us speak truth and love You more than things. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha standing calmly outside simple house Gehazi before him sorry humble face bundles clothing bags silver on ground soft path thick outlines white space merciful honest mood ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Gehazi ran after Naaman",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Whence comest thou Gehazi",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Went not mine heart with thee",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Is it a time to receive money"
     ]
   },
   "gideonFleece": {
@@ -9450,7 +9486,7 @@
         "choices": [
           "the Bible",
           "1 Kings 18:17-39",
-          "2 Timothy 1:5–7; 3:15",
+          "Philippians 2:8–11",
           "Matthew 27; Mark 15; Luke 23; John 19"
         ],
         "correctIndex": 0,
@@ -11670,7 +11706,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 6:1-21",
+          "Matthew 18:21–35",
           "Acts 2:1–13",
           "Mark 2:1–12",
           "John 11:1–44"
@@ -12510,7 +12546,7 @@
         "choices": [
           "Matthew 28:18–20",
           "Luke 2; Matthew 1–2",
-          "Esther 2:15–18",
+          "Esther 4–5",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -12759,7 +12795,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 6:1-21",
+          "Matthew 18:21–35",
           "Luke 3; Matthew 3",
           "1 Samuel 16:14-23",
           "2 Kings 6:8-17"
@@ -13091,7 +13127,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezekiel 37:1–14",
+          "Ezra 1–10; Nehemiah 8–9",
           "John 9",
           "2 John; 3 John",
           "1 Kings 19:9-18"
@@ -13547,7 +13583,7 @@
           "Genesis 40",
           "1 Kings 18",
           "Daniel 3",
-          "Philippians 2:8–11"
+          "Ezekiel 37:1–14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14523,7 +14559,7 @@
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
           "Isaiah 7:14; 9:6–7; 53:4–6",
-          "Matthew 18:21–35"
+          "Galatians 5"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14856,7 +14892,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Galatians 5",
+          "Matthew 26:36–46; Luke 22:44",
           "2 Kings 2:19-22; 4:1-7",
           "Luke 15",
           "Genesis 28:10–22"
@@ -15111,7 +15147,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 16:11–15",
-          "Matthew 17:20; Mark 11:23–24",
+          "Matthew 17",
           "Revelation 21",
           "1 Kings 17:8-16"
         ],
@@ -16254,136 +16290,120 @@
     ]
   },
   "naamanDip": {
-    "kjvRef": "2 Kings 5:1-14 (KJV)",
-    "verseExcerpt": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)",
+    "kjvRef": "2 Kings 5:15-19 (KJV)",
+    "verseExcerpt": "And he said unto him, Go in peace. So he departed from him a little way. — 2 Kings 5:19 (KJV)",
     "readAlongTitle": "Read along",
-    "quizWrongHumilityHint": "Listen again — Wash, and be clean — and his flesh came again like unto the flesh of a little child.",
     "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
     "readAlongSections": [
       {
-        "text": "Now Naaman, captain of the host of the king of Syria, was a great man with his master, and honourable, because by him the LORD had given deliverance unto Syria: he was also a mighty man in valour, but he was a leper.",
-        "caption": "A great captain — but he was a leper",
+        "text": "And he returned to the man of God, he and all his company, and came, and stood before him: and he said, Behold, now I know that there is no God in all the earth, but in Israel: now therefore, I pray thee, take a blessing of thy servant.",
+        "caption": "Behold, now I know — take a blessing of thy servant",
         "image": "panel-jesus-1.svg"
       },
       {
-        "text": "And the Syrians had gone out by companies, and had brought away captive out of the land of Israel a little maid; and she waited on Naaman’s wife.",
-        "caption": "A little maid waited on Naaman’s wife",
-        "image": "panel-jesus-1.svg"
-      },
-      {
-        "text": "And she said unto her mistress, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
-        "caption": "The prophet in Samaria — he would recover him of his leprosy",
-        "image": "panel-jesus-1.svg"
-      },
-      {
-        "text": "And it was so, when Elisha the man of God had heard that the king of Israel had rent his clothes, that he sent to the king, saying, Wherefore hast thou rent thy clothes? let him come now to me, and he shall know that there is a prophet in Israel.",
-        "caption": "Let him come now to me — there is a prophet in Israel",
+        "text": "But he said, As the LORD liveth, before whom I stand, I will receive none. And he urged him to take it; but he refused.",
+        "caption": "As the LORD liveth, I will receive none",
         "image": "panel-jesus-2.svg"
       },
       {
-        "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha.",
-        "caption": "Naaman stood at the door of the house of Elisha",
+        "text": "And Naaman said, Shall there not then, I pray thee, be given to thy servant two mules’ burden of earth? for thy servant will henceforth offer neither burnt offering nor sacrifice unto other gods, but unto the LORD.",
+        "caption": "Two mules’ burden of earth — unto the LORD only",
         "image": "panel-jesus-2.svg"
       },
       {
-        "text": "And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
-        "caption": "Go and wash in Jordan seven times — thou shalt be clean",
+        "text": "In this thing the LORD pardon thy servant, that when my master goeth into the house of Rimmon to worship there, and he leaneth on my hand, and I bow myself in the house of Rimmon: when I bow down myself in the house of Rimmon, the LORD pardon thy servant in this thing.",
+        "caption": "The LORD pardon thy servant in this thing",
         "image": "panel-jesus-2.svg"
       },
       {
-        "text": "And his servants came near, and spake unto him, and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? how much rather then, when he saith to thee, Wash, and be clean?",
-        "caption": "Wash, and be clean",
-        "image": "panel-jesus-2.svg"
-      },
-      {
-        "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
-        "caption": "Seven times in Jordan — like unto the flesh of a little child — and he was clean",
+        "text": "And he said unto him, Go in peace. So he departed from him a little way.",
+        "caption": "Go in peace",
         "image": "panel-jesus-3.svg"
       }
     ],
     "paragraphs": [
-      "Naaman was captain of the king of Syria — honourable and brave — but he was a leper. A little maid who served his wife said, Would God my lord were with the prophet in Samaria — he would recover him of his leprosy.",
-      "Naaman came to Elisha’s house with horses and chariot. Elisha sent word: Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman’s heart was hot — he thought the rivers of Damascus were better. His servants spoke kindly: If the prophet had bid a great thing, would you not do it? How much more when he saith, Wash, and be clean?",
-      "Then Naaman went down and dipped himself seven times in Jordan, as the man of God said. His flesh came again like a little child’s — and he was clean. For you: God’s way can feel surprisingly simple — humble obedience opens the door to His mercy.",
-      "Reference: 2 Kings 5:1-14 (KJV)."
+      "After Naaman was clean in the Jordan, he came back to the man of God with a thankful heart. He knew the true God was in Israel.",
+      "Naaman wished to give a blessing; Elisha would not take silver or clothing — the healing was God’s gift, not something to buy. Naaman asked for a little earth to remember the LORD, and spoke humbly about his duty to his king. Elisha sent him with kind words: Go in peace.",
+      "For you: God’s mercy is freely given. A thankful heart is a beautiful offering.",
+      "Reference: 2 Kings 5:15-19 (KJV)."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What was Naaman’s trouble at the first?",
+        "question": "What did Naaman say he now knew?",
         "choices": [
-          "He could not walk.",
-          "He was a leper.",
-          "He was a fisherman.",
-          "He had no house."
+          "There was no river in Syria.",
+          "There was no God in all the earth, but in Israel.",
+          "He would never go home.",
+          "Elisha needed more silver."
         ],
         "correctIndex": 1,
-        "correctFeedback": "A great man — but he was a leper.",
-        "wrongFeedback": "Listen for leper. (Answer: He was a leper.)"
+        "correctFeedback": "He saw clearly — the true God is in Israel.",
+        "wrongFeedback": "Listen for no God in all the earth, but in Israel."
       },
       {
-        "question": "Who pointed Naaman toward the prophet in Samaria?",
+        "question": "What did Elisha say about taking Naaman’s gift?",
         "choices": [
-          "The king of Egypt only.",
-          "A little maid from Israel.",
-          "No one.",
-          "Only Naaman’s horse."
+          "He asked for double.",
+          "As the LORD liveth, I will receive none.",
+          "He only wanted gold.",
+          "He sent Naaman away angry."
         ],
         "correctIndex": 1,
-        "correctFeedback": "A little maid — God used her faithful words.",
-        "wrongFeedback": "Listen for little maid. (Answer: A little maid from Israel.)"
+        "correctFeedback": "The healing was God’s gift — not for sale.",
+        "wrongFeedback": "Listen for I will receive none."
       },
       {
-        "question": "What did Elisha tell Naaman to do?",
+        "question": "What did Naaman ask to take with him?",
         "choices": [
-          "Stay home.",
-          "Go and wash in Jordan seven times.",
-          "Bring gold only.",
-          "Never speak again."
+          "A new chariot.",
+          "Two mules’ burden of earth.",
+          "A sword from the king.",
+          "Nothing at all."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Wash in Jordan seven times — simple and clear.",
-        "wrongFeedback": "Listen for Jordan seven times. (Answer: Wash in Jordan seven times.)"
+        "correctFeedback": "Earth — to remember the LORD in his land.",
+        "wrongFeedback": "Listen for two mules and earth."
       },
       {
-        "question": "What did Naaman’s servants wisely say?",
+        "question": "How did Elisha send Naaman away at the end?",
         "choices": [
-          "Run away.",
-          "If the prophet had bid a great thing, would you not do it? How much more — Wash, and be clean?",
-          "Do nothing.",
-          "Shout at the river."
+          "In haste.",
+          "Go in peace.",
+          "With a shout.",
+          "Without a word."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Gentle words — and Naaman obeyed.",
-        "wrongFeedback": "Listen for Wash, and be clean. (Answer: the servants’ wise question about doing a great thing.)"
+        "correctFeedback": "Peace — calm words for the road home.",
+        "wrongFeedback": "Listen for Go in peace."
       },
       {
-        "question": "What happened after he dipped seven times?",
+        "question": "What does this part of the story remind us?",
         "choices": [
-          "Nothing changed.",
-          "His flesh came again like a little child’s — and he was clean.",
-          "He stayed in the water all day.",
-          "The river dried up."
+          "Healing must always be paid for.",
+          "God’s mercy is a gift — and thanks fits a thankful heart.",
+          "We should hide what God did.",
+          "Only kings may pray."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Clean — like a little child.",
-        "wrongFeedback": "Listen for little child and clean. (Answer: Flesh like a little child — he was clean.)"
+        "correctFeedback": "Thankfulness and truth — God’s gift is not bought.",
+        "wrongFeedback": "Think: Elisha would not take payment — God gave the healing."
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Well done — God heals when we trust and obey.",
-    "takeaway": "Naaman dipped seven times in Jordan — God made him clean. Simple obedience can hold great mercy.",
-    "prayer": "Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.",
+    "doneMessage": "Well done — peace goes with those who honor the Lord.",
+    "takeaway": "Naaman came back thankful. Elisha pointed to God — Go in peace.",
+    "prayer": "Lord, thank You for mercy we cannot buy. Teach us grateful hearts. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing in Jordan river seventh dip servants on bank thankful faces clean peaceful skin thick outlines white space ages 3-8 coloring page",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants wise words Wash and be clean",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan"
+      "Simple peaceful black-and-white line-art young children bold thick outlines two figures before simple house door thankful captain humble prophet gesture refusing gift earth bundles mules distant minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Now I know no God but Israel",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text I will receive none",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Two mules burden earth",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Go in peace"
     ]
   },
   "naamanHealed": {
-    "kjvRef": "2 Kings 5:1-14 (KJV)",
+    "kjvRef": "2 Kings 5:1-15 (KJV)",
     "verseExcerpt": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)",
     "readAlongTitle": "Read along",
     "quizWrongHumilityHint": "Listen again — Wash, and be clean — and his flesh came again like unto the flesh of a little child.",
@@ -16405,11 +16425,6 @@
         "image": "panel-jesus-1.svg"
       },
       {
-        "text": "And it was so, when Elisha the man of God had heard that the king of Israel had rent his clothes, that he sent to the king, saying, Wherefore hast thou rent thy clothes? let him come now to me, and he shall know that there is a prophet in Israel.",
-        "caption": "Let him come now to me — there is a prophet in Israel",
-        "image": "panel-jesus-2.svg"
-      },
-      {
         "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha.",
         "caption": "Naaman stood at the door of the house of Elisha",
         "image": "panel-jesus-2.svg"
@@ -16417,6 +16432,16 @@
       {
         "text": "And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
         "caption": "Go and wash in Jordan seven times — thou shalt be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "But Naaman was wroth, and went away, and said, Behold, I thought, He will surely come out to me, and stand, and call on the name of the LORD his God, and strike his hand over the place, and recover the leper.",
+        "caption": "Naaman was wroth — he thought Elisha would come out to him",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Are not Abana and Pharpar, rivers of Damascus, better than all the waters of Israel? may I not wash in them, and be clean? So he turned and went away in a rage.",
+        "caption": "Rivers of Damascus — may I not wash in them, and be clean?",
         "image": "panel-jesus-2.svg"
       },
       {
@@ -16428,13 +16453,18 @@
         "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
         "caption": "Seven times in Jordan — like unto the flesh of a little child — and he was clean",
         "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And he returned to the man of God, he and all his company, and came, and stood before him: and he said, Behold, now I know that there is no God in all the earth, but in Israel: now therefore, I pray thee, take a blessing of thy servant.",
+        "caption": "Behold, now I know that there is no God in all the earth, but in Israel",
+        "image": "panel-jesus-3.svg"
       }
     ],
     "paragraphs": [
-      "Naaman was captain of the king of Syria — honourable and brave — but he was a leper. A little maid who served his wife said, Would God my lord were with the prophet in Samaria — he would recover him of his leprosy.",
-      "Naaman came to Elisha’s house with horses and chariot. Elisha sent word: Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman’s heart was hot — he thought the rivers of Damascus were better. His servants spoke kindly: If the prophet had bid a great thing, would you not do it? How much more when he saith, Wash, and be clean?",
-      "Then Naaman went down and dipped himself seven times in Jordan, as the man of God said. His flesh came again like a little child’s — and he was clean. For you: God’s way can feel surprisingly simple — humble obedience opens the door to His mercy.",
-      "Reference: 2 Kings 5:1-14 (KJV)."
+      "Naaman was captain of the host of the king of Syria, a great man, but he was a leper. A little maid from Israel who served Naaman’s wife said, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
+      "Naaman came with horses and chariot and stood at the door of Elisha’s house. Elisha sent a messenger: Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean. At first Naaman was wroth and went away, saying the rivers of Damascus were better than the waters of Israel. His servants drew near and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?",
+      "Then Naaman went down and dipped himself seven times in Jordan, according to the saying of the man of God. His flesh came again like unto the flesh of a little child, and he was clean. He returned to the man of God and said, Behold, now I know that there is no God in all the earth, but in Israel. For you: The Lord used Elisha to show that simple obedience brings cleansing and that God is mighty to heal.",
+      "Reference: 2 Kings 5:1-15 (KJV). Kings, letters, and gifts (5:4-8) are told in the fuller story; the taps stay in the calm verses above."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
@@ -16478,7 +16508,7 @@
         "question": "What did Naaman’s servants wisely say?",
         "choices": [
           "Run away.",
-          "If the prophet had bid a great thing, would you not do it? How much more — Wash, and be clean?",
+          "If the prophet had bid a great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?",
           "Do nothing.",
           "Shout at the river."
         ],
@@ -16497,6 +16527,18 @@
         "correctIndex": 1,
         "correctFeedback": "Clean — like a little child.",
         "wrongFeedback": "Listen for little child and clean. (Answer: Flesh like a little child — he was clean.)"
+      },
+      {
+        "question": "When Naaman returned to the man of God, what did he say he knew?",
+        "choices": [
+          "There was no river in Israel.",
+          "There was no God in all the earth, but in Israel.",
+          "He would never obey again.",
+          "Damascus had better water."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He saw clearly — the true God is in Israel.",
+        "wrongFeedback": "Listen for no God in all the earth, but in Israel. (Answer: there is no God in all the earth, but in Israel.)"
       }
     ],
     "doneHeading": "You did it!",
@@ -16504,11 +16546,12 @@
     "takeaway": "Naaman dipped seven times in Jordan — God made him clean. Simple obedience can hold great mercy.",
     "prayer": "Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing in Jordan river seventh dip servants on bank thankful faces clean peaceful skin thick outlines white space ages 3-8 coloring page",
+      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman in gentle Jordan river waters seventh dip calm hopeful joyful face soft ripples splashes one servant figure on bank watching kindly Elisha messenger thick outlines trees hills minimal white space wonder thankful healed skin ages 3-8 coloring page",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants wise words Wash and be clean",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan"
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Now I know no God in all earth but Israel"
     ]
   },
   "nehemiahWalls": {
@@ -16527,7 +16570,7 @@
         "choices": [
           "1 Samuel 16:14-23",
           "2 Kings 6:8-17",
-          "Joshua 6:1-21",
+          "Matthew 18:21–35",
           "Nehemiah 1–6"
         ],
         "correctIndex": 3,
@@ -16696,7 +16739,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Galatians 5",
+          "Matthew 26:36–46; Luke 22:44",
           "Genesis 28:10–22",
           "John 11:1–44"
         ],
@@ -16783,7 +16826,7 @@
           "1 Kings 19:19-21",
           "Genesis 6–9",
           "1 Samuel 1",
-          "Esther 4–5"
+          "2 Timothy 1:5–7; 3:15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16949,7 +16992,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:15–18",
+          "Esther 4–5",
           "Luke 2; Matthew 1–2",
           "Matthew 28:18–20",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
@@ -17400,8 +17443,8 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:1-7",
-          "Matthew 26:36–46; Luke 22:44",
+          "2 Kings 4:38-41",
+          "2 Kings 5:20-27",
           "Mark 5:21–43",
           "Acts 9:1–19"
         ],
@@ -17568,7 +17611,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 10",
-          "Esther 5–7",
+          "Esther 2:15–18",
           "2 Timothy 4:6–8",
           "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
@@ -17654,7 +17697,7 @@
           "Acts 19",
           "Mark 5:21–43",
           "Luke 2:1–20",
-          "Matthew 26:36–46; Luke 22:44"
+          "2 Kings 5:20-27"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18564,7 +18607,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2–7",
+          "Esther 5–7",
           "1 Samuel 17:8–11, 16, 23–30",
           "Acts 18:23–21:17",
           "Acts 9:36–43"
@@ -18731,7 +18774,7 @@
           "Titus 1–3",
           "Luke 10",
           "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
-          "Esther 5–7"
+          "Esther 2:15–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19067,7 +19110,7 @@
           "2 Kings 6:1-7",
           "1 Samuel 18:1-4; 20:1-42",
           "Luke 18:1–8",
-          "Matthew 18:21–35"
+          "Galatians 5"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19480,7 +19523,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Timothy 1:5–7; 3:15",
+          "Philippians 2:8–11",
           "1 Samuel 1:1-20",
           "Matthew 4:18–22; Luke 5:1–11",
           "2 Peter 1–3"
@@ -19819,7 +19862,7 @@
         "choices": [
           "Acts 8:26–40",
           "Luke 10",
-          "Esther 5–7",
+          "Esther 2:15–18",
           "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 0,
@@ -19988,7 +20031,7 @@
           "Romans 16:1–2",
           "Matthew 27; Mark 15; Luke 23; John 19",
           "1 Kings 19:19-21",
-          "Esther 4–5"
+          "2 Timothy 1:5–7; 3:15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20071,7 +20114,7 @@
         "choices": [
           "Matthew 6",
           "Numbers 23–24",
-          "2 Kings 4:1–7",
+          "2 Kings 4:1-7",
           "Daniel 3"
         ],
         "correctIndex": 0,
@@ -20155,7 +20198,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 16:11; 17:15, 34–37",
-          "2 Kings 4:38-41",
+          "2 Kings 4:8-37",
           "Matthew 7",
           "Revelation 22"
         ],
@@ -21339,7 +21382,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2–7",
+          "Esther 5–7",
           "Exodus 14",
           "Genesis 1",
           "Acts 9:36–43"
@@ -21425,7 +21468,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "Esther 4–5",
+          "2 Timothy 1:5–7; 3:15",
           "1 Samuel 1",
           "Mark 10:13–16"
         ],
@@ -22006,7 +22049,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:15–18",
+          "Esther 4–5",
           "2 Kings 2:1-14",
           "Revelation 21–22",
           "Matthew 28:18–20"
@@ -22509,7 +22552,7 @@
         "choices": [
           "Daniel 6",
           "1 Kings 19:9-18",
-          "Ezekiel 37:1–14",
+          "Ezra 1–10; Nehemiah 8–9",
           "Revelation 4–5"
         ],
         "correctIndex": 3,
@@ -23010,7 +23053,7 @@
           "1 Kings 18",
           "Daniel 3",
           "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Philippians 2:8–11"
+          "Ezekiel 37:1–14"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24761,7 +24804,7 @@
         "choices": [
           "Genesis 18:9–15",
           "1 Kings 18",
-          "Philippians 2:8–11",
+          "Ezekiel 37:1–14",
           "Daniel 3"
         ],
         "correctIndex": 0,
@@ -25015,7 +25058,7 @@
         "choices": [
           "Luke 2; Matthew 1–2",
           "1 Samuel 9–10",
-          "Esther 2:15–18",
+          "Esther 4–5",
           "Matthew 28:18–20"
         ],
         "correctIndex": 1,
@@ -25097,7 +25140,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 5:1–15",
+          "2 Kings 5:15-19",
           "1 Samuel 18",
           "Acts 8:26–40",
           "Acts 27"
@@ -26610,7 +26653,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 17:20; Mark 11:23–24",
+          "Matthew 17",
           "John 20:24–29",
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
           "Revelation 21"
@@ -26780,7 +26823,7 @@
           "Exodus 32:1-8, 15-20, 30-32",
           "Matthew; Mark; Luke; John (Gospels overview)",
           "Matthew 28",
-          "Luke 24"
+          "Esther 2–7"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -26944,7 +26987,7 @@
           "Exodus 32:1-8, 15-20, 30-32",
           "Matthew 17:1–13",
           "the Bible",
-          "Luke 24"
+          "Esther 2–7"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27192,7 +27235,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 6:1-21",
+          "Matthew 18:21–35",
           "Mark 2:1–12",
           "Acts 2:1–13",
           "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
@@ -27277,7 +27320,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 2:1–11",
-          "Esther 2–7",
+          "Esther 5–7",
           "1 Samuel 17:8–11, 16, 23–30",
           "Acts 9:36–43"
         ],
@@ -27360,7 +27403,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Galatians 5",
+          "Matthew 26:36–46; Luke 22:44",
           "2 Kings 2:19-22; 4:1-7",
           "Mark 12",
           "Genesis 28:10–22"
@@ -27431,87 +27474,127 @@
     ]
   },
   "widowOil": {
-    "kjvRef": "2 Kings 4:1–7",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "2 Kings 4:1-7 (KJV)",
+    "verseExcerpt": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few. — 2 Kings 4:3 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — she poured out; and when there was not a vessel more, the oil stayed.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
+        "caption": "The creditor is come to take unto him my two sons to be bondmen",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
+        "caption": "Save a pot of oil",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
+        "caption": "Borrow empty vessels — borrow not a few",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
+        "caption": "Shut the door — pour out into all those vessels",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
+        "caption": "She poured out",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
+        "caption": "There is not a vessel more — and the oil stayed",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+        "caption": "Sell the oil — pay thy debt — live thou and thy children of the rest",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
     "paragraphs": [
-      "The Widow's Endless Oil (2 Kings 4:1–7).",
-      "A widow owes money—only a little oil left Elisha says: pour into every jar you can find Oil fills every jar—God provides more than enough!",
-      "God's supply never runs out!",
-      "Bring what little you have—He multiplies it."
+      "A certain woman of the wives of the sons of the prophets cried unto Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen.",
+      "Elisha asked what she had in the house; she had only a pot of oil. He said, Go, borrow empty vessels from thy neighbours — borrow not a few. Shut the door upon thee and thy sons, and pour out into all those vessels.",
+      "She obeyed: her sons brought the vessels, and she poured out. When every vessel was full, there was not a vessel more — and the oil stayed. Elisha said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+      "For you: God sees a mother's worry — and He can do much with what feels like almost nothing when we trust Him and obey."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Why was the widow afraid for her sons?",
         "choices": [
-          "2 Timothy 1:5–7; 3:15",
-          "2 Kings 4:1–7",
-          "Daniel 6:22",
-          "1 Kings 18:17-39"
+          "They were hungry only.",
+          "The creditor was come to take them to be bondmen.",
+          "They would not sleep.",
+          "They were lost in the city."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 4:1–7.)"
+        "correctFeedback": "She told Elisha plainly — the creditor would take her sons.",
+        "wrongFeedback": "Listen for creditor and bondmen. (Answer: Creditor would take her sons.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did she have in the house besides borrowed vessels?",
         "choices": [
-          "The Lord",
-          "Elisha",
-          "God",
-          "Joshua"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God's supply never runs out! Bring what little you have—He multiplies it."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God's supply never runs out! Bring what little you have—He multiplies it..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A widow owes money—only a little oil left",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Never say sorry when we do wrong.",
-          "God's supply never runs out! Bring what little you have—He multiplies it.",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us."
+          "Much silver.",
+          "Save a pot of oil.",
+          "Many sheep.",
+          "New robes only."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God's supply never runs out! Bring what little you have—He multiplies it..)"
+        "correctFeedback": "Only a pot of oil — a small start for a big God.",
+        "wrongFeedback": "Listen for pot of oil. (Answer: Save a pot of oil.)"
+      },
+      {
+        "question": "What did Elisha tell her to borrow?",
+        "choices": [
+          "Stones only.",
+          "Empty vessels — borrow not a few.",
+          "Food only.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Empty vessels — and not just a few.",
+        "wrongFeedback": "Listen for empty vessels. (Answer: Empty vessels — borrow not a few.)"
+      },
+      {
+        "question": "When did the oil stop flowing?",
+        "choices": [
+          "When she was tired.",
+          "When there was not a vessel more.",
+          "At noon only.",
+          "Before any vessel was full."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "There is not a vessel more — and the oil stayed.",
+        "wrongFeedback": "Listen for “not a vessel more.” (Answer: When there were no more vessels.)"
+      },
+      {
+        "question": "What did Elisha tell her to do after the miracle?",
+        "choices": [
+          "Hide the oil.",
+          "Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+          "Leave the city.",
+          "Give nothing to the creditor."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Pay the debt — then live on the rest. God provides with care.",
+        "wrongFeedback": "Listen for sell the oil and pay thy debt. (Answer: Sell the oil, pay debt, live on the rest.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Widow's Endless Oil with God's Word today.",
-    "takeaway": "God's supply never runs out! Bring what little you have—He multiplies it.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Widow's Endless Oil. Amen.",
+    "doneMessage": "Well done — God cares for widows and children, and He can bless little into enough.",
+    "takeaway": "She poured the little oil God gave — and it filled every borrowed vessel until there were no more. Then she could pay her debt and care for her children.",
+    "prayer": "Lord, thank You for caring for families. Help us trust You with what feels small. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A widow owes money—only a little oil left (widow)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha says: pour into every jar you can find (oil)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Oil fills every jar—God provides more than enough! (elisha)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A widow owes money—only a little oil left (2 kings 4)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha says: pour into every jar you can find (jars)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines widow indoors pouring from small pot into many jars sons carrying empty vessels thankful hopeful faces thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrow empty vessels borrow not a few",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Shut the door pour out vessels",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Oil stayed when no vessel more",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sell oil pay debt live children"
     ]
   },
   "widowsMite": {
@@ -27696,10 +27779,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:1-7",
+          "2 Kings 4:38-41",
           "1 Samuel 18:6-11, 17-19:17",
           "Luke 19:1–10",
-          "Matthew 26:36–46; Luke 22:44"
+          "2 Kings 5:20-27"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27767,7 +27850,7 @@
     ]
   },
   "naaman": {
-    "kjvRef": "2 Kings 5:1-14 (KJV)",
+    "kjvRef": "2 Kings 5:1-15 (KJV)",
     "verseExcerpt": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)",
     "readAlongTitle": "Read along",
     "quizWrongHumilityHint": "Listen again — Wash, and be clean — and his flesh came again like unto the flesh of a little child.",
@@ -27789,11 +27872,6 @@
         "image": "panel-jesus-1.svg"
       },
       {
-        "text": "And it was so, when Elisha the man of God had heard that the king of Israel had rent his clothes, that he sent to the king, saying, Wherefore hast thou rent thy clothes? let him come now to me, and he shall know that there is a prophet in Israel.",
-        "caption": "Let him come now to me — there is a prophet in Israel",
-        "image": "panel-jesus-2.svg"
-      },
-      {
         "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha.",
         "caption": "Naaman stood at the door of the house of Elisha",
         "image": "panel-jesus-2.svg"
@@ -27801,6 +27879,16 @@
       {
         "text": "And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
         "caption": "Go and wash in Jordan seven times — thou shalt be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "But Naaman was wroth, and went away, and said, Behold, I thought, He will surely come out to me, and stand, and call on the name of the LORD his God, and strike his hand over the place, and recover the leper.",
+        "caption": "Naaman was wroth — he thought Elisha would come out to him",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Are not Abana and Pharpar, rivers of Damascus, better than all the waters of Israel? may I not wash in them, and be clean? So he turned and went away in a rage.",
+        "caption": "Rivers of Damascus — may I not wash in them, and be clean?",
         "image": "panel-jesus-2.svg"
       },
       {
@@ -27812,13 +27900,18 @@
         "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
         "caption": "Seven times in Jordan — like unto the flesh of a little child — and he was clean",
         "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And he returned to the man of God, he and all his company, and came, and stood before him: and he said, Behold, now I know that there is no God in all the earth, but in Israel: now therefore, I pray thee, take a blessing of thy servant.",
+        "caption": "Behold, now I know that there is no God in all the earth, but in Israel",
+        "image": "panel-jesus-3.svg"
       }
     ],
     "paragraphs": [
-      "Naaman was captain of the king of Syria — honourable and brave — but he was a leper. A little maid who served his wife said, Would God my lord were with the prophet in Samaria — he would recover him of his leprosy.",
-      "Naaman came to Elisha’s house with horses and chariot. Elisha sent word: Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman’s heart was hot — he thought the rivers of Damascus were better. His servants spoke kindly: If the prophet had bid a great thing, would you not do it? How much more when he saith, Wash, and be clean?",
-      "Then Naaman went down and dipped himself seven times in Jordan, as the man of God said. His flesh came again like a little child’s — and he was clean. For you: God’s way can feel surprisingly simple — humble obedience opens the door to His mercy.",
-      "Reference: 2 Kings 5:1-14 (KJV)."
+      "Naaman was captain of the host of the king of Syria, a great man, but he was a leper. A little maid from Israel who served Naaman’s wife said, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
+      "Naaman came with horses and chariot and stood at the door of Elisha’s house. Elisha sent a messenger: Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean. At first Naaman was wroth and went away, saying the rivers of Damascus were better than the waters of Israel. His servants drew near and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?",
+      "Then Naaman went down and dipped himself seven times in Jordan, according to the saying of the man of God. His flesh came again like unto the flesh of a little child, and he was clean. He returned to the man of God and said, Behold, now I know that there is no God in all the earth, but in Israel. For you: The Lord used Elisha to show that simple obedience brings cleansing and that God is mighty to heal.",
+      "Reference: 2 Kings 5:1-15 (KJV). Kings, letters, and gifts (5:4-8) are told in the fuller story; the taps stay in the calm verses above."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
@@ -27862,7 +27955,7 @@
         "question": "What did Naaman’s servants wisely say?",
         "choices": [
           "Run away.",
-          "If the prophet had bid a great thing, would you not do it? How much more — Wash, and be clean?",
+          "If the prophet had bid a great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?",
           "Do nothing.",
           "Shout at the river."
         ],
@@ -27881,6 +27974,18 @@
         "correctIndex": 1,
         "correctFeedback": "Clean — like a little child.",
         "wrongFeedback": "Listen for little child and clean. (Answer: Flesh like a little child — he was clean.)"
+      },
+      {
+        "question": "When Naaman returned to the man of God, what did he say he knew?",
+        "choices": [
+          "There was no river in Israel.",
+          "There was no God in all the earth, but in Israel.",
+          "He would never obey again.",
+          "Damascus had better water."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He saw clearly — the true God is in Israel.",
+        "wrongFeedback": "Listen for no God in all the earth, but in Israel. (Answer: there is no God in all the earth, but in Israel.)"
       }
     ],
     "doneHeading": "You did it!",
@@ -27888,11 +27993,136 @@
     "takeaway": "Naaman dipped seven times in Jordan — God made him clean. Simple obedience can hold great mercy.",
     "prayer": "Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing in Jordan river seventh dip servants on bank thankful faces clean peaceful skin thick outlines white space ages 3-8 coloring page",
+      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman in gentle Jordan river waters seventh dip calm hopeful joyful face soft ripples splashes one servant figure on bank watching kindly Elisha messenger thick outlines trees hills minimal white space wonder thankful healed skin ages 3-8 coloring page",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants wise words Wash and be clean",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan"
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Now I know no God in all earth but Israel"
+    ]
+  },
+  "elishaOil": {
+    "kjvRef": "2 Kings 4:1-7 (KJV)",
+    "verseExcerpt": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few. — 2 Kings 4:3 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — she poured out; and when there was not a vessel more, the oil stayed.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
+        "caption": "The creditor is come to take unto him my two sons to be bondmen",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
+        "caption": "Save a pot of oil",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
+        "caption": "Borrow empty vessels — borrow not a few",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
+        "caption": "Shut the door — pour out into all those vessels",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
+        "caption": "She poured out",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
+        "caption": "There is not a vessel more — and the oil stayed",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+        "caption": "Sell the oil — pay thy debt — live thou and thy children of the rest",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "A certain woman of the wives of the sons of the prophets cried unto Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen.",
+      "Elisha asked what she had in the house; she had only a pot of oil. He said, Go, borrow empty vessels from thy neighbours — borrow not a few. Shut the door upon thee and thy sons, and pour out into all those vessels.",
+      "She obeyed: her sons brought the vessels, and she poured out. When every vessel was full, there was not a vessel more — and the oil stayed. Elisha said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+      "For you: God sees a mother's worry — and He can do much with what feels like almost nothing when we trust Him and obey."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Why was the widow afraid for her sons?",
+        "choices": [
+          "They were hungry only.",
+          "The creditor was come to take them to be bondmen.",
+          "They would not sleep.",
+          "They were lost in the city."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "She told Elisha plainly — the creditor would take her sons.",
+        "wrongFeedback": "Listen for creditor and bondmen. (Answer: Creditor would take her sons.)"
+      },
+      {
+        "question": "What did she have in the house besides borrowed vessels?",
+        "choices": [
+          "Much silver.",
+          "Save a pot of oil.",
+          "Many sheep.",
+          "New robes only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Only a pot of oil — a small start for a big God.",
+        "wrongFeedback": "Listen for pot of oil. (Answer: Save a pot of oil.)"
+      },
+      {
+        "question": "What did Elisha tell her to borrow?",
+        "choices": [
+          "Stones only.",
+          "Empty vessels — borrow not a few.",
+          "Food only.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Empty vessels — and not just a few.",
+        "wrongFeedback": "Listen for empty vessels. (Answer: Empty vessels — borrow not a few.)"
+      },
+      {
+        "question": "When did the oil stop flowing?",
+        "choices": [
+          "When she was tired.",
+          "When there was not a vessel more.",
+          "At noon only.",
+          "Before any vessel was full."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "There is not a vessel more — and the oil stayed.",
+        "wrongFeedback": "Listen for “not a vessel more.” (Answer: When there were no more vessels.)"
+      },
+      {
+        "question": "What did Elisha tell her to do after the miracle?",
+        "choices": [
+          "Hide the oil.",
+          "Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+          "Leave the city.",
+          "Give nothing to the creditor."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Pay the debt — then live on the rest. God provides with care.",
+        "wrongFeedback": "Listen for sell the oil and pay thy debt. (Answer: Sell the oil, pay debt, live on the rest.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God cares for widows and children, and He can bless little into enough.",
+    "takeaway": "She poured the little oil God gave — and it filled every borrowed vessel until there were no more. Then she could pay her debt and care for her children.",
+    "prayer": "Lord, thank You for caring for families. Help us trust You with what feels small. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines widow indoors pouring from small pot into many jars sons carrying empty vessels thankful hopeful faces thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrow empty vessels borrow not a few",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Shut the door pour out vessels",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Oil stayed when no vessel more",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sell oil pay debt live children"
     ]
   }
 };

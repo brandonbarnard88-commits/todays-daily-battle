@@ -74,6 +74,7 @@
     elishaPoisonStew: 185,
     elishaBlindArmy: 186,
     gehaziGreed: 187,
+    widowOil: 188,
     elishaMiracles: 182,
     elishaOil: 19,
     elishaShunammite: 49,

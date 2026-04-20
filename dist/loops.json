@@ -176,12 +176,12 @@
   },
   {
     "id": 19,
-    "title": "Elisha and the Widow's Oil",
+    "title": "The Widow's Oil Multiplied",
     "file": "",
     "audio": "",
     "ref": "2 Kings 4:1-7",
     "week": 1,
-    "libraryKey": "elishaOil",
+    "libraryKey": "widowOil",
     "kjvText": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed."
   },
   {
@@ -198,8 +198,9 @@
     "title": "Naaman Is Healed of Leprosy",
     "file": "",
     "audio": "",
-    "ref": "2 Kings 5:1-14",
+    "ref": "2 Kings 5:1-15",
     "week": 1,
+    "kjvText": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
     "libraryKey": "naamanHealed"
   },
   {
@@ -1675,7 +1676,7 @@
   },
   {
     "id": 183,
-    "title": "Elisha and the Floating Axe",
+    "title": "Elisha and the Floating Axe Head",
     "file": "",
     "audio": "",
     "ref": "2 Kings 6:1-7",
@@ -1712,5 +1713,25 @@
     "week": 12,
     "libraryKey": "elishaBlindArmy",
     "kjvText": "Thou shalt not smite them: wouldest thou smite those whom thou hast taken captive with thy sword and with thy bow? set bread and water before them, that they may eat and drink, and go to their master."
+  },
+  {
+    "id": 187,
+    "title": "Gehazi and Honest Hearts",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 5:20-27",
+    "week": 12,
+    "libraryKey": "gehaziGreed",
+    "kjvText": "And he said unto him, Went not mine heart with thee, when the man turned again from his chariot to meet thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants?"
+  },
+  {
+    "id": 188,
+    "title": "The Widow's Oil Multiplied",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 4:1-7",
+    "week": 12,
+    "libraryKey": "widowOil",
+    "kjvText": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed."
   }
 ]

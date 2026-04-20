@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-20T14:59:02.886Z",
-  "surfacedRefCount": 2808,
-  "overrideCount": 2808,
+  "generatedAt": "2026-04-20T16:04:26.658Z",
+  "surfacedRefCount": 2812,
+  "overrideCount": 2812,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 171,
+      "refs": 172,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -252,7 +252,7 @@
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 158,
+      "refs": 162,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 185,
+      "refs": 186,
       "pairs": 0
     },
     "memorize.html": {
@@ -905,11 +905,15 @@
     "2 Kings 4:7",
     "2 Kings 4:8-37",
     "2 Kings 5:1",
-    "2 Kings 5:1-14",
     "2 Kings 5:1-15",
     "2 Kings 5:10",
     "2 Kings 5:14",
     "2 Kings 5:15",
+    "2 Kings 5:15-19",
+    "2 Kings 5:16",
+    "2 Kings 5:20-27",
+    "2 Kings 5:25-26",
+    "2 Kings 5:26",
     "2 Kings 6:1-7",
     "2 Kings 6:14-17",
     "2 Kings 6:17",
@@ -6599,14 +6603,6 @@
         "to": "Israel"
       }
     },
-    "2 Kings 5:1-14": {
-      "general": {
-        "plainExplanation": "Key idea: Now Naaman, captain of the host of the king of Syria, was a great man with his master, and honourable, because by him the LORD had given deliverance to Syri...",
-        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
-        "about": "Unknown",
-        "to": "Israel"
-      }
-    },
     "2 Kings 5:1-15": {
       "general": {
         "plainExplanation": "Key idea: Now Naaman, captain of the host of the king of Syria, was a great man with his master, and honourable, because by him the LORD had given deliverance to Syri...",
@@ -6634,6 +6630,46 @@
     "2 Kings 5:15": {
       "general": {
         "plainExplanation": "Key idea: And he returned to the man of God, he and all his company, and came, and stood before him: and he said, look, now I know that there is no God in all the ear...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 5:15-19": {
+      "general": {
+        "plainExplanation": "Key idea: And he returned to the man of God, he and all his company, and came, and stood before him: and he said, look, now I know that there is no God in all the ear...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 5:16": {
+      "general": {
+        "plainExplanation": "But he said, As the LORD liveth, before whom I stand, I will receive none. And he urged him to take it; but he refused.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 5:20-27": {
+      "general": {
+        "plainExplanation": "Key idea: But Gehazi, the servant of Elisha the man of God, said, look, my master has spared Naaman this Syrian, in not receiving at his hands that which he brought:...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 5:25-26": {
+      "general": {
+        "plainExplanation": "Key idea: But he went in, and stood before his master. And Elisha said to him, Whence comest you, Gehazi? And he said, your servant went no whither. And he said to hi...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 5:26": {
+      "general": {
+        "plainExplanation": "Key idea: And he said to him, Went not mine heart with you, when the man turned again from his chariot to meet you? Is it a time to receive money, and to receive garm...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"

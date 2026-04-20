@@ -578,7 +578,7 @@
   },
   {
     "key": "elishaFloatingAxe",
-    "title": "Elisha and the Floating Axe",
+    "title": "Elisha and the Floating Axe Head",
     "kjvRef": "2 Kings 6:1-7",
     "who": "The LORD",
     "to": "a worried builder — through Elisha",
@@ -595,16 +595,6 @@
     "apply": "God cares about daily needs — He can make what looked harmful become safe when we trust Him.",
     "theme": "Miracles",
     "kw": "elisha poisoned stew death in the pot gilgal pottage great pot wild gourds meal 2 kings 4 2 kings 4:38 2 kings 4:41 sons of the prophets seethe no harm in the pot"
-  },
-  {
-    "key": "elishaOil",
-    "title": "Elisha and the Widow's Oil",
-    "kjvRef": "2 Kings 4:1-7",
-    "who": "The LORD",
-    "to": "A widow and her sons — through Elisha",
-    "apply": "God can turn a little into enough when we obey Him step by step — He cares for mothers and children.",
-    "theme": "Miracles",
-    "kw": "elisha widow oil 2 kings 4 2 kings 4:1 2 kings 4:3 2 kings 4:6 creditor bondmen vessels pot of oil sons of the prophets pour out oil stayed pay thy debt"
   },
   {
     "key": "elijahElijahElisha",
@@ -765,6 +755,16 @@
     "apply": "Jesus talks to God—talk to Him! Pray when you're scared or sad!",
     "theme": "Protection",
     "kw": "gethsemane garden prayer matthew 26 mark 14 luke 22"
+  },
+  {
+    "key": "gehaziGreed",
+    "title": "Gehazi and Honest Hearts",
+    "kjvRef": "2 Kings 5:20-27",
+    "who": "The LORD",
+    "to": "Elisha’s servant — and every tempted heart",
+    "apply": "God sees the heart. Truth and thankfulness to Him are better than silver or gold.",
+    "theme": "Obedience",
+    "kw": "gehazi gehazi elisha 2 kings 5 2 kings 5:20 2 kings 5:25 2 kings 5:26 whence comest thou went no whither mine heart with thee two talents mount ephraim sons of the prophets receive money naaman gifts elisha servant syrian"
   },
   {
     "key": "gideonFleece",
@@ -1517,24 +1517,34 @@
     "kw": "moses staff snake exodus 7 pharaoh sign power"
   },
   {
-    "key": "naamanDip",
-    "title": "Naaman Dips in the River",
-    "kjvRef": "2 Kings 5:1–15",
-    "who": "God",
-    "to": "Naaman through Elisha",
-    "apply": "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He can heal and help in ways you don't expect.",
-    "theme": "Obedience",
-    "kw": "naaman river jordan 2 kings 5 leprosy heal obey"
-  },
-  {
     "key": "naamanHealed",
     "title": "Naaman Is Healed of Leprosy",
-    "kjvRef": "2 Kings 5:1-14",
+    "kjvRef": "2 Kings 5:1-15",
     "who": "The LORD",
     "to": "Naaman — through Elisha’s word",
     "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
     "theme": "Obedience",
     "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
+  },
+  {
+    "key": "naaman",
+    "title": "Naaman Is Healed of Leprosy",
+    "kjvRef": "2 Kings 5:1-15",
+    "who": "The LORD",
+    "to": "Naaman — through Elisha’s word",
+    "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
+    "theme": "Obedience",
+    "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
+  },
+  {
+    "key": "naamanDip",
+    "title": "Naaman Returns with Thanks",
+    "kjvRef": "2 Kings 5:15-19",
+    "who": "The LORD",
+    "to": "Naaman — through Elisha",
+    "apply": "God’s mercy is a gift — not something we buy. A thankful heart is a beautiful offering.",
+    "theme": "Obedience",
+    "kw": "naaman naaman returns after naaman healed take a blessing two mules earth go in peace 2 kings 5:15 2 kings 5:16 2 kings 5:17 2 kings 5:19 2 kings 5 gifts thanks elisha syria"
   },
   {
     "key": "nehemiahWalls",
@@ -2828,13 +2838,23 @@
   },
   {
     "key": "widowOil",
-    "title": "The Widow's Endless Oil",
-    "kjvRef": "2 Kings 4:1–7",
-    "who": "God",
-    "to": "The widow through Elisha",
-    "apply": "God's supply never runs out! Bring what little you have—He multiplies it.",
+    "title": "The Widow's Oil Multiplied",
+    "kjvRef": "2 Kings 4:1-7",
+    "who": "The LORD",
+    "to": "A widow and her sons — through Elisha",
+    "apply": "God can multiply what little we have when we obey and trust Him step by step.",
     "theme": "Miracles",
-    "kw": "widow oil elisha 2 kings 4 jars multiply provide"
+    "kw": "widow oil widow's oil widow oil multiplied pot of oil creditor bondmen borrow not a few empty vessels oil stayed pay thy debt sons of the prophets 2 kings 4 2 kings 4:1 2 kings 4:6 elisha multiply oil"
+  },
+  {
+    "key": "elishaOil",
+    "title": "The Widow's Oil Multiplied",
+    "kjvRef": "2 Kings 4:1-7",
+    "who": "The LORD",
+    "to": "A widow and her sons — through Elisha",
+    "apply": "God can multiply what little we have when we obey and trust Him step by step.",
+    "theme": "Miracles",
+    "kw": "widow oil widow's oil widow oil multiplied pot of oil creditor bondmen borrow not a few empty vessels oil stayed pay thy debt sons of the prophets 2 kings 4 2 kings 4:1 2 kings 4:6 elisha multiply oil"
   },
   {
     "key": "widowMite",

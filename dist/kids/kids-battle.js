@@ -1351,43 +1351,6 @@
           'Elisha did not rush past home — he honored his parents, then rose and followed. God blesses willing, orderly obedience.'
       }
     },
-    elishaOil: {
-      title: 'Elisha and the Widow\'s Oil',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A widow cries — the creditor would take her two sons' },
-        { src: 'panel-noah-2.svg', alt: 'Borrow many empty vessels — shut the door and pour' },
-        { src: 'panel-noah-3.svg', alt: 'Every vessel full — sell the oil and pay the debt' }
-      ],
-      caption: 'Swipe to see God fill every vessel — He provides! 🫙',
-      videoId: '6E2WJ0vp4g4',
-      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
-      keywords: [
-        'elisha',
-        'widow',
-        'oil',
-        '2 kings 4',
-        '2 kings 4:1',
-        '2 kings 4:3',
-        '2 kings 4:6',
-        'creditor',
-        'bondmen',
-        'vessels',
-        'pot of oil',
-        'sons of the prophets',
-        'pour out',
-        'oil stayed',
-        'pay thy debt'
-      ],
-      kjvRef: '2 Kings 4:1-7',
-      kidContext: {
-        who: 'The LORD',
-        to: 'A widow and her sons — through Elisha',
-        apply:
-          'God can turn a little into enough when we obey Him step by step — He cares for mothers and children.'
-      },
-      narration:
-        "Elisha and the Widow's Oil — 2 Kings 4:1-7. A woman cried to Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When the vessels were full, there was not a vessel more — and the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too. He can provide more than you see yet."
-    },
     naamanHealed: {
       title: 'Naaman Is Healed of Leprosy',
       panels: [
@@ -1395,7 +1358,7 @@
         { src: 'panel-jesus-2.svg', alt: 'Wash in Jordan seven times — Wash, and be clean' },
         { src: 'panel-jesus-3.svg', alt: 'Seven times in the river — clean like a little child' }
       ],
-      caption: 'Swipe to see God heal Naaman — simple faith, great mercy! 💧',
+      caption: 'Swipe to see God heal Naaman — simple obedience, gentle mercy.',
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
       keywords: [
@@ -1414,7 +1377,7 @@
         'wash and be clean',
         'syria'
       ],
-      kjvRef: '2 Kings 5:1-14',
+      kjvRef: '2 Kings 5:1-15',
       kidContext: {
         who: 'The LORD',
         to: 'Naaman — through Elisha’s word',
@@ -1422,7 +1385,7 @@
           'God’s healing often comes through simple obedience — even when pride wants a louder way.'
       },
       narration:
-        "Naaman Is Healed of Leprosy — 2 Kings 5:1-14. Naaman was a great captain, but a leper. A little maid said, There is a prophet in Samaria — he would recover him. Naaman came to Elisha; the prophet sent word, Go and wash in Jordan seven times. At first Naaman’s heart was hot — but his servants said, If he had bid a great thing, would you not do it? How much more — Wash, and be clean? Naaman dipped seven times; his flesh came again like a little child’s — and he was clean. For you: When God asks something small, trust Him — His mercy is not small."
+        "Naaman Is Healed of Leprosy — 2 Kings 5:1-15. Naaman was captain of the king of Syria, a great man, but he was a leper. A little maid said, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy. Naaman came with horses and chariot and stood at the door of Elisha’s house. Elisha sent word, Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman was wroth — but his servants said, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean? Naaman dipped seven times; his flesh came again like unto the flesh of a little child, and he was clean. He returned and said, Behold, now I know that there is no God in all the earth, but in Israel. For you: Simple obedience brings cleansing — God is mighty to heal."
     },
     jesusWalksWater: {
       title: 'Jesus Walks on Water',
@@ -2115,53 +2078,43 @@
       narration:
         "Elijah and the Still Small Voice – 1 Kings 19:9-18. Elijah lodged in a cave; the word of the LORD came: What doest thou here, Elijah? He told how he had been jealous for the LORD — and felt alone. Go forth, stand upon the mount before the LORD. The LORD passed by: a great wind rent the mountains — the LORD was not in the wind; an earthquake — the LORD was not in the earthquake; a fire — the LORD was not in the fire; and after the fire a still small voice. When Elijah heard it, he wrapped his face in his mantle and stood in the entering in of the cave. The LORD spoke again — and showed him faithful work ahead, and this comfort: Yet I have left me seven thousand in Israel, all the knees which have not bowed unto Baal. For you: When life feels loud inside, God can still speak softly — lean in and listen."
     },
-    elishaOil: {
-      title: 'Elisha and the Widow\'s Oil',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A widow cries — the creditor would take her two sons' },
-        { src: 'panel-noah-2.svg', alt: 'Borrow many empty vessels — shut the door and pour' },
-        { src: 'panel-noah-3.svg', alt: 'Every vessel full — sell the oil and pay the debt' }
-      ],
-      caption: 'Swipe to see God fill every vessel — He provides! 🫙',
-      videoId: '6E2WJ0vp4g4',
-      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
-      keywords: [
-        'elisha',
-        'widow',
-        'oil',
-        '2 kings 4',
-        'creditor',
-        'bondmen',
-        'vessels',
-        'pot of oil',
-        'pour out',
-        'miracle',
-        'multiply'
-      ],
-      kjvRef: '2 Kings 4:1-7',
-      kidContext: {
-        who: 'The LORD',
-        to: 'A widow and her sons — through Elisha',
-        apply:
-          'God can turn a little into enough when we obey Him step by step — He cares for mothers and children.'
-      },
-      narration:
-        "Elisha and the Widow's Oil — 2 Kings 4:1-7. A woman cried to Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When the vessels were full, there was not a vessel more — and the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too. He can provide more than you see yet."
-    },
     naamanDip: {
-      title: 'Naaman Dips in the River',
+      title: 'Naaman Returns with Thanks',
       panels: [
-        { src: 'panel-noah-1.svg', alt: "Naaman with leprosy – Proud captain needing help" },
-        { src: 'panel-noah-2.svg', alt: "Naaman dipping in the Jordan River – Obeying Elisha" },
-        { src: 'panel-noah-3.svg', alt: "Naaman healed – Skin clean like new" }
+        { src: 'panel-jesus-1.svg', alt: 'Naaman stands before Elisha — thankful, with company' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha will take no payment — God gave the healing freely' },
+        { src: 'panel-jesus-3.svg', alt: 'Go in peace — Naaman turns toward home with a glad heart' }
       ],
-      caption: 'Swipe to see Naaman healed—obey and be made new! 💧',
+      caption: 'Swipe for thanks after the river — God’s healing was not for sale.',
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
-      keywords: ['naaman', 'river', 'jordan', '2 kings 5', 'leprosy', 'heal', 'obey'],
-      kjvRef: '2 Kings 5:1–15',
-      kidContext: { who: 'God', to: 'Naaman through Elisha', apply: "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He can heal and help in ways you don't expect." },
-      narration: "Naaman Washed Clean – 2 Kings 5:14. Naaman was a great army captain, but he had leprosy. A little servant girl said, 'Go to the prophet in Israel—God can heal you.' Naaman went to Elisha. Elisha said, 'Go wash in the Jordan River seven times.' Naaman was angry—'The rivers in my country are better!' But his servants said, 'If he asked something hard, you would do it—why not this?' Naaman obeyed, dipped seven times, and his skin became clean like a child's! God healed him. For you: Sometimes God asks us to do simple things like pray, forgive, or be kind. Obey even if it seems small—God can do big miracles when we trust and follow Him."
+      keywords: [
+        'naaman',
+        'naaman returns',
+        'after naaman healed',
+        'take a blessing',
+        'two mules',
+        'earth',
+        'go in peace',
+        '2 kings 5:15',
+        '2 kings 5:16',
+        '2 kings 5:17',
+        '2 kings 5:19',
+        '2 kings 5',
+        'gifts',
+        'thanks',
+        'elisha',
+        'syria'
+      ],
+      kjvRef: '2 Kings 5:15-19',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Naaman — through Elisha',
+        apply:
+          'God’s mercy is a gift — not something we buy. A thankful heart is a beautiful offering.'
+      },
+      narration:
+        "Naaman Returns with Thanks — 2 Kings 5:15-19. After Naaman was clean, he came and stood before the man of God and said, Behold, now I know that there is no God in all the earth, but in Israel. He wished to give a blessing; Elisha said, As the LORD liveth, I will receive none. Naaman asked for earth to remember the LORD, and Elisha sent him, Go in peace. For you: The river was not the end — a thankful heart still had more to learn about God’s free gift."
     },
     creationLight: {
       title: '"Let There Be Light"',
@@ -3372,11 +3325,11 @@
     elishaShunammite: {
       title: 'Elisha Raises the Shunammite\'s Son',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A little room on the wall — bed and candlestick for Elisha' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha prays — the child opens his eyes' },
-        { src: 'panel-noah-3.svg', alt: 'Take up thy son — the mother\'s joy' }
+        { src: 'panel-jesus-1.svg', alt: 'A little chamber on the wall — bed, table, stool, and candlestick for Elisha' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha prays — the child’s flesh waxes warm; he sneezes seven times' },
+        { src: 'panel-jesus-3.svg', alt: 'Take up thy son — the mother’s quiet joy' }
       ],
-      caption: 'Swipe to see God\'s mercy — take up thy son! ✨',
+      caption: 'Swipe to see God’s tender mercy — prayer, warmth, and take up thy son.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -3403,7 +3356,83 @@
           'God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.'
       },
       narration:
-        "Elisha Raises the Shunammite's Son — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall for Elisha — bed, table, stool, and candlestick. Elisha promised her a son; she bare a son in the season he named. Later, deep trouble came to the child; the mother laid him on the prophet's bed and ran to Elisha. When asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me? Elisha prayed, lay upon the child, and the flesh waxed warm. The child sneezed seven times and opened his eyes. Take up thy son. She took him and went out. For you: Run to God with your tears — He is merciful."
+        "Elisha Raises the Shunammite's Son — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall for Elisha — bed, table, stool, and candlestick. Elisha promised her a son; she bare a son in the season he named. One day the boy became sick; she laid him on the prophet's bed, shut the door, and went quickly to find Elisha at Mount Carmel. When Gehazi asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me? Elisha prayed, lay upon the child, and the flesh waxed warm. The child sneezed seven times and opened his eyes. Take up thy son. She took him and went out. For you: Run to God with your tears — He is merciful."
+    },
+    gehaziGreed: {
+      title: 'Gehazi and Honest Hearts',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Elisha stands firm — I will receive none of Naaman’s gifts' },
+        { src: 'panel-jesus-2.svg', alt: 'Gehazi returns — Elisha asks, Whence comest thou?' },
+        { src: 'panel-jesus-3.svg', alt: 'Elisha speaks truth — Is it a time to receive money?' }
+      ],
+      caption: 'Swipe to see truth spoken kindly — God cares about an honest heart.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'gehazi',
+        'gehazi elisha',
+        '2 kings 5',
+        '2 kings 5:20',
+        '2 kings 5:25',
+        '2 kings 5:26',
+        'whence comest thou',
+        'went no whither',
+        'mine heart with thee',
+        'two talents',
+        'mount ephraim',
+        'sons of the prophets',
+        'receive money',
+        'naaman gifts',
+        'elisha servant',
+        'syrian'
+      ],
+      kjvRef: '2 Kings 5:20-27',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elisha’s servant — and every tempted heart',
+        apply:
+          'God sees the heart. Truth and thankfulness to Him are better than silver or gold.'
+      },
+      narration:
+        "Gehazi and Honest Hearts — 2 Kings 5:20-27. After Naaman was healed, Elisha would not take his gifts. Gehazi ran after Naaman and asked for silver and clothing. When he came back, Elisha asked, Whence comest thou? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments? For you: When we are sorry for wrong, God still teaches mercy — and a heart that loves Him is better than treasure."
+    },
+    widowOil: {
+      title: 'The Widow\'s Oil Multiplied',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'A widow cries — the creditor would take her two sons' },
+        { src: 'panel-jesus-2.svg', alt: 'Borrow many empty vessels — shut the door and pour' },
+        { src: 'panel-jesus-3.svg', alt: 'Every vessel full — sell the oil and pay the debt' }
+      ],
+      caption: 'Swipe to see God multiply little into enough — pour, fill, pay, live.',
+      videoId: '6E2WJ0vp4g4',
+      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
+      keywords: [
+        'widow oil',
+        'widow\'s oil',
+        'widow oil multiplied',
+        'pot of oil',
+        'creditor',
+        'bondmen',
+        'borrow not a few',
+        'empty vessels',
+        'oil stayed',
+        'pay thy debt',
+        'sons of the prophets',
+        '2 kings 4',
+        '2 kings 4:1',
+        '2 kings 4:6',
+        'elisha',
+        'multiply oil'
+      ],
+      kjvRef: '2 Kings 4:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A widow and her sons — through Elisha',
+        apply:
+          'God can multiply what little we have when we obey and trust Him step by step.'
+      },
+      narration:
+        "The Widow's Oil Multiplied — 2 Kings 4:1-7. A certain woman of the wives of the sons of the prophets cried unto Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When there was not a vessel more, the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too."
     },
     estherCrown: {
       title: 'Queen Esther\'s Courage',
@@ -3847,13 +3876,13 @@
         "Elisha's First Miracles — 2 Kings 2:19-22; 4:1-7. The men of the city told Elisha, The water is naught, and the ground barren. He said, Bring me a new cruse, and put salt therein. He cast it into the spring and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land — and the waters were healed. Later a widow cried that the creditor would take her sons; she had only a pot of oil. Elisha sent her to borrow empty vessels, pour behind closed doors — and the oil flowed until every vessel was full. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: When needs feel big and your little feels small, God can still provide — ask Him and obey one step at a time."
     },
     elishaFloatingAxe: {
-      title: 'Elisha and the Floating Axe',
+      title: 'Elisha and the Floating Axe Head',
       panels: [
         { src: 'panel-jesus-1.svg', alt: 'Sons of the prophets — the place is too strait; beams from Jordan' },
         { src: 'panel-jesus-2.svg', alt: 'The axe head falls in the water — Alas, master! it was borrowed' },
         { src: 'panel-jesus-3.svg', alt: 'Elisha casts a stick — the iron swims — take it up to thee' }
       ],
-      caption: 'Swipe to see God care about a borrowed axe — iron that swam.',
+      caption: 'Swipe to see gentle wonder — borrowed iron that swam home.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -3880,7 +3909,7 @@
           'God cares about honest, everyday troubles — even a small, borrowed thing. Tell Him what you need.'
       },
       narration:
-        "Elisha and the Floating Axe — 2 Kings 6:1-7. The sons of the prophets said, The place where we dwell with thee is too strait — let us go to Jordan, take every man a beam, and make a place there. At Jordan, as one was felling a beam, the axe head fell into the water. He cried, Alas, master! for it was borrowed. Elisha said, Where fell it? He showed him the place. Elisha cut down a stick, cast it in thither, and the iron did swim. Take it up to thee — and he took it. For you: Nothing honest is too small to bring to God."
+        "Elisha and the Floating Axe Head — 2 Kings 6:1-7. The sons of the prophets said, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams for a new place. As one was cutting down a beam, the axe head fell into the water, and he cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee — and the man put out his hand and took it. For you: The Lord used Elisha to make the borrowed iron swim so the young man would not lose what was not his own."
     },
     elishaChariots: {
       title: 'Elisha and the Chariots of Fire',
@@ -5970,20 +5999,6 @@
       kjvRef: 'Luke 2:36–38',
       kidContext: { who: 'God', to: 'Anna', apply: 'Never stop praying! Like Anna—stay close to God and He will show you His glory.' }
     },
-    widowOil: {
-      title: 'The Widow\'s Endless Oil',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A widow owes money—only a little oil left' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha says: pour into every jar you can find' },
-        { src: 'panel-noah-3.svg', alt: 'Oil fills every jar—God provides more than enough!' }
-      ],
-      caption: 'Swipe to see God\'s endless supply for the widow! 🫙',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['widow', 'oil', 'elisha', '2 kings 4', 'jars', 'multiply', 'provide'],
-      kjvRef: '2 Kings 4:1–7',
-      kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God\'s supply never runs out! Bring what little you have—He multiplies it.' }
-    },
     persistentWidow: {
       title: 'The Persistent Widow',
       panels: [
@@ -6374,6 +6389,7 @@
     normalizeBibleStoriesForUi(bibleStories);
     /** Legacy key — same card as naamanHealed (journey URLs, older links). */
     bibleStories.naaman = bibleStories.naamanHealed;
+    bibleStories.elishaOil = bibleStories.widowOil;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -6389,7 +6405,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 301, color: '#e5e4e2' }
+      { name: 'Platinum', min: 303, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6503,7 +6519,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -6907,14 +6923,14 @@
       /\b2 kings 4\b/.test(low) &&
       !/\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\b2 kings 4:(?:38|39|40|41)\b|\bshunammite|son of the woman|raise.*child|bed.*stick/.test(low)
     ) {
-      return { type: 'carousel', story: 'elishaOil' };
+      return { type: 'carousel', story: 'widowOil' };
     }
     if (
       /\b2 kings 4:(?:[1-7])\b|\b2 kgs 4:(?:[1-7])\b/.test(low) ||
-      (/(?:widow.*oil|oil.*vessel|pot of oil|borrow.*vessel|oil stayed)/.test(low) &&
-        !/zarephath|1 kings 17|\belijah\b|barrel|cruse|handful of meal|jericho|2 kings 2|water is naught|healed these waters|spring/.test(low))
+      (/(?:widow.*oil|oil.*vessel|pot of oil|borrow.*vessel|oil stayed|bondmen|creditor.*sons)/.test(low) &&
+        !/zarephath|1 kings 17|\belijah\b|barrel|cruse|handful of meal|jericho|2 kings 2|water is naught|healed these waters|spring|shunammite|gehazi/.test(low))
     ) {
-      return { type: 'carousel', story: 'elishaOil' };
+      return { type: 'carousel', story: 'widowOil' };
     }
     if (
       /\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\b2 kgs 4:(?:8|9|[12][0-9]|3[0-7])\b/.test(low) ||
@@ -6939,6 +6955,21 @@
       /floating axe|axe head|axe.*float|iron.*float|iron did swim|head.*jordan.*axe/.test(low)
     ) {
       return { type: 'carousel', story: 'elishaFloatingAxe' };
+    }
+    if (
+      /\b2 kings 5:(?:2[0-7])\b|\b2 kgs 5:(?:2[0-7])\b/.test(low) ||
+      /\bgehazi\b/.test(low) ||
+      /whence comest thou|went no whither|mine heart with thee|is it a time to receive money|two talents of silver|mount ephraim.*prophets|sons of the prophets.*talent|spared naaman.*syrian|take somewhat of him/.test(low)
+    ) {
+      return { type: 'carousel', story: 'gehaziGreed' };
+    }
+    if (
+      /\b2 kings 5:(?:1[5-9]|19)\b|\b2 kgs 5:(?:1[5-9]|19)\b/.test(low) ||
+      (/naaman|2 kings 5|2 kgs 5/.test(low) &&
+        /go in peace|two mules|take a blessing|take a blessing of thy servant|no god in all the earth, but in israel|returned to the man of god|stood before him/.test(low) &&
+        !/gehazi|two talents|is all well|mount ephraim|cleave unto thee|leper as white/.test(low))
+    ) {
+      return { type: 'carousel', story: 'naamanDip' };
     }
     if (
       /\b2 kings 5\b|\b2 kgs 5\b/.test(low) ||
@@ -9578,7 +9609,7 @@
     davidSaulJealousy: 'Protection', davidJonathanFriendship: 'Love',
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
-    elishaShunammite: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
+    elishaShunammite: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',

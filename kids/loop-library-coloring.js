@@ -46,7 +46,6 @@
   "elishaChariots": "elishaChariots",
   "elishaFloatingAxe": "elishaFloatingAxe",
   "elishaMiracles": "elishaMiracles",
-  "elishaOil": "elishaOil",
   "elishaPoisonStew": "elishaPoisonStew",
   "elishaShunammite": "elishaShunammite",
   "estherFast": "estherFast",
@@ -158,6 +157,7 @@
   "tenVirgins": "tenVirgins",
   "towerBabel": "towerBabel",
   "transfigure": "transfigure",
+  "widowOil": "widowOil",
   "widowsMite": "widowMite",
   "zacchaeus": "prayerKnock"
   };

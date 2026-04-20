@@ -597,16 +597,6 @@
     "kw": "elisha poisoned stew death in the pot gilgal pottage great pot wild gourds meal 2 kings 4 2 kings 4:38 2 kings 4:41 sons of the prophets seethe no harm in the pot"
   },
   {
-    "key": "elishaOil",
-    "title": "Elisha and the Widow's Oil",
-    "kjvRef": "2 Kings 4:1-7",
-    "who": "The LORD",
-    "to": "A widow and her sons — through Elisha",
-    "apply": "God can turn a little into enough when we obey Him step by step — He cares for mothers and children.",
-    "theme": "Miracles",
-    "kw": "elisha widow oil 2 kings 4 2 kings 4:1 2 kings 4:3 2 kings 4:6 creditor bondmen vessels pot of oil sons of the prophets pour out oil stayed pay thy debt"
-  },
-  {
     "key": "elijahElijahElisha",
     "title": "Elisha Plows the Field",
     "kjvRef": "1 Kings 19:19-21",
@@ -1528,6 +1518,16 @@
   },
   {
     "key": "naamanHealed",
+    "title": "Naaman Is Healed of Leprosy",
+    "kjvRef": "2 Kings 5:1-15",
+    "who": "The LORD",
+    "to": "Naaman — through Elisha’s word",
+    "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
+    "theme": "Obedience",
+    "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
+  },
+  {
+    "key": "naaman",
     "title": "Naaman Is Healed of Leprosy",
     "kjvRef": "2 Kings 5:1-15",
     "who": "The LORD",
@@ -2838,13 +2838,23 @@
   },
   {
     "key": "widowOil",
-    "title": "The Widow's Endless Oil",
-    "kjvRef": "2 Kings 4:1–7",
-    "who": "God",
-    "to": "The widow through Elisha",
-    "apply": "God's supply never runs out! Bring what little you have—He multiplies it.",
+    "title": "The Widow's Oil Multiplied",
+    "kjvRef": "2 Kings 4:1-7",
+    "who": "The LORD",
+    "to": "A widow and her sons — through Elisha",
+    "apply": "God can multiply what little we have when we obey and trust Him step by step.",
     "theme": "Miracles",
-    "kw": "widow oil elisha 2 kings 4 jars multiply provide"
+    "kw": "widow oil widow's oil widow oil multiplied pot of oil creditor bondmen borrow not a few empty vessels oil stayed pay thy debt sons of the prophets 2 kings 4 2 kings 4:1 2 kings 4:6 elisha multiply oil"
+  },
+  {
+    "key": "elishaOil",
+    "title": "The Widow's Oil Multiplied",
+    "kjvRef": "2 Kings 4:1-7",
+    "who": "The LORD",
+    "to": "A widow and her sons — through Elisha",
+    "apply": "God can multiply what little we have when we obey and trust Him step by step.",
+    "theme": "Miracles",
+    "kw": "widow oil widow's oil widow oil multiplied pot of oil creditor bondmen borrow not a few empty vessels oil stayed pay thy debt sons of the prophets 2 kings 4 2 kings 4:1 2 kings 4:6 elisha multiply oil"
   },
   {
     "key": "widowMite",

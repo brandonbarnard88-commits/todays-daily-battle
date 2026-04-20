@@ -347,11 +347,6 @@
       webm: '/media/kids-stories/elisha-miracles.webm',
       captionsVtt: '/media/kids-stories/elisha-miracles.vtt'
     },
-    elishaOil: {
-      mp4: '/media/kids-stories/elisha-oil.mp4',
-      webm: '/media/kids-stories/elisha-oil.webm',
-      captionsVtt: '/media/kids-stories/elisha-oil.vtt'
-    },
     elishaPoisonStew: {
       mp4: '/media/kids-stories/elisha-poison-stew.mp4',
       webm: '/media/kids-stories/elisha-poison-stew.webm',
@@ -446,6 +441,11 @@
       mp4: '/media/kids-stories/garden-prayer.mp4',
       webm: '/media/kids-stories/garden-prayer.webm',
       captionsVtt: '/media/kids-stories/garden-prayer.vtt'
+    },
+    gehaziGreed: {
+      mp4: '/media/kids-stories/gehazi-greed.mp4',
+      webm: '/media/kids-stories/gehazi-greed.webm',
+      captionsVtt: '/media/kids-stories/gehazi-greed.vtt'
     },
     gideonFleece: {
       mp4: '/media/kids-stories/gideon-fleece.mp4',

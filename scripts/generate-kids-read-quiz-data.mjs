@@ -579,6 +579,10 @@ for (const [key] of storyEntries) {
 if (merged.naamanHealed && !merged.naaman) {
   merged.naaman = merged.naamanHealed;
 }
+/** elishaOil shares the same handcrafted pack as widowOil (legacy key). */
+if (merged.widowOil && !merged.elishaOil) {
+  merged.elishaOil = merged.widowOil;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

@@ -3823,18 +3823,19 @@
         "Solomon Builds God’s House – 1 Kings 6:1-14; 8:1-13, 22-30. Solomon built the house of the LORD and finished it with cedar; the Lord promised to dwell among Israel. The people brought offerings; the priests brought the ark into the most holy place. A cloud filled the house — the glory of the LORD — so the priests could not stand to minister. Solomon said, The LORD would dwell in the thick darkness; I have built thee an house. He prayed: LORD God of Israel, there is no God like thee; heaven cannot contain thee; how much less this house — yet hear thy servant; let thine eyes be open toward this house. For you: God is pleased when we build and worship Him with glad hearts."
     },
     elijahRavens: {
-      title: 'Elijah and the Ravens',
+      title: 'God Feeds Elijah',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah speaks God\'s word — no dew nor rain according to my word' },
-        { src: 'panel-noah-2.svg', alt: 'By the brook Cherith — the LORD commanded the ravens to feed thee there' },
+        { src: 'panel-noah-1.svg', alt: 'Elijah loves God — God’s word to hide by the brook Cherith' },
+        { src: 'panel-noah-2.svg', alt: 'By the brook — the LORD commanded the ravens to feed thee there' },
         { src: 'panel-noah-3.svg', alt: 'Bread and flesh morning and evening — he drank of the brook' }
       ],
-      caption: 'Swipe for Cherith — where God fed His prophet by the brook.',
+      caption: 'Swipe for Cherith — where God fed Elijah every day, just as He promised.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elijah ravens',
         'elijah and the ravens',
+        'god feeds elijah',
         'brook cherith',
         'cherith',
         '1 kings 17',
@@ -3848,17 +3849,18 @@
         'tishbite',
         'gilead',
         'drink of the brook',
-        'brook dried up'
+        'brook dried up',
+        'daily bread'
       ],
       kjvRef: '1 Kings 17:1-7',
       kidContext: {
         who: 'The LORD',
-        to: 'Elijah — and every heart that needs daily bread',
+        to: 'Elijah — and every heart that trusts God',
         apply:
-          'God hid Elijah by the brook and sent ravens with food — morning and evening. When the land was dry, heaven still obeyed His voice.'
+          'God fed Elijah by the brook — bread and flesh, morning and evening. He keeps His word and cares for those who obey Him.'
       },
       narration:
-        "Elijah and the Ravens – 1 Kings 17:1-7. Elijah the Tishbite said unto Ahab, As the LORD God of Israel liveth, there shall not be dew nor rain these years, but according to my word. The word of the LORD came: Get thee hence, and hide thyself by the brook Cherith, that is before Jordan; thou shalt drink of the brook, and I have commanded the ravens to feed thee there. So he dwelt by Cherith. The ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. After a while the brook dried up, because there had been no rain in the land. For you: God knows how to care for you — even one day at a time."
+        "God Feeds Elijah – 1 Kings 17:1-7. Elijah the prophet loved God and spoke His word: there shall not be dew nor rain these years, but according to my word. The LORD said, Hide thyself by the brook Cherith; drink of the brook, and I have commanded the ravens to feed thee there. Elijah went and stayed there. The ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. After a while the brook dried up, because there had been no rain in the land. For you: The Lord can feed and care for you when you trust Him."
     },
     elijahWidow: {
       title: 'Elijah and the Widow of Zarephath',

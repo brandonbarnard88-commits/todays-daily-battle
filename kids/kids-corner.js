@@ -710,14 +710,26 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 20</text>'
       ),
 
-      /* Elijah and the ravens — Cherith (loop 46) */
+      /* God feeds Elijah — brook, ravens with bread, soft trees & rocks (loop 46) */
       elijahRavens: svg(
-        ground() +
+        ground() + hills() +
+        /* soft trees */
+        '<circle cx="48" cy="118" r="22" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="44" y="138" width="8" height="42" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="352" cy="112" r="24" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="348" y="132" width="8" height="48" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* rocks */
+        '<path d="M72 248 L82 228 L98 232 L108 248 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M312 248 L322 230 L338 234 L348 248 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(52, 44, 16) + cloud(288, 40) +
         '<path d="M0 248 Q120 210 200 248 Q280 210 400 248" ' + s + ' stroke-width="2.5" fill="none"/>' +
         '<path d="M0 238 Q140 218 260 236 Q340 228 400 238" ' + s + ' stroke-width="1.8" fill="none"/>' +
-        /* brook */
+        /* brook + gentle ripples */
         '<path d="M15 252 Q100 244 200 250 Q300 244 385 252 L392 268 L8 268 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
         '<path d="M25 250 Q120 242 200 248 Q280 242 375 250" ' + s + ' stroke-width="2"/>' +
+        '<path d="M40 258 Q100 252 160 258" ' + s + ' stroke-width="1.5" opacity="0.55"/>' +
+        '<path d="M220 258 Q280 252 340 258" ' + s + ' stroke-width="1.5" opacity="0.55"/>' +
+        '<path d="M120 262 Q200 256 280 262" ' + s + ' stroke-width="1.3" opacity="0.45"/>' +
         /* Elijah seated — thankful, calm */
         '<circle cx="200" cy="158" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
         '<path d="M188 152 Q200 148 212 152" ' + s + ' stroke-width="1.3"/>' +
@@ -725,17 +737,20 @@
         '<line x1="200" y1="170" x2="200" y2="192" ' + s + ' stroke-width="2.5"/>' +
         '<line x1="200" y1="180" x2="172" y2="188" ' + s + ' stroke-width="2.3"/>' +
         '<line x1="200" y1="180" x2="228" y2="188" ' + s + ' stroke-width="2.3"/>' +
-        /* bread & meat in hands */
-        '<ellipse cx="165" cy="182" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* bread & meat in hands — extra small loaf */
+        '<ellipse cx="162" cy="184" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="172" cy="178" rx="6" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         '<rect x="218" y="176" width="14" height="9" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* raven left — gentle, bringing food */
+        /* raven left — bread in beak */
         '<path d="M72 108 Q88 98 102 108 Q118 102 128 112 L120 122 Q100 118 88 124 Q78 118 72 108 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
         '<path d="M128 112 L138 108 M120 118 L132 118" ' + s + ' stroke-width="1.8"/>' +
         '<ellipse cx="108" cy="118" rx="5" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="122" cy="114" rx="6" ry="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         /* raven right */
         '<path d="M328 108 Q312 98 298 108 Q282 102 272 112 L280 122 Q300 118 312 124 Q322 118 328 108 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
         '<path d="M272 112 L262 108 M280 118 L268 118" ' + s + ' stroke-width="1.8"/>' +
         '<ellipse cx="292" cy="118" rx="5" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="278" cy="114" rx="6" ry="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 17:6</text>'
       ),
 

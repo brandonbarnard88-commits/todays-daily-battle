@@ -3602,30 +3602,30 @@
     nehemiahWalls: {
       title: 'Nehemiah Rebuilds the Walls',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Nehemiah prays and makes a plan' },
-        { src: 'panel-david-2.svg', alt: 'Workers build with tools in one hand, sword in the other' },
-        { src: 'panel-david-3.svg', alt: 'The walls are rebuilt in 52 days—God did it!' }
+        { src: 'panel-noah-1.svg', alt: 'Nehemiah hears and prays to the God of heaven' },
+        { src: 'panel-noah-2.svg', alt: 'The king sends him — Nehemiah sees the broken walls at night' },
+        { src: 'panel-noah-3.svg', alt: '“Let us rise up and build” — people work together with joy' }
       ],
-      caption: 'Swipe to see Nehemiah rebuild—pray and work together! 🧱',
+      caption: 'Swipe to see God stir hearts to rebuild — pray and work together! 🧱',
       videoId: '',
       videoTitle: '',
-      keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 1', 'nehemiah 4', 'artaxerxes', 'rebuild', 'pray', 'sword', '52 days'],
-      kjvRef: 'Nehemiah 1–6',
-      kidContext: { who: 'God', to: 'Nehemiah and Israel', apply: 'Pray, then work! God helps us rebuild what\'s broken — even when others mock.' }
+      keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 1', 'nehemiah 2', 'nehemiah 3', 'artaxerxes', 'rebuild', 'pray', 'teamwork', 'gates'],
+      kjvRef: 'Nehemiah 1:1–4; 2:1–20; 3:1–32',
+      kidContext: { who: 'God', to: 'Nehemiah and His people', apply: 'God hears prayer and helps His people work together to restore what was broken.' }
     },
     jobSuffering: {
-      title: 'Job\'s Suffering',
+      title: 'Job Trusts God',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Job loses everything—still trusts God' },
-        { src: 'panel-noah-2.svg', alt: 'Friends sit with him but don\'t understand' },
-        { src: 'panel-noah-3.svg', alt: 'God speaks—and restores Job!' }
+        { src: 'panel-noah-1.svg', alt: 'Job loved God — then hard days came' },
+        { src: 'panel-noah-2.svg', alt: '“The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”' },
+        { src: 'panel-noah-3.svg', alt: 'Three friends sit with Job on the ground — quiet love' }
       ],
-      caption: 'Swipe to see Job\'s faith in hard times—God is enough! 🌧️',
+      caption: 'Swipe to see honest sadness, quiet friends, and trust in God — He is near. 🕊️',
       videoId: '',
       videoTitle: '',
-      keywords: ['job', 'suffering', 'boils', 'friends', 'job 2', 'trust', 'faith', 'restore'],
-      kjvRef: 'Job 2',
-      kidContext: { who: 'God', to: 'Job', apply: 'You can trust God in hard times! He always comes through for those who hold on.' }
+      keywords: ['job', 'trust', 'sad', 'friends', 'job 1', 'job 2', 'grief', 'faith', 'bless', 'silence'],
+      kjvRef: 'Job 1:1–22; 2:11–13',
+      kidContext: { who: 'God', to: 'Job (and us)', apply: 'God is with us even in our saddest days — we can still trust Him and bless His name.' }
     },
     psalm23Shepherd: {
       title: 'Psalm 23 — The Lord Is My Shepherd',
@@ -4169,6 +4169,20 @@
       narration:
         "Elisha and the Blind Syrian Army — 2 Kings 6:18-23. When they came down to him, Elisha prayed, Smite this people, I pray thee, with blindness — and the Lord smote them according to the word of Elisha. Elisha said, Follow me — and he led them to Samaria. Then, Lord, open the eyes of these men — and they saw they were in the midst of Samaria. The king asked, Shall I smite them? Elisha said, Thou shalt not smite them: set bread and water before them. They ate and drank, and went to their master — and the bands of Syria came no more into the land of Israel. For you: Mercy can go farther than fear expects."
     },
+    elishaBones: {
+      title: 'God\'s Power Even in Elisha\'s Bones',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elisha rested — God\'s servant buried with honor' },
+        { src: 'panel-noah-2.svg', alt: 'Friends hurry — they lay a man beside Elisha\'s rest' },
+        { src: 'panel-noah-3.svg', alt: 'He stands up alive — God alone gives life!' }
+      ],
+      caption: 'Swipe to see God\'s surprising power — He alone gives life! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['elisha', 'bones', 'life', 'miracle', '2 kings 13', 'bury', 'grave', 'revived'],
+      kjvRef: '2 Kings 13:20–21',
+      kidContext: { who: 'God', to: 'everyone who hears', apply: 'God\'s power is greater than anything. He can do wonderful things — we can trust Him.' }
+    },
     isaiahMessianic: {
       title: 'Isaiah\'s Messianic Prophecies',
       panels: [
@@ -4241,18 +4255,18 @@
       kidContext: { who: 'God', to: 'Daniel', apply: 'Keep talking to God — He hears you and can hush every fear.' }
     },
     ezraReturn: {
-      title: 'Ezra Return',
+      title: 'The Return from Exile',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'King Cyrus\'s decree — God\'s people may go home' },
-        { src: 'panel-david-2.svg', alt: 'Ezra leads the people with gifts for the temple' },
-        { src: 'panel-david-3.svg', alt: 'The Law is read — hearts turn back to God' }
+        { src: 'panel-noah-1.svg', alt: 'Cyrus proclaims — God\'s people may go up to Jerusalem' },
+        { src: 'panel-noah-2.svg', alt: 'Many rise up with joy and go toward home' },
+        { src: 'panel-noah-3.svg', alt: 'The altar on its bases — thanks and praise to the Lord' }
       ],
-      caption: 'Swipe to see God bring His people home and back to His Word! 📜',
+      caption: 'Swipe to see God remember His people and bring them home to worship! 🏛️',
       videoId: '',
       videoTitle: '',
-      keywords: ['ezra', 'cyrus', 'exile', 'return', 'temple', 'ezra 1', 'law', 'jerusalem', 'persia'],
-      kjvRef: 'Ezra 1–10; Nehemiah 8–9',
-      kidContext: { who: 'God', to: 'His people', apply: 'God still brings people home to Himself. His Word shows us how to walk with Him again.' }
+      keywords: ['ezra', 'cyrus', 'exile', 'return', 'temple', 'ezra 1', 'ezra 3', 'altar', 'jerusalem', 'persia', 'worship'],
+      kjvRef: 'Ezra 1:1–11; 3:1–6',
+      kidContext: { who: 'God', to: 'His people', apply: 'Even after long years away, God remembers you. You can come to Him with thanks and praise.' }
     },
     malachiMessage: {
       title: 'Malachi\'s Message',

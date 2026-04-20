@@ -15,7 +15,8 @@ const outPath = join(root, 'docs', 'KIDS-STORY-ANIMATION-QUEUE.md');
 const s = readFileSync(battlePath, 'utf8');
 
 const startTag = 'var bibleStories = {';
-const endTag = '\n  };\n\n  function getCartoonForVerse';
+const endTag =
+  '\n  };\n\n  /** Export stories before any init() so defer + sync-ready pages always have window.TDB_BIBLE_STORIES (Kids Corner, coloring, RPC helpers). */';
 const si = s.indexOf(startTag);
 const ei = s.indexOf(endTag);
 if (si < 0 || ei < 0) {

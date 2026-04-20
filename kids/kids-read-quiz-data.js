@@ -2,7 +2,7 @@
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
  * Keys match TDB_BIBLE_STORIES (307 stories).
  * Regenerate: npm run kids:generate-read-quiz
- * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath read-along sections).
+ * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath; Elisha bones; Ezra return; Nehemiah walls; Job read-along sections).
  *
  * Paragraph style: short beats for kids—split sentences, no generic filler lines.
  * Missing narration uses panel alts + apply only (faithful; no invented story beats).
@@ -760,7 +760,7 @@
           "Joshua 24:14-15",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
           "Revelation 1:8, 11, 17–18",
-          "Nehemiah 1–6"
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4462,7 +4462,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 18:6-11, 17-19:17",
-          "Job 2",
+          "Job 1:1–22; 2:11–13",
           "John 2:1–11",
           "Luke 17"
         ],
@@ -5005,7 +5005,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Nehemiah 1–6",
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
           "Joshua 24:14-15",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
@@ -6134,102 +6134,123 @@
     ]
   },
   "elishaBones": {
-    "kjvRef": "2 Kings 13:20-21 (KJV)",
-    "verseExcerpt": "When the man was let down, and touched the bones of Elisha, he revived, and stood up on his feet. — 2 Kings 13:21 (KJV)",
+    "kjvRef": "2 Kings 13:20–21",
     "readAlongTitle": "Read along",
-    "quizWrongHumilityHint": "Listen again — when the man touched the bones of Elisha, he revived and stood up on his feet.",
-    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "paragraphs": [
+      "God's Power Even in Elisha's Bones (2 Kings 13:20–21).",
+      "Elisha died and was buried. Later, some men were burying another man.",
+      "They saw danger coming and quickly laid the man in Elisha's grave.",
+      "As soon as the man touched the bones of Elisha, he came back to life and stood up on his feet.",
+      "The Lord showed that His power was so great that even Elisha's bones could bring a dead man back to life. God is mighty and can do wonderful things!"
+    ],
     "readAlongSections": [
       {
-        "text": "And Elisha died, and they buried him. And the bands of the Moabites invaded the land at the coming in of the year.",
-        "caption": "Elisha died, and they buried him",
-        "image": "panel-jesus-1.svg"
+        "text": "Elisha died and was buried.",
+        "caption": "Quiet rest",
+        "image": "panel-noah-1.svg"
       },
       {
-        "text": "And it came to pass, as they were burying a man, that, behold, they spied a band of men; and they cast the man into the sepulchre of Elisha: and when the man was let down, and touched the bones of Elisha, he revived, and stood up on his feet.",
-        "caption": "He touched the bones of Elisha — he revived, and stood up on his feet",
-        "image": "panel-jesus-2.svg"
+        "text": "Some men were burying another man.",
+        "caption": "Carrying a friend",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "They saw danger coming and quickly laid the man in Elisha's grave.",
+        "caption": "A hurried, kind choice",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "As soon as the man touched the bones of Elisha, he came back to life.",
+        "caption": "God gives life",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He stood up on his feet!",
+        "caption": "Standing up",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "God showed His great power—even through Elisha's bones. God is mighty and can do wonderful things!",
+        "caption": "For you",
+        "image": "panel-noah-3.svg"
       }
-    ],
-    "paragraphs": [
-      "After Elisha was buried, other things happened in the land; the taps stay with God’s Word as written.",
-      "Some men were burying a man when they saw trouble coming. They laid him in Elisha’s grave — and when he touched Elisha’s bones, God gave him life; he stood up on his feet. The Lord showed that His power is very great.",
-      "For you: Nothing is too hard for God — He can do wonderful things that surprise us and show His kindness."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened to Elisha first in this story?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "He went to a new city only.",
-          "Elisha died, and they buried him.",
-          "He built a house.",
-          "He forgot God."
+          "Psalm 23",
+          "2 Kings 13:20–21",
+          "John 3:16",
+          "Genesis 1"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Elisha died, and they buried him — then came the wonder.",
-        "wrongFeedback": "Listen for died and buried."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 13:20–21.)"
       },
       {
-        "question": "Why did the burying men lay the man in Elisha’s sepulchre?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "They were playing.",
-          "They saw danger and hurried.",
-          "They did not care.",
-          "They were lost."
+          "God",
+          "A talking animal",
+          "Pharaoh",
+          "Goliath"
         ],
-        "correctIndex": 1,
-        "correctFeedback": "They saw trouble and acted quickly.",
-        "wrongFeedback": "Listen for spied a band of men — they hurried."
+        "correctIndex": 0,
+        "correctFeedback": "Right—keep the Lord in mind as you think about His power and kindness.",
+        "wrongFeedback": "Look for who the story shows is mighty over life itself. (Answer: God.)"
       },
       {
-        "question": "What did the man touch?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Only the ground.",
-          "The bones of Elisha.",
-          "A sword only.",
-          "Water only."
+          "God is weak when we are scared.",
+          "God cannot do miracles today.",
+          "God's power is great—He alone gives life and can do wonderful things.",
+          "The Bible is only pretend stories."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "He touched the bones of Elisha — and God acted.",
-        "wrongFeedback": "Listen for bones of Elisha."
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God's power is great—He alone gives life and can do wonderful things.)"
       },
       {
-        "question": "What happened to the man when he touched Elisha’s bones?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "He slept.",
-          "He revived, and stood up on his feet.",
-          "He ran away only.",
-          "Nothing changed."
+          "A spaceship landed in the parking lot.",
+          "He stood up on his feet.",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city."
         ],
         "correctIndex": 1,
-        "correctFeedback": "He revived — God gave him life.",
-        "wrongFeedback": "Listen for revived and stood up."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: He stood up on his feet.)"
       },
       {
-        "question": "What does this story show about God?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "God is far away only.",
-          "God’s power is great — He can do wonderful things.",
-          "God never helps.",
-          "God only whispers."
+          "Ignore God until we are older.",
+          "Remember that God is mighty and we can trust Him.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
         "correctIndex": 1,
-        "correctFeedback": "God’s power is greater than we can guess.",
-        "wrongFeedback": "Pick the choice that honors God’s might and kindness."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust and humility before God? Pick the one that honors Him. (Answer: Remember that God is mighty and we can trust Him.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Well done — God’s power is full of wonder.",
-    "takeaway": "Even in a quiet grave, God showed His power — the man stood up alive when he touched Elisha’s bones.",
-    "prayer": "Lord, thank You that Your power is greater than anything. Help us trust You. Amen.",
+    "doneMessage": "Great job reading God's Power Even in Elisha's Bones with God's Word today.",
+    "takeaway": "God's power is greater than anything. He can do wonderful things — we can trust Him.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in God's Power Even in Elisha's Bones. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines man standing up alive surprised happy face friends thankful beside open grave soft hills trees minimal thick outlines white space ages 3-8 coloring page wonder",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Elisha sepulchre bones touch",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text revived stood up on feet",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text burying men joyful",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text God power wonderful"
-    ]
+      "Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: quiet hill country, simple rounded grave opening, one man standing up with a gentle glad face, two friends nearby with thankful faces, soft hills and a few simple trees, wonder-filled hopeful mood, no text, no scary soldiers, plenty of white space",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha rested — God's servant buried with honor (elisha)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Friends hurry — they lay a man beside Elisha's rest (grave)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He stands up alive — God alone gives life! (2 kings 13)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He stands up alive — God alone gives life! (miracle)"
+    ],
+    "readAlongImages": []
   },
   "elishaChariots": {
     "kjvRef": "2 Kings 6:8-17 (KJV)",
@@ -7690,89 +7711,125 @@
     ]
   },
   "ezraReturn": {
-    "kjvRef": "Ezra 1–10; Nehemiah 8–9",
+    "kjvRef": "Ezra 1:1–11; 3:1–6",
+    "readAlongTitle": "Read along",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "Ezra Return (Ezra 1–10; Nehemiah 8–9).",
-      "King Cyrus's decree.",
-      "God's people may go home Ezra leads the people with gifts for the temple The Law is read.",
-      "hearts turn back to God God still brings people home to Himself.",
-      "His Word shows us how to walk with Him again."
+      "The Return from Exile (Ezra 1:1–11; 3:1–6).",
+      "The people of Israel had been far away from their land for many years.",
+      "But the Lord stirred the heart of Cyrus the king of Persia, and he made a proclamation: All the people of the Lord were free to go up to Jerusalem and build the house of the Lord God of Israel.",
+      "Many of the fathers’ houses, the priests, and the Levites rose up with joy and went to Jerusalem.",
+      "They set the altar upon its bases and offered burnt offerings unto the Lord, even though they were still a little afraid of the people around them.",
+      "Day by day they praised the Lord and gave thanks, because He had turned the heart of the king and brought them home.",
+      "The Lord showed His people that even after long years away, He remembers them and brings them back to worship Him."
+    ],
+    "readAlongSections": [
+      {
+        "text": "The people of Israel had been far away.",
+        "caption": "Long years",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "But the Lord stirred the heart of the king.",
+        "caption": "God moves the king",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king said, “You may go back to Jerusalem and build God’s house.”",
+        "caption": "Freedom to go home",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Many people rose up with joy and went home.",
+        "caption": "Joy on the way",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "They built the altar and offered thanks to the Lord.",
+        "caption": "Thankful worship",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "They praised God because He had brought them back.",
+        "caption": "For you",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 41",
-          "Ezra 1–10; Nehemiah 8–9",
-          "Matthew 13",
-          "Acts 15:36–18:22"
+          "Psalm 119",
+          "Ezra 1:1–11; 3:1–6",
+          "Acts 1",
+          "Genesis 12"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Ezra 1–10; Nehemiah 8–9.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Ezra 1:1–11; 3:1–6.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Holy Ghost",
-          "The apostles",
           "God",
-          "Holy Spirit"
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 0,
+        "correctFeedback": "Right—God stirred the king and brought His people home.",
+        "wrongFeedback": "Look for who turns the king's heart and remembers His people. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God never hears when kids pray.",
+          "God forgets His people when they are far away.",
           "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God still brings people home to Himself. His Word shows us how to walk with Him again."
+          "Even after long years away, God remembers His people and brings them home to worship Him.",
+          "We should never say thank you to God."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God still brings people home to Himself. His Word shows us how to walk with Him again..)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Even after long years away, God remembers His people and brings them home to worship Him.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "King Cyrus's decree — God's people may go home",
-          "A talking toaster became king of the city.",
+          "A spaceship landed in the parking lot.",
+          "They set the altar upon its bases and offered burnt offerings unto the Lord.",
           "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
+          "A talking toaster became king of the city."
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: They set the altar upon its bases and offered burnt offerings unto the Lord.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Never say sorry when we do wrong.",
-          "God still brings people home to Himself. His Word shows us how to walk with Him again.",
           "Ignore God until we are older.",
+          "Never say sorry when we do wrong.",
+          "Thank God that He remembers us and we can worship Him.",
           "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God still brings people home to Himself. His Word shows us how to walk with Him again..)"
+        "wrongFeedback": "Think: does this choice show trust and thankfulness to God? Pick the one that honors Him. (Answer: Thank God that He remembers us and we can worship Him.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Ezra Return with God's Word today.",
-    "takeaway": "God still brings people home to Himself. His Word shows us how to walk with Him again.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Ezra Return. Amen.",
+    "doneMessage": "Great job reading The Return from Exile with God's Word today.",
+    "takeaway": "Even after long years away, God remembers His people and brings them home to worship Him.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Return from Exile. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: King Cyrus's decree — God's people may go home (ezra)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ezra leads the people with gifts for the temple (cyrus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The Law is read — hearts turn back to God (exile)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: King Cyrus's decree — God's people may go home (return)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ezra leads the people with gifts for the temple (temple)"
-    ]
+      "Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: thankful people (fathers, priests, children) walking on a road toward Jerusalem, open city gates, simple altar with soft smoke rising, gentle hills, hopeful restoring mood, no text, no fear or sadness, plenty of white space",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Cyrus proclaims — God's people may go up to Jerusalem (ezra)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Many rise up with joy and go toward home (jerusalem)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The altar on its bases — thanks and praise to the Lord (altar)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Day by day they praised the Lord (ezra 3)"
+    ],
+    "readAlongImages": []
   },
   "faithMountain": {
     "kjvRef": "Matthew 17:20; Mark 11:23–24",
@@ -10203,7 +10260,7 @@
         "choices": [
           "the Bible",
           "John 2:1–11",
-          "Job 2",
+          "Job 1:1–22; 2:11–13",
           "Luke 17"
         ],
         "correctIndex": 0,
@@ -12909,88 +12966,125 @@
     ]
   },
   "jobSuffering": {
-    "kjvRef": "Job 2",
+    "kjvRef": "Job 1:1–22; 2:11–13",
+    "readAlongTitle": "Read along",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "Job's Suffering (Job 2).",
-      "Job loses everything—still trusts God Friends sit with him but don't understand God speaks—and restores Job!",
-      "You can trust God in hard times!",
-      "He always comes through for those who hold on."
+      "Job Trusts God (Job 1:1–22; 2:11–13).",
+      "There was a man named Job who loved God with all his heart. He had a big family and many good things.",
+      "One day hard things happened to Job. He lost his animals, his servants, and even his children.",
+      "Job was very sad, but he did not stop loving God. He said, “The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”",
+      "His friends came to sit with him. They sat on the ground with him for seven days and seven nights without saying a word, because they saw how great his grief was.",
+      "Job still trusted God even when everything felt hard.",
+      "The Lord showed that He is with us even in our saddest days, and that trusting Him is the most important thing."
+    ],
+    "readAlongSections": [
+      {
+        "text": "There was a man named Job who loved God.",
+        "caption": "A faithful heart",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Hard things happened and Job was very sad.",
+        "caption": "Honest sadness",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Job said, “The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”",
+        "caption": "Still blessing God",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "His friends came and sat with him on the ground.",
+        "caption": "Friends draw near",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "They sat quietly for many days because they saw how sad he was.",
+        "caption": "Quiet love",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Job still trusted God even when everything felt hard.",
+        "caption": "For you",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 16:11–15",
-          "Acts 2:4–21",
-          "Acts 9:1–19",
-          "Job 2"
+          "Psalm 23",
+          "Job 1:1–22; 2:11–13",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Job 2.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Job 1:1–22; 2:11–13.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Elisha",
-          "The Lord",
-          "The crowds"
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Right—even when days are sad, God is still good and near.",
+        "wrongFeedback": "Look for who Job kept loving and trusting. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "We should hide from God when we mess up.",
-          "You can trust God in hard times! He always comes through for those who hold on.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "God leaves us when we are sad.",
+          "The Bible is only pretend stories.",
+          "We can trust God and bless His name even when life feels very hard.",
+          "Friends should never sit with someone who is sad."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: You can trust God in hard times! He always comes through for those who hold on..)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: We can trust God and bless His name even when life feels very hard.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Everyone decided to never sleep again.",
           "A spaceship landed in the parking lot.",
-          "Job loses everything—still trusts God",
+          "They sat on the ground with him for seven days and seven nights without saying a word.",
+          "Everyone decided to never sleep again.",
           "A talking toaster became king of the city."
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: They sat on the ground with him for seven days and seven nights without saying a word.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
           "Ignore God until we are older.",
+          "Tell God how we feel and trust Him—even on sad days.",
           "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "You can trust God in hard times! He always comes through for those who hold on."
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: You can trust God in hard times! He always comes through for those who hold on..)"
+        "wrongFeedback": "Think: does this choice show trust in God when feelings are hard? Pick the one that honors Him. (Answer: Tell God how we feel and trust Him—even on sad days.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Job's Suffering with God's Word today.",
-    "takeaway": "You can trust God in hard times! He always comes through for those who hold on.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Job's Suffering. Amen.",
+    "doneMessage": "Great job reading Job Trusts God with God's Word today.",
+    "takeaway": "God is with us even in our saddest days, and trusting Him is the most important thing.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Job Trusts God. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Job loses everything—still trusts God (job)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Friends sit with him but don't understand (suffering)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God speaks—and restores Job! (boils)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Job loses everything—still trusts God (friends)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Friends sit with him but don't understand (job 2)"
-    ]
+      "Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: Job sitting on the ground with a sad but trusting face, three friends sitting quietly beside him, soft ground and a few rocks, gentle sky and distant hills, honest comforting mood, no graphic suffering, no scary scenes, no text, plenty of white space",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Job loved God — a faithful heart (job)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Hard days — still trusting God (sad)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Friends sit quietly with Job (friends)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Blessed be the name of the Lord (job 1)"
+    ],
+    "readAlongImages": []
   },
   "johnBaptist": {
     "kjvRef": "Luke 3; Matthew 3",
@@ -16767,88 +16861,130 @@
     ]
   },
   "nehemiahWalls": {
-    "kjvRef": "Nehemiah 1–6",
+    "kjvRef": "Nehemiah 1:1–4; 2:1–20; 3:1–32",
+    "readAlongTitle": "Read along",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "Nehemiah Rebuilds the Walls (Nehemiah 1–6).",
-      "Nehemiah prays and makes a plan Workers build with tools in one hand, sword in the other The walls are rebuilt in 52 days—God did it!",
-      "Pray, then work!",
-      "God helps us rebuild what's broken — even when others mock."
+      "Nehemiah Rebuilds the Walls (Nehemiah 1:1–4; 2:1–20; 3:1–32).",
+      "The walls of Jerusalem were broken down and the gates were burned with fire.",
+      "Nehemiah heard the sad news while he was far away serving the king. He prayed to the God of heaven and asked the king for permission to go and rebuild the walls.",
+      "The king sent him with letters and timber. When Nehemiah came to Jerusalem, he rose up at night and went out to see the broken walls.",
+      "Then he said to the people, “Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach.”",
+      "The people answered, “Let us rise up and build.” So they strengthened their hands for this good work.",
+      "The Lord used Nehemiah to stir the hearts of His people to rebuild the walls of Jerusalem together."
+    ],
+    "readAlongSections": [
+      {
+        "text": "The walls of Jerusalem were broken down.",
+        "caption": "Broken places",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Nehemiah heard the sad news and prayed to God.",
+        "caption": "Pray first",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king let him go to rebuild the walls.",
+        "caption": "The king sends help",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Nehemiah saw the broken places at night.",
+        "caption": "Nehemiah looks with care",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He said to the people, “Come, let us build up the wall of Jerusalem.”",
+        "caption": "Let us build",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "The people answered, “Let us rise up and build.”",
+        "caption": "Together",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "They worked together with joy.",
+        "caption": "For you",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Matthew; Mark; Luke; John (Gospels overview)",
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Nehemiah 1–6"
+          "Psalm 23",
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Nehemiah 1–6.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Nehemiah 1:1–4; 2:1–20; 3:1–32.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Priscilla",
-          "Jude",
           "God",
-          "Holy Spirit"
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 0,
+        "correctFeedback": "Right—God heard prayer and stirred hearts to rebuild.",
+        "wrongFeedback": "Look for who helps His people work together for good. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God never hears when kids pray.",
-          "Pray, then work! God helps us rebuild what's broken — even when others mock.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories."
+          "We should never pray.",
+          "The Bible is only pretend stories.",
+          "God helps His people pray, work together, and rebuild what was broken.",
+          "Only one person can do God’s work alone."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Pray, then work! God helps us rebuild what's broken — even when others mock..)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God helps His people pray, work together, and rebuild what was broken.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Nehemiah prays and makes a plan",
-          "Everyone decided to never sleep again.",
           "A spaceship landed in the parking lot.",
+          "The people answered, “Let us rise up and build.”",
+          "Everyone decided to never sleep again.",
           "A talking toaster became king of the city."
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: The people answered, “Let us rise up and build.”)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
           "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
+          "Pray to God and be willing to help with the good work He gives.",
           "Never say sorry when we do wrong.",
-          "Pray, then work! God helps us rebuild what's broken — even when others mock."
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Pray, then work! God helps us rebuild what's broken — even when others mock..)"
+        "wrongFeedback": "Think: does this choice show trust and teamwork with God’s help? Pick the one that honors Him. (Answer: Pray to God and be willing to help with the good work He gives.)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Nehemiah Rebuilds the Walls with God's Word today.",
-    "takeaway": "Pray, then work! God helps us rebuild what's broken — even when others mock.",
+    "takeaway": "God helps His people pray, work together, and rebuild what was broken.",
     "prayer": "God, thank You for the Bible. Help me remember what You showed me in Nehemiah Rebuilds the Walls. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Nehemiah prays and makes a plan (nehemiah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Workers build with tools in one hand, sword in the other (walls)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The walls are rebuilt in 52 days—God did it! (jerusalem)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Nehemiah prays and makes a plan (nehemiah 1)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Workers build with tools in one hand, sword in the other (nehemiah 4)"
-    ]
+      "Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: Nehemiah and thankful people working together to rebuild a city wall, some carrying stones, some building with simple tools, wall rising, soft gates and hills in background, hopeful teamwork mood, no fighting, no weapons, no text, plenty of white space",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Nehemiah prays — God hears (nehemiah)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The king sends Nehemiah with letters (king)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Let us rise up and build — people together (jerusalem)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: They strengthened their hands for this good work (wall)"
+    ],
+    "readAlongImages": []
   },
   "newEarth": {
     "kjvRef": "the Bible",
@@ -17571,7 +17707,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Joshua 24:14-15",
-          "Nehemiah 1–6",
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
           "Acts 13–14"
         ],
@@ -18569,7 +18705,7 @@
         "choices": [
           "1 Samuel 16:1-13",
           "Acts 27",
-          "Ezra 1–10; Nehemiah 8–9",
+          "Ezra 1:1–11; 3:1–6",
           "1 Kings 17:8-16"
         ],
         "correctIndex": 1,

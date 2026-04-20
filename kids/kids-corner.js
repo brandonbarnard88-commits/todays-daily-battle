@@ -1898,6 +1898,44 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 13:21</text>'
       ),
 
+      /* ── Elisha arc: God's power — bones (2 Kings 13:20–21) ── */
+      elishaBones: svg(
+        ground() +
+        hills() +
+        sun(340, 48, 18) +
+        '<path d="M80 210 Q120 175 160 200 Q200 185 240 200 Q280 178 320 210 L320 268 L80 268 Z" ' +
+        sf +
+        ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="200" cy="248" rx="28" ry="14" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M172 248 Q200 230 228 248" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        person(200, 148, 13, 36) +
+        '<path d="M188 152 L182 128 M212 152 L218 128" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        '<path d="M175 175 L165 158 M225 175 L235 158" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        person(95, 178, 11, 32) +
+        person(305, 178, 11, 32) +
+        '<circle cx="48" cy="208" r="16" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="44" y="218" width="8" height="22" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<circle cx="352" cy="210" r="14" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="348" y="218" width="8" height="24" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 13:21</text>'
+      ),
+
       /* ── Week 4: Jonah Whale already exists ── */
       /* ── Week 4: Daniel Lions already exists ── */
 
@@ -1918,36 +1956,95 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 5:2</text>'
       ),
 
-      /* ── Week 4: Nehemiah Walls (53) ── */
+      /* ── Week 4: Nehemiah Walls (53) — teamwork, stones, no weapons ── */
       nehemiahWalls: svg(
         ground() +
-        '<rect x="80" y="80" width="240" height="180" rx="4" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="88" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="138" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="182" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="232" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="282" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        person(180, 180, 12, 35) +
-        '<line x1="172" y1="198" x2="155" y2="245" ' + s + ' stroke-width="3.5"/>' +
-        '<polygon points="150,242 148,256 160,252" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M205 198 L215 235" ' + s + ' stroke-width="2.5"/>' +
-        person(60, 182, 10, 28) + person(320, 182, 10, 28) +
-        sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 4:17</text>'
+        hills() +
+        sun(340, 48, 18) +
+        '<rect x="72" y="158" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="108" y="150" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="144" y="142" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="180" y="135" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="216" y="128" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="92" cy="250" rx="16" ry="11" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="128" cy="254" rx="14" ry="9" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        person(168, 188, 11, 32) +
+        person(95, 198, 10, 28) +
+        person(275, 195, 10, 28) +
+        '<line x1="148" y1="212" x2="132" y2="228" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<line x1="248" y1="208" x2="262" y2="222" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 4:6</text>'
       ),
 
-      /* ── Week 4: Job Suffering (54) ── */
+      /* ── Return from exile: Ezra 1 & 3 — thankful journey home ── */
+      ezraReturn: svg(
+        ground() +
+        hills() +
+        sun(48, 44, 18) +
+        '<path d="M20 255 Q200 228 380 255" ' +
+        s +
+        ' stroke-width="2.5" stroke-dasharray="5,4"/>' +
+        '<rect x="228" y="108" width="130" height="68" rx="6" ' +
+        sf +
+        ' fill="white" stroke-width="3"/>' +
+        '<path d="M248 176 L248 118 M268 176 L268 112 M288 176 L288 118 M308 176 L308 112" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<path d="M258 176 Q278 150 298 176" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        '<rect x="58" y="200" width="54" height="26" rx="4" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M68 196 L74 178 M85 196 L88 172 M100 196 L96 178" ' +
+        s +
+        ' stroke-width="1.5" stroke-dasharray="2,2"/>' +
+        person(138, 188, 10, 28) +
+        person(165, 185, 11, 32) +
+        person(192, 187, 10, 28) +
+        person(118, 192, 9, 24) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ezra 3:6</text>'
+      ),
+
+      /* ── Week 4: Job — honest sadness, friends sit with him (54) ── */
       jobSuffering: svg(
         ground() +
-        person(200, 185, 12, 35) +
-        '<path d="M188 188 Q178 195 180 208 Q186 215 190 210 Q185 220 188 228" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M212 188 Q222 195 220 208 Q214 215 210 210 Q215 220 212 228" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M192 200 Q188 208 190 215" ' + s + ' stroke-width="2"/>' +
-        '<path d="M208 200 Q212 208 210 215" ' + s + ' stroke-width="2"/>' +
-        person(80, 185, 11, 32) + person(105, 188, 10, 28) +
-        person(290, 185, 11, 32) + person(315, 188, 10, 28) +
-        cloud(160, 30) + cloud(60, 55) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Job 2:13</text>'
+        hills() +
+        sun(48, 42, 16) +
+        cloud(300, 55) +
+        cloud(70, 48) +
+        '<ellipse cx="88" cy="252" rx="20" ry="11" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="318" cy="255" rx="18" ry="10" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="258" rx="120" ry="14" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        person(200, 200, 12, 28) +
+        person(120, 202, 10, 26) +
+        person(165, 200, 10, 26) +
+        person(275, 202, 10, 26) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Job 1:21</text>'
       ),
 
       /* ── Week 4: Psalm 23 — shepherd, still water, sheep (psalm23 + psalm23Shepherd) ── */
@@ -3653,7 +3750,7 @@
     ezekielValleyBones: 'elishaShunammite',
     danielFieryFurnace: 'fieryFurnace',
     danielLionsDen: 'daniel',
-    ezraReturn: 'nehemiahWalls',
+    ezraReturn: 'ezraReturn',
     malachiMessage: 'tenCommandments',
     johnBaptist: 'johnBaptize',
     jonahVine: 'jonahVine',
@@ -4691,7 +4788,7 @@
     return /^\/media\/kids-stories\/[a-zA-Z0-9][a-zA-Z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(s);
   }
 
-  /** Optional loop-library poster: /assets/loops/{1–160}.png only (matches loops.json ids). */
+  /** Optional loop-library poster: /assets/loops/{1–195}.png when shipped (read-quiz poster map). */
   function isSafeLoopPosterPath(src) {
     if (typeof src !== 'string') return false;
     var s = src.trim();
@@ -4701,7 +4798,7 @@
     var m = /^\/assets\/loops\/(\d{1,3})\.png$/i.exec(s);
     if (!m) return false;
     var n = parseInt(m[1], 10);
-    return n >= 1 && n <= 160;
+    return n >= 1 && n <= 195;
   }
 
   /** First comic panel from bibleStories (same files as the modal carousel). */
@@ -5125,7 +5222,7 @@
       if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
         var posters = window.TDB_READ_QUIZ_LOOP_POSTERS || {};
         var lid = posters[key];
-        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 160) {
+        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 195) {
           var posterPath = '/assets/loops/' + Math.floor(lid) + '.png';
           if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
         }

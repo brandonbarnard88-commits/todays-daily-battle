@@ -688,13 +688,13 @@
   },
   {
     "key": "ezraReturn",
-    "title": "Ezra Return",
-    "kjvRef": "Ezra 1–10; Nehemiah 8–9",
+    "title": "The Return from Exile",
+    "kjvRef": "Ezra 1:1–11; 3:1–6",
     "who": "God",
     "to": "His people",
-    "apply": "God still brings people home to Himself. His Word shows us how to walk with Him again.",
+    "apply": "Even after long years away, God remembers you. You can come to Him with thanks and praise.",
     "theme": "Obedience",
-    "kw": "ezra cyrus exile return temple ezra 1 law jerusalem persia"
+    "kw": "ezra cyrus exile return temple ezra 1 ezra 3 altar jerusalem persia worship thanks"
   },
   {
     "key": "faithMustard",
@@ -1148,13 +1148,13 @@
   },
   {
     "key": "jobSuffering",
-    "title": "Job's Suffering",
-    "kjvRef": "Job 2",
+    "title": "Job Trusts God",
+    "kjvRef": "Job 1:1–22; 2:11–13",
     "who": "God",
-    "to": "Job",
-    "apply": "You can trust God in hard times! He always comes through for those who hold on.",
+    "to": "Job (and us)",
+    "apply": "God is with us even in our saddest days — we can still trust Him and bless His name.",
     "theme": "Protection",
-    "kw": "job suffering boils friends job 2 trust faith restore"
+    "kw": "job trust sad friends job 1 job 2 grief faith bless silence lord gave"
   },
   {
     "key": "johnBaptize",
@@ -1579,12 +1579,12 @@
   {
     "key": "nehemiahWalls",
     "title": "Nehemiah Rebuilds the Walls",
-    "kjvRef": "Nehemiah 1–6",
+    "kjvRef": "Nehemiah 1:1–4; 2:1–20; 3:1–32",
     "who": "God",
-    "to": "Nehemiah and Israel",
-    "apply": "Pray, then work! God helps us rebuild what's broken — even when others mock.",
+    "to": "Nehemiah and His people",
+    "apply": "God hears prayer and helps His people work together to restore what was broken.",
     "theme": "Obedience",
-    "kw": "nehemiah walls jerusalem nehemiah 1 nehemiah 4 artaxerxes rebuild pray sword 52 days"
+    "kw": "nehemiah walls jerusalem nehemiah 1 nehemiah 2 nehemiah 3 artaxerxes rebuild pray teamwork gates rise up build"
   },
   {
     "key": "newHeaven",

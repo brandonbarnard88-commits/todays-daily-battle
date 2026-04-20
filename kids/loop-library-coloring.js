@@ -28,6 +28,7 @@
   "daniel": "daniel",
   "davidAbigail": "abigailWise",
   "davidAnointed": "davidAnointed",
+  "davidBathsheba": "davidBathsheba",
   "davidCave": "davidCave",
   "davidGoliath": "davidGoliath",
   "davidHarp": "davidHarp",

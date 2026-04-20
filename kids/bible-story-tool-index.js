@@ -467,6 +467,16 @@
     "kw": "david saul cave engedi wild goats skirt robe anointed lord's anointed spare mercy heart smote 1 samuel 24 cover his feet sheepcotes thou art more righteous"
   },
   {
+    "key": "davidBathsheba",
+    "title": "David's Repentance and God's Mercy",
+    "kjvRef": "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
+    "who": "The LORD",
+    "to": "Every heart that says sorry — and every listener",
+    "apply": "When we do wrong, we can tell God we are sorry — He is merciful and forgives. He can give us a clean heart.",
+    "theme": "Love",
+    "kw": "david bathsheba repentance mercy psalm 51 psalms 51 create in me a clean heart blot out my transgressions have mercy upon me nathan i have sinned against the lord put away thy sin contrite heart 2 samuel 12 2 sam 12 lovingkindness forgiveness"
+  },
+  {
     "key": "absalomRebellion",
     "title": "David's Sadness and God's Care",
     "kjvRef": "2 Samuel 15:1-37; 16:15-23; 19:1-15",

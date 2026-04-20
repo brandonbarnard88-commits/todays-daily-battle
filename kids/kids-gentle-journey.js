@@ -83,6 +83,7 @@
     'davidKing',
     'absalomRebellion',
     'mephibosheth',
+    'davidBathsheba',
     'davidSaul',
     'davidSaulJealousy',
     'saulSpear',

@@ -54,6 +54,8 @@
     davidKing: 177,
     mephibosheth: 193,
     absalomRebellion: 194,
+    davidBathsheba: 195,
+    davidRepentance: 195,
     psalm23: 44,
     psalm23Shepherd: 44,
     davidSheep: 42,

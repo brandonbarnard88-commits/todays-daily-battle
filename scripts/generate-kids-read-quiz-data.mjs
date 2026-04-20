@@ -583,6 +583,10 @@ if (merged.naamanHealed && !merged.naaman) {
 if (merged.widowOil && !merged.elishaOil) {
   merged.elishaOil = merged.widowOil;
 }
+/** davidRepentance — alternate library key for David's repentance (gentle); same pack as davidBathsheba. */
+if (merged.davidBathsheba && !merged.davidRepentance) {
+  merged.davidRepentance = merged.davidBathsheba;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

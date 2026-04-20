@@ -6077,6 +6077,44 @@
       narration:
         "David Shows Kindness – 2 Samuel 9:1-13. David remembered Jonathan and asked, Is there yet any left of the house of Saul, that I may shew him kindness for Jonathan's sake? They brought Mephibosheth, Jonathan's son, who was lame in his feet. David said, Fear not: I will shew thee kindness for Jonathan thy father's sake, restore the land of Saul, and thou shalt eat bread at my table continually. Mephibosheth bowed low; David treated him as a son of the king — a place at the table, not a place far off. So he dwelt in Jerusalem and ate at the king's table. For you: God is kind to the humble — we can show His gentle welcome to others."
     },
+    davidBathsheba: {
+      title: 'David\'s Repentance and God\'s Mercy',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'David prays — Have mercy upon me, O God; blot out my transgressions' },
+        { src: 'panel-david-2.svg', alt: 'Create in me a clean heart, O God — wash me and make me clean' },
+        { src: 'panel-david-3.svg', alt: 'The LORD put away his sin — God hears a sorry, honest heart' }
+      ],
+      caption: 'David turned to God with an honest prayer — and the Lord showed mercy and forgiveness.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'david bathsheba',
+        'repentance',
+        'mercy',
+        'psalm 51',
+        'psalms 51',
+        'create in me a clean heart',
+        'blot out my transgressions',
+        'have mercy upon me',
+        'nathan',
+        'i have sinned against the lord',
+        'put away thy sin',
+        'contrite heart',
+        '2 samuel 12',
+        '2 sam 12',
+        'lovingkindness',
+        'forgiveness'
+      ],
+      kjvRef: '2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Every heart that says sorry — and every listener',
+        apply:
+          'When we do wrong, we can tell God we are sorry — He is merciful and forgives. He can give us a clean heart.'
+      },
+      narration:
+        "David's Repentance and God's Mercy – Psalm 51; 2 Samuel 12:13. David's heart was heavy; he prayed, Have mercy upon me, O God; blot out my transgressions. Create in me a clean heart. He told Nathan, I have sinned against the LORD — and God put away his sin. For you: God hears honest sorrow and offers mercy — we can always come to Him."
+    },
     absalomRebellion: {
       title: 'David\'s Sadness and God\'s Care',
       panels: [
@@ -6746,7 +6784,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -6761,7 +6799,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -6912,6 +6950,15 @@
       /\bmephibosheth\b|\bziba\b.*\blodebar\b|\blodebar\b|\bkindness for jonathan\b|\bshew him kindness\b|\beat bread at my table\b|\bdead dog\b|\bone of the king's sons\b|\bjonathan's son\b.*\blame\b/.test(low)
     ) {
       return { type: 'carousel', story: 'mephibosheth' };
+    }
+    if (
+      /\bpsalms 51\b|\bpsalm 51\b/.test(low) ||
+      /\b2 samuel 12:\s*(?:[1-9]|1[0-3])\b|\b2 sam 12:\s*(?:[1-9]|1[0-3])\b/.test(low) ||
+      /\bcreate in me a clean heart\b|\bblot out my transgressions\b|\bhave mercy upon me,?\s*o god\b|\baccording to thy lovingkindness\b|\bnathan\b.*\b(thou art the man|david|put away thy sin)\b|\bi have sinned against the lord\b.*\bput away thy sin\b|\bbroken and a contrite heart\b|\bpurge me with hyssop\b|\brestore unto me the joy of thy salvation\b/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidBathsheba' };
     }
     if (
       /\b2 samuel 15:(?:[1-9]|[12][0-9]|3[0-7])\b|\b2 sam 15:(?:[1-9]|[12][0-9]|3[0-7])\b/.test(low) ||
@@ -9898,7 +9945,7 @@
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', absalomRebellion: 'Protection', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', davidBathsheba: 'Love', absalomRebellion: 'Protection', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
     elijahHoreb: 'Love',

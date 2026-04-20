@@ -13,6 +13,7 @@
  * David harp before Saul: read-quiz-david-harp-pack.cjs (key davidHarp).
  * David is anointed king (gentle): read-quiz-david-king-pack.cjs (key davidKing).
  * David's kindness to Mephibosheth (gentle deepen): read-quiz-mephibosheth-pack.cjs (key mephibosheth).
+ * David's repentance and God's mercy (gentle): read-quiz-david-bathsheba-pack.cjs (keys davidBathsheba, davidRepentance).
  * David's sadness and prayer (Absalom, gentle): read-quiz-absalom-rebellion-pack.cjs (key absalomRebellion).
  * Solomon asks for wisdom: read-quiz-solomon-wisdom-pack.cjs (key solomonWisdom).
  * Solomon and the two mothers: read-quiz-solomon-two-mothers-pack.cjs (key solomonTwoMothers).
@@ -53,6 +54,7 @@ const psalm23ReadQuizPack = require('./read-quiz-psalm23-pack.cjs');
 const davidHarpReadQuizPack = require('./read-quiz-david-harp-pack.cjs');
 const davidKingReadQuizPack = require('./read-quiz-david-king-pack.cjs');
 const mephiboshethReadQuizPack = require('./read-quiz-mephibosheth-pack.cjs');
+const davidBathshebaReadQuizPack = require('./read-quiz-david-bathsheba-pack.cjs');
 const absalomRebellionReadQuizPack = require('./read-quiz-absalom-rebellion-pack.cjs');
 const solomonWisdomReadQuizPack = require('./read-quiz-solomon-wisdom-pack.cjs');
 const solomonTwoMothersReadQuizPack = require('./read-quiz-solomon-two-mothers-pack.cjs');
@@ -4405,6 +4407,7 @@ module.exports = {
   davidHarp: davidHarpReadQuizPack,
   davidKing: davidKingReadQuizPack,
   mephibosheth: mephiboshethReadQuizPack,
+  davidBathsheba: davidBathshebaReadQuizPack,
   absalomRebellion: absalomRebellionReadQuizPack,
   solomonWisdom: solomonWisdomReadQuizPack,
   solomonTwoMothers: solomonTwoMothersReadQuizPack,

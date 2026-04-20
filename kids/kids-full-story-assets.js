@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (309 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (310 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -26,6 +26,11 @@
       mp4: '/media/kids-stories/abraham-isaac.mp4',
       webm: '/media/kids-stories/abraham-isaac.webm',
       captionsVtt: '/media/kids-stories/abraham-isaac.vtt'
+    },
+    absalomRebellion: {
+      mp4: '/media/kids-stories/absalom-rebellion.mp4',
+      webm: '/media/kids-stories/absalom-rebellion.webm',
+      captionsVtt: '/media/kids-stories/absalom-rebellion.vtt'
     },
     achan: {
       mp4: '/media/kids-stories/achan.mp4',
@@ -222,6 +227,11 @@
       webm: '/media/kids-stories/david-anointed.webm',
       captionsVtt: '/media/kids-stories/david-anointed.vtt'
     },
+    davidBathsheba: {
+      mp4: '/media/kids-stories/david-bathsheba.mp4',
+      webm: '/media/kids-stories/david-bathsheba.webm',
+      captionsVtt: '/media/kids-stories/david-bathsheba.vtt'
+    },
     davidCave: {
       mp4: '/media/kids-stories/david-cave.mp4',
       webm: '/media/kids-stories/david-cave.webm',
@@ -251,16 +261,6 @@
       mp4: '/media/kids-stories/david-king.mp4',
       webm: '/media/kids-stories/david-king.webm',
       captionsVtt: '/media/kids-stories/david-king.vtt'
-    },
-    mephibosheth: {
-      mp4: '/media/kids-stories/mephibosheth.mp4',
-      webm: '/media/kids-stories/mephibosheth.webm',
-      captionsVtt: '/media/kids-stories/mephibosheth.vtt'
-    },
-    absalomRebellion: {
-      mp4: '/media/kids-stories/absalom-rebellion.mp4',
-      webm: '/media/kids-stories/absalom-rebellion.webm',
-      captionsVtt: '/media/kids-stories/absalom-rebellion.vtt'
     },
     davidSaul: {
       mp4: '/media/kids-stories/david-saul.mp4',
@@ -891,6 +891,11 @@
       mp4: '/media/kids-stories/mary-sit.mp4',
       webm: '/media/kids-stories/mary-sit.webm',
       captionsVtt: '/media/kids-stories/mary-sit.vtt'
+    },
+    mephibosheth: {
+      mp4: '/media/kids-stories/mephibosheth.mp4',
+      webm: '/media/kids-stories/mephibosheth.webm',
+      captionsVtt: '/media/kids-stories/mephibosheth.vtt'
     },
     miriamSong: {
       mp4: '/media/kids-stories/miriam-song.mp4',

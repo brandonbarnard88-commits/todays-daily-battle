@@ -82,6 +82,7 @@
     'psalm23',
     'davidKing',
     'mephibosheth',
+    'absalomRebellion',
     'davidSaul',
     'davidSaulJealousy',
     'saulSpear',

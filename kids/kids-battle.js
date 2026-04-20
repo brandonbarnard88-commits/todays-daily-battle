@@ -6077,6 +6077,45 @@
       narration:
         "David Shows Kindness – 2 Samuel 9:1-13. David remembered Jonathan and asked, Is there yet any left of the house of Saul, that I may shew him kindness for Jonathan's sake? They brought Mephibosheth, Jonathan's son, who was lame in his feet. David said, Fear not: I will shew thee kindness for Jonathan thy father's sake, restore the land of Saul, and thou shalt eat bread at my table continually. Mephibosheth bowed low; David treated him as a son of the king. So he dwelt in Jerusalem and ate at the king's table. For you: God is kind — we can show His gentle welcome to others."
     },
+    absalomRebellion: {
+      title: 'David\'s Sadness and God\'s Care',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'David leaves Jerusalem — loyal friends go with him' },
+        { src: 'panel-david-2.svg', alt: 'Up the Mount of Olives — David wept and prayed to the LORD' },
+        { src: 'panel-david-3.svg', alt: 'God brought David safely back — the king returned over Jordan' }
+      ],
+      caption: 'When David\'s heart was heavy, he prayed — and God heard him and kept him.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'absalom',
+        'absalom rebellion',
+        'david fled',
+        'mount of olives',
+        'mount olivet',
+        'weeping',
+        'ahithophel',
+        'foolishness',
+        'kidron',
+        '2 samuel 15',
+        '2 sam 15',
+        '2 samuel 19',
+        'david\'s sadness',
+        'trust god',
+        'returned to jerusalem',
+        'gilgal',
+        'jordan'
+      ],
+      kjvRef: '2 Samuel 15:1-37; 16:15-23; 19:1-15',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Every heart that feels sad — and every listener',
+        apply:
+          'God is close when we cry. We can tell Him everything and trust Him to care for us.'
+      },
+      narration:
+        "David's Sadness and God's Care – 2 Samuel 15–19 (gentle). Absalom drew many hearts away; David left Jerusalem with loyal servants. They wept; David went up the Mount of Olives in sorrow. He prayed, O LORD, turn Ahithophel's counsel into foolishness. At the mountaintop he worshipped God; friends stayed near. In time God brought David safely back — the king returned over Jordan, and Judah came to welcome him. For you: when your heart hurts, pray — God hears and keeps His own."
+    },
     hannahPray: {
       title: 'Hannah Prays for a Baby',
       panels: [
@@ -6707,7 +6746,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -6722,7 +6761,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -6873,6 +6912,16 @@
       /\bmephibosheth\b|\bziba\b.*\blodebar\b|\blodebar\b|\bkindness for jonathan\b|\bshew him kindness\b|\beat bread at my table\b|\bdead dog\b|\bone of the king's sons\b|\bjonathan's son\b.*\blame\b/.test(low)
     ) {
       return { type: 'carousel', story: 'mephibosheth' };
+    }
+    if (
+      /\b2 samuel 15:(?:[1-9]|[12][0-9]|3[0-7])\b|\b2 sam 15:(?:[1-9]|[12][0-9]|3[0-7])\b/.test(low) ||
+      /\b2 samuel 16:(?:1[5-9]|2[0-3])\b|\b2 sam 16:(?:1[5-9]|2[0-3])\b/.test(low) ||
+      /\b2 samuel 19:15\b|\b2 sam 19:15\b/.test(low) ||
+      /\babsalom\b.*\b(rose|fled|conspir|rebel|after absalom)\b|\bhearts.*after absalom\b|\bmount olivet\b|\bmount of olives\b|\bascent of mount\b|\bbrook kidron\b|\bweeping as they went up\b|\bahithophel\b.*\bfoolishness\b|\bturn the counsel of ahithophel\b|\bdavid.*fled.*jerusalem\b|\bgilgal\b.*\bmeet the king\b|\bconduct the king over jordan\b/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'absalomRebellion' };
     }
     if (
       /\b1 kings 3:(?:1[6-9]|2[0-8])\b|\b1 kgs 3:(?:1[6-9]|2[0-8])\b/.test(low) ||
@@ -9849,7 +9898,7 @@
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', absalomRebellion: 'Protection', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
     elijahHoreb: 'Love',

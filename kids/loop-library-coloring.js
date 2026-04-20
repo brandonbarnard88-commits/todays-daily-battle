@@ -6,6 +6,7 @@
   'use strict';
   g.TDB_LOOP_COLORING_OUTLINE = {
   "abrahamIsaac": "abrahamIsaac",
+  "absalomRebellion": "absalomRebellion",
   "achan": "achan",
   "actsPaulMarsHill": "paulSilas",
   "actsPaulMelita": "paulShipwreck",

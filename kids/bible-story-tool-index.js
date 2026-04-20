@@ -467,6 +467,16 @@
     "kw": "david saul cave engedi wild goats skirt robe anointed lord's anointed spare mercy heart smote 1 samuel 24 cover his feet sheepcotes thou art more righteous"
   },
   {
+    "key": "absalomRebellion",
+    "title": "David's Sadness and God's Care",
+    "kjvRef": "2 Samuel 15:1-37; 16:15-23; 19:1-15",
+    "who": "The LORD",
+    "to": "Every heart that feels sad — and every listener",
+    "apply": "God is close when we cry. We can tell Him everything and trust Him to care for us.",
+    "theme": "Protection",
+    "kw": "absalom absalom rebellion david fled mount of olives mount olivet weeping ahithophel foolishness kidron 2 samuel 15 2 sam 15 2 samuel 19 david's sadness trust god returned to jerusalem gilgal jordan"
+  },
+  {
     "key": "deborahBarak",
     "title": "Deborah and Barak",
     "kjvRef": "Judges 4:1-16",

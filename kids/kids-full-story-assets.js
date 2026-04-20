@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (308 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (309 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -256,6 +256,11 @@
       mp4: '/media/kids-stories/mephibosheth.mp4',
       webm: '/media/kids-stories/mephibosheth.webm',
       captionsVtt: '/media/kids-stories/mephibosheth.vtt'
+    },
+    absalomRebellion: {
+      mp4: '/media/kids-stories/absalom-rebellion.mp4',
+      webm: '/media/kids-stories/absalom-rebellion.webm',
+      captionsVtt: '/media/kids-stories/absalom-rebellion.vtt'
     },
     davidSaul: {
       mp4: '/media/kids-stories/david-saul.mp4',

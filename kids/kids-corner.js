@@ -111,6 +111,7 @@
       davidAbigail: 'abigailWise',
       davidKing: 'davidKing',
       mephibosheth: 'mephibosheth',
+      absalomRebellion: 'absalomRebellion',
       solomonWisdom: 'solomonWisdom',
       solomonTwoMothers: 'solomonTwoMothers',
       solomonTemple: 'solomonTemple',
@@ -1755,6 +1756,32 @@
         '<ellipse cx="118" cy="228" rx="22" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<ellipse cx="278" cy="228" rx="22" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 9:7</text>'
+      ),
+
+      /* David — sad road, prayer on the hill; friends near (library absalomRebellion / loop 194) */
+      absalomRebellion: svg(
+        ground() +
+        hills() +
+        '<path d="M40 248 Q120 210 200 188 Q280 165 360 142" ' + s + ' stroke-width="2.2" fill="none" opacity="0.85"/>' +
+        /* soft trees */
+        '<circle cx="72" cy="118" r="22" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="68" y="138" width="8" height="42" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="328" cy="112" r="26" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="322" y="134" width="10" height="48" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* distant city */
+        '<path d="M300 198 L300 168 L308 172 L316 166 L324 170 L332 164 L340 168 L348 164 L348 198" ' + sf + ' fill="white" stroke-width="1.8" opacity="0.7"/>' +
+        sun(48, 44, 14) +
+        /* David — gentle sorrow, hands folded to pray */
+        person(198, 128, 11, 28) +
+        '<path d="M190 132 Q198 126 206 132" ' + s + ' stroke-width="1.3"/>' +
+        '<path d="M192 158 L192 172 M200 160 L200 172 M208 158 L208 172" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M194 168 L200 174 L206 168" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        /* loyal friends */
+        person(128, 148, 8, 24) +
+        person(268, 150, 8, 24) +
+        '<path d="M124 140 Q128 144 132 140" ' + s + ' stroke-width="1" fill="none"/>' +
+        '<path d="M264 142 Q268 146 272 142" ' + s + ' stroke-width="1" fill="none"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 15:31</text>'
       ),
 
       /* ── Week 3: Saul Spear (47) ── */
@@ -3686,6 +3713,7 @@
     palmSunday: 'greatCommission',
     armorOfGod: 'armorOfGod',
     davidKindness: 'mephibosheth',
+    davidAbsalom: 'absalomRebellion',
     /* ── Week 1 ── */
     manna: 'manna',
     tenCommandments: 'tenCommandments',
@@ -3744,6 +3772,7 @@
     davidAnointed: 'davidAnointed',
       davidKing: 'davidKing',
       mephibosheth: 'mephibosheth',
+      absalomRebellion: 'absalomRebellion',
       saulSpear: 'saulSpear',
     davidCave: 'davidCave',
     /* ── Week 4 ── */
@@ -5523,7 +5552,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

@@ -413,23 +413,24 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 14:21</text>'
       ),
 
-      /* Daniel in lions’ den — standing, folded hands; lions low and calm; soft light (Daniel 6:1–23) */
+      /* Daniel in lions’ den — two calm lions; softer opening light; folded hands (Daniel 6:1–23) */
       daniel: svg(
         ground() +
         /* cave arch — minimal inner curve */
         '<path d="M60 260 L60 145 Q200 68 340 145 L340 260" ' + sf + ' fill="white" stroke-width="3.5"/>' +
-        /* gentle light from opening */
-        '<ellipse cx="200" cy="112" rx="50" ry="26" ' + sf + ' fill="white" stroke-width="1.5" opacity="0.88"/>' +
-        '<line x1="200" y1="78" x2="178" y2="128" ' + s + ' stroke-width="1.2" stroke-dasharray="7,6" opacity="0.65"/>' +
-        '<line x1="200" y1="78" x2="222" y2="128" ' + s + ' stroke-width="1.2" stroke-dasharray="7,6" opacity="0.65"/>' +
-        /* lions lying low — simple, rounded, peaceful */
-        '<ellipse cx="105" cy="232" rx="46" ry="16" ' + sf + ' fill="white" stroke-width="2.8"/>' +
-        '<circle cx="82" cy="218" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M74 214 Q78 216 82 214 Q86 216 90 214" ' + s + ' stroke-width="1.2" fill="none"/>' +
-        '<ellipse cx="295" cy="232" rx="46" ry="16" ' + sf + ' fill="white" stroke-width="2.8"/>' +
-        '<circle cx="318" cy="218" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M310 214 Q314 216 318 214 Q322 216 326 214" ' + s + ' stroke-width="1.2" fill="none"/>' +
-        '<ellipse cx="200" cy="242" rx="36" ry="12" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* soft light from opening — layered glow */
+        '<ellipse cx="200" cy="118" rx="58" ry="30" ' + sf + ' fill="white" stroke-width="1.2" opacity="0.55"/>' +
+        '<ellipse cx="200" cy="108" rx="44" ry="22" ' + sf + ' fill="white" stroke-width="1.4" opacity="0.9"/>' +
+        '<line x1="200" y1="72" x2="172" y2="124" ' + s + ' stroke-width="1" stroke-dasharray="8,7" opacity="0.55"/>' +
+        '<line x1="200" y1="72" x2="200" y2="128" ' + s + ' stroke-width="1" stroke-dasharray="8,7" opacity="0.55"/>' +
+        '<line x1="200" y1="72" x2="228" y2="124" ' + s + ' stroke-width="1" stroke-dasharray="8,7" opacity="0.55"/>' +
+        /* two lions lying low — flank Daniel only */
+        '<ellipse cx="108" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="84" cy="218" r="15" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M77 214 Q81 216 85 214 Q89 216 93 214" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<ellipse cx="292" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="316" cy="218" r="15" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M309 214 Q313 216 317 214 Q321 216 325 214" ' + s + ' stroke-width="1.1" fill="none"/>' +
         /* Daniel standing — folded hands in prayer */
         person(200, 138, 12, 30) +
         '<path d="M188 176 Q200 186 212 176" ' + s + ' stroke-width="2.2"/>' +

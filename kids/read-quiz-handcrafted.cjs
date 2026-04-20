@@ -4391,11 +4391,15 @@ function buildDanielLionsDenReadQuiz() {
       'Listen again — Daniel prayed; the king was sad; God sent his angel and shut the lions’ mouths.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'Daniel was a good man who loved God. He prayed to God three times every day, even when the king made a law that no one could pray to anyone but the king.',
-      'Daniel was thrown into a den of lions. The king was very sad and could not sleep.',
+      'Daniel was a good man who loved God.',
+      'He prayed to God three times every day, even when the king made a law that no one could pray to anyone but the king.',
+      'Daniel was thrown into a den of lions.',
+      'The king was very sad and could not sleep.',
       'Early the next morning the king called, O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions?',
-      'Daniel answered, My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me. The king was glad and commanded that Daniel be taken up out of the den.',
-      'No hurt was found upon him, because he believed in his God. The LORD protected Daniel because he trusted and prayed to Him every day.',
+      'Daniel answered, My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me.',
+      'The king was glad and commanded that Daniel be taken up out of the den.',
+      'No hurt was found upon him, because he believed in his God.',
+      'The LORD protected Daniel because he trusted and prayed to Him every day.',
       'Reference: Daniel 6:1–23 (KJV).'
     ],
     readAlongSections: [
@@ -4420,9 +4424,8 @@ function buildDanielLionsDenReadQuiz() {
         image: 'panel-daniel-2.svg'
       },
       {
-        text:
-          'In the morning the king called, O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions?',
-        caption: 'The king called to Daniel',
+        text: 'In the morning the king called to Daniel.',
+        caption: 'Servant of the living God — able to deliver?',
         image: 'panel-daniel-3.svg'
       },
       {
@@ -4432,8 +4435,7 @@ function buildDanielLionsDenReadQuiz() {
         image: 'panel-daniel-3.svg'
       },
       {
-        text:
-          'No hurt was found on Daniel because he trusted God. The king was glad, and Daniel was taken up out of the den.',
+        text: 'No hurt was found on Daniel because he trusted God.',
         caption: 'For you',
         image: 'panel-daniel-3.svg'
       }
@@ -4506,7 +4508,7 @@ function buildDanielLionsDenReadQuiz() {
     prayer:
       'Lord, thank You that You hear us when we pray. Help us trust You every day. Amen.',
     imagePrompts: [
-      'Simple peaceful black-and-white line-art for young children ages 3–8: Daniel standing calmly in lions den hands folded in prayer lions lying low and peaceful around him thick bold outlines large open spaces on robe lions bodies ground soft cave walls small opening with gentle light behind minimal lines trusting safe mood no scary lions plenty of white space coloring page',
+      'Simple peaceful black-and-white line-art for young children ages 3–8: Daniel standing calmly inside lions den hands folded in prayer two lions lying peacefully beside him thick bold outlines large open spaces on robe lions bodies ground soft cave walls small opening with soft light in background minimal lines trusting safe mood focus God protecting Daniel no scary lions no fear plenty of white space coloring page',
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel prays toward Jerusalem (daniel)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel in the den — lions quiet (lions)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel — God shuts lions mouths (daniel 6)",

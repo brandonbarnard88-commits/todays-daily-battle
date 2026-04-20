@@ -1199,6 +1199,24 @@
       kjvRef: '1 Samuel 16:11; 17:15, 34–37',
       kidContext: { who: 'David', to: 'King Saul (and us)', apply: 'David protected sheep—God protects us! Like a shepherd cares for his flock!' }
     },
+    elijahRavens: {
+      title: 'Elijah & the Ravens',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elijah speaks God\'s word to Ahab' },
+        { src: 'panel-noah-2.svg', alt: 'By Cherith — ravens bring bread and flesh' },
+        { src: 'panel-noah-3.svg', alt: 'He drinks of the brook — God cares each day' }
+      ],
+      caption: 'Swipe for Cherith — God fed Elijah by the brook.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['elijah', 'ravens', 'cherith', 'brook', '1 kings 17', 'bread', 'flesh', 'ahab'],
+      kjvRef: '1 Kings 17:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah',
+        apply: 'God commanded the ravens — morning and evening. He still knows how to feed His children.'
+      }
+    },
     elijahFire: {
       title: 'Elijah & Fire',
       panels: [
@@ -3355,6 +3373,44 @@
       },
       narration:
         "Solomon Builds the Temple – 1 Kings 6:1-14; 8:1-13, 22-30. In the fourth year of his reign Solomon began to build the house of the LORD — cedar beams, careful work, and the word of the LORD: walk in my ways, and I will dwell among Israel. He finished the house. Then he assembled Israel; the priests brought the ark into the most holy place. When they came out, a cloud filled the house — the glory of the LORD — so the priests could not stand to minister. Solomon spread his hands toward heaven: LORD God of Israel, there is no God like thee; the heaven of heavens cannot contain thee; how much less this house — yet hear thy servant; let thine eyes be open toward this house; when thy people pray toward this place, hear, and forgive. For you: The true God is great — and He still listens."
+    },
+    elijahRavens: {
+      title: 'Elijah and the Ravens',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elijah speaks God\'s word — no dew nor rain according to my word' },
+        { src: 'panel-noah-2.svg', alt: 'By the brook Cherith — the LORD commanded the ravens to feed thee there' },
+        { src: 'panel-noah-3.svg', alt: 'Bread and flesh morning and evening — he drank of the brook' }
+      ],
+      caption: 'Swipe for Cherith — where God fed His prophet by the brook.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elijah ravens',
+        'elijah and the ravens',
+        'brook cherith',
+        'cherith',
+        '1 kings 17',
+        '1 kings 17:1',
+        '1 kings 17:4',
+        '1 kings 17:6',
+        'bread and flesh',
+        'commanded the ravens',
+        'no dew nor rain',
+        'ahab',
+        'tishbite',
+        'gilead',
+        'drink of the brook',
+        'brook dried up'
+      ],
+      kjvRef: '1 Kings 17:1-7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Elijah — and every heart that needs daily bread',
+        apply:
+          'God hid Elijah by the brook and sent ravens with food — morning and evening. When the land was dry, heaven still obeyed His voice.'
+      },
+      narration:
+        "Elijah and the Ravens – 1 Kings 17:1-7. Elijah the Tishbite said unto Ahab, As the LORD God of Israel liveth, there shall not be dew nor rain these years, but according to my word. The word of the LORD came: Get thee hence, and hide thyself by the brook Cherith, that is before Jordan; thou shalt drink of the brook, and I have commanded the ravens to feed thee there. So he dwelt by Cherith. The ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. After a while the brook dried up, because there had been no rain in the land. For you: God knows how to care for you — even one day at a time."
     },
     elijahFireFromHeaven: {
       title: 'Elijah on Mount Carmel',
@@ -5824,7 +5880,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 295, color: '#e5e4e2' }
+      { name: 'Platinum', min: 296, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5923,7 +5979,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5940,6 +5996,7 @@
       /* Week 4 */
       'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
+      'elijahRavens',
       'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
       'ezraReturn', 'malachiMessage',
@@ -6278,8 +6335,23 @@
     if (/\bgideon\b/.test(low)) {
       return { type: 'carousel', story: 'gideonFleece' };
     }
-    if (/elijah|baal|carmel|1 kings 18|fire.*heaven/.test(low)) {
+    if (
+      /\b1 kings 17:(?:[1-7])\b|\b1 kgs 17:(?:[1-7])\b/.test(low) ||
+      /brook cherith|cherith.*jordan|commanded the ravens|ravens brought him bread and flesh|elijah.*raven|raven.*elijah|no dew nor rain.*elijah|tishbite.*ahab/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elijahRavens' };
+    }
+    if (
+      /elijah.*\b(carmel|baal|altar|fire|18)\b|\b(baal|carmel|mount carmel)\b.*elijah|1 kings 18|2 kings 2:11|whirlwind.*elijah|fire.*heaven.*altar|elijah.*fire from heaven/.test(low)
+    ) {
       return { type: 'carousel', story: 'elijahFire' };
+    }
+    if (
+      /\belijah\b/.test(low) &&
+      !/elisha/.test(low) &&
+      !/(carmel|baal|altar|1 kings 18|1 kings 19|2 kings 2|whirlwind|chariot|still small)/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elijahRavens' };
     }
     if (/elisha|widow.*oil|2 kings 4|oil.*jar/.test(low)) {
       return { type: 'carousel', story: 'elishaOil' };
@@ -8912,6 +8984,7 @@
     /* Week 4 */
     elishaRaised: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
+    elijahRavens: 'Miracles',
     elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
     elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',

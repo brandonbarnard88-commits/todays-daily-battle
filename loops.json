@@ -423,12 +423,13 @@
   },
   {
     "id": 46,
-    "title": "Elijah Raven Fed",
+    "title": "Elijah and the Ravens",
     "file": "",
     "audio": "",
-    "ref": "1 Kings 17:6",
+    "ref": "1 Kings 17:1-7",
     "week": 3,
-    "libraryKey": "elijahFire"
+    "libraryKey": "elijahRavens",
+    "kjvText": "And the ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook."
   },
   {
     "id": 47,

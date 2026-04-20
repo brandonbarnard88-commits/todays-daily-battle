@@ -507,6 +507,16 @@
     "kw": "elijah baal fire carmel 1 kings 18 altar"
   },
   {
+    "key": "elijahRavens",
+    "title": "Elijah & the Ravens",
+    "kjvRef": "1 Kings 17:1-7",
+    "who": "The LORD",
+    "to": "Elijah",
+    "apply": "God commanded the ravens — morning and evening. He still knows how to feed His children.",
+    "theme": "Miracles",
+    "kw": "elijah ravens cherith brook 1 kings 17 bread flesh ahab"
+  },
+  {
     "key": "elijahElijahElisha",
     "title": "Elijah Calls Elisha",
     "kjvRef": "1 Kings 19:19–21",

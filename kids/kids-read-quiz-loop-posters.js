@@ -64,6 +64,7 @@
     earlyChurchLife: 91,
     elijahChariot: 48,
     elijahElijahElisha: 48,
+    elijahRavens: 46,
     elijahFire: 18,
     elijahFireFromHeaven: 18,
     elishaFloatingAxe: 21,

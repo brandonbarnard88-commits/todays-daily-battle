@@ -3382,11 +3382,11 @@
       "He prayed to God three times every day, even when the king made a law that no one could pray to anyone but the king.",
       "Daniel was thrown into a den of lions.",
       "The king was very sad and could not sleep.",
-      "Early the next morning the king called, O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions?",
-      "Daniel answered, My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me.",
+      "Early the next morning the king called, \"Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions?\"",
+      "Daniel answered, \"My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me.\"",
       "The king was glad and commanded that Daniel be taken up out of the den.",
       "No hurt was found upon him, because he believed in his God.",
-      "The LORD protected Daniel because he trusted and prayed to Him every day.",
+      "The Lord protected Daniel because he trusted and prayed to Him every day.",
       "Reference: Daniel 6:1–23 (KJV)."
     ],
     "readAlongSections": [
@@ -3416,7 +3416,7 @@
         "image": "panel-daniel-3.svg"
       },
       {
-        "text": "Daniel said, My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me.",
+        "text": "Daniel said, \"My God sent his angel and shut the lions’ mouths.\"",
         "caption": "God shut the lions’ mouths",
         "image": "panel-daniel-3.svg"
       },
@@ -3494,7 +3494,7 @@
     "takeaway": "God protects those who trust Him and pray — He can even shut lions’ mouths.",
     "prayer": "Lord, thank You that You hear us when we pray. Help us trust You every day. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art for young children ages 3–8: Daniel standing calmly inside the lions' den hands folded in prayer lions lying peacefully around him thick bold outlines large open spaces on Daniel's robe the lions' bodies and the ground soft cave walls small opening with light in the background with minimal lines trusting safe mood focus God protecting Daniel clean minimal no scary lions or fear plenty of white space ages 3–8 coloring page",
+      "Simple peaceful black-and-white line-art scene for young children ages 3–8: Daniel standing calmly inside the lions' den with his hands folded in prayer lions lying peacefully around him thick bold outlines large open spaces on Daniel's robe the lions' bodies and the ground for easy coloring soft cave walls and a small opening with light in the background with minimal lines trusting safe mood focus God protecting Daniel clean minimal no scary lions or fear plenty of white space age-appropriate coloring page",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel prays toward Jerusalem (daniel)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel in the den — lions quiet (lions)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel — God shuts lions mouths (daniel 6)",

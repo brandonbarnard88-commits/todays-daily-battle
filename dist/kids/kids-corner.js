@@ -1839,6 +1839,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 8:6</text>'
       ),
 
+      /* Samaria — God feeds His people — 2 Kings 7:16 */
+      samariaSiege: svg(
+        ground() + hills() +
+        '<path d="M70 115 L330 115 L318 200 L82 200 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M115 115 L115 258 M285 115 L285 258" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M115 115 Q200 95 285 115" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(200, 152, 12, 34) +
+        '<path d="M192 168 Q200 172 208 168" ' + s + ' stroke-width="2"/>' +
+        person(95, 178, 10, 30) +
+        person(130, 185, 9, 26) +
+        person(305, 182, 10, 30) +
+        '<ellipse cx="118" cy="228" rx="18" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="175" cy="232" rx="16" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="230" cy="230" rx="17" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M255 210 L275 205 L280 218 L265 222 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M48 210 L92 188 L108 210" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M292 210 L336 188 L352 210" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(330, 42, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 7:16</text>'
+      ),
+
       /* ── Week 4: Jonah Whale already exists ── */
       /* ── Week 4: Daniel Lions already exists ── */
 
@@ -3751,6 +3772,7 @@
     annaProphet: 'annaProphet',
     widowOil: 'widowOil',
     shunammiteReturn: 'shunammiteReturn',
+    samariaSiege: 'samariaSiege',
     persistentWidow: 'persistentWidow',
     samaritanWoman: 'samaritanWoman',
     marthaServe: 'marthaServe',
@@ -5341,7 +5363,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',

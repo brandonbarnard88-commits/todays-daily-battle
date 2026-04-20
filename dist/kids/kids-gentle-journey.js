@@ -106,6 +106,7 @@
     'gehaziGreed',
     'widowOil',
     'shunammiteReturn',
+    'samariaSiege',
     'ezraReturn',
     'nehemiahWalls',
     'esther',

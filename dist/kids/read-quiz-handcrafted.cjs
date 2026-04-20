@@ -31,6 +31,7 @@
  * Elisha and the poisoned stew (meal heals the pot): read-quiz-elisha-poison-stew-pack.cjs (key elishaPoisonStew).
  * Elisha and the blind Syrian army (Samaria): read-quiz-elisha-blind-army-pack.cjs (key elishaBlindArmy).
  * Shunammite woman’s land restored: read-quiz-shunammite-return-pack.cjs (key shunammiteReturn).
+ * Samaria siege / God feeds His people: read-quiz-samaria-siege-pack.cjs (key samariaSiege).
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
@@ -63,6 +64,7 @@ const elishaPoisonStewReadQuizPack = require('./read-quiz-elisha-poison-stew-pac
 const elishaBlindArmyReadQuizPack = require('./read-quiz-elisha-blind-army-pack.cjs');
 const gehaziGreedReadQuizPack = require('./read-quiz-gehazi-greed-pack.cjs');
 const shunammiteReturnReadQuizPack = require('./read-quiz-shunammite-return-pack.cjs');
+const samariaSiegeReadQuizPack = require('./read-quiz-samaria-siege-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3925,5 +3927,6 @@ module.exports = {
   elishaPoisonStew: elishaPoisonStewReadQuizPack,
   elishaBlindArmy: elishaBlindArmyReadQuizPack,
   gehaziGreed: gehaziGreedReadQuizPack,
-  shunammiteReturn: shunammiteReturnReadQuizPack
+  shunammiteReturn: shunammiteReturnReadQuizPack,
+  samariaSiege: samariaSiegeReadQuizPack
 };

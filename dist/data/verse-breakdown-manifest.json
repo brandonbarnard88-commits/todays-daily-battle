@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-20T16:33:02.402Z",
-  "surfacedRefCount": 2814,
-  "overrideCount": 2814,
+  "generatedAt": "2026-04-20T16:46:15.309Z",
+  "surfacedRefCount": 2816,
+  "overrideCount": 2816,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 173,
+      "refs": 174,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 188,
+      "refs": 189,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 164,
+      "refs": 165,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 187,
+      "refs": 188,
       "pairs": 0
     },
     "memorize.html": {
@@ -919,8 +919,10 @@
     "2 Kings 6:17",
     "2 Kings 6:18-23",
     "2 Kings 6:22",
+    "2 Kings 6:24-7:20",
     "2 Kings 6:6",
     "2 Kings 6:8-17",
+    "2 Kings 7:16",
     "2 Kings 8:1-6",
     "2 Kings 8:6",
     "2 Kings 9:1",
@@ -6717,6 +6719,14 @@
         "to": "Israel"
       }
     },
+    "2 Kings 6:24-7:20": {
+      "general": {
+        "plainExplanation": "Key idea: And it came to pass after this, that Benhadad king of Syria gathered all his host, and went up, and besieged Samaria. And there was a great famine in Samari...",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
     "2 Kings 6:6": {
       "general": {
         "plainExplanation": "And the man of God said, Where fell it? And he shewed him the place. And he cut down a stick, and cast it in thither; and the iron did swim.",
@@ -6729,6 +6739,14 @@
       "general": {
         "plainExplanation": "Key idea: Then the king of Syria warred against Israel, and took counsel with his servants, saying, In such and such a place shall be my camp. And the man of God sent...",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 7:16": {
+      "general": {
+        "plainExplanation": "Key idea: And the people went out, and spoiled the tents of the Syrians. So a measure of fine flour was sold for a shekel, and two measures of barley for a shekel, ac...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"
       }

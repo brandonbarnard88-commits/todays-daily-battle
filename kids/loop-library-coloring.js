@@ -139,6 +139,7 @@
   "ruthNaomi": "ruthNaomi",
   "ruthRedemption": "ruthRedemption",
   "ruthThreshing": "ruthThreshing",
+  "samariaSiege": "samariaSiege",
   "samson": "samson",
   "samsonBirth": "samsonBirth",
   "samsonDelilah": "samsonDelilah",

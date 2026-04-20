@@ -3474,6 +3474,47 @@
       narration:
         "The Shunammite Woman Returns — 2 Kings 8:1-6. Elisha told the woman whose son he had raised to take her household and sojourn while a famine came seven years; she obeyed. When those years ended, she returned and asked the king for her house and her land. The king was speaking with Gehazi about the great things Elisha had done — and she came in. Gehazi said, This is the woman, and this is her son, whom Elisha restored to life. The king listened and sent an officer: restore all that was hers, and all the fruits of the field since she left. For you: God keeps His kindness on one family's story — He does not forget."
     },
+    samariaSiege: {
+      title: 'God Feeds His People at Samaria',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'A great famine — the king of Syria besieged Samaria' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha speaks God\'s word — tomorrow flour and barley in the gate' },
+        { src: 'panel-jesus-3.svg', alt: 'The people find plenty — according to the word of the LORD' }
+      ],
+      caption: 'Swipe to see God\'s word come true — quiet plenty when the city was hungry.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'samaria',
+        'siege of samaria',
+        'samaria siege',
+        'besieged samaria',
+        'gate of samaria',
+        'fine flour',
+        'barley shekel',
+        'windows in heaven',
+        'noise of chariots',
+        'syrians fled',
+        'spoiled the tents',
+        '2 kings 6',
+        '2 kings 6:24',
+        '2 kings 7',
+        '2 kings 7:1',
+        '2 kings 7:16',
+        'elisha',
+        'benhadad',
+        'famine samaria'
+      ],
+      kjvRef: '2 Kings 6:24-7:20',
+      kidContext: {
+        who: 'The LORD',
+        to: 'The people of Samaria — through Elisha\'s word',
+        apply:
+          'God can feed His people when things look impossible — trust His promise one day at a time.'
+      },
+      narration:
+        "God Feeds His People at Samaria — 2 Kings 6:24–7:20. The king of Syria besieged Samaria, and hunger was very great in the city. Elisha said, Thus saith the LORD, To morrow about this time shall a measure of fine flour be sold for a shekel, and two measures of barley for a shekel, in the gate of Samaria. A lord wondered if the LORD would make windows in heaven; Elisha said, Thou shalt see it with thine eyes, but shalt not eat thereof. That night the LORD made the Syrian army hear a noise of chariots and horses; they fled and left food behind. The people went out and spoiled the tents — and flour and barley were sold as God had said. For you: God still speaks kindly when we are afraid and empty."
+    },
     estherCrown: {
       title: 'Queen Esther\'s Courage',
       panels: [
@@ -6445,7 +6486,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 304, color: '#e5e4e2' }
+      { name: 'Platinum', min: 305, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6559,7 +6600,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'shunammiteReturn', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -6977,6 +7018,16 @@
       /shunammite|woman of shunem|raise.*dead.*elisha|elisha.*raise|son of the woman|bed.*stick|great woman.*shunem/.test(low)
     ) {
       return { type: 'carousel', story: 'elishaShunammite' };
+    }
+    if (
+      /\b2 kings 6:(?:2[4-9]|3[0-3])\b|\b2 kgs 6:(?:2[4-9]|3[0-3])\b/.test(low) ||
+      /\b2 kings 7:(?:[1-9]|1[0-9]|20)\b|\b2 kgs 7:(?:[1-9]|1[0-9]|20)\b/.test(low) ||
+      (/\b2 kings 6\b|\b2 kgs 6\b/.test(low) &&
+        /besieged samaria|great famine in samaria|benhadad|gate of samaria|measure of fine flour|two measures of barley|windows in heaven|noise of chariots|noise of horses|spoiled the tents|according to the word of the lord.*gate of samaria/.test(low)) ||
+      (/\b2 kings 7\b|\b2 kgs 7\b/.test(low) &&
+        /fine flour|barley|gate of samaria|windows in heaven|noise of chariots|spoiled the tents|syrian|fled.*twilight|according to the word of the lord/.test(low))
+    ) {
+      return { type: 'carousel', story: 'samariaSiege' };
     }
     if (
       /\b2 kings 6:(?:18|19|20|21|22|23)\b|\b2 kgs 6:(?:18|19|20|21|22|23)\b/.test(low) ||
@@ -9656,7 +9707,7 @@
     davidSaulJealousy: 'Protection', davidJonathanFriendship: 'Love',
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
-    elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
+    elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
@@ -9751,7 +9802,7 @@
     lydiaSell: 'Obedience', priscillaTeach: 'Obedience', ruthMoab: 'Love',
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */
-    annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', persistentWidow: 'Obedience',
+    annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', persistentWidow: 'Obedience',
     samaritanWoman: 'Love', marthaServe: 'Obedience', marySit: 'Obedience',
     dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
     loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',

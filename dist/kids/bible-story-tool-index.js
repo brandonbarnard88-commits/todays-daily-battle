@@ -787,6 +787,16 @@
     "kw": "gideon 300 midian midianites judges 7 trumpet pitcher torch lamp jar victory obey sword of the lord"
   },
   {
+    "key": "samariaSiege",
+    "title": "God Feeds His People at Samaria",
+    "kjvRef": "2 Kings 6:24-7:20",
+    "who": "The LORD",
+    "to": "The people of Samaria — through Elisha's word",
+    "apply": "God can feed His people when things look impossible — trust His promise one day at a time.",
+    "theme": "Miracles",
+    "kw": "samaria siege of samaria samaria siege besieged samaria gate of samaria fine flour barley shekel windows in heaven noise of chariots syrians fled spoiled the tents 2 kings 6 2 kings 6:24 2 kings 7 2 kings 7:1 2 kings 7:16 elisha benhadad famine samaria"
+  },
+  {
     "key": "goliathChallenge",
     "title": "Goliath's Challenge",
     "kjvRef": "1 Samuel 17:8–11, 16, 23–30",

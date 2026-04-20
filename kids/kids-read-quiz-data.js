@@ -3493,7 +3493,7 @@
     "takeaway": "God protects those who trust Him and pray — He can even shut lions’ mouths.",
     "prayer": "Lord, thank You that You hear us when we pray. Help us trust You every day. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art for young children ages 3–8: Daniel standing calmly inside lions den hands folded in prayer two lions lying peacefully beside him thick bold outlines large open spaces on robe lions bodies ground soft cave walls small opening with soft light in background minimal lines trusting safe mood focus God protecting Daniel no scary lions no fear plenty of white space coloring page",
+      "Simple peaceful black-and-white line-art for young children ages 3–8: Daniel standing calmly inside the lions den hands folded in prayer lions lying peacefully around him thick bold outlines large open spaces on Daniel's robe lions bodies ground soft cave walls small opening with light in background minimal lines trusting safe mood focus God protecting Daniel clean minimal no scary lions no fear plenty of white space ages 3–8 coloring page",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel prays toward Jerusalem (daniel)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel in the den — lions quiet (lions)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel — God shuts lions mouths (daniel 6)",

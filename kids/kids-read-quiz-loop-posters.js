@@ -71,6 +71,7 @@
     elijahFireFromHeaven: 18,
     elishaFloatingAxe: 183,
     elishaChariots: 184,
+    elishaPoisonStew: 185,
     elishaMiracles: 182,
     elishaOil: 19,
     elishaShunammite: 49,

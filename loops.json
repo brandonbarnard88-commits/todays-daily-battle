@@ -1692,5 +1692,15 @@
     "week": 12,
     "libraryKey": "elishaChariots",
     "kjvText": "And he answered, Fear not: for they that be with us are more than they that be with them."
+  },
+  {
+    "id": 185,
+    "title": "Elisha and the Poisoned Stew",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 4:38-41",
+    "week": 12,
+    "libraryKey": "elishaPoisonStew",
+    "kjvText": "And there was no harm in the pot."
   }
 ]

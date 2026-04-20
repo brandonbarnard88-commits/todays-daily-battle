@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-20T14:17:29.203Z",
-  "surfacedRefCount": 2804,
-  "overrideCount": 2804,
+  "generatedAt": "2026-04-20T14:24:02.292Z",
+  "surfacedRefCount": 2806,
+  "overrideCount": 2806,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 169,
+      "refs": 170,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 185,
+      "refs": 186,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 154,
+      "refs": 156,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 183,
+      "refs": 184,
       "pairs": 0
     },
     "memorize.html": {
@@ -899,6 +899,8 @@
     "2 Kings 4:3",
     "2 Kings 4:33-36",
     "2 Kings 4:36",
+    "2 Kings 4:38-41",
+    "2 Kings 4:41",
     "2 Kings 4:6",
     "2 Kings 4:7",
     "2 Kings 4:8-37",
@@ -6542,6 +6544,22 @@
     "2 Kings 4:36": {
       "general": {
         "plainExplanation": "And he called Gehazi, and said, Call this Shunammite. So he called her. And when she was come in to him, he said, Take up your son.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 4:38-41": {
+      "general": {
+        "plainExplanation": "Key idea: And Elisha came again to Gilgal: and there was a dearth in the land; and the sons of the prophets were sitting before him: and he said to his servant, Set o...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 4:41": {
+      "general": {
+        "plainExplanation": "But he said, Then bring meal. And he cast it into the pot; and he said, Pour out for the people, that they may eat. And there was no harm in the pot.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"

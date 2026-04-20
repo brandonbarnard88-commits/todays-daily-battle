@@ -3917,6 +3917,42 @@
       narration:
         "Elisha and the Chariots of Fire — 2 Kings 6:8-17. The king of Syria sent a great host; they came by night and compassed Dothan. The servant of the man of God rose early and cried, Alas, my master! how shall we do? Elisha said, Fear not: for they that be with us are more than they that be with them. He prayed, Lord, open his eyes, that he may see. The Lord opened the young man’s eyes — and the mountain was full of horses and chariots of fire round about Elisha. For you: God’s protection is real, even when fear feels loud."
     },
+    elishaPoisonStew: {
+      title: 'Elisha and the Poisoned Stew',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Gilgal — a great pot of pottage for the sons of the prophets' },
+        { src: 'panel-jesus-2.svg', alt: 'They cry, O man of God, there is death in the pot' },
+        { src: 'panel-jesus-3.svg', alt: 'Elisha casts meal into the pot — no harm' }
+      ],
+      caption: 'Swipe to see meal heal the pot — no harm for God’s servants.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha',
+        'poisoned stew',
+        'death in the pot',
+        'gilgal',
+        'pottage',
+        'great pot',
+        'wild gourds',
+        'meal',
+        '2 kings 4',
+        '2 kings 4:38',
+        '2 kings 4:41',
+        'sons of the prophets',
+        'seethe',
+        'no harm in the pot'
+      ],
+      kjvRef: '2 Kings 4:38-41',
+      kidContext: {
+        who: 'The LORD',
+        to: 'the sons of the prophets — through Elisha',
+        apply:
+          'God cares about daily needs — He can make what looked harmful become safe when we trust Him.'
+      },
+      narration:
+        "Elisha and the Poisoned Stew — 2 Kings 4:38-41. At Gilgal, in a dearth, Elisha said, Set on the great pot, and seethe pottage for the sons of the prophets. Wild gourds were shred into the pot — they knew them not. As they ate, they cried, O thou man of God, there is death in the pot. Elisha said, Then bring meal. He cast it into the pot — Pour out for the people, that they may eat. And there was no harm in the pot. For you: Bring your worry to God — He can restore what feels spoiled."
+    },
     isaiahMessianic: {
       title: 'Isaiah\'s Messianic Prophecies',
       panels: [
@@ -6317,7 +6353,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 299, color: '#e5e4e2' }
+      { name: 'Platinum', min: 300, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6435,7 +6471,7 @@
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
-      'elijahHoreb', 'elijahElijahElisha', 'elijahFireFromHeaven', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe', 'elishaChariots',
+      'elijahHoreb', 'elijahElijahElisha', 'elijahFireFromHeaven', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe', 'elishaChariots', 'elishaPoisonStew',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
       'ezraReturn', 'malachiMessage',
       'jonahVine', 'danielPray', 'estherBanquet',
@@ -6825,9 +6861,15 @@
       return { type: 'carousel', story: 'elijahRavens' };
     }
     if (
+      /\b2 kings 4:(?:38|39|40|41)\b|\b2 kgs 4:(?:38|39|40|41)\b/.test(low) ||
+      /death in the pot|wild gourd|wild gourds|gilgal.*pottage|pottage.*gilgal|poison.*stew|seethe pottage|great pot.*pottage|meal.*pot.*harm|no harm in the pot/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elishaPoisonStew' };
+    }
+    if (
       /\belisha\b/.test(low) &&
       /\b2 kings 4\b/.test(low) &&
-      !/\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\bshunammite|son of the woman|raise.*child|bed.*stick/.test(low)
+      !/\b2 kings 4:(?:8|9|[12][0-9]|3[0-7])\b|\b2 kings 4:(?:38|39|40|41)\b|\bshunammite|son of the woman|raise.*child|bed.*stick/.test(low)
     ) {
       return { type: 'carousel', story: 'elishaOil' };
     }
@@ -9500,7 +9542,10 @@
     elijahWidow: 'Miracles',
     elijahHoreb: 'Love',
     elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
-    elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles', elishaChariots: 'Protection',
+    elishaMiracles: 'Miracles',
+    elishaFloatingAxe: 'Miracles',
+    elishaChariots: 'Protection',
+    elishaPoisonStew: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',
     danielFieryFurnace: 'Miracles', danielLionsDen: 'Miracles',
     ezraReturn: 'Obedience', malachiMessage: 'Obedience',

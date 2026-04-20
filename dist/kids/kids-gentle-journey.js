@@ -97,6 +97,7 @@
     'elishaMiracles',
     'elishaOil',
     'elishaShunammite',
+    'elishaPoisonStew',
     'widowOil',
     'naamanHealed',
     'elishaFloatingAxe',

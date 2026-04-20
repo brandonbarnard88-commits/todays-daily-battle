@@ -46,6 +46,7 @@
   "elishaFloatingAxe": "elishaFloatingAxe",
   "elishaMiracles": "elishaMiracles",
   "elishaOil": "elishaOil",
+  "elishaPoisonStew": "elishaPoisonStew",
   "elishaShunammite": "elishaShunammite",
   "estherFast": "estherFast",
   "euniceMother": "euniceMother",

@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (300 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (301 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -346,6 +346,11 @@
       mp4: '/media/kids-stories/elisha-oil.mp4',
       webm: '/media/kids-stories/elisha-oil.webm',
       captionsVtt: '/media/kids-stories/elisha-oil.vtt'
+    },
+    elishaPoisonStew: {
+      mp4: '/media/kids-stories/elisha-poison-stew.mp4',
+      webm: '/media/kids-stories/elisha-poison-stew.webm',
+      captionsVtt: '/media/kids-stories/elisha-poison-stew.vtt'
     },
     elishaShunammite: {
       mp4: '/media/kids-stories/elisha-shunammite.mp4',

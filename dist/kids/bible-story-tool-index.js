@@ -577,6 +577,16 @@
     "kw": "elisha floating axe axe head axe jordan 2 kings 6 2 kings 6:1 2 kings 6:6 sons of the prophets borrowed iron did swim stick beam man of God"
   },
   {
+    "key": "elishaPoisonStew",
+    "title": "Elisha and the Poisoned Stew",
+    "kjvRef": "2 Kings 4:38-41",
+    "who": "The LORD",
+    "to": "the sons of the prophets — through Elisha",
+    "apply": "God cares about daily needs — He can make what looked harmful become safe when we trust Him.",
+    "theme": "Miracles",
+    "kw": "elisha poisoned stew death in the pot gilgal pottage great pot wild gourds meal 2 kings 4 2 kings 4:38 2 kings 4:41 sons of the prophets seethe no harm in the pot"
+  },
+  {
     "key": "elishaOil",
     "title": "Elisha and the Widow's Oil",
     "kjvRef": "2 Kings 4:1-7",

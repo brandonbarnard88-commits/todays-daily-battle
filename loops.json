@@ -1637,5 +1637,15 @@
     "week": 12,
     "libraryKey": "solomonTemple",
     "kjvText": "And it came to pass, when the priests were come out of the holy place, that the cloud filled the house of the LORD, So that the priests could not stand to minister because of the cloud: for the glory of the LORD had filled the house of the LORD."
+  },
+  {
+    "id": 180,
+    "title": "Elijah and the Widow of Zarephath",
+    "file": "",
+    "audio": "",
+    "ref": "1 Kings 17:8-16",
+    "week": 12,
+    "libraryKey": "elijahWidow",
+    "kjvText": "And the barrel of meal wasted not, neither did the cruse of oil fail, according to the word of the LORD, which he spake by Elijah."
   }
 ]

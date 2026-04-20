@@ -114,6 +114,7 @@
       solomonTwoMothers: 'solomonTwoMothers',
       solomonTemple: 'solomonTemple',
       elijahRavens: 'elijahRavens',
+      elijahWidow: 'elijahWidow',
       psalm23: 'psalm23Shepherd',
       psalm23Shepherd: 'psalm23Shepherd',
       goliathChallenge: 'david',
@@ -730,6 +731,42 @@
         '<path d="M272 112 L262 108 M280 118 L268 118" ' + s + ' stroke-width="1.8"/>' +
         '<ellipse cx="292" cy="118" rx="5" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 17:6</text>'
+      ),
+
+      /* Elijah and the widow of Zarephath — meal & oil (loop 180) */
+      elijahWidow: svg(
+        ground() +
+        '<path d="M0 248 Q120 220 200 248 Q280 220 400 248" ' + s + ' stroke-width="2" fill="none"/>' +
+        /* simple town gate / doorway */
+        '<rect x="48" y="118" width="120" height="132" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="88" y="158" width="48" height="92" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* barrel + cruse */
+        '<ellipse cx="118" cy="228" rx="22" ry="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="118" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="158" cy="232" rx="10" ry="12" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="158" cy="224" rx="7" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* widow — hopeful, near barrel */
+        '<circle cx="95" cy="168" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M88 164 Q95 160 102 164" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="95" y1="179" x2="95" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="95" y1="192" x2="72" y2="205" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="95" y1="192" x2="118" y2="200" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="95" y1="218" x2="82" y2="242" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="95" y1="218" x2="108" y2="242" ' + s + ' stroke-width="2.2"/>' +
+        /* small child — gentle hint near door */
+        person(132, 198, 7, 20) +
+        /* Elijah — kind face */
+        '<circle cx="288" cy="172" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M282 168 Q288 164 294 168" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="288" y1="183" x2="288" y2="232" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="288" y1="200" x2="262" y2="212" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="288" y1="200" x2="314" y2="208" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="288" y1="232" x2="274" y2="256" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="288" y1="232" x2="302" y2="256" ' + s + ' stroke-width="2.2"/>' +
+        /* sticks bundle hint */
+        '<line x1="210" y1="238" x2="218" y2="200" ' + s + ' stroke-width="2"/>' +
+        '<line x1="218" y1="236" x2="226" y2="202" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 17:16</text>'
       ),
 
       /* ── Week 1: Elijah Fire (18) ── */
@@ -3268,6 +3305,7 @@
     solomonTwoMothers: 'solomonTwoMothers',
     solomonTemple: 'solomonTemple',
     elijahRavens: 'elijahRavens',
+    elijahWidow: 'elijahWidow',
     elijahFireFromHeaven: 'elijahFire',
     elijahElijahElisha: 'elijahChariot',
     elijahChariot: 'elijahChariot',
@@ -3489,6 +3527,7 @@
     saulDisobedience: 'saulSpear',
     solomonTemple: 'solomonTemple',
     elijahRavens: 'elijahRavens',
+    elijahWidow: 'elijahWidow',
     /* ── creation / week-1 existing ── */
     creationLight: 'creationLight',
     adamEve: 'adamEve',
@@ -5021,7 +5060,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

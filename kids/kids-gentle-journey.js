@@ -88,6 +88,7 @@
     'solomonTwoMothers',
     'solomonTemple',
     'elijahRavens',
+    'elijahWidow',
     'elijahFire',
     'elijahFireFromHeaven',
     'elijahElijahElisha',

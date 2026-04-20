@@ -40,6 +40,7 @@
   "elijahElijahElisha": "elijahChariot",
   "elijahFire": "elijahFire",
   "elijahRavens": "elijahRavens",
+  "elijahWidow": "elijahWidow",
   "elishaOil": "elishaOil",
   "elishaRaised": "elishaRaised",
   "estherFast": "estherFast",

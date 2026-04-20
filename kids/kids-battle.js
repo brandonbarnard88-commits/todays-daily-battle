@@ -1217,6 +1217,37 @@
         apply: 'God commanded the ravens — morning and evening. He still knows how to feed His children.'
       }
     },
+    elijahWidow: {
+      title: 'Elijah & the Widow',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'God sends Elijah to Zarephath — a widow will sustain thee' },
+        { src: 'panel-noah-2.svg', alt: 'At the gate — a handful of meal and a little oil' },
+        { src: 'panel-noah-3.svg', alt: 'The barrel wasted not — the cruse failed not' }
+      ],
+      caption: 'Swipe for Zarephath — God\'s promise at the barrel and the cruse.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elijah widow',
+        'widow of zarephath',
+        'zarephath',
+        'zidon',
+        'barrel of meal',
+        'cruse of oil',
+        'handful of meal',
+        '1 kings 17',
+        '1 kings 17:8',
+        'gathering sticks',
+        'little cake',
+        'sustain thee'
+      ],
+      kjvRef: '1 Kings 17:8-16',
+      kidContext: {
+        who: 'The LORD',
+        to: 'The widow and her house',
+        apply: 'She obeyed God first — and the meal and oil held until rain returned. He keeps His word.'
+      }
+    },
     elijahFire: {
       title: 'Elijah & Fire',
       panels: [
@@ -3411,6 +3442,46 @@
       },
       narration:
         "Elijah and the Ravens – 1 Kings 17:1-7. Elijah the Tishbite said unto Ahab, As the LORD God of Israel liveth, there shall not be dew nor rain these years, but according to my word. The word of the LORD came: Get thee hence, and hide thyself by the brook Cherith, that is before Jordan; thou shalt drink of the brook, and I have commanded the ravens to feed thee there. So he dwelt by Cherith. The ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. After a while the brook dried up, because there had been no rain in the land. For you: God knows how to care for you — even one day at a time."
+    },
+    elijahWidow: {
+      title: 'Elijah and the Widow of Zarephath',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The word of the Lord — arise, get thee to Zarephath' },
+        { src: 'panel-noah-2.svg', alt: 'At the city gate — a widow gathering sticks' },
+        { src: 'panel-noah-3.svg', alt: 'The barrel wasted not — the cruse of oil failed not' }
+      ],
+      caption: 'Swipe for Zarephath — where God\'s promise filled the barrel and the cruse.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elijah widow',
+        'widow of zarephath',
+        'zarephath',
+        'zidon',
+        'sidon',
+        'barrel of meal',
+        'cruse',
+        'handful of meal',
+        'gathering sticks',
+        'little cake',
+        'morsel of bread',
+        '1 kings 17:8',
+        '1 kings 17:9',
+        '1 kings 17:12',
+        '1 kings 17:14',
+        '1 kings 17:16',
+        'sustain thee',
+        'eat many days'
+      ],
+      kjvRef: '1 Kings 17:8-16',
+      kidContext: {
+        who: 'The LORD',
+        to: 'A widow and her son — and every heart afraid of empty cupboards',
+        apply:
+          'God asked her to trust Him with the first little cake — and He kept the barrel and the cruse from failing. His word holds.'
+      },
+      narration:
+        "Elijah and the Widow of Zarephath – 1 Kings 17:8-16. The word of the LORD came: Arise, get thee to Zarephath, which belongeth to Zidon, and dwell there: behold, I have commanded a widow woman there to sustain thee. At the gate he found her gathering sticks. Fetch me a little water, he said — then, Bring me a morsel of bread. She answered, I have an handful of meal in a barrel, and a little oil in a cruse; I am gathering two sticks to dress one last meal for me and my son, that we may eat it, and die. Elijah said, Fear not; make me a little cake first, and after for thee and thy son. For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail, until the day that the LORD sendeth rain upon the earth. She obeyed. She, and he, and her house, did eat many days — the barrel wasted not, neither did the cruse of oil fail, according to the word of the LORD. For you: When you put God first, He can care for what you love."
     },
     elijahFireFromHeaven: {
       title: 'Elijah on Mount Carmel',
@@ -5880,7 +5951,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 296, color: '#e5e4e2' }
+      { name: 'Platinum', min: 297, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -5979,7 +6050,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5997,6 +6068,7 @@
       'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
+      'elijahWidow',
       'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
       'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
       'ezraReturn', 'malachiMessage',
@@ -6342,6 +6414,13 @@
       return { type: 'carousel', story: 'elijahRavens' };
     }
     if (
+      /\b1 kings 17:(?:8|9|1[0-6])\b|\b1 kgs 17:(?:8|9|1[0-6])\b/.test(low) ||
+      /\b1 kings 17\b.*\bwidow\b|\bwidow\b.*\b1 kings 17\b/.test(low) ||
+      /zarephath|widow.*zarephath|zidon|barrel of meal|cruse of oil|handful of meal|gathering.*sticks.*elijah|morsel of bread.*elijah|little cake first|meal shall not waste|cruse of oil fail/.test(low)
+    ) {
+      return { type: 'carousel', story: 'elijahWidow' };
+    }
+    if (
       /elijah.*\b(carmel|baal|altar|fire|18)\b|\b(baal|carmel|mount carmel)\b.*elijah|1 kings 18|2 kings 2:11|whirlwind.*elijah|fire.*heaven.*altar|elijah.*fire from heaven/.test(low)
     ) {
       return { type: 'carousel', story: 'elijahFire' };
@@ -6349,11 +6428,14 @@
     if (
       /\belijah\b/.test(low) &&
       !/elisha/.test(low) &&
-      !/(carmel|baal|altar|1 kings 18|1 kings 19|2 kings 2|whirlwind|chariot|still small)/.test(low)
+      !/(carmel|baal|altar|1 kings 18|1 kings 19|2 kings 2|whirlwind|chariot|still small|zarephath|zidon|barrel|cruse)/.test(low)
     ) {
       return { type: 'carousel', story: 'elijahRavens' };
     }
-    if (/elisha|widow.*oil|2 kings 4|oil.*jar/.test(low)) {
+    if (
+      /\belisha\b|2 kings 4/.test(low) ||
+      (/(?:widow.*oil|oil.*jar)/.test(low) && !/zarephath|1 kings 17|\belijah\b|barrel|cruse|handful of meal/.test(low))
+    ) {
       return { type: 'carousel', story: 'elishaOil' };
     }
     if (/naaman|jordan.*dip|2 kings 5|leprosy/.test(low)) {
@@ -8985,6 +9067,7 @@
     elishaRaised: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
+    elijahWidow: 'Miracles',
     elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
     elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',

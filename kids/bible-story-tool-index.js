@@ -517,6 +517,16 @@
     "kw": "elijah ravens cherith brook 1 kings 17 bread flesh ahab"
   },
   {
+    "key": "elijahWidow",
+    "title": "Elijah & the Widow",
+    "kjvRef": "1 Kings 17:8-16",
+    "who": "The LORD",
+    "to": "The widow and her house",
+    "apply": "She obeyed God first — and the meal and oil held until rain returned. He keeps His word.",
+    "theme": "Miracles",
+    "kw": "elijah widow widow of zarephath zarephath zidon barrel of meal cruse of oil handful of meal 1 kings 17 1 kings 17:8 gathering sticks little cake sustain thee"
+  },
+  {
     "key": "elijahElijahElisha",
     "title": "Elijah Calls Elisha",
     "kjvRef": "1 Kings 19:19–21",

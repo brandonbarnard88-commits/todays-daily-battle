@@ -110,6 +110,7 @@
       davidJonathanFriendship: 'davidJonathan',
       davidAbigail: 'abigailWise',
       davidKing: 'davidKing',
+      mephibosheth: 'mephibosheth',
       solomonWisdom: 'solomonWisdom',
       solomonTwoMothers: 'solomonTwoMothers',
       solomonTemple: 'solomonTemple',
@@ -1730,6 +1731,30 @@
         '<path d="M256 170 Q262 174 268 170" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<path d="M286 172 Q292 176 298 172" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 5:1-12</text>'
+      ),
+
+      /* David & Mephibosheth — king's table, kindness (library mephibosheth / loop 193) */
+      mephibosheth: svg(
+        ground() +
+        '<rect x="48" y="92" width="304" height="110" rx="6" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="88" y="108" width="64" height="48" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M96 108 L104 118 M144 108 L136 118 M120 120 L120 150" ' + s + ' stroke-width="1.1" opacity="0.5"/>' +
+        '<rect x="72" y="198" width="256" height="16" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="118" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="282" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="118" cy="214" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="200" cy="214" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(118, 132, 11, 30) +
+        '<path d="M106 126 L112 118 L118 124 L124 118 L130 126 L130 136 L106 136 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M128 170 Q188 162 248 172" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<circle cx="248" cy="172" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(268, 138, 10, 26) +
+        '<path d="M262 132 Q268 136 274 132" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<path d="M268 200 L264 222 M272 200 L276 222" ' + s + ' stroke-width="1.8"/>' +
+        '<ellipse cx="118" cy="228" rx="22" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="278" cy="228" rx="22" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 9:7</text>'
       ),
 
       /* ── Week 3: Saul Spear (47) ── */
@@ -3660,6 +3685,7 @@
     lastSupper: 'maryAnoint',
     palmSunday: 'greatCommission',
     armorOfGod: 'armorOfGod',
+    davidKindness: 'mephibosheth',
     /* ── Week 1 ── */
     manna: 'manna',
     tenCommandments: 'tenCommandments',
@@ -3716,8 +3742,9 @@
     davidJonathan: 'davidJonathan',
     davidJonathanFriendship: 'davidJonathan',
     davidAnointed: 'davidAnointed',
-    davidKing: 'davidKing',
-    saulSpear: 'saulSpear',
+      davidKing: 'davidKing',
+      mephibosheth: 'mephibosheth',
+      saulSpear: 'saulSpear',
     davidCave: 'davidCave',
     /* ── Week 4 ── */
     elishaShunammite: 'elishaShunammite',
@@ -5496,7 +5523,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

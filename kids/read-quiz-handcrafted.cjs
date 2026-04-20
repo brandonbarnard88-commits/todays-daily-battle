@@ -12,6 +12,7 @@
  * Psalm 23: read-quiz-psalm23-pack.cjs (keys psalm23 + psalm23Shepherd).
  * David harp before Saul: read-quiz-david-harp-pack.cjs (key davidHarp).
  * David is anointed king (gentle): read-quiz-david-king-pack.cjs (key davidKing).
+ * David's kindness to Mephibosheth: read-quiz-mephibosheth-pack.cjs (key mephibosheth).
  * Solomon asks for wisdom: read-quiz-solomon-wisdom-pack.cjs (key solomonWisdom).
  * Solomon and the two mothers: read-quiz-solomon-two-mothers-pack.cjs (key solomonTwoMothers).
  * Solomon builds the temple: read-quiz-solomon-temple-pack.cjs (key solomonTemple).
@@ -50,6 +51,7 @@ const davidAbigailReadQuizPack = require('./read-quiz-david-abigail-pack.cjs');
 const psalm23ReadQuizPack = require('./read-quiz-psalm23-pack.cjs');
 const davidHarpReadQuizPack = require('./read-quiz-david-harp-pack.cjs');
 const davidKingReadQuizPack = require('./read-quiz-david-king-pack.cjs');
+const mephiboshethReadQuizPack = require('./read-quiz-mephibosheth-pack.cjs');
 const solomonWisdomReadQuizPack = require('./read-quiz-solomon-wisdom-pack.cjs');
 const solomonTwoMothersReadQuizPack = require('./read-quiz-solomon-two-mothers-pack.cjs');
 const solomonTempleReadQuizPack = require('./read-quiz-solomon-temple-pack.cjs');
@@ -4400,6 +4402,7 @@ module.exports = {
   psalm23Shepherd: psalm23ReadQuizPack,
   davidHarp: davidHarpReadQuizPack,
   davidKing: davidKingReadQuizPack,
+  mephibosheth: mephiboshethReadQuizPack,
   solomonWisdom: solomonWisdomReadQuizPack,
   solomonTwoMothers: solomonTwoMothersReadQuizPack,
   solomonTemple: solomonTempleReadQuizPack,

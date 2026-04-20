@@ -1,5 +1,5 @@
 /**
- * All 307 Bible stories — A–Z browse (data: window.TDB_BIBLE_STORY_TOOL_INDEX).
+ * All 308 Bible stories — A–Z browse (data: window.TDB_BIBLE_STORY_TOOL_INDEX).
  */
 (function () {
   'use strict';

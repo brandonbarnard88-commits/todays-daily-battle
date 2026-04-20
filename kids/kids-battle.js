@@ -6039,6 +6039,44 @@
       narration:
         "David Is Anointed King – 2 Samuel 5:1-12. The tribes came to David at Hebron and said, Behold, we are thy bone and thy flesh. The elders anointed him king over Israel before the LORD. David was thirty when he began to reign; he reigned over Judah in Hebron, then over all Israel and Judah from Jerusalem. He called the stronghold the city of David, and the LORD God of hosts was with him. God had established him for His people's sake. For you: the Lord is faithful — He chooses, anoints, and stays near those who trust Him."
     },
+    mephibosheth: {
+      title: 'David Shows Kindness to Mephibosheth — David Shows Kindness',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'David asks — Is there any left of Saul\'s house to show kindness for Jonathan\'s sake?' },
+        { src: 'panel-david-2.svg', alt: 'Fear not — I will show thee kindness; eat bread at my table continually' },
+        { src: 'panel-david-3.svg', alt: 'Mephibosheth dwelt in Jerusalem — he ate continually at the king\'s table' }
+      ],
+      caption: 'David remembered Jonathan and welcomed his son — a place at the king\'s table.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'mephibosheth',
+        'david kindness',
+        'jonathan',
+        'king\'s table',
+        'fear not',
+        'lodebar',
+        'ziba',
+        '2 samuel 9',
+        '2 sam 9',
+        'shew him kindness',
+        'dead dog',
+        'jonathan\'s son',
+        'lame',
+        'jerusalem',
+        'restore',
+        'house of saul'
+      ],
+      kjvRef: '2 Samuel 9:1-13',
+      kidContext: {
+        who: 'David — and the Lord',
+        to: 'Every heart that feels small — and every listener',
+        apply:
+          'God loves when we remember friends and welcome others kindly. Jesus welcomes us to His table too.'
+      },
+      narration:
+        "David Shows Kindness – 2 Samuel 9:1-13. David remembered Jonathan and asked, Is there yet any left of the house of Saul, that I may shew him kindness for Jonathan's sake? They brought Mephibosheth, Jonathan's son, who was lame in his feet. David said, Fear not: I will shew thee kindness for Jonathan thy father's sake, restore the land of Saul, and thou shalt eat bread at my table continually. Mephibosheth bowed low; David treated him as a son of the king. So he dwelt in Jerusalem and ate at the king's table. For you: God is kind — we can show His gentle welcome to others."
+    },
     hannahPray: {
       title: 'Hannah Prays for a Baby',
       panels: [
@@ -6669,7 +6707,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -6684,7 +6722,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -6829,6 +6867,12 @@
       /\bdavid\b.*\bking over israel\b|\bking over israel\b.*\bdavid\b|david became king|david becomes king/.test(low)
     ) {
       return { type: 'carousel', story: 'davidKing' };
+    }
+    if (
+      /\b2 samuel 9\b|\b2 sam 9\b/.test(low) ||
+      /\bmephibosheth\b|\bziba\b.*\blodebar\b|\blodebar\b|\bkindness for jonathan\b|\bshew him kindness\b|\beat bread at my table\b|\bdead dog\b|\bone of the king's sons\b|\bjonathan's son\b.*\blame\b/.test(low)
+    ) {
+      return { type: 'carousel', story: 'mephibosheth' };
     }
     if (
       /\b1 kings 3:(?:1[6-9]|2[0-8])\b|\b1 kgs 3:(?:1[6-9]|2[0-8])\b/.test(low) ||
@@ -9805,7 +9849,7 @@
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
     elijahHoreb: 'Love',

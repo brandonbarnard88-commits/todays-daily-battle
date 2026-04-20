@@ -14,13 +14,13 @@ Generated: **2026-04-20** (run `npm run kids:audit-read-quiz-sources` to refresh
 
 | Category | Count |
 |----------|------:|
-| Total `bibleStories` keys | 305 |
-| **Handcrafted** full-pack override | 78 |
+| Total `bibleStories` keys | 306 |
+| **Handcrafted** full-pack override | 79 |
 | **Generator** (`buildPack`) | 229 |
 | …with non-empty `narration:` in battle | 16 |
 | …no narration (alt + apply path) | 213 |
 
-## Handcrafted keys (78)
+## Handcrafted keys (79)
 
 Shared packs (same object used for two library cards each):
 
@@ -72,6 +72,7 @@ Keys:
 - `joshuaCharge`
 - `joshuaJordan`
 - `manna`
+- `mephibosheth`
 - `mosesBush`
 - `naaman`
 - `naamanDip`

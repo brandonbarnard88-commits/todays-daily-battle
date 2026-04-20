@@ -52,6 +52,7 @@
     davidCave: 175,
     davidHarp: 176,
     davidKing: 177,
+    mephibosheth: 193,
     psalm23: 44,
     psalm23Shepherd: 44,
     davidSheep: 42,

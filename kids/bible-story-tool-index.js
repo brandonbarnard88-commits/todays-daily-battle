@@ -447,6 +447,16 @@
     "kw": "david king david becomes king king over israel anointed david king hebron jerusalem city of david strong hold of zion 2 samuel 5 2 sam 5 bone and thy flesh thirty years old reigned forty years seven years and six months thirty and three years lord god of hosts established him king"
   },
   {
+    "key": "mephibosheth",
+    "title": "David Shows Kindness to Mephibosheth — David Shows Kindness",
+    "kjvRef": "2 Samuel 9:1-13",
+    "who": "David — and the Lord",
+    "to": "Every heart that feels small — and every listener",
+    "apply": "God loves when we remember friends and welcome others kindly. Jesus welcomes us to His table too.",
+    "theme": "Love",
+    "kw": "mephibosheth david kindness jonathan king's table fear not lodebar ziba 2 samuel 9 2 sam 9 shew him kindness dead dog jonathan's son lame jerusalem restore house of saul"
+  },
+  {
     "key": "davidCave",
     "title": "David Spares Saul — David Trusts God",
     "kjvRef": "1 Samuel 24:1-22",

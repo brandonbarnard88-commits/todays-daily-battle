@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-20T16:46:15.309Z",
-  "surfacedRefCount": 2816,
-  "overrideCount": 2816,
+  "generatedAt": "2026-04-20T16:56:15.979Z",
+  "surfacedRefCount": 2818,
+  "overrideCount": 2818,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 174,
+      "refs": 175,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 189,
+      "refs": 190,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 165,
+      "refs": 166,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 188,
+      "refs": 189,
       "pairs": 0
     },
     "memorize.html": {
@@ -873,6 +873,8 @@
     "2 Corinthians 9:15",
     "2 Corinthians 9:7",
     "2 Corinthians 9:8",
+    "2 Kings 13:14-20",
+    "2 Kings 13:17",
     "2 Kings 13:21",
     "2 Kings 18:5",
     "2 Kings 19:15",
@@ -6349,6 +6351,22 @@
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Corinth"
+      }
+    },
+    "2 Kings 13:14-20": {
+      "general": {
+        "plainExplanation": "Key idea: Now Elisha was fallen sick of his sickness whereof he died. And Joash the king of Israel came down to him, and wept over his face, and said, O my father, my...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 13:17": {
+      "general": {
+        "plainExplanation": "Key idea: And he said, Open the window eastward. And he opened it. Then Elisha said, Shoot. And he shot. And he said, The arrow of the LORD’s deliverance, and the arr...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
       }
     },
     "2 Kings 13:21": {

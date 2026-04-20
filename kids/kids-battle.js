@@ -3515,6 +3515,43 @@
       narration:
         "God Feeds His People at Samaria — 2 Kings 6:24–7:20. The king of Syria besieged Samaria, and hunger was very great in the city. Elisha said, Thus saith the LORD, To morrow about this time shall a measure of fine flour be sold for a shekel, and two measures of barley for a shekel, in the gate of Samaria. A lord wondered if the LORD would make windows in heaven; Elisha said, Thou shalt see it with thine eyes, but shalt not eat thereof. That night the LORD made the Syrian army hear a noise of chariots and horses; they fled and left food behind. The people went out and spoiled the tents — and flour and barley were sold as God had said. For you: God still speaks kindly when we are afraid and empty."
     },
+    elishaFinal: {
+      title: 'Elisha\'s Last Words',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'The king weeps beside Elisha — O my father, the chariot of Israel' },
+        { src: 'panel-jesus-2.svg', alt: 'Bow and arrows — Elisha\'s hands upon the king\'s hands at the open window' },
+        { src: 'panel-jesus-3.svg', alt: 'Shoot — the arrow of the LORD\'s deliverance; smite upon the ground' }
+      ],
+      caption: 'Swipe to see God\'s faithful prophet speak hope to the very end.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha',
+        'elisha last words',
+        'joash',
+        'king of israel',
+        '2 kings 13',
+        '2 kings 13:14',
+        '2 kings 13:17',
+        'take bow and arrows',
+        'arrow of the lord',
+        'deliverance from syria',
+        'open the window eastward',
+        'chariot of israel',
+        'smite upon the ground',
+        'man of god',
+        'elisha died'
+      ],
+      kjvRef: '2 Kings 13:14-20',
+      kidContext: {
+        who: 'The LORD',
+        to: 'King Joash — and every listening heart',
+        apply:
+          'God speaks hope through faithful people — even in quiet, hard moments.'
+      },
+      narration:
+        "Elisha's Last Words — 2 Kings 13:14-20. When Elisha was fallen sick, Joash the king of Israel came down unto him and wept, O my father, my father, the chariot of Israel, and the horsemen thereof. Elisha said, Take bow and arrows — and put thine hand upon the bow; Elisha put his hands upon the king's hands. Open the window eastward. Shoot. The arrow of the LORD's deliverance — thou shalt smite the Syrians in Aphek. Take the arrows; smite upon the ground; the king smote thrice. For you: God still guides through gentle hands and His promises."
+    },
     estherCrown: {
       title: 'Queen Esther\'s Courage',
       panels: [
@@ -6486,7 +6523,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 305, color: '#e5e4e2' }
+      { name: 'Platinum', min: 306, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6600,7 +6637,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -7053,6 +7090,13 @@
         /shunammite|woman of shunem|philistines|cry unto the king|her house and for her land|restore all that was hers|fruits of the field|great things that elisha|gehazi.*servant of the man of god|tell me.*great things/.test(low))
     ) {
       return { type: 'carousel', story: 'shunammiteReturn' };
+    }
+    if (
+      /\b2 kings 13:(?:1[4-9]|20)\b|\b2 kgs 13:(?:1[4-9]|20)\b/.test(low) ||
+      (/\b2 kings 13\b|\b2 kgs 13\b/.test(low) &&
+        /\bjoash\b|jehoash|take bow and arrows|arrow of the lord|arrow of deliverance|open the window eastward|smite upon the ground|chariot of israel|horsemen thereof|elisha.*sick|elisha died/.test(low))
+    ) {
+      return { type: 'carousel', story: 'elishaFinal' };
     }
     if (
       /\b2 kings 5:(?:2[0-7])\b|\b2 kgs 5:(?:2[0-7])\b/.test(low) ||
@@ -9707,7 +9751,7 @@
     davidSaulJealousy: 'Protection', davidJonathanFriendship: 'Love',
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
-    elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
+    elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
@@ -9802,7 +9846,7 @@
     lydiaSell: 'Obedience', priscillaTeach: 'Obedience', ruthMoab: 'Love',
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */
-    annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', persistentWidow: 'Obedience',
+    annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', persistentWidow: 'Obedience',
     samaritanWoman: 'Love', marthaServe: 'Obedience', marySit: 'Obedience',
     dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
     loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',

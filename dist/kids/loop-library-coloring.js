@@ -44,6 +44,7 @@
   "elijahWidow": "elijahWidow",
   "elishaBlindArmy": "elishaBlindArmy",
   "elishaChariots": "elishaChariots",
+  "elishaFinal": "elishaFinal",
   "elishaFloatingAxe": "elishaFloatingAxe",
   "elishaMiracles": "elishaMiracles",
   "elishaPoisonStew": "elishaPoisonStew",

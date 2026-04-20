@@ -627,6 +627,16 @@
     "kw": "elisha elisha first miracles 2 kings 2 2 kings 2:19 2 kings 2:20 2 kings 2:21 2 kings 2:22 jericho spring salt cruse waters healed barren 2 kings 4 2 kings 4:1 widow oil vessels creditor bondmen pot of oil"
   },
   {
+    "key": "elishaFinal",
+    "title": "Elisha's Last Words",
+    "kjvRef": "2 Kings 13:14-20",
+    "who": "The LORD",
+    "to": "King Joash — and every listening heart",
+    "apply": "God speaks hope through faithful people — even in quiet, hard moments.",
+    "theme": "Miracles",
+    "kw": "elisha elisha last words joash king of israel 2 kings 13 2 kings 13:14 2 kings 13:17 take bow and arrows arrow of the lord deliverance from syria open the window eastward chariot of israel smite upon the ground man of god elisha died"
+  },
+  {
     "key": "estherFast",
     "title": "Esther Fasts and Goes to the King",
     "kjvRef": "Esther 4–5",

@@ -107,6 +107,7 @@
     'widowOil',
     'shunammiteReturn',
     'samariaSiege',
+    'elishaFinal',
     'ezraReturn',
     'nehemiahWalls',
     'esther',

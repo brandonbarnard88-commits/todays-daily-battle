@@ -103,7 +103,7 @@
       davidSheep: 'david',
       davidHarp: 'david',
       davidAnointed: 'david',
-      davidCave: 'david',
+      davidCave: 'davidCave',
       davidSaul: 'david',
       davidSaulJealousy: 'david',
       davidJonathan: 'davidJonathan',
@@ -1430,17 +1430,31 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 18:11</text>'
       ),
 
-      /* ── Week 3: David Cave (48) ── */
+      /* ── Week 3: David spares Saul — Engedi cave (mercy, robe corner) ── */
       davidCave: svg(
-        ground() +
-        '<path d="M50 260 L50 130 Q200 50 350 130 L350 260" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<path d="M65 260 L65 155 Q200 90 335 155 L335 260" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(200, 185, 12, 35) +
-        '<path d="M178 185 Q168 168 175 155 Q183 150 190 158" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M222 185 Q232 168 225 155 Q217 150 210 158" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M225 158 Q248 142 270 155 Q278 165 272 175 Q280 162 285 150 Q276 143 268 148" ' + sf + ' fill="white" stroke-width="2"/>' +
-        star(200, 25, 14) + star(100, 35, 10) + star(300, 30, 10) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 24:3</text>'
+        /* cave mouth — soft light from entrance right */
+        '<path d="M20 280 L20 95 Q200 40 380 95 L380 280 Z" ' + sf + ' fill="white" stroke-width="3.5"/>' +
+        '<path d="M340 96 Q360 140 355 220" ' + s + ' stroke-width="2" opacity="0.45"/>' +
+        '<path d="M330 100 Q348 150 342 230" ' + s + ' stroke-width="1.5" opacity="0.35"/>' +
+        /* Saul resting — left, peaceful */
+        '<ellipse cx="118" cy="218" rx="36" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="118" cy="188" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M110 192 Q118 186 126 192" ' + s + ' stroke-width="1.2"/>' +
+        '<ellipse cx="118" cy="205" rx="22" ry="16" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M96 208 L96 232 M140 208 L140 232" ' + s + ' stroke-width="2.2"/>' +
+        /* robe skirt — small separated piece for clarity */
+        '<path d="M152 212 Q168 205 178 218 Q172 232 158 228 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* David kneeling — right of Saul, small blade to hem only */
+        '<circle cx="252" cy="178" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M246 182 Q252 176 258 182" ' + s + ' stroke-width="1.2"/>' +
+        '<circle cx="248" cy="176" r="1.1" fill="#111"/><circle cx="256" cy="176" r="1.1" fill="#111"/>' +
+        '<path d="M252 189 L248 228 L256 228 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M238 200 L232 222 M264 198 L268 218" ' + s + ' stroke-width="2"/>' +
+        '<line x1="248" y1="232" x2="242" y2="258" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="256" y1="232" x2="262" y2="258" ' + s + ' stroke-width="2.2"/>' +
+        /* tiny knife — low, toward hem only (not raised) */
+        '<line x1="210" y1="222" x2="228" y2="228" ' + s + ' stroke-width="1.6"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 24:6</text>'
       ),
 
       /* ── Week 4: Elisha Boy Raised (49) ── */
@@ -3300,8 +3314,8 @@
     davidGoliath: 'davidGoliath',
     davidSaulJealousy: 'saulSpear',
     davidSaul: 'saulSpear',
-    davidJonathan: 'david',
-    davidJonathanFriendship: 'david',
+    davidJonathan: 'davidJonathan',
+    davidJonathanFriendship: 'davidJonathan',
     samuelBirth: 'samuelBirth',
     samuelCalls: 'samuelCall',
     saulKing: 'saulSpear',
@@ -4839,7 +4853,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

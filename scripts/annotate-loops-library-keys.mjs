@@ -148,7 +148,8 @@ const LIBRARY_KEY_BY_LOOP_ID = {
   41: 'samuelCalls',
   173: 'samuelBirth',
   174: 'davidAnointed',
-  43: 'davidJonathan'
+  43: 'davidJonathan',
+  175: 'davidCave'
 };
 
 const VALID_KEYS = new Set(loadStoryIndex().map((r) => r.key));

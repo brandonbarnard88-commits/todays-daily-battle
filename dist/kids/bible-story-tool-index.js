@@ -339,62 +339,62 @@
   {
     "key": "david",
     "title": "David & Goliath",
-    "kjvRef": "1 Samuel 17:45–50",
-    "who": "David",
-    "to": "Goliath (and us)",
-    "apply": "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord's!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you.",
+    "kjvRef": "1 Samuel 17:1-11, 32-51",
+    "who": "The Lord",
+    "to": "David and every heart that feels small",
+    "apply": "Goliath looked strong; David looked to God. The Lord saved — not by sword in David's hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord's.",
     "theme": "Protection",
-    "kw": "david goliath brave battle shepherd slingshot"
+    "kw": "david goliath sling stone stones smooth stones 1 samuel 17 valley of elah living god uncircumcised philistine defy brave faith shepherd giant philistine lord of hosts battle is the lord"
   },
   {
     "key": "davidGoliath",
     "title": "David & Goliath",
-    "kjvRef": "1 Samuel 17",
-    "who": "David",
-    "to": "God's people",
-    "apply": "Trust God more than your own size or strength. He wins when we come in His name.",
+    "kjvRef": "1 Samuel 17:1-11, 32-51",
+    "who": "The Lord",
+    "to": "David and every heart that feels small",
+    "apply": "Goliath looked strong; David looked to God. The Lord saved — not by sword in David's hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord's.",
     "theme": "Protection",
-    "kw": "david goliath sling 1 samuel 17 faith giant stone brave"
+    "kw": "david and goliath david goliath sling stone stones smooth stones 1 samuel 17 valley of elah living god uncircumcised philistine defy faith giant philistine lord of hosts five stones brook"
   },
   {
     "key": "davidJonathanFriendship",
     "title": "David & Jonathan — True Friends",
-    "kjvRef": "1 Samuel 18–20",
+    "kjvRef": "1 Samuel 18:1-4; 20:1-42",
     "who": "Jonathan",
-    "to": "David",
-    "apply": "Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.",
+    "to": "David — and every listener",
+    "apply": "Real friends share, warn when trouble is near, and keep their word before God. Thank the Lord for friends who stand with you.",
     "theme": "Love",
-    "kw": "david jonathan friend covenant 1 samuel 18 loyal love escape"
+    "kw": "david jonathan friend friendship covenant loyal love knit robe sword 1 samuel 18 1 samuel 20 escape warned peace"
   },
   {
     "key": "davidJonathan",
     "title": "David & Jonathan's Friendship",
-    "kjvRef": "1 Samuel 18–20",
+    "kjvRef": "1 Samuel 18:1-4; 20:1-42",
     "who": "Jonathan",
-    "to": "David",
-    "apply": "True friends keep promises and protect each other. Ask God to help you be a loyal friend.",
+    "to": "David — and every heart that needs a true friend",
+    "apply": "Jonathan kept covenant: he shared what he had, warned David when danger came, and parted in peace. Ask God to help you love friends loyally and tell the truth kindly.",
     "theme": "Love",
-    "kw": "david jonathan friend 1 samuel 18 covenant loyal love brother"
+    "kw": "david jonathan friend friendship covenant loyal love knit soul robe sword bow girdle 1 samuel 18 1 samuel 20 naioth ramah stone ezel arrow beyond go in peace seed and thy seed"
   },
   {
     "key": "davidSaulJealousy",
     "title": "David & Saul's Jealousy",
-    "kjvRef": "1 Samuel 18–19",
+    "kjvRef": "1 Samuel 18:6-11, 17-19:17",
     "who": "God",
     "to": "David",
     "apply": "Jealousy can make people do scary things. Stay humble like David — God is your shield.",
     "theme": "Protection",
-    "kw": "david saul jealous spear harp 1 samuel 18 jonathan protect"
+    "kw": "david saul jealous spear harp 1 samuel 18 jonathan protect javelin evil spirit"
   },
   {
     "key": "davidSaul",
     "title": "David & Saul's Jealousy",
-    "kjvRef": "1 Samuel 18–19",
+    "kjvRef": "1 Samuel 18:6-11, 17-19:17",
     "who": "God",
     "to": "David",
     "apply": "Jealousy hurts people, but God protects those who stay faithful. Let God guard your heart from envy.",
     "theme": "Protection",
-    "kw": "david saul jealous spear 1 samuel 18 jonathan protect army"
+    "kw": "david saul jealous spear 1 samuel 18 jonathan protect army javelin"
   },
   {
     "key": "davidSheep",
@@ -407,34 +407,44 @@
     "kw": "david sheep shepherd harp lion 1 samuel 17"
   },
   {
-    "key": "davidCave",
-    "title": "David Hides in the Cave",
-    "kjvRef": "1 Samuel 22:1–2; 24",
-    "who": "David",
-    "to": "God",
-    "apply": "Even in dark or scary times, God is with you! Talk to Him wherever you are.",
-    "theme": "Protection",
-    "kw": "david cave adullam 1 samuel 22 hiding prayer psalm"
+    "key": "davidAnointed",
+    "title": "David Anointed by Samuel",
+    "kjvRef": "1 Samuel 16:1-13",
+    "who": "The Lord",
+    "to": "David — and every heart God sees",
+    "apply": "People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.",
+    "theme": "Obedience",
+    "kw": "david anoint anointed samuel 1 samuel 16 1 samuel 16:1 1 samuel 16:13 jesse bethlehem bethlehemite horn of oil king heart looketh on the heart outward appearance youngest keeping the sheep ruddy spirit of the lord came upon david eliab abinadab shammah chosen"
   },
   {
-    "key": "davidAnointed",
-    "title": "David Is Anointed King",
-    "kjvRef": "1 Samuel 16",
-    "who": "God",
-    "to": "David",
-    "apply": "God looks at your heart! Be faithful where you are—He sees you.",
+    "key": "samuelAnointsDavid",
+    "title": "David Anointed by Samuel",
+    "kjvRef": "1 Samuel 16:1-13",
+    "who": "The Lord",
+    "to": "David — and every heart God sees",
+    "apply": "People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.",
     "theme": "Obedience",
-    "kw": "david anoint samuel 1 samuel 16 king heart chosen"
+    "kw": "samuel anoints david samuel david anoint anointed 1 samuel 16 jesse heart sheep bethlehem horn of oil looketh on the heart"
   },
   {
     "key": "davidHarp",
     "title": "David Plays the Harp",
-    "kjvRef": "1 Samuel 16",
+    "kjvRef": "1 Samuel 16:14-23",
     "who": "David",
-    "to": "God",
-    "apply": "God loves your worship! Sing and praise wherever you are.",
+    "to": "King Saul (and us)",
+    "apply": "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
     "theme": "Love",
-    "kw": "david harp worship sheep 1 samuel 16 music praise"
+    "kw": "david harp worship sheep 1 samuel 16 1 samuel 16:14 1 samuel 16:23 music praise saul evil spirit refreshed armourbearer armorbearer played with his hand cunning player"
+  },
+  {
+    "key": "davidCave",
+    "title": "David Spares Saul in the Cave",
+    "kjvRef": "1 Samuel 24:1-22",
+    "who": "David",
+    "to": "Every heart learning mercy",
+    "apply": "David could have hurt Saul, but he honored the king God had anointed. God sees when we choose kindness over revenge — ask Him for a gentle heart.",
+    "theme": "Protection",
+    "kw": "david saul cave engedi wild goats skirt robe anointed lord's anointed spare mercy heart smote 1 samuel 24 cover his feet sheepcotes thou art more righteous"
   },
   {
     "key": "deborahBarak",
@@ -2155,16 +2165,6 @@
     "apply": "Long before Samson was strong, God had a plan — a child set apart for Him from the womb. Your story matters to God too; He knows your name and hears when you pray.",
     "theme": "Protection",
     "kw": "samson manoah nazirite nazarite judges 13 angel baby promise philistines deliver womb blessed"
-  },
-  {
-    "key": "samuelAnointsDavid",
-    "title": "Samuel Anoints David",
-    "kjvRef": "1 Samuel 16:1–13",
-    "who": "God",
-    "to": "David",
-    "apply": "God looks at your heart. You do not have to be the tallest or oldest—be faithful where you are.",
-    "theme": "Obedience",
-    "kw": "samuel david anoint 1 samuel 16 jesse heart sheep bethlehem"
   },
   {
     "key": "samuelCall",

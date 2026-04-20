@@ -427,16 +427,6 @@
     "kw": "samuel anoints david samuel david anoint anointed 1 samuel 16 jesse heart sheep bethlehem horn of oil looketh on the heart"
   },
   {
-    "key": "davidCave",
-    "title": "David Hides in the Cave",
-    "kjvRef": "1 Samuel 22:1–2; 24",
-    "who": "David",
-    "to": "God",
-    "apply": "Even in dark or scary times, God is with you! Talk to Him wherever you are.",
-    "theme": "Protection",
-    "kw": "david cave adullam 1 samuel 22 hiding prayer psalm"
-  },
-  {
     "key": "davidHarp",
     "title": "David Plays the Harp",
     "kjvRef": "1 Samuel 16:14-23",
@@ -445,6 +435,16 @@
     "apply": "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
     "theme": "Love",
     "kw": "david harp worship sheep 1 samuel 16 1 samuel 16:14 1 samuel 16:23 music praise saul evil spirit refreshed armourbearer armorbearer played with his hand cunning player"
+  },
+  {
+    "key": "davidCave",
+    "title": "David Spares Saul in the Cave",
+    "kjvRef": "1 Samuel 24:1-22",
+    "who": "David",
+    "to": "Every heart learning mercy",
+    "apply": "David could have hurt Saul, but he honored the king God had anointed. God sees when we choose kindness over revenge — ask Him for a gentle heart.",
+    "theme": "Protection",
+    "kw": "david saul cave engedi wild goats skirt robe anointed lord's anointed spare mercy heart smote 1 samuel 24 cover his feet sheepcotes thou art more righteous"
   },
   {
     "key": "deborahBarak",

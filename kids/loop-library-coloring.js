@@ -27,6 +27,7 @@
   "creationLight": "creationLight",
   "daniel": "daniel",
   "davidAnointed": "davidAnointed",
+  "davidCave": "davidCave",
   "davidGoliath": "davidGoliath",
   "davidJonathan": "davidJonathan",
   "davidSheep": "davidHarp",

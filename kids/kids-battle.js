@@ -2756,18 +2756,42 @@
       kidContext: { who: 'God', to: 'David', apply: 'When people are unkind, trust God! He is your protection.' }
     },
     davidCave: {
-      title: 'David Hides in the Cave',
+      title: 'David Spares Saul in the Cave',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'David hides in the cave of Adullam' },
-        { src: 'panel-noah-2.svg', alt: 'He writes songs to God even here' },
-        { src: 'panel-noah-3.svg', alt: 'God is with David in the dark place' }
+        { src: 'panel-david-1.svg', alt: 'Engedi — Saul rests in the cave; David and his men in the sides of the cave' },
+        { src: 'panel-david-2.svg', alt: 'David cuts only the skirt of the robe — The LORD\'s anointed' },
+        { src: 'panel-david-3.svg', alt: 'The skirt in his hand — Saul weeps, Thou art more righteous than I' }
       ],
-      caption: 'Swipe to see David trust God even in the cave! 🕳️',
+      caption: 'Swipe to see mercy — David will not harm the king God chose.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'cave', 'adullam', '1 samuel 22', 'hiding', 'prayer', 'psalm'],
-      kjvRef: '1 Samuel 22:1–2; 24',
-      kidContext: { who: 'David', to: 'God', apply: 'Even in dark or scary times, God is with you! Talk to Him wherever you are.' }
+      keywords: [
+        'david',
+        'saul',
+        'cave',
+        'engedi',
+        'wild goats',
+        'skirt',
+        'robe',
+        'anointed',
+        'lord\'s anointed',
+        'spare',
+        'mercy',
+        'heart smote',
+        '1 samuel 24',
+        'cover his feet',
+        'sheepcotes',
+        'thou art more righteous'
+      ],
+      kjvRef: '1 Samuel 24:1-22',
+      kidContext: {
+        who: 'David',
+        to: 'Every heart learning mercy',
+        apply:
+          'David could have hurt Saul, but he honored the king God had anointed. God sees when we choose kindness over revenge — ask Him for a gentle heart.'
+      },
+      narration:
+        "David Spares Saul in the Cave – 1 Samuel 24:1-22. Saul hunted David to the wilderness of Engedi. Saul entered a cave to rest, not knowing David and his men hid in its sides. David's men said the Lord had delivered the enemy into his hand — yet David would not kill Saul. He cut only the skirt of Saul's robe; then his heart smote him. He told his men, The LORD forbid that I should stretch forth mine hand against my lord, the LORD's anointed. When Saul left, David called after him and showed the piece of robe: The LORD judge between me and thee, but mine hand shall not be upon thee. Saul wept and said, Thou art more righteous than I. For you: Mercy honors God."
     },
     hannahSamuel: {
       title: 'Hannah & Samuel',
@@ -5646,7 +5670,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5776,6 +5800,14 @@
         !/\bgoliath\b|valley of elah|five smooth stones|1 samuel 17|1 sam 17/.test(low))
     ) {
       return { type: 'carousel', story: 'davidJonathan' };
+    }
+    if (
+      /\b1 samuel 24\b|\b1 sam 24\b/.test(low) ||
+      /wilderness of engedi|engedi|rocks of the wild goats|cover his feet|cut off the skirt|skirt of saul|skirt of thy robe|heart smote him|suffered them not to rise against saul|cried after saul|skirt of thy robe in my hand|thou art more righteous than i|thou killedst me not|david sware unto saul/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidCave' };
     }
     if (
       /\b1 samuel 18\b|\b1 sam 18\b/.test(low) &&

@@ -6,12 +6,16 @@
  * Keep this file tiny: only keys that must differ from auto-generation.
  * Two library cards share one Joshua 6 read+quiz — same pack for both keys.
  * David & Goliath: full read-along sections + quiz live in read-quiz-david-pack.cjs (keys david + davidGoliath).
+ * David & Jonathan: read-quiz-david-jonathan-pack.cjs (keys davidJonathan + davidJonathanFriendship).
+ * David spares Saul in the cave: read-quiz-david-cave-pack.cjs (key davidCave).
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
  */
 
 const davidReadQuizPack = require('./read-quiz-david-pack.cjs');
+const davidJonathanReadQuizPack = require('./read-quiz-david-jonathan-pack.cjs');
+const davidCaveReadQuizPack = require('./read-quiz-david-cave-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3704,6 +3708,104 @@ function buildSamuelCallsReadQuiz() {
   };
 }
 
+/** David anointed at Bethlehem — 1 Samuel 16:1-13 (KJV). */
+function buildDavidAnointedReadQuiz() {
+  return {
+    kjvRef: '1 Samuel 16:1-13 (KJV)',
+    readAlongTitle: 'Read along',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    readAlongSections: [
+      {
+        text:
+          'And the LORD said unto Samuel, How long wilt thou mourn for Saul, seeing I have rejected him from reigning over Israel? fill thine horn with oil, and go, I will send thee to Jesse the Bethlehemite: for I have provided me a king among his sons. And Samuel said, How can I go? if Saul hear it, he will kill me. And the LORD said, Take an heifer with thee, and say, I am come to sacrifice to the LORD. And call Jesse to the sacrifice, and I will shew thee what thou shalt do: and thou shalt anoint unto me him whom I name unto thee. And Samuel did that which the LORD spake, and came to Bethlehem. And the elders of the town trembled at his coming, and said, Comest thou peaceably? And he said, Peaceably: I am come to sacrifice unto the LORD: sanctify yourselves, and come with me to the sacrifice. And he sanctified Jesse and his sons, and called them to the sacrifice.',
+        caption: 'Fill thine horn with oil — come to Jesse at Bethlehem',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text:
+          'And it came to pass, when they were come, that he looked on Eliab, and said, Surely the LORD\'s anointed is before him. But the LORD said unto Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for the LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart. Then Jesse called Abinadab, and made him pass before Samuel. And he said, Neither hath the LORD chosen this. Then Jesse made Shammah to pass by. And he said, Neither hath the LORD chosen this. Again, Jesse made seven of his sons to pass before Samuel. And Samuel said unto Jesse, The LORD hath not chosen these.',
+        caption: 'The LORD looketh on the heart — not these seven',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text:
+          'And Samuel said unto Jesse, Are here all thy children? And he said, There remaineth yet the youngest, and, behold, he keepeth the sheep. And Samuel said unto Jesse, Send and fetch him: for we will not sit down till he come hither. And he sent, and brought him in. Now he was ruddy, and withal of a beautiful countenance, and goodly to look to. And the LORD said, Arise, anoint him: for this is he. Then Samuel took the horn of oil, and anointed him in the midst of his brethren: and the Spirit of the LORD came upon David from that day forward. So Samuel rose up, and went to Ramah.',
+        caption: 'The youngest from the sheep — anointed; the Spirit came on David',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    paragraphs: [
+      'The Lord said to Samuel, "Fill thine horn with oil, and go… unto Jesse the Bethlehemite: for I have provided me a king among his sons."',
+      'Samuel came to Bethlehem and called Jesse and his sons to the sacrifice. Seven of Jesse\'s sons passed before Samuel, but the Lord said, "Look not on his countenance, or on the height of his stature… for the Lord seeth not as man seeth; for man looketh on the outward appearance, but the Lord looketh on the heart."',
+      'Jesse had one more son — the youngest, who was out keeping the sheep. They sent and brought him in. He was ruddy, with bright eyes, and goodly to look upon.',
+      'The Lord said, "Arise, anoint him: for this is he." Then Samuel took the horn of oil and anointed David in the midst of his brethren. And the Spirit of the Lord came upon David from that day forward.',
+      'For you: God sees the heart. You can trust His kind choice — even when His ways surprise us.'
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['1 Samuel 17', '1 Samuel 16:1-13', 'Ruth 1', 'Psalm 23'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the Bible line under the title. (Answer: 1 Samuel 16:1-13.)'
+      },
+      {
+        question: 'Whose family did Samuel visit with the horn of oil?',
+        choices: ['Pharaoh\'s house.', 'Jesse the Bethlehemite.', 'Goliath\'s army.', 'Eli\'s house only.'],
+        correctIndex: 1,
+        correctFeedback: 'Yes — Bethlehem and Jesse\'s sons.',
+        wrongFeedback: 'Think Bethlehem. (Answer: Jesse….)'
+      },
+      {
+        question: 'What did the Lord tell Samuel about choosing?',
+        choices: [
+          'Choose the tallest only.',
+          'Man looketh on the outward appearance, but the LORD looketh on the heart.',
+          'Do not anoint anyone.',
+          'Pick the oldest son always.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'God sees what people often miss.',
+        wrongFeedback: 'Listen for heart. (Answer: …looketh on the heart….)'
+      },
+      {
+        question: 'Where was Jesse\'s youngest son before they brought him?',
+        choices: ['In the palace.', 'Keeping the sheep.', 'In Egypt.', 'Hiding in a cave.'],
+        correctIndex: 1,
+        correctFeedback: 'Faithful in a small place — then called forward.',
+        wrongFeedback: 'Think flock. (Answer: Keeping the sheep….)'
+      },
+      {
+        question: 'What came upon David when Samuel anointed him?',
+        choices: [
+          'Nothing changed.',
+          'The Spirit of the LORD came upon David from that day forward.',
+          'He ran away.',
+          'The story does not say.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'God marked His chosen king in a holy way.',
+        wrongFeedback: 'Listen for Spirit. (Answer: The Spirit of the LORD….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading David's anointing with God's Word today.",
+    takeaway:
+      'God looked on the heart — the youngest keeper of sheep was the one the Lord named — and His Spirit came on David.',
+    prayer:
+      'Lord, thank You that You see our hearts. Help us trust You when Your ways are surprising. Amen.',
+    imagePrompts: [
+      'Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David standing calmly middle of brothers Samuel holds horn of oil gently pouring on David head David humble bright-eyed face older brothers stand quietly around thick robes soft Bethlehem hills background wonder humble mood minimal plenty white space ages 3-8 coloring page',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Fill thine horn with oil (1 sam 16)',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text LORD looketh on the heart',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Arise anoint him for this is he',
+      'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Spirit of the LORD upon David'
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -3743,5 +3845,10 @@ module.exports = {
   hannahPrayer: buildHannahPrayerReadQuiz(),
   samuelBirth: buildSamuelBirthReadQuiz(),
   samuelCalls: buildSamuelCallsReadQuiz(),
-  samuelCall: buildSamuelCallsReadQuiz()
+  samuelCall: buildSamuelCallsReadQuiz(),
+  davidAnointed: buildDavidAnointedReadQuiz(),
+  samuelAnointsDavid: buildDavidAnointedReadQuiz(),
+  davidJonathan: davidJonathanReadQuizPack,
+  davidJonathanFriendship: davidJonathanReadQuizPack,
+  davidCave: davidCaveReadQuizPack
 };

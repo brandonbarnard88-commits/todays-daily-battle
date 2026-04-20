@@ -26,9 +26,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 25",
-          "Acts 7",
-          "Acts 18:24–28",
-          "Ruth 3:1-18"
+          "the Bible",
+          "Philippians 2:8–11",
+          "1 Corinthians 12"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -110,9 +110,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 22",
-          "1 Samuel 16:11; 17:15, 34–37",
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "Acts 28:1–10"
+          "Genesis 39–40",
+          "Matthew 5–7",
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -308,10 +308,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 15:11–32",
+          "Genesis 11",
           "Acts 18:24–28",
-          "Exodus 12:1-14",
-          "Acts 2"
+          "Matthew 19:16–22",
+          "1 Samuel 9–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -390,10 +390,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "James 2:14–26",
+          "Acts 13–14",
           "Acts 25–26",
-          "2 Kings 4:1–7",
-          "Judges 6:11-40"
+          "Matthew 3:13–17",
+          "Luke 15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -473,9 +473,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 17:22–34",
-          "Hebrews 11",
-          "Matthew 28:16–20; Mark 16:15–18",
-          "Matthew 3:13–17"
+          "1 John 1–5",
+          "1 Corinthians 13",
+          "Acts 9:1–19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -556,10 +556,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jonah 1:17",
-          "Luke 2:1–20",
+          "Ruth 1:1-18",
+          "Revelation 17–18",
           "Acts 28:1–10",
-          "Exodus 16:1-36"
+          "Acts 6:8–7:60"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -640,9 +640,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 3",
-          "Judges 14:5-9",
-          "Revelation 19",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13"
+          "Acts 28:1–10",
+          "Exodus 7–12",
+          "Judges 16:4-21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -723,10 +723,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28",
-          "1 Samuel 13; 15",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "Acts 27–28",
           "Revelation 1:8, 11, 17–18",
-          "Ephesians 6"
+          "Revelation 19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -807,10 +807,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 16:16–40",
-          "Nehemiah 1–6",
+          "1 Corinthians 13",
+          "1 John 1–5",
           "Revelation 22:12–13",
-          "Romans 16:1–2"
+          "Acts 9:1–19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -892,10 +892,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 2:1–11",
+          "Judges 14:5-9",
           "Luke 1",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Job 2"
+          "Genesis 3",
+          "Matthew 25"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -976,10 +976,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13:16–18",
-          "2 Kings 4",
+          "Acts 15",
+          "Ezekiel 37:1–14",
           "Luke 2:36–38",
-          "1 Samuel 16"
+          "Acts 9:36–43"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1060,9 +1060,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 23",
-          "Luke 24:13–35",
-          "1 Samuel 9–10",
+          "Acts 2:42–47",
+          "Ezra 1–10; Nehemiah 8–9",
+          "Luke 17",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1142,9 +1142,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:1–23",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Jude 1",
+          "Matthew 13",
+          "Acts 27",
+          "Genesis 41:41",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1226,10 +1226,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 12",
+          "Numbers 22:1–20",
           "Ephesians 6",
-          "Daniel 6",
-          "Numbers 22"
+          "1 Kings 18",
+          "Daniel 6:22"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1310,9 +1310,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1–3",
-          "Acts 7",
-          "Ruth 3:1-18",
+          "1 Samuel 16:11; 17:15, 34–37",
+          "1 Samuel 1",
+          "Esther 4–5",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1394,10 +1394,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2; Matthew 1–2",
-          "Matthew 28:18–20",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "Acts 27–28",
           "Acts 1:6–11",
-          "Luke 2:41–52"
+          "Revelation 19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1479,10 +1479,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14:21-31",
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
           "Numbers 22:1–20",
-          "Acts 5:12–16",
-          "Acts 28"
+          "Daniel 3",
+          "Numbers 23–24"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1565,9 +1565,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Numbers 23–24",
-          "Jonah 1:17",
-          "Luke 2:1–20",
-          "Exodus 16:1-36"
+          "John 12:1–8",
+          "Jonah 4",
+          "Romans–Philemon"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1648,10 +1648,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:1–13",
-          "1 John 1–5",
+          "Esther 2–7",
+          "Luke 24:50–53; Acts 1:6–11",
           "Numbers 22",
-          "Mark 2:1–12"
+          "1 Samuel 17:8–11, 16, 23–30"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1851,10 +1851,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 17",
-          "1 Samuel 17:8–11, 16, 23–30",
+          "1 Samuel 18:1-4; 20:1-42",
+          "Luke 10",
           "Revelation 13:16–18",
-          "Esther 2–7"
+          "Esther 5–7"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1935,10 +1935,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 37:3",
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
           "Matthew 26",
-          "Ephesians, Philippians, Colossians, Philemon",
-          "Exodus 2:5"
+          "Daniel 3",
+          "Numbers 22:1–20"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2261,9 +2261,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 4",
-          "Jonah 4",
-          "John 12:1–8",
-          "Romans–Philemon"
+          "Colossians 1:15–20; 3:1–4, 12–17",
+          "1 Samuel 16:11; 17:15, 34–37",
+          "Esther 4–5"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2343,10 +2343,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
+          "Philemon 1",
           "Colossians 1:15–20; 3:1–4, 12–17",
-          "Mark 5:21–43",
-          "Matthew 26:36–46; Luke 22:44"
+          "Revelation 13",
+          "Acts 2:14–41"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2429,9 +2429,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 22",
-          "1 Samuel 17:8–11, 16, 23–30",
-          "Esther 2–7",
-          "1 Samuel 17"
+          "Genesis 28:10–22",
+          "Galatians 5",
+          "2 Kings 6:1–7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2511,10 +2511,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:1–14",
+          "Acts 27",
           "1 Corinthians 12",
-          "Revelation 21",
-          "Matthew 17:20; Mark 11:23–24"
+          "Revelation 14–15",
+          "Acts 8:26–40"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2596,9 +2596,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 15",
-          "Matthew 3:13–17",
-          "Luke 15",
-          "Acts 13–14"
+          "Genesis 1",
+          "Acts 2:42–47",
+          "Ezra 1–10; Nehemiah 8–9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2680,10 +2680,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:11; 17:15, 34–37",
-          "Genesis 4",
+          "Mark 5:21–43",
+          "Matthew 26:36–46; Luke 22:44",
           "Genesis 1",
-          "Esther 4–5"
+          "Luke 2:1–20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2766,9 +2766,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 1:3",
-          "Mark 5:21–43",
-          "Matthew 26:36–46; Luke 22:44",
-          "Luke 2:1–20"
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "John 20:1–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2848,9 +2848,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 23",
-          "Revelation 4–5",
-          "Matthew 6",
-          "1 Samuel 1:21-28; 2:1-11, 18-21"
+          "Mark 5:21–43",
+          "Matthew 26:36–46; Luke 22:44",
+          "Luke 2:1–20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2930,9 +2930,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "Exodus 7–12",
-          "Judges 14:5-9",
-          "Acts 28:1–10"
+          "1 Samuel 16:11; 17:15, 34–37",
+          "Genesis 4",
+          "Esther 4–5"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3015,9 +3015,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6:22",
-          "Revelation 17–18",
-          "Acts 12:1–19",
-          "Ruth 1:1-18"
+          "Hebrews 11",
+          "Matthew 17",
+          "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3098,9 +3098,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 6:11-40",
-          "John 10:1–18",
-          "James 2:14–26",
+          "Jude 1",
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 13:1–23",
           "Daniel 3"
         ],
         "correctIndex": 3,
@@ -3182,9 +3182,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "Lamentations 1–5"
+          "Acts 2:4–21",
+          "Joshua 2:1-21",
+          "Acts 9:1–19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3266,9 +3266,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6",
-          "Daniel 6:22",
-          "2 Kings 6:1–7",
-          "Numbers 22:1–20"
+          "Matthew 5–7",
+          "Genesis 39–40",
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3336,436 +3336,495 @@
     ]
   },
   "david": {
-    "kjvRef": "1 Samuel 17:45–50",
-    "verseExcerpt": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the Lord of hosts, the God of the armies of Israel, whom thou hast defied. — 1 Samuel 17:45 (KJV)",
+    "kjvRef": "1 Samuel 17:1-11, 32-50 (KJV)",
+    "verseExcerpt": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. — 1 Samuel 17:45 (KJV)",
     "readAlongTitle": "Read along",
     "quizWrongHumilityHint": "David couldn't win that fight alone—and neither can we. God could.",
-    "hintAboveQuiz": "Use the pictures and captions as you read.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "readAlongSections": [
       {
-        "text": "The giant Goliath was huge and loud. Day after day he made fun of God's people and dared someone to fight him. God's army was afraid—but God was still on Israel's side.",
-        "caption": "Panel 1: Goliath mocks God's army",
+        "text": "Now the Philistines gathered together their armies to battle, and were gathered together at Shochoh, which belongeth to Judah, and pitched between Shochoh and Azekah, in Ephesdammim. And Saul and the men of Israel were gathered together, and pitched by the valley of Elah, and set the battle in array against the Philistines. And the Philistines stood on a mountain on the one side, and Israel stood on a mountain on the other side: and there was a valley between them. And there went out a champion out of the camp of the Philistines, named Goliath, of Gath, whose height was six cubits and a span.",
+        "caption": "Armies in the valley — Goliath comes out",
         "image": "panel-david-1.svg"
       },
       {
-        "text": "Little David was not a soldier yet. He was a shepherd boy who loved God and watched sheep. When David heard Goliath, he did not want God's name to be laughed at.",
-        "caption": "Panel 2: David, a faithful shepherd",
+        "text": "And he had an helmet of brass upon his head, and he was armed with a coat of mail; and the weight of the coat was five thousand shekels of brass. And he had greaves of brass upon his legs, and a target of brass between his shoulders. And the staff of his spear was like a weaver's beam; and his spear's head weighed six hundred shekels of iron: and one bearing a shield went before him. And he stood and cried unto the armies of Israel, and said unto them, Why are ye come out to set your battle in array? am not I a Philistine, and ye servants to Saul? choose you a man for you, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants, and serve us. And the Philistine said, I defy the armies of Israel this day; give me a man, that we may fight together. When Saul and all Israel heard those words of the Philistine, they were dismayed, and greatly afraid.",
+        "caption": "Goliath's challenge — all Israel afraid",
         "image": "panel-david-1.svg"
       },
       {
-        "text": "David trusted God more than a shiny sword. He picked up his sling and five smooth stones. He told Goliath he came in the Lord's name—not in his own strength.",
-        "caption": "Panel 3: David with sling and stones",
+        "text": "And David said to Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. And Saul said to David, Thou art not able to go against this Philistine to fight with him: for thou art but a youth, and he a man of war from his youth. And David said unto Saul, Thy servant kept his father's sheep, and there came a lion, and a bear, and took a lamb out of the flock: And I went out after him, and smote him, and delivered it out of his mouth: and when he arose against me, I caught him by his beard, and smote him, and slew him. Thy servant slew both the lion and the bear: and this uncircumcised Philistine shall be as one of them, seeing he hath defied the armies of the living God. David said moreover, The LORD that delivered me out of the paw of the lion, and out of the paw of the bear, he will deliver me out of the hand of this Philistine. And Saul said unto David, Go, and the LORD be with thee.",
+        "caption": "David — thy servant will go; the living God",
         "image": "panel-david-2.svg"
       },
       {
-        "text": "David ran toward the giant. He swung his sling once. The stone flew straight—and struck the giant. The Lord used one brave boy who believed Him.",
-        "caption": "Panel 4: The stone flies",
+        "text": "And Saul armed David with his armour, and he put an helmet of brass upon his head; also he armed him with a coat of mail. And David girded his sword upon his armour, and he assayed to go; for he had not proved it. And David said unto Saul, I cannot go with these; for I have not proved them. And David put them off him. And he took his staff in his hand, and chose him five smooth stones out of the brook, and put them in a shepherd's bag which he had, even in a scrip; and his sling was in his hand: and he drew near to the Philistine. And the Philistine came on and drew near unto David; and the man that bare the shield went before him. And when the Philistine looked about, and saw David, he disdained him: for he was but a youth, and ruddy, and of a fair countenance. And the Philistine said unto David, Am I a dog, that thou comest to me with staves? And the Philistine cursed David by his gods. And the Philistine said to David, Come to me, and I will give thy flesh unto the fowls of the air, and to the beasts of the field.",
+        "caption": "Five smooth stones — drawing near",
         "image": "panel-david-2.svg"
       },
       {
-        "text": "Goliath fell. God gave the victory. The scary bully did not win—faith in God did. That day everyone saw that the Lord saves His people.",
-        "caption": "Panel 5: God gives the victory",
-        "image": "panel-david-3.svg"
-      },
-      {
-        "text": "For you: Sometimes your \"giant\" feels like fear, worry, or a hard person. Remember David—God is bigger than any giant. You can trust Him and take the next brave step with Him.",
-        "caption": "Panel 6: God is bigger than any giant",
+        "text": "Then said David to the Philistine, Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. This day will the LORD deliver thee into mine hand; and I will smite thee, and take thine head from thee; and I will give the carcases of the host of the Philistines this day unto the fowls of the air, and to the wild beasts of the earth; that all the earth may know that there is a God in Israel. And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands. And it came to pass, when the Philistine arose, and came, and drew nigh to meet David, that David hastened, and ran toward the army to meet the Philistine. And David put his hand in his bag, and took thence a stone, and slang it, and smote the Philistine in his forehead, that the stone sunk into his forehead; and he fell upon his face to the earth. So David prevailed over the Philistine with a sling and with a stone, and smote the Philistine, and slew him; but there was no sword in the hand of David.",
+        "caption": "In the name of the LORD — the stone; no sword in David's hand",
         "image": "panel-david-3.svg"
       }
     ],
     "paragraphs": [
-      "The giant Goliath was huge and loud. Day after day he made fun of God's people and dared someone to fight him. God's army was afraid—but God was still on Israel's side.",
-      "Little David was not a soldier yet. He was a shepherd boy who loved God and watched sheep. When David heard Goliath, he did not want God's name to be laughed at.",
-      "David trusted God more than a shiny sword. He picked up his sling and five smooth stones. He told Goliath he came in the Lord's name—not in his own strength.",
-      "David ran toward the giant. He swung his sling once. The stone flew straight—and struck the giant. The Lord used one brave boy who believed Him.",
-      "Goliath fell. God gave the victory. The scary bully did not win—faith in God did. That day everyone saw that the Lord saves His people.",
-      "For you: Sometimes your \"giant\" feels like fear, worry, or a hard person. Remember David—God is bigger than any giant. You can trust Him and take the next brave step with Him."
+      "The Philistines gathered their armies to fight against Israel. Their champion was a giant named Goliath who was over nine feet tall. Every day for forty days he stood and shouted, \"Choose you a man, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants.\"",
+      "All the men of Israel were afraid.",
+      "David, a young shepherd boy, came to the camp with food for his brothers. He heard Goliath's words and asked, \"Who is this uncircumcised Philistine, that he should defy the armies of the living God?\"",
+      "David said to King Saul, \"Let no man's heart fail because of him; thy servant will go and fight with this Philistine.\"",
+      "Saul tried to put his own armor on David, but David took it off. He took his staff, five smooth stones from the brook, and his sling.",
+      "David ran toward Goliath and said, \"Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the Lord of hosts… This day will the Lord deliver thee into mine hand.\"",
+      "David put a stone in his sling, and slung it, and smote the Philistine in his forehead. The stone sank into his forehead, and he fell upon his face to the earth.",
+      "So David prevailed with a sling and a stone, and there was no sword in the hand of David. The Lord gave David the victory that day because David trusted in the name of the Lord.",
+      "The Bible goes on to tell how David finished the giant that day; the important heart-lesson is this: the battle was the Lord's.",
+      "For you: Real courage is trusting God — He is with you when trouble feels huge."
     ],
-    "quizHeading": "Now let's see what you remember!",
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Who was the giant that made fun of God's army?",
+        "question": "Who was the Philistine champion who defied Israel?",
         "choices": [
           "Goliath",
           "David",
           "King Saul",
-          "Sheep"
+          "Samuel"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! Goliath was the big bully—but God was with David. ⭐",
-        "wrongFeedback": "Not quite—think about who was very tall and kept shouting at Israel's army."
+        "correctFeedback": "Yes — and God was greater still.",
+        "wrongFeedback": "Think of the very tall man from Gath. (Answer: Goliath.)"
       },
       {
-        "question": "What did David use when he went out to meet the giant?",
+        "question": "How did Israel's army feel when they heard Goliath?",
         "choices": [
-          "Only a metal sword",
-          "A sling and stones",
-          "A fishing net",
-          "A chariot"
+          "They were glad.",
+          "They were dismayed, and greatly afraid.",
+          "They sang.",
+          "They went home."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! Great job! ⭐ God helped David be brave with what he had.",
-        "wrongFeedback": "Close! Remember what David picked up from the brook and swung toward the giant."
+        "correctFeedback": "Honest — and God still had a plan.",
+        "wrongFeedback": "Listen for afraid. (Answer: …greatly afraid….)"
       },
       {
-        "question": "Why could David be brave?",
+        "question": "What did David take besides his sling?",
         "choices": [
-          "He forgot about God",
-          "He trusted the Lord and came in God's name",
-          "He wanted to show off",
-          "He thought he was bigger than everyone"
+          "Ten heavy stones.",
+          "Five smooth stones from the brook.",
+          "A chariot.",
+          "Nothing."
         ],
         "correctIndex": 1,
-        "correctFeedback": "That's it—David's strength was God's strength.",
-        "wrongFeedback": "Think about what David said about the Lord of hosts—the God of Israel's armies."
+        "correctFeedback": "Simple tools — big trust in God.",
+        "wrongFeedback": "Think brook. (Answer: Five smooth stones….)"
       },
       {
-        "question": "What happened when the stone hit Goliath?",
+        "question": "How did David say he came to the giant?",
         "choices": [
-          "Goliath ran away",
-          "The giant fell—God gave the victory",
-          "Nothing happened",
-          "David dropped his sling"
+          "In his own pride.",
+          "In the name of the LORD of hosts, the God of the armies of Israel.",
+          "To run away.",
+          "Without speaking."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—the Lord won that battle.",
-        "wrongFeedback": "Picture the last panels: who fell, and who got the victory?"
+        "correctFeedback": "Beautiful — God's name first.",
+        "wrongFeedback": "Listen for LORD of hosts. (Answer: In the name of the LORD….)"
       },
       {
-        "question": "What can we remember when we feel scared?",
+        "question": "How did David prevail over the Philistine?",
         "choices": [
-          "God is bigger than any giant",
-          "We should hide from God",
-          "Scary things always win",
-          "Prayer does not matter"
+          "With Saul's sword in his hand.",
+          "With a sling and a stone — no sword in David's hand.",
+          "The story does not say.",
+          "He did not fight."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—hold onto that truth today.",
-        "wrongFeedback": "Remember the \"for you\" part: who is bigger than fear or a hard day?"
+        "correctIndex": 1,
+        "correctFeedback": "The Lord gave the victory.",
+        "wrongFeedback": "Listen for sling. (Answer: …with a sling and with a stone….)"
       }
     ],
-    "doneHeading": "You did awesome!",
-    "doneMessage": "You did awesome! God is bigger than any giant.",
-    "takeaway": "David was small, but he trusted the living God. When trouble feels huge, remember: the Lord is with you.",
-    "prayer": "God, thank You for the Bible. When I feel scared, help me trust You like David. In Jesus' name, amen.",
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading David and Goliath with God's Word today.",
+    "takeaway": "David trusted the living God — the battle was the LORD's — and He gave the victory.",
+    "prayer": "Lord, when we feel small or afraid, help us trust You like David. Thank You that the battle is Yours. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David as shepherd boy – Small but faithful (david)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David faces Goliath – God is bigger than any giant (goliath)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David wins with God's help – One stone, one faith (brave)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David as shepherd boy – Small but faithful (battle)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David faces Goliath – God is bigger than any giant (shepherd)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David standing bravely calmly sling in hand five smooth stones at feet giant Goliath distant smaller spear shield far away not scary David face looks up trusting heaven soft hills sky background courageous faithful mood no blood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Living God armies (1 sam 17)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Five smooth stones sling",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Name of the LORD of hosts",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sling and stone victory"
     ]
   },
   "davidAnointed": {
-    "kjvRef": "1 Samuel 16",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Samuel 16:1-13 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "And the LORD said unto Samuel, How long wilt thou mourn for Saul, seeing I have rejected him from reigning over Israel? fill thine horn with oil, and go, I will send thee to Jesse the Bethlehemite: for I have provided me a king among his sons. And Samuel said, How can I go? if Saul hear it, he will kill me. And the LORD said, Take an heifer with thee, and say, I am come to sacrifice to the LORD. And call Jesse to the sacrifice, and I will shew thee what thou shalt do: and thou shalt anoint unto me him whom I name unto thee. And Samuel did that which the LORD spake, and came to Bethlehem. And the elders of the town trembled at his coming, and said, Comest thou peaceably? And he said, Peaceably: I am come to sacrifice unto the LORD: sanctify yourselves, and come with me to the sacrifice. And he sanctified Jesse and his sons, and called them to the sacrifice.",
+        "caption": "Fill thine horn with oil — come to Jesse at Bethlehem",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And it came to pass, when they were come, that he looked on Eliab, and said, Surely the LORD's anointed is before him. But the LORD said unto Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for the LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart. Then Jesse called Abinadab, and made him pass before Samuel. And he said, Neither hath the LORD chosen this. Then Jesse made Shammah to pass by. And he said, Neither hath the LORD chosen this. Again, Jesse made seven of his sons to pass before Samuel. And Samuel said unto Jesse, The LORD hath not chosen these.",
+        "caption": "The LORD looketh on the heart — not these seven",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And Samuel said unto Jesse, Are here all thy children? And he said, There remaineth yet the youngest, and, behold, he keepeth the sheep. And Samuel said unto Jesse, Send and fetch him: for we will not sit down till he come hither. And he sent, and brought him in. Now he was ruddy, and withal of a beautiful countenance, and goodly to look to. And the LORD said, Arise, anoint him: for this is he. Then Samuel took the horn of oil, and anointed him in the midst of his brethren: and the Spirit of the LORD came upon David from that day forward. So Samuel rose up, and went to Ramah.",
+        "caption": "The youngest from the sheep — anointed; the Spirit came on David",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "David Is Anointed King (1 Samuel 16).",
-      "Samuel visits Jesse's family God says: man looks at the outside—I look at the heart Oil on David's head—the youngest chosen!",
-      "God looks at your heart!",
-      "Be faithful where you are—He sees you."
+      "The Lord said to Samuel, \"Fill thine horn with oil, and go… unto Jesse the Bethlehemite: for I have provided me a king among his sons.\"",
+      "Samuel came to Bethlehem and called Jesse and his sons to the sacrifice. Seven of Jesse's sons passed before Samuel, but the Lord said, \"Look not on his countenance, or on the height of his stature… for the Lord seeth not as man seeth; for man looketh on the outward appearance, but the Lord looketh on the heart.\"",
+      "Jesse had one more son — the youngest, who was out keeping the sheep. They sent and brought him in. He was ruddy, with bright eyes, and goodly to look upon.",
+      "The Lord said, \"Arise, anoint him: for this is he.\" Then Samuel took the horn of oil and anointed David in the midst of his brethren. And the Spirit of the Lord came upon David from that day forward.",
+      "For you: God sees the heart. You can trust His kind choice — even when His ways surprise us."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 3",
-          "Matthew 26:36–46; Luke 22:44",
-          "1 Samuel 16",
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5"
+          "1 Samuel 17",
+          "1 Samuel 16:1-13",
+          "Ruth 1",
+          "Psalm 23"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 16.)"
+        "wrongFeedback": "Skim the Bible line under the title. (Answer: 1 Samuel 16:1-13.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "Whose family did Samuel visit with the horn of oil?",
         "choices": [
-          "God",
-          "Priscilla",
-          "Mary",
-          "Elisha"
+          "Pharaoh's house.",
+          "Jesse the Bethlehemite.",
+          "Goliath's army.",
+          "Eli's house only."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes — Bethlehem and Jesse's sons.",
+        "wrongFeedback": "Think Bethlehem. (Answer: Jesse….)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did the Lord tell Samuel about choosing?",
         "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray.",
-          "God looks at your heart! Be faithful where you are—He sees you."
+          "Choose the tallest only.",
+          "Man looketh on the outward appearance, but the LORD looketh on the heart.",
+          "Do not anoint anyone.",
+          "Pick the oldest son always."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God looks at your heart! Be faithful where you are—He sees you..)"
+        "correctIndex": 1,
+        "correctFeedback": "God sees what people often miss.",
+        "wrongFeedback": "Listen for heart. (Answer: …looketh on the heart….)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "Where was Jesse's youngest son before they brought him?",
         "choices": [
-          "Samuel visits Jesse's family",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot."
+          "In the palace.",
+          "Keeping the sheep.",
+          "In Egypt.",
+          "Hiding in a cave."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Faithful in a small place — then called forward.",
+        "wrongFeedback": "Think flock. (Answer: Keeping the sheep….)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What came upon David when Samuel anointed him?",
         "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "God looks at your heart! Be faithful where you are—He sees you.",
-          "Only be kind to people who are exactly like us."
+          "Nothing changed.",
+          "The Spirit of the LORD came upon David from that day forward.",
+          "He ran away.",
+          "The story does not say."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God looks at your heart! Be faithful where you are—He sees you..)"
+        "correctIndex": 1,
+        "correctFeedback": "God marked His chosen king in a holy way.",
+        "wrongFeedback": "Listen for Spirit. (Answer: The Spirit of the LORD….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading David Is Anointed King with God's Word today.",
-    "takeaway": "God looks at your heart! Be faithful where you are—He sees you.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in David Is Anointed King. Amen.",
+    "doneMessage": "Great job reading David's anointing with God's Word today.",
+    "takeaway": "God looked on the heart — the youngest keeper of sheep was the one the Lord named — and His Spirit came on David.",
+    "prayer": "Lord, thank You that You see our hearts. Help us trust You when Your ways are surprising. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samuel visits Jesse's family (david)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God says: man looks at the outside—I look at the heart (anoint)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Oil on David's head—the youngest chosen! (samuel)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samuel visits Jesse's family (1 samuel 16)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God says: man looks at the outside—I look at the heart (king)"
-    ]
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David standing calmly middle of brothers Samuel holds horn of oil gently pouring on David head David humble bright-eyed face older brothers stand quietly around thick robes soft Bethlehem hills background wonder humble mood minimal plenty white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Fill thine horn with oil (1 sam 16)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text LORD looketh on the heart",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Arise anoint him for this is he",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Spirit of the LORD upon David"
+    ],
+    "readAlongImages": []
   },
   "davidCave": {
-    "kjvRef": "1 Samuel 22:1–2; 24",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Samuel 24:1-22 (KJV)",
+    "verseExcerpt": "The LORD forbid that I should do this thing unto my master, the LORD's anointed, to stretch forth mine hand against him, seeing he is the anointed of the LORD. — 1 Samuel 24:6 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "David would not harm the king God had chosen — mercy honors the Lord.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "And it came to pass, when Saul was returned from following the Philistines, that it was told him, saying, Behold, David is in the wilderness of Engedi. Then Saul took three thousand chosen men out of all Israel, and went to seek David and his men upon the rocks of the wild goats. And he came to the sheepcotes by the way, where was a cave; and Saul went in to cover his feet: and David and his men remained in the sides of the cave. And the men of David said unto him, Behold the day of which the LORD said unto thee, Behold, I will deliver thine enemy into thine hand, that thou mayest do to him as it shall seem good unto thee. Then David arose, and cut off the skirt of Saul's robe privily.",
+        "caption": "The cave — a quiet cut of the robe",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And it came to pass afterward, that David's heart smote him, because he had cut off Saul's skirt. And he said unto his men, The LORD forbid that I should do this thing unto my master, the LORD's anointed, to stretch forth mine hand against him, seeing he is the anointed of the LORD. So David stayed his servants with these words, and suffered them not to rise against Saul. But Saul rose up out of the cave, and went on his way. David also arose afterward, and went out of the cave, and cried after Saul, saying, My lord the king. And when Saul looked behind him, David stooped with his face to the earth, and bowed himself.",
+        "caption": "The LORD's anointed — heart smote him",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And David said to Saul, Wherefore hearest thou men's words, saying, Behold, David seeketh thy hurt? Behold, this day thine eyes have seen how that the LORD had delivered thee to day into mine hand in the cave: and some bade me kill thee: but mine eye spared thee; and I said, I will not put forth mine hand against my lord; for he is the LORD's anointed. Moreover, my father, see, yea, see the skirt of thy robe in my hand: for in that I cut off the skirt of thy robe, and killed thee not, know thou and see that there is neither evil nor transgression in mine hand, and I have not sinned against thee; yet thou huntest my soul to take it.",
+        "caption": "The skirt in his hand — I killed thee not",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "The LORD judge between me and thee, and the LORD avenge me of thee: but mine hand shall not be upon thee. As saith the proverb of the ancients, Wickedness proceedeth from the wicked: but mine hand shall not be upon thee. After whom is the king of Israel come out? after whom dost thou pursue? after a dead dog, after a flea. The LORD therefore be judge, and judge between me and thee, and see, and plead my cause, and deliver me out of thine hand.",
+        "caption": "The LORD judge between me and thee",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And it came to pass, when David had made an end of speaking these words unto Saul, that Saul said, Is this thy voice, my son David? And Saul lifted up his voice, and wept. And he said to David, Thou art more righteous than I: for thou hast rewarded me good, whereas I have rewarded thee evil. And thou hast shewed this day how that thou hast dealt well with me: forasmuch as when the LORD had delivered me into thine hand, thou killedst me not. For if a man find his enemy, will he let him go well away? wherefore the LORD reward thee good for that thou hast done unto me this day.",
+        "caption": "Saul wept — thou art more righteous than I",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "And now, behold, I know well that thou shalt surely be king, and that the kingdom of Israel shall be established in thine hand. Swear now therefore unto me by the LORD, that thou wilt not cut off my seed after me, and that thou wilt not destroy my name out of my father's house. And David sware unto Saul. And Saul went home; but David and his men gat them up unto the hold.",
+        "caption": "David sware — mercy to the end",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "David Hides in the Cave (1 Samuel 22:1–2; 24).",
-      "David hides in the cave of Adullam He writes songs to God even here God is with David in the dark place Even in dark or scary times, God is with you!",
-      "Talk to Him wherever you are."
+      "King Saul was chasing David because he was jealous. David and his men hid in a large cave.",
+      "Saul came into the same cave to rest, not knowing David was there. David's men whispered that this was the day the Lord had given Saul into David's hand.",
+      "But David said, \"The LORD forbid that I should do this thing unto my master, the LORD's anointed, to stretch forth mine hand against him.\"",
+      "David crept near and quietly cut off only the corner of Saul's robe. Then his heart troubled him because he had touched the king.",
+      "When Saul left the cave, David called after him, showed him the piece of robe, and said, \"The LORD judge between me and thee… but mine hand shall not be upon thee.\"",
+      "Saul wept and said, \"Thou art more righteous than I.\"",
+      "David spared Saul's life that day because he would not harm the one the Lord had chosen.",
+      "For you: God helps us show mercy and honor those He has placed over us — even when it is hard."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Where was David when Saul came in to rest?",
         "choices": [
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "John 20:1–18",
-          "1 Samuel 22:1–2; 24",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
+          "In another country.",
+          "In the sides of the same cave.",
+          "On top of the palace.",
+          "In the sea."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 22:1–2; 24.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes — the same cave, unseen.",
+        "wrongFeedback": "Listen for cave. (Answer: …in the sides of the cave.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did David cut from Saul?",
         "choices": [
-          "Mary",
-          "God",
-          "David",
-          "Elisha"
+          "Saul's crown.",
+          "The skirt of Saul's robe.",
+          "A stone from the wall.",
+          "Nothing."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: David.)"
+        "correctIndex": 1,
+        "correctFeedback": "Only a piece of the robe — not Saul himself.",
+        "wrongFeedback": "Listen for skirt… robe. (Answer: …skirt of Saul's robe….)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "Why did David say he would not kill Saul?",
         "choices": [
-          "Even in dark or scary times, God is with you! Talk to Him wherever you are.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up."
+          "He was afraid of the soldiers.",
+          "Saul was the LORD's anointed — David would not stretch forth his hand against him.",
+          "He did not see Saul.",
+          "Saul ran away too fast."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful — honoring God's choice.",
+        "wrongFeedback": "Listen for anointed. (Answer: …the LORD's anointed….)"
+      },
+      {
+        "question": "What happened to David after he cut the skirt?",
+        "choices": [
+          "He was glad and sang.",
+          "David's heart smote him — he was troubled in heart.",
+          "He forgot about it.",
+          "He left without speaking."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Honest — even a small cut troubled his conscience.",
+        "wrongFeedback": "Listen for heart smote. (Answer: …heart smote him….)"
+      },
+      {
+        "question": "What did Saul say to David at the end of their talk?",
+        "choices": [
+          "Thou art more righteous than I.",
+          "I will never weep.",
+          "David has no kindness.",
+          "Go away forever."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Even in dark or scary times, God is with you! Talk to Him wherever you are..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot.",
-          "David hides in the cave of Adullam"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Even in dark or scary times, God is with you! Talk to Him wherever you are.",
-          "Ignore God until we are older."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Even in dark or scary times, God is with you! Talk to Him wherever you are..)"
+        "correctFeedback": "A humble word from the king.",
+        "wrongFeedback": "Listen for righteous. (Answer: Thou art more righteous than I.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading David Hides in the Cave with God's Word today.",
-    "takeaway": "Even in dark or scary times, God is with you! Talk to Him wherever you are.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in David Hides in the Cave. Amen.",
+    "doneMessage": "Great job reading about David's mercy in the cave with God's Word today.",
+    "takeaway": "David honored the LORD's anointed — he chose mercy when he could have chosen harm.",
+    "prayer": "Lord, teach us mercy and respect for those You place over us. Help us trust You when things feel unfair. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David hides in the cave of Adullam (david)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He writes songs to God even here (cave)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is with David in the dark place (adullam)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David hides in the cave of Adullam (1 samuel 22)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He writes songs to God even here (hiding)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces David kneeling quietly inside large cave gently cutting only corner of King Saul robe Saul sleeps peacefully on ground calm troubled-but-kind face on David soft cave walls gentle light from entrance merciful respectful mood no weapons raised no fear minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text LORD's anointed (1 sam 24)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Skirt of the robe in hand",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD judge between me and thee",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Mercy — spared his life"
     ]
   },
   "davidGoliath": {
-    "kjvRef": "1 Samuel 17:45–50",
-    "verseExcerpt": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the Lord of hosts, the God of the armies of Israel, whom thou hast defied. — 1 Samuel 17:45 (KJV)",
+    "kjvRef": "1 Samuel 17:1-11, 32-50 (KJV)",
+    "verseExcerpt": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. — 1 Samuel 17:45 (KJV)",
     "readAlongTitle": "Read along",
     "quizWrongHumilityHint": "David couldn't win that fight alone—and neither can we. God could.",
-    "hintAboveQuiz": "Use the pictures and captions as you read.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "readAlongSections": [
       {
-        "text": "The giant Goliath was huge and loud. Day after day he made fun of God's people and dared someone to fight him. God's army was afraid—but God was still on Israel's side.",
-        "caption": "Panel 1: Goliath mocks God's army",
+        "text": "Now the Philistines gathered together their armies to battle, and were gathered together at Shochoh, which belongeth to Judah, and pitched between Shochoh and Azekah, in Ephesdammim. And Saul and the men of Israel were gathered together, and pitched by the valley of Elah, and set the battle in array against the Philistines. And the Philistines stood on a mountain on the one side, and Israel stood on a mountain on the other side: and there was a valley between them. And there went out a champion out of the camp of the Philistines, named Goliath, of Gath, whose height was six cubits and a span.",
+        "caption": "Armies in the valley — Goliath comes out",
         "image": "panel-david-1.svg"
       },
       {
-        "text": "Little David was not a soldier yet. He was a shepherd boy who loved God and watched sheep. When David heard Goliath, he did not want God's name to be laughed at.",
-        "caption": "Panel 2: David, a faithful shepherd",
+        "text": "And he had an helmet of brass upon his head, and he was armed with a coat of mail; and the weight of the coat was five thousand shekels of brass. And he had greaves of brass upon his legs, and a target of brass between his shoulders. And the staff of his spear was like a weaver's beam; and his spear's head weighed six hundred shekels of iron: and one bearing a shield went before him. And he stood and cried unto the armies of Israel, and said unto them, Why are ye come out to set your battle in array? am not I a Philistine, and ye servants to Saul? choose you a man for you, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants, and serve us. And the Philistine said, I defy the armies of Israel this day; give me a man, that we may fight together. When Saul and all Israel heard those words of the Philistine, they were dismayed, and greatly afraid.",
+        "caption": "Goliath's challenge — all Israel afraid",
         "image": "panel-david-1.svg"
       },
       {
-        "text": "David trusted God more than a shiny sword. He picked up his sling and five smooth stones. He told Goliath he came in the Lord's name—not in his own strength.",
-        "caption": "Panel 3: David with sling and stones",
+        "text": "And David said to Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. And Saul said to David, Thou art not able to go against this Philistine to fight with him: for thou art but a youth, and he a man of war from his youth. And David said unto Saul, Thy servant kept his father's sheep, and there came a lion, and a bear, and took a lamb out of the flock: And I went out after him, and smote him, and delivered it out of his mouth: and when he arose against me, I caught him by his beard, and smote him, and slew him. Thy servant slew both the lion and the bear: and this uncircumcised Philistine shall be as one of them, seeing he hath defied the armies of the living God. David said moreover, The LORD that delivered me out of the paw of the lion, and out of the paw of the bear, he will deliver me out of the hand of this Philistine. And Saul said unto David, Go, and the LORD be with thee.",
+        "caption": "David — thy servant will go; the living God",
         "image": "panel-david-2.svg"
       },
       {
-        "text": "David ran toward the giant. He swung his sling once. The stone flew straight—and struck the giant. The Lord used one brave boy who believed Him.",
-        "caption": "Panel 4: The stone flies",
+        "text": "And Saul armed David with his armour, and he put an helmet of brass upon his head; also he armed him with a coat of mail. And David girded his sword upon his armour, and he assayed to go; for he had not proved it. And David said unto Saul, I cannot go with these; for I have not proved them. And David put them off him. And he took his staff in his hand, and chose him five smooth stones out of the brook, and put them in a shepherd's bag which he had, even in a scrip; and his sling was in his hand: and he drew near to the Philistine. And the Philistine came on and drew near unto David; and the man that bare the shield went before him. And when the Philistine looked about, and saw David, he disdained him: for he was but a youth, and ruddy, and of a fair countenance. And the Philistine said unto David, Am I a dog, that thou comest to me with staves? And the Philistine cursed David by his gods. And the Philistine said to David, Come to me, and I will give thy flesh unto the fowls of the air, and to the beasts of the field.",
+        "caption": "Five smooth stones — drawing near",
         "image": "panel-david-2.svg"
       },
       {
-        "text": "Goliath fell. God gave the victory. The scary bully did not win—faith in God did. That day everyone saw that the Lord saves His people.",
-        "caption": "Panel 5: God gives the victory",
-        "image": "panel-david-3.svg"
-      },
-      {
-        "text": "For you: Sometimes your \"giant\" feels like fear, worry, or a hard person. Remember David—God is bigger than any giant. You can trust Him and take the next brave step with Him.",
-        "caption": "Panel 6: God is bigger than any giant",
+        "text": "Then said David to the Philistine, Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. This day will the LORD deliver thee into mine hand; and I will smite thee, and take thine head from thee; and I will give the carcases of the host of the Philistines this day unto the fowls of the air, and to the wild beasts of the earth; that all the earth may know that there is a God in Israel. And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands. And it came to pass, when the Philistine arose, and came, and drew nigh to meet David, that David hastened, and ran toward the army to meet the Philistine. And David put his hand in his bag, and took thence a stone, and slang it, and smote the Philistine in his forehead, that the stone sunk into his forehead; and he fell upon his face to the earth. So David prevailed over the Philistine with a sling and with a stone, and smote the Philistine, and slew him; but there was no sword in the hand of David.",
+        "caption": "In the name of the LORD — the stone; no sword in David's hand",
         "image": "panel-david-3.svg"
       }
     ],
     "paragraphs": [
-      "The giant Goliath was huge and loud. Day after day he made fun of God's people and dared someone to fight him. God's army was afraid—but God was still on Israel's side.",
-      "Little David was not a soldier yet. He was a shepherd boy who loved God and watched sheep. When David heard Goliath, he did not want God's name to be laughed at.",
-      "David trusted God more than a shiny sword. He picked up his sling and five smooth stones. He told Goliath he came in the Lord's name—not in his own strength.",
-      "David ran toward the giant. He swung his sling once. The stone flew straight—and struck the giant. The Lord used one brave boy who believed Him.",
-      "Goliath fell. God gave the victory. The scary bully did not win—faith in God did. That day everyone saw that the Lord saves His people.",
-      "For you: Sometimes your \"giant\" feels like fear, worry, or a hard person. Remember David—God is bigger than any giant. You can trust Him and take the next brave step with Him."
+      "The Philistines gathered their armies to fight against Israel. Their champion was a giant named Goliath who was over nine feet tall. Every day for forty days he stood and shouted, \"Choose you a man, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants.\"",
+      "All the men of Israel were afraid.",
+      "David, a young shepherd boy, came to the camp with food for his brothers. He heard Goliath's words and asked, \"Who is this uncircumcised Philistine, that he should defy the armies of the living God?\"",
+      "David said to King Saul, \"Let no man's heart fail because of him; thy servant will go and fight with this Philistine.\"",
+      "Saul tried to put his own armor on David, but David took it off. He took his staff, five smooth stones from the brook, and his sling.",
+      "David ran toward Goliath and said, \"Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the Lord of hosts… This day will the Lord deliver thee into mine hand.\"",
+      "David put a stone in his sling, and slung it, and smote the Philistine in his forehead. The stone sank into his forehead, and he fell upon his face to the earth.",
+      "So David prevailed with a sling and a stone, and there was no sword in the hand of David. The Lord gave David the victory that day because David trusted in the name of the Lord.",
+      "The Bible goes on to tell how David finished the giant that day; the important heart-lesson is this: the battle was the Lord's.",
+      "For you: Real courage is trusting God — He is with you when trouble feels huge."
     ],
-    "quizHeading": "Now let's see what you remember!",
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Who was the giant that made fun of God's army?",
+        "question": "Who was the Philistine champion who defied Israel?",
         "choices": [
           "Goliath",
           "David",
           "King Saul",
-          "Sheep"
+          "Samuel"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! Goliath was the big bully—but God was with David. ⭐",
-        "wrongFeedback": "Not quite—think about who was very tall and kept shouting at Israel's army."
+        "correctFeedback": "Yes — and God was greater still.",
+        "wrongFeedback": "Think of the very tall man from Gath. (Answer: Goliath.)"
       },
       {
-        "question": "What did David use when he went out to meet the giant?",
+        "question": "How did Israel's army feel when they heard Goliath?",
         "choices": [
-          "Only a metal sword",
-          "A sling and stones",
-          "A fishing net",
-          "A chariot"
+          "They were glad.",
+          "They were dismayed, and greatly afraid.",
+          "They sang.",
+          "They went home."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! Great job! ⭐ God helped David be brave with what he had.",
-        "wrongFeedback": "Close! Remember what David picked up from the brook and swung toward the giant."
+        "correctFeedback": "Honest — and God still had a plan.",
+        "wrongFeedback": "Listen for afraid. (Answer: …greatly afraid….)"
       },
       {
-        "question": "Why could David be brave?",
+        "question": "What did David take besides his sling?",
         "choices": [
-          "He forgot about God",
-          "He trusted the Lord and came in God's name",
-          "He wanted to show off",
-          "He thought he was bigger than everyone"
+          "Ten heavy stones.",
+          "Five smooth stones from the brook.",
+          "A chariot.",
+          "Nothing."
         ],
         "correctIndex": 1,
-        "correctFeedback": "That's it—David's strength was God's strength.",
-        "wrongFeedback": "Think about what David said about the Lord of hosts—the God of Israel's armies."
+        "correctFeedback": "Simple tools — big trust in God.",
+        "wrongFeedback": "Think brook. (Answer: Five smooth stones….)"
       },
       {
-        "question": "What happened when the stone hit Goliath?",
+        "question": "How did David say he came to the giant?",
         "choices": [
-          "Goliath ran away",
-          "The giant fell—God gave the victory",
-          "Nothing happened",
-          "David dropped his sling"
+          "In his own pride.",
+          "In the name of the LORD of hosts, the God of the armies of Israel.",
+          "To run away.",
+          "Without speaking."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—the Lord won that battle.",
-        "wrongFeedback": "Picture the last panels: who fell, and who got the victory?"
+        "correctFeedback": "Beautiful — God's name first.",
+        "wrongFeedback": "Listen for LORD of hosts. (Answer: In the name of the LORD….)"
       },
       {
-        "question": "What can we remember when we feel scared?",
+        "question": "How did David prevail over the Philistine?",
         "choices": [
-          "God is bigger than any giant",
-          "We should hide from God",
-          "Scary things always win",
-          "Prayer does not matter"
+          "With Saul's sword in his hand.",
+          "With a sling and a stone — no sword in David's hand.",
+          "The story does not say.",
+          "He did not fight."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—hold onto that truth today.",
-        "wrongFeedback": "Remember the \"for you\" part: who is bigger than fear or a hard day?"
+        "correctIndex": 1,
+        "correctFeedback": "The Lord gave the victory.",
+        "wrongFeedback": "Listen for sling. (Answer: …with a sling and with a stone….)"
       }
     ],
-    "doneHeading": "You did awesome!",
-    "doneMessage": "You did awesome! God is bigger than any giant.",
-    "takeaway": "David was small, but he trusted the living God. When trouble feels huge, remember: the Lord is with you.",
-    "prayer": "God, thank You for the Bible. When I feel scared, help me trust You like David. In Jesus' name, amen.",
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading David and Goliath with God's Word today.",
+    "takeaway": "David trusted the living God — the battle was the LORD's — and He gave the victory.",
+    "prayer": "Lord, when we feel small or afraid, help us trust You like David. Thank You that the battle is Yours. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David as shepherd boy – Small but faithful (david)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David faces Goliath – God is bigger than any giant (goliath)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David wins with God's help – One stone, one faith (brave)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David as shepherd boy – Small but faithful (battle)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David faces Goliath – God is bigger than any giant (shepherd)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David standing bravely calmly sling in hand five smooth stones at feet giant Goliath distant smaller spear shield far away not scary David face looks up trusting heaven soft hills sky background courageous faithful mood no blood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Living God armies (1 sam 17)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Five smooth stones sling",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Name of the LORD of hosts",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sling and stone victory"
     ]
   },
   "davidHarp": {
-    "kjvRef": "1 Samuel 16",
+    "kjvRef": "1 Samuel 16:14-23",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "David Plays the Harp (1 Samuel 16).",
-      "David watches his sheep in the field He plays and sings to God God listens—worship from the heart!",
-      "God loves your worship!",
-      "Sing and praise wherever you are."
+      "David Plays the Harp – 1 Samuel 16:14-23. An evil spirit troubled King Saul.",
+      "His servants said, Find a man who plays the harp well. One said, I have seen a son of Jesse who plays skillfully—and the LORD is with him.",
+      "Saul sent for David.",
+      "When the distressing spirit came, David played with his hand on the harp, and Saul was refreshed and well.",
+      "For you: God can use your simple gifts to bring calm where it is needed."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16",
-          "John 12:1–8",
-          "Romans–Philemon",
-          "Acts 12:1–19"
+          "1 Samuel 16:14-23",
+          "Exodus 16:1-36",
+          "Acts 20:7–12",
+          "Acts 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 16.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 16:14-23.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
@@ -3782,14 +3841,14 @@
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God loves your worship! Sing and praise wherever you are.",
+          "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
           "The Bible is only pretend stories.",
           "We should hide from God when we mess up.",
           "God never hears when kids pray."
         ],
         "correctIndex": 0,
         "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God loves your worship! Sing and praise wherever you are..)"
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: David's music was a gift from God. When we use what God gives us to help others, His….)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
@@ -3806,19 +3865,19 @@
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "God loves your worship! Sing and praise wherever you are.",
+          "God can use your simple gifts to bring calm where it is needed.",
           "Ignore God until we are older.",
           "Only be kind to people who are exactly like us.",
           "Never say sorry when we do wrong."
         ],
         "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God loves your worship! Sing and praise wherever you are..)"
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God can use your simple gifts to bring calm where it is needed..)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading David Plays the Harp with God's Word today.",
-    "takeaway": "God loves your worship! Sing and praise wherever you are.",
+    "takeaway": "David's music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.",
     "prayer": "God, thank You for the Bible. Help me remember what You showed me in David Plays the Harp. Amen.",
     "imagePrompts": [
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David watches his sheep in the field (david)",
@@ -3829,177 +3888,262 @@
     ]
   },
   "davidJonathan": {
-    "kjvRef": "1 Samuel 18–20",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Samuel 18:1-4; 20:1-42 (KJV)",
+    "verseExcerpt": "And Jonathan stripped himself of the robe that was upon him, and gave it to David, and his garments, even to his sword, and to his bow, and to his girdle. — 1 Samuel 18:4 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Jonathan loved David as his own soul — God helps us love others loyally, too.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "And it came to pass, when he had made an end of speaking unto Saul, that the soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul. And Saul took him that day, and would let him go no more home to his father's house. Then Jonathan and David made a covenant, because he loved him as his own soul. And Jonathan stripped himself of the robe that was upon him, and gave it to David, and his garments, even to his sword, and to his bow, and to his girdle.",
+        "caption": "Souls knit together — robe, sword, bow, and girdle",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And David fled from Naioth in Ramah, and came and said before Jonathan, What have I done? what is mine iniquity? and what is my sin before thy father, that he seeketh my life? And he said unto him, God forbid; thou shalt not die: behold, my father will do nothing either great or small, but that he will shew it me: and why should my father hide this thing from me? it is not so. And David sware moreover, and said, Thy father certainly knoweth that I have found grace in thine eyes; and he saith, Let not Jonathan know this, lest he be grieved: but truly as the LORD liveth, and as thy soul liveth, there is but a step between me and death. Then said Jonathan unto David, Whatsoever thy soul desireth, I will even do it for thee.",
+        "caption": "David asks — Jonathan will help",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And David said unto Jonathan, Behold, to morrow is the new moon, and I should not fail to sit with the king at meat: but let me go, that I may hide myself in the field unto the third day at even. If thy father at all miss me, then say, David earnestly asked leave of me that he might run to Bethlehem his city: for there is a yearly sacrifice there for all the family. If he say thus, It is well; thy servant shall have peace: but if he be very wroth, then be sure that evil is determined by him. Therefore thou shalt deal kindly with thy servant; for thou hast brought thy servant into a covenant of the LORD with thee: notwithstanding, if there be in me iniquity, slay me thyself; for why shouldest thou bring me to thy father? And Jonathan said, Far be it from thee: for if I knew certainly that evil were determined of my father to come upon thee, then would not I tell it thee? Then said David to Jonathan, Who shall tell me? or what if thy father answer thee roughly? And Jonathan said unto David, Come, and let us go out into the field. And they went out both of them into the field.",
+        "caption": "A careful plan — into the field together",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And Jonathan said unto David, O LORD God of Israel, when I have sounded my father about to morrow any time, or the third day, and, behold, if there be good toward David, and I then send not unto thee, and shew it thee; The LORD do so and much more to Jonathan: but if it please my father to do thee evil, then I will shew it thee, and send thee away, that thou mayest go in peace: and the LORD be with thee, as he hath been with my father. And thou shalt not only while yet I live shew me the kindness of the LORD, that I die not: But also thou shalt not cut off thy kindness from my house for ever: no, not when the LORD hath cut off the enemies of David every one from the face of the earth. So Jonathan made a covenant with the house of David, saying, Let the LORD even require it at the hand of David's enemies. And Jonathan caused David to swear again, because he loved him: for he loved him as he loved his own soul. Then Jonathan said to David, To morrow is the new moon: and thou shalt be missed, because thy seat will be empty. And when thou hast stayed three days, then thou shalt go down quickly, and come to the place where thou didst hide thyself when the business was in hand, and shalt remain by the stone Ezel. And I will shoot three arrows on the side thereof, as though I shot at a mark. And, behold, I will send a lad, saying, Go, find out the arrows. If I expressly say unto the lad, Behold, the arrows are on this side of thee, take them; then come thou: for there is peace to thee, and no hurt; as the LORD liveth. But if I say thus unto the young man, Behold, the arrows are beyond thee; go thy way: for the LORD hath sent thee away. And as touching the matter which thou and I have spoken of, behold, the LORD be between thee and me for ever.",
+        "caption": "Covenant kindness — arrows and the stone Ezel",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "So David hid himself in the field: and when the new moon was come, the king sat him down to eat meat. And the king sat upon his seat, as at other times, even upon a seat by the wall: and Jonathan arose, and Abner sat by Saul's side, and David's place was empty. Nevertheless Saul spake not any thing that day: for he thought, Something hath befallen him, he is not clean; surely he is not clean. And it came to pass on the morrow, which was the second day of the month, that David's place was empty: and Saul said unto Jonathan his son, Wherefore cometh not the son of Jesse to meat, neither yesterday, nor to day? And Jonathan answered Saul, David earnestly asked leave of me to go to Bethlehem: And he said, Let me go, I pray thee; for our family hath a sacrifice in the city; and my brother, he hath commanded me to be there: and now, if I have found favour in thine eyes, let me get away, I pray thee, and see my brethren. Therefore he cometh not unto the king's table.",
+        "caption": "The new moon — David's seat is empty",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Then Saul's anger was kindled against Jonathan, and he said unto him, Thou son of the perverse rebellious woman, do not I know that thou hast chosen the son of Jesse to thine own confusion, and unto the confusion of thy mother's nakedness? For as long as the son of Jesse liveth upon the ground, thou shalt not be established, nor thy kingdom. Wherefore now send and fetch him unto me, for he shall surely die. And Jonathan answered Saul his father, and said unto him, Wherefore shall he be slain? what hath he done? And Saul cast a javelin at him to smite him: whereby Jonathan knew that it was determined of his father to slay David. So Jonathan arose from the table in fierce anger, and did eat no meat the second day of the month: for he was grieved for David, because his father had done him shame.",
+        "caption": "Saul's wrath — Jonathan understands",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "And it came to pass in the morning, that Jonathan went out into the field at the time appointed with David, and a little lad with him. And he said unto his lad, Run, find out now the arrows which I shoot. And as the lad ran, he shot an arrow beyond him. And when the lad was come to the place of the arrow which Jonathan had shot, Jonathan cried after the lad, and said, Is not the arrow beyond thee? And Jonathan cried after the lad, Make speed, haste, stay not. And Jonathan's lad gathered up the arrows, and came to his master. But the lad knew not any thing: only Jonathan and David knew the matter. And Jonathan gave his artillery unto his lad, and said unto him, Go, carry them to the city. And as soon as the lad was gone, David arose out of a place toward the south, and fell on his face to the ground, and bowed himself three times: and they kissed one another, and wept one with another, until David exceeded. And Jonathan said to David, Go in peace, forasmuch as we have sworn both of us in the name of the LORD, saying, The LORD be between me and thee, and between my seed and thy seed for ever. And he arose and departed: and Jonathan went into the city.",
+        "caption": "The arrow beyond — weeping, kiss, Go in peace",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "David & Jonathan's Friendship (1 Samuel 18–20).",
-      "Jonathan loves David like a brother Jonathan gives his robe, sword, bow, and belt They weep and promise—The Lord be between us forever True friends keep promises and protect each other.",
-      "Ask God to help you be a loyal friend."
+      "After David faced Goliath, Jonathan the king's son loved David as his own soul. Jonathan made a covenant with David because he loved him so much.",
+      "Jonathan took off his own robe and gave it to David, with his clothes, his sword, his bow, and his belt — a costly, kind gift.",
+      "Later, when King Saul was angry with David and wanted to hurt him, Jonathan warned David and helped him escape safely.",
+      "Jonathan said to David, \"The LORD be between me and thee, and between my seed and thy seed for ever.\"",
+      "David and Jonathan wept together and kissed one another, for they loved each other dearly. Their friendship stayed strong even when things were hard.",
+      "For you: God can give us loyal hearts that keep promises and protect a friend."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "How did Jonathan feel toward David at the first?",
         "choices": [
-          "1 Samuel 18–20",
-          "1 Samuel 17",
-          "Numbers 21:1-9",
-          "Acts 18:24–28"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 18–20.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Philip",
-          "Jonathan",
-          "Jesus",
-          "John"
+          "He did not notice David.",
+          "The soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul.",
+          "He was afraid of David.",
+          "He sent David away at once."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jonathan.)"
+        "correctFeedback": "Yes — a deep, loyal love.",
+        "wrongFeedback": "Listen for knit and loved him as his own soul. (Answer: …knit with the soul of David….)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did Jonathan give to David?",
         "choices": [
-          "True friends keep promises and protect each other. Ask God to help you be a loyal friend.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up."
+          "Only a piece of bread.",
+          "His robe, garments, sword, bow, and girdle.",
+          "A crown.",
+          "Nothing."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: True friends keep promises and protect each other. Ask God to help you be a loyal friend..)"
+        "correctIndex": 1,
+        "correctFeedback": "He gave costly gifts — from the heart.",
+        "wrongFeedback": "Think robe and weapons. (Answer: robe… sword… bow… girdle.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "When Saul sought David's life, what did Jonathan do?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Jonathan loves David like a brother"
+          "He hid from David.",
+          "He warned David and helped him escape.",
+          "He laughed.",
+          "He told David to fight Saul."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "A true friend protects and tells the truth.",
+        "wrongFeedback": "Remember: Jonathan helped David get away safely. (Answer: warned… helped him escape.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "Finish Jonathan's covenant words: \"The LORD be between me and thee, and…\"",
         "choices": [
-          "True friends keep promises and protect each other. Ask God to help you be a loyal friend.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older."
+          "…I will never speak to thee again.",
+          "…between my seed and thy seed for ever.",
+          "…Saul shall surely bless thee.",
+          "…the Philistines shall help us."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: True friends keep promises and protect each other. Ask God to help you be a loyal friend..)"
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful — a promise for generations.",
+        "wrongFeedback": "Listen for seed… for ever. (Answer: …between my seed and thy seed for ever.)"
+      },
+      {
+        "question": "When David and Jonathan parted, what did they do?",
+        "choices": [
+          "They argued loudly.",
+          "They kissed one another, and wept one with another.",
+          "They forgot their covenant.",
+          "They rode away on horses."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Tender — love honest and strong.",
+        "wrongFeedback": "Listen for wept and kissed. (Answer: …wept one with another… kissed….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading David & Jonathan's Friendship with God's Word today.",
-    "takeaway": "True friends keep promises and protect each other. Ask God to help you be a loyal friend.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in David & Jonathan's Friendship. Amen.",
+    "doneMessage": "Great job reading about David and Jonathan with God's Word today.",
+    "takeaway": "Jonathan loved David as his own soul — they kept covenant — and the LORD was between them.",
+    "prayer": "Lord, thank You for friendship. Help us be loyal, kind, and true like Jonathan and David. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonathan loves David like a brother (david)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonathan gives his robe, sword, bow, and belt (jonathan)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: They weep and promise—The Lord be between us forever (friend)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonathan loves David like a brother (1 samuel 18)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonathan gives his robe, sword, bow, and belt (covenant)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David and Jonathan standing together outdoors Jonathan hands robe and sword to David kind loyal smile David thankful happy thick robes faces swords bow optional soft hills background warm faithful friendship mood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Jonathan loved him as his own soul (1 sam 18)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Covenant of loyal love",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text LORD be between me and thee",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text True friends weep and kiss farewell"
     ]
   },
   "davidJonathanFriendship": {
-    "kjvRef": "1 Samuel 18–20",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Samuel 18:1-4; 20:1-42 (KJV)",
+    "verseExcerpt": "And Jonathan stripped himself of the robe that was upon him, and gave it to David, and his garments, even to his sword, and to his bow, and to his girdle. — 1 Samuel 18:4 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Jonathan loved David as his own soul — God helps us love others loyally, too.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "And it came to pass, when he had made an end of speaking unto Saul, that the soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul. And Saul took him that day, and would let him go no more home to his father's house. Then Jonathan and David made a covenant, because he loved him as his own soul. And Jonathan stripped himself of the robe that was upon him, and gave it to David, and his garments, even to his sword, and to his bow, and to his girdle.",
+        "caption": "Souls knit together — robe, sword, bow, and girdle",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And David fled from Naioth in Ramah, and came and said before Jonathan, What have I done? what is mine iniquity? and what is my sin before thy father, that he seeketh my life? And he said unto him, God forbid; thou shalt not die: behold, my father will do nothing either great or small, but that he will shew it me: and why should my father hide this thing from me? it is not so. And David sware moreover, and said, Thy father certainly knoweth that I have found grace in thine eyes; and he saith, Let not Jonathan know this, lest he be grieved: but truly as the LORD liveth, and as thy soul liveth, there is but a step between me and death. Then said Jonathan unto David, Whatsoever thy soul desireth, I will even do it for thee.",
+        "caption": "David asks — Jonathan will help",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And David said unto Jonathan, Behold, to morrow is the new moon, and I should not fail to sit with the king at meat: but let me go, that I may hide myself in the field unto the third day at even. If thy father at all miss me, then say, David earnestly asked leave of me that he might run to Bethlehem his city: for there is a yearly sacrifice there for all the family. If he say thus, It is well; thy servant shall have peace: but if he be very wroth, then be sure that evil is determined by him. Therefore thou shalt deal kindly with thy servant; for thou hast brought thy servant into a covenant of the LORD with thee: notwithstanding, if there be in me iniquity, slay me thyself; for why shouldest thou bring me to thy father? And Jonathan said, Far be it from thee: for if I knew certainly that evil were determined of my father to come upon thee, then would not I tell it thee? Then said David to Jonathan, Who shall tell me? or what if thy father answer thee roughly? And Jonathan said unto David, Come, and let us go out into the field. And they went out both of them into the field.",
+        "caption": "A careful plan — into the field together",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And Jonathan said unto David, O LORD God of Israel, when I have sounded my father about to morrow any time, or the third day, and, behold, if there be good toward David, and I then send not unto thee, and shew it thee; The LORD do so and much more to Jonathan: but if it please my father to do thee evil, then I will shew it thee, and send thee away, that thou mayest go in peace: and the LORD be with thee, as he hath been with my father. And thou shalt not only while yet I live shew me the kindness of the LORD, that I die not: But also thou shalt not cut off thy kindness from my house for ever: no, not when the LORD hath cut off the enemies of David every one from the face of the earth. So Jonathan made a covenant with the house of David, saying, Let the LORD even require it at the hand of David's enemies. And Jonathan caused David to swear again, because he loved him: for he loved him as he loved his own soul. Then Jonathan said to David, To morrow is the new moon: and thou shalt be missed, because thy seat will be empty. And when thou hast stayed three days, then thou shalt go down quickly, and come to the place where thou didst hide thyself when the business was in hand, and shalt remain by the stone Ezel. And I will shoot three arrows on the side thereof, as though I shot at a mark. And, behold, I will send a lad, saying, Go, find out the arrows. If I expressly say unto the lad, Behold, the arrows are on this side of thee, take them; then come thou: for there is peace to thee, and no hurt; as the LORD liveth. But if I say thus unto the young man, Behold, the arrows are beyond thee; go thy way: for the LORD hath sent thee away. And as touching the matter which thou and I have spoken of, behold, the LORD be between thee and me for ever.",
+        "caption": "Covenant kindness — arrows and the stone Ezel",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "So David hid himself in the field: and when the new moon was come, the king sat him down to eat meat. And the king sat upon his seat, as at other times, even upon a seat by the wall: and Jonathan arose, and Abner sat by Saul's side, and David's place was empty. Nevertheless Saul spake not any thing that day: for he thought, Something hath befallen him, he is not clean; surely he is not clean. And it came to pass on the morrow, which was the second day of the month, that David's place was empty: and Saul said unto Jonathan his son, Wherefore cometh not the son of Jesse to meat, neither yesterday, nor to day? And Jonathan answered Saul, David earnestly asked leave of me to go to Bethlehem: And he said, Let me go, I pray thee; for our family hath a sacrifice in the city; and my brother, he hath commanded me to be there: and now, if I have found favour in thine eyes, let me get away, I pray thee, and see my brethren. Therefore he cometh not unto the king's table.",
+        "caption": "The new moon — David's seat is empty",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Then Saul's anger was kindled against Jonathan, and he said unto him, Thou son of the perverse rebellious woman, do not I know that thou hast chosen the son of Jesse to thine own confusion, and unto the confusion of thy mother's nakedness? For as long as the son of Jesse liveth upon the ground, thou shalt not be established, nor thy kingdom. Wherefore now send and fetch him unto me, for he shall surely die. And Jonathan answered Saul his father, and said unto him, Wherefore shall he be slain? what hath he done? And Saul cast a javelin at him to smite him: whereby Jonathan knew that it was determined of his father to slay David. So Jonathan arose from the table in fierce anger, and did eat no meat the second day of the month: for he was grieved for David, because his father had done him shame.",
+        "caption": "Saul's wrath — Jonathan understands",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "And it came to pass in the morning, that Jonathan went out into the field at the time appointed with David, and a little lad with him. And he said unto his lad, Run, find out now the arrows which I shoot. And as the lad ran, he shot an arrow beyond him. And when the lad was come to the place of the arrow which Jonathan had shot, Jonathan cried after the lad, and said, Is not the arrow beyond thee? And Jonathan cried after the lad, Make speed, haste, stay not. And Jonathan's lad gathered up the arrows, and came to his master. But the lad knew not any thing: only Jonathan and David knew the matter. And Jonathan gave his artillery unto his lad, and said unto him, Go, carry them to the city. And as soon as the lad was gone, David arose out of a place toward the south, and fell on his face to the ground, and bowed himself three times: and they kissed one another, and wept one with another, until David exceeded. And Jonathan said to David, Go in peace, forasmuch as we have sworn both of us in the name of the LORD, saying, The LORD be between me and thee, and between my seed and thy seed for ever. And he arose and departed: and Jonathan went into the city.",
+        "caption": "The arrow beyond — weeping, kiss, Go in peace",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "David & Jonathan — True Friends (1 Samuel 18–20).",
-      "Jonathan and David.",
-      "souls knit together Jonathan gives his robe, sword, bow, and belt to David They weep and promise: the Lord be between us forever Real friends warn you, share with you, and stand by you when it is hard.",
-      "Thank God for friends like that."
+      "After David faced Goliath, Jonathan the king's son loved David as his own soul. Jonathan made a covenant with David because he loved him so much.",
+      "Jonathan took off his own robe and gave it to David, with his clothes, his sword, his bow, and his belt — a costly, kind gift.",
+      "Later, when King Saul was angry with David and wanted to hurt him, Jonathan warned David and helped him escape safely.",
+      "Jonathan said to David, \"The LORD be between me and thee, and between my seed and thy seed for ever.\"",
+      "David and Jonathan wept together and kissed one another, for they loved each other dearly. Their friendship stayed strong even when things were hard.",
+      "For you: God can give us loyal hearts that keep promises and protect a friend."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "How did Jonathan feel toward David at the first?",
         "choices": [
-          "Acts 5:12–16",
-          "Acts 28",
-          "1 Samuel 18–20",
-          "Revelation 21–22"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 18–20.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Holy Ghost",
-          "Priscilla",
-          "James",
-          "Jonathan"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jonathan.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Real friends warn you, share with you, and stand by you when it is hard. Thank God for….)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A talking toaster became king of the city.",
-          "Jonathan and David — souls knit together",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "He did not notice David.",
+          "The soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul.",
+          "He was afraid of David.",
+          "He sent David away at once."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes — a deep, loyal love.",
+        "wrongFeedback": "Listen for knit and loved him as his own soul. (Answer: …knit with the soul of David….)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What did Jonathan give to David?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.",
-          "Never say sorry when we do wrong."
+          "Only a piece of bread.",
+          "His robe, garments, sword, bow, and girdle.",
+          "A crown.",
+          "Nothing."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Real friends warn you, share with you, and stand by you when it is hard. Thank God for….)"
+        "correctIndex": 1,
+        "correctFeedback": "He gave costly gifts — from the heart.",
+        "wrongFeedback": "Think robe and weapons. (Answer: robe… sword… bow… girdle.)"
+      },
+      {
+        "question": "When Saul sought David's life, what did Jonathan do?",
+        "choices": [
+          "He hid from David.",
+          "He warned David and helped him escape.",
+          "He laughed.",
+          "He told David to fight Saul."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A true friend protects and tells the truth.",
+        "wrongFeedback": "Remember: Jonathan helped David get away safely. (Answer: warned… helped him escape.)"
+      },
+      {
+        "question": "Finish Jonathan's covenant words: \"The LORD be between me and thee, and…\"",
+        "choices": [
+          "…I will never speak to thee again.",
+          "…between my seed and thy seed for ever.",
+          "…Saul shall surely bless thee.",
+          "…the Philistines shall help us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful — a promise for generations.",
+        "wrongFeedback": "Listen for seed… for ever. (Answer: …between my seed and thy seed for ever.)"
+      },
+      {
+        "question": "When David and Jonathan parted, what did they do?",
+        "choices": [
+          "They argued loudly.",
+          "They kissed one another, and wept one with another.",
+          "They forgot their covenant.",
+          "They rode away on horses."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Tender — love honest and strong.",
+        "wrongFeedback": "Listen for wept and kissed. (Answer: …wept one with another… kissed….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading David & Jonathan — True Friends with God's Word today.",
-    "takeaway": "Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in David & Jonathan — True Friends. Amen.",
+    "doneMessage": "Great job reading about David and Jonathan with God's Word today.",
+    "takeaway": "Jonathan loved David as his own soul — they kept covenant — and the LORD was between them.",
+    "prayer": "Lord, thank You for friendship. Help us be loyal, kind, and true like Jonathan and David. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonathan and David — souls knit together (david)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonathan gives his robe, sword, bow, and belt to David (jonathan)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: They weep and promise: the Lord be between us forever (friend)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonathan and David — souls knit together (covenant)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonathan gives his robe, sword, bow, and belt to David (1 samuel 18)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David and Jonathan standing together outdoors Jonathan hands robe and sword to David kind loyal smile David thankful happy thick robes faces swords bow optional soft hills background warm faithful friendship mood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Jonathan loved him as his own soul (1 sam 18)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Covenant of loyal love",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text LORD be between me and thee",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text True friends weep and kiss farewell"
     ]
   },
   "davidSaul": {
-    "kjvRef": "1 Samuel 18–19",
+    "kjvRef": "1 Samuel 18:6-11, 17-19:17",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "David & Saul's Jealousy (1 Samuel 18–19).",
+      "David & Saul's Jealousy (1 Samuel 18:6-11, 17-19:17).",
       "People praise David—Saul grows jealous Saul hurls a spear—David escapes David wins battles—God protects him Jealousy hurts people, but God protects those who stay faithful.",
       "Let God guard your heart from envy."
     ],
@@ -4008,14 +4152,14 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18–19",
-          "Matthew 25",
-          "1 Samuel 16:1–13",
-          "Revelation 20"
+          "1 Samuel 18:6-11, 17-19:17",
+          "Matthew 26:36–46; Luke 22:44",
+          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
+          "Daniel 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 18–19.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 18:6-11, 17-19:17.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
@@ -4079,10 +4223,10 @@
     ]
   },
   "davidSaulJealousy": {
-    "kjvRef": "1 Samuel 18–19",
+    "kjvRef": "1 Samuel 18:6-11, 17-19:17",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "David & Saul's Jealousy (1 Samuel 18–19).",
+      "David & Saul's Jealousy (1 Samuel 18:6-11, 17-19:17).",
       "People sing David's praises.",
       "Saul burns with jealousy Saul throws a spear while David plays the harp God keeps David safe in battle after battle Jealousy can make people do scary things.",
       "Stay humble like David — God is your shield."
@@ -4092,14 +4236,14 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:18–20",
-          "Esther 2:15–18",
-          "1 Samuel 18–19",
-          "Luke 2; Matthew 1–2"
+          "Acts 2:42–47",
+          "Acts 15",
+          "1 Samuel 18:6-11, 17-19:17",
+          "Ezra 1–10; Nehemiah 8–9"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 18–19.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 18:6-11, 17-19:17.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
@@ -4177,9 +4321,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 16:11; 17:15, 34–37",
-          "Revelation 13",
-          "Acts 2:14–41",
-          "Ruth 4:1-17"
+          "Jude 1",
+          "Matthew 14:22–33",
+          "Matthew 13:1–23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4382,10 +4526,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Exodus 2:5",
+          "1 Kings 19:19–21",
+          "Hebrews 11",
           "the Bible",
-          "Genesis 37:3"
+          "Matthew 17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4467,9 +4611,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 21",
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
-          "Matthew 17:20; Mark 11:23–24",
+          "Judges 16:4-21",
+          "Exodus 7–12",
+          "Revelation 14–15",
           "Acts 9:36–43"
         ],
         "correctIndex": 3,
@@ -4552,9 +4696,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Joshua 2:1-21",
-          "Acts 2:4–21"
+          "Revelation 17–18",
+          "Acts 12:1–19",
+          "Romans–Philemon"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4635,9 +4779,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philemon 1",
-          "Acts 2:14–41",
-          "Revelation 13",
+          "Revelation 14–15",
+          "Judges 16:4-21",
+          "Exodus 7–12",
           "Acts 2:42–47"
         ],
         "correctIndex": 3,
@@ -4720,9 +4864,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "2 Kings 2:1–14",
-          "1 Samuel 25",
-          "Joshua 8:1-8, 18-23, 26-29",
-          "Numbers 13:1-33; 14:1-9"
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 7",
+          "Matthew 13:1–23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4804,10 +4948,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 22:1–2; 24",
+          "2 Timothy 4:6–8",
           "1 Kings 19:19–21",
-          "1 Samuel 17:8–11, 16, 23–30",
-          "Esther 2–7"
+          "Exodus 14",
+          "Luke 18:1–8"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4889,9 +5033,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Kings 18:20–40",
-          "Revelation 20",
-          "Romans 16:1–2",
-          "Acts 16:16–40"
+          "2 Kings 4:1–7",
+          "Daniel 6",
+          "Numbers 22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4972,9 +5116,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 2",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 25:14–30",
+          "Acts 20:7–12",
+          "Acts 3",
+          "Revelation 1–22",
           "1 Kings 18"
         ],
         "correctIndex": 3,
@@ -5056,9 +5200,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "2 Timothy 1:5–7; 3:15",
-          "1 Samuel 16:11; 17:15, 34–37",
+          "Ruth 1:1-18",
+          "Genesis 22",
+          "Acts 6:8–7:60",
           "2 Kings 6:1–7"
         ],
         "correctIndex": 3,
@@ -5141,10 +5285,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 6:8–7:60",
+          "Numbers 23–24",
           "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-          "Revelation 13",
-          "Ruth 4:1-17"
+          "1 Kings 5–8",
+          "Mark 12"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5225,10 +5369,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2",
+          "Genesis 41:41",
           "2 Kings 4:1–7",
-          "Luke 15:8–10",
-          "Exodus 12:1-14"
+          "Luke 2; Matthew 1–2",
+          "Luke 2:41–52"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5309,9 +5453,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 John 1–5",
-          "Acts 9:1–19",
-          "1 Corinthians 13",
+          "Hebrews 11",
+          "Matthew 3:13–17",
+          "Matthew 28:16–20; Mark 16:15–18",
           "2 Kings 4"
         ],
         "correctIndex": 3,
@@ -5394,9 +5538,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14:21-31",
-          "Acts 5:12–16",
-          "Acts 28",
+          "Genesis 6–9",
+          "Matthew 6",
+          "Acts 18:23–21:17",
           "Luke 24"
         ],
         "correctIndex": 3,
@@ -5480,9 +5624,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Esther 2–7",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Isaiah 7:14; 9:6–7; 53:4–6",
-          "Revelation 1"
+          "Matthew 4:1–11",
+          "Mark 10:13–16",
+          "Genesis 37:28"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5563,10 +5707,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 6",
-          "Acts 18:23–21:17",
+          "2 Peter 1–3",
+          "Ephesians, Philippians, Colossians, Philemon",
           "Esther 5–7",
-          "Revelation 4–5"
+          "Revelation 1–3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5647,10 +5791,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 12",
+          "Judges 4:1-16",
           "Esther 2:15–18",
-          "1 Timothy 4:12",
-          "Genesis 18:9–15"
+          "1 Samuel 1–2",
+          "Philippians 2:8–11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5732,10 +5876,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 20:1-17",
-          "Judges 16:4-21",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Matthew; Mark; Luke; John (Gospels overview)",
           "Esther 4–5",
-          "Acts 17:22–34"
+          "Genesis 37:3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5816,10 +5960,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Corinthians 13",
-          "Acts 2:4–21",
+          "Luke 24",
+          "Luke 24:50–53; Acts 1:6–11",
           "2 Timothy 1:5–7; 3:15",
-          "Acts 9:1–19"
+          "1 Samuel 17:8–11, 16, 23–30"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5900,10 +6044,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:23–21:17",
-          "Revelation 4–5",
+          "Lamentations 1–5",
+          "Joshua 3:14-17; 4:1-7, 18-24",
           "Philippians 2:8–11",
-          "Matthew 6"
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5985,9 +6129,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Ezekiel 37:1–14",
-          "Joshua 6:1-21",
-          "Acts 2:1–13",
-          "Mark 2:1–12"
+          "1 Samuel 18:1-4; 20:1-42",
+          "Esther 5–7",
+          "Matthew 28:18–20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6069,10 +6213,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 3; Matthew 3",
+          "Job 2",
           "Ezra 1–10; Nehemiah 8–9",
-          "Revelation 21",
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
+          "Luke 17",
+          "John 2:1–11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6153,10 +6297,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 41:41",
-          "Luke 2:41–52",
+          "1 Samuel 18",
+          "Luke 24:13–35",
           "Matthew 17:20; Mark 11:23–24",
-          "Matthew 13"
+          "Matthew 17:1–13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6237,10 +6381,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 17:20; Mark 11:23–24",
+          "Judges 6:11-40",
           "Matthew 17",
-          "Genesis 1:3",
-          "2 Kings 2:1–14"
+          "Daniel 6",
+          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6438,9 +6582,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 3",
-          "Matthew 4:18–22; Luke 5:1–11",
-          "1 Samuel 1:1-20",
-          "Matthew 4:1–11; Luke 4:1–13"
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+          "Revelation 21",
+          "Luke 3; Matthew 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6522,9 +6666,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Romans–Philemon",
-          "Acts 12:1–19",
-          "John 12:1–8",
+          "John 9",
+          "John 6:1–14",
+          "Philippians 2:8–11",
           "Matthew 18:21–35"
         ],
         "correctIndex": 3,
@@ -6607,9 +6751,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Kings 6:1–7",
-          "Galatians 5",
-          "Genesis 28:10–22"
+          "2 Kings 4:1–7",
+          "Judges 6:11-40",
+          "James 2:14–26"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6690,9 +6834,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Galatians 5",
-          "2 Kings 4",
-          "1 Samuel 16",
-          "Revelation 13:16–18"
+          "Joshua 7:1-26",
+          "Acts 7",
+          "Ruth 4:1-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6773,10 +6917,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 12:1-14",
+          "Revelation 14–15",
           "Matthew 26:36–46; Luke 22:44",
-          "Luke 3; Matthew 3",
-          "Luke 15:8–10"
+          "Acts 27",
+          "Acts 8:26–40"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7221,10 +7365,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Lamentations 1–5",
+          "2 Kings 4:1–7",
+          "1 Samuel 17:1-11, 32-51",
           "1 Samuel 17:8–11, 16, 23–30",
-          "Joshua 3:14-17; 4:1-7, 18-24"
+          "Judges 6:11-40"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7304,9 +7448,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 10",
-          "James 2:14–26",
-          "Matthew 26:36–46; Luke 22:44",
-          "John 10:1–18"
+          "Job 2",
+          "John 2:1–11",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7387,10 +7531,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 5:21–43",
+          "Judges 13:1-25",
           "Matthew 28:18–20",
-          "2 Kings 6:1–7",
-          "Galatians 5"
+          "Genesis 41",
+          "Revelation 6–8:1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7471,9 +7615,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jude 1",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 13:1–23",
+          "Revelation 1",
+          "2 Timothy 4:6–8",
+          "Acts 16:11–15",
           "1 Samuel 1"
         ],
         "correctIndex": 3,
@@ -7685,9 +7829,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 1–2",
-          "Exodus 14:21-31",
-          "Genesis 40",
-          "Matthew 28; Mark 16; Luke 24; John 20"
+          "Exodus 32:1-8, 15-20, 30-32",
+          "Luke 24",
+          "1 Samuel 24:1-22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7769,9 +7913,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 9",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Revelation 19",
-          "Acts 27–28"
+          "Acts 1:6–11",
+          "Matthew 27; Mark 15; Luke 23; John 19",
+          "Matthew 17:1–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7853,10 +7997,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Peter 1–3",
+          "1 Corinthians 12",
           "Luke 17",
-          "Ruth 3:1-18",
-          "Revelation 1–3"
+          "Philippians 2:8–11",
+          "the Bible"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -7939,9 +8083,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "1 Peter 1–5",
-          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "Acts 19"
+          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
+          "Joshua 24:14-15",
+          "Mark 4:35–41"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8022,10 +8166,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 1:3",
+          "Ezra 1–10; Nehemiah 8–9",
           "Revelation 21",
-          "Matthew 17:20; Mark 11:23–24",
-          "2 Kings 2:1–14"
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+          "Luke 17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8104,9 +8248,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 40",
-          "Exodus 14:21-31",
-          "Acts 28",
+          "Genesis 41:41",
+          "Matthew 13",
+          "Acts 27",
           "Hebrews 11"
         ],
         "correctIndex": 3,
@@ -8189,9 +8333,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 6:1-21",
-          "Isaiah 7:14; 9:6–7; 53:4–6",
-          "1 Kings 18:20–40",
+          "1 Kings 18",
+          "Matthew 18:21–35",
+          "Daniel 6:22",
           "Acts 2:1–13"
         ],
         "correctIndex": 3,
@@ -8275,9 +8419,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Isaiah 7:14; 9:6–7; 53:4–6",
-          "Acts 2:1–13",
-          "Joshua 6:1-21",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
+          "Exodus 40:1-38",
+          "Judges 16:23-30",
+          "Acts 25–26"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8359,10 +8503,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
-          "Numbers 22:1–20",
+          "Exodus 2:5",
+          "Ephesians, Philippians, Colossians, Philemon",
           "Genesis 28:10–22",
-          "Luke 2"
+          "Genesis 37:3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8444,9 +8588,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Luke 24",
-          "Exodus 32:1-8, 15-20, 30-32",
-          "1 Samuel 16"
+          "Judges 14:5-9",
+          "Matthew 25",
+          "Revelation 19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8524,9 +8668,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
-          "Exodus 20:1-17",
-          "Judges 16:4-21",
+          "Genesis 3",
+          "Judges 4:1-16",
+          "Revelation 22",
           "Mark 5:21–43"
         ],
         "correctIndex": 3,
@@ -8607,10 +8751,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14",
+          "John 9",
           "James 2:14–26",
-          "Luke 2",
-          "Ruth 2:1-17"
+          "Job 2",
+          "John 2:1–11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8692,10 +8836,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 7:1-11",
+          "Job 2",
           "Lamentations 1–5",
-          "Matthew 4:18–22; Luke 5:1–11",
-          "Matthew 4:1–11; Luke 4:1–13"
+          "John 9",
+          "John 2:1–11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8891,8 +9035,8 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 40:1-38",
-          "Acts 25–26",
+          "Exodus 20:1-17",
+          "Acts 17:22–34",
           "Judges 13:1-25",
           "Matthew; Mark; Luke; John (Gospels overview)"
         ],
@@ -8976,9 +9120,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 24:50–53; Acts 1:6–11",
-          "Matthew 6",
-          "Revelation 4–5",
-          "Acts 18:23–21:17"
+          "Revelation 22:12–13",
+          "Acts 15",
+          "John 20:24–29"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9059,9 +9203,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 19:19–21",
-          "Matthew 17",
-          "Luke 23",
+          "Numbers 22",
+          "Daniel 6",
+          "Luke 19:1–10",
           "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 3,
@@ -9144,9 +9288,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 2; Matthew 1–2",
-          "Daniel 6",
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
-          "Numbers 22"
+          "Matthew 28:18–20",
+          "Mark 10:13–16",
+          "Esther 2:15–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9228,9 +9372,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "John 20:1–18",
+          "Genesis 28:10–22",
+          "Luke 2:1–20",
+          "Jonah 1:17",
           "Mark 10:13–16"
         ],
         "correctIndex": 3,
@@ -9313,10 +9457,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:16–20; Mark 16:15–18",
+          "James 2:14–26",
           "Matthew 4:18–22; Luke 5:1–11",
-          "Luke 15",
-          "Matthew 3:13–17"
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9399,9 +9543,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Mark 4:35–41",
-          "James 2:14–26",
-          "Judges 6:11-40",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
+          "Judges 13:1-25",
+          "Revelation 6–8:1",
+          "Exodus 20:1-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9483,10 +9627,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Timothy 4:12",
-          "Luke 1",
+          "Revelation 21–22",
+          "Judges 16:23-30",
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "Genesis 18:9–15"
+          "Acts 5:12–16"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9567,9 +9711,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Matthew; Mark; Luke; John (Gospels overview)",
-          "Matthew 28; Mark 16; Luke 24; John 20",
+          "Philippians 2:8–11",
+          "1 Samuel 1–2",
+          "Mark 4:35–41",
           "John 6:1–14"
         ],
         "correctIndex": 3,
@@ -9651,10 +9795,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:22",
-          "Numbers 22:1–20",
+          "Mark 10:13–16",
+          "1 Samuel 1",
           "John 2:1–11",
-          "1 Kings 18"
+          "Matthew 4:1–11; Luke 4:1–13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9736,9 +9880,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Galatians 5",
-          "Luke 2:1–20",
-          "Genesis 28:10–22",
+          "Revelation 8–11",
+          "1 Timothy 4:12",
+          "Genesis 18:9–15",
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 3,
@@ -9821,9 +9965,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
+          "1 Samuel 16:1-13",
           "Judges 7:1-22",
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Lamentations 1–5",
+          "2 Kings 4",
           "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 3,
@@ -9905,10 +10049,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:22",
-          "Matthew 18:21–35",
+          "2 Kings 2:1–14",
+          "Hebrews 11",
           "John 9",
-          "1 Kings 18"
+          "Matthew 17:20; Mark 11:23–24"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9990,10 +10134,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 18:1–8",
+          "Revelation 1",
           "Mark 2:1–12",
-          "Acts 16:11–15",
-          "2 Timothy 4:6–8"
+          "Acts 2:1–13",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10076,9 +10220,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Exodus 14",
-          "Luke 18:1–8",
-          "Ruth 2:1-17"
+          "Matthew 26",
+          "Joshua 7:1-26",
+          "1 Samuel 24:1-22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10160,9 +10304,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 39–40",
-          "Exodus 7:8–13",
-          "Acts 15:36–18:22",
+          "Revelation 13",
+          "Ruth 4:1-17",
+          "Acts 7",
           "John 11:1–44"
         ],
         "correctIndex": 3,
@@ -10244,10 +10388,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:11; 17:15, 34–37",
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
           "Luke 2:1–20",
-          "1 Samuel 1",
-          "Esther 4–5"
+          "Genesis 41:41",
+          "Luke 2:41–52"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10327,10 +10471,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 4–5",
-          "1 Samuel 1:21-28; 2:1-11, 18-21",
+          "Matthew 3:13–17",
+          "Luke 15",
           "John 10:1–18",
-          "Matthew 6"
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10412,9 +10556,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 14:5-9",
-          "Exodus 7–12",
-          "Revelation 19",
+          "Matthew 28; Mark 16; Luke 24; John 20",
+          "Genesis 40",
+          "Matthew; Mark; Luke; John (Gospels overview)",
           "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 3,
@@ -10498,9 +10642,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "1 Samuel 1–2",
-          "Mark 4:35–41",
-          "Matthew 14:22–33"
+          "Luke 1",
+          "Genesis 1",
+          "Acts 2:42–47"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10583,9 +10727,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28; Mark 16; Luke 24; John 20",
-          "Esther 5–7",
-          "1 Samuel 18–20",
-          "Exodus 3:1-15"
+          "Acts 19",
+          "Malachi 1–4",
+          "2 John; 3 John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10665,10 +10809,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 8:1-8, 18-23, 26-29",
-          "1 Samuel 25",
+          "Luke 19:1–10",
+          "1 Kings 3",
           "Matthew 5–7",
-          "1 Samuel 17:45–50"
+          "Numbers 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10748,10 +10892,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 7",
-          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Luke 19:1–10",
+          "1 Kings 3",
           "Luke 2:41–52",
-          "Revelation 8–11"
+          "Numbers 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10832,9 +10976,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 3",
-          "Ruth 1",
-          "Revelation 1–22",
+          "1 Samuel 3:1-21",
+          "Revelation 22:12–13",
+          "John 20:24–29",
           "Matthew 4:1–11"
         ],
         "correctIndex": 3,
@@ -10914,10 +11058,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
+          "Luke 19:1–10",
           "1 Kings 3",
-          "Ruth 1",
           "Matthew 4:1–11; Luke 4:1–13",
-          "Luke 19:1–10"
+          "Numbers 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10998,9 +11142,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:14–41",
-          "Revelation 13",
-          "Philemon 1",
+          "Acts 15:36–18:22",
+          "Genesis 41",
+          "Exodus 7:8–13",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -11081,9 +11225,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 14:22–33",
-          "Numbers 13:1-33; 14:1-9",
-          "Ruth 1:1-18",
-          "1 Samuel 25"
+          "1 Samuel 16:1-13",
+          "Revelation 13:16–18",
+          "2 Kings 4"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11164,9 +11308,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 3",
-          "Galatians 5",
-          "2 Kings 6:1–7",
+          "1 Corinthians 13",
+          "Acts 2:4–21",
+          "Acts 9:1–19",
           "Job 2"
         ],
         "correctIndex": 3,
@@ -11249,10 +11393,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 2:8–11",
+          "Revelation 8–11",
           "Luke 3; Matthew 3",
-          "1 Corinthians 12",
-          "the Bible"
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 7"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11333,9 +11477,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:1–23",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Jude 1",
+          "Numbers 21:1-9",
+          "1 Samuel 16:14-23",
+          "Acts 18:24–28",
           "Matthew 3:13–17"
         ],
         "correctIndex": 3,
@@ -11416,10 +11560,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1",
-          "Mark 2:1–12",
+          "Numbers 23–24",
+          "Mark 12",
           "1 John 1–5",
-          "Acts 16:11–15"
+          "Daniel 3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11499,9 +11643,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1",
-          "Acts 2:14–41",
-          "Revelation 13",
-          "Philemon 1"
+          "Revelation 21–22",
+          "Judges 16:23-30",
+          "Acts 5:12–16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11581,10 +11725,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:11; 17:15, 34–37",
-          "Esther 4–5",
+          "Psalm 23",
+          "Luke 24:13–35",
           "2 John; 3 John",
-          "Colossians 1:15–20; 3:1–4, 12–17"
+          "Acts 2:1–4"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11666,10 +11810,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2:36–38",
+          "Matthew 18:21–35",
           "Jonah 1:17",
-          "2 Kings 2:1–14",
-          "Genesis 1:3"
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
+          "Isaiah 7:14; 9:6–7; 53:4–6"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11749,9 +11893,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 40:1-38",
-          "Acts 25–26",
-          "Judges 13:1-25",
+          "1 Samuel 1–2",
+          "Mark 4:35–41",
+          "Philippians 2:8–11",
           "Jonah 4"
         ],
         "correctIndex": 3,
@@ -11949,9 +12093,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 8–11",
-          "1 Samuel 3:1-21",
-          "John 20:24–29",
+          "Revelation 14–15",
+          "Judges 16:4-21",
+          "Exodus 7–12",
           "Genesis 37:3"
         ],
         "correctIndex": 3,
@@ -12035,9 +12179,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 40",
-          "Luke 18:1–8",
-          "2 Timothy 4:6–8",
-          "Exodus 14"
+          "1 Samuel 18",
+          "Luke 24:13–35",
+          "Matthew 17:1–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12117,9 +12261,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:11; 17:15, 34–37",
-          "Esther 4–5",
-          "1 Samuel 1",
+          "1 Kings 18:20–40",
+          "Joshua 6:1-21",
+          "Acts 2:1–13",
           "Genesis 39–40"
         ],
         "correctIndex": 3,
@@ -12202,9 +12346,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41:41",
-          "Matthew 28:18–20",
-          "Luke 2; Matthew 1–2",
-          "Luke 2:41–52"
+          "Exodus 12:1-14",
+          "Acts 2",
+          "Luke 15:11–32"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12287,9 +12431,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 37:28",
-          "Hebrews 11",
-          "Matthew 17",
-          "Matthew 28:16–20; Mark 16:15–18"
+          "Acts 2",
+          "Exodus 12:1-14",
+          "Luke 15:11–32"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12371,9 +12515,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 16:23-30",
-          "Acts 18:24–28",
-          "Joshua 10:12-14",
+          "1 Thessalonians 4:13–18; 5:16–24",
+          "1 Corinthians 12",
+          "Revelation 1:8, 11, 17–18",
           "Joshua 7:1-11"
         ],
         "correctIndex": 3,
@@ -12679,9 +12823,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26",
-          "1 John 1–5",
-          "1 Corinthians 13",
-          "Mark 2:1–12"
+          "1 Kings 5–8",
+          "Mark 12",
+          "Ruth 2:1-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12760,10 +12904,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 4–5",
-          "Mark 10:13–16",
+          "Judges 4:1-16",
+          "1 Samuel 1:1-20",
           "Jude 1",
-          "1 Samuel 1"
+          "2 Timothy 1:5–7; 3:15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12845,9 +12989,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Luke 15:8–10",
-          "Exodus 12:1-14",
-          "Acts 2"
+          "Matthew 27; Mark 15; Luke 23; John 19",
+          "1 Kings 18",
+          "Matthew 18:21–35"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12927,9 +13071,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "John 20:1–18",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "Philemon 1"
+          "Genesis 1",
+          "Luke 1",
+          "2 Kings 2:1–14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13011,9 +13155,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Nehemiah 1–6",
-          "Genesis 37:28",
-          "Matthew 4:1–11"
+          "Matthew 7",
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 13:1–23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13095,10 +13239,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
-          "Luke 15",
+          "Mark 4:35–41",
+          "Jude 1",
           "John 11:1–44",
-          "Matthew 3:13–17"
+          "Matthew 14:22–33"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13180,9 +13324,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Matthew 4:1–11; Luke 4:1–13",
-          "Matthew 4:18–22; Luke 5:1–11",
-          "1 Samuel 1:1-20"
+          "Genesis 39–40",
+          "Matthew 5–7",
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13264,9 +13408,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 15:8–10",
-          "1 Samuel 1",
-          "Esther 4–5",
-          "1 Samuel 16:11; 17:15, 34–37"
+          "Ruth 1",
+          "Revelation 1–22",
+          "Acts 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13346,10 +13490,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 15:8–10",
-          "Luke 3; Matthew 3",
+          "Genesis 3",
+          "Matthew 25",
           "Luke 15",
-          "Acts 13–14"
+          "Revelation 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13432,9 +13576,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Corinthians 13",
-          "1 Samuel 13; 15",
-          "Matthew 28",
-          "Luke 2:36–38"
+          "1 Samuel 9–10",
+          "Genesis 11",
+          "Ephesians 6"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13516,10 +13660,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2",
-          "the Bible",
           "Exodus 14",
-          "Ruth 2:1-17"
+          "the Bible",
+          "2 Timothy 4:6–8",
+          "Luke 18:1–8"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13601,9 +13745,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 16:11–15",
-          "Matthew 14:22–33",
-          "Jude 1",
-          "John 6:1–14"
+          "Luke 2:1–20",
+          "Jonah 1:17",
+          "Mark 5:21–43"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13685,10 +13829,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 4:35–41",
+          "Philemon 1",
           "Malachi 1–4",
-          "Joshua 24:14-15",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
+          "Revelation 13",
+          "Acts 2:14–41"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13886,10 +14030,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 6–9",
+          "Ruth 3:1-18",
           "the Bible",
-          "Matthew 6",
-          "Acts 18:23–21:17"
+          "Acts 18:24–28",
+          "Joshua 10:12-14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13969,10 +14113,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 25",
+          "1 Samuel 16:1-13",
           "John 12:1–8",
-          "Revelation 20",
-          "1 Samuel 16:1–13"
+          "Genesis 22",
+          "Revelation 13:16–18"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14054,10 +14198,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
-          "Matthew 17:1–13",
+          "John 9",
+          "John 6:1–14",
           "John 20:1–18",
-          "Romans 3:23; 5:8; 6:23; 10:9–10"
+          "Ezekiel 37:1–14"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14135,10 +14279,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 7",
-          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Jude 1",
+          "Matthew 14:22–33",
           "the Bible",
-          "Revelation 8–11"
+          "Matthew 13:1–23"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14219,10 +14363,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 2:1-17",
+          "Judges 4:1-16",
           "the Bible",
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
-          "Luke 2"
+          "1 Samuel 1–2",
+          "Philippians 2:8–11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14302,10 +14446,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 2:1-21",
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
+          "John 20:1–18",
+          "Ephesians, Philippians, Colossians, Philemon",
           "Exodus 2:5",
-          "Acts 2:4–21"
+          "Joshua 3:14-17; 4:1-7, 18-24"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14508,10 +14652,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 2:1–11",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "2 John; 3 John",
+          "Acts 20:7–12",
           "Exodus 14:21-31",
-          "Job 2"
+          "Malachi 1–4"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14590,9 +14734,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Exodus 7:8–13",
-          "Exodus 2:5",
-          "Acts 28",
-          "Acts 5:12–16"
+          "Acts 27–28",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "Revelation 19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14674,9 +14818,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13",
-          "Exodus 7:8–13",
-          "Genesis 39–40",
-          "Acts 27"
+          "John 2:1–11",
+          "Luke 17",
+          "Job 2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14757,10 +14901,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 13:1-25",
-          "Acts 25–26",
+          "Revelation 22:12–13",
+          "Acts 9:36–43",
           "2 Kings 5:1–15",
-          "Exodus 40:1-38"
+          "Acts 15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14842,10 +14986,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 8:26–40",
-          "Acts 27",
+          "Philippians 2:8–11",
+          "the Bible",
           "2 Kings 5:1–15",
-          "Revelation 14–15"
+          "1 Samuel 1–2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14926,9 +15070,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Revelation 19",
-          "Judges 14:5-9",
+          "Exodus 14:21-31",
+          "Acts 15:36–18:22",
+          "Genesis 41",
           "Nehemiah 1–6"
         ],
         "correctIndex": 3,
@@ -15011,9 +15155,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:15–18",
-          "Luke 2; Matthew 1–2",
-          "Matthew 28:18–20",
+          "Judges 6:11-40",
+          "John 10:1–18",
+          "James 2:14–26",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -15097,9 +15241,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "John 6:1–14",
-          "Matthew 14:22–33",
-          "Jude 1"
+          "Acts 2:14–41",
+          "Revelation 13",
+          "Ruth 4:1-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15181,10 +15325,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:42–47",
+          "Psalm 23",
           "Genesis 6–9",
-          "Luke 17",
-          "Ezra 1–10; Nehemiah 8–9"
+          "1 Samuel 18",
+          "Luke 24:13–35"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15266,9 +15410,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Luke 24",
-          "1 Samuel 16",
-          "Exodus 32:1-8, 15-20, 30-32"
+          "John 11:1–44",
+          "Genesis 28:10–22",
+          "2 John; 3 John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15350,9 +15494,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
-          "Daniel 6:22",
-          "Numbers 22:1–20",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "Exodus 2:5",
+          "Genesis 37:3",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -15435,9 +15579,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:1–23",
-          "John 10:1–18",
-          "James 2:14–26",
-          "Judges 6:11-40"
+          "Exodus 12:1-14",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Job 2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15517,10 +15661,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:24–28",
+          "1 Samuel 18",
           "Matthew 25:14–30",
-          "Judges 16:23-30",
-          "Joshua 10:12-14"
+          "Psalm 23",
+          "Luke 24:13–35"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15716,9 +15860,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 17",
-          "Esther 2–7",
-          "Numbers 21:1-9",
+          "1 Samuel 1–2",
+          "Mark 4:35–41",
+          "Philippians 2:8–11",
           "Acts 13–14"
         ],
         "correctIndex": 3,
@@ -15801,9 +15945,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 22:1–2; 24",
-          "Luke 24",
-          "Exodus 32:1-8, 15-20, 30-32",
+          "Revelation 13",
+          "Ruth 4:1-17",
+          "Acts 7",
           "Acts 9:1–19"
         ],
         "correctIndex": 3,
@@ -15886,10 +16030,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 10:1–18",
-          "James 2:14–26",
+          "Exodus 16:1-36",
+          "Jonah 1:17",
           "Acts 9:1–19",
-          "Jonah 4"
+          "Romans–Philemon"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15968,10 +16112,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 10:13–16",
-          "1 Samuel 1",
+          "1 Samuel 18:6-11, 17-19:17",
+          "Genesis 4",
           "2 Timothy 4:6–8",
-          "Matthew 4:1–11"
+          "Esther 2:15–18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16053,9 +16197,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 19",
-          "Ezra 1–10; Nehemiah 8–9",
-          "Luke 17",
-          "Acts 2:42–47"
+          "Acts 2:4–21",
+          "Joshua 2:1-21",
+          "Acts 13–14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16135,10 +16279,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 9",
+          "Genesis 37:3",
           "Acts 20:7–12",
-          "Matthew 14:22–33",
-          "John 6:1–14"
+          "Acts 28",
+          "Exodus 2:5"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16217,10 +16361,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22:1–20",
-          "1 Kings 18",
+          "Acts 12:1–19",
+          "Ruth 1:1-18",
           "Acts 13–14",
-          "Daniel 6:22"
+          "Revelation 17–18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16299,10 +16443,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Isaiah 7:14; 9:6–7; 53:4–6",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
+          "1 Samuel 13; 15",
+          "Matthew 28",
           "Romans–Philemon",
-          "Matthew 18:21–35"
+          "Revelation 12"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16381,9 +16525,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:1–4",
-          "Psalm 23",
-          "Exodus 12:1-14",
+          "Luke 10",
+          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
+          "Esther 5–7",
           "Philemon 1"
         ],
         "correctIndex": 3,
@@ -16464,9 +16608,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 4:1–11; Luke 4:1–13",
-          "Joshua 7:1-11",
-          "Nehemiah 1–6",
+          "Revelation 13",
+          "Ruth 4:1-17",
+          "Acts 7",
           "Ephesians, Philippians, Colossians, Philemon"
         ],
         "correctIndex": 3,
@@ -16547,9 +16691,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 28",
-          "1 Samuel 1",
-          "Mark 10:13–16",
-          "Esther 4–5"
+          "Acts 16:11–15",
+          "2 Timothy 4:6–8",
+          "Revelation 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16629,10 +16773,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 2:1–12",
+          "Philippians 2:8–11",
           "Acts 15:36–18:22",
-          "Joshua 6:1-21",
-          "Acts 2:1–13"
+          "1 Corinthians 12",
+          "the Bible"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16713,10 +16857,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 7–12",
+          "Luke 2:1–20",
           "Acts 27",
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "Acts 28:1–10"
+          "Exodus 16:1-36",
+          "Jonah 1:17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16797,9 +16941,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 6:8–7:60",
-          "Genesis 22",
-          "Ruth 4:1-17",
+          "Esther 2:15–18",
+          "Matthew 28:18–20",
+          "1 Samuel 18:6-11, 17-19:17",
           "Acts 27–28"
         ],
         "correctIndex": 3,
@@ -16882,10 +17026,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 12",
+          "1 Kings 5–8",
           "Acts 16:16–40",
-          "1 Timothy 4:12",
-          "Genesis 18:9–15"
+          "Numbers 23–24",
+          "Mark 12"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16965,10 +17109,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 20",
-          "1 Samuel 16:1–13",
+          "Judges 7:1-22",
+          "Lamentations 1–5",
           "Acts 18:23–21:17",
-          "Romans 16:1–2"
+          "2 Kings 4"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17047,9 +17191,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 23",
-          "1 Kings 19:19–21",
-          "Ephesians 6",
+          "Ruth 2:1-17",
+          "1 Kings 5–8",
+          "Exodus 14",
           "1 Timothy 1–6; 2 Timothy 1–4"
         ],
         "correctIndex": 3,
@@ -17130,9 +17274,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Titus 1–3",
-          "Genesis 4",
-          "1 Samuel 18–19",
-          "Acts 17:22–34"
+          "Acts 18:23–21:17",
+          "Matthew 7",
+          "Genesis 6–9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17213,9 +17357,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2",
-          "Genesis 41",
-          "Acts 28",
-          "Revelation 6–8:1"
+          "1 Samuel 18",
+          "Luke 24:13–35",
+          "Matthew 17:1–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17298,9 +17442,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2:1–4",
-          "Acts 13–14",
-          "Luke 15",
-          "Matthew 3:13–17"
+          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5",
+          "Daniel 6",
+          "Numbers 22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17381,10 +17525,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:1–3, 18–19",
-          "Genesis 18:9–15",
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "Daniel 6:22",
           "Acts 2:4–21",
-          "Revelation 12"
+          "Numbers 22:1–20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17465,10 +17609,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 20:24–29",
-          "1 Samuel 3:1-21",
+          "1 Samuel 18:6-11, 17-19:17",
+          "Genesis 4",
           "Luke 18:1–8",
-          "Revelation 22:12–13"
+          "Esther 2:15–18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17547,9 +17691,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 22:1–2; 24",
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Luke 24",
+          "Matthew 14:22–33",
+          "Matthew 13:1–23",
+          "Jude 1",
           "1 Peter 1–5"
         ],
         "correctIndex": 3,
@@ -17630,10 +17774,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1:8, 11, 17–18",
+          "1 Samuel 16:14-23",
           "Acts 3",
-          "the Bible",
-          "1 Corinthians 12"
+          "1 Samuel 17:8–11, 16, 23–30",
+          "Esther 2–7"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17713,10 +17857,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 3",
-          "Luke 19:1–10",
+          "1 Timothy 4:12",
+          "Luke 1",
           "Acts 12:1–19",
-          "Ruth 1"
+          "Genesis 18:9–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17798,10 +17942,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 17–18",
-          "Acts 3",
+          "Acts 18:24–28",
+          "Joshua 10:12-14",
           "Acts 2:14–41",
-          "Ruth 1:1-18"
+          "Numbers 21:1-9"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17881,9 +18025,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 9–10",
-          "Genesis 11",
-          "Ephesians 6",
+          "Matthew 14:22–33",
+          "Jude 1",
+          "Matthew 13:1–23",
           "2 Peter 1–3"
         ],
         "correctIndex": 3,
@@ -17965,10 +18109,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 19:19–21",
+          "Titus 1–3",
           "Acts 5:12–16",
-          "Ephesians 6",
-          "Luke 23"
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Matthew 25:14–30"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18050,9 +18194,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41",
-          "Acts 2:4–21",
-          "Exodus 14",
-          "Acts 9:1–19"
+          "Luke 23",
+          "1 Kings 19:19–21",
+          "Ephesians 6"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18133,9 +18277,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 6",
-          "1 Samuel 1:21-28; 2:1-11, 18-21",
-          "Revelation 4–5",
+          "2 Kings 4:1–7",
+          "James 2:14–26",
+          "Judges 6:11-40",
           "Acts 8:26–40"
         ],
         "correctIndex": 3,
@@ -18219,9 +18363,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 8:26–40",
-          "1 Samuel 1:21-28; 2:1-11, 18-21",
-          "Revelation 4–5",
-          "1 Thessalonians 4:13–18; 5:16–24"
+          "Luke 15",
+          "Matthew 3:13–17",
+          "Acts 13–14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18302,10 +18446,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 3:13–17",
-          "Luke 15",
+          "Ezra 1–10; Nehemiah 8–9",
+          "Luke 17",
           "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Matthew 28:16–20; Mark 16:15–18"
+          "Acts 2:42–47"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18387,9 +18531,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Romans 16:1–2",
-          "Revelation 17–18",
-          "Ruth 1:1-18",
-          "Numbers 13:1-33; 14:1-9"
+          "Mark 12",
+          "Numbers 23–24",
+          "Daniel 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18471,9 +18615,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Ruth 4:1-17",
-          "Revelation 13",
-          "Acts 6:8–7:60"
+          "1 Samuel 18:6-11, 17-19:17",
+          "Genesis 4",
+          "Esther 2:15–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18555,10 +18699,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 19:16–22",
-          "1 Samuel 13; 15",
+          "Exodus 7–12",
+          "Acts 28:1–10",
           "Matthew 7",
-          "Luke 15:11–32"
+          "Judges 16:4-21"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18639,9 +18783,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18–19",
-          "Esther 2:15–18",
-          "Matthew 28:18–20",
+          "Job 2",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Matthew 25:14–30",
           "Acts 18:24–28"
         ],
         "correctIndex": 3,
@@ -18723,9 +18867,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 1:1-18",
-          "1 Samuel 25",
-          "Numbers 13:1-33; 14:1-9",
+          "1 Samuel 18:6-11, 17-19:17",
+          "Matthew 28:18–20",
+          "Esther 2:15–18",
           "Acts 18:1–3, 18–19"
         ],
         "correctIndex": 3,
@@ -18807,9 +18951,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 2:1–11",
-          "Job 2",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "1 Thessalonians 4:13–18; 5:16–24",
+          "Revelation 1:8, 11, 17–18",
+          "1 Corinthians 12",
           "Luke 15:11–32"
         ],
         "correctIndex": 3,
@@ -18891,10 +19035,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 4:1-17",
-          "Revelation 13",
+          "1 Samuel 18",
+          "Luke 24:13–35",
           "Psalm 23",
-          "Acts 6:8–7:60"
+          "Matthew 17:1–13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19580,10 +19724,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 3:1-18",
+          "Daniel 6:22",
           "Exodus 14",
-          "Acts 2:14–41",
-          "Revelation 1–3"
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "Numbers 22:1–20"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19666,9 +19810,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "Acts 1:6–11",
-          "Matthew 27; Mark 15; Luke 23; John 19",
-          "1 Kings 18:20–40"
+          "1 Kings 3",
+          "Luke 19:1–10",
+          "Numbers 22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19749,9 +19893,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1–22",
-          "Luke 24",
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Matthew; Mark; Luke; John (Gospels overview)"
+          "Numbers 22:1–20",
+          "Daniel 6:22",
+          "1 Kings 18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19833,9 +19977,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 17–18",
-          "Acts 2:42–47",
-          "Ezra 1–10; Nehemiah 8–9",
-          "Genesis 1"
+          "Exodus 3:1-15",
+          "1 Samuel 18:1-4; 20:1-42",
+          "Acts 25–26"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19914,10 +20058,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 10",
-          "Esther 5–7",
+          "1 Samuel 16:1-13",
+          "Revelation 13:16–18",
           "Revelation 13",
-          "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22"
+          "2 Kings 4"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19999,9 +20143,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "1 Samuel 17",
-          "Numbers 21:1-9",
-          "Esther 5–7"
+          "Colossians 1:15–20; 3:1–4, 12–17",
+          "Acts 28:1–10",
+          "1 Samuel 16:11; 17:15, 34–37"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20080,9 +20224,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
-          "Luke 3; Matthew 3",
-          "Revelation 21",
+          "Acts 18:1–3, 18–19",
+          "Matthew 19:16–22",
+          "Titus 1–3",
           "Revelation 1–3"
         ],
         "correctIndex": 3,
@@ -20165,10 +20309,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezra 1–10; Nehemiah 8–9",
-          "John 2:1–11",
+          "Judges 7:1-22",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
           "Revelation 21–22",
-          "Luke 17"
+          "Lamentations 1–5"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20247,10 +20391,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:1–3, 18–19",
-          "Titus 1–3",
+          "1 Samuel 17:8–11, 16, 23–30",
+          "Esther 2–7",
           "Revelation 21–22",
-          "Matthew 19:16–22"
+          "Luke 24:50–53; Acts 1:6–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20332,9 +20476,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 6–8:1",
-          "2 Timothy 4:6–8",
-          "Luke 18:1–8",
-          "Exodus 14"
+          "John 10:1–18",
+          "Jonah 4",
+          "John 12:1–8"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20414,9 +20558,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 14–15",
-          "Revelation 20",
-          "1 Samuel 16:1–13",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13"
+          "Acts 1:6–11",
+          "Matthew 27; Mark 15; Luke 23; John 19",
+          "Matthew 17:1–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20495,10 +20639,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 19",
+          "Matthew 13",
           "Revelation 19",
-          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "1 Peter 1–5"
+          "Acts 8:26–40",
+          "Acts 27"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20579,10 +20723,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 13:1-25",
-          "Exodus 40:1-38",
+          "Revelation 1–3",
+          "Judges 16:23-30",
           "Revelation 20",
-          "Revelation 21–22"
+          "2 Peter 1–3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20663,10 +20807,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 3:1-15",
-          "Acts 25–26",
+          "Revelation 14–15",
+          "Acts 8:26–40",
           "the Bible",
-          "1 Samuel 18–20"
+          "Judges 16:4-21"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20748,9 +20892,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 8–11",
-          "1 Samuel 3:1-21",
-          "John 20:24–29",
+          "Luke 15",
+          "Acts 13–14",
+          "Acts 2:1–4",
           "Revelation 4–5"
         ],
         "correctIndex": 3,
@@ -20832,9 +20976,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 8–11",
-          "Daniel 6",
-          "Numbers 22",
-          "Luke 19:1–10"
+          "Luke 2; Matthew 1–2",
+          "Matthew 28:18–20",
+          "Esther 2:15–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20915,9 +21059,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 11:1–44",
-          "Malachi 1–4",
-          "2 John; 3 John",
+          "1 Kings 18:20–40",
+          "Acts 2:1–13",
+          "Joshua 6:1-21",
           "Revelation 12"
         ],
         "correctIndex": 3,
@@ -20999,9 +21143,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 17:45–50",
-          "Judges 6:11-40",
-          "2 Kings 4:1–7",
+          "Luke 2:36–38",
+          "2 Kings 2:1–14",
+          "Genesis 1:3",
           "Matthew 19:16–22"
         ],
         "correctIndex": 3,
@@ -21084,9 +21228,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "1 Timothy 4:12",
-          "Genesis 18:9–15",
-          "Luke 1"
+          "Revelation 1",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
+          "Acts 16:11–15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21166,9 +21310,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 24:13–35",
-          "1 Samuel 1:21-28; 2:1-11, 18-21",
-          "Revelation 20",
-          "Romans 16:1–2"
+          "Revelation 13:16–18",
+          "Genesis 22",
+          "Acts 6:8–7:60"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21248,10 +21392,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 16:16–40",
-          "Nehemiah 1–6",
+          "Matthew 7",
+          "1 Timothy 1–6; 2 Timothy 1–4",
           "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Romans 16:1–2"
+          "Revelation 8–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21450,9 +21594,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:1–3, 18–19",
-          "1 Samuel 13; 15",
-          "Revelation 12",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "John 20:1–18",
+          "Joshua 3:14-17; 4:1-7, 18-24",
           "Ruth 2"
         ],
         "correctIndex": 3,
@@ -21535,9 +21679,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 20:24–29",
-          "Acts 15",
-          "Revelation 22:12–13",
+          "1 Samuel 18",
+          "Acts 1:6–11",
+          "Matthew 17:1–13",
           "Ruth 1"
         ],
         "correctIndex": 3,
@@ -21986,9 +22130,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 24:14-15",
-          "Genesis 6–9",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Matthew 25:14–30",
+          "Job 2",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -22516,87 +22660,108 @@
     "readAlongImages": []
   },
   "samuelAnointsDavid": {
-    "kjvRef": "1 Samuel 16:1–13",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Samuel 16:1-13 (KJV)",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "And the LORD said unto Samuel, How long wilt thou mourn for Saul, seeing I have rejected him from reigning over Israel? fill thine horn with oil, and go, I will send thee to Jesse the Bethlehemite: for I have provided me a king among his sons. And Samuel said, How can I go? if Saul hear it, he will kill me. And the LORD said, Take an heifer with thee, and say, I am come to sacrifice to the LORD. And call Jesse to the sacrifice, and I will shew thee what thou shalt do: and thou shalt anoint unto me him whom I name unto thee. And Samuel did that which the LORD spake, and came to Bethlehem. And the elders of the town trembled at his coming, and said, Comest thou peaceably? And he said, Peaceably: I am come to sacrifice unto the LORD: sanctify yourselves, and come with me to the sacrifice. And he sanctified Jesse and his sons, and called them to the sacrifice.",
+        "caption": "Fill thine horn with oil — come to Jesse at Bethlehem",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And it came to pass, when they were come, that he looked on Eliab, and said, Surely the LORD's anointed is before him. But the LORD said unto Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for the LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart. Then Jesse called Abinadab, and made him pass before Samuel. And he said, Neither hath the LORD chosen this. Then Jesse made Shammah to pass by. And he said, Neither hath the LORD chosen this. Again, Jesse made seven of his sons to pass before Samuel. And Samuel said unto Jesse, The LORD hath not chosen these.",
+        "caption": "The LORD looketh on the heart — not these seven",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And Samuel said unto Jesse, Are here all thy children? And he said, There remaineth yet the youngest, and, behold, he keepeth the sheep. And Samuel said unto Jesse, Send and fetch him: for we will not sit down till he come hither. And he sent, and brought him in. Now he was ruddy, and withal of a beautiful countenance, and goodly to look to. And the LORD said, Arise, anoint him: for this is he. Then Samuel took the horn of oil, and anointed him in the midst of his brethren: and the Spirit of the LORD came upon David from that day forward. So Samuel rose up, and went to Ramah.",
+        "caption": "The youngest from the sheep — anointed; the Spirit came on David",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Samuel Anoints David (1 Samuel 16:1–13).",
-      "Samuel arrives at Jesse's house with oil God says: look at the heart, not just height Samuel anoints David—God's Spirit comes on him God looks at your heart.",
-      "You do not have to be the tallest or oldest—be faithful where you are."
+      "The Lord said to Samuel, \"Fill thine horn with oil, and go… unto Jesse the Bethlehemite: for I have provided me a king among his sons.\"",
+      "Samuel came to Bethlehem and called Jesse and his sons to the sacrifice. Seven of Jesse's sons passed before Samuel, but the Lord said, \"Look not on his countenance, or on the height of his stature… for the Lord seeth not as man seeth; for man looketh on the outward appearance, but the Lord looketh on the heart.\"",
+      "Jesse had one more son — the youngest, who was out keeping the sheep. They sent and brought him in. He was ruddy, with bright eyes, and goodly to look upon.",
+      "The Lord said, \"Arise, anoint him: for this is he.\" Then Samuel took the horn of oil and anointed David in the midst of his brethren. And the Spirit of the Lord came upon David from that day forward.",
+      "For you: God sees the heart. You can trust His kind choice — even when His ways surprise us."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:1–13",
-          "Joshua 7:1-11",
-          "Nehemiah 1–6",
-          "Acts 16:16–40"
+          "1 Samuel 17",
+          "1 Samuel 16:1-13",
+          "Ruth 1",
+          "Psalm 23"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 16:1–13.)"
+        "wrongFeedback": "Skim the Bible line under the title. (Answer: 1 Samuel 16:1-13.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "Whose family did Samuel visit with the horn of oil?",
         "choices": [
-          "Holy Spirit",
-          "Mary",
-          "Priscilla",
-          "God"
+          "Pharaoh's house.",
+          "Jesse the Bethlehemite.",
+          "Goliath's army.",
+          "Eli's house only."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes — Bethlehem and Jesse's sons.",
+        "wrongFeedback": "Think Bethlehem. (Answer: Jesse….)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did the Lord tell Samuel about choosing?",
         "choices": [
-          "God looks at your heart. You do not have to be the tallest or oldest—be faithful where you are.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
+          "Choose the tallest only.",
+          "Man looketh on the outward appearance, but the LORD looketh on the heart.",
+          "Do not anoint anyone.",
+          "Pick the oldest son always."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God looks at your heart. You do not have to be the tallest or oldest—be faithful where….)"
+        "correctIndex": 1,
+        "correctFeedback": "God sees what people often miss.",
+        "wrongFeedback": "Listen for heart. (Answer: …looketh on the heart….)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "Where was Jesse's youngest son before they brought him?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Samuel arrives at Jesse's house with oil",
-          "Everyone decided to never sleep again."
+          "In the palace.",
+          "Keeping the sheep.",
+          "In Egypt.",
+          "Hiding in a cave."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Faithful in a small place — then called forward.",
+        "wrongFeedback": "Think flock. (Answer: Keeping the sheep….)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What came upon David when Samuel anointed him?",
         "choices": [
-          "God looks at your heart. You do not have to be the tallest or oldest—be faithful where you are.",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong."
+          "Nothing changed.",
+          "The Spirit of the LORD came upon David from that day forward.",
+          "He ran away.",
+          "The story does not say."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God looks at your heart. You do not have to be the tallest or oldest—be faithful where….)"
+        "correctIndex": 1,
+        "correctFeedback": "God marked His chosen king in a holy way.",
+        "wrongFeedback": "Listen for Spirit. (Answer: The Spirit of the LORD….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Samuel Anoints David with God's Word today.",
-    "takeaway": "God looks at your heart. You do not have to be the tallest or oldest—be faithful where you are.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Samuel Anoints David. Amen.",
+    "doneMessage": "Great job reading David's anointing with God's Word today.",
+    "takeaway": "God looked on the heart — the youngest keeper of sheep was the one the Lord named — and His Spirit came on David.",
+    "prayer": "Lord, thank You that You see our hearts. Help us trust You when Your ways are surprising. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samuel arrives at Jesse's house with oil (samuel)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God says: look at the heart, not just height (david)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samuel anoints David—God's Spirit comes on him (anoint)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samuel arrives at Jesse's house with oil (1 samuel 16)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God says: look at the heart, not just height (jesse)"
-    ]
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David standing calmly middle of brothers Samuel holds horn of oil gently pouring on David head David humble bright-eyed face older brothers stand quietly around thick robes soft Bethlehem hills background wonder humble mood minimal plenty white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Fill thine horn with oil (1 sam 16)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text LORD looketh on the heart",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Arise anoint him for this is he",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Spirit of the LORD upon David"
+    ],
+    "readAlongImages": []
   },
   "samuelBirth": {
     "kjvRef": "1 Samuel 1:21-28; 2:1-11, 18-21 (KJV)",
@@ -22980,9 +23145,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 18:9–15",
-          "Mark 12",
-          "Numbers 23–24",
-          "1 Kings 5–8"
+          "Matthew 4:1–11; Luke 4:1–13",
+          "Joshua 7:1-11",
+          "Matthew 4:18–22; Luke 5:1–11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23064,10 +23229,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 1",
+          "Acts 2:4–21",
           "the Bible",
-          "2 Kings 2:1–14",
-          "Genesis 1"
+          "Romans 3:23; 5:8; 6:23; 10:9–10",
+          "Joshua 2:1-21"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23149,9 +23314,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 13; 15",
-          "Matthew 28; Mark 16; Luke 24; John 20",
-          "Luke 24:50–53; Acts 1:6–11",
-          "1 Samuel 17:8–11, 16, 23–30"
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 13:1–23",
+          "Jude 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23233,10 +23398,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 4",
+          "Matthew 17",
           "1 Samuel 9–10",
-          "Exodus 20:1-17",
-          "Acts 17:22–34"
+          "Luke 23",
+          "1 Kings 19:19–21"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23317,10 +23482,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 7:1-26",
+          "Acts 3",
           "1 Samuel 18",
-          "1 Samuel 22:1–2; 24",
-          "Matthew 26"
+          "Ruth 1",
+          "Revelation 1–22"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23402,9 +23567,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15:36–18:22",
-          "Genesis 41",
-          "Revelation 6–8:1",
+          "Revelation 17–18",
+          "Ruth 1:1-18",
+          "Acts 7",
           "Luke 2"
         ],
         "correctIndex": 3,
@@ -23487,9 +23652,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Corinthians 13",
-          "Acts 2:4–21",
-          "Acts 9:1–19",
+          "Acts 27–28",
+          "Revelation 19",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
           "1 Kings 5–8"
         ],
         "correctIndex": 3,
@@ -23572,9 +23737,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 12:1–19",
-          "Revelation 17–18",
-          "Romans–Philemon",
+          "John 11:1–44",
+          "2 John; 3 John",
+          "Genesis 28:10–22",
           "1 Kings 3"
         ],
         "correctIndex": 3,
@@ -23763,10 +23928,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13:16–18",
-          "1 Samuel 16",
+          "1 Samuel 16:14-23",
+          "Esther 2–7",
           "Acts 6:8–7:60",
-          "Genesis 22"
+          "Numbers 21:1-9"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23847,10 +24012,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 18",
-          "Isaiah 7:14; 9:6–7; 53:4–6",
+          "Judges 4:1-16",
+          "1 Samuel 1:1-20",
           "Acts 6:8–7:60",
-          "Matthew 18:21–35"
+          "2 Timothy 1:5–7; 3:15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23932,9 +24097,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 7",
-          "Judges 14:5-9",
-          "Matthew 25",
-          "Genesis 3"
+          "2 Timothy 4:6–8",
+          "Luke 18:1–8",
+          "Exodus 14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24367,10 +24532,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezra 1–10; Nehemiah 8–9",
+          "Ephesians, Philippians, Colossians, Philemon",
           "Exodus 7–12",
-          "Genesis 1",
-          "Acts 2:42–47"
+          "Genesis 37:3",
+          "Exodus 2:5"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24451,10 +24616,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 5:21–43",
-          "Luke 2:1–20",
+          "Matthew 28; Mark 16; Luke 24; John 20",
+          "Genesis 40",
           "Matthew 25",
-          "Matthew 26:36–46; Luke 22:44"
+          "Luke 24:50–53; Acts 1:6–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24534,10 +24699,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 23",
+          "Ruth 1",
           "1 Thessalonians 4:13–18; 5:16–24",
-          "Acts 13–14",
-          "Acts 2:1–4"
+          "Acts 3",
+          "Revelation 1–22"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24615,10 +24780,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Peter 1–5",
+          "Luke 23",
           "John 20:24–29",
-          "Ruth 2",
-          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18"
+          "Matthew 17",
+          "1 Kings 19:19–21"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24697,10 +24862,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "2 Kings 2:1–14",
+          "Matthew 17:20; Mark 11:23–24",
           "1 Timothy 4:12",
-          "Romans 3:23; 5:8; 6:23; 10:9–10"
+          "Genesis 1:3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24782,10 +24947,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 5:12–16",
-          "Revelation 21–22",
+          "Luke 23",
+          "1 Kings 19:19–21",
           "Matthew 28",
-          "Acts 28"
+          "Ephesians 6"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24865,10 +25030,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 4:1–11; Luke 4:1–13",
-          "Joshua 7:1-11",
+          "Acts 16:11–15",
+          "2 Timothy 4:6–8",
           "Genesis 11",
-          "Matthew 4:18–22; Luke 5:1–11"
+          "Revelation 1"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24946,10 +25111,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 17:20; Mark 11:23–24",
+          "2 Kings 4:1–7",
           "Matthew 17:1–13",
-          "Genesis 1:3",
-          "2 Kings 2:1–14"
+          "Joshua 8:1-8, 18-23, 26-29",
+          "1 Samuel 17:1-11, 32-51"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25030,9 +25195,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18–19",
-          "1 Samuel 1",
-          "Esther 4–5",
+          "Daniel 6:22",
+          "Galatians 5",
+          "2 Kings 6:1–7",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -25115,9 +25280,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Esther 2:15–18",
-          "1 Samuel 18–20",
-          "Exodus 3:1-15"
+          "Ruth 1",
+          "Revelation 1–22",
+          "Acts 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25197,9 +25362,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 21:1-9",
-          "Esther 2–7",
-          "1 Samuel 17",
+          "Matthew 7",
+          "Genesis 18:9–15",
+          "Revelation 8–11",
           "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
         ],
         "correctIndex": 3,
@@ -25282,9 +25447,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 2:1–11",
-          "Genesis 4",
-          "1 Samuel 18–19",
-          "Acts 17:22–34"
+          "1 Kings 5–8",
+          "Mark 12",
+          "Ruth 2:1-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25365,10 +25530,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 5:1–15",
-          "Genesis 37:28",
+          "Daniel 6:22",
+          "Numbers 22:1–20",
           "Mark 12",
-          "Acts 27–28"
+          "1 Kings 18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25449,10 +25614,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 23",
+          "Revelation 13",
           "2 Kings 4:1–7",
-          "Genesis 11",
-          "Ephesians 6"
+          "Philemon 1",
+          "Acts 2:14–41"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25533,9 +25698,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Timothy 1:5–7; 3:15",
-          "Matthew 4:18–22; Luke 5:1–11",
-          "1 Samuel 1:1-20",
+          "Genesis 3",
+          "Judges 4:1-16",
+          "Revelation 22",
           "Mark 12"
         ],
         "correctIndex": 3,
@@ -25618,9 +25783,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Judges 16:4-21",
-          "Exodus 20:1-17",
-          "Revelation 14–15"
+          "Esther 4–5",
+          "1 Samuel 1",
+          "1 Samuel 16:11; 17:15, 34–37"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25701,10 +25866,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13:16–18",
-          "Genesis 22",
+          "Joshua 24:14-15",
+          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
           "Luke 19:1–10",
-          "1 Samuel 16"
+          "Genesis 6–9"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",

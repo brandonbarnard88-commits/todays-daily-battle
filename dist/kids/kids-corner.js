@@ -99,15 +99,15 @@
     var k = String(storyKey);
     var map = {
       david: 'david',
-      davidGoliath: 'david',
+      davidGoliath: 'davidGoliath',
       davidSheep: 'david',
       davidHarp: 'david',
       davidAnointed: 'david',
-      davidCave: 'david',
+      davidCave: 'davidCave',
       davidSaul: 'david',
       davidSaulJealousy: 'david',
-      davidJonathan: 'david',
-      davidJonathanFriendship: 'david',
+      davidJonathan: 'davidJonathan',
+      davidJonathanFriendship: 'davidJonathan',
       goliathChallenge: 'david',
       noah: 'noah',
       jonah: 'jonah',
@@ -224,29 +224,93 @@
     }
 
     return {
-      /* David vs Goliath */
+      /* David & Goliath — calm valley; giant kept smaller and farther */
       david: svg(
-        ground() +
-        hills() +
-        /* Goliath — giant warrior */
-        '<rect x="280" y="100" width="50" height="80" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="305" cy="90" r="18" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* helmet */
-        '<path d="M287 90 Q305 68 323 90" ' + s + ' stroke-width="3"/>' +
-        '<rect x="296" y="80" width="18" height="8" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* spear */
-        '<line x1="340" y1="60" x2="340" y2="200" ' + s + ' stroke-width="4"/>' +
-        '<polygon points="340,50 333,68 347,68" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* shield */
-        '<ellipse cx="268" cy="155" rx="14" ry="20" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* David — small figure with sling */
-        person(100, 170, 12, 36) +
+        ground() + hills() +
+        sun(48, 44, 20) + cloud(300, 36) +
+        /* distant Goliath — shorter, farther right */
+        '<rect x="318" y="128" width="38" height="62" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="337" cy="118" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M325 118 Q337 104 349 118" ' + s + ' stroke-width="2"/>' +
+        '<line x1="358" y1="98" x2="358" y2="188" ' + s + ' stroke-width="2.5"/>' +
+        '<polygon points="358,90 352,104 364,104" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="308" cy="158" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* David — trusting face tipped upward slightly */
+        person(118, 162, 11, 32) +
+        '<path d="M110 166 Q118 160 126 166" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="114" cy="164" r="1.4" fill="#111"/><circle cx="122" cy="164" r="1.4" fill="#111"/>' +
+        '<path d="M112 158 Q118 148 124 158" ' + s + ' stroke-width="1.2" fill="none"/>' +
         /* sling */
-        '<path d="M100 196 Q140 175 125 210" ' + s + ' stroke-width="2.5"/>' +
-        '<circle cx="125" cy="212" r="5" ' + sf + ' fill="white" stroke-width="2"/>' +
-        sun(50, 40, 22) +
-        /* verse tag */
-        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 17:45</text>'
+        '<path d="M118 188 Q148 172 138 205" ' + s + ' stroke-width="2.2"/>' +
+        '<circle cx="138" cy="207" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* five stones at feet */
+        '<circle cx="92" cy="248" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="104" cy="252" r="3.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="116" cy="249" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="128" cy="253" r="3.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="140" cy="250" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* small shepherd scrip */
+        '<ellipse cx="98" cy="198" rx="10" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M92 192 Q98 186 104 192" ' + s + ' stroke-width="1.5"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 17:45</text>'
+      ),
+
+      davidGoliath: svg(
+        ground() + hills() +
+        sun(48, 44, 20) + cloud(300, 36) +
+        '<rect x="318" y="128" width="38" height="62" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="337" cy="118" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M325 118 Q337 104 349 118" ' + s + ' stroke-width="2"/>' +
+        '<line x1="358" y1="98" x2="358" y2="188" ' + s + ' stroke-width="2.5"/>' +
+        '<polygon points="358,90 352,104 364,104" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="308" cy="158" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(118, 162, 11, 32) +
+        '<path d="M110 166 Q118 160 126 166" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="114" cy="164" r="1.4" fill="#111"/><circle cx="122" cy="164" r="1.4" fill="#111"/>' +
+        '<path d="M112 158 Q118 148 124 158" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M118 188 Q148 172 138 205" ' + s + ' stroke-width="2.2"/>' +
+        '<circle cx="138" cy="207" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="92" cy="248" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="104" cy="252" r="3.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="116" cy="249" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="128" cy="253" r="3.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="140" cy="250" r="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="98" cy="198" rx="10" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M92 192 Q98 186 104 192" ' + s + ' stroke-width="1.5"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 17:45</text>'
+      ),
+
+      /* David & Jonathan — robe and sword gift; warm friendship */
+      davidJonathan: svg(
+        '<path d="M0 248 Q120 210 200 248 Q280 210 400 248" ' + s + ' stroke-width="2.8" fill="none"/>' +
+        sun(52, 48, 18) + cloud(288, 40) +
+        /* Jonathan (left) — hands extended with robe and sword toward David */
+        '<circle cx="128" cy="168" r="13" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M122 172 Q128 166 134 172" ' + s + ' stroke-width="1.4"/>' +
+        '<line x1="128" y1="181" x2="128" y2="232" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="128" y1="198" x2="98" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="128" y1="198" x2="168" y2="192" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="128" y1="232" x2="112" y2="258" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="128" y1="232" x2="144" y2="258" ' + s + ' stroke-width="2.5"/>' +
+        /* robe bundle */
+        '<path d="M152 178 Q168 168 182 182 Q176 198 158 196 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* sword */
+        '<line x1="175" y1="175" x2="198" y2="188" ' + s + ' stroke-width="2.4"/>' +
+        '<rect x="192" y="184" width="16" height="5" rx="1" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* bow (simple curve) */
+        '<path d="M95 200 Q108 188 118 202" ' + s + ' stroke-width="2"/>' +
+        /* David (right) — thankful, receiving */
+        '<circle cx="268" cy="172" r="12" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<circle cx="264" cy="170" r="1.3" fill="#111"/><circle cx="272" cy="170" r="1.3" fill="#111"/>' +
+        '<path d="M262 178 Q268 182 274 178" ' + s + ' stroke-width="1.3"/>' +
+        '<line x1="268" y1="184" x2="268" y2="236" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="268" y1="202" x2="248" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="268" y1="202" x2="288" y2="212" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="268" y1="236" x2="254" y2="262" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="268" y1="236" x2="282" y2="262" ' + s + ' stroke-width="2.5"/>' +
+        /* girdle hint at David\'s waist */
+        '<ellipse cx="268" cy="228" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 18:4</text>'
       ),
 
       /* Noah's Ark */
@@ -1331,19 +1395,25 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 17:26</text>'
       ),
 
-      /* ── Week 3: David Anointed (46) ── */
+      /* David anointed — library davidAnointed / loop 174 */
       davidAnointed: svg(
-        ground() +
-        person(200, 185, 12, 35) +
-        '<path d="M192 188 Q200 178 208 188" ' + s + ' stroke-width="2"/>' +
-        '<path d="M188 182 Q196 165 210 170 Q215 180 208 186" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M195 170 Q200 155 205 162 Q210 168 205 174" ' + s + ' stroke-width="2.5"/>' +
-        person(290, 168, 14, 42) +
-        '<path d="M285 185 Q275 198 280 210" ' + s + ' stroke-width="2.5"/>' +
-        person(60, 185, 11, 32) + person(88, 188, 10, 28) +
-        person(115, 185, 10, 28) + person(338, 185, 10, 28) +
-        sun(320, 45, 20) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 16:13</text>'
+        ground() + hills() +
+        sun(52, 46, 18) + cloud(310, 38) +
+        /* young David center — humble face */
+        person(200, 168, 11, 30) +
+        '<path d="M192 172 Q200 166 208 172" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="196" cy="170" r="1.6" fill="#111"/><circle cx="204" cy="170" r="1.6" fill="#111"/>' +
+        /* small shepherd staff */
+        '<line x1="218" y1="188" x2="232" y2="248" ' + s + ' stroke-width="2.5" stroke-linecap="round"/>' +
+        /* Samuel pours oil */
+        person(268, 158, 10, 32) +
+        '<path d="M258 176 Q252 188 256 200" ' + s + ' stroke-width="2"/>' +
+        '<path d="M248 168 L262 162 L266 176 L252 182 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M258 176 L256 188 L248 192" ' + s + ' stroke-width="1.5" fill="none"/>' +
+        /* brothers — softer, smaller */
+        person(72, 182, 8, 22) + person(108, 186, 8, 22) + person(142, 184, 8, 22) +
+        person(258, 186, 8, 22) + person(292, 184, 8, 22) + person(328, 186, 8, 22) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 16:13</text>'
       ),
 
       /* ── Week 3: Saul Spear (47) ── */
@@ -1360,17 +1430,31 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 18:11</text>'
       ),
 
-      /* ── Week 3: David Cave (48) ── */
+      /* ── Week 3: David spares Saul — Engedi cave (mercy, robe corner) ── */
       davidCave: svg(
-        ground() +
-        '<path d="M50 260 L50 130 Q200 50 350 130 L350 260" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<path d="M65 260 L65 155 Q200 90 335 155 L335 260" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(200, 185, 12, 35) +
-        '<path d="M178 185 Q168 168 175 155 Q183 150 190 158" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M222 185 Q232 168 225 155 Q217 150 210 158" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M225 158 Q248 142 270 155 Q278 165 272 175 Q280 162 285 150 Q276 143 268 148" ' + sf + ' fill="white" stroke-width="2"/>' +
-        star(200, 25, 14) + star(100, 35, 10) + star(300, 30, 10) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 24:3</text>'
+        /* cave mouth — soft light from entrance right */
+        '<path d="M20 280 L20 95 Q200 40 380 95 L380 280 Z" ' + sf + ' fill="white" stroke-width="3.5"/>' +
+        '<path d="M340 96 Q360 140 355 220" ' + s + ' stroke-width="2" opacity="0.45"/>' +
+        '<path d="M330 100 Q348 150 342 230" ' + s + ' stroke-width="1.5" opacity="0.35"/>' +
+        /* Saul resting — left, peaceful */
+        '<ellipse cx="118" cy="218" rx="36" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="118" cy="188" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M110 192 Q118 186 126 192" ' + s + ' stroke-width="1.2"/>' +
+        '<ellipse cx="118" cy="205" rx="22" ry="16" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M96 208 L96 232 M140 208 L140 232" ' + s + ' stroke-width="2.2"/>' +
+        /* robe skirt — small separated piece for clarity */
+        '<path d="M152 212 Q168 205 178 218 Q172 232 158 228 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* David kneeling — right of Saul, small blade to hem only */
+        '<circle cx="252" cy="178" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M246 182 Q252 176 258 182" ' + s + ' stroke-width="1.2"/>' +
+        '<circle cx="248" cy="176" r="1.1" fill="#111"/><circle cx="256" cy="176" r="1.1" fill="#111"/>' +
+        '<path d="M252 189 L248 228 L256 228 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M238 200 L232 222 M264 198 L268 218" ' + s + ' stroke-width="2"/>' +
+        '<line x1="248" y1="232" x2="242" y2="258" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="256" y1="232" x2="262" y2="258" ' + s + ' stroke-width="2.2"/>' +
+        /* tiny knife — low, toward hem only (not raised) */
+        '<line x1="210" y1="222" x2="228" y2="228" ' + s + ' stroke-width="1.6"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 24:6</text>'
       ),
 
       /* ── Week 4: Elisha Boy Raised (49) ── */
@@ -3004,7 +3088,9 @@
     samuelCalls: 'samuelCall',
     davidHarp: 'davidHarp',
     davidSheep: 'davidHarp',
-    goliathChallenge: 'goliathChallenge',
+    goliathChallenge: 'davidGoliath',
+    davidJonathan: 'davidJonathan',
+    davidJonathanFriendship: 'davidJonathan',
     davidAnointed: 'davidAnointed',
     saulSpear: 'saulSpear',
     davidCave: 'davidCave',
@@ -3225,11 +3311,11 @@
     hannahPray: 'hannahPrayer',
     hannahPrayer: 'hannahPrayer',
     samuelAnointsDavid: 'davidAnointed',
-    davidGoliath: 'david',
+    davidGoliath: 'davidGoliath',
     davidSaulJealousy: 'saulSpear',
     davidSaul: 'saulSpear',
-    davidJonathan: 'david',
-    davidJonathanFriendship: 'david',
+    davidJonathan: 'davidJonathan',
+    davidJonathanFriendship: 'davidJonathan',
     samuelBirth: 'samuelBirth',
     samuelCalls: 'samuelCall',
     saulKing: 'saulSpear',
@@ -4767,7 +4853,7 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave',
         'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

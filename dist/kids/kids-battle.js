@@ -613,17 +613,42 @@
     david: {
       title: 'David & Goliath',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'David as shepherd boy – Small but faithful' },
-        { src: 'panel-david-2.svg', alt: 'David faces Goliath – God is bigger than any giant' },
-        { src: 'panel-david-3.svg', alt: "David wins with God's help – One stone, one faith" }
+        { src: 'panel-david-1.svg', alt: 'Goliath defies Israel — the armies stand afraid in the valley' },
+        { src: 'panel-david-2.svg', alt: 'David trusts the living God — five stones, a sling, no sword in his hand' },
+        { src: 'panel-david-3.svg', alt: 'In the name of the LORD of hosts — one stone; the Lord gives victory' }
       ],
-      caption: 'Swipe to see how God helped David be brave! ⚔️',
+      caption: 'Swipe to see courage that trusts the Lord — not size or armor.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'goliath', 'brave', 'battle', 'shepherd', 'slingshot'],
-      kjvRef: '1 Samuel 17:45–50',
-      kidContext: { who: 'David', to: 'Goliath (and us)', apply: "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord\'s!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you." },
-      narration: "David and Goliath – 1 Samuel 17. Goliath was a huge giant. He shouted at God's army every day. Everyone was scared—except David. David was young and small, but he knew God. He said, 'Who is this giant? The Lord will deliver him into my hand.' David ran toward Goliath with a sling and five stones. He swung once—and the stone hit Goliath. The giant fell. God gave David the victory! For you: Your giants might be fear, worry, or someone who hurts you. God is bigger. Trust Him and be brave."
+      keywords: [
+        'david',
+        'goliath',
+        'sling',
+        'stone',
+        'stones',
+        'smooth stones',
+        '1 samuel 17',
+        'valley of elah',
+        'living god',
+        'uncircumcised philistine',
+        'defy',
+        'brave',
+        'faith',
+        'shepherd',
+        'giant',
+        'philistine',
+        'lord of hosts',
+        'battle is the lord'
+      ],
+      kjvRef: '1 Samuel 17:1-11, 32-51',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David and every heart that feels small',
+        apply:
+          'Goliath looked strong; David looked to God. The Lord saved — not by sword in David\'s hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord\'s.'
+      },
+      narration:
+        "David and Goliath – 1 Samuel 17:1-11, 32-51. The Philistines gathered against Israel; their champion Goliath defied the armies of the living God day after day, and all Israel were afraid. Young David came to the camp and asked, Who is this uncircumcised Philistine, that he should defy the armies of the living God? He told Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. Saul's armor did not fit David's heart — David took his staff, five smooth stones, and his sling. He ran toward the giant in the name of the LORD of hosts. One stone sank into the giant's forehead; he fell. David prevailed with a sling and a stone, and there was no sword in David's hand — the Lord gave victory. For you: Courage is trusting God when the problem looks huge."
     },
     noah: {
       title: "Noah's Ark",
@@ -2629,9 +2654,33 @@
       caption: 'Swipe to see David worship God in the fields! 🎶',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'harp', 'worship', 'sheep', '1 samuel 16', 'music', 'praise'],
-      kjvRef: '1 Samuel 16',
-      kidContext: { who: 'David', to: 'God', apply: 'God loves your worship! Sing and praise wherever you are.' }
+      keywords: [
+        'david',
+        'harp',
+        'worship',
+        'sheep',
+        '1 samuel 16',
+        '1 samuel 16:14',
+        '1 samuel 16:23',
+        'music',
+        'praise',
+        'saul',
+        'evil spirit',
+        'refreshed',
+        'armourbearer',
+        'armorbearer',
+        'played with his hand',
+        'cunning player'
+      ],
+      kjvRef: '1 Samuel 16:14-23',
+      kidContext: {
+        who: 'David',
+        to: 'King Saul (and us)',
+        apply:
+          'David\'s music was a gift from God. When we use what God gives us to help others, His peace can quiet troubled hearts.'
+      },
+      narration:
+        "David Plays the Harp – 1 Samuel 16:14-23. An evil spirit troubled King Saul. His servants said, Find a man who plays the harp well. One said, I have seen a son of Jesse who plays skillfully—and the LORD is with him. Saul sent for David. When the distressing spirit came, David played with his hand on the harp, and Saul was refreshed and well. For you: God can use your simple gifts to bring calm where it is needed."
     },
     goliathChallenge: {
       title: 'Goliath\'s Challenge',
@@ -2648,18 +2697,49 @@
       kidContext: { who: 'David', to: 'Goliath (and us)', apply: 'God is bigger than any giant! Face your fears—He\'s with you.' }
     },
     davidAnointed: {
-      title: 'David Is Anointed King',
+      title: 'David Anointed by Samuel',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Samuel visits Jesse\'s family' },
-        { src: 'panel-david-2.svg', alt: 'God says: man looks at the outside—I look at the heart' },
-        { src: 'panel-david-3.svg', alt: 'Oil on David\'s head—the youngest chosen!' }
+        { src: 'panel-david-1.svg', alt: 'Samuel comes to Bethlehem with oil — Jesse and his sons at the sacrifice' },
+        { src: 'panel-david-2.svg', alt: 'The Lord looketh on the heart — not as man seeth' },
+        { src: 'panel-david-3.svg', alt: 'The youngest from the sheep — oil poured; the Spirit of the Lord comes on David' }
       ],
-      caption: 'Swipe to see God choose David—He looks at your heart! 💛',
+      caption: 'Swipe to see God choose the shepherd boy — He looketh on the heart.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'anoint', 'samuel', '1 samuel 16', 'king', 'heart', 'chosen'],
-      kjvRef: '1 Samuel 16',
-      kidContext: { who: 'God', to: 'David', apply: 'God looks at your heart! Be faithful where you are—He sees you.' }
+      keywords: [
+        'david',
+        'anoint',
+        'anointed',
+        'samuel',
+        '1 samuel 16',
+        '1 samuel 16:1',
+        '1 samuel 16:13',
+        'jesse',
+        'bethlehem',
+        'bethlehemite',
+        'horn of oil',
+        'king',
+        'heart',
+        'looketh on the heart',
+        'outward appearance',
+        'youngest',
+        'keeping the sheep',
+        'ruddy',
+        'spirit of the lord came upon david',
+        'eliab',
+        'abinadab',
+        'shammah',
+        'chosen'
+      ],
+      kjvRef: '1 Samuel 16:1-13',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David — and every heart God sees',
+        apply:
+          'People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.'
+      },
+      narration:
+        "David Anointed by Samuel – 1 Samuel 16:1-13. The LORD told Samuel to fill his horn with oil and go to Jesse the Bethlehemite; He had provided a king among his sons. Samuel came to Bethlehem and called Jesse and his sons to the sacrifice. Seven sons passed before him, but the LORD said, Look not on his countenance or stature — the LORD seeth not as man seeth; man looketh on the outward appearance, but the LORD looketh on the heart. Jesse's youngest was keeping the sheep; they fetched him — ruddy, fair, and pleasant to look upon. The LORD said, Arise, anoint him: for this is he. Samuel anointed David in the midst of his brethren, and the Spirit of the LORD came upon David from that day forward. For you: God sees your heart; walk humbly with Him."
     },
     saulSpear: {
       title: 'Saul Throws a Spear at David',
@@ -2676,18 +2756,42 @@
       kidContext: { who: 'God', to: 'David', apply: 'When people are unkind, trust God! He is your protection.' }
     },
     davidCave: {
-      title: 'David Hides in the Cave',
+      title: 'David Spares Saul in the Cave',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'David hides in the cave of Adullam' },
-        { src: 'panel-noah-2.svg', alt: 'He writes songs to God even here' },
-        { src: 'panel-noah-3.svg', alt: 'God is with David in the dark place' }
+        { src: 'panel-david-1.svg', alt: 'Engedi — Saul rests in the cave; David and his men in the sides of the cave' },
+        { src: 'panel-david-2.svg', alt: 'David cuts only the skirt of the robe — The LORD\'s anointed' },
+        { src: 'panel-david-3.svg', alt: 'The skirt in his hand — Saul weeps, Thou art more righteous than I' }
       ],
-      caption: 'Swipe to see David trust God even in the cave! 🕳️',
+      caption: 'Swipe to see mercy — David will not harm the king God chose.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'cave', 'adullam', '1 samuel 22', 'hiding', 'prayer', 'psalm'],
-      kjvRef: '1 Samuel 22:1–2; 24',
-      kidContext: { who: 'David', to: 'God', apply: 'Even in dark or scary times, God is with you! Talk to Him wherever you are.' }
+      keywords: [
+        'david',
+        'saul',
+        'cave',
+        'engedi',
+        'wild goats',
+        'skirt',
+        'robe',
+        'anointed',
+        'lord\'s anointed',
+        'spare',
+        'mercy',
+        'heart smote',
+        '1 samuel 24',
+        'cover his feet',
+        'sheepcotes',
+        'thou art more righteous'
+      ],
+      kjvRef: '1 Samuel 24:1-22',
+      kidContext: {
+        who: 'David',
+        to: 'Every heart learning mercy',
+        apply:
+          'David could have hurt Saul, but he honored the king God had anointed. God sees when we choose kindness over revenge — ask Him for a gentle heart.'
+      },
+      narration:
+        "David Spares Saul in the Cave – 1 Samuel 24:1-22. Saul hunted David to the wilderness of Engedi. Saul entered a cave to rest, not knowing David and his men hid in its sides. David's men said the Lord had delivered the enemy into his hand — yet David would not kill Saul. He cut only the skirt of Saul's robe; then his heart smote him. He told his men, The LORD forbid that I should stretch forth mine hand against my lord, the LORD's anointed. When Saul left, David called after him and showed the piece of robe: The LORD judge between me and thee, but mine hand shall not be upon thee. Saul wept and said, Thou art more righteous than I. For you: Mercy honors God."
     },
     hannahSamuel: {
       title: 'Hannah & Samuel',
@@ -2704,32 +2808,78 @@
       kidContext: { who: 'God', to: 'Hannah and Samuel', apply: 'Pray with all your heart—God hears. Hannah kept her promise and gave Samuel to serve God.' }
     },
     samuelAnointsDavid: {
-      title: 'Samuel Anoints David',
+      title: 'David Anointed by Samuel',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Samuel arrives at Jesse\'s house with oil' },
-        { src: 'panel-david-2.svg', alt: 'God says: look at the heart, not just height' },
-        { src: 'panel-david-3.svg', alt: 'Samuel anoints David—God\'s Spirit comes on him' }
+        { src: 'panel-david-1.svg', alt: 'Samuel comes to Bethlehem with oil — Jesse and his sons at the sacrifice' },
+        { src: 'panel-david-2.svg', alt: 'The Lord looketh on the heart — not as man seeth' },
+        { src: 'panel-david-3.svg', alt: 'The youngest from the sheep — oil poured; the Spirit of the Lord comes on David' }
       ],
-      caption: 'Swipe to see God choose David by his heart! 💛',
+      caption: 'Swipe to see God choose the shepherd boy — He looketh on the heart.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samuel', 'david', 'anoint', '1 samuel 16', 'jesse', 'heart', 'sheep', 'bethlehem'],
-      kjvRef: '1 Samuel 16:1–13',
-      kidContext: { who: 'God', to: 'David', apply: 'God looks at your heart. You do not have to be the tallest or oldest—be faithful where you are.' }
+      keywords: [
+        'samuel anoints david',
+        'samuel',
+        'david',
+        'anoint',
+        'anointed',
+        '1 samuel 16',
+        'jesse',
+        'heart',
+        'sheep',
+        'bethlehem',
+        'horn of oil',
+        'looketh on the heart'
+      ],
+      kjvRef: '1 Samuel 16:1-13',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David — and every heart God sees',
+        apply:
+          'People notice height and face; God notices the heart. The youngest keeper of sheep became the one the Lord named — stay faithful in small places; God is watching with kindness.'
+      },
+      narration:
+        "David Anointed by Samuel – 1 Samuel 16:1-13. The LORD told Samuel to fill his horn with oil and go to Jesse the Bethlehemite; He had provided a king among his sons. Samuel came to Bethlehem and called Jesse and his sons to the sacrifice. Seven sons passed before him, but the LORD said, Look not on his countenance or stature — the LORD seeth not as man seeth; man looketh on the outward appearance, but the LORD looketh on the heart. Jesse's youngest was keeping the sheep; they fetched him — ruddy, fair, and pleasant to look upon. The LORD said, Arise, anoint him: for this is he. Samuel anointed David in the midst of his brethren, and the Spirit of the LORD came upon David from that day forward. For you: God sees your heart; walk humbly with Him."
     },
     davidGoliath: {
       title: 'David & Goliath',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Goliath taunts God\'s army—everyone is afraid' },
-        { src: 'panel-david-2.svg', alt: 'David trusts God with his sling and stones' },
-        { src: 'panel-david-3.svg', alt: 'The stone flies—God gives victory over the giant' }
+        { src: 'panel-david-1.svg', alt: 'Goliath defies Israel — the armies stand afraid in the valley' },
+        { src: 'panel-david-2.svg', alt: 'David trusts the living God — five stones, a sling, no sword in his hand' },
+        { src: 'panel-david-3.svg', alt: 'In the name of the LORD of hosts — one stone; the Lord gives victory' }
       ],
-      caption: 'Swipe to see God win over the giant! ⚔️',
+      caption: 'Swipe to see courage that trusts the Lord — not size or armor.',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'goliath', 'sling', '1 samuel 17', 'faith', 'giant', 'stone', 'brave'],
-      kjvRef: '1 Samuel 17',
-      kidContext: { who: 'David', to: 'God\'s people', apply: 'Trust God more than your own size or strength. He wins when we come in His name.' }
+      keywords: [
+        'david and goliath',
+        'david',
+        'goliath',
+        'sling',
+        'stone',
+        'stones',
+        'smooth stones',
+        '1 samuel 17',
+        'valley of elah',
+        'living god',
+        'uncircumcised philistine',
+        'defy',
+        'faith',
+        'giant',
+        'philistine',
+        'lord of hosts',
+        'five stones',
+        'brook'
+      ],
+      kjvRef: '1 Samuel 17:1-11, 32-51',
+      kidContext: {
+        who: 'The Lord',
+        to: 'David and every heart that feels small',
+        apply:
+          'Goliath looked strong; David looked to God. The Lord saved — not by sword in David\'s hand, but by faith in His name. When trouble towers over you, remember: the battle is the Lord\'s.'
+      },
+      narration:
+        "David and Goliath – 1 Samuel 17:1-11, 32-51. The Philistines gathered against Israel; their champion Goliath defied the armies of the living God day after day, and all Israel were afraid. Young David came to the camp and asked, Who is this uncircumcised Philistine, that he should defy the armies of the living God? He told Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. Saul's armor did not fit David's heart — David took his staff, five smooth stones, and his sling. He ran toward the giant in the name of the LORD of hosts. One stone sank into the giant's forehead; he fell. David prevailed with a sling and a stone, and there was no sword in David's hand — the Lord gave victory. For you: Courage is trusting God when the problem looks huge."
     },
     davidSaulJealousy: {
       title: 'David & Saul\'s Jealousy',
@@ -2741,8 +2891,8 @@
       caption: 'Swipe to see God guard David when jealousy gets ugly! 🛡️',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'saul', 'jealous', 'spear', 'harp', '1 samuel 18', 'jonathan', 'protect'],
-      kjvRef: '1 Samuel 18–19',
+      keywords: ['david', 'saul', 'jealous', 'spear', 'harp', '1 samuel 18', 'jonathan', 'protect', 'javelin', 'evil spirit'],
+      kjvRef: '1 Samuel 18:6-11, 17-19:17',
       kidContext: { who: 'God', to: 'David', apply: 'Jealousy can make people do scary things. Stay humble like David — God is your shield.' }
     },
     davidSaul: {
@@ -2755,37 +2905,89 @@
       caption: 'Swipe to see God protect David when Saul is jealous! 🛡️',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'saul', 'jealous', 'spear', '1 samuel 18', 'jonathan', 'protect', 'army'],
-      kjvRef: '1 Samuel 18–19',
+      keywords: ['david', 'saul', 'jealous', 'spear', '1 samuel 18', 'jonathan', 'protect', 'army', 'javelin'],
+      kjvRef: '1 Samuel 18:6-11, 17-19:17',
       kidContext: { who: 'God', to: 'David', apply: 'Jealousy hurts people, but God protects those who stay faithful. Let God guard your heart from envy.' }
     },
     davidJonathan: {
       title: 'David & Jonathan\'s Friendship',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Jonathan loves David like a brother' },
-        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and belt' },
-        { src: 'panel-david-3.svg', alt: 'They weep and promise—The Lord be between us forever' }
+        { src: 'panel-david-1.svg', alt: 'Souls knit together — Jonathan loved David as his own soul' },
+        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and girdle to David' },
+        { src: 'panel-david-3.svg', alt: 'They weep together — The LORD be between me and thee for ever' }
       ],
       caption: 'Swipe to see loyal friendship—Jonathan and David! 🤝',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'jonathan', 'friend', '1 samuel 18', 'covenant', 'loyal', 'love', 'brother'],
-      kjvRef: '1 Samuel 18–20',
-      kidContext: { who: 'Jonathan', to: 'David', apply: 'True friends keep promises and protect each other. Ask God to help you be a loyal friend.' }
+      keywords: [
+        'david',
+        'jonathan',
+        'friend',
+        'friendship',
+        'covenant',
+        'loyal',
+        'love',
+        'knit',
+        'soul',
+        'robe',
+        'sword',
+        'bow',
+        'girdle',
+        '1 samuel 18',
+        '1 samuel 20',
+        'naioth',
+        'ramah',
+        'stone ezel',
+        'arrow beyond',
+        'go in peace',
+        'seed and thy seed'
+      ],
+      kjvRef: '1 Samuel 18:1-4; 20:1-42',
+      kidContext: {
+        who: 'Jonathan',
+        to: 'David — and every heart that needs a true friend',
+        apply:
+          'Jonathan kept covenant: he shared what he had, warned David when danger came, and parted in peace. Ask God to help you love friends loyally and tell the truth kindly.'
+      },
+      narration:
+        "David and Jonathan's Friendship – 1 Samuel 18:1-4; 20:1-42. After David's great day, Jonathan's soul was knit with David's — he loved him as his own soul. They made covenant; Jonathan stripped off his robe and gave David his garments, sword, bow, and girdle. When Saul sought David's life, Jonathan did not hide the danger — he helped David escape. In the field they wept and kissed; Jonathan sent David in peace with this promise: The LORD be between me and thee, and between my seed and thy seed for ever. For you: God can plant deep, loyal love in our hearts."
     },
     davidJonathanFriendship: {
       title: 'David & Jonathan — True Friends',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Jonathan and David — souls knit together' },
-        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and belt to David' },
-        { src: 'panel-david-3.svg', alt: 'They weep and promise: the Lord be between us forever' }
+        { src: 'panel-david-1.svg', alt: 'Souls knit together — covenant of love' },
+        { src: 'panel-david-2.svg', alt: 'Robe, sword, bow, and girdle — costly kindness' },
+        { src: 'panel-david-3.svg', alt: 'Weeping, kiss, and Go in peace — the LORD between us' }
       ],
       caption: 'Swipe to see friendship that costs something — and keeps its promise! 🤝',
       videoId: '',
       videoTitle: '',
-      keywords: ['david', 'jonathan', 'friend', 'covenant', '1 samuel 18', 'loyal', 'love', 'escape'],
-      kjvRef: '1 Samuel 18–20',
-      kidContext: { who: 'Jonathan', to: 'David', apply: 'Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.' }
+      keywords: [
+        'david',
+        'jonathan',
+        'friend',
+        'friendship',
+        'covenant',
+        'loyal',
+        'love',
+        'knit',
+        'robe',
+        'sword',
+        '1 samuel 18',
+        '1 samuel 20',
+        'escape',
+        'warned',
+        'peace'
+      ],
+      kjvRef: '1 Samuel 18:1-4; 20:1-42',
+      kidContext: {
+        who: 'Jonathan',
+        to: 'David — and every listener',
+        apply:
+          'Real friends share, warn when trouble is near, and keep their word before God. Thank the Lord for friends who stand with you.'
+      },
+      narration:
+        "David and Jonathan – 1 Samuel 18:1-4; 20:1-42. Jonathan loved David as himself; they covenanted, and Jonathan gave his robe and arms to David. When hatred rose in the palace, Jonathan chose truth and mercy — he shewed David the danger and sent him away in peace, weeping with him. Their promise echoed: The LORD be between me and thee, and between my seed and thy seed for ever. For you: Loyal friendship is a gift; treat it gently and honestly."
     },
     samuelBirth: {
       title: 'The Birth and Dedication of Samuel',
@@ -5468,7 +5670,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -5477,7 +5679,7 @@
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
       'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'achan', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samson',
-      'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
+      'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidGoliath', 'davidAnointed',
       'saulSpear', 'davidCave',
       'hannahPrayer', 'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
@@ -5556,6 +5758,65 @@
       )
     ) {
       return { type: 'carousel', story: 'samuelCalls' };
+    }
+    if (
+      /\b1 samuel 16:(?:1[4-9]|2[0-3])\b|\b1 sam 16:(?:1[4-9]|2[0-3])\b/.test(low) ||
+      /\bdavid\b.*\bharp\b|\bharp\b.*\bdavid\b|plays? the harp|played the harp|david took an harp/.test(low) ||
+      (/\b1 samuel 16\b|\b1 sam 16\b/.test(low) &&
+        /\bharp\b|refreshed|evil spirit|armourbearer|armorbearer|cunning player|played with his hand|send me david thy son/.test(low)) ||
+      /played with his hand.*saul|saul was refreshed|evil spirit from god.*trouble|cunning player on an harp/.test(low)
+    ) {
+      return { type: 'carousel', story: 'davidHarp' };
+    }
+    if (
+      /samuel anoints david|samuel.*anoint.*david|\bdavid\b.*\banoint\b|\banoint\b.*\bdavid\b/.test(low) ||
+      /\b1 samuel 16:(?:1[0-3]|[1-9])\b|\b1 sam 16:(?:1[0-3]|[1-9])\b/.test(low) ||
+      /\b1 samuel 16\b|\b1 sam 16\b/.test(low) ||
+      /jesse the bethlehemite.*king|fill thine horn with oil|horn with oil.*bethlehem|looketh on the heart|lord looketh on the heart|outward appearance.*heart|arise, anoint him|anoint him: for this is he|spirit of the lord came upon david from that day|samuel took the horn of oil.*anointed him in the midst/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidAnointed' };
+    }
+    if (
+      /\b1 samuel 17:(?:[1-9]|1[01])\b|\b1 sam 17:(?:[1-9]|1[01])\b/.test(low) ||
+      /\b1 samuel 17:(?:3[2-9]|4[0-9]|5[01])\b|\b1 sam 17:(?:3[2-9]|4[0-9]|5[01])\b/.test(low) ||
+      (/\b1 samuel 17\b|\b1 sam 17\b/.test(low) &&
+        !/\b1 samuel 17:34\b|\b1 sam 17:34\b|lion.*bear|kept his father.*sheep|thy servant kept/.test(low)) ||
+      /\bgoliath\b|\bdefy the armies of the living god\b|uncircumcised philistine|five smooth stones|smooth stones out of the brook|valley of elah|ephesdammim|six cubits and a span|david prevailed over the philistine with a sling|no sword in the hand of david|battle is the lord/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidGoliath' };
+    }
+    if (
+      /\b1 samuel 18:\s*1\s*[-–]\s*4\b|\b1 sam 18:\s*1\s*[-–]\s*4\b/.test(low) ||
+      /\b1 samuel 20\b|\b1 sam 20\b/.test(low) ||
+      /soul of jonathan was knit|knit with the soul of david|loved him as his own soul|between my seed and thy seed|stone ezel|is not the arrow beyond thee|david earnestly asked leave/.test(
+        low
+      ) ||
+      (/\bjonathan\b/.test(low) &&
+        /\bdavid\b/.test(low) &&
+        !/\bgoliath\b|valley of elah|five smooth stones|1 samuel 17|1 sam 17/.test(low))
+    ) {
+      return { type: 'carousel', story: 'davidJonathan' };
+    }
+    if (
+      /\b1 samuel 24\b|\b1 sam 24\b/.test(low) ||
+      /wilderness of engedi|engedi|rocks of the wild goats|cover his feet|cut off the skirt|skirt of saul|skirt of thy robe|heart smote him|suffered them not to rise against saul|cried after saul|skirt of thy robe in my hand|thou art more righteous than i|thou killedst me not|david sware unto saul/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidCave' };
+    }
+    if (
+      /\b1 samuel 18\b|\b1 sam 18\b/.test(low) &&
+      /jealous|javelin|spear|evil spirit|played with his hand|singing women|ten thousands|saul sought|saul spake to jonathan his son, wherefore/.test(low) &&
+      !/\b1 samuel 18:\s*[1-4]\b|\b1 sam 18:\s*[1-4]\b/.test(low) &&
+      !/\b1 samuel 20\b|\b1 sam 20\b/.test(low) &&
+      !/soul.*knit|knit.*soul|covenant.*jonathan|jonathan stripped|robe.*upon him.*gave it to david/.test(low)
+    ) {
+      return { type: 'carousel', story: 'davidSaulJealousy' };
     }
     if (/david|goliath|battle|1 samuel|joshua 1:9|philippians 4:13|ephesians 6:10|brave|courage|strong|strength|strengthen|strengtheneth/.test(low)) {
       return { type: 'carousel', story: 'david' };

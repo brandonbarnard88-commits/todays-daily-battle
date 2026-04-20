@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "title": "David vs Goliath",
+    "title": "David & Goliath",
     "file": "",
     "audio": "",
-    "ref": "1 Samuel 17:49",
+    "ref": "1 Samuel 17:1-11, 32-51",
     "week": 0,
-    "kjvText": "David prevailed over the Philistine with a sling and with a stone.",
-    "libraryKey": "david"
+    "kjvText": "And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands.",
+    "libraryKey": "davidGoliath"
   },
   {
     "id": 2,
@@ -393,11 +393,12 @@
   },
   {
     "id": 43,
-    "title": "David and Jonathan",
+    "title": "David & Jonathan's Friendship",
     "file": "",
     "audio": "",
-    "ref": "1 Samuel 18:1",
+    "ref": "1 Samuel 18:1-4; 20:1-42",
     "week": 3,
+    "kjvText": "And Jonathan stripped himself of the robe that was upon him, and gave it to David, and his garments, even to his sword, and to his bow, and to his girdle.",
     "libraryKey": "davidJonathan"
   },
   {
@@ -1572,5 +1573,25 @@
     "week": 12,
     "libraryKey": "samuelBirth",
     "kjvText": "Moreover his mother made him a little coat, and brought it to him from year to year, when she came up with her husband to offer the yearly sacrifice."
+  },
+  {
+    "id": 174,
+    "title": "David Anointed by Samuel",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 16:1-13",
+    "week": 12,
+    "libraryKey": "davidAnointed",
+    "kjvText": "But the LORD said unto Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for the LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart."
+  },
+  {
+    "id": 175,
+    "title": "David Spares Saul in the Cave",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 24:1-22",
+    "week": 12,
+    "libraryKey": "davidCave",
+    "kjvText": "The LORD forbid that I should do this thing unto my master, the LORD's anointed, to stretch forth mine hand against him, seeing he is the anointed of the LORD."
   }
 ]

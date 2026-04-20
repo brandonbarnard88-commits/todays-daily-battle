@@ -7,6 +7,7 @@
  * Two library cards share one Joshua 6 read+quiz — same pack for both keys.
  * David & Goliath: full read-along sections + quiz live in read-quiz-david-pack.cjs (keys david + davidGoliath).
  * David & Jonathan: read-quiz-david-jonathan-pack.cjs (keys davidJonathan + davidJonathanFriendship).
+ * David spares Saul in the cave: read-quiz-david-cave-pack.cjs (key davidCave).
  *
  * All other stories use buildPack() — short beats, panel alts + apply when no narration,
  * no filler (see generator).
@@ -14,6 +15,7 @@
 
 const davidReadQuizPack = require('./read-quiz-david-pack.cjs');
 const davidJonathanReadQuizPack = require('./read-quiz-david-jonathan-pack.cjs');
+const davidCaveReadQuizPack = require('./read-quiz-david-cave-pack.cjs');
 
 /** Shared read+quiz for both Jericho library cards — Fall of Jericho (Joshua 6:1-5, 11-16, 20). */
 function buildJerichoReadQuiz() {
@@ -3847,5 +3849,6 @@ module.exports = {
   davidAnointed: buildDavidAnointedReadQuiz(),
   samuelAnointsDavid: buildDavidAnointedReadQuiz(),
   davidJonathan: davidJonathanReadQuizPack,
-  davidJonathanFriendship: davidJonathanReadQuizPack
+  davidJonathanFriendship: davidJonathanReadQuizPack,
+  davidCave: davidCaveReadQuizPack
 };

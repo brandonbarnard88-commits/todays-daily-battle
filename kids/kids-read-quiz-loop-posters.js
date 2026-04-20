@@ -48,7 +48,7 @@
     davidGoliath: 1,
     davidJonathan: 43,
     davidJonathanFriendship: 43,
-    davidCave: 44,
+    davidCave: 175,
     davidHarp: 44,
     davidSheep: 42,
     davidAnointed: 174,

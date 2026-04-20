@@ -542,24 +542,25 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 1:1</text>'
       ),
 
-      /* Fiery Furnace — softer flame lines, three friends + gentle fourth (light ring) */
+      /* Fiery Furnace — minimal walls, very soft flames, smallest gentle fourth */
       fieryFurnace: svg(
         ground() +
-        /* furnace — simple rounded box, calm arch */
-        '<rect x="88" y="88" width="224" height="182" rx="14" ' + sf + ' fill="white" stroke-width="3.5"/>' +
-        '<path d="M118 270 L118 118 Q200 92 282 118 L282 270" ' + sf + ' fill="white" stroke-width="2.6"/>' +
-        /* soft layered flames — light band, then wavy lines (lighter strokes) */
-        '<path d="M 98 270 Q 140 250 200 242 Q 260 250 302 270" ' + sf + ' fill="white" stroke-width="1.2"/>' +
-        '<path d="M 92 270 Q 130 218 168 208 Q 200 198 232 208 Q 270 218 308 270" ' + sf + ' fill="white" stroke-width="1.9"/>' +
-        '<path d="M 108 270 Q 150 232 200 222 Q 250 232 292 270" ' + sf + ' fill="white" stroke-width="1.55"/>' +
-        '<path d="M 125 270 Q 168 245 200 238 Q 232 245 275 270" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        /* furnace — soft rounded box, thin arch */
+        '<rect x="88" y="88" width="224" height="182" rx="14" ' + sf + ' fill="white" stroke-width="3.2"/>' +
+        '<path d="M118 270 L118 118 Q200 92 282 118 L282 270" ' + sf + ' fill="white" stroke-width="2.35"/>' +
+        /* layered flames — faint base veil + soft waves */
+        '<path d="M 88 270 Q 130 258 200 252 Q 270 258 312 270" ' + sf + ' fill="white" stroke-width="1"/>' +
+        '<path d="M 98 270 Q 140 250 200 242 Q 260 250 302 270" ' + sf + ' fill="white" stroke-width="1.1"/>' +
+        '<path d="M 92 270 Q 130 218 168 208 Q 200 198 232 208 Q 270 218 308 270" ' + sf + ' fill="white" stroke-width="1.75"/>' +
+        '<path d="M 108 270 Q 150 232 200 222 Q 250 232 292 270" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<path d="M 125 270 Q 168 245 200 238 Q 232 245 275 270" ' + sf + ' fill="white" stroke-width="1.2"/>' +
         /* three friends */
         person(148, 178, 9, 26) +
         person(182, 176, 9, 26) +
         person(216, 178, 9, 26) +
-        /* gentle fourth — very soft ring, smallest figure */
-        '<circle cx="252" cy="167" r="17" ' + sf + ' fill="none" stroke-width="1.15"/>' +
-        person(252, 177, 7, 22) +
+        /* fourth — whisper-light ring, small peaceful figure */
+        '<circle cx="252" cy="168" r="15" ' + sf + ' fill="none" stroke-width="1"/>' +
+        person(252, 178, 6, 20) +
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 3:1–30</text>'
       ),
 

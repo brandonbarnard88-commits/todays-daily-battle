@@ -1517,24 +1517,24 @@
     "kw": "moses staff snake exodus 7 pharaoh sign power"
   },
   {
-    "key": "naamanDip",
-    "title": "Naaman Dips in the River",
-    "kjvRef": "2 Kings 5:1–15",
-    "who": "God",
-    "to": "Naaman through Elisha",
-    "apply": "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He can heal and help in ways you don't expect.",
-    "theme": "Obedience",
-    "kw": "naaman river jordan 2 kings 5 leprosy heal obey"
-  },
-  {
     "key": "naamanHealed",
     "title": "Naaman Is Healed of Leprosy",
-    "kjvRef": "2 Kings 5:1-14",
+    "kjvRef": "2 Kings 5:1-15",
     "who": "The LORD",
     "to": "Naaman — through Elisha’s word",
     "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
     "theme": "Obedience",
     "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
+  },
+  {
+    "key": "naamanDip",
+    "title": "Naaman Returns with Thanks",
+    "kjvRef": "2 Kings 5:15-19",
+    "who": "The LORD",
+    "to": "Naaman — through Elisha",
+    "apply": "God’s mercy is a gift — not something we buy. A thankful heart is a beautiful offering.",
+    "theme": "Obedience",
+    "kw": "naaman naaman returns after naaman healed take a blessing two mules earth go in peace 2 kings 5:15 2 kings 5:16 2 kings 5:17 2 kings 5:19 2 kings 5 gifts thanks elisha syria"
   },
   {
     "key": "nehemiahWalls",

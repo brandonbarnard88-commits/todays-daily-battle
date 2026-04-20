@@ -1395,7 +1395,7 @@
         { src: 'panel-jesus-2.svg', alt: 'Wash in Jordan seven times — Wash, and be clean' },
         { src: 'panel-jesus-3.svg', alt: 'Seven times in the river — clean like a little child' }
       ],
-      caption: 'Swipe to see God heal Naaman — simple faith, great mercy! 💧',
+      caption: 'Swipe to see God heal Naaman — simple obedience, gentle mercy.',
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
       keywords: [
@@ -1414,7 +1414,7 @@
         'wash and be clean',
         'syria'
       ],
-      kjvRef: '2 Kings 5:1-14',
+      kjvRef: '2 Kings 5:1-15',
       kidContext: {
         who: 'The LORD',
         to: 'Naaman — through Elisha’s word',
@@ -1422,7 +1422,7 @@
           'God’s healing often comes through simple obedience — even when pride wants a louder way.'
       },
       narration:
-        "Naaman Is Healed of Leprosy — 2 Kings 5:1-14. Naaman was a great captain, but a leper. A little maid said, There is a prophet in Samaria — he would recover him. Naaman came to Elisha; the prophet sent word, Go and wash in Jordan seven times. At first Naaman’s heart was hot — but his servants said, If he had bid a great thing, would you not do it? How much more — Wash, and be clean? Naaman dipped seven times; his flesh came again like a little child’s — and he was clean. For you: When God asks something small, trust Him — His mercy is not small."
+        "Naaman Is Healed of Leprosy — 2 Kings 5:1-15. Naaman was captain of the king of Syria, a great man, but he was a leper. A little maid said, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy. Naaman came with horses and chariot and stood at the door of Elisha’s house. Elisha sent word, Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman was wroth — but his servants said, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean? Naaman dipped seven times; his flesh came again like unto the flesh of a little child, and he was clean. He returned and said, Behold, now I know that there is no God in all the earth, but in Israel. For you: Simple obedience brings cleansing — God is mighty to heal."
     },
     jesusWalksWater: {
       title: 'Jesus Walks on Water',
@@ -2149,19 +2149,42 @@
         "Elisha and the Widow's Oil — 2 Kings 4:1-7. A woman cried to Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When the vessels were full, there was not a vessel more — and the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too. He can provide more than you see yet."
     },
     naamanDip: {
-      title: 'Naaman Dips in the River',
+      title: 'Naaman Returns with Thanks',
       panels: [
-        { src: 'panel-noah-1.svg', alt: "Naaman with leprosy – Proud captain needing help" },
-        { src: 'panel-noah-2.svg', alt: "Naaman dipping in the Jordan River – Obeying Elisha" },
-        { src: 'panel-noah-3.svg', alt: "Naaman healed – Skin clean like new" }
+        { src: 'panel-jesus-1.svg', alt: 'Naaman stands before Elisha — thankful, with company' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha will take no payment — God gave the healing freely' },
+        { src: 'panel-jesus-3.svg', alt: 'Go in peace — Naaman turns toward home with a glad heart' }
       ],
-      caption: 'Swipe to see Naaman healed—obey and be made new! 💧',
+      caption: 'Swipe for thanks after the river — God’s healing was not for sale.',
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
-      keywords: ['naaman', 'river', 'jordan', '2 kings 5', 'leprosy', 'heal', 'obey'],
-      kjvRef: '2 Kings 5:1–15',
-      kidContext: { who: 'God', to: 'Naaman through Elisha', apply: "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He can heal and help in ways you don't expect." },
-      narration: "Naaman Washed Clean – 2 Kings 5:14. Naaman was a great army captain, but he had leprosy. A little servant girl said, 'Go to the prophet in Israel—God can heal you.' Naaman went to Elisha. Elisha said, 'Go wash in the Jordan River seven times.' Naaman was angry—'The rivers in my country are better!' But his servants said, 'If he asked something hard, you would do it—why not this?' Naaman obeyed, dipped seven times, and his skin became clean like a child's! God healed him. For you: Sometimes God asks us to do simple things like pray, forgive, or be kind. Obey even if it seems small—God can do big miracles when we trust and follow Him."
+      keywords: [
+        'naaman',
+        'naaman returns',
+        'after naaman healed',
+        'take a blessing',
+        'two mules',
+        'earth',
+        'go in peace',
+        '2 kings 5:15',
+        '2 kings 5:16',
+        '2 kings 5:17',
+        '2 kings 5:19',
+        '2 kings 5',
+        'gifts',
+        'thanks',
+        'elisha',
+        'syria'
+      ],
+      kjvRef: '2 Kings 5:15-19',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Naaman — through Elisha',
+        apply:
+          'God’s mercy is a gift — not something we buy. A thankful heart is a beautiful offering.'
+      },
+      narration:
+        "Naaman Returns with Thanks — 2 Kings 5:15-19. After Naaman was clean, he came and stood before the man of God and said, Behold, now I know that there is no God in all the earth, but in Israel. He wished to give a blessing; Elisha said, As the LORD liveth, I will receive none. Naaman asked for earth to remember the LORD, and Elisha sent him, Go in peace. For you: The river was not the end — a thankful heart still had more to learn about God’s free gift."
     },
     creationLight: {
       title: '"Let There Be Light"',
@@ -6939,6 +6962,14 @@
       /floating axe|axe head|axe.*float|iron.*float|iron did swim|head.*jordan.*axe/.test(low)
     ) {
       return { type: 'carousel', story: 'elishaFloatingAxe' };
+    }
+    if (
+      /\b2 kings 5:(?:1[5-9]|19)\b|\b2 kgs 5:(?:1[5-9]|19)\b/.test(low) ||
+      (/naaman|2 kings 5|2 kgs 5/.test(low) &&
+        /go in peace|two mules|take a blessing|take a blessing of thy servant|no god in all the earth, but in israel|returned to the man of god|stood before him/.test(low) &&
+        !/gehazi|two talents|is all well|mount ephraim|cleave unto thee|leper as white/.test(low))
+    ) {
+      return { type: 'carousel', story: 'naamanDip' };
     }
     if (
       /\b2 kings 5\b|\b2 kgs 5\b/.test(low) ||

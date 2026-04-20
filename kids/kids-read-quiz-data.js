@@ -16264,136 +16264,120 @@
     ]
   },
   "naamanDip": {
-    "kjvRef": "2 Kings 5:1-14 (KJV)",
-    "verseExcerpt": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)",
+    "kjvRef": "2 Kings 5:15-19 (KJV)",
+    "verseExcerpt": "And he said unto him, Go in peace. So he departed from him a little way. — 2 Kings 5:19 (KJV)",
     "readAlongTitle": "Read along",
-    "quizWrongHumilityHint": "Listen again — Wash, and be clean — and his flesh came again like unto the flesh of a little child.",
     "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
     "readAlongSections": [
       {
-        "text": "Now Naaman, captain of the host of the king of Syria, was a great man with his master, and honourable, because by him the LORD had given deliverance unto Syria: he was also a mighty man in valour, but he was a leper.",
-        "caption": "A great captain — but he was a leper",
+        "text": "And he returned to the man of God, he and all his company, and came, and stood before him: and he said, Behold, now I know that there is no God in all the earth, but in Israel: now therefore, I pray thee, take a blessing of thy servant.",
+        "caption": "Behold, now I know — take a blessing of thy servant",
         "image": "panel-jesus-1.svg"
       },
       {
-        "text": "And the Syrians had gone out by companies, and had brought away captive out of the land of Israel a little maid; and she waited on Naaman’s wife.",
-        "caption": "A little maid waited on Naaman’s wife",
-        "image": "panel-jesus-1.svg"
-      },
-      {
-        "text": "And she said unto her mistress, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
-        "caption": "The prophet in Samaria — he would recover him of his leprosy",
-        "image": "panel-jesus-1.svg"
-      },
-      {
-        "text": "And it was so, when Elisha the man of God had heard that the king of Israel had rent his clothes, that he sent to the king, saying, Wherefore hast thou rent thy clothes? let him come now to me, and he shall know that there is a prophet in Israel.",
-        "caption": "Let him come now to me — there is a prophet in Israel",
+        "text": "But he said, As the LORD liveth, before whom I stand, I will receive none. And he urged him to take it; but he refused.",
+        "caption": "As the LORD liveth, I will receive none",
         "image": "panel-jesus-2.svg"
       },
       {
-        "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha.",
-        "caption": "Naaman stood at the door of the house of Elisha",
+        "text": "And Naaman said, Shall there not then, I pray thee, be given to thy servant two mules’ burden of earth? for thy servant will henceforth offer neither burnt offering nor sacrifice unto other gods, but unto the LORD.",
+        "caption": "Two mules’ burden of earth — unto the LORD only",
         "image": "panel-jesus-2.svg"
       },
       {
-        "text": "And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
-        "caption": "Go and wash in Jordan seven times — thou shalt be clean",
+        "text": "In this thing the LORD pardon thy servant, that when my master goeth into the house of Rimmon to worship there, and he leaneth on my hand, and I bow myself in the house of Rimmon: when I bow down myself in the house of Rimmon, the LORD pardon thy servant in this thing.",
+        "caption": "The LORD pardon thy servant in this thing",
         "image": "panel-jesus-2.svg"
       },
       {
-        "text": "And his servants came near, and spake unto him, and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? how much rather then, when he saith to thee, Wash, and be clean?",
-        "caption": "Wash, and be clean",
-        "image": "panel-jesus-2.svg"
-      },
-      {
-        "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
-        "caption": "Seven times in Jordan — like unto the flesh of a little child — and he was clean",
+        "text": "And he said unto him, Go in peace. So he departed from him a little way.",
+        "caption": "Go in peace",
         "image": "panel-jesus-3.svg"
       }
     ],
     "paragraphs": [
-      "Naaman was captain of the king of Syria — honourable and brave — but he was a leper. A little maid who served his wife said, Would God my lord were with the prophet in Samaria — he would recover him of his leprosy.",
-      "Naaman came to Elisha’s house with horses and chariot. Elisha sent word: Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman’s heart was hot — he thought the rivers of Damascus were better. His servants spoke kindly: If the prophet had bid a great thing, would you not do it? How much more when he saith, Wash, and be clean?",
-      "Then Naaman went down and dipped himself seven times in Jordan, as the man of God said. His flesh came again like a little child’s — and he was clean. For you: God’s way can feel surprisingly simple — humble obedience opens the door to His mercy.",
-      "Reference: 2 Kings 5:1-14 (KJV)."
+      "After Naaman was clean in the Jordan, he came back to the man of God with a thankful heart. He knew the true God was in Israel.",
+      "Naaman wished to give a blessing; Elisha would not take silver or clothing — the healing was God’s gift, not something to buy. Naaman asked for a little earth to remember the LORD, and spoke humbly about his duty to his king. Elisha sent him with kind words: Go in peace.",
+      "For you: God’s mercy is freely given. A thankful heart is a beautiful offering.",
+      "Reference: 2 Kings 5:15-19 (KJV)."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What was Naaman’s trouble at the first?",
+        "question": "What did Naaman say he now knew?",
         "choices": [
-          "He could not walk.",
-          "He was a leper.",
-          "He was a fisherman.",
-          "He had no house."
+          "There was no river in Syria.",
+          "There was no God in all the earth, but in Israel.",
+          "He would never go home.",
+          "Elisha needed more silver."
         ],
         "correctIndex": 1,
-        "correctFeedback": "A great man — but he was a leper.",
-        "wrongFeedback": "Listen for leper. (Answer: He was a leper.)"
+        "correctFeedback": "He saw clearly — the true God is in Israel.",
+        "wrongFeedback": "Listen for no God in all the earth, but in Israel."
       },
       {
-        "question": "Who pointed Naaman toward the prophet in Samaria?",
+        "question": "What did Elisha say about taking Naaman’s gift?",
         "choices": [
-          "The king of Egypt only.",
-          "A little maid from Israel.",
-          "No one.",
-          "Only Naaman’s horse."
+          "He asked for double.",
+          "As the LORD liveth, I will receive none.",
+          "He only wanted gold.",
+          "He sent Naaman away angry."
         ],
         "correctIndex": 1,
-        "correctFeedback": "A little maid — God used her faithful words.",
-        "wrongFeedback": "Listen for little maid. (Answer: A little maid from Israel.)"
+        "correctFeedback": "The healing was God’s gift — not for sale.",
+        "wrongFeedback": "Listen for I will receive none."
       },
       {
-        "question": "What did Elisha tell Naaman to do?",
+        "question": "What did Naaman ask to take with him?",
         "choices": [
-          "Stay home.",
-          "Go and wash in Jordan seven times.",
-          "Bring gold only.",
-          "Never speak again."
+          "A new chariot.",
+          "Two mules’ burden of earth.",
+          "A sword from the king.",
+          "Nothing at all."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Wash in Jordan seven times — simple and clear.",
-        "wrongFeedback": "Listen for Jordan seven times. (Answer: Wash in Jordan seven times.)"
+        "correctFeedback": "Earth — to remember the LORD in his land.",
+        "wrongFeedback": "Listen for two mules and earth."
       },
       {
-        "question": "What did Naaman’s servants wisely say?",
+        "question": "How did Elisha send Naaman away at the end?",
         "choices": [
-          "Run away.",
-          "If the prophet had bid a great thing, would you not do it? How much more — Wash, and be clean?",
-          "Do nothing.",
-          "Shout at the river."
+          "In haste.",
+          "Go in peace.",
+          "With a shout.",
+          "Without a word."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Gentle words — and Naaman obeyed.",
-        "wrongFeedback": "Listen for Wash, and be clean. (Answer: the servants’ wise question about doing a great thing.)"
+        "correctFeedback": "Peace — calm words for the road home.",
+        "wrongFeedback": "Listen for Go in peace."
       },
       {
-        "question": "What happened after he dipped seven times?",
+        "question": "What does this part of the story remind us?",
         "choices": [
-          "Nothing changed.",
-          "His flesh came again like a little child’s — and he was clean.",
-          "He stayed in the water all day.",
-          "The river dried up."
+          "Healing must always be paid for.",
+          "God’s mercy is a gift — and thanks fits a thankful heart.",
+          "We should hide what God did.",
+          "Only kings may pray."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Clean — like a little child.",
-        "wrongFeedback": "Listen for little child and clean. (Answer: Flesh like a little child — he was clean.)"
+        "correctFeedback": "Thankfulness and truth — God’s gift is not bought.",
+        "wrongFeedback": "Think: Elisha would not take payment — God gave the healing."
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Well done — God heals when we trust and obey.",
-    "takeaway": "Naaman dipped seven times in Jordan — God made him clean. Simple obedience can hold great mercy.",
-    "prayer": "Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.",
+    "doneMessage": "Well done — peace goes with those who honor the Lord.",
+    "takeaway": "Naaman came back thankful. Elisha pointed to God — Go in peace.",
+    "prayer": "Lord, thank You for mercy we cannot buy. Teach us grateful hearts. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing in Jordan river seventh dip servants on bank thankful faces clean peaceful skin thick outlines white space ages 3-8 coloring page",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants wise words Wash and be clean",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan"
+      "Simple peaceful black-and-white line-art young children bold thick outlines two figures before simple house door thankful captain humble prophet gesture refusing gift earth bundles mules distant minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Now I know no God but Israel",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text I will receive none",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Two mules burden earth",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Go in peace"
     ]
   },
   "naamanHealed": {
-    "kjvRef": "2 Kings 5:1-14 (KJV)",
+    "kjvRef": "2 Kings 5:1-15 (KJV)",
     "verseExcerpt": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)",
     "readAlongTitle": "Read along",
     "quizWrongHumilityHint": "Listen again — Wash, and be clean — and his flesh came again like unto the flesh of a little child.",
@@ -16415,11 +16399,6 @@
         "image": "panel-jesus-1.svg"
       },
       {
-        "text": "And it was so, when Elisha the man of God had heard that the king of Israel had rent his clothes, that he sent to the king, saying, Wherefore hast thou rent thy clothes? let him come now to me, and he shall know that there is a prophet in Israel.",
-        "caption": "Let him come now to me — there is a prophet in Israel",
-        "image": "panel-jesus-2.svg"
-      },
-      {
         "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha.",
         "caption": "Naaman stood at the door of the house of Elisha",
         "image": "panel-jesus-2.svg"
@@ -16427,6 +16406,16 @@
       {
         "text": "And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
         "caption": "Go and wash in Jordan seven times — thou shalt be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "But Naaman was wroth, and went away, and said, Behold, I thought, He will surely come out to me, and stand, and call on the name of the LORD his God, and strike his hand over the place, and recover the leper.",
+        "caption": "Naaman was wroth — he thought Elisha would come out to him",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Are not Abana and Pharpar, rivers of Damascus, better than all the waters of Israel? may I not wash in them, and be clean? So he turned and went away in a rage.",
+        "caption": "Rivers of Damascus — may I not wash in them, and be clean?",
         "image": "panel-jesus-2.svg"
       },
       {
@@ -16438,13 +16427,18 @@
         "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
         "caption": "Seven times in Jordan — like unto the flesh of a little child — and he was clean",
         "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And he returned to the man of God, he and all his company, and came, and stood before him: and he said, Behold, now I know that there is no God in all the earth, but in Israel: now therefore, I pray thee, take a blessing of thy servant.",
+        "caption": "Behold, now I know that there is no God in all the earth, but in Israel",
+        "image": "panel-jesus-3.svg"
       }
     ],
     "paragraphs": [
-      "Naaman was captain of the king of Syria — honourable and brave — but he was a leper. A little maid who served his wife said, Would God my lord were with the prophet in Samaria — he would recover him of his leprosy.",
-      "Naaman came to Elisha’s house with horses and chariot. Elisha sent word: Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman’s heart was hot — he thought the rivers of Damascus were better. His servants spoke kindly: If the prophet had bid a great thing, would you not do it? How much more when he saith, Wash, and be clean?",
-      "Then Naaman went down and dipped himself seven times in Jordan, as the man of God said. His flesh came again like a little child’s — and he was clean. For you: God’s way can feel surprisingly simple — humble obedience opens the door to His mercy.",
-      "Reference: 2 Kings 5:1-14 (KJV)."
+      "Naaman was captain of the host of the king of Syria, a great man, but he was a leper. A little maid from Israel who served Naaman’s wife said, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
+      "Naaman came with horses and chariot and stood at the door of Elisha’s house. Elisha sent a messenger: Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean. At first Naaman was wroth and went away, saying the rivers of Damascus were better than the waters of Israel. His servants drew near and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?",
+      "Then Naaman went down and dipped himself seven times in Jordan, according to the saying of the man of God. His flesh came again like unto the flesh of a little child, and he was clean. He returned to the man of God and said, Behold, now I know that there is no God in all the earth, but in Israel. For you: The Lord used Elisha to show that simple obedience brings cleansing and that God is mighty to heal.",
+      "Reference: 2 Kings 5:1-15 (KJV). Kings, letters, and gifts (5:4-8) are told in the fuller story; the taps stay in the calm verses above."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
@@ -16488,7 +16482,7 @@
         "question": "What did Naaman’s servants wisely say?",
         "choices": [
           "Run away.",
-          "If the prophet had bid a great thing, would you not do it? How much more — Wash, and be clean?",
+          "If the prophet had bid a great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?",
           "Do nothing.",
           "Shout at the river."
         ],
@@ -16507,6 +16501,18 @@
         "correctIndex": 1,
         "correctFeedback": "Clean — like a little child.",
         "wrongFeedback": "Listen for little child and clean. (Answer: Flesh like a little child — he was clean.)"
+      },
+      {
+        "question": "When Naaman returned to the man of God, what did he say he knew?",
+        "choices": [
+          "There was no river in Israel.",
+          "There was no God in all the earth, but in Israel.",
+          "He would never obey again.",
+          "Damascus had better water."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He saw clearly — the true God is in Israel.",
+        "wrongFeedback": "Listen for no God in all the earth, but in Israel. (Answer: there is no God in all the earth, but in Israel.)"
       }
     ],
     "doneHeading": "You did it!",
@@ -16514,11 +16520,12 @@
     "takeaway": "Naaman dipped seven times in Jordan — God made him clean. Simple obedience can hold great mercy.",
     "prayer": "Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing in Jordan river seventh dip servants on bank thankful faces clean peaceful skin thick outlines white space ages 3-8 coloring page",
+      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman in gentle Jordan river waters seventh dip calm hopeful joyful face soft ripples splashes one servant figure on bank watching kindly Elisha messenger thick outlines trees hills minimal white space wonder thankful healed skin ages 3-8 coloring page",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants wise words Wash and be clean",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan"
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Now I know no God in all earth but Israel"
     ]
   },
   "nehemiahWalls": {
@@ -25107,7 +25114,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 5:1–15",
+          "2 Kings 5:15-19",
           "1 Samuel 18",
           "Acts 8:26–40",
           "Acts 27"
@@ -27777,7 +27784,7 @@
     ]
   },
   "naaman": {
-    "kjvRef": "2 Kings 5:1-14 (KJV)",
+    "kjvRef": "2 Kings 5:1-15 (KJV)",
     "verseExcerpt": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)",
     "readAlongTitle": "Read along",
     "quizWrongHumilityHint": "Listen again — Wash, and be clean — and his flesh came again like unto the flesh of a little child.",
@@ -27799,11 +27806,6 @@
         "image": "panel-jesus-1.svg"
       },
       {
-        "text": "And it was so, when Elisha the man of God had heard that the king of Israel had rent his clothes, that he sent to the king, saying, Wherefore hast thou rent thy clothes? let him come now to me, and he shall know that there is a prophet in Israel.",
-        "caption": "Let him come now to me — there is a prophet in Israel",
-        "image": "panel-jesus-2.svg"
-      },
-      {
         "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha.",
         "caption": "Naaman stood at the door of the house of Elisha",
         "image": "panel-jesus-2.svg"
@@ -27811,6 +27813,16 @@
       {
         "text": "And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
         "caption": "Go and wash in Jordan seven times — thou shalt be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "But Naaman was wroth, and went away, and said, Behold, I thought, He will surely come out to me, and stand, and call on the name of the LORD his God, and strike his hand over the place, and recover the leper.",
+        "caption": "Naaman was wroth — he thought Elisha would come out to him",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Are not Abana and Pharpar, rivers of Damascus, better than all the waters of Israel? may I not wash in them, and be clean? So he turned and went away in a rage.",
+        "caption": "Rivers of Damascus — may I not wash in them, and be clean?",
         "image": "panel-jesus-2.svg"
       },
       {
@@ -27822,13 +27834,18 @@
         "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
         "caption": "Seven times in Jordan — like unto the flesh of a little child — and he was clean",
         "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And he returned to the man of God, he and all his company, and came, and stood before him: and he said, Behold, now I know that there is no God in all the earth, but in Israel: now therefore, I pray thee, take a blessing of thy servant.",
+        "caption": "Behold, now I know that there is no God in all the earth, but in Israel",
+        "image": "panel-jesus-3.svg"
       }
     ],
     "paragraphs": [
-      "Naaman was captain of the king of Syria — honourable and brave — but he was a leper. A little maid who served his wife said, Would God my lord were with the prophet in Samaria — he would recover him of his leprosy.",
-      "Naaman came to Elisha’s house with horses and chariot. Elisha sent word: Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman’s heart was hot — he thought the rivers of Damascus were better. His servants spoke kindly: If the prophet had bid a great thing, would you not do it? How much more when he saith, Wash, and be clean?",
-      "Then Naaman went down and dipped himself seven times in Jordan, as the man of God said. His flesh came again like a little child’s — and he was clean. For you: God’s way can feel surprisingly simple — humble obedience opens the door to His mercy.",
-      "Reference: 2 Kings 5:1-14 (KJV)."
+      "Naaman was captain of the host of the king of Syria, a great man, but he was a leper. A little maid from Israel who served Naaman’s wife said, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
+      "Naaman came with horses and chariot and stood at the door of Elisha’s house. Elisha sent a messenger: Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean. At first Naaman was wroth and went away, saying the rivers of Damascus were better than the waters of Israel. His servants drew near and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?",
+      "Then Naaman went down and dipped himself seven times in Jordan, according to the saying of the man of God. His flesh came again like unto the flesh of a little child, and he was clean. He returned to the man of God and said, Behold, now I know that there is no God in all the earth, but in Israel. For you: The Lord used Elisha to show that simple obedience brings cleansing and that God is mighty to heal.",
+      "Reference: 2 Kings 5:1-15 (KJV). Kings, letters, and gifts (5:4-8) are told in the fuller story; the taps stay in the calm verses above."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
@@ -27872,7 +27889,7 @@
         "question": "What did Naaman’s servants wisely say?",
         "choices": [
           "Run away.",
-          "If the prophet had bid a great thing, would you not do it? How much more — Wash, and be clean?",
+          "If the prophet had bid a great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?",
           "Do nothing.",
           "Shout at the river."
         ],
@@ -27891,6 +27908,18 @@
         "correctIndex": 1,
         "correctFeedback": "Clean — like a little child.",
         "wrongFeedback": "Listen for little child and clean. (Answer: Flesh like a little child — he was clean.)"
+      },
+      {
+        "question": "When Naaman returned to the man of God, what did he say he knew?",
+        "choices": [
+          "There was no river in Israel.",
+          "There was no God in all the earth, but in Israel.",
+          "He would never obey again.",
+          "Damascus had better water."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He saw clearly — the true God is in Israel.",
+        "wrongFeedback": "Listen for no God in all the earth, but in Israel. (Answer: there is no God in all the earth, but in Israel.)"
       }
     ],
     "doneHeading": "You did it!",
@@ -27898,11 +27927,12 @@
     "takeaway": "Naaman dipped seven times in Jordan — God made him clean. Simple obedience can hold great mercy.",
     "prayer": "Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing in Jordan river seventh dip servants on bank thankful faces clean peaceful skin thick outlines white space ages 3-8 coloring page",
+      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman in gentle Jordan river waters seventh dip calm hopeful joyful face soft ripples splashes one servant figure on bank watching kindly Elisha messenger thick outlines trees hills minimal white space wonder thankful healed skin ages 3-8 coloring page",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants wise words Wash and be clean",
-      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan"
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Now I know no God in all earth but Israel"
     ]
   }
 };

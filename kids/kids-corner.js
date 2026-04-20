@@ -877,16 +877,39 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kgs 2:21 · 4:4</text>'
       ),
 
-      /* ── Week 1: Fiery Furnace already exists, skip; Naaman (21) — Jordan dip ── */
+      /* Naaman healed — 2 Kings 5:14 (seventh dip, ripples, servant on bank) */
       naamanHealed: svg(
         '<path d="M0 200 Q50 180 100 200 Q150 220 200 200 Q250 180 300 200 Q350 220 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(200, 170, 13, 38) +
-        '<path d="M190 220 L188 248 M210 220 L212 248" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M160 185 Q180 175 200 182 Q220 175 240 185" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        '<circle cx="200" cy="245" r="20" ' + s + ' stroke-width="2.5" stroke-dasharray="5,3"/>' +
-        person(50, 185, 10, 28) + person(350, 185, 10, 28) +
+        /* soft ripples + splash */
+        '<path d="M168 238 Q184 232 200 238 Q216 232 232 238" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        '<path d="M172 244 Q188 240 200 246 Q212 240 228 244" ' + s + ' stroke-width="1.2" fill="none" opacity="0.85"/>' +
+        '<path d="M188 228 L192 222 M208 226 L212 220 M196 232 L200 224" ' + s + ' stroke-width="1.3"/>' +
+        /* Naaman — seventh dip, calm joyful face */
+        person(200, 158, 13, 34) +
+        '<path d="M192 142 Q200 148 208 142" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M188 168 L184 188 M212 168 L216 188" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="248" rx="28" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* servant on bank — kindly watching */
+        person(72, 172, 10, 28) +
+        '<path d="M68 156 Q74 158 80 156" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<path d="M72 200 L88 218" ' + s + ' stroke-width="2"/>' +
+        hills() +
         sun(330, 45, 20) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:14</text>'
+      ),
+
+      /* Naaman after healing — 2 Kings 5:16+ (gift before Elisha — distinct from river card) */
+      naamanDip: svg(
+        ground() + hills() +
+        sun(48, 44, 18) + cloud(300, 34) +
+        '<rect x="248" y="168" width="96" height="72" rx="6" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M268 168 L268 148 Q296 132 324 148 L324 168" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(292, 188, 11, 32) +
+        '<path d="M268 210 L252 228" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="232" cy="224" rx="18" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(168, 178, 11, 34) +
+        '<path d="M200 168 L228 168" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:15</text>'
       ),
 
       /* Floating axe head — 2 Kings 6:1-7 (Jordan, ripples, stick on bank, thankful reach) */
@@ -3447,7 +3470,7 @@
     elishaOil: 'elishaOil',
     naaman: 'naamanHealed',
     naamanHealed: 'naamanHealed',
-    naamanDip: 'naamanHealed',
+    naamanDip: 'naamanDip',
     /* ── Week 2 ── */
     abrahamIsaac: 'abrahamIsaac',
     josephCoat: 'josephCoat',
@@ -5270,7 +5293,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'elishaPoisonStew', 'naamanHealed', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaShunammite', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
@@ -5491,6 +5514,7 @@
       'noaharkstory': 'noah',
       elisharaised: 'elishaShunammite',
       naamanhealed: 'naamanHealed',
+      naamandip: 'naamanDip',
       elishachariots: 'elishaChariots',
       elishapoisonstew: 'elishaPoisonStew',
       elishablindarmy: 'elishaBlindArmy',

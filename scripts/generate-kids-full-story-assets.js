@@ -24,8 +24,9 @@ let m;
 while ((m = re.exec(s))) {
   if (!seen.has(m[1])) seen.set(m[1], true);
 }
-/* Alias key assigned after the object — keep media paths aligned with naamanHealed. */
+/* Alias keys assigned after the object — keep media paths aligned with canonical cards. */
 if (seen.has('naamanHealed')) seen.set('naaman', true);
+if (seen.has('widowOil')) seen.set('elishaOil', true);
 const keys = [...seen.keys()].sort();
 
 function keyToKebab(k) {

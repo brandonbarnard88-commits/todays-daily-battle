@@ -2767,6 +2767,16 @@
     "kw": "armor shield faith ephesians 6 arrows protect stand"
   },
   {
+    "key": "shunammiteReturn",
+    "title": "The Shunammite Woman Returns",
+    "kjvRef": "2 Kings 8:1-6",
+    "who": "The LORD",
+    "to": "The Shunammite woman and her son — through the king's care",
+    "apply": "God remembers the same family through hard years — and He can give back what feels lost when we trust Him.",
+    "theme": "Miracles",
+    "kw": "shunammite shunammite return shunem 2 kings 8 2 kings 8:1 2 kings 8:6 seven years philistines cry unto the king her house and her land restore all that was hers fruits of the field gehazi great things that elisha officer famine elisha son restored to life"
+  },
+  {
     "key": "sunStandsStill",
     "title": "The Sun Stands Still",
     "kjvRef": "Joshua 10:12-14",

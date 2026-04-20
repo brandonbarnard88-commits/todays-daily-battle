@@ -75,6 +75,7 @@
     elishaBlindArmy: 186,
     gehaziGreed: 187,
     widowOil: 188,
+    shunammiteReturn: 189,
     elishaMiracles: 182,
     elishaOil: 19,
     elishaShunammite: 49,

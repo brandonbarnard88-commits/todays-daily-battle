@@ -3434,6 +3434,46 @@
       narration:
         "The Widow's Oil Multiplied — 2 Kings 4:1-7. A certain woman of the wives of the sons of the prophets cried unto Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. Elisha asked, What hast thou in the house? She said, Save a pot of oil. He said, Go, borrow empty vessels — borrow not a few; shut the door upon thee and thy sons, and pour out into all those vessels. They brought the vessels; she poured out. When there was not a vessel more, the oil stayed. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: Bring your worry to God — and your little too."
     },
+    shunammiteReturn: {
+      title: 'The Shunammite Woman Returns',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Elisha\'s word — take your household; a famine is coming seven years' },
+        { src: 'panel-jesus-2.svg', alt: 'She returns — cry unto the king for her house and for her land' },
+        { src: 'panel-jesus-3.svg', alt: 'The king listens — restore all that was hers, and the fruits of the field' }
+      ],
+      caption: 'Swipe to see God remember a faithful family — home, land, and quiet kindness from the king.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'shunammite',
+        'shunammite return',
+        'shunem',
+        '2 kings 8',
+        '2 kings 8:1',
+        '2 kings 8:6',
+        'seven years',
+        'philistines',
+        'cry unto the king',
+        'her house and her land',
+        'restore all that was hers',
+        'fruits of the field',
+        'gehazi',
+        'great things that elisha',
+        'officer',
+        'famine',
+        'elisha',
+        'son restored to life'
+      ],
+      kjvRef: '2 Kings 8:1-6',
+      kidContext: {
+        who: 'The LORD',
+        to: 'The Shunammite woman and her son — through the king\'s care',
+        apply:
+          'God remembers the same family through hard years — and He can give back what feels lost when we trust Him.'
+      },
+      narration:
+        "The Shunammite Woman Returns — 2 Kings 8:1-6. Elisha told the woman whose son he had raised to take her household and sojourn while a famine came seven years; she obeyed. When those years ended, she returned and asked the king for her house and her land. The king was speaking with Gehazi about the great things Elisha had done — and she came in. Gehazi said, This is the woman, and this is her son, whom Elisha restored to life. The king listened and sent an officer: restore all that was hers, and all the fruits of the field since she left. For you: God keeps His kindness on one family's story — He does not forget."
+    },
     estherCrown: {
       title: 'Queen Esther\'s Courage',
       panels: [
@@ -6405,7 +6445,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 303, color: '#e5e4e2' }
+      { name: 'Platinum', min: 304, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -6519,7 +6559,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -6957,8 +6997,15 @@
       return { type: 'carousel', story: 'elishaFloatingAxe' };
     }
     if (
+      /\b2 kings 8:(?:[1-6])\b|\b2 kgs 8:(?:[1-6])\b/.test(low) ||
+      (/\b2 kings 8\b|\b2 kgs 8\b/.test(low) &&
+        /shunammite|woman of shunem|philistines|cry unto the king|her house and for her land|restore all that was hers|fruits of the field|great things that elisha|gehazi.*servant of the man of god|tell me.*great things/.test(low))
+    ) {
+      return { type: 'carousel', story: 'shunammiteReturn' };
+    }
+    if (
       /\b2 kings 5:(?:2[0-7])\b|\b2 kgs 5:(?:2[0-7])\b/.test(low) ||
-      /\bgehazi\b/.test(low) ||
+      (/\bgehazi\b/.test(low) && !/\b2 kings 8\b|\b2 kgs 8\b/.test(low)) ||
       /whence comest thou|went no whither|mine heart with thee|is it a time to receive money|two talents of silver|mount ephraim.*prophets|sons of the prophets.*talent|spared naaman.*syrian|take somewhat of him/.test(low)
     ) {
       return { type: 'carousel', story: 'gehaziGreed' };
@@ -9609,7 +9656,7 @@
     davidSaulJealousy: 'Protection', davidJonathanFriendship: 'Love',
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
-    elishaShunammite: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
+    elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
     jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
@@ -9704,7 +9751,7 @@
     lydiaSell: 'Obedience', priscillaTeach: 'Obedience', ruthMoab: 'Love',
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */
-    annaProphet: 'Obedience', widowOil: 'Miracles', persistentWidow: 'Obedience',
+    annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', persistentWidow: 'Obedience',
     samaritanWoman: 'Love', marthaServe: 'Obedience', marySit: 'Obedience',
     dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
     loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',

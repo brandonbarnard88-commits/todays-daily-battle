@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (302 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (304 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -346,6 +346,11 @@
       mp4: '/media/kids-stories/elisha-miracles.mp4',
       webm: '/media/kids-stories/elisha-miracles.webm',
       captionsVtt: '/media/kids-stories/elisha-miracles.vtt'
+    },
+    elishaOil: {
+      mp4: '/media/kids-stories/elisha-oil.mp4',
+      webm: '/media/kids-stories/elisha-oil.webm',
+      captionsVtt: '/media/kids-stories/elisha-oil.vtt'
     },
     elishaPoisonStew: {
       mp4: '/media/kids-stories/elisha-poison-stew.mp4',
@@ -1391,6 +1396,11 @@
       mp4: '/media/kids-stories/shepherds-star.mp4',
       webm: '/media/kids-stories/shepherds-star.webm',
       captionsVtt: '/media/kids-stories/shepherds-star.vtt'
+    },
+    shunammiteReturn: {
+      mp4: '/media/kids-stories/shunammite-return.mp4',
+      webm: '/media/kids-stories/shunammite-return.webm',
+      captionsVtt: '/media/kids-stories/shunammite-return.vtt'
     },
     solomonTemple: {
       mp4: '/media/kids-stories/solomon-temple.mp4',

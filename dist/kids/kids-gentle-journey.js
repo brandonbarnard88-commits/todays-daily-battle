@@ -105,6 +105,7 @@
     'elishaShunammite',
     'gehaziGreed',
     'widowOil',
+    'shunammiteReturn',
     'ezraReturn',
     'nehemiahWalls',
     'esther',

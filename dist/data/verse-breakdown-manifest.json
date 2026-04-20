@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-20T16:04:26.658Z",
-  "surfacedRefCount": 2812,
-  "overrideCount": 2812,
+  "generatedAt": "2026-04-20T16:33:02.402Z",
+  "surfacedRefCount": 2814,
+  "overrideCount": 2814,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 172,
+      "refs": 173,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,11 +248,11 @@
       "pairs": 0
     },
     "kids/kids-battle.js": {
-      "refs": 187,
+      "refs": 188,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 162,
+      "refs": 164,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -276,7 +276,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 186,
+      "refs": 187,
       "pairs": 0
     },
     "memorize.html": {
@@ -921,6 +921,8 @@
     "2 Kings 6:22",
     "2 Kings 6:6",
     "2 Kings 6:8-17",
+    "2 Kings 8:1-6",
+    "2 Kings 8:6",
     "2 Kings 9:1",
     "2 Kings 9:33",
     "2 Peter 1:10",
@@ -6727,6 +6729,22 @@
       "general": {
         "plainExplanation": "Key idea: Then the king of Syria warred against Israel, and took counsel with his servants, saying, In such and such a place shall be my camp. And the man of God sent...",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 8:1-6": {
+      "general": {
+        "plainExplanation": "Key idea: Then spake Elisha to the woman, whose son he had restored to life, saying, Arise, and go you and thine household, and sojourn wheresoever you canst sojourn:...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "2 Kings 8:6": {
+      "general": {
+        "plainExplanation": "Key idea: And when the king asked the woman, she told him. So the king appointed to her a certain officer, saying, Restore all that was hers, and all the fruits of th...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"
       }

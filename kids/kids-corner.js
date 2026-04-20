@@ -1821,6 +1821,24 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:26</text>'
       ),
 
+      /* Shunammite land restored — 2 Kings 8:1-6 */
+      shunammiteReturn: svg(
+        ground() +
+        '<path d="M55 95 L345 95 L330 125 L70 125 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="155" y="125" width="90" height="58" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="168" y="118" width="64" height="14" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(200, 152, 13, 36) +
+        '<path d="M188 168 Q200 175 212 168" ' + s + ' stroke-width="2"/>' +
+        person(118, 178, 11, 32) +
+        person(88, 188, 9, 26) +
+        person(278, 172, 11, 34) +
+        '<rect x="268" y="188" width="22" height="16" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="272" y1="192" x2="286" y2="188" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M40 125 L40 258 M360 125 L360 258" ' + s + ' stroke-width="2"/>' +
+        sun(320, 42, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 8:6</text>'
+      ),
+
       /* ── Week 4: Jonah Whale already exists ── */
       /* ── Week 4: Daniel Lions already exists ── */
 
@@ -3732,6 +3750,7 @@
     /* ── Week 11 ── */
     annaProphet: 'annaProphet',
     widowOil: 'widowOil',
+    shunammiteReturn: 'shunammiteReturn',
     persistentWidow: 'persistentWidow',
     samaritanWoman: 'samaritanWoman',
     marthaServe: 'marthaServe',
@@ -5322,7 +5341,7 @@
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
-        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'samson', 'esther', 'daniel', 'fieryFurnace',
+        'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',

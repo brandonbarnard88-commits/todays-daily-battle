@@ -146,6 +146,7 @@
   "samuelBirth": "samuelBirth",
   "samuelCalls": "samuelCall",
   "shepherdsStar": "shepherdsStar",
+  "shunammiteReturn": "shunammiteReturn",
   "solomonTemple": "solomonTemple",
   "solomonTwoMothers": "solomonTwoMothers",
   "solomonWisdom": "solomonWisdom",

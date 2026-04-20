@@ -1366,11 +1366,11 @@
     naamanHealed: {
       title: 'Naaman Obeys and Is Made Clean',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A little maid’s faith — the prophet in Samaria' },
-        { src: 'panel-jesus-2.svg', alt: 'Wash in Jordan seven times — Wash, and be clean' },
-        { src: 'panel-jesus-3.svg', alt: 'Seven dips — clean like a little child' }
+        { src: 'panel-jesus-1.svg', alt: 'A little maid’s words — go to the prophet in Samaria' },
+        { src: 'panel-jesus-2.svg', alt: 'Wash in Jordan seven times — at first angry, then gentle counsel' },
+        { src: 'panel-jesus-3.svg', alt: 'Seven dips in the Jordan — clean like a little child' }
       ],
-      caption: 'Swipe for Naaman — simple obedience in the Jordan, gentle healing.',
+      caption: 'Swipe for Naaman — little maid, gentle servants, seven dips, God’s kindness.',
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
       keywords: [
@@ -1390,17 +1390,19 @@
         'wash and be clean',
         'syria',
         'little child',
-        'servants'
+        'servants',
+        'gentle',
+        'seventh dip'
       ],
       kjvRef: '2 Kings 5:1-14',
       kidContext: {
         who: 'The LORD',
         to: 'Naaman — through Elisha’s word',
         apply:
-          'God heals when we obey simply and humbly — even when we want our own way first.'
+          'God heals when we obey simply and humbly — skin made clean like a little child’s.'
       },
       narration:
-        "Naaman Obeys and Is Made Clean — 2 Kings 5:1-14. Naaman was a great captain, but he had leprosy. A little maid from Israel told his wife about the prophet in Samaria. Naaman went to Elisha’s house. Elisha sent word, Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman was angry and wanted his own rivers — but his servants said gently, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean? So Naaman dipped seven times in Jordan. His flesh came again like unto the flesh of a little child, and he was clean. For you: The Lord used Elisha to show that simple obedience brings cleansing and healing."
+        "Naaman Obeys and Is Made Clean — 2 Kings 5:1-14. Naaman was a great captain, but he had leprosy. A little maid from Israel told his wife, Would God my lord were with the prophet in Samaria! for he would recover him of his leprosy. Naaman went to Elisha’s house. Elisha sent a messenger saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean. At first Naaman was angry and wanted to wash in his own rivers. His servants said gently, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean? So Naaman dipped himself seven times in Jordan. His flesh came again like unto the flesh of a little child, and he was clean. The Lord used Elisha to show that simple obedience brings cleansing and healing. For you: Trust God’s simple way — He is kind."
     },
     jesusWalksWater: {
       title: 'Jesus Walks on Water',

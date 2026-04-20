@@ -2,7 +2,7 @@
 /**
  * Naaman healed of leprosy (gentle) — 2 Kings 5:1-14 (KJV). Library keys: naamanHealed, naaman (shared pack).
  *
- * Letters and kings (5:4-8) are summarized in paragraphs; taps carry the calm KJV arc through healing.
+ * Letters and kings (5:4-8) stay in paragraphs; taps carry the calm KJV arc through healing.
  */
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     'Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)',
   readAlongTitle: 'Naaman Obeys and Is Made Clean',
   quizWrongHumilityHint:
-    'Listen again — Wash, and be clean — God makes us clean when we obey simply.',
+    'Listen again — seven dips in Jordan, clean like a little child, and God’s kindness when we obey simply.',
   hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
   readAlongSections: [
     {
@@ -28,14 +28,8 @@ module.exports = {
     },
     {
       text:
-        'But Naaman was wroth, and went away, and said, Behold, I thought, He will surely come out to me, and stand, and call on the name of the LORD his God, and strike his hand over the place, and recover the leper. Are not Abana and Pharpar, rivers of Damascus, better than all the waters of Israel? may I not wash in them, and be clean? So he turned and went away in a rage.',
-      caption: 'At first Naaman was angry — he wanted his own rivers',
-      image: 'panel-jesus-2.svg'
-    },
-    {
-      text:
-        'And his servants came near, and spake unto him, and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? how much rather then, when he saith to thee, Wash, and be clean?',
-      caption: 'His servants said — Wash, and be clean',
+        'But Naaman was wroth, and went away, and said, Behold, I thought, He will surely come out to me, and stand, and call on the name of the LORD his God, and strike his hand over the place, and recover the leper. Are not Abana and Pharpar, rivers of Damascus, better than all the waters of Israel? may I not wash in them, and be clean? So he turned and went away in a rage. And his servants came near, and spake unto him, and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? how much rather then, when he saith to thee, Wash, and be clean?',
+      caption: 'At first he was angry — then gentle words: Wash, and be clean',
       image: 'panel-jesus-2.svg'
     },
     {
@@ -47,7 +41,7 @@ module.exports = {
   ],
   paragraphs: [
     'Naaman was a great captain, but he had leprosy. A little maid from Israel told his wife, Would God my lord were with the prophet in Samaria! for he would recover him of his leprosy.',
-    'Naaman went to Elisha\'s house. Elisha sent a messenger saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.',
+    'Naaman went to Elisha’s house. Elisha sent a messenger saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.',
     'At first Naaman was angry and wanted to wash in his own rivers. His servants said gently, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?',
     'So Naaman dipped himself seven times in Jordan. His flesh came again like unto the flesh of a little child, and he was clean. The Lord used Elisha to show that simple obedience brings cleansing and healing.',
     'For you: God heals when we obey simply and humbly — one step at a time.'
@@ -55,7 +49,7 @@ module.exports = {
   quizHeading: 'Quiz — think it through',
   questions: [
     {
-      question: 'What was Naaman\'s trouble at the first?',
+      question: 'What was Naaman’s trouble at the first?',
       choices: ['He could not walk.', 'He was a leper.', 'He was a fisherman.', 'He had no house.'],
       correctIndex: 1,
       correctFeedback: 'A great man — but he was a leper.',
@@ -63,7 +57,7 @@ module.exports = {
     },
     {
       question: 'Who pointed Naaman toward the prophet in Samaria?',
-      choices: ['The king of Egypt only.', 'A little maid from Israel.', 'No one.', 'Only Naaman\'s horse.'],
+      choices: ['The king of Egypt only.', 'A little maid from Israel.', 'No one.', 'Only Naaman’s horse.'],
       correctIndex: 1,
       correctFeedback: 'A little maid — God used her faithful words.',
       wrongFeedback: 'Listen for little maid. (Answer: A little maid from Israel.)'
@@ -81,7 +75,7 @@ module.exports = {
       wrongFeedback: 'Listen for Jordan seven times. (Answer: Wash in Jordan seven times.)'
     },
     {
-      question: 'What did Naaman\'s servants wisely say?',
+      question: 'What did Naaman’s servants wisely say?',
       choices: [
         'Run away.',
         'If the prophet had bid a great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?',
@@ -90,13 +84,13 @@ module.exports = {
       ],
       correctIndex: 1,
       correctFeedback: 'Gentle words — and Naaman obeyed.',
-      wrongFeedback: 'Listen for Wash, and be clean. (Answer: the servants\' wise words.)'
+      wrongFeedback: 'Listen for Wash, and be clean. (Answer: the servants’ wise words.)'
     },
     {
       question: 'What happened after he dipped seven times?',
       choices: [
         'Nothing changed.',
-        'His flesh came again like a little child\'s — and he was clean.',
+        'His flesh came again like a little child’s — and he was clean.',
         'He stayed in the water all day.',
         'The river dried up.'
       ],
@@ -108,11 +102,11 @@ module.exports = {
   doneHeading: 'You did it!',
   doneMessage: 'Well done — God heals when we trust and obey.',
   takeaway:
-    'Naaman dipped seven times in Jordan — God made him clean. Simple obedience brings God\'s kindness.',
+    'Naaman dipped seven times in Jordan — God made him clean. Simple obedience brings God’s kindness.',
   prayer:
     'Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.',
   imagePrompts: [
-    'Simple peaceful black-and-white line-art young children bold thick outlines Naaman in gentle Jordan river waters seventh dip calm hopeful joyful face soft ripples Elisha servant on bank watching kindly soft trees hills minimal no sores thick outlines white space wonder thankful ages 3-8 coloring page no text',
+    'Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing gentle Jordan River waters dipping seventh time calm hopeful thankful joyful face Elisha servant on bank watching kindly soft ripples around Naaman thick outlines large open spaces robe water riverbank soft trees hills background minimal lines wonder-filled merciful no sores no sadness white space ages 3-8 coloring page no text',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants Wash and be clean',

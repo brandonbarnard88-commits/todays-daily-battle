@@ -927,15 +927,17 @@
         '<path d="M28 250 L34 222 L40 250 M48 250 L54 228 L60 250" ' + s + ' stroke-width="2"/>' +
         '<path d="M348 250 L354 226 L360 250 M368 250 L374 232 L380 250" ' + s + ' stroke-width="2"/>' +
         '<path d="M0 200 Q50 180 100 200 Q150 220 200 200 Q250 180 300 200 Q350 220 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* soft ripples + splash */
+        /* soft ripples + splash — extra gentle rings */
         '<path d="M168 238 Q184 232 200 238 Q216 232 232 238" ' + s + ' stroke-width="1.4" fill="none"/>' +
         '<path d="M172 244 Q188 240 200 246 Q212 240 228 244" ' + s + ' stroke-width="1.2" fill="none" opacity="0.85"/>' +
         '<path d="M160 250 Q178 244 200 252 Q222 244 240 250" ' + s + ' stroke-width="1.1" fill="none" opacity="0.7"/>' +
         '<path d="M152 232 Q176 226 200 234 Q224 226 248 232" ' + s + ' stroke-width="1" fill="none" opacity="0.7"/>' +
+        '<path d="M176 256 Q200 250 224 256" ' + s + ' stroke-width="1" fill="none" opacity="0.55"/>' +
+        '<path d="M148 242 Q174 236 200 244 Q226 236 252 242" ' + s + ' stroke-width="0.9" fill="none" opacity="0.5"/>' +
         '<path d="M188 228 L192 222 M208 226 L212 220 M196 232 L200 224" ' + s + ' stroke-width="1.3"/>' +
         /* Naaman — seventh dip, calm joyful face */
         person(200, 158, 13, 34) +
-        '<path d="M192 142 Q200 150 208 142" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M190 144 Q200 154 210 144" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<path d="M188 168 L184 188 M212 168 L216 188" ' + s + ' stroke-width="2"/>' +
         '<ellipse cx="200" cy="248" rx="28" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
         /* servant on bank — kindly watching */

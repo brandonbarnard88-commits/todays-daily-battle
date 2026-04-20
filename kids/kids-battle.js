@@ -3778,18 +3778,19 @@
         "Solomon and the Two Mothers – 1 Kings 3:16-28. Two women came before the king; each claimed the living baby. Solomon said, Bring me a sword — divide the child in two. The real mother cried, Give her the living child, and in no wise slay it. Solomon knew her heart — and gave the child to her. All Israel saw that the wisdom of God was in him. For you: God helps us tell right from wrong when we listen to Him."
     },
     solomonTemple: {
-      title: 'Solomon Builds the Temple',
+      title: 'Solomon Builds God\'s House',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Solomon began to build the house of the LORD — cedar, finished with care' },
-        { src: 'panel-noah-2.svg', alt: 'The ark of the covenant brought into the most holy place' },
-        { src: 'panel-noah-3.svg', alt: 'The cloud filled the house — the glory of the LORD; Solomon prays with hands toward heaven' }
+        { src: 'panel-noah-1.svg', alt: 'The house of the LORD finished — cedar, glad offerings' },
+        { src: 'panel-noah-2.svg', alt: 'The ark brought into the most holy place' },
+        { src: 'panel-noah-3.svg', alt: 'The cloud filled the house — Solomon prays with hands toward heaven' }
       ],
-      caption: 'Swipe for the house Solomon finished — and the glory that filled it.',
+      caption: 'Swipe for the finished temple — God’s glory filling the house, and Solomon’s prayer of praise.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'solomon temple',
         'builds the temple',
+        'solomon builds god\'s house',
         'house of the lord',
         '1 kings 6',
         '1 kings 8',
@@ -3802,22 +3803,24 @@
         'glory of the lord',
         'priests could not stand',
         'there is no god like thee',
+        'thick darkness',
         'heaven of heavens cannot contain thee',
         'pray toward this house',
         'when thou hearest forgive',
         'jerusalem',
         'cedar',
-        'cherubims'
+        'cherubims',
+        'glad gifts'
       ],
       kjvRef: '1 Kings 6:1-14; 8:1-13, 22-30',
       kidContext: {
         who: 'The LORD',
-        to: 'Israel — and every heart that prays',
+        to: 'Israel — and every heart that worships',
         apply:
-          'God\'s glory filled the house Solomon built — yet heaven itself cannot hold Him. He still bends low to hear prayer; we meet Him with reverence and thanks.'
+          'God’s presence filled the house His people built with glad hearts. When we love Him and gather to praise Him, He draws near — we can come with joy and thanks.'
       },
       narration:
-        "Solomon Builds the Temple – 1 Kings 6:1-14; 8:1-13, 22-30. In the fourth year of his reign Solomon began to build the house of the LORD — cedar beams, careful work, and the word of the LORD: walk in my ways, and I will dwell among Israel. He finished the house. Then he assembled Israel; the priests brought the ark into the most holy place. When they came out, a cloud filled the house — the glory of the LORD — so the priests could not stand to minister. Solomon spread his hands toward heaven: LORD God of Israel, there is no God like thee; the heaven of heavens cannot contain thee; how much less this house — yet hear thy servant; let thine eyes be open toward this house; when thy people pray toward this place, hear, and forgive. For you: The true God is great — and He still listens."
+        "Solomon Builds God’s House – 1 Kings 6:1-14; 8:1-13, 22-30. Solomon built the house of the LORD and finished it with cedar; the Lord promised to dwell among Israel. The people brought offerings; the priests brought the ark into the most holy place. A cloud filled the house — the glory of the LORD — so the priests could not stand to minister. Solomon said, The LORD would dwell in the thick darkness; I have built thee an house. He prayed: LORD God of Israel, there is no God like thee; heaven cannot contain thee; how much less this house — yet hear thy servant; let thine eyes be open toward this house. For you: God is pleased when we build and worship Him with glad hearts."
     },
     elijahRavens: {
       title: 'Elijah and the Ravens',

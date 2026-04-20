@@ -2229,27 +2229,33 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 19:19-21</text>'
       ),
 
-      /* Solomon builds the temple — glory cloud, prayer (1 Kings 8:10-11) */
+      /* Solomon builds God’s house — open doors, soft glory cloud, thankful people (1 Kings 8:10-11) */
       solomonTemple: svg(
         ground() + hills() +
         sun(52, 42, 16) + cloud(300, 36) +
-        /* temple — simple facade, open door */
-        '<rect x="118" y="118" width="164" height="132" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M118 118 L200 88 L282 118" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<rect x="168" y="168" width="64" height="82" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="168" y1="168" x2="168" y2="250" ' + s + ' stroke-width="2"/>' +
-        '<line x1="232" y1="168" x2="232" y2="250" ' + s + ' stroke-width="2"/>' +
-        /* pillars hint */
-        '<rect x="128" y="155" width="14" height="95" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<rect x="258" y="155" width="14" height="95" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        /* soft glory cloud inside doorway */
-        '<ellipse cx="200" cy="205" rx="38" ry="28" ' + sf + ' fill="white" stroke-width="2" opacity="0.95"/>' +
-        '<path d="M175 200 Q200 188 225 200 Q210 218 190 218 Q180 208 175 200" ' + sf + ' fill="white" stroke-width="1.5"/>' +
-        /* Solomon before the house — hands raised */
+        /* temple — wide open doors for easy coloring */
+        '<rect x="96" y="112" width="208" height="138" rx="5" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M96 112 L200 78 L304 112" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M152 170 L152 250 M248 170 L248 250" ' + s + ' stroke-width="2.2"/>' +
+        '<rect x="154" y="170" width="44" height="80" rx="2" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="202" y="170" width="44" height="80" rx="2" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="128" y="150" width="16" height="100" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="256" y="150" width="16" height="100" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* soft glory cloud — layered puffy lines inside */
+        '<ellipse cx="200" cy="208" rx="48" ry="34" ' + sf + ' fill="white" stroke-width="2" opacity="0.92"/>' +
+        '<path d="M165 202 Q185 188 200 198 Q215 188 235 202 Q228 222 200 228 Q172 222 165 202" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M178 212 Q200 200 222 212" ' + s + ' stroke-width="1.4" opacity="0.55"/>' +
+        '<path d="M172 218 Q200 206 228 218" ' + s + ' stroke-width="1.3" opacity="0.45"/>' +
+        /* Solomon — hands raised in prayer */
         person(200, 228, 11, 26) +
-        '<line x1="188" y1="218" x2="172" y2="202" ' + s + ' stroke-width="2"/>' +
-        '<line x1="212" y1="218" x2="228" y2="202" ' + s + ' stroke-width="2"/>' +
-        '<path d="M196 210 Q200 204 204 210" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="186" y1="218" x2="168" y2="194" ' + s + ' stroke-width="2"/>' +
+        '<line x1="214" y1="218" x2="232" y2="194" ' + s + ' stroke-width="2"/>' +
+        '<path d="M194 210 Q200 204 206 210" ' + s + ' stroke-width="1.2"/>' +
+        /* thankful people — simple glad smiles */
+        person(88, 218, 8, 22) +
+        '<path d="M82 208 Q88 212 94 208" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(312, 218, 8, 22) +
+        '<path d="M306 208 Q312 212 318 208" ' + s + ' stroke-width="1" fill="none"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kgs 8:11</text>'
       ),
 

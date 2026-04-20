@@ -17,7 +17,7 @@
  * David's sadness and prayer (Absalom, gentle): read-quiz-absalom-rebellion-pack.cjs (key absalomRebellion).
  * Solomon asks God for a wise heart (gentle): read-quiz-solomon-wisdom-pack.cjs (key solomonWisdom).
  * Solomon and the two mothers: read-quiz-solomon-two-mothers-pack.cjs (key solomonTwoMothers).
- * Solomon builds the temple: read-quiz-solomon-temple-pack.cjs (key solomonTemple).
+ * Solomon builds God’s house (gentle): read-quiz-solomon-temple-pack.cjs (key solomonTemple).
  * Elijah and the ravens: read-quiz-elijah-ravens-pack.cjs (key elijahRavens).
  * Elijah and the widow of Zarephath: read-quiz-elijah-widow-pack.cjs (key elijahWidow).
  * Elijah and the fire on Mount Carmel: read-quiz-elijah-fire-carmel-pack.cjs (key elijahFire).

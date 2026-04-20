@@ -26254,38 +26254,33 @@
   "solomonTemple": {
     "kjvRef": "1 Kings 6:1-14; 8:1-13, 22-30 (KJV)",
     "verseExcerpt": "And it came to pass, when the priests were come out of the holy place, that the cloud filled the house of the LORD, So that the priests could not stand to minister because of the cloud: for the glory of the LORD had filled the house of the LORD. — 1 Kings 8:10-11 (KJV)",
-    "readAlongTitle": "Read along",
-    "quizWrongHumilityHint": "God's glory is greater than any building — yet He hears prayer offered in faith.",
-    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongTitle": "Solomon Builds God's House",
+    "quizWrongHumilityHint": "God’s glory is wonderful — He loves when we worship Him with glad, thankful hearts.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "readAlongSections": [
       {
-        "text": "And it came to pass in the four hundred and eightieth year after the children of Israel were come out of the land of Egypt, in the fourth year of Solomon's reign over Israel, in the month Zif, which is the second month, that he began to build the house of the LORD. And the house which king Solomon built for the LORD, the length thereof was threescore cubits, and the breadth thereof twenty cubits, and the height thereof thirty cubits.",
-        "caption": "Solomon began to build the house of the LORD",
-        "image": "panel-noah-1.svg"
-      },
-      {
-        "text": "So he built the house, and finished it; and covered the house with beams and boards of cedar. And then he built chambers against all the house, five cubits high: and they rested on the house with timber of cedar.",
-        "caption": "Cedar — the house finished with care",
+        "text": "And it came to pass in the four hundred and eightieth year after the children of Israel were come out of the land of Egypt, in the fourth year of Solomon's reign over Israel, in the month Zif, which is the second month, that he began to build the house of the LORD. So Solomon built the house, and finished it; and covered the house with beams and boards of cedar.",
+        "caption": "Solomon built the house of the LORD — and finished it",
         "image": "panel-noah-1.svg"
       },
       {
         "text": "And the word of the LORD came to Solomon, saying, Concerning this house which thou art in building, if thou wilt walk in my statutes, and execute my judgments, and keep all my commandments to walk in them; then will I perform my word with thee, which I spake unto David thy father: And I will dwell among the children of Israel, and will not forsake my people Israel.",
-        "caption": "The word of the LORD — I will dwell among Israel",
+        "caption": "The Lord promised to dwell among His people",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And King Solomon, and all the congregation of Israel, that were assembled unto him, were with him before the ark, sacrificing sheep and oxen, that could not be told nor numbered for multitude. And the priests brought in the ark of the covenant of the LORD unto his place, into the oracle of the house, to the most holy place, even under the wings of the cherubims.",
+        "caption": "Glad offerings — the ark brought into the most holy place",
         "image": "panel-noah-2.svg"
       },
       {
-        "text": "So Solomon built the house, and finished it.",
-        "caption": "So Solomon built the house, and finished it",
+        "text": "And it came to pass, when the priests were come out of the holy place, that the cloud filled the house of the LORD, So that the priests could not stand to minister because of the cloud: for the glory of the LORD had filled the house of the LORD.",
+        "caption": "A cloud filled the house — the glory of the LORD",
         "image": "panel-noah-2.svg"
       },
       {
-        "text": "Then Solomon assembled the elders of Israel, and all the heads of the tribes, the chief of the fathers of the children of Israel, unto king Solomon in Jerusalem, that they might bring up the ark of the covenant of the LORD out of the city of David, which is Zion. And all the elders of Israel came, and the priests took up the ark. And the priests brought in the ark of the covenant of the LORD unto his place, into the oracle of the house, to the most holy place, even under the wings of the cherubims.",
-        "caption": "They brought up the ark into the most holy place",
-        "image": "panel-noah-2.svg"
-      },
-      {
-        "text": "And it came to pass, when the priests were come out of the holy place, that the cloud filled the house of the LORD, So that the priests could not stand to minister because of the cloud: for the glory of the LORD had filled the house of the LORD. Then spake Solomon, The LORD said that he would dwell in the thick darkness. I have surely built thee an house to dwell in, a settled place for thee to abide in for ever.",
-        "caption": "The cloud — the glory of the LORD filled the house",
+        "text": "Then spake Solomon, The LORD said that he would dwell in the thick darkness. I have surely built thee an house to dwell in, a settled place for thee to abide in for ever.",
+        "caption": "Solomon spoke — the Lord would dwell there",
         "image": "panel-noah-3.svg"
       },
       {
@@ -26294,35 +26289,30 @@
         "image": "panel-noah-3.svg"
       },
       {
-        "text": "But will God indeed dwell on the earth? behold, the heaven and heaven of heavens cannot contain thee; how much less this house that I have builded? Yet have thou respect unto the prayer of thy servant, and to his supplication, O LORD my God, to hearken unto the cry and to the prayer, which thy servant prayeth before thee to day:",
-        "caption": "Heaven cannot contain thee — yet hear thy servant",
-        "image": "panel-noah-3.svg"
-      },
-      {
-        "text": "That thine eyes may be open toward this house night and day, even toward the place of which thou hast said, My name shall be there: that thou mayest hearken unto the prayer which thy servant shall make toward this place. And hearken thou to the supplication of thy servant, and of thy people Israel, when they shall pray toward this place: and hear thou in heaven thy dwelling place: and when thou hearest, forgive.",
-        "caption": "Thine eyes toward this house — when thou hearest, forgive",
+        "text": "But will God indeed dwell on the earth? behold, the heaven and heaven of heavens cannot contain thee; how much less this house that I have builded? Yet have thou respect unto the prayer of thy servant, and to his supplication, O LORD my God, to hearken unto the cry and to the prayer, which thy servant prayeth before thee to day: That thine eyes may be open toward this house night and day, even toward the place of which thou hast said, My name shall be there: that thou mayest hearken unto the prayer which thy servant shall make toward this place.",
+        "caption": "Hear us, O Lord — thine eyes toward this house",
         "image": "panel-noah-3.svg"
       }
     ],
     "paragraphs": [
-      "Solomon began to build the house of the Lord in Jerusalem. For seven years the workers carefully built the Temple with cedar wood and great care. Everything was done as the Lord commanded.",
-      "When the Temple was finished, Solomon gathered the elders and the priests. They brought the ark of the covenant into the most holy place.",
-      "Then a cloud filled the house of the Lord, and the glory of the Lord filled the Temple so that the priests could not stand to minister.",
-      "Solomon stood before the altar and prayed: O Lord God of Israel, there is no God like thee… Behold, the heaven and heaven of heavens cannot contain thee; how much less this house that I have builded! Yet have thou respect unto the prayer of thy servant… that thine eyes may be open toward this house night and day.",
-      "For you: God is too great for any roof — and still He bends to hear His people when they pray."
+      "Solomon decided to build a beautiful house for the Lord.",
+      "The people brought glad gifts of gold, silver, and cedar wood. They worked with joy, and the temple was finished.",
+      "When the priests brought the ark into the most holy place, a cloud filled the house so that the priests could not stand to minister. The glory of the Lord filled the temple.",
+      "Solomon prayed and said, The Lord hath said that he would dwell in the thick darkness.",
+      "The people rejoiced and praised God because He had come to live among them in His house. The Lord showed His people that He is pleased when we build and worship Him with glad hearts."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Who began to build the house of the LORD?",
+        "question": "Who built the house of the LORD in this story?",
         "choices": [
-          "David only.",
+          "Samuel only.",
           "King Solomon.",
-          "Samuel.",
-          "Goliath."
+          "Goliath.",
+          "Jonah."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Solomon built it for the LORD.",
+        "correctFeedback": "Solomon built it for the Lord.",
         "wrongFeedback": "Listen for Solomon. (Answer: King Solomon.)"
       },
       {
@@ -26334,7 +26324,7 @@
           "Nothing."
         ],
         "correctIndex": 1,
-        "correctFeedback": "The ark — God's covenant reminder.",
+        "correctFeedback": "The ark — into the place God chose.",
         "wrongFeedback": "Listen for ark. (Answer: The ark of the covenant of the LORD.)"
       },
       {
@@ -26346,40 +26336,40 @@
           "Darkness only."
         ],
         "correctIndex": 1,
-        "correctFeedback": "God's glory — so full the priests could not stand to minister.",
+        "correctFeedback": "God’s glory — so full the priests could not stand to minister.",
         "wrongFeedback": "Listen for cloud and glory. (Answer: The cloud… the glory of the LORD.)"
       },
       {
-        "question": "What did Solomon say about God compared to the Temple?",
+        "question": "What did Solomon say God had spoken about dwelling?",
         "choices": [
-          "God is smaller than the Temple.",
-          "The heaven and heaven of heavens cannot contain thee; how much less this house that I have builded?",
-          "The Temple holds all of God.",
-          "He did not speak of it."
+          "God would never come near.",
+          "The LORD said that he would dwell in the thick darkness.",
+          "God only stays far away in the stars.",
+          "He did not say."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Humble truth — God is greater than any building.",
-        "wrongFeedback": "Listen for cannot contain thee. (Answer: …how much less this house….)"
+        "correctFeedback": "True — holy, close, and full of wonder.",
+        "wrongFeedback": "Listen for thick darkness. (Answer: …dwell in the thick darkness.)"
       },
       {
-        "question": "What did Solomon ask God to do toward this house?",
+        "question": "How did Solomon begin his prayer to the LORD?",
         "choices": [
-          "Forget it.",
-          "That thine eyes may be open toward this house night and day… and when thou hearest, forgive.",
-          "Close the doors forever.",
-          "Send only thunder."
+          "LORD God of Israel, there is no God like thee…",
+          "Run away quickly.",
+          "The Temple is too small to matter.",
+          "He did not pray."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Open eyes, listening ears, forgiving heart.",
-        "wrongFeedback": "Listen for eyes open and forgive. (Answer: …eyes may be open… when thou hearest, forgive.)"
+        "correctIndex": 0,
+        "correctFeedback": "He praised God first — there is no God like thee.",
+        "wrongFeedback": "Listen for there is no God like thee. (Answer: LORD God of Israel, there is no God like thee….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Thankful worship today — God hears when His people pray.",
-    "takeaway": "The Temple was beautiful — yet God's glory was greater still. He promised to hear prayer offered toward that place.",
-    "prayer": "Lord, You are greater than heaven — thank You that You hear us when we pray. Amen.",
+    "doneMessage": "Thankful worship today — God is pleased when we come to Him with glad hearts.",
+    "takeaway": "God’s glory filled the house Solomon built — a wonder-filled sign that the Lord is near when His people worship Him.",
+    "prayer": "Lord, You are great — thank You that You hear us when we pray. Help us worship You with glad hearts. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art young children bold thick outlines Temple of the Lord Jerusalem doors open soft cloud of glory visible inside Solomon standing outside hands raised in prayer awe thankful face gentle hills sky minimal wonder holy mood thick pillars plenty white space ages 3-8 coloring page",
+      "Simple peaceful black-and-white line-art for young children: finished temple with open doors wide and soft glory cloud inside with gentle puffy cloud lines; Solomon standing with hands raised in prayer; a few thankful people nearby with simple joyful faces; thick bold outlines large open spaces on Solomon robe temple doors cloud and ground; soft hills and sky minimal lines; wonder-filled worshipful mood; no tools or construction workers; plenty of white space ages 3-8 coloring page",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The house of the LORD",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The ark brought in",
       "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The glory filled the house",

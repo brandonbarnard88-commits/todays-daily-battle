@@ -32,7 +32,7 @@
  * Elisha and the floating axe (gentle — iron swims): read-quiz-elisha-floating-axe-pack.cjs (key elishaFloatingAxe).
  * Elisha and the chariots of fire (gentle — God’s army protects): read-quiz-elisha-chariots-pack.cjs (key elishaChariots).
  * Elisha and the poisoned stew (meal heals the pot): read-quiz-elisha-poison-stew-pack.cjs (key elishaPoisonStew).
- * Elisha and the blind Syrian army (Samaria): read-quiz-elisha-blind-army-pack.cjs (key elishaBlindArmy).
+ * Elisha and the blind Syrian army (gentle — kindness): read-quiz-elisha-blind-army-pack.cjs (key elishaBlindArmy).
  * Shunammite woman’s land restored: read-quiz-shunammite-return-pack.cjs (key shunammiteReturn).
  * Samaria siege / God feeds His people: read-quiz-samaria-siege-pack.cjs (key samariaSiege).
  * Elisha's last words to Joash: read-quiz-elisha-final-pack.cjs (key elishaFinal).

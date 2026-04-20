@@ -4177,17 +4177,18 @@
         "Elisha and the Poisoned Stew — 2 Kings 4:38-41. At Gilgal, in a dearth, Elisha said, Set on the great pot, and seethe pottage for the sons of the prophets. Wild gourds were shred into the pot — they knew them not. As they ate, they cried, O thou man of God, there is death in the pot. Elisha said, Then bring meal. He cast it into the pot — Pour out for the people, that they may eat. And there was no harm in the pot. For you: Bring your worry to God — He can restore what feels spoiled."
     },
     elishaBlindArmy: {
-      title: 'Elisha and the Blind Syrian Army',
+      title: 'God Protects Elisha with Kindness',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Elisha prays — the Lord smites the army with blindness' },
-        { src: 'panel-jesus-2.svg', alt: 'Follow me — he led them to Samaria; their eyes were opened' },
-        { src: 'panel-jesus-3.svg', alt: 'Bread and water — they ate and drank, and went in peace' }
+        { src: 'panel-jesus-1.svg', alt: 'Elisha prays — the Lord keeps them safe with blindness' },
+        { src: 'panel-jesus-2.svg', alt: 'Follow me — to Samaria; Lord, open their eyes' },
+        { src: 'panel-jesus-3.svg', alt: 'Bread and water — a feast of kindness, then peace' }
       ],
-      caption: 'Swipe to see mercy — bread and water instead of fighting.',
+      caption: 'Swipe for Samaria — God protected Elisha; kindness instead of fighting.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elisha',
+        'god protects elisha with kindness',
         'blind syrian',
         'syrian army',
         'blindness',
@@ -4200,17 +4201,18 @@
         'bread and water',
         'thou shalt not smite',
         'great provision',
-        'dothan'
+        'dothan',
+        'kindness'
       ],
       kjvRef: '2 Kings 6:18-23',
       kidContext: {
         who: 'The LORD',
         to: 'Elisha, the king of Israel, and the Syrian army',
         apply:
-          'God can protect His servants and show mercy — even kindness to those who came as enemies.'
+          'God protects His servants and can show mercy to others — even a feast instead of a fight.'
       },
       narration:
-        "Elisha and the Blind Syrian Army — 2 Kings 6:18-23. When they came down to him, Elisha prayed, Smite this people, I pray thee, with blindness — and the Lord smote them according to the word of Elisha. Elisha said, Follow me — and he led them to Samaria. Then, Lord, open the eyes of these men — and they saw they were in the midst of Samaria. The king asked, Shall I smite them? Elisha said, Thou shalt not smite them: set bread and water before them. They ate and drank, and went to their master — and the bands of Syria came no more into the land of Israel. For you: Mercy can go farther than fear expects."
+        "God Protects Elisha with Kindness — 2 Kings 6:18-23. The Syrian army came to take Elisha. Elisha prayed, Lord, smite this people with blindness — and the Lord smote them with blindness. Elisha said, Follow me — and he led them safely to Samaria. Then he prayed, Lord, open the eyes of these men — and they saw they were in the midst of Samaria. The king asked, Shall I smite them? Elisha said, Thou shalt not smite them — set bread and water before them. They ate and drank, and went to their master. For you: The Lord showed mercy through kindness — He can turn enemies toward peace."
     },
     elishaBones: {
       title: 'God\'s Power Even in Elisha\'s Bones',

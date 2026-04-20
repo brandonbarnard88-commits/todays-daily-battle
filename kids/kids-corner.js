@@ -1015,23 +1015,33 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:17</text>'
       ),
 
-      /* Blind Syrian army — 2 Kings 6:18-23 (prayer, Samaria, bread and water) */
+      /* Blind Syrian army — Elisha praying, soldiers eyes gently closed, open Samaria (2 Kings 6:18-23) */
       elishaBlindArmy: svg(
         ground() + hills() +
-        sun(48, 44, 18) + cloud(300, 34) +
-        /* city gates in distance */
-        '<rect x="300" y="168" width="72" height="52" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M316 168 L316 148 Q334 138 352 148 L352 168" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M324 200 L324 220 M340 200 L340 220" ' + s + ' stroke-width="2"/>' +
-        '<path d="M60 258 Q200 228 340 258" ' + s + ' stroke-width="2" stroke-dasharray="6,4"/>' +
-        person(160, 158, 11, 32) +
-        '<path d="M152 168 L148 152 M168 168 L172 152" ' + s + ' stroke-width="2"/>' +
-        person(220, 162, 10, 28) +
-        '<path d="M220 148 Q228 152 232 158" ' + s + ' stroke-width="1.8"/>' +
-        '<path d="M208 158 L212 162 M232 158 L228 162" ' + s + ' stroke-width="1.5"/>' +
-        person(252, 164, 10, 28) +
-        '<path d="M252 150 Q260 154 264 160" ' + s + ' stroke-width="1.8"/>' +
-        '<path d="M240 160 L244 164 M264 160 L260 164" ' + s + ' stroke-width="1.5"/>' +
+        sun(48, 42, 16) + cloud(292, 34) + cloud(72, 40) +
+        /* Samaria — open gates */
+        '<rect x="288" y="162" width="88" height="58" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M308 162 L308 138 Q332 128 356 138 L356 162" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M318 200 L318 218 M332 200 L332 218 M346 200 L346 218" ' + s + ' stroke-width="2"/>' +
+        '<path d="M52 258 Q200 232 348 258" ' + s + ' stroke-width="2" stroke-dasharray="6,4"/>' +
+        /* Elisha — hands raised in prayer */
+        person(148, 154, 11, 30) +
+        '<line x1="148" y1="176" x2="132" y2="148" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="148" y1="176" x2="164" y2="148" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M142 160 Q148 164 154 160" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        /* soldiers — calm faces, closed eyes (gentle lines) */
+        person(212, 160, 10, 28) +
+        '<line x1="206" y1="168" x2="218" y2="168" ' + s + ' stroke-width="1.3"/>' +
+        '<path d="M206 174 Q212 176 218 174" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(244, 162, 10, 28) +
+        '<line x1="238" y1="170" x2="250" y2="170" ' + s + ' stroke-width="1.3"/>' +
+        '<path d="M238 176 Q244 178 250 176" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(276, 160, 10, 28) +
+        '<line x1="270" y1="168" x2="282" y2="168" ' + s + ' stroke-width="1.3"/>' +
+        '<path d="M270 174 Q276 176 282 174" ' + s + ' stroke-width="1" fill="none"/>' +
+        /* hint of feast — simple plates, no weapons */
+        '<ellipse cx="118" cy="258" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="158" cy="258" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:22</text>'
       ),
 

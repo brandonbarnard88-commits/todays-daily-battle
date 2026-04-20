@@ -4531,12 +4531,13 @@ function buildFieryFurnaceReadQuiz() {
     paragraphs: [
       'The king of Babylon made a big golden image and commanded everyone to bow down and worship it when they heard the music.',
       'Shadrach, Meshach, and Abednego would not bow down.',
-      'They told the king, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.',
-      'The king was very angry and commanded the furnace to be heated seven times hotter. The three men were thrown into the burning fiery furnace.',
-      'The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.',
+      'They told the king, "Our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up."',
+      'The king was very angry and commanded the furnace to be heated seven times hotter.',
+      'The three men were thrown into the burning fiery furnace.',
+      'The king looked and said, "Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God."',
       'The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them.',
-      'The LORD walked with His servants in the fire and kept them safe because they trusted Him.',
-      'Reference: Daniel 3:1–30 (KJV).'
+      'The Lord walked with His servants in the fire and kept them safe because they trusted Him.',
+      'Reference: Daniel 3:1–30 (KJV) — gentle summary for little hearts.'
     ],
     readAlongSections: [
       {
@@ -4550,7 +4551,7 @@ function buildFieryFurnaceReadQuiz() {
         image: 'panel-daniel-1.svg'
       },
       {
-        text: 'They said, Our God whom we serve is able to deliver us.',
+        text: 'They said, "Our God is able to deliver us."',
         caption: 'Our God is able to deliver us',
         image: 'panel-daniel-2.svg'
       },
@@ -4643,7 +4644,7 @@ function buildFieryFurnaceReadQuiz() {
     prayer:
       'Lord, thank You that You never leave us. Help us trust You and obey. Amen.',
     imagePrompts: [
-      'Simple peaceful black-and-white line-art for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them the fire shown as soft gentle flames around them the men have peaceful trusting faces thick bold outlines large open spaces on the men\'s robes the fourth figure the flames and the ground soft furnace walls with minimal lines trusting safe mood focus God walking with His servants in the fire clean minimal no fear no burning plenty of white space ages 3–8 coloring page',
+      'Simple peaceful black-and-white line-art scene for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them soft gentle flames around them peaceful trusting faces thick bold outlines large open spaces on the men\'s robes the fourth figure the flames and the ground soft furnace walls with minimal lines trusting safe mood focus God walking with His servants in the fire clean minimal no fear or burning plenty of white space age-appropriate coloring page',
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow (shadrach)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace — seven times hotter (daniel 3)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — Son of God (angel)",

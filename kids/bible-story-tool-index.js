@@ -598,13 +598,13 @@
   },
   {
     "key": "ezraReturn",
-    "title": "Ezra Return",
-    "kjvRef": "Ezra 1–10; Nehemiah 8–9",
+    "title": "The Return from Exile",
+    "kjvRef": "Ezra 1:1–11; 3:1–6",
     "who": "God",
     "to": "His people",
-    "apply": "God still brings people home to Himself. His Word shows us how to walk with Him again.",
+    "apply": "Even after long years away, God remembers you. You can come to Him with thanks and praise.",
     "theme": "Obedience",
-    "kw": "ezra cyrus exile return temple ezra 1 law jerusalem persia"
+    "kw": "ezra cyrus exile return temple ezra 1 ezra 3 altar jerusalem persia worship thanks"
   },
   {
     "key": "faithMustard",

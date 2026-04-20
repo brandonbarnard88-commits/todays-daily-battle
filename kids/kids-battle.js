@@ -2549,18 +2549,18 @@
       kidContext: { who: 'God', to: 'Daniel', apply: 'Keep talking to God — He hears you and can hush every fear.' }
     },
     ezraReturn: {
-      title: 'Ezra Return',
+      title: 'The Return from Exile',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'King Cyrus\'s decree — God\'s people may go home' },
-        { src: 'panel-david-2.svg', alt: 'Ezra leads the people with gifts for the temple' },
-        { src: 'panel-david-3.svg', alt: 'The Law is read — hearts turn back to God' }
+        { src: 'panel-noah-1.svg', alt: 'Cyrus proclaims — God\'s people may go up to Jerusalem' },
+        { src: 'panel-noah-2.svg', alt: 'Many rise up with joy and go toward home' },
+        { src: 'panel-noah-3.svg', alt: 'The altar on its bases — thanks and praise to the Lord' }
       ],
-      caption: 'Swipe to see God bring His people home and back to His Word! 📜',
+      caption: 'Swipe to see God remember His people and bring them home to worship! 🏛️',
       videoId: '',
       videoTitle: '',
-      keywords: ['ezra', 'cyrus', 'exile', 'return', 'temple', 'ezra 1', 'law', 'jerusalem', 'persia'],
-      kjvRef: 'Ezra 1–10; Nehemiah 8–9',
-      kidContext: { who: 'God', to: 'His people', apply: 'God still brings people home to Himself. His Word shows us how to walk with Him again.' }
+      keywords: ['ezra', 'cyrus', 'exile', 'return', 'temple', 'ezra 1', 'ezra 3', 'altar', 'jerusalem', 'persia', 'worship'],
+      kjvRef: 'Ezra 1:1–11; 3:1–6',
+      kidContext: { who: 'God', to: 'His people', apply: 'Even after long years away, God remembers you. You can come to Him with thanks and praise.' }
     },
     malachiMessage: {
       title: 'Malachi\'s Message',

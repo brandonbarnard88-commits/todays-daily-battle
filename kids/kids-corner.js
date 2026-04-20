@@ -1119,6 +1119,36 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 4:17</text>'
       ),
 
+      /* ── Return from exile: Ezra 1 & 3 — thankful journey home ── */
+      ezraReturn: svg(
+        ground() +
+        hills() +
+        sun(48, 44, 18) +
+        '<path d="M20 255 Q200 228 380 255" ' +
+        s +
+        ' stroke-width="2.5" stroke-dasharray="5,4"/>' +
+        '<rect x="228" y="108" width="130" height="68" rx="6" ' +
+        sf +
+        ' fill="white" stroke-width="3"/>' +
+        '<path d="M248 176 L248 118 M268 176 L268 112 M288 176 L288 118 M308 176 L308 112" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<path d="M258 176 Q278 150 298 176" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        '<rect x="58" y="200" width="54" height="26" rx="4" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M68 196 L74 178 M85 196 L88 172 M100 196 L96 178" ' +
+        s +
+        ' stroke-width="1.5" stroke-dasharray="2,2"/>' +
+        person(138, 188, 10, 28) +
+        person(165, 185, 11, 32) +
+        person(192, 187, 10, 28) +
+        person(118, 192, 9, 24) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ezra 3:6</text>'
+      ),
+
       /* ── Week 4: Job Suffering (54) ── */
       jobSuffering: svg(
         ground() +
@@ -2637,7 +2667,7 @@
     ezekielValleyBones: 'elishaRaised',
     danielFieryFurnace: 'fieryFurnace',
     danielLionsDen: 'daniel',
-    ezraReturn: 'nehemiahWalls',
+    ezraReturn: 'ezraReturn',
     malachiMessage: 'tenCommandments',
     johnBaptist: 'johnBaptize',
     jonahVine: 'jonahVine',
@@ -3654,7 +3684,7 @@
     return /^\/media\/kids-stories\/[a-zA-Z0-9][a-zA-Z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(s);
   }
 
-  /** Optional loop-library poster: /assets/loops/{1–192}.png when shipped (read-quiz poster map). */
+  /** Optional loop-library poster: /assets/loops/{1–193}.png when shipped (read-quiz poster map). */
   function isSafeLoopPosterPath(src) {
     if (typeof src !== 'string') return false;
     var s = src.trim();
@@ -3664,7 +3694,7 @@
     var m = /^\/assets\/loops\/(\d{1,3})\.png$/i.exec(s);
     if (!m) return false;
     var n = parseInt(m[1], 10);
-    return n >= 1 && n <= 192;
+    return n >= 1 && n <= 193;
   }
 
   /** First comic panel from bibleStories (same files as the modal carousel). */
@@ -4088,7 +4118,7 @@
       if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
         var posters = window.TDB_READ_QUIZ_LOOP_POSTERS || {};
         var lid = posters[key];
-        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 192) {
+        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 193) {
           var posterPath = '/assets/loops/' + Math.floor(lid) + '.png';
           if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
         }

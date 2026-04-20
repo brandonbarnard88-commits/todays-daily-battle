@@ -88,7 +88,7 @@ Update this file by running: `npm run kids:generate-animation-queue`
 | ☐ | 66 | `euniceMother` | `eunice-mother.mp4` / `eunice-mother.vtt` | Eunice: A Faithful Mother |
 | ☐ | 67 | `everyKneeBow` | `every-knee-bow.mp4` / `every-knee-bow.vtt` | Every Knee Shall Bow |
 | ☐ | 68 | `ezekielValleyBones` | `ezekiel-valley-bones.mp4` / `ezekiel-valley-bones.vtt` | Valley of Dry Bones |
-| ☐ | 69 | `ezraReturn` | `ezra-return.mp4` / `ezra-return.vtt` | Ezra Return |
+| ☐ | 69 | `ezraReturn` | `ezra-return.mp4` / `ezra-return.vtt` | The Return from Exile |
 | ☐ | 70 | `faithMountain` | `faith-mountain.mp4` / `faith-mountain.vtt` | Faith That Moves Mountains |
 | ☐ | 71 | `faithMustard` | `faith-mustard.mp4` / `faith-mustard.vtt` | Faith Like a Mustard Seed |
 | ☐ | 72 | `fallOfJericho` | `fall-of-jericho.mp4` / `fall-of-jericho.vtt` | Fall of Jericho |

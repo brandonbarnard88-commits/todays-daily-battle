@@ -2,7 +2,7 @@
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
  * Keys match TDB_BIBLE_STORIES (282 stories).
  * Regenerate: npm run kids:generate-read-quiz
- * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath read-along sections).
+ * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath; Elisha bones; Ezra return read-along sections).
  *
  * Paragraph style: short beats for kids—split sentences, no generic filler lines.
  * Missing narration uses panel alts + apply only (faithful; no invented story beats).
@@ -5830,89 +5830,125 @@
     ]
   },
   "ezraReturn": {
-    "kjvRef": "Ezra 1–10; Nehemiah 8–9",
+    "kjvRef": "Ezra 1:1–11; 3:1–6",
+    "readAlongTitle": "Read along",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "Ezra Return (Ezra 1–10; Nehemiah 8–9).",
-      "King Cyrus's decree.",
-      "God's people may go home Ezra leads the people with gifts for the temple The Law is read.",
-      "hearts turn back to God God still brings people home to Himself.",
-      "His Word shows us how to walk with Him again."
+      "The Return from Exile (Ezra 1:1–11; 3:1–6).",
+      "The people of Israel had been far away from their land for many years.",
+      "But the Lord stirred the heart of Cyrus the king of Persia, and he made a proclamation: All the people of the Lord were free to go up to Jerusalem and build the house of the Lord God of Israel.",
+      "Many of the fathers’ houses, the priests, and the Levites rose up with joy and went to Jerusalem.",
+      "They set the altar upon its bases and offered burnt offerings unto the Lord, even though they were still a little afraid of the people around them.",
+      "Day by day they praised the Lord and gave thanks, because He had turned the heart of the king and brought them home.",
+      "The Lord showed His people that even after long years away, He remembers them and brings them back to worship Him."
+    ],
+    "readAlongSections": [
+      {
+        "text": "The people of Israel had been far away.",
+        "caption": "Long years",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "But the Lord stirred the heart of the king.",
+        "caption": "God moves the king",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king said, “You may go back to Jerusalem and build God’s house.”",
+        "caption": "Freedom to go home",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Many people rose up with joy and went home.",
+        "caption": "Joy on the way",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "They built the altar and offered thanks to the Lord.",
+        "caption": "Thankful worship",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "They praised God because He had brought them back.",
+        "caption": "For you",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:4–21",
-          "Ezra 1–10; Nehemiah 8–9",
-          "Acts 16:11–15",
-          "Acts 9:1–19"
+          "Psalm 119",
+          "Ezra 1:1–11; 3:1–6",
+          "Acts 1",
+          "Genesis 12"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Ezra 1–10; Nehemiah 8–9.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Ezra 1:1–11; 3:1–6.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The Lord",
-          "Mary",
           "God",
-          "Stephen"
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 0,
+        "correctFeedback": "Right—God stirred the king and brought His people home.",
+        "wrongFeedback": "Look for who turns the king's heart and remembers His people. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God never hears when kids pray.",
+          "God forgets His people when they are far away.",
           "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God still brings people home to Himself. His Word shows us how to walk with Him again."
+          "Even after long years away, God remembers His people and brings them home to worship Him.",
+          "We should never say thank you to God."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God still brings people home to Himself. His Word shows us how to walk with Him again..)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Even after long years away, God remembers His people and brings them home to worship Him.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "King Cyrus's decree — God's people may go home",
-          "A talking toaster became king of the city.",
+          "A spaceship landed in the parking lot.",
+          "They set the altar upon its bases and offered burnt offerings unto the Lord.",
           "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
+          "A talking toaster became king of the city."
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: They set the altar upon its bases and offered burnt offerings unto the Lord.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Never say sorry when we do wrong.",
-          "God still brings people home to Himself. His Word shows us how to walk with Him again.",
           "Ignore God until we are older.",
+          "Never say sorry when we do wrong.",
+          "Thank God that He remembers us and we can worship Him.",
           "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God still brings people home to Himself. His Word shows us how to walk with Him again..)"
+        "wrongFeedback": "Think: does this choice show trust and thankfulness to God? Pick the one that honors Him. (Answer: Thank God that He remembers us and we can worship Him.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Ezra Return with God's Word today.",
-    "takeaway": "God still brings people home to Himself. His Word shows us how to walk with Him again.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Ezra Return. Amen.",
+    "doneMessage": "Great job reading The Return from Exile with God's Word today.",
+    "takeaway": "Even after long years away, God remembers His people and brings them home to worship Him.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Return from Exile. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: King Cyrus's decree — God's people may go home (ezra)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ezra leads the people with gifts for the temple (cyrus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The Law is read — hearts turn back to God (exile)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: King Cyrus's decree — God's people may go home (return)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ezra leads the people with gifts for the temple (temple)"
-    ]
+      "Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: thankful people (fathers, priests, children) walking on a road toward Jerusalem, open city gates, simple altar with soft smoke rising, gentle hills, hopeful restoring mood, no text, no fear or sadness, plenty of white space",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Cyrus proclaims — God's people may go up to Jerusalem (ezra)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Many rise up with joy and go toward home (jerusalem)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The altar on its bases — thanks and praise to the Lord (altar)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Day by day they praised the Lord (ezra 3)"
+    ],
+    "readAlongImages": []
   },
   "faithMountain": {
     "kjvRef": "Matthew 17:20; Mark 11:23–24",
@@ -6438,7 +6474,7 @@
           "Galatians 5",
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
           "Hebrews 11",
-          "Ezra 1–10; Nehemiah 8–9"
+          "Ezra 1:1–11; 3:1–6"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12153,7 +12189,7 @@
         "choices": [
           "the Bible",
           "2 Kings 2:1–14",
-          "Ezra 1–10; Nehemiah 8–9",
+          "Ezra 1:1–11; 3:1–6",
           "Revelation 21"
         ],
         "correctIndex": 0,
@@ -17763,7 +17799,7 @@
           "Revelation 21",
           "John 2:1–11",
           "Matthew 7",
-          "Ezra 1–10; Nehemiah 8–9"
+          "Ezra 1:1–11; 3:1–6"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",

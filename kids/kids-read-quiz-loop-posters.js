@@ -69,7 +69,7 @@
     estherFast: 5,
     euniceMother: 142,
     everyKneeBow: 96,
-    ezraReturn: 51,
+    ezraReturn: 193,
     ezekielValleyBones: 49,
     faithMustard: 103,
     faithMountain: 103,

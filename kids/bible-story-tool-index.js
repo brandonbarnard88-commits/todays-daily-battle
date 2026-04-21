@@ -2447,6 +2447,16 @@
     "kw": "wise men magi star bethlehem mary jesus gold frankincense myrrh worship matthew 2 gifts baby jesus"
   },
   {
+    "key": "simeonAnna",
+    "title": "Simeon and Anna See the Promised Savior",
+    "kjvRef": "Luke 2:22–38",
+    "who": "God",
+    "to": "Simeon, Anna, and everyone who waits on Him",
+    "apply": "God keeps His promises — and brings joy when people see the Savior.",
+    "theme": "Love",
+    "kw": "simeon anna temple jerusalem baby jesus mary joseph salvation luke 2 promise praise prophetess"
+  },
+  {
     "key": "crossCarry",
     "title": "Simon Helps Carry the Cross",
     "kjvRef": "Luke 23",

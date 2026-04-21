@@ -133,7 +133,7 @@
     'jesusManger',
     'shepherdsStar',
     'wiseMen',
-    'annaProphet',
+    'simeonAnna',
     'jesusTemple',
     'johnBaptist',
     'jesusBaptism',

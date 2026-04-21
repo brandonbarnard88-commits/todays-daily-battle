@@ -4754,6 +4754,49 @@
       narration:
         "The Wise Men Follow the Star — Matthew 2:1–12. When Jesus was born in Bethlehem, wise men from the east saw his star in the east, and came to worship him. They asked, Where is he that is born King of the Jews? for we have seen his star in the east, and are come to worship him. The star went before them till it came and stood over where the young child was. When they saw the young child with Mary his mother, they fell down, and worshipped him: and when they had opened their treasures, they presented unto him gifts; gold, and frankincense, and myrrh. For you: God sent the star so they could find Jesus — people from far away can come to worship Him."
     },
+    simeonAnna: {
+      title: 'Simeon and Anna See the Promised Savior',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Mary and Joseph bring baby Jesus to the temple in Jerusalem'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Simeon takes baby Jesus in his arms — he had waited to see God’s salvation'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Anna praises God and speaks of the child — hearts full of joy'
+        }
+      ],
+      caption:
+        'Swipe to see Simeon and Anna rejoice — God kept His promise; they saw the promised Savior.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'simeon',
+        'anna',
+        'temple',
+        'jerusalem',
+        'baby jesus',
+        'mary',
+        'joseph',
+        'salvation',
+        'luke 2',
+        'promise',
+        'praise',
+        'worship'
+      ],
+      kjvRef: 'Luke 2:22–38',
+      kidContext: {
+        who: 'God',
+        to: 'Simeon, Anna, and everyone who waits on Him',
+        apply: 'God keeps His promises — and brings joy when people see the Savior.'
+      },
+      narration:
+        "Simeon and Anna See the Promised Savior — Luke 2:22–38. Mary and Joseph brought the baby to Jerusalem to present him to the Lord. The Holy Ghost had revealed to Simeon that he should not see death before he had seen the Lord’s Christ. He came by the Spirit into the temple — and when the parents brought in the child Jesus, Simeon took him up in his arms, and blessed God, and said, Lord, now lettest thou thy servant depart in peace… For mine eyes have seen thy salvation. Anna, a prophetess, was there too — she gave thanks likewise unto the Lord, and spake of him to all them that looked for redemption in Jerusalem. For you: God keeps His word — joy fills the heart when we see Jesus as Savior."
+    },
     jesusManger: {
       title: 'Baby Jesus in the Manger',
       panels: [
@@ -7231,7 +7274,7 @@
       'ezraReturn', 'malachiMessage',
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
-      'angelMary', 'shepherdsStar', 'wiseMen', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
+      'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
       'jesusBaptism', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
@@ -10383,7 +10426,7 @@
     ezraReturn: 'Obedience', malachiMessage: 'Love',
     jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
     /* Week 5 */
-    angelMary: 'Miracles', shepherdsStar: 'Love', wiseMen: 'Love', jesusManger: 'Love', jesusTemple: 'Obedience',
+    angelMary: 'Miracles', shepherdsStar: 'Love', wiseMen: 'Love', simeonAnna: 'Love', jesusManger: 'Love', jesusTemple: 'Obedience',
     johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Obedience', jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',

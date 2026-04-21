@@ -52,6 +52,7 @@
  * Jesus born in Bethlehem (Luke 2:1–20, gentle): buildJesusBirthReadQuiz().
  * Shepherds & angels — finding Jesus (Luke 2:8–20, gentle): buildShepherdsStarReadQuiz() (library key: shepherdsStar).
  * Wise men — star, gifts, worship (Matthew 2:1–12, gentle): buildWiseMenReadQuiz() (library key: wiseMen).
+ * Simeon & Anna — temple presentation (Luke 2:22–38, gentle): buildSimeonAnnaReadQuiz() (library key: simeonAnna).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -5993,6 +5994,129 @@ function buildWiseMenReadQuiz() {
   };
 }
 
+/** Simeon and Anna — promised Savior in the temple (gentle). Library key: simeonAnna */
+function buildSimeonAnnaReadQuiz() {
+  return {
+    kjvRef: 'Luke 2:22–38 (KJV)',
+    verseExcerpt:
+      'Lord, now lettest thou thy servant depart in peace… For mine eyes have seen thy salvation. — Luke 2:29–30 (KJV)',
+    readAlongTitle: 'Simeon and Anna See the Promised Savior',
+    quizWrongHumilityHint:
+      'Listen again — brought to the temple; Simeon’s promise; took Jesus in his arms; praised God; Anna thanked God and spoke of Him; joy to see the Savior.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Mary and Joseph brought baby Jesus to the temple in Jerusalem.',
+      'There was an old man named Simeon who loved God very much.',
+      'God had promised Simeon he would see the Savior before he died.',
+      'When Simeon saw baby Jesus, he took Him in his arms and praised God.',
+      'He said, “Lord, now lettest thou thy servant depart in peace… for mine eyes have seen thy salvation.”',
+      'There was also an old woman named Anna who served God in the temple.',
+      'She came and thanked God for the baby and told everyone about Him.',
+      'Simeon and Anna were so happy to see the promised Savior.',
+      'Reference: Luke 2:22–38 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Mary and Joseph brought baby Jesus to the temple.',
+        caption: 'At the temple',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Simeon saw the baby and took Him in his arms.',
+        caption: 'In his arms',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Simeon praised God and said he had seen the Savior.',
+        caption: 'God’s promise',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Anna thanked God for the baby.',
+        caption: 'Thankful heart',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They were so happy to see the promised Savior.',
+        caption: 'Great joy',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Luke 2:22–38', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 2:22–38.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'Pharaoh', 'Goliath', 'Samson'],
+        correctIndex: 0,
+        correctFeedback: 'Right—God kept His word to Simeon and met Anna’s waiting heart in the temple.',
+        wrongFeedback:
+          'Look for who keeps promises and showed them the Savior. (Answer: God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God forgets what He promises.',
+          'God keeps His promises — and brings joy when people see the Savior.',
+          'The temple was only for grown-ups who never smiled.',
+          'Praying is a waste of time.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the last paragraphs slowly. Which option matches Simeon and Anna? (Answer: God keeps His promises — and brings joy when people see the Savior.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'They rolled a chocolate wheel across the temple floor.',
+          'They presented him to the Lord — and Simeon took him up in his arms.',
+          'Let us rise up and build.',
+          'Everyone forgot how to walk.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the picture or paragraphs you read? (Answer: They presented him to the Lord — and Simeon took him up in his arms.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Thank God for Jesus — talk to Him quietly like Simeon and Anna did.',
+          'Never say sorry when we do wrong.',
+          'Only pray when we feel perfect.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust in God’s promises? Pick the one that honors Him. (Answer: Thank God for Jesus — talk to Him quietly like Simeon and Anna did.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Simeon and Anna See the Promised Savior with God's Word today.",
+    takeaway: 'God keeps His promises — and brings joy when people see the Savior.',
+    prayer:
+      'Lord, thank You that we can see Jesus in Your Word. Help us trust You and praise You like Simeon and Anna. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Old Simeon gently holding baby Jesus in his arms with a happy thankful face Mary and Joseph stand nearby old Anna stands close with her hands raised in praise thick bold outlines with large open spaces on Simeon\'s robe baby Jesus\' cloths and the temple floor for easy coloring soft temple walls and gentle light from above with minimal lines joyful and thankful mood focus on Simeon and Anna seeing the promised Savior clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Baby Jesus brought to the temple (temple)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Simeon holds Jesus with joy (Simeon)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Simeon praises God (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Anna thanks God with a glad heart (Anna)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Happy to see the Savior (joy)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -6089,5 +6213,6 @@ module.exports = {
   jesusBirth: buildJesusBirthReadQuiz(),
   shepherdsStar: buildShepherdsStarReadQuiz(),
   wiseMen: buildWiseMenReadQuiz(),
+  simeonAnna: buildSimeonAnnaReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

@@ -154,6 +154,7 @@
   "samuelCalls": "samuelCall",
   "shepherdsStar": "shepherdsStar",
   "wiseMen": "wiseMen",
+  "simeonAnna": "simeonAnna",
   "shunammiteReturn": "shunammiteReturn",
   "solomonTemple": "solomonTemple",
   "solomonTwoMothers": "solomonTwoMothers",

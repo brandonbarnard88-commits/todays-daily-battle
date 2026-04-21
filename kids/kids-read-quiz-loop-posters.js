@@ -21,6 +21,7 @@
     isaiahMessianic: 61,
     jeremiahWeeping: 129,
     annaProphet: 133,
+    simeonAnna: 65,
     armorBelt: 97,
     armorOfGod: 97,
     armorShield: 98,

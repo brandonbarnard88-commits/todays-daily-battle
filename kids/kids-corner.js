@@ -140,7 +140,8 @@
       mosesBaby: 'baby-moses',
       creation: 'creation',
       goodSamaritan: 'good-samaritan',
-      wiseMen: 'jesus-children'
+      wiseMen: 'jesus-children',
+      simeonAnna: 'jesus-children'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -2683,6 +2684,28 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 2:1–12</text>'
       ),
 
+      /* ── Simeon & Anna — temple, arms, praise (Luke 2:22–38) ── */
+      simeonAnna: svg(
+        ground() +
+        '<rect x="70" y="72" width="260" height="188" rx="4" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<line x1="92" y1="72" x2="92" y2="260" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="308" y1="72" x2="308" y2="260" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M70 72 L200 50 L330 72" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<ellipse cx="200" cy="58" rx="56" ry="9" ' + sf + ' fill="white" stroke-width="1" opacity="0.42"/>' +
+        '<line x1="200" y1="67" x2="200" y2="128" ' + s + ' stroke-width="0.42" opacity="0.2"/>' +
+        '<line x1="175" y1="72" x2="168" y2="118" ' + s + ' stroke-width="0.38" opacity="0.18"/>' +
+        '<line x1="225" y1="72" x2="232" y2="118" ' + s + ' stroke-width="0.38" opacity="0.18"/>' +
+        person(102, 174, 9, 24) +
+        person(258, 174, 9, 24) +
+        person(172, 154, 11, 24) +
+        '<circle cx="204" cy="178" r="7" ' + sf + ' fill="white" stroke-width="1.9"/>' +
+        '<path d="M184 182 Q198 170 214 182" ' + s + ' stroke-width="1.8"/>' +
+        person(318, 166, 8, 20) +
+        '<line x1="306" y1="176" x2="292" y2="138" ' + s + ' stroke-width="2"/>' +
+        '<line x1="330" y1="176" x2="344" y2="138" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:22–38</text>'
+      ),
+
       /* ── Week 5: Jesus Manger (63) ── */
       jesusManger: svg(
         ground() +
@@ -4226,6 +4249,7 @@
     angelMary: 'angelMary',
     shepherdsStar: 'shepherdsStar',
     wiseMen: 'wiseMen',
+    simeonAnna: 'simeonAnna',
     jesusManger: 'jesusManger',
     jesusBirth: 'jesusBirth',
     jesusTemple: 'jesusTemple',

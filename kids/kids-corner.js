@@ -141,7 +141,8 @@
       creation: 'creation',
       goodSamaritan: 'good-samaritan',
       wiseMen: 'jesus-children',
-      simeonAnna: 'jesus-children'
+      simeonAnna: 'jesus-children',
+      jesusTemple: 'jesus-children'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -2739,22 +2740,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:1–20</text>'
       ),
 
-      /* ── Week 5: Jesus Temple (64) ── */
+      /* ── Boy Jesus — temple, teachers, soft light (Luke 2:41–52) ── */
       jesusTemple: svg(
         ground() +
-        '<rect x="70" y="80" width="260" height="180" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<line x1="90" y1="80" x2="90" y2="260" ' + s + ' stroke-width="3"/>' +
-        '<line x1="310" y1="80" x2="310" y2="260" ' + s + ' stroke-width="3"/>' +
-        '<path d="M70 80 L200 40 L330 80" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<line x1="110" y1="80" x2="110" y2="260" ' + s + ' stroke-width="2"/>' +
-        '<line x1="150" y1="80" x2="150" y2="260" ' + s + ' stroke-width="2"/>' +
-        '<line x1="250" y1="80" x2="250" y2="260" ' + s + ' stroke-width="2"/>' +
-        '<line x1="290" y1="80" x2="290" y2="260" ' + s + ' stroke-width="2"/>' +
-        person(200, 155, 11, 32) +
-        person(130, 168, 12, 35) + person(158, 172, 11, 32) +
-        person(248, 168, 12, 35) + person(272, 172, 11, 32) +
-        sun(335, 48, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:46</text>'
+        '<rect x="68" y="70" width="264" height="192" rx="4" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<line x1="88" y1="70" x2="88" y2="262" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="312" y1="70" x2="312" y2="262" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M68 70 L200 48 L332 70" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<line x1="128" y1="70" x2="128" y2="262" ' + s + ' stroke-width="1.6" opacity="0.65"/>' +
+        '<line x1="168" y1="70" x2="168" y2="262" ' + s + ' stroke-width="1.6" opacity="0.65"/>' +
+        '<line x1="232" y1="70" x2="232" y2="262" ' + s + ' stroke-width="1.6" opacity="0.65"/>' +
+        '<line x1="272" y1="70" x2="272" y2="262" ' + s + ' stroke-width="1.6" opacity="0.65"/>' +
+        '<ellipse cx="200" cy="56" rx="62" ry="10" ' + sf + ' fill="white" stroke-width="1" opacity="0.4"/>' +
+        '<line x1="200" y1="66" x2="200" y2="138" ' + s + ' stroke-width="0.4" opacity="0.2"/>' +
+        '<line x1="175" y1="70" x2="168" y2="120" ' + s + ' stroke-width="0.35" opacity="0.16"/>' +
+        '<line x1="225" y1="70" x2="232" y2="120" ' + s + ' stroke-width="0.35" opacity="0.16"/>' +
+        person(118, 168, 11, 30) +
+        person(282, 168, 11, 30) +
+        person(200, 158, 10, 26) +
+        person(158, 172, 10, 26) +
+        person(242, 172, 10, 26) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:41–52</text>'
       ),
 
       /* ── Week 5: John Baptize (65) ── */

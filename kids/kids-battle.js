@@ -4812,18 +4812,47 @@
       kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came for you! God\'s greatest gift is His Son.' }
     },
     jesusTemple: {
-      title: 'Jesus Teaches in the Temple',
+      title: 'Jesus Goes to His Father’s House',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary and Joseph lose track of Jesus' },
-        { src: 'panel-noah-2.svg', alt: 'They find Him in the temple—teaching elders!' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says: I must be about my Father\'s business' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Mary and Joseph travel to Jerusalem for Passover — later they seek Jesus for three days'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They find boy Jesus in the temple — sitting with the teachers, listening and asking questions'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus says He must be about His Father’s business — then He goes home with them in obedience'
+        }
       ],
-      caption: 'Swipe to see Jesus in the temple—even as a kid! 📖',
+      caption:
+        'Swipe to see boy Jesus in the temple — listening, asking, and loving His Father’s house.',
       videoId: '',
       videoTitle: '',
-      keywords: ['jesus', 'temple', 'teaching', 'luke 2', 'elders', 'wisdom', 'boy', 'father'],
+      keywords: [
+        'jesus',
+        'temple',
+        'jerusalem',
+        'passover',
+        'luke 2',
+        'teachers',
+        'twelve',
+        'father',
+        'business',
+        'obedient',
+        'mary',
+        'joseph'
+      ],
       kjvRef: 'Luke 2:41–52',
-      kidContext: { who: 'Jesus', to: 'The teachers (and us)', apply: 'Jesus loved God\'s house and Word even as a boy—so can you!' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'Mary, Joseph, and everyone who listens',
+        apply: 'Even as a boy, Jesus loved being in His Father’s house — and He honors His parents.'
+      },
+      narration:
+        "Jesus Goes to His Father’s House — Luke 2:41–52. Every year His parents went to Jerusalem at the feast of the passover. When He was twelve years old, they went up… and returned; but Jesus tarried behind in Jerusalem. His parents sought Him, and after three days they found Him in the temple, sitting in the midst of the doctors, both hearing them, and asking them questions. And all that heard Him were astonished. His mother said unto Him, Son, why hast Thou thus dealt with us? He said unto them, How is it that ye sought me? wist ye not that I must be about my Father’s business? And He went down with them to Nazareth, and was subject unto them. For you: even as a boy, Jesus loved His Father’s house — and He shows us how to honor father and mother."
     },
     johnBaptist: {
       title: 'John the Baptist',
@@ -10426,7 +10455,7 @@
     ezraReturn: 'Obedience', malachiMessage: 'Love',
     jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
     /* Week 5 */
-    angelMary: 'Miracles', shepherdsStar: 'Love', wiseMen: 'Love', simeonAnna: 'Love', jesusManger: 'Love', jesusTemple: 'Obedience',
+    angelMary: 'Miracles', shepherdsStar: 'Love', wiseMen: 'Love', simeonAnna: 'Love', jesusManger: 'Love', jesusTemple: 'Love',
     johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Obedience', jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',

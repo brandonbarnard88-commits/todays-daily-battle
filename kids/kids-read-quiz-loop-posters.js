@@ -131,7 +131,7 @@
     jesusCallingDisciples: 12,
     jesusFeeds5000: 74,
     jesusManger: 62,
-    jesusTemple: 65,
+    jesusTemple: 196,
     jesusTempt: 67,
     jesusWalksWater: 75,
     jesusFirstMiracle: 69,

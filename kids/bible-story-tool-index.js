@@ -1128,13 +1128,13 @@
   },
   {
     "key": "jesusTemple",
-    "title": "Jesus Teaches in the Temple",
+    "title": "Jesus Goes to His Father’s House",
     "kjvRef": "Luke 2:41–52",
     "who": "Jesus",
-    "to": "The teachers (and us)",
-    "apply": "Jesus loved God's house and Word even as a boy—so can you!",
-    "theme": "Obedience",
-    "kw": "jesus temple teaching luke 2 elders wisdom boy father"
+    "to": "Mary, Joseph, and everyone who listens",
+    "apply": "Even as a boy, Jesus loved being in His Father’s house — and He honors His parents.",
+    "theme": "Love",
+    "kw": "jesus temple jerusalem passover luke 2 teachers twelve father business mary joseph obedient boy"
   },
   {
     "key": "jesus",

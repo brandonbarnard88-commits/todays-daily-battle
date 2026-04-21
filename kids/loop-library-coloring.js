@@ -155,6 +155,7 @@
   "shepherdsStar": "shepherdsStar",
   "wiseMen": "wiseMen",
   "simeonAnna": "simeonAnna",
+  "jesusTemple": "jesusTemple",
   "shunammiteReturn": "shunammiteReturn",
   "solomonTemple": "solomonTemple",
   "solomonTwoMothers": "solomonTwoMothers",

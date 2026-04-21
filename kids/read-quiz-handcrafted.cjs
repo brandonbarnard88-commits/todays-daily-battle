@@ -53,6 +53,7 @@
  * Shepherds & angels — finding Jesus (Luke 2:8–20, gentle): buildShepherdsStarReadQuiz() (library key: shepherdsStar).
  * Wise men — star, gifts, worship (Matthew 2:1–12, gentle): buildWiseMenReadQuiz() (library key: wiseMen).
  * Simeon & Anna — temple presentation (Luke 2:22–38, gentle): buildSimeonAnnaReadQuiz() (library key: simeonAnna).
+ * Boy Jesus in the temple (Luke 2:41–52, gentle): buildJesusTempleReadQuiz() (library key: jesusTemple).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -6117,6 +6118,140 @@ function buildSimeonAnnaReadQuiz() {
   };
 }
 
+/** Boy Jesus in the temple — Father’s business (gentle). Library key: jesusTemple */
+function buildJesusTempleReadQuiz() {
+  return {
+    kjvRef: 'Luke 2:41–52 (KJV)',
+    verseExcerpt:
+      '…wist ye not that I must be about my Father’s business? — Luke 2:49 (KJV)',
+    readAlongTitle: 'Jesus Goes to His Father’s House',
+    quizWrongHumilityHint:
+      'Listen again — twelve years old; Passover in Jerusalem; stayed in the temple; parents sought Him; sitting with teachers; amazed; Father’s business; went home obedient.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'When Jesus was twelve years old, Mary and Joseph took Him to Jerusalem for the Passover feast.',
+      'After the feast, they started home, but Jesus stayed behind in the temple.',
+      'Mary and Joseph looked for Him for three days.',
+      'They found Him sitting in the temple, listening to the teachers and asking them questions.',
+      'Everyone who heard Him was amazed at how much He understood.',
+      'Mary said, “Son, why hast thou thus dealt with us?”',
+      'Jesus answered, “How is it that ye sought me? wist ye not that I must be about my Father’s business?”',
+      'Then He went home with them and was obedient to them.',
+      'Even as a boy, Jesus loved being in His Father’s house.',
+      'Reference: Luke 2:41–52 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus was twelve years old.',
+        caption: 'Growing up',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Mary and Joseph took Him to Jerusalem.',
+        caption: 'Passover',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus stayed in the temple.',
+        caption: 'His Father’s house',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They found Him listening to the teachers.',
+        caption: 'Listening well',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Everyone was amazed at what He knew.',
+        caption: 'Wonder',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, “I must be about my Father’s business.”',
+        caption: 'Father’s business',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'He went home and was obedient.',
+        caption: 'Honor and obey',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Luke 2:41–52', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 2:41–52.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['Jesus', 'Pharaoh', 'Goliath', 'Samson'],
+        correctIndex: 0,
+        correctFeedback: 'Right—we see boy Jesus loving His Father’s house and honoring His parents.',
+        wrongFeedback:
+          'Look for whose words and gentle obedience the story shows in the temple. (Answer: Jesus.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God doesn’t care how we treat our parents.',
+          'Even as a boy, Jesus loved His Father’s house — and He went home in obedience.',
+          'The Bible says we should never ask questions.',
+          'Jerusalem was only a pretend place.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the last paragraphs slowly. Which option matches Jesus’ heart? (Answer: Even as a boy, Jesus loved His Father’s house — and He went home in obedience.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus rode a bicycle through the market.',
+          'Wist ye not that I must be about my Father’s business?',
+          'Let us rise up and build.',
+          'Everyone forgot how to listen.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the temple scene you read? (Answer: Wist ye not that I must be about my Father’s business?)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Thank God for Jesus — and love learning about Him in His Word.',
+          'Never say sorry when we do wrong.',
+          'Only obey when we feel like it.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show love for God’s Word and respect at home? Pick the one that honors Him. (Answer: Thank God for Jesus — and love learning about Him in His Word.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Goes to His Father’s House with God's Word today.",
+    takeaway: 'Even as a boy, Jesus loved being in His Father’s house.',
+    prayer:
+      'Lord, thank You for Jesus. Help us love Your Word and obey our parents with a kind heart. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Twelve-year-old Jesus sitting in the temple listening to the teachers He has a gentle thoughtful face the teachers are sitting around Him thick bold outlines with large open spaces on Jesus\' robe the teachers\' robes and the temple floor for easy coloring soft temple walls and gentle light from above with minimal lines wonder and love mood focus on boy Jesus in His Father\'s house clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Boy Jesus in Jerusalem (Passover)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: In the temple with teachers (listen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Asking and answering questions (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Father's business (heart)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Going home together (obedience)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -6214,5 +6349,6 @@ module.exports = {
   shepherdsStar: buildShepherdsStarReadQuiz(),
   wiseMen: buildWiseMenReadQuiz(),
   simeonAnna: buildSimeonAnnaReadQuiz(),
+  jesusTemple: buildJesusTempleReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

@@ -13130,87 +13130,136 @@
     ]
   },
   "jesusTemple": {
-    "kjvRef": "Luke 2:41–52",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Luke 2:41–52 (KJV)",
+    "verseExcerpt": "…wist ye not that I must be about my Father’s business? — Luke 2:49 (KJV)",
+    "readAlongTitle": "Jesus Goes to His Father’s House",
+    "quizWrongHumilityHint": "Listen again — twelve years old; Passover in Jerusalem; stayed in the temple; parents sought Him; sitting with teachers; amazed; Father’s business; went home obedient.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jesus Teaches in the Temple (Luke 2:41–52).",
-      "Mary and Joseph lose track of Jesus They find Him in the temple—teaching elders!",
-      "Jesus says: I must be about my Father's business Jesus loved God's house and Word even as a boy—so can you!"
+      "When Jesus was twelve years old, Mary and Joseph took Him to Jerusalem for the Passover feast.",
+      "After the feast, they started home, but Jesus stayed behind in the temple.",
+      "Mary and Joseph looked for Him for three days.",
+      "They found Him sitting in the temple, listening to the teachers and asking them questions.",
+      "Everyone who heard Him was amazed at how much He understood.",
+      "Mary said, “Son, why hast thou thus dealt with us?”",
+      "Jesus answered, “How is it that ye sought me? wist ye not that I must be about my Father’s business?”",
+      "Then He went home with them and was obedient to them.",
+      "Even as a boy, Jesus loved being in His Father’s house.",
+      "Reference: Luke 2:41–52 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus was twelve years old.",
+        "caption": "Growing up",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Mary and Joseph took Him to Jerusalem.",
+        "caption": "Passover",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus stayed in the temple.",
+        "caption": "His Father’s house",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "They found Him listening to the teachers.",
+        "caption": "Listening well",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Everyone was amazed at what He knew.",
+        "caption": "Wonder",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said, “I must be about my Father’s business.”",
+        "caption": "Father’s business",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "He went home and was obedient.",
+        "caption": "Honor and obey",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 2:1–12",
-          "Acts 2:1–13",
+          "Psalm 23",
           "Luke 2:41–52",
-          "2 John; 3 John"
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 2:41–52.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 2:41–52.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David — and the Lord",
-          "Philip",
-          "Jonathan",
-          "Jesus"
+          "Jesus",
+          "Pharaoh",
+          "Goliath",
+          "Samson"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctIndex": 0,
+        "correctFeedback": "Right—we see boy Jesus loving His Father’s house and honoring His parents.",
+        "wrongFeedback": "Look for whose words and gentle obedience the story shows in the temple. (Answer: Jesus.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Jesus loved God's house and Word even as a boy—so can you!",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
+          "God doesn’t care how we treat our parents.",
+          "Even as a boy, Jesus loved His Father’s house — and He went home in obedience.",
+          "The Bible says we should never ask questions.",
+          "Jerusalem was only a pretend place."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus loved God's house and Word even as a boy—so can you!.)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches Jesus’ heart? (Answer: Even as a boy, Jesus loved His Father’s house — and He went home in obedience.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Mary and Joseph lose track of Jesus",
-          "Everyone decided to never sleep again."
+          "Jesus rode a bicycle through the market.",
+          "Wist ye not that I must be about my Father’s business?",
+          "Let us rise up and build.",
+          "Everyone forgot how to listen."
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the temple scene you read? (Answer: Wist ye not that I must be about my Father’s business?)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
           "Ignore God until we are older.",
-          "Jesus loved God's house and Word even as a boy—so can you!",
-          "Never say sorry when we do wrong."
+          "Thank God for Jesus — and love learning about Him in His Word.",
+          "Never say sorry when we do wrong.",
+          "Only obey when we feel like it."
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus loved God's house and Word even as a boy—so can you!.)"
+        "wrongFeedback": "Think: does this choice show love for God’s Word and respect at home? Pick the one that honors Him. (Answer: Thank God for Jesus — and love learning about Him in His Word.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jesus Teaches in the Temple with God's Word today.",
-    "takeaway": "Jesus loved God's house and Word even as a boy—so can you!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus Teaches in the Temple. Amen.",
+    "doneMessage": "Great job reading Jesus Goes to His Father’s House with God's Word today.",
+    "takeaway": "Even as a boy, Jesus loved being in His Father’s house.",
+    "prayer": "Lord, thank You for Jesus. Help us love Your Word and obey our parents with a kind heart. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary and Joseph lose track of Jesus (jesus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: They find Him in the temple—teaching elders! (temple)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: I must be about my Father's business (teaching)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary and Joseph lose track of Jesus (luke 2)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: They find Him in the temple—teaching elders! (elders)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Twelve-year-old Jesus sitting in the temple listening to the teachers He has a gentle thoughtful face the teachers are sitting around Him thick bold outlines with large open spaces on Jesus' robe the teachers' robes and the temple floor for easy coloring soft temple walls and gentle light from above with minimal lines wonder and love mood focus on boy Jesus in His Father's house clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Boy Jesus in Jerusalem (Passover)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: In the temple with teachers (listen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Asking and answering questions (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Father's business (heart)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Going home together (obedience)"
+    ],
+    "readAlongImages": []
   },
   "jesusTempt": {
     "kjvRef": "Matthew 4:1–11",

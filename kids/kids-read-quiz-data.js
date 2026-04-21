@@ -3446,86 +3446,143 @@
     "readAlongImages": []
   },
   "crucifixion": {
-    "kjvRef": "Matthew 27; Mark 15; Luke 23; John 19",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
+    "verseExcerpt": "Now from the sixth hour there was darkness over all the land unto the ninth hour. — Matthew 27:45 (KJV)",
+    "readAlongTitle": "Jesus on the Cross",
+    "quizWrongHumilityHint": "Listen again — Golgotha; gall; crucified; garments; lots; thieves; reviled; darkness; Eli; forsaken; veil; earthquake; centurion; Son of God; forgive; finished.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Crucifixion (Matthew 27; Mark 15; Luke 23; John 19).",
-      "Jesus carries the cross Jesus on the cross Jesus dies for us—love wins!"
+      "And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots.",
+      "And sitting down they watched him there; And set up over his head his accusation written, THIS IS JESUS THE KING OF THE JEWS. Then were there two thieves crucified with him, one on the right hand, and another on the left.",
+      "And they that passed by reviled him, wagging their heads, And saying, Thou that destroyest the temple, and buildest it in three days, save thyself. If thou be the Son of God, come down from the cross. Likewise also the chief priests mocking him, with the scribes and elders, said, He saved others; himself he cannot save. If he be the King of Israel, let him now come down from the cross, and we will believe him. He trusted in God; let him deliver him now, if he will have him: for he said, I am the Son of God. The thieves also, which were crucified with him, cast the same in his teeth.",
+      "Then said Jesus, Father, forgive them; for they know not what they do. — Luke 23:34 (KJV)",
+      "Now from the sixth hour there was darkness over all the land unto the ninth hour. And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me?",
+      "Jesus, when he had cried again with a loud voice, yielded up the ghost. When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost. — John 19:30 (KJV)",
+      "And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; Now when the centurion, and they that were with him, watching Jesus, saw the earthquake, and those things that were done, they feared greatly, saying, Truly this was the Son of God.",
+      "Jesus gave His life because He loves us — and many women followed Him faithfully, beholding afar off.",
+      "Reference: Matthew 27:33–56 (KJV) (parallel in Mark, Luke, and John)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "The soldiers took Jesus to a place called Golgotha and crucified Him on a cross — And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots.",
+        "caption": "Golgotha",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus prayed for the people — Then said Jesus, Father, forgive them; for they know not what they do. — Luke 23:34 (KJV)",
+        "caption": "Father, forgive",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Two thieves were crucified with Him, one on each side — Then were there two thieves crucified with him, one on the right hand, and another on the left.",
+        "caption": "Two thieves",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "From noon until three o’clock the sky grew dark — Now from the sixth hour there was darkness over all the land unto the ninth hour.",
+        "caption": "Darkness over the land",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus cried out, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? Then He said, It is finished, and gave up His spirit — And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? … When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost. — John 19:30 (KJV)",
+        "caption": "Forsaken — finished",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "The earth shook, and the centurion said, Truly this was the Son of God — Jesus died because He loves us — And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; … they feared greatly, saying, Truly this was the Son of God.",
+        "caption": "The Son of God",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 27; Mark 15; Luke 23; John 19",
-          "Job 1:1–22; 2:11–13",
-          "Matthew 4:18–22",
-          "John 11:1–44"
+          "Matthew 27:33–56 (also told in Mark, Luke, and John)",
+          "Genesis 12 only",
+          "Psalm 23 only",
+          "Acts 1 only"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 27; Mark 15; Luke 23; John 19.)"
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 27:33–56.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What was the place called where they crucified Jesus?",
         "choices": [
-          "Philip",
-          "God the Father",
-          "David",
-          "Jesus"
+          "Golgotha (a place of a skull)",
+          "Nineveh",
+          "Jericho only",
+          "Capernaum only"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:33.",
+        "wrongFeedback": "Listen for “Golgotha” and “skull.” (Answer: Golgotha.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did Jesus pray for the people (in Luke’s Gospel)?",
         "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "Jesus dies for us—love wins! He took our sins so we could be free!",
-          "God never hears when kids pray."
+          "Father, forgive them; for they know not what they do.",
+          "Run away quickly.",
+          "Hide from everyone.",
+          "Forget Jerusalem."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus dies for us—love wins! He took our sins so we could be free!.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 23:34.",
+        "wrongFeedback": "Listen for “forgive.” (Answer: Father, forgive them….)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What happened from the sixth hour to the ninth hour?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "Jesus carries the cross",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again."
+          "Darkness over all the land",
+          "A great fish swallowed everyone",
+          "The sun stood still forever",
+          "It snowed in the desert"
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:45.",
+        "wrongFeedback": "Listen for “darkness” and “sixth… ninth.” (Answer: darkness over the land.)"
+      },
+      {
+        "question": "What did Jesus say in John when He finished His work on the cross?",
+        "choices": [
+          "It is finished.",
+          "I am lost.",
+          "Go away.",
+          "Never pray."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 19:30.",
+        "wrongFeedback": "Listen for “finished.” (Answer: It is finished.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus dies for us—love wins! He took our sins so we could be free!",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Tell Jesus when I feel sad — He loves me and died so I could be forgiven.",
+          "Believe God never cares.",
+          "Stop praying when it is dark outside.",
+          "Never hug a grown-up who loves me."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus dies for us—love wins! He took our sins so we could be free!.)"
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “sad,” “loves me,” and “forgiven.” (Answer: tell Jesus… forgiven.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Crucifixion with God's Word today.",
-    "takeaway": "Jesus dies for us—love wins! He took our sins so we could be free!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Crucifixion. Amen.",
+    "doneMessage": "Great job reading Jesus on the Cross with God's Word today.",
+    "takeaway": "Jesus stayed on the cross in love — He prayed for people, finished His saving work, and the centurion saw He was the Son of God.",
+    "prayer": "Lord Jesus, thank You for dying on the cross because You love me. Help me trust Your forgiveness and rest in You. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus carries the cross (crucifixion)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus on the cross (cross)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus dies for us—love wins! (love)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus carries the cross (matthew 27)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus on the cross (john 19)"
-    ]
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus hangs on the cross in the center with a kind and peaceful face, His head slightly bowed. Two simple crosses stand on either side (empty or with the thieves shown very softly). A few women and friends stand at a gentle distance looking up with love and sadness. Soft ground, a few rocks, and a light sky with plenty of open space around the cross for coloring. Focus on the heart of the moment: Jesus giving His life because He loves us so much. Style: clear, bold, tender, restful — never dark, scary, or graphic; everything feels quiet, loving, and hopeful.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Golgotha — gentle strength (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Father, forgive — tender heart (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Two thieves — Jesus in the middle (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Quiet darkness — hush over the land (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: It is finished — love complete (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Earthquake awe — Son of God seen (faith)"
+    ],
+    "readAlongImages": []
   },
   "daniel": {
     "kjvRef": "Daniel 6:22",
@@ -12948,89 +13005,143 @@
     "readAlongImages": []
   },
   "jesusCrucifixion": {
-    "kjvRef": "Matthew 27; Mark 15; Luke 23; John 19",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
+    "verseExcerpt": "Now from the sixth hour there was darkness over all the land unto the ninth hour. — Matthew 27:45 (KJV)",
+    "readAlongTitle": "Jesus on the Cross",
+    "quizWrongHumilityHint": "Listen again — Golgotha; gall; crucified; garments; lots; thieves; reviled; darkness; Eli; forsaken; veil; earthquake; centurion; Son of God; forgive; finished.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jesus on the Cross (Matthew 27; Mark 15; Luke 23; John 19).",
-      "Jesus carries His cross toward Golgotha Father, forgive them.",
-      "darkness over the land It is finished.",
-      "love that saves Jesus took the punishment for sin so we could be forgiven.",
-      "never forget that love."
+      "And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots.",
+      "And sitting down they watched him there; And set up over his head his accusation written, THIS IS JESUS THE KING OF THE JEWS. Then were there two thieves crucified with him, one on the right hand, and another on the left.",
+      "And they that passed by reviled him, wagging their heads, And saying, Thou that destroyest the temple, and buildest it in three days, save thyself. If thou be the Son of God, come down from the cross. Likewise also the chief priests mocking him, with the scribes and elders, said, He saved others; himself he cannot save. If he be the King of Israel, let him now come down from the cross, and we will believe him. He trusted in God; let him deliver him now, if he will have him: for he said, I am the Son of God. The thieves also, which were crucified with him, cast the same in his teeth.",
+      "Then said Jesus, Father, forgive them; for they know not what they do. — Luke 23:34 (KJV)",
+      "Now from the sixth hour there was darkness over all the land unto the ninth hour. And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me?",
+      "Jesus, when he had cried again with a loud voice, yielded up the ghost. When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost. — John 19:30 (KJV)",
+      "And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; Now when the centurion, and they that were with him, watching Jesus, saw the earthquake, and those things that were done, they feared greatly, saying, Truly this was the Son of God.",
+      "Jesus gave His life because He loves us — and many women followed Him faithfully, beholding afar off.",
+      "Reference: Matthew 27:33–56 (KJV) (parallel in Mark, Luke, and John)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "The soldiers took Jesus to a place called Golgotha and crucified Him on a cross — And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots.",
+        "caption": "Golgotha",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus prayed for the people — Then said Jesus, Father, forgive them; for they know not what they do. — Luke 23:34 (KJV)",
+        "caption": "Father, forgive",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Two thieves were crucified with Him, one on each side — Then were there two thieves crucified with him, one on the right hand, and another on the left.",
+        "caption": "Two thieves",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "From noon until three o’clock the sky grew dark — Now from the sixth hour there was darkness over all the land unto the ninth hour.",
+        "caption": "Darkness over the land",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus cried out, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? Then He said, It is finished, and gave up His spirit — And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? … When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost. — John 19:30 (KJV)",
+        "caption": "Forsaken — finished",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "The earth shook, and the centurion said, Truly this was the Son of God — Jesus died because He loves us — And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; … they feared greatly, saying, Truly this was the Son of God.",
+        "caption": "The Son of God",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:19-22; 4:1-7",
-          "Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)",
-          "Matthew 27; Mark 15; Luke 23; John 19",
-          "1 Samuel 18:6-11, 17-19:17"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 27; Mark 15; Luke 23; John 19.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Joshua",
-          "Peter",
-          "Jesus",
-          "The apostles"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "Jesus took the punishment for sin so we could be forgiven — never forget that love.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up."
+          "Matthew 27:33–56 (also told in Mark, Luke, and John)",
+          "Genesis 12 only",
+          "Psalm 23 only",
+          "Acts 1 only"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus took the punishment for sin so we could be forgiven — never forget that love..)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 27:33–56.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What was the place called where they crucified Jesus?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot.",
-          "Jesus carries His cross toward Golgotha"
+          "Golgotha (a place of a skull)",
+          "Nineveh",
+          "Jericho only",
+          "Capernaum only"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:33.",
+        "wrongFeedback": "Listen for “Golgotha” and “skull.” (Answer: Golgotha.)"
+      },
+      {
+        "question": "What did Jesus pray for the people (in Luke’s Gospel)?",
+        "choices": [
+          "Father, forgive them; for they know not what they do.",
+          "Run away quickly.",
+          "Hide from everyone.",
+          "Forget Jerusalem."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 23:34.",
+        "wrongFeedback": "Listen for “forgive.” (Answer: Father, forgive them….)"
+      },
+      {
+        "question": "What happened from the sixth hour to the ninth hour?",
+        "choices": [
+          "Darkness over all the land",
+          "A great fish swallowed everyone",
+          "The sun stood still forever",
+          "It snowed in the desert"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:45.",
+        "wrongFeedback": "Listen for “darkness” and “sixth… ninth.” (Answer: darkness over the land.)"
+      },
+      {
+        "question": "What did Jesus say in John when He finished His work on the cross?",
+        "choices": [
+          "It is finished.",
+          "I am lost.",
+          "Go away.",
+          "Never pray."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 19:30.",
+        "wrongFeedback": "Listen for “finished.” (Answer: It is finished.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Jesus took the punishment for sin so we could be forgiven — never forget that love.",
-          "Ignore God until we are older."
+          "Tell Jesus when I feel sad — He loves me and died so I could be forgiven.",
+          "Believe God never cares.",
+          "Stop praying when it is dark outside.",
+          "Never hug a grown-up who loves me."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus took the punishment for sin so we could be forgiven — never forget that love..)"
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “sad,” “loves me,” and “forgiven.” (Answer: tell Jesus… forgiven.)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Jesus on the Cross with God's Word today.",
-    "takeaway": "Jesus took the punishment for sin so we could be forgiven — never forget that love.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus on the Cross. Amen.",
+    "takeaway": "Jesus stayed on the cross in love — He prayed for people, finished His saving work, and the centurion saw He was the Son of God.",
+    "prayer": "Lord Jesus, thank You for dying on the cross because You love me. Help me trust Your forgiveness and rest in You. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus carries His cross toward Golgotha (crucifixion)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Father, forgive them — darkness over the land (cross)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: It is finished — love that saves (golgotha)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus carries His cross toward Golgotha (forgive)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Father, forgive them — darkness over the land (finished)"
-    ]
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus hangs on the cross in the center with a kind and peaceful face, His head slightly bowed. Two simple crosses stand on either side (empty or with the thieves shown very softly). A few women and friends stand at a gentle distance looking up with love and sadness. Soft ground, a few rocks, and a light sky with plenty of open space around the cross for coloring. Focus on the heart of the moment: Jesus giving His life because He loves us so much. Style: clear, bold, tender, restful — never dark, scary, or graphic; everything feels quiet, loving, and hopeful.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Golgotha — gentle strength (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Father, forgive — tender heart (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Two thieves — Jesus in the middle (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Quiet darkness — hush over the land (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: It is finished — love complete (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Earthquake awe — Son of God seen (faith)"
+    ],
+    "readAlongImages": []
   },
   "jesusDisciples": {
     "kjvRef": "Matthew 4:18–22 (KJV)",
@@ -14708,7 +14819,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 27; Mark 15; Luke 23; John 19",
+          "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
           "Esther 5:1–8; 7:1–10",
           "Acts 2:42–47",
           "Matthew 4:1–11"
@@ -22565,7 +22676,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 28",
-          "Matthew 27; Mark 15; Luke 23; John 19",
+          "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
           "Acts 2:42–47",
           "Numbers 23–24"
         ],
@@ -25948,7 +26059,7 @@
         "choices": [
           "Esther 5:1–8; 7:1–10",
           "Exodus 14",
-          "Matthew 27; Mark 15; Luke 23; John 19",
+          "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
           "Acts 2:42–47"
         ],
         "correctIndex": 1,
@@ -26033,7 +26144,7 @@
         "choices": [
           "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
           "Numbers 23–24",
-          "Matthew 27; Mark 15; Luke 23; John 19",
+          "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
           "Acts 2:42–47"
         ],
         "correctIndex": 0,

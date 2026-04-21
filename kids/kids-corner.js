@@ -3556,19 +3556,32 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 27:31–32</text>'
       ),
 
-      /* ── Week 7: Crucifixion (86) ── */
+      /* ── Week 7: Crucifixion — gentle Calvary: center cross, soft side crosses, friends afar, rocks, light sky ── */
       crucifixion: svg(
-        ground() + hills() +
-        '<line x1="200" y1="60" x2="200" y2="250" ' + s + ' stroke-width="7"/>' +
-        '<line x1="130" y1="112" x2="270" y2="112" ' + s + ' stroke-width="7"/>' +
-        person(200, 75, 12, 35) +
-        '<line x1="175" y1="112" x2="188" y2="115" ' + s + ' stroke-width="3"/>' +
-        '<line x1="225" y1="112" x2="212" y2="115" ' + s + ' stroke-width="3"/>' +
-        '<rect x="182" y="60" width="36" height="14" rx="2" ' + s + ' stroke-width="2"/>' +
-        cloud(60, 28) + cloud(280, 22) +
-        '<line x1="100" y1="18" x2="120" y2="48" ' + s + ' stroke-width="3"/>' +
-        '<line x1="300" y1="15" x2="280" y2="45" ' + s + ' stroke-width="3"/>' +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 19:18</text>'
+        ground() +
+        '<path d="M40 248 L52 220 L68 232 L88 210 L108 228 L128 205 L148 225 L168 200 L188 222 L208 198 L228 218 L248 195 L268 218 L288 198 L308 218 L328 200 L348 222 L368 248" ' +
+          sf +
+          ' fill="white" stroke-width="2" opacity="0.95"/>' +
+        '<ellipse cx="72" cy="258" rx="22" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="142" cy="260" rx="18" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="268" cy="259" rx="20" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="332" cy="258" rx="24" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="118" y1="155" x2="118" y2="248" ' + s + ' stroke-width="4.5"/>' +
+        '<line x1="95" y1="188" x2="141" y2="188" ' + s + ' stroke-width="4.5"/>' +
+        '<line x1="282" y1="158" x2="282" y2="248" ' + s + ' stroke-width="4.5"/>' +
+        '<line x1="259" y1="192" x2="305" y2="192" ' + s + ' stroke-width="4.5"/>' +
+        '<line x1="200" y1="58" x2="200" y2="252" ' + s + ' stroke-width="6"/>' +
+        '<line x1="138" y1="108" x2="262" y2="108" ' + s + ' stroke-width="6"/>' +
+        person(200, 72, 12, 34) +
+        '<path d="M192 86 Q200 80 208 86" ' + s + ' stroke-width="1.4"/>' +
+        '<line x1="184" y1="108" x2="192" y2="112" ' + s + ' stroke-width="2"/>' +
+        '<line x1="216" y1="108" x2="208" y2="112" ' + s + ' stroke-width="2"/>' +
+        person(56, 188, 8, 24) +
+        person(76, 194, 7, 22) +
+        person(340, 190, 8, 24) +
+        cloud(248, 32) +
+        sun(48, 44, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 27:33–56</text>'
       ),
 
       /* ── Week 7: Tomb Empty (87) ── */

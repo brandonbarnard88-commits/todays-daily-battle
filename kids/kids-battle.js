@@ -2311,20 +2311,6 @@
       narration:
         "Jesus Before Pilate — Matthew 27:11–26. And Jesus stood before the governor: and the governor asked him, saying, Art thou the King of the Jews? And Jesus said unto him, Thou sayest. And when he was accused of the chief priests and elders, he answered nothing. Then said Pilate unto him, Hearest thou not how many things they witness against thee? And he answered him to never a word; insomuch that the governor marvelled greatly. Now at that feast the governor was wont to release unto the people a prisoner, whom they would. And they had then a notable prisoner, called Barabbas. Therefore when they were gathered together, Pilate said unto them, Whom will ye that I release unto you? Barabbas, or Jesus which is called Christ? For he knew that for envy they had delivered him. When he was set down on the judgment seat, his wife sent unto him, saying, Have thou nothing to do with that just man: for I have suffered many things this day in a dream because of him. But the chief priests and elders persuaded the multitude that they should ask Barabbas, and destroy Jesus. The governor answered and said unto them, Whether of the twain will ye that I release unto you? They said, Barabbas. Pilate saith unto them, What shall I do then with Jesus which is called Christ? They all say unto him, Let him be crucified. And the governor said, Why, what evil hath he done? But they cried out the more, saying, Let him be crucified. When Pilate saw that he could prevail nothing, but that rather a tumult was made, he took water, and washed his hands before the multitude, saying, I am innocent of the blood of this just person: see ye to it. Then answered all the people, and said, His blood be on us, and on our children. Then released he Barabbas unto them: and when he had scourged Jesus, he delivered him to be crucified. For you: On hard days when people make choices that feel unfair or when you feel alone, remember Jesus before Pilate. He stayed calm and told the truth about His kingdom. Jesus knows what it feels like to be treated wrongly, and He did it all because He loves you so much. You can rest safe in His strong, gentle love."
     },
-    crucifixion: {
-      title: 'Crucifixion',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus carries the cross' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus on the cross' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus dies for us—love wins!' }
-      ],
-      caption: 'Swipe to see Jesus on the cross—love wins! ✝️',
-      videoId: 'bNq5tWl3OGk',
-      videoTitle: 'Crucifixion and Death of Jesus – Animated Bible Stories!',
-      keywords: ['crucifixion', 'cross', 'love', 'matthew 27', 'john 19', 'dies'],
-      kjvRef: 'Matthew 27; Mark 15; Luke 23; John 19',
-      kidContext: { who: 'Jesus', to: 'The whole world', apply: 'Jesus dies for us—love wins! He took our sins so we could be free!' }
-    },
     roadToEmmaus: {
       title: 'Road to Emmaus',
       panels: [
@@ -2585,16 +2571,52 @@
     jesusCrucifixion: {
       title: 'Jesus on the Cross',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus carries His cross toward Golgotha' },
-        { src: 'panel-jesus-2.svg', alt: 'Father, forgive them — darkness over the land' },
-        { src: 'panel-jesus-3.svg', alt: 'It is finished — love that saves' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Golgotha — gall and vinegar — crucified — garments parted — THIS IS JESUS THE KING OF THE JEWS'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Two thieves — passersby and rulers revile — darkness from the sixth to the ninth hour — Eli, Eli, lama sabachthani'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Veil of the temple rent — earthquake — centurion: Truly this was the Son of God — women beholding afar off'
+        }
       ],
-      caption: 'Swipe to see Jesus die for us — the greatest love. ✝️',
+      caption: 'Swipe slowly — Jesus gave His life because He loves us.',
       videoId: '',
       videoTitle: '',
-      keywords: ['crucifixion', 'cross', 'golgotha', 'forgive', 'finished', 'matthew 27', 'john 19', 'luke 23'],
-      kjvRef: 'Matthew 27; Mark 15; Luke 23; John 19',
-      kidContext: { who: 'Jesus', to: 'The world (and us)', apply: 'Jesus took the punishment for sin so we could be forgiven — never forget that love.' }
+      keywords: [
+        'crucifixion',
+        'cross',
+        'golgotha',
+        'calvary',
+        'skull',
+        'thieves',
+        'darkness',
+        'Eli',
+        'forsaken',
+        'veil',
+        'earthquake',
+        'centurion',
+        'Son of God',
+        'forgive',
+        'finished',
+        'matthew 27',
+        'mark 15',
+        'luke 23',
+        'john 19'
+      ],
+      kjvRef: 'Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child when sadness or darkness feels heavy',
+        apply:
+          'Jesus died on the cross because He loves us — His forgiveness and life are the greatest gift.'
+      },
+      narration:
+        "Jesus on the Cross — Matthew 27:33–56. And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots. And sitting down they watched him there; And set up over his head his accusation written, THIS IS JESUS THE KING OF THE JEWS. Then were there two thieves crucified with him, one on the right hand, and another on the left. And they that passed by reviled him, wagging their heads, And saying, Thou that destroyest the temple, and buildest it in three days, save thyself. If thou be the Son of God, come down from the cross. Likewise also the chief priests mocking him, with the scribes and elders, said, He saved others; himself he cannot save. If he be the King of Israel, let him now come down from the cross, and we will believe him. He trusted in God; let him deliver him now, if he will have him: for he said, I am the Son of God. The thieves also, which were crucified with him, cast the same in his teeth. Now from the sixth hour there was darkness over all the land unto the ninth hour. And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? Some of them that stood there, when they heard that, said, This man calleth for Elias. And straightway one of them ran, and took a spunge, and filled it with vinegar, and put it on a reed, and gave him to drink. The rest said, Let be, let us see whether Elias will come to save him. Jesus, when he had cried again with a loud voice, yielded up the ghost. And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; And the graves were opened, and many bodies of the saints which slept arose, And came out of the graves after his resurrection, and appeared unto many. Now when the centurion, and they that were with him, watching Jesus, saw the earthquake, and those things that were done, they feared greatly, saying, Truly this was the Son of God. And many women were there beholding afar off, which followed Jesus from Galilee, ministering unto him: Among which was Mary Magdalene, and Mary the mother of James and Joses, and the mother of Zebedee's children. For you: On the hardest days when you feel sad or when the world feels dark, remember Jesus on the cross. He chose to die there because He loves you so very much. He took all the hurt and sadness so we could be forgiven and live with Him forever. You can rest safe in His deep, gentle love even when things feel hard."
     },
     jesusResurrection: {
       title: 'He Is Risen',
@@ -6706,16 +6728,52 @@
     crucifixion: {
       title: 'Jesus on the Cross',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus is nailed to the cross' },
-        { src: 'panel-noah-2.svg', alt: 'Darkness covers the land' },
-        { src: 'panel-noah-3.svg', alt: 'It is finished—He did it for us!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Golgotha — gall and vinegar — crucified — garments parted — THIS IS JESUS THE KING OF THE JEWS'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Two thieves — passersby and rulers revile — darkness from the sixth to the ninth hour — Eli, Eli, lama sabachthani'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Veil of the temple rent — earthquake — centurion: Truly this was the Son of God — women beholding afar off'
+        }
       ],
-      caption: 'Swipe to see Jesus give His life—for you! ❤️',
-      videoId: 'bNq5tWl3OGk',
-      videoTitle: 'Crucifixion and Death of Jesus – Animated Bible Stories!',
-      keywords: ['crucifixion', 'cross', 'nails', 'john 19', 'love', 'finished', 'sacrifice'],
-      kjvRef: 'Matthew 27; Mark 15; Luke 23; John 19',
-      kidContext: { who: 'Jesus', to: 'Everyone who will believe', apply: 'Jesus died because He loves you! That love is the greatest love ever.' }
+      caption: 'Swipe slowly — Jesus gave His life because He loves us.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'crucifixion',
+        'cross',
+        'golgotha',
+        'calvary',
+        'skull',
+        'thieves',
+        'darkness',
+        'Eli',
+        'forsaken',
+        'veil',
+        'earthquake',
+        'centurion',
+        'Son of God',
+        'forgive',
+        'finished',
+        'matthew 27',
+        'mark 15',
+        'luke 23',
+        'john 19'
+      ],
+      kjvRef: 'Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child when sadness or darkness feels heavy',
+        apply:
+          'Jesus died on the cross because He loves us — His forgiveness and life are the greatest gift.'
+      },
+      narration:
+        "Jesus on the Cross — Matthew 27:33–56. And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots. And sitting down they watched him there; And set up over his head his accusation written, THIS IS JESUS THE KING OF THE JEWS. Then were there two thieves crucified with him, one on the right hand, and another on the left. And they that passed by reviled him, wagging their heads, And saying, Thou that destroyest the temple, and buildest it in three days, save thyself. If thou be the Son of God, come down from the cross. Likewise also the chief priests mocking him, with the scribes and elders, said, He saved others; himself he cannot save. If he be the King of Israel, let him now come down from the cross, and we will believe him. He trusted in God; let him deliver him now, if he will have him: for he said, I am the Son of God. The thieves also, which were crucified with him, cast the same in his teeth. Now from the sixth hour there was darkness over all the land unto the ninth hour. And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? Some of them that stood there, when they heard that, said, This man calleth for Elias. And straightway one of them ran, and took a spunge, and filled it with vinegar, and put it on a reed, and gave him to drink. The rest said, Let be, let us see whether Elias will come to save him. Jesus, when he had cried again with a loud voice, yielded up the ghost. And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; And the graves were opened, and many bodies of the saints which slept arose, And came out of the graves after his resurrection, and appeared unto many. Now when the centurion, and they that were with him, watching Jesus, saw the earthquake, and those things that were done, they feared greatly, saying, Truly this was the Son of God. And many women were there beholding afar off, which followed Jesus from Galilee, ministering unto him: Among which was Mary Magdalene, and Mary the mother of James and Joses, and the mother of Zebedee's children. For you: On the hardest days when you feel sad or when the world feels dark, remember Jesus on the cross. He chose to die there because He loves you so very much. He took all the hurt and sadness so we could be forgiven and live with Him forever. You can rest safe in His deep, gentle love even when things feel hard."
     },
     tombEmpty: {
       title: 'The Empty Tomb',
@@ -9939,7 +9997,11 @@
     ) {
       return { type: 'carousel', story: 'crossCarry' };
     }
-    if (/crucifixion|calvary|golgotha|matthew 27:33|john 19:18|father,? forgive/.test(low)) {
+    if (
+      /crucifixion|calvary|golgotha|place of a skull|matthew 27:3[3-9]|matthew 27:4|matthew 27:5|john 19:18|john 19:30|it is finished|lama sabachthani|eli,? eli|why hast thou forsaken|veil.*temple|rent in twain|centurion.*son of god|father,? forgive them|darkness.*sixth|sixth hour.*ninth/i.test(
+        low
+      )
+    ) {
       return { type: 'carousel', story: 'crucifixion' };
     }
     if (/emmaus|luke 24:13|road.*walk|cleopas/.test(low)) {

@@ -633,6 +633,10 @@ if (merged.zacchaeus && !merged.jesusAndZacchaeus) {
 if (merged.crossCarry && !merged.simonOfCyrene) {
   merged.simonOfCyrene = merged.crossCarry;
 }
+/** jesusCrucifixion — same gentle pack as crucifixion (hub / journey parallel key). */
+if (merged.crucifixion) {
+  merged.jesusCrucifixion = merged.crucifixion;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

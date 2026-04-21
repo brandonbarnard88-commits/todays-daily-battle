@@ -28,6 +28,7 @@
   "creation": "creation",
   "creationLight": "creationLight",
   "crossCarry": "crossCarry",
+  "crucifixion": "crucifixion",
   "daniel": "daniel",
   "davidAbigail": "abigailWise",
   "davidAnointed": "davidAnointed",

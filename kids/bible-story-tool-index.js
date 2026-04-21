@@ -298,13 +298,13 @@
   },
   {
     "key": "crucifixion",
-    "title": "Crucifixion",
-    "kjvRef": "Matthew 27; Mark 15; Luke 23; John 19",
+    "title": "Jesus on the Cross",
+    "kjvRef": "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
     "who": "Jesus",
-    "to": "The whole world",
-    "apply": "Jesus dies for us—love wins! He took our sins so we could be free!",
+    "to": "Every child when sadness or darkness feels heavy",
+    "apply": "Jesus died on the cross because He loves us — His forgiveness and life are the greatest gift.",
     "theme": "Love",
-    "kw": "crucifixion cross love matthew 27 john 19 dies"
+    "kw": "crucifixion cross golgotha calvary thieves darkness eli forsaken veil earthquake centurion son of god forgive finished it is finished matthew 27 mark 15 luke 23 john 19"
   },
   {
     "key": "daniel",
@@ -1289,12 +1289,12 @@
   {
     "key": "jesusCrucifixion",
     "title": "Jesus on the Cross",
-    "kjvRef": "Matthew 27; Mark 15; Luke 23; John 19",
+    "kjvRef": "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
     "who": "Jesus",
-    "to": "The world (and us)",
-    "apply": "Jesus took the punishment for sin so we could be forgiven — never forget that love.",
+    "to": "Every child when sadness or darkness feels heavy",
+    "apply": "Jesus died on the cross because He loves us — His forgiveness and life are the greatest gift.",
     "theme": "Love",
-    "kw": "crucifixion cross golgotha forgive finished matthew 27 john 19 luke 23"
+    "kw": "crucifixion cross golgotha calvary thieves darkness eli forsaken veil earthquake centurion son of god forgive finished it is finished matthew 27 mark 15 luke 23 john 19"
   },
   {
     "key": "triumphalEntry",

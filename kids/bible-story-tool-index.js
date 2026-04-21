@@ -238,13 +238,13 @@
   },
   {
     "key": "betrayal",
-    "title": "Betrayal (Judas)",
-    "kjvRef": "Matthew 26",
+    "title": "Judas Betrays Jesus",
+    "kjvRef": "Matthew 26:14–16; 26:47–50 (par. Mark 14:10–11, 43–46)",
     "who": "Jesus",
-    "to": "Judas (and us)",
-    "apply": "Even friends fail—Jesus forgives! He still loves you when people hurt you.",
+    "to": "Every child who has felt hurt when someone is unkind",
+    "apply": "Jesus understands when people fail us — He stayed loving even here, and we can run to His faithful kindness.",
     "theme": "Protection",
-    "kw": "judas betrayal kiss matthew 26 mark 14 fail"
+    "kw": "judas betrayal kiss thirty pieces silver chief priests garden multitude swords staves friend matthew 26 mark 14"
   },
   {
     "key": "cainAbel",
@@ -1829,12 +1829,12 @@
   {
     "key": "judasKiss",
     "title": "Judas Betrays Jesus",
-    "kjvRef": "Matthew 26",
+    "kjvRef": "Matthew 26:14–16; 26:47–50 (par. Mark 14:10–11, 43–46)",
     "who": "Jesus",
-    "to": "Judas (and us)",
-    "apply": "Even when people hurt you, choose love like Jesus did! He forgave.",
+    "to": "Every child who has felt hurt when someone is unkind",
+    "apply": "Jesus understands when people fail us — He stayed loving even here, and we can run to His faithful kindness.",
     "theme": "Love",
-    "kw": "judas betray kiss matthew 26 arrest garden soldiers"
+    "kw": "judas betray kiss thirty pieces silver garden multitude hail master friend matthew 26 mark 14"
   },
   {
     "key": "judeWarning",

@@ -2163,18 +2163,47 @@
       kidContext: { who: 'Jesus', to: 'God the Father (and us)', apply: 'Jesus talks to God—talk to Him! Pray when you\'re scared or sad!' }
     },
     betrayal: {
-      title: 'Betrayal (Judas)',
+      title: 'Judas Betrays Jesus',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Judas leads the crowd' },
-        { src: 'panel-jonah-2.svg', alt: 'Judas kisses Jesus' },
-        { src: 'panel-jonah-3.svg', alt: 'Friends fail—Jesus forgives!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Judas covenants for thirty pieces of silver — he seeks opportunity to betray Jesus'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Judas comes with a multitude — Whomsoever I shall kiss, that same is he — he kisses Jesus'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus says, Friend, wherefore art thou come? — they lay hands on Jesus and take Him'
+        }
       ],
-      caption: 'Swipe to see Judas betray—Jesus still forgives! 💔',
-      videoId: '79iFRXt4470',
-      videoTitle: 'Judas Betrays Jesus – Bible Stories!',
-      keywords: ['judas', 'betrayal', 'kiss', 'matthew 26', 'mark 14', 'fail'],
-      kjvRef: 'Matthew 26',
-      kidContext: { who: 'Jesus', to: 'Judas (and us)', apply: 'Even friends fail—Jesus forgives! He still loves you when people hurt you.' }
+      caption: 'Swipe slowly — a hard moment; Jesus stays gentle, and His love does not fail.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'judas',
+        'betrayal',
+        'kiss',
+        'thirty pieces of silver',
+        'chief priests',
+        'garden',
+        'multitude',
+        'swords',
+        'staves',
+        'friend',
+        'matthew 26',
+        'mark 14'
+      ],
+      kjvRef: 'Matthew 26:14–16; 26:47–50 (par. Mark 14:10–11, 43–46)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who has felt hurt or confused when someone is unkind',
+        apply:
+          'Jesus understands when people fail us — He stayed loving even here, and we can run to His faithful kindness.'
+      },
+      narration:
+        "Judas Betrays Jesus — Matthew 26:14–16; 26:47–50. Then one of the twelve, called Judas Iscariot, went unto the chief priests, And said unto them, What will ye give me, and I will deliver him unto you? And they covenanted with him for thirty pieces of silver. And from that time he sought opportunity to betray him. And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people. Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast. And forthwith he came to Jesus, and said, Hail, master; and kissed him. And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him. For you: On hard days when someone is unkind or when you feel hurt by a friend, remember Jesus. He stayed gentle and loving even when He was betrayed. He understands sad feelings, and His love for you never fails. You can rest in His faithful love."
     },
     trial: {
       title: 'Trial (Pilate)',
@@ -6296,16 +6325,45 @@
     judasKiss: {
       title: 'Judas Betrays Jesus',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Soldiers come to the garden with torches' },
-        { src: 'panel-noah-2.svg', alt: 'Judas kisses Jesus—a signal to arrest Him' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus goes peacefully—He loves us that much' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Judas covenants for thirty pieces of silver — he seeks opportunity to betray Jesus'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Judas comes with a multitude — Whomsoever I shall kiss, that same is he — he kisses Jesus'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus says, Friend, wherefore art thou come? — they lay hands on Jesus and take Him'
+        }
       ],
-      caption: 'Swipe to see Jesus stay calm—even when betrayed! 🕯️',
+      caption: 'Swipe slowly — a hard moment; Jesus stays gentle, and His love does not fail.',
       videoId: '',
       videoTitle: '',
-      keywords: ['judas', 'betray', 'kiss', 'matthew 26', 'arrest', 'garden', 'soldiers'],
-      kjvRef: 'Matthew 26',
-      kidContext: { who: 'Jesus', to: 'Judas (and us)', apply: 'Even when people hurt you, choose love like Jesus did! He forgave.' }
+      keywords: [
+        'judas',
+        'betray',
+        'kiss',
+        'thirty pieces of silver',
+        'chief priests',
+        'garden',
+        'multitude',
+        'swords',
+        'staves',
+        'friend',
+        'matthew 26',
+        'mark 14'
+      ],
+      kjvRef: 'Matthew 26:14–16; 26:47–50 (par. Mark 14:10–11, 43–46)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who has felt hurt or confused when someone is unkind',
+        apply:
+          'Jesus understands when people fail us — He stayed loving even here, and we can run to His faithful kindness.'
+      },
+      narration:
+        "Judas Betrays Jesus — Matthew 26:14–16; 26:47–50. Then one of the twelve, called Judas Iscariot, went unto the chief priests, And said unto them, What will ye give me, and I will deliver him unto you? And they covenanted with him for thirty pieces of silver. And from that time he sought opportunity to betray him. And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people. Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast. And forthwith he came to Jesus, and said, Hail, master; and kissed him. And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him. For you: On hard days when someone is unkind or when you feel hurt by a friend, remember Jesus. He stayed gentle and loving even when He was betrayed. He understands sad feelings, and His love for you never fails. You can rest in His faithful love."
     },
     /* ── Week 7 (85–96) ── */
     crossCarry: {

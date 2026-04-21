@@ -3518,6 +3518,8 @@
       /* ── Week 6: Judas Kiss (84) ── */
       judasKiss: svg(
         ground() +
+        '<circle cx="332" cy="58" r="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M48 198 Q62 168 78 198 M322 198 Q338 168 352 198" ' + s + ' stroke-width="2" opacity="0.85"/>' +
         person(188, 175, 12, 35) +
         person(215, 178, 12, 35) +
         '<path d="M218 188 Q215 178 205 178" ' + s + ' stroke-width="2.5"/>' +
@@ -3526,8 +3528,10 @@
         '<line x1="82" y1="178" x2="82" y2="248" ' + s + ' stroke-width="3.5"/>' +
         '<polygon points="82,248 75,265 89,265" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<ellipse cx="58" cy="248" rx="12" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
-        star(200, 30, 12) + star(100, 40, 8) + star(300, 38, 8) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 26:49</text>'
+        '<line x1="318" y1="182" x2="318" y2="248" ' + s + ' stroke-width="3.5"/>' +
+        '<polygon points="318,248 311,265 325,265" ' + sf + ' fill="white" stroke-width="2"/>' +
+        star(200, 30, 10) + star(100, 42, 7) + star(300, 40, 7) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:49–50</text>'
       ),
 
       /* ── Week 7: Cross Carry (85) ── */

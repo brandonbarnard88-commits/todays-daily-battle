@@ -93,6 +93,7 @@
  * Greatest commandment — Matthew 22:35–40 (gentle): buildGreatestCommandmentReadQuiz() (library key: greatestCommandment).
  * Triumphal Entry — Matthew 21:1–11 (gentle): buildTriumphalEntryReadQuiz() (library key: triumphalEntry).
  * Palm Sunday — Jesus rides into Jerusalem — Matthew 21:1–11 (+ harmony refs): buildPalmSundayReadQuiz() (library key: palmSunday).
+ * Judas betrays Jesus — Matthew 26:14–16; 26:47–50 (gentle): buildBetrayalReadQuiz() (library keys: betrayal; judasKiss).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
@@ -11756,6 +11757,150 @@ function buildPalmSundayReadQuiz() {
   };
 }
 
+/** Judas betrays Jesus — silver, kiss, gentle Friend (gentle). Library keys: betrayal; judasKiss */
+function buildBetrayalReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:14–16; 26:47–50 (KJV) (par. Mark 14:10–11, 43–46)',
+    verseExcerpt: 'Jesus said unto him, Friend, wherefore art thou come? — Matthew 26:50 (KJV)',
+    readAlongTitle: 'Judas Betrays Jesus',
+    quizWrongHumilityHint:
+      'Listen again — Judas Iscariot; chief priests; thirty pieces of silver; sought opportunity; multitude; swords; staves; kiss; hold him fast; Hail master; Friend; laid hands; took him.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Then one of the twelve, called Judas Iscariot, went unto the chief priests, And said unto them, What will ye give me, and I will deliver him unto you? And they covenanted with him for thirty pieces of silver. And from that time he sought opportunity to betray him.',
+      'And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people.',
+      'Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast.',
+      'And forthwith he came to Jesus, and said, Hail, master; and kissed him.',
+      'And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him.',
+      'Even in this hard moment, Jesus was gentle — His love does not fail, and we can bring every sad feeling to Him.',
+      'Reference: Matthew 26:14–16; 26:47–50 (KJV) (parallel in Mark 14:10–11, 43–46)'
+    ],
+    readAlongSections: [
+      {
+        text: 'One of the twelve, Judas, went to the chief priests and asked what they would give him to deliver Jesus.',
+        caption: 'Thirty pieces of silver',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They agreed, and from that time he sought opportunity to betray Jesus.',
+        caption: 'Sought opportunity',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Judas came with a crowd carrying swords and staves.',
+        caption: 'A great multitude',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He told them, Whomsoever I shall kiss, that same is he: hold him fast.',
+        caption: 'The sign of the kiss',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He came to Jesus, said, Hail, master; and kissed him.',
+        caption: 'Hail, master',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus said, Friend, wherefore art thou come? Then they laid hands on Jesus, and took him.',
+        caption: 'Friend — wherefore art thou come?',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:14–16; 26:47–50 (also told in Mark)',
+          'Jonah 1 only',
+          'Genesis 1 only',
+          'Psalm 23 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26.)'
+      },
+      {
+        question: 'What did the chief priests agree to give Judas at first?',
+        choices: [
+          'Thirty pieces of silver',
+          'A hundred camels',
+          'A golden crown only',
+          'Nothing — no bargain'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:15.',
+        wrongFeedback: 'Listen for “silver.” (Answer: thirty pieces of silver.)'
+      },
+      {
+        question: 'How did Judas tell the crowd which one was Jesus?',
+        choices: [
+          'He said the one he kissed would be Jesus — then he kissed Him.',
+          'He pointed only with a long flag.',
+          'He shouted a riddle no one understood.',
+          'He did not go near Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:48–49.',
+        wrongFeedback: 'Listen for “kiss.” (Answer: the kiss was the sign.)'
+      },
+      {
+        question: 'What did Jesus say to Judas when Judas came near?',
+        choices: [
+          'Friend, wherefore art thou come?',
+          'Run away quickly.',
+          'Bring more swords.',
+          'Do not speak to me.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:50.',
+        wrongFeedback: 'Listen for “Friend.” (Answer: Friend, wherefore art thou come?)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'They laid hands on Jesus, and took him.',
+          'A spaceship landed in the garden.',
+          'Everyone turned into birds.',
+          'The road became ice cream.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:50.',
+        wrongFeedback: 'Pick the sober detail from God’s Word. (Answer: laid hands… took him.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus my feelings when someone hurts me — thank Him that His love never fails.',
+          'Believe God is never gentle.',
+          'Hide every sad feeling forever.',
+          'Never ask a grown-up for help.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “gentle Jesus” and “love that does not fail.” (Answer: tell Jesus… thank Him.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Judas Betrays Jesus with God's Word today.",
+    takeaway:
+      'Jesus stayed gentle in a hard moment — His love does not fail; we can rest in Him when people hurt us.',
+    prayer:
+      'Lord Jesus, thank You that You understand when I feel hurt. Help me trust Your faithful love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): night garden scene with bold outlines and large open spaces. Jesus stands calm with a gentle face; Judas steps near. A few people with simple torch or lantern shapes in the background — not scary, not gory. Thick outlines, plenty of white space, age-appropriate. No text in the image.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: Thirty pieces — hard bargain (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: Garden — torches far off (stillness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: The kiss — a sad sign (honesty)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: Friend, wherefore art thou come? (gentleness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: His love does not fail (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: Tell Jesus my feelings (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
 function buildJesusWeepsJerusalemReadQuiz() {
   return {
@@ -13131,6 +13276,8 @@ module.exports = {
   lazarus: buildLazarusReadQuiz(),
   maryAnoint: buildMaryAnointReadQuiz(),
   palmSunday: buildPalmSundayReadQuiz(),
+  betrayal: buildBetrayalReadQuiz(),
+  judasKiss: buildBetrayalReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

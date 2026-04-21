@@ -1377,6 +1377,16 @@
     "kw": "hidden treasure kingdom of heaven treasure field found joy sell buy field matthew 13 parable jesus worth everything"
   },
   {
+    "key": "tenVirgins",
+    "title": "Jesus Tells About Being Ready",
+    "kjvRef": "Matthew 25:1–13",
+    "who": "Jesus",
+    "to": "His disciples (and us)",
+    "apply": "Jesus wants us to be ready for Him at all times — loving Him, trusting Him, and walking with Him day by day.",
+    "theme": "Obedience",
+    "kw": "ten virgins lamps oil bridegroom midnight matthew 25 ready wise foolish watch jesus"
+  },
+  {
     "key": "unforgivingServant",
     "title": "Jesus Tells About Forgiving Others",
     "kjvRef": "Matthew 18:21–35",
@@ -3115,16 +3125,6 @@
     "apply": "God told Moses how to build the tabernacle—His house in the middle of the camp. When it was finished, His glory filled it: cloud by day, fire by night. He stayed with His people on the journey. God still wants to be near us; Jesus is 'God with us'—draw near to Him in prayer.",
     "theme": "Love",
     "kw": "tabernacle tent exodus 40 moses glory cloud covenant ark dwell wilderness"
-  },
-  {
-    "key": "tenVirgins",
-    "title": "The Ten Virgins",
-    "kjvRef": "Matthew 25",
-    "who": "Jesus",
-    "to": "His followers (and us)",
-    "apply": "Be ready! Fill up with God's Word and Spirit every day—don't run empty.",
-    "theme": "Obedience",
-    "kw": "virgins lamps oil matthew 25 ready wise foolish return"
   },
   {
     "key": "revelationThrone",

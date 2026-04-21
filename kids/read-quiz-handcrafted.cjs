@@ -86,6 +86,7 @@
  * Two sons and a vineyard — Matthew 21:28–32 (gentle): buildParableTwoSonsReadQuiz() (library key: parableTwoSons).
  * King’s wedding feast — Matthew 22:1–14 (gentle): buildParableWeddingFeastReadQuiz() (library key: parableWeddingFeast).
  * Talents — Matthew 25:14–30 (gentle): buildParableTalentsReadQuiz() (library key: parableTalents).
+ * Ten virgins — Matthew 25:1–13 (gentle): buildTenVirginsReadQuiz() (library key: tenVirgins; alias parableTenVirgins in slug map).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -10649,6 +10650,142 @@ function buildParableTalentsReadQuiz() {
   };
 }
 
+/** Ten virgins — Matthew 25:1–13 (gentle). Library key: tenVirgins */
+function buildTenVirginsReadQuiz() {
+  return {
+    kjvRef: 'Matthew 25:1–13 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh. — Matthew 25:13 (KJV)',
+    readAlongTitle: 'Jesus Tells About Being Ready',
+    quizWrongHumilityHint:
+      'Listen again — ten virgins; lamps; oil; wise; foolish; bridegroom; midnight; trimmed; go out to meet him; marriage; door shut; watch.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told a story about ten young women who took their lamps and went out to meet the bridegroom.',
+      'Five of them were wise and took extra oil with their lamps.',
+      'Five were foolish and took no extra oil.',
+      'While they waited, they all became sleepy and fell asleep.',
+      'At midnight there was a cry: “Behold, the bridegroom cometh; go ye out to meet him.”',
+      'The ten women woke up and trimmed their lamps.',
+      'The foolish ones said to the wise, “Give us of your oil; for our lamps are gone out.”',
+      'The wise answered, “Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves.”',
+      'While the foolish ones went to buy oil, the bridegroom came.',
+      'The wise ones who were ready went in with him to the marriage, and the door was shut.',
+      'Later the other women came and said, “Lord, Lord, open to us.”',
+      'But he answered, “Verily I say unto you, I know you not.”',
+      'Jesus said, “Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh.”',
+      'Jesus wants us to be ready for Him at all times.',
+      'Reference: Matthew 25:1–13 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Ten young women took their lamps to meet the bridegroom.',
+        caption: 'Went forth to meet the bridegroom',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Five were wise and took extra oil. Five were foolish and took no extra oil.',
+        caption: 'They took their lamps',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'At midnight a cry: “Behold, the bridegroom cometh; go ye out to meet him.”',
+        caption: 'The bridegroom cometh',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The wise were ready with oil. The bridegroom came, and they went in to the marriage.',
+        caption: 'Go in with him to the marriage',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus said, “Watch therefore, for ye know neither the day nor the hour.”',
+        caption: 'Watch therefore',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus wants us to be ready for Him at all times.',
+        caption: 'The Son of man cometh',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 25:1–13', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 25:1–13.)'
+      },
+      {
+        question: 'What did the five wise young women take along with their lamps?',
+        choices: [
+          'Extra oil in their vessels',
+          'Only empty baskets',
+          'Rocks and sand',
+          'Nothing at all'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 25:4.',
+        wrongFeedback: 'Think about what the wise took for their lamps. (Answer: extra oil.)'
+      },
+      {
+        question: 'What happened at midnight?',
+        choices: [
+          'A cry: “Behold, the bridegroom cometh; go ye out to meet him.”',
+          'Everyone went home for lunch',
+          'The sun stood still',
+          'Nobody woke up'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 25:6.',
+        wrongFeedback: 'Listen again for the midnight cry. (Answer: the bridegroom cometh… go out.)'
+      },
+      {
+        question: 'What did the bridegroom say to the ones who were ready?',
+        choices: [
+          'They went in with him to the marriage — the door was shut after them',
+          'They were sent away forever with no kindness',
+          'They had to run away from the city',
+          'Nothing happened at all'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 25:10.',
+        wrongFeedback: 'Remember who went in with the bridegroom. (Answer: the ready went in… door shut.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me stay ready — loving Him, trusting Him, and obeying Him day by day.',
+          'Forget about God until later.',
+          'Believe Jesus will never come again.',
+          'Only worry — never pray.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches “watch” and “be ready”? (Answer: stay ready… loving Him… day by day.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Tells About Being Ready with God's Word today.",
+    takeaway: 'Jesus wants us to be ready for Him at all times.',
+    prayer:
+      'Lord Jesus, please help me be ready for You — with a heart that loves You and listens to You every day. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Five wise young women with bright lamps standing happily at a door. The bridegroom is welcoming them. Thick, bold outlines with large open spaces on the women’s robes, the lamps, and the door for easy coloring. Soft night sky with gentle stars and minimal lines. Ready and joyful mood — focus on the wise ones who were prepared. Clean, minimal, no fear or closed door shown as scary, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Ten lamps — went forth (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Wise — extra oil (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Midnight cry — bridegroom cometh (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Ready — went in to marriage (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Watch therefore — Son of man cometh (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Be ready — every day (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -11049,6 +11186,7 @@ module.exports = {
   parableTwoSons: buildParableTwoSonsReadQuiz(),
   parableWeddingFeast: buildParableWeddingFeastReadQuiz(),
   parableTalents: buildParableTalentsReadQuiz(),
+  tenVirgins: buildTenVirginsReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

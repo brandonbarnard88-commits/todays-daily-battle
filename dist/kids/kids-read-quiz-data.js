@@ -15963,7 +15963,7 @@
           "Matthew 26",
           "Joshua 7:1-26",
           "John 5:1–15",
-          "Matthew 25"
+          "Matthew 25:1–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16211,7 +16211,7 @@
           "the Bible",
           "1 Samuel 13; 15",
           "Luke 24:13–35",
-          "Matthew 25"
+          "Matthew 25:1–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22910,7 +22910,7 @@
           "Joshua 7:1-26",
           "John 5:1–15",
           "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Matthew 25"
+          "Matthew 25:1–13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30106,88 +30106,137 @@
     ]
   },
   "tenVirgins": {
-    "kjvRef": "Matthew 25",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Matthew 25:1–13 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh. — Matthew 25:13 (KJV)",
+    "readAlongTitle": "Jesus Tells About Being Ready",
+    "quizWrongHumilityHint": "Listen again — ten virgins; lamps; oil; wise; foolish; bridegroom; midnight; trimmed; go out to meet him; marriage; door shut; watch.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "The Ten Virgins (Matthew 25).",
-      "Ten virgins wait with lamps Five are wise—they brought extra oil Be ready—Jesus is coming!",
-      "Be ready!",
-      "Fill up with God's Word and Spirit every day—don't run empty."
+      "Jesus told a story about ten young women who took their lamps and went out to meet the bridegroom.",
+      "Five of them were wise and took extra oil with their lamps.",
+      "Five were foolish and took no extra oil.",
+      "While they waited, they all became sleepy and fell asleep.",
+      "At midnight there was a cry: “Behold, the bridegroom cometh; go ye out to meet him.”",
+      "The ten women woke up and trimmed their lamps.",
+      "The foolish ones said to the wise, “Give us of your oil; for our lamps are gone out.”",
+      "The wise answered, “Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves.”",
+      "While the foolish ones went to buy oil, the bridegroom came.",
+      "The wise ones who were ready went in with him to the marriage, and the door was shut.",
+      "Later the other women came and said, “Lord, Lord, open to us.”",
+      "But he answered, “Verily I say unto you, I know you not.”",
+      "Jesus said, “Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh.”",
+      "Jesus wants us to be ready for Him at all times.",
+      "Reference: Matthew 25:1–13 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Ten young women took their lamps to meet the bridegroom.",
+        "caption": "Went forth to meet the bridegroom",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Five were wise and took extra oil. Five were foolish and took no extra oil.",
+        "caption": "They took their lamps",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "At midnight a cry: “Behold, the bridegroom cometh; go ye out to meet him.”",
+        "caption": "The bridegroom cometh",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The wise were ready with oil. The bridegroom came, and they went in to the marriage.",
+        "caption": "Go in with him to the marriage",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus said, “Watch therefore, for ye know neither the day nor the hour.”",
+        "caption": "Watch therefore",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus wants us to be ready for Him at all times.",
+        "caption": "The Son of man cometh",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 6:24-7:20",
-          "1 Kings 3:5-15",
-          "Matthew 25",
-          "Revelation 21–22"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 25.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Holy Ghost",
-          "Jesus",
-          "The Lord",
-          "Holy Spirit"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "Be ready! Fill up with God's Word and Spirit every day—don't run empty.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up."
+          "Matthew 25:1–13",
+          "Psalm 23",
+          "Jonah 1",
+          "Genesis 1"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Be ready! Fill up with God's Word and Spirit every day—don't run empty..)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 25:1–13.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did the five wise young women take along with their lamps?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot.",
-          "Ten virgins wait with lamps"
+          "Extra oil in their vessels",
+          "Only empty baskets",
+          "Rocks and sand",
+          "Nothing at all"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 25:4.",
+        "wrongFeedback": "Think about what the wise took for their lamps. (Answer: extra oil.)"
+      },
+      {
+        "question": "What happened at midnight?",
+        "choices": [
+          "A cry: “Behold, the bridegroom cometh; go ye out to meet him.”",
+          "Everyone went home for lunch",
+          "The sun stood still",
+          "Nobody woke up"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 25:6.",
+        "wrongFeedback": "Listen again for the midnight cry. (Answer: the bridegroom cometh… go out.)"
+      },
+      {
+        "question": "What did the bridegroom say to the ones who were ready?",
+        "choices": [
+          "They went in with him to the marriage — the door was shut after them",
+          "They were sent away forever with no kindness",
+          "They had to run away from the city",
+          "Nothing happened at all"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 25:10.",
+        "wrongFeedback": "Remember who went in with the bridegroom. (Answer: the ready went in… door shut.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Be ready! Fill up with God's Word and Spirit every day—don't run empty.",
-          "Ignore God until we are older."
+          "Ask Jesus to help me stay ready — loving Him, trusting Him, and obeying Him day by day.",
+          "Forget about God until later.",
+          "Believe Jesus will never come again.",
+          "Only worry — never pray."
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Be ready! Fill up with God's Word and Spirit every day—don't run empty..)"
+        "wrongFeedback": "Think: which matches “watch” and “be ready”? (Answer: stay ready… loving Him… day by day.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Ten Virgins with God's Word today.",
-    "takeaway": "Be ready! Fill up with God's Word and Spirit every day—don't run empty.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Ten Virgins. Amen.",
+    "doneMessage": "Great job reading Jesus Tells About Being Ready with God's Word today.",
+    "takeaway": "Jesus wants us to be ready for Him at all times.",
+    "prayer": "Lord Jesus, please help me be ready for You — with a heart that loves You and listens to You every day. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ten virgins wait with lamps (virgins)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Five are wise—they brought extra oil (lamps)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Be ready—Jesus is coming! (oil)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ten virgins wait with lamps (matthew 25)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Five are wise—they brought extra oil (ready)"
-    ]
+      "A simple, peaceful black-and-white line-art scene for young children: Five wise young women with bright lamps standing happily at a door. The bridegroom is welcoming them. Thick, bold outlines with large open spaces on the women’s robes, the lamps, and the door for easy coloring. Soft night sky with gentle stars and minimal lines. Ready and joyful mood — focus on the wise ones who were prepared. Clean, minimal, no fear or closed door shown as scary, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Ten lamps — went forth (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Wise — extra oil (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Midnight cry — bridegroom cometh (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Ready — went in to marriage (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Watch therefore — Son of man cometh (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo night and gold lamp glow, friendly not scary, no text in image: Be ready — every day (love)"
+    ],
+    "readAlongImages": []
   },
   "thessaloniansHope": {
     "kjvRef": "1 Thessalonians 4:13–18; 5:16–24",

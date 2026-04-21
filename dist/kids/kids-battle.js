@@ -6726,18 +6726,46 @@
       kidContext: { who: 'God', to: 'Paul and Silas', apply: 'Praise God even in hard places! Your worship opens doors—literally.' }
     },
     tenVirgins: {
-      title: 'The Ten Virgins',
+      title: 'Jesus Tells About Being Ready',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ten virgins wait with lamps' },
-        { src: 'panel-noah-2.svg', alt: 'Five are wise—they brought extra oil' },
-        { src: 'panel-noah-3.svg', alt: 'Be ready—Jesus is coming!' }
+        {
+          src: 'panel-noah-1.svg',
+          alt: 'Ten young women with lamps go out to meet the bridegroom — five wise with oil, five foolish without'
+        },
+        {
+          src: 'panel-noah-2.svg',
+          alt: 'At midnight a cry: the bridegroom cometh — trim your lamps'
+        },
+        {
+          src: 'panel-noah-3.svg',
+          alt: 'The ready went in with him to the marriage — watch, for ye know neither the day nor the hour'
+        }
       ],
-      caption: 'Swipe to see the ten virgins—always be ready! 🪔',
+      caption: 'Swipe to see the wise ones ready with oil — Jesus wants us to be ready! 🪔',
       videoId: '',
       videoTitle: '',
-      keywords: ['virgins', 'lamps', 'oil', 'matthew 25', 'ready', 'wise', 'foolish', 'return'],
-      kjvRef: 'Matthew 25',
-      kidContext: { who: 'Jesus', to: 'His followers (and us)', apply: 'Be ready! Fill up with God\'s Word and Spirit every day—don\'t run empty.' }
+      keywords: [
+        'ten virgins',
+        'lamps',
+        'oil',
+        'bridegroom',
+        'midnight',
+        'matthew 25',
+        'ready',
+        'wise',
+        'foolish',
+        'watch',
+        'jesus'
+      ],
+      kjvRef: 'Matthew 25:1–13',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples (and us)',
+        apply:
+          'Jesus wants us to be ready for Him at all times — loving Him, trusting Him, and walking with Him day by day.'
+      },
+      narration:
+        "Jesus Tells About Being Ready — Matthew 25:1–13. Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth to meet the bridegroom. And five of them were wise, and five were foolish. They that were foolish took their lamps, and took no oil with them: But the wise took oil in their vessels with their lamps. While the bridegroom tarried, they all slumbered and slept. And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him. Then all those virgins arose, and trimmed their lamps. And the foolish said unto the wise, Give us of your oil; for our lamps are gone out. But the wise answered, saying, Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves. And while they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut. Afterward came also the other virgins, saying, Lord, Lord, open to us. But he answered and said, Verily I say unto you, I know you not. Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh. For you: Jesus wants us to be ready for Him at all times."
     },
     /* ── Week 8 (97–108) ── */
     armorShield: {
@@ -8286,7 +8314,7 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -8305,7 +8333,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -8836,6 +8864,13 @@
     ) {
       return { type: 'carousel', story: 'parableWeddingFeast' };
     }
+    if (
+      /ten virgins|matthew 25:1|matthew 25:13|bridegroom cometh|wise.*foolish.*lamps|trimmed their lamps|parable.*ten.*virgin/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'tenVirgins' };
+    }
     if (/widow.*mite|widow.*coin|mark 12:41|luke 21:2/.test(low)) {
       return { type: 'carousel', story: 'widowsMite' };
     }
@@ -8895,7 +8930,11 @@
     if (/ruth/.test(low)) {
       return { type: 'carousel', story: 'ruthBoaz' };
     }
-    if (/parable.*talent|talents|matthew 25|servants.*money/.test(low)) {
+    if (
+      /matthew 25:1[4-9]|matthew 25:2[0-9]|matthew 25:30|digged.*earth|wicked and slothful|well done.*good and faithful|five talents.*two|parable of the talent|servants.*money.*according to his several ability/i.test(
+        low
+      )
+    ) {
       return { type: 'carousel', story: 'parableTalents' };
     }
     if (isWeeklyStory) {
@@ -11412,7 +11451,7 @@
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', tenVirgins: 'Obedience', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
     ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', armorOfGod: 'Obedience',
@@ -11522,7 +11561,7 @@
     colossiansChristSupreme: 'Obedience',
     thessaloniansHope: 'Love',
     timothyYouthExample: 'Obedience',
-    paulSilas: 'Protection', tenVirgins: 'Obedience',
+    paulSilas: 'Protection',
     /* Week 8 */
     armorShield: 'Protection', armorSword: 'Protection', fruitSpirit: 'Love',
     loveChapter: 'Love', faithMustard: 'Obedience', prayerKnock: 'Obedience',

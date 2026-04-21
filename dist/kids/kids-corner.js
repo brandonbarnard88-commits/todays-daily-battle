@@ -3607,21 +3607,35 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ephesians 6:11</text>'
       ),
 
-      /* ── Week 7: Ten Virgins (96) ── */
+      /* Matthew 25:1–13 — five wise with lamps at the door; gentle “ready” scene */
       tenVirgins: svg(
         ground() +
-        '<path d="M40 260 Q200 230 360 260" ' + s + ' stroke-width="2.5"/>' +
-        person(75, 185, 10, 28) + person(100, 188, 9, 25) + person(125, 185, 10, 28) +
-        person(150, 188, 9, 25) + person(175, 185, 10, 28) +
-        person(225, 185, 10, 28) + person(250, 188, 9, 25) + person(275, 185, 10, 28) +
-        person(300, 188, 9, 25) + person(325, 185, 10, 28) +
-        '<path d="M80 175 Q80 162 86 158 Q92 162 88 175" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M130 175 Q130 162 136 158 Q142 162 138 175" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M180 175 Q180 162 186 158 Q192 162 188 175" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M230 175 Q230 162 236 158 Q242 162 238 175" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M280 175 Q280 162 286 158 Q292 162 288 175" ' + sf + ' fill="white" stroke-width="2"/>' +
-        star(200, 35, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 25:1</text>'
+        '<rect x="0" y="0" width="400" height="130" fill="#e8ecf5" stroke="none"/>' +
+        star(70, 38, 5) +
+        star(120, 28, 4) +
+        star(280, 42, 5) +
+        star(340, 32, 4) +
+        '<path d="M40 268 Q200 242 360 268" ' + s + ' stroke-width="2.2"/>' +
+        '<rect x="268" y="128" width="88" height="132" rx="8" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<rect x="298" y="168" width="28" height="42" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M296 168 Q310 156 324 168" ' + s + ' stroke-width="2" fill="none"/>' +
+        person(308, 138, 11, 26) +
+        person(58, 168, 8, 22) +
+        '<line x1="54" y1="198" x2="54" y2="230" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="54" cy="188" rx="5" ry="8" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        person(102, 170, 8, 22) +
+        '<line x1="98" y1="200" x2="98" y2="232" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="98" cy="190" rx="5" ry="8" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        person(146, 168, 8, 22) +
+        '<line x1="142" y1="198" x2="142" y2="230" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="142" cy="188" rx="5" ry="8" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        person(190, 170, 8, 22) +
+        '<line x1="186" y1="200" x2="186" y2="232" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="186" cy="190" rx="5" ry="8" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        person(234, 168, 8, 22) +
+        '<line x1="230" y1="198" x2="230" y2="230" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="230" cy="188" rx="5" ry="8" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 25:13</text>'
       ),
 
       /* ── Week 8: Armor Shield (97) ── */
@@ -5019,6 +5033,7 @@
     paulShipwreck: 'paulShipwreck',
     paulSilas: 'paulSilas',
     tenVirgins: 'tenVirgins',
+    parableTenVirgins: 'tenVirgins',
     /* ── Week 8 ── */
     armorShield: 'armorShield',
     armorSword: 'armorSword',
@@ -6681,10 +6696,10 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'widowMite', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
-        'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
-        'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'
+        'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
+        'armorOfGod', 'heavenPromise', 'jonah'
       ];
 
   function showToast(msg) {

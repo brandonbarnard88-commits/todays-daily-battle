@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-21T16:52:07.358Z",
-  "surfacedRefCount": 2827,
-  "overrideCount": 2827,
+  "generatedAt": "2026-04-21T16:59:59.033Z",
+  "surfacedRefCount": 2826,
+  "overrideCount": 2826,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 207,
+      "refs": 208,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -2774,14 +2774,13 @@
     "Matthew 22:46",
     "Matthew 24:28",
     "Matthew 24:6",
-    "Matthew 25:1",
+    "Matthew 25:1-13",
     "Matthew 25:14-30",
     "Matthew 25:15",
     "Matthew 25:16",
     "Matthew 25:18",
     "Matthew 25:20",
     "Matthew 25:21",
-    "Matthew 25:4",
     "Matthew 25:41",
     "Matthew 25:46",
     "Matthew 26:14",
@@ -19806,9 +19805,9 @@
         "to": "Believers"
       }
     },
-    "Matthew 25:1": {
+    "Matthew 25:1-13": {
       "general": {
-        "plainExplanation": "Then shall the kingdom of heaven be likened to ten virgins, which took their lamps, and went forth to meet the bridegroom.",
+        "plainExplanation": "Key idea: Then shall the kingdom of heaven be likened to ten virgins, which took their lamps, and went forth to meet the bridegroom. And five of them were wise, and f...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -19857,14 +19856,6 @@
     "Matthew 25:21": {
       "general": {
         "plainExplanation": "Key idea: His lord said to him, Well done, you good and faithful servant: you hast been faithful over a few things, I will make you ruler over many things: enter you...",
-        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
-        "about": "Jesus",
-        "to": "Believers"
-      }
-    },
-    "Matthew 25:4": {
-      "general": {
-        "plainExplanation": "But the wise took oil in their vessels with their lamps.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

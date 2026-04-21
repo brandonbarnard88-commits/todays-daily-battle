@@ -767,6 +767,11 @@
       webm: '/media/kids-stories/jesus-weeps-jerusalem.webm',
       captionsVtt: '/media/kids-stories/jesus-weeps-jerusalem.vtt'
     },
+    figTree: {
+      mp4: '/media/kids-stories/jesus-fig-tree-faith.mp4',
+      webm: '/media/kids-stories/jesus-fig-tree-faith.webm',
+      captionsVtt: '/media/kids-stories/jesus-fig-tree-faith.vtt'
+    },
     jesusWalksWater: {
       mp4: '/media/kids-stories/jesus-walks-water.mp4',
       webm: '/media/kids-stories/jesus-walks-water.webm',

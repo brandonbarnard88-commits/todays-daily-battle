@@ -190,6 +190,7 @@
   "transfigure": "transfigure",
   "triumphalEntry": "triumphalEntry",
   "jesusWeepsJerusalem": "jesusWeepsJerusalem",
+  "figTree": "figTree",
   "unforgivingServant": "unforgivingServant",
   "widowOil": "widowOil",
   "widowsMite": "widowMite",

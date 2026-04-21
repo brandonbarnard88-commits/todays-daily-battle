@@ -93,6 +93,7 @@
  * Greatest commandment — Matthew 22:35–40 (gentle): buildGreatestCommandmentReadQuiz() (library key: greatestCommandment).
  * Triumphal Entry — Matthew 21:1–11 (gentle): buildTriumphalEntryReadQuiz() (library key: triumphalEntry).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
+ * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -11605,6 +11606,147 @@ function buildJesusWeepsJerusalemReadQuiz() {
   };
 }
 
+/** Fig tree — Matthew 21:18–22 (gentle). Library key: figTree */
+function buildFigTreeReadQuiz() {
+  return {
+    kjvRef: 'Matthew 21:18–22 (KJV)',
+    verseExcerpt:
+      'And all things, whatsoever ye shall ask in prayer, believing, ye shall receive. — Matthew 21:22 (KJV)',
+    readAlongTitle: 'Jesus Teaches About Faith',
+    quizWrongHumilityHint:
+      'Listen again — morning; returned; hungered; fig tree in the way; leaves only; Let no fruit grow; withered away; marvelled; Verily I say unto you; faith; doubt not; mountain; cast into the sea; ask in prayer; believing.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'The next day, as Jesus returned to the city, He was hungry.',
+      'He saw a fig tree by the road that had leaves but no fruit.',
+      'He said to the tree, “Let no fruit grow on thee henceforward for ever.”',
+      'And presently the fig tree withered away.',
+      'When the disciples saw it, they marvelled, saying, “How soon is the fig tree withered away!”',
+      'Jesus answered and said unto them, “Verily I say unto you, If ye have faith, and doubt not, ye shall not only do this which is done to the fig tree, but also if ye shall say unto this mountain, Be thou removed, and be thou cast into the sea; it shall be done.”',
+      '“And all things, whatsoever ye shall ask in prayer, believing, ye shall receive.”',
+      'Jesus teaches us that with faith and prayer, God can do wonderful things.',
+      'Reference: Matthew 21:18–22 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus returned to the city and was hungry. He saw a fig tree by the road with leaves but no fruit.',
+        caption: 'Fig tree in the way',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He said to the tree, “Let no fruit grow on thee henceforward for ever.” And presently the fig tree withered away.',
+        caption: 'Let no fruit grow',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The disciples marvelled, saying, “How soon is the fig tree withered away!”',
+        caption: 'They marvelled',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, “Verily I say unto you, If ye have faith, and doubt not, ye shall not only do this which is done to the fig tree, but also if ye shall say unto this mountain, Be thou removed, and be thou cast into the sea; it shall be done.”',
+        caption: 'Faith, and doubt not',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: '“And all things, whatsoever ye shall ask in prayer, believing, ye shall receive.”',
+        caption: 'Ask in prayer, believing',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus teaches us to pray with faith — trusting God to hear and help.',
+        caption: 'Faith and prayer',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 21:18–22', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 21:18–22.)'
+      },
+      {
+        question: 'What did Jesus find on the fig tree?',
+        choices: [
+          'Leaves only — no fruit',
+          'Only rocks',
+          'A bird nest with no leaves',
+          'Gold coins'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:19.',
+        wrongFeedback: 'Listen for “leaves” and “nothing… but leaves only.” (Answer: leaves only… no fruit.)'
+      },
+      {
+        question: 'What happened to the fig tree after Jesus spoke?',
+        choices: [
+          'It withered away',
+          'It grew taller instantly',
+          'It stayed exactly the same forever',
+          'It turned into a boat'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:19.',
+        wrongFeedback: 'Listen for “withered.” (Answer: the fig tree withered away.)'
+      },
+      {
+        question: 'What did Jesus say about prayer and faith?',
+        choices: [
+          '“All things, whatsoever ye shall ask in prayer, believing, ye shall receive.”',
+          '“Never ask God for help.”',
+          '“Pray only when you are perfect.”',
+          '“God does not hear children.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:22.',
+        wrongFeedback: 'Listen for “ask in prayer” and “believing.” (Answer: ask… believing… receive.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The disciples marvelled at how soon the fig tree withered',
+          'The tree turned into jelly.',
+          'A spaceship watered the tree.',
+          'Everyone forgot how to walk.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:20.',
+        wrongFeedback: 'Pick the true detail from God’s Word. (Answer: disciples marvelled.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Talk to Jesus honestly in prayer — trust Him to hear me and help me grow in faith.',
+          'Never pray when I feel small.',
+          'Believe God only helps grown-ups.',
+          'Hide worries from God on purpose.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “pray” and “trust.” (Answer: pray… trust Him… faith.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Teaches About Faith with God's Word today.",
+    takeaway:
+      'If ye have faith, and doubt not — ask in prayer, believing; Jesus teaches us God hears trusting hearts.',
+    prayer:
+      'Lord Jesus, help me trust You when I pray — even when I only understand a little. Thank You that You hear me. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus standing near a fig tree with many large, simple leaf shapes (easy outlines, no holes or scary marks) and no fruit shown. Jesus has a calm, teaching face. Two disciples stand nearby watching with gentle faces. Thick, bold outlines with large open spaces on Jesus’ robe, the disciples’ robes, the tree trunk, leaves, and the ground for easy coloring. Soft road lines and a pale sky band with minimal detail. Wise, faithful mood — focus on Jesus teaching about faith and prayer. Clean, minimal, no withered or frightening tree, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft road and morning light, friendly not scary, no text in image: Hungry morning — fig tree by the way (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft road and morning light, friendly not scary, no text in image: Leaves only — honest teaching moment (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft road and morning light, friendly not scary, no text in image: Disciples marvel — gentle wonder (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft road and morning light, friendly not scary, no text in image: Faith and doubt not — mountain word (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft road and morning light, friendly not scary, no text in image: Ask in prayer, believing (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -12013,6 +12155,7 @@ module.exports = {
   greatestCommandment: buildGreatestCommandmentReadQuiz(),
   triumphalEntry: buildTriumphalEntryReadQuiz(),
   jesusWeepsJerusalem: buildJesusWeepsJerusalemReadQuiz(),
+  figTree: buildFigTreeReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

@@ -1791,6 +1791,49 @@
       narration:
         "Jesus Cares Deeply for the City — Luke 19:41–44. And when he was come near, he beheld the city, and wept over it, Saying, If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! but now they are hid from thine eyes. For the days shall come upon thee, that thine enemies shall cast a trench about thee, and compass thee round, and keep thee in on every side, And shall lay thee even with the ground, and thy children within thee; and they shall not leave in thee one stone upon another; because thou knewest not the time of thy visitation. Jesus also taught how He longed to gather Jerusalem’s children together, as a hen gathereth her chickens under her wings — Matthew 23:37. For you: Jesus looks on cities and little hearts with deep love — even His tears are kind. When we feel confused or far away, we can come near Him; He understands, and His heart is full of compassion."
     },
+    figTree: {
+      title: 'Jesus Teaches About Faith',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus comes to a fig tree by the road — leaves only, no fruit — He speaks with calm truth'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'The fig tree withers; the disciples marvel — How soon is the fig tree withered away!'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus teaches — have faith and doubt not; ask in prayer, believing, and ye shall receive'
+        }
+      ],
+      caption: 'Swipe slowly — a lesson about honest faith and gentle, trusting prayer.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'fig tree',
+        'faith',
+        'prayer',
+        'matthew 21',
+        'matthew 21:18',
+        'matthew 21:21',
+        'matthew 21:22',
+        'withered',
+        'leaves only',
+        'doubt not',
+        'believing',
+        'disciples'
+      ],
+      kjvRef: 'Matthew 21:18–22',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples (and us)',
+        apply:
+          'Jesus invites us to pray with faith — trusting our Father to hear us, little by little, as we learn.'
+      },
+      narration:
+        "Jesus Teaches About Faith — Matthew 21:18–22. Now in the morning as he returned into the city, he hungered. And when he saw a fig tree in the way, he came to it, and found nothing thereon, but leaves only, and said unto it, Let no fruit grow on thee henceforward for ever. And presently the fig tree withered away. And when the disciples saw it, they marvelled, saying, How soon is the fig tree withered away! Jesus answered and said unto them, Verily I say unto you, If ye have faith, and doubt not, ye shall not only do this which is done to the fig tree, but also if ye shall say unto this mountain, Be thou removed, and be thou cast into the sea; it shall be done. And all things, whatsoever ye shall ask in prayer, believing, ye shall receive. For you: Jesus was not being mean to little children — He was showing how serious truth is, and how real faith and prayer are. We can come to Him simply, ask in prayer, believing, and grow in trust one day at a time."
+    },
     lastSupper: {
       title: 'Last Supper',
       panels: [
@@ -8549,10 +8592,10 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'triumphalEntry', 'jesusWeepsJerusalem', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -8568,7 +8611,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -9076,6 +9119,13 @@
       )
     ) {
       return { type: 'carousel', story: 'jesusWeepsJerusalem' };
+    }
+    if (
+      /\bmatthew 21:18\b|\bmatthew 21:19\b|\bmatthew 21:20\b|\bmatthew 21:21\b|\bmatthew 21:22\b|fig tree in the way|nothing thereon, but leaves only|let no fruit grow on thee|how soon is the fig tree|the fig tree withered|ask in prayer, believing|whatsoever ye shall ask in prayer/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'figTree' };
     }
     if (/palm sunday|hosanna|donkey.*jerusalem|matthew 21:9|luke 19:38/.test(low)) {
       return { type: 'carousel', story: 'palmSunday' };
@@ -11786,6 +11836,7 @@
     /* Week 7 */
     triumphalEntry: 'Protection',
     jesusWeepsJerusalem: 'Love',
+    figTree: 'Obedience',
     jesusLastSupper: 'Love',
     jesusGardenGethsemane: 'Protection',
     crossCarry: 'Love', jesusCrucifixion: 'Love', tombEmpty: 'Miracles', jesusResurrection: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',

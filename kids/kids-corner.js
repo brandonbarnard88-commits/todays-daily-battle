@@ -181,7 +181,9 @@
       jesusAndZacchaeus: 'zacchaeus',
       triumphalEntry: 'triumphalEntry',
       jesusWeepsJerusalem: 'jesusWeepsJerusalem',
-      jesusWeptJerusalem: 'jesusWeepsJerusalem'
+      jesusWeptJerusalem: 'jesusWeepsJerusalem',
+      figTree: 'figTree',
+      jesusFigTree: 'figTree'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -220,6 +222,7 @@
     if (low.indexOf('jesusandchildren') >= 0 || low === 'jesusandchildren') return 'jesusBlessKids';
     if (low.indexOf('jesusandzacchaeus') >= 0 || low === 'jesusandzacchaeus') return 'zacchaeus';
     if (low.indexOf('jesusweepsjerusalem') >= 0 || low === 'jesusweepsjerusalem') return 'jesusWeepsJerusalem';
+    if (low.indexOf('figtree') >= 0 || low === 'figtree') return 'figTree';
     if (low.indexOf('triumphalentry') >= 0 || low === 'triumphalentry') return 'triumphalEntry';
     if (low.indexOf('bethesda') >= 0 || low === 'bethesda' || low.indexOf('poolofbethesda') >= 0) return 'bethesda';
     if (low.indexOf('manbornblind') >= 0 || low === 'manbornblind') return 'healBlind';
@@ -3757,6 +3760,21 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 19:41</text>'
       ),
 
+      /* Matthew 21:18–22 — gentle: leafy fig tree, Jesus teaching, disciples listening */
+      figTree: svg(
+        ground() +
+        '<path d="M28 232 L372 232" ' + s + ' stroke-width="1.8" opacity="0.35"/>' +
+        '<path d="M262 84 L262 218" ' + s + ' stroke-width="3.8"/>' +
+        '<ellipse cx="262" cy="72" rx="54" ry="42" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M218 58 Q240 48 262 52 Q284 48 306 58" ' + s + ' stroke-width="1.8" fill="none"/>' +
+        '<path d="M224 72 Q246 64 262 68 Q278 64 300 72" ' + s + ' stroke-width="1.6" fill="none"/>' +
+        person(108, 172, 13, 40) +
+        person(172, 188, 9, 28) +
+        person(202, 190, 9, 28) +
+        sun(42, 36, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:21</text>'
+      ),
+
       /* ── Week 8: Armor Shield (97) ── */
       armorShield: svg(
         ground() +
@@ -5097,6 +5115,8 @@
     triumphalEntry: 'triumphalEntry',
     jesusWeepsJerusalem: 'jesusWeepsJerusalem',
     jesusWeptJerusalem: 'jesusWeepsJerusalem',
+    figTree: 'figTree',
+    jesusFigTree: 'figTree',
     jesusLastSupper: 'maryAnoint',
     jesusGardenGethsemane: 'prayerCloset',
     jesusCrucifixion: 'crucifixion',
@@ -6831,8 +6851,8 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'zacchaeus',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'zacchaeus',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

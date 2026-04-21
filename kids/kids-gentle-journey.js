@@ -191,6 +191,7 @@
     'greatestCommandment',
     'triumphalEntry',
     'jesusWeepsJerusalem',
+    'figTree',
     'zacchaeus',
     'jesusParableGoodShepherd',
     'lazarus',

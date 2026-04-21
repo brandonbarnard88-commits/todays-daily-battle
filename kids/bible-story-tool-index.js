@@ -1317,6 +1317,16 @@
     "kw": "weep jerusalem compassion luke 19 luke 19:41 luke 19:42 thy peace beheld the city hen chickens matthew 23:37 donkey visitation"
   },
   {
+    "key": "figTree",
+    "title": "Jesus Teaches About Faith",
+    "kjvRef": "Matthew 21:18–22",
+    "who": "Jesus",
+    "to": "His disciples (and us)",
+    "apply": "Jesus invites us to pray with faith — trusting our Father to hear us as we learn.",
+    "theme": "Obedience",
+    "kw": "fig tree faith prayer matthew 21 matthew 21:18 matthew 21:22 withered leaves only doubt not believing disciples"
+  },
+  {
     "key": "jesusTempted",
     "title": "Jesus Says No to Wrong Things",
     "kjvRef": "Matthew 4:1–11",

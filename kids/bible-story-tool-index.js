@@ -1747,6 +1747,16 @@
     "kw": "sower parable seeds soil good soil word hear fruit matthew 13 mark 4"
   },
   {
+    "key": "parableHiddenTreasure",
+    "title": "Jesus Tells About a Treasure Worth Everything",
+    "kjvRef": "Matthew 13:44",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God’s kingdom is so wonderful it is worth everything. Finding Jesus is the best treasure in the whole world.",
+    "theme": "Love",
+    "kw": "hidden treasure field kingdom heaven matthew 13 joy sell buy jesus parable"
+  },
+  {
     "key": "paulBarnabas",
     "title": "Paul & Barnabas Sent Out",
     "kjvRef": "Acts 13–14",

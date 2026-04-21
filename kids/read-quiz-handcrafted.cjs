@@ -70,6 +70,7 @@
  * Five loaves and two fishes — feed a hungry crowd (Matthew 14:13–21, gentle): buildJesusFeeds5000ReadQuiz() (library key: jesusFeeds5000).
  * Parable of the sower — good soil (Matthew 13:1–23, gentle): buildParableSowerReadQuiz() (library key: parableSower).
  * Mustard seed — kingdom grows from small (Matthew 13:31–32, gentle): buildParableMustardSeedReadQuiz() (library key: mustardSeed; alias parableMustardSeed).
+ * Hidden treasure in a field — Matthew 13:44 (gentle): buildParableHiddenTreasureReadQuiz() (library key: parableHiddenTreasure).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -8493,6 +8494,134 @@ function buildParableMustardSeedReadQuiz() {
   };
 }
 
+/** Hidden treasure in a field — kingdom worth everything (gentle). Library key: parableHiddenTreasure */
+function buildParableHiddenTreasureReadQuiz() {
+  return {
+    kjvRef: 'Matthew 13:44 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Again, the kingdom of heaven is like unto treasure hid in a field; the which when a man hath found, he hideth, and for joy thereof goeth and selleth all that he hath, and buyeth that field. — Matthew 13:44 (KJV)',
+    readAlongTitle: 'Jesus Tells About a Treasure Worth Everything',
+    quizWrongHumilityHint:
+      'Listen again — kingdom of heaven; treasure hid; field; found; joy; selleth all; buyeth field; worth Jesus.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told another story about the kingdom of heaven.',
+      'He said it is like a treasure hidden in a field.',
+      'A man found the treasure and was so happy!',
+      'He went and sold everything he had so he could buy that field and own the treasure.',
+      'Jesus was teaching that the kingdom of God is so wonderful that it is worth giving up everything else to have it.',
+      'Finding Jesus is like finding the best treasure in the whole world.',
+      'Reference: Matthew 13:44 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus told a story about a hidden treasure.',
+        caption: 'Treasure hid in a field',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'A man found the treasure in a field.',
+        caption: 'Found the treasure',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'He was so happy!',
+        caption: 'For joy thereof',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He sold everything he had to buy the field.',
+        caption: 'Selleth all that he hath',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The kingdom of God is worth everything.',
+        caption: 'Buyeth that field',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 13:44', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 13:44.)'
+      },
+      {
+        question: 'In Jesus’ story, what was hidden in the field?',
+        choices: [
+          'Treasure',
+          'A rubber duck',
+          'A pile of socks',
+          'A sleeping cat'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus said the kingdom of heaven is like treasure hid in a field.',
+        wrongFeedback:
+          'Think about what the man found in the field. (Answer: treasure.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God’s kingdom is not worth anything.',
+          'God’s kingdom is so wonderful it is worth giving up everything else to have it — and finding Jesus is the best treasure.',
+          'We should never be happy.',
+          'Fields only grow weeds.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the part about joy and selling all to buy the field. (Answer: treasure worth everything… finding Jesus.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The man sold all that he had to buy the field.',
+          'He bought a rocket ship.',
+          'The treasure turned into jelly.',
+          'Everyone forgot how to dig.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that wonder comes from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Matthew 13:44? (Answer: sold all… buy the field.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He is the greatest treasure — ask Him to help us love Him more than anything else.',
+          'Never think about God’s kingdom.',
+          'Hide when we feel happy.',
+          'Only grown-ups need Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus as treasure? (Answer: thank Jesus… love Him more than anything else.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Tells About a Treasure Worth Everything with God's Word today.",
+    takeaway: 'Finding Jesus is like finding the best treasure in the whole world.',
+    prayer:
+      'Lord Jesus, You are the best treasure. Help me love You first today. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: a man kneeling happily in a field digging in the dirt and finding a treasure box he has a big smile the field has soft grass and a few flowers thick bold outlines with large open spaces on the man\'s robe the treasure box and the ground for easy coloring gentle hills and a soft sky with minimal lines joyful excited mood focus on finding a treasure worth everything clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and green, friendly not scary, no text in image: Kingdom like treasure hid in a field (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and green, friendly not scary, no text in image: Man finds treasure — happy face (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and green, friendly not scary, no text in image: For joy — heart so glad (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and green, friendly not scary, no text in image: Selleth all that he hath — worth it (trust)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and green, friendly not scary, no text in image: Buyeth the field — owns the treasure (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and green, friendly not scary, no text in image: Jesus — best treasure in the world (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -8607,5 +8736,6 @@ module.exports = {
   jesusFeeds5000: buildJesusFeeds5000ReadQuiz(),
   parableSower: buildParableSowerReadQuiz(),
   mustardSeed: buildParableMustardSeedReadQuiz(),
+  parableHiddenTreasure: buildParableHiddenTreasureReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

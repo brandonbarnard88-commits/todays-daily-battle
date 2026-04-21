@@ -200,6 +200,7 @@
     noah: 2,
     palmSunday: 85,
     parableSower: 76,
+    parableHiddenTreasure: 208,
     parableTalents: 107,
     passoverLamb: 30,
     paulBarnabas: 113,

@@ -123,6 +123,7 @@
   "noah": "noah",
   "noblemanSon": "noblemanSon",
   "palmSunday": "greatCommission",
+  "parableHiddenTreasure": "parableHiddenTreasure",
   "parableSower": "parableSower",
   "parableTalents": "richYoungRuler",
   "passoverLamb": "passoverLamb",

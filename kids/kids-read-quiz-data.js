@@ -1,6 +1,6 @@
 /**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
- * Keys match TDB_BIBLE_STORIES (346 stories).
+ * Keys match TDB_BIBLE_STORIES (347 stories).
  * Regenerate: npm run kids:generate-read-quiz
  * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath; Elisha bones; Ezra return; Nehemiah walls; Job read-along sections).
  *
@@ -798,7 +798,7 @@
         "choices": [
           "Genesis 3",
           "Acts 9:36–43",
-          "Luke 23",
+          "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)",
           "Numbers 22:1–20"
         ],
         "correctIndex": 0,
@@ -3309,86 +3309,141 @@
     ]
   },
   "crossCarry": {
-    "kjvRef": "Luke 23",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)",
+    "verseExcerpt": "And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross. — Matthew 27:32 (KJV)",
+    "readAlongTitle": "Jesus Carries His Cross",
+    "quizWrongHumilityHint": "Listen again — mocked; raiment; led away; crucify; Cyrene; Simon; bear his cross; great company; women; bewailed; Daughters of Jerusalem; weep not for me.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Simon Helps Carry the Cross (Luke 23).",
-      "Jesus is made to carry His cross Simon of Cyrene is asked to help Sometimes God calls us to help carry burdens."
+      "And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him.",
+      "Jesus went forward carrying the cross — heavy wood, and a heart full of love for us.",
+      "And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.",
+      "And there followed him a great company of people, and of women, which also bewailed and lamented him.",
+      "But Jesus turning unto them said, Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children.",
+      "Jesus carried His cross because He loves us — He is strong and kind, and He helps us when life feels hard.",
+      "Reference: Matthew 27:31–32 (KJV) (parallel in Mark, Luke, and John)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "After the soldiers mocked Jesus, they led Him away to crucify Him — And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him.",
+        "caption": "Led away in His own raiment",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus began to carry His heavy wooden cross — slow, steady, and strong in love.",
+        "caption": "Carrying the cross",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The soldiers found Simon of Cyrene and asked him to help — And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.",
+        "caption": "Simon helps",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Many people followed Jesus, and some women were crying — And there followed him a great company of people, and of women, which also bewailed and lamented him.",
+        "caption": "A great company",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus turned to them and said gently — But Jesus turning unto them said, Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children.",
+        "caption": "Weep not for me",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Jesus carried His cross because He loved us so much and wanted to save us — and He helps us carry what feels heavy in our hearts.",
+        "caption": "Love that holds us",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 23",
-          "Genesis 39–40",
-          "Matthew 5:1–16",
-          "Luke 10:38–42"
+          "Matthew 27:31–32 (also told in Mark, Luke, and John)",
+          "Genesis 1 only",
+          "Jonah 1 only",
+          "Revelation 20 only"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 23.)"
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 27:31–32.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "After they mocked Jesus, what did they do next?",
         "choices": [
-          "David — and the Lord",
-          "Elisha",
-          "The Lord",
-          "God"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God calls us to help carry each other's burdens! Be a Simon for someone today.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray."
+          "They put His own raiment on Him and led Him away to crucify Him.",
+          "They sailed away in a tiny boat.",
+          "They planted a garden in the palace.",
+          "They forgot who He was."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God calls us to help carry each other's burdens! Be a Simon for someone today..)"
+        "correctFeedback": "Yes—that matches Matthew 27:31.",
+        "wrongFeedback": "Listen for “raiment” and “led him away.” (Answer: His own raiment… led away to crucify.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "Whom did they find to help bear His cross?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Jesus is made to carry His cross",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "Simon of Cyrene",
+          "Barabbas",
+          "Pontius Pilate",
+          "Jonah the prophet"
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:32.",
+        "wrongFeedback": "Listen for “Cyrene” and “Simon.” (Answer: Simon of Cyrene.)"
+      },
+      {
+        "question": "Who followed Jesus on the road?",
+        "choices": [
+          "A great company of people, and women who bewailed and lamented Him",
+          "Only one silent tree",
+          "No one at all",
+          "Only soldiers who stayed indoors"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 23:27.",
+        "wrongFeedback": "Listen for “great company” and “women.” (Answer: people and women who lamented.)"
+      },
+      {
+        "question": "What did Jesus say to the daughters of Jerusalem?",
+        "choices": [
+          "Weep not for me, but weep for yourselves, and for your children.",
+          "Run faster than the wind.",
+          "Hide behind the city wall.",
+          "Forget your families."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 23:28.",
+        "wrongFeedback": "Listen for “weep not for me.” (Answer: Weep not for me….)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "God calls us to help carry each other's burdens! Be a Simon for someone today.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Remember Jesus when I feel tired — He carried the cross because He loves me, and He helps me.",
+          "Believe God never cares when I am sad.",
+          "Stop talking to Jesus on hard days.",
+          "Never ask a grown-up for help."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God calls us to help carry each other's burdens! Be a Simon for someone today..)"
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “tired,” “loves me,” and “Jesus helps.” (Answer: remember Jesus… He helps me.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Simon Helps Carry the Cross with God's Word today.",
-    "takeaway": "God calls us to help carry each other's burdens! Be a Simon for someone today.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Simon Helps Carry the Cross. Amen.",
+    "doneMessage": "Great job reading Jesus Carries His Cross with God's Word today.",
+    "takeaway": "Jesus walked with willing love toward the cross — Simon helped, women wept, and Jesus spoke truth with gentleness. His strength holds us on tired days.",
+    "prayer": "Lord Jesus, thank You for carrying the cross because You love me. When my heart feels heavy, please help me rest in You. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus is made to carry His cross (cross)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Simon of Cyrene is asked to help (simon)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Sometimes God calls us to help carry burdens (carry)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus is made to carry His cross (luke 23)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Simon of Cyrene is asked to help (cyrene)"
-    ]
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus walks slowly and calmly in the center, carrying a large wooden cross on His shoulder with a kind and peaceful face. Simon of Cyrene walks beside Him, helping to carry the cross (simple, strong man with a gentle expression). A few women follow quietly with sad but hopeful faces. Soft road and distant city walls in the background with plenty of open ground and sky in the foreground for coloring. Focus on the heart of the moment: Jesus willingly carrying His cross out of love for us. Style: clear, bold, tender, restful — never dark, heavy, or scary.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Mocking ended — His own raiment — led away (gentle strength)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Wooden cross on the road — Jesus steady in love (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Simon of Cyrene — helping hands (kindness)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Great company following — tender faces (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Daughters of Jerusalem — weep not for me (gentle truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Love that saves — Jesus holds tired hearts (rest)"
+    ],
+    "readAlongImages": []
   },
   "crucifixion": {
     "kjvRef": "Matthew 27; Mark 15; Luke 23; John 19",
@@ -14440,7 +14495,7 @@
           "Numbers 22:1–20",
           "Mark 3:1–6",
           "Matthew 5–7",
-          "Luke 23"
+          "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16652,7 +16707,7 @@
         "choices": [
           "Numbers 22:1–20",
           "Acts 9:36–43",
-          "Luke 23",
+          "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)",
           "Joshua 7:1-11"
         ],
         "correctIndex": 3,
@@ -36047,6 +36102,143 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Joyfully received — abide at thy house (love)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Murmured — half and fourfold (truth)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Salvation — seek and save the lost (peace)"
+    ],
+    "readAlongImages": []
+  },
+  "simonOfCyrene": {
+    "kjvRef": "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)",
+    "verseExcerpt": "And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross. — Matthew 27:32 (KJV)",
+    "readAlongTitle": "Jesus Carries His Cross",
+    "quizWrongHumilityHint": "Listen again — mocked; raiment; led away; crucify; Cyrene; Simon; bear his cross; great company; women; bewailed; Daughters of Jerusalem; weep not for me.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him.",
+      "Jesus went forward carrying the cross — heavy wood, and a heart full of love for us.",
+      "And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.",
+      "And there followed him a great company of people, and of women, which also bewailed and lamented him.",
+      "But Jesus turning unto them said, Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children.",
+      "Jesus carried His cross because He loves us — He is strong and kind, and He helps us when life feels hard.",
+      "Reference: Matthew 27:31–32 (KJV) (parallel in Mark, Luke, and John)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "After the soldiers mocked Jesus, they led Him away to crucify Him — And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him.",
+        "caption": "Led away in His own raiment",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus began to carry His heavy wooden cross — slow, steady, and strong in love.",
+        "caption": "Carrying the cross",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The soldiers found Simon of Cyrene and asked him to help — And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.",
+        "caption": "Simon helps",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Many people followed Jesus, and some women were crying — And there followed him a great company of people, and of women, which also bewailed and lamented him.",
+        "caption": "A great company",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus turned to them and said gently — But Jesus turning unto them said, Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children.",
+        "caption": "Weep not for me",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Jesus carried His cross because He loved us so much and wanted to save us — and He helps us carry what feels heavy in our hearts.",
+        "caption": "Love that holds us",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Matthew 27:31–32 (also told in Mark, Luke, and John)",
+          "Genesis 1 only",
+          "Jonah 1 only",
+          "Revelation 20 only"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 27:31–32.)"
+      },
+      {
+        "question": "After they mocked Jesus, what did they do next?",
+        "choices": [
+          "They put His own raiment on Him and led Him away to crucify Him.",
+          "They sailed away in a tiny boat.",
+          "They planted a garden in the palace.",
+          "They forgot who He was."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:31.",
+        "wrongFeedback": "Listen for “raiment” and “led him away.” (Answer: His own raiment… led away to crucify.)"
+      },
+      {
+        "question": "Whom did they find to help bear His cross?",
+        "choices": [
+          "Simon of Cyrene",
+          "Barabbas",
+          "Pontius Pilate",
+          "Jonah the prophet"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:32.",
+        "wrongFeedback": "Listen for “Cyrene” and “Simon.” (Answer: Simon of Cyrene.)"
+      },
+      {
+        "question": "Who followed Jesus on the road?",
+        "choices": [
+          "A great company of people, and women who bewailed and lamented Him",
+          "Only one silent tree",
+          "No one at all",
+          "Only soldiers who stayed indoors"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 23:27.",
+        "wrongFeedback": "Listen for “great company” and “women.” (Answer: people and women who lamented.)"
+      },
+      {
+        "question": "What did Jesus say to the daughters of Jerusalem?",
+        "choices": [
+          "Weep not for me, but weep for yourselves, and for your children.",
+          "Run faster than the wind.",
+          "Hide behind the city wall.",
+          "Forget your families."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 23:28.",
+        "wrongFeedback": "Listen for “weep not for me.” (Answer: Weep not for me….)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Remember Jesus when I feel tired — He carried the cross because He loves me, and He helps me.",
+          "Believe God never cares when I am sad.",
+          "Stop talking to Jesus on hard days.",
+          "Never ask a grown-up for help."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “tired,” “loves me,” and “Jesus helps.” (Answer: remember Jesus… He helps me.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Carries His Cross with God's Word today.",
+    "takeaway": "Jesus walked with willing love toward the cross — Simon helped, women wept, and Jesus spoke truth with gentleness. His strength holds us on tired days.",
+    "prayer": "Lord Jesus, thank You for carrying the cross because You love me. When my heart feels heavy, please help me rest in You. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus walks slowly and calmly in the center, carrying a large wooden cross on His shoulder with a kind and peaceful face. Simon of Cyrene walks beside Him, helping to carry the cross (simple, strong man with a gentle expression). A few women follow quietly with sad but hopeful faces. Soft road and distant city walls in the background with plenty of open ground and sky in the foreground for coloring. Focus on the heart of the moment: Jesus willingly carrying His cross out of love for us. Style: clear, bold, tender, restful — never dark, heavy, or scary.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Mocking ended — His own raiment — led away (gentle strength)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Wooden cross on the road — Jesus steady in love (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Simon of Cyrene — helping hands (kindness)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Great company following — tender faces (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Daughters of Jerusalem — weep not for me (gentle truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Love that saves — Jesus holds tired hearts (rest)"
     ],
     "readAlongImages": []
   }

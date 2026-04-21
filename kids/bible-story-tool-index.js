@@ -2848,13 +2848,13 @@
   },
   {
     "key": "crossCarry",
-    "title": "Simon Helps Carry the Cross",
-    "kjvRef": "Luke 23",
-    "who": "God",
-    "to": "Simon (and us)",
-    "apply": "God calls us to help carry each other's burdens! Be a Simon for someone today.",
+    "title": "Jesus Carries His Cross",
+    "kjvRef": "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)",
+    "who": "Jesus",
+    "to": "Every child who feels tired or heavy-hearted",
+    "apply": "Jesus carried His cross because He loves us — His strength holds us when life feels hard.",
     "theme": "Love",
-    "kw": "cross simon carry luke 23 cyrene help burden"
+    "kw": "cross carry simon cyrene crucify mocked raiment led away bear his cross daughters of jerusalem weep not matthew 27 mark 15 luke 23 john 19"
   },
   {
     "key": "solomonTwoMothers",

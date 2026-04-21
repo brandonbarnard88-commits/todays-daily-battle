@@ -3534,18 +3534,26 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:49–50</text>'
       ),
 
-      /* ── Week 7: Cross Carry (85) ── */
+      /* ── Week 7: Cross carry — quiet road; Jesus with cross; Simon helping; gentle followers; soft walls afar ── */
       crossCarry: svg(
         ground() +
-        '<path d="M80 250 Q100 220 140 240" ' + s + ' stroke-width="3"/>' +
-        '<line x1="170" y1="100" x2="170" y2="255" ' + s + ' stroke-width="7"/>' +
-        '<line x1="125" y1="145" x2="215" y2="145" ' + s + ' stroke-width="7"/>' +
-        person(160, 165, 12, 35) +
-        person(212, 175, 11, 32) +
-        '<path d="M205 190 Q210 202 205 215" ' + s + ' stroke-width="2.5"/>' +
-        person(60, 185, 10, 28) + person(320, 182, 10, 28) +
-        sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 23:26</text>'
+        '<path d="M32 248 L32 196 L58 196 L58 206 L86 206 L86 186 L118 186 L118 200 L152 200 L152 188 L182 188 L182 202 L212 202 L212 190 L242 190 L242 198 L272 198 L272 186 L302 186 L302 196 L332 196 L332 248" ' +
+          sf +
+          ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M16 254 Q140 238 200 248 Q268 238 384 254" ' + s + ' stroke-width="3"/>' +
+        cloud(268, 36) +
+        sun(48, 46, 15) +
+        '<line x1="166" y1="92" x2="166" y2="246" ' + s + ' stroke-width="6"/>' +
+        '<line x1="118" y1="134" x2="218" y2="134" ' + s + ' stroke-width="6"/>' +
+        person(166, 138, 12, 34) +
+        '<path d="M158 152 Q166 146 174 152" ' + s + ' stroke-width="1.4"/>' +
+        person(232, 148, 11, 32) +
+        '<path d="M224 162 Q232 156 240 162" ' + s + ' stroke-width="1.3"/>' +
+        '<line x1="226" y1="172" x2="196" y2="142" ' + s + ' stroke-width="2"/>' +
+        person(82, 176, 9, 26) +
+        person(104, 182, 8, 24) +
+        person(312, 178, 8, 24) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 27:31–32</text>'
       ),
 
       /* ── Week 7: Crucifixion (86) ── */
@@ -7192,7 +7200,7 @@
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus', 'jesusParableGoodShepherd',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crucifixion',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crossCarry', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

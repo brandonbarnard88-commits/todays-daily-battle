@@ -629,6 +629,10 @@ if (merged.jesusBlessKids && !merged.jesusAndChildren) {
 if (merged.zacchaeus && !merged.jesusAndZacchaeus) {
   merged.jesusAndZacchaeus = merged.zacchaeus;
 }
+/** simonOfCyrene — same gentle pack as crossCarry (search / tool alias). */
+if (merged.crossCarry && !merged.simonOfCyrene) {
+  merged.simonOfCyrene = merged.crossCarry;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

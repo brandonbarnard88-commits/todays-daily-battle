@@ -6660,18 +6660,48 @@
     },
     /* ── Week 7 (85–96) ── */
     crossCarry: {
-      title: 'Simon Helps Carry the Cross',
+      title: 'Jesus Carries His Cross',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus is made to carry His cross' },
-        { src: 'panel-noah-2.svg', alt: 'Simon of Cyrene is asked to help' },
-        { src: 'panel-noah-3.svg', alt: 'Sometimes God calls us to help carry burdens' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'After they mocked Him — His own raiment — led away to crucify him'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Simon of Cyrene — compelled to bear His cross — the road to Golgotha'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Women bewailed and lamented — Daughters of Jerusalem, weep not for me'
+        }
       ],
-      caption: 'Swipe to see Simon help carry—be a helper! 🤝',
+      caption: 'Swipe slowly — Jesus carried His cross out of love for us.',
       videoId: '',
       videoTitle: '',
-      keywords: ['cross', 'simon', 'carry', 'luke 23', 'cyrene', 'help', 'burden'],
-      kjvRef: 'Luke 23',
-      kidContext: { who: 'God', to: 'Simon (and us)', apply: 'God calls us to help carry each other\'s burdens! Be a Simon for someone today.' }
+      keywords: [
+        'cross',
+        'Simon',
+        'Cyrene',
+        'crucify',
+        'bear his cross',
+        'Daughters of Jerusalem',
+        'weep not',
+        'mocked',
+        'raiment',
+        'matthew 27',
+        'mark 15',
+        'luke 23',
+        'john 19'
+      ],
+      kjvRef: 'Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels tired or heavy-hearted',
+        apply:
+          'Jesus carried His cross because He loves us — His strength holds us when life feels hard.'
+      },
+      narration:
+        "Jesus Carries His Cross — Matthew 27:31–32. And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him. And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross. For you: On hard days when you feel tired or when you have to carry something heavy in your heart, remember Jesus carrying His cross. He did it because He loves you so very much. Jesus is strong and kind, and He will help you carry whatever feels hard. You can rest safe in His gentle love."
     },
     crucifixion: {
       title: 'Jesus on the Cross',
@@ -9203,7 +9233,7 @@
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naamanHealed', 'jesusWalksWater',
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
-      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crucifixion',
+      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crossCarry', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
       'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
@@ -9237,7 +9267,7 @@
       'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'trial', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -9902,7 +9932,14 @@
     ) {
       return { type: 'carousel', story: 'trial' };
     }
-    if (/crucifixion|cross|calvary|matthew 27:33|john 19:17/.test(low)) {
+    if (
+      /crosscarry|simon of cyrene|simon.*cyrene|cyrene|bear his cross|compelled to bear|led him away to crucify|daughters of jerusalem|weep not for me|matthew 27:3[1-2]|mark 15:2[0-1]|luke 23:2[6-8]|john 19:17/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'crossCarry' };
+    }
+    if (/crucifixion|calvary|golgotha|matthew 27:33|john 19:18|father,? forgive/.test(low)) {
       return { type: 'carousel', story: 'crucifixion' };
     }
     if (/emmaus|luke 24:13|road.*walk|cleopas/.test(low)) {

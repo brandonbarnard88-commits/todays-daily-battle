@@ -40,7 +40,7 @@
     councilJerusalem: 94,
     corinthiansOneBody: 101,
     creationLight: 22,
-    crossCarry: 88,
+    crossCarry: 229,
     crucifixion: 88,
     daniel: 4,
     danielFieryFurnace: 20,

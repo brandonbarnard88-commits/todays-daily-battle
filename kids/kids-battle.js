@@ -1228,18 +1228,41 @@
         "Jesus Feeds a Hungry Crowd — Matthew 14:13–21. When Jesus heard of it, he departed thence by ship into a desert place apart: and when the people had heard thereof, they followed him on foot out of the cities. And Jesus went forth, and saw a great multitude, and was moved with compassion toward them, and he healed their sick. And when it was evening, his disciples came to him, saying, This is a desert place, and the time is now past; send the multitude away, that they may go into the villages, and buy themselves victuals. But Jesus said unto them, They need not depart; give ye them to eat. And they say unto him, We have here but five loaves, and two fishes. He said, Bring them hither to me. And he commanded the multitude to sit down on the grass, and took the five loaves, and the two fishes, and looking up to heaven, he blessed, and brake, and gave the loaves to his disciples, and the disciples to the multitude. And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. And they that had eaten were about five thousand men, beside women and children. For you: Jesus can take a little and make it enough — trust Him with what you have."
     },
     goodSamaritan: {
-      title: 'Good Samaritan',
+      title: 'Jesus Tells About Helping Others',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Man hurt on the road' },
-        { src: 'panel-david-2.svg', alt: 'Samaritan stops to help' },
-        { src: 'panel-david-3.svg', alt: 'Love your neighbor—help anyone!' }
+        { src: 'panel-noah-1.svg', alt: 'A man was hurt on the road from Jerusalem to Jericho — priest and Levite passed by' },
+        { src: 'panel-noah-2.svg', alt: 'A Samaritan had compassion — bound up his wounds with oil and wine' },
+        { src: 'panel-noah-3.svg', alt: 'He set him on his own beast, brought him to an inn — Go, and do thou likewise' }
       ],
-      caption: 'Swipe to see the Good Samaritan help a stranger! 🤝',
+      caption:
+        'Swipe to see mercy on the road — bound up, cared for, “Go, and do thou likewise.” 🤝',
       videoId: 'juBnHljnB0I',
       videoTitle: 'The Good Samaritan – Bible Story for Kids!',
-      keywords: ['good samaritan', 'neighbor', 'help', 'stranger', 'bandage', 'luke 10'],
-      kjvRef: 'Luke 10',
-      kidContext: { who: 'Jesus', to: 'A man who asked "Who is my neighbor?"', apply: 'Love your neighbor—help anyone! Be kind to people who need you.' }
+      keywords: [
+        'good samaritan',
+        'helping others',
+        'neighbour',
+        'mercy',
+        'compassion',
+        'Jerusalem',
+        'Jericho',
+        'priest',
+        'levite',
+        'inn',
+        'go and do likewise',
+        'luke 10',
+        'love your neighbour',
+        'jesus'
+      ],
+      kjvRef: 'Luke 10:25–37',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The lawyer (and us)',
+        apply:
+          'Jesus wants us to show kindness and help anyone who needs it, even people who are different from us.'
+      },
+      narration:
+        "Jesus Tells About Helping Others — Luke 10:25–37. And, behold, a certain lawyer stood up, and tempted him, saying, Master, what shall I do to inherit eternal life? He said unto him, What is written in the law? how readest thou? And he answering said, Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy strength, and with all thy mind; and thy neighbour as thyself. And Jesus said unto him, Thou hast answered right: this do, and thou shalt live. But he, willing to justify himself, said unto Jesus, And who is my neighbour? And Jesus answering said, A certain man went down from Jerusalem to Jericho, and fell among thieves, which stripped him of his raiment, and wounded him, and departed, leaving him half dead. And by chance there came down a certain priest that way: and when he saw him, he passed by on the other side. And likewise a Levite, when he was at the place, came and looked on him, and passed by on the other side. But a certain Samaritan, as he journeyed, came where he was: and when he saw him, he had compassion on him, And went to him, and bound up his wounds, pouring in oil and wine, and set him on his own beast, and brought him to an inn, and took care of him. And on the morrow when he departed, he took out two pence, and gave them to the host, and said unto him, Take care of him; and whatsoever thou spendest more, when I come again, I will repay thee. Which now of these three, thinkest thou, was neighbour unto him that fell among the thieves? And he said, He that shewed mercy on him. Then said Jesus unto him, Go, and do thou likewise. For you: Jesus wants us to show kindness and help anyone who needs it, even people who are different from us."
     },
     prodigalSon: {
       title: 'The Father Who Welcomes His Son Home',

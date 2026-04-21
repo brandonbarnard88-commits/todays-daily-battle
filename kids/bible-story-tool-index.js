@@ -897,16 +897,6 @@
     "kw": "goliath challenge david 1 samuel 17 giant brave faith"
   },
   {
-    "key": "goodSamaritan",
-    "title": "Good Samaritan",
-    "kjvRef": "Luke 10",
-    "who": "Jesus",
-    "to": "A man who asked \"Who is my neighbor?\"",
-    "apply": "Love your neighbor—help anyone! Be kind to people who need you.",
-    "theme": "Love",
-    "kw": "good samaritan neighbor help stranger bandage luke 10"
-  },
-  {
     "key": "hannahSamuel",
     "title": "Hannah & Samuel",
     "kjvRef": "1 Samuel 1–2",
@@ -1315,6 +1305,16 @@
     "apply": "God’s kingdom is so wonderful it is worth everything. Finding Jesus is the best treasure in the whole world.",
     "theme": "Love",
     "kw": "hidden treasure kingdom of heaven treasure field found joy sell buy field matthew 13 parable jesus worth everything"
+  },
+  {
+    "key": "goodSamaritan",
+    "title": "Jesus Tells About Helping Others",
+    "kjvRef": "Luke 10:25–37",
+    "who": "Jesus",
+    "to": "The lawyer (and us)",
+    "apply": "Jesus wants us to show kindness and help anyone who needs it, even people who are different from us.",
+    "theme": "Love",
+    "kw": "good samaritan helping others neighbour mercy compassion Jerusalem Jericho priest levite inn go and do likewise luke 10 love your neighbour jesus"
   },
   {
     "key": "lostSheep",

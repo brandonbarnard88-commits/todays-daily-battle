@@ -139,7 +139,7 @@
       mosesBush: 'moses-red-sea',
       mosesBaby: 'baby-moses',
       creation: 'creation',
-      goodSamaritan: 'good-samaritan',
+      goodSamaritan: 'goodSamaritanMercy',
       wiseMen: 'jesus-children',
       simeonAnna: 'jesus-children',
       jesusTemple: 'jesus-children',
@@ -192,6 +192,7 @@
     if (low.indexOf('parablepearl') >= 0 || low === 'parablepearl') return 'parablePearl';
     if (low.indexOf('parablelostsheep') >= 0 || low === 'parablelostsheep') return 'parableLostSheep';
     if (low.indexOf('prodigal') >= 0 || low === 'prodigalson') return 'prodigalSon';
+    if (low.indexOf('goodsamaritan') >= 0 || low === 'goodsamaritan') return 'goodSamaritan';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -3171,6 +3172,36 @@
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 15:11–32</text>'
       ),
 
+      /* Week 6 gentle: Good Samaritan — kneeling mercy, traveler, donkey (Luke 10:25–37) */
+      goodSamaritanMercy: svg(
+        ground() +
+        hills() +
+        sun(48, 40, 17) +
+        cloud(292, 32) +
+        '<path d="M24 252 Q140 238 220 246 Q300 240 376 252" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        '<ellipse cx="128" cy="228" rx="36" ry="14" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<circle cx="108" cy="214" r="10" ' + sf + ' fill="white" stroke-width="2.3"/>' +
+        '<path d="M100 218 Q108 212 116 218" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="95" y1="225" x2="118" y2="232" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="118" y1="232" x2="125" y2="248" ' + s + ' stroke-width="1.6"/>' +
+        '<circle cx="205" cy="178" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M198 182 Q205 188 212 182" ' + s + ' stroke-width="1.3"/>' +
+        '<circle cx="200" cy="176" r="1" fill="#111"/><circle cx="210" cy="176" r="1" fill="#111"/>' +
+        '<path d="M205 189 L198 218 L212 248 L188 252 L194 218 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M188 205 L165 218" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M218 200 L128 222" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M130 220 L138 228 M136 218 L144 226" ' + s + ' stroke-width="1.4"/>' +
+        '<ellipse cx="312" cy="218" rx="42" ry="22" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<ellipse cx="292" cy="198" rx="14" ry="12" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M278 208 L278 248" ' + s + ' stroke-width="2"/>' +
+        '<path d="M328 208 L332 252" ' + s + ' stroke-width="2"/>' +
+        '<path d="M348 220 L352 250" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M268 232 L262 256" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="68" cy="258" r="3" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="348" cy="256" r="3" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 10:25–37</text>'
+      ),
+
       /* ── Week 6: Jesus Heal Leper (78) ── */
       healLeper: svg(
         ground() +
@@ -4506,7 +4537,7 @@
   var OUTLINE_ALIAS = {
     /* ── legacy mappings ── */
     mosesBush: 'burningBush',
-    goodSamaritan: 'loveNeighbor',
+    goodSamaritan: 'goodSamaritanMercy',
     prodigalSon: 'prodigalSonWelcome',
     lostSheep: 'parableLostSheep',
     parableLostSheep: 'parableLostSheep',
@@ -4643,6 +4674,7 @@
     parableLostSheep: 'parableLostSheep',
     prodigalSon: 'prodigalSonWelcome',
     prodigalSonWelcome: 'prodigalSonWelcome',
+    goodSamaritanMercy: 'goodSamaritanMercy',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',

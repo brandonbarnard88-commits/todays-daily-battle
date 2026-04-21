@@ -74,6 +74,7 @@
  * Pearl of great price — Matthew 13:45–46 (gentle): buildParablePearlReadQuiz() (library key: parablePearl).
  * Parable of the lost sheep — Luke 15:3–7 (gentle): buildParableLostSheepReadQuiz() (library key: lostSheep; alias parableLostSheep).
  * Parable of the prodigal son — Luke 15:11–32 (gentle): buildParableProdigalSonReadQuiz() (library key: prodigalSon).
+ * Good Samaritan — Luke 10:25–37 (gentle): buildParableGoodSamaritanReadQuiz() (library key: goodSamaritan).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -9025,6 +9026,150 @@ function buildParableProdigalSonReadQuiz() {
   };
 }
 
+/** Good Samaritan — mercy on the road, go and do likewise (gentle). Library key: goodSamaritan */
+function buildParableGoodSamaritanReadQuiz() {
+  return {
+    kjvRef: 'Luke 10:25–37 (KJV) — gentle summary for little hearts',
+    verseExcerpt: 'Go, and do thou likewise. — Luke 10:37 (KJV)',
+    readAlongTitle: 'Jesus Tells About Helping Others',
+    quizWrongHumilityHint:
+      'Listen again — road; hurt; priest; Levite; Samaritan; compassion; bound up; inn; neighbour; mercy; likewise.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told a story about a man who was going down the road from Jerusalem to Jericho.',
+      'Robbers attacked him, took his things, and left him hurt on the side of the road.',
+      'A priest came by, saw the hurt man, and walked on the other side.',
+      'A Levite came by, looked at the man, and also passed by.',
+      'Then a Samaritan man came along.',
+      'Even though Samaritans and Jews usually did not like each other, the Samaritan felt sorry for the hurt man.',
+      'He stopped, bandaged the man’s wounds, put him on his own donkey, took him to an inn, and took care of him.',
+      'The next day he gave the innkeeper money and said, “Take care of him, and whatever you spend more, I will repay you when I come again.”',
+      'Jesus asked, “Which of these three was neighbour unto him that fell among the thieves?”',
+      'The answer was, “He that shewed mercy on him.”',
+      'Jesus said, “Go, and do thou likewise.”',
+      'Jesus wants us to show kindness and help anyone who needs it, even people who are different from us.',
+      'Reference: Luke 10:25–37 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A man was hurt on the road.',
+        caption: 'Jerusalem to Jericho',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'A priest walked by without helping.',
+        caption: 'Passed by on the other side',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'A Levite also passed by.',
+        caption: 'Looked — and went on',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'A Samaritan man stopped and felt sorry.',
+        caption: 'He had compassion',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He bandaged the man and took him to an inn.',
+        caption: 'Oil and wine — care at the inn',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus said, “Go and do likewise.”',
+        caption: 'He that shewed mercy',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus wants us to help anyone who needs it.',
+        caption: 'Love thy neighbour as thyself',
+        image: 'panel-noah-2.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Luke 10:25–37', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 10:25–37.)'
+      },
+      {
+        question: 'Who showed mercy and helped the hurt man?',
+        choices: [
+          'The Samaritan — he had compassion, helped him, and took care of him.',
+          'Only the wind.',
+          'A picnic basket.',
+          'Nobody — everyone ran away forever.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Jesus’ story in Luke 10.',
+        wrongFeedback:
+          'Think about which person stopped and cared for the hurt man. (Answer: the Samaritan.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'We should never help strangers.',
+          'Jesus wants us to show kindness and help anyone who needs it — “Go, and do thou likewise.”',
+          'God only loves people who are exactly like us.',
+          'Mercy does not matter.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread Jesus’ words “Go, and do thou likewise.” (Answer: kindness… help… likewise.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'He that shewed mercy on him.',
+          'The donkey filed taxes.',
+          'The road turned into soup.',
+          'Everyone forgot how to walk.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that wonder comes from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Luke 10? (Answer: he that shewed mercy.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help us notice who needs help today — then show mercy in a small, real way.',
+          'Never think about kindness.',
+          'Hide when someone needs help.',
+          'Only grown-ups should care.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus’ “likewise”? (Answer: notice needs… show mercy.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Tells About Helping Others with God's Word today.",
+    takeaway:
+      'Jesus wants us to show kindness and help anyone who needs it, even people who are different from us.',
+    prayer:
+      'Lord Jesus, thank You for showing us mercy. Help me love my neighbour and do likewise today. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: a kind Samaritan man kneeling beside a hurt traveler on the road he is gently bandaging the man’s arm his donkey stands nearby thick bold outlines with large open spaces on the Samaritan robe the traveler robe the bandages and the road for easy coloring soft hills and a gentle sky with minimal lines kind and caring mood focus on helping someone who needs it clean minimal no scary robbers or blood plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Hurt on the road — gentle honesty (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Priest and Levite — passed by (pause)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Samaritan had compassion (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Bound up wounds — oil and wine (help)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Inn — rest and care (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Go and do likewise (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Who was neighbour? Mercy wins (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -9143,5 +9288,6 @@ module.exports = {
   parablePearl: buildParablePearlReadQuiz(),
   lostSheep: buildParableLostSheepReadQuiz(),
   prodigalSon: buildParableProdigalSonReadQuiz(),
+  goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

@@ -9694,86 +9694,141 @@
     ]
   },
   "goodSamaritan": {
-    "kjvRef": "Luke 10",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Luke 10:25–37 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Go, and do thou likewise. — Luke 10:37 (KJV)",
+    "readAlongTitle": "Jesus Tells About Helping Others",
+    "quizWrongHumilityHint": "Listen again — road; hurt; priest; Levite; Samaritan; compassion; bound up; inn; neighbour; mercy; likewise.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Good Samaritan (Luke 10).",
-      "Man hurt on the road Samaritan stops to help Love your neighbor—help anyone!"
+      "Jesus told a story about a man who was going down the road from Jerusalem to Jericho.",
+      "Robbers attacked him, took his things, and left him hurt on the side of the road.",
+      "A priest came by, saw the hurt man, and walked on the other side.",
+      "A Levite came by, looked at the man, and also passed by.",
+      "Then a Samaritan man came along.",
+      "Even though Samaritans and Jews usually did not like each other, the Samaritan felt sorry for the hurt man.",
+      "He stopped, bandaged the man’s wounds, put him on his own donkey, took him to an inn, and took care of him.",
+      "The next day he gave the innkeeper money and said, “Take care of him, and whatever you spend more, I will repay you when I come again.”",
+      "Jesus asked, “Which of these three was neighbour unto him that fell among the thieves?”",
+      "The answer was, “He that shewed mercy on him.”",
+      "Jesus said, “Go, and do thou likewise.”",
+      "Jesus wants us to show kindness and help anyone who needs it, even people who are different from us.",
+      "Reference: Luke 10:25–37 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A man was hurt on the road.",
+        "caption": "Jerusalem to Jericho",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "A priest walked by without helping.",
+        "caption": "Passed by on the other side",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "A Levite also passed by.",
+        "caption": "Looked — and went on",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "A Samaritan man stopped and felt sorry.",
+        "caption": "He had compassion",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He bandaged the man and took him to an inn.",
+        "caption": "Oil and wine — care at the inn",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus said, “Go and do likewise.”",
+        "caption": "He that shewed mercy",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus wants us to help anyone who needs it.",
+        "caption": "Love thy neighbour as thyself",
+        "image": "panel-noah-2.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 10",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Jude 1",
-          "Acts 15:36–18:22"
+          "Psalm 23",
+          "Luke 10:25–37",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 10.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 10:25–37.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "Who showed mercy and helped the hurt man?",
         "choices": [
-          "The Lord",
-          "Joshua",
-          "Paul",
-          "Jesus"
+          "The Samaritan — he had compassion, helped him, and took care of him.",
+          "Only the wind.",
+          "A picnic basket.",
+          "Nobody — everyone ran away forever."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ story in Luke 10.",
+        "wrongFeedback": "Think about which person stopped and cared for the hurt man. (Answer: the Samaritan.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Love your neighbor—help anyone! Be kind to people who need you.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray."
+          "We should never help strangers.",
+          "Jesus wants us to show kindness and help anyone who needs it — “Go, and do thou likewise.”",
+          "God only loves people who are exactly like us.",
+          "Mercy does not matter."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Love your neighbor—help anyone! Be kind to people who need you..)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread Jesus’ words “Go, and do thou likewise.” (Answer: kindness… help… likewise.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Man hurt on the road",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "He that shewed mercy on him.",
+          "The donkey filed taxes.",
+          "The road turned into soup.",
+          "Everyone forgot how to walk."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 10? (Answer: he that shewed mercy.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Love your neighbor—help anyone! Be kind to people who need you.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Ask Jesus to help us notice who needs help today — then show mercy in a small, real way.",
+          "Never think about kindness.",
+          "Hide when someone needs help.",
+          "Only grown-ups should care."
         ],
         "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Love your neighbor—help anyone! Be kind to people who need you..)"
+        "wrongFeedback": "Think: which honors Jesus’ “likewise”? (Answer: notice needs… show mercy.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Good Samaritan with God's Word today.",
-    "takeaway": "Love your neighbor—help anyone! Be kind to people who need you.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Good Samaritan. Amen.",
+    "doneMessage": "Great job reading Jesus Tells About Helping Others with God's Word today.",
+    "takeaway": "Jesus wants us to show kindness and help anyone who needs it, even people who are different from us.",
+    "prayer": "Lord Jesus, thank You for showing us mercy. Help me love my neighbour and do likewise today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Man hurt on the road (good samaritan)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samaritan stops to help (neighbor)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Love your neighbor—help anyone! (help)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Man hurt on the road (stranger)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samaritan stops to help (bandage)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a kind Samaritan man kneeling beside a hurt traveler on the road he is gently bandaging the man’s arm his donkey stands nearby thick bold outlines with large open spaces on the Samaritan robe the traveler robe the bandages and the road for easy coloring soft hills and a gentle sky with minimal lines kind and caring mood focus on helping someone who needs it clean minimal no scary robbers or blood plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Hurt on the road — gentle honesty (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Priest and Levite — passed by (pause)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Samaritan had compassion (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Bound up wounds — oil and wine (help)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Inn — rest and care (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Go and do likewise (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Who was neighbour? Mercy wins (hope)"
+    ],
+    "readAlongImages": []
   },
   "greatCommission": {
     "kjvRef": "Matthew 28:18–20",

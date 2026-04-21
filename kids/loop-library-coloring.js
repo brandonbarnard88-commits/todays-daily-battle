@@ -67,7 +67,7 @@
   "gideonFleece": "gideonFleece",
   "gideonMidianites": "gideonMidianites",
   "goldenCalf": "tenCommandments",
-  "goodSamaritan": "loveNeighbor",
+  "goodSamaritan": "goodSamaritanMercy",
   "greatCommission": "greatCommission",
   "hannahPray": "hannahPray",
   "hannahPrayer": "hannahPrayer",

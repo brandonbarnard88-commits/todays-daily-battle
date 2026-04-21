@@ -152,7 +152,8 @@
       noblemanSon: 'noblemanSon',
       centurionServant: 'centurionServant',
       jesusHealsParalytic: 'jesusHealsParalytic',
-      witheredHand: 'witheredHand'
+      witheredHand: 'witheredHand',
+      jairus: 'jairus'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -172,6 +173,7 @@
     if (low.indexOf('jesuscalmsstorm') >= 0 || low === 'jesuscalmsstorm') return 'jesusCalmsStorm';
     if (low.indexOf('jesushealsparalytic') >= 0 || low === 'jesushealsparalytic') return 'jesusHealsParalytic';
     if (low.indexOf('witheredhand') >= 0 || low === 'witheredhand') return 'witheredHand';
+    if (low.indexOf('jairus') >= 0 || low === 'jairus') return 'jairus';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -2988,18 +2990,19 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 17:14</text>'
       ),
 
-      /* ── Week 6: Jairus Daughter (79) ── */
+      /* ── Week 6 gentle: Jairus’ daughter — Jesus takes her hand (Mark 5:21–43) ── */
       jairus: svg(
         '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
         '<path d="M60 100 L200 78 L340 100" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M130 260 Q165 220 200 218 Q235 220 270 260" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="200" cy="210" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M192 210 Q200 202 208 210" ' + s + ' stroke-width="2"/>' +
-        person(200, 148, 13, 40) +
-        '<path d="M192 162 L183 188 M208 162 L217 188" ' + s + ' stroke-width="2.5"/>' +
-        person(95, 170, 11, 32) + person(310, 170, 11, 32) +
+        '<path d="M130 260 Q165 222 200 220 Q235 222 270 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="222" cy="192" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M214 192 Q222 184 230 192" ' + s + ' stroke-width="2"/>' +
+        person(158, 128, 12, 38) +
+        '<line x1="170" y1="172" x2="210" y2="188" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="170" y1="178" x2="212" y2="196" ' + s + ' stroke-width="2"/>' +
+        person(95, 168, 11, 32) + person(310, 168, 11, 32) +
         sun(320, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 5:41</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 5:21–43</text>'
       ),
 
       /* ── Week 6: Jesus Transfigure (80) ── */
@@ -4435,6 +4438,7 @@
     jesusHealsParalytic: 'jesusHealsParalytic',
     jesusCalmsStorm: 'jesusCalmsStorm',
     witheredHand: 'witheredHand',
+    jairus: 'jairus',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
@@ -4587,6 +4591,7 @@
     jesusHealsParalytic: 'jesusHealsParalytic',
     jesusCalmsStorm: 'jesusCalmsStorm',
     witheredHand: 'witheredHand',
+    jairus: 'jairus',
     marthaServe: 'marthaServe',
     marySit: 'marySit',
     dorcasRaise: 'dorcasRaise',

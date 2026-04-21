@@ -988,13 +988,13 @@
   },
   {
     "key": "jairus",
-    "title": "Jairus' Daughter Raised",
+    "title": "Jesus Brings a Girl Back to Life",
     "kjvRef": "Mark 5:21–43",
     "who": "Jesus",
-    "to": "Jairus and his daughter",
-    "apply": "Jesus is never too late! Keep believing even when it seems impossible.",
+    "to": "Jairus, his daughter, and us",
+    "apply": "Jesus has power over sickness and even over death — and He cares for little children. Keep believing Him.",
     "theme": "Miracles",
-    "kw": "jairus daughter raise mark 5 talitha cumi miracle faith"
+    "kw": "jairus daughter arise mark 5 talitha cumi damsel believe only believe children miracle faith"
   },
   {
     "key": "jamesFaithWorks",

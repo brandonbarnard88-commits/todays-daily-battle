@@ -120,7 +120,7 @@
     holySpiritPentecost: 91,
     jesusHealsBlind: 72,
     jacobLadder: 26,
-    jairus: 71,
+    jairus: 123,
     jerichoWalls: 10,
     jesus: 106,
     jesusBaptism: 197,

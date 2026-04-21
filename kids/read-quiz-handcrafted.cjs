@@ -65,6 +65,7 @@
  * Jesus calms the storm (Mark 4:35–41, gentle): buildJesusCalmsStormReadQuiz() (library key: jesusCalmsStorm).
  * Paralytic lowered through the roof — forgive and heal (Mark 2:1–12, gentle): buildJesusHealsParalyticReadQuiz() (library key: jesusHealsParalytic).
  * Withered hand in the synagogue — Sabbath heal (Mark 3:1–6, gentle): buildWitheredHandReadQuiz() (library key: witheredHand).
+ * Jairus’ daughter raised — believe and arise (Mark 5:21–43, gentle): buildJairusReadQuiz() (library key: jairus).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -7783,6 +7784,147 @@ function buildWitheredHandReadQuiz() {
   };
 }
 
+/** Jairus’ daughter — Jesus brings her back to life (gentle). Library key: jairus */
+function buildJairusReadQuiz() {
+  return {
+    kjvRef: 'Mark 5:21–43 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'And he took the damsel by the hand, and said unto her, Talitha cumi; which is, being interpreted, Damsel, I say unto thee, arise. — Mark 5:41 (KJV)',
+    readAlongTitle: 'Jesus Brings a Girl Back to Life',
+    quizWrongHumilityHint:
+      'Listen again — sick daughter; come lay hands; thy daughter is dead; Be not afraid only believe; Damsel arise; walked; give her meat; amazed.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'A man named Jairus had a little daughter who was very sick.',
+      'He came to Jesus and said, “My little daughter lieth at the point of death: I pray thee, come and lay thy hands on her, that she may be healed; and she shall live.”',
+      'While Jesus was on the way, people came and said, “Thy daughter is dead.”',
+      'Jesus heard it and said to Jairus, “Be not afraid, only believe.”',
+      'When they reached the house, Jesus took the girl’s hand and said, “Damsel, I say unto thee, arise.”',
+      'The little girl got up right away and walked.',
+      'Jesus told them to give her something to eat.',
+      'Everyone was amazed.',
+      'Jesus has power over sickness and even over death. He cares for little children.',
+      'Reference: Mark 5:21–43 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jairus had a little daughter who was sick.',
+        caption: 'A father’s love',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He asked Jesus to come and help her.',
+        caption: 'Come, Lord',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'People said the girl had died.',
+        caption: 'Hard news',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus said, “Be not afraid, only believe.”',
+        caption: 'Only believe',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus took her hand and said, “Arise.”',
+        caption: 'Damsel, arise',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The little girl got up and walked.',
+        caption: 'She lives!',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus cares for little children.',
+        caption: 'He loves kids',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Mark 5:21–43', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Mark 5:21–43.)'
+      },
+      {
+        question: 'What did Jesus say to Jairus when things looked hopeless?',
+        choices: [
+          '“Be not afraid, only believe.”',
+          '“Go home and never pray.”',
+          '“It is too late to try.”',
+          '“Do not talk to God.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus calls us to trust Him.',
+        wrongFeedback:
+          'Think about the words on the way to the house. (Answer: “Be not afraid, only believe.”)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'Jesus cannot help anyone.',
+          'Jesus has power over sickness and even over death — and He cares for little children.',
+          'Fathers never love their children.',
+          'We should never ask Jesus for help.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the ending about Jesus raising her and caring for children. (Answer: Jesus has power over sickness and even over death — and He cares for little children.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus said to the girl, “Damsel, I say unto thee, arise.”',
+          'A turtle drove a race car.',
+          'The bed turned into a trampoline.',
+          'Everyone forgot how to eat.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that comes straight from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Jesus’ words? (Answer: Damsel, I say unto thee, arise.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He cares for children — ask Him to help us trust Him when we feel afraid.',
+          'Never pray when we feel sad.',
+          'Only love people when everything is easy.',
+          'Hide from Jesus when we need help.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus’ power and kindness? (Answer: Thank Jesus that He cares for children — ask Him to help us trust Him when we feel afraid.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Brings a Girl Back to Life with God's Word today.",
+    takeaway: 'Jesus has power over sickness and even over death. He cares for little children.',
+    prayer:
+      'Lord Jesus, thank You that You hear us and help us. Help us believe You — especially when we feel afraid. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus gently holding the hand of a little girl who is sitting up in bed the girl has a happy awake face her father Jairus and mother stand nearby with thankful faces thick bold outlines with large open spaces on Jesus\' robe the girl\'s clothes the bed and the floor for easy coloring soft room walls and gentle light from above with minimal lines joyful caring mood focus on Jesus bringing the girl back to life clean minimal no fear or sadness plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: Jairus asks — come lay hands (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: News — thy daughter is dead (pause)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: Be not afraid only believe (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: Damsel I say unto thee arise (life)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: She arose and walked — give her meat (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: Jesus loves little children (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -7892,5 +8034,6 @@ module.exports = {
   jesusCalmsStorm: buildJesusCalmsStormReadQuiz(),
   jesusHealsParalytic: buildJesusHealsParalyticReadQuiz(),
   witheredHand: buildWitheredHandReadQuiz(),
+  jairus: buildJairusReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

@@ -10954,85 +10954,137 @@
     ]
   },
   "jairus": {
-    "kjvRef": "Mark 5:21–43",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Mark 5:21–43 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "And he took the damsel by the hand, and said unto her, Talitha cumi; which is, being interpreted, Damsel, I say unto thee, arise. — Mark 5:41 (KJV)",
+    "readAlongTitle": "Jesus Brings a Girl Back to Life",
+    "quizWrongHumilityHint": "Listen again — sick daughter; come lay hands; thy daughter is dead; Be not afraid only believe; Damsel arise; walked; give her meat; amazed.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jairus' Daughter Raised (Mark 5:21–43). Jairus begs Jesus: my daughter is dying! News arrives: she is gone... Jesus takes her hand: Talitha cumi! She rises! Jesus is never too late! Keep believing even when it seems impossible."
+      "A man named Jairus had a little daughter who was very sick.",
+      "He came to Jesus and said, “My little daughter lieth at the point of death: I pray thee, come and lay thy hands on her, that she may be healed; and she shall live.”",
+      "While Jesus was on the way, people came and said, “Thy daughter is dead.”",
+      "Jesus heard it and said to Jairus, “Be not afraid, only believe.”",
+      "When they reached the house, Jesus took the girl’s hand and said, “Damsel, I say unto thee, arise.”",
+      "The little girl got up right away and walked.",
+      "Jesus told them to give her something to eat.",
+      "Everyone was amazed.",
+      "Jesus has power over sickness and even over death. He cares for little children.",
+      "Reference: Mark 5:21–43 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jairus had a little daughter who was sick.",
+        "caption": "A father’s love",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He asked Jesus to come and help her.",
+        "caption": "Come, Lord",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "People said the girl had died.",
+        "caption": "Hard news",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus said, “Be not afraid, only believe.”",
+        "caption": "Only believe",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus took her hand and said, “Arise.”",
+        "caption": "Damsel, arise",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The little girl got up and walked.",
+        "caption": "She lives!",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus cares for little children.",
+        "caption": "He loves kids",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 4:18–22; Luke 5:1–11",
-          "Joshua 7:1-11",
-          "Matthew 4:1–11",
-          "Mark 5:21–43"
+          "Psalm 23",
+          "Mark 5:21–43",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Mark 5:21–43.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Mark 5:21–43.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did Jesus say to Jairus when things looked hopeless?",
         "choices": [
-          "Jesus",
-          "John",
-          "Priscilla",
-          "Stephen"
+          "“Be not afraid, only believe.”",
+          "“Go home and never pray.”",
+          "“It is too late to try.”",
+          "“Do not talk to God.”"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—Jesus calls us to trust Him.",
+        "wrongFeedback": "Think about the words on the way to the house. (Answer: “Be not afraid, only believe.”)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "Jesus is never too late! Keep believing even when it seems impossible.",
-          "The Bible is only pretend stories."
+          "Jesus cannot help anyone.",
+          "Jesus has power over sickness and even over death — and He cares for little children.",
+          "Fathers never love their children.",
+          "We should never ask Jesus for help."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus is never too late! Keep believing even when it seems impossible..)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about Jesus raising her and caring for children. (Answer: Jesus has power over sickness and even over death — and He cares for little children.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Jairus begs Jesus: my daughter is dying!",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city."
+          "Jesus said to the girl, “Damsel, I say unto thee, arise.”",
+          "A turtle drove a race car.",
+          "The bed turned into a trampoline.",
+          "Everyone forgot how to eat."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—that comes straight from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Jesus’ words? (Answer: Damsel, I say unto thee, arise.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "Jesus is never too late! Keep believing even when it seems impossible."
+          "Thank Jesus that He cares for children — ask Him to help us trust Him when we feel afraid.",
+          "Never pray when we feel sad.",
+          "Only love people when everything is easy.",
+          "Hide from Jesus when we need help."
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus is never too late! Keep believing even when it seems impossible..)"
+        "wrongFeedback": "Think: which honors Jesus’ power and kindness? (Answer: Thank Jesus that He cares for children — ask Him to help us trust Him when we feel afraid.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jairus' Daughter Raised with God's Word today.",
-    "takeaway": "Jesus is never too late! Keep believing even when it seems impossible.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jairus' Daughter Raised. Amen.",
+    "doneMessage": "Great job reading Jesus Brings a Girl Back to Life with God's Word today.",
+    "takeaway": "Jesus has power over sickness and even over death. He cares for little children.",
+    "prayer": "Lord Jesus, thank You that You hear us and help us. Help us believe You — especially when we feel afraid. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jairus begs Jesus: my daughter is dying! (jairus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: News arrives: she is gone... (daughter)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus takes her hand: Talitha cumi! She rises! (raise)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jairus begs Jesus: my daughter is dying! (mark 5)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: News arrives: she is gone... (talitha cumi)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus gently holding the hand of a little girl who is sitting up in bed the girl has a happy awake face her father Jairus and mother stand nearby with thankful faces thick bold outlines with large open spaces on Jesus' robe the girl's clothes the bed and the floor for easy coloring soft room walls and gentle light from above with minimal lines joyful caring mood focus on Jesus bringing the girl back to life clean minimal no fear or sadness plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: Jairus asks — come lay hands (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: News — thy daughter is dead (pause)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: Be not afraid only believe (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: Damsel I say unto thee arise (life)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: She arose and walked — give her meat (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft rose and gold, friendly not scary, no text in image: Jesus loves little children (hope)"
+    ],
+    "readAlongImages": []
   },
   "jamesFaithWorks": {
     "kjvRef": "James 2:14–26",

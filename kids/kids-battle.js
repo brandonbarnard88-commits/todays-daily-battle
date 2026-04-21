@@ -5391,18 +5391,46 @@
       kidContext: { who: 'Jesus', to: 'The lepers', apply: 'Jesus heals and cleans us inside! Always say thank you to Him.' }
     },
     jairus: {
-      title: 'Jairus\' Daughter Raised',
+      title: 'Jesus Brings a Girl Back to Life',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jairus begs Jesus: my daughter is dying!' },
-        { src: 'panel-noah-2.svg', alt: 'News arrives: she is gone...' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus takes her hand: Talitha cumi! She rises!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jairus asks Jesus to come — My little daughter lieth at the point of death'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Thy daughter is dead — Jesus says, Be not afraid, only believe'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Damsel, I say unto thee, arise — she got up and walked'
+        }
       ],
-      caption: 'Swipe to see Jesus bring a girl back to life! 🌸',
+      caption:
+        'Swipe to see Jesus take her hand and speak life — only believe. 🌸',
       videoId: '',
       videoTitle: '',
-      keywords: ['jairus', 'daughter', 'raise', 'mark 5', 'talitha cumi', 'miracle', 'faith'],
+      keywords: [
+        'jairus',
+        'daughter',
+        'arise',
+        'mark 5',
+        'talitha cumi',
+        'damsel',
+        'believe',
+        'miracle',
+        'faith',
+        'children'
+      ],
       kjvRef: 'Mark 5:21–43',
-      kidContext: { who: 'Jesus', to: 'Jairus and his daughter', apply: 'Jesus is never too late! Keep believing even when it seems impossible.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'Jairus, his daughter, and us',
+        apply:
+          'Jesus has power over sickness and even over death — and He cares for little children. Keep believing Him.'
+      },
+      narration:
+        "Jesus Brings a Girl Back to Life — Mark 5:21–43. And when Jesus was passed over again by ship unto the other side, much people gathered unto him: and he was nigh unto the sea. And, behold, there cometh one of the rulers of the synagogue, Jairus by name; and when he saw him, he fell at his feet, and besought him greatly, saying, My little daughter lieth at the point of death: I pray thee, come and lay thy hands on her, that she may be healed; and she shall live. While Jesus was yet speaking, there came from the ruler of the synagogue's house certain which said, Thy daughter is dead: why troublest thou the Master any further? As soon as Jesus heard the word that was spoken, he saith unto the ruler of the synagogue, Be not afraid, only believe. And he suffered no man to follow him, save Peter, and James, and John the brother of James. And he cometh to the house of the ruler of the synagogue, and seeth the tumult, and them that wept and wailed greatly. And when he was come in, he saith unto them, Why make ye this ado, and weep? the damsel is not dead, but sleepeth. And they laughed him to scorn. But when he had put them all out, he taketh the father and the mother of the damsel, and them that were with him, and entereth in where the damsel was lying. And he took the damsel by the hand, and said unto her, Talitha cumi; which is, being interpreted, Damsel, I say unto thee, arise. And straightway the damsel arose, and walked; for she was of the age of twelve years. And they were astonished with a great astonishment. And he charged them straitly that no man should know it; and commanded that something should be given her to eat. For you: Jesus hears you — believe Him; He cares for children and has power to save."
     },
     transfigure: {
       title: 'Jesus\' Transfiguration',
@@ -7715,7 +7743,7 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
@@ -7738,7 +7766,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */

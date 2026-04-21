@@ -167,6 +167,7 @@
     if (low.indexOf('samaritanwoman') >= 0 || low === 'samaritanwoman') return 'samaritanWoman';
     if (low.indexOf('noblemanson') >= 0 || low === 'noblemanson') return 'noblemanSon';
     if (low.indexOf('centurionservant') >= 0 || low === 'centurionservant') return 'centurionServant';
+    if (low.indexOf('jesuscalmsstorm') >= 0 || low === 'jesuscalmsstorm') return 'jesusCalmsStorm';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -366,33 +367,28 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 6–9</text>'
       ),
 
-      /* Jesus Calms the Storm */
+      /* Jesus calms the storm — gentle: calm coming to wind and waves (Mark 4:35–41) */
       jesusCalmsStorm: svg(
-        /* sky with storm lines */
-        '<line x1="30" y1="20" x2="60" y2="50" ' + s + ' stroke-width="3"/>' +
-        '<line x1="80" y1="10" x2="100" y2="45" ' + s + ' stroke-width="3"/>' +
-        '<line x1="320" y1="15" x2="290" y2="50" ' + s + ' stroke-width="3"/>' +
-        cloud(280, 30) +
-        cloud(60, 25) +
-        /* waves */
-        '<path d="M0 200 Q50 175 100 200 Q150 225 200 200 Q250 175 300 200 Q350 225 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M0 230 Q60 210 120 230 Q180 250 240 230 Q300 210 360 230 Q390 240 400 235" ' + s + ' stroke-width="2.5"/>' +
-        /* boat */
-        '<path d="M80 200 Q200 215 320 200 L300 240 L100 240 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* mast + sail */
-        '<line x1="200" y1="160" x2="200" y2="240" ' + s + ' stroke-width="3.5"/>' +
-        '<path d="M200 165 L240 185 L200 210 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        /* disciples in boat */
-        person(130, 190, 10, 28) +
-        person(160, 190, 10, 28) +
-        person(255, 190, 10, 28) +
-        /* Jesus standing, arms outstretched */
-        '<circle cx="200" cy="175" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="200" y1="186" x2="200" y2="215" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="172" y1="196" x2="228" y2="196" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="200" y1="215" x2="190" y2="235" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="200" y1="215" x2="210" y2="235" ' + s + ' stroke-width="2.5"/>' +
-        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 4:39</text>'
+        cloud(52, 22) +
+        cloud(268, 26) +
+        '<path d="M20 48 Q200 38 380 48" ' + s + ' stroke-width="1.8" opacity="0.45"/>' +
+        '<path d="M0 210 Q100 198 200 206 Q300 198 400 210 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M0 228 Q80 220 160 228 Q240 236 320 228 Q360 224 400 230" ' + s + ' stroke-width="1.8" opacity="0.55"/>' +
+        '<path d="M0 242 Q120 236 200 244 Q280 236 400 242" ' + s + ' stroke-width="1.5" opacity="0.4"/>' +
+        '<path d="M88 206 Q200 218 312 206 L298 248 L102 248 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="200" y1="168" x2="200" y2="218" ' + s + ' stroke-width="2.8"/>' +
+        '<path d="M200 172 L228 188 L200 198 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(128, 198, 9, 24) +
+        person(158, 198, 9, 24) +
+        person(248, 198, 9, 24) +
+        '<circle cx="200" cy="162" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="200" y1="172" x2="200" y2="198" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="188" y1="182" x2="200" y2="172" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="212" y1="182" x2="200" y2="172" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="198" x2="192" y2="214" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="198" x2="208" y2="214" ' + s + ' stroke-width="2.2"/>' +
+        sun(332, 42, 16) +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 4:35–41</text>'
       ),
 
       /* Jesus calls helpers — Sea of Galilee, nets (Matthew 4:18–22) */
@@ -4395,6 +4391,7 @@
     jesusSermon: 'jesusSermon',
     noblemanSon: 'noblemanSon',
     centurionServant: 'centurionServant',
+    jesusCalmsStorm: 'jesusCalmsStorm',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
@@ -4545,6 +4542,7 @@
     samaritanWoman: 'samaritanWoman',
     noblemanSon: 'noblemanSon',
     centurionServant: 'centurionServant',
+    jesusCalmsStorm: 'jesusCalmsStorm',
     marthaServe: 'marthaServe',
     marySit: 'marySit',
     dorcasRaise: 'dorcasRaise',

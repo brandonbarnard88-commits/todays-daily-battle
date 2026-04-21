@@ -1100,19 +1100,46 @@
         "Jesus Is Born in Bethlehem — Luke 2:1–20. Mary and Joseph went to Bethlehem. There was no room for them in the inn, so they stayed in a stable. That night Mary’s firstborn Son was born. She wrapped Him in soft cloths and laid Him in a manger. Shepherds keeping watch heard an angel say, Fear not: for, behold, I bring you good tidings of great joy… For unto you is born this day in the city of David a Saviour, which is Christ the Lord. A multitude of angels praised God — Glory to God in the highest, and on earth peace, good will toward men. The shepherds went with haste and found Mary and Joseph, and the babe lying in a manger, just as they had been told. For you: God sent His own Son as a baby so He could be with you."
     },
     jesusCalmsStorm: {
-      title: 'Jesus Calms the Storm',
+      title: 'Jesus Calms the Wind and the Waves',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: "Storm raging on the lake – Disciples afraid in the boat" },
-        { src: 'panel-jonah-2.svg', alt: "Jesus sleeping in the storm – Trusting God" },
-        { src: 'panel-jonah-3.svg', alt: "Jesus speaking to the wind and waves – Peace, be still" }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus and His friends in a boat — wind and waves rise on the sea'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They wake Jesus — Master, carest thou not that we perish?'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus says, Peace, be still — the wind and sea obey Him'
+        }
       ],
-      caption: 'Swipe to see Jesus calm the storm—trust Him! ⛵',
+      caption:
+        'Swipe to see Jesus calm the wind and the waves — His word brings peace. ⛵',
       videoId: 'uYLHqdSO9OY',
       videoTitle: 'Jesus Calms the Storm – Bible Story for Kids!',
-      keywords: ['jesus', 'storm', 'boat', 'waves', 'peace', 'matthew 8', 'mark 4'],
+      keywords: [
+        'jesus',
+        'storm',
+        'boat',
+        'waves',
+        'peace be still',
+        'mark 4',
+        'faith',
+        'wind',
+        'sea',
+        'disciples'
+      ],
       kjvRef: 'Mark 4:35–41',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: "The disciples were scared in a big storm, but Jesus spoke and the wind and waves obeyed Him. He asked them, 'Why are you so afraid?' Jesus is with you in every storm. When you feel scared, call on Him—He can bring peace." },
-      narration: "Jesus Calms the Boat – Mark 4:39. Jesus and His disciples were crossing the lake in a boat. A huge storm came up—waves crashed, wind howled, and the boat was filling with water. The disciples were terrified and woke Jesus, saying, 'Master, don't You care that we are perishing?' Jesus stood up and said to the wind and waves, 'Peace, be still.' Immediately the wind stopped, and there was a great calm. Jesus asked them, 'Why are you so fearful? How is it that you have no faith?' The disciples were amazed—'Even the wind and sea obey Him!' For you: When life feels stormy or scary, Jesus is right there with you. Call on Him—He has power to bring peace to your heart."
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples (and us)',
+        apply:
+          'Jesus is stronger than any storm. When you feel scared, tell Him — He can make your heart calm and safe.'
+      },
+      narration:
+        "Jesus Calms the Wind and the Waves — Mark 4:35–41. And the same day, when the even was come, he saith unto them, Let us pass over unto the other side. And when they had sent away the multitude, they took him even as he was in the ship. And there were also with him other little ships. And there arose a great storm of wind, and the waves beat into the ship, so that it was now full. And he was in the hinder part of the ship, asleep on a pillow: and they awake him, and say unto him, Master, carest thou not that we perish? And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm. And he said unto them, Why are ye so fearful? how is it that ye have no faith? And they feared exceedingly, and said one to another, What manner of man is this, that even the wind and the sea obey him? For you: Jesus is with you in every storm — call on Him; He brings peace."
     },
     jesusFeeds5000: {
       title: 'Jesus Feeds 5,000',
@@ -7617,10 +7644,10 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusCalmsStorm', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
-      'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusWalksWater',
+      'jesusHealsParalytic', 'jesusFeeds5000', 'jesusWalksWater',
       'jesusParableSower', 'jesusParableMustardSeed', 'jesusParableGoodShepherd',
       'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
@@ -7640,7 +7667,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusCalmsStorm', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */

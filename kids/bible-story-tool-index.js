@@ -1048,13 +1048,13 @@
   },
   {
     "key": "jesusCalmsStorm",
-    "title": "Jesus Calms the Storm",
+    "title": "Jesus Calms the Wind and the Waves",
     "kjvRef": "Mark 4:35–41",
     "who": "Jesus",
     "to": "His disciples (and us)",
-    "apply": "The disciples were scared in a big storm, but Jesus spoke and the wind and waves obeyed Him. He asked them, 'Why are you so afraid?' Jesus is with you in every storm. When you feel scared, call on Him—He can bring peace.",
+    "apply": "Jesus is stronger than any storm. When you feel scared, tell Him — He can make your heart calm and safe.",
     "theme": "Miracles",
-    "kw": "jesus storm boat waves peace matthew 8 mark 4"
+    "kw": "jesus calms storm boat waves peace be still mark 4 master carest thou not wind sea obey faith disciples galilee"
   },
   {
     "key": "jesusFeeds5000",

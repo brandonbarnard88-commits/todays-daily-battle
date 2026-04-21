@@ -11954,89 +11954,139 @@
     ]
   },
   "jesusCalmsStorm": {
-    "kjvRef": "Mark 4:35–41",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Mark 4:35–41 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still. — Mark 4:39 (KJV)",
+    "readAlongTitle": "Jesus Calms the Wind and the Waves",
+    "quizWrongHumilityHint": "Listen again — boat; storm; afraid; Master carest thou not; Peace be still; great calm; fearful; no faith; wind and sea obey.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jesus Calms the Boat – Mark 4:39. Jesus and His disciples were crossing the lake in a boat.",
-      "A huge storm came up—waves crashed, wind howled, and the boat was filling with water.",
-      "The disciples were terrified and woke Jesus, saying, 'Master, don't You care that we are perishing?' Jesus stood up and said to the wind and waves, 'Peace, be still.' Immediately the wind stopped, and there was a great calm.",
-      "Jesus asked them, 'Why are you so fearful? How is it that you have no faith?' The disciples were amazed—'Even the wind and sea obey Him!' For you: When life feels stormy or scary, Jesus is right there with you.",
-      "Call on Him—He has power to bring peace to your heart."
+      "Jesus and His friends got into a boat to cross the sea.",
+      "While they were sailing, a big storm came.",
+      "The wind blew hard and the waves were high.",
+      "The boat was filling with water and the friends were afraid.",
+      "Jesus was sleeping in the back of the boat.",
+      "They woke Him up and said, “Master, carest thou not that we perish?”",
+      "Jesus stood up and said to the wind and the sea, “Peace, be still.”",
+      "The wind stopped blowing and the sea became calm.",
+      "Then Jesus asked His friends, “Why are ye so fearful? how is it that ye have no faith?”",
+      "The friends were amazed and said, “What manner of man is this, that even the wind and the sea obey him!”",
+      "Jesus is stronger than any storm. He can make everything calm and safe.",
+      "Reference: Mark 4:35–41 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus and His friends got into a boat.",
+        "caption": "Across the sea",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "A big storm came with wind and waves.",
+        "caption": "Wind and waves",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The friends were afraid and woke Jesus.",
+        "caption": "Wake the Master",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus said, “Peace, be still.”",
+        "caption": "Peace, be still",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The wind stopped and the sea became calm.",
+        "caption": "A great calm",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus asked, “Why are ye so fearful?”",
+        "caption": "Have faith",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Even the wind and sea obey Jesus.",
+        "caption": "He is Lord",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
+          "Psalm 23",
           "Mark 4:35–41",
-          "Revelation 12",
-          "Acts 18:1–3, 18–19",
-          "1 Samuel 3:1-21"
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Mark 4:35–41.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Mark 4:35–41.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did Jesus say to the wind and the sea?",
         "choices": [
-          "The LORD",
-          "Mary",
-          "David",
-          "Jesus"
+          "“Peace, be still.”",
+          "“Run faster, little boat.”",
+          "“Hide under the deck.”",
+          "“Storms are always pretend.”"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus speaks, and creation listens.",
+        "wrongFeedback": "Think about the calm command in Mark 4. (Answer: “Peace, be still.”)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "The disciples were scared in a big storm, but Jesus spoke and the wind and waves obeyed Him. He asked them, 'Why are you so afraid?' Jesus…",
-          "God never hears when kids pray."
+          "Jesus is asleep, so He cannot help anyone.",
+          "Jesus is stronger than any storm — He can make everything calm and safe.",
+          "We should never tell Jesus when we are scared.",
+          "Boats are always wrong."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: The disciples were scared in a big storm, but Jesus spoke and the wind and waves obeyed….)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about the wind and sea obeying Him. (Answer: Jesus is stronger than any storm — He can make everything calm and safe.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "Storm raging on the lake – Disciples afraid in the boat",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again."
+          "The disciples said, “What manner of man is this, that even the wind and the sea obey him!”",
+          "A whale wore sunglasses.",
+          "The boat turned into a kite.",
+          "Everyone forgot how to sit down."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches the disciples’ amazement? (Answer: What manner of man… wind and the sea obey him!)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "When life feels stormy or scary, Jesus is right there with you. Call on Him—He has power to bring peace to your heart.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Thank Jesus that He is with us — ask Him for peace when we feel scared or stormy inside.",
+          "Never talk to God on hard days.",
+          "Only be brave when we feel no fear.",
+          "Ignore people who need comfort."
         ],
         "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When life feels stormy or scary, Jesus is right there with you. Call on Him—He has power….)"
+        "wrongFeedback": "Think: which honors Jesus’ power and kindness in the boat? (Answer: Thank Jesus that He is with us — ask Him for peace when we feel scared or stormy inside.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jesus Calms the Storm with God's Word today.",
-    "takeaway": "The disciples were scared in a big storm, but Jesus spoke and the wind and waves obeyed Him. He asked them, 'Why are you so afraid?' Jesus is with you in every storm. When you feel scared, call on…",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus Calms the Storm. Amen.",
+    "doneMessage": "Great job reading Jesus Calms the Wind and the Waves with God's Word today.",
+    "takeaway": "Jesus is stronger than any storm. He can make everything calm and safe.",
+    "prayer": "Lord Jesus, thank You that You are with us. When we feel afraid, speak peace to our hearts. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Storm raging on the lake – Disciples afraid in the boat (jesus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus sleeping in the storm – Trusting God (storm)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus speaking to the wind and waves – Peace, be still (boat)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Storm raging on the lake – Disciples afraid in the boat (waves)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus sleeping in the storm – Trusting God (peace)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing in a boat with His hand raised the wind and waves are becoming calm around the boat the disciples are sitting with peaceful faces thick bold outlines with large open spaces on Jesus' robe the disciples' robes the boat and the water for easy coloring soft clouds and gentle sky with minimal lines calm and safe mood focus on Jesus calming the storm clean minimal no fear or scary waves plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Into the boat — let us pass over (journey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Storm on the sea — Master, carest thou not (trust)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Peace, be still — great calm (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Why are ye so fearful — faith (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Wind and sea obey him (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Jesus with you in every storm (hope)"
+    ],
+    "readAlongImages": []
   },
   "jesusCrucifixion": {
     "kjvRef": "Matthew 27; Mark 15; Luke 23; John 19",

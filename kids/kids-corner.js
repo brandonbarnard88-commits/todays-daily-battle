@@ -162,7 +162,8 @@
       parableHiddenTreasure: 'parableHiddenTreasure',
       parablePearl: 'parablePearl',
       lostSheep: 'parableLostSheep',
-      parableLostSheep: 'parableLostSheep'
+      parableLostSheep: 'parableLostSheep',
+      prodigalSon: 'prodigalSonWelcome'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -190,6 +191,7 @@
     if (low.indexOf('parablehiddentreasure') >= 0 || low === 'parablehiddentreasure') return 'parableHiddenTreasure';
     if (low.indexOf('parablepearl') >= 0 || low === 'parablepearl') return 'parablePearl';
     if (low.indexOf('parablelostsheep') >= 0 || low === 'parablelostsheep') return 'parableLostSheep';
+    if (low.indexOf('prodigal') >= 0 || low === 'prodigalson') return 'prodigalSon';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -3139,6 +3141,36 @@
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 15:3–7</text>'
       ),
 
+      /* Week 6 gentle: Prodigal son — father runs, open arms, welcome home (Luke 15:11–32) */
+      prodigalSonWelcome: svg(
+        ground() +
+        hills() +
+        sun(52, 40, 18) +
+        cloud(300, 36) +
+        '<path d="M20 252 Q120 242 200 248 Q300 238 378 250" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        '<rect x="288" y="188" width="72" height="62" rx="4" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M278 188 L324 154 L370 188" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<rect x="318" y="218" width="14" height="18" rx="1" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="62" cy="256" r="3.5" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<circle cx="76" cy="252" r="3" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="118" cy="178" r="10" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M110 182 Q118 176 126 182" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="118" y1="188" x2="118" y2="232" ' + s + ' stroke-width="2.4"/>' +
+        '<line x1="118" y1="200" x2="98" y2="218" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="118" y1="200" x2="138" y2="212" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="118" y1="232" x2="108" y2="252" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="118" y1="232" x2="128" y2="252" ' + s + ' stroke-width="2.2"/>' +
+        '<circle cx="228" cy="162" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M220 166 Q228 172 236 166" ' + s + ' stroke-width="1.3"/>' +
+        '<circle cx="222" cy="160" r="1.1" fill="#111"/><circle cx="234" cy="160" r="1.1" fill="#111"/>' +
+        '<path d="M228 173 L242 205 L220 248 L242 248 Z" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<path d="M218 188 L188 168" ' + s + ' stroke-width="2.6"/>' +
+        '<path d="M238 185 L268 165" ' + s + ' stroke-width="2.6"/>' +
+        '<line x1="232" y1="248" x2="226" y2="268" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="248" y1="244" x2="258" y2="268" ' + s + ' stroke-width="2.2"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 15:11–32</text>'
+      ),
+
       /* ── Week 6: Jesus Heal Leper (78) ── */
       healLeper: svg(
         ground() +
@@ -4475,7 +4507,7 @@
     /* ── legacy mappings ── */
     mosesBush: 'burningBush',
     goodSamaritan: 'loveNeighbor',
-    prodigalSon: 'forgive70x7',
+    prodigalSon: 'prodigalSonWelcome',
     lostSheep: 'parableLostSheep',
     parableLostSheep: 'parableLostSheep',
     lastSupper: 'maryAnoint',
@@ -4609,6 +4641,8 @@
     parableHiddenTreasure: 'parableHiddenTreasure',
     parablePearl: 'parablePearl',
     parableLostSheep: 'parableLostSheep',
+    prodigalSon: 'prodigalSonWelcome',
+    prodigalSonWelcome: 'prodigalSonWelcome',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',

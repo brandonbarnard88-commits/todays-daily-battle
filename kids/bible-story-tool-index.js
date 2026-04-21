@@ -2257,16 +2257,6 @@
     "kw": "priscilla tent aquila acts 18 paul work church teach"
   },
   {
-    "key": "prodigalSon",
-    "title": "Prodigal Son",
-    "kjvRef": "Luke 15:11–32",
-    "who": "Jesus",
-    "to": "People who wondered if God forgives",
-    "apply": "God welcomes you home! No matter what you did, come back—He runs to meet you!",
-    "theme": "Love",
-    "kw": "prodigal son run away come back party forgiveness luke 15"
-  },
-  {
     "key": "psalm23Shepherd",
     "title": "Psalm 23 — The Lord Is My Shepherd",
     "kjvRef": "Psalm 23:1-6",
@@ -2755,6 +2745,16 @@
     "apply": "Jesus is alive! Death couldn't hold Him—and He gives that life to you!",
     "theme": "Miracles",
     "kw": "tomb empty risen matthew 28 angel stone resurrection"
+  },
+  {
+    "key": "prodigalSon",
+    "title": "The Father Who Welcomes His Son Home",
+    "kjvRef": "Luke 15:11–32",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God is like that loving father — He is always ready to welcome us when we come back to Him.",
+    "theme": "Love",
+    "kw": "prodigal son father two sons forgiveness welcome home ran to meet him lost and found alive again luke 15 parable party kiss jesus"
   },
   {
     "key": "fourHorsemen",

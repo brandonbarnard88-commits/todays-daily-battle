@@ -46,7 +46,7 @@ const STORIES: Record<string, { title: string; talkAbout: string }> = {
   jesusCalmsStorm: { title: "Jesus Calms the Storm", talkAbout: "When you're scared, He says: Don't be afraid—I'm here!" },
   jesusFeeds5000: { title: "Jesus Feeds 5,000", talkAbout: "Give God what you have—He can multiply it!" },
   goodSamaritan: { title: "Good Samaritan", talkAbout: "Love your neighbor—help anyone! Be kind to people who need you." },
-  prodigalSon: { title: "Prodigal Son", talkAbout: "God welcomes you home! No matter what you did, come back—He runs to meet you!" },
+  prodigalSon: { title: "The Father Who Welcomes His Son Home", talkAbout: "God is like that loving father — always ready to welcome us when we come back to Him." },
   zacchaeus: { title: "Zacchaeus", talkAbout: "Jesus sees you—even if you're small! He knows your name and wants to be your friend!" },
   lazarus: { title: "Lazarus Raised", talkAbout: "Jesus gives life—don't be sad! He is the Resurrection and the Life!" },
   resurrection: { title: "Resurrection", talkAbout: "Jesus beat death—He lives forever! That's why we celebrate Easter—He won!" },

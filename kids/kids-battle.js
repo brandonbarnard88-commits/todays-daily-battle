@@ -1242,18 +1242,40 @@
       kidContext: { who: 'Jesus', to: 'A man who asked "Who is my neighbor?"', apply: 'Love your neighbor—help anyone! Be kind to people who need you.' }
     },
     prodigalSon: {
-      title: 'Prodigal Son',
+      title: 'The Father Who Welcomes His Son Home',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Son runs away with his money' },
-        { src: 'panel-jonah-2.svg', alt: 'Son comes back sorry' },
-        { src: 'panel-jonah-3.svg', alt: 'Father runs to welcome him home!' }
+        { src: 'panel-noah-1.svg', alt: 'A father had two sons — the younger asked for his share and went far away' },
+        { src: 'panel-noah-2.svg', alt: 'He spent all and was hungry — he arose and went to his father' },
+        { src: 'panel-noah-3.svg', alt: 'While he was yet a great way off, his father ran and fell on his neck and kissed him' }
       ],
-      caption: 'Swipe to see the father welcome his son home! 🏠',
+      caption:
+        'Swipe to see the father run to his son — dead… alive again; lost… and is found. God welcomes us when we come home. 🏠',
       videoId: '29qEf9afdcA',
       videoTitle: 'The Prodigal Son – Bible Stories for Kids!',
-      keywords: ['prodigal', 'son', 'run away', 'come back', 'party', 'forgiveness', 'luke 15'],
+      keywords: [
+        'prodigal son',
+        'father',
+        'two sons',
+        'forgiveness',
+        'welcome home',
+        'ran to meet him',
+        'lost and found',
+        'alive again',
+        'luke 15',
+        'parable',
+        'party',
+        'kiss',
+        'jesus'
+      ],
       kjvRef: 'Luke 15:11–32',
-      kidContext: { who: 'Jesus', to: 'People who wondered if God forgives', apply: 'God welcomes you home! No matter what you did, come back—He runs to meet you!' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'God is like that loving father — He is always ready to welcome us when we come back to Him.'
+      },
+      narration:
+        "The Father Who Welcomes His Son Home — Luke 15:11–32. And he said, A certain man had two sons: And the younger of them said to his father, Father, give me the portion of goods that falleth to me. And he divided unto them his living. And not many days after the younger son gathered all together, and took his journey into a far country, and there wasted his substance with riotous living. And when he had spent all, there arose a mighty famine in that land; and he began to be in want. And he went and joined himself to a citizen of that country; and he sent him into his fields to feed swine. And he would fain have filled his belly with the husks that the swine did eat: and no man gave unto him. And when he came to himself, he said, How many hired servants of my father's have bread enough and to spare, and I perish with hunger! I will arise and go to my father, and will say unto him, Father, I have sinned against heaven, and before thee, And am no more worthy to be called thy son: make me as one of thy hired servants. And he arose, and came to his father. But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him. And the son said unto him, Father, I have sinned against heaven, and in thy sight, and am no more worthy to be called thy son. But the father said to his servants, Bring forth the best robe, and put it on him; and put a ring on his hand, and shoes on his feet: And bring hither the fatted calf, and kill it; and let us eat, and be merry: For this my son was dead, and is alive again; he was lost, and is found. And they began to be merry. For you: God is like that loving father — He is always ready to welcome us when we come back to Him."
     },
     zacchaeus: {
       title: 'Zacchaeus',
@@ -7958,7 +7980,7 @@
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -7977,7 +7999,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'prodigalSon', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */

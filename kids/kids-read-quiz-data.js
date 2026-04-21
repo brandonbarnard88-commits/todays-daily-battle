@@ -23034,88 +23034,139 @@
     ]
   },
   "prodigalSon": {
-    "kjvRef": "Luke 15:11–32",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Luke 15:11–32 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "For this my son was dead, and is alive again; he was lost, and is found. — Luke 15:24 (KJV)",
+    "readAlongTitle": "The Father Who Welcomes His Son Home",
+    "quizWrongHumilityHint": "Listen again — two sons; father; far away; spent all; arose; great way off; ran; kissed; alive again; found.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Prodigal Son (Luke 15:11–32).",
-      "Son runs away with his money Son comes back sorry Father runs to welcome him home!",
-      "God welcomes you home!",
-      "No matter what you did, come back—He runs to meet you!"
+      "Jesus told a story about a father who had two sons.",
+      "The younger son asked for his share of the money and went far away.",
+      "He spent all the money on foolish things and soon had nothing left.",
+      "He was hungry and sad.",
+      "He decided to go home and say he was sorry.",
+      "While he was still a long way off, his father saw him and ran to meet him.",
+      "The father hugged him and kissed him.",
+      "The father said: “For this my son was dead, and is alive again; he was lost, and is found.”",
+      "Then the father gave a big party to celebrate because his son had come home.",
+      "God is like that loving father — He is always ready to welcome us when we come back to Him.",
+      "Reference: Luke 15:11–32 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A father had two sons.",
+        "caption": "Two sons",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The younger son went far away.",
+        "caption": "A far country",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "He spent all his money and was sad.",
+        "caption": "Hungry and sorry",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He decided to go home and say sorry.",
+        "caption": "I will arise and go",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "His father saw him and ran to meet him.",
+        "caption": "While yet a great way off",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "The father hugged him and said, “My son is home!”",
+        "caption": "Fell on his neck — kissed him",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "God welcomes us when we come back to Him.",
+        "caption": "Alive again — was lost, and is found",
+        "image": "panel-noah-2.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Romans 16:1–2",
-          "Revelation 4–5",
-          "Judges 14:5-9",
-          "Luke 15:11–32"
+          "Psalm 23",
+          "Luke 15:11–32",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 15:11–32.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 15:11–32.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did the father do when he saw his son while he was still a long way off?",
         "choices": [
-          "Jesus",
-          "Priscilla",
-          "John",
-          "Stephen"
+          "He ran to meet him and welcomed him with love.",
+          "He hid inside the house.",
+          "He sent a camel away forever.",
+          "He forgot how to walk."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—that matches Jesus’ story of the loving father in Luke 15.",
+        "wrongFeedback": "Think about what happened when the father saw his son coming home. (Answer: ran… welcomed him.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "We should hide from God when we mess up.",
-          "God welcomes you home! No matter what you did, come back—He runs to meet you!",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "God does not want us to come back to Him.",
+          "God is like a loving father who is always ready to welcome us when we come back to Him.",
+          "We should never say we are sorry.",
+          "Running is always wrong."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God welcomes you home! No matter what you did, come back—He runs to meet you!.)"
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about the feast and “was lost, and is found.” (Answer: loving father… welcome us.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Son runs away with his money",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city."
+          "For this my son was dead, and is alive again; he was lost, and is found.",
+          "The father turned into a pickle jar.",
+          "The party was only for camels.",
+          "Everyone forgot what a home is."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 15? (Answer: dead… alive again… lost… found.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "God welcomes you home! No matter what you did, come back—He runs to meet you!"
+          "Thank God for welcoming us like that father — tell Him we are sorry and glad to come home to Him.",
+          "Never think about God’s kindness.",
+          "Hide when we feel loved.",
+          "Only grown-ups need forgiveness."
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God welcomes you home! No matter what you did, come back—He runs to meet you!.)"
+        "wrongFeedback": "Think: which honors God’s welcoming love? (Answer: thank God… sorry… come home.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Prodigal Son with God's Word today.",
-    "takeaway": "God welcomes you home! No matter what you did, come back—He runs to meet you!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Prodigal Son. Amen.",
+    "doneMessage": "Great job reading The Father Who Welcomes His Son Home with God's Word today.",
+    "takeaway": "God is like that loving father — He is always ready to welcome us when we come back to Him.",
+    "prayer": "Lord, thank You for welcoming us home like the father in Jesus’ story. Help me trust Your love today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Son runs away with his money (prodigal)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Son comes back sorry (son)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Father runs to welcome him home! (run away)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Son runs away with his money (come back)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Son comes back sorry (party)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a father running with open arms to hug his returning son the son has a sorry but hopeful face the father looks very happy thick bold outlines with large open spaces on the father robe the son robe and the ground for easy coloring soft road and gentle house in the background with minimal lines loving and welcoming mood focus on the father welcoming his son home clean minimal no fear or sadness shown strongly plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Two sons — father's love (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Far away — gentle honesty (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Hungry heart — coming to himself (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: I will arise and go (return)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Father ran — open arms (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Hug and kiss — welcome home (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Alive again — was lost, and is found (celebrate)"
+    ],
+    "readAlongImages": []
   },
   "psalm23": {
     "kjvRef": "Psalm 23:1-6 (KJV)",

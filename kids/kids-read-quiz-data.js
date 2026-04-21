@@ -19677,87 +19677,136 @@
     "readAlongImages": []
   },
   "parableTalents": {
-    "kjvRef": "Matthew 25:14–30",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Matthew 25:14–30 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Well done, thou good and faithful servant… enter thou into the joy of thy lord. — Matthew 25:21 (KJV)",
+    "readAlongTitle": "Jesus Tells About Using What God Gives Us",
+    "quizWrongHumilityHint": "Listen again — journey; five talents; two; one; traded; gained; hid; digged; lord returned; well done; faithful; joy; afraid; abundance.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Parable of Talents (Matthew 25:14–30).",
-      "Master gives money to servants Two servants use it—grow it!",
-      "Use what God gave you—grow it!"
+      "Jesus told a story about a man who was going on a long journey.",
+      "Before he left, he called his servants and gave them money to take care of.",
+      "To one servant he gave five talents, to another two, and to another one — each according to his ability.",
+      "Then he went away.",
+      "The servant who had received five talents went and traded with them and made five more.",
+      "The servant who had received two talents also made two more.",
+      "But the servant who had received one talent dug a hole in the ground and hid his lord’s money.",
+      "After a long time the lord returned and asked his servants what they had done.",
+      "The first two servants brought their extra talents and the lord said to each of them, “Well done, thou good and faithful servant: thou hast been faithful over a few things, I will make thee ruler over many things: enter thou into the joy of thy lord.”",
+      "The servant who had hidden his one talent brought it back and said he was afraid.",
+      "The lord called him a wicked and slothful servant and took the talent away from him and gave it to the one who had ten.",
+      "Jesus said, “For unto every one that hath shall be given, and he shall have abundance: but from him that hath not shall be taken away even that which he hath.”",
+      "Jesus wants us to use the gifts and abilities He gives us for His kingdom.",
+      "Reference: Matthew 25:14–30 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A man gave his servants money before he left — five talents, two, and one, each by his ability.",
+        "caption": "Delivered unto them his goods",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "One servant used five talents and made five more. Another used two and made two more.",
+        "caption": "Gained other talents",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The third servant hid his one talent in the ground.",
+        "caption": "Hid his lord’s money",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "When the lord returned, the first two showed what they had gained.",
+        "caption": "Reckoneth with them",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The master said, “Well done, thou good and faithful servant… enter thou into the joy of thy lord.”",
+        "caption": "Well done, good and faithful",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus wants us to use what He gives us for His kingdom.",
+        "caption": "Faithful over a few things",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 7:1-22",
           "Matthew 25:14–30",
-          "Judges 4:1-16",
-          "2 Kings 4:8-37"
+          "Psalm 23",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 25:14–30.)"
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 25:14–30.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "Before the man went away, what did he give his servants?",
         "choices": [
-          "Jesus",
-          "Elisha",
-          "The crowds",
-          "Stephen"
+          "Money (talents) — each according to his ability",
+          "Only a hug",
+          "Nothing",
+          "A map with no roads"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—that matches Jesus’ parable in Matthew 25.",
+        "wrongFeedback": "Think about five, two, and one — each by ability. (Answer: talents… according to his ability.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did the first two faithful servants do with what the master gave them?",
         "choices": [
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "Use what God gave you—grow it! Don't hide your gifts—use them!"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Use what God gave you—grow it! Don't hide your gifts—use them!.)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Master gives money to servants",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
+          "They used it and gained more for their lord",
+          "They hid everything",
+          "They gave it to strangers to keep",
+          "They forgot about it"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—that matches Matthew 25:16–17, 20–23.",
+        "wrongFeedback": "Remember who traded and gained. (Answer: used it… gained more.)"
+      },
+      {
+        "question": "What did the master say to the faithful servants?",
+        "choices": [
+          "“Well done, thou good and faithful servant… enter thou into the joy of thy lord.”",
+          "“Go away forever.”",
+          "“Never speak to me again.”",
+          "“It does not matter what you do.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 25:21, 23.",
+        "wrongFeedback": "Listen again for the kind words “Well done.” (Answer: Well done… faithful… joy of thy lord.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Never say sorry when we do wrong.",
-          "Use what God gave you—grow it! Don't hide your gifts—use them!",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us."
+          "Ask Jesus to help me use what He gives me today — with a thankful, faithful heart.",
+          "Hide every gift on purpose.",
+          "Believe God never gives anything good.",
+          "Only use gifts when we feel perfect."
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Use what God gave you—grow it! Don't hide your gifts—use them!.)"
+        "wrongFeedback": "Think: which matches “faithful” and “using what He gives”? (Answer: use what He gives… thankful heart.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Parable of Talents with God's Word today.",
-    "takeaway": "Use what God gave you—grow it! Don't hide your gifts—use them!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Parable of Talents. Amen.",
+    "doneMessage": "Great job reading Jesus Tells About Using What God Gives Us with God's Word today.",
+    "takeaway": "Jesus wants us to use the gifts and abilities He gives us for His kingdom.",
+    "prayer": "Lord Jesus, thank You for what You give me. Help me use it faithfully for You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Master gives money to servants (talents)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Two servants use it—grow it! (parable)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Use what God gave you—grow it! (money)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Master gives money to servants (servants)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Two servants use it—grow it! (matthew 25)"
-    ]
+      "A simple, peaceful black-and-white line-art scene for young children: A kind master praising two happy servants who are holding extra coins. One servant is standing with five coins, another with two. The third servant stands sadly with his one coin still in his hand. Thick, bold outlines with large open spaces on the master’s robe, the servants’ robes, and the coins for easy coloring. Soft ground and gentle sky with minimal lines. Faithful and joyful mood — focus on the master saying “Well done” to the faithful servants. Clean, minimal, no fear or punishment shown strongly, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: Master gives — five, two, one (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: Five gained five — two gained two (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: One hid in the earth (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: Lord returns — reckoneth (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: Well done — joy of thy lord (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: Use what God gives — faithfulness (love)"
+    ],
+    "readAlongImages": []
   },
   "parableTwoSons": {
     "kjvRef": "Matthew 21:28–32 (KJV) — gentle summary for little hearts",

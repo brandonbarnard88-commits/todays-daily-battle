@@ -2169,18 +2169,44 @@
         "Hannah's Prayer – 1 Samuel 1:1-20. There was a woman named Hannah who had no children, and her heart was very sad. Every year she went with her husband to the house of the Lord at Shiloh, but she cried and could not eat. One day Hannah prayed at the tabernacle with all her heart. She wept sore and made a promise to God: O LORD of hosts, if thou wilt… give unto thine handmaid a man child, then I will give him unto the LORD all the days of his life. Eli the priest saw her lips moving but heard no voice. He thought she was drunk, but Hannah told him, I am a woman of a sorrowful spirit… I have poured out my soul before the LORD. Eli answered, Go in peace: and the God of Israel grant thee thy petition that thou hast asked of him. Hannah went away with a happy face. The LORD remembered Hannah, and in time she had a son. She called his name Samuel, saying, Because I have asked him of the LORD. For you: God listens to sad hearts and answers in His kind time."
     },
     parableTalents: {
-      title: 'Parable of Talents',
+      title: 'Jesus Tells About Using What God Gives Us',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Master gives money to servants' },
-        { src: 'panel-noah-2.svg', alt: 'Two servants use it—grow it!' },
-        { src: 'panel-noah-3.svg', alt: 'Use what God gave you—grow it!' }
+        {
+          src: 'panel-noah-1.svg',
+          alt: 'A master gives five, two, and one talents to his servants before a long journey'
+        },
+        {
+          src: 'panel-noah-2.svg',
+          alt: 'Two faithful servants trade and gain more — the third hid his talent in the ground'
+        },
+        {
+          src: 'panel-noah-3.svg',
+          alt: 'Well done, thou good and faithful servant — enter into the joy of thy lord'
+        }
       ],
-      caption: 'Swipe to see servants use gifts—grow what God gave! 💰',
+      caption: 'Swipe to see faithful servants use what the Master gave — “Well done!” 💰',
       videoId: '4M7BHiN5Ro0',
       videoTitle: "God's Story: Parable of the Talents!",
-      keywords: ['talents', 'parable', 'money', 'servants', 'matthew 25', 'gifts'],
+      keywords: [
+        'talents',
+        'parable',
+        'faithful',
+        'servants',
+        'matthew 25',
+        'well done',
+        'gifts',
+        'jesus',
+        'kingdom'
+      ],
       kjvRef: 'Matthew 25:14–30',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Use what God gave you—grow it! Don\'t hide your gifts—use them!' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples (and us)',
+        apply:
+          'Jesus wants us to use the gifts and abilities He gives us for His kingdom — faithfully, with a thankful heart.'
+      },
+      narration:
+        "Jesus Tells About Using What God Gives Us — Matthew 25:14–30. For the kingdom of heaven is as a man travelling into a far country, who called his own servants, and delivered unto them his goods. And unto one he gave five talents, to another two, and to another one; to every man according to his several ability; and straightway took his journey. Then he that had received the five talents went and traded with the same, and made them other five talents. And likewise he that had received two, he also gained other two. But he that had received one went and digged in the earth, and hid his lord's money. After a long time the lord of those servants cometh, and reckoneth with them. And so he that had received five talents came and brought other five talents, saying, Lord, thou deliveredst unto me five talents: behold, I have gained beside them five talents more. His lord said unto him, Well done, thou good and faithful servant: thou hast been faithful over a few things, I will make thee ruler over many things: enter thou into the joy of thy lord. He also that had received two talents came and said, Lord, thou deliveredst unto me two talents: behold, I have gained other two talents more. His lord said unto him, Well done, good and faithful servant; thou hast been faithful over a few things, I will make thee ruler over many things: enter thou into the joy of thy lord. Then he which had received the one talent came and said, Lord, I knew thee that thou art an hard man, reaping where thou hast not sown, and gathering where thou hast not strawed: And I was afraid, and went and hid thy talent in the earth: lo, there thou hast that is thine. His lord answered and said unto him, Thou wicked and slothful servant, thou knewest that I reap where I sowed not, and gather where I have not strawed: Thou oughtest therefore to have put my money to the exchangers, and then at my coming I should have received mine own with usury. Take therefore the talent from him, and give it unto him which hath ten talents. For unto every one that hath shall be given, and he shall have abundance: but from him that hath not shall be taken away even that which he hath. And cast ye the unprofitable servant into outer darkness: there shall be weeping and gnashing of teeth. For you: Jesus wants us to use the gifts and abilities He gives us for His kingdom."
     },
     armorOfGod: {
       title: 'Armor of God',
@@ -8260,7 +8286,7 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -8279,7 +8305,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -11386,10 +11412,10 @@
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
-    ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',
+    ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', armorOfGod: 'Obedience',
     /* Week 1 */
     mosesSea: 'Miracles', burningBush: 'Obedience', tenPlagues: 'Miracles', naamanDip: 'Obedience',
     creationLight: 'Miracles', elijahFire: 'Miracles', elishaOil: 'Miracles', towerBabel: 'Obedience',

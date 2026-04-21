@@ -1447,6 +1447,16 @@
     "kw": "two sons vineyard matthew 21 i go sir repented will of his father parable obey jesus kingdom of god"
   },
   {
+    "key": "parableTalents",
+    "title": "Jesus Tells About Using What God Gives Us",
+    "kjvRef": "Matthew 25:14–30",
+    "who": "Jesus",
+    "to": "His disciples (and us)",
+    "apply": "Jesus wants us to use the gifts and abilities He gives us for His kingdom — faithfully, with a thankful heart.",
+    "theme": "Obedience",
+    "kw": "talents parable faithful servants matthew 25 well done gifts jesus kingdom"
+  },
+  {
     "key": "jesus",
     "title": "Jesus the Good Shepherd",
     "kjvRef": "Matthew; Mark; Luke; John (Gospels overview)",
@@ -1975,16 +1985,6 @@
     "apply": "Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!",
     "theme": "Protection",
     "kw": "palm sunday hosanna donkey jerusalem matthew 21 luke 19"
-  },
-  {
-    "key": "parableTalents",
-    "title": "Parable of Talents",
-    "kjvRef": "Matthew 25:14–30",
-    "who": "Jesus",
-    "to": "His disciples (and us)",
-    "apply": "Use what God gave you—grow it! Don't hide your gifts—use them!",
-    "theme": "Obedience",
-    "kw": "talents parable money servants matthew 25 gifts"
   },
   {
     "key": "paulBarnabas",

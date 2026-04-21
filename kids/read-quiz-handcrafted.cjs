@@ -85,6 +85,7 @@
  * Workers in the vineyard — Matthew 20:1–16 (gentle): buildParableVineyardWorkersReadQuiz() (library key: parableVineyardWorkers).
  * Two sons and a vineyard — Matthew 21:28–32 (gentle): buildParableTwoSonsReadQuiz() (library key: parableTwoSons).
  * King’s wedding feast — Matthew 22:1–14 (gentle): buildParableWeddingFeastReadQuiz() (library key: parableWeddingFeast).
+ * Talents — Matthew 25:14–30 (gentle): buildParableTalentsReadQuiz() (library key: parableTalents).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -10512,6 +10513,142 @@ function buildParableWeddingFeastReadQuiz() {
   };
 }
 
+/** Talents — Matthew 25:14–30 (gentle). Library key: parableTalents */
+function buildParableTalentsReadQuiz() {
+  return {
+    kjvRef: 'Matthew 25:14–30 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Well done, thou good and faithful servant… enter thou into the joy of thy lord. — Matthew 25:21 (KJV)',
+    readAlongTitle: 'Jesus Tells About Using What God Gives Us',
+    quizWrongHumilityHint:
+      'Listen again — journey; five talents; two; one; traded; gained; hid; digged; lord returned; well done; faithful; joy; afraid; abundance.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told a story about a man who was going on a long journey.',
+      'Before he left, he called his servants and gave them money to take care of.',
+      'To one servant he gave five talents, to another two, and to another one — each according to his ability.',
+      'Then he went away.',
+      'The servant who had received five talents went and traded with them and made five more.',
+      'The servant who had received two talents also made two more.',
+      'But the servant who had received one talent dug a hole in the ground and hid his lord’s money.',
+      'After a long time the lord returned and asked his servants what they had done.',
+      'The first two servants brought their extra talents and the lord said to each of them, “Well done, thou good and faithful servant: thou hast been faithful over a few things, I will make thee ruler over many things: enter thou into the joy of thy lord.”',
+      'The servant who had hidden his one talent brought it back and said he was afraid.',
+      'The lord called him a wicked and slothful servant and took the talent away from him and gave it to the one who had ten.',
+      'Jesus said, “For unto every one that hath shall be given, and he shall have abundance: but from him that hath not shall be taken away even that which he hath.”',
+      'Jesus wants us to use the gifts and abilities He gives us for His kingdom.',
+      'Reference: Matthew 25:14–30 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A man gave his servants money before he left — five talents, two, and one, each by his ability.',
+        caption: 'Delivered unto them his goods',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'One servant used five talents and made five more. Another used two and made two more.',
+        caption: 'Gained other talents',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The third servant hid his one talent in the ground.',
+        caption: 'Hid his lord’s money',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'When the lord returned, the first two showed what they had gained.',
+        caption: 'Reckoneth with them',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The master said, “Well done, thou good and faithful servant… enter thou into the joy of thy lord.”',
+        caption: 'Well done, good and faithful',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus wants us to use what He gives us for His kingdom.',
+        caption: 'Faithful over a few things',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 25:14–30', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 25:14–30.)'
+      },
+      {
+        question: 'Before the man went away, what did he give his servants?',
+        choices: [
+          'Money (talents) — each according to his ability',
+          'Only a hug',
+          'Nothing',
+          'A map with no roads'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Jesus’ parable in Matthew 25.',
+        wrongFeedback: 'Think about five, two, and one — each by ability. (Answer: talents… according to his ability.)'
+      },
+      {
+        question: 'What did the first two faithful servants do with what the master gave them?',
+        choices: [
+          'They used it and gained more for their lord',
+          'They hid everything',
+          'They gave it to strangers to keep',
+          'They forgot about it'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 25:16–17, 20–23.',
+        wrongFeedback: 'Remember who traded and gained. (Answer: used it… gained more.)'
+      },
+      {
+        question: 'What did the master say to the faithful servants?',
+        choices: [
+          '“Well done, thou good and faithful servant… enter thou into the joy of thy lord.”',
+          '“Go away forever.”',
+          '“Never speak to me again.”',
+          '“It does not matter what you do.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 25:21, 23.',
+        wrongFeedback: 'Listen again for the kind words “Well done.” (Answer: Well done… faithful… joy of thy lord.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me use what He gives me today — with a thankful, faithful heart.',
+          'Hide every gift on purpose.',
+          'Believe God never gives anything good.',
+          'Only use gifts when we feel perfect.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches “faithful” and “using what He gives”? (Answer: use what He gives… thankful heart.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Tells About Using What God Gives Us with God's Word today.",
+    takeaway: 'Jesus wants us to use the gifts and abilities He gives us for His kingdom.',
+    prayer:
+      'Lord Jesus, thank You for what You give me. Help me use it faithfully for You today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: A kind master praising two happy servants who are holding extra coins. One servant is standing with five coins, another with two. The third servant stands sadly with his one coin still in his hand. Thick, bold outlines with large open spaces on the master’s robe, the servants’ robes, and the coins for easy coloring. Soft ground and gentle sky with minimal lines. Faithful and joyful mood — focus on the master saying “Well done” to the faithful servants. Clean, minimal, no fear or punishment shown strongly, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: Master gives — five, two, one (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: Five gained five — two gained two (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: One hid in the earth (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: Lord returns — reckoneth (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: Well done — joy of thy lord (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and sage, friendly not scary, no text in image: Use what God gives — faithfulness (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -10911,6 +11048,7 @@ module.exports = {
   parableVineyardWorkers: buildParableVineyardWorkersReadQuiz(),
   parableTwoSons: buildParableTwoSonsReadQuiz(),
   parableWeddingFeast: buildParableWeddingFeastReadQuiz(),
+  parableTalents: buildParableTalentsReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

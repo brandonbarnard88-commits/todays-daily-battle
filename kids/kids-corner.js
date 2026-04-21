@@ -3254,6 +3254,29 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 22:9</text>'
       ),
 
+      /* Matthew 25:14–30 — master, faithful servants with coins, third with one */
+      parableTalents: svg(
+        ground() +
+        hills() +
+        sun(52, 40, 18) +
+        cloud(298, 34) +
+        person(200, 118, 12, 28) +
+        '<line x1="186" y1="158" x2="172" y2="172" ' + s + ' stroke-width="2"/>' +
+        '<line x1="214" y1="158" x2="228" y2="172" ' + s + ' stroke-width="2"/>' +
+        person(92, 158, 9, 22) +
+        '<circle cx="78" cy="188" r="7" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="92" cy="196" r="7" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="106" cy="188" r="7" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M72 200 Q78 208 84 200" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M86 208 Q92 216 98 208" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        person(308, 158, 9, 22) +
+        '<circle cx="294" cy="192" r="7" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="308" cy="200" r="7" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(200, 198, 8, 20) +
+        '<circle cx="200" cy="232" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 25:21</text>'
+      ),
+
       /* Week 6 gentle: Lost sheep — shepherd rejoicing, sheep on shoulders (Luke 15:3–7) */
       parableLostSheep: svg(
         ground() +
@@ -5098,7 +5121,7 @@
     jesus: 'jesusBlessKids',
     cainAbel: 'adamEve',
     lostCoin: 'widowMite',
-    parableTalents: 'richYoungRuler',
+    parableTalents: 'parableTalents',
     gideonFleece: 'gideonFleece',
     gideonMidianites: 'gideonMidianites',
     deborahBarak: 'deborahBarak',
@@ -6658,7 +6681,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

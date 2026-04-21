@@ -130,7 +130,7 @@
   "parableHiddenTreasure": "parableHiddenTreasure",
   "parablePearl": "parablePearl",
   "parableSower": "parableSower",
-  "parableTalents": "richYoungRuler",
+  "parableTalents": "parableTalents",
   "parableTwoSons": "parableTwoSons",
   "parableVineyardWorkers": "parableVineyardWorkers",
   "parableWeddingFeast": "parableWeddingFeast",

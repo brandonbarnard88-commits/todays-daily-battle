@@ -4032,50 +4032,39 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 10:21</text>'
       ),
 
-      /* ── Week 8: Zacchaeus — sycomore, Jesus looks up (Luke 19:1–10) ── */
+      /* Luke 19:1–10 — gentle: sycomore, Jesus looks up with hand toward tree, Zacchaeus on low branch, quiet onlookers */
       zacchaeus: svg(
         ground() +
-        hills() +
-        sun(48, 44, 18) +
-        cloud(300, 34) +
-        /* tree trunk + foliage */
-        '<path d="M228 250 L228 138" ' +
-        s +
-        ' stroke-width="5.5"/>' +
-        '<ellipse cx="228" cy="118" rx="62" ry="44" ' +
-        sf +
-        ' fill="white" stroke-width="3"/>' +
-        '<path d="M168 248 Q200 170 228 155 Q256 170 288 248" ' +
-        s +
-        ' stroke-width="2.5" fill="none"/>' +
-        /* Zacchaeus — small, up in branches */
-        '<circle cx="248" cy="132" r="8" ' +
-        sf +
-        ' fill="white" stroke-width="2.4"/>' +
-        '<line x1="248" y1="140" x2="248" y2="158" ' +
-        s +
-        ' stroke-width="2.2"/>' +
-        '<line x1="238" y1="150" x2="258" y2="150" ' +
-        s +
-        ' stroke-width="2"/>' +
-        '<line x1="248" y1="158" x2="242" y2="176" ' +
-        s +
-        ' stroke-width="2"/>' +
-        '<line x1="248" y1="158" x2="254" y2="176" ' +
-        s +
-        ' stroke-width="2"/>' +
-        /* Jesus below, looking up */
-        person(172, 178, 12, 34) +
-        '<path d="M170 182 Q184 168 192 182" ' +
-        s +
-        ' stroke-width="1.4"/>' +
-        '<path d="M176 196 L188 152" ' +
-        s +
-        ' stroke-width="1.8" stroke-dasharray="2,2"/>' +
-        /* soft road */
-        '<path d="M20 252 Q120 244 200 248 Q280 252 380 244" ' +
-        s +
-        ' stroke-width="2" opacity="0.55"/>' +
+        '<path d="M24 248 Q140 232 200 238 Q280 232 376 248" ' + s + ' stroke-width="2" opacity="0.45"/>' +
+        sun(44, 40, 16) +
+        cloud(300, 32) +
+        /* sycomore — trunk + canopy + low branch */
+        '<path d="M252 250 L252 128" ' + s + ' stroke-width="5.5"/>' +
+        '<ellipse cx="252" cy="108" rx="68" ry="48" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="220" cy="98" rx="22" ry="16" ' + sf + ' fill="white" stroke-width="2" opacity="0.85"/>' +
+        '<ellipse cx="288" cy="102" rx="20" ry="14" ' + sf + ' fill="white" stroke-width="2" opacity="0.85"/>' +
+        '<path d="M208 182 L292 178" ' + s + ' stroke-width="3.2" stroke-linecap="round"/>' +
+        '<path d="M168 242 Q210 175 252 160 Q294 175 336 242" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        /* Zacchaeus — smaller figure, seated on low branch */
+        '<circle cx="268" cy="162" r="7" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M262 160 Q268 156 274 160" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<line x1="268" y1="169" x2="268" y2="182" ' + s + ' stroke-width="2"/>' +
+        '<line x1="260" y1="176" x2="276" y2="176" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="268" y1="182" x2="262" y2="190" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="268" y1="182" x2="274" y2="190" ' + s + ' stroke-width="1.8"/>' +
+        /* Jesus — looking up, arm reaching toward tree */
+        '<circle cx="148" cy="168" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M142 166 Q148 162 154 166" ' + s + ' stroke-width="1.3" fill="none"/>' +
+        '<line x1="148" y1="179" x2="148" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="148" y1="192" x2="128" y2="204" ' + s + ' stroke-width="2"/>' +
+        '<line x1="148" y1="192" x2="168" y2="198" ' + s + ' stroke-width="2"/>' +
+        '<line x1="148" y1="218" x2="136" y2="242" ' + s + ' stroke-width="2.3"/>' +
+        '<line x1="148" y1="218" x2="160" y2="242" ' + s + ' stroke-width="2.3"/>' +
+        '<line x1="158" y1="188" x2="232" y2="168" ' + s + ' stroke-width="2" stroke-linecap="round"/>' +
+        /* townspeople — small, quiet */
+        person(72, 188, 6, 20) +
+        person(330, 186, 6, 20) +
+        person(348, 190, 5, 18) +
         '<text x="200" y="290" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 19:5</text>'
       ),
 

@@ -1303,11 +1303,20 @@
     zacchaeus: {
       title: 'Jesus Loves Zacchaeus',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'A short man named Zacchaeus climbs a sycomore tree to see Jesus' },
-        { src: 'panel-david-2.svg', alt: 'Jesus looks up and calls Zacchaeus by name — come down, I must abide at thy house' },
-        { src: 'panel-david-3.svg', alt: 'Salvation comes to his house — a changed, joyful heart' }
+        {
+          src: 'panel-david-1.svg',
+          alt: 'Jericho — Zacchaeus is little of stature; he climbs a sycomore tree to see Jesus pass by'
+        },
+        {
+          src: 'panel-david-2.svg',
+          alt: 'Jesus looks up with kind eyes — Zacchaeus, make haste, and come down; to day I must abide at thy house'
+        },
+        {
+          src: 'panel-david-3.svg',
+          alt: 'Joy and salvation — half to the poor, fourfold restored; the Son of man is come to seek and to save that which was lost'
+        }
       ],
-      caption: 'Swipe to see Jesus find Zacchaeus in the tree — He sees you by name! 🌳',
+      caption: 'Swipe slowly — Jesus knows Zacchaeus by name and brings joy and salvation.',
       videoId: 'U-HjFU4wkUY',
       videoTitle: 'The Story of Zacchaeus – Bible Story for Kids!',
       keywords: [
@@ -1324,12 +1333,12 @@
       kjvRef: 'Luke 19:1–10',
       kidContext: {
         who: 'Jesus',
-        to: 'Zacchaeus — and everyone who feels small or overlooked',
+        to: 'Zacchaeus — and everyone who feels small, overlooked, or far from God',
         apply:
-          'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.'
+          'Jesus knows our name, comes to us, and came to seek and save the lost — no one is too small for His love.'
       },
       narration:
-        "Jesus Loves Zacchaeus — Luke 19:1–10. And Jesus entered and passed through Jericho. And, behold, there was a man named Zacchaeus, which was the chief among the publicans, and he was rich. And he sought to see Jesus who he was; and could not for the press, because he was little of stature. And he ran before, and climbed up into a sycomore tree to see him: for he was to pass that way. And when Jesus came to the place, he looked up, and saw him, and said unto him, Zacchaeus, make haste, and come down; for to day I must abide at thy house. And he made haste, and came down, and received him joyfully. And when they saw it, they all murmured, saying, That he was gone to be guest with a man that is a sinner. And Zacchaeus stood, and said unto the Lord; Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold. And Jesus said unto him, This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost. For you: Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts."
+        "Jesus Loves Zacchaeus — Luke 19:1–10. And Jesus entered and passed through Jericho. And, behold, there was a man named Zacchaeus, which was the chief among the publicans, and he was rich. And he sought to see Jesus who he was; and could not for the press, because he was little of stature. And he ran before, and climbed up into a sycomore tree to see him: for he was to pass that way. And when Jesus came to the place, he looked up, and saw him, and said unto him, Zacchaeus, make haste, and come down; for to day I must abide at thy house. And he made haste, and came down, and received him joyfully. And when they saw it, they all murmured, saying, That he was gone to be guest with a man that is a sinner. And Zacchaeus stood, and said unto the Lord; Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold. And Jesus said unto him, This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost. For you: On hard days, remember — Jesus knows your name. He came to seek and to save the lost, and He loves you very much. You can come to Him just as you are."
     },
     resurrection: {
       title: 'Resurrection',

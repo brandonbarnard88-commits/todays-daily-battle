@@ -1251,20 +1251,20 @@
     "title": "Jesus Loves Zacchaeus",
     "kjvRef": "Luke 19:1–10",
     "who": "Jesus",
-    "to": "Zacchaeus — and everyone who feels small or overlooked",
-    "apply": "Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.",
+    "to": "Zacchaeus — and everyone who feels small, overlooked, or far from God",
+    "apply": "Jesus knows our name, comes to us, and came to seek and save the lost — no one is too small for His love.",
     "theme": "Love",
-    "kw": "zacchaeus jericho tree sycomore short jesus calls luke 19 tax collector salvation"
+    "kw": "zacchaeus jericho publicans sycomore little of stature make haste abide joyfully murmured sinner half fourfold salvation son of abraham seek save lost luke 19"
   },
   {
     "key": "jesusAndZacchaeus",
     "title": "Jesus Loves Zacchaeus",
     "kjvRef": "Luke 19:1–10",
     "who": "Jesus",
-    "to": "Zacchaeus — and everyone who feels small or overlooked",
-    "apply": "Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.",
+    "to": "Zacchaeus — and everyone who feels small, overlooked, or far from God",
+    "apply": "Jesus knows our name, comes to us, and came to seek and save the lost — no one is too small for His love.",
     "theme": "Love",
-    "kw": "zacchaeus jericho tree sycomore short jesus calls luke 19 tax collector salvation"
+    "kw": "zacchaeus jericho publicans sycomore little of stature make haste abide joyfully murmured sinner half fourfold salvation son of abraham seek save lost luke 19"
   },
   {
     "key": "jesusCleansesTemple",

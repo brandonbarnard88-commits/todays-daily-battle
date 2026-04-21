@@ -12300,49 +12300,47 @@ function buildZacchaeusReadQuiz() {
       'For the Son of man is come to seek and to save that which was lost. — Luke 19:10 (KJV)',
     readAlongTitle: 'Jesus Loves Zacchaeus',
     quizWrongHumilityHint:
-      'Listen again — Jericho; short of stature; sycomore; Zacchaeus; make haste; come down; abide; joyfully; murmured; half; fourfold; salvation.',
+      'Listen again — Jericho; publicans; rich; little of stature; press; sycomore; Zacchaeus; make haste; come down; abide; joyfully; murmured; sinner; half; fourfold; salvation; son of Abraham; seek; save; lost.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'Jesus was walking through Jericho.',
-      'A man named Zacchaeus was very short and wanted to see Jesus, but he could not see over the crowd.',
-      'Zacchaeus climbed up into a sycamore tree so he could see Jesus pass by.',
-      'When Jesus came to the tree, He looked up and said, “Zacchaeus, make haste, and come down; for to day I must abide at thy house.”',
-      'Zacchaeus came down quickly and was very happy.',
-      'The people were surprised because Zacchaeus had taken money that did not belong to him.',
-      'But Jesus loved him anyway.',
-      'Zacchaeus stood up and said, “Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold.”',
-      'Jesus said, “This day is salvation come to this house.”',
-      'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.',
+      'Jesus was passing through the city of Jericho. There was a man named Zacchaeus. He was the chief among the publicans, and he was rich. But he was little of stature, and he could not see Jesus because of the crowd.',
+      'So Zacchaeus ran on before, and climbed up into a sycomore tree to see Jesus, for He was to pass that way.',
+      'When Jesus came to the place, He looked up, and saw him, and said unto him, Zacchaeus, make haste, and come down; for to day I must abide at thy house.',
+      'Zacchaeus made haste, and came down, and received Jesus joyfully.',
+      'When the people saw it, they all murmured, saying that Jesus was gone to be guest with a man that is a sinner.',
+      'Zacchaeus stood, and said unto the Lord, Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold.',
+      'Jesus said unto him, This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost.',
+      'Jesus knows our name, He comes to us, and He came to seek and save the lost — no one is too small, too far, or too far gone for His love.',
       'Reference: Luke 19:1–10 (KJV)'
     ],
     readAlongSections: [
       {
-        text: 'Zacchaeus was very short.',
+        text: 'Jesus walked through Jericho. A man named Zacchaeus was very short and could not see over the crowd.',
         caption: 'Little of stature',
         image: 'panel-david-1.svg'
       },
       {
-        text: 'He climbed a tree to see Jesus.',
-        caption: 'Sycomore tree',
+        text: 'So Zacchaeus climbed up into a tall sycomore tree to see Jesus.',
+        caption: 'Up in the tree',
         image: 'panel-david-1.svg'
       },
       {
-        text: 'Jesus looked up and said, “Zacchaeus, make haste, and come down; for to day I must abide at thy house.”',
-        caption: 'Jesus saw him',
+        text: 'Jesus looked up and called him by name: Zacchaeus, make haste, and come down; for to day I must abide at thy house.',
+        caption: 'Jesus called his name',
         image: 'panel-david-2.svg'
       },
       {
-        text: 'Zacchaeus came down quickly and was happy.',
-        caption: 'Received him joyfully',
+        text: 'Zacchaeus came down quickly and welcomed Jesus with joy.',
+        caption: 'Joyfully received',
         image: 'panel-david-2.svg'
       },
       {
-        text: 'Jesus said, “This day is salvation come to this house.”',
-        caption: 'Son of Abraham',
+        text: 'The people murmured because Zacchaeus had been a sinner, but Zacchaeus promised to give to the poor and make things right.',
+        caption: 'Making things right',
         image: 'panel-david-3.svg'
       },
       {
-        text: 'Jesus sees us and loves us.',
+        text: 'Jesus said, This day is salvation come to this house… for the Son of man is come to seek and to save that which was lost. What a happy day!',
         caption: 'Seek and save the lost',
         image: 'panel-david-3.svg'
       }
@@ -12381,16 +12379,16 @@ function buildZacchaeusReadQuiz() {
         wrongFeedback: 'Reread what Zacchaeus promised God. (Answer: half… poor… fourfold.)'
       },
       {
-        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        question: 'Why did the people murmur when Jesus went to Zacchaeus’s house?',
         choices: [
-          'Jesus knew Zacchaeus by name — and wanted to be a guest at his home.',
-          'Zacchaeus rode a rocket through Jericho.',
-          'The tree grew candy instead of leaves.',
-          'Jesus could not see anyone in the crowd.'
+          'They said He was gone to be guest with a man that is a sinner.',
+          'They were angry because it started to snow.',
+          'They wanted the tree to fall down.',
+          'They forgot how to walk.'
         ],
         correctIndex: 0,
-        correctFeedback: 'Yes—that matches Luke 19:5–6.',
-        wrongFeedback: 'Cross out the joke answers. Which matches God’s Word? (Answer: knew his name… guest at his home.)'
+        correctFeedback: 'Yes—that matches Luke 19:7.',
+        wrongFeedback: 'Listen for “murmured” and “sinner.” (Answer: guest with a man that is a sinner.)'
       },
       {
         question: 'What is one good way to respond to God after this story?',
@@ -12409,17 +12407,17 @@ function buildZacchaeusReadQuiz() {
     doneHeading: 'You did it!',
     doneMessage: "Great job reading Jesus Loves Zacchaeus with God's Word today.",
     takeaway:
-      'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.',
+      'Jesus knows our name, comes to us, and came to seek and save the lost — we can rest in His love on hard days.',
     prayer:
-      'Lord Jesus, You see me and know my name. Please change my heart and help me follow You today. Amen.',
+      'Lord Jesus, thank You that You know my name and seek the lost. Change my heart and help me welcome You with joy today. Amen.',
     imagePrompts: [
-      'A simple, peaceful black-and-white line-art scene for young children: Zacchaeus sitting in a tree looking down at Jesus. Jesus is standing below with a kind, inviting face and looking up at Zacchaeus. Thick, bold outlines with large open spaces on Zacchaeus’ robe, Jesus’ robe, the tree, and the ground for easy coloring. Soft road and gentle sky with minimal lines. Happy and welcoming mood — focus on Jesus seeing Zacchaeus and loving him. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.',
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Jericho road — little of stature (honest)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Sycomore — climbed to see Jesus (hope)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Zacchaeus — make haste, come down (mercy)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Joyfully received — abide at thy house (love)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Half to poor — fourfold restored (truth)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Salvation — seek and save the lost (hope)"
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. In the center, gentle Jesus stands looking up with kind eyes and a soft smile, one hand gently reaching toward the tree. Little Zacchaeus sits happily on a low branch of a big sycomore tree, looking down at Jesus with a joyful face — simple robe, short stature shown gently. A few townspeople stand nearby watching quietly. Soft ground and a few leaves on the tree with plenty of large open space in the foreground for coloring. Focus: Jesus calling Zacchaeus by name and bringing joy and salvation. Style: clear, bold, restful, never busy or scary.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Jericho — little of stature (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Sycomore — ran before, climbed up (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Zacchaeus — make haste, come down (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Joyfully received — abide at thy house (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Murmured — half and fourfold (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Salvation — seek and save the lost (peace)"
     ],
     readAlongImages: []
   };

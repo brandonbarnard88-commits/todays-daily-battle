@@ -3256,7 +3256,7 @@
       "The king looked and said, \"Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.\"",
       "The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them.",
       "The Lord walked with His servants in the fire and kept them safe because they trusted Him.",
-      "Reference: Daniel 3:1–30 (KJV) — gentle summary for little hearts."
+      "Reference: Daniel 3:1–30 (KJV) — gentle summary for little hearts"
     ],
     "readAlongSections": [
       {
@@ -3363,7 +3363,7 @@
     "takeaway": "God is with us in hard places — we can trust Him and stand for what is right.",
     "prayer": "Lord, thank You that You never leave us. Help us trust You and obey. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art scene for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them the fire shown as soft gentle flames around them peaceful trusting faces thick bold outlines large open spaces on the men's robes the fourth figure the flames and the ground for easy coloring soft furnace walls with minimal lines trusting safe mood focus God walking with His servants in the fire clean minimal no fear or burning plenty of white space age-appropriate coloring page",
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them the fire shown as soft gentle flames around them peaceful trusting faces thick bold outlines large open spaces on the men's robes the fourth figure the flames and the ground for easy coloring soft furnace walls with minimal lines trusting and safe mood focus God walking with His servants in the fire clean minimal no fear or burning plenty of white space age-appropriate for ages 3–8 coloring page",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow (shadrach)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace — seven times hotter (daniel 3)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — Son of God (angel)",
@@ -8368,7 +8368,7 @@
       "The king looked and said, \"Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.\"",
       "The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them.",
       "The Lord walked with His servants in the fire and kept them safe because they trusted Him.",
-      "Reference: Daniel 3:1–30 (KJV) — gentle summary for little hearts."
+      "Reference: Daniel 3:1–30 (KJV) — gentle summary for little hearts"
     ],
     "readAlongSections": [
       {
@@ -8475,7 +8475,7 @@
     "takeaway": "God is with us in hard places — we can trust Him and stand for what is right.",
     "prayer": "Lord, thank You that You never leave us. Help us trust You and obey. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art scene for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them the fire shown as soft gentle flames around them peaceful trusting faces thick bold outlines large open spaces on the men's robes the fourth figure the flames and the ground for easy coloring soft furnace walls with minimal lines trusting safe mood focus God walking with His servants in the fire clean minimal no fear or burning plenty of white space age-appropriate coloring page",
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them the fire shown as soft gentle flames around them peaceful trusting faces thick bold outlines large open spaces on the men's robes the fourth figure the flames and the ground for easy coloring soft furnace walls with minimal lines trusting and safe mood focus God walking with His servants in the fire clean minimal no fear or burning plenty of white space age-appropriate for ages 3–8 coloring page",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow (shadrach)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace — seven times hotter (daniel 3)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — Son of God (angel)",

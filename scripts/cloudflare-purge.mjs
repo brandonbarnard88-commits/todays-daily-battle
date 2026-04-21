@@ -10,9 +10,10 @@
  * Run: npm run purge:cloudflare
  * Or:  CF_API_TOKEN=yyy npm run purge:cloudflare
  * Or:  npm run purge:cloudflare:social
+ * Or:  npm run purge:cloudflare:verify  (calls tokens/verify only — no purge)
  *
- * Add to .env (gitignored):
- *   CF_API_TOKEN=your_token_from_cloudflare
+ * Add to .env (gitignored), or CF_API_TOKEN_FILE=/path/to/file:
+ *   CF_API_TOKEN=<full token from Cloudflare (30+ chars)>
  *
  * If CF_ZONE_ID is missing, auto-discovers zone for todaysdailybattle.com.
  * Token: My Profile → API Tokens → Create Token → "Edit zone cache" (include Zone Resources: todaysdailybattle.com)
@@ -34,16 +35,41 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 const AUTH_ASSET_VERSION_PATH = join(root, 'AUTH-ASSET-VERSION');
 const envPath = join(root, '.env');
-if (existsSync(envPath)) {
-  const lines = readFileSync(envPath, 'utf8').split('\n');
-  for (const line of lines) {
-    const idx = line.indexOf('=');
-    if (idx < 0) continue;
-    const key = line.slice(0, idx).trim();
-    if ((!key.startsWith('CF_') && key !== 'CLOUDFLARE_API_TOKEN') || process.env[key]) continue;
-    let val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
-    process.env[key] = val;
+
+const MIN_CF_API_TOKEN_LEN = 30;
+const PLACEHOLDER_HINTS = ['your_token', 'paste_your', 'actual_token', 'placeholder', 'changeme', 'replace_me'];
+
+function stripQuotes(val) {
+  const v = String(val).trim();
+  if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) {
+    return v.slice(1, -1);
   }
+  return v;
+}
+
+function loadRootDotEnv() {
+  if (!existsSync(envPath)) return;
+  let raw = readFileSync(envPath, 'utf8');
+  if (raw.charCodeAt(0) === 0xfeff) raw = raw.slice(1);
+  for (let line of raw.split(/\n/)) {
+    line = line.replace(/\r$/, '');
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    let work = trimmed.startsWith('export ') ? trimmed.slice(7).trim() : trimmed;
+    const idx = work.indexOf('=');
+    if (idx < 0) continue;
+    const key = work.slice(0, idx).trim();
+    if (key !== 'CLOUDFLARE_API_TOKEN' && !key.startsWith('CF_')) continue;
+    if (process.env[key]) continue;
+    process.env[key] = stripQuotes(work.slice(idx + 1));
+  }
+}
+
+loadRootDotEnv();
+
+const tokenFile = process.env.CF_API_TOKEN_FILE && String(process.env.CF_API_TOKEN_FILE).trim();
+if (tokenFile && existsSync(tokenFile) && !process.env.CF_API_TOKEN) {
+  process.env.CF_API_TOKEN = readFileSync(tokenFile, 'utf8').trim();
 }
 
 // Wrangler / GitHub Actions often set CLOUDFLARE_API_TOKEN; cache purge API accepts the same bearer.
@@ -68,15 +94,31 @@ const headers = {
 
 if (!headers.Authorization && !headers['X-Auth-Email']) {
   console.error('Missing cache purge token. Set one of:');
-  console.error('  CF_API_TOKEN — API token with "Edit zone cache" for zone todaysdailybattle.com');
-  console.error('  CLOUDFLARE_API_TOKEN — same bearer (e.g. wrangler/Pages token) if it includes Cache Purge');
-  console.error('GitHub Actions: add repository secret CF_API_TOKEN and/or ensure CLOUDFLARE_API_TOKEN includes zone cache purge.');
+  console.error('  CF_API_TOKEN — in repo-root .env (see .env.example), or CF_API_TOKEN_FILE=/path/to/token.txt');
+  console.error('  CLOUDFLARE_API_TOKEN — same bearer (e.g. wrangler/Pages) if it includes Cache Purge');
+  console.error('Cloudflare → My Profile → API Tokens → Create Token → "Edit zone cache" → Zone: todaysdailybattle.com');
+  console.error('GitHub Actions: repository secret CF_API_TOKEN (and CF_ZONE_ID if you skip auto-discovery).');
+  if (existsSync(envPath)) {
+    console.error(`(Found ${envPath} — ensure CF_API_TOKEN= is a full token string, not a short placeholder.)`);
+  }
   process.exit(1);
 }
-if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder|changeme|replace_me/i.test(API_TOKEN) || API_TOKEN.length < 30)) {
-  console.error('CF_API_TOKEN is missing or still a placeholder. Edit .env in the repo root and paste a real API token (not the string "your_token").');
-  console.error('Cloudflare → My Profile → API Tokens → Create Token → "Edit zone cache" → include Zone: todaysdailybattle.com');
-  process.exit(1);
+if (API_TOKEN) {
+  const len = API_TOKEN.length;
+  const lower = API_TOKEN.toLowerCase();
+  const badHint = PLACEHOLDER_HINTS.some((h) => lower.includes(h));
+  if (len < MIN_CF_API_TOKEN_LEN || badHint) {
+    console.error('CF_API_TOKEN is missing, too short, or looks like a placeholder.');
+    console.error(
+      `  Current value length: ${len} (Cloudflare API tokens are usually ${MIN_CF_API_TOKEN_LEN}+ characters).`
+    );
+    if (badHint) {
+      console.error('  Value contains text that looks like instructions (e.g. "your_token") — paste only the token Cloudflare shows once at creation.');
+    }
+    console.error('  Fix: repo-root .env line CF_API_TOKEN=<full token> — no "export" required (supported), no spaces around =.');
+    console.error('  Or: CF_API_TOKEN_FILE=/secure/path/token.txt with chmod 600.');
+    process.exit(1);
+  }
 }
 
 function getAuthAssetVersion() {
@@ -911,6 +953,21 @@ function printCloudflareRecoveryHints(error) {
 
 (async () => {
   try {
+    if (process.argv.includes('--verify-token')) {
+      const res = await fetch('https://api.cloudflare.com/client/v4/user/tokens/verify', { headers });
+      const data = await res.json().catch(() => ({}));
+      if (!data.success) {
+        const err = data.errors && data.errors[0];
+        printCloudflareRecoveryHints(err);
+        console.error('Token verify failed. HTTP', res.status);
+        console.error('Response:', JSON.stringify(data, null, 2));
+        process.exit(1);
+      }
+      const status = data.result && data.result.status;
+      console.log('CF_API_TOKEN is valid (tokens/verify). Status:', status || 'active');
+      process.exit(0);
+    }
+
     if (!ZONE_ID) {
       console.log(`CF_ZONE_ID not set. Looking up zone for ${DOMAIN}...`);
       ZONE_ID = await findZoneId();

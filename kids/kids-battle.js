@@ -1782,18 +1782,36 @@
         "Jesus Tells a Story About Good Soil — Matthew 13:1–23. The same day went Jesus out of the house, and sat by the sea side. And great multitudes were gathered together unto him, so that he went into a ship, and sat; and the whole multitude stood on the shore. And he spake many things unto them in parables, saying, Behold, a sower went forth to sow; And when he sowed, some seeds fell by the way side, and the fowls came and devoured them up: Some fell upon stony places, where they had not much earth: and forthwith they sprung up, because they had no deepness of earth: And when the sun was up, they were scorched; and because they had no root, they withered away. And some fell among thorns; and the thorns sprung up, and choked them: But other fell into good ground, and brought forth fruit, some an hundredfold, some sixtyfold, some thirtyfold. Who hath ears to hear, let him hear. Later Jesus explained that the seed is the word of the kingdom; the good ground is an honest and good heart, hearing the word, and keeping it, and bringing forth fruit with patience. For you: ask God to help you listen — let His Word grow in you like good soil."
     },
     widowsMite: {
-      title: "Widow's Mite",
+      title: 'Jesus Sees the Poor Widow’s Gift',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Rich people give big gifts' },
-        { src: 'panel-jesus-2.svg', alt: 'Widow gives two small coins' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus says: she gave more!' }
+        { src: 'panel-jesus-1.svg', alt: 'Jesus watches as many rich people put large gifts into the temple treasury' },
+        { src: 'panel-jesus-2.svg', alt: 'A poor widow comes and puts in two small coins — two mites' },
+        { src: 'panel-jesus-3.svg', alt: 'Jesus tells His disciples: she cast in more than all — she gave all her living' }
       ],
-      caption: 'Swipe to see the widow\'s gift—God sees! 🪙',
+      caption: 'Swipe to see the widow’s two coins — Jesus sees a loving heart! 🪙',
       videoId: 'cauP52JaBdQ',
       videoTitle: "The Widow's Coins – Animated Bible Story!",
-      keywords: ['widow', 'mite', 'coins', 'mark 12', 'luke 21', 'small gift'],
-      kjvRef: 'Mark 12',
-      kidContext: { who: 'Jesus', to: 'His disciples', apply: 'Small gifts matter—God sees! Give what you have from the heart!' }
+      keywords: [
+        'widow',
+        'mite',
+        'coins',
+        'mark 12',
+        'mark 12:41',
+        'treasury',
+        'offering',
+        'two mites',
+        'all her living',
+        'jesus sees'
+      ],
+      kjvRef: 'Mark 12:41–44',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples (and us)',
+        apply:
+          'Jesus sees when we give with a loving heart — even a little can honor God when we give all we can.'
+      },
+      narration:
+        "Jesus Sees the Poor Widow’s Gift — Mark 12:41–44. And Jesus sat over against the treasury, and beheld how the people cast money into the treasury: and many that were rich cast in much. And there came a certain poor widow, and she threw in two mites, which make a farthing. And he called unto him his disciples, and saith unto them, Verily I say unto you, That this poor widow hath cast more in, than all they which have cast into the treasury: For all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living. For you: Jesus sees when we give with a loving heart, even if it is only a little."
     },
     gardenPrayer: {
       title: 'Garden Prayer',
@@ -6939,18 +6957,38 @@
         "Jesus Tells About Forgiving Others — Matthew 18:21–35. Then came Peter to him, and said, Lord, how oft shall my brother sin against me, and I forgive him? till seven times? Jesus saith unto him, I say not unto thee, Until seven times: but, Until seventy times seven. Therefore is the kingdom of heaven likened unto a certain king, which would take account of his servants. And when he had begun to reckon, one was brought unto him, which owed him ten thousand talents. But forasmuch as he had not to pay, his lord commanded him to be sold, and his wife, and children, and all that he had, and payment to be made. The servant therefore fell down, and worshipped him, saying, Lord, have patience with me, and I will pay thee all. Then the lord of that servant was moved with compassion, and loosed him, and forgave him the debt. But the same servant went out, and found one of his fellowservants, which owed him an hundred pence: and he laid hands on him, and took him by the throat, saying, Pay me that thou owest. His fellowservant fell down at his feet, and besought him, saying, Have patience with me, and I will pay thee all. And he would not: but went and cast him into prison, till he should pay the debt. So when his fellowservants saw what was done, they were very sorry, and came and told unto their lord all that was done. Then his lord, after that he had called him, said unto him, O thou wicked servant, I forgave thee all that debt, because thou desiredst me: Shouldest not thou also have had compassion on thy fellowservant, even as I had pity on thee? And his lord was wroth, and delivered him to the tormentors, till he should pay all that was due unto him. So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses. For you: Jesus wants us to forgive others the way God forgives us."
     },
     widowMite: {
-      title: 'The Widow\'s Two Coins',
+      title: 'Jesus Sees the Poor Widow’s Gift',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Rich people put lots of money in the treasury' },
-        { src: 'panel-noah-2.svg', alt: 'A poor widow puts in two tiny coins' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says: she gave the most—she gave all!' }
+        { src: 'panel-noah-1.svg', alt: 'Jesus watches people putting money into the temple treasury — many rich give much' },
+        { src: 'panel-noah-2.svg', alt: 'A poor widow puts in two small coins — two mites' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus says she gave more than all — she of her want cast in all her living' }
       ],
-      caption: 'Swipe to see the widow\'s offering—God sees the heart! 🪙',
+      caption: 'Swipe to see the widow’s gift — Jesus sees a loving heart! 🪙',
       videoId: '',
       videoTitle: '',
-      keywords: ['widow', 'mite', 'coins', 'mark 12', 'offering', 'give', 'heart', 'all'],
-      kjvRef: 'Mark 12',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God sees generosity, not amount! Give from your heart—even a little is big to God.' }
+      keywords: [
+        'widow',
+        'mite',
+        'coins',
+        'mark 12',
+        'mark 12:41',
+        'mark 12:44',
+        'treasury',
+        'offering',
+        'two mites',
+        'all her living',
+        'abundance',
+        'jesus sees'
+      ],
+      kjvRef: 'Mark 12:41–44',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples (and us)',
+        apply:
+          'Jesus sees when we give with a loving heart — even a little can be much when we give all we can.'
+      },
+      narration:
+        "Jesus Sees the Poor Widow’s Gift — Mark 12:41–44. And Jesus sat over against the treasury, and beheld how the people cast money into the treasury: and many that were rich cast in much. And there came a certain poor widow, and she threw in two mites, which make a farthing. And he called unto him his disciples, and saith unto them, Verily I say unto you, That this poor widow hath cast more in, than all they which have cast into the treasury: For all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living. For you: Jesus sees when we give with a loving heart, even if it is only a little."
     },
     richYoungRuler: {
       title: 'Jesus Talks with a Rich Young Man',
@@ -8920,7 +8958,11 @@
     ) {
       return { type: 'carousel', story: 'tenVirgins' };
     }
-    if (/widow.*mite|widow.*coin|mark 12:41|luke 21:2/.test(low)) {
+    if (
+      /widow.*mite|widow.*two.*coin|two mites|make a farthing|mark 12:41|mark 12:42|mark 12:43|mark 12:44|cast into the treasury|poor widow hath cast more|all her living|luke 21:1|luke 21:2/i.test(
+        low
+      )
+    ) {
       return { type: 'carousel', story: 'widowsMite' };
     }
     if (/gethsemane|garden.*prayer|matthew 26:36|mark 14:32/.test(low)) {

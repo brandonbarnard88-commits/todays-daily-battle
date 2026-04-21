@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-21T17:20:32.657Z",
-  "surfacedRefCount": 2827,
-  "overrideCount": 2827,
+  "generatedAt": "2026-04-21T17:30:12.336Z",
+  "surfacedRefCount": 2828,
+  "overrideCount": 2828,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 209,
+      "refs": 210,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 192,
+      "refs": 193,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -2578,6 +2578,7 @@
     "Mark 12:30",
     "Mark 12:34",
     "Mark 12:41",
+    "Mark 12:41-44",
     "Mark 12:42",
     "Mark 12:43",
     "Mark 12:43-44",
@@ -18233,6 +18234,14 @@
     "Mark 12:41": {
       "general": {
         "plainExplanation": "And Jesus sat over against the treasury, and beheld how the people cast money into the treasury: and many that were rich cast in much.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 12:41-44": {
+      "general": {
+        "plainExplanation": "Key idea: And Jesus sat over against the treasury, and beheld how the people cast money into the treasury: and many that were rich cast in much. And there came a cert...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

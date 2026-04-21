@@ -88,6 +88,7 @@
  * Talents — Matthew 25:14–30 (gentle): buildParableTalentsReadQuiz() (library key: parableTalents).
  * Ten virgins — Matthew 25:1–13 (gentle): buildTenVirginsReadQuiz() (library key: tenVirgins; alias parableTenVirgins in slug map).
  * Sheep and goats (judgment, gentle — sheep on the right, help the least) — Matthew 25:31–40: buildSheepAndGoatsReadQuiz() (library key: sheepAndGoats; alias parableSheepAndGoats in slug map).
+ * Widow’s mite — Mark 12:41–44 (gentle): buildWidowsMiteReadQuiz() (library keys: widowsMite; alias widowMite).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -10916,6 +10917,131 @@ function buildSheepAndGoatsReadQuiz() {
   };
 }
 
+/** Widow’s mite — Mark 12:41–44 (gentle). Library keys: widowsMite; alias widowMite */
+function buildWidowsMiteReadQuiz() {
+  return {
+    kjvRef: 'Mark 12:41–44 (KJV)',
+    verseExcerpt:
+      'She of her want did cast in all that she had, even all her living. — Mark 12:44 (KJV)',
+    readAlongTitle: 'Jesus Sees the Poor Widow’s Gift',
+    quizWrongHumilityHint:
+      'Listen again — treasury; rich; cast in; poor widow; two mites; farthing; Verily; abundance; want; all her living.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus sat near the temple treasury and watched the people putting money into the offering box.',
+      'Many rich people put in a lot of money.',
+      'Then a poor widow came and put in two very small coins.',
+      'Jesus called His disciples to Him and said, “Verily I say unto you, That this poor widow hath cast more in, than all they which have cast into the treasury: for all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living.”',
+      'Jesus sees when we give with a loving heart, even if it is only a little.',
+      'Reference: Mark 12:41–44 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus watched people putting money in the treasury.',
+        caption: 'Jesus sat over against the treasury',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Rich people put in a lot.',
+        caption: 'Many that were rich cast in much',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'A poor widow put in two small coins.',
+        caption: 'Two mites, which make a farthing',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus said she gave more than all the others.',
+        caption: 'This poor widow hath cast more in',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'She gave all she had — even all her living.',
+        caption: 'All that she had, even all her living',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus sees when we give with a loving heart.',
+        caption: 'God sees the heart',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Mark 12:41–44', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Mark 12:41–44.)'
+      },
+      {
+        question: 'What did the poor widow put into the treasury?',
+        choices: [
+          'Two small coins (two mites)',
+          'A bag of gold',
+          'Nothing at all',
+          'Only a flower'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 12:42.',
+        wrongFeedback: 'Listen again for “two mites.” (Answer: two small coins.)'
+      },
+      {
+        question: 'What did Jesus say about her gift?',
+        choices: [
+          'That she cast in more than all the others — she gave of her want, all her living',
+          'That it was too small to matter',
+          'That only rich gifts count',
+          'That she should not give'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus sees the heart behind the gift.',
+        wrongFeedback: 'Think “more than all…” and “all her living.” (Answer: she gave more… all her living.)'
+      },
+      {
+        question: 'Why was her small gift so big in God’s eyes?',
+        choices: [
+          'She gave all she had — from the heart — not just from extra abundance',
+          'Because coins were magic',
+          'Because the box was empty',
+          'Because people were laughing'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—God weighs love, not only size.',
+        wrongFeedback: 'Remember “abundance” vs “her want.” (Answer: all she had… loving heart.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me give gladly — love, kindness, and what I can — with a cheerful heart.',
+          'Never give anything small.',
+          'Believe God only watches rich people.',
+          'Hide what I have from everyone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Sweet faith—little loaves, offered to God, please Him.',
+        wrongFeedback: 'Think: “Jesus sees” and “loving heart.” (Answer: give gladly… cheerful heart.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Sees the Poor Widow’s Gift with God's Word today.",
+    takeaway: 'Jesus sees when we give with a loving heart — even a little can be much.',
+    prayer:
+      'Lord Jesus, thank You for seeing my heart. Help me give and love generously, even in small ways. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: A poor widow dropping two small coins into the offering box. Jesus is watching with a kind, pleased face. Thick, bold outlines with large open spaces on the widow’s robe, Jesus’ robe, and the offering box for easy coloring. Soft temple walls and gentle light with minimal lines. Loving and generous mood — focus on the widow giving all she had. Clean, minimal, no sadness or poverty shown strongly, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Treasury — Jesus beholding (care)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Rich cast in much (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Poor widow — two mites (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Verily — she cast more in (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: All her living — loving heart (love)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -11318,6 +11444,8 @@ module.exports = {
   parableTalents: buildParableTalentsReadQuiz(),
   tenVirgins: buildTenVirginsReadQuiz(),
   sheepAndGoats: buildSheepAndGoatsReadQuiz(),
+  widowsMite: buildWidowsMiteReadQuiz(),
+  widowMite: buildWidowsMiteReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

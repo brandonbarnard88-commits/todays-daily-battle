@@ -1297,6 +1297,26 @@
     "kw": "jesus temptation wilderness matthew 4 bread stones scripture it is written worship angels forty days"
   },
   {
+    "key": "widowsMite",
+    "title": "Jesus Sees the Poor Widow’s Gift",
+    "kjvRef": "Mark 12:41–44",
+    "who": "Jesus",
+    "to": "His disciples (and us)",
+    "apply": "Jesus sees when we give with a loving heart — even a little can honor God when we give all we can.",
+    "theme": "Love",
+    "kw": "widow mite coins mark 12 mark 12:41 treasury offering two mites all her living jesus sees"
+  },
+  {
+    "key": "widowMite",
+    "title": "Jesus Sees the Poor Widow’s Gift",
+    "kjvRef": "Mark 12:41–44",
+    "who": "Jesus",
+    "to": "His disciples (and us)",
+    "apply": "Jesus sees when we give with a loving heart — even a little can be much when we give all we can.",
+    "theme": "Love",
+    "kw": "widow mite coins mark 12 mark 12:41 mark 12:44 treasury offering two mites all her living abundance jesus sees"
+  },
+  {
     "key": "richYoungRuler",
     "title": "Jesus Talks with a Rich Young Man",
     "kjvRef": "Mark 10:17–27",
@@ -3187,16 +3207,6 @@
     "kw": "widow oil widow's oil widow oil multiplied pot of oil creditor bondmen borrow not a few empty vessels oil stayed pay thy debt sons of the prophets 2 kings 4 2 kings 4:1 2 kings 4:6 elisha multiply oil"
   },
   {
-    "key": "widowMite",
-    "title": "The Widow's Two Coins",
-    "kjvRef": "Mark 12",
-    "who": "Jesus",
-    "to": "His disciples (and us)",
-    "apply": "God sees generosity, not amount! Give from your heart—even a little is big to God.",
-    "theme": "Love",
-    "kw": "widow mite coins mark 12 offering give heart all"
-  },
-  {
     "key": "wiseMen",
     "title": "The Wise Men Follow the Star",
     "kjvRef": "Matthew 2:1–12",
@@ -3315,16 +3325,6 @@
     "apply": "Jesus loves to help! When we bring Him our empty jars, He fills them.",
     "theme": "Miracles",
     "kw": "wedding wine water john 2 miracle cana mary"
-  },
-  {
-    "key": "widowsMite",
-    "title": "Widow's Mite",
-    "kjvRef": "Mark 12",
-    "who": "Jesus",
-    "to": "His disciples",
-    "apply": "Small gifts matter—God sees! Give what you have from the heart!",
-    "theme": "Love",
-    "kw": "widow mite coins mark 12 luke 21 small gift"
   },
   {
     "key": "davidHarp",

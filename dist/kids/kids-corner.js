@@ -3790,21 +3790,28 @@
         '<text x="200" y="290" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 18:21–35</text>'
       ),
 
-      /* ── Week 8: Widow Mite (105) ── */
+      /* Mark 12:41–44 — widow, two clear mites, treasury box; Jesus watching kindly */
       widowMite: svg(
         ground() +
-        '<rect x="155" y="120" width="90" height="110" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M155 155 L200 135 L245 155" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="200" cy="155" rx="15" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(120, 185, 11, 32) +
-        '<path d="M130 205 Q145 198 155 205" ' + s + ' stroke-width="2.5"/>' +
-        '<ellipse cx="120" cy="208" rx="6" ry="4" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<ellipse cx="125" cy="212" rx="6" ry="4" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(285, 175, 13, 38) +
-        '<rect x="272" y="165" width="26" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M272 165 Q285 150 298 165" ' + s + ' stroke-width="2.5"/>' +
-        sun(40, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 12:42</text>'
+        '<rect x="52" y="52" width="296" height="118" rx="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="72" y1="82" x2="328" y2="82" ' + s + ' stroke-width="1.8" stroke-dasharray="5,4"/>' +
+        '<line x1="72" y1="108" x2="328" y2="108" ' + s + ' stroke-width="1.8" stroke-dasharray="5,4"/>' +
+        '<rect x="155" y="128" width="92" height="102" rx="7" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="175" y="148" width="52" height="36" rx="5" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<line x1="192" y1="148" x2="192" y2="184" ' + s + ' stroke-width="2"/>' +
+        '<line x1="210" y1="148" x2="210" y2="184" ' + s + ' stroke-width="2"/>' +
+        person(118, 182, 10, 30) +
+        '<path d="M128 208 L168 188" ' + s + ' stroke-width="2.2"/>' +
+        '<circle cx="168" cy="184" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="182" cy="176" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M168 184 L178 170" ' + s + ' stroke-width="1.6"/>' +
+        person(278, 158, 14, 40) +
+        '<path d="M264 168 Q278 158 292 162" ' + s + ' stroke-width="2"/>' +
+        '<path d="M256 176 Q270 172 284 178" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="278" cy="152" r="2" fill="#111"/><circle cx="286" cy="152" r="2" fill="#111"/>' +
+        '<path d="M274 162 Q280 166 286 162" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        sun(42, 48, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 12:44</text>'
       ),
 
       /* ── Week 8: Rich Young Ruler (106) ── */

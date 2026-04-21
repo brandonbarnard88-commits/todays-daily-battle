@@ -31332,88 +31332,127 @@
     ]
   },
   "widowMite": {
-    "kjvRef": "Mark 12",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Mark 12:41–44 (KJV)",
+    "verseExcerpt": "She of her want did cast in all that she had, even all her living. — Mark 12:44 (KJV)",
+    "readAlongTitle": "Jesus Sees the Poor Widow’s Gift",
+    "quizWrongHumilityHint": "Listen again — treasury; rich; cast in; poor widow; two mites; farthing; Verily; abundance; want; all her living.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "The Widow's Two Coins (Mark 12).",
-      "Rich people put lots of money in the treasury A poor widow puts in two tiny coins Jesus says: she gave the most—she gave all!",
-      "God sees generosity, not amount!",
-      "Give from your heart—even a little is big to God."
+      "Jesus sat near the temple treasury and watched the people putting money into the offering box.",
+      "Many rich people put in a lot of money.",
+      "Then a poor widow came and put in two very small coins.",
+      "Jesus called His disciples to Him and said, “Verily I say unto you, That this poor widow hath cast more in, than all they which have cast into the treasury: for all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living.”",
+      "Jesus sees when we give with a loving heart, even if it is only a little.",
+      "Reference: Mark 12:41–44 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus watched people putting money in the treasury.",
+        "caption": "Jesus sat over against the treasury",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Rich people put in a lot.",
+        "caption": "Many that were rich cast in much",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "A poor widow put in two small coins.",
+        "caption": "Two mites, which make a farthing",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus said she gave more than all the others.",
+        "caption": "This poor widow hath cast more in",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "She gave all she had — even all her living.",
+        "caption": "All that she had, even all her living",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus sees when we give with a loving heart.",
+        "caption": "God sees the heart",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 22:12–13",
-          "Matthew 17:1–13",
-          "Mark 12",
-          "Revelation 22"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Mark 12.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Holy Ghost",
-          "The Lord",
-          "Holy Spirit",
-          "Jesus"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God sees generosity, not amount! Give from your heart—even a little is big to God.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
+          "Mark 12:41–44",
+          "Psalm 23",
+          "Jonah 1",
+          "Genesis 1"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God sees generosity, not amount! Give from your heart—even a little is big to God..)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Mark 12:41–44.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did the poor widow put into the treasury?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Rich people put lots of money in the treasury",
-          "Everyone decided to never sleep again."
+          "Two small coins (two mites)",
+          "A bag of gold",
+          "Nothing at all",
+          "Only a flower"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 12:42.",
+        "wrongFeedback": "Listen again for “two mites.” (Answer: two small coins.)"
+      },
+      {
+        "question": "What did Jesus say about her gift?",
+        "choices": [
+          "That she cast in more than all the others — she gave of her want, all her living",
+          "That it was too small to matter",
+          "That only rich gifts count",
+          "That she should not give"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus sees the heart behind the gift.",
+        "wrongFeedback": "Think “more than all…” and “all her living.” (Answer: she gave more… all her living.)"
+      },
+      {
+        "question": "Why was her small gift so big in God’s eyes?",
+        "choices": [
+          "She gave all she had — from the heart — not just from extra abundance",
+          "Because coins were magic",
+          "Because the box was empty",
+          "Because people were laughing"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—God weighs love, not only size.",
+        "wrongFeedback": "Remember “abundance” vs “her want.” (Answer: all she had… loving heart.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "God sees generosity, not amount! Give from your heart—even a little is big to God.",
-          "Never say sorry when we do wrong."
+          "Ask Jesus to help me give gladly — love, kindness, and what I can — with a cheerful heart.",
+          "Never give anything small.",
+          "Believe God only watches rich people.",
+          "Hide what I have from everyone."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God sees generosity, not amount! Give from your heart—even a little is big to God..)"
+        "correctIndex": 0,
+        "correctFeedback": "Sweet faith—little loaves, offered to God, please Him.",
+        "wrongFeedback": "Think: “Jesus sees” and “loving heart.” (Answer: give gladly… cheerful heart.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Widow's Two Coins with God's Word today.",
-    "takeaway": "God sees generosity, not amount! Give from your heart—even a little is big to God.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Widow's Two Coins. Amen.",
+    "doneMessage": "Great job reading Jesus Sees the Poor Widow’s Gift with God's Word today.",
+    "takeaway": "Jesus sees when we give with a loving heart — even a little can be much.",
+    "prayer": "Lord Jesus, thank You for seeing my heart. Help me give and love generously, even in small ways. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rich people put lots of money in the treasury (widow)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A poor widow puts in two tiny coins (mite)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: she gave the most—she gave all! (coins)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rich people put lots of money in the treasury (mark 12)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A poor widow puts in two tiny coins (offering)"
-    ]
+      "A simple, peaceful black-and-white line-art scene for young children: A poor widow dropping two small coins into the offering box. Jesus is watching with a kind, pleased face. Thick, bold outlines with large open spaces on the widow’s robe, Jesus’ robe, and the offering box for easy coloring. Soft temple walls and gentle light with minimal lines. Loving and generous mood — focus on the widow giving all she had. Clean, minimal, no sadness or poverty shown strongly, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Treasury — Jesus beholding (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Rich cast in much (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Poor widow — two mites (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Verily — she cast more in (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: All her living — loving heart (love)"
+    ],
+    "readAlongImages": []
   },
   "widowOil": {
     "kjvRef": "2 Kings 4:1-7 (KJV)",
@@ -31540,88 +31579,127 @@
     ]
   },
   "widowsMite": {
-    "kjvRef": "Mark 12",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Mark 12:41–44 (KJV)",
+    "verseExcerpt": "She of her want did cast in all that she had, even all her living. — Mark 12:44 (KJV)",
+    "readAlongTitle": "Jesus Sees the Poor Widow’s Gift",
+    "quizWrongHumilityHint": "Listen again — treasury; rich; cast in; poor widow; two mites; farthing; Verily; abundance; want; all her living.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Widow's Mite (Mark 12).",
-      "Rich people give big gifts Widow gives two small coins Jesus says: she gave more!",
-      "Small gifts matter—God sees!",
-      "Give what you have from the heart!"
+      "Jesus sat near the temple treasury and watched the people putting money into the offering box.",
+      "Many rich people put in a lot of money.",
+      "Then a poor widow came and put in two very small coins.",
+      "Jesus called His disciples to Him and said, “Verily I say unto you, That this poor widow hath cast more in, than all they which have cast into the treasury: for all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living.”",
+      "Jesus sees when we give with a loving heart, even if it is only a little.",
+      "Reference: Mark 12:41–44 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus watched people putting money in the treasury.",
+        "caption": "Jesus sat over against the treasury",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Rich people put in a lot.",
+        "caption": "Many that were rich cast in much",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "A poor widow put in two small coins.",
+        "caption": "Two mites, which make a farthing",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus said she gave more than all the others.",
+        "caption": "This poor widow hath cast more in",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "She gave all she had — even all her living.",
+        "caption": "All that she had, even all her living",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus sees when we give with a loving heart.",
+        "caption": "God sees the heart",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 5:21–43",
-          "Jonah 1:1–17; 2:1–10; 3:1–10",
-          "John 10:1–18",
-          "Mark 12"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Mark 12.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Jesus",
-          "The Lord",
-          "Joshua",
-          "Holy Spirit"
+          "Mark 12:41–44",
+          "Psalm 23",
+          "Jonah 1",
+          "Genesis 1"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Mark 12:41–44.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did the poor widow put into the treasury?",
         "choices": [
-          "We should hide from God when we mess up.",
-          "Small gifts matter—God sees! Give what you have from the heart!",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "Two small coins (two mites)",
+          "A bag of gold",
+          "Nothing at all",
+          "Only a flower"
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Small gifts matter—God sees! Give what you have from the heart!.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 12:42.",
+        "wrongFeedback": "Listen again for “two mites.” (Answer: two small coins.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did Jesus say about her gift?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "Rich people give big gifts",
-          "A talking toaster became king of the city."
+          "That she cast in more than all the others — she gave of her want, all her living",
+          "That it was too small to matter",
+          "That only rich gifts count",
+          "That she should not give"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus sees the heart behind the gift.",
+        "wrongFeedback": "Think “more than all…” and “all her living.” (Answer: she gave more… all her living.)"
+      },
+      {
+        "question": "Why was her small gift so big in God’s eyes?",
+        "choices": [
+          "She gave all she had — from the heart — not just from extra abundance",
+          "Because coins were magic",
+          "Because the box was empty",
+          "Because people were laughing"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—God weighs love, not only size.",
+        "wrongFeedback": "Remember “abundance” vs “her want.” (Answer: all she had… loving heart.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "Small gifts matter—God sees! Give what you have from the heart!"
+          "Ask Jesus to help me give gladly — love, kindness, and what I can — with a cheerful heart.",
+          "Never give anything small.",
+          "Believe God only watches rich people.",
+          "Hide what I have from everyone."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Small gifts matter—God sees! Give what you have from the heart!.)"
+        "correctIndex": 0,
+        "correctFeedback": "Sweet faith—little loaves, offered to God, please Him.",
+        "wrongFeedback": "Think: “Jesus sees” and “loving heart.” (Answer: give gladly… cheerful heart.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Widow's Mite with God's Word today.",
-    "takeaway": "Small gifts matter—God sees! Give what you have from the heart!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Widow's Mite. Amen.",
+    "doneMessage": "Great job reading Jesus Sees the Poor Widow’s Gift with God's Word today.",
+    "takeaway": "Jesus sees when we give with a loving heart — even a little can be much.",
+    "prayer": "Lord Jesus, thank You for seeing my heart. Help me give and love generously, even in small ways. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rich people give big gifts (widow)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Widow gives two small coins (mite)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: she gave more! (coins)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rich people give big gifts (mark 12)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Widow gives two small coins (luke 21)"
-    ]
+      "A simple, peaceful black-and-white line-art scene for young children: A poor widow dropping two small coins into the offering box. Jesus is watching with a kind, pleased face. Thick, bold outlines with large open spaces on the widow’s robe, Jesus’ robe, and the offering box for easy coloring. Soft temple walls and gentle light with minimal lines. Loving and generous mood — focus on the widow giving all she had. Clean, minimal, no sadness or poverty shown strongly, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Treasury — Jesus beholding (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Rich cast in much (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Poor widow — two mites (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Verily — she cast more in (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: All her living — loving heart (love)"
+    ],
+    "readAlongImages": []
   },
   "wiseMen": {
     "kjvRef": "Matthew 2:1–12 (KJV)",

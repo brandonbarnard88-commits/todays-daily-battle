@@ -4400,7 +4400,7 @@ function buildDanielLionsDenReadQuiz() {
       'The king was glad and commanded that Daniel be taken up out of the den.',
       'No hurt was found upon him, because he believed in his God.',
       'The Lord protected Daniel because he trusted and prayed to Him every day.',
-      'Reference: Daniel 6:1–23 (KJV).'
+      'Reference: Daniel 6:1–23 (KJV)'
     ],
     readAlongSections: [
       {
@@ -4507,7 +4507,7 @@ function buildDanielLionsDenReadQuiz() {
     prayer:
       'Lord, thank You that You hear us when we pray. Help us trust You every day. Amen.',
     imagePrompts: [
-      'Simple peaceful black-and-white line-art scene for young children ages 3–8: Daniel standing calmly inside the lions\' den with his hands folded in prayer lions lying peacefully around him thick bold outlines large open spaces on Daniel\'s robe the lions\' bodies and the ground for easy coloring soft cave walls and a small opening with light in the background with minimal lines trusting safe mood focus God protecting Daniel clean minimal no scary lions or fear plenty of white space age-appropriate coloring page',
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Daniel standing calmly inside the lions\' den with his hands folded in prayer the lions lying peacefully around him thick bold outlines large open spaces on Daniel\'s robe the lions\' bodies and the ground for easy coloring soft cave walls and a small opening with light in the background with minimal lines trusting and safe mood focus God protecting Daniel clean minimal no scary lions or fear plenty of white space age-appropriate for ages 3–8 coloring page',
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel prays toward Jerusalem (daniel)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel in the den — lions quiet (lions)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel — God shuts lions mouths (daniel 6)",

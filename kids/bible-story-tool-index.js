@@ -1422,9 +1422,9 @@
     "kjvRef": "Matthew 22:23–33",
     "who": "Jesus",
     "to": "The Sadducees — and everyone who listens (including us)",
-    "apply": "God is the God of the living — we can trust Jesus’ teaching about Scripture and hope in the resurrection.",
+    "apply": "God is the God of the living — on hard days we can rest our hearts on Jesus’ gentle teaching and hope in Him.",
     "theme": "Obedience",
-    "kw": "sadducees resurrection matthew 22 matthew 22:23 matthew 22:32 god of abraham isaac jacob living neither marry angels seven brethren scriptures power of god"
+    "kw": "sadducees resurrection matthew 22 matthew 22:23 matthew 22:32 matthew 22:33 god of abraham isaac jacob living neither marry angels seven brethren scriptures power of god astonished doctrine multitude"
   },
   {
     "key": "parablePearl",

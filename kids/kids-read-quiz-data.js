@@ -27568,47 +27568,45 @@
     "kjvRef": "Matthew 22:23–33 (KJV)",
     "verseExcerpt": "God is not the God of the dead, but of the living. — Matthew 22:32 (KJV)",
     "readAlongTitle": "Jesus Teaches About the Resurrection",
-    "quizWrongHumilityHint": "Listen again — Sadducees; no resurrection; Moses; seven brethren; wife; Ye do err; scriptures; power of God; neither marry; angels; God of Abraham; Isaac; Jacob; living.",
+    "quizWrongHumilityHint": "Listen again — Sadducees; no resurrection; Moses; seven brethren; wife; Ye do err; scriptures; power of God; neither marry; angels; God of Abraham; Isaac; Jacob; living; astonished; doctrine.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "The Sadducees came to Jesus. They did not believe in the resurrection.",
-      "They asked Him a question to try to trap Him: Master, Moses said, If a man die, having no children, his brother shall marry his wife… Now there were with us seven brethren… In the resurrection therefore whose wife shall she be of the seven? for they all had her.",
-      "Jesus answered, Ye do err, not knowing the scriptures, nor the power of God.",
-      "For in the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven.",
-      "But as touching the resurrection of the dead, have ye not read that which was spoken unto you by God, saying, I am the God of Abraham, and the God of Isaac, and the God of Jacob?",
-      "God is not the God of the dead, but of the living.",
+      "One day, some men called the Sadducees came to Jesus. The Sadducees said there is no resurrection. They wanted to ask Him a question.",
+      "They said, Master, Moses told us that if a man dies and has no children, his brother should marry the wife and raise up children for his brother. Now there were seven brothers with us. The first one married a wife and died, and left no children. So his brother married her. Then the second brother died, and the third, all the way to the seventh. Last of all the woman died also. Therefore, in the resurrection, whose wife shall she be? For they all had her. (Their words follow Moses’ teaching in Matthew 22:24–28, KJV.)",
+      "Jesus answered and said unto them, Ye do err, not knowing the scriptures, nor the power of God. For in the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven. But as touching the resurrection of the dead, have ye not read that which was spoken unto you by God, saying, I am the God of Abraham, and the God of Isaac, and the God of Jacob? God is not the God of the dead, but of the living.",
+      "And when the multitude heard it, they were astonished at his doctrine.",
       "Jesus teaches that God is the God of the living, and there is a wonderful resurrection.",
       "Reference: Matthew 22:23–33 (KJV)"
     ],
     "readAlongSections": [
       {
-        "text": "The Sadducees came to Jesus. They did not believe that God raises the dead.",
+        "text": "One day, some men called the Sadducees came to Jesus. They said there is no resurrection.",
         "caption": "The Sadducees",
         "image": "panel-jesus-1.svg"
       },
       {
-        "text": "They asked a hard question about marriage in the life to come — trying to confuse Him.",
-        "caption": "A hard question",
+        "text": "They asked Him a tricky question about a woman who had married seven brothers.",
+        "caption": "A tricky question",
         "image": "panel-jesus-1.svg"
       },
       {
-        "text": "Jesus said, Ye do err, not knowing the scriptures, nor the power of God.",
-        "caption": "The scriptures and God’s power",
+        "text": "Jesus listened kindly, then answered with truth from God’s Word. He said, Ye do err, not knowing the scriptures, nor the power of God.",
+        "caption": "Truth from God’s Word",
         "image": "panel-jesus-2.svg"
       },
       {
         "text": "In the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven.",
-        "caption": "Like the angels in heaven",
+        "caption": "Like the angels",
         "image": "panel-jesus-2.svg"
       },
       {
-        "text": "Jesus said, I am the God of Abraham, and the God of Isaac, and the God of Jacob. God is not the God of the dead, but of the living.",
+        "text": "Jesus reminded them: God is not the God of the dead, but of the living.",
         "caption": "God of the living",
         "image": "panel-jesus-3.svg"
       },
       {
-        "text": "Jesus teaches that there is a wonderful resurrection — we can hope in the living God.",
-        "caption": "Wonderful resurrection",
+        "text": "When the people heard this, they were astonished at His teaching — we can rest our hearts on the living God.",
+        "caption": "Astonished at His teaching",
         "image": "panel-jesus-3.svg"
       }
     ],
@@ -27675,29 +27673,29 @@
         "wrongFeedback": "Think “living God” and “resurrection.” (Answer: thank God… trust Jesus… hope.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What happened when the multitude heard Jesus teach?",
         "choices": [
-          "Jesus quoted God’s words: I am the God of Abraham, and the God of Isaac, and the God of Jacob",
-          "Seven fish built a spaceship.",
-          "Everyone forgot language.",
-          "The temple turned into jelly."
+          "They were astonished at his doctrine",
+          "They all fell asleep at once",
+          "They ran away and never listened again",
+          "They forgot how to speak"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that matches Matthew 22:32.",
-        "wrongFeedback": "Pick the true detail from God’s Word. (Answer: God of Abraham… Isaac… Jacob.)"
+        "correctFeedback": "Yes—that matches Matthew 22:33.",
+        "wrongFeedback": "Listen for “heard” and “astonished.” (Answer: astonished at his doctrine.)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Jesus Teaches About the Resurrection with God's Word today.",
-    "takeaway": "God is not the God of the dead, but of the living — Jesus teaches the Scriptures truly, and we can hope in Him.",
-    "prayer": "Lord Jesus, thank You that God is the God of the living. Help me trust Your words and hope in You today. Amen.",
+    "takeaway": "God is not the God of the dead, but of the living — Jesus teaches God’s Word truly; we can rest our hearts on Him.",
+    "prayer": "Lord Jesus, thank You that God is the God of the living. On hard days, help me rest in Your gentle teaching and hope in You. Amen.",
     "imagePrompts": [
-      "A simple, peaceful black-and-white line-art scene for young children: Jesus standing calmly speaking to two robed men (Sadducees) with thoughtful, listening faces — no anger. Jesus has a wise, kind face. Thick, bold outlines with large open spaces on Jesus’ robe, the men’s robes, and the ground. Soft temple wall shapes in the background and a pale band of light from above with minimal lines. Wise and calm mood — focus on Jesus teaching about the resurrection. Clean, minimal, no trap or arguing faces, plenty of white space, age-appropriate for ages 3–8.",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Sadducees ask — listening (hope)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Scriptures and God’s power (truth)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Neither marry — like angels (mercy)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: God of Abraham — living (love)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Wonderful resurrection hope (peace)"
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal shading, joyful calm atmosphere. In the center, gentle Jesus sits calmly on a low stone bench, speaking with wise and kind eyes, one hand raised softly as He teaches. Two or three Sadducees stand nearby listening quietly — simple robes, thoughtful faces only, no anger. Soft temple walls and gentle pillars in the background with a light band of sky above. One child-friendly open area in the foreground for coloring. Large peaceful spaces for crayons. Focus: Jesus gently teaching about the living God and the resurrection. Style: clear, bold, restful, never scary or busy.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Sadducees come — listening (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Seven brothers question — gentle pause (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Ye do err — scriptures and power (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Like the angels — no marrying there (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: God of the living — astonished hearts (peace)"
     ],
     "readAlongImages": []
   },

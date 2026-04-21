@@ -3847,17 +3847,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 22:21</text>'
       ),
 
-      /* Matthew 22:23–33 — gentle: Jesus teaching two Sadducees, soft temple wall, light from above */
+      /* Matthew 22:23–33 — gentle: Jesus seated on low bench, hand raised softly, three thoughtful listeners, pillars */
       sadduceesResurrection: svg(
         ground() +
-        '<ellipse cx="200" cy="52" rx="100" ry="18" ' + sf + ' fill="white" stroke-width="1.6" opacity="0.5"/>' +
-        '<path d="M52 102 L348 102 L348 188 L52 188 Z" ' + sf + ' fill="white" stroke-width="2" opacity="0.9"/>' +
-        '<path d="M110 102 L110 188 M200 102 L200 188 M290 102 L290 188" ' + s + ' stroke-width="1.3" opacity="0.4"/>' +
-        person(200, 152, 12, 40) +
-        '<path d="M192 186 Q200 180 208 186" ' + s + ' stroke-width="1.4" fill="none"/>' +
-        person(118, 168, 9, 28) +
-        person(282, 168, 9, 28) +
-        sun(40, 40, 11) +
+        '<path d="M32 232 L368 232" ' + s + ' stroke-width="1.6" opacity="0.35"/>' +
+        '<ellipse cx="200" cy="48" rx="118" ry="20" ' + sf + ' fill="white" stroke-width="1.6" opacity="0.52"/>' +
+        '<rect x="44" y="70" width="26" height="152" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="330" y="70" width="26" height="152" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="68" y="96" width="264" height="112" rx="10" ' + sf + ' fill="white" stroke-width="2" opacity="0.94"/>' +
+        '<path d="M108 96 L108 208 M200 96 L200 208 M292 96 L292 208" ' + s + ' stroke-width="1.2" opacity="0.36"/>' +
+        '<rect x="104" y="182" width="192" height="24" rx="6" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<circle cx="200" cy="106" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M193 102 Q200 98 207 102" ' + s + ' stroke-width="1.3" fill="none"/>' +
+        '<line x1="200" y1="117" x2="200" y2="170" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="200" y1="132" x2="166" y2="112" ' + s + ' stroke-width="2"/>' +
+        '<line x1="200" y1="132" x2="230" y2="150" ' + s + ' stroke-width="2"/>' +
+        '<line x1="200" y1="170" x2="182" y2="182" ' + s + ' stroke-width="2.3"/>' +
+        '<line x1="200" y1="170" x2="218" y2="182" ' + s + ' stroke-width="2.3"/>' +
+        person(78, 172, 7, 24) +
+        person(118, 168, 8, 26) +
+        person(322, 168, 8, 26) +
+        sun(40, 36, 11) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 22:32</text>'
       ),
 

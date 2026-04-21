@@ -1971,18 +1971,18 @@
       panels: [
         {
           src: 'panel-jesus-1.svg',
-          alt: 'Sadducees come to Jesus with a hard question — they did not believe in the resurrection — listening faces'
+          alt: 'Sadducees come to Jesus — they say there is no resurrection — a gentle, tricky question — thoughtful listening faces'
         },
         {
           src: 'panel-jesus-2.svg',
-          alt: 'Jesus answers — Ye do err, not knowing the scriptures, nor the power of God — calm teaching'
+          alt: 'Jesus answers — Ye do err, not knowing the scriptures, nor the power of God — calm teaching from God’s Word'
         },
         {
           src: 'panel-jesus-3.svg',
-          alt: 'I am the God of Abraham, Isaac, and Jacob — God is not the God of the dead, but of the living — hope'
+          alt: 'I am the God of Abraham, Isaac, and Jacob — God is not the God of the dead, but of the living — the multitude astonished at His doctrine'
         }
       ],
-      caption: 'Swipe slowly — Jesus teaches that God is the God of the living.',
+      caption: 'Swipe slowly — gentle teaching about the living God and the resurrection.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -2005,10 +2005,10 @@
         who: 'Jesus',
         to: 'The Sadducees — and everyone who listens (including us)',
         apply:
-          'God is the God of the living — we can trust Jesus’ words about the wonderful resurrection and live with hope in Him.'
+          'God is the God of the living — on hard days we can rest our hearts on Jesus’ gentle teaching and hope in Him.'
       },
       narration:
-        "Jesus Teaches About the Resurrection — Matthew 22:23–33. The same day came to him the Sadducees, which say that there is no resurrection, and asked him, Saying, Master, Moses said, If a man die, having no children, his brother shall marry his wife, and raise up seed unto his brother. Now there were with us seven brethren: and the first, when he had married a wife, deceased, and, having no issue, left his wife unto his brother: Likewise the second also, and the third, unto the seventh. And last of all the woman died also. Therefore in the resurrection whose wife shall she be of the seven? for they all had her. Jesus answered and said unto them, Ye do err, not knowing the scriptures, nor the power of God. For in the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven. But as touching the resurrection of the dead, have ye not read that which was spoken unto you by God, saying, I am the God of Abraham, and the God of Isaac, and the God of Jacob? God is not the God of the dead, but of the living. And when the multitude heard it, they were astonished at his doctrine. For you: Jesus was not trying to frighten little children — He was showing that God’s Word is true and that God cares for His people forever. We can trust the living God and look to Jesus for hope and life."
+        "Jesus Teaches About the Resurrection — Matthew 22:23–33. The same day came to him the Sadducees, which say that there is no resurrection, and asked him, Saying, Master, Moses said, If a man die, having no children, his brother shall marry his wife, and raise up seed unto his brother. Now there were with us seven brethren: and the first, when he had married a wife, deceased, and, having no issue, left his wife unto his brother: Likewise the second also, and the third, unto the seventh. And last of all the woman died also. Therefore in the resurrection whose wife shall she be of the seven? for they all had her. Jesus answered and said unto them, Ye do err, not knowing the scriptures, nor the power of God. For in the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven. But as touching the resurrection of the dead, have ye not read that which was spoken unto you by God, saying, I am the God of Abraham, and the God of Isaac, and the God of Jacob? God is not the God of the dead, but of the living. And when the multitude heard it, they were astonished at his doctrine. For you: Jesus was not trying to frighten little children — He was showing that God’s Word is true and that God cares for His people forever. We can take our time with Him: color, listen, and rest — trusting the living God and looking to Jesus for hope and life."
     },
     lastSupper: {
       title: 'Last Supper',

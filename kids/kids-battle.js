@@ -8598,18 +8598,47 @@
       kidContext: { who: 'God', to: 'Hannah', apply: 'God hears every prayer! Pour out your heart—He is listening and He cares.' }
     },
     maryMagdalene: {
-      title: 'Mary Magdalene at the Tomb',
+      title: 'Jesus Appears to Mary Magdalene',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary comes early, weeping at the empty tomb' },
-        { src: 'panel-noah-2.svg', alt: 'She sees Jesus—mistakes Him for the gardener' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says her name: Mary! She knows Him!' }
+        {
+          src: 'panel-mary-magdalene-1.svg',
+          alt: 'Mary weeps without the sepulchre — she looks in and seeth two angels in white at head and feet where Jesus had lain'
+        },
+        {
+          src: 'panel-mary-magdalene-2.svg',
+          alt: 'She turns back — Jesus stands — she supposeth Him the gardener — Woman, why weepest thou? whom seekest thou?'
+        },
+        {
+          src: 'panel-mary-magdalene-3.svg',
+          alt: 'Jesus saith, Mary — Rabboni, Master — Touch me not — go tell My brethren — Mary ran with joy to the disciples'
+        }
       ],
-      caption: 'Swipe to see the moment Jesus called Mary\'s name! 🌅',
+      caption: 'Swipe slowly — Jesus calls Mary by name; tender joy at the empty tomb.',
       videoId: '',
       videoTitle: '',
-      keywords: ['mary magdalene', 'tomb', 'john 20', 'risen', 'gardener', 'name', 'love'],
-      kjvRef: 'John 20:1–18',
-      kidContext: { who: 'Jesus', to: 'Mary Magdalene', apply: 'Jesus knows your name and calls you! He is always the first to find His own.' }
+      keywords: [
+        'Mary Magdalene',
+        'weeping',
+        'sepulchre',
+        'angels in white',
+        'gardener',
+        'Mary',
+        'Rabboni',
+        'Touch me not',
+        'ascend',
+        'my Father and your Father',
+        'John 20',
+        'Mark 16'
+      ],
+      kjvRef: 'John 20:11–18 (KJV) (par. Mark 16:9–11)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels sad or misses someone dear',
+        apply:
+          'Jesus speaks our name with love — He turns tears toward joy and sends us with good news.'
+      },
+      narration:
+        "Jesus Appears to Mary Magdalene — John 20:11–18. But Mary stood without at the sepulchre weeping: and as she wept, she stooped down, and looked into the sepulchre, And seeth two angels in white sitting, the one at the head, and the other at the feet, where the body of Jesus had lain. And they say unto her, Woman, why weepest thou? She saith unto them, Because they have taken away my Lord, and I know not where they have laid him. And when she had thus said, she turned herself back, and saw Jesus standing, and knew not that it was Jesus. Jesus saith unto her, Woman, why weepest thou? whom seekest thou? She, supposing him to be the gardener, saith unto him, Sir, if thou have borne him hence, tell me where thou hast laid him, and I will take him away. Jesus saith unto her, Mary. She turned herself, and saith unto him, Rabboni; which is to say, Master. Jesus saith unto her, Touch me not; for I am not yet ascended to my Father: but go to my brethren, and say unto them, I ascend unto my Father, and your Father; and to my God, and your God. Mary Magdalene came and told the disciples that she had seen the Lord, and that he had spoken these things unto her. For you: On hard days when you feel sad or when you miss someone very much, remember Mary Magdalene at the tomb. Jesus called her name gently, and her sadness turned to joy. Jesus knows your name too, and He calls you with love. You can rest in His tender, strong care."
     },
     lydiaSell: {
       title: 'Lydia Opens Her Heart',

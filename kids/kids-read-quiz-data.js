@@ -17924,7 +17924,7 @@
         "choices": [
           "Luke 15:8–10",
           "Matthew 21:28–32",
-          "John 20:1–18",
+          "John 20:11–18 (KJV) (par. Mark 16:9–11)",
           "Genesis 37:3"
         ],
         "correctIndex": 0,
@@ -18875,89 +18875,143 @@
     "readAlongImages": []
   },
   "maryMagdalene": {
-    "kjvRef": "John 20:1–18",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "John 20:11–18 (KJV) (par. Mark 16:9–11)",
+    "verseExcerpt": "Jesus saith unto her, Mary. She turned herself, and saith unto him, Rabboni; which is to say, Master. — John 20:16 (KJV)",
+    "readAlongTitle": "Jesus Appears to Mary Magdalene",
+    "quizWrongHumilityHint": "Listen again — weeping; sepulchre; angels in white; head; feet; Woman why weepest thou; taken away my Lord; turned; gardener; Sir; Mary; Rabboni; Touch me not; my brethren; ascend; Father; God; told the disciples.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Mary Magdalene at the Tomb (John 20:1–18).",
-      "Mary comes early, weeping at the empty tomb She sees Jesus—mistakes Him for the gardener Jesus says her name: Mary!",
-      "She knows Him!",
-      "Jesus knows your name and calls you!",
-      "He is always the first to find His own."
+      "But Mary stood without at the sepulchre weeping: and as she wept, she stooped down, and looked into the sepulchre, And seeth two angels in white sitting, the one at the head, and the other at the feet, where the body of Jesus had lain.",
+      "And they say unto her, Woman, why weepest thou? She saith unto them, Because they have taken away my Lord, and I know not where they have laid him.",
+      "And when she had thus said, she turned herself back, and saw Jesus standing, and knew not that it was Jesus.",
+      "Jesus saith unto her, Woman, why weepest thou? whom seekest thou? She, supposing him to be the gardener, saith unto him, Sir, if thou have borne him hence, tell me where thou hast laid him, and I will take him away.",
+      "Jesus saith unto her, Mary. She turned herself, and saith unto him, Rabboni; which is to say, Master.",
+      "Jesus saith unto her, Touch me not; for I am not yet ascended to my Father: but go to my brethren, and say unto them, I ascend unto my Father, and your Father; and to my God, and your God.",
+      "Mary Magdalene came and told the disciples that she had seen the Lord, and that he had spoken these things unto her.",
+      "Jesus knows us by name — His voice turns tender sorrow into glad good news.",
+      "Reference: John 20:11–18 (KJV) (see also Mark 16:9–11)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Mary Magdalene stood crying outside the empty tomb — But Mary stood without at the sepulchre weeping: and as she wept, she stooped down, and looked into the sepulchre, And seeth two angels in white sitting, the one at the head, and the other at the feet, where the body of Jesus had lain.",
+        "caption": "At the sepulchre",
+        "image": "panel-mary-magdalene-1.svg"
+      },
+      {
+        "text": "She saw two angels and told them someone had taken her Lord away — And they say unto her, Woman, why weepest thou? She saith unto them, Because they have taken away my Lord, and I know not where they have laid him.",
+        "caption": "Why weepest thou?",
+        "image": "panel-mary-magdalene-1.svg"
+      },
+      {
+        "text": "Then she turned and saw Jesus standing there, but she thought He was the gardener — And when she had thus said, she turned herself back, and saw Jesus standing, and knew not that it was Jesus. Jesus saith unto her, Woman, why weepest thou? whom seekest thou? She, supposing him to be the gardener, saith unto him, Sir, if thou have borne him hence, tell me where thou hast laid him, and I will take him away.",
+        "caption": "Whom seekest thou?",
+        "image": "panel-mary-magdalene-2.svg"
+      },
+      {
+        "text": "Jesus said gently, “Woman, why weepest thou? whom seekest thou?” — Jesus saith unto her, Woman, why weepest thou? whom seekest thou?",
+        "caption": "Gentle question",
+        "image": "panel-mary-magdalene-2.svg"
+      },
+      {
+        "text": "Jesus called her name, “Mary.” She turned and said, “Rabboni!” (Master!) — Jesus saith unto her, Mary. She turned herself, and saith unto him, Rabboni; which is to say, Master.",
+        "caption": "Mary — Rabboni",
+        "image": "panel-mary-magdalene-3.svg"
+      },
+      {
+        "text": "Jesus told her to go tell His disciples that He was alive and ascending to the Father — Jesus saith unto her, Touch me not; for I am not yet ascended to my Father: but go to my brethren, and say unto them, I ascend unto my Father, and your Father; and to my God, and your God. Mary Magdalene came and told the disciples that she had seen the Lord, and that he had spoken these things unto her.",
+        "caption": "Go tell My brethren",
+        "image": "panel-mary-magdalene-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22:1–20",
-          "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)",
-          "John 20:1–18",
-          "Mark 3:1–6"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: John 20:1–18.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Holy Ghost",
-          "Jesus",
-          "God",
-          "Holy Spirit"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "Jesus knows your name and calls you! He is always the first to find His own.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up."
+          "John 20:11–18 (also echoed in Mark 16:9–11)",
+          "Genesis 1 only",
+          "Jonah 2 only",
+          "Revelation 1 only"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus knows your name and calls you! He is always the first to find His own..)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: John 20:11–18.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did Mary see when she looked into the sepulchre?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot.",
-          "Mary comes early, weeping at the empty tomb"
+          "Two angels in white sitting, one at the head and one at the feet, where the body of Jesus had lain.",
+          "An empty boat on the water.",
+          "A golden calf.",
+          "Only a sealed stone and no light."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 20:12.",
+        "wrongFeedback": "Listen for “angels in white” and “head… feet.” (Answer: two angels in white….)"
+      },
+      {
+        "question": "Why did Mary say she was weeping?",
+        "choices": [
+          "Because they have taken away my Lord, and I know not where they have laid him.",
+          "Because she lost her money.",
+          "Because she did not like the garden.",
+          "Because she wanted to go home to Moab."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 20:13.",
+        "wrongFeedback": "Listen for “taken away my Lord.” (Answer: taken away my Lord….)"
+      },
+      {
+        "question": "Whom did Mary suppose Jesus to be when she first saw Him?",
+        "choices": [
+          "The gardener.",
+          "The high priest.",
+          "A Roman soldier.",
+          "Peter."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 20:15.",
+        "wrongFeedback": "Listen for “gardener.” (Answer: the gardener.)"
+      },
+      {
+        "question": "What did Mary say when Jesus called her by name?",
+        "choices": [
+          "Rabboni; which is to say, Master.",
+          "Go away forever.",
+          "I do not know You.",
+          "I will not speak."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 20:16.",
+        "wrongFeedback": "Listen for “Rabboni” and “Master.” (Answer: Rabboni… Master.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Jesus knows your name and calls you! He is always the first to find His own.",
-          "Ignore God until we are older."
+          "Remember Jesus knows my name — I can tell Him when I am sad and trust His tender love.",
+          "Believe God never hears when kids cry.",
+          "Stop hoping when I miss someone.",
+          "Never share good news."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus knows your name and calls you! He is always the first to find His own..)"
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “name,” “tears,” and “good news.” (Answer: Jesus knows my name….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Mary Magdalene at the Tomb with God's Word today.",
-    "takeaway": "Jesus knows your name and calls you! He is always the first to find His own.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Mary Magdalene at the Tomb. Amen.",
+    "doneMessage": "Great job reading Jesus Appears to Mary Magdalene with God's Word today.",
+    "takeaway": "Jesus speaks Mary’s name with love — He sends His friends with glad news that He lives.",
+    "prayer": "Lord Jesus, thank You that You know my name and call me gently. When I feel sad, help me hear Your voice and trust You. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary comes early, weeping at the empty tomb (mary magdalene)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She sees Jesus—mistakes Him for the gardener (tomb)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says her name: Mary! She knows Him! (john 20)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary comes early, weeping at the empty tomb (risen)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She sees Jesus—mistakes Him for the gardener (gardener)"
-    ]
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle risen Jesus stands near the empty tomb with a kind, loving face, one hand gently reaching toward Mary. Mary Magdalene kneels on the ground, looking up at Jesus with joyful tears and outstretched hands (simple, tender expression). The large stone is rolled away from the tomb entrance in the background. Soft garden plants and bright morning light with plenty of open ground in the foreground for coloring. Focus on the heart of the moment: Jesus tenderly calling Mary by name and her joyful recognition of her risen Lord. Style: clear, bold, tender, hopeful, and very restful — never dark or scary.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Mary weeps — angels in white — quiet tomb (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Why weepest thou — taken away my Lord (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Turned — Jesus stands — gentle question (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Gardener — Sir, where hast thou laid him (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Mary — Rabboni — glad recognition (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Go tell My brethren — good news running (love)"
+    ],
+    "readAlongImages": []
   },
   "maryMartha": {
     "kjvRef": "Luke 10:38–42 (KJV) — gentle summary for little hearts",
@@ -22150,7 +22204,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 20:1–18",
+          "John 20:11–18 (KJV) (par. Mark 16:9–11)",
           "Genesis 40",
           "2 Timothy 4:6–8",
           "Matthew 21:28–32"

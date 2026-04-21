@@ -1958,13 +1958,13 @@
   },
   {
     "key": "maryMagdalene",
-    "title": "Mary Magdalene at the Tomb",
-    "kjvRef": "John 20:1–18",
+    "title": "Jesus Appears to Mary Magdalene",
+    "kjvRef": "John 20:11–18 (KJV) (par. Mark 16:9–11)",
     "who": "Jesus",
-    "to": "Mary Magdalene",
-    "apply": "Jesus knows your name and calls you! He is always the first to find His own.",
+    "to": "Every child who feels sad or misses someone dear",
+    "apply": "Jesus speaks our name with love — He turns tears toward joy and sends us with good news.",
     "theme": "Love",
-    "kw": "mary magdalene tomb john 20 risen gardener name love"
+    "kw": "mary magdalene sepulchre weeping angels in white gardener rabboni touch me not ascend Father John 20 Mark 16"
   },
   {
     "key": "dragonFight",

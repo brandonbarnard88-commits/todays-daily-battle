@@ -199,7 +199,8 @@
       jesusArrest: 'jesusArrest',
       trialBeforeCaiaphas: 'trialBeforeCaiaphas',
       peterDenial: 'peterDenial',
-      trial: 'trial'
+      trial: 'trial',
+      maryMagdalene: 'maryMagdalene'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -220,6 +221,7 @@
     if (low.indexOf('jesusparablegoodshepherd') >= 0 || low === 'jesusparablegoodshepherd')
       return 'jesusParableGoodShepherd';
     if (low === 'jesusresurrection' || low === 'resurrection') return 'resurrection';
+    if (low.indexOf('marymagdalene') >= 0 || low === 'marymagdalene') return 'maryMagdalene';
     if (low.indexOf('tombempty') >= 0 || low === 'tombempty') return 'tombEmpty';
     if (low.indexOf('crosscarry') >= 0 || low === 'crosscarry') return 'crossCarry';
     if (low.indexOf('crucifixion') >= 0 || low === 'crucifixion' || low === 'jesuscrucifixion')
@@ -4528,17 +4530,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 2:19</text>'
       ),
 
-      /* ── Week 10: Mary Magdalene (126) ── */
+      /* ── Week 10: Mary Magdalene — tender garden; risen Jesus reaches; Mary kneels; rolled stone ── */
       maryMagdalene: svg(
-        ground() + hills() +
-        '<path d="M120 255 L120 180 Q200 148 280 180 L280 255" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="120" y="180" width="160" height="75" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="75" cy="200" r="48" ' + sf + ' fill="white" stroke-width="4"/>' +
-        person(265, 162, 13, 38) +
-        '<path d="M258 178 Q248 190 252 202" ' + s + ' stroke-width="2.5"/>' +
-        person(155, 185, 10, 28) +
-        star(200, 28, 16) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 20:16</text>'
+        ground() +
+        hills() +
+        sun(48, 48, 18) +
+        '<path d="M255 255 Q288 198 328 172 Q348 162 368 188 L368 255" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<ellipse cx="236" cy="232" rx="32" ry="30" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M262 210 Q302 200 338 220" ' + s + ' stroke-width="2" opacity="0.85"/>' +
+        person(210, 112, 14, 40) +
+        '<line x1="210" y1="146" x2="178" y2="124" ' + s + ' stroke-width="3"/>' +
+        '<line x1="210" y1="146" x2="232" y2="132" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M202 128 Q210 122 218 128" ' + s + ' stroke-width="1.5"/>' +
+        person(128, 196, 10, 20) +
+        '<path d="M116 212 Q128 200 136 212" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="138" y1="198" x2="188" y2="158" ' + s + ' stroke-width="2"/>' +
+        '<line x1="152" y1="204" x2="168" y2="188" ' + s + ' stroke-width="2"/>' +
+        '<circle cx="72" cy="236" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="92" cy="242" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="302" cy="238" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        star(200, 38, 10) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 20:16–18</text>'
       ),
 
       /* ── Week 10: Lydia Sell (127) ── */

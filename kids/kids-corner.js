@@ -5072,6 +5072,29 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:75</text>'
       ),
 
+      /* Matthew 27:11–26 — calm courtyard; Jesus before thoughtful Pilate; spears resting; soft pillars */
+      trial: svg(
+        ground() +
+        '<rect x="44" y="68" width="312" height="138" rx="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="88" y1="68" x2="88" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="152" y1="68" x2="152" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="248" y1="68" x2="248" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="312" y1="68" x2="312" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<rect x="252" y="148" width="62" height="42" rx="6" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="252" y1="148" x2="314" y2="132" ' + s + ' stroke-width="2"/>' +
+        person(283, 98, 9, 28) +
+        '<path d="M276 112 Q283 118 290 112" ' + s + ' stroke-width="1.3"/>' +
+        person(178, 112, 12, 40) +
+        '<path d="M170 126 Q178 120 186 126" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="166" y1="162" x2="166" y2="186" ' + s + ' stroke-width="2"/>' +
+        '<line x1="190" y1="162" x2="190" y2="186" ' + s + ' stroke-width="2"/>' +
+        person(72, 158, 7, 24) +
+        person(352, 162, 7, 24) +
+        '<line x1="62" y1="208" x2="62" y2="248" ' + s + ' stroke-width="2"/>' +
+        '<line x1="358" y1="212" x2="358" y2="248" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 27:11,22</text>'
+      ),
+
       /* ── Week 12: Prayer Closet (150) ── */
       prayerCloset: svg(
         ground() +
@@ -5434,6 +5457,9 @@
     jesusBeforeCaiaphas: 'trialBeforeCaiaphas',
     peterDenial: 'peterDenial',
     peterDeniesJesus: 'peterDenial',
+    trial: 'trial',
+    pilateTrial: 'trial',
+    jesusBeforePilate: 'trial',
     jesusCrucifixion: 'crucifixion',
     jesusResurrection: 'resurrection',
     crossCarry: 'crossCarry',
@@ -5601,7 +5627,6 @@
     newEarth: 'newEarth',
     alphaOmega2: 'alphaOmega2',
     comeLordJesus: 'comeLordJesus',
-    trial: 'saulSpear',
     /* ── completion aliases so every library story resolves to an outline ── */
     jesus: 'jesusBlessKids',
     cainAbel: 'adamEve',

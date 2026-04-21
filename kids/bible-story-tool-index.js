@@ -3398,13 +3398,13 @@
   },
   {
     "key": "trial",
-    "title": "Trial (Pilate)",
-    "kjvRef": "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+    "title": "Jesus Before Pilate",
+    "kjvRef": "Matthew 27:11–26 (par. Mark 15:1–15; Luke 23:1–25; John 18:28–19:16)",
     "who": "Jesus",
-    "to": "Pilate (and us)",
-    "apply": "Jesus stays quiet—trust God! When things are unfair, He knows the truth!",
+    "to": "Every child when choices feel unfair or lonely",
+    "apply": "Jesus stayed calm and told the truth before Pilate — His love holds us on hard days.",
     "theme": "Protection",
-    "kw": "pilate trial quiet john 18 matthew 27 king"
+    "kw": "Pilate governor Barabbas King of the Jews judgment washed hands crucified multitude matthew 27 mark 15 luke 23 john 18 john 19"
   },
   {
     "key": "battleOfAi",

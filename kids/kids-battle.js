@@ -2266,18 +2266,50 @@
         "Judas Betrays Jesus — Matthew 26:14–16; 26:47–50. Then one of the twelve, called Judas Iscariot, went unto the chief priests, And said unto them, What will ye give me, and I will deliver him unto you? And they covenanted with him for thirty pieces of silver. And from that time he sought opportunity to betray him. And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people. Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast. And forthwith he came to Jesus, and said, Hail, master; and kissed him. And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him. For you: On hard days when someone is unkind or when you feel hurt by a friend, remember Jesus. He stayed gentle and loving even when He was betrayed. He understands sad feelings, and His love for you never fails. You can rest in His faithful love."
     },
     trial: {
-      title: 'Trial (Pilate)',
+      title: 'Jesus Before Pilate',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Jesus before Pilate' },
-        { src: 'panel-david-2.svg', alt: 'Pilate asks: Are you the King?' },
-        { src: 'panel-david-3.svg', alt: 'Jesus stays quiet—trust God!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus stood before the governor — Art thou the King of the Jews? — Thou sayest — accused, yet answered nothing'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Feast custom — Barabbas or Jesus which is called Christ — chief priests persuaded the multitude'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'What shall I do with Jesus? — Let him be crucified — washed hands — delivered to be crucified'
+        }
       ],
-      caption: 'Swipe to see Jesus before Pilate—trust God! ⚖️',
-      videoId: 'zmYLuYfPQI8',
-      videoTitle: 'Jesus & Pilate – The Miracle Maker!',
-      keywords: ['pilate', 'trial', 'quiet', 'john 18', 'matthew 27', 'king'],
-      kjvRef: 'Matthew 27:11–26; Mark 15:1–15; Luke 23:1–25; John 18:28–19:16',
-      kidContext: { who: 'Jesus', to: 'Pilate (and us)', apply: 'Jesus stays quiet—trust God! When things are unfair, He knows the truth!' }
+      caption: 'Swipe slowly — Jesus stayed calm and true; His kingdom is truth and love.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'Pilate',
+        'governor',
+        'Barabbas',
+        'King of the Jews',
+        'judgment',
+        'multitude',
+        'crucified',
+        'washed his hands',
+        'witness',
+        'marvelled',
+        'matthew 27',
+        'mark 15',
+        'luke 23',
+        'john 18',
+        'john 19'
+      ],
+      kjvRef: 'Matthew 27:11–26 (KJV) (par. Mark 15:1–15; Luke 23:1–25; John 18:28–19:16)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child when choices feel unfair or lonely',
+        apply:
+          'Jesus stayed calm before Pilate — He knows hard moments, and His love never fails.'
+      },
+      narration:
+        "Jesus Before Pilate — Matthew 27:11–26. And Jesus stood before the governor: and the governor asked him, saying, Art thou the King of the Jews? And Jesus said unto him, Thou sayest. And when he was accused of the chief priests and elders, he answered nothing. Then said Pilate unto him, Hearest thou not how many things they witness against thee? And he answered him to never a word; insomuch that the governor marvelled greatly. Now at that feast the governor was wont to release unto the people a prisoner, whom they would. And they had then a notable prisoner, called Barabbas. Therefore when they were gathered together, Pilate said unto them, Whom will ye that I release unto you? Barabbas, or Jesus which is called Christ? For he knew that for envy they had delivered him. When he was set down on the judgment seat, his wife sent unto him, saying, Have thou nothing to do with that just man: for I have suffered many things this day in a dream because of him. But the chief priests and elders persuaded the multitude that they should ask Barabbas, and destroy Jesus. The governor answered and said unto them, Whether of the twain will ye that I release unto you? They said, Barabbas. Pilate saith unto them, What shall I do then with Jesus which is called Christ? They all say unto him, Let him be crucified. And the governor said, Why, what evil hath he done? But they cried out the more, saying, Let him be crucified. When Pilate saw that he could prevail nothing, but that rather a tumult was made, he took water, and washed his hands before the multitude, saying, I am innocent of the blood of this just person: see ye to it. Then answered all the people, and said, His blood be on us, and on our children. Then released he Barabbas unto them: and when he had scourged Jesus, he delivered him to be crucified. For you: On hard days when people make choices that feel unfair or when you feel alone, remember Jesus before Pilate. He stayed calm and told the truth about His kingdom. Jesus knows what it feels like to be treated wrongly, and He did it all because He loves you so much. You can rest safe in His strong, gentle love."
     },
     crucifixion: {
       title: 'Crucifixion',
@@ -9863,7 +9895,11 @@
     if (/judas|betrayal|kiss.*betray|matthew 26:48/.test(low)) {
       return { type: 'carousel', story: 'betrayal' };
     }
-    if (/pilate|john 18:28|matthew 27:11|barabbas/.test(low)) {
+    if (
+      /pilate|john 18:28|matthew 27:11|matthew 27:1[1-9]|matthew 27:2[0-6]|barabbas|washed his hands|jesus before pilate|king of the jews.*governor|release.*barabbas|jesus which is called christ/i.test(
+        low
+      )
+    ) {
       return { type: 'carousel', story: 'trial' };
     }
     if (/crucifixion|cross|calvary|matthew 27:33|john 19:17/.test(low)) {

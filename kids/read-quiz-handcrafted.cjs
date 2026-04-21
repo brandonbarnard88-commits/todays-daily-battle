@@ -99,6 +99,7 @@
  * Jesus is arrested in the garden — Matthew 26:47–56 (gentle): buildJesusArrestReadQuiz() (library key: jesusArrest; aliases arrest, gethsemaneArrest in slug maps).
  * Jesus before Caiaphas — Matthew 26:57–68 (gentle): buildTrialBeforeCaiaphasReadQuiz() (library key: trialBeforeCaiaphas; aliases caiaphasTrial, jesusBeforeCaiaphas).
  * Peter denies Jesus — Matthew 26:69–75 (gentle): buildPeterDenialReadQuiz() (library key: peterDenial; alias peterDeniesJesus).
+ * Jesus before Pilate — Matthew 27:11–26 (gentle): buildTrialPilateReadQuiz() (library key: trial; aliases pilateTrial, jesusBeforePilate).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
@@ -12624,6 +12625,141 @@ function buildPeterDenialReadQuiz() {
   };
 }
 
+/** Jesus before Pilate — Matthew 27:11–26 (gentle). Library key: trial */
+function buildTrialPilateReadQuiz() {
+  return {
+    kjvRef: 'Matthew 27:11–26 (KJV) (par. Mark 15:1–15; Luke 23:1–25; John 18:28–19:16)',
+    verseExcerpt: 'And Jesus said unto him, Thou sayest. — Matthew 27:11 (KJV)',
+    readAlongTitle: 'Jesus Before Pilate',
+    quizWrongHumilityHint:
+      'Listen again — governor; King of the Jews; Thou sayest; accused; answered nothing; marvelled greatly; Barabbas; Jesus which is called Christ; persuaded; Let him be crucified; washed his hands; just person; delivered to be crucified.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'And Jesus stood before the governor: and the governor asked him, saying, Art thou the King of the Jews? And Jesus said unto him, Thou sayest.',
+      'And when he was accused of the chief priests and elders, he answered nothing. Then said Pilate unto him, Hearest thou not how many things they witness against thee? And he answered him to never a word; insomuch that the governor marvelled greatly.',
+      'Now at that feast the governor was wont to release unto the people a prisoner, whom they would. And they had then a notable prisoner, called Barabbas. Therefore when they were gathered together, Pilate said unto them, Whom will ye that I release unto you? Barabbas, or Jesus which is called Christ? For he knew that for envy they had delivered him.',
+      'When he was set down on the judgment seat, his wife sent unto him, saying, Have thou nothing to do with that just man: for I have suffered many things this day in a dream because of him. But the chief priests and elders persuaded the multitude that they should ask Barabbas, and destroy Jesus.',
+      'The governor answered and said unto them, Whether of the twain will ye that I release unto you? They said, Barabbas. Pilate saith unto them, What shall I do then with Jesus which is called Christ? They all say unto him, Let him be crucified. And the governor said, Why, what evil hath he done? But they cried out the more, saying, Let him be crucified.',
+      'When Pilate saw that he could prevail nothing, but that rather a tumult was made, he took water, and washed his hands before the multitude, saying, I am innocent of the blood of this just person: see ye to it. Then answered all the people, and said, His blood be on us, and on our children. Then released he Barabbas unto them: and when he had scourged Jesus, he delivered him to be crucified.',
+      'Jesus stayed calm and strong in God\'s truth — He loves us with a kingdom that lasts forever.',
+      'Reference: Matthew 27:11–26 (KJV) (parallel in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'The soldiers brought Jesus to Pilate the governor early in the morning. He asked, Art thou the King of the Jews? Jesus answered, Thou sayest.',
+        caption: 'Before the governor',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'When the chief priests accused Jesus, He would not speak against them — and Pilate marvelled greatly.',
+        caption: 'Answered nothing',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'At the feast, Pilate would release one prisoner. They had a man called Barabbas, and Jesus which is called Christ.',
+        caption: 'Barabbas or Christ',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The rulers persuaded the crowd to ask for Barabbas. Pilate\'s wife had dreamed about the just Man Jesus.',
+        caption: 'Ask Barabbas',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Pilate asked, What shall I do with Jesus? They cried, Let him be crucified. He asked, Why, what evil hath he done?',
+        caption: 'Let him be crucified',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Pilate washed his hands before the people. They chose Barabbas, and Jesus was delivered to be crucified — and Jesus stayed calm and strong.',
+        caption: 'Truth and love',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 27:11–26 (also told in Mark, Luke, and John)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 27:11–26.)'
+      },
+      {
+        question: 'What did Pilate ask Jesus first?',
+        choices: [
+          'Art thou the King of the Jews?',
+          'Where is the boat?',
+          'Who built the tower?',
+          'What is nine plus ten?'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:11.',
+        wrongFeedback: 'Listen for “King of the Jews.” (Answer: Art thou the King of the Jews?)'
+      },
+      {
+        question: 'What did Jesus say to Pilate about being the King of the Jews?',
+        choices: ['Thou sayest.', 'No, never.', 'Ask Barabbas.', 'Run away.'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:11.',
+        wrongFeedback: 'Listen for “Thou sayest.” (Answer: Thou sayest.)'
+      },
+      {
+        question: 'When the chief priests accused Jesus, what did He do?',
+        choices: [
+          'He answered nothing — He stayed quiet before Pilate.',
+          'He shouted loudly only.',
+          'He hid under the floor.',
+          'He forgot who He was.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:12–14.',
+        wrongFeedback: 'Listen for “answered nothing.” (Answer: He answered nothing.)'
+      },
+      {
+        question: 'Whom did the crowd ask Pilate to release instead of Jesus?',
+        choices: ['Barabbas', 'Moses only', 'David only', 'Jonah only'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:21.',
+        wrongFeedback: 'Listen for the prisoner’s name. (Answer: Barabbas.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus when things feel unfair — He stayed true and loves me still.',
+          'Believe God never hears.',
+          'Stop praying when I am sad.',
+          'Never talk to a grown-up.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “unfair,” “true,” and “Jesus loves me.” (Answer: tell Jesus… loves me still.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Before Pilate with God's Word today.",
+    takeaway:
+      'Jesus stayed calm and spoke truth before Pilate — His kingdom is forever, and His love holds us on hard days.',
+    prayer:
+      'Lord Jesus, thank You that You understand unfair moments. Help me trust You and rest in Your love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus stands quietly and calmly before Pilate in the center, with a kind and peaceful face. Pilate sits on a judgment seat looking thoughtful. A few soldiers stand nearby with simple spears resting on the ground (no raised weapons). Soft palace pillars and open courtyard space with plenty of room in the foreground for coloring. Focus on the heart of the moment: Jesus standing strong and true before the governor, speaking about His kingdom of truth. Style: clear, bold, tender, restful — never dark, angry, or scary.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Before Pilate — King of the Jews (calm)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Answered nothing — gentle strength (trust)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Barabbas or Christ — a hard choice (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Persuaded multitude — kindness test (honesty)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Let him be crucified — Jesus stayed strong (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Washed hands — delivered — God\'s plan still good (hope)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
 function buildJesusWeepsJerusalemReadQuiz() {
   return {
@@ -14013,6 +14149,9 @@ module.exports = {
   jesusBeforeCaiaphas: buildTrialBeforeCaiaphasReadQuiz(),
   peterDenial: buildPeterDenialReadQuiz(),
   peterDeniesJesus: buildPeterDenialReadQuiz(),
+  trial: buildTrialPilateReadQuiz(),
+  pilateTrial: buildTrialPilateReadQuiz(),
+  jesusBeforePilate: buildTrialPilateReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

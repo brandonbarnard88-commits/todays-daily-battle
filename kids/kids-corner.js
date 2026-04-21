@@ -153,7 +153,8 @@
       centurionServant: 'centurionServant',
       jesusHealsParalytic: 'jesusHealsParalytic',
       witheredHand: 'witheredHand',
-      jairus: 'jairus'
+      jairus: 'jairus',
+      jesusWalksWater: 'jesusWalksWater'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -174,6 +175,7 @@
     if (low.indexOf('jesushealsparalytic') >= 0 || low === 'jesushealsparalytic') return 'jesusHealsParalytic';
     if (low.indexOf('witheredhand') >= 0 || low === 'witheredhand') return 'witheredHand';
     if (low.indexOf('jairus') >= 0 || low === 'jairus') return 'jairus';
+    if (low.indexOf('jesuswalkswater') >= 0 || low === 'jesuswalkswater') return 'jesusWalksWater';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -412,6 +414,27 @@
         '<line x1="263" y1="184" x2="228" y2="198" ' + s + ' stroke-width="2.2"/>' +
         sun(332, 42, 16) +
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 3:1–6</text>'
+      ),
+
+      /* Week 5 gentle: Walk on the sea — Lord, save me (Matthew 14:22–33) */
+      jesusWalksWater: svg(
+        cloud(48, 22) +
+        cloud(262, 26) +
+        '<path d="M0 200 Q100 190 200 198 Q300 190 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M0 222 Q90 216 180 224 Q270 232 360 224 Q380 222 400 226" ' + s + ' stroke-width="1.5" opacity="0.42"/>' +
+        '<path d="M0 238 Q120 232 200 242 Q280 232 400 238" ' + s + ' stroke-width="1.3" opacity="0.32"/>' +
+        '<path d="M78 208 L322 208 L308 250 L92 250 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        person(108, 212, 8, 22) +
+        person(132, 206, 8, 22) +
+        person(268, 206, 8, 22) +
+        person(292, 212, 8, 22) +
+        person(178, 118, 10, 28) +
+        '<ellipse cx="178" cy="248" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.6" opacity="0.7"/>' +
+        person(248, 132, 11, 30) +
+        '<line x1="236" y1="166" x2="198" y2="188" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="198" y1="188" x2="188" y2="198" ' + s + ' stroke-width="2"/>' +
+        sun(332, 40, 14) +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 14:22–33</text>'
       ),
 
       /* Jesus calls helpers — Sea of Galilee, nets (Matthew 4:18–22) */
@@ -4310,7 +4333,6 @@
   /* Map less-common story keys to the closest outline */
   var OUTLINE_ALIAS = {
     /* ── legacy mappings ── */
-    jesusWalksWater: 'jesusCalmsStorm',
     mosesBush: 'burningBush',
     parableSower: 'mustardSeed',
     goodSamaritan: 'loveNeighbor',
@@ -4439,6 +4461,7 @@
     jesusCalmsStorm: 'jesusCalmsStorm',
     witheredHand: 'witheredHand',
     jairus: 'jairus',
+    jesusWalksWater: 'jesusWalksWater',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
@@ -4592,6 +4615,7 @@
     jesusCalmsStorm: 'jesusCalmsStorm',
     witheredHand: 'witheredHand',
     jairus: 'jairus',
+    jesusWalksWater: 'jesusWalksWater',
     marthaServe: 'marthaServe',
     marySit: 'marySit',
     dorcasRaise: 'dorcasRaise',

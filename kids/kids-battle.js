@@ -1523,18 +1523,46 @@
         "Naaman Obeys and Is Made Clean — 2 Kings 5:1-14. Naaman was a great captain, but he had leprosy. A little maid from Israel told his wife, Would God my lord were with the prophet in Samaria! for he would recover him of his leprosy. Naaman went to Elisha’s house. Elisha sent a messenger saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean. At first Naaman was angry and wanted to wash in his own rivers. His servants said gently, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean? So Naaman dipped himself seven times in Jordan. His flesh came again like unto the flesh of a little child, and he was clean. The Lord used Elisha to show that simple obedience brings cleansing and healing. For you: Trust God’s simple way — He is kind."
     },
     jesusWalksWater: {
-      title: 'Jesus Walks on Water',
+      title: 'Jesus Walks on the Sea',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Disciples in boat, big waves' },
-        { src: 'panel-jonah-2.svg', alt: 'Jesus walks on the water' },
-        { src: 'panel-jonah-3.svg', alt: 'Peter walks too—Jesus lifts us!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Night on the sea — wind and waves; Jesus comes walking on the water'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Be of good cheer; it is I; be not afraid — Peter steps out toward Jesus'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Lord, save me — Jesus stretches forth His hand; the wind ceases'
+        }
       ],
-      caption: 'Swipe to see Jesus walk on waves—He lifts us! 🌊',
+      caption:
+        'Swipe to see Jesus walk on the sea — “Be not afraid” — He catches us when we call. 🌊',
       videoId: 'U69Ag6wEyB0',
       videoTitle: 'Jesus Walks on Water – Stories of the Bible!',
-      keywords: ['jesus', 'walks', 'water', 'peter', 'waves', 'matthew 14'],
+      keywords: [
+        'jesus',
+        'walks on water',
+        'peter',
+        'boat',
+        'waves',
+        'lord save me',
+        'matthew 14',
+        'be not afraid',
+        'faith',
+        'sea'
+      ],
       kjvRef: 'Matthew 14:22–33',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus walks on waves—He lifts us! Keep your eyes on Him—don\'t be afraid!' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples — Peter — and us',
+        apply:
+          'Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.'
+      },
+      narration:
+        "Jesus Walks on the Sea — Matthew 14:22–33. And straightway Jesus constrained his disciples to get into a ship, and to go before him unto the other side, while he sent the multitudes away. And when he had sent the multitudes away, he went up into a mountain apart to pray: and when the evening was come, he was there alone. But the ship was now in the midst of the sea, tossed with waves: for the wind was contrary. And in the fourth watch of the night Jesus went unto them, walking on the sea. And when the disciples saw him walking on the sea, they were troubled, saying, It is a spirit; and they cried out for fear. But straightway Jesus spake unto them, saying, Be of good cheer; it is I; be not afraid. And Peter answered him and said, Lord, if it be thou, bid me come unto thee on the water. And he said, Come. And when Peter was come down out of the ship, he walked on the water, to go to Jesus. But when he saw the wind boisterous, he was afraid; and beginning to sink, he cried, saying, Lord, save me. And immediately Jesus stretched forth his hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt? And when they were come into the ship, the wind ceased. Then they that were in the ship came and worshipped him, saying, Of a truth thou art the Son of God. For you: Call on Jesus — He is stronger than any storm."
     },
     lostSheep: {
       title: 'Lost Sheep',
@@ -7743,7 +7771,7 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
@@ -7766,7 +7794,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */

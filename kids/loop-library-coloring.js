@@ -93,7 +93,7 @@
   "jesusTemple": "jesusTemple",
   "jesusTemptation": "jesusTempt",
   "jesusTempted": "jesusTempted",
-  "jesusWalksWater": "jesusCalmsStorm",
+  "jesusWalksWater": "jesusWalksWater",
   "jesusWaterWine": "jesusWaterWine",
   "jobSuffering": "jobSuffering",
   "johnBaptize": "johnBaptize",

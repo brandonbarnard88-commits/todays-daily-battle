@@ -14233,86 +14233,143 @@
     ]
   },
   "jesusWalksWater": {
-    "kjvRef": "Matthew 14:22–33",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Matthew 14:22–33 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "And immediately Jesus stretched forth his hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt? — Matthew 14:31 (KJV)",
+    "readAlongTitle": "Jesus Walks on the Sea",
+    "quizWrongHumilityHint": "Listen again — boat; pray; wind; walking on water; be of good cheer; Peter come; sink; Lord save me; hand; wind ceased; Son of God.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jesus Walks on Water (Matthew 14:22–33).",
-      "Disciples in boat, big waves Jesus walks on the water Peter walks too—Jesus lifts us!"
+      "After feeding the five thousand, Jesus told His friends to get into the boat and go to the other side of the sea.",
+      "He went up on a mountain to pray alone.",
+      "In the middle of the night the boat was in the middle of the sea, tossed by the waves, and the wind was against them.",
+      "Jesus came to them, walking on the sea.",
+      "When the disciples saw Him walking on the water, they were afraid and cried out.",
+      "Jesus spoke to them and said, “Be of good cheer; it is I; be not afraid.”",
+      "Peter said, “Lord, if it be thou, bid me come unto thee on the water.”",
+      "Jesus said, “Come.”",
+      "Peter walked on the water toward Jesus, but when he saw the wind boisterous, he was afraid and began to sink.",
+      "He cried, “Lord, save me.”",
+      "Jesus stretched forth His hand and caught him, and said, “O thou of little faith, wherefore didst thou doubt?”",
+      "When they were come into the boat, the wind ceased.",
+      "They that were in the boat came and worshipped Him, saying, “Of a truth thou art the Son of God.”",
+      "Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.",
+      "Reference: Matthew 14:22–33 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus told His friends to go across the sea; He went to pray on the mountain.",
+        "caption": "Prayer and trust",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "In the night the wind blew hard and the waves were big.",
+        "caption": "Wind and waves",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus walked on the water to them.",
+        "caption": "On the sea",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus said, “Be of good cheer; it is I; be not afraid.”",
+        "caption": "Be not afraid",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Peter tried to walk to Jesus but began to sink.",
+        "caption": "Lord, save me",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus took his hand and helped him.",
+        "caption": "His strong hand",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The wind stopped. Jesus is stronger than the wind and the waves.",
+        "caption": "Peace with Jesus",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
+          "Psalm 23",
           "Matthew 14:22–33",
-          "Revelation 17–18",
-          "Acts 12:1–19",
-          "Ruth 1:1-18"
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 14:22–33.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 14:22–33.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did Jesus say to calm His friends’ hearts?",
         "choices": [
-          "John",
-          "Priscilla",
-          "David — and the Lord",
-          "Jesus"
+          "“Be of good cheer; it is I; be not afraid.”",
+          "“Hide under the boat.”",
+          "“The sea is not real.”",
+          "“Never call on Me.”"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus speaks peace.",
+        "wrongFeedback": "Think about Jesus’ words when He walked on the water. (Answer: “Be of good cheer; it is I; be not afraid.”)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Jesus walks on waves—He lifts us! Keep your eyes on Him—don't be afraid!",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray."
+          "Jesus cannot hear us when we are scared.",
+          "Jesus is stronger than the wind and the waves — we can call to Him and He will help us.",
+          "We should never ask Jesus for help.",
+          "Peter never needed Jesus."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus walks on waves—He lifts us! Keep your eyes on Him—don't be afraid!.)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about Jesus saving Peter and calming the storm. (Answer: Jesus is stronger than the wind and the waves — we can call to Him and He will help us.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Disciples in boat, big waves",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "Peter cried, “Lord, save me,” and Jesus stretched forth His hand and caught him.",
+          "A whale wore sunglasses.",
+          "The boat turned into a kite.",
+          "Everyone forgot how to float."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that comes straight from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Peter’s cry and Jesus’ help? (Answer: Lord, save me… Jesus stretched forth His hand.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus walks on waves—He lifts us! Keep your eyes on Him—don't be afraid!",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Thank Jesus that He is with us — ask Him for faith to look to Him when we feel afraid.",
+          "Never talk to God on hard nights.",
+          "Only pray when we feel brave.",
+          "Ignore people who need comfort."
         ],
         "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus walks on waves—He lifts us! Keep your eyes on Him—don't be afraid!.)"
+        "wrongFeedback": "Think: which honors Jesus’ rescue and kindness? (Answer: Thank Jesus that He is with us — ask Him for faith to look to Him when we feel afraid.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jesus Walks on Water with God's Word today.",
-    "takeaway": "Jesus walks on waves—He lifts us! Keep your eyes on Him—don't be afraid!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus Walks on Water. Amen.",
+    "doneMessage": "Great job reading Jesus Walks on the Sea with God's Word today.",
+    "takeaway": "Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.",
+    "prayer": "Lord Jesus, thank You that You are stronger than every storm. When we feel afraid, help us look to You and trust You. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Disciples in boat, big waves (jesus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus walks on the water (walks)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Peter walks too—Jesus lifts us! (water)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Disciples in boat, big waves (peter)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus walks on the water (waves)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus walking on the water toward the boat Peter is stepping out of the boat with his hand reaching toward Jesus the other disciples are in the boat watching thick bold outlines with large open spaces on Jesus' robe Peter's robe the boat and the water for easy coloring soft waves and a gentle night sky with minimal lines trusting calm mood focus on Jesus walking on the water and helping Peter clean minimal no fear or big scary waves plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Send the boat — go to pray (quiet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Night sea — wind and waves (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Jesus walks on the sea (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Be of good cheer — it is I (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Come — Peter on the water (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Lord save me — Jesus catches him (rescue)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Wind ceased — Son of God (hope)"
+    ],
+    "readAlongImages": []
   },
   "jesusWaterWine": {
     "kjvRef": "John 2:1–11 (KJV)",

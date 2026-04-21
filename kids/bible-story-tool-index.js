@@ -1188,13 +1188,13 @@
   },
   {
     "key": "jesusWalksWater",
-    "title": "Jesus Walks on Water",
+    "title": "Jesus Walks on the Sea",
     "kjvRef": "Matthew 14:22–33",
     "who": "Jesus",
-    "to": "His disciples (and us)",
-    "apply": "Jesus walks on waves—He lifts us! Keep your eyes on Him—don't be afraid!",
+    "to": "His disciples — Peter — and us",
+    "apply": "Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.",
     "theme": "Miracles",
-    "kw": "jesus walks water peter waves matthew 14"
+    "kw": "jesus walks water sea peter boat waves lord save me matthew 14 be not afraid faith son of god"
   },
   {
     "key": "jesusFirstMiracle",

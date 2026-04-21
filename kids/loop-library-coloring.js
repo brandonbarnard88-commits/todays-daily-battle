@@ -73,7 +73,7 @@
   "healBlind": "healBlind",
   "healLeper": "healLeper",
   "holySpiritPentecost": "pentecost",
-  "isaiahMessianic": "angelMary",
+  "isaiahMessianic": "isaiahMessianic",
   "jacobLadder": "jacobLadder",
   "jairus": "jairus",
   "jeremiahWeeping": "jobSuffering",

@@ -2479,6 +2479,39 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 5–7</text>'
       ),
 
+      /* ── Isaiah — promised child; soft light, scroll, gentle hills (Isaiah 9:2–7) ── */
+      isaiahMessianic: svg(
+        ground() +
+        '<path d="M0 250 Q120 228 200 250 Q280 228 400 250" ' +
+        s +
+        ' stroke-width="2" fill="none" opacity="0.78"/>' +
+        '<path d="M0 256 Q140 244 200 256 Q260 244 400 256" ' +
+        s +
+        ' stroke-width="1.35" fill="none" opacity="0.48"/>' +
+        '<ellipse cx="200" cy="46" rx="86" ry="20" ' +
+        sf +
+        ' fill="white" stroke-width="0.5" opacity="0.2"/>' +
+        '<line x1="200" y1="28" x2="200" y2="92" ' +
+        s +
+        ' stroke-width="0.6" stroke-dasharray="10,9" opacity="0.33"/>' +
+        '<line x1="170" y1="34" x2="158" y2="88" ' +
+        s +
+        ' stroke-width="0.5" stroke-dasharray="10,9" opacity="0.26"/>' +
+        '<line x1="230" y1="34" x2="242" y2="88" ' +
+        s +
+        ' stroke-width="0.5" stroke-dasharray="10,9" opacity="0.26"/>' +
+        person(200, 168, 12, 34) +
+        '<path d="M188 190 L172 202" ' + s + ' stroke-width="1.75"/>' +
+        '<path d="M212 190 L228 202" ' + s + ' stroke-width="1.75"/>' +
+        '<rect x="228" y="198" width="26" height="16" rx="3" ' +
+        sf +
+        ' fill="white" stroke-width="1.45"/>' +
+        '<line x1="232" y1="203" x2="250" y2="203" ' + s + ' stroke-width="0.75"/>' +
+        '<line x1="232" y1="208" x2="248" y2="208" ' + s + ' stroke-width="0.75"/>' +
+        sun(340, 48, 15) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Isaiah 9:2–7</text>'
+      ),
+
       /* ── Week 5: Angel Mary (61) ── */
       angelMary: svg(
         ground() +
@@ -4019,7 +4052,7 @@
     elishaChariots: 'elishaChariots',
     elishaBlindArmy: 'elishaBlindArmy',
     elishaPoisonStew: 'elishaPoisonStew',
-    isaiahMessianic: 'angelMary',
+    isaiahMessianic: 'isaiahMessianic',
     jeremiahWeeping: 'jobSuffering',
     ezekielValleyBones: 'elishaShunammite',
     danielFieryFurnace: 'fieryFurnace',

@@ -4310,19 +4310,40 @@
       kidContext: { who: 'God', to: 'everyone who hears', apply: 'God\'s power is greater than anything. He can do wonderful things — we can trust Him.' }
     },
     isaiahMessianic: {
-      title: 'Isaiah\'s Messianic Prophecies',
+      title: 'God Promises a Savior',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'God\'s prophet speaks — promises of the coming King' },
-        { src: 'panel-jesus-2.svg', alt: 'A promised child — Immanuel, God with us' },
-        { src: 'panel-jesus-3.svg', alt: 'The suffering servant brings healing and peace' }
+        { src: 'panel-jesus-1.svg', alt: 'God speaks through Isaiah — good news for His people' },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'A promised child — Wonderful, Counsellor, the mighty God, the Prince of Peace'
+        },
+        { src: 'panel-jesus-3.svg', alt: 'Light and joy for people walking in darkness — God keeps His word' }
       ],
-      caption: 'Swipe to see God\'s promises that came true in Jesus! ✨',
+      caption: 'Swipe to see God’s gentle promise of a Savior and names full of hope.',
       videoId: '',
       videoTitle: '',
-      keywords: ['isaiah', 'prophet', 'immanuel', 'jesus', 'isaiah 7', 'isaiah 9', 'isaiah 53', 'promise'],
-      kjvRef: 'Isaiah 7:14; 9:6–7; 53:4–6',
-      kidContext: { who: 'God', to: 'us', apply: 'God said what He would do — and Jesus came. You can trust every promise in His Word.' },
-      narration: 'Isaiah was a prophet — someone who speaks God\'s truth to His people. Long before Jesus walked the earth, Isaiah wrote words from God about a coming King: a child who would be called Wonderful, Counsellor, the mighty God, the Prince of Peace. He also wrote about One who would carry our griefs and heal us by His suffering. Those words pointed to Jesus. For you: When God puts a promise in the Bible, He keeps it. You can trust Him with what worries you today.'
+      keywords: [
+        'isaiah',
+        'prophet',
+        'isaiah 9',
+        'wonderful',
+        'counsellor',
+        'prince of peace',
+        'savior',
+        'promise',
+        'light',
+        'child',
+        'jesus'
+      ],
+      kjvRef: 'Isaiah 9:2–7',
+      kidContext: {
+        who: 'God',
+        to: 'every heart that needs hope',
+        apply:
+          'God promised a Savior who brings light and joy — and He always keeps His promises.'
+      },
+      narration:
+        "God Promises a Savior — Isaiah 9:2–7. Long ago God spoke through His prophet Isaiah. Isaiah told God's people that a special child would be born — called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace. This child would bring light and joy to people walking in darkness. God was promising to send a Savior who would love and help His people — and God always keeps His promises. For you: you can trust God's Word; His promises are sure."
     },
     jeremiahWeeping: {
       title: 'Jeremiah the Weeping Prophet',

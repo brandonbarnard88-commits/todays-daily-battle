@@ -10485,89 +10485,127 @@
     ]
   },
   "isaiahMessianic": {
-    "kjvRef": "Isaiah 7:14; 9:6–7; 53:4–6",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Isaiah 9:2–7 (KJV)",
+    "verseExcerpt": "For unto us a child is born, unto us a son is given… and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace. — Isaiah 9:6 (KJV)",
+    "readAlongTitle": "God Promises a Savior",
+    "quizWrongHumilityHint": "Listen again — God spoke through Isaiah; a special child; beautiful names; light and joy; God promised a Savior; He keeps His promises.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Isaiah was a prophet — someone who speaks God's truth to His people. Long before Jesus walked the earth, Isaiah wrote words from God about a coming King: a child who would be called Wonderful, Counsellor, the mighty God, the Prince of Peace.",
-      "He also wrote about One who would carry our griefs and heal us by His suffering.",
-      "Those words pointed to Jesus.",
-      "For you: When God puts a promise in the Bible, He keeps it.",
-      "You can trust Him with what worries you today."
+      "Long ago God spoke through His prophet Isaiah.",
+      "Isaiah told God’s people that a special child would be born.",
+      "He said the child would be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
+      "This child would bring light and joy to people walking in darkness.",
+      "God was promising to send a Savior who would love and help His people.",
+      "God always keeps His promises.",
+      "Reference: Isaiah 9:2–7 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "God spoke through His prophet Isaiah.",
+        "caption": "God’s prophet",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "A special child would be born.",
+        "caption": "A child promised",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He would be called Wonderful, Counsellor, The mighty God.",
+        "caption": "Wonderful names",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "He would bring light and joy.",
+        "caption": "Light and joy",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "God promised to send a Savior.",
+        "caption": "A promised Savior",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God always keeps His promises.",
+        "caption": "God keeps His word",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Isaiah 7:14; 9:6–7; 53:4–6",
-          "Daniel 6",
-          "Joshua 8:1-8, 18-23, 26-29",
-          "1 Kings 19:9-18"
+          "Psalm 23",
+          "Isaiah 9:2–7",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Isaiah 7:14; 9:6–7; 53:4–6.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Isaiah 9:2–7.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "The LORD",
-          "Jude",
-          "James",
-          "God"
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 0,
+        "correctFeedback": "Right—God speaks the promise and sends the Savior He planned.",
+        "wrongFeedback": "Look for who keeps His promises and speaks through His prophet. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
+          "God never keeps His promises.",
           "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God said what He would do — and Jesus came. You can trust every promise in His Word.",
-          "God never hears when kids pray."
+          "God promised a Savior — and He always keeps His promises.",
+          "We should hide from God when we mess up."
         ],
         "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God said what He would do — and Jesus came. You can trust every promise in His Word..)"
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: God promised a Savior — and He always keeps His promises.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
           "A spaceship landed in the parking lot.",
-          "God's prophet speaks — promises of the coming King",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again."
+          "Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
+          "Everyone decided to never sleep again.",
+          "Let us rise up and build."
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "When God puts a promise in the Bible, He keeps it. You can trust Him with what worries you today.",
-          "Only be kind to people who are exactly like us.",
           "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Thank God for His promises — and trust the Savior He has given.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When God puts a promise in the Bible, He keeps it. You can trust Him with what worries….)"
+        "wrongFeedback": "Think: does this choice show trust in God’s promises? Pick the one that honors Him. (Answer: Thank God for His promises — and trust the Savior He has given.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Isaiah's Messianic Prophecies with God's Word today.",
-    "takeaway": "God said what He would do — and Jesus came. You can trust every promise in His Word.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Isaiah's Messianic Prophecies. Amen.",
+    "doneMessage": "Great job reading God Promises a Savior with God's Word today.",
+    "takeaway": "God promised a Savior who brings light and joy — and He always keeps His promises.",
+    "prayer": "Lord, thank You for Your promises. Help us trust You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God's prophet speaks — promises of the coming King (isaiah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A promised child — Immanuel, God with us (prophet)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The suffering servant brings healing and peace (immanuel)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God's prophet speaks — promises of the coming King (jesus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A promised child — Immanuel, God with us (isaiah 7)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a gentle prophet named Isaiah standing with open hands as if sharing good news soft light rays shine down from above thick bold outlines with large open spaces on Isaiah's robe and the ground for easy coloring a simple scroll in one hand gentle hills and a soft sky in the background with minimal lines hopeful and trusting mood focus on God promising a Savior clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Isaiah speaks God’s promise (prophet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A child born — Wonderful Counsellor (isaiah 9)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Light and joy for dark places (light)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God keeps His promises (trust)"
+    ],
+    "readAlongImages": []
   },
   "jacobLadder": {
     "kjvRef": "Genesis 28:10–22",
@@ -20117,7 +20155,7 @@
         "choices": [
           "2 Kings 6:1-7",
           "Acts 3",
-          "Isaiah 7:14; 9:6–7; 53:4–6",
+          "Isaiah 9:2–7",
           "Galatians 5"
         ],
         "correctIndex": 1,
@@ -28757,7 +28795,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Isaiah 7:14; 9:6–7; 53:4–6",
+          "Isaiah 9:2–7",
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
           "Galatians 5"
         ],

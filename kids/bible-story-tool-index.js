@@ -958,13 +958,13 @@
   },
   {
     "key": "isaiahMessianic",
-    "title": "Isaiah's Messianic Prophecies",
-    "kjvRef": "Isaiah 7:14; 9:6–7; 53:4–6",
+    "title": "God Promises a Savior",
+    "kjvRef": "Isaiah 9:2–7",
     "who": "God",
-    "to": "us",
-    "apply": "God said what He would do — and Jesus came. You can trust every promise in His Word.",
+    "to": "every heart that needs hope",
+    "apply": "God promised a Savior who brings light and joy — and He always keeps His promises.",
     "theme": "Love",
-    "kw": "isaiah prophet immanuel jesus isaiah 7 isaiah 9 isaiah 53 promise"
+    "kw": "isaiah prophet isaiah 9 wonderful counsellor prince of peace savior promise light child jesus"
   },
   {
     "key": "jacobLadder",

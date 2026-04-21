@@ -32674,7 +32674,7 @@
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches Matthew 26:57.",
-        "wrongFeedback": "Listen for the high priest’s name. (Answer: Caiaphas.)"
+        "wrongFeedback": "Listen for the high priest's name. (Answer: Caiaphas.)"
       },
       {
         "question": "What did the council try to find against Jesus at first?",
@@ -32689,7 +32689,7 @@
         "wrongFeedback": "Listen for “false witness.” (Answer: false witness.)"
       },
       {
-        "question": "Before answering the big question, what did Jesus do when the high priest asked about the witnesses’ words?",
+        "question": "Before answering the big question, what did Jesus do when the high priest asked about the witnesses' words?",
         "choices": [
           "He held his peace (stayed quiet).",
           "He ran away.",

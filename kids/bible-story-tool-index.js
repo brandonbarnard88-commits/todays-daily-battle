@@ -3027,6 +3027,16 @@
     "kw": "nobleman son cana capernaum john 4 heal believe thy son liveth same hour servants household fever"
   },
   {
+    "key": "centurionServant",
+    "title": "Jesus Heals a Soldier's Servant from Far Away",
+    "kjvRef": "Matthew 8:5–13",
+    "who": "Jesus",
+    "to": "The centurion — and his household",
+    "apply": "Jesus can heal with just a word when people trust Him — His word is true and kind.",
+    "theme": "Miracles",
+    "kw": "centurion servant capernaum matthew 8 faith speak the word great faith heal palsy selfsame hour trust roman"
+  },
+  {
     "key": "thessaloniansHope",
     "title": "Thessalonians — Hope When We Grieve",
     "kjvRef": "1 Thessalonians 4:13–18; 5:16–24",

@@ -61,6 +61,7 @@
  * Sermon on the Mount — gentle introduction (Matthew 5:1–16 summary, gentle): buildJesusSermonReadQuiz() (library key: jesusSermon).
  * Woman at the well — living water (John 4:1–42, gentle summary): buildSamaritanWomanReadQuiz() (library key: samaritanWoman).
  * Nobleman’s son healed at a word (John 4:46–54, gentle): buildNoblemanSonReadQuiz() (library key: noblemanSon).
+ * Centurion’s servant healed at a word (Matthew 8:5–13, gentle): buildCenturionServantReadQuiz() (library key: centurionServant).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -7209,6 +7210,147 @@ function buildNoblemanSonReadQuiz() {
   };
 }
 
+/** Centurion’s servant — great faith, healed at Jesus’ word (gentle). Library key: centurionServant */
+function buildCenturionServantReadQuiz() {
+  return {
+    kjvRef: 'Matthew 8:5–13 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'And Jesus said unto the centurion, Go thy way; and as thou hast believed, so be it done unto thee. — Matthew 8:13 (KJV)',
+    readAlongTitle: "Jesus Heals a Soldier's Servant from Far Away",
+    quizWrongHumilityHint:
+      'Listen again — sick servant; Capernaum; not worthy; speak the word only; great faith; as thou hast believed; selfsame hour.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'A Roman centurion had a servant who was very sick and suffering at home.',
+      'He came to Jesus and begged Him for help.',
+      'Jesus said, “I will come and heal him.”',
+      'The centurion said, “Lord, I am not worthy that thou shouldest come under my roof: but speak the word only, and my servant shall be healed.”',
+      'He told Jesus how orders are obeyed—and how Jesus’ word is even greater.',
+      'Jesus was amazed and said He had not found so great faith, no, not in Israel.',
+      'Jesus said unto the centurion, “Go thy way; and as thou hast believed, so be it done unto thee.”',
+      'And his servant was healed in the selfsame hour.',
+      'Jesus can heal with just a word, even from far away, when people trust Him.',
+      'Reference: Matthew 8:5–13 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A centurion had a very sick servant.',
+        caption: 'A caring master',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He asked Jesus to help.',
+        caption: 'Please come',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The centurion said, “Just say the word — and my servant will be healed.”',
+        caption: 'Speak the word',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus was amazed at his faith.',
+        caption: 'Great faith',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, “As thou hast believed, so be it done.”',
+        caption: 'Jesus’ promise',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The servant was well at that very hour.',
+        caption: 'Healed!',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus can heal with just a word when people trust Him.',
+        caption: 'Trust Jesus',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 8:5–13', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 8:5–13.)'
+      },
+      {
+        question: 'What did the centurion want Jesus to do for his servant?',
+        choices: [
+          'Heal him — he trusted that Jesus’ word was enough',
+          'Buy a bigger house in Rome',
+          'Forget about sick people',
+          'Only talk about the weather'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—he believed Jesus could heal with a word.',
+        wrongFeedback:
+          'Think about “speak the word only, and my servant shall be healed.” (Answer: Heal him — he trusted that Jesus’ word was enough.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'Jesus never notices faith.',
+          'Jesus can heal with just a word when people trust Him.',
+          'We should never ask Jesus for help.',
+          'Servants never matter to God.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the ending about the selfsame hour and trusting Jesus. (Answer: Jesus can heal with just a word when people trust Him.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus said He had not found so great faith, no, not in Israel.',
+          'A spaceship landed on the roof.',
+          'The servant turned into a frog.',
+          'Jesus forgot how to speak.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that amazement comes from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Jesus’ words about faith? (Answer: Jesus said He had not found so great faith, no, not in Israel.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus for hearing us — ask Him to help us trust Him more, little by little, today.',
+          'Never speak kindly to anyone.',
+          'Only pray when we feel perfect.',
+          'Ignore people who are hurting.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus’ kindness to the centurion? (Answer: Thank Jesus for hearing us — ask Him to help us trust Him more, little by little, today.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Heals a Soldier’s Servant from Far Away with God's Word today.",
+    takeaway: 'Jesus can heal with just a word when people trust Him.',
+    prayer:
+      'Lord Jesus, thank You for great faith. Help us trust Your word today — and love others with Your kindness. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: the Roman centurion kneeling before Jesus with a kind trusting face Jesus has a gentle caring face and is speaking to him thick bold outlines with large open spaces on the centurion\'s robe Jesus\' robe and the ground for easy coloring soft road and hills in the background with minimal lines trusting hopeful mood focus on Jesus healing the servant from far away clean minimal no fear or sickness shown plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sage and gold, friendly not scary, no text in image: Sick servant — master cares (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sage and gold, friendly not scary, no text in image: Not worthy — speak the word (humility)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sage and gold, friendly not scary, no text in image: Jesus amazed — great faith (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sage and gold, friendly not scary, no text in image: As thou hast believed (promise)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sage and gold, friendly not scary, no text in image: Selfsame hour — well (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sage and gold, friendly not scary, no text in image: Trust Jesus’ word (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -7314,5 +7456,6 @@ module.exports = {
   jesusSermon: buildJesusSermonReadQuiz(),
   samaritanWoman: buildSamaritanWomanReadQuiz(),
   noblemanSon: buildNoblemanSonReadQuiz(),
+  centurionServant: buildCenturionServantReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

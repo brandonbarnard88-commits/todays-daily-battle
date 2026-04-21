@@ -7072,6 +7072,48 @@
       narration:
         "Jesus Heals a Boy from Far Away — John 4:46–54. So Jesus came again into Cana of Galilee, where he made the water wine. And there was a certain nobleman, whose son was sick at Capernaum. When he heard that Jesus was come out of Judaea into Galilee, he went unto him, and besought him that he would come down, and heal his son: for he was at the point of death. Then said Jesus unto him, Except ye see signs and wonders, ye will not believe. The nobleman saith unto him, Sir, come down ere my child die. Jesus saith unto him, Go thy way; thy son liveth. And the man believed the word that Jesus had spoken unto him, and he went his way. And as he was now going down, his servants met him, and told him, saying, Thy son liveth. Then enquired he of them the hour when he began to amend. And they said unto him, Yesterday at the seventh hour the fever left him. So the father knew that it was at the same hour, in the which Jesus said unto him, Thy son liveth: and himself believed, and his whole house. For you: Jesus is powerful and kind — trust His word."
     },
+    centurionServant: {
+      title: "Jesus Heals a Soldier's Servant from Far Away",
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'A centurion kneels before Jesus — his servant is very sick at home'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: "Speak the word only — Jesus marvels at the centurion's faith"
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Go thy way — the servant is healed in the selfsame hour'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus heal a servant with a word — great faith, kind Jesus, happy home.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'centurion',
+        'servant',
+        'capernaum',
+        'matthew 8',
+        'faith',
+        'speak the word',
+        'great faith',
+        'heal',
+        'selfsame hour',
+        'trust'
+      ],
+      kjvRef: 'Matthew 8:5–13',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The centurion — and everyone who listens',
+        apply:
+          "Jesus can heal with just a word when people trust Him — His word is true and kind."
+      },
+      narration:
+        "Jesus Heals a Soldier's Servant from Far Away — Matthew 8:5–13. And when Jesus was entered into Capernaum, there came unto him a centurion, beseeching him, And saying, Lord, my servant lieth at home sick of the palsy, grievously tormented. And Jesus saith unto him, I will come and heal him. The centurion answered and said, Lord, I am not worthy that thou shouldest come under my roof: but speak the word only, and my servant shall be healed. For I am a man under authority, having soldiers under me: and I say to this man, Go, and he goeth; and to another, Come, and he cometh; and to my servant, Do this, and he doeth it. When Jesus heard it, he marvelled, and said to them that followed, Verily I say unto you, I have not found so great faith, no, not in Israel. And I say unto you, That many shall come from the east and west, and shall sit down with Abraham, and Isaac, and Jacob, in the kingdom of heaven. But the children of the kingdom shall be cast out into outer darkness: there shall be weeping and gnashing of teeth. And Jesus said unto the centurion, Go thy way; and as thou hast believed, so be it done unto thee. And his servant was healed in the selfsame hour. For you: trust Jesus' word — He is full of power and mercy."
+    },
     marthaServe: {
       title: 'Martha Serves Jesus',
       panels: [
@@ -7575,7 +7617,7 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusWalksWater',
@@ -7598,7 +7640,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -10733,6 +10775,7 @@
     jesusSermon: 'Love',
     samaritanWoman: 'Love',
     noblemanSon: 'Miracles',
+    centurionServant: 'Miracles',
     jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',

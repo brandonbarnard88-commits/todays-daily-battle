@@ -145,6 +145,7 @@
     'jesusSermon',
     'samaritanWoman',
     'noblemanSon',
+    'centurionServant',
     'jesusHealsParalytic',
     'jesusCalmsStorm',
     'jairus',

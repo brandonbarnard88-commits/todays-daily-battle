@@ -149,7 +149,8 @@
       jesusTempted: 'jesusTempted',
       jesusSermon: 'jesusSermon',
       samaritanWoman: 'samaritanWoman',
-      noblemanSon: 'noblemanSon'
+      noblemanSon: 'noblemanSon',
+      centurionServant: 'centurionServant'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -165,6 +166,7 @@
     if (low.indexOf('creation') >= 0 || low.indexOf('adam') >= 0) return 'creation';
     if (low.indexOf('samaritanwoman') >= 0 || low === 'samaritanwoman') return 'samaritanWoman';
     if (low.indexOf('noblemanson') >= 0 || low === 'noblemanson') return 'noblemanSon';
+    if (low.indexOf('centurionservant') >= 0 || low === 'centurionservant') return 'centurionServant';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -3895,6 +3897,21 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 4:46–54</text>'
       ),
 
+      /* ── Week 5 gentle: Centurion’s servant — great faith (Matthew 8:5–13) ── */
+      centurionServant: svg(
+        ground() + hills() +
+        '<path d="M32 258 Q200 244 368 258" ' + s + ' stroke-width="2.2"/>' +
+        person(268, 148, 13, 40) +
+        '<path d="M258 162 Q248 172 252 188" ' + s + ' stroke-width="2.5"/>' +
+        '<circle cx="125" cy="182" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M125 193 L112 232 L98 256 L152 256 L138 232 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M136 200 L248 175 M140 208 L255 185" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="340" cy="248" rx="22" ry="8" ' + sf + ' fill="white" stroke-width="1.8" opacity="0.85"/>' +
+        '<circle cx="340" cy="232" r="6" ' + sf + ' fill="white" stroke-width="1.6" opacity="0.85"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 8:5–13</text>'
+      ),
+
       /* ── Week 11: Martha Serve (137) ── */
       marthaServe: svg(
         ground() +
@@ -4377,6 +4394,7 @@
     jesusTempted: 'jesusTempted',
     jesusSermon: 'jesusSermon',
     noblemanSon: 'noblemanSon',
+    centurionServant: 'centurionServant',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
@@ -4526,6 +4544,7 @@
     persistentWidow: 'persistentWidow',
     samaritanWoman: 'samaritanWoman',
     noblemanSon: 'noblemanSon',
+    centurionServant: 'centurionServant',
     marthaServe: 'marthaServe',
     marySit: 'marySit',
     dorcasRaise: 'dorcasRaise',

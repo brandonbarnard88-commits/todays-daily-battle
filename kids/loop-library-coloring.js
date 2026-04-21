@@ -163,6 +163,7 @@
   "jesusSermon": "jesusSermon",
   "samaritanWoman": "samaritanWoman",
   "noblemanSon": "noblemanSon",
+  "centurionServant": "centurionServant",
   "shunammiteReturn": "shunammiteReturn",
   "solomonTemple": "solomonTemple",
   "solomonTwoMothers": "solomonTwoMothers",

@@ -187,6 +187,7 @@
     'sheepAndGoats',
     'widowMite',
     'widowsMite',
+    'jesusCleansesTemple',
     'zacchaeus',
     'jesusParableGoodShepherd',
     'lazarus',

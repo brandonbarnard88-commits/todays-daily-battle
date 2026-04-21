@@ -85,6 +85,7 @@
   "jesusBlessKids": "jesusBlessKids",
   "jesusCallingDisciples": "jesusCalmsStorm",
   "jesusCalmsStorm": "jesusCalmsStorm",
+  "jesusCleansesTemple": "jesusCleansesTemple",
   "jesusDisciples": "jesusDisciples",
   "jesusFeeds5000": "jesusFeeds5000",
   "jesusFirstMiracle": "weddingWine",

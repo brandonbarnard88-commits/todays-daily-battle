@@ -652,6 +652,11 @@
       webm: '/media/kids-stories/jesus-calms-storm.webm',
       captionsVtt: '/media/kids-stories/jesus-calms-storm.vtt'
     },
+    jesusCleansesTemple: {
+      mp4: '/media/kids-stories/jesus-cleanses-temple.mp4',
+      webm: '/media/kids-stories/jesus-cleanses-temple.webm',
+      captionsVtt: '/media/kids-stories/jesus-cleanses-temple.vtt'
+    },
     jesusCrucifixion: {
       mp4: '/media/kids-stories/jesus-crucifixion.mp4',
       webm: '/media/kids-stories/jesus-crucifixion.webm',

@@ -89,6 +89,7 @@
  * Ten virgins — Matthew 25:1–13 (gentle): buildTenVirginsReadQuiz() (library key: tenVirgins; alias parableTenVirgins in slug map).
  * Sheep and goats (judgment, gentle — sheep on the right, help the least) — Matthew 25:31–40: buildSheepAndGoatsReadQuiz() (library key: sheepAndGoats; alias parableSheepAndGoats in slug map).
  * Widow’s mite — Mark 12:41–44 (gentle): buildWidowsMiteReadQuiz() (library keys: widowsMite; alias widowMite).
+ * Temple cleansed — John 2:13–16 (gentle): buildJesusCleansesTempleReadQuiz() (library key: jesusCleansesTemple).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -11042,6 +11043,134 @@ function buildWidowsMiteReadQuiz() {
   };
 }
 
+/** Temple cleansed — John 2:13–16 (gentle). Library key: jesusCleansesTemple */
+function buildJesusCleansesTempleReadQuiz() {
+  return {
+    kjvRef: 'John 2:13–16 (KJV)',
+    verseExcerpt:
+      'Take these things hence; make not my Father’s house an house of merchandise. — John 2:16 (KJV)',
+    readAlongTitle: 'Jesus Makes God’s House Clean Again',
+    quizWrongHumilityHint:
+      'Listen again — passover; Jerusalem; temple; sold; doves; money changers; scourge; cords; drove out; overthrew; tables; Take these things hence; Father’s house; merchandise.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus came to the temple in Jerusalem.',
+      'He saw people buying and selling animals and changing money right inside God’s house.',
+      'It was noisy and not a good place to pray.',
+      'Jesus was sad and angry that they were not treating God’s house with respect.',
+      'He made a scourge of small cords and drove the sellers and the money changers out.',
+      'He poured out the changers’ money and overthrew the tables.',
+      'He said, “Take these things hence; make not my Father’s house an house of merchandise.”',
+      'Jesus wants God’s house to be a quiet, respectful place where people can pray and worship.',
+      'Reference: John 2:13–16 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus came to the temple in Jerusalem.',
+        caption: 'Jesus went up to Jerusalem',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'People were buying and selling inside — it was noisy and not a good place to pray.',
+        caption: 'Sold in the temple',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus made a whip of small cords and drove the sellers out — and overthrew the tables.',
+        caption: 'Scourge of small cords',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He poured out the changers’ money.',
+        caption: 'Poured out the money',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus said, “Take these things hence; make not my Father’s house an house of merchandise.”',
+        caption: 'My Father’s house',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus wants God’s house to be a quiet place to pray.',
+        caption: 'House of prayer',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['John 2:13–16', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: John 2:13–16.)'
+      },
+      {
+        question: 'What did Jesus see happening inside the temple?',
+        choices: [
+          'People buying and selling animals and changing money — noisy trading',
+          'Only quiet prayer with no problems',
+          'An empty building with no one there',
+          'A school lesson about stars'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 2:14.',
+        wrongFeedback: 'Listen for selling, doves, and money changers. (Answer: buying and selling… changing money.)'
+      },
+      {
+        question: 'What did Jesus tell them about God’s house?',
+        choices: [
+          '“Take these things hence; make not my Father’s house an house of merchandise.”',
+          '“Let noise stay forever.”',
+          '“God does not care about prayer.”',
+          '“Never come to the temple.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that is Jesus’ line in John 2:16.',
+        wrongFeedback: 'Listen again for “Take these things hence.” (Answer: Father’s house… merchandise.)'
+      },
+      {
+        question: 'What is one heart-lesson Jesus shows us here?',
+        choices: [
+          'God’s house should be honored — a place for prayer and worship, not greedy noise',
+          'Money is always more important than prayer',
+          'God loves confusion in church',
+          'We should never feel strongly about what is holy'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that matches the gentle point of the story.',
+        wrongFeedback: 'Think respect, prayer, and worship. (Answer: honor God’s house… prayer.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me treat church and prayer time with quiet respect — love for God first.',
+          'Only be loud on purpose in worship.',
+          'Believe God never listens when I pray.',
+          'Hide from God when I’m sorry.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Sweet faith—small honest choices please God.',
+        wrongFeedback: 'Think “quiet, respectful, pray.” (Answer: respect… prayer… love for God.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Makes God’s House Clean Again with God's Word today.",
+    takeaway: 'Jesus wants God’s house to be a quiet, respectful place where we can pray.',
+    prayer:
+      'Lord Jesus, help me love Your house — church and prayer time — with a quiet, thankful heart. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus standing in the temple with a kind but firm face. Tables are turned over and money is on the floor, but no people are shown being scared. Jesus is pointing and speaking. Thick, bold outlines with large open spaces on Jesus’ robe, the overturned tables, and the floor for easy coloring. Soft temple columns and gentle light with minimal lines. Respectful and clean mood — focus on Jesus making God’s house right again. Clean, minimal, no anger or chaos shown strongly, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft columns and warm light, friendly not scary, no text in image: Temple — Jesus came (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft columns and warm light, friendly not scary, no text in image: Noisy buying — not prayer (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft columns and warm light, friendly not scary, no text in image: Small cords — tables over (care)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft columns and warm light, friendly not scary, no text in image: Father’s house — no merchandise (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft columns and warm light, friendly not scary, no text in image: Quiet place to pray (mercy)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -11446,6 +11575,7 @@ module.exports = {
   sheepAndGoats: buildSheepAndGoatsReadQuiz(),
   widowsMite: buildWidowsMiteReadQuiz(),
   widowMite: buildWidowsMiteReadQuiz(),
+  jesusCleansesTemple: buildJesusCleansesTempleReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

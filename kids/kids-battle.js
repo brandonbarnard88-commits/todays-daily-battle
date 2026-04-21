@@ -6990,6 +6990,47 @@
       narration:
         "Jesus Sees the Poor Widow’s Gift — Mark 12:41–44. And Jesus sat over against the treasury, and beheld how the people cast money into the treasury: and many that were rich cast in much. And there came a certain poor widow, and she threw in two mites, which make a farthing. And he called unto him his disciples, and saith unto them, Verily I say unto you, That this poor widow hath cast more in, than all they which have cast into the treasury: For all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living. For you: Jesus sees when we give with a loving heart, even if it is only a little."
     },
+    jesusCleansesTemple: {
+      title: 'Jesus Makes God’s House Clean Again',
+      panels: [
+        {
+          src: 'panel-noah-1.svg',
+          alt: 'Jesus comes to the temple — people buying, selling, and changing money inside'
+        },
+        {
+          src: 'panel-noah-2.svg',
+          alt: 'Jesus drives out the trading — tables over, coins poured out — caring for God’s house'
+        },
+        {
+          src: 'panel-noah-3.svg',
+          alt: 'Jesus speaks: Take these things hence — make not my Father’s house a house of merchandise'
+        }
+      ],
+      caption: 'Swipe to see Jesus make God’s house clean for prayer again! 🕊️',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'temple',
+        'cleanse',
+        'merchandise',
+        'john 2',
+        'john 2:13',
+        'house of prayer',
+        'money changers',
+        'tables',
+        'father’s house',
+        'jerusalem'
+      ],
+      kjvRef: 'John 2:13–16',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples and everyone who worships (and us)',
+        apply:
+          'Jesus wants God’s house — and our hearts toward Him — to be full of respect, prayer, and love, not selfish noise.'
+      },
+      narration:
+        "Jesus Makes God’s House Clean Again — John 2:13–16. And the Jews’ passover was at hand, and Jesus went up to Jerusalem, And found in the temple those that sold oxen and sheep and doves, and the changers of money sitting: And when he had made a scourge of small cords, he drove them all out of the temple, and the sheep, and the oxen; and poured out the changers’ money, and overthrew the tables; And said unto them that sold doves, Take these things hence; make not my Father’s house an house of merchandise. For you: Jesus wants God’s house to be a quiet, respectful place where people can pray and worship."
+    },
     richYoungRuler: {
       title: 'Jesus Talks with a Rich Young Man',
       panels: [
@@ -8394,7 +8435,7 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -8413,7 +8454,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -8964,6 +9005,13 @@
       )
     ) {
       return { type: 'carousel', story: 'widowsMite' };
+    }
+    if (
+      /jesus cleanses the temple|cleanse.*temple|john 2:13|john 2:14|john 2:15|john 2:16|scourge of small cords|house of merchandise|make not my father|overthrew the tables|changers of money|sold doves.*temple|drove them.*out of the temple/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'jesusCleansesTemple' };
     }
     if (/gethsemane|garden.*prayer|matthew 26:36|mark 14:32/.test(low)) {
       return { type: 'carousel', story: 'gardenPrayer' };
@@ -11542,7 +11590,7 @@
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', tenVirgins: 'Obedience', sheepAndGoats: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', tenVirgins: 'Obedience', sheepAndGoats: 'Love', jesusCleansesTemple: 'Obedience', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
     ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', armorOfGod: 'Obedience',

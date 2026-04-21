@@ -1267,6 +1267,16 @@
     "kw": "zacchaeus jericho tree sycomore short jesus calls luke 19 tax collector salvation"
   },
   {
+    "key": "jesusCleansesTemple",
+    "title": "Jesus Makes God’s House Clean Again",
+    "kjvRef": "John 2:13–16",
+    "who": "Jesus",
+    "to": "His disciples and everyone who worships (and us)",
+    "apply": "Jesus wants God’s house — and our hearts toward Him — to be full of respect, prayer, and love, not selfish noise.",
+    "theme": "Obedience",
+    "kw": "temple cleanse merchandise john 2 john 2:13 house of prayer money changers tables father’s house jerusalem"
+  },
+  {
     "key": "samaritanWoman",
     "title": "Jesus Offers Living Water",
     "kjvRef": "John 4:1–42",

@@ -3668,6 +3668,32 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 25:40</text>'
       ),
 
+      /* John 2:13–16 — gentle: columns, overturned table, coins, Jesus firm but kind */
+      jesusCleansesTemple: svg(
+        ground() +
+        '<rect x="48" y="58" width="120" height="125" rx="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="232" y="58" width="120" height="125" rx="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="108" y1="58" x2="108" y2="183" ' + s + ' stroke-width="2"/>' +
+        '<line x1="292" y1="58" x2="292" y2="183" ' + s + ' stroke-width="2"/>' +
+        '<rect x="0" y="0" width="400" height="132" fill="#f2f6ff" stroke="none"/>' +
+        '<ellipse cx="120" cy="36" rx="40" ry="10" ' + sf + ' fill="white" stroke-width="1.8" opacity="0.85"/>' +
+        '<ellipse cx="260" cy="32" rx="45" ry="11" ' + sf + ' fill="white" stroke-width="1.8" opacity="0.85"/>' +
+        '<path d="M125 210 L175 188 L205 222 Z" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<line x1="155" y1="210" x2="168" y2="248" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="175" y1="198" x2="192" y2="248" ' + s + ' stroke-width="2.2"/>' +
+        '<circle cx="138" cy="238" r="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="152" cy="242" r="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="220" cy="240" r="3.5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="232" cy="244" r="3.5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        person(285, 158, 14, 40) +
+        '<line x1="268" y1="172" x2="248" y2="158" ' + s + ' stroke-width="2"/>' +
+        '<line x1="298" y1="172" x2="318" y2="156" ' + s + ' stroke-width="2"/>' +
+        '<path d="M276 146 Q288 150 300 146" ' + s + ' stroke-width="1.6" fill="none"/>' +
+        '<circle cx="284" cy="140" r="2" fill="#111"/><circle cx="292" cy="140" r="2" fill="#111"/>' +
+        sun(52, 44, 15) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 2:16</text>'
+      ),
+
       /* ── Week 8: Armor Shield (97) ── */
       armorShield: svg(
         ground() +
@@ -5073,6 +5099,8 @@
     parableTenVirgins: 'tenVirgins',
     sheepAndGoats: 'sheepAndGoats',
     parableSheepAndGoats: 'sheepAndGoats',
+    jesusCleansesTemple: 'jesusCleansesTemple',
+    templeCleaned: 'jesusCleansesTemple',
     /* ── Week 8 ── */
     armorShield: 'armorShield',
     armorSword: 'armorSword',
@@ -6735,7 +6763,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'

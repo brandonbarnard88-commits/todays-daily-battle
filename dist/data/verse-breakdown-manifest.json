@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-21T17:30:12.336Z",
-  "surfacedRefCount": 2828,
-  "overrideCount": 2828,
+  "generatedAt": "2026-04-21T17:39:11.847Z",
+  "surfacedRefCount": 2830,
+  "overrideCount": 2830,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 210,
+      "refs": 211,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 193,
+      "refs": 195,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -272,7 +272,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 212,
+      "refs": 213,
       "pairs": 0
     },
     "memorize.html": {
@@ -2214,6 +2214,8 @@
     "John 2:1-11",
     "John 2:10",
     "John 2:11",
+    "John 2:13-16",
+    "John 2:16",
     "John 2:21",
     "John 2:3",
     "John 2:7",
@@ -15322,6 +15324,22 @@
     "John 2:11": {
       "general": {
         "plainExplanation": "This beginning of miracles did Jesus in Cana of Galilee, and manifested forth his glory; and his disciples believed on him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 2:13-16": {
+      "general": {
+        "plainExplanation": "Key idea: And the Jews’ passover was at hand, and Jesus went up to Jerusalem, And found in the temple those that sold oxen and sheep and doves, and the changers of mo...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 2:16": {
+      "general": {
+        "plainExplanation": "And said to them that sold doves, Take these things hence; make not my Father’s house an house of merchandise.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

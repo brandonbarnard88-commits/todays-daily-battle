@@ -299,6 +299,7 @@
     tenPlagues: 15,
     tenVirgins: 108,
     sheepAndGoats: 215,
+    jesusCleansesTemple: 216,
     trial: 87,
     thessaloniansHope: 90,
     thomasDoubt: 95,

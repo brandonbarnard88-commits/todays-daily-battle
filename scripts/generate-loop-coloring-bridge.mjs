@@ -67,6 +67,15 @@ function main() {
     if (outline) byLib[L] = outline;
   }
 
+  /** Keys not present in loops.json but needed for deep links / alternate story keys. */
+  var EXTRA_LIB_TO_OUTLINE = { jesusAndChildren: 'jesusBlessKids' };
+  var ek = Object.keys(EXTRA_LIB_TO_OUTLINE);
+  for (var ei = 0; ei < ek.length; ei++) {
+    var lk = ek[ei];
+    var ov = EXTRA_LIB_TO_OUTLINE[lk];
+    if (!byLib[lk] && valid.has(ov)) byLib[lk] = ov;
+  }
+
   var keys = Object.keys(byLib).sort();
   var lines = keys.map(function (k) {
     return '  ' + JSON.stringify(k) + ': ' + JSON.stringify(byLib[k]);

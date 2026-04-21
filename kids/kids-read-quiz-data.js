@@ -1,6 +1,6 @@
 /**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
- * Keys match TDB_BIBLE_STORIES (329 stories).
+ * Keys match TDB_BIBLE_STORIES (330 stories).
  * Regenerate: npm run kids:generate-read-quiz
  * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath; Elisha bones; Ezra return; Nehemiah walls; Job read-along sections).
  *
@@ -11767,89 +11767,124 @@
     "readAlongImages": []
   },
   "jesusBlessKids": {
-    "kjvRef": "Mark 10:13–16",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Mark 10:13–16 (KJV)",
+    "verseExcerpt": "Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. — Mark 10:14 (KJV)",
+    "readAlongTitle": "Jesus Welcomes the Little Children",
+    "quizWrongHumilityHint": "Listen again — children; touch; bless; disciples; rebuked; displeased; suffer; forbid not; kingdom; arms; blessed.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jesus Blesses the Children (Mark 10:13–16).",
-      "Disciples try to send kids away Jesus says: Let the little children come to me!",
-      "He holds them—they are of such is the kingdom!",
-      "Jesus wants YOU!",
-      "He invites every child to come to Him."
+      "People brought little children to Jesus so He could touch them and bless them.",
+      "The disciples thought the children were in the way and told the people to stop.",
+      "Jesus was not pleased.",
+      "He said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
+      "Then He took the children in His arms, put His hands on them, and blessed them.",
+      "Jesus loves little children and wants them to come to Him.",
+      "Reference: Mark 10:13–16 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "People brought little children to Jesus.",
+        "caption": "That he should touch them",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The disciples told them to stop.",
+        "caption": "His disciples rebuked those that brought them",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
+        "caption": "He was much displeased",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He took them in His arms and blessed them.",
+        "caption": "Put his hands upon them",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus loves little children.",
+        "caption": "Of such is the kingdom of God",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 4:18–22; Luke 5:1–11",
-          "Matthew 4:1–11; Luke 4:1–13",
-          "Joshua 24:14-15",
-          "Mark 10:13–16"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Mark 10:13–16.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Jesus",
-          "The crowds",
-          "Paul",
-          "Joshua"
+          "Mark 10:13–16",
+          "Genesis 1",
+          "Jonah 1",
+          "Revelation 21"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Mark 10:13–16.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did Jesus say about the little children?",
         "choices": [
-          "God never hears when kids pray.",
-          "Jesus wants YOU! He invites every child to come to Him.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories."
+          "“Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
+          "“Hide away from Me forever.”",
+          "“Only grown-ups may pray.”",
+          "“Do not sing praise songs.”"
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus wants YOU! He invites every child to come to Him..)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 10:14.",
+        "wrongFeedback": "Think about Jesus’ kind command in Mark 10. (Answer: Suffer the little children… kingdom of God.)"
+      },
+      {
+        "question": "What did Jesus do after He taught about the children?",
+        "choices": [
+          "He took them up in His arms, put His hands upon them, and blessed them.",
+          "He sent every child away sad.",
+          "He told them never to come back.",
+          "He asked them to stop smiling."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 10:16.",
+        "wrongFeedback": "Reread the ending: arms, hands, blessed. (Answer: took them up in his arms… blessed them.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Disciples try to send kids away",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city."
+          "The disciples tried to turn the children away — and Jesus welcomed them.",
+          "A rocket landed in the grass.",
+          "The children built a tower to the moon.",
+          "Nobody came near Jesus."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—that honest moment is part of Mark 10.",
+        "wrongFeedback": "Cross out the joke answers. Which matches the story? (Answer: disciples… Jesus welcomed them.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Jesus wants YOU! He invites every child to come to Him."
+          "Come to Jesus in prayer — He loves little children and wants them to come to Him.",
+          "Decide prayer is only for adults.",
+          "Believe God is too busy for kids.",
+          "Hide feelings from God on purpose."
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus wants YOU! He invites every child to come to Him..)"
+        "wrongFeedback": "Think: which matches Jesus’ welcome? (Answer: come to Jesus… loves little children.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jesus Blesses the Children with God's Word today.",
-    "takeaway": "Jesus wants YOU! He invites every child to come to Him.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus Blesses the Children. Amen.",
+    "doneMessage": "Great job reading Jesus Welcomes the Little Children with God's Word today.",
+    "takeaway": "Jesus loves little children and wants them to come to Him.",
+    "prayer": "Lord Jesus, thank You for welcoming children. Help me come to You and trust You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Disciples try to send kids away (jesus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: Let the little children come to me! (children)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He holds them—they are of such is the kingdom! (bless)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Disciples try to send kids away (mark 10)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: Let the little children come to me! (kids)"
-    ]
+      "A simple, peaceful black-and-white line-art scene for young children: Jesus sitting on the ground with open arms. Several little children are coming to Him with happy faces. One child is already in His lap. Thick, bold outlines with large open spaces on Jesus’ robe, the children’s clothes, and the ground for easy coloring. Soft grass and a gentle sky with minimal lines. Loving and welcoming mood — focus on Jesus welcoming the little children. Clean, minimal, no fear or scolding, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Children brought — that he should touch them (welcome)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Disciples rebuked — much displeased (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Suffer the little children — kingdom of God (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: In His arms — hands upon them (blessing)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Receive as a child — enter (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus loves you — come to Him (love)"
+    ],
+    "readAlongImages": []
   },
   "jesusCallingDisciples": {
     "kjvRef": "Matthew 4:18–22; Luke 5:1–11",
@@ -32878,6 +32913,126 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: King hears — pity on thee? (truth)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Heart forgiveness — heavenly Father (hope)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Jesus teaches — forgive brothers (love)"
+    ],
+    "readAlongImages": []
+  },
+  "jesusAndChildren": {
+    "kjvRef": "Mark 10:13–16 (KJV)",
+    "verseExcerpt": "Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. — Mark 10:14 (KJV)",
+    "readAlongTitle": "Jesus Welcomes the Little Children",
+    "quizWrongHumilityHint": "Listen again — children; touch; bless; disciples; rebuked; displeased; suffer; forbid not; kingdom; arms; blessed.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "People brought little children to Jesus so He could touch them and bless them.",
+      "The disciples thought the children were in the way and told the people to stop.",
+      "Jesus was not pleased.",
+      "He said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
+      "Then He took the children in His arms, put His hands on them, and blessed them.",
+      "Jesus loves little children and wants them to come to Him.",
+      "Reference: Mark 10:13–16 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "People brought little children to Jesus.",
+        "caption": "That he should touch them",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The disciples told them to stop.",
+        "caption": "His disciples rebuked those that brought them",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
+        "caption": "He was much displeased",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He took them in His arms and blessed them.",
+        "caption": "Put his hands upon them",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus loves little children.",
+        "caption": "Of such is the kingdom of God",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Mark 10:13–16",
+          "Genesis 1",
+          "Jonah 1",
+          "Revelation 21"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Mark 10:13–16.)"
+      },
+      {
+        "question": "What did Jesus say about the little children?",
+        "choices": [
+          "“Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
+          "“Hide away from Me forever.”",
+          "“Only grown-ups may pray.”",
+          "“Do not sing praise songs.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 10:14.",
+        "wrongFeedback": "Think about Jesus’ kind command in Mark 10. (Answer: Suffer the little children… kingdom of God.)"
+      },
+      {
+        "question": "What did Jesus do after He taught about the children?",
+        "choices": [
+          "He took them up in His arms, put His hands upon them, and blessed them.",
+          "He sent every child away sad.",
+          "He told them never to come back.",
+          "He asked them to stop smiling."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 10:16.",
+        "wrongFeedback": "Reread the ending: arms, hands, blessed. (Answer: took them up in his arms… blessed them.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "The disciples tried to turn the children away — and Jesus welcomed them.",
+          "A rocket landed in the grass.",
+          "The children built a tower to the moon.",
+          "Nobody came near Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that honest moment is part of Mark 10.",
+        "wrongFeedback": "Cross out the joke answers. Which matches the story? (Answer: disciples… Jesus welcomed them.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Come to Jesus in prayer — He loves little children and wants them to come to Him.",
+          "Decide prayer is only for adults.",
+          "Believe God is too busy for kids.",
+          "Hide feelings from God on purpose."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which matches Jesus’ welcome? (Answer: come to Jesus… loves little children.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Welcomes the Little Children with God's Word today.",
+    "takeaway": "Jesus loves little children and wants them to come to Him.",
+    "prayer": "Lord Jesus, thank You for welcoming children. Help me come to You and trust You today. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art scene for young children: Jesus sitting on the ground with open arms. Several little children are coming to Him with happy faces. One child is already in His lap. Thick, bold outlines with large open spaces on Jesus’ robe, the children’s clothes, and the ground for easy coloring. Soft grass and a gentle sky with minimal lines. Loving and welcoming mood — focus on Jesus welcoming the little children. Clean, minimal, no fear or scolding, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Children brought — that he should touch them (welcome)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Disciples rebuked — much displeased (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Suffer the little children — kingdom of God (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: In His arms — hands upon them (blessing)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Receive as a child — enter (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus loves you — come to Him (love)"
     ],
     "readAlongImages": []
   }

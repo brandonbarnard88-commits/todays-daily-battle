@@ -170,7 +170,8 @@ const ALIAS_TO_CANON = [
   ['healLeper', 'tenLepers'],
   ['healBlind', 'manBornBlind'],
   ['jesusHealsBlind', 'manBornBlind'],
-  ['forgive70x7', 'unforgivingServant']
+  ['forgive70x7', 'unforgivingServant'],
+  ['jesusAndChildren', 'jesusBlessKids']
 ];
 for (let ai = 0; ai < ALIAS_TO_CANON.length; ai++) {
   const aliasKey = ALIAS_TO_CANON[ai][0];

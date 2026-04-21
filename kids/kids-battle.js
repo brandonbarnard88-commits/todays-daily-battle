@@ -5470,18 +5470,43 @@
         "Jesus Forgives and Heals a Man Who Could Not Walk — Mark 2:1–12. And again he entered into Capernaum after some days; and it was noised that he was in the house. And straightway many were gathered together, insomuch that there was no room to receive them, no, not so much as about the door: and he preached the word unto them. And they come unto him, bringing one sick of the palsy, which was borne of four. And when they could not come nigh unto him for the press, they uncovered the roof where he was: and when they had broken it up, they let down the bed wherein the sick of the palsy lay. When Jesus saw their faith, he said unto the sick of the palsy, Son, thy sins be forgiven thee. But there were certain of the scribes sitting there, and reasoning in their hearts, Why doth this man thus speak blasphemies? who can forgive sins but God only? And immediately when Jesus perceived in his spirit that they so reasoned within themselves, he said unto them, Why reason ye these things in your hearts? Whether is it easier to say to the sick of the palsy, Thy sins be forgiven thee; or to say, Arise, and take up thy bed, and walk? But that ye may know that the Son of man hath power on earth to forgive sins, (he saith to the sick of the palsy,) I say unto thee, Arise, and take up thy bed, and go thy way into thine house. And immediately he arose, took up the bed, and went forth before them all; insomuch that they were all amazed, and glorified God, saying, We never saw it on this fashion. For you: Jesus can forgive and heal — keep coming to Him."
     },
     jesusBlessKids: {
-      title: 'Jesus Blesses the Children',
+      title: 'Jesus Welcomes the Little Children',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Disciples try to send kids away' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus says: Let the little children come to me!' },
-        { src: 'panel-noah-3.svg', alt: 'He holds them—they are of such is the kingdom!' }
+        {
+          src: 'panel-noah-1.svg',
+          alt: 'People bring little children — disciples try to send them away'
+        },
+        {
+          src: 'panel-noah-2.svg',
+          alt: 'Jesus says: Suffer the little children to come unto me, and forbid them not'
+        },
+        {
+          src: 'panel-noah-3.svg',
+          alt: 'Jesus takes them in His arms, puts His hands on them, and blesses them'
+        }
       ],
-      caption: 'Swipe to see Jesus love and bless kids just like you! ❤️',
+      caption: 'Swipe to see Jesus welcome every child — He loves you! ❤️',
       videoId: '',
       videoTitle: '',
-      keywords: ['jesus', 'children', 'bless', 'mark 10', 'kids', 'kingdom', 'come'],
+      keywords: [
+        'jesus',
+        'children',
+        'welcome',
+        'bless',
+        'mark 10',
+        'kids',
+        'kingdom',
+        'come',
+        'suffer the little children'
+      ],
       kjvRef: 'Mark 10:13–16',
-      kidContext: { who: 'Jesus', to: 'The children (and you!)', apply: 'Jesus wants YOU! He invites every child to come to Him.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'The children (and you!)',
+        apply: 'Jesus loves little children and wants them to come to Him.'
+      },
+      narration:
+        "Jesus Welcomes the Little Children — Mark 10:13–16. And they brought young children to him, that he should touch them: and his disciples rebuked those that brought them. But when Jesus saw it, he was much displeased, and said unto them, Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. Verily I say unto you, Whosoever shall not receive the kingdom of God as a little child, he shall not enter therein. And he took them up in his arms, put his hands upon them, and blessed them. For you: Jesus loves little children and wants them to come to Him."
     },
     /* ── Week 6 (73–84) ── */
     mustardSeed: {
@@ -7937,6 +7962,8 @@
     bibleStories.jesusHealsBlind = bibleStories.manBornBlind;
     /** Legacy key — same Matthew 18 parable card (70×7 + unforgiving servant, gentle). */
     bibleStories.forgive70x7 = bibleStories.unforgivingServant;
+    /** Alternate library name — same Mark 10 card (Jesus welcomes the little children, gentle). */
+    bibleStories.jesusAndChildren = bibleStories.jesusBlessKids;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {

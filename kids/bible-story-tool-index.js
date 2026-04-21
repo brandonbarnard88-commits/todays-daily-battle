@@ -1027,16 +1027,6 @@
     "kw": "ascension olivet bethany acts 1 luke 24 cloud return witnesses"
   },
   {
-    "key": "jesusBlessKids",
-    "title": "Jesus Blesses the Children",
-    "kjvRef": "Mark 10:13–16",
-    "who": "Jesus",
-    "to": "The children (and you!)",
-    "apply": "Jesus wants YOU! He invites every child to come to Him.",
-    "theme": "Love",
-    "kw": "jesus children bless mark 10 kids kingdom come"
-  },
-  {
     "key": "jairus",
     "title": "Jesus Brings a Girl Back to Life",
     "kjvRef": "Mark 5:21–43",
@@ -1445,6 +1435,26 @@
     "apply": "Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.",
     "theme": "Miracles",
     "kw": "jesus walks on water peter boat waves lord save me matthew 14 be not afraid faith sea"
+  },
+  {
+    "key": "jesusBlessKids",
+    "title": "Jesus Welcomes the Little Children",
+    "kjvRef": "Mark 10:13–16",
+    "who": "Jesus",
+    "to": "The children (and you!)",
+    "apply": "Jesus loves little children and wants them to come to Him.",
+    "theme": "Love",
+    "kw": "jesus children welcome bless mark 10 kids kingdom come suffer the little children"
+  },
+  {
+    "key": "jesusAndChildren",
+    "title": "Jesus Welcomes the Little Children",
+    "kjvRef": "Mark 10:13–16",
+    "who": "Jesus",
+    "to": "The children (and you!)",
+    "apply": "Jesus loves little children and wants them to come to Him.",
+    "theme": "Love",
+    "kw": "jesus children welcome bless mark 10 kids kingdom come suffer the little children"
   },
   {
     "key": "jesusFirstMiracle",

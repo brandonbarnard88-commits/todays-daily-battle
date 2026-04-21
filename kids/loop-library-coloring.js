@@ -79,6 +79,7 @@
   "jairus": "jairus",
   "jeremiahWeeping": "jeremiahWeeping",
   "jesus": "jesusBlessKids",
+  "jesusAndChildren": "jesusBlessKids",
   "jesusBirth": "jesusBirth",
   "jesusBlessKids": "jesusBlessKids",
   "jesusCallingDisciples": "jesusCalmsStorm",

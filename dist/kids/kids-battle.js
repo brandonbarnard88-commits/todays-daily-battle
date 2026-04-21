@@ -5394,6 +5394,38 @@
       narration:
         "Jesus Gives Sight to a Man Who Was Born Blind — John 9:1–38. And as Jesus passed by, he saw a man which was blind from his birth. And his disciples asked him, saying, Master, who did sin, this man, or his parents, that he was born blind? Jesus answered, Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him. When he had thus spoken, he spat on the ground, and made clay of the spittle, and he anointed the eyes of the blind man with the clay, And said unto him, Go, wash in the pool of Siloam. He went his way therefore, and washed, and came seeing. The neighbours said, Is not this he that sat and begged? But he said, I am he… I was blind, but now I see. And Jesus said unto him, Dost thou believe on the Son of God? He answered and said, Who is he, Lord, that I might believe on him? And Jesus said unto him, Thou hast both seen him, and it is he that talketh with thee. And he said, Lord, I believe. And he worshipped him. For you: Jesus opens blind eyes and helps us see who He really is."
     },
+    bethesda: {
+      title: 'Jesus Heals a Man Who Waited a Long Time',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Pool of Bethesda — many waiting; Jesus sees a man who could not walk' },
+        { src: 'panel-noah-2.svg', alt: 'Wilt thou be made whole? — Rise, take up thy bed, and walk' },
+        { src: 'panel-noah-3.svg', alt: 'Immediately whole — he took up his bed and walked; behold, thou art made whole' }
+      ],
+      caption: 'Swipe to see Jesus speak kindness by the pool — rise, take up thy bed, and walk. 💧',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'bethesda',
+        'jerusalem',
+        'john 5',
+        'pool',
+        'thirty-eight',
+        'heal',
+        'bed',
+        'walk',
+        'jesus',
+        'waited',
+        'mercy'
+      ],
+      kjvRef: 'John 5:1–15',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The sick man — and us when we wait a long time',
+        apply: 'Jesus sees when we have waited a long time — and He can make us well.'
+      },
+      narration:
+        "Jesus Heals a Man Who Waited a Long Time — John 5:1–15. After this there was a feast of the Jews; and Jesus went up to Jerusalem. Now there is at Jerusalem by the sheep market a pool, which is called in the Hebrew tongue Bethesda, having five porches. In these lay a great multitude of sick folk waiting for the moving of the water — they hoped to be helped when the water moved. And a certain man was there, which had an infirmity thirty and eight years. When Jesus saw him lie, and knew that he had been now a long time in that case, he saith unto him, Wilt thou be made whole? The sick man answered him, Sir, I have no man, when the water is troubled, to put me into the pool: but while I am coming, another steppeth down before me. Jesus saith unto him, Rise, take up thy bed, and walk. And immediately the man was made whole, and took up his bed, and walked: on the same day was the sabbath. The man told others it was Jesus who had made him whole. Jesus found him in the temple, and said unto him, Behold, thou art made whole: sin no more, lest a worse thing come unto thee. For you: Jesus sees when we have waited a long time, and He can make us well in His wise way."
+    },
     jesusHealsParalytic: {
       title: 'Jesus Forgives and Heals a Man Who Could Not Walk',
       panels: [
@@ -5438,18 +5470,43 @@
         "Jesus Forgives and Heals a Man Who Could Not Walk — Mark 2:1–12. And again he entered into Capernaum after some days; and it was noised that he was in the house. And straightway many were gathered together, insomuch that there was no room to receive them, no, not so much as about the door: and he preached the word unto them. And they come unto him, bringing one sick of the palsy, which was borne of four. And when they could not come nigh unto him for the press, they uncovered the roof where he was: and when they had broken it up, they let down the bed wherein the sick of the palsy lay. When Jesus saw their faith, he said unto the sick of the palsy, Son, thy sins be forgiven thee. But there were certain of the scribes sitting there, and reasoning in their hearts, Why doth this man thus speak blasphemies? who can forgive sins but God only? And immediately when Jesus perceived in his spirit that they so reasoned within themselves, he said unto them, Why reason ye these things in your hearts? Whether is it easier to say to the sick of the palsy, Thy sins be forgiven thee; or to say, Arise, and take up thy bed, and walk? But that ye may know that the Son of man hath power on earth to forgive sins, (he saith to the sick of the palsy,) I say unto thee, Arise, and take up thy bed, and go thy way into thine house. And immediately he arose, took up the bed, and went forth before them all; insomuch that they were all amazed, and glorified God, saying, We never saw it on this fashion. For you: Jesus can forgive and heal — keep coming to Him."
     },
     jesusBlessKids: {
-      title: 'Jesus Blesses the Children',
+      title: 'Jesus Welcomes the Little Children',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Disciples try to send kids away' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus says: Let the little children come to me!' },
-        { src: 'panel-noah-3.svg', alt: 'He holds them—they are of such is the kingdom!' }
+        {
+          src: 'panel-noah-1.svg',
+          alt: 'People bring little children — disciples try to send them away'
+        },
+        {
+          src: 'panel-noah-2.svg',
+          alt: 'Jesus says: Suffer the little children to come unto me, and forbid them not'
+        },
+        {
+          src: 'panel-noah-3.svg',
+          alt: 'Jesus takes them in His arms, puts His hands on them, and blesses them'
+        }
       ],
-      caption: 'Swipe to see Jesus love and bless kids just like you! ❤️',
+      caption: 'Swipe to see Jesus welcome every child — He loves you! ❤️',
       videoId: '',
       videoTitle: '',
-      keywords: ['jesus', 'children', 'bless', 'mark 10', 'kids', 'kingdom', 'come'],
+      keywords: [
+        'jesus',
+        'children',
+        'welcome',
+        'bless',
+        'mark 10',
+        'kids',
+        'kingdom',
+        'come',
+        'suffer the little children'
+      ],
       kjvRef: 'Mark 10:13–16',
-      kidContext: { who: 'Jesus', to: 'The children (and you!)', apply: 'Jesus wants YOU! He invites every child to come to Him.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'The children (and you!)',
+        apply: 'Jesus loves little children and wants them to come to Him.'
+      },
+      narration:
+        "Jesus Welcomes the Little Children — Mark 10:13–16. And they brought young children to him, that he should touch them: and his disciples rebuked those that brought them. But when Jesus saw it, he was much displeased, and said unto them, Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. Verily I say unto you, Whosoever shall not receive the kingdom of God as a little child, he shall not enter therein. And he took them up in his arms, put his hands upon them, and blessed them. For you: Jesus loves little children and wants them to come to Him."
     },
     /* ── Week 6 (73–84) ── */
     mustardSeed: {
@@ -5645,7 +5702,7 @@
           'Jesus heals us and is happy when we remember to say thank you.'
       },
       narration:
-        "Jesus Heals Ten Men and One Says Thank You — Luke 17:11–19. And it came to pass, as he went to Jerusalem, that he passed through the midst of Samaria and Galilee. And as he entered into a certain village, there met him ten men that were lepers, which stood afar off: And they lifted up their voices, and said, Jesus, Master, have mercy on us. And when he saw them, he said unto them, Go shew yourselves unto the priests. And it came to pass, that, as they went, they were cleansed. And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God, And fell down on his face at his feet, giving him thanks: and he was a Samaritan. And Jesus answering said, Were there not ten cleansed? but where are the nine? There are not found that returned to give glory to God, save this stranger. And he said unto him, Arise, go thy way: thy faith hath made thee whole. For you: Jesus loves a thankful heart — remember to say thank you to Him."
+        "Jesus Heals Ten Men and One Says Thank You — Luke 17:11–19. And it came to pass, as he went to Jerusalem, that he passed through the midst of Samaria and Galilee. And as he entered into a certain village, there met him ten men that were lepers, which stood afar off: And they lifted up their voices, and said, Jesus, Master, have mercy on us. And when he saw them, he said unto them, Go shew yourselves unto the priests. And it came to pass, that, as they went, they were cleansed. And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God, And fell down on his face at his feet, giving him thanks: and he was a Samaritan. And Jesus answering said, Were there not ten cleansed? but where are the nine? There are not found that returned to give glory to God, save this stranger. And he said unto him, Arise, go thy way: thy faith hath made thee whole. For you: Jesus heals us and is happy when we remember to say thank you."
     },
     jairus: {
       title: 'Jesus Brings a Girl Back to Life',
@@ -6629,19 +6686,35 @@
       kjvRef: 'Matthew 6',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God feeds the birds—He definitely takes care of you! Don\'t worry; trust.' }
     },
-    forgive70x7: {
-      title: 'Forgive Seventy Times Seven',
+    unforgivingServant: {
+      title: 'Jesus Tells About Forgiving Others',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Peter asks: how many times should I forgive?' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus says: seventy times seven—always!' },
-        { src: 'panel-noah-3.svg', alt: 'Two brothers hug—forgiveness sets you free!' }
+        { src: 'panel-noah-1.svg', alt: 'A king forgives a servant’s huge debt — the servant begs for patience' },
+        { src: 'panel-noah-2.svg', alt: 'The same servant will not forgive a smaller debt — grabs him by the throat' },
+        { src: 'panel-noah-3.svg', alt: 'The king is grieved — forgive from your heart as God forgave you' }
       ],
-      caption: 'Swipe to see why forgiving feels so good! 🤗',
+      caption: 'Swipe to see mercy from the king — and the heart Jesus asks of us. 🤲',
       videoId: '',
       videoTitle: '',
-      keywords: ['forgive', '70 times', 'matthew 18', 'peter', 'always', 'mercy', 'hug'],
+      keywords: [
+        'parable',
+        'king',
+        'servant',
+        'forgive',
+        'debt',
+        'mercy',
+        'matthew 18',
+        'jesus',
+        'heart'
+      ],
       kjvRef: 'Matthew 18:21–35',
-      kidContext: { who: 'Jesus', to: 'Peter (and us)', apply: 'Forgiveness is never too much! When you forgive, you\'re free—not the other person.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'Peter — and everyone who listens',
+        apply: 'Jesus wants us to forgive others the way God forgives us — from the heart.'
+      },
+      narration:
+        "Jesus Tells About Forgiving Others — Matthew 18:21–35. Then came Peter to him, and said, Lord, how oft shall my brother sin against me, and I forgive him? till seven times? Jesus saith unto him, I say not unto thee, Until seven times: but, Until seventy times seven. Therefore is the kingdom of heaven likened unto a certain king, which would take account of his servants. And when he had begun to reckon, one was brought unto him, which owed him ten thousand talents. But forasmuch as he had not to pay, his lord commanded him to be sold, and his wife, and children, and all that he had, and payment to be made. The servant therefore fell down, and worshipped him, saying, Lord, have patience with me, and I will pay thee all. Then the lord of that servant was moved with compassion, and loosed him, and forgave him the debt. But the same servant went out, and found one of his fellowservants, which owed him an hundred pence: and he laid hands on him, and took him by the throat, saying, Pay me that thou owest. His fellowservant fell down at his feet, and besought him, saying, Have patience with me, and I will pay thee all. And he would not: but went and cast him into prison, till he should pay the debt. So when his fellowservants saw what was done, they were very sorry, and came and told unto their lord all that was done. Then his lord, after that he had called him, said unto him, O thou wicked servant, I forgave thee all that debt, because thou desiredst me: Shouldest not thou also have had compassion on thy fellowservant, even as I had pity on thee? And his lord was wroth, and delivered him to the tormentors, till he should pay all that was due unto him. So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses. For you: Jesus wants us to forgive others the way God forgives us."
     },
     widowMite: {
       title: 'The Widow\'s Two Coins',
@@ -7887,6 +7960,10 @@
     /** Legacy keys — same gentle John 9 card (library / older links). */
     bibleStories.healBlind = bibleStories.manBornBlind;
     bibleStories.jesusHealsBlind = bibleStories.manBornBlind;
+    /** Legacy key — same Matthew 18 parable card (70×7 + unforgiving servant, gentle). */
+    bibleStories.forgive70x7 = bibleStories.unforgivingServant;
+    /** Alternate library name — same Mark 10 card (Jesus welcomes the little children, gentle). */
+    bibleStories.jesusAndChildren = bibleStories.jesusBlessKids;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -8027,7 +8104,7 @@
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
       'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
-      'manBornBlind', 'jesusBlessKids',
+      'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
       'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
@@ -8038,7 +8115,7 @@
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
       'armorShield', 'armorSword', 'fruitSpirit', 'loveChapter', 'faithMustard',
-      'prayerKnock', 'worryBirds', 'forgive70x7', 'widowMite', 'richYoungRuler',
+      'prayerKnock', 'worryBirds', 'unforgivingServant', 'widowMite', 'richYoungRuler',
       'maryAnoint',
       /* Week 9 */
       'stephenMartyr', 'philipEthiopian', 'stephenStones', 'philipChariot', 'paulShip', 'johnPatmos', 'revelation', 'revelationThrone', 'revelationThroneRoom', 'fourHorsemen',
@@ -11187,7 +11264,7 @@
     centurionServant: 'Miracles',
     jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
-    jesusSermonMount: 'Obedience', manBornBlind: 'Miracles', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
+    jesusSermonMount: 'Obedience', bethesda: 'Miracles', manBornBlind: 'Miracles', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
     /* Week 6 */
     jesusHealsParalytic: 'Miracles', witheredHand: 'Miracles', mustardSeed: 'Obedience',
     jesusParableSower: 'Protection', jesusParableMustardSeed: 'Obedience', jesusParableGoodShepherd: 'Love',
@@ -11249,7 +11326,7 @@
     /* Week 8 */
     armorShield: 'Protection', armorSword: 'Protection', fruitSpirit: 'Love',
     loveChapter: 'Love', faithMustard: 'Obedience', prayerKnock: 'Obedience',
-    worryBirds: 'Protection', forgive70x7: 'Love', widowMite: 'Love', maryAnoint: 'Love',
+    worryBirds: 'Protection', unforgivingServant: 'Love', forgive70x7: 'Love', widowMite: 'Love', maryAnoint: 'Love',
     /* Week 9 */
     stephenMartyr: 'Protection', philipEthiopian: 'Obedience', stephenStones: 'Protection', philipChariot: 'Obedience', paulShip: 'Protection',
     johnPatmos: 'Protection',

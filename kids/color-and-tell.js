@@ -415,7 +415,7 @@
     },
     {
       id: 'jesus-children',
-      title: 'Jesus Blesses the Children',
+      title: 'Jesus Welcomes the Little Children',
       verse:
         'Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. - Mark 10:14',
       lead: 'Four pictures with Jesus and the children—save each one, then watch your story.',

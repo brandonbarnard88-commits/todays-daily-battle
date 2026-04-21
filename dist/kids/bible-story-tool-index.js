@@ -687,16 +687,6 @@
     "kw": "jericho walls trumpets joshua 6 march obey shout ark faith victory"
   },
   {
-    "key": "forgive70x7",
-    "title": "Forgive Seventy Times Seven",
-    "kjvRef": "Matthew 18:21–35",
-    "who": "Jesus",
-    "to": "Peter (and us)",
-    "apply": "Forgiveness is never too much! When you forgive, you're free—not the other person.",
-    "theme": "Love",
-    "kw": "forgive 70 times matthew 18 peter always mercy hug"
-  },
-  {
     "key": "fruitSpirit",
     "title": "Fruit of the Spirit",
     "kjvRef": "Galatians 5",
@@ -1037,16 +1027,6 @@
     "kw": "ascension olivet bethany acts 1 luke 24 cloud return witnesses"
   },
   {
-    "key": "jesusBlessKids",
-    "title": "Jesus Blesses the Children",
-    "kjvRef": "Mark 10:13–16",
-    "who": "Jesus",
-    "to": "The children (and you!)",
-    "apply": "Jesus wants YOU! He invites every child to come to Him.",
-    "theme": "Love",
-    "kw": "jesus children bless mark 10 kids kingdom come"
-  },
-  {
     "key": "jairus",
     "title": "Jesus Brings a Girl Back to Life",
     "kjvRef": "Mark 5:21–43",
@@ -1195,6 +1175,16 @@
     "apply": "Jesus does good and shows love every day, because He cares for people. We can trust Him and be kind too.",
     "theme": "Miracles",
     "kw": "withered hand sabbath synagogue mark 3 stretch forth heal jesus mercy good hand"
+  },
+  {
+    "key": "bethesda",
+    "title": "Jesus Heals a Man Who Waited a Long Time",
+    "kjvRef": "John 5:1–15",
+    "who": "Jesus",
+    "to": "The sick man — and us when we wait a long time",
+    "apply": "Jesus sees when we have waited a long time — and He can make us well.",
+    "theme": "Miracles",
+    "kw": "bethesda jerusalem john 5 pool thirty-eight heal bed walk jesus waited mercy"
   },
   {
     "key": "centurionServant",
@@ -1347,6 +1337,26 @@
     "kw": "hidden treasure kingdom of heaven treasure field found joy sell buy field matthew 13 parable jesus worth everything"
   },
   {
+    "key": "unforgivingServant",
+    "title": "Jesus Tells About Forgiving Others",
+    "kjvRef": "Matthew 18:21–35",
+    "who": "Jesus",
+    "to": "Peter — and everyone who listens",
+    "apply": "Jesus wants us to forgive others the way God forgives us — from the heart.",
+    "theme": "Love",
+    "kw": "parable king servant forgive debt mercy matthew 18 jesus heart"
+  },
+  {
+    "key": "forgive70x7",
+    "title": "Jesus Tells About Forgiving Others",
+    "kjvRef": "Matthew 18:21–35",
+    "who": "Jesus",
+    "to": "Peter — and everyone who listens",
+    "apply": "Jesus wants us to forgive others the way God forgives us — from the heart.",
+    "theme": "Love",
+    "kw": "parable king servant forgive debt mercy matthew 18 jesus heart"
+  },
+  {
     "key": "goodSamaritan",
     "title": "Jesus Tells About Helping Others",
     "kjvRef": "Luke 10:25–37",
@@ -1425,6 +1435,26 @@
     "apply": "Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.",
     "theme": "Miracles",
     "kw": "jesus walks on water peter boat waves lord save me matthew 14 be not afraid faith sea"
+  },
+  {
+    "key": "jesusBlessKids",
+    "title": "Jesus Welcomes the Little Children",
+    "kjvRef": "Mark 10:13–16",
+    "who": "Jesus",
+    "to": "The children (and you!)",
+    "apply": "Jesus loves little children and wants them to come to Him.",
+    "theme": "Love",
+    "kw": "jesus children welcome bless mark 10 kids kingdom come suffer the little children"
+  },
+  {
+    "key": "jesusAndChildren",
+    "title": "Jesus Welcomes the Little Children",
+    "kjvRef": "Mark 10:13–16",
+    "who": "Jesus",
+    "to": "The children (and you!)",
+    "apply": "Jesus loves little children and wants them to come to Him.",
+    "theme": "Love",
+    "kw": "jesus children welcome bless mark 10 kids kingdom come suffer the little children"
   },
   {
     "key": "jesusFirstMiracle",

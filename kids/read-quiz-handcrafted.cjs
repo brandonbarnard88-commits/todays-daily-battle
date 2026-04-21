@@ -80,6 +80,7 @@
  * Ten lepers — Luke 17:11–19 (gentle): buildTenLepersReadQuiz() (library key: tenLepers; alias healLeper).
  * Pool of Bethesda — John 5:1–15 (gentle): buildBethesdaReadQuiz() (library key: bethesda).
  * Unforgiving servant — Matthew 18:21–35 (gentle): buildUnforgivingServantReadQuiz() (library key: unforgivingServant; alias forgive70x7).
+ * Jesus welcomes the little children — Mark 10:13–16 (gentle): buildJesusBlessKidsReadQuiz() (library key: jesusBlessKids; alias jesusAndChildren).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
@@ -9852,6 +9853,133 @@ function buildBethesdaReadQuiz() {
   };
 }
 
+/** Jesus welcomes the little children — Mark 10:13–16 (gentle). Library key: jesusBlessKids; alias jesusAndChildren */
+function buildJesusBlessKidsReadQuiz() {
+  return {
+    kjvRef: 'Mark 10:13–16 (KJV)',
+    verseExcerpt:
+      'Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. — Mark 10:14 (KJV)',
+    readAlongTitle: 'Jesus Welcomes the Little Children',
+    quizWrongHumilityHint:
+      'Listen again — children; touch; bless; disciples; rebuked; displeased; suffer; forbid not; kingdom; arms; blessed.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'People brought little children to Jesus so He could touch them and bless them.',
+      'The disciples thought the children were in the way and told the people to stop.',
+      'Jesus was not pleased.',
+      'He said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”',
+      'Then He took the children in His arms, put His hands on them, and blessed them.',
+      'Jesus loves little children and wants them to come to Him.',
+      'Reference: Mark 10:13–16 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'People brought little children to Jesus.',
+        caption: 'That he should touch them',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The disciples told them to stop.',
+        caption: 'His disciples rebuked those that brought them',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”',
+        caption: 'He was much displeased',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He took them in His arms and blessed them.',
+        caption: 'Put his hands upon them',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus loves little children.',
+        caption: 'Of such is the kingdom of God',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Mark 10:13–16', 'Genesis 1', 'Jonah 1', 'Revelation 21'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the reference line in the story block. (Answer: Mark 10:13–16.)'
+      },
+      {
+        question: 'What did Jesus say about the little children?',
+        choices: [
+          '“Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”',
+          '“Hide away from Me forever.”',
+          '“Only grown-ups may pray.”',
+          '“Do not sing praise songs.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 10:14.',
+        wrongFeedback:
+          'Think about Jesus’ kind command in Mark 10. (Answer: Suffer the little children… kingdom of God.)'
+      },
+      {
+        question: 'What did Jesus do after He taught about the children?',
+        choices: [
+          'He took them up in His arms, put His hands upon them, and blessed them.',
+          'He sent every child away sad.',
+          'He told them never to come back.',
+          'He asked them to stop smiling.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 10:16.',
+        wrongFeedback:
+          'Reread the ending: arms, hands, blessed. (Answer: took them up in his arms… blessed them.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The disciples tried to turn the children away — and Jesus welcomed them.',
+          'A rocket landed in the grass.',
+          'The children built a tower to the moon.',
+          'Nobody came near Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that honest moment is part of Mark 10.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches the story? (Answer: disciples… Jesus welcomed them.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Come to Jesus in prayer — He loves little children and wants them to come to Him.',
+          'Decide prayer is only for adults.',
+          'Believe God is too busy for kids.',
+          'Hide feelings from God on purpose.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches Jesus’ welcome? (Answer: come to Jesus… loves little children.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Welcomes the Little Children with God's Word today.",
+    takeaway: 'Jesus loves little children and wants them to come to Him.',
+    prayer:
+      'Lord Jesus, thank You for welcoming children. Help me come to You and trust You today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus sitting on the ground with open arms. Several little children are coming to Him with happy faces. One child is already in His lap. Thick, bold outlines with large open spaces on Jesus’ robe, the children’s clothes, and the ground for easy coloring. Soft grass and a gentle sky with minimal lines. Loving and welcoming mood — focus on Jesus welcoming the little children. Clean, minimal, no fear or scolding, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Children brought — that he should touch them (welcome)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Disciples rebuked — much displeased (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Suffer the little children — kingdom of God (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: In His arms — hands upon them (blessing)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Receive as a child — enter (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus loves you — come to Him (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Parable of the unforgiving servant — king’s mercy, heart forgiveness (gentle). Library key: unforgivingServant */
 function buildUnforgivingServantReadQuiz() {
   return {
@@ -10094,6 +10222,7 @@ module.exports = {
   simeonAnna: buildSimeonAnnaReadQuiz(),
   jesusTemple: buildJesusTempleReadQuiz(),
   jesusBaptism: buildJesusBaptismReadQuiz(),
+  jesusBlessKids: buildJesusBlessKidsReadQuiz(),
   jesusDisciples: buildJesusDisciplesReadQuiz(),
   jesusWaterWine: buildJesusWaterWineReadQuiz(),
   jesusTempted: buildJesusTemptedReadQuiz(),

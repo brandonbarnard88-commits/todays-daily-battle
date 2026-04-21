@@ -176,7 +176,8 @@
       jesusHealsBlind: 'healBlind',
       bethesda: 'bethesda',
       unforgivingServant: 'unforgivingServant',
-      forgive70x7: 'unforgivingServant'
+      forgive70x7: 'unforgivingServant',
+      jesusAndChildren: 'jesusBlessKids'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -212,6 +213,7 @@
     if (low.indexOf('tenlepers') >= 0 || low.indexOf('ten-lepers') >= 0) return 'tenLepers';
     if (low.indexOf('unforgivingservant') >= 0 || low === 'unforgivingservant') return 'unforgivingServant';
     if (low.indexOf('forgive70') >= 0 || low === 'forgive70x7') return 'unforgivingServant';
+    if (low.indexOf('jesusandchildren') >= 0 || low === 'jesusandchildren') return 'jesusBlessKids';
     if (low.indexOf('bethesda') >= 0 || low === 'bethesda' || low.indexOf('poolofbethesda') >= 0) return 'bethesda';
     if (low.indexOf('manbornblind') >= 0 || low === 'manbornblind') return 'healBlind';
     if (low.indexOf('healblind') >= 0 || low === 'healblind' || low.indexOf('jesushealsblind') >= 0) return 'healBlind';
@@ -4777,6 +4779,7 @@
     manBornBlind: 'healBlind',
     bethesda: 'bethesda',
     jesusBlessKids: 'jesusBlessKids',
+    jesusAndChildren: 'jesusBlessKids',
     /* ── Week 6 ── */
     jesusParableSower: 'parableSower',
     jesusParableMustardSeed: 'mustardSeed',
@@ -4867,6 +4870,7 @@
     worryBirds: 'worryBirds',
     forgive70x7: 'unforgivingServant',
     unforgivingServant: 'unforgivingServant',
+    jesusAndChildren: 'jesusBlessKids',
     widowsMite: 'widowMite',
     widowMite: 'widowMite',
     richYoungRuler: 'richYoungRuler',

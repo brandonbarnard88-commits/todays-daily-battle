@@ -181,6 +181,7 @@
     'richYoungRuler',
     'parableVineyardWorkers',
     'parableTwoSons',
+    'parableWeddingFeast',
     'widowMite',
     'widowsMite',
     'zacchaeus',

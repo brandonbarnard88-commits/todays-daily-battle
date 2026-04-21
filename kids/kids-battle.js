@@ -5742,6 +5742,48 @@
       narration:
         "Jesus Tells About Two Sons and a Vineyard — Matthew 21:28–32. But what think ye? A certain man had two sons; and he came to the first, and said, Son, go work to day in my vineyard. He answered and said, I will not: but afterward he repented, and went. And he came to the second, and said likewise. And he answered and said, I go, sir: and went not. Whether of them twain did the will of his father? They say unto him, The first. Jesus saith unto them, Verily I say unto you, That the publicans and the harlots go into the kingdom of God before you. For John came unto you in the way of righteousness, and ye believed him not: but the publicans and the harlots believed him: and ye, when ye had seen it, repented not afterward, that ye might believe him. For you: Jesus wants us to do what is right, not just say we will."
     },
+    parableWeddingFeast: {
+      title: 'Jesus Tells About a King’s Wedding Feast',
+      panels: [
+        {
+          src: 'panel-noah-1.svg',
+          alt: 'A king prepares a wedding feast for his son — servants call the invited guests'
+        },
+        {
+          src: 'panel-noah-2.svg',
+          alt: 'Come unto the marriage — all things are ready; go into the highways and bid many in'
+        },
+        {
+          src: 'panel-noah-3.svg',
+          alt: 'The wedding is furnished with guests — Jesus invites everyone to come to Him'
+        }
+      ],
+      caption: 'Swipe to see the king’s joyful feast — Jesus invites everyone to come! 💒',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'wedding feast',
+        'marriage',
+        'matthew 22',
+        'king',
+        'servants',
+        'highways',
+        'bidden',
+        'come unto the marriage',
+        'parable',
+        'jesus',
+        'invite'
+      ],
+      kjvRef: 'Matthew 22:1–14',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'Jesus invites everyone to come to Him. God wants His house full of guests who say yes to His kindness.'
+      },
+      narration:
+        "Jesus Tells About a King’s Wedding Feast — Matthew 22:1–14. And Jesus answered and spake unto them again by parables, and said, The kingdom of heaven is like unto a certain king, which made a marriage for his son, And sent forth his servants to call them that were bidden to the wedding: and they would not come. Again, he sent forth other servants, saying, Tell them which are bidden, Behold, I have prepared my dinner, my oxen and my fatlings are killed, and all things are ready: come unto the marriage. But they made light of it, and went their ways, one to his farm, another to his merchandise: And the remnant took his servants, and entreated them spitefully, and slew them. But when the king heard thereof, he was wroth: and he sent forth his armies, and destroyed those murderers, and burned up their city. Then saith he to his servants, The wedding is ready, but they which were bidden were not worthy. Go ye therefore into the highways, and as many as ye shall find, bid to the marriage. So those servants went out into the highways, and gathered together all as many as they found, both bad and good: and the wedding was furnished with guests. And when the king came in to see the guests, he saw there a man which had not on a wedding garment: And he saith unto him, Friend, how camest thou in hither not having a wedding garment? And he was speechless. Then said the king to the servants, Bind him hand and foot, and take him away, and cast him into outer darkness; there shall be weeping and gnashing of teeth. For many are called, but few are chosen. For you: Jesus invites everyone to come to Him — some say no, but He still wants the house full."
+    },
     jesusParableGoodShepherd: {
       title: 'The Good Shepherd',
       panels: [
@@ -8218,7 +8260,7 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -8237,7 +8279,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -8760,6 +8802,13 @@
       )
     ) {
       return { type: 'carousel', story: 'parableTwoSons' };
+    }
+    if (
+      /matthew 22:1|matthew 22:9|wedding feast|marriage for his son|come unto the marriage|bid to the marriage|highways.*bid|all things are ready|parable.*wedding feast/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'parableWeddingFeast' };
     }
     if (/widow.*mite|widow.*coin|mark 12:41|luke 21:2/.test(low)) {
       return { type: 'carousel', story: 'widowsMite' };
@@ -11337,7 +11386,7 @@
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
     ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',

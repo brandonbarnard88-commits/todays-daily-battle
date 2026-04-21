@@ -3231,6 +3231,29 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:31</text>'
       ),
 
+      /* Matthew 22:1–14 — king, wedding table, guests, servants */
+      parableWeddingFeast: svg(
+        ground() +
+        hills() +
+        sun(48, 40, 18) +
+        cloud(300, 32) +
+        '<rect x="48" y="168" width="304" height="72" rx="10" ' +
+        sf +
+        ' fill="white" stroke-width="2.4"/>' +
+        '<line x1="72" y1="188" x2="328" y2="188" ' + s + ' stroke-width="1.4" opacity="0.5"/>' +
+        '<ellipse cx="92" cy="182" rx="14" ry="6" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="200" cy="182" rx="16" ry="7" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="308" cy="182" rx="14" ry="6" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        person(200, 96, 13, 30) +
+        '<path d="M168 118 L176 108 L184 118" ' + s + ' stroke-width="1.8" fill="none"/>' +
+        person(92, 128, 9, 22) +
+        person(308, 128, 9, 22) +
+        person(52, 210, 7, 18) +
+        '<ellipse cx="68" cy="208" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<line x1="58" y1="204" x2="78" y2="204" ' + s + ' stroke-width="1.2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 22:9</text>'
+      ),
+
       /* Week 6 gentle: Lost sheep — shepherd rejoicing, sheep on shoulders (Luke 15:3–7) */
       parableLostSheep: svg(
         ground() +
@@ -4877,6 +4900,7 @@
     parablePearl: 'parablePearl',
     parableVineyardWorkers: 'parableVineyardWorkers',
     parableTwoSons: 'parableTwoSons',
+    parableWeddingFeast: 'parableWeddingFeast',
     parableLostSheep: 'parableLostSheep',
     prodigalSon: 'prodigalSonWelcome',
     prodigalSonWelcome: 'prodigalSonWelcome',
@@ -6634,7 +6658,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

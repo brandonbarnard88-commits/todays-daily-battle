@@ -133,6 +133,7 @@
   "parableTalents": "richYoungRuler",
   "parableTwoSons": "parableTwoSons",
   "parableVineyardWorkers": "parableVineyardWorkers",
+  "parableWeddingFeast": "parableWeddingFeast",
   "passoverLamb": "passoverLamb",
   "paulDamascus": "paulDamascus",
   "paulShipwreck": "paulShipwreck",

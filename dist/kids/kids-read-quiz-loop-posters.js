@@ -271,6 +271,7 @@
     richYoungRuler: 81,
     parableVineyardWorkers: 212,
     parableTwoSons: 213,
+    parableWeddingFeast: 214,
     resurrection: 88,
     roadToEmmaus: 89,
     romansRoadKids: 88,

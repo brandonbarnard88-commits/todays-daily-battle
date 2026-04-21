@@ -84,6 +84,7 @@
  * Rich young ruler — Mark 10:17–27 (gentle): buildRichYoungRulerReadQuiz() (library key: richYoungRuler).
  * Workers in the vineyard — Matthew 20:1–16 (gentle): buildParableVineyardWorkersReadQuiz() (library key: parableVineyardWorkers).
  * Two sons and a vineyard — Matthew 21:28–32 (gentle): buildParableTwoSonsReadQuiz() (library key: parableTwoSons).
+ * King’s wedding feast — Matthew 22:1–14 (gentle): buildParableWeddingFeastReadQuiz() (library key: parableWeddingFeast).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -10380,6 +10381,137 @@ function buildParableTwoSonsReadQuiz() {
   };
 }
 
+/** King’s wedding feast — Matthew 22:1–14 (gentle). Library key: parableWeddingFeast */
+function buildParableWeddingFeastReadQuiz() {
+  return {
+    kjvRef: 'Matthew 22:1–14 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Go ye therefore into the highways, and as many as ye shall find, bid to the marriage. — Matthew 22:9 (KJV)',
+    readAlongTitle: 'Jesus Tells About a King’s Wedding Feast',
+    quizWrongHumilityHint:
+      'Listen again — king; marriage; son; servants; bidden; dinner; ready; highways; bad and good; furnished; guests; called; chosen; invite.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told a story about a king who made a wedding feast for his son.',
+      'He sent servants to invite the guests, but they would not come.',
+      'He sent more servants and said, “Tell them that are bidden, Behold, I have prepared my dinner… all things are ready: come unto the marriage.”',
+      'But the invited guests made light of it and went their ways.',
+      'Some even hurt the servants.',
+      'The king was angry and sent his armies to punish those who had been invited.',
+      'Then he said to his servants, “The wedding is ready, but they which were bidden were not worthy. Go ye therefore into the highways, and as many as ye shall find, bid to the marriage.”',
+      'The servants gathered all they could find, both bad and good, and the wedding was furnished with guests.',
+      'Jesus is inviting everyone to come to Him. Some say no, but He still wants the house full.',
+      'Reference: Matthew 22:1–14 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A king made a wedding feast for his son. He invited many people.',
+        caption: 'A marriage for his son',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The invited guests would not come.',
+        caption: 'They would not come',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'He sent servants: “All things are ready: come unto the marriage.”',
+        caption: 'Come unto the marriage',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The king said, “Go into the highways and invite everyone you find.”',
+        caption: 'As many as ye shall find',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The servants brought many people, both bad and good — the wedding was full of guests.',
+        caption: 'The wedding was furnished with guests',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus invites everyone to come to Him.',
+        caption: 'Many are called',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 22:1–14', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 22:1–14.)'
+      },
+      {
+        question: 'What did the king prepare for his son?',
+        choices: [
+          'A wedding feast — a great marriage supper',
+          'Only a small snack',
+          'A boat race',
+          'A silent room with no food'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Jesus’ parable in Matthew 22.',
+        wrongFeedback: 'Think about what the king made ready. (Answer: wedding feast / marriage.)'
+      },
+      {
+        question: 'When the first guests would not come, where did the king tell his servants to go?',
+        choices: [
+          'Into the highways — to invite everyone they could find',
+          'Only to one house on one street',
+          'Nowhere — stop inviting anyone',
+          'Only to people who brought toys'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:9.',
+        wrongFeedback: 'Listen again for “highways” and “bid to the marriage.” (Answer: highways… invite everyone.)'
+      },
+      {
+        question: 'Who came to the wedding when the servants went out?',
+        choices: [
+          'All kinds of people — both bad and good — and the feast was full of guests',
+          'Nobody at all',
+          'Only birds',
+          'Only people who never needed kindness'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:10.',
+        wrongFeedback: 'Remember who the servants gathered. (Answer: both bad and good… full of guests.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Say yes to Jesus’ invitation — come to Him honestly, with a thankful heart.',
+          'Pretend we never heard Him.',
+          'Believe God only wants a few people.',
+          'Only talk about kindness but never come near God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback: 'Think: which matches Jesus’ open invitation? (Answer: say yes… come to Him.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Tells About a King’s Wedding Feast with God's Word today.",
+    takeaway: 'Jesus invites everyone to come to Him — and He wants the Father’s house full of guests.',
+    prayer:
+      'Lord Jesus, thank You for inviting me. Help me come to You with an honest, thankful heart. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: A happy king at a wedding feast table with many guests sitting around him. Servants are bringing food. The king has a kind face. Thick, bold outlines with large open spaces on the king’s robe, the guests’ robes, the table, and the plates for easy coloring. Soft banquet room walls and gentle light with minimal lines. Joyful and inviting mood — focus on the king inviting everyone to the feast. Clean, minimal, no anger or hurt servants, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold light and gentle rose, friendly not scary, no text in image: King’s feast — marriage for his son (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold light and gentle rose, friendly not scary, no text in image: Servants call — come, all things ready (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold light and gentle rose, friendly not scary, no text in image: Highways — invite everyone (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold light and gentle rose, friendly not scary, no text in image: Bad and good — wedding full (welcome)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold light and gentle rose, friendly not scary, no text in image: Jesus invites — come to Him (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold light and gentle rose, friendly not scary, no text in image: Many called — house full (peace)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -10778,6 +10910,7 @@ module.exports = {
   richYoungRuler: buildRichYoungRulerReadQuiz(),
   parableVineyardWorkers: buildParableVineyardWorkersReadQuiz(),
   parableTwoSons: buildParableTwoSonsReadQuiz(),
+  parableWeddingFeast: buildParableWeddingFeastReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

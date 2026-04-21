@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-21T16:26:11.181Z",
-  "surfacedRefCount": 2826,
-  "overrideCount": 2826,
+  "generatedAt": "2026-04-21T16:41:36.259Z",
+  "surfacedRefCount": 2827,
+  "overrideCount": 2827,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 206,
+      "refs": 207,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 189,
+      "refs": 190,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -272,7 +272,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 210,
+      "refs": 211,
       "pairs": 0
     },
     "memorize.html": {
@@ -2767,6 +2767,7 @@
     "Matthew 21:7",
     "Matthew 21:8",
     "Matthew 21:9",
+    "Matthew 22:1-14",
     "Matthew 22:29",
     "Matthew 22:37-39",
     "Matthew 22:4",
@@ -19744,6 +19745,14 @@
     "Matthew 21:9": {
       "general": {
         "plainExplanation": "And the multitudes that went before, and that followed, cried, saying, Hosanna to the son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 22:1-14": {
+      "general": {
+        "plainExplanation": "Key idea: And Jesus answered and spake to them again by parables, and said, The kingdom of heaven is like to a certain king, which made a marriage for his son, And se...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

@@ -1327,6 +1327,16 @@
     "kw": "sower parable seeds soil good soil grow word hear matthew 13 mark 4 wayside thorns fruit"
   },
   {
+    "key": "parableWeddingFeast",
+    "title": "Jesus Tells About a King’s Wedding Feast",
+    "kjvRef": "Matthew 22:1–14",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "Jesus invites everyone to come to Him. God wants His house full of guests who say yes to His kindness.",
+    "theme": "Love",
+    "kw": "wedding feast marriage matthew 22 king servants highways bidden come unto the marriage parable jesus invite"
+  },
+  {
     "key": "parablePearl",
     "title": "Jesus Tells About a Pearl Worth Everything",
     "kjvRef": "Matthew 13:45–46",

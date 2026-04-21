@@ -44,6 +44,7 @@
  * Ezra return (Ezra 1:1–11; 3:1–6): full read-along + quiz in buildEzraReturnReadQuiz().
  * Nehemiah walls (Nehemiah 1–3 focus): full read-along + quiz in buildNehemiahWallsReadQuiz().
  * Job trusts God (Job 1–2, gentle): full read-along + quiz in buildJobSufferingReadQuiz().
+ * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  */
 
 const davidReadQuizPack = require('./read-quiz-david-pack.cjs');
@@ -4245,6 +4246,111 @@ function buildNehemiahWallsReadQuiz() {
   };
 }
 
+/** Esther crowned queen — kindness, God’s care (Esther 2:1–17); gentle + quiz. Library key: estherCrown */
+function buildEstherCrownReadQuiz() {
+  return {
+    kjvRef: 'Esther 2:1–17 (KJV)',
+    verseExcerpt:
+      'so that he set the royal crown upon her head, and made her queen instead of Vashti. — Esther 2:17 (KJV)',
+    readAlongTitle: 'Esther Becomes Queen',
+    quizWrongHumilityHint:
+      'Listen again — many women came to the palace; the king loved Esther; he set the royal crown on her head; God was watching over her.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'The king of Persia wanted a new queen.',
+      'Many young women were brought to the palace.',
+      'Among them was a young woman named Esther.',
+      'She was one of God’s people, but she had not told anyone.',
+      'Esther was kind and beautiful, and the king loved her more than all the others.',
+      'He placed the royal crown on her head and made her queen.',
+      'Esther lived in the palace, and God was watching over her and her people.',
+      'The Lord can place His children in special places for special times.',
+      'Reference: Esther 2:1–17 (KJV)'
+    ],
+    readAlongSections: [
+      { text: 'The king wanted a new queen.', caption: 'A new queen', image: 'panel-jesus-1.svg' },
+      { text: 'Many young women came to the palace.', caption: 'Many came', image: 'panel-jesus-1.svg' },
+      { text: 'Esther was one of God’s people.', caption: 'God’s child', image: 'panel-jesus-2.svg' },
+      { text: 'The king loved Esther.', caption: 'Kind and loved', image: 'panel-jesus-2.svg' },
+      { text: 'He placed the crown on her head.', caption: 'The crown', image: 'panel-jesus-3.svg' },
+      { text: 'Esther became queen.', caption: 'God’s queen', image: 'panel-jesus-3.svg' },
+      { text: 'God was watching over her.', caption: 'God was near', image: 'panel-jesus-3.svg' }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Esther 2:1–17', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Esther 2:1–17.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'A giant fish', 'Pharaoh', 'Goliath'],
+        correctIndex: 0,
+        correctFeedback: 'Right—God watched over Esther and guided her steps in the palace.',
+        wrongFeedback:
+          'Look for who sets the crown, turns the king’s heart, and cares for His people. (Answer: God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never hears when kids pray.',
+          'The Bible is only pretend stories.',
+          'The Lord can place His children in special places for His good plans.',
+          'We should hide from God when we mess up.'
+        ],
+        correctIndex: 2,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: The Lord can place His children in special places for His good plans.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'Let us rise up and build.',
+          'He set the royal crown upon her head, and made her queen instead of Vashti.',
+          'Everyone decided to never sleep again.'
+        ],
+        correctIndex: 2,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: He set the royal crown upon her head, and made her queen instead of Vashti.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Thank God that He watches over us — and trust Him in the place He puts us today.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust in a God who cares and guides? Pick the one that honors Him. (Answer: Thank God that He watches over us — and trust Him in the place He puts us today.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Esther Becomes Queen with God's Word today.",
+    takeaway:
+      'The Lord can place His children in special places for special times — and He watches over them with love.',
+    prayer:
+      'Lord, thank You that You watch over Your children. Help us trust You wherever You place us today. Amen.',
+    imagePrompts: [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Esther standing gently before the king in the palace thick bold outlines large open spaces the king seated on his throne and placing a simple crown on Esther's head Esther has a kind peaceful face thick bold outlines with large open spaces on Esther's robe the king's robe and the palace floor for easy coloring soft palace walls and a window with light in the background with minimal lines kind and hopeful mood focus on Esther becoming queen clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Many daughters brought to the palace (palace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The king sets the crown on Esther (crown)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is watching over Esther (heavenly care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther made queen — gentle joy (queen)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Esther — courage, prayer, God’s protection (Esther 4–7); gentle taps + quiz. Library key: esther */
 function buildEstherReadQuiz() {
   return {
@@ -4858,6 +4964,7 @@ module.exports = {
   ezraReturn: buildEzraReturnReadQuiz(),
   nehemiahWalls: buildNehemiahWallsReadQuiz(),
   esther: buildEstherReadQuiz(),
+  estherCrown: buildEstherCrownReadQuiz(),
   danielLionsDen: buildDanielLionsDenReadQuiz(),
   fieryFurnace: buildFieryFurnaceReadQuiz(),
   danielFieryFurnace: buildFieryFurnaceReadQuiz(),

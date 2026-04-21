@@ -3005,7 +3005,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 23",
-          "Esther 2:15–18",
+          "Esther 2:1–17",
           "2 Kings 2:1-14",
           "Luke 10"
         ],
@@ -7532,88 +7532,134 @@
     ]
   },
   "estherCrown": {
-    "kjvRef": "Esther 2:15–18",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Esther 2:1–17 (KJV)",
+    "verseExcerpt": "so that he set the royal crown upon her head, and made her queen instead of Vashti. — Esther 2:17 (KJV)",
+    "readAlongTitle": "Esther Becomes Queen",
+    "quizWrongHumilityHint": "Listen again — many women came to the palace; the king loved Esther; he set the royal crown on her head; God was watching over her.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Queen Esther's Courage (Esther 2:15–18).",
-      "Esther is made queen Haman plots to destroy the Jews Esther goes to the king—God gives courage!",
-      "God puts you where you are for a reason!",
-      "Be brave—maybe it's for such a time as this."
+      "The king of Persia wanted a new queen.",
+      "Many young women were brought to the palace.",
+      "Among them was a young woman named Esther.",
+      "She was one of God’s people, but she had not told anyone.",
+      "Esther was kind and beautiful, and the king loved her more than all the others.",
+      "He placed the royal crown on her head and made her queen.",
+      "Esther lived in the palace, and God was watching over her and her people.",
+      "The Lord can place His children in special places for special times.",
+      "Reference: Esther 2:1–17 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "The king wanted a new queen.",
+        "caption": "A new queen",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Many young women came to the palace.",
+        "caption": "Many came",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Esther was one of God’s people.",
+        "caption": "God’s child",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The king loved Esther.",
+        "caption": "Kind and loved",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "He placed the crown on her head.",
+        "caption": "The crown",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Esther became queen.",
+        "caption": "God’s queen",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God was watching over her.",
+        "caption": "God was near",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22",
-          "Esther 2:15–18",
-          "1 Kings 18:17-39",
-          "Daniel 6:1–23"
+          "Psalm 23",
+          "Esther 2:1–17",
+          "Jonah 1",
+          "Genesis 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Esther 2:15–18.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Esther 2:1–17.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Priscilla",
-          "God the Father",
-          "Mary"
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Right—God watched over Esther and guided her steps in the palace.",
+        "wrongFeedback": "Look for who sets the crown, turns the king’s heart, and cares for His people. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
           "God never hears when kids pray.",
           "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God puts you where you are for a reason! Be brave—maybe it's for such a time as this."
+          "The Lord can place His children in special places for His good plans.",
+          "We should hide from God when we mess up."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God puts you where you are for a reason! Be brave—maybe it's for such a time as this..)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: The Lord can place His children in special places for His good plans.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Esther is made queen",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "He set the royal crown upon her head, and made her queen instead of Vashti.",
+          "Everyone decided to never sleep again."
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: He set the royal crown upon her head, and made her queen instead of Vashti.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
           "Ignore God until we are older.",
-          "God puts you where you are for a reason! Be brave—maybe it's for such a time as this.",
+          "Thank God that He watches over us — and trust Him in the place He puts us today.",
           "Never say sorry when we do wrong.",
           "Only be kind to people who are exactly like us."
         ],
         "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God puts you where you are for a reason! Be brave—maybe it's for such a time as this..)"
+        "wrongFeedback": "Think: does this choice show trust in a God who cares and guides? Pick the one that honors Him. (Answer: Thank God that He watches over us — and trust Him in the place He puts us today.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Queen Esther's Courage with God's Word today.",
-    "takeaway": "God puts you where you are for a reason! Be brave—maybe it's for such a time as this.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Queen Esther's Courage. Amen.",
+    "doneMessage": "Great job reading Esther Becomes Queen with God's Word today.",
+    "takeaway": "The Lord can place His children in special places for special times — and He watches over them with love.",
+    "prayer": "Lord, thank You that You watch over Your children. Help us trust You wherever You place us today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther is made queen (esther)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Haman plots to destroy the Jews (crown)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther goes to the king—God gives courage! (queen)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther is made queen (esther 5)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Haman plots to destroy the Jews (scepter)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Esther standing gently before the king in the palace thick bold outlines large open spaces the king seated on his throne and placing a simple crown on Esther's head Esther has a kind peaceful face thick bold outlines with large open spaces on Esther's robe the king's robe and the palace floor for easy coloring soft palace walls and a window with light in the background with minimal lines kind and hopeful mood focus on Esther becoming queen clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Many daughters brought to the palace (palace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The king sets the crown on Esther (crown)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is watching over Esther (heavenly care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther made queen — gentle joy (queen)"
+    ],
+    "readAlongImages": []
   },
   "estherFast": {
     "kjvRef": "Esther 4–5",
@@ -13565,7 +13611,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:15–18",
+          "Esther 2:1–17",
           "2 Kings 2:1-14",
           "1 John 1–5",
           "Luke 10"
@@ -13898,7 +13944,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:15–18",
+          "Esther 2:1–17",
           "Luke 10",
           "2 Kings 2:1-14",
           "Jonah 4"
@@ -15583,7 +15629,7 @@
           "1 Corinthians 13",
           "Daniel 6:22",
           "2 Kings 2:1-14",
-          "Esther 2:15–18"
+          "Esther 2:1–17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19752,7 +19798,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6:22",
-          "Esther 2:15–18",
+          "Esther 2:1–17",
           "Acts 2:4–21",
           "2 Kings 2:1-14"
         ],
@@ -19917,7 +19963,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:15–18",
+          "Esther 2:1–17",
           "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
           "Luke 10",
           "1 Peter 1–5"
@@ -26917,7 +26963,7 @@
         "choices": [
           "Acts 7",
           "2 Kings 2:1-14",
-          "Esther 2:15–18",
+          "Esther 2:1–17",
           "Luke 10"
         ],
         "correctIndex": 0,

@@ -2128,13 +2128,13 @@
   },
   {
     "key": "estherCrown",
-    "title": "Queen Esther's Courage",
-    "kjvRef": "Esther 2:15–18",
-    "who": "God",
-    "to": "Esther",
-    "apply": "God puts you where you are for a reason! Be brave—maybe it's for such a time as this.",
+    "title": "Esther Becomes Queen",
+    "kjvRef": "Esther 2:1–17",
+    "who": "The LORD",
+    "to": "Esther (and every heart He places on purpose)",
+    "apply": "The Lord can place His children in special places for special times — and He watches over them with love.",
     "theme": "Protection",
-    "kw": "esther crown queen esther 5 scepter courage save"
+    "kw": "esther crown queen esther 2 palace persia vashti favour beautiful kind god watches"
   },
   {
     "key": "rahab",

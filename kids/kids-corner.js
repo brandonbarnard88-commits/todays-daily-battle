@@ -2101,21 +2101,33 @@
       /* ── Week 4: Jonah Whale already exists ── */
       /* ── Week 4: Daniel Lions already exists ── */
 
-      /* ── Week 4: Esther Crown (52) ── */
+      /* ── Esther crowned queen — palace light, king sets crown (Esther 2:1–17) ── */
       estherCrown: svg(
         ground() +
-        person(200, 165, 14, 42) +
-        '<path d="M186 162 L186 140 L194 148 L200 135 L206 148 L214 140 L214 162 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="200" cy="135" r="5" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="186" cy="140" r="4" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="214" cy="140" r="4" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<line x1="186" y1="190" x2="160" y2="210" ' + s + ' stroke-width="3.5"/>' +
-        '<polygon points="155,205 158,218 168,212" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(300, 155, 14, 42) +
-        '<rect x="286" y="145" width="28" height="12" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M286 145 Q300 128 314 145" ' + s + ' stroke-width="2.5"/>' +
-        sun(50, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 5:2</text>'
+        '<rect x="52" y="98" width="296" height="72" rx="8" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<path d="M110 98 L110 62 Q160 48 200 56 Q240 48 290 62 L290 98" ' +
+        sf +
+        ' fill="white" stroke-width="1.75"/>' +
+        '<ellipse cx="200" cy="68" rx="72" ry="16" ' + sf + ' fill="white" stroke-width="0.55" opacity="0.22"/>' +
+        '<line x1="200" y1="54" x2="200" y2="88" ' + s + ' stroke-width="0.65" stroke-dasharray="9,8" opacity="0.32"/>' +
+        '<line x1="176" y1="58" x2="168" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.26"/>' +
+        '<line x1="224" y1="58" x2="232" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.26"/>' +
+        person(175, 182, 11, 34) +
+        '<path d="M168 158 L172 150 L176 156 L180 150 L184 158 Z" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        '<path d="M150 192 L138 214 M200 192 L212 214" ' + s + ' stroke-width="1.75"/>' +
+        '<path d="M248 188 Q218 168 186 154" ' + s + ' stroke-width="1.5" fill="none" opacity="0.88"/>' +
+        person(298, 176, 12, 34) +
+        '<rect x="276" y="198" width="56" height="28" rx="5" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="290" y="162" width="34" height="16" rx="2" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<path d="M290 162 Q307 148 324 162" ' + s + ' stroke-width="2"/>' +
+        sun(48, 44, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 2:1–17</text>'
       ),
 
       /* Esther — simple crown, soft palace window light, queen before king (Esther 4–7) */

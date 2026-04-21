@@ -3638,18 +3638,37 @@
         "God's Power in Elisha's Bones — 2 Kings 13:20-21. Elisha died and was buried. Later, as men were burying another man, they saw danger and cast him into the sepulchre of Elisha. When the man touched the bones of Elisha, he revived and stood up on his feet. For you: God is mighty — His kindness can surprise us in the quietest places."
     },
     estherCrown: {
-      title: 'Queen Esther\'s Courage',
+      title: 'Esther Becomes Queen',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Esther is made queen' },
-        { src: 'panel-noah-2.svg', alt: 'Haman plots to destroy the Jews' },
-        { src: 'panel-noah-3.svg', alt: 'Esther goes to the king—God gives courage!' }
+        { src: 'panel-jesus-1.svg', alt: 'Many young women brought to the palace — among them, gentle Esther' },
+        { src: 'panel-jesus-2.svg', alt: 'The king loved Esther above all — she found favour in his sight' },
+        { src: 'panel-jesus-3.svg', alt: 'The royal crown upon her head — God watched over His child' }
       ],
-      caption: 'Swipe to see Esther\'s courage save her people! 👑',
+      caption: 'Swipe to see kindness, a simple crown, and God watching over Esther in the palace.',
       videoId: '',
       videoTitle: '',
-      keywords: ['esther', 'crown', 'queen', 'esther 5', 'scepter', 'courage', 'save'],
-      kjvRef: 'Esther 2:15–18',
-      kidContext: { who: 'God', to: 'Esther', apply: 'God puts you where you are for a reason! Be brave—maybe it\'s for such a time as this.' }
+      keywords: [
+        'esther',
+        'crown',
+        'queen',
+        'vashti',
+        'persia',
+        'esther 2',
+        'palace',
+        'beautiful',
+        'kind',
+        'favour',
+        'watch'
+      ],
+      kjvRef: 'Esther 2:1–17',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Esther (and every heart He places on purpose)',
+        apply:
+          'The Lord can place His children in special places for special times — and He watches over them with love.'
+      },
+      narration:
+        "Esther Becomes Queen — Esther 2:1–17. The king of Persia wanted a new queen. Many young women were brought to the palace; among them was Esther. She was one of God's people, but she had not told it yet. Esther was kind and beautiful, and the king loved her above all the women, so that he set the royal crown upon her head, and made her queen instead of Vashti. She lived in the palace, and God was watching over her and her people. For you: the Lord can place His children where He needs them — and He is never far away."
     },
     nehemiahWalls: {
       title: 'Nehemiah and the People Rebuild Together',

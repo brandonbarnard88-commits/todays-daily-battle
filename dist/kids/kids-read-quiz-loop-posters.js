@@ -300,6 +300,7 @@
     tenVirgins: 108,
     sheepAndGoats: 215,
     jesusCleansesTemple: 216,
+    greatestCommandment: 217,
     trial: 87,
     thessaloniansHope: 90,
     thomasDoubt: 95,

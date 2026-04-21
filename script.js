@@ -1167,11 +1167,11 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
   var STORAGE_KEY = 'tdb_loop_library_state_v2';
   /* Bump ?v= when loops.json shape/media URLs change so CDN/browsers skip stale JSON. */
-  var LOOPS_URL = '/loops.json?v=20260530templeclean';
-  var LOOPS_CACHE_KEY = 'tdb_loops_json_cache_v83';
+  var LOOPS_URL = '/loops.json?v=20260601greatcmd';
+  var LOOPS_CACHE_KEY = 'tdb_loops_json_cache_v84';
   var MAX_WEEK = 12;
   var STAR_GOAL = 12;
-  var TOTAL_LOOPS = 216;
+  var TOTAL_LOOPS = 217;
   /* Google Form: set in loop-feedback-config.js (edit that file when ready) or leave null for mailto fallback */
   var LOOP_FEEDBACK_FORM = (typeof window !== 'undefined' && window.LOOP_FEEDBACK_FORM) || null;
 

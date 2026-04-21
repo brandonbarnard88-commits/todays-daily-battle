@@ -188,6 +188,7 @@
     'widowMite',
     'widowsMite',
     'jesusCleansesTemple',
+    'greatestCommandment',
     'zacchaeus',
     'jesusParableGoodShepherd',
     'lazarus',

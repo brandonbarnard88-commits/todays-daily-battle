@@ -657,6 +657,11 @@
       webm: '/media/kids-stories/jesus-cleanses-temple.webm',
       captionsVtt: '/media/kids-stories/jesus-cleanses-temple.vtt'
     },
+    greatestCommandment: {
+      mp4: '/media/kids-stories/greatest-commandment.mp4',
+      webm: '/media/kids-stories/greatest-commandment.webm',
+      captionsVtt: '/media/kids-stories/greatest-commandment.vtt'
+    },
     jesusCrucifixion: {
       mp4: '/media/kids-stories/jesus-crucifixion.mp4',
       webm: '/media/kids-stories/jesus-crucifixion.webm',

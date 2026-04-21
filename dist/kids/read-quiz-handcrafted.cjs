@@ -90,6 +90,7 @@
  * Sheep and goats (judgment, gentle — sheep on the right, help the least) — Matthew 25:31–40: buildSheepAndGoatsReadQuiz() (library key: sheepAndGoats; alias parableSheepAndGoats in slug map).
  * Widow’s mite — Mark 12:41–44 (gentle): buildWidowsMiteReadQuiz() (library keys: widowsMite; alias widowMite).
  * Temple cleansed — John 2:13–16 (gentle): buildJesusCleansesTempleReadQuiz() (library key: jesusCleansesTemple).
+ * Greatest commandment — Matthew 22:35–40 (gentle): buildGreatestCommandmentReadQuiz() (library key: greatestCommandment).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -11171,6 +11172,134 @@ function buildJesusCleansesTempleReadQuiz() {
   };
 }
 
+/** Greatest commandment — Matthew 22:35–40 (gentle). Library key: greatestCommandment */
+function buildGreatestCommandmentReadQuiz() {
+  return {
+    kjvRef: 'Matthew 22:35–40 (KJV)',
+    verseExcerpt:
+      'Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. — Matthew 22:37 (KJV)',
+    readAlongTitle: 'Jesus Tells Us the Most Important Command',
+    quizWrongHumilityHint:
+      'Listen again — lawyer; tempting; Master; great commandment; love the Lord; heart; soul; mind; first and great; neighbour as thyself; hang all the law.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'One day a lawyer asked Jesus a question to test Him: “Master, which is the great commandment in the law?”',
+      'Jesus answered, “Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind.”',
+      '“This is the first and great commandment.”',
+      '“And the second is like unto it, Thou shalt love thy neighbour as thyself.”',
+      '“On these two commandments hang all the law and the prophets.”',
+      'Jesus said the most important thing is to love God with everything we have — and to love our neighbor as ourselves.',
+      'Reference: Matthew 22:35–40 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'A lawyer asked Jesus, “Master, which is the great commandment in the law?”',
+        caption: 'Which is the great commandment?',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus said, “Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind.”',
+        caption: 'Love the Lord thy God',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: '“This is the first and great commandment.”',
+        caption: 'First and great',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: '“And the second is like unto it, Thou shalt love thy neighbour as thyself.”',
+        caption: 'Love thy neighbour',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: '“On these two commandments hang all the law and the prophets.”',
+        caption: 'All the law and the prophets',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus wants us to love God with all our heart — and love others the way we want to be loved.',
+        caption: 'Heart, soul, mind',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 22:35–40', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 22:35–40.)'
+      },
+      {
+        question: 'Who came to ask Jesus about the great commandment?',
+        choices: [
+          'One of them that was a lawyer — asking to test Him',
+          'A fisherman who did not care about God',
+          'An angel from heaven',
+          'Only a Roman soldier'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:35.',
+        wrongFeedback: 'Listen for “lawyer” and “tempting him.” (Answer: a lawyer… test Him.)'
+      },
+      {
+        question: 'What is the first and great commandment Jesus gave?',
+        choices: [
+          'Love the Lord thy God with all thy heart, soul, and mind',
+          'Hide from God when afraid',
+          'Love money more than people',
+          'Never pray out loud'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:37–38.',
+        wrongFeedback: 'Listen again for “love the Lord thy God.” (Answer: heart, soul, mind.)'
+      },
+      {
+        question: 'What is the second command Jesus said is like the first?',
+        choices: [
+          'Thou shalt love thy neighbour as thyself',
+          'Never help anyone tired',
+          'Only love people who look like us',
+          'Ignore anyone who is sad'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:39.',
+        wrongFeedback: 'Listen for “neighbour as thyself.” (Answer: love thy neighbour.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me love God first — and treat others with the kindness I hope for.',
+          'Only think about myself.',
+          'Believe God never hears prayer.',
+          'Try to be perfect alone without Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Sweet faith—small honest choices please God.',
+        wrongFeedback: 'Think “love God” and “love neighbor.” (Answer: love God first… kindness.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Tells Us the Most Important Command with God's Word today.",
+    takeaway:
+      'The greatest commands are to love God with all our heart — and to love our neighbor as ourselves.',
+    prayer:
+      'Lord Jesus, please help me love You with all my heart — and love others the way I want to be loved. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus sitting and talking kindly to a man who is listening carefully. Jesus has a gentle, wise face. Thick, bold outlines with large open spaces on Jesus’ robe, the man’s robe, and the ground for easy coloring. Soft temple walls and gentle light from above with minimal lines. Wise and loving mood — focus on Jesus teaching the greatest commandment. Clean, minimal, no test or argument shown, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream walls and warm glow, friendly not scary, no text in image: Temple court — lawyer listens (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream walls and warm glow, friendly not scary, no text in image: Love the Lord — heart, soul, mind (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream walls and warm glow, friendly not scary, no text in image: First and great commandment (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream walls and warm glow, friendly not scary, no text in image: Neighbour as thyself — gentle care (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream walls and warm glow, friendly not scary, no text in image: Law and prophets — two commandments (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -11576,6 +11705,7 @@ module.exports = {
   widowsMite: buildWidowsMiteReadQuiz(),
   widowMite: buildWidowsMiteReadQuiz(),
   jesusCleansesTemple: buildJesusCleansesTempleReadQuiz(),
+  greatestCommandment: buildGreatestCommandmentReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

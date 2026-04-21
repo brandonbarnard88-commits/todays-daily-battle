@@ -3694,6 +3694,22 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 2:16</text>'
       ),
 
+      /* Matthew 22:35–40 — gentle: Jesus seated, listener, soft temple, warm light */
+      greatestCommandment: svg(
+        ground() +
+        '<rect x="0" y="0" width="400" height="145" fill="#f5f3ff" stroke="none"/>' +
+        '<path d="M55 48 L345 48 L338 188 L62 188 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="200" y1="48" x2="200" y2="188" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="22" rx="68" ry="12" ' + sf + ' fill="white" stroke-width="1.5" opacity="0.92"/>' +
+        '<rect x="92" y="218" width="216" height="12" rx="3" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        person(138, 168, 10, 26) +
+        person(262, 168, 10, 26) +
+        '<line x1="175" y1="186" x2="230" y2="182" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="248" y1="178" x2="218" y2="174" ' + s + ' stroke-width="1.6"/>' +
+        sun(200, 34, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 22:37</text>'
+      ),
+
       /* ── Week 8: Armor Shield (97) ── */
       armorShield: svg(
         ground() +
@@ -5101,6 +5117,8 @@
     parableSheepAndGoats: 'sheepAndGoats',
     jesusCleansesTemple: 'jesusCleansesTemple',
     templeCleaned: 'jesusCleansesTemple',
+    greatestCommandment: 'greatestCommandment',
+    greatCommandment: 'greatestCommandment',
     /* ── Week 8 ── */
     armorShield: 'armorShield',
     armorSword: 'armorSword',
@@ -6763,7 +6781,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'

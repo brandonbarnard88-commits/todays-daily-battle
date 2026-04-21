@@ -1507,6 +1507,16 @@
     "kw": "talents parable faithful servants matthew 25 well done gifts jesus kingdom"
   },
   {
+    "key": "greatestCommandment",
+    "title": "Jesus Tells Us the Most Important Command",
+    "kjvRef": "Matthew 22:35–40",
+    "who": "Jesus",
+    "to": "The lawyer — and everyone listening (and us)",
+    "apply": "Jesus says the most important things are to love God with all we have and to love others the way we hope to be loved.",
+    "theme": "Love",
+    "kw": "great commandment love god love thy neighbour matthew 22 matthew 22:37 matthew 22:39 first and great commandment lawyer heart soul mind law and prophets"
+  },
+  {
     "key": "jesus",
     "title": "Jesus the Good Shepherd",
     "kjvRef": "Matthew; Mark; Luke; John (Gospels overview)",

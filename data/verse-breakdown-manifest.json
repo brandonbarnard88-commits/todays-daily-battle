@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-21T17:39:11.847Z",
-  "surfacedRefCount": 2830,
-  "overrideCount": 2830,
+  "generatedAt": "2026-04-21T17:51:53.067Z",
+  "surfacedRefCount": 2831,
+  "overrideCount": 2831,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 211,
+      "refs": 212,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 195,
+      "refs": 196,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -272,7 +272,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 213,
+      "refs": 214,
       "pairs": 0
     },
     "memorize.html": {
@@ -2772,6 +2772,7 @@
     "Matthew 21:9",
     "Matthew 22:1-14",
     "Matthew 22:29",
+    "Matthew 22:35-40",
     "Matthew 22:37-39",
     "Matthew 22:4",
     "Matthew 22:46",
@@ -19789,6 +19790,14 @@
       "general": {
         "plainExplanation": "Jesus answered and said to them, you do err, not knowing the scriptures, nor the power of God.",
         "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 22:35-40": {
+      "general": {
+        "plainExplanation": "Key idea: Then one of them, which was a lawyer, asked him a question, tempting him, and saying, Master, which is the great commandment in the law? Jesus said to him,...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
         "about": "Jesus",
         "to": "Believers"
       }

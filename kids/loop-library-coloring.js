@@ -70,6 +70,7 @@
   "goldenCalf": "tenCommandments",
   "goodSamaritan": "goodSamaritanMercy",
   "greatCommission": "greatCommission",
+  "greatestCommandment": "greatestCommandment",
   "hannahPray": "hannahPray",
   "hannahPrayer": "hannahPrayer",
   "healLeper": "healLeper",

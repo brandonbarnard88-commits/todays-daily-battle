@@ -7031,6 +7031,47 @@
       narration:
         "Jesus Makes God’s House Clean Again — John 2:13–16. And the Jews’ passover was at hand, and Jesus went up to Jerusalem, And found in the temple those that sold oxen and sheep and doves, and the changers of money sitting: And when he had made a scourge of small cords, he drove them all out of the temple, and the sheep, and the oxen; and poured out the changers’ money, and overthrew the tables; And said unto them that sold doves, Take these things hence; make not my Father’s house an house of merchandise. For you: Jesus wants God’s house to be a quiet, respectful place where people can pray and worship."
     },
+    greatestCommandment: {
+      title: 'Jesus Tells Us the Most Important Command',
+      panels: [
+        {
+          src: 'panel-noah-1.svg',
+          alt: 'A lawyer asks Jesus — Master, which is the great commandment in the law?'
+        },
+        {
+          src: 'panel-noah-2.svg',
+          alt: 'Jesus answers — love the Lord thy God with all thy heart, soul, and mind'
+        },
+        {
+          src: 'panel-noah-3.svg',
+          alt: 'And the second — love thy neighbour as thyself; on these hang all the law and the prophets'
+        }
+      ],
+      caption: 'Swipe to hear Jesus teach the greatest commandments — love God, love others! 💛',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'great commandment',
+        'love god',
+        'love thy neighbour',
+        'matthew 22',
+        'matthew 22:37',
+        'matthew 22:39',
+        'first and great commandment',
+        'lawyer',
+        'heart soul mind',
+        'law and prophets'
+      ],
+      kjvRef: 'Matthew 22:35–40',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The lawyer — and everyone listening (and us)',
+        apply:
+          'Jesus says the most important things are to love God with all we have and to love others the way we hope to be loved.'
+      },
+      narration:
+        "Jesus Tells Us the Most Important Command — Matthew 22:35–40. Then one of them, which was a lawyer, asked him a question, tempting him, and saying, Master, which is the great commandment in the law? Jesus said unto him, Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. This is the first and great commandment. And the second is like unto it, Thou shalt love thy neighbour as thyself. On these two commandments hang all the law and the prophets. For you: the greatest commands are to love God with everything we have and to love our neighbor as ourselves."
+    },
     richYoungRuler: {
       title: 'Jesus Talks with a Rich Young Man',
       panels: [
@@ -8435,7 +8476,7 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -8454,7 +8495,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -8984,6 +9025,13 @@
       )
     ) {
       return { type: 'carousel', story: 'parableWeddingFeast' };
+    }
+    if (
+      /great commandment|first and great commandment|love the lord thy god with all thy heart|love thy neighbour as thyself|on these two commandments hang|matthew 22:35|matthew 22:36|matthew 22:37|matthew 22:38|matthew 22:39|matthew 22:40|which is the great commandment|lawyer.*tempting.*master/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'greatestCommandment' };
     }
     if (
       /sheep and goats|sheep.*goats|matthew 25:31|matthew 25:40|least of these|inherit the kingdom prepared|ye gave me meat|i was a stranger|right hand.*sheep|separate.*sheep|done it unto me|parable.*sheep.*goat/i.test(
@@ -11590,7 +11638,7 @@
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', tenVirgins: 'Obedience', sheepAndGoats: 'Love', jesusCleansesTemple: 'Obedience', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', tenVirgins: 'Obedience', sheepAndGoats: 'Love', jesusCleansesTemple: 'Obedience', greatestCommandment: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
     ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', armorOfGod: 'Obedience',

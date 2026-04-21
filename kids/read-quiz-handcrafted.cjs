@@ -11324,55 +11324,56 @@ function buildTriumphalEntryReadQuiz() {
       'Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord. — Matthew 21:9 (KJV)',
     readAlongTitle: 'Jesus Rides into Jerusalem',
     quizWrongHumilityHint:
-      'Listen again — Bethphage; mount of Olives; two disciples; village; ass; colt; loose them; Lord hath need; garments; branches; strawed; Hosanna; Son of David; city was moved; Who is this; prophet of Nazareth.',
+      'Listen again — Bethphage; mount of Olives; two disciples; village; ass; colt; loose them; Lord hath need; garments; palm branches; strawed; Hosanna; Son of David; city was moved; Who is this; prophet of Nazareth; joy and praise.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'Jesus and His disciples drew near to Jerusalem — a gentle ride toward the city on the mount of Olives, near a place called Bethphage.',
-      'Jesus sent two disciples with a simple errand that showed He was the promised King, humble and kind.',
-      'He said, in effect, Go into the village; you will find an ass tied, and a colt with her: loose them, and bring them unto me.',
-      'If anyone asked why, they could say, The Lord hath need of them — and the owners would send them.',
-      'The disciples obeyed. They brought the ass and the colt, put their clothes on them, and set Jesus thereon.',
-      'A very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way.',
-      'The crowds went before Him and followed Him, crying, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”',
-      'When He came into Jerusalem, all the city was moved, saying, “Who is this?”',
-      'The multitude answered, “This is Jesus the prophet of Nazareth of Galilee.”',
-      'It was a joyful welcome — yet peaceful, like a King who comes meekly, riding on a donkey.',
+      'Jesus and His disciples came near Jerusalem.',
+      'They stopped at Bethphage, at the mount of Olives.',
+      'Jesus sent two disciples into the village and said, “Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them.”',
+      'The disciples went and did as Jesus commanded.',
+      'They brought the donkey and the colt, and put their clothes on them, and Jesus sat thereon.',
+      'A very great multitude spread their garments in the way.',
+      'Others cut down branches from the trees and spread them in the way.',
+      'The crowds that went before and that followed cried, saying, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”',
+      'When Jesus entered Jerusalem, all the city was moved, saying, “Who is this?”',
+      'The multitude said, “This is Jesus the prophet of Nazareth of Galilee.”',
+      'The people welcomed Jesus as their King with joy and praise.',
       'Reference: Matthew 21:1–11 (KJV)'
     ],
     readAlongSections: [
       {
-        text: 'When they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples.',
+        text: 'Jesus and His disciples came near Jerusalem. They stopped at Bethphage, at the mount of Olives.',
         caption: 'Near Jerusalem',
         image: 'panel-jesus-1.svg'
       },
       {
-        text: 'They found the ass and the colt, as He said. They loosed them and brought them — the Lord hath need of them.',
-        caption: 'Loose them and bring them',
+        text: 'Jesus sent two disciples into the village and said, “Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them.”',
+        caption: 'The Lord hath need of them',
         image: 'panel-jesus-1.svg'
       },
       {
-        text: 'They brought the ass and the colt, and put on them their clothes, and they set Him thereon.',
-        caption: 'Sitting upon an ass',
+        text: 'The disciples went and did as Jesus commanded. They brought the donkey and the colt, and put their clothes on them, and Jesus sat thereon.',
+        caption: 'Jesus rides the donkey',
         image: 'panel-jesus-1.svg'
       },
       {
-        text: 'A very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way.',
-        caption: 'Branches and garments',
+        text: 'A very great multitude spread their garments in the way. Others cut down branches from the trees and spread them in the way.',
+        caption: 'Clothes and branches',
         image: 'panel-jesus-2.svg'
       },
       {
-        text: 'The multitudes cried, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”',
-        caption: 'Hosanna',
+        text: 'The crowds cried, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”',
+        caption: 'Hosanna to the Son of David',
         image: 'panel-jesus-2.svg'
       },
       {
-        text: 'When He was come into Jerusalem, all the city was moved, saying, “Who is this?” And the multitude said, “This is Jesus the prophet of Nazareth of Galilee.”',
+        text: 'When Jesus entered Jerusalem, all the city was moved, saying, “Who is this?” The multitude said, “This is Jesus the prophet of Nazareth of Galilee.”',
         caption: 'Who is this?',
         image: 'panel-jesus-3.svg'
       },
       {
-        text: 'We can welcome Jesus as our gentle King — with praise and a thankful heart.',
-        caption: 'Blessed is he that cometh',
+        text: 'The people welcomed Jesus as their King with joy and praise.',
+        caption: 'Welcome the King',
         image: 'panel-jesus-3.svg'
       }
     ],
@@ -11449,11 +11450,11 @@ function buildTriumphalEntryReadQuiz() {
     doneHeading: 'You did it!',
     doneMessage: "Great job reading Jesus Rides into Jerusalem with God's Word today.",
     takeaway:
-      'Hosanna to the Son of David — Jesus comes meekly, as the prophets said; we can welcome Him with gentle, thankful praise.',
+      'The people welcomed Jesus as their King with joy and praise — Hosanna to the Son of David; we can welcome Him with the same gentle gladness.',
     prayer:
-      'Lord Jesus, thank You for coming near to us like a gentle King. Help me welcome You with a quiet, happy heart today. Amen.',
+      'Lord Jesus, thank You for riding to us as our humble King. Help me welcome You today with joy, praise, and a peaceful heart. Amen.',
     imagePrompts: [
-      'A simple, peaceful black-and-white line-art scene for young children: Jesus riding on a young donkey into Jerusalem. People are spreading clothes and palm branches on the road. The people have happy faces and are waving branches. Thick, bold outlines with large open spaces on Jesus’ robe, the donkey, the clothes, and the branches for easy coloring. Soft road and gentle city walls with minimal lines. Joyful and welcoming mood — focus on the people welcoming Jesus. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.',
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus riding on a young donkey into Jerusalem. People are spreading clothes on the road; several people hold palm branches up high in simple, easy-to-see waves (large leaf shapes, bold outlines). Happy, calm faces. Thick, bold outlines with large open spaces on Jesus’ robe, the donkey, the clothes, and the branches for easy coloring. Soft road and gentle rounded city wall shapes in the background with minimal lines. Joyful and welcoming mood — focus on the people welcoming Jesus. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Village — colt brought (hope)',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Garments on the way (joy)',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Branches spread — Hosanna (love)',

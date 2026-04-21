@@ -1709,18 +1709,18 @@
       panels: [
         {
           src: 'panel-jesus-1.svg',
-          alt: 'Jesus sends for the colt — disciples bring the young donkey and lay garments on it'
+          alt: 'Near Bethphage and the mount of Olives — Jesus sends two disciples; they bring the ass and colt and lay garments for Him to ride'
         },
         {
           src: 'panel-jesus-2.svg',
-          alt: 'Jesus rides into the city — crowds spread garments and branches on the road'
+          alt: 'Jesus rides into Jerusalem — a great multitude spreads garments and branches on the way; joyful, welcoming faces'
         },
         {
           src: 'panel-jesus-3.svg',
-          alt: 'Hosanna to the Son of David — the people welcome Jesus and ask, Who is this?'
+          alt: 'Hosanna to the Son of David — the city asks Who is this? and the people answer, Jesus the prophet of Nazareth of Galilee'
         }
       ],
-      caption: 'Swipe to see Jesus welcomed as King — Hosanna! 🌿',
+      caption: 'Swipe slowly — clothes, branches, and glad Hosannas for the King who comes gently.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -1742,10 +1742,10 @@
         who: 'Jesus',
         to: 'The crowds in Jerusalem (and us)',
         apply:
-          'We can welcome Jesus as our King — with praise, joy, and a thankful heart.'
+          'The people welcomed Jesus as their King with joy and praise — we can welcome Him that way too, in a calm, happy heart.'
       },
       narration:
-        "Jesus Rides into Jerusalem — Matthew 21:1–11. And when they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples, Saying unto them, Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them; and straightway he will send them. All this was done, that it might be fulfilled which was spoken by the prophet, saying, Tell ye the daughter of Sion, Behold, thy King cometh unto thee, meek, and sitting upon an ass, and a colt the foal of an ass. And the disciples went, and did as Jesus commanded them, And brought the ass, and the colt, and put on them their clothes, and they set him thereon. And a very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way. And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest. And when he was come into Jerusalem, all the city was moved, saying, Who is this? And the multitude said, This is Jesus the prophet of Nazareth of Galilee. For you: the people welcomed Jesus as their gentle King — we can welcome Him today with quiet joy and thankful praise, no hurry, no pressure, just love in our hearts."
+        "Jesus Rides into Jerusalem — Matthew 21:1–11. And when they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples, Saying unto them, Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them; and straightway he will send them. All this was done, that it might be fulfilled which was spoken by the prophet, saying, Tell ye the daughter of Sion, Behold, thy King cometh unto thee, meek, and sitting upon an ass, and a colt the foal of an ass. And the disciples went, and did as Jesus commanded them, And brought the ass, and the colt, and put on them their clothes, and they set him thereon. And a very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way. And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest. And when he was come into Jerusalem, all the city was moved, saying, Who is this? And the multitude said, This is Jesus the prophet of Nazareth of Galilee. For you: the people welcomed Jesus as their King with joy and praise — we can color that picture in our hearts too: gentle gladness, no hurry, just love for the King who came humbly on a donkey."
     },
     lastSupper: {
       title: 'Last Supper',

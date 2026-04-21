@@ -4525,16 +4525,16 @@ function buildFieryFurnaceReadQuiz() {
       'Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. — Daniel 3:25 (KJV)',
     readAlongTitle: 'God Walks with His Servants in the Fire',
     quizWrongHumilityHint:
-      'Listen again — they would not bow; God is able to deliver; four walked in the fire unhurt.',
+      'Listen again — they loved God and would not bow; God is able to deliver; four walked in the fire unhurt.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'The king of Babylon made a big golden image and commanded everyone to bow down and worship it when they heard the music.',
-      'Shadrach, Meshach, and Abednego would not bow down.',
+      'The king of Babylon made a big golden image and commanded everyone to bow down when they heard the music.',
+      'Shadrach, Meshach, and Abednego loved God and would not bow down.',
       'They told the king, "Our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up."',
-      'The king was very angry and commanded the furnace to be heated seven times hotter.',
+      'The king was very angry and made the furnace seven times hotter.',
       'The three men were thrown into the burning fiery furnace.',
       'The king looked and said, "Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God."',
-      'The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them.',
+      'When the three men came out, no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them.',
       'The Lord walked with His servants in the fire and kept them safe because they trusted Him.',
       'Reference: Daniel 3:1–30 (KJV) — gentle summary for little hearts'
     ],
@@ -4546,7 +4546,7 @@ function buildFieryFurnaceReadQuiz() {
       },
       {
         text: 'Shadrach, Meshach, and Abednego would not bow.',
-        caption: 'We will not bow',
+        caption: 'Loved God — would not bow',
         image: 'panel-daniel-1.svg'
       },
       {
@@ -4643,8 +4643,8 @@ function buildFieryFurnaceReadQuiz() {
     prayer:
       'Lord, thank You that You never leave us. Help us trust You and obey. Amen.',
     imagePrompts: [
-      'A simple peaceful black-and-white line-art scene for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them the fire shown as soft gentle flames around them peaceful trusting faces thick bold outlines large open spaces on the men\'s robes the fourth figure the flames and the ground for easy coloring soft furnace walls with minimal lines trusting and safe mood focus on God walking with His servants in the fire clean minimal no fear or burning plenty of white space age-appropriate for ages 3–8 coloring page',
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow (shadrach)",
+      'A simple, peaceful black-and-white line-art scene for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them the fire shown as soft gentle flames around them peaceful trusting faces thick bold outlines large open spaces on the men\'s robes the fourth figure the flames and the ground for easy coloring soft furnace walls with minimal lines trusting and safe mood focus on God walking with His servants in the fire clean minimal no fear or burning plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends loved God — refuse to bow (shadrach)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace — seven times hotter (daniel 3)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — Son of God (angel)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: No smell of fire on their coats (safe)"

@@ -193,6 +193,7 @@
     'jesusWeepsJerusalem',
     'figTree',
     'jesusAuthority',
+    'parableWickedHusbandmen',
     'zacchaeus',
     'jesusParableGoodShepherd',
     'lazarus',

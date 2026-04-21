@@ -777,6 +777,11 @@
       webm: '/media/kids-stories/jesus-authority-temple.webm',
       captionsVtt: '/media/kids-stories/jesus-authority-temple.vtt'
     },
+    parableWickedHusbandmen: {
+      mp4: '/media/kids-stories/jesus-vineyard-son.mp4',
+      webm: '/media/kids-stories/jesus-vineyard-son.webm',
+      captionsVtt: '/media/kids-stories/jesus-vineyard-son.vtt'
+    },
     jesusWalksWater: {
       mp4: '/media/kids-stories/jesus-walks-water.mp4',
       webm: '/media/kids-stories/jesus-walks-water.webm',

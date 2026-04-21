@@ -1876,6 +1876,52 @@
       narration:
         "Jesus Answers the Chief Priests and Elders — Matthew 21:23–27. And when he was come into the temple, the chief priests and the elders of the people came unto him as he was teaching, and said, By what authority doest thou these things? and who gave thee this authority? And Jesus answered and said unto them, I also will ask you one thing, which if ye tell me, I in like wise will tell you by what authority I do these things. The baptism of John, whence was it? from heaven, or of men? And they reasoned with themselves, saying, If we shall say, From heaven; he will say unto us, Why did ye not then believe him? But if we shall say, Of men; we fear the people; for all hold John as a prophet. And they answered Jesus, and said, We cannot tell. And he said unto them, Neither tell I you by what authority I do these things. For you: Jesus was not trying to trick little ones — He was showing that truth and honesty matter, and that He knows what is in every heart. We can come to Him openly, ask our questions, and trust His kind wisdom."
     },
+    parableWickedHusbandmen: {
+      title: 'Jesus Tells About the Vineyard and the Son',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'A vineyard with fruit on the vines — the householder planted it, hedged it, and let it out to husbandmen'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'The owner sent servants, then last of all his son — They will reverence my son — teaching moment, calm faces'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'The stone the builders rejected is become the head of the corner — hopeful truth, God’s kingdom and good fruit'
+        }
+      ],
+      caption: 'Swipe slowly — a story about fruit, the Father’s Son, and God’s good kingdom.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'vineyard',
+        'husbandmen',
+        'parable',
+        'son',
+        'servants',
+        'fruit',
+        'stone',
+        'builders',
+        'head of the corner',
+        'matthew 21',
+        'matthew 21:33',
+        'matthew 21:42',
+        'reverence my son',
+        'heir',
+        'kingdom of god'
+      ],
+      kjvRef: 'Matthew 21:33–46',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The chief priests and elders — and everyone who listens (including us)',
+        apply:
+          'Jesus is God’s beloved Son; God looks for hearts that bear good fruit for Him — we can trust Jesus and grow in love and obedience.'
+      },
+      narration:
+        "Jesus Tells About the Vineyard and the Son — Matthew 21:33–46. Hear another parable: There was a certain householder, which planted a vineyard, and hedged it round about, and digged a winepress in it, and built a tower, and let it out to husbandmen, and went into a far country: And when the time of the fruit drew near, he sent his servants to the husbandmen, that they might receive the fruits of it. And the husbandmen took his servants, and beat one, and killed another, and stoned another. Again, he sent other servants more than the first: and they did likewise unto them. But last of all he sent unto them his son, saying, They will reverence my son. But when the husbandmen saw the son, they said among themselves, This is the heir; come, let us kill him, and let us seize on his inheritance. And they caught him, and cast him out of the vineyard, and slew him. When the lord therefore of the vineyard cometh, what will he do unto those husbandmen? They say unto him, He will miserably destroy those wicked men, and will let out his vineyard unto other husbandmen, which shall render him the fruits in their seasons. Jesus saith unto them, Did ye never read in the scriptures, The stone which the builders rejected, the same is become the head of the corner: this is the Lord's doing, and it is marvellous in our eyes? Therefore say I unto you, The kingdom of God shall be taken from you, and given to a nation bringing forth the fruits thereof. And whosoever shall fall on this stone shall be broken: but on whomsoever it shall fall, it will grind him to powder. And when the chief priests and Pharisees had heard his parables, they perceived that he spake of them. But when they sought to lay hands on him, they feared the multitude, because they took him for a prophet. For you: Jesus told this true story so we would see how precious the Father’s Son is — and how God blesses people who bring forth good fruit for Him. We can love Jesus, obey Him gently, and ask God to help our lives show His kindness."
+    },
     lastSupper: {
       title: 'Last Supper',
       panels: [
@@ -8634,10 +8680,10 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -8653,7 +8699,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -9190,6 +9236,13 @@
     }
     if (/rich young ruler|mark 10:17|matthew 19:16|sell.*possessions/.test(low)) {
       return { type: 'carousel', story: 'richYoungRuler' };
+    }
+    if (
+      /\bmatthew 21:3[3-9]\b|\bmatthew 21:4[0-6]\b|wicked husbandmen|let it out to husbandmen|hedged it round about.*vineyard|digged a winepress|built a tower.*vineyard|reverence my son|this is the heir|seize on his inheritance|cast him out of the vineyard|stone which the builders rejected|head of the corner|kingdom of god shall be taken from you|nation bringing forth the fruits|heard another parable.*vineyard|householder.*planted a vineyard.*husbandmen/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'parableWickedHusbandmen' };
     }
     if (
       /workers in the vineyard|vineyard workers|matthew 20:1|labourers.*vineyard|householder.*vineyard|eleventh hour.*penny|parable.*vineyard/i.test(
@@ -11887,6 +11940,7 @@
     jesusWeepsJerusalem: 'Love',
     figTree: 'Obedience',
     jesusAuthority: 'Obedience',
+    parableWickedHusbandmen: 'Obedience',
     jesusLastSupper: 'Love',
     jesusGardenGethsemane: 'Protection',
     crossCarry: 'Love', jesusCrucifixion: 'Love', tombEmpty: 'Miracles', jesusResurrection: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',

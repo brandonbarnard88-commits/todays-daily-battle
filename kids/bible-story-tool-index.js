@@ -1537,6 +1537,16 @@
     "kw": "two sons vineyard matthew 21 i go sir repented will of his father parable obey jesus kingdom of god"
   },
   {
+    "key": "parableWickedHusbandmen",
+    "title": "Jesus Tells About the Vineyard and the Son",
+    "kjvRef": "Matthew 21:33–46",
+    "who": "Jesus",
+    "to": "The chief priests and elders — and everyone who listens (including us)",
+    "apply": "Jesus is God’s beloved Son; God blesses hearts that bear good fruit for Him — we can trust Jesus and obey Him with love.",
+    "theme": "Obedience",
+    "kw": "vineyard husbandmen parable son servants fruit stone builders head of the corner matthew 21 matthew 21:33 matthew 21:42 reverence my son heir wicked husbandmen kingdom fruit"
+  },
+  {
     "key": "parableTalents",
     "title": "Jesus Tells About Using What God Gives Us",
     "kjvRef": "Matthew 25:14–30",

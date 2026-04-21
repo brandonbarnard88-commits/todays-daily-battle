@@ -95,6 +95,7 @@
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
+ * Wicked husbandmen / vineyard and the Son — Matthew 21:33–46 (gentle summary): buildParableWickedHusbandmenReadQuiz() (library key: parableWickedHusbandmen).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -11889,6 +11890,137 @@ function buildJesusAuthorityReadQuiz() {
   };
 }
 
+/** Vineyard and the Son — Matthew 21:33–46 (gentle summary for little hearts). Library key: parableWickedHusbandmen */
+function buildParableWickedHusbandmenReadQuiz() {
+  return {
+    kjvRef: 'Matthew 21:33–46 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'The stone which the builders rejected, the same is become the head of the corner. — Matthew 21:42 (KJV)',
+    readAlongTitle: 'Jesus Tells About the Vineyard and the Son',
+    quizWrongHumilityHint:
+      'Listen again — vineyard; husbandmen; servants; fruits; beat; killed; stoned; son; reverence my son; heir; inheritance; cast out; stone; builders; head of the corner; kingdom; good fruit.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told another parable to the chief priests and elders.',
+      'A certain man planted a vineyard, and let it out to husbandmen, and went into a far country.',
+      'When the time of the fruit drew near, he sent his servants to the husbandmen, that they might receive the fruits of it.',
+      'The husbandmen took his servants, beat one, killed another, and stoned another. Again he sent other servants, and they did likewise unto them.',
+      'Last of all he sent unto them his son, saying, They will reverence my son. But when the husbandmen saw the son, they said among themselves, This is the heir; come, let us kill him, and let us seize on his inheritance. They caught him, and cast him out of the vineyard, and slew him.',
+      'Jesus asked, When the lord therefore of the vineyard cometh, what will he do unto those husbandmen? They said unto him, He will miserably destroy those wicked men, and will let out his vineyard unto other husbandmen, which shall render him the fruits in their seasons.',
+      'Jesus said unto them, The stone which the builders rejected, the same is become the head of the corner.',
+      'Jesus is the beloved Son, and the kingdom will be given to those who bear fruit for God.',
+      'Reference: Matthew 21:33–46 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A man planted a vineyard and let it out to husbandmen, and went into a far country.',
+        caption: 'A vineyard planted',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'When the fruit season drew near, he sent servants to collect the fruit of the vineyard.',
+        caption: 'Servants sent',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The workers treated the servants badly — they did not give the owner what belonged to him.',
+        caption: 'Hard hearts',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Last of all the owner sent his own son, saying, They will reverence my son.',
+        caption: 'He sent his son',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus is God’s beloved Son — the most precious gift the Father could send.',
+        caption: 'The beloved Son',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'The stone which the builders rejected is become the head of the corner — God’s kingdom is for hearts that bear good fruit for Him.',
+        caption: 'Good fruit for God',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 21:33–46', 'Psalm 23', 'Jonah 1', 'Matthew 5:1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 21:33–46.)'
+      },
+      {
+        question: 'What did the man plant?',
+        choices: ['A vineyard', 'Only a sand castle', 'A spaceship garden', 'Nothing at all'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches the parable’s beginning.',
+        wrongFeedback: 'Listen for “vineyard.” (Answer: a vineyard.)'
+      },
+      {
+        question: 'Whom did he send last of all?',
+        choices: ['His son', 'Only a turtle', 'No one ever', 'A bag of coins with no message'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—last of all he sent his son.',
+        wrongFeedback: 'Listen for “son” and “reverence my son.” (Answer: his son.)'
+      },
+      {
+        question: 'What did Jesus say about the stone and the builders?',
+        choices: [
+          'The stone which the builders rejected, the same is become the head of the corner.',
+          'Stones are never important in God’s Word.',
+          'Builders always know everything without God.',
+          'We should never read the Bible.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:42.',
+        wrongFeedback: 'Listen for “stone” and “builders.” (Answer: rejected stone… head of the corner.)'
+      },
+      {
+        question: 'What is one lesson God’s Spirit teaches us here?',
+        choices: [
+          'Honor God’s Son and seek to bear good fruit for God with a thankful heart.',
+          'Hide from every story Jesus tells.',
+          'Fruit only matters for trees, never for people.',
+          'We never need to obey God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with humility: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “Son,” “fruit,” and “kingdom.” (Answer: honor the Son… good fruit.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'He sent servants, then sent his son to the husbandmen in the vineyard',
+          'The vineyard turned into a rocket.',
+          'A talking toaster became king.',
+          'Everyone forgot how to walk.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches the parable in Matthew 21.',
+        wrongFeedback: 'Pick the true detail from God’s Word. (Answer: servants, then son, vineyard.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Tells About the Vineyard and the Son with God's Word today.",
+    takeaway:
+      'Jesus is the beloved Son — God looks for hearts that bear good fruit for Him; we can trust Jesus and obey Him with love.',
+    prayer:
+      'Lord Jesus, thank You for loving us as the Father’s Son. Help us bear good fruit for God today — kind words, thankful hearts, and gentle obedience. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: A vineyard with ripe grapes on the vines (large round grape clusters, easy outlines). The owner’s son stands peacefully near the vineyard with a calm, kind face. Thick, bold outlines with large open spaces on the vines, grapes, hills, sky, and the son’s robe for easy coloring. Soft hills and a gentle sky with minimal lines. Hopeful and fruitful mood — focus on good fruit for God. Clean, minimal, no violence or weapons shown, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and vineyard rows, friendly not scary, no text in image: Vineyard planted — gift of fruit (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and vineyard rows, friendly not scary, no text in image: Servants sent — the owner’s care (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and vineyard rows, friendly not scary, no text in image: The son sent — reverence and love (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft light, friendly not scary, no text in image: Beloved Son — Jesus (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, cornerstone hope, friendly not scary, no text in image: Good fruit for God’s kingdom (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -12299,6 +12431,7 @@ module.exports = {
   jesusWeepsJerusalem: buildJesusWeepsJerusalemReadQuiz(),
   figTree: buildFigTreeReadQuiz(),
   jesusAuthority: buildJesusAuthorityReadQuiz(),
+  parableWickedHusbandmen: buildParableWickedHusbandmenReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

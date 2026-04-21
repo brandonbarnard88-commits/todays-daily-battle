@@ -192,6 +192,7 @@
   "jesusWeepsJerusalem": "jesusWeepsJerusalem",
   "figTree": "figTree",
   "jesusAuthority": "jesusAuthority",
+  "parableWickedHusbandmen": "parableWickedHusbandmen",
   "unforgivingServant": "unforgivingServant",
   "widowOil": "widowOil",
   "widowsMite": "widowMite",

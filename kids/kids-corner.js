@@ -184,7 +184,8 @@
       jesusWeptJerusalem: 'jesusWeepsJerusalem',
       figTree: 'figTree',
       jesusFigTree: 'figTree',
-      jesusAuthority: 'jesusAuthority'
+      jesusAuthority: 'jesusAuthority',
+      parableWickedHusbandmen: 'parableWickedHusbandmen'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -197,6 +198,8 @@
     if (low.indexOf('jesusweepsjerusalem') >= 0 || low === 'jesusweepsjerusalem') return 'jesusWeepsJerusalem';
     if (low.indexOf('jesusauthority') >= 0 || low === 'jesusauthority') return 'jesusAuthority';
     if (low.indexOf('jesusfigtree') >= 0 || low === 'jesusfigtree') return 'figTree';
+    if (low.indexOf('parablewickedhusbandmen') >= 0 || low === 'parablewickedhusbandmen')
+      return 'parableWickedHusbandmen';
     if (low.indexOf('jesus') >= 0) return 'jesus-children';
     if (low.indexOf('moses') >= 0) return low.indexOf('baby') >= 0 ? 'baby-moses' : 'moses-red-sea';
     if (low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses-red-sea';
@@ -3242,6 +3245,35 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:31</text>'
       ),
 
+      /* Matthew 21:33–46 — gentle: fruitful vineyard, large grapes, beloved son peaceful in foreground */
+      parableWickedHusbandmen: svg(
+        ground() +
+        hills() +
+        sun(46, 40, 14) +
+        cloud(300, 36) +
+        '<path d="M28 218 Q100 198 200 206 Q300 198 372 218" ' +
+        s +
+        ' stroke-width="2" fill="none"/>' +
+        '<path d="M32 228 Q104 208 200 216 Q296 208 368 228" ' +
+        s +
+        ' stroke-width="1.6" fill="none" opacity="0.72"/>' +
+        '<line x1="92" y1="214" x2="96" y2="176" ' + s + ' stroke-width="2"/>' +
+        '<line x1="200" y1="208" x2="200" y2="158" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="308" y1="214" x2="304" y2="176" ' + s + ' stroke-width="2"/>' +
+        '<circle cx="92" cy="162" r="11" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<circle cx="82" cy="172" r="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="102" cy="172" r="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="200" cy="142" r="13" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<circle cx="186" cy="154" r="9" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="214" cy="154" r="9" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="308" cy="162" r="11" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<circle cx="298" cy="172" r="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="318" cy="172" r="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(200, 178, 11, 34) +
+        '<path d="M192 194 Q200 188 208 194" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:33</text>'
+      ),
+
       /* Matthew 22:1–14 — king, wedding table, guests, servants */
       parableWeddingFeast: svg(
         ground() +
@@ -5099,6 +5131,7 @@
     parablePearl: 'parablePearl',
     parableVineyardWorkers: 'parableVineyardWorkers',
     parableTwoSons: 'parableTwoSons',
+    parableWickedHusbandmen: 'parableWickedHusbandmen',
     parableWeddingFeast: 'parableWeddingFeast',
     parableLostSheep: 'parableLostSheep',
     prodigalSon: 'prodigalSonWelcome',
@@ -6870,8 +6903,8 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'zacchaeus',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'zacchaeus',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

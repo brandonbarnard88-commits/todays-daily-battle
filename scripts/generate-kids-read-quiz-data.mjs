@@ -587,6 +587,10 @@ if (merged.widowOil && !merged.elishaOil) {
 if (merged.davidBathsheba && !merged.davidRepentance) {
   merged.davidRepentance = merged.davidBathsheba;
 }
+/** parableMustardSeed — same gentle pack as mustardSeed (journey URLs, naming). */
+if (merged.mustardSeed && !merged.parableMustardSeed) {
+  merged.parableMustardSeed = merged.mustardSeed;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

@@ -2758,23 +2758,33 @@
   },
   {
     "key": "mustardSeed",
-    "title": "The Mustard Seed",
-    "kjvRef": "Matthew 13",
+    "title": "Jesus Tells About a Tiny Seed That Grows Big",
+    "kjvRef": "Matthew 13:31–32",
     "who": "Jesus",
-    "to": "His disciples",
-    "apply": "Faith as small as a seed can move mountains! Don't give up—keep trusting.",
+    "to": "The people (and us)",
+    "apply": "God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.",
     "theme": "Obedience",
-    "kw": "mustard seed faith tree matthew 13 kingdom grow small"
+    "kw": "mustard seed kingdom heaven grain sowed field tree birds branches matthew 13 grow"
+  },
+  {
+    "key": "parableMustardSeed",
+    "title": "Jesus Tells About a Tiny Seed That Grows Big",
+    "kjvRef": "Matthew 13:31–32",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.",
+    "theme": "Obedience",
+    "kw": "mustard seed kingdom parable matthew 13 tree birds branches grow"
   },
   {
     "key": "jesusParableMustardSeed",
-    "title": "The Mustard Seed Kingdom",
+    "title": "Jesus Tells About a Tiny Seed That Grows Big",
     "kjvRef": "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
     "who": "Jesus",
     "to": "His disciples (and us)",
-    "apply": "God's kingdom starts small but grows big — and your faith can grow too.",
+    "apply": "God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.",
     "theme": "Obedience",
-    "kw": "mustard seed kingdom matthew 13 mark 4 luke 13 faith grow tree"
+    "kw": "mustard seed kingdom matthew 13 mark 4 luke 13 tree birds branches grow"
   },
   {
     "key": "newEarth",

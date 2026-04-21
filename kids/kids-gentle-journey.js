@@ -169,6 +169,7 @@
     'parableSower',
     'jesusParableSower',
     'mustardSeed',
+    'parableMustardSeed',
     'jesusParableMustardSeed',
     'faithMustard',
     'faithMountain',

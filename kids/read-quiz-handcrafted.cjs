@@ -69,6 +69,7 @@
  * Jesus walks on the sea — be not afraid (Matthew 14:22–33, gentle): buildJesusWalksWaterReadQuiz() (library key: jesusWalksWater).
  * Five loaves and two fishes — feed a hungry crowd (Matthew 14:13–21, gentle): buildJesusFeeds5000ReadQuiz() (library key: jesusFeeds5000).
  * Parable of the sower — good soil (Matthew 13:1–23, gentle): buildParableSowerReadQuiz() (library key: parableSower).
+ * Mustard seed — kingdom grows from small (Matthew 13:31–32, gentle): buildParableMustardSeedReadQuiz() (library key: mustardSeed; alias parableMustardSeed).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -8360,6 +8361,138 @@ function buildParableSowerReadQuiz() {
   };
 }
 
+/** Parable of the mustard seed — tiny seed, great growth (gentle). Library key: mustardSeed (alias: parableMustardSeed) */
+function buildParableMustardSeedReadQuiz() {
+  return {
+    kjvRef: 'Matthew 13:31–32 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof. — Matthew 13:32 (KJV)',
+    readAlongTitle: 'Jesus Tells About a Tiny Seed That Grows Big',
+    quizWrongHumilityHint:
+      'Listen again — mustard seed; least; sowed; field; grew; greatest among herbs; tree; birds; lodge; kingdom; hear.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told another story to the people.',
+      'He said, “The kingdom of heaven is like to a grain of mustard seed, which a man took, and sowed in his field: which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof.”',
+      'A tiny mustard seed is very small, but when it is planted in good soil, it grows into a big plant — sometimes as tall as a tree.',
+      'Jesus was teaching that God’s kingdom starts small, like a little seed, but it grows and grows until it becomes something strong and beautiful that helps many people.',
+      'God’s kingdom grows in our hearts when we listen to Jesus.',
+      'Reference: Matthew 13:31–32 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus told a story about a mustard seed.',
+        caption: 'A grain of mustard seed',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The seed is very tiny.',
+        caption: 'Least of all seeds',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'It is planted in the ground.',
+        caption: 'Sowed in his field',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'It grows into a big plant.',
+        caption: 'Greatest among herbs',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Birds come and rest in its branches.',
+        caption: 'Birds lodge in the branches',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'God’s kingdom grows like that tiny seed.',
+        caption: 'Kingdom like a mustard seed',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 13:31–32', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 13:31–32.)'
+      },
+      {
+        question: 'What is the kingdom of heaven like in this parable?',
+        choices: [
+          'A grain of mustard seed that grows great',
+          'A bucket of sand',
+          'A loud drum',
+          'A sleeping pillow'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus said the kingdom of heaven is like a little mustard seed that grows.',
+        wrongFeedback:
+          'Think about what Jesus compared the kingdom to. (Answer: a grain of mustard seed that grows great.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God’s kingdom never grows.',
+          'God’s kingdom starts small but grows big — and He can grow in our hearts when we listen to Jesus.',
+          'Only big people are important.',
+          'Seeds never need soil.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the part about the tiny seed and the great plant. (Answer: starts small… grows… listen to Jesus.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The birds of the air come and lodge in the branches.',
+          'The farmer rode a rocket into space.',
+          'The seed turned into a jellyfish.',
+          'The tree was made of ice cream.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that wonder comes from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Jesus’ parable? (Answer: birds… lodge in the branches.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that His kingdom grows in us — ask Him to help us listen and trust Him like good soil for a tiny seed.',
+          'Never pray about small things.',
+          'Hide from God when we feel small.',
+          'Only grown-ups care about God’s kingdom.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus’ care and growth? (Answer: thank Jesus… listen… trust Him.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Tells About a Tiny Seed That Grows Big with God's Word today.",
+    takeaway: 'God’s kingdom grows in our hearts when we listen to Jesus.',
+    prayer:
+      'Lord Jesus, thank You that Your kingdom grows in us. Help us listen to You today. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: a tiny mustard seed on the ground next to a tall leafy mustard plant with birds sitting in its branches a gentle farmer stands nearby with a smile thick bold outlines with large open spaces on the seed the tall plant the birds and the ground for easy coloring soft hills and a gentle sky with minimal lines wonder growing mood focus on the tiny seed that grows into something big clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Jesus tells — kingdom like a mustard seed (listen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Tiny seed — least of all seeds (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Planted in the field — soil and hope (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Grows tall — greatest among herbs (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Birds lodge in branches — shade and rest (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Kingdom grows — listen to Jesus (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -8473,5 +8606,6 @@ module.exports = {
   jesusWalksWater: buildJesusWalksWaterReadQuiz(),
   jesusFeeds5000: buildJesusFeeds5000ReadQuiz(),
   parableSower: buildParableSowerReadQuiz(),
+  mustardSeed: buildParableMustardSeedReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

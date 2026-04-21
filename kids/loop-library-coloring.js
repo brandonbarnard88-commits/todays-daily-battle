@@ -117,6 +117,7 @@
   "miriamSong": "miriamSong",
   "mosesBaby": "mosesBaby",
   "mosesSea": "mosesSea",
+  "mustardSeed": "mustardSeed",
   "naamanHealed": "naamanHealed",
   "nehemiahWalls": "nehemiahWalls",
   "noah": "noah",

@@ -5400,18 +5400,38 @@
     },
     /* ── Week 6 (73–84) ── */
     mustardSeed: {
-      title: 'The Mustard Seed',
+      title: 'Jesus Tells About a Tiny Seed That Grows Big',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A tiny mustard seed in a hand' },
-        { src: 'panel-noah-2.svg', alt: 'It\'s planted in the ground' },
-        { src: 'panel-noah-3.svg', alt: 'It grows into the biggest tree—birds nest in it!' }
+        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a grain of mustard seed — least of all seeds' },
+        { src: 'panel-noah-2.svg', alt: 'Sowed in his field — when it is grown, greatest among herbs' },
+        { src: 'panel-noah-3.svg', alt: 'Becometh a tree — birds of the air lodge in the branches' }
       ],
-      caption: 'Swipe to see a tiny seed grow huge—faith works! 🌱',
+      caption: 'Swipe to see a tiny seed grow tall — God’s kingdom grows when we listen to Jesus. 🌱',
       videoId: '',
       videoTitle: '',
-      keywords: ['mustard seed', 'faith', 'tree', 'matthew 13', 'kingdom', 'grow', 'small'],
-      kjvRef: 'Matthew 13',
-      kidContext: { who: 'Jesus', to: 'His disciples', apply: 'Faith as small as a seed can move mountains! Don\'t give up—keep trusting.' }
+      keywords: [
+        'mustard seed',
+        'kingdom of heaven',
+        'grain',
+        'sowed',
+        'field',
+        'tree',
+        'birds',
+        'branches',
+        'matthew 13',
+        'grow',
+        'least',
+        'greatest among herbs'
+      ],
+      kjvRef: 'Matthew 13:31–32',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.'
+      },
+      narration:
+        "Jesus Tells About a Tiny Seed That Grows Big — Matthew 13:31–32. Another parable put he forth unto them, saying, The kingdom of heaven is like to a grain of mustard seed, which a man took, and sowed in his field: Which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof. For you: God’s kingdom starts small, but it grows strong and beautiful — and Jesus helps it grow in our hearts when we listen to Him."
     },
     jesusParableSower: {
       title: 'The Parable of the Sower',
@@ -5428,18 +5448,38 @@
       kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Let God\'s word sink deep — hear, understand, and bear fruit like good ground.' }
     },
     jesusParableMustardSeed: {
-      title: 'The Mustard Seed Kingdom',
+      title: 'Jesus Tells About a Tiny Seed That Grows Big',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A tiny mustard seed in a hand' },
-        { src: 'panel-noah-2.svg', alt: 'It grows greatest among herbs — birds lodge in branches' },
-        { src: 'panel-noah-3.svg', alt: 'Small beginnings — God\'s kingdom grows great' }
+        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a grain of mustard seed — least of all seeds' },
+        { src: 'panel-noah-2.svg', alt: 'Sowed in his field — when it is grown, greatest among herbs' },
+        { src: 'panel-noah-3.svg', alt: 'Becometh a tree — birds of the air lodge in the branches' }
       ],
-      caption: 'Swipe to see a tiny seed become a great tree! 🌳',
+      caption: 'Swipe to see a tiny seed grow tall — God’s kingdom grows when we listen to Jesus. 🌱',
       videoId: '',
       videoTitle: '',
-      keywords: ['mustard seed', 'kingdom', 'matthew 13', 'mark 4', 'luke 13', 'faith', 'grow', 'tree'],
+      keywords: [
+        'mustard seed',
+        'kingdom of heaven',
+        'grain',
+        'sowed',
+        'field',
+        'tree',
+        'birds',
+        'branches',
+        'matthew 13',
+        'mark 4',
+        'luke 13',
+        'grow'
+      ],
       kjvRef: 'Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God\'s kingdom starts small but grows big — and your faith can grow too.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples (and us)',
+        apply:
+          'God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.'
+      },
+      narration:
+        "Jesus Tells About a Tiny Seed That Grows Big — Matthew 13:31–32. Another parable put he forth unto them, saying, The kingdom of heaven is like to a grain of mustard seed, which a man took, and sowed in his field: Which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof. For you: God’s kingdom starts small, but it grows strong and beautiful — and Jesus helps it grow in our hearts when we listen to Him."
     },
     jesusParableGoodShepherd: {
       title: 'The Good Shepherd',
@@ -7683,6 +7723,8 @@
     /** Legacy key — same card as naamanHealed (journey URLs, older links). */
     bibleStories.naaman = bibleStories.naamanHealed;
     bibleStories.elishaOil = bibleStories.widowOil;
+    /** Same gentle card as mustardSeed (library / journey naming). */
+    bibleStories.parableMustardSeed = bibleStories.mustardSeed;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -7826,7 +7868,7 @@
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'jesusParableMustardSeed', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'jesusParableGoodShepherd',
       'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -7845,7 +7887,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */

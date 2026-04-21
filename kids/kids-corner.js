@@ -4802,31 +4802,46 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 18:3</text>'
       ),
 
-      /* Week 12 gentle: Lazarus — Jesus calls, come forth; thankful sisters (John 11:1–44) */
+      /* John 11:1–44 — gentle: cave tomb, stone aside, Jesus calls, Lazarus in graveclothes, Mary & Martha kneeling */
       lazarus: svg(
         ground() +
-        hills() +
-        sun(44, 40, 16) +
-        '<line x1="200" y1="38" x2="200" y2="118" ' + s + ' stroke-width="1.3" opacity="0.45"/>' +
-        '<line x1="200" y1="48" x2="150" y2="95" ' + s + ' stroke-width="1.2" opacity="0.4"/>' +
-        '<line x1="200" y1="48" x2="250" y2="95" ' + s + ' stroke-width="1.2" opacity="0.4"/>' +
-        '<path d="M108 262 L108 172 Q200 118 292 172 L292 262" ' + sf + ' fill="white" stroke-width="3.5"/>' +
-        '<rect x="108" y="172" width="184" height="90" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<ellipse cx="78" cy="228" rx="24" ry="30" ' + sf + ' fill="white" stroke-width="2.6"/>' +
-        person(138, 148, 12, 34) +
-        '<path d="M152 180 L210 172" ' + s + ' stroke-width="2.6"/>' +
-        '<circle cx="220" cy="160" r="10" ' + sf + ' fill="white" stroke-width="2.3"/>' +
-        '<path d="M214 168 L214 168 Q220 172 226 168" ' + s + ' stroke-width="1.4"/>' +
-        '<path d="M214 178 L210 218" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="198" y1="188" x2="242" y2="188" ' + s + ' stroke-width="1.5"/>' +
-        '<line x1="198" y1="196" x2="240" y2="196" ' + s + ' stroke-width="1.5"/>' +
-        '<line x1="198" y1="204" x2="238" y2="204" ' + s + ' stroke-width="1.5"/>' +
-        '<path d="M210 218 L206 248" ' + s + ' stroke-width="2.2"/>' +
-        '<path d="M220 218 L232 246" ' + s + ' stroke-width="2.2"/>' +
-        person(276, 162, 10, 26) +
-        person(306, 166, 10, 26) +
-        star(200, 26, 12) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 11:1–44</text>'
+        '<path d="M0 248 Q140 218 200 228 Q300 212 400 248" ' + s + ' stroke-width="1.8" opacity="0.42"/>' +
+        '<path d="M20 240 L36 200 L52 232" ' + s + ' stroke-width="2" fill="none"/>' +
+        '<circle cx="36" cy="188" r="16" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M330 242 L348 198 L366 238" ' + s + ' stroke-width="2" fill="none"/>' +
+        '<circle cx="348" cy="186" r="14" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        sun(52, 38, 14) + cloud(300, 32) +
+        /* cave opening */
+        '<path d="M118 262 L118 168 Q200 118 282 168 L282 262" ' + sf + ' fill="white" stroke-width="3.2"/>' +
+        '<path d="M128 262 L128 176 Q200 132 272 176 L272 262" ' + s + ' stroke-width="2" fill="none" opacity="0.35"/>' +
+        /* rolled stone */
+        '<ellipse cx="92" cy="232" rx="28" ry="20" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<path d="M72 228 Q92 218 112 228" ' + s + ' stroke-width="1.4" opacity="0.5"/>' +
+        /* Jesus — raised hand calling */
+        '<circle cx="152" cy="168" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M146 164 Q152 160 158 164" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<line x1="152" y1="179" x2="152" y2="248" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="152" y1="194" x2="132" y2="210" ' + s + ' stroke-width="2"/>' +
+        '<line x1="152" y1="194" x2="172" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="152" y1="248" x2="142" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="152" y1="248" x2="162" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="160" y1="186" x2="198" y2="152" ' + s + ' stroke-width="2" stroke-linecap="round"/>' +
+        /* Lazarus — bands, peaceful step forward */
+        '<circle cx="228" cy="156" r="9" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="228" y1="165" x2="228" y2="218" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="216" y1="178" x2="240" y2="178" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="216" y1="188" x2="238" y2="188" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="216" y1="198" x2="236" y2="198" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="228" y1="218" x2="218" y2="252" ' + s + ' stroke-width="2"/>' +
+        '<line x1="228" y1="218" x2="238" y2="252" ' + s + ' stroke-width="2"/>' +
+        /* Mary & Martha kneeling */
+        '<circle cx="288" cy="212" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M288 219 L292 248 L276 262" ' + s + ' stroke-width="2" fill="none"/>' +
+        '<path d="M282 228 L268 238" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="318" cy="214" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M318 221 L324 250 L308 262" ' + s + ' stroke-width="2" fill="none"/>' +
+        '<path d="M312 230 L300 240" ' + s + ' stroke-width="1.8"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 11:25</text>'
       ),
 
       /* ── Week 12: Great Commission (146) ── */

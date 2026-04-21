@@ -1041,20 +1041,20 @@
     "title": "Jesus Brings Lazarus Back to Life",
     "kjvRef": "John 11:1–44",
     "who": "Jesus",
-    "to": "Mary, Martha, Lazarus, and us",
-    "apply": "Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.",
+    "to": "Mary, Martha, Lazarus, and everyone who grieves or feels afraid",
+    "apply": "Jesus is the resurrection and the life — He cares when we hurt, and nothing is too hard for Him.",
     "theme": "Miracles",
-    "kw": "lazarus bethany raised come forth resurrection life john 11 mary martha tomb believe"
+    "kw": "lazarus bethany mary martha sick lovest sleepeth four days cave stone come forth graveclothes resurrection life john 11 believe"
   },
   {
     "key": "jesusLazarus",
     "title": "Jesus Brings Lazarus Back to Life",
     "kjvRef": "John 11:1–44",
     "who": "Jesus",
-    "to": "Mary, Martha, Lazarus, and us",
-    "apply": "Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.",
+    "to": "Mary, Martha, Lazarus, and everyone who grieves or feels afraid",
+    "apply": "Jesus is the resurrection and the life — He cares when we hurt, and nothing is too hard for Him.",
     "theme": "Miracles",
-    "kw": "lazarus bethany raised come forth resurrection life john 11 mary martha tomb believe"
+    "kw": "lazarus bethany mary martha sick lovest sleepeth four days cave stone come forth graveclothes resurrection life john 11 believe"
   },
   {
     "key": "jesusCallingDisciples",

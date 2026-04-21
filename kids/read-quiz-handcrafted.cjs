@@ -9332,54 +9332,51 @@ function buildMaryMarthaReadQuiz() {
 /** Jesus brings Lazarus back to life — resurrection and life, come forth (gentle). Library key: lazarus */
 function buildLazarusReadQuiz() {
   return {
-    kjvRef: 'John 11:1–44 (KJV) — gentle summary for little hearts',
+    kjvRef: 'John 11:1–44 (KJV)',
     verseExcerpt: 'Jesus said unto her, I am the resurrection, and the life. — John 11:25 (KJV)',
     readAlongTitle: 'Jesus Brings Lazarus Back to Life',
     quizWrongHumilityHint:
-      'Listen again — Bethany; sick; died; four days; tomb; Martha; believe; resurrection; life; come forth; loose him; believe.',
+      'Listen again — Bethany; sick; lovest; two days; sleepeth; awake; four days; Martha; resurrection; life; believest; cave; stone; come forth; graveclothes; napkin; loose him; believed.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'Jesus had a friend named Lazarus who lived in Bethany with his sisters Mary and Martha.',
-      'Lazarus became very sick and died.',
-      'When Jesus came, Lazarus had been in the tomb for four days.',
-      'Mary and Martha were very sad.',
-      'Jesus said to Martha, “I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”',
-      'Then Jesus went to the tomb and said, “Lazarus, come forth.”',
-      'Lazarus walked out of the tomb, alive again!',
-      'Many people who saw this believed in Jesus.',
-      'Jesus has power over death and brings hope and life.',
-      'Reference: John 11:1–44 (KJV) — gentle summary for little hearts'
+      'Jesus had a dear friend named Lazarus who lived in Bethany with his sisters, Mary and Martha. Lazarus became very sick. His sisters sent word to Jesus, saying, Lord, behold, he whom thou lovest is sick.',
+      'Jesus loved Martha, and her sister, and Lazarus. Yet when He heard that Lazarus was sick, He stayed two more days in the place where He was. Then He said to His disciples, Our friend Lazarus sleepeth; but I go, that I may awake him out of sleep.',
+      'When Jesus came, Lazarus had already been in the grave four days. Martha went to meet Jesus and said, Lord, if thou hadst been here, my brother had not died. Jesus saith unto her, Thy brother shall rise again. Martha said, I know that he shall rise again in the resurrection at the last day. Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live: And whosoever liveth and believeth in me shall never die. Believest thou this?',
+      'Jesus came to the grave. It was a cave, and a stone lay upon it. Jesus said, Take ye away the stone. Then He cried with a loud voice, Lazarus, come forth. And he that was dead came forth, bound hand and foot with graveclothes: and his face was bound about with a napkin. Jesus saith unto them, Loose him, and let him go.',
+      'Many of the Jews which came to Mary, and had seen the things which Jesus did, believed on Him.',
+      'Jesus cares when we hurt, and He has power over death — a safe, hopeful truth for hard days.',
+      'Reference: John 11:1–44 (KJV)'
     ],
     readAlongSections: [
       {
-        text: 'Lazarus was very sick and died.',
-        caption: 'A hard day in Bethany',
-        image: 'panel-noah-1.svg'
+        text: 'Lazarus was sick, and his sisters Mary and Martha sent for Jesus.',
+        caption: 'He whom thou lovest is sick',
+        image: 'panel-jesus-1.svg'
       },
       {
-        text: 'Jesus came to the tomb.',
-        caption: 'Jesus draws near',
-        image: 'panel-noah-1.svg'
+        text: 'Jesus waited a little while, then went to Bethany even though Lazarus had died.',
+        caption: 'Our friend sleepeth',
+        image: 'panel-jesus-1.svg'
       },
       {
-        text: 'Jesus said, “I am the resurrection and the life.”',
+        text: 'Martha met Jesus and said her brother would have lived if He had come sooner.',
+        caption: 'Lord, if thou hadst been here',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, I am the resurrection, and the life.',
         caption: 'Believest thou this?',
-        image: 'panel-noah-2.svg'
+        image: 'panel-jesus-2.svg'
       },
       {
-        text: 'Jesus called, “Lazarus, come forth.”',
-        caption: 'Come forth',
-        image: 'panel-noah-2.svg'
+        text: 'At the cave tomb, Jesus told them to roll away the stone.',
+        caption: 'Take ye away the stone',
+        image: 'panel-jesus-3.svg'
       },
       {
-        text: 'Lazarus walked out alive.',
+        text: 'Jesus called with a loud voice, Lazarus, come forth! And Lazarus walked out alive. Many people believed in Jesus that day.',
         caption: 'Loose him, and let him go',
-        image: 'panel-noah-3.svg'
-      },
-      {
-        text: 'Jesus has power over death.',
-        caption: 'Hope and life',
-        image: 'panel-noah-3.svg'
+        image: 'panel-jesus-3.svg'
       }
     ],
     quizHeading: 'Quiz — think it through',
@@ -9390,75 +9387,84 @@ function buildLazarusReadQuiz() {
         correctIndex: 1,
         correctFeedback: "Yes—that matches this story's place in God's Word.",
         wrongFeedback:
-          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 11:1–44.)'
+          'Skim the reference line in the story block. (Answer: John 11:1–44.)'
       },
       {
-        question: 'Who was Lazarus to Jesus in this gentle story?',
+        question: 'Who was Lazarus to Jesus in this story?',
         choices: [
-          'A dear friend whose family loved Him — Mary and Martha’s brother.',
+          'A dear friend — brother to Mary and Martha, and Jesus loved them all.',
           'A stranger Jesus never met.',
-          'Someone who lived in a book only.',
-          'A pretend person with no family.'
+          'Someone who lived only in a pretend tale.',
+          'A person with no family.'
         ],
         correctIndex: 0,
-        correctFeedback: 'Yes—that matches how John 11 introduces Lazarus of Bethany.',
-        wrongFeedback:
-          'Think: who were Mary and Martha to Lazarus? (Answer: friend… brother… sisters.)'
+        correctFeedback: 'Yes—that matches John 11:3–5.',
+        wrongFeedback: 'Think: who sent word from Bethany? (Answer: dear friend… sisters.)'
       },
       {
         question: 'Which words did Jesus say to Martha about resurrection and life?',
         choices: [
-          '“I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”',
-          '“Be careful for nothing.”',
-          '“Peace, be still.”',
-          '“Take no thought for your life.”'
+          'I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.',
+          'Be careful for nothing.',
+          'Peace, be still.',
+          'Take no thought for your life.'
         ],
         correctIndex: 0,
-        correctFeedback: "Yes—that lines up with John 11:25 and God's truth.",
-        wrongFeedback:
-          'Reread Martha’s moment with Jesus in John 11. (Answer: resurrection… life… believeth.)'
+        correctFeedback: 'Yes—that matches John 11:25.',
+        wrongFeedback: 'Listen for “resurrection” and “life.” (Answer: I am the resurrection, and the life…)'
       },
       {
-        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        question: 'What did Jesus cry at the tomb?',
         choices: [
-          'When Jesus called “Lazarus, come forth,” the one who was dead came out.',
-          'The tomb turned into a rocket.',
-          'Everyone forgot who Lazarus was.',
-          'Mary and Martha lived on the moon.'
+          'Lazarus, come forth.',
+          'Stay in the cave forever.',
+          'Run away from Bethany.',
+          'Do not speak to anyone.'
         ],
         correctIndex: 0,
-        correctFeedback: 'Yes—that wonder comes from God’s Word.',
-        wrongFeedback:
-          'Cross out the joke answers. Which matches John 11? (Answer: come forth… came out.)'
+        correctFeedback: 'Yes—that matches John 11:43.',
+        wrongFeedback: 'Listen for “come forth.” (Answer: Lazarus, come forth.)'
+      },
+      {
+        question: 'What did Jesus say to do after Lazarus came out bound in graveclothes?',
+        choices: [
+          'Loose him, and let him go.',
+          'Leave him bound forever.',
+          'Hide him from everyone.',
+          'Roll the stone back immediately.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 11:44.',
+        wrongFeedback: 'Listen for “loose.” (Answer: Loose him, and let him go.)'
       },
       {
         question: 'What is one good way to respond to God after this story?',
         choices: [
-          'Thank Jesus that He has power over death — and ask Him to help me trust Him with hard, sad days.',
-          'Never talk to God.',
-          'Only think about fear.',
-          'Forget what Jesus said.'
+          'Thank Jesus that He is the resurrection and the life — and ask Him to help me trust Him on sad, hard days.',
+          'Never talk to God when I am sad.',
+          'Believe God never cares.',
+          'Try to be brave alone without Jesus.'
         ],
         correctIndex: 0,
-        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        correctFeedback: 'Beautiful—that is faith with hope: small, real, and pleasing to God.',
         wrongFeedback:
-          'Think: which honors Jesus as “the resurrection, and the life”? (Answer: thank… trust.)'
+          'Think: which honors Jesus’ power and love? (Answer: thank Him… trust Him… hard days.)'
       }
     ],
     doneHeading: 'You did it!',
     doneMessage: "Great job reading Jesus Brings Lazarus Back to Life with God's Word today.",
-    takeaway: 'Jesus has power over death and brings hope and life.',
+    takeaway:
+      'Jesus is the resurrection and the life — He cares when we hurt, and nothing is too hard for Him.',
     prayer:
-      'Lord Jesus, thank You that You are the resurrection and the life. Help me trust You today. Amen.',
+      'Lord Jesus, thank You that You are the resurrection and the life. On hard days, help me rest in Your strong, gentle love. Amen.',
     imagePrompts: [
-      'A simple peaceful black-and-white line-art scene for young children: Jesus standing outside the tomb calling Lazarus Lazarus is walking out wrapped in cloths with a happy alive face Mary and Martha stand nearby with thankful faces thick bold outlines with large open spaces on Jesus robe Lazarus cloths and the ground for easy coloring soft tomb opening and gentle hills with minimal lines hopeful and joyful mood focus on Jesus bringing Lazarus back to life clean minimal no fear or dark tomb plenty of white space age-appropriate for ages 3–8 coloring page',
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Bethany — a friend is sick (care)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Four days — Jesus comes near (hope)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Resurrection and life — Jesus speaks (truth)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Come forth — call at the tomb (power)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Walking out — bound in graveclothes (alive)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Loose him — thankful hearts (joy)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Many believed — hope spreads (love)"
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. Gentle Jesus stands near the opening of a cave tomb with a kind, loving face, one hand raised as He calls out. Lazarus stands at the cave entrance wrapped in simple graveclothes, beginning to step forward — face peaceful, not scary. Mary and Martha kneel nearby with hopeful expressions. A large stone rests beside the cave opening. Soft hills and a few trees in the distance with plenty of open ground in the foreground for coloring. Focus: Jesus bringing life and hope. Style: clear, bold, tender, restful — never frightening or dark.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Bethany — sisters send word — he whom thou lovest is sick (care)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Two days — our friend sleepeth — Jesus goes (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Martha meets Jesus — if thou hadst been here (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: I am the resurrection, and the life (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Cave tomb — take ye away the stone (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Come forth — loose him — many believed (peace)'
     ],
     readAlongImages: []
   };

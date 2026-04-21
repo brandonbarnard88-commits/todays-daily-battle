@@ -195,6 +195,7 @@
     'jesusAuthority',
     'parableWickedHusbandmen',
     'tributeToCaesar',
+    'sadduceesResurrection',
     'zacchaeus',
     'jesusParableGoodShepherd',
     'lazarus',

@@ -186,7 +186,8 @@
       jesusFigTree: 'figTree',
       jesusAuthority: 'jesusAuthority',
       parableWickedHusbandmen: 'parableWickedHusbandmen',
-      tributeToCaesar: 'tributeToCaesar'
+      tributeToCaesar: 'tributeToCaesar',
+      sadduceesResurrection: 'sadduceesResurrection'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -202,6 +203,8 @@
     if (low.indexOf('parablewickedhusbandmen') >= 0 || low === 'parablewickedhusbandmen')
       return 'parableWickedHusbandmen';
     if (low.indexOf('tributetocaesar') >= 0 || low === 'tributetocaesar') return 'tributeToCaesar';
+    if (low.indexOf('sadduceesresurrection') >= 0 || low === 'sadduceesresurrection')
+      return 'sadduceesResurrection';
     if (low.indexOf('jesus') >= 0) return 'jesus-children';
     if (low.indexOf('moses') >= 0) return low.indexOf('baby') >= 0 ? 'baby-moses' : 'moses-red-sea';
     if (low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses-red-sea';
@@ -3844,6 +3847,20 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 22:21</text>'
       ),
 
+      /* Matthew 22:23–33 — gentle: Jesus teaching two Sadducees, soft temple wall, light from above */
+      sadduceesResurrection: svg(
+        ground() +
+        '<ellipse cx="200" cy="52" rx="100" ry="18" ' + sf + ' fill="white" stroke-width="1.6" opacity="0.5"/>' +
+        '<path d="M52 102 L348 102 L348 188 L52 188 Z" ' + sf + ' fill="white" stroke-width="2" opacity="0.9"/>' +
+        '<path d="M110 102 L110 188 M200 102 L200 188 M290 102 L290 188" ' + s + ' stroke-width="1.3" opacity="0.4"/>' +
+        person(200, 152, 12, 40) +
+        '<path d="M192 186 Q200 180 208 186" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        person(118, 168, 9, 28) +
+        person(282, 168, 9, 28) +
+        sun(40, 40, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 22:32</text>'
+      ),
+
       /* ── Week 8: Armor Shield (97) ── */
       armorShield: svg(
         ground() +
@@ -5152,6 +5169,7 @@
     parableTwoSons: 'parableTwoSons',
     parableWickedHusbandmen: 'parableWickedHusbandmen',
     tributeToCaesar: 'tributeToCaesar',
+    sadduceesResurrection: 'sadduceesResurrection',
     parableWeddingFeast: 'parableWeddingFeast',
     parableLostSheep: 'parableLostSheep',
     prodigalSon: 'prodigalSonWelcome',
@@ -6923,8 +6941,8 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'zacchaeus',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

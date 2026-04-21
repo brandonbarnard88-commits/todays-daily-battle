@@ -1417,6 +1417,16 @@
     "kw": "tribute caesar penny render pharisees herodians matthew 22 matthew 22:21 image superscription marvelled god's things honest wisdom"
   },
   {
+    "key": "sadduceesResurrection",
+    "title": "Jesus Teaches About the Resurrection",
+    "kjvRef": "Matthew 22:23–33",
+    "who": "Jesus",
+    "to": "The Sadducees — and everyone who listens (including us)",
+    "apply": "God is the God of the living — we can trust Jesus’ teaching about Scripture and hope in the resurrection.",
+    "theme": "Obedience",
+    "kw": "sadducees resurrection matthew 22 matthew 22:23 matthew 22:32 god of abraham isaac jacob living neither marry angels seven brethren scriptures power of god"
+  },
+  {
     "key": "parablePearl",
     "title": "Jesus Tells About a Pearl Worth Everything",
     "kjvRef": "Matthew 13:45–46",

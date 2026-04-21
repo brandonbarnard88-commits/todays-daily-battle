@@ -787,6 +787,11 @@
       webm: '/media/kids-stories/jesus-tribute-caesar.webm',
       captionsVtt: '/media/kids-stories/jesus-tribute-caesar.vtt'
     },
+    sadduceesResurrection: {
+      mp4: '/media/kids-stories/jesus-sadducees-resurrection.mp4',
+      webm: '/media/kids-stories/jesus-sadducees-resurrection.webm',
+      captionsVtt: '/media/kids-stories/jesus-sadducees-resurrection.vtt'
+    },
     jesusWalksWater: {
       mp4: '/media/kids-stories/jesus-walks-water.mp4',
       webm: '/media/kids-stories/jesus-walks-water.webm',

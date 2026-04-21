@@ -97,6 +97,7 @@
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
  * Wicked husbandmen / vineyard and the Son — Matthew 21:33–46 (gentle summary): buildParableWickedHusbandmenReadQuiz() (library key: parableWickedHusbandmen).
  * Render to Caesar / tribute penny — Matthew 22:15–22 (gentle): buildTributeToCaesarReadQuiz() (library key: tributeToCaesar).
+ * Sadducees and the resurrection — Matthew 22:23–33 (gentle): buildSadduceesResurrectionReadQuiz() (library key: sadduceesResurrection).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -12158,6 +12159,141 @@ function buildTributeToCaesarReadQuiz() {
   };
 }
 
+/** Sadducees and resurrection — Matthew 22:23–33 (gentle). Library key: sadduceesResurrection */
+function buildSadduceesResurrectionReadQuiz() {
+  return {
+    kjvRef: 'Matthew 22:23–33 (KJV)',
+    verseExcerpt:
+      'God is not the God of the dead, but of the living. — Matthew 22:32 (KJV)',
+    readAlongTitle: 'Jesus Teaches About the Resurrection',
+    quizWrongHumilityHint:
+      'Listen again — Sadducees; no resurrection; Moses; seven brethren; wife; Ye do err; scriptures; power of God; neither marry; angels; God of Abraham; Isaac; Jacob; living.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'The Sadducees came to Jesus. They did not believe in the resurrection.',
+      'They asked Him a question to try to trap Him: Master, Moses said, If a man die, having no children, his brother shall marry his wife… Now there were with us seven brethren… In the resurrection therefore whose wife shall she be of the seven? for they all had her.',
+      'Jesus answered, Ye do err, not knowing the scriptures, nor the power of God.',
+      'For in the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven.',
+      'But as touching the resurrection of the dead, have ye not read that which was spoken unto you by God, saying, I am the God of Abraham, and the God of Isaac, and the God of Jacob?',
+      'God is not the God of the dead, but of the living.',
+      'Jesus teaches that God is the God of the living, and there is a wonderful resurrection.',
+      'Reference: Matthew 22:23–33 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'The Sadducees came to Jesus. They did not believe that God raises the dead.',
+        caption: 'The Sadducees',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They asked a hard question about marriage in the life to come — trying to confuse Him.',
+        caption: 'A hard question',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus said, Ye do err, not knowing the scriptures, nor the power of God.',
+        caption: 'The scriptures and God’s power',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'In the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven.',
+        caption: 'Like the angels in heaven',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, I am the God of Abraham, and the God of Isaac, and the God of Jacob. God is not the God of the dead, but of the living.',
+        caption: 'God of the living',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus teaches that there is a wonderful resurrection — we can hope in the living God.',
+        caption: 'Wonderful resurrection',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 22:23–33', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 22:23–33.)'
+      },
+      {
+        question: 'Who came to Jesus with their question?',
+        choices: ['The Sadducees', 'Only shepherds', 'Only babies', 'No one'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:23.',
+        wrongFeedback: 'Listen for “Sadducees.” (Answer: the Sadducees.)'
+      },
+      {
+        question: 'What did Jesus say God is not?',
+        choices: [
+          'The God of the dead — He is the God of the living',
+          'The God of kindness',
+          'The God who made the world',
+          'The God who hears prayer'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:32.',
+        wrongFeedback: 'Listen for “dead” and “living.” (Answer: not the God of the dead… but of the living.)'
+      },
+      {
+        question: 'What did Jesus say about marriage in the resurrection?',
+        choices: [
+          'They neither marry, nor are given in marriage — they are as the angels in heaven',
+          'No one will ever be happy',
+          'Angels are scary monsters',
+          'We should not read the Bible'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:30.',
+        wrongFeedback: 'Listen for “neither marry” and “angels.” (Answer: neither marry… as the angels.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank God that He is the God of the living — and trust Jesus for hope about the resurrection.',
+          'Stop hoping in God forever.',
+          'Believe God never speaks truth.',
+          'Hide every question from Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with hope: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “living God” and “resurrection.” (Answer: thank God… trust Jesus… hope.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus quoted God’s words: I am the God of Abraham, and the God of Isaac, and the God of Jacob',
+          'Seven fish built a spaceship.',
+          'Everyone forgot language.',
+          'The temple turned into jelly.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:32.',
+        wrongFeedback: 'Pick the true detail from God’s Word. (Answer: God of Abraham… Isaac… Jacob.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Teaches About the Resurrection with God's Word today.",
+    takeaway:
+      'God is not the God of the dead, but of the living — Jesus teaches the Scriptures truly, and we can hope in Him.',
+    prayer:
+      'Lord Jesus, thank You that God is the God of the living. Help me trust Your words and hope in You today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus standing calmly speaking to two robed men (Sadducees) with thoughtful, listening faces — no anger. Jesus has a wise, kind face. Thick, bold outlines with large open spaces on Jesus’ robe, the men’s robes, and the ground. Soft temple wall shapes in the background and a pale band of light from above with minimal lines. Wise and calm mood — focus on Jesus teaching about the resurrection. Clean, minimal, no trap or arguing faces, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Sadducees ask — listening (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Scriptures and God’s power (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Neither marry — like angels (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: God of Abraham — living (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Wonderful resurrection hope (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -12570,6 +12706,7 @@ module.exports = {
   jesusAuthority: buildJesusAuthorityReadQuiz(),
   parableWickedHusbandmen: buildParableWickedHusbandmenReadQuiz(),
   tributeToCaesar: buildTributeToCaesarReadQuiz(),
+  sadduceesResurrection: buildSadduceesResurrectionReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

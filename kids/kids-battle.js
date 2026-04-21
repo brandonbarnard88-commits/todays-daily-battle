@@ -1966,6 +1966,50 @@
       narration:
         "Jesus Answers About Taxes — Matthew 22:15–22. Then went the Pharisees, and took counsel how they might entangle him in his talk. And they sent out unto him their disciples with the Herodians, saying, Master, we know that thou art true, and teachest the way of God in truth, neither carest thou for any man: for thou regardest not the person of men. Tell us therefore, What thinkest thou? Is it lawful to give tribute unto Caesar, or not? But Jesus perceived their wickedness, and said, Why tempt ye me, ye hypocrites? Shew me the tribute money. And they brought unto him a penny. And he saith unto them, Whose is this image and superscription? They say unto him, Caesar's. Then saith he unto them, Render therefore unto Caesar the things which are Caesar's; and unto God the things that are God's. When they had heard these words, they marvelled, and left him, and went their way. For you: Jesus was not being mean to little children — He was showing that God knows our hearts and teaches us to be honest. We can love God first with our whole heart and also do what is right in the world, trusting Jesus’ gentle wisdom."
     },
+    sadduceesResurrection: {
+      title: 'Jesus Teaches About the Resurrection',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Sadducees come to Jesus with a hard question — they did not believe in the resurrection — listening faces'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus answers — Ye do err, not knowing the scriptures, nor the power of God — calm teaching'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'I am the God of Abraham, Isaac, and Jacob — God is not the God of the dead, but of the living — hope'
+        }
+      ],
+      caption: 'Swipe slowly — Jesus teaches that God is the God of the living.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'sadducees',
+        'resurrection',
+        'matthew 22',
+        'matthew 22:23',
+        'matthew 22:32',
+        'god of abraham',
+        'god of the living',
+        'neither marry',
+        'angels',
+        'seven brethren',
+        'moses',
+        'scriptures',
+        'power of god'
+      ],
+      kjvRef: 'Matthew 22:23–33',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The Sadducees — and everyone who listens (including us)',
+        apply:
+          'God is the God of the living — we can trust Jesus’ words about the wonderful resurrection and live with hope in Him.'
+      },
+      narration:
+        "Jesus Teaches About the Resurrection — Matthew 22:23–33. The same day came to him the Sadducees, which say that there is no resurrection, and asked him, Saying, Master, Moses said, If a man die, having no children, his brother shall marry his wife, and raise up seed unto his brother. Now there were with us seven brethren: and the first, when he had married a wife, deceased, and, having no issue, left his wife unto his brother: Likewise the second also, and the third, unto the seventh. And last of all the woman died also. Therefore in the resurrection whose wife shall she be of the seven? for they all had her. Jesus answered and said unto them, Ye do err, not knowing the scriptures, nor the power of God. For in the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven. But as touching the resurrection of the dead, have ye not read that which was spoken unto you by God, saying, I am the God of Abraham, and the God of Isaac, and the God of Jacob? God is not the God of the dead, but of the living. And when the multitude heard it, they were astonished at his doctrine. For you: Jesus was not trying to frighten little children — He was showing that God’s Word is true and that God cares for His people forever. We can trust the living God and look to Jesus for hope and life."
+    },
     lastSupper: {
       title: 'Last Supper',
       panels: [
@@ -8724,10 +8768,10 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -8743,7 +8787,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -9315,6 +9359,13 @@
       )
     ) {
       return { type: 'carousel', story: 'tributeToCaesar' };
+    }
+    if (
+      /\bmatthew 22:2[3-9]\b|\bmatthew 22:30\b|\bmatthew 22:31\b|\bmatthew 22:32\b|\bmatthew 22:33\b|sadducees|there is no resurrection|seven brethren|whose wife shall she be|in the resurrection they neither marry|as the angels|god of abraham.*god of isaac|god is not the god of the dead|ye do err, not knowing the scriptures|not knowing the scriptures, nor the power of god/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'sadduceesResurrection' };
     }
     if (
       /great commandment|first and great commandment|love the lord thy god with all thy heart|love thy neighbour as thyself|on these two commandments hang|matthew 22:35|matthew 22:36|matthew 22:37|matthew 22:38|matthew 22:39|matthew 22:40|which is the great commandment|lawyer.*tempting.*master/i.test(
@@ -11993,6 +12044,7 @@
     jesusAuthority: 'Obedience',
     parableWickedHusbandmen: 'Obedience',
     tributeToCaesar: 'Obedience',
+    sadduceesResurrection: 'Obedience',
     jesusLastSupper: 'Love',
     jesusGardenGethsemane: 'Protection',
     crossCarry: 'Love', jesusCrucifixion: 'Love', tombEmpty: 'Miracles', jesusResurrection: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',

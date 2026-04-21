@@ -161,6 +161,7 @@
     jesusAuthority: 221,
     parableWickedHusbandmen: 222,
     tributeToCaesar: 223,
+    sadduceesResurrection: 224,
     jesusAscension: 90,
     jesusCrucifixion: 88,
     jesusGardenGethsemane: 87,

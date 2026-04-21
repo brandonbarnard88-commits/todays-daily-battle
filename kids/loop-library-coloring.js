@@ -194,6 +194,7 @@
   "jesusAuthority": "jesusAuthority",
   "parableWickedHusbandmen": "parableWickedHusbandmen",
   "tributeToCaesar": "tributeToCaesar",
+  "sadduceesResurrection": "sadduceesResurrection",
   "unforgivingServant": "unforgivingServant",
   "widowOil": "widowOil",
   "widowsMite": "widowMite",

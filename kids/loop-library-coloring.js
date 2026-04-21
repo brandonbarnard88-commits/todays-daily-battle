@@ -189,6 +189,7 @@
   "towerBabel": "towerBabel",
   "transfigure": "transfigure",
   "triumphalEntry": "triumphalEntry",
+  "jesusWeepsJerusalem": "jesusWeepsJerusalem",
   "unforgivingServant": "unforgivingServant",
   "widowOil": "widowOil",
   "widowsMite": "widowMite",

@@ -190,6 +190,7 @@
     'jesusCleansesTemple',
     'greatestCommandment',
     'triumphalEntry',
+    'jesusWeepsJerusalem',
     'zacchaeus',
     'jesusParableGoodShepherd',
     'lazarus',

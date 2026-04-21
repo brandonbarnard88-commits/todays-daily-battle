@@ -178,7 +178,10 @@
       unforgivingServant: 'unforgivingServant',
       forgive70x7: 'unforgivingServant',
       jesusAndChildren: 'jesusBlessKids',
-      jesusAndZacchaeus: 'zacchaeus'
+      jesusAndZacchaeus: 'zacchaeus',
+      triumphalEntry: 'triumphalEntry',
+      jesusWeepsJerusalem: 'jesusWeepsJerusalem',
+      jesusWeptJerusalem: 'jesusWeepsJerusalem'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -216,6 +219,8 @@
     if (low.indexOf('forgive70') >= 0 || low === 'forgive70x7') return 'unforgivingServant';
     if (low.indexOf('jesusandchildren') >= 0 || low === 'jesusandchildren') return 'jesusBlessKids';
     if (low.indexOf('jesusandzacchaeus') >= 0 || low === 'jesusandzacchaeus') return 'zacchaeus';
+    if (low.indexOf('jesusweepsjerusalem') >= 0 || low === 'jesusweepsjerusalem') return 'jesusWeepsJerusalem';
+    if (low.indexOf('triumphalentry') >= 0 || low === 'triumphalentry') return 'triumphalEntry';
     if (low.indexOf('bethesda') >= 0 || low === 'bethesda' || low.indexOf('poolofbethesda') >= 0) return 'bethesda';
     if (low.indexOf('manbornblind') >= 0 || low === 'manbornblind') return 'healBlind';
     if (low.indexOf('healblind') >= 0 || low === 'healblind' || low.indexOf('jesushealsblind') >= 0) return 'healBlind';
@@ -3733,6 +3738,25 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:9</text>'
       ),
 
+      /* Luke 19:41–44 — gentle: donkey pause, city ahead, one soft tear, compassionate face */
+      jesusWeepsJerusalem: svg(
+        ground() +
+        '<path d="M40 125 Q100 95 200 88 Q300 95 360 125 L360 200 L40 200 Z" ' + sf + ' fill="#f5f7ff" stroke-width="1.6"/>' +
+        '<rect x="238" y="82" width="88" height="36" rx="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<rect x="252" y="72" width="20" height="18" rx="2" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<rect x="278" y="76" width="16" height="22" rx="2" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="145" cy="172" rx="30" ry="15" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="128" cy="148" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="128" y1="156" x2="128" y2="170" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="120" y1="162" x2="112" y2="168" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="136" y1="162" x2="144" y2="168" ' + s + ' stroke-width="1.6"/>' +
+        '<ellipse cx="132" cy="146" rx="1.8" ry="2.6" fill="#7ad" opacity="0.45"/>' +
+        '<circle cx="118" cy="140" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="136" cy="140" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        sun(48, 40, 12) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 19:41</text>'
+      ),
+
       /* ── Week 8: Armor Shield (97) ── */
       armorShield: svg(
         ground() +
@@ -5071,6 +5095,8 @@
     /* ── Week 7 ── */
     jesusTriumphalEntry: 'triumphalEntry',
     triumphalEntry: 'triumphalEntry',
+    jesusWeepsJerusalem: 'jesusWeepsJerusalem',
+    jesusWeptJerusalem: 'jesusWeepsJerusalem',
     jesusLastSupper: 'maryAnoint',
     jesusGardenGethsemane: 'prayerCloset',
     jesusCrucifixion: 'crucifixion',
@@ -6805,8 +6831,8 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'zacchaeus',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'zacchaeus',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

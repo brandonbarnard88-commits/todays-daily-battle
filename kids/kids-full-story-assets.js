@@ -762,6 +762,11 @@
       webm: '/media/kids-stories/jesus-triumphal-entry.webm',
       captionsVtt: '/media/kids-stories/jesus-triumphal-entry.vtt'
     },
+    jesusWeepsJerusalem: {
+      mp4: '/media/kids-stories/jesus-weeps-jerusalem.mp4',
+      webm: '/media/kids-stories/jesus-weeps-jerusalem.webm',
+      captionsVtt: '/media/kids-stories/jesus-weeps-jerusalem.vtt'
+    },
     jesusWalksWater: {
       mp4: '/media/kids-stories/jesus-walks-water.mp4',
       webm: '/media/kids-stories/jesus-walks-water.webm',

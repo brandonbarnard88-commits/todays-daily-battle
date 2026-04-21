@@ -1307,6 +1307,16 @@
     "kw": "hosanna triumphal entry palm sunday donkey colt jerusalem matthew 21 matthew 21:9 son of david king branches garments"
   },
   {
+    "key": "jesusWeepsJerusalem",
+    "title": "Jesus Cares Deeply for the City",
+    "kjvRef": "Luke 19:41–44; Matthew 23:37",
+    "who": "Jesus",
+    "to": "Jerusalem — and every heart that needs comfort (including us)",
+    "apply": "Jesus loves us with tears of compassion when we do not understand; we can rest in His gentle heart.",
+    "theme": "Love",
+    "kw": "weep jerusalem compassion luke 19 luke 19:41 luke 19:42 thy peace beheld the city hen chickens matthew 23:37 donkey visitation"
+  },
+  {
     "key": "jesusTempted",
     "title": "Jesus Says No to Wrong Things",
     "kjvRef": "Matthew 4:1–11",

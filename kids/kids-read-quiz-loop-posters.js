@@ -156,6 +156,7 @@
     jesusSermonMount: 76,
     jesusTriumphalEntry: 218,
     triumphalEntry: 218,
+    jesusWeepsJerusalem: 219,
     jesusAscension: 90,
     jesusCrucifixion: 88,
     jesusGardenGethsemane: 87,

@@ -92,6 +92,7 @@
  * Temple cleansed — John 2:13–16 (gentle): buildJesusCleansesTempleReadQuiz() (library key: jesusCleansesTemple).
  * Greatest commandment — Matthew 22:35–40 (gentle): buildGreatestCommandmentReadQuiz() (library key: greatestCommandment).
  * Triumphal Entry — Matthew 21:1–11 (gentle): buildTriumphalEntryReadQuiz() (library key: triumphalEntry).
+ * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -11465,6 +11466,145 @@ function buildTriumphalEntryReadQuiz() {
   };
 }
 
+/** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
+function buildJesusWeepsJerusalemReadQuiz() {
+  return {
+    kjvRef: 'Luke 19:41–44 (KJV); Matthew 23:37 (KJV)',
+    verseExcerpt:
+      'If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! — Luke 19:42 (KJV)',
+    readAlongTitle: 'Jesus Cares Deeply for the City',
+    quizWrongHumilityHint:
+      'Listen again — drew near; beheld the city; wept over it; things which belong unto thy peace; hid from thine eyes; time of thy visitation; hen gathereth her chickens; compassion.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'As Jesus rode toward Jerusalem on the donkey, He saw the beautiful city spread out before Him.',
+      'He stopped and looked at the city with great love.',
+      'Tears came to His eyes because He knew the people did not understand how much God wanted to gather them close, like a mother hen gathers her chicks under her wings.',
+      'He said, “If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! but now they are hid from thine eyes.”',
+      'Jesus cared so deeply for the people and for the city.',
+      'Jesus loves us even when we do not understand, and His heart is full of compassion.',
+      'Reference: Luke 19:41–44 (KJV); Matthew 23:37 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus rode toward Jerusalem and saw the beautiful city spread out before Him.',
+        caption: 'He drew near',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He stopped and looked at the city with great love.',
+        caption: 'He beheld the city',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Tears came to His eyes because He loved the people so much — God wanted to gather them close, like a mother hen gathers her chicks under her wings.',
+        caption: 'Tears of love',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He said, “If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! but now they are hid from thine eyes.”',
+        caption: 'Things which belong unto thy peace',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus cared so deeply for the people and for the city.',
+        caption: 'Full of compassion',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus loves us even when we do not understand, and His heart is full of compassion.',
+        caption: 'He loves us still',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Luke 19:41–44', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Luke 19:41–44.)'
+      },
+      {
+        question: 'What did Jesus do when He came near and saw the city?',
+        choices: [
+          'He beheld the city and wept over it — tears of love',
+          'He turned away and would not look',
+          'He laughed because the city was noisy',
+          'He forgot where He was going'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 19:41.',
+        wrongFeedback: 'Listen for “beheld” and “wept.” (Answer: He wept over the city.)'
+      },
+      {
+        question: 'How did Jesus describe the peace the city could have known?',
+        choices: [
+          '“If thou hadst known… the things which belong unto thy peace!”',
+          '“Peace does not matter.”',
+          '“Only loud voices please God.”',
+          '“Never pray for your city.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 19:42.',
+        wrongFeedback: 'Listen for “thy peace.” (Answer: things which belong unto thy peace.)'
+      },
+      {
+        question: 'Which picture matches how Jesus longed to care for His people?',
+        choices: [
+          'Like a hen gathering her little ones under her wings — safe and close',
+          'Like forgetting everyone in a crowd',
+          'Like hiding from people on purpose',
+          'Like never caring when someone is sad'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that gentle picture is in Matthew 23:37.',
+        wrongFeedback: 'Think “gather… wings… safe.” (Answer: hen gathering her chickens.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus wept over Jerusalem because He loved the people',
+          'The city turned into a bubble.',
+          'A rocket flew away with the donkey.',
+          'Everyone forgot how to be kind.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches God’s tender heart in Luke 19.',
+        wrongFeedback: 'Pick the true, gentle detail from God’s Word. (Answer: Jesus wept… loved the people.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus thank You for loving me even when I don’t understand everything — help me trust Your kind heart.',
+          'Believe God never cares when kids cry.',
+          'Never talk to God about sad feelings.',
+          'Pretend hard days are not real.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “thank You” and “Jesus’ compassion.” (Answer: trust His kind heart.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Cares Deeply for the City with God's Word today.",
+    takeaway:
+      'Jesus beheld the city and wept — His heart is full of compassion; He loves us even when we do not understand.',
+    prayer:
+      'Lord Jesus, thank You for tears of love and for wanting to gather us close. Help me trust Your gentle heart today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus sitting on the donkey looking toward the city of Jerusalem with a gentle, caring face and one very small, soft tear (tiny dot or teardrop, not dramatic). The city is shown with soft rounded walls and simple block buildings in the distance. Thick, bold outlines with large open spaces on Jesus’ robe, the donkey, and the ground for easy coloring. Gentle hills in the middle ground and a soft sky with minimal lines. Loving and compassionate mood — focus on Jesus caring deeply for the city. Clean, minimal, no fear or heavy sadness, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and distant city, friendly not scary, no text in image: Drew near — beheld the city (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and distant city, friendly not scary, no text in image: Wept over it — love (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and distant city, friendly not scary, no text in image: Thy peace — gentle words (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and distant city, friendly not scary, no text in image: Hen wings — gather close (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and distant city, friendly not scary, no text in image: Compassion for us (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -11872,6 +12012,7 @@ module.exports = {
   jesusCleansesTemple: buildJesusCleansesTempleReadQuiz(),
   greatestCommandment: buildGreatestCommandmentReadQuiz(),
   triumphalEntry: buildTriumphalEntryReadQuiz(),
+  jesusWeepsJerusalem: buildJesusWeepsJerusalemReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

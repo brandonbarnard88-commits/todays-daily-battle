@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-21T17:51:53.067Z",
+  "generatedAt": "2026-04-21T18:54:52.936Z",
   "surfacedRefCount": 2831,
   "overrideCount": 2831,
   "sourceCounts": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 196,
+      "refs": 197,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -272,7 +272,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 214,
+      "refs": 215,
       "pairs": 0
     },
     "memorize.html": {

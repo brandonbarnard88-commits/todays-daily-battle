@@ -91,6 +91,7 @@
  * Widow’s mite — Mark 12:41–44 (gentle): buildWidowsMiteReadQuiz() (library keys: widowsMite; alias widowMite).
  * Temple cleansed — John 2:13–16 (gentle): buildJesusCleansesTempleReadQuiz() (library key: jesusCleansesTemple).
  * Greatest commandment — Matthew 22:35–40 (gentle): buildGreatestCommandmentReadQuiz() (library key: greatestCommandment).
+ * Triumphal Entry — Matthew 21:1–11 (gentle): buildTriumphalEntryReadQuiz() (library key: triumphalEntry).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -11180,25 +11181,28 @@ function buildGreatestCommandmentReadQuiz() {
       'Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. — Matthew 22:37 (KJV)',
     readAlongTitle: 'Jesus Tells Us the Most Important Command',
     quizWrongHumilityHint:
-      'Listen again — lawyer; tempting; Master; great commandment; love the Lord; heart; soul; mind; first and great; neighbour as thyself; hang all the law.',
+      'Listen again — lawyer; tempting; Master; great commandment; love the Lord thy God; heart; soul; mind; first and great commandment; second is like unto it; neighbour as thyself; hang all the law and the prophets.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'One day a lawyer asked Jesus a question to test Him: “Master, which is the great commandment in the law?”',
-      'Jesus answered, “Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind.”',
+      'People were listening as Jesus taught. The moment was quiet enough to think.',
+      'Then one of them, which was a lawyer, asked him a question, tempting him, and saying, “Master, which is the great commandment in the law?”',
+      'Jesus did not hurry. He answered with words that come straight from God’s law — clear, strong, and kind.',
+      'Jesus said unto him, “Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind.”',
       '“This is the first and great commandment.”',
       '“And the second is like unto it, Thou shalt love thy neighbour as thyself.”',
       '“On these two commandments hang all the law and the prophets.”',
-      'Jesus said the most important thing is to love God with everything we have — and to love our neighbor as ourselves.',
+      'Jesus showed that all God’s good commands rest on two loving roots: love God with everything in us, and love the people around us with the same gentleness we hope to receive.',
+      'When our hearts feel tired or noisy, we can remember His answer — not to earn God’s love, but to walk close with Him and care for others in a way that honors Him.',
       'Reference: Matthew 22:35–40 (KJV)'
     ],
     readAlongSections: [
       {
-        text: 'A lawyer asked Jesus, “Master, which is the great commandment in the law?”',
+        text: 'Then one of them, which was a lawyer, asked him a question, tempting him, and saying, “Master, which is the great commandment in the law?”',
         caption: 'Which is the great commandment?',
         image: 'panel-noah-1.svg'
       },
       {
-        text: 'Jesus said, “Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind.”',
+        text: 'Jesus said unto him, “Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind.”',
         caption: 'Love the Lord thy God',
         image: 'panel-noah-1.svg'
       },
@@ -11218,8 +11222,8 @@ function buildGreatestCommandmentReadQuiz() {
         image: 'panel-noah-3.svg'
       },
       {
-        text: 'Jesus wants us to love God with all our heart — and love others the way we want to be loved.',
-        caption: 'Heart, soul, mind',
+        text: 'Jesus invites us to love God with our whole being — heart, soul, and mind — and to love others with the kindness we long for ourselves.',
+        caption: 'Two loving roots',
         image: 'panel-noah-3.svg'
       }
     ],
@@ -11269,6 +11273,18 @@ function buildGreatestCommandmentReadQuiz() {
         wrongFeedback: 'Listen for “neighbour as thyself.” (Answer: love thy neighbour.)'
       },
       {
+        question: 'What did Jesus say hangs on these two commandments?',
+        choices: [
+          'All the law and the prophets',
+          'Only the stories about kings',
+          'Nothing else in the Bible matters',
+          'Only songs, not kindness'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:40.',
+        wrongFeedback: 'Listen for “hang” and “the law and the prophets.” (Answer: all the law and the prophets.)'
+      },
+      {
         question: 'What is one good way to respond to God after this story?',
         choices: [
           'Ask Jesus to help me love God first — and treat others with the kindness I hope for.',
@@ -11285,16 +11301,164 @@ function buildGreatestCommandmentReadQuiz() {
     doneMessage:
       "Great job reading Jesus Tells Us the Most Important Command with God's Word today.",
     takeaway:
-      'The greatest commands are to love God with all our heart — and to love our neighbor as ourselves.',
+      'Love the Lord thy God with all thy heart, soul, and mind — and love thy neighbour as thyself; on these two commandments hang all the law and the prophets.',
     prayer:
-      'Lord Jesus, please help me love You with all my heart — and love others the way I want to be loved. Amen.',
+      'Lord Jesus, thank You for answering so kindly. Help me love You with all my heart, soul, and mind — and love others the way I want to be loved. Amen.',
     imagePrompts: [
-      'A simple, peaceful black-and-white line-art scene for young children: Jesus sitting and talking kindly to a man who is listening carefully. Jesus has a gentle, wise face. Thick, bold outlines with large open spaces on Jesus’ robe, the man’s robe, and the ground for easy coloring. Soft temple walls and gentle light from above with minimal lines. Wise and loving mood — focus on Jesus teaching the greatest commandment. Clean, minimal, no test or argument shown, plenty of white space, age-appropriate for ages 3–8.',
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus seated on a low bench, gently teaching one listener who sits nearby with hands resting quietly. Both faces are calm and kind. Above them, two very simple open heart shapes in the sky (large, easy to color) suggest loving God and loving others — no faces inside the hearts. Thick, bold outlines, large open spaces on robes, ground, and sky. Soft temple arch lines in the background, minimal detail, joyful peaceful mood, ages 3–8.',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream walls and warm glow, friendly not scary, no text in image: Temple court — lawyer listens (hope)',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream walls and warm glow, friendly not scary, no text in image: Love the Lord — heart, soul, mind (truth)',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream walls and warm glow, friendly not scary, no text in image: First and great commandment (love)',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream walls and warm glow, friendly not scary, no text in image: Neighbour as thyself — gentle care (mercy)',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream walls and warm glow, friendly not scary, no text in image: Law and prophets — two commandments (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Triumphal Entry — Matthew 21:1–11 (gentle). Library key: triumphalEntry */
+function buildTriumphalEntryReadQuiz() {
+  return {
+    kjvRef: 'Matthew 21:1–11 (KJV)',
+    verseExcerpt:
+      'Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord. — Matthew 21:9 (KJV)',
+    readAlongTitle: 'Jesus Rides into Jerusalem',
+    quizWrongHumilityHint:
+      'Listen again — Bethphage; mount of Olives; two disciples; village; ass; colt; loose them; Lord hath need; garments; branches; strawed; Hosanna; Son of David; city was moved; Who is this; prophet of Nazareth.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus and His disciples drew near to Jerusalem — a gentle ride toward the city on the mount of Olives, near a place called Bethphage.',
+      'Jesus sent two disciples with a simple errand that showed He was the promised King, humble and kind.',
+      'He said, in effect, Go into the village; you will find an ass tied, and a colt with her: loose them, and bring them unto me.',
+      'If anyone asked why, they could say, The Lord hath need of them — and the owners would send them.',
+      'The disciples obeyed. They brought the ass and the colt, put their clothes on them, and set Jesus thereon.',
+      'A very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way.',
+      'The crowds went before Him and followed Him, crying, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”',
+      'When He came into Jerusalem, all the city was moved, saying, “Who is this?”',
+      'The multitude answered, “This is Jesus the prophet of Nazareth of Galilee.”',
+      'It was a joyful welcome — yet peaceful, like a King who comes meekly, riding on a donkey.',
+      'Reference: Matthew 21:1–11 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'When they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples.',
+        caption: 'Near Jerusalem',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They found the ass and the colt, as He said. They loosed them and brought them — the Lord hath need of them.',
+        caption: 'Loose them and bring them',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They brought the ass and the colt, and put on them their clothes, and they set Him thereon.',
+        caption: 'Sitting upon an ass',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'A very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way.',
+        caption: 'Branches and garments',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The multitudes cried, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”',
+        caption: 'Hosanna',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'When He was come into Jerusalem, all the city was moved, saying, “Who is this?” And the multitude said, “This is Jesus the prophet of Nazareth of Galilee.”',
+        caption: 'Who is this?',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'We can welcome Jesus as our gentle King — with praise and a thankful heart.',
+        caption: 'Blessed is he that cometh',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 21:1–11', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 21:1–11.)'
+      },
+      {
+        question: 'Where were Jesus and His disciples when He sent two disciples on this errand?',
+        choices: [
+          'Near Bethphage, on the mount of Olives, drawing nigh to Jerusalem',
+          'Already inside the temple courts',
+          'On a boat in the middle of the sea',
+          'In Nazareth only'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:1.',
+        wrongFeedback: 'Listen for “Bethphage” and “mount of Olives.” (Answer: near Bethphage… Olives.)'
+      },
+      {
+        question: 'What animal did Jesus ride into Jerusalem?',
+        choices: [
+          'A young donkey — a colt no one had ridden',
+          'A tall camel',
+          'A racing horse',
+          'A wooden cart'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:5–7.',
+        wrongFeedback: 'Listen for donkey, colt, and clothes laid on it. (Answer: young donkey… colt.)'
+      },
+      {
+        question: 'What did the people shout as Jesus came?',
+        choices: [
+          '“Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord.”',
+          '“We do not want a King.”',
+          '“Hide from the prophet.”',
+          '“Never sing in church.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that joy matches Matthew 21:9 Hosanna.',
+        wrongFeedback: 'Listen again for “Hosanna” and “Son of David.” (Answer: Hosanna… Blessed is he….)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'People spread clothes and branches in the road for Jesus',
+          'The road turned into jelly.',
+          'A spaceship carried the donkey.',
+          'Everyone forgot how to wave.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:8.',
+        wrongFeedback: 'Which matches God’s Word — garments, branches, welcoming? (Answer: clothes and branches.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Welcome Jesus as King in my heart — praise Him with a thankful heart today.',
+          'Only cheer when everyone else does.',
+          'Believe God is far away from kids.',
+          'Never sing or speak to God out loud.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with joy: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “welcome Jesus” and “praise.” (Answer: King in my heart… thankful.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Rides into Jerusalem with God's Word today.",
+    takeaway:
+      'Hosanna to the Son of David — Jesus comes meekly, as the prophets said; we can welcome Him with gentle, thankful praise.',
+    prayer:
+      'Lord Jesus, thank You for coming near to us like a gentle King. Help me welcome You with a quiet, happy heart today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus riding on a young donkey into Jerusalem. People are spreading clothes and palm branches on the road. The people have happy faces and are waving branches. Thick, bold outlines with large open spaces on Jesus’ robe, the donkey, the clothes, and the branches for easy coloring. Soft road and gentle city walls with minimal lines. Joyful and welcoming mood — focus on the people welcoming Jesus. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Village — colt brought (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Garments on the way (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Branches spread — Hosanna (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Son of David — welcome (peace)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Prophet of Nazareth — who is this? (truth)'
     ],
     readAlongImages: []
   };
@@ -11706,6 +11870,7 @@ module.exports = {
   widowMite: buildWidowsMiteReadQuiz(),
   jesusCleansesTemple: buildJesusCleansesTempleReadQuiz(),
   greatestCommandment: buildGreatestCommandmentReadQuiz(),
+  triumphalEntry: buildTriumphalEntryReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

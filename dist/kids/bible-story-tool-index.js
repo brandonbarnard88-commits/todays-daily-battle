@@ -1297,6 +1297,16 @@
     "kw": "crucifixion cross golgotha forgive finished matthew 27 john 19 luke 23"
   },
   {
+    "key": "triumphalEntry",
+    "title": "Jesus Rides into Jerusalem",
+    "kjvRef": "Matthew 21:1–11",
+    "who": "Jesus",
+    "to": "The crowds in Jerusalem (and us)",
+    "apply": "We can welcome Jesus as our King — with praise, joy, and a thankful heart.",
+    "theme": "Protection",
+    "kw": "hosanna triumphal entry palm sunday donkey colt jerusalem matthew 21 matthew 21:9 son of david king branches garments"
+  },
+  {
     "key": "jesusTempted",
     "title": "Jesus Says No to Wrong Things",
     "kjvRef": "Matthew 4:1–11",
@@ -1512,7 +1522,7 @@
     "kjvRef": "Matthew 22:35–40",
     "who": "Jesus",
     "to": "The lawyer — and everyone listening (and us)",
-    "apply": "Jesus says the most important things are to love God with all we have and to love others the way we hope to be loved.",
+    "apply": "On busy or hard days, we can rest on Jesus’ answer: love God with all our heart, soul, and mind — and love our neighbour as ourself — knowing He walks beside us as we learn.",
     "theme": "Love",
     "kw": "great commandment love god love thy neighbour matthew 22 matthew 22:37 matthew 22:39 first and great commandment lawyer heart soul mind law and prophets"
   },
@@ -3305,16 +3315,6 @@
     "apply": "Jesus stays quiet—trust God! When things are unfair, He knows the truth!",
     "theme": "Protection",
     "kw": "pilate trial quiet john 18 matthew 27 king"
-  },
-  {
-    "key": "jesusTriumphalEntry",
-    "title": "Triumphal Entry",
-    "kjvRef": "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
-    "who": "Jesus",
-    "to": "The crowds (and us)",
-    "apply": "Jesus came as the promised King — we can welcome Him with praise and make room for Him in our hearts.",
-    "theme": "Protection",
-    "kw": "hosanna palm sunday donkey colt jerusalem matthew 21 king temple"
   },
   {
     "key": "battleOfAi",

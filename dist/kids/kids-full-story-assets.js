@@ -757,7 +757,7 @@
       webm: '/media/kids-stories/jesus-temptation.webm',
       captionsVtt: '/media/kids-stories/jesus-temptation.vtt'
     },
-    jesusTriumphalEntry: {
+    triumphalEntry: {
       mp4: '/media/kids-stories/jesus-triumphal-entry.mp4',
       webm: '/media/kids-stories/jesus-triumphal-entry.webm',
       captionsVtt: '/media/kids-stories/jesus-triumphal-entry.vtt'

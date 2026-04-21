@@ -1704,19 +1704,48 @@
       kjvRef: 'Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19',
       kidContext: { who: 'The crowds', to: 'Jesus (the King)', apply: 'Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!' }
     },
-    jesusTriumphalEntry: {
-      title: 'Triumphal Entry',
+    triumphalEntry: {
+      title: 'Jesus Rides into Jerusalem',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus rides the colt into Jerusalem' },
-        { src: 'panel-jesus-2.svg', alt: 'Crowds spread branches and cry Hosanna' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus cleanses the temple — house of prayer' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus sends for the colt — disciples bring the young donkey and lay garments on it'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus rides into the city — crowds spread garments and branches on the road'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Hosanna to the Son of David — the people welcome Jesus and ask, Who is this?'
+        }
       ],
-      caption: 'Swipe to see Hosanna — Jesus the King enters Jerusalem! 🌿',
+      caption: 'Swipe to see Jesus welcomed as King — Hosanna! 🌿',
       videoId: '',
       videoTitle: '',
-      keywords: ['hosanna', 'palm sunday', 'donkey', 'colt', 'jerusalem', 'matthew 21', 'king', 'temple'],
-      kjvRef: 'Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19',
-      kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Jesus came as the promised King — we can welcome Him with praise and make room for Him in our hearts.' }
+      keywords: [
+        'hosanna',
+        'triumphal entry',
+        'palm sunday',
+        'donkey',
+        'colt',
+        'jerusalem',
+        'matthew 21',
+        'matthew 21:9',
+        'son of david',
+        'king',
+        'branches',
+        'garments'
+      ],
+      kjvRef: 'Matthew 21:1–11',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The crowds in Jerusalem (and us)',
+        apply:
+          'We can welcome Jesus as our King — with praise, joy, and a thankful heart.'
+      },
+      narration:
+        "Jesus Rides into Jerusalem — Matthew 21:1–11. And when they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples, Saying unto them, Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them; and straightway he will send them. All this was done, that it might be fulfilled which was spoken by the prophet, saying, Tell ye the daughter of Sion, Behold, thy King cometh unto thee, meek, and sitting upon an ass, and a colt the foal of an ass. And the disciples went, and did as Jesus commanded them, And brought the ass, and the colt, and put on them their clothes, and they set him thereon. And a very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way. And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest. And when he was come into Jerusalem, all the city was moved, saying, Who is this? And the multitude said, This is Jesus the prophet of Nazareth of Galilee. For you: the people welcomed Jesus as their gentle King — we can welcome Him today with quiet joy and thankful praise, no hurry, no pressure, just love in our hearts."
     },
     lastSupper: {
       title: 'Last Supper',
@@ -7036,18 +7065,18 @@
       panels: [
         {
           src: 'panel-noah-1.svg',
-          alt: 'A lawyer asks Jesus — Master, which is the great commandment in the law?'
+          alt: 'A lawyer draws near — Master, which is the great commandment in the law? — Jesus listens with calm kindness'
         },
         {
           src: 'panel-noah-2.svg',
-          alt: 'Jesus answers — love the Lord thy God with all thy heart, soul, and mind'
+          alt: 'Jesus speaks God’s law — Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind — the first and great commandment'
         },
         {
           src: 'panel-noah-3.svg',
-          alt: 'And the second — love thy neighbour as thyself; on these hang all the law and the prophets'
+          alt: 'The second is like unto it — love thy neighbour as thyself — on these two commandments hang all the law and the prophets'
         }
       ],
-      caption: 'Swipe to hear Jesus teach the greatest commandments — love God, love others! 💛',
+      caption: 'Swipe slowly — Jesus teaches the two commandments every other command rests upon.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -7067,10 +7096,10 @@
         who: 'Jesus',
         to: 'The lawyer — and everyone listening (and us)',
         apply:
-          'Jesus says the most important things are to love God with all we have and to love others the way we hope to be loved.'
+          'On busy or hard days, we can rest on Jesus’ answer: love God with all our heart, soul, and mind — and love our neighbour as ourself — knowing He walks beside us as we learn.'
       },
       narration:
-        "Jesus Tells Us the Most Important Command — Matthew 22:35–40. Then one of them, which was a lawyer, asked him a question, tempting him, and saying, Master, which is the great commandment in the law? Jesus said unto him, Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. This is the first and great commandment. And the second is like unto it, Thou shalt love thy neighbour as thyself. On these two commandments hang all the law and the prophets. For you: the greatest commands are to love God with everything we have and to love our neighbor as ourselves."
+        "Jesus Tells Us the Most Important Command — Matthew 22:35–40. Then one of them, which was a lawyer, asked him a question, tempting him, and saying, Master, which is the great commandment in the law? Jesus said unto him, Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. This is the first and great commandment. And the second is like unto it, Thou shalt love thy neighbour as thyself. On these two commandments hang all the law and the prophets. For you: Jesus gives a quiet anchor — love the Lord with everything in you, and love the people near you with the gentleness you hope for yourself. When we miss the mark, we can come to Him again; He is kind, and He helps little hearts grow."
     },
     richYoungRuler: {
       title: 'Jesus Talks with a Rich Young Man',
@@ -8476,10 +8505,10 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -8495,7 +8524,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -8989,6 +9018,13 @@
     }
     if (/lost sheep|parable.*sheep|luke 15:6|ninety.*nine/.test(low)) {
       return { type: 'carousel', story: 'lostSheep' };
+    }
+    if (
+      /triumphal entry|matthew 21:1|matthew 21:2|matthew 21:3|matthew 21:4|matthew 21:5|matthew 21:6|matthew 21:7|matthew 21:8|matthew 21:9|matthew 21:10|matthew 21:11|bethphage|mount of olives.*disciples|colt.*foal|daughter of zion.*king cometh|spread.*garments.*way|strawed them in the way|who is this.*prophet of nazareth/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'triumphalEntry' };
     }
     if (/palm sunday|hosanna|donkey.*jerusalem|matthew 21:9|luke 19:38/.test(low)) {
       return { type: 'carousel', story: 'palmSunday' };
@@ -11697,7 +11733,7 @@
     tenLepers: 'Miracles', healLeper: 'Miracles', jairus: 'Miracles',
     transfigure: 'Miracles', judasKiss: 'Love',
     /* Week 7 */
-    jesusTriumphalEntry: 'Protection', jesusLastSupper: 'Love', jesusGardenGethsemane: 'Protection',
+    triumphalEntry: 'Protection', jesusLastSupper: 'Love', jesusGardenGethsemane: 'Protection',
     crossCarry: 'Love', jesusCrucifixion: 'Love', tombEmpty: 'Miracles', jesusResurrection: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',
     pentecost: 'Miracles',
     holySpiritPentecost: 'Miracles',

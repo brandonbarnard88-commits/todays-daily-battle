@@ -3710,6 +3710,29 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 22:37</text>'
       ),
 
+      /* Matthew 21:1–11 — gentle: road, donkey, Hosanna, welcoming crowd */
+      triumphalEntry: svg(
+        ground() +
+        '<rect x="48" y="52" width="304" height="78" rx="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="70" y1="200" x2="330" y2="200" ' + s + ' stroke-width="2"/>' +
+        '<path d="M65 210 L200 200 L335 210" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="218" rx="34" ry="14" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="170" cy="214" rx="7" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="200" y1="188" x2="200" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<circle cx="200" cy="176" r="9" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="200" y1="185" x2="200" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="192" y1="192" x2="182" y2="198" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="208" y1="192" x2="218" y2="198" ' + s + ' stroke-width="1.8"/>' +
+        person(82, 170, 8, 18) +
+        person(310, 170, 8, 18) +
+        '<path d="M90 178 L104 152 L98 150" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M318 178 L304 152 L310 150" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M118 208 L132 198 L126 210" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M268 208 L282 198 L276 210" ' + s + ' stroke-width="1.6"/>' +
+        sun(52, 44, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:9</text>'
+      ),
+
       /* ── Week 8: Armor Shield (97) ── */
       armorShield: svg(
         ground() +
@@ -5046,7 +5069,8 @@
     betrayal: 'judasKiss',
     gardenPrayer: 'prayerCloset',
     /* ── Week 7 ── */
-    jesusTriumphalEntry: 'greatCommission',
+    jesusTriumphalEntry: 'triumphalEntry',
+    triumphalEntry: 'triumphalEntry',
     jesusLastSupper: 'maryAnoint',
     jesusGardenGethsemane: 'prayerCloset',
     jesusCrucifixion: 'crucifixion',
@@ -6782,7 +6806,7 @@
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'zacchaeus',
-        'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

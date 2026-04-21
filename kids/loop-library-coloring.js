@@ -188,6 +188,7 @@
   "tenVirgins": "tenVirgins",
   "towerBabel": "towerBabel",
   "transfigure": "transfigure",
+  "triumphalEntry": "triumphalEntry",
   "unforgivingServant": "unforgivingServant",
   "widowOil": "widowOil",
   "widowsMite": "widowMite",

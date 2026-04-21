@@ -7982,88 +7982,132 @@
     ]
   },
   "ezekielValleyBones": {
-    "kjvRef": "Ezekiel 37:1–14",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Ezekiel 37:1–14 (KJV)",
+    "verseExcerpt": "Son of man, can these bones live? … O Lord GOD, thou knowest. — Ezekiel 37:3 (KJV)",
+    "readAlongTitle": "God Can Make Dry Bones Live",
+    "quizWrongHumilityHint": "Listen again — a valley of dry bones; God’s question; Ezekiel trusted God; Ezekiel spoke God’s words; bones lived; God is stronger than anything.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Valley of Dry Bones (Ezekiel 37:1–14).",
-      "Ezekiel stands in a valley of dry bones Bones rattle together — sinews, flesh, skin Breath enters — a vast army lives!",
-      "Nothing is too dead or dry for God.",
-      "He can make your heart alive again."
+      "God showed His prophet Ezekiel a valley full of dry bones.",
+      "The bones were very dry and scattered on the ground.",
+      "God asked Ezekiel, “Son of man, can these bones live?” Ezekiel answered, “O Lord God, thou knowest.”",
+      "God told Ezekiel to speak to the bones. When Ezekiel spoke God’s words, the bones came together, flesh grew on them, and breath came into them.",
+      "They stood up — a great army!",
+      "God can make what is dead and dry come to life again. He is stronger than anything.",
+      "Reference: Ezekiel 37:1–14 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "God showed Ezekiel a valley of dry bones.",
+        "caption": "A wide valley",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The bones were very dry.",
+        "caption": "Very dry",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "God asked, “Can these bones live?”",
+        "caption": "God’s question",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Ezekiel said, “O Lord God, thou knowest.”",
+        "caption": "Trusting God",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Ezekiel spoke God’s words.",
+        "caption": "God’s words",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "The bones came together and stood up.",
+        "caption": "Alive!",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God can make dry bones live again.",
+        "caption": "God’s power",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
+          "Psalm 23",
           "Ezekiel 37:1–14",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "John 20:1–18"
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Ezekiel 37:1–14.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Ezekiel 37:1–14.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Paul",
-          "David — and the Lord",
-          "John",
-          "God"
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 0,
+        "correctFeedback": "Right—God’s power and Word make what is dry come to life.",
+        "wrongFeedback": "Look for who asks the big question and who gives life to the bones. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Nothing is too dead or dry for God. He can make your heart alive again.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
+          "God is too weak to help anyone.",
+          "Dry bones can never change.",
+          "God can make what is dead and dry come to life again — He is stronger than anything.",
+          "The Bible is only pretend stories."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Nothing is too dead or dry for God. He can make your heart alive again..)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s power and kindness? (Answer: God can make what is dead and dry come to life again — He is stronger than anything.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
           "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Ezekiel stands in a valley of dry bones",
+          "Let us rise up and build.",
+          "Son of man, can these bones live?",
           "Everyone decided to never sleep again."
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Son of man, can these bones live?)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Nothing is too dead or dry for God. He can make your heart alive again.",
           "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong."
+          "Thank God that His Word is powerful — and remember He can make hearts come alive again.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Nothing is too dead or dry for God. He can make your heart alive again..)"
+        "wrongFeedback": "Think: does this choice show trust in a God who gives life? Pick the one that honors Him. (Answer: Thank God that His Word is powerful — and remember He can make hearts come alive again.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Valley of Dry Bones with God's Word today.",
-    "takeaway": "Nothing is too dead or dry for God. He can make your heart alive again.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Valley of Dry Bones. Amen.",
+    "doneMessage": "Great job reading God Can Make Dry Bones Live with God's Word today.",
+    "takeaway": "God can make what is dead and dry come to life again. He is stronger than anything.",
+    "prayer": "Lord, thank You that Your Word is powerful. Help us trust You to bring new life where things feel dry. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ezekiel stands in a valley of dry bones (ezekiel)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Bones rattle together — sinews, flesh, skin (bones)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Breath enters — a vast army lives! (valley)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ezekiel stands in a valley of dry bones (ezekiel 37)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Bones rattle together — sinews, flesh, skin (life)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Ezekiel the prophet standing in a wide valley with many simple dry bone shapes on the ground soft light rays shine down from above thick bold outlines with large open spaces on Ezekiel's robe the bones and the ground for easy coloring gentle hills and a soft sky in the background with minimal lines wonder and hope mood focus on God making dry bones live again clean minimal no scary bones or fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Valley of dry bones (Ezekiel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God's question — can these bones live?",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Speaking God's words (prophet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Bones stand — great hope (life)"
+    ],
+    "readAlongImages": []
   },
   "ezraReturn": {
     "kjvRef": "Ezra 1:1–11; 3:1–6 (KJV)",

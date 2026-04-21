@@ -3038,13 +3038,13 @@
   },
   {
     "key": "ezekielValleyBones",
-    "title": "Valley of Dry Bones",
+    "title": "God Can Make Dry Bones Live",
     "kjvRef": "Ezekiel 37:1–14",
     "who": "God",
-    "to": "His people",
-    "apply": "Nothing is too dead or dry for God. He can make your heart alive again.",
+    "to": "His people — and every heart that needs hope",
+    "apply": "God can make what is dead and dry come to life again. He is stronger than anything.",
     "theme": "Miracles",
-    "kw": "ezekiel bones valley ezekiel 37 life spirit prophet"
+    "kw": "ezekiel dry bones valley ezekiel 37 prophet life gods word breath hope miracle army"
   },
   {
     "key": "battleOfAi",

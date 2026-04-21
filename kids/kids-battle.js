@@ -4382,18 +4382,46 @@
         "Jeremiah Loves God’s People — Jeremiah 1:1–10; 13:17. Jeremiah was a prophet who loved God and loved God’s people. He saw that many were not listening to God, and his heart grew sad. He cried tears for them and kept speaking God’s words, because God still loved them. God was with Jeremiah and helped him. For you: God cares when you feel sad — and He stays close when you love Him."
     },
     ezekielValleyBones: {
-      title: 'Valley of Dry Bones',
+      title: 'God Can Make Dry Bones Live',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ezekiel stands in a valley of dry bones' },
-        { src: 'panel-noah-2.svg', alt: 'Bones rattle together — sinews, flesh, skin' },
-        { src: 'panel-noah-3.svg', alt: 'Breath enters — a vast army lives!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'God showed Ezekiel a wide valley — dry bones scattered on the ground'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'God asked, Son of man, can these bones live? — Ezekiel trusted: O Lord God, thou knowest'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Ezekiel spoke God’s words — the bones came together, and they stood up as a great army'
+        }
       ],
-      caption: 'Swipe to see God bring life where there was none! 💨',
+      caption: 'Swipe to see God’s Word bring wonder — dry bones standing full of life.',
       videoId: '',
       videoTitle: '',
-      keywords: ['ezekiel', 'bones', 'valley', 'ezekiel 37', 'life', 'spirit', 'prophet'],
+      keywords: [
+        'ezekiel',
+        'dry bones',
+        'valley',
+        'ezekiel 37',
+        'prophet',
+        'life',
+        'gods word',
+        'army',
+        'breath',
+        'hope',
+        'miracle'
+      ],
       kjvRef: 'Ezekiel 37:1–14',
-      kidContext: { who: 'God', to: 'His people', apply: 'Nothing is too dead or dry for God. He can make your heart alive again.' }
+      kidContext: {
+        who: 'God',
+        to: 'His people — and every heart that needs hope',
+        apply:
+          'God can make what is dead and dry come to life again. He is stronger than anything.'
+      },
+      narration:
+        "God Can Make Dry Bones Live — Ezekiel 37:1–14. God showed His prophet Ezekiel a valley full of dry bones. They were very dry and scattered. God asked, Son of man, can these bones live? Ezekiel answered, O Lord God, thou knowest. God told him to speak to the bones. When Ezekiel spoke God’s words, bone came to bone, flesh grew, breath came in — and they stood up, a great army. For you: Nothing is too dead or dry for God. He can make your heart alive again when you trust Him."
     },
     danielFieryFurnace: {
       title: 'God Walks with His Servants in the Fire',

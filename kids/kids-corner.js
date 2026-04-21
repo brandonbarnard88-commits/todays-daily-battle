@@ -2537,6 +2537,38 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Jeremiah 1; 13</text>'
       ),
 
+      /* ── Ezekiel — valley, simple bone shapes, soft light from above (Ez. 37:1–14) ── */
+      ezekielValleyBones: svg(
+        ground() +
+        '<path d="M0 248 Q120 230 200 248 Q280 230 400 248" ' +
+        s +
+        ' stroke-width="2" fill="none" opacity="0.78"/>' +
+        '<path d="M0 254 Q140 242 200 254 Q260 242 400 254" ' +
+        s +
+        ' stroke-width="1.35" fill="none" opacity="0.46"/>' +
+        '<ellipse cx="200" cy="40" rx="52" ry="11" ' +
+        sf +
+        ' fill="white" stroke-width="0.85" opacity="0.38"/>' +
+        '<line x1="200" y1="24" x2="200" y2="98" ' +
+        s +
+        ' stroke-width="0.45" stroke-dasharray="10,9" opacity="0.28"/>' +
+        '<line x1="176" y1="30" x2="188" y2="104" ' +
+        s +
+        ' stroke-width="0.4" stroke-dasharray="10,9" opacity="0.22"/>' +
+        '<line x1="224" y1="30" x2="212" y2="104" ' +
+        s +
+        ' stroke-width="0.4" stroke-dasharray="10,9" opacity="0.22"/>' +
+        '<ellipse cx="88" cy="252" rx="20" ry="7" ' + sf + ' fill="white" stroke-width="1.7"/>' +
+        '<ellipse cx="128" cy="256" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.45"/>' +
+        '<ellipse cx="52" cy="258" rx="11" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="305" cy="252" rx="18" ry="6" ' + sf + ' fill="white" stroke-width="1.65"/>' +
+        '<ellipse cx="270" cy="256" rx="12" ry="4" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        '<ellipse cx="345" cy="254" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        person(200, 170, 12, 34) +
+        sun(348, 46, 13) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ezekiel 37:1–14</text>'
+      ),
+
       /* ── Week 5: Angel Mary (61) ── */
       angelMary: svg(
         ground() +
@@ -4079,7 +4111,7 @@
     elishaPoisonStew: 'elishaPoisonStew',
     isaiahMessianic: 'isaiahMessianic',
     jeremiahWeeping: 'jeremiahWeeping',
-    ezekielValleyBones: 'elishaShunammite',
+    ezekielValleyBones: 'ezekielValleyBones',
     danielFieryFurnace: 'fieryFurnace',
     danielLionsDen: 'daniel',
     ezraReturn: 'ezraReturn',

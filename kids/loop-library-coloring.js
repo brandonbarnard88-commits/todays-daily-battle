@@ -55,7 +55,7 @@
   "estherFast": "estherFast",
   "euniceMother": "euniceMother",
   "everyKneeBow": "everyKneeBow",
-  "ezekielValleyBones": "elishaShunammite",
+  "ezekielValleyBones": "ezekielValleyBones",
   "ezraReturn": "ezraReturn",
   "faithMountain": "faithMountain",
   "fallOfJericho": "jerichoWalls",

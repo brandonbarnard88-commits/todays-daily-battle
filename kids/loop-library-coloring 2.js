@@ -128,7 +128,7 @@
   "phoebeDeacon": "phoebeDeacon",
   "prayerCloset": "prayerCloset",
   "priscillaTeach": "priscillaTeach",
-  "prodigalSon": "forgive70x7",
+  "prodigalSon": "prodigalSonWelcome",
   "psalm23": "psalm23Shepherd",
   "rahab": "rahabRope",
   "resurrection": "resurrection",

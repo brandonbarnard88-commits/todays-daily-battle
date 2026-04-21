@@ -687,16 +687,6 @@
     "kw": "jericho walls trumpets joshua 6 march obey shout ark faith victory"
   },
   {
-    "key": "forgive70x7",
-    "title": "Forgive Seventy Times Seven",
-    "kjvRef": "Matthew 18:21–35",
-    "who": "Jesus",
-    "to": "Peter (and us)",
-    "apply": "Forgiveness is never too much! When you forgive, you're free—not the other person.",
-    "theme": "Love",
-    "kw": "forgive 70 times matthew 18 peter always mercy hug"
-  },
-  {
     "key": "fruitSpirit",
     "title": "Fruit of the Spirit",
     "kjvRef": "Galatians 5",
@@ -1355,6 +1345,26 @@
     "apply": "God’s kingdom is so wonderful it is worth everything. Finding Jesus is the best treasure in the whole world.",
     "theme": "Love",
     "kw": "hidden treasure kingdom of heaven treasure field found joy sell buy field matthew 13 parable jesus worth everything"
+  },
+  {
+    "key": "unforgivingServant",
+    "title": "Jesus Tells About Forgiving Others",
+    "kjvRef": "Matthew 18:21–35",
+    "who": "Jesus",
+    "to": "Peter — and everyone who listens",
+    "apply": "Jesus wants us to forgive others the way God forgives us — from the heart.",
+    "theme": "Love",
+    "kw": "parable king servant forgive debt mercy matthew 18 jesus heart"
+  },
+  {
+    "key": "forgive70x7",
+    "title": "Jesus Tells About Forgiving Others",
+    "kjvRef": "Matthew 18:21–35",
+    "who": "Jesus",
+    "to": "Peter — and everyone who listens",
+    "apply": "Jesus wants us to forgive others the way God forgives us — from the heart.",
+    "theme": "Love",
+    "kw": "parable king servant forgive debt mercy matthew 18 jesus heart"
   },
   {
     "key": "goodSamaritan",

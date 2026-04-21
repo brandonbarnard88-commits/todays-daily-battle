@@ -5677,7 +5677,7 @@
           'Jesus heals us and is happy when we remember to say thank you.'
       },
       narration:
-        "Jesus Heals Ten Men and One Says Thank You — Luke 17:11–19. And it came to pass, as he went to Jerusalem, that he passed through the midst of Samaria and Galilee. And as he entered into a certain village, there met him ten men that were lepers, which stood afar off: And they lifted up their voices, and said, Jesus, Master, have mercy on us. And when he saw them, he said unto them, Go shew yourselves unto the priests. And it came to pass, that, as they went, they were cleansed. And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God, And fell down on his face at his feet, giving him thanks: and he was a Samaritan. And Jesus answering said, Were there not ten cleansed? but where are the nine? There are not found that returned to give glory to God, save this stranger. And he said unto him, Arise, go thy way: thy faith hath made thee whole. For you: Jesus loves a thankful heart — remember to say thank you to Him."
+        "Jesus Heals Ten Men and One Says Thank You — Luke 17:11–19. And it came to pass, as he went to Jerusalem, that he passed through the midst of Samaria and Galilee. And as he entered into a certain village, there met him ten men that were lepers, which stood afar off: And they lifted up their voices, and said, Jesus, Master, have mercy on us. And when he saw them, he said unto them, Go shew yourselves unto the priests. And it came to pass, that, as they went, they were cleansed. And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God, And fell down on his face at his feet, giving him thanks: and he was a Samaritan. And Jesus answering said, Were there not ten cleansed? but where are the nine? There are not found that returned to give glory to God, save this stranger. And he said unto him, Arise, go thy way: thy faith hath made thee whole. For you: Jesus heals us and is happy when we remember to say thank you."
     },
     jairus: {
       title: 'Jesus Brings a Girl Back to Life',
@@ -6661,19 +6661,35 @@
       kjvRef: 'Matthew 6',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God feeds the birds—He definitely takes care of you! Don\'t worry; trust.' }
     },
-    forgive70x7: {
-      title: 'Forgive Seventy Times Seven',
+    unforgivingServant: {
+      title: 'Jesus Tells About Forgiving Others',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Peter asks: how many times should I forgive?' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus says: seventy times seven—always!' },
-        { src: 'panel-noah-3.svg', alt: 'Two brothers hug—forgiveness sets you free!' }
+        { src: 'panel-noah-1.svg', alt: 'A king forgives a servant’s huge debt — the servant begs for patience' },
+        { src: 'panel-noah-2.svg', alt: 'The same servant will not forgive a smaller debt — grabs him by the throat' },
+        { src: 'panel-noah-3.svg', alt: 'The king is grieved — forgive from your heart as God forgave you' }
       ],
-      caption: 'Swipe to see why forgiving feels so good! 🤗',
+      caption: 'Swipe to see mercy from the king — and the heart Jesus asks of us. 🤲',
       videoId: '',
       videoTitle: '',
-      keywords: ['forgive', '70 times', 'matthew 18', 'peter', 'always', 'mercy', 'hug'],
+      keywords: [
+        'parable',
+        'king',
+        'servant',
+        'forgive',
+        'debt',
+        'mercy',
+        'matthew 18',
+        'jesus',
+        'heart'
+      ],
       kjvRef: 'Matthew 18:21–35',
-      kidContext: { who: 'Jesus', to: 'Peter (and us)', apply: 'Forgiveness is never too much! When you forgive, you\'re free—not the other person.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'Peter — and everyone who listens',
+        apply: 'Jesus wants us to forgive others the way God forgives us — from the heart.'
+      },
+      narration:
+        "Jesus Tells About Forgiving Others — Matthew 18:21–35. Then came Peter to him, and said, Lord, how oft shall my brother sin against me, and I forgive him? till seven times? Jesus saith unto him, I say not unto thee, Until seven times: but, Until seventy times seven. Therefore is the kingdom of heaven likened unto a certain king, which would take account of his servants. And when he had begun to reckon, one was brought unto him, which owed him ten thousand talents. But forasmuch as he had not to pay, his lord commanded him to be sold, and his wife, and children, and all that he had, and payment to be made. The servant therefore fell down, and worshipped him, saying, Lord, have patience with me, and I will pay thee all. Then the lord of that servant was moved with compassion, and loosed him, and forgave him the debt. But the same servant went out, and found one of his fellowservants, which owed him an hundred pence: and he laid hands on him, and took him by the throat, saying, Pay me that thou owest. His fellowservant fell down at his feet, and besought him, saying, Have patience with me, and I will pay thee all. And he would not: but went and cast him into prison, till he should pay the debt. So when his fellowservants saw what was done, they were very sorry, and came and told unto their lord all that was done. Then his lord, after that he had called him, said unto him, O thou wicked servant, I forgave thee all that debt, because thou desiredst me: Shouldest not thou also have had compassion on thy fellowservant, even as I had pity on thee? And his lord was wroth, and delivered him to the tormentors, till he should pay all that was due unto him. So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses. For you: Jesus wants us to forgive others the way God forgives us."
     },
     widowMite: {
       title: 'The Widow\'s Two Coins',
@@ -7919,6 +7935,8 @@
     /** Legacy keys — same gentle John 9 card (library / older links). */
     bibleStories.healBlind = bibleStories.manBornBlind;
     bibleStories.jesusHealsBlind = bibleStories.manBornBlind;
+    /** Legacy key — same Matthew 18 parable card (70×7 + unforgiving servant, gentle). */
+    bibleStories.forgive70x7 = bibleStories.unforgivingServant;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -8070,7 +8088,7 @@
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
       'armorShield', 'armorSword', 'fruitSpirit', 'loveChapter', 'faithMustard',
-      'prayerKnock', 'worryBirds', 'forgive70x7', 'widowMite', 'richYoungRuler',
+      'prayerKnock', 'worryBirds', 'unforgivingServant', 'widowMite', 'richYoungRuler',
       'maryAnoint',
       /* Week 9 */
       'stephenMartyr', 'philipEthiopian', 'stephenStones', 'philipChariot', 'paulShip', 'johnPatmos', 'revelation', 'revelationThrone', 'revelationThroneRoom', 'fourHorsemen',
@@ -11281,7 +11299,7 @@
     /* Week 8 */
     armorShield: 'Protection', armorSword: 'Protection', fruitSpirit: 'Love',
     loveChapter: 'Love', faithMustard: 'Obedience', prayerKnock: 'Obedience',
-    worryBirds: 'Protection', forgive70x7: 'Love', widowMite: 'Love', maryAnoint: 'Love',
+    worryBirds: 'Protection', unforgivingServant: 'Love', forgive70x7: 'Love', widowMite: 'Love', maryAnoint: 'Love',
     /* Week 9 */
     stephenMartyr: 'Protection', philipEthiopian: 'Obedience', stephenStones: 'Protection', philipChariot: 'Obedience', paulShip: 'Protection',
     johnPatmos: 'Protection',

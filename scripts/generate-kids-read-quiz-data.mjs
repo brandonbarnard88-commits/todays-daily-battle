@@ -617,6 +617,10 @@ if (merged.manBornBlind && !merged.healBlind) {
 if (merged.manBornBlind && !merged.jesusHealsBlind) {
   merged.jesusHealsBlind = merged.manBornBlind;
 }
+/** forgive70x7 — same gentle pack as unforgivingServant (legacy “70×7” key). */
+if (merged.unforgivingServant && !merged.forgive70x7) {
+  merged.forgive70x7 = merged.unforgivingServant;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

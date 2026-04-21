@@ -174,7 +174,9 @@
       manBornBlind: 'healBlind',
       healBlind: 'healBlind',
       jesusHealsBlind: 'healBlind',
-      bethesda: 'bethesda'
+      bethesda: 'bethesda',
+      unforgivingServant: 'unforgivingServant',
+      forgive70x7: 'unforgivingServant'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -208,6 +210,8 @@
     if (low.indexOf('marysit') >= 0 || low === 'marysit') return 'maryMartha';
     if (low.indexOf('jesuslazarus') >= 0 || low === 'jesuslazarus') return 'lazarus';
     if (low.indexOf('tenlepers') >= 0 || low.indexOf('ten-lepers') >= 0) return 'tenLepers';
+    if (low.indexOf('unforgivingservant') >= 0 || low === 'unforgivingservant') return 'unforgivingServant';
+    if (low.indexOf('forgive70') >= 0 || low === 'forgive70x7') return 'unforgivingServant';
     if (low.indexOf('bethesda') >= 0 || low === 'bethesda' || low.indexOf('poolofbethesda') >= 0) return 'bethesda';
     if (low.indexOf('manbornblind') >= 0 || low === 'manbornblind') return 'healBlind';
     if (low.indexOf('healblind') >= 0 || low === 'healblind' || low.indexOf('jesushealsblind') >= 0) return 'healBlind';
@@ -3258,7 +3262,7 @@
         ground() +
         hills() +
         sun(46, 40, 15) +
-        '<path d="M32 254 Q200 234 368 254" ' + s + ' stroke-width="2" opacity="0.55"/>' +
+        '<path d="M32 254 Q200 240 368 254" ' + s + ' stroke-width="1.8" opacity="0.38"/>' +
         person(74, 168, 7, 18) +
         person(94, 172, 7, 18) +
         person(114, 169, 7, 18) +
@@ -3605,16 +3609,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 6:26</text>'
       ),
 
-      /* ── Week 8: Forgive 70x7 (104) ── */
-      forgive70x7: svg(
+      /* ── Week 8 gentle: Unforgiving servant — king forgives, kneeling servant (Matthew 18:21–35) ── */
+      unforgivingServant: svg(
         ground() +
-        person(155, 185, 12, 35) +
-        person(240, 180, 13, 40) +
-        '<path d="M158 200 Q192 195 240 197" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M148 200 Q135 210 132 222" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M250 195 Q262 205 260 218" ' + s + ' stroke-width="2.5"/>' +
-        sun(50, 45, 18) + star(330, 45, 14) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 18:22</text>'
+        '<path d="M60 248 L340 248" ' + s + ' stroke-width="1.6" opacity="0.35"/>' +
+        '<rect x="220" y="72" width="140" height="118" rx="10" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<rect x="248" y="88" width="84" height="40" rx="6" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="248" y1="108" x2="332" y2="108" ' + s + ' stroke-width="1.4" opacity="0.4"/>' +
+        '<circle cx="290" cy="132" r="14" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M278 128 Q290 118 302 128" ' + s + ' stroke-width="1.4"/>' +
+        '<line x1="290" y1="146" x2="290" y2="188" ' + s + ' stroke-width="2.4"/>' +
+        '<line x1="270" y1="162" x2="310" y2="162" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="290" y1="188" x2="276" y2="218 M290 188 L304 218" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M120 218 Q145 188 168 208 Q190 188 210 218" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<circle cx="168" cy="178" r="12" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M158 182 Q168 176 178 182" ' + s + ' stroke-width="1.3"/>' +
+        '<line x1="168" y1="192" x2="168" y2="210" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="156" y1="200" x2="148" y2="218" ' + s + ' stroke-width="2"/>' +
+        '<line x1="180" y1="200" x2="188" y2="218" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="168" cy="228" rx="28" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(48, 48, 14) +
+        '<text x="200" y="290" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 18:21–35</text>'
       ),
 
       /* ── Week 8: Widow Mite (105) ── */
@@ -4810,7 +4825,7 @@
     paulEndurance: 'faithMustard',
     paulTimothy: 'loisTimothy',
     paulTitus: 'priscillaTeach',
-    paulPhilemon: 'forgive70x7',
+    paulPhilemon: 'unforgivingServant',
     hebrewsFaith: 'faithMustard',
     jamesFaithWorks: 'fruitSpirit',
     peterFirstLetter: 'peterShadow',
@@ -4850,7 +4865,8 @@
     faithMustard: 'faithMustard',
     prayerKnock: 'prayerKnock',
     worryBirds: 'worryBirds',
-    forgive70x7: 'forgive70x7',
+    forgive70x7: 'unforgivingServant',
+    unforgivingServant: 'unforgivingServant',
     widowsMite: 'widowMite',
     widowMite: 'widowMite',
     richYoungRuler: 'richYoungRuler',
@@ -6500,7 +6516,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

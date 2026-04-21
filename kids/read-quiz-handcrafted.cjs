@@ -79,6 +79,7 @@
  * Jesus brings Lazarus back to life — John 11:1–44 (gentle): buildLazarusReadQuiz() (library key: lazarus; alias jesusLazarus).
  * Ten lepers — Luke 17:11–19 (gentle): buildTenLepersReadQuiz() (library key: tenLepers; alias healLeper).
  * Pool of Bethesda — John 5:1–15 (gentle): buildBethesdaReadQuiz() (library key: bethesda).
+ * Unforgiving servant — Matthew 18:21–35 (gentle): buildUnforgivingServantReadQuiz() (library key: unforgivingServant; alias forgive70x7).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
@@ -9498,7 +9499,7 @@ function buildTenLepersReadQuiz() {
       {
         text: 'Jesus is happy when we say thank you.',
         caption: 'A thankful heart',
-        image: 'panel-noah-2.svg'
+        image: 'panel-noah-3.svg'
       }
     ],
     quizHeading: 'Quiz — think it through',
@@ -9851,6 +9852,149 @@ function buildBethesdaReadQuiz() {
   };
 }
 
+/** Parable of the unforgiving servant — king’s mercy, heart forgiveness (gentle). Library key: unforgivingServant */
+function buildUnforgivingServantReadQuiz() {
+  return {
+    kjvRef: 'Matthew 18:21–35 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses. — Matthew 18:35 (KJV)',
+    readAlongTitle: 'Jesus Tells About Forgiving Others',
+    quizWrongHumilityHint:
+      'Listen again — king; account; debt; patience; forgave; fellowservant; throat; prison; wicked servant; compassion; heart; forgive.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told a story about a king who was checking how much money his servants owed him.',
+      'One servant owed the king a huge amount of money — more than he could ever pay back.',
+      'The servant fell on his knees and begged, “Lord, have patience with me, and I will pay thee all.”',
+      'The king felt sorry for him and forgave the whole debt.',
+      'But that same servant went out and found another servant who owed him a very small amount.',
+      'He grabbed him by the throat and said, “Pay me what thou owest!”',
+      'The second servant begged for patience, but the first servant would not forgive him.',
+      'He had the man thrown into prison until he could pay.',
+      'When the king heard what had happened, he was very angry.',
+      'He called the first servant and said, “O thou wicked servant, I forgave thee all that debt because thou desiredst me: shouldest not thou also have had compassion on thy fellowservant?”',
+      'Then the king had the unforgiving servant punished.',
+      'Jesus said, “So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses.”',
+      'Jesus wants us to forgive others the way God forgives us.',
+      'Reference: Matthew 18:21–35 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A servant owed the king a huge debt.',
+        caption: 'Ten thousand talents…',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The servant begged for patience.',
+        caption: 'Have patience with me',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The king forgave the whole debt.',
+        caption: 'Moved with compassion',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The servant found another man who owed him a little.',
+        caption: 'A fellowservant',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He would not forgive him and put him in prison.',
+        caption: 'Took by the throat',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The king was angry and punished the unforgiving servant.',
+        caption: 'O thou wicked servant',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus wants us to forgive others.',
+        caption: 'From your hearts',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this parable found in the Bible?',
+        choices: ['Luke 15', 'Matthew 18:21–35', 'John 3', 'Psalm 23'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the reference line in the story block. (Answer: Matthew 18:21–35.)'
+      },
+      {
+        question: 'What did the king do first for the servant who owed a huge debt?',
+        choices: [
+          'He forgave the whole debt because the servant begged for patience.',
+          'He gave him a new horse.',
+          'He sent him on vacation forever.',
+          'He ignored him.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—the king showed great mercy first.',
+        wrongFeedback: 'Think: what happened at the throne before the servant went out? (Answer: forgave… debt.)'
+      },
+      {
+        question: 'What did the unforgiving servant do to the man who owed him little?',
+        choices: [
+          'He would not forgive him and had him thrown in prison.',
+          'He paid the man’s rent.',
+          'He invited him to a party and then forgot.',
+          'He shared all his toys.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that shows why Jesus told this story.',
+        wrongFeedback:
+          'Remember the sad turning point—throat, prison, no mercy. (Answer: would not forgive… prison.)'
+      },
+      {
+        question: 'Which line belongs to Jesus’ teaching in this gentle summary?',
+        choices: [
+          '“So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not…”',
+          '“Eat more dessert every day.”',
+          '“Hide when someone says sorry.”',
+          '“Never speak to family again.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that heart line matches the end of the parable.',
+        wrongFeedback: 'Cross out silliness. Which calls us to forgive from the heart? (Answer: likewise… heavenly Father… forgive.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me forgive others the way He forgave me — starting small and honest.',
+          'Refuse to say sorry.',
+          'Only remember what hurt me.',
+          'Try to pay God back for grace by being perfect alone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches Jesus’ “from your hearts” heart? (Answer: forgive… way He forgave me.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Tells About Forgiving Others with God's Word today.",
+    takeaway: 'Jesus wants us to forgive others the way God forgives us.',
+    prayer:
+      'Lord Jesus, You forgave me so much. Please help me forgive others from my heart. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children: A king sitting on his throne forgiving a servant who is kneeling and begging The servant looks thankful thick bold outlines with large open spaces on the king robe the servant robe and the floor for easy coloring soft throne room walls with minimal lines kind and forgiving mood focus on the king forgiving the big debt clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: King reckons — huge debt (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Have patience — loosed and forgiven (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Fellowservant — pay me (sad)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Prison — would not forgive (heavy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: King hears — pity on thee? (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Heart forgiveness — heavenly Father (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Jesus teaches — forgive brothers (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -9975,5 +10119,6 @@ module.exports = {
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),
+  unforgivingServant: buildUnforgivingServantReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

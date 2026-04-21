@@ -3067,6 +3067,16 @@
     "kw": "paralytic palsy roof mark 2 faith forgive friends capernaum bed lowered son thy sins arise take up bed walk capernaum"
   },
   {
+    "key": "witheredHand",
+    "title": "Jesus Heals a Man on the Sabbath",
+    "kjvRef": "Mark 3:1–6",
+    "who": "Jesus",
+    "to": "The man with the withered hand — and everyone watching",
+    "apply": "Jesus does good and shows love every day, because He cares for people. We can trust Him and be kind too.",
+    "theme": "Miracles",
+    "kw": "withered hand sabbath synagogue mark 3 stretch forth heal mercy good save life stand forth restored whole"
+  },
+  {
     "key": "timothyYouthExample",
     "title": "Timothy — Young and Faithful",
     "kjvRef": "1 Timothy 4:12",

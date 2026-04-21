@@ -1141,6 +1141,48 @@
       narration:
         "Jesus Calms the Wind and the Waves — Mark 4:35–41. And the same day, when the even was come, he saith unto them, Let us pass over unto the other side. And when they had sent away the multitude, they took him even as he was in the ship. And there were also with him other little ships. And there arose a great storm of wind, and the waves beat into the ship, so that it was now full. And he was in the hinder part of the ship, asleep on a pillow: and they awake him, and say unto him, Master, carest thou not that we perish? And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm. And he said unto them, Why are ye so fearful? how is it that ye have no faith? And they feared exceedingly, and said one to another, What manner of man is this, that even the wind and the sea obey him? For you: Jesus is with you in every storm — call on Him; He brings peace."
     },
+    witheredHand: {
+      title: 'Jesus Heals a Man on the Sabbath',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus teaches in the synagogue — a man is there whose hand is withered'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus asks, Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill?'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus says, Stretch forth thine hand — and his hand was restored whole as the other'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus heal with kindness in the synagogue — Stretch forth thine hand. ✋',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'withered hand',
+        'sabbath',
+        'synagogue',
+        'mark 3',
+        'stretch forth',
+        'heal',
+        'jesus',
+        'mercy',
+        'good',
+        'hand'
+      ],
+      kjvRef: 'Mark 3:1–6',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The man with the withered hand — and everyone watching',
+        apply:
+          'Jesus does good and shows love every day, because He cares for people. We can trust Him and be kind too.'
+      },
+      narration:
+        "Jesus Heals a Man on the Sabbath — Mark 3:1–6. And he entered again into the synagogue; and there was a man there which had his hand withered. And they watched him, whether he would heal him on the sabbath day; that they might accuse him. And he saith unto the man which had the withered hand, Stand forth. And he saith unto them, Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill? But they held their peace. And when he had looked round about on them, being grieved for the hardness of their hearts, he saith unto the man, Stretch forth thine hand. And he stretched it out: and his hand was restored whole as the other. For you: Jesus does good and cares for people — come to Him with your needs."
+    },
     jesusFeeds5000: {
       title: 'Jesus Feeds 5,000',
       panels: [
@@ -7673,7 +7715,7 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
@@ -7696,7 +7738,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -10836,7 +10878,7 @@
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
     /* Week 6 */
-    jesusHealsParalytic: 'Miracles', mustardSeed: 'Obedience',
+    jesusHealsParalytic: 'Miracles', witheredHand: 'Miracles', mustardSeed: 'Obedience',
     jesusParableSower: 'Protection', jesusParableMustardSeed: 'Obedience', jesusParableGoodShepherd: 'Love',
     healLeper: 'Miracles', jairus: 'Miracles',
     transfigure: 'Miracles', judasKiss: 'Love',

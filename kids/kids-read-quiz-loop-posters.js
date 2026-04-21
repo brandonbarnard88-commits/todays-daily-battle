@@ -132,6 +132,7 @@
     noblemanSon: 203,
     centurionServant: 204,
     jesusHealsParalytic: 205,
+    witheredHand: 206,
     jesusBirth: 62,
     jesusBlessKids: 84,
     jesusCalmsStorm: 12,

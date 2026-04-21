@@ -64,6 +64,7 @@
  * Centurion’s servant healed at a word (Matthew 8:5–13, gentle): buildCenturionServantReadQuiz() (library key: centurionServant).
  * Jesus calms the storm (Mark 4:35–41, gentle): buildJesusCalmsStormReadQuiz() (library key: jesusCalmsStorm).
  * Paralytic lowered through the roof — forgive and heal (Mark 2:1–12, gentle): buildJesusHealsParalyticReadQuiz() (library key: jesusHealsParalytic).
+ * Withered hand in the synagogue — Sabbath heal (Mark 3:1–6, gentle): buildWitheredHandReadQuiz() (library key: witheredHand).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -7639,6 +7640,149 @@ function buildJesusHealsParalyticReadQuiz() {
   };
 }
 
+/** Withered hand — Jesus heals on the Sabbath (gentle). Library key: witheredHand */
+function buildWitheredHandReadQuiz() {
+  return {
+    kjvRef: 'Mark 3:1–6 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'And he saith unto the man, Stretch forth thine hand. And he stretched it out: and his hand was restored whole as the other. — Mark 3:5 (KJV)',
+    readAlongTitle: 'Jesus Heals a Man on the Sabbath',
+    quizWrongHumilityHint:
+      'Listen again — synagogue; withered hand; stand forth; do good or evil; save life or kill; quiet; Stretch forth thine hand; restored whole; amazed.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'One Sabbath day Jesus went into the synagogue to teach.',
+      'A man was there whose hand was withered and could not work.',
+      'Some people watched to see if Jesus would heal on the Sabbath.',
+      'Jesus asked the man to stand up where everyone could see.',
+      'Then He asked the people, “Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill?”',
+      'They were quiet.',
+      'Jesus looked at them with sadness because their hearts were hard.',
+      'He said to the man, “Stretch forth thine hand.”',
+      'The man stretched out his hand, and it was made whole like the other.',
+      'The people were amazed.',
+      'Jesus does good and shows love every day, because He cares for people.',
+      'Reference: Mark 3:1–6 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus was teaching in the synagogue.',
+        caption: 'Listening to Jesus',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'A man was there whose hand was hurt.',
+        caption: 'Jesus sees him',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus asked the man to stand up.',
+        caption: 'Stand forth',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus asked about doing good — the people were quiet.',
+        caption: 'Do good or evil?',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, “Stretch forth thine hand.”',
+        caption: 'His kind words',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The man stretched out his hand and it was made whole.',
+        caption: 'Healed!',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus does good every day because He cares.',
+        caption: 'He loves us',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Mark 3:1–6', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Mark 3:1–6.)'
+      },
+      {
+        question: 'What did Jesus say to the man?',
+        choices: [
+          '“Stretch forth thine hand.”',
+          '“Run out of the building.”',
+          '“Hide your hand.”',
+          '“Never ask for help.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus speaks with power and love.',
+        wrongFeedback:
+          'Think about the healing words in Mark 3. (Answer: “Stretch forth thine hand.”)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'Jesus only helps on busy days.',
+          'Jesus does good and shows love because He cares for people.',
+          'Hands never get better.',
+          'We should never go to church.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the ending about Jesus doing good and caring. (Answer: Jesus does good and shows love because He cares for people.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus asked, Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill?',
+          'A turtle drove a race car.',
+          'The floor turned into jelly.',
+          'Everyone forgot how to stand.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that comes straight from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Jesus’ question? (Answer: Is it lawful to do good… or to do evil? to save life, or to kill?)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He does good and heals — ask Him to help us love others kindly too.',
+          'Never pray when we feel worried.',
+          'Only be kind when people are perfect.',
+          'Hide when we need help.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus’ kindness and healing? (Answer: Thank Jesus that He does good and heals — ask Him to help us love others kindly too.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Heals a Man on the Sabbath with God's Word today.",
+    takeaway: 'Jesus does good and shows love every day, because He cares for people.',
+    prayer:
+      'Lord Jesus, thank You for doing good and caring for us. Help us trust You and be kind like You. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing in the synagogue speaking kindly to a man whose hand was hurt the man is stretching out his hand toward Jesus with a hopeful face thick bold outlines with large open spaces on Jesus\' robe the man\'s robe and the floor for easy coloring soft synagogue walls and gentle light from above with minimal lines kind healing mood focus on Jesus making the man\'s hand well clean minimal no fear or angry faces plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Synagogue — Jesus teaching (listen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Man with hurt hand — Jesus sees him (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Do good or evil — save life or kill (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Stretch forth thine hand (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Hand restored whole — amazed (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Jesus does good every day (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -7747,5 +7891,6 @@ module.exports = {
   centurionServant: buildCenturionServantReadQuiz(),
   jesusCalmsStorm: buildJesusCalmsStormReadQuiz(),
   jesusHealsParalytic: buildJesusHealsParalyticReadQuiz(),
+  witheredHand: buildWitheredHandReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

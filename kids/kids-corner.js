@@ -151,7 +151,8 @@
       samaritanWoman: 'samaritanWoman',
       noblemanSon: 'noblemanSon',
       centurionServant: 'centurionServant',
-      jesusHealsParalytic: 'jesusHealsParalytic'
+      jesusHealsParalytic: 'jesusHealsParalytic',
+      witheredHand: 'witheredHand'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -170,6 +171,7 @@
     if (low.indexOf('centurionservant') >= 0 || low === 'centurionservant') return 'centurionServant';
     if (low.indexOf('jesuscalmsstorm') >= 0 || low === 'jesuscalmsstorm') return 'jesusCalmsStorm';
     if (low.indexOf('jesushealsparalytic') >= 0 || low === 'jesushealsparalytic') return 'jesusHealsParalytic';
+    if (low.indexOf('witheredhand') >= 0 || low === 'witheredhand') return 'witheredHand';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -391,6 +393,23 @@
         '<line x1="200" y1="198" x2="208" y2="214" ' + s + ' stroke-width="2.2"/>' +
         sun(332, 42, 16) +
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 4:35–41</text>'
+      ),
+
+      /* Week 5 gentle: Withered hand — synagogue, Stretch forth (Mark 3:1–6) */
+      witheredHand: svg(
+        ground() +
+        '<rect x="48" y="88" width="304" height="160" rx="6" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M48 88 L200 58 L352 88" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M72 128 L328 128" ' + s + ' stroke-width="1.4" opacity="0.35"/>' +
+        '<line x1="200" y1="88" x2="200" y2="248" ' + s + ' stroke-width="1.6" opacity="0.28"/>' +
+        person(110, 152, 10, 30) +
+        '<line x1="120" y1="188" x2="175" y2="172" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="175" y1="172" x2="192" y2="165" ' + s + ' stroke-width="2.2"/>' +
+        '<ellipse cx="192" cy="162" rx="7" ry="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(275, 142, 12, 36) +
+        '<line x1="263" y1="184" x2="228" y2="198" ' + s + ' stroke-width="2.2"/>' +
+        sun(332, 42, 16) +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 3:1–6</text>'
       ),
 
       /* Jesus calls helpers — Sea of Galilee, nets (Matthew 4:18–22) */
@@ -4415,6 +4434,7 @@
     centurionServant: 'centurionServant',
     jesusHealsParalytic: 'jesusHealsParalytic',
     jesusCalmsStorm: 'jesusCalmsStorm',
+    witheredHand: 'witheredHand',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
@@ -4566,6 +4586,7 @@
     centurionServant: 'centurionServant',
     jesusHealsParalytic: 'jesusHealsParalytic',
     jesusCalmsStorm: 'jesusCalmsStorm',
+    witheredHand: 'witheredHand',
     marthaServe: 'marthaServe',
     marySit: 'marySit',
     dorcasRaise: 'dorcasRaise',

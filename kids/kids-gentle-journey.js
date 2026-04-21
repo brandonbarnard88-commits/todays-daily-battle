@@ -148,6 +148,7 @@
     'centurionServant',
     'jesusHealsParalytic',
     'jesusCalmsStorm',
+    'witheredHand',
     'jairus',
     'jesusWalksWater',
     'jesusFeeds5000',

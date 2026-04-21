@@ -132,6 +132,7 @@
     'jesusBirth',
     'jesusManger',
     'shepherdsStar',
+    'wiseMen',
     'annaProphet',
     'jesusTemple',
     'johnBaptist',

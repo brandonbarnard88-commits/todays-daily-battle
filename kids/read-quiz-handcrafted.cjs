@@ -51,6 +51,7 @@
  * Malachi — messenger of the covenant, gentle hope (Mal. 3:1; 4:5–6): buildMalachiMessageReadQuiz().
  * Jesus born in Bethlehem (Luke 2:1–20, gentle): buildJesusBirthReadQuiz().
  * Shepherds & angels — finding Jesus (Luke 2:8–20, gentle): buildShepherdsStarReadQuiz() (library key: shepherdsStar).
+ * Wise men — star, gifts, worship (Matthew 2:1–12, gentle): buildWiseMenReadQuiz() (library key: wiseMen).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -5870,6 +5871,128 @@ function buildShepherdsStarReadQuiz() {
   };
 }
 
+/** Wise men follow the star — gifts and worship (gentle). Library key: wiseMen */
+function buildWiseMenReadQuiz() {
+  return {
+    kjvRef: 'Matthew 2:1–12 (KJV)',
+    verseExcerpt:
+      '…they saw the young child with Mary his mother, and fell down, and worshipped him: and…they presented unto him gifts; gold, and frankincense, and myrrh. — Matthew 2:11 (KJV)',
+    readAlongTitle: 'The Wise Men Follow the Star',
+    quizWrongHumilityHint:
+      'Listen again — star in the east; journey to Bethlehem; young child with Mary; gifts of gold, frankincense, and myrrh; worship.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Far away in the east, wise men saw a bright new star.',
+      'They knew it meant a special king had been born.',
+      'They followed the star all the way to Bethlehem.',
+      'When they found baby Jesus with Mary, they were very happy.',
+      'They bowed down and gave Him wonderful gifts — gold, and sweet-smelling frankincense, and myrrh.',
+      'They worshipped the little King.',
+      'God sent the star so the wise men could find and worship Jesus.',
+      'Reference: Matthew 2:1–12 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Wise men saw a bright star.',
+        caption: 'A new star',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They followed the star to Bethlehem.',
+        caption: 'Following',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They found baby Jesus with Mary.',
+        caption: 'Found Him',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They bowed down and gave Him gifts.',
+        caption: 'Gifts of love',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They worshipped the little King.',
+        caption: 'We worship Him',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 2:1–12', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 2:1–12.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'Pharaoh', 'Goliath', 'Samson'],
+        correctIndex: 0,
+        correctFeedback: 'Right—God put the star in the sky and welcomed the wise men to worship Jesus.',
+        wrongFeedback:
+          'Look for who made the star known and received the wise men’s worship of Jesus. (Answer: God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'Jesus is only for people who live next door.',
+          'People from far away can come to worship Jesus — He is the King.',
+          'God never hears when kids pray.',
+          'The Bible is only pretend stories.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the last paragraphs slowly. Which option matches how the wise men came to Jesus? (Answer: People from far away can come to worship Jesus — He is the King.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'They brought Him a rocket ship.',
+          'They presented unto him gifts; gold, and frankincense, and myrrh.',
+          'Let us rise up and build.',
+          'Everyone forgot how to walk.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: They presented unto him gifts; gold, and frankincense, and myrrh.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Thank God for Jesus — and worship Him with a glad, quiet heart.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show worship and thankfulness to Jesus? Pick the one that honors Him. (Answer: Thank God for Jesus — and worship Him with a glad, quiet heart.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading The Wise Men Follow the Star with God's Word today.",
+    takeaway: 'People from far away can come to worship Jesus.',
+    prayer:
+      'Lord, thank You for the star that led the wise men to Jesus. Help us worship You today with wonder. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Three wise men kneeling gently before baby Jesus one wise man holds a small box of gold another holds frankincense and the third holds myrrh Mary sits nearby with a kind face thick bold outlines with large open spaces on the wise men\'s robes the gifts and the ground for easy coloring soft stable walls and a bright star in the sky with minimal lines wonder and worship mood focus on the wise men bringing gifts to baby Jesus clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and blue accents, friendly not scary, no text in image: Bright star in the east (star)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and blue accents, friendly not scary, no text in image: Journey following the star (travel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and blue accents, friendly not scary, no text in image: Baby Jesus with Mary (found)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and blue accents, friendly not scary, no text in image: Gifts of gold frankincense and myrrh (gifts)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and blue accents, friendly not scary, no text in image: Kneeling in worship (worship)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -5965,5 +6088,6 @@ module.exports = {
   malachiMessage: buildMalachiMessageReadQuiz(),
   jesusBirth: buildJesusBirthReadQuiz(),
   shepherdsStar: buildShepherdsStarReadQuiz(),
+  wiseMen: buildWiseMenReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

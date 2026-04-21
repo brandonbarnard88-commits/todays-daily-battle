@@ -139,7 +139,8 @@
       mosesBush: 'moses-red-sea',
       mosesBaby: 'baby-moses',
       creation: 'creation',
-      goodSamaritan: 'good-samaritan'
+      goodSamaritan: 'good-samaritan',
+      wiseMen: 'jesus-children'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -2659,6 +2660,29 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:8–20</text>'
       ),
 
+      /* ── Wise men — star, kneeling worship, gifts (Matthew 2:1–12) ── */
+      wiseMen: svg(
+        ground() +
+        '<path d="M72 262 L72 150 L200 106 L328 150 L328 262" ' + sf + ' fill="white" stroke-width="2.7"/>' +
+        '<path d="M72 150 L200 106 L328 150" ' + sf + ' fill="white" stroke-width="2.7"/>' +
+        '<rect x="168" y="184" width="78" height="44" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="207" cy="200" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M203 202 Q207 196 211 202" ' + s + ' stroke-width="1.5"/>' +
+        person(262, 174, 9, 22) +
+        '<ellipse cx="95" cy="234" rx="28" ry="13" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="95" cy="206" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="72" y="218" width="22" height="16" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="200" cy="238" rx="30" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="200" cy="208" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="186" y="222" width="18" height="12" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="305" cy="234" rx="28" ry="13" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="305" cy="206" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="318" y="218" width="22" height="16" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        star(200, 44, 14) +
+        '<line x1="200" y1="60" x2="200" y2="118" ' + s + ' stroke-width="0.5" stroke-dasharray="7,6" opacity="0.32"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 2:1–12</text>'
+      ),
+
       /* ── Week 5: Jesus Manger (63) ── */
       jesusManger: svg(
         ground() +
@@ -4201,6 +4225,7 @@
     /* ── Week 5 ── */
     angelMary: 'angelMary',
     shepherdsStar: 'shepherdsStar',
+    wiseMen: 'wiseMen',
     jesusManger: 'jesusManger',
     jesusBirth: 'jesusBirth',
     jesusTemple: 'jesusTemple',

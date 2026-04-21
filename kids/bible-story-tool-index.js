@@ -2437,6 +2437,16 @@
     "kw": "shepherds angels bethlehem manger good tidings saviour luke 2 glory joy peace baby jesus"
   },
   {
+    "key": "wiseMen",
+    "title": "The Wise Men Follow the Star",
+    "kjvRef": "Matthew 2:1–12",
+    "who": "God",
+    "to": "The wise men — and everyone who comes to worship Jesus",
+    "apply": "People from far away can come to worship Jesus.",
+    "theme": "Love",
+    "kw": "wise men magi star bethlehem mary jesus gold frankincense myrrh worship matthew 2 gifts baby jesus"
+  },
+  {
     "key": "crossCarry",
     "title": "Simon Helps Carry the Cross",
     "kjvRef": "Luke 23",

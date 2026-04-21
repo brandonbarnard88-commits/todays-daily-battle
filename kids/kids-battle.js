@@ -4710,6 +4710,50 @@
       narration:
         "The Shepherds Find Baby Jesus — Luke 2:8–20. Shepherds were in the fields keeping watch over their flock by night. The angel of the Lord came upon them, and the glory of the Lord shone round about them; and they were sore afraid. The angel said, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord. Suddenly there was with the angel a multitude of the heavenly host praising God, and saying, Glory to God in the highest, and on earth peace, good will toward men. The shepherds said one to another, Let us now go even unto Bethlehem, and see this thing which is come to pass. They came with haste, and found Mary and Joseph, and the babe lying in a manger. When they had seen it, they made known abroad the saying which was told them. They returned, glorifying and praising God. For you: the good news of Jesus is for everyone."
     },
+    wiseMen: {
+      title: 'The Wise Men Follow the Star',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Wise men see a bright new star in the east — they know a special King is born'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They follow the star to Bethlehem and find the young child with Mary'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'They bow down, worship Him, and give gifts — gold, frankincense, and myrrh'
+        }
+      ],
+      caption:
+        'Swipe to see wise men follow the star — they find Jesus, bow down, and worship the little King.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'wise men',
+        'magi',
+        'star',
+        'bethlehem',
+        'mary',
+        'jesus',
+        'gold',
+        'frankincense',
+        'myrrh',
+        'worship',
+        'matthew 2',
+        'gifts',
+        'baby jesus'
+      ],
+      kjvRef: 'Matthew 2:1–12',
+      kidContext: {
+        who: 'God',
+        to: 'The wise men — and everyone who comes to worship Jesus',
+        apply: 'People from far away can come to worship Jesus.'
+      },
+      narration:
+        "The Wise Men Follow the Star — Matthew 2:1–12. When Jesus was born in Bethlehem, wise men from the east saw his star in the east, and came to worship him. They asked, Where is he that is born King of the Jews? for we have seen his star in the east, and are come to worship him. The star went before them till it came and stood over where the young child was. When they saw the young child with Mary his mother, they fell down, and worshipped him: and when they had opened their treasures, they presented unto him gifts; gold, and frankincense, and myrrh. For you: God sent the star so they could find Jesus — people from far away can come to worship Him."
+    },
     jesusManger: {
       title: 'Baby Jesus in the Manger',
       panels: [
@@ -7187,7 +7231,7 @@
       'ezraReturn', 'malachiMessage',
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
-      'angelMary', 'shepherdsStar', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
+      'angelMary', 'shepherdsStar', 'wiseMen', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
       'jesusBaptism', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
@@ -10339,7 +10383,7 @@
     ezraReturn: 'Obedience', malachiMessage: 'Love',
     jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
     /* Week 5 */
-    angelMary: 'Miracles', shepherdsStar: 'Love', jesusManger: 'Love', jesusTemple: 'Obedience',
+    angelMary: 'Miracles', shepherdsStar: 'Love', wiseMen: 'Love', jesusManger: 'Love', jesusTemple: 'Obedience',
     johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Obedience', jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',

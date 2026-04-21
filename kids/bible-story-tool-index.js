@@ -2507,6 +2507,16 @@
     "kw": "Caiaphas high priest council false witness temple three days held his peace Christ Son of God right hand of power clouds of heaven Peter palace blasphemy matthew 26 mark 14"
   },
   {
+    "key": "peterDenial",
+    "title": "Peter Denies Jesus",
+    "kjvRef": "Matthew 26:69–75 (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)",
+    "who": "Peter",
+    "to": "Every child who feels afraid or sorry after a mistake",
+    "apply": "Jesus forgave Peter and welcomes sorry hearts — we can talk to Him anytime and rest in His gentle forgiveness.",
+    "theme": "Love",
+    "kw": "Peter deny palace damsel maid porch Galilee Nazareth oath cock crow thrice wept bitterly bewrayeth forgiveness matthew 26 mark 14 luke 22 john 18"
+  },
+  {
     "key": "priscillaTeach",
     "title": "Priscilla and Aquila Teach",
     "kjvRef": "Acts 18:24–28",

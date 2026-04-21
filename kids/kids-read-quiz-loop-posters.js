@@ -168,6 +168,8 @@
     trialBeforeCaiaphas: 226,
     caiaphasTrial: 226,
     jesusBeforeCaiaphas: 226,
+    peterDenial: 227,
+    peterDeniesJesus: 227,
     jesusAscension: 90,
     jesusCrucifixion: 88,
     jesusGardenGethsemane: 87,

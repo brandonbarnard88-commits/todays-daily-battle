@@ -98,6 +98,7 @@
  * Jesus prays in Gethsemane — Matthew 26:36–46 (gentle): buildGardenPrayerReadQuiz() (library keys: gardenPrayer; jesusGardenGethsemane).
  * Jesus is arrested in the garden — Matthew 26:47–56 (gentle): buildJesusArrestReadQuiz() (library key: jesusArrest; aliases arrest, gethsemaneArrest in slug maps).
  * Jesus before Caiaphas — Matthew 26:57–68 (gentle): buildTrialBeforeCaiaphasReadQuiz() (library key: trialBeforeCaiaphas; aliases caiaphasTrial, jesusBeforeCaiaphas).
+ * Peter denies Jesus — Matthew 26:69–75 (gentle): buildPeterDenialReadQuiz() (library key: peterDenial; alias peterDeniesJesus).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
@@ -12478,6 +12479,151 @@ function buildTrialBeforeCaiaphasReadQuiz() {
   };
 }
 
+/** Peter denies Jesus — Matthew 26:69–75 (gentle). Library key: peterDenial */
+function buildPeterDenialReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:69–75 (KJV) (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)',
+    verseExcerpt:
+      'And Peter remembered the word of Jesus, which said unto him, Before the cock crow, thou shalt deny me thrice. And he went out, and wept bitterly. — Matthew 26:75 (KJV)',
+    readAlongTitle: 'Peter Denies Jesus',
+    quizWrongHumilityHint:
+      'Listen again — without in the palace; damsel; Jesus of Galilee; denied; porch; another maid; Nazareth; oath; I do not know the man; speech bewrayeth; cock crew; deny me thrice; wept bitterly.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Now Peter sat without in the palace: and a damsel came unto him, saying, Thou also wast with Jesus of Galilee. But he denied before them all, saying, I know not what thou sayest.',
+      'And when he was gone out into the porch, another maid saw him, and said unto them that were there, This fellow was also with Jesus of Nazareth. And again he denied with an oath, I do not know the man.',
+      'And after a while came unto him they that stood by, and said to Peter, Surely thou also art one of them; for thy speech bewrayeth thee.',
+      'Then began he to curse and to swear, saying, I know not the man. And immediately the cock crew.',
+      'And Peter remembered the word of Jesus, which said unto him, Before the cock crow, thou shalt deny me thrice. And he went out, and wept bitterly.',
+      'Jesus still loved Peter — and He forgives us when we are sorry too.',
+      'Reference: Matthew 26:69–75 (KJV) (parallel in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Peter sat outside by the fire near the high priest\'s house.',
+        caption: 'Without in the palace',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'A young maid said, "You were with Jesus of Galilee." But Peter said, "I do not know what you mean."',
+        caption: 'Jesus of Galilee',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Another maid saw him and said the same thing. Peter denied it again.',
+        caption: 'Unto the porch',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Other people said, "Surely you are one of them — your speech shows it."',
+        caption: 'Thy speech bewrayeth thee',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Peter said strongly, "I do not know the man." Then the rooster crowed.',
+        caption: 'The cock crew',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Peter remembered what Jesus had told him. He went out and felt very sorry, and he wept.',
+        caption: 'Wept bitterly',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:69–75 (also told in Mark, Luke, and John)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26:69–75.)'
+      },
+      {
+        question: 'Where was Peter when the first maid spoke to him?',
+        choices: [
+          'Without (outside) in the palace, by the fire.',
+          'On a boat in the sea.',
+          'In Bethlehem only.',
+          'On the moon.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:69.',
+        wrongFeedback: 'Listen for “without” and “palace.” (Answer: outside in the palace.)'
+      },
+      {
+        question: 'What did Peter say the first time he denied knowing Jesus?',
+        choices: [
+          'I know not what thou sayest.',
+          'I am the king of the palace.',
+          'I never heard of fire.',
+          'I will never be sorry.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:70.',
+        wrongFeedback: 'Listen for “I know not.” (Answer: I know not what thou sayest.)'
+      },
+      {
+        question: 'What happened right after Peter denied the third time?',
+        choices: [
+          'Immediately the cock crew.',
+          'It started snowing candy.',
+          'Everyone went swimming.',
+          'The palace flew away.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:74.',
+        wrongFeedback: 'Listen for the rooster. (Answer: the cock crew.)'
+      },
+      {
+        question: 'What did Peter do when he remembered Jesus\' words?',
+        choices: [
+          'He went out, and wept bitterly — he felt very sorry.',
+          'He laughed and ran away forever.',
+          'He hid from God on purpose.',
+          'He forgot everything.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:75.',
+        wrongFeedback: 'Listen for “wept bitterly.” (Answer: he wept bitterly.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus when I feel sorry — He forgave Peter and welcomes us back with love.',
+          'Believe God never forgives.',
+          'Stay sad on purpose and never pray.',
+          'Never say I am sorry.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “sorry,” “forgiveness,” and “Jesus loves me.” (Answer: tell Jesus… welcomes us back.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Peter Denies Jesus with God's Word today.",
+    takeaway:
+      'Even when we fail, Jesus understands — He forgave Peter, and He forgives everyone who turns to Him with a sorry heart.',
+    prayer:
+      'Lord Jesus, thank You that You forgive us when we are sorry. Help me trust Your gentle love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle scene at night outside the high priest\'s palace: Peter sits by a small fire with a sad, sorry face (no anger). A young maid stands nearby pointing gently. Soft palace walls and a doorway in the background, with a rooster standing on a low wall or fence. Plenty of open ground and sky space in the foreground for coloring. Focus on the heart of the moment: Peter feeling sorry after the rooster crows, remembering Jesus\' words. Style: clear, bold, tender, restful — never scary or dark; the rooster looks calm and friendly.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: By the fire — quiet palace yard (calm)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: Jesus of Galilee — a gentle question (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: The porch — another kindness test (honesty)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: Thy speech bewrayeth thee — Peter afraid (gentleness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: The cock crew — remembering Jesus\' words (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: Wept bitterly — Jesus still loves (forgiveness)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
 function buildJesusWeepsJerusalemReadQuiz() {
   return {
@@ -13865,6 +14011,8 @@ module.exports = {
   trialBeforeCaiaphas: buildTrialBeforeCaiaphasReadQuiz(),
   caiaphasTrial: buildTrialBeforeCaiaphasReadQuiz(),
   jesusBeforeCaiaphas: buildTrialBeforeCaiaphasReadQuiz(),
+  peterDenial: buildPeterDenialReadQuiz(),
+  peterDeniesJesus: buildPeterDenialReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

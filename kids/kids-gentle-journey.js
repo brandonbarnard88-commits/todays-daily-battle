@@ -209,6 +209,7 @@
     'jesusGardenGethsemane',
     'jesusArrest',
     'trialBeforeCaiaphas',
+    'peterDenial',
     'trial',
     'crossCarry',
     'crucifixion',

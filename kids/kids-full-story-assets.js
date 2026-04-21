@@ -1637,6 +1637,11 @@
       webm: '/media/kids-stories/trial-before-caiaphas.webm',
       captionsVtt: '/media/kids-stories/trial-before-caiaphas.vtt'
     },
+    peterDenial: {
+      mp4: '/media/kids-stories/peter-denial.mp4',
+      webm: '/media/kids-stories/peter-denial.webm',
+      captionsVtt: '/media/kids-stories/peter-denial.vtt'
+    },
     trial: {
       mp4: '/media/kids-stories/trial.mp4',
       webm: '/media/kids-stories/trial.webm',

@@ -67,6 +67,8 @@
   "trialBeforeCaiaphas": "trialBeforeCaiaphas",
   "caiaphasTrial": "trialBeforeCaiaphas",
   "jesusBeforeCaiaphas": "trialBeforeCaiaphas",
+  "peterDenial": "peterDenial",
+  "peterDeniesJesus": "peterDenial",
   "gehaziGreed": "gehaziGreed",
   "gideonFleece": "gideonFleece",
   "gideonMidianites": "gideonMidianites",

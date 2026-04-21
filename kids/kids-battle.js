@@ -2504,6 +2504,52 @@
       narration:
         "Jesus Before Caiaphas — Matthew 26:57–68. And they that had laid hold on Jesus led him away to Caiaphas the high priest, where the scribes and the elders were assembled. But Peter followed him afar off unto the high priest's palace, and went in, and sat with the servants, to see the end. Now the chief priests, and elders, and all the council, sought false witness against Jesus, to put him to death; But found none: yea, though many false witnesses came, yet found they none. At the last came two false witnesses, And said, This fellow said, I am able to destroy the temple of God, and to build it in three days. And the high priest arose, and said unto him, Answerest thou nothing? what is it which these witness against thee? But Jesus held his peace. And the high priest answered and said unto him, I adjure thee by the living God, that thou tell us whether thou be the Christ, the Son of God. Jesus saith unto him, Thou hast said: nevertheless I say unto you, Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven. Then the high priest rent his clothes, saying, He hath spoken blasphemy; what further need have we of witnesses? behold, now ye have heard his blasphemy. What think ye? They answered and said, He is guilty of death. Then did they spit in his face, and buffeted him; and others smote him with the palms of their hands, Saying, Prophesy unto us, thou Christ, Who is he that smote thee? For you: On hard days when people say untrue things or when you feel alone, remember Jesus before Caiaphas. He stayed calm and told the truth because He is the Son of God. Jesus understands hard moments, and He is always with you. You can rest safe in His strong, gentle love."
     },
+    peterDenial: {
+      title: 'Peter Denies Jesus',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Peter without in the palace — a damsel — Thou also wast with Jesus of Galilee — I know not what thou sayest'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'The porch — another maid — Jesus of Nazareth — denied with an oath — I do not know the man'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Thy speech bewrayeth thee — the cock crew — Peter remembered — wept bitterly'
+        }
+      ],
+      caption: 'Swipe slowly — Peter felt sorry; Jesus still loved him and forgave him completely.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'Peter',
+        'deny',
+        'palace',
+        'damsel',
+        'maid',
+        'porch',
+        'Galilee',
+        'Nazareth',
+        'cock',
+        'crow',
+        'thrice',
+        'wept bitterly',
+        'bewrayeth',
+        'matthew 26',
+        'mark 14'
+      ],
+      kjvRef: 'Matthew 26:69–75 (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)',
+      kidContext: {
+        who: 'Peter (and Jesus who had warned him)',
+        to: 'Every child who feels afraid or sorry after a mistake',
+        apply:
+          'Jesus understands sorry hearts — He forgave Peter, and He welcomes us back with love too.'
+      },
+      narration:
+        "Peter Denies Jesus — Matthew 26:69–75. Now Peter sat without in the palace: and a damsel came unto him, saying, Thou also wast with Jesus of Galilee. But he denied before them all, saying, I know not what thou sayest. And when he was gone out into the porch, another maid saw him, and said unto them that were there, This fellow was also with Jesus of Nazareth. And again he denied with an oath, I do not know the man. And after a while came unto him they that stood by, and said to Peter, Surely thou also art one of them; for thy speech bewrayeth thee. Then began he to curse and to swear, saying, I know not the man. And immediately the cock crew. And Peter remembered the word of Jesus, which said unto him, Before the cock crow, thou shalt deny me thrice. And he went out, and wept bitterly. For you: On hard days when you feel afraid and do something you wish you hadn't, remember Peter. He felt very sorry after he denied knowing Jesus. Jesus still loved Peter and later forgave him completely. Jesus knows when we feel sorry too, and He always welcomes us back with love. You can talk to Him anytime and rest in His gentle forgiveness."
+    },
     jesusCrucifixion: {
       title: 'Jesus on the Cross',
       panels: [
@@ -9125,7 +9171,7 @@
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naamanHealed', 'jesusWalksWater',
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
-      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'betrayal', 'trial', 'crucifixion',
+      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
       'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
@@ -9159,7 +9205,7 @@
       'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'trialBeforeCaiaphas', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -9803,6 +9849,13 @@
       )
     ) {
       return { type: 'carousel', story: 'trialBeforeCaiaphas' };
+    }
+    if (
+      /peterdenial|peter denies|deny me thrice|denied before them|cock crew|cock crow|before the cock crow|wept bitterly|thy speech bewrayeth|wast with jesus of galilee|this fellow was also with jesus of nazareth|another maid|gone out into the porch|matthew 26:69|matthew 26:7[0-5]/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'peterDenial' };
     }
     if (/gethsemane|garden.*prayer|matthew 26:36|mark 14:32/.test(low)) {
       return { type: 'carousel', story: 'gardenPrayer' };
@@ -12451,6 +12504,7 @@
     jesusGardenGethsemane: 'Protection',
     jesusArrest: 'Protection',
     trialBeforeCaiaphas: 'Protection',
+    peterDenial: 'Love',
     crossCarry: 'Love', jesusCrucifixion: 'Love', tombEmpty: 'Miracles', jesusResurrection: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',
     pentecost: 'Miracles',
     holySpiritPentecost: 'Miracles',

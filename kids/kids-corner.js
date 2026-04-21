@@ -5048,6 +5048,30 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:63–64</text>'
       ),
 
+      /* Matthew 26:69–75 — night by the palace; fire; sorry Peter; gentle maid; calm rooster on low wall */
+      peterDenial: svg(
+        ground() +
+        '<circle cx="72" cy="44" r="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="218" y="92" width="152" height="118" rx="7" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M248 92 L268 76 L288 92" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="258" y="118" width="30" height="54" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="118" cy="236" rx="24" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M108 236 Q118 208 128 236" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="98" y1="242" x2="138" y2="242" ' + s + ' stroke-width="2"/>' +
+        person(118, 172, 8, 22) +
+        '<path d="M112 186 Q118 192 124 186" ' + s + ' stroke-width="1.3"/>' +
+        person(188, 156, 7, 20) +
+        '<line x1="176" y1="172" x2="138" y2="188" ' + s + ' stroke-width="1.5"/>' +
+        '<rect x="312" y="196" width="62" height="16" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="336" cy="184" rx="15" ry="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="348" cy="180" r="4" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<line x1="354" y1="178" x2="364" y2="174" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M328 174 L322 166 L332 168 Z" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<line x1="328" y1="196" x2="324" y2="208" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="344" y1="196" x2="348" y2="208" ' + s + ' stroke-width="1.5"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:75</text>'
+      ),
+
       /* ── Week 12: Prayer Closet (150) ── */
       prayerCloset: svg(
         ground() +
@@ -5408,6 +5432,8 @@
     trialBeforeCaiaphas: 'trialBeforeCaiaphas',
     caiaphasTrial: 'trialBeforeCaiaphas',
     jesusBeforeCaiaphas: 'trialBeforeCaiaphas',
+    peterDenial: 'peterDenial',
+    peterDeniesJesus: 'peterDenial',
     jesusCrucifixion: 'crucifixion',
     jesusResurrection: 'resurrection',
     crossCarry: 'crossCarry',
@@ -7141,7 +7167,7 @@
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus', 'jesusParableGoodShepherd',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'betrayal', 'trial', 'crucifixion',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

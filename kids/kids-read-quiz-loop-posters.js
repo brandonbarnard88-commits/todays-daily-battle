@@ -158,6 +158,7 @@
     triumphalEntry: 218,
     jesusWeepsJerusalem: 219,
     figTree: 220,
+    jesusAuthority: 221,
     jesusAscension: 90,
     jesusCrucifixion: 88,
     jesusGardenGethsemane: 87,

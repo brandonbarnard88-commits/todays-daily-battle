@@ -94,6 +94,7 @@
  * Triumphal Entry — Matthew 21:1–11 (gentle): buildTriumphalEntryReadQuiz() (library key: triumphalEntry).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
+ * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -11747,6 +11748,147 @@ function buildFigTreeReadQuiz() {
   };
 }
 
+/** Jesus’ authority questioned — Matthew 21:23–27 (gentle). Library key: jesusAuthority */
+function buildJesusAuthorityReadQuiz() {
+  return {
+    kjvRef: 'Matthew 21:23–27 (KJV)',
+    verseExcerpt:
+      'By what authority doest thou these things? and who gave thee this authority? — Matthew 21:23 (KJV)',
+    readAlongTitle: 'Jesus Answers the Chief Priests and Elders',
+    quizWrongHumilityHint:
+      'Listen again — temple; teaching; chief priests; elders; by what authority; baptism of John; whence; from heaven; of men; reasoned; we fear the people; we cannot tell; Neither tell I you.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus was teaching in the temple.',
+      'The chief priests and the elders of the people came to Him and asked, “By what authority doest thou these things? and who gave thee this authority?”',
+      'Jesus answered and said unto them, “I also will ask you one thing, which if ye tell me, I in like wise will tell you by what authority I do these things. The baptism of John, whence was it? from heaven, or of men?”',
+      'They reasoned among themselves, saying, “If we shall say, From heaven; he will say unto us, Why did ye not then believe him? But if we shall say, Of men; we fear the people; for all hold John as a prophet.”',
+      'So they answered Jesus, “We cannot tell.”',
+      'Jesus said unto them, “Neither tell I you by what authority I do these things.”',
+      'Jesus knows the truth in our hearts and answers with wisdom.',
+      'Reference: Matthew 21:23–27 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus was teaching in the temple. The chief priests and the elders came and asked, “By what authority doest thou these things? and who gave thee this authority?”',
+        caption: 'By what authority?',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus said, “I also will ask you one thing… The baptism of John, whence was it? from heaven, or of men?”',
+        caption: 'The baptism of John',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They reasoned among themselves — if they said “from heaven,” or “of men,” each answer felt hard. They feared the people, for all held John as a prophet.',
+        caption: 'They reasoned',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They answered Jesus, “We cannot tell.”',
+        caption: 'We cannot tell',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said unto them, “Neither tell I you by what authority I do these things.”',
+        caption: 'Neither tell I you',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus knows what is in our hearts — and He answers with quiet wisdom.',
+        caption: 'Wisdom and truth',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 21:23–27', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 21:23–27.)'
+      },
+      {
+        question: 'Who came to Jesus while He was teaching in the temple?',
+        choices: [
+          'The chief priests and the elders of the people',
+          'Only small children',
+          'Roman soldiers only',
+          'No one — Jesus was alone'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:23.',
+        wrongFeedback: 'Listen for “chief priests” and “elders.” (Answer: chief priests and elders.)'
+      },
+      {
+        question: 'What did they ask Jesus?',
+        choices: [
+          '“By what authority doest thou these things? and who gave thee this authority?”',
+          '“Please never teach.”',
+          '“Where is the food?”',
+          '“Who built the temple?”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:23.',
+        wrongFeedback: 'Listen for “authority.” (Answer: By what authority… who gave thee this authority.)'
+      },
+      {
+        question: 'What one question did Jesus ask them first?',
+        choices: [
+          'Whether John’s baptism was from heaven, or of men',
+          'How tall the temple was',
+          'Only a riddle about birds',
+          'Nothing — He walked away'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:25.',
+        wrongFeedback: 'Listen for “baptism of John” and “from heaven.” (Answer: John’s baptism… heaven or men.)'
+      },
+      {
+        question: 'What did the leaders finally answer?',
+        choices: [
+          '“We cannot tell.”',
+          '“We know everything.”',
+          '“From heaven,” and they were glad',
+          '“Never mind.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:27.',
+        wrongFeedback: 'Listen for “cannot tell.” (Answer: We cannot tell.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me speak honestly with Him — He already knows my heart and teaches with wisdom.',
+          'Hide every question from God.',
+          'Believe God never listens.',
+          'Pretend we never need help deciding right and wrong.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “honest heart” and “Jesus’ wisdom.” (Answer: speak honestly… He knows my heart.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Answers the Chief Priests and Elders with God's Word today.",
+    takeaway:
+      'Jesus answers with wisdom — He knows the heart; we can come to Him honestly and learn to trust His truth.',
+    prayer:
+      'Lord Jesus, thank You for wisdom that is kind and true. Help me be honest with You in prayer today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus standing calmly in the temple speaking to two robed leaders (chief priests and elders) with thoughtful, non-angry faces. Jesus has a wise, kind face. Very simple rounded temple columns in the background (few lines, large open spaces). Thick, bold outlines on robes and floor. Soft light from above suggested by a pale band — minimal detail. Wise and calm mood — focus on Jesus answering with wisdom. Clean, minimal, no anger or arguing faces, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Teaching in the temple — leaders draw near (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: By what authority — honest question (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: John’s baptism — whence? (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: We cannot tell — thoughtful pause (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Neither tell I you — gentle wisdom (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -12156,6 +12298,7 @@ module.exports = {
   triumphalEntry: buildTriumphalEntryReadQuiz(),
   jesusWeepsJerusalem: buildJesusWeepsJerusalemReadQuiz(),
   figTree: buildFigTreeReadQuiz(),
+  jesusAuthority: buildJesusAuthorityReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

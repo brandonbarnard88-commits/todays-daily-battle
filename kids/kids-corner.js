@@ -183,7 +183,8 @@
       jesusWeepsJerusalem: 'jesusWeepsJerusalem',
       jesusWeptJerusalem: 'jesusWeepsJerusalem',
       figTree: 'figTree',
-      jesusFigTree: 'figTree'
+      jesusFigTree: 'figTree',
+      jesusAuthority: 'jesusAuthority'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -193,6 +194,9 @@
     if (low.indexOf('daniel') >= 0) return 'daniel-lions';
     if (low.indexOf('storm') >= 0 || low.indexOf('calms') >= 0) return 'jesus-storm';
     if (low.indexOf('disciple') >= 0 || low.indexOf('fisher') >= 0) return 'fishers-of-men';
+    if (low.indexOf('jesusweepsjerusalem') >= 0 || low === 'jesusweepsjerusalem') return 'jesusWeepsJerusalem';
+    if (low.indexOf('jesusauthority') >= 0 || low === 'jesusauthority') return 'jesusAuthority';
+    if (low.indexOf('jesusfigtree') >= 0 || low === 'jesusfigtree') return 'figTree';
     if (low.indexOf('jesus') >= 0) return 'jesus-children';
     if (low.indexOf('moses') >= 0) return low.indexOf('baby') >= 0 ? 'baby-moses' : 'moses-red-sea';
     if (low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses-red-sea';
@@ -221,7 +225,6 @@
     if (low.indexOf('forgive70') >= 0 || low === 'forgive70x7') return 'unforgivingServant';
     if (low.indexOf('jesusandchildren') >= 0 || low === 'jesusandchildren') return 'jesusBlessKids';
     if (low.indexOf('jesusandzacchaeus') >= 0 || low === 'jesusandzacchaeus') return 'zacchaeus';
-    if (low.indexOf('jesusweepsjerusalem') >= 0 || low === 'jesusweepsjerusalem') return 'jesusWeepsJerusalem';
     if (low.indexOf('figtree') >= 0 || low === 'figtree') return 'figTree';
     if (low.indexOf('triumphalentry') >= 0 || low === 'triumphalentry') return 'triumphalEntry';
     if (low.indexOf('bethesda') >= 0 || low === 'bethesda' || low.indexOf('poolofbethesda') >= 0) return 'bethesda';
@@ -3775,6 +3778,21 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:21</text>'
       ),
 
+      /* Matthew 21:23–27 — gentle: temple, Jesus calm with two thoughtful leaders, simple columns */
+      jesusAuthority: svg(
+        ground() +
+        '<path d="M32 232 L368 232" ' + s + ' stroke-width="1.6" opacity="0.35"/>' +
+        '<ellipse cx="200" cy="58" rx="120" ry="22" ' + sf + ' fill="white" stroke-width="1.8" opacity="0.55"/>' +
+        '<rect x="48" y="64" width="28" height="168" rx="6" ' + sf + ' fill="white" stroke-width="3.2"/>' +
+        '<rect x="324" y="64" width="28" height="168" rx="6" ' + sf + ' fill="white" stroke-width="3.2"/>' +
+        '<rect x="72" y="108" width="256" height="118" rx="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(118, 168, 9, 30) +
+        person(200, 156, 12, 40) +
+        person(282, 168, 9, 30) +
+        '<path d="M196 168 Q200 162 204 168" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:23</text>'
+      ),
+
       /* ── Week 8: Armor Shield (97) ── */
       armorShield: svg(
         ground() +
@@ -5117,6 +5135,7 @@
     jesusWeptJerusalem: 'jesusWeepsJerusalem',
     figTree: 'figTree',
     jesusFigTree: 'figTree',
+    jesusAuthority: 'jesusAuthority',
     jesusLastSupper: 'maryAnoint',
     jesusGardenGethsemane: 'prayerCloset',
     jesusCrucifixion: 'crucifixion',
@@ -6851,8 +6870,8 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'zacchaeus',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'zacchaeus',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

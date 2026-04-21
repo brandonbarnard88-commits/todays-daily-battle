@@ -772,6 +772,11 @@
       webm: '/media/kids-stories/jesus-fig-tree-faith.webm',
       captionsVtt: '/media/kids-stories/jesus-fig-tree-faith.vtt'
     },
+    jesusAuthority: {
+      mp4: '/media/kids-stories/jesus-authority-temple.mp4',
+      webm: '/media/kids-stories/jesus-authority-temple.webm',
+      captionsVtt: '/media/kids-stories/jesus-authority-temple.vtt'
+    },
     jesusWalksWater: {
       mp4: '/media/kids-stories/jesus-walks-water.mp4',
       webm: '/media/kids-stories/jesus-walks-water.webm',

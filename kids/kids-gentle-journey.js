@@ -192,6 +192,7 @@
     'triumphalEntry',
     'jesusWeepsJerusalem',
     'figTree',
+    'jesusAuthority',
     'zacchaeus',
     'jesusParableGoodShepherd',
     'lazarus',

@@ -1327,6 +1327,16 @@
     "kw": "fig tree faith prayer matthew 21 matthew 21:18 matthew 21:22 withered leaves only doubt not believing disciples"
   },
   {
+    "key": "jesusAuthority",
+    "title": "Jesus Answers the Chief Priests and Elders",
+    "kjvRef": "Matthew 21:23–27",
+    "who": "Jesus",
+    "to": "The chief priests and elders — and everyone who listens (including us)",
+    "apply": "Jesus sees our hearts; we can tell Him the truth in prayer and learn His gentle wisdom.",
+    "theme": "Obedience",
+    "kw": "authority temple chief priests elders matthew 21 matthew 21:23 matthew 21:27 baptism of john from heaven of men we cannot tell neither tell i you wisdom"
+  },
+  {
     "key": "jesusTempted",
     "title": "Jesus Says No to Wrong Things",
     "kjvRef": "Matthew 4:1–11",

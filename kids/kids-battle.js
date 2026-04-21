@@ -1834,6 +1834,48 @@
       narration:
         "Jesus Teaches About Faith — Matthew 21:18–22. Now in the morning as he returned into the city, he hungered. And when he saw a fig tree in the way, he came to it, and found nothing thereon, but leaves only, and said unto it, Let no fruit grow on thee henceforward for ever. And presently the fig tree withered away. And when the disciples saw it, they marvelled, saying, How soon is the fig tree withered away! Jesus answered and said unto them, Verily I say unto you, If ye have faith, and doubt not, ye shall not only do this which is done to the fig tree, but also if ye shall say unto this mountain, Be thou removed, and be thou cast into the sea; it shall be done. And all things, whatsoever ye shall ask in prayer, believing, ye shall receive. For you: Jesus was not being mean to little children — He was showing how serious truth is, and how real faith and prayer are. We can come to Him simply, ask in prayer, believing, and grow in trust one day at a time."
     },
+    jesusAuthority: {
+      title: 'Jesus Answers the Chief Priests and Elders',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus teaching in the temple — chief priests and elders ask, By what authority doest thou these things?'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus asks about John’s baptism — from heaven, or of men? — the leaders reason together, thoughtful'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'They say, We cannot tell — Jesus answers, Neither tell I you by what authority I do these things — calm wisdom'
+        }
+      ],
+      caption: 'Swipe slowly — Jesus answers hard questions with honest, wise words.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'authority',
+        'temple',
+        'chief priests',
+        'elders',
+        'matthew 21',
+        'matthew 21:23',
+        'matthew 21:27',
+        'baptism of john',
+        'we cannot tell',
+        'neither tell i you',
+        'wisdom'
+      ],
+      kjvRef: 'Matthew 21:23–27',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The chief priests and elders — and everyone who listens (including us)',
+        apply:
+          'Jesus sees our hearts; we can tell Him the truth in prayer and learn His gentle wisdom.'
+      },
+      narration:
+        "Jesus Answers the Chief Priests and Elders — Matthew 21:23–27. And when he was come into the temple, the chief priests and the elders of the people came unto him as he was teaching, and said, By what authority doest thou these things? and who gave thee this authority? And Jesus answered and said unto them, I also will ask you one thing, which if ye tell me, I in like wise will tell you by what authority I do these things. The baptism of John, whence was it? from heaven, or of men? And they reasoned with themselves, saying, If we shall say, From heaven; he will say unto us, Why did ye not then believe him? But if we shall say, Of men; we fear the people; for all hold John as a prophet. And they answered Jesus, and said, We cannot tell. And he said unto them, Neither tell I you by what authority I do these things. For you: Jesus was not trying to trick little ones — He was showing that truth and honesty matter, and that He knows what is in every heart. We can come to Him openly, ask our questions, and trust His kind wisdom."
+    },
     lastSupper: {
       title: 'Last Supper',
       panels: [
@@ -8592,10 +8634,10 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -8611,7 +8653,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -9126,6 +9168,13 @@
       )
     ) {
       return { type: 'carousel', story: 'figTree' };
+    }
+    if (
+      /\bmatthew 21:23\b|\bmatthew 21:24\b|\bmatthew 21:25\b|\bmatthew 21:26\b|\bmatthew 21:27\b|by what authority doest thou these things|who gave thee this authority|baptism of john, whence|from heaven, or of men|we cannot tell|neither tell i you by what authority/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'jesusAuthority' };
     }
     if (/palm sunday|hosanna|donkey.*jerusalem|matthew 21:9|luke 19:38/.test(low)) {
       return { type: 'carousel', story: 'palmSunday' };
@@ -11837,6 +11886,7 @@
     triumphalEntry: 'Protection',
     jesusWeepsJerusalem: 'Love',
     figTree: 'Obedience',
+    jesusAuthority: 'Obedience',
     jesusLastSupper: 'Love',
     jesusGardenGethsemane: 'Protection',
     crossCarry: 'Love', jesusCrucifixion: 'Love', tombEmpty: 'Miracles', jesusResurrection: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',

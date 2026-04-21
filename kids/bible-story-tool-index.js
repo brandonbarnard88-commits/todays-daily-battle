@@ -1137,6 +1137,16 @@
     "kw": "jesus temptation wilderness matthew 4 forty days bread stones scripture it is written worship angels obey word"
   },
   {
+    "key": "jesusSermon",
+    "title": "Jesus Teaches How to Live God’s Way",
+    "kjvRef": "Matthew 5:1–16",
+    "who": "Jesus",
+    "to": "His disciples and the crowds — and everyone who listens",
+    "apply": "Jesus wants us to live in ways that please God and help others — love Him, love people, let your light shine.",
+    "theme": "Love",
+    "kw": "jesus sermon mount matthew 5 beatitudes blessed meek merciful light love neighbor mountain teach"
+  },
+  {
     "key": "jesusTempt",
     "title": "Jesus Is Tempted",
     "kjvRef": "Matthew 4:1–11",

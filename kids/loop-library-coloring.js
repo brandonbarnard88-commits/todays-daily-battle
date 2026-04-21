@@ -160,6 +160,7 @@
   "jesusDisciples": "jesusDisciples",
   "jesusWaterWine": "jesusWaterWine",
   "jesusTempted": "jesusTempted",
+  "jesusSermon": "jesusSermon",
   "shunammiteReturn": "shunammiteReturn",
   "solomonTemple": "solomonTemple",
   "solomonTwoMothers": "solomonTwoMothers",

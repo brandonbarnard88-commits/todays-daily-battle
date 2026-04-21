@@ -58,6 +58,7 @@
  * Jesus calls helpers — fishers of men (Matthew 4:18–22, gentle): buildJesusDisciplesReadQuiz() (library key: jesusDisciples).
  * Water to wine at Cana — first miracle (John 2:1–11, gentle): buildJesusWaterWineReadQuiz() (library key: jesusWaterWine).
  * Temptation in the wilderness — God’s Word (Matthew 4:1–11, gentle): buildJesusTemptedReadQuiz() (library key: jesusTempted).
+ * Sermon on the Mount — gentle introduction (Matthew 5:1–16 summary, gentle): buildJesusSermonReadQuiz() (library key: jesusSermon).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -6793,6 +6794,138 @@ function buildJesusTemptedReadQuiz() {
   };
 }
 
+/** Sermon on the Mount — gentle introduction (Matthew 5:1–16 summary). Library key: jesusSermon */
+function buildJesusSermonReadQuiz() {
+  return {
+    kjvRef: 'Matthew 5:1–16 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven. — Matthew 5:16 (KJV)',
+    readAlongTitle: 'Jesus Teaches How to Live God’s Way',
+    quizWrongHumilityHint:
+      'Listen again — mountain; crowds; blessed; meek; merciful; pure in heart; love God; neighbor; light shine.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus went up on a mountain with His friends.',
+      'Many people came to listen to Him.',
+      'Jesus sat down and began to teach them how to live God’s way.',
+      'He said, “Blessed are the poor in spirit… Blessed are the meek… Blessed are the merciful… Blessed are the pure in heart…”',
+      'Jesus taught them to love God with all their heart and to love their neighbor as themselves.',
+      'He told them to let their light shine so others could see God’s love.',
+      'Jesus wants us to live in ways that please God and help others.',
+      'Reference: Matthew 5:1–16 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus went up on a mountain.',
+        caption: 'On the hill',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Many people came to listen.',
+        caption: 'Come and hear',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus taught them how to live God’s way.',
+        caption: 'God’s way',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He said, “Blessed are the meek… Blessed are the merciful…”',
+        caption: 'Blessed',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Love God and love your neighbor.',
+        caption: 'Love',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Let your light shine for God.',
+        caption: 'Shine',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 5:1–16', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 5:1–16.)'
+      },
+      {
+        question: 'What was Jesus doing on the mountain?',
+        choices: [
+          'Teaching people how to live God’s way',
+          'Hiding from everyone',
+          'Building a wall by Himself',
+          'Sleeping all day'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus sat and taught the people.',
+        wrongFeedback:
+          'Think about who came to listen and what Jesus shared. (Answer: Teaching people how to live God’s way.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God does not care how we treat others.',
+          'Jesus wants us to love God, love others, and let our light shine for Him.',
+          'We should never help anyone.',
+          'Mountains are only for running races.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the parts about love and light. (Answer: Jesus wants us to love God, love others, and let our light shine for Him.)'
+      },
+      {
+        question: 'Which phrase belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Blessed are the merciful.',
+          'Blessed are the marshmallows.',
+          'Blessed are the loud trucks.',
+          'Blessed are the sleepy cats.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that kind of blessing comes from Jesus’ teaching.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches the Beatitudes mood? (Answer: Blessed are the merciful.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help us love Him and others today — and shine His love in small, kind ways.',
+          'Never show kindness at home.',
+          'Ignore the Bible until we are older.',
+          'Only love people who are exactly like us.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which choice matches Jesus’ teaching about love and light? (Answer: Ask Jesus to help us love Him and others today — and shine His love in small, kind ways.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Teaches How to Live God’s Way with God's Word today.",
+    takeaway: 'Jesus wants us to live in ways that please God and help others.',
+    prayer:
+      'Lord Jesus, thank You for teaching us God’s way. Help us love You, love others, and let Your light shine through us. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus sitting on a gentle hillside teaching His friends and the people Jesus has a kind wise face the people are sitting and listening happily thick bold outlines with large open spaces on Jesus\' robe the people\'s robes and the grass for easy coloring soft hills and a gentle sky with minimal lines kind and wise mood focus on Jesus teaching how to live God\'s way clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Up on the mountain (gather)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Many listen (teach)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Blessed — meek and merciful (heart)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Love God and neighbor (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Let your light shine (joy)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -6895,5 +7028,6 @@ module.exports = {
   jesusDisciples: buildJesusDisciplesReadQuiz(),
   jesusWaterWine: buildJesusWaterWineReadQuiz(),
   jesusTempted: buildJesusTemptedReadQuiz(),
+  jesusSermon: buildJesusSermonReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

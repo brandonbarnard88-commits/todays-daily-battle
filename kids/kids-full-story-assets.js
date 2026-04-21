@@ -707,6 +707,11 @@
       webm: '/media/kids-stories/jesus-sermon-mount.webm',
       captionsVtt: '/media/kids-stories/jesus-sermon-mount.vtt'
     },
+    jesusSermon: {
+      mp4: '/media/kids-stories/jesus-sermon-mount.mp4',
+      webm: '/media/kids-stories/jesus-sermon-mount.webm',
+      captionsVtt: '/media/kids-stories/jesus-sermon-mount.vtt'
+    },
     jesusTemple: {
       mp4: '/media/kids-stories/jesus-temple.mp4',
       webm: '/media/kids-stories/jesus-temple.webm',

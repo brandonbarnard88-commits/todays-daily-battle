@@ -146,7 +146,8 @@
       jesusBaptism: 'jesus-children',
       jesusDisciples: 'jesusDisciples',
       jesusWaterWine: 'jesusWaterWine',
-      jesusTempted: 'jesusTempted'
+      jesusTempted: 'jesusTempted',
+      jesusSermon: 'jesusSermon'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -2880,6 +2881,23 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 4:1–11</text>'
       ),
 
+      /* ── Gentle: Sermon on the Mount — hillside teaching (Matthew 5:1–16) ── */
+      jesusSermon: svg(
+        ground() +
+        '<path d="M0 200 Q90 150 200 168 Q310 145 400 188 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        sun(52, 46, 14) +
+        cloud(278, 36) +
+        '<ellipse cx="200" cy="232" rx="58" ry="16" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 130, 12, 30) +
+        person(108, 162, 9, 22) +
+        person(142, 168, 9, 22) +
+        person(258, 165, 9, 22) +
+        person(298, 170, 9, 22) +
+        '<path d="M88 188 Q92 172 96 188 M94 178 L94 198" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M308 186 Q312 172 316 186" ' + s + ' stroke-width="1.6"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 5:1–16</text>'
+      ),
+
       /* ── Week 5: Jesus Heal Blind (68) ── */
       healBlind: svg(
         ground() +
@@ -4336,6 +4354,7 @@
     jesusDisciples: 'jesusDisciples',
     jesusWaterWine: 'jesusWaterWine',
     jesusTempted: 'jesusTempted',
+    jesusSermon: 'jesusSermon',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',

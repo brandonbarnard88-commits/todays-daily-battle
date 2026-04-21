@@ -5052,6 +5052,49 @@
       narration:
         "Jesus Says No to Wrong Things — Matthew 4:1–11. Then was Jesus led up of the Spirit into the wilderness to be tempted of the devil. And when he had fasted forty days and forty nights, he was afterward an hungred. And when the tempter came to him, he said, If thou be the Son of God, command that these stones be made bread. But he answered and said, It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God. Then the devil taketh him up into the holy city, and setteth him on a pinnacle of the temple, And saith unto him, If thou be the Son of God, cast thyself down: for it is written, He shall give his angels charge concerning thee: and in their hands they shall bear thee up, lest at any time thou dash thy foot against a stone. Jesus said unto him, It is written again, Thou shalt not tempt the Lord thy God. Again, the devil taketh him up into an exceeding high mountain, and sheweth him all the kingdoms of the world, and the glory of them; And saith unto him, All these things will I give thee, if thou wilt fall down and worship me. Then saith Jesus unto him, Get thee hence, Satan: for it is written, Thou shalt worship the Lord thy God, and him only shalt thou serve. Then the devil leaveth him, and, behold, angels came and ministered unto him. For you: Jesus obeyed the Father — and He helps us say no to wrong things too."
     },
+    jesusSermon: {
+      title: 'Jesus Teaches How to Live God’s Way',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus goes up on a mountain — many people gather to listen'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus teaches — Blessed are the meek, the merciful, the pure in heart'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Love God and neighbor — let your light shine before others'
+        }
+      ],
+      caption:
+        'Swipe to hear Jesus teach on the mountain — blessed, love, and light for God.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'jesus',
+        'sermon on the mount',
+        'beatitudes',
+        'matthew 5',
+        'blessed',
+        'meek',
+        'merciful',
+        'light of the world',
+        'love',
+        'neighbor',
+        'mountain'
+      ],
+      kjvRef: 'Matthew 5:1–16',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples and the crowds — and everyone who listens',
+        apply:
+          'Jesus wants us to live in ways that please God and help others — love Him, love people, let your light shine.'
+      },
+      narration:
+        "Jesus Teaches How to Live God’s Way — Matthew 5:1–16. And seeing the multitudes, he went up into a mountain: and when he was set, his disciples came unto him: And he opened his mouth, and taught them, saying, Blessed are the poor in spirit: for theirs is the kingdom of heaven. Blessed are they that mourn: for they shall be comforted. Blessed are the meek: for they shall inherit the earth. Blessed are they which do hunger and thirst after righteousness: for they shall be filled. Blessed are the merciful: for they shall obtain mercy. Blessed are the pure in heart: for they shall see God. Blessed are the peacemakers: for they shall be called the children of God. Ye are the salt of the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, and to be trodden under foot of men. Ye are the light of the world. A city that is set on an hill cannot be hid. Neither do men light a candle, and put it under a bushel, but on a candlestick; and it giveth light unto all that are in the house. Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven. For you: Jesus shows God’s way to live — love Him, love others, shine His light."
+    },
     jesusTempt: {
       title: 'Jesus Is Tempted',
       panels: [
@@ -7460,7 +7503,7 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusWalksWater',
@@ -10615,6 +10658,7 @@
     johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Love',     jesusDisciples: 'Love',
     jesusWaterWine: 'Miracles',
     jesusTempted: 'Obedience',
+    jesusSermon: 'Love',
     jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',

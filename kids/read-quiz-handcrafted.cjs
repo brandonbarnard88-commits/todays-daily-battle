@@ -4388,7 +4388,7 @@ function buildDanielLionsDenReadQuiz() {
       'My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me. — Daniel 6:22 (KJV)',
     readAlongTitle: 'Daniel Trusts God in the Lions’ Den',
     quizWrongHumilityHint:
-      'Listen again — Daniel prayed; the king was sad; God sent his angel and shut the lions’ mouths.',
+      'Listen again — Daniel prayed three times every day; the king was sad; God sent his angel and shut the lions’ mouths.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
       'Daniel was a good man who loved God.',

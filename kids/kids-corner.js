@@ -417,9 +417,9 @@
       daniel: svg(
         ground() +
         /* cave arch — gentle curve, whisper-thin stroke */
-        '<path d="M60 260 L60 145 Q200 68 340 145 L340 260" ' + sf + ' fill="white" stroke-width="2.08"/>' +
+        '<path d="M60 260 L60 145 Q200 68 340 145 L340 260" ' + sf + ' fill="white" stroke-width="1.95"/>' +
         /* soft light — wider veil + glow + feather rays */
-        '<ellipse cx="200" cy="132" rx="90" ry="46" ' + sf + ' fill="white" stroke-width="0.5" opacity="0.14"/>' +
+        '<ellipse cx="200" cy="132" rx="92" ry="48" ' + sf + ' fill="white" stroke-width="0.48" opacity="0.12"/>' +
         '<ellipse cx="200" cy="118" rx="58" ry="30" ' + sf + ' fill="white" stroke-width="0.9" opacity="0.33"/>' +
         '<ellipse cx="200" cy="108" rx="44" ry="22" ' + sf + ' fill="white" stroke-width="1" opacity="0.68"/>' +
         '<line x1="200" y1="46" x2="146" y2="136" ' + s + ' stroke-width="0.72" stroke-dasharray="14,13" opacity="0.28"/>' +
@@ -428,12 +428,12 @@
         '<line x1="200" y1="46" x2="172" y2="126" ' + s + ' stroke-width="0.6" stroke-dasharray="12,14" opacity="0.22"/>' +
         '<line x1="200" y1="46" x2="228" y2="126" ' + s + ' stroke-width="0.6" stroke-dasharray="12,14" opacity="0.22"/>' +
         /* two lions — lightest restful outlines */
-        '<ellipse cx="108" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="1.18"/>' +
-        '<circle cx="84" cy="218" r="15" ' + sf + ' fill="white" stroke-width="1.05"/>' +
-        '<path d="M77 214 Q81 216 85 214 Q89 216 93 214" ' + s + ' stroke-width="0.58" fill="none"/>' +
-        '<ellipse cx="292" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="1.18"/>' +
-        '<circle cx="316" cy="218" r="15" ' + sf + ' fill="white" stroke-width="1.05"/>' +
-        '<path d="M309 214 Q313 216 317 214 Q321 216 325 214" ' + s + ' stroke-width="0.58" fill="none"/>' +
+        '<ellipse cx="108" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="1.08"/>' +
+        '<circle cx="84" cy="218" r="15" ' + sf + ' fill="white" stroke-width="0.98"/>' +
+        '<path d="M77 214 Q81 216 85 214 Q89 216 93 214" ' + s + ' stroke-width="0.52" fill="none"/>' +
+        '<ellipse cx="292" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="1.08"/>' +
+        '<circle cx="316" cy="218" r="15" ' + sf + ' fill="white" stroke-width="0.98"/>' +
+        '<path d="M309 214 Q313 216 317 214 Q321 216 325 214" ' + s + ' stroke-width="0.52" fill="none"/>' +
         /* Daniel standing — folded hands in prayer */
         person(200, 138, 12, 30) +
         '<path d="M188 176 Q200 186 212 176" ' + s + ' stroke-width="2.2"/>' +

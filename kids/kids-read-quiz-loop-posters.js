@@ -320,7 +320,7 @@
     jesusCleansesTemple: 216,
     greatestCommandment: 217,
     thessaloniansHope: 90,
-    thomasDoubt: 95,
+    thomasDoubt: 233,
     timothyYouthExample: 142,
     tombEmpty: 231,
     jesusResurrection: 232,

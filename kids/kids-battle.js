@@ -6905,18 +6905,48 @@
       kidContext: { who: 'Jesus', to: 'Two disciples', apply: 'Jesus walks with you even when you don\'t recognize Him! He never leaves.' }
     },
     thomasDoubt: {
-      title: 'Thomas Touches Jesus\' Hands',
+      title: 'Jesus Appears to Thomas',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Thomas says: I won\'t believe until I see!' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus appears and shows His hands' },
-        { src: 'panel-noah-3.svg', alt: 'Thomas cries: My Lord and my God!' }
+        {
+          src: 'panel-thomas-doubt-1.svg',
+          alt: 'Thomas called Didymus was not with them when Jesus came — Except I shall see the print of the nails… I will not believe'
+        },
+        {
+          src: 'panel-thomas-doubt-2.svg',
+          alt: 'After eight days — doors shut — Jesus stood in the midst — Peace be unto you — Reach hither thy finger… be not faithless, but believing'
+        },
+        {
+          src: 'panel-thomas-doubt-3.svg',
+          alt: 'Thomas: My Lord and my God — blessed are they that have not seen, and yet have believed'
+        }
       ],
-      caption: 'Swipe to see Jesus answer Thomas\'s doubts—He answers yours too! 🙏',
+      caption: 'Swipe slowly — Jesus meets Thomas with peace and gentle invitation to believe.',
       videoId: '',
       videoTitle: '',
-      keywords: ['thomas', 'doubt', 'john 20', 'hands', 'believe', 'risen', 'faith'],
-      kjvRef: 'John 20:24–29',
-      kidContext: { who: 'Jesus', to: 'Thomas', apply: 'It\'s okay to have questions! Jesus is patient—keep coming back to Him.' }
+      keywords: [
+        'Thomas',
+        'Didymus',
+        'doubt',
+        'believe',
+        'print of the nails',
+        'my side',
+        'Peace be unto you',
+        'doors shut',
+        'My Lord and my God',
+        'faithless',
+        'believing',
+        'have not seen',
+        'John 20'
+      ],
+      kjvRef: 'John 20:24–29 (KJV)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who needs help to trust on unsure days',
+        apply:
+          'Jesus is patient with honest hearts — He draws near and helps us believe step by step.'
+      },
+      narration:
+        "Jesus Appears to Thomas — John 20:24–29. But Thomas, one of the twelve, called Didymus, was not with them when Jesus came. The other disciples therefore said unto him, We have seen the Lord. But he said unto them, Except I shall see in his hands the print of the nails, and put my finger into the print of the nails, and thrust my hand into his side, I will not believe. And after eight days again his disciples were within, and Thomas with them: then came Jesus, the doors being shut, and stood in the midst, and said, Peace be unto you. Then saith he to Thomas, Reach hither thy finger, and behold my hands; and reach hither thy hand, and thrust it into my side: and be not faithless, but believing. And Thomas answered and said unto him, My Lord and my God. Jesus saith unto him, Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed. For you: On hard days when you find it hard to believe or when you need to see something to feel sure, remember Thomas. Jesus came back just for him and let him see and touch. Jesus understands when we have doubts, and He still loves us and helps us believe. You can rest safe knowing Jesus is patient and kind with your heart."
     },
     pentecostFire: {
       title: 'Pentecost—Fire and Wind',

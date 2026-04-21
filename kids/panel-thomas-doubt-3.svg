@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="My Lord and my God  blessed are they that have not seen, and yet have believed">
+  <rect width="200" height="160" fill="#FFFDE7"/>
+  <rect x="28" y="40" width="144" height="102" rx="5" fill="#FAFAFA" stroke="#5D4037" stroke-width="2"/>
+  <ellipse cx="100" cy="78" rx="15" ry="16" fill="#FFECB3" stroke="#5D4037" stroke-width="1.5"/>
+  <path d="M92 88 Q100 92 108 88" fill="none" stroke="#5D4037" stroke-width="1"/>
+  <line x1="100" y1="94" x2="100" y2="118" stroke="#5D4037" stroke-width="2.5"/>
+  <line x1="100" y1="102" x2="82" y2="96" stroke="#5D4037" stroke-width="2"/>
+  <line x1="100" y1="102" x2="118" y2="96" stroke="#5D4037" stroke-width="2"/>
+  <path d="M100 118 L95 132 M100 118 L105 132" stroke="#5D4037" stroke-width="2"/>
+  <!-- Thomas kneeling -->
+  <ellipse cx="100" cy="138" rx="12" ry="9" fill="#FFECB3" stroke="#5D4037" stroke-width="1.4"/>
+  <path d="M100 147 L98 156" stroke="#5D4037" stroke-width="1.8"/>
+  <line x1="88" y1="132" x2="96" y2="124" stroke="#5D4037" stroke-width="1.8"/>
+  <line x1="112" y1="132" x2="104" y2="124" stroke="#5D4037" stroke-width="1.8"/>
+  <path d="M62 108 L68 118 M138 108 L132 118" stroke="#81C784" stroke-width="1.2"/>
+  <circle cx="100" cy="32" r="6" fill="#FFF59D" stroke="#5D4037" stroke-width="0.8"/>
+</svg>

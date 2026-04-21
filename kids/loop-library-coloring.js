@@ -195,6 +195,7 @@
   "tenCommandments": "tenCommandments",
   "tenLepers": "healLeper",
   "tenVirgins": "tenVirgins",
+  "thomasDoubt": "thomasDoubt",
   "tombEmpty": "tombEmpty",
   "jesusResurrection": "resurrection",
   "resurrection": "resurrection",

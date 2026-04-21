@@ -3368,13 +3368,13 @@
   },
   {
     "key": "thomasDoubt",
-    "title": "Thomas Touches Jesus' Hands",
-    "kjvRef": "John 20:24–29",
+    "title": "Jesus Appears to Thomas",
+    "kjvRef": "John 20:24–29 (KJV)",
     "who": "Jesus",
-    "to": "Thomas",
-    "apply": "It's okay to have questions! Jesus is patient—keep coming back to Him.",
+    "to": "Every child who needs help to trust on unsure days",
+    "apply": "Jesus is patient with honest hearts — He draws near and helps us believe step by step.",
     "theme": "Obedience",
-    "kw": "thomas doubt john 20 hands believe risen faith"
+    "kw": "thomas didymus doubt believe print of nails peace be unto you doors shut My Lord and my God blessed have not seen john 20"
   },
   {
     "key": "timothyYouthExample",

@@ -200,7 +200,8 @@
       trialBeforeCaiaphas: 'trialBeforeCaiaphas',
       peterDenial: 'peterDenial',
       trial: 'trial',
-      maryMagdalene: 'maryMagdalene'
+      maryMagdalene: 'maryMagdalene',
+      thomasDoubt: 'thomasDoubt'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -222,6 +223,7 @@
       return 'jesusParableGoodShepherd';
     if (low === 'jesusresurrection' || low === 'resurrection') return 'resurrection';
     if (low.indexOf('marymagdalene') >= 0 || low === 'marymagdalene') return 'maryMagdalene';
+    if (low.indexOf('thomasdoubt') >= 0 || low === 'thomasdoubt') return 'thomasDoubt';
     if (low.indexOf('tombempty') >= 0 || low === 'tombempty') return 'tombEmpty';
     if (low.indexOf('crosscarry') >= 0 || low === 'crosscarry') return 'crossCarry';
     if (low.indexOf('crucifixion') >= 0 || low === 'crucifixion' || low === 'jesuscrucifixion')
@@ -3630,18 +3632,29 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 24:15</text>'
       ),
 
-      /* ── Week 7: Thomas Doubt (89) ── */
+      /* ── Week 7: Thomas — shut doors; Peace; Jesus shows hands; Thomas kneels — */
       thomasDoubt: svg(
         ground() +
-        '<rect x="60" y="80" width="280" height="185" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M60 120 L200 98 L340 120" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(200, 138, 13, 40) +
-        '<path d="M192 152 L183 178 M208 152 L217 178" ' + s + ' stroke-width="2.5"/>' +
-        person(140, 175, 11, 32) + person(115, 178, 10, 28) +
-        person(265, 172, 11, 32) + person(292, 175, 10, 28) +
-        '<path d="M268 188 Q280 195 278 208" ' + s + ' stroke-width="2.5"/>' +
-        star(200, 40, 14) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 20:27</text>'
+        '<rect x="48" y="58" width="304" height="188" rx="8" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="48" y="58" width="304" height="36" ' + sf + ' fill="white" stroke-width="2.5" opacity="0.92"/>' +
+        '<rect x="58" y="198" width="36" height="42" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="88" cy="218" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 108, 14, 42) +
+        '<line x1="200" y1="142" x2="172" y2="128" ' + s + ' stroke-width="3"/>' +
+        '<line x1="200" y1="142" x2="228" y2="128" ' + s + ' stroke-width="3"/>' +
+        '<circle cx="172" cy="126" r="2.5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="228" cy="126" r="2.5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M192 118 Q200 112 208 118" ' + s + ' stroke-width="1.5"/>' +
+        person(128, 178, 11, 26) +
+        '<path d="M118 198 Q128 188 136 198" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="142" y1="188" x2="168" y2="158" ' + s + ' stroke-width="2"/>' +
+        person(268, 172, 10, 28) +
+        person(292, 175, 9, 24) +
+        person(88, 178, 9, 26) +
+        person(312, 180, 8, 24) +
+        '<ellipse cx="200" cy="48" rx="22" ry="10" ' + sf + ' fill="white" stroke-width="2" opacity="0.9"/>' +
+        star(200, 42, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 20:26–29</text>'
       ),
 
       /* ── Week 7: Pentecost Fire (90) ── */

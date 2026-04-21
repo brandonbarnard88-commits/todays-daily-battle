@@ -105,6 +105,7 @@
  * The empty tomb — Matthew 28:1–10 (gentle): buildTombEmptyReadQuiz() (library key: tombEmpty).
  * Jesus is risen — Matthew 28:1–10, 16–20 (gentle; harmony in ref): buildJesusResurrectionReadQuiz() (library keys: jesusResurrection; resurrection).
  * Jesus appears to Mary Magdalene — John 20:11–18 (gentle; par. Mark 16:9–11): buildMaryMagdaleneReadQuiz() (library key: maryMagdalene).
+ * Jesus appears to Thomas — John 20:24–29 (gentle): buildThomasDoubtReadQuiz() (library key: thomasDoubt).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
@@ -13483,6 +13484,152 @@ function buildMaryMagdaleneReadQuiz() {
   };
 }
 
+/** Jesus appears to Thomas — John 20:24–29 (gentle). Library key: thomasDoubt */
+function buildThomasDoubtReadQuiz() {
+  return {
+    kjvRef: 'John 20:24–29 (KJV)',
+    verseExcerpt:
+      'And Thomas answered and said unto him, My Lord and my God. — John 20:28 (KJV)',
+    readAlongTitle: 'Jesus Appears to Thomas',
+    quizWrongHumilityHint:
+      'Listen again — Didymus; not with them; We have seen the Lord; print of the nails; thrust my hand into his side; eight days; doors shut; Peace be unto you; Reach hither; be not faithless; believing; My Lord and my God; blessed are they that have not seen.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'But Thomas, one of the twelve, called Didymus, was not with them when Jesus came.',
+      'The other disciples therefore said unto him, We have seen the Lord. But he said unto them, Except I shall see in his hands the print of the nails, and put my finger into the print of the nails, and thrust my hand into his side, I will not believe.',
+      'And after eight days again his disciples were within, and Thomas with them: then came Jesus, the doors being shut, and stood in the midst, and said, Peace be unto you.',
+      'Then saith he to Thomas, Reach hither thy finger, and behold my hands; and reach hither thy hand, and thrust it into my side: and be not faithless, but believing.',
+      'And Thomas answered and said unto him, My Lord and my God.',
+      'Jesus saith unto him, Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed.',
+      'Jesus understands tender doubts — He draws near with peace and helps us believe.',
+      'Reference: John 20:24–29 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Thomas was not with the other disciples when Jesus first appeared — But Thomas, one of the twelve, called Didymus, was not with them when Jesus came.',
+        caption: 'Not with them',
+        image: 'panel-thomas-doubt-1.svg'
+      },
+      {
+        text: 'The others told him, “We have seen the Lord,” but Thomas said he would not believe unless he could see and touch the nail prints — The other disciples therefore said unto him, We have seen the Lord. But he said unto them, Except I shall see in his hands the print of the nails, and put my finger into the print of the nails, and thrust my hand into his side, I will not believe.',
+        caption: 'I will not believe',
+        image: 'panel-thomas-doubt-1.svg'
+      },
+      {
+        text: 'Eight days later, Jesus came again while the doors were shut and stood among them — And after eight days again his disciples were within, and Thomas with them: then came Jesus, the doors being shut, and stood in the midst, and said, Peace be unto you.',
+        caption: 'Peace be unto you',
+        image: 'panel-thomas-doubt-2.svg'
+      },
+      {
+        text: 'Jesus said gently to Thomas, “Reach hither thy finger… and be not faithless, but believing.” — Then saith he to Thomas, Reach hither thy finger, and behold my hands; and reach hither thy hand, and thrust it into my side: and be not faithless, but believing.',
+        caption: 'Be not faithless',
+        image: 'panel-thomas-doubt-2.svg'
+      },
+      {
+        text: 'Thomas looked at Jesus and said, “My Lord and my God.” — And Thomas answered and said unto him, My Lord and my God.',
+        caption: 'My Lord and my God',
+        image: 'panel-thomas-doubt-3.svg'
+      },
+      {
+        text: 'Jesus said, “Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed.” — Jesus saith unto him, Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed.',
+        caption: 'Blessed are they that have not seen',
+        image: 'panel-thomas-doubt-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'John 20:24–29',
+          'Genesis 6 only',
+          'Psalm 23 only',
+          'Acts 2 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: John 20:24–29.)'
+      },
+      {
+        question: 'What did Thomas say he needed before he would believe the disciples’ word?',
+        choices: [
+          'To see the print of the nails in Jesus’ hands and to thrust his hand into Jesus’ side.',
+          'To sail across the sea alone.',
+          'To count all the stars.',
+          'To find a golden calf.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:25.',
+        wrongFeedback: 'Listen for “print of the nails” and “side.” (Answer: see the print… thrust my hand….)'
+      },
+      {
+        question: 'When Jesus came to the disciples the second time, what was shut?',
+        choices: [
+          'The doors — and Jesus stood in the midst.',
+          'The windows only — everyone stayed outside.',
+          'The book of the law forever.',
+          'The temple forever.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:26.',
+        wrongFeedback: 'Listen for “doors being shut.” (Answer: the doors… Jesus stood in the midst.)'
+      },
+      {
+        question: 'What did Jesus first say when He stood in the midst?',
+        choices: [
+          'Peace be unto you.',
+          'Run away quickly.',
+          'Be silent forever.',
+          'Hide under the table.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:26.',
+        wrongFeedback: 'Listen for “Peace.” (Answer: Peace be unto you.)'
+      },
+      {
+        question: 'What did Thomas answer when he saw the Lord?',
+        choices: [
+          'My Lord and my God.',
+          'I will never speak again.',
+          'You are only a gardener.',
+          'I do not know You.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:28.',
+        wrongFeedback: 'Listen for “My Lord” and “my God.” (Answer: My Lord and my God.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus when I feel unsure — He is patient and helps me believe.',
+          'Believe God is angry when I have questions.',
+          'Stop praying when I feel doubtful.',
+          'Never ask for help.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “patient,” “believe,” and “peace.” (Answer: tell Jesus when I feel unsure….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Appears to Thomas with God's Word today.",
+    takeaway:
+      'Jesus meets honest doubt with peace — He blesses every heart that trusts Him, seen or unseen.',
+    prayer:
+      'Lord Jesus, thank You for peace and patience. When I feel unsure, help me come to You and believe. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle risen Jesus stands in the center of the room with a kind, loving face, holding out His hands so Thomas can see the nail prints. Thomas kneels close with a surprised, joyful face, reaching one hand gently toward Jesus. The other disciples stand or sit nearby watching with peaceful, happy expressions. Soft room walls, a closed door, and warm light with plenty of open floor space in the foreground for coloring. Focus on the heart of the moment: Jesus tenderly inviting Thomas to believe and Thomas calling Him “My Lord and my God.” Style: clear, bold, tender, hopeful, and very restful — never scary or dark.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: Thomas apart — We have seen the Lord (listening)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: Print of nails — honest words (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: Doors shut — Peace be unto you (calm)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: Reach hither — be not faithless (gentle)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: My Lord and my God — glad heart (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: Blessed are they that have not seen — believing (hope)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
 function buildJesusWeepsJerusalemReadQuiz() {
   return {
@@ -14881,6 +15028,7 @@ module.exports = {
   jesusResurrection: buildJesusResurrectionReadQuiz(),
   resurrection: buildJesusResurrectionReadQuiz(),
   maryMagdalene: buildMaryMagdaleneReadQuiz(),
+  thomasDoubt: buildThomasDoubtReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

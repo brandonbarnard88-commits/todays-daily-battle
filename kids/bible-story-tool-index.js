@@ -1478,13 +1478,13 @@
   },
   {
     "key": "malachiMessage",
-    "title": "Malachi's Message",
-    "kjvRef": "Malachi 1–4",
+    "title": "God Promises to Send a Messenger",
+    "kjvRef": "Malachi 3:1; 4:5–6",
     "who": "God",
-    "to": "His people",
-    "apply": "God loves you — give Him your whole heart, not leftovers. He keeps every promise.",
-    "theme": "Obedience",
-    "kw": "malachi prophet offerings elijah malachi 4 love temple old testament"
+    "to": "His people — and every heart listening for His promise",
+    "apply": "God always keeps His promises, even when it feels quiet.",
+    "theme": "Love",
+    "kw": "malachi prophet messenger promise malachi 3 malachi 4 john the baptist savior hope love quiet faithful"
   },
   {
     "key": "manna",

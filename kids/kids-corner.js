@@ -2457,6 +2457,39 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Jonah 1–3</text>'
       ),
 
+      /* ── Malachi — open hands, scroll, soft light (Mal. 3:1; 4:5–6) ── */
+      malachiMessage: svg(
+        ground() +
+        hills() +
+        '<path d="M0 250 Q120 236 200 250 Q280 236 400 250" ' +
+        s +
+        ' stroke-width="2" fill="none" opacity="0.72"/>' +
+        '<path d="M0 256 Q140 248 200 256 Q260 248 400 256" ' +
+        s +
+        ' stroke-width="1.25" fill="none" opacity="0.42"/>' +
+        '<ellipse cx="200" cy="50" rx="78" ry="17" ' +
+        sf +
+        ' fill="white" stroke-width="0.55" opacity="0.28"/>' +
+        '<line x1="200" y1="36" x2="200" y2="120" ' +
+        s +
+        ' stroke-width="0.42" stroke-dasharray="10,10" opacity="0.24"/>' +
+        '<line x1="176" y1="42" x2="184" y2="116" ' +
+        s +
+        ' stroke-width="0.38" stroke-dasharray="10,10" opacity="0.2"/>' +
+        '<line x1="224" y1="42" x2="216" y2="116" ' +
+        s +
+        ' stroke-width="0.38" stroke-dasharray="10,10" opacity="0.2"/>' +
+        person(200, 166, 12, 34) +
+        '<path d="M184 202 L166 184 M216 202 L234 184" ' + s + ' stroke-width="1.75"/>' +
+        '<rect x="188" y="198" width="26" height="15" rx="2" ' +
+        sf +
+        ' fill="white" stroke-width="1.4"/>' +
+        '<line x1="192" y1="204" x2="210" y2="204" ' + s + ' stroke-width="0.65"/>' +
+        '<line x1="192" y1="208" x2="206" y2="208" ' + s + ' stroke-width="0.65"/>' +
+        sun(332, 46, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Malachi 3–4</text>'
+      ),
+
       /* ── Week 4: Daniel Pray (59) ── */
       danielPray: svg(
         '<rect x="40" y="50" width="320" height="220" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
@@ -4136,7 +4169,7 @@
     danielFieryFurnace: 'fieryFurnace',
     danielLionsDen: 'daniel',
     ezraReturn: 'ezraReturn',
-    malachiMessage: 'tenCommandments',
+    malachiMessage: 'malachiMessage',
     johnBaptist: 'johnBaptize',
     jonahVine: 'jonahVine',
     danielPray: 'danielPray',

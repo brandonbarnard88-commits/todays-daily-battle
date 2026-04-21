@@ -103,7 +103,7 @@
   "lostSheep": "psalm23Shepherd",
   "loveChapter": "loveChapter",
   "lydiaSell": "lydiaSell",
-  "malachiMessage": "tenCommandments",
+  "malachiMessage": "malachiMessage",
   "manna": "manna",
   "maryAnoint": "maryAnoint",
   "maryMagdalene": "maryMagdalene",

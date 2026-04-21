@@ -4500,18 +4500,46 @@
         "Coming Home to Worship — Ezra 1:1–11; 3:1–6. The people of Israel had been far away from their land for many years. But the LORD stirred the heart of Cyrus the king of Persia, and he made a proclamation so they could go up to Jerusalem and build the house of the LORD God of Israel. Many of the fathers’ houses, the priests, and the Levites rose up with joy and went to Jerusalem. They set the altar in his place upon his bases and offered burnt offerings unto the LORD, even though they were still a little afraid of the people around them. Day by day they praised the LORD and gave thanks, because He had turned the heart of the king and brought them home. The LORD showed His people that even after long years away, He remembers them and brings them back to worship Him. For you: God faithfully brings His people home to Himself."
     },
     malachiMessage: {
-      title: 'Malachi\'s Message',
+      title: 'God Promises to Send a Messenger',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Malachi speaks God\'s words to the people' },
-        { src: 'panel-david-2.svg', alt: 'God deserves our best — not leftovers' },
-        { src: 'panel-david-3.svg', alt: 'Hope: the Sun of Righteousness will rise' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Malachi — God’s last prophet before a long quiet; he tells the people God still loves them'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'God promises to send a special messenger — to prepare hearts for the Savior'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Love God, love one another — God always keeps His promises, even when it feels quiet'
+        }
       ],
-      caption: 'Swipe to see the last OT prophet call hearts back to God! ☀️',
+      caption: 'Swipe to see God’s faithful love and the hope He promised long before Christmas.',
       videoId: '',
       videoTitle: '',
-      keywords: ['malachi', 'prophet', 'offerings', 'elijah', 'malachi 4', 'love', 'temple', 'old testament'],
-      kjvRef: 'Malachi 1–4',
-      kidContext: { who: 'God', to: 'His people', apply: 'God loves you — give Him your whole heart, not leftovers. He keeps every promise.' }
+      keywords: [
+        'malachi',
+        'prophet',
+        'messenger',
+        'promise',
+        'john the baptist',
+        'savior',
+        'malachi 3',
+        'malachi 4',
+        'love',
+        'hope',
+        'quiet',
+        'faithful'
+      ],
+      kjvRef: 'Malachi 3:1; 4:5–6',
+      kidContext: {
+        who: 'God',
+        to: 'His people — and every heart listening for His promise',
+        apply: 'God always keeps His promises, even when it feels quiet.'
+      },
+      narration:
+        "God Promises to Send a Messenger — Malachi 3:1; 4:5–6. Malachi was the last prophet God sent before a long quiet time. He told God’s people the Lord still loved them, and that God would send a special messenger to prepare the way. Many years later, a man named John came—calling people to repent and get their hearts ready for the Savior. Malachi reminded them to love God and love one another. For you: when days feel quiet, remember—God keeps every promise."
     },
     jonahVine: {
       title: 'God Gives Jonah a Second Chance',
@@ -10257,7 +10285,7 @@
     elishaPoisonStew: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',
     danielFieryFurnace: 'Miracles', danielLionsDen: 'Miracles',
-    ezraReturn: 'Obedience', malachiMessage: 'Obedience',
+    ezraReturn: 'Obedience', malachiMessage: 'Love',
     jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
     /* Week 5 */
     angelMary: 'Miracles', shepherdsStar: 'Love', jesusManger: 'Love', jesusTemple: 'Obedience',

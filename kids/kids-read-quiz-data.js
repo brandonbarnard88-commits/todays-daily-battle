@@ -2588,7 +2588,7 @@
           "Revelation 22",
           "Acts 2:4–21",
           "Acts 9:1–19",
-          "Malachi 1–4"
+          "Malachi 3:1; 4:5–6"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16100,89 +16100,123 @@
     ]
   },
   "malachiMessage": {
-    "kjvRef": "Malachi 1–4",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Malachi 3:1; 4:5–6 (KJV)",
+    "verseExcerpt": "Behold, I will send my messenger, and he shall prepare the way before me: — Malachi 3:1 (KJV)",
+    "readAlongTitle": "God Promises to Send a Messenger",
+    "quizWrongHumilityHint": "Listen again — last prophet’s kind word; God still loved them; a messenger would come; hearts ready for the Savior; God keeps His promises.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Malachi's Message (Malachi 1–4).",
-      "Malachi speaks God's words to the people God deserves our best.",
-      "not leftovers Hope: the Sun of Righteousness will rise God loves you.",
-      "give Him your whole heart, not leftovers.",
-      "He keeps every promise."
+      "Malachi was the last prophet God sent before a long quiet time.",
+      "He told God’s people that the Lord still loved them.",
+      "Malachi said God would send a special messenger to prepare the way.",
+      "One day a man named John would come and tell people to get their hearts ready for the Savior.",
+      "Malachi reminded the people to love God and love one another.",
+      "God always keeps His promises, even when it feels quiet.",
+      "Reference: Malachi 3:1; 4:5–6 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Malachi was the last prophet before a quiet time.",
+        "caption": "A faithful voice",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He told the people God still loved them.",
+        "caption": "Still loved",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "God would send a special messenger.",
+        "caption": "A promise",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The messenger would help people get ready for the Savior.",
+        "caption": "Hearts ready",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "God always keeps His promises.",
+        "caption": "Always true",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 28:10–22",
-          "Malachi 1–4",
-          "2 John; 3 John",
-          "John 11:1–44"
+          "Psalm 23",
+          "Malachi 3:1; 4:5–6",
+          "Jonah 1 only",
+          "Genesis 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Malachi 1–4.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Malachi 3:1; 4:5–6.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "David",
-          "Mary",
-          "Peter"
+          "Pharaoh",
+          "Goliath",
+          "A giant fish"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Right—God speaks faithfully through His prophet and keeps every promise.",
+        "wrongFeedback": "Look for who loves His people and promises to send a messenger. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
+          "God forgets His people when it is quiet.",
+          "God always keeps His promises, even when it feels quiet.",
           "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray.",
-          "God loves you — give Him your whole heart, not leftovers. He keeps every promise."
+          "We should hide from God when we mess up."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God loves you — give Him your whole heart, not leftovers. He keeps every promise..)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s faithfulness? (Answer: God always keeps His promises, even when it feels quiet.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Malachi speaks God's words to the people",
-          "A spaceship landed in the parking lot."
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "Behold, I will send my messenger, and he shall prepare the way before me.",
+          "Everyone decided to never sleep again."
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Behold, I will send my messenger, and he shall prepare the way before me.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
           "Ignore God until we are older.",
-          "God loves you — give Him your whole heart, not leftovers. He keeps every promise.",
+          "Thank God that He keeps His promises — and ask Him to help your heart be ready for Jesus.",
           "Never say sorry when we do wrong.",
           "Only be kind to people who are exactly like us."
         ],
         "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God loves you — give Him your whole heart, not leftovers. He keeps every promise..)"
+        "wrongFeedback": "Think: does this choice show trust in a faithful God? Pick the one that honors Him. (Answer: Thank God that He keeps His promises — and ask Him to help your heart be ready for Jesus.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Malachi's Message with God's Word today.",
-    "takeaway": "God loves you — give Him your whole heart, not leftovers. He keeps every promise.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Malachi's Message. Amen.",
+    "doneMessage": "Great job reading God Promises to Send a Messenger with God's Word today.",
+    "takeaway": "God always keeps His promises, even when it feels quiet.",
+    "prayer": "Lord, thank You that You love us and keep every promise. Help us love You and love others. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Malachi speaks God's words to the people (malachi)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God deserves our best — not leftovers (prophet)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Hope: the Sun of Righteousness will rise (offerings)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Malachi speaks God's words to the people (elijah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God deserves our best — not leftovers (malachi 4)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: the prophet Malachi standing with open hands as if sharing a kind message a small simple scroll rests in his hands soft light rays shine down from above thick bold outlines with large open spaces on Malachi's robe and the ground for easy coloring gentle hills and a soft sky in the background with minimal lines hopeful and trusting mood focus on God promising to send a messenger clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Malachi — God still loves His people (prophet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A messenger will prepare the way (promise)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Hearts ready for the Savior (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Love God and love others (kind)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God keeps His promises (quiet)"
+    ],
+    "readAlongImages": []
   },
   "manna": {
     "kjvRef": "Exodus 16:4-5, 13-15, 31 (KJV)",
@@ -27030,7 +27064,7 @@
           "Acts 9:1–19",
           "Acts 2:4–21",
           "Acts 6:8–7:60",
-          "Malachi 1–4"
+          "Malachi 3:1; 4:5–6"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -28379,7 +28413,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Malachi 1–4",
+          "Malachi 3:1; 4:5–6",
           "2 John; 3 John",
           "John 11:1–44"
         ],

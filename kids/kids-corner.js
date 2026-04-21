@@ -144,7 +144,8 @@
       simeonAnna: 'jesus-children',
       jesusTemple: 'jesus-children',
       jesusBaptism: 'jesus-children',
-      jesusDisciples: 'jesusDisciples'
+      jesusDisciples: 'jesusDisciples',
+      jesusWaterWine: 'jesusWaterWine'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -2828,6 +2829,35 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 2:7</text>'
       ),
 
+      /* ── Cana: water to wine — six stone waterpots (John 2:1–11) ── */
+      jesusWaterWine: svg(
+        ground() +
+        '<rect x="44" y="82" width="312" height="172" rx="8" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M44 82 L200 62 L356 82" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<line x1="200" y1="66" x2="200" y2="112" ' + s + ' stroke-width="0.45" stroke-dasharray="10,8" opacity="0.22"/>' +
+        '<line x1="168" y1="72" x2="182" y2="104" ' + s + ' stroke-width="0.35" opacity="0.18"/>' +
+        '<line x1="232" y1="72" x2="218" y2="104" ' + s + ' stroke-width="0.35" opacity="0.18"/>' +
+        person(200, 118, 11, 30) +
+        person(118, 132, 9, 24) +
+        '<path d="M127 148 L118 178 Q130 188 142 178" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        '<line x1="132" y1="168" x2="108" y2="218" ' + s + ' stroke-width="1.8"/>' +
+        person(292, 128, 9, 24) +
+        '<path d="M48 178 L46 238 Q62 246 78 238 L76 178 Q62 172 48 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="62" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M98 178 L96 238 Q112 246 128 238 L126 178 Q112 172 98 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="112" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M148 178 L146 238 Q162 246 178 238 L176 178 Q162 172 148 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="162" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M224 178 L222 238 Q238 246 254 238 L252 178 Q238 172 224 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="238" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M274 178 L272 238 Q288 246 304 238 L302 178 Q288 172 274 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="288" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M324 178 L322 238 Q338 246 354 238 L352 178 Q338 172 324 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="338" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        sun(330, 48, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 2:1–11</text>'
+      ),
+
       /* ── Week 5: Jesus Heal Blind (68) ── */
       healBlind: svg(
         ground() +
@@ -4282,6 +4312,7 @@
     johnBaptize: 'johnBaptize',
     jesusBaptism: 'jesusBaptism',
     jesusDisciples: 'jesusDisciples',
+    jesusWaterWine: 'jesusWaterWine',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',

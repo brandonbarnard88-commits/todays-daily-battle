@@ -602,6 +602,11 @@
       webm: '/media/kids-stories/jesus-calling-disciples.webm',
       captionsVtt: '/media/kids-stories/jesus-calling-disciples.vtt'
     },
+    jesusWaterWine: {
+      mp4: '/media/kids-stories/jesus-first-miracle.mp4',
+      webm: '/media/kids-stories/jesus-first-miracle.webm',
+      captionsVtt: '/media/kids-stories/jesus-first-miracle.vtt'
+    },
     jesusBirth: {
       mp4: '/media/kids-stories/jesus-birth.mp4',
       webm: '/media/kids-stories/jesus-birth.webm',

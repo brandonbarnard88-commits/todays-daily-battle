@@ -1117,6 +1117,16 @@
     "kw": "jesus disciples fishers of men sea galilee peter andrew james john nets follow me matthew 4 boat zebedee"
   },
   {
+    "key": "jesusWaterWine",
+    "title": "Jesus Does His First Miracle",
+    "kjvRef": "John 2:1–11",
+    "who": "Jesus",
+    "to": "The servants — the wedding guests — and everyone who listens",
+    "apply": "Jesus can do wonderful things when we trust and do what He says.",
+    "theme": "Miracles",
+    "kw": "jesus wedding cana water wine waterpots john 2 miracle mary servants first miracle governor feast obey"
+  },
+  {
     "key": "jesusTempt",
     "title": "Jesus Is Tempted",
     "kjvRef": "Matthew 4:1–11",

@@ -4967,6 +4967,49 @@
       narration:
         "Jesus Calls His Helpers — Matthew 4:18–22. And Jesus, walking by the sea of Galilee, saw two brethren, Simon called Peter, and Andrew his brother, casting a net into the sea: for they were fishers. And he saith unto them, Follow me, and I will make you fishers of men. And they straightway left their nets, and followed him. And going on from thence, he saw other two brethren, James the son of Zebedee, and John his brother, in a ship with Zebedee their father, mending their nets; and he called them. And they immediately left the ship and their father, and followed him. For you: Jesus invites us to come be with Him and share His love."
     },
+    jesusWaterWine: {
+      title: 'Jesus Does His First Miracle',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Wedding at Cana — the feast runs out of wine'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Servants fill the stone waterpots; Mary says, Do what He tells you'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Water becomes the best wine — the disciples believe in Jesus'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus’ first miracle — waterpots, obeying, and wonder at the wedding.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'jesus',
+        'wedding',
+        'cana',
+        'wine',
+        'water',
+        'waterpots',
+        'john 2',
+        'miracle',
+        'mary',
+        'servants',
+        'first miracle'
+      ],
+      kjvRef: 'John 2:1–11',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The servants — the wedding guests — and everyone who listens',
+        apply:
+          'Jesus can do wonderful things when we trust and do what He says.'
+      },
+      narration:
+        "Jesus Does His First Miracle — John 2:1–11. And the third day there was a marriage in Cana of Galilee; and the mother of Jesus was there: And both Jesus was called, and his disciples, to the marriage. And when they wanted wine, the mother of Jesus saith unto him, They have no wine. Jesus saith unto her, Woman, what have I to do with thee? mine hour is not yet come. His mother saith unto the servants, Whatsoever he saith unto you, do it. And there were set there six waterpots of stone, after the manner of the purifying of the Jews, containing two or three firkins apiece. Jesus saith unto them, Fill the waterpots with water. And they filled them up to the brim. And he saith unto them, Draw out now, and bear unto the governor of the feast. And they bare it. When the ruler of the feast had tasted the water that was made wine, and knew not whence it was: (but the servants which drew the water knew;) the governor of the feast called the bridegroom, And saith unto him, Every man at the beginning doth set forth good wine; and when men have well drunk, then that which is worse: but thou hast kept the good wine until now. This beginning of miracles did Jesus in Cana of Galilee, and manifested forth his glory; and his disciples believed on him. For you: His power is real — and He cares for everyday needs."
+    },
     jesusTempt: {
       title: 'Jesus Is Tempted',
       panels: [
@@ -7375,7 +7418,7 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusWalksWater',
@@ -10527,7 +10570,8 @@
     jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
     /* Week 5 */
     angelMary: 'Miracles', shepherdsStar: 'Love', wiseMen: 'Love', simeonAnna: 'Love', jesusManger: 'Love', jesusTemple: 'Love',
-    johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Love', jesusDisciples: 'Love',
+    johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Love',     jesusDisciples: 'Love',
+    jesusWaterWine: 'Miracles',
     jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',

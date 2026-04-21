@@ -1,6 +1,6 @@
 /**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
- * Keys match TDB_BIBLE_STORIES (314 stories).
+ * Keys match TDB_BIBLE_STORIES (315 stories).
  * Regenerate: npm run kids:generate-read-quiz
  * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath; Elisha bones; Ezra return; Nehemiah walls; Job read-along sections).
  *
@@ -13767,6 +13767,136 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Disciples in boat, big waves (peter)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus walks on the water (waves)"
     ]
+  },
+  "jesusWaterWine": {
+    "kjvRef": "John 2:1–11 (KJV)",
+    "verseExcerpt": "Whatsoever he saith unto you, do it. — John 2:5 (KJV)",
+    "readAlongTitle": "Jesus Does His First Miracle",
+    "quizWrongHumilityHint": "Listen again — wedding at Cana; no wine; Mary; six waterpots; fill with water; governor of the feast; good wine; first miracle; disciples believed.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus and His friends were at a wedding in Cana.",
+      "The people who were in charge of the feast ran out of wine.",
+      "Jesus’ mother told Him, “They have no wine.”",
+      "Jesus said, “Woman, what have I to do with thee? mine hour is not yet come.”",
+      "But His mother told the servants, “Whatsoever he saith unto you, do it.”",
+      "Jesus told the servants to fill six big stone waterpots with water.",
+      "Then He said, “Draw out now, and bear unto the governor of the feast.”",
+      "When the governor tasted it, the water had become very good wine.",
+      "He did not know where it came from, but the servants knew.",
+      "This was the first miracle Jesus did, and His disciples believed in Him.",
+      "Jesus can do wonderful things when we trust and obey Him.",
+      "Reference: John 2:1–11 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus was at a wedding.",
+        "caption": "Cana",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "They ran out of wine.",
+        "caption": "Need help",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus told the servants to fill the waterpots.",
+        "caption": "Do what He says",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The water became good wine.",
+        "caption": "Wonderful wine",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "This was Jesus’ first miracle.",
+        "caption": "First miracle",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "His friends believed in Him.",
+        "caption": "They believed",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "John 2:1–11",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 2:1–11.)"
+      },
+      {
+        "question": "What did Jesus turn into very good wine?",
+        "choices": [
+          "Water",
+          "Grape juice from the store",
+          "Sand",
+          "Stone jars only, no drink"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—the servants drew water, and it became wine.",
+        "wrongFeedback": "Remember what filled the big stone waterpots before the governor tasted it. (Answer: Water.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Jesus cannot help when the feast runs out.",
+          "Jesus can do wonderful things when we trust and obey Him.",
+          "Mary told the servants to ignore Jesus.",
+          "Weddings do not matter to God."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the part about “Whatsoever he saith unto you, do it,” and the miracle. (Answer: Jesus can do wonderful things when we trust and obey Him.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Whatsoever he saith unto you, do it.",
+          "Everyone turned into a fish.",
+          "The waterpots were made of chocolate.",
+          "The feast was held on the moon."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches what Mary told the servants? (Answer: Whatsoever he saith unto you, do it.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus — He has power to help, and we can obey His words step by step.",
+          "Never listen to parents or helpers.",
+          "Ignore the Bible until we are grown up.",
+          "Only obey when it feels easy."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ care at the wedding? (Answer: Thank Jesus — He has power to help, and we can obey His words step by step.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Does His First Miracle with God's Word today.",
+    "takeaway": "Jesus can do wonderful things when we trust and obey Him.",
+    "prayer": "Lord Jesus, thank You for this first miracle. Help us trust You and obey Your words with glad hearts. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing with servants at the wedding six big stone waterpots are on the ground one servant is pouring water into a pot Jesus has a kind calm face thick bold outlines with large open spaces on Jesus' robe the servants' robes the waterpots and the ground for easy coloring soft wedding room walls and gentle light from above with minimal lines wonder and joy mood focus on Jesus turning water into wine clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: Wedding at Cana (celebration)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: No wine — need help (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: Fill the waterpots (obey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: Draw out for the governor (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: Very good wine (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: Disciples believed (trust)"
+    ],
+    "readAlongImages": []
   },
   "jobSuffering": {
     "kjvRef": "Job 1:1–22; 2:11–13 (KJV)",

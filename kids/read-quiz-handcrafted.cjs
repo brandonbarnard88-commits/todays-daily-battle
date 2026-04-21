@@ -81,6 +81,7 @@
  * Pool of Bethesda — John 5:1–15 (gentle): buildBethesdaReadQuiz() (library key: bethesda).
  * Unforgiving servant — Matthew 18:21–35 (gentle): buildUnforgivingServantReadQuiz() (library key: unforgivingServant; alias forgive70x7).
  * Jesus welcomes the little children — Mark 10:13–16 (gentle): buildJesusBlessKidsReadQuiz() (library key: jesusBlessKids; alias jesusAndChildren).
+ * Rich young ruler — Mark 10:17–27 (gentle): buildRichYoungRulerReadQuiz() (library key: richYoungRuler).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -9981,6 +9982,138 @@ function buildJesusBlessKidsReadQuiz() {
   };
 }
 
+/** Rich young ruler — Mark 10:17–27 (gentle). Library key: richYoungRuler */
+function buildRichYoungRulerReadQuiz() {
+  return {
+    kjvRef: 'Mark 10:17–27 (KJV)',
+    verseExcerpt:
+      'Then Jesus beholding him loved him, and said unto him, One thing thou lackest… take up the cross, and follow me. — Mark 10:21 (KJV)',
+    readAlongTitle: 'Jesus Talks with a Rich Young Man',
+    quizWrongHumilityHint:
+      'Listen again — running; kneeled; Good Master; eternal life; commandments; loved him; sell; treasure; cross; follow; grieved; riches; camel; needle; with God.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'A rich young ruler came running to Jesus and knelt down.',
+      'He asked, “Good Master, what shall I do that I may inherit eternal life?”',
+      'Jesus said, “Thou knowest the commandments…”',
+      'The young man said he had kept them all since he was a child.',
+      'Jesus looked at him and loved him.',
+      'He said, “One thing thou lackest: go thy way, sell whatsoever thou hast, and give to the poor, and thou shalt have treasure in heaven: and come, take up the cross, and follow me.”',
+      'The young man went away sad because he had great riches and did not want to give them up.',
+      'Jesus said to His disciples, “How hardly shall they that have riches enter into the kingdom of God!”',
+      'Jesus wants our hearts to love Him more than anything else.',
+      'Reference: Mark 10:17–27 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'A rich young man ran to Jesus and knelt down.',
+        caption: 'There came one running, and kneeled',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'He asked, “Good Master, what shall I do that I may inherit eternal life?”',
+        caption: 'Inherit eternal life',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus said, “Thou knowest the commandments.”',
+        caption: 'Honour thy father and mother',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The young man said he had kept them.',
+        caption: 'From my youth',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus looked at him, loved him, and said to sell, give, take up the cross, and follow Him.',
+        caption: 'One thing thou lackest',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus wants our hearts to love Him most.',
+        caption: 'With God all things are possible',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Mark 10:17–27', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Mark 10:17–27.)'
+      },
+      {
+        question: 'What did the young man first ask Jesus?',
+        choices: [
+          '“Good Master, what shall I do that I may inherit eternal life?”',
+          '“How do I become king of the city?”',
+          '“Please hide my toys forever.”',
+          '“Tell me only jokes.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 10:17.',
+        wrongFeedback: 'Think about the honest question he asked Jesus. (Answer: Good Master… eternal life.)'
+      },
+      {
+        question: 'Because Jesus loved him, what did Jesus call him to do next?',
+        choices: [
+          'Sell what he had, give to the poor, take up the cross, and follow Jesus.',
+          'Buy more riches quietly.',
+          'Refuse to talk to God again.',
+          'Only listen to friends who say what he wants to hear.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 10:21.',
+        wrongFeedback:
+          'Reread Jesus’ “one thing thou lackest” words. (Answer: sell… give… cross… follow.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The young man went away sad—because he cared greatly for his riches.',
+          'He turned into a balloon and floated away.',
+          'A zebra built the temple in one day.',
+          'Nobody spoke to Jesus at all.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 10:22.',
+        wrongFeedback: 'Cross out the joke answers. Which matches God’s Word? (Answer: went away sad… riches.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me love Him more than stuff — and take one small honest step of obedience today.',
+          'Try to be perfect in my own strength alone.',
+          'Believe money is the only comfort.',
+          'Hide what I really love from God on purpose.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches Jesus’ heart-call? (Answer: love Him more than stuff… honest step.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Talks with a Rich Young Man with God's Word today.",
+    takeaway: 'Jesus wants our hearts to love Him more than anything else.',
+    prayer:
+      'Lord Jesus, please help me love You first—not money or things. Show me one honest step today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: A rich young man kneeling before Jesus with a thoughtful face. Jesus has a kind, loving face and is speaking to him. Thick, bold outlines with large open spaces on the young man’s robe, Jesus’ robe, and the ground for easy coloring. Soft road and gentle sky with minimal lines. Kind and serious mood — focus on Jesus talking with the young man. Clean, minimal, no fear or sadness shown strongly, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Running, kneeling — Good Master (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Commandments — from my youth (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Jesus loved him — one thing lackest (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Treasure in heaven — take up the cross (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Went away grieved — great possessions (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Camel, needle — with God possible (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -10376,6 +10509,7 @@ module.exports = {
   parablePearl: buildParablePearlReadQuiz(),
   lostSheep: buildParableLostSheepReadQuiz(),
   prodigalSon: buildParableProdigalSonReadQuiz(),
+  richYoungRuler: buildRichYoungRulerReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

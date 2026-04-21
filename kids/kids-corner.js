@@ -3665,7 +3665,7 @@
         '<circle cx="340" cy="205" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
         '<line x1="338" y1="208" x2="330" y2="222" ' + s + ' stroke-width="2"/>' +
         sun(50, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 10:22</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 10:21</text>'
       ),
 
       /* ── Week 8: Zacchaeus — sycomore, Jesus looks up (Luke 19:1–10) ── */

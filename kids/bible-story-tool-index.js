@@ -1297,6 +1297,16 @@
     "kw": "jesus temptation wilderness matthew 4 bread stones scripture it is written worship angels forty days"
   },
   {
+    "key": "richYoungRuler",
+    "title": "Jesus Talks with a Rich Young Man",
+    "kjvRef": "Mark 10:17–27",
+    "who": "Jesus",
+    "to": "The rich young ruler — and His disciples (and us)",
+    "apply": "Jesus wants our hearts to love Him more than anything else.",
+    "theme": "Obedience",
+    "kw": "rich young ruler eternal life commandments follow mark 10 treasure in heaven camel needle love God"
+  },
+  {
     "key": "jesusSermon",
     "title": "Jesus Teaches How to Live God’s Way",
     "kjvRef": "Matthew 5:1–16",
@@ -2435,16 +2445,6 @@
     "apply": "The Bible ends with hope: Jesus is coming again—and He makes all things new.",
     "theme": "Love",
     "kw": "revelation patmos lamb new jerusalem come quickly jesus return new heaven"
-  },
-  {
-    "key": "richYoungRuler",
-    "title": "Rich Young Ruler",
-    "kjvRef": "Matthew 19:16–22",
-    "who": "Jesus",
-    "to": "The rich young ruler",
-    "apply": "Give to others—follow Jesus! He's worth more than anything!",
-    "theme": "Obedience",
-    "kw": "rich young ruler give follow mark 10 matthew 19 treasure"
   },
   {
     "key": "roadToEmmaus",

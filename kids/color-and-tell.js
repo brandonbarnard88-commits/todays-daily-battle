@@ -2193,7 +2193,7 @@
     },
     {
       id: 'rich-young-ruler',
-      title: 'The Rich Young Ruler',
+      title: 'Jesus Talks with a Rich Young Man',
       verse:
         'Jesus said unto him, If thou wilt be perfect, go and sell that thou hast, and give to the poor... - Matthew 19:21',
       lead: 'Four pictures on the road—save each one, then watch your story.',

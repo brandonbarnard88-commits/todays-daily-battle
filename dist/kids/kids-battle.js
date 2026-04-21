@@ -1781,20 +1781,6 @@
       narration:
         "Jesus Tells a Story About Good Soil — Matthew 13:1–23. The same day went Jesus out of the house, and sat by the sea side. And great multitudes were gathered together unto him, so that he went into a ship, and sat; and the whole multitude stood on the shore. And he spake many things unto them in parables, saying, Behold, a sower went forth to sow; And when he sowed, some seeds fell by the way side, and the fowls came and devoured them up: Some fell upon stony places, where they had not much earth: and forthwith they sprung up, because they had no deepness of earth: And when the sun was up, they were scorched; and because they had no root, they withered away. And some fell among thorns; and the thorns sprung up, and choked them: But other fell into good ground, and brought forth fruit, some an hundredfold, some sixtyfold, some thirtyfold. Who hath ears to hear, let him hear. Later Jesus explained that the seed is the word of the kingdom; the good ground is an honest and good heart, hearing the word, and keeping it, and bringing forth fruit with patience. For you: ask God to help you listen — let His Word grow in you like good soil."
     },
-    richYoungRuler: {
-      title: 'Rich Young Ruler',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Rich man asks Jesus' },
-        { src: 'panel-david-2.svg', alt: 'Jesus says: give to the poor' },
-        { src: 'panel-david-3.svg', alt: 'Follow Jesus—He\'s worth more!' }
-      ],
-      caption: 'Swipe to see Jesus say: give and follow! 💝',
-      videoId: 'Z5tCVTOLnQ0',
-      videoTitle: 'The Rich Young Ruler – Animated Bible Story!',
-      keywords: ['rich young ruler', 'give', 'follow', 'mark 10', 'matthew 19', 'treasure'],
-      kjvRef: 'Matthew 19:16–22',
-      kidContext: { who: 'Jesus', to: 'The rich young ruler', apply: 'Give to others—follow Jesus! He\'s worth more than anything!' }
-    },
     widowsMite: {
       title: "Widow's Mite",
       panels: [
@@ -6748,18 +6734,43 @@
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God sees generosity, not amount! Give from your heart—even a little is big to God.' }
     },
     richYoungRuler: {
-      title: 'The Rich Young Ruler',
+      title: 'Jesus Talks with a Rich Young Man',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A rich young man asks: what must I do to have eternal life?' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus says: sell all, give to the poor, follow me' },
-        { src: 'panel-noah-3.svg', alt: 'He walks away sad—things can\'t satisfy like God' }
+        {
+          src: 'panel-noah-1.svg',
+          alt: 'A rich young ruler runs and kneels — Good Master, what shall I do to inherit eternal life?'
+        },
+        {
+          src: 'panel-noah-2.svg',
+          alt: 'Jesus beholds him and loves him — one thing thou lackest: sell, give, take up the cross, follow me'
+        },
+        {
+          src: 'panel-noah-3.svg',
+          alt: 'The young man goes away grieved — Jesus teaches how hard riches are; with God all things are possible'
+        }
       ],
-      caption: 'Swipe to see what matters more than stuff—Jesus! 💎',
+      caption: 'Swipe to see Jesus look with love—and call us to follow Him first. 💎',
       videoId: 'Z5tCVTOLnQ0',
       videoTitle: 'The Rich Young Ruler – Animated Bible Story!',
-      keywords: ['rich', 'young ruler', 'mark 10', 'eternal life', 'camel', 'needle', 'follow'],
-      kjvRef: 'Mark 10',
-      kidContext: { who: 'Jesus', to: 'The rich young man (and us)', apply: 'Nothing is worth more than following Jesus! Let go of what holds you back.' }
+      keywords: [
+        'rich young ruler',
+        'eternal life',
+        'commandments',
+        'follow',
+        'mark 10',
+        'treasure in heaven',
+        'camel',
+        'needle',
+        'love God'
+      ],
+      kjvRef: 'Mark 10:17–27',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The rich young ruler — and His disciples (and us)',
+        apply: 'Jesus wants our hearts to love Him more than anything else.'
+      },
+      narration:
+        "Jesus Talks with a Rich Young Man — Mark 10:17–27. And when he was gone forth into the way, there came one running, and kneeled to him, and asked him, Good Master, what shall I do that I may inherit eternal life? And Jesus said unto him, Why callest thou me good? there is none good but one, that is, God. Thou knowest the commandments, Do not commit adultery, Do not kill, Do not steal, Do not bear false witness, Defraud not, Honour thy father and mother. And he answered and said to him, Master, all these have I observed from my youth. Then Jesus beholding him loved him, and said unto him, One thing thou lackest: go thy way, sell whatsoever thou hast, and give to the poor, and thou shalt have treasure in heaven: and come, take up the cross, and follow me. And he was sad at that saying, and went away grieved: for he had great possessions. And Jesus looked round about, and saith unto his disciples, How hardly shall they that have riches enter into the kingdom of God! And the disciples were astonished at his words. But Jesus answereth again, and saith unto them, Children, how hard is it for them that trust in riches to enter into the kingdom of God! It is easier for a camel to go through the eye of a needle, than for a rich man to enter into the kingdom of God. And they were astonished out of measure, saying among themselves, Who then can be saved? And Jesus looking upon them saith, With men it is impossible, but not with God: for with God all things are possible. For you: Jesus wants our hearts to love Him more than anything else."
     },
     maryAnoint: {
       title: 'Mary Anoints Jesus\' Feet',

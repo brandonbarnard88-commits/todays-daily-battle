@@ -13202,7 +13202,7 @@
           "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
           "Acts 2",
           "Luke 15:11–32",
-          "Matthew 19:16–22"
+          "Mark 10:17–27"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16971,7 +16971,7 @@
         "choices": [
           "Acts 16:11–15",
           "Luke 15:11–32",
-          "Matthew 19:16–22",
+          "Mark 10:17–27",
           "Acts 2"
         ],
         "correctIndex": 0,
@@ -25369,88 +25369,132 @@
     ]
   },
   "richYoungRuler": {
-    "kjvRef": "Matthew 19:16–22",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Mark 10:17–27 (KJV)",
+    "verseExcerpt": "Then Jesus beholding him loved him, and said unto him, One thing thou lackest… take up the cross, and follow me. — Mark 10:21 (KJV)",
+    "readAlongTitle": "Jesus Talks with a Rich Young Man",
+    "quizWrongHumilityHint": "Listen again — running; kneeled; Good Master; eternal life; commandments; loved him; sell; treasure; cross; follow; grieved; riches; camel; needle; with God.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Rich Young Ruler (Matthew 19:16–22).",
-      "Rich man asks Jesus Jesus says: give to the poor Follow Jesus—He's worth more!",
-      "Give to others—follow Jesus!",
-      "He's worth more than anything!"
+      "A rich young ruler came running to Jesus and knelt down.",
+      "He asked, “Good Master, what shall I do that I may inherit eternal life?”",
+      "Jesus said, “Thou knowest the commandments…”",
+      "The young man said he had kept them all since he was a child.",
+      "Jesus looked at him and loved him.",
+      "He said, “One thing thou lackest: go thy way, sell whatsoever thou hast, and give to the poor, and thou shalt have treasure in heaven: and come, take up the cross, and follow me.”",
+      "The young man went away sad because he had great riches and did not want to give them up.",
+      "Jesus said to His disciples, “How hardly shall they that have riches enter into the kingdom of God!”",
+      "Jesus wants our hearts to love Him more than anything else.",
+      "Reference: Mark 10:17–27 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A rich young man ran to Jesus and knelt down.",
+        "caption": "There came one running, and kneeled",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "He asked, “Good Master, what shall I do that I may inherit eternal life?”",
+        "caption": "Inherit eternal life",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “Thou knowest the commandments.”",
+        "caption": "Honour thy father and mother",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The young man said he had kept them.",
+        "caption": "From my youth",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus looked at him, loved him, and said to sell, give, take up the cross, and follow Him.",
+        "caption": "One thing thou lackest",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus wants our hearts to love Him most.",
+        "caption": "With God all things are possible",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Peter 1–5",
-          "Ruth 1",
-          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "Matthew 19:16–22"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 19:16–22.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Jesus",
-          "The Lord",
-          "Joshua",
-          "Holy Spirit"
+          "Mark 10:17–27",
+          "Psalm 23",
+          "Jonah 1",
+          "Genesis 1"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Mark 10:17–27.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did the young man first ask Jesus?",
         "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "Give to others—follow Jesus! He's worth more than anything!",
-          "The Bible is only pretend stories."
+          "“Good Master, what shall I do that I may inherit eternal life?”",
+          "“How do I become king of the city?”",
+          "“Please hide my toys forever.”",
+          "“Tell me only jokes.”"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Give to others—follow Jesus! He's worth more than anything!.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 10:17.",
+        "wrongFeedback": "Think about the honest question he asked Jesus. (Answer: Good Master… eternal life.)"
+      },
+      {
+        "question": "Because Jesus loved him, what did Jesus call him to do next?",
+        "choices": [
+          "Sell what he had, give to the poor, take up the cross, and follow Jesus.",
+          "Buy more riches quietly.",
+          "Refuse to talk to God again.",
+          "Only listen to friends who say what he wants to hear."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 10:21.",
+        "wrongFeedback": "Reread Jesus’ “one thing thou lackest” words. (Answer: sell… give… cross… follow.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Rich man asks Jesus",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city."
+          "The young man went away sad—because he cared greatly for his riches.",
+          "He turned into a balloon and floated away.",
+          "A zebra built the temple in one day.",
+          "Nobody spoke to Jesus at all."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—that matches Mark 10:22.",
+        "wrongFeedback": "Cross out the joke answers. Which matches God’s Word? (Answer: went away sad… riches.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Ignore God until we are older.",
-          "Give to others—follow Jesus! He's worth more than anything!"
+          "Ask Jesus to help me love Him more than stuff — and take one small honest step of obedience today.",
+          "Try to be perfect in my own strength alone.",
+          "Believe money is the only comfort.",
+          "Hide what I really love from God on purpose."
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Give to others—follow Jesus! He's worth more than anything!.)"
+        "wrongFeedback": "Think: which matches Jesus’ heart-call? (Answer: love Him more than stuff… honest step.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Rich Young Ruler with God's Word today.",
-    "takeaway": "Give to others—follow Jesus! He's worth more than anything!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Rich Young Ruler. Amen.",
+    "doneMessage": "Great job reading Jesus Talks with a Rich Young Man with God's Word today.",
+    "takeaway": "Jesus wants our hearts to love Him more than anything else.",
+    "prayer": "Lord Jesus, please help me love You first—not money or things. Show me one honest step today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rich man asks Jesus (rich young ruler)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: give to the poor (give)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Follow Jesus—He's worth more! (follow)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Rich man asks Jesus (mark 10)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: give to the poor (matthew 19)"
-    ]
+      "A simple, peaceful black-and-white line-art scene for young children: A rich young man kneeling before Jesus with a thoughtful face. Jesus has a kind, loving face and is speaking to him. Thick, bold outlines with large open spaces on the young man’s robe, Jesus’ robe, and the ground for easy coloring. Soft road and gentle sky with minimal lines. Kind and serious mood — focus on Jesus talking with the young man. Clean, minimal, no fear or sadness shown strongly, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Running, kneeling — Good Master (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Commandments — from my youth (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Jesus loved him — one thing lackest (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Treasure in heaven — take up the cross (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Went away grieved — great possessions (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Camel, needle — with God possible (love)"
+    ],
+    "readAlongImages": []
   },
   "riverOfLife": {
     "kjvRef": "the Bible",

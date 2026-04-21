@@ -147,7 +147,8 @@
       jesusDisciples: 'jesusDisciples',
       jesusWaterWine: 'jesusWaterWine',
       jesusTempted: 'jesusTempted',
-      jesusSermon: 'jesusSermon'
+      jesusSermon: 'jesusSermon',
+      samaritanWoman: 'samaritanWoman'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -161,6 +162,7 @@
     if (low.indexOf('moses') >= 0) return low.indexOf('baby') >= 0 ? 'baby-moses' : 'moses-red-sea';
     if (low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses-red-sea';
     if (low.indexOf('creation') >= 0 || low.indexOf('adam') >= 0) return 'creation';
+    if (low.indexOf('samaritanwoman') >= 0 || low === 'samaritanwoman') return 'samaritanWoman';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -3860,18 +3862,22 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 18:5</text>'
       ),
 
-      /* ── Week 11: Samaritan Woman (136) ── */
+      /* ── Week 11: Samaritan Woman (136) — gentle well, living water (John 4:1–42) ── */
       samaritanWoman: svg(
         ground() + hills() +
         '<rect x="155" y="145" width="90" height="60" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
         '<path d="M155 175 L200 155 L245 175" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="200" cy="168" rx="28" ry="10" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M175 175 Q200 172 225 175" ' + s + ' stroke-width="1.4" opacity="0.4"/>' +
         '<line x1="200" y1="145" x2="200" y2="260" ' + s + ' stroke-width="2.5"/>' +
         person(140, 178, 12, 35) +
         '<path d="M132 192 Q120 202 122 215" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="118" cy="248" rx="18" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="118" cy="238" rx="12" ry="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         person(265, 168, 13, 38) +
         '<path d="M258 182 Q250 192 254 205" ' + s + ' stroke-width="2.5"/>' +
         sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 4:10</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 4:1–42</text>'
       ),
 
       /* ── Week 11: Martha Serve (137) ── */

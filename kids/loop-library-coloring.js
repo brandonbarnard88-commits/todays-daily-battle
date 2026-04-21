@@ -161,6 +161,7 @@
   "jesusWaterWine": "jesusWaterWine",
   "jesusTempted": "jesusTempted",
   "jesusSermon": "jesusSermon",
+  "samaritanWoman": "samaritanWoman",
   "shunammiteReturn": "shunammiteReturn",
   "solomonTemple": "solomonTemple",
   "solomonTwoMothers": "solomonTwoMothers",

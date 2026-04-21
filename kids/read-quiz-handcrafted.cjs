@@ -59,6 +59,7 @@
  * Water to wine at Cana — first miracle (John 2:1–11, gentle): buildJesusWaterWineReadQuiz() (library key: jesusWaterWine).
  * Temptation in the wilderness — God’s Word (Matthew 4:1–11, gentle): buildJesusTemptedReadQuiz() (library key: jesusTempted).
  * Sermon on the Mount — gentle introduction (Matthew 5:1–16 summary, gentle): buildJesusSermonReadQuiz() (library key: jesusSermon).
+ * Woman at the well — living water (John 4:1–42, gentle summary): buildSamaritanWomanReadQuiz() (library key: samaritanWoman).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -6926,6 +6927,147 @@ function buildJesusSermonReadQuiz() {
   };
 }
 
+/** Woman at the well — living water (gentle). Library key: samaritanWoman */
+function buildSamaritanWomanReadQuiz() {
+  return {
+    kjvRef: 'John 4:1–42 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Whosoever drinketh of the water that I shall give him shall never thirst. — John 4:14 (KJV)',
+    readAlongTitle: 'Jesus Offers Living Water',
+    quizWrongHumilityHint:
+      'Listen again — Samaria; well; tired Jesus; woman; drink; gift of God; living water; heart happy; ran to town; believed.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus was walking through Samaria.',
+      'He was tired, so He sat down by a well.',
+      'A woman from Samaria came to get water.',
+      'Jesus asked her for a drink.',
+      'She was surprised because Jews and Samaritans usually did not talk to each other.',
+      'Jesus told her, “If thou knewest the gift of God… thou wouldest have asked of him, and he would have given thee living water.”',
+      'The woman said she wanted this water so she would never be thirsty again.',
+      'Jesus told her about her life and that He was the One who could give her the water that makes the heart happy forever.',
+      'She left her waterpot and ran to tell the people in her town, “Come, see a man, which told me all things that ever I did: is not this the Christ?”',
+      'Many people from that city believed in Jesus because of what the woman said.',
+      'Jesus offers the water of life to everyone who is thirsty in their heart.',
+      'Reference: John 4:1–42 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus sat by a well in Samaria.',
+        caption: 'By the well',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'A woman came to get water.',
+        caption: 'Drawing water',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus asked her for a drink.',
+        caption: 'Kind words',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He told her about living water.',
+        caption: 'Living water',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The woman wanted the water that makes the heart happy.',
+        caption: 'Thirsty heart',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'She ran to tell her friends about Jesus.',
+        caption: 'Come and see',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus offers the water of life to everyone.',
+        caption: 'For everyone',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'John 4:1–42', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 4:1–42.)'
+      },
+      {
+        question: 'What kind of “water” was Jesus mainly talking about?',
+        choices: [
+          'Living water — the life and love only He gives',
+          'Only water from that one bucket',
+          'Water that tastes like candy',
+          'Water that only works on Tuesdays'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus offers something far deeper than a drink from a well.',
+        wrongFeedback:
+          'Think about “never thirst” in the heart and God’s gift. (Answer: Living water — the life and love only He gives.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'Jesus only loves people who are already perfect.',
+          'Jesus offers the water of life to everyone who is thirsty in their heart.',
+          'We should never tell anyone about Jesus.',
+          'Wells are only pretend in the Bible.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the ending about Jesus’ gift and the town believing. (Answer: Jesus offers the water of life to everyone who is thirsty in their heart.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Come, see a man, which told me all things that ever I did: is not this the Christ?',
+          'A rocket ship landed at the well.',
+          'The well turned into a trampoline.',
+          'Everyone forgot how to walk home.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that invitation comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches what the woman told the town? (Answer: Come, see a man… is not this the Christ?)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus for living water — ask Him to satisfy our hearts and help us tell others about Him.',
+          'Never talk to anyone who seems different.',
+          'Ignore the Bible until we feel perfect.',
+          'Only pray when we are not thirsty for God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus’ kindness at the well? (Answer: Thank Jesus for living water — ask Him to satisfy our hearts and help us tell others about Him.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Offers Living Water with God's Word today.",
+    takeaway: 'Jesus offers the water of life to everyone who is thirsty in their heart.',
+    prayer:
+      'Lord Jesus, thank You for living water. Satisfy our hearts today and help us share Your love. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus sitting by the well talking kindly to a woman from Samaria the woman has a waterpot beside her thick bold outlines with large open spaces on Jesus\' robe the woman\'s robe the well and the ground for easy coloring soft hills and a gentle sky with minimal lines kind and inviting mood focus on Jesus offering living water clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and sand, friendly not scary, no text in image: Samaria — by the well (rest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and sand, friendly not scary, no text in image: Woman draws water (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and sand, friendly not scary, no text in image: Gift of God — living water (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and sand, friendly not scary, no text in image: Heart happy forever (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and sand, friendly not scary, no text in image: Come and see — town believes (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -7029,5 +7171,6 @@ module.exports = {
   jesusWaterWine: buildJesusWaterWineReadQuiz(),
   jesusTempted: buildJesusTemptedReadQuiz(),
   jesusSermon: buildJesusSermonReadQuiz(),
+  samaritanWoman: buildSamaritanWomanReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

@@ -3008,13 +3008,13 @@
   },
   {
     "key": "samaritanWoman",
-    "title": "The Woman at the Well",
-    "kjvRef": "",
+    "title": "Jesus Offers Living Water",
+    "kjvRef": "John 4:1–42",
     "who": "Jesus",
-    "to": "The Samaritan woman",
-    "apply": "Jesus talks to everyone—even those people ignore! He offers living water to all.",
+    "to": "The Samaritan woman — and everyone who listens",
+    "apply": "Jesus offers the water of life to everyone who is thirsty in their heart — He is kind to all.",
     "theme": "Love",
-    "kw": "samaritan woman well john 4 water living water believe tell"
+    "kw": "samaritan woman well john 4 living water gift of god samaria sychar jacob believe christ tell thirsty heart"
   },
   {
     "key": "thessaloniansHope",

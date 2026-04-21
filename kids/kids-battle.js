@@ -6988,17 +6988,46 @@
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Don\'t give up in prayer! God always answers those who keep coming to Him.' }
     },
     samaritanWoman: {
-      title: 'The Woman at the Well',
+      title: 'Jesus Offers Living Water',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A Samaritan woman draws water at noon' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus asks for water—she\'s surprised He\'d talk to her' },
-        { src: 'panel-noah-3.svg', alt: 'He offers living water—she runs to tell everyone!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus sits by Jacob’s well in Samaria — a woman comes to draw water'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus speaks of living water — the gift of God for thirsty hearts'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'She runs to the city — Come, see a man… is not this the Christ?'
+        }
       ],
-      caption: 'Swipe to see Jesus change a woman\'s life at the well! 💧',
+      caption:
+        'Swipe to see Jesus offer living water at the well — kind words, thirsty hearts, good news for the town.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samaritan', 'woman', 'well', 'john 4', 'water', 'living water', 'believe', 'tell'],
-      kidContext: { who: 'Jesus', to: 'The Samaritan woman', apply: 'Jesus talks to everyone—even those people ignore! He offers living water to all.' }
+      keywords: [
+        'samaritan',
+        'woman',
+        'well',
+        'john 4',
+        'living water',
+        'gift of God',
+        'samaria',
+        'believe',
+        'christ',
+        'tell'
+      ],
+      kjvRef: 'John 4:1–42',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The Samaritan woman — and everyone who listens',
+        apply:
+          'Jesus offers the water of life to everyone who is thirsty in their heart — He is kind to all.'
+      },
+      narration:
+        "Jesus Offers Living Water — John 4:1–42. When therefore the Lord knew how the Pharisees had heard that Jesus made and baptized more disciples than John, (Though Jesus himself baptized not, but his disciples,) He left Judaea, and departed again into Galilee. And he must needs go through Samaria. Then cometh he to a city of Samaria, which is called Sychar, near to the parcel of ground that Jacob gave to his son Joseph. Now Jacob's well was there. Jesus therefore, being wearied with his journey, sat thus on the well: and it was about the sixth hour. There cometh a woman of Samaria to draw water: Jesus saith unto her, Give me to drink. Then saith the woman of Samaria unto him, How is it that thou, being a Jew, askest drink of me, which am a woman of Samaria? Jesus answered and said unto her, If thou knewest the gift of God, and who it is that saith to thee, Give me to drink; thou wouldest have asked of him, and he would have given thee living water. Whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life. The woman then left her waterpot, and went her way into the city, and saith to the men, Come, see a man, which told me all things that ever I did: is not this the Christ? And many of the Samaritans of that city believed on him for the saying of the woman. For you: Jesus offers living water — come and drink."
     },
     marthaServe: {
       title: 'Martha Serves Jesus',
@@ -7503,7 +7532,7 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusWalksWater',
@@ -10659,6 +10688,7 @@
     jesusWaterWine: 'Miracles',
     jesusTempted: 'Obedience',
     jesusSermon: 'Love',
+    samaritanWoman: 'Love',
     jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
@@ -10738,7 +10768,7 @@
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */
     annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', persistentWidow: 'Obedience',
-    samaritanWoman: 'Love', marthaServe: 'Obedience', marySit: 'Obedience',
+    marthaServe: 'Obedience', marySit: 'Obedience',
     dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
     loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',
     /* Week 12 */

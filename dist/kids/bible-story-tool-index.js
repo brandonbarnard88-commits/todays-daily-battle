@@ -1427,6 +1427,16 @@
     "kw": "lost sheep parable shepherd ninety-nine shoulders rejoicing luke 15 repenteth joy in heaven find jesus good shepherd"
   },
   {
+    "key": "parableTwoSons",
+    "title": "Jesus Tells About Two Sons and a Vineyard",
+    "kjvRef": "Matthew 21:28–32",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "Jesus wants us to do what is right — not only say we will. True obedience shows in what we do.",
+    "theme": "Obedience",
+    "kw": "two sons vineyard matthew 21 i go sir repented will of his father parable obey jesus kingdom of god"
+  },
+  {
     "key": "jesus",
     "title": "Jesus the Good Shepherd",
     "kjvRef": "Matthew; Mark; Luke; John (Gospels overview)",

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-21T15:56:08.120Z",
-  "surfacedRefCount": 2825,
-  "overrideCount": 2825,
+  "generatedAt": "2026-04-21T16:26:11.181Z",
+  "surfacedRefCount": 2826,
+  "overrideCount": 2826,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 205,
+      "refs": 206,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 188,
+      "refs": 189,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -272,7 +272,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 209,
+      "refs": 210,
       "pairs": 0
     },
     "memorize.html": {
@@ -2762,6 +2762,7 @@
     "Matthew 21:1-11",
     "Matthew 21:10",
     "Matthew 21:22",
+    "Matthew 21:28-32",
     "Matthew 21:31",
     "Matthew 21:7",
     "Matthew 21:8",
@@ -19703,6 +19704,14 @@
     "Matthew 21:22": {
       "general": {
         "plainExplanation": "All things, whatever you shall ask in prayer, believing, you shall receive.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 21:28-32": {
+      "general": {
+        "plainExplanation": "Key idea: But what think you? A certain man had two sons; and he came to the first, and said, Son, go work to day in my vineyard. He answered and said, I will not: bu...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

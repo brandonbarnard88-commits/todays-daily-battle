@@ -270,6 +270,7 @@
     revelationThroneRoom: 115,
     richYoungRuler: 81,
     parableVineyardWorkers: 212,
+    parableTwoSons: 213,
     resurrection: 88,
     roadToEmmaus: 89,
     romansRoadKids: 88,

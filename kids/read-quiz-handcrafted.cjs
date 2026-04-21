@@ -83,6 +83,7 @@
  * Jesus welcomes the little children — Mark 10:13–16 (gentle): buildJesusBlessKidsReadQuiz() (library key: jesusBlessKids; alias jesusAndChildren).
  * Rich young ruler — Mark 10:17–27 (gentle): buildRichYoungRulerReadQuiz() (library key: richYoungRuler).
  * Workers in the vineyard — Matthew 20:1–16 (gentle): buildParableVineyardWorkersReadQuiz() (library key: parableVineyardWorkers).
+ * Two sons and a vineyard — Matthew 21:28–32 (gentle): buildParableTwoSonsReadQuiz() (library key: parableTwoSons).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -10248,6 +10249,137 @@ function buildParableVineyardWorkersReadQuiz() {
   };
 }
 
+/** Two sons and a vineyard — Matthew 21:28–32 (gentle). Library key: parableTwoSons */
+function buildParableTwoSonsReadQuiz() {
+  return {
+    kjvRef: 'Matthew 21:28–32 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Whether of them twain did the will of his father? They say unto him, The first. — Matthew 21:31 (KJV)',
+    readAlongTitle: 'Jesus Tells About Two Sons and a Vineyard',
+    quizWrongHumilityHint:
+      'Listen again — two sons; vineyard; I will not; repented; went; I go sir; went not; twain; will of his father; publicans; harlots; kingdom; John; believed; do right.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus asked the people a question.',
+      '“A man had two sons. He went to the first and said, ‘Son, go work to day in my vineyard.’',
+      'The first son answered, ‘I will not.’ But afterward he repented and went.',
+      'The man went to the second son and said the same thing.',
+      'The second son answered, ‘I go, sir,’ but he did not go.',
+      '“Which of the two did the will of his father?” The people answered, “The first.”',
+      'Jesus said, “Verily I say unto you, That the publicans and the harlots go into the kingdom of God before you.”',
+      'Jesus was teaching that God cares when we truly obey — not only when we say pretty words.',
+      'Jesus wants us to do what is right, not just say we will.',
+      'Reference: Matthew 21:28–32 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A man had two sons. The father said, “Son, go work to day in my vineyard.”',
+        caption: 'Go work to day in my vineyard',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The first son said no — but afterward he repented and went.',
+        caption: 'I will not: but afterward he repented',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The second son said, “I go, sir” — but he did not go.',
+        caption: 'I go, sir',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus asked, “Which of them did the father’s will?” They said, “The first.”',
+        caption: 'Whether of them twain',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus taught that God welcomes people who turn to Him with honest hearts.',
+        caption: 'Believed him',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus wants us to do what is right — not just say we will.',
+        caption: 'The will of his father',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 21:28–32', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 21:28–32.)'
+      },
+      {
+        question: 'What did the first son say at first?',
+        choices: [
+          '“I will not” — but afterward he repented and went.',
+          '“I will not” — and he never went.',
+          '“I go, sir” — and he went right away.',
+          'He said nothing at all.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:29–30.',
+        wrongFeedback: 'Listen again for the first son’s words and what happened next. (Answer: I will not… afterward… went.)'
+      },
+      {
+        question: 'What did the second son say?',
+        choices: [
+          '“I go, sir” — but he did not go.',
+          '“I will not.”',
+          'He ran straight to the vineyard.',
+          'He brought the father a puppy.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:30.',
+        wrongFeedback: 'Think about what he said — and what he did. (Answer: I go, sir… went not.)'
+      },
+      {
+        question: 'Which son did the will of his father?',
+        choices: [
+          'The first — because he went to work in the vineyard.',
+          'The second — because he spoke politely.',
+          'Neither one.',
+          'Only the sheep in the field.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:31.',
+        wrongFeedback: 'Remember who actually obeyed. (Answer: the first — he went.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me obey with my feet — not only my mouth — today.',
+          'Only say kind words and never do anything.',
+          'Hide when God asks me to help.',
+          'Pretend I obeyed when I did not.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback: 'Think: which matches “do the will of the Father”? (Answer: obey with feet… not only mouth.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Tells About Two Sons and a Vineyard with God's Word today.",
+    takeaway: 'Jesus wants us to do what is right, not just say we will.',
+    prayer:
+      'Lord Jesus, please help me obey You for real — with honest steps, not only easy words. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: A father talking to his first son, who looks sorry and is walking toward the vineyard with a tool. The second son is standing still with his arms crossed. Thick, bold outlines with large open spaces on the father’s robe, the sons’ robes, and the ground for easy coloring. Soft vineyard vines and gentle sky with minimal lines. Honest and obedient mood — focus on the son who changed his mind and went to work. Clean, minimal, no anger, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Father asks — go work today (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: First son — sorry, then went (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Second son — I go sir — did not go (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Which did the father’s will? The first (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Kingdom — honest hearts turn to God (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Do what is right — not only say (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -10645,6 +10777,7 @@ module.exports = {
   prodigalSon: buildParableProdigalSonReadQuiz(),
   richYoungRuler: buildRichYoungRulerReadQuiz(),
   parableVineyardWorkers: buildParableVineyardWorkersReadQuiz(),
+  parableTwoSons: buildParableTwoSonsReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

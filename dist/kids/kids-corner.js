@@ -3205,6 +3205,32 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 20:15</text>'
       ),
 
+      /* Matthew 21:28–32 — father, two sons, vineyard; first repents and goes */
+      parableTwoSons: svg(
+        ground() +
+        hills() +
+        sun(50, 42, 18) +
+        cloud(302, 34) +
+        '<path d="M220 228 Q260 212 300 228 Q340 212 372 228" ' +
+        s +
+        ' stroke-width="2" fill="none"/>' +
+        '<path d="M224 238 Q264 222 304 238 Q344 222 368 238" ' +
+        s +
+        ' stroke-width="1.6" fill="none" opacity="0.75"/>' +
+        '<path d="M240 218 L246 202 M272 218 L278 202 M310 218 L316 202" ' + s + ' stroke-width="1.4"/>' +
+        person(200, 148, 11, 30) +
+        '<line x1="188" y1="188" x2="172" y2="198" ' + s + ' stroke-width="2"/>' +
+        '<line x1="212" y1="188" x2="228" y2="198" ' + s + ' stroke-width="2"/>' +
+        person(118, 172, 9, 24) +
+        '<line x1="128" y1="210" x2="148" y2="200" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="132" y1="218" x2="132" y2="238" ' + s + ' stroke-width="2"/>' +
+        '<line x1="124" y1="224" x2="140" y2="224" ' + s + ' stroke-width="1.6"/>' +
+        person(292, 174, 9, 24) +
+        '<line x1="284" y1="206" x2="276" y2="214" ' + s + ' stroke-width="2"/>' +
+        '<line x1="300" y1="206" x2="308" y2="214" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:31</text>'
+      ),
+
       /* Week 6 gentle: Lost sheep — shepherd rejoicing, sheep on shoulders (Luke 15:3–7) */
       parableLostSheep: svg(
         ground() +
@@ -4850,6 +4876,7 @@
     parableHiddenTreasure: 'parableHiddenTreasure',
     parablePearl: 'parablePearl',
     parableVineyardWorkers: 'parableVineyardWorkers',
+    parableTwoSons: 'parableTwoSons',
     parableLostSheep: 'parableLostSheep',
     prodigalSon: 'prodigalSonWelcome',
     prodigalSonWelcome: 'prodigalSonWelcome',
@@ -6607,7 +6634,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

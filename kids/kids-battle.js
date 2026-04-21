@@ -5701,6 +5701,47 @@
       narration:
         "Jesus Tells About the Generous Vineyard Owner — Matthew 20:1–16. For the kingdom of heaven is like unto a man that is an householder, which went out early in the morning to hire labourers into his vineyard. And when he had agreed with the labourers for a penny a day, he sent them into his vineyard. And he went out about the third hour, and saw others standing idle in the marketplace, And said unto them; Go ye also into the vineyard, and whatsoever is right I will give you. And they went their way. Again he went out about the sixth and ninth hour, and did likewise. And about the eleventh hour he went out, and found others standing idle, and saith unto them, Why stand ye here all the day idle? They say unto him, Because no man hath hired us. He saith unto them, Go ye also into the vineyard; and whatsoever is right, that shall ye receive. So when even was come, the lord of the vineyard saith unto his steward, Call the labourers, and give them their hire, beginning from the last unto the first. And when they came that were hired about the eleventh hour, they received every man a penny. But when the first came, they supposed that they should have received more; and they likewise received every man a penny. And when they had received it, they murmured against the goodman of the house, Saying, These last have wrought but one hour, and thou hast made them equal unto us, which have borne the burden and heat of the day. But he answered one of them, and said, Friend, I do thee no wrong: didst not thou agree with me for a penny? Take that thine is, and go thy way: I will give unto this last, even as unto thee. Is it not lawful for me to do what I will with mine own? Is thine eye evil, because I am good? So the last shall be first, and the first last: for many be called, but few chosen. For you: God is generous and kind. He gives His love freely, and we can be glad when God is good to others."
     },
+    parableTwoSons: {
+      title: 'Jesus Tells About Two Sons and a Vineyard',
+      panels: [
+        {
+          src: 'panel-noah-1.svg',
+          alt: 'A father asks his first son — Go work to day in my vineyard'
+        },
+        {
+          src: 'panel-noah-2.svg',
+          alt: 'The first son said no, then repented and went — the second said I go, sir, and went not'
+        },
+        {
+          src: 'panel-noah-3.svg',
+          alt: 'Which did the father’s will? Jesus teaches us to obey God with our deeds'
+        }
+      ],
+      caption: 'Swipe to see honest obedience — doing what the Father asks, not only saying we will. 🍇',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'two sons',
+        'vineyard',
+        'matthew 21',
+        'i go sir',
+        'repented',
+        'will of his father',
+        'parable',
+        'obey',
+        'jesus',
+        'kingdom of god'
+      ],
+      kjvRef: 'Matthew 21:28–32',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'Jesus wants us to do what is right — not only say we will. True obedience shows in what we do.'
+      },
+      narration:
+        "Jesus Tells About Two Sons and a Vineyard — Matthew 21:28–32. But what think ye? A certain man had two sons; and he came to the first, and said, Son, go work to day in my vineyard. He answered and said, I will not: but afterward he repented, and went. And he came to the second, and said likewise. And he answered and said, I go, sir: and went not. Whether of them twain did the will of his father? They say unto him, The first. Jesus saith unto them, Verily I say unto you, That the publicans and the harlots go into the kingdom of God before you. For John came unto you in the way of righteousness, and ye believed him not: but the publicans and the harlots believed him: and ye, when ye had seen it, repented not afterward, that ye might believe him. For you: Jesus wants us to do what is right, not just say we will."
+    },
     jesusParableGoodShepherd: {
       title: 'The Good Shepherd',
       panels: [
@@ -8177,7 +8218,7 @@
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -8196,7 +8237,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -8712,6 +8753,13 @@
       )
     ) {
       return { type: 'carousel', story: 'parableVineyardWorkers' };
+    }
+    if (
+      /matthew 21:2[89]|matthew 21:3[012]|go work to day in my vineyard|whether of them twain|did the will of his father|i go,?\s*sir|two sons.*vineyard|parable.*two sons/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'parableTwoSons' };
     }
     if (/widow.*mite|widow.*coin|mark 12:41|luke 21:2/.test(low)) {
       return { type: 'carousel', story: 'widowsMite' };
@@ -11289,7 +11337,7 @@
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
     ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',

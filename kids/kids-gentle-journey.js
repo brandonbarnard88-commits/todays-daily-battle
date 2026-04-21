@@ -180,6 +180,7 @@
     'persistentWidow',
     'richYoungRuler',
     'parableVineyardWorkers',
+    'parableTwoSons',
     'widowMite',
     'widowsMite',
     'zacchaeus',

@@ -92,6 +92,7 @@
   "johnBaptize": "johnBaptize",
   "johnPatmos": "revelationThrone",
   "jonah": "jonah",
+  "jonahVine": "jonahVine",
   "jordanCrossing": "joshuaJordan",
   "josephCoat": "josephCoat",
   "josephPrison": "josephPrison",

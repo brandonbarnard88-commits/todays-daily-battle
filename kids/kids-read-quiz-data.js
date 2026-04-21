@@ -8747,7 +8747,7 @@
           "the Bible",
           "James 2:14–26",
           "John 10:1–18",
-          "Jonah 4"
+          "Jonah 1:1–17; 2:1–10; 3:1–10"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12928,7 +12928,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28; Mark 16; Luke 24; John 20",
-          "Jonah 4",
+          "Jonah 1:1–17; 2:1–10; 3:1–10",
           "Luke 2:1–20",
           "Mark 5:21–43"
         ],
@@ -14121,87 +14121,132 @@
     ]
   },
   "jonahVine": {
-    "kjvRef": "Jonah 4",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Jonah 1:1–17; 2:1–10; 3:1–10 (KJV)",
+    "verseExcerpt": "Now the LORD had prepared a great fish to swallow up Jonah. And Jonah was in the belly of the fish three days and three nights. — Jonah 1:17 (KJV)",
+    "readAlongTitle": "God Gives Jonah a Second Chance",
+    "quizWrongHumilityHint": "Listen again — God’s call; ship; storm into the sea; fish kept Jonah safe; Jonah was sorry; dry land; Nineveh heard God’s kindness.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jonah and the Vine (Jonah 4).",
-      "Jonah sits angry outside Nineveh A vine grows up to shade him—then a worm eats it God says: I care about people even more than the vine God loves everyone—even people we think don't deserve it.",
-      "So should we!"
+      "God told Jonah to go to the city of Nineveh and tell the people to stop doing wrong things.",
+      "Jonah did not want to go, so he ran away on a ship. A big storm came, and the sailors were afraid.",
+      "Jonah told them to throw him into the sea. God sent a big fish that swallowed Jonah and kept him safe inside for three days and three nights.",
+      "Inside the fish, Jonah prayed and said he was sorry. God told the fish to let Jonah go onto dry land.",
+      "Jonah went to Nineveh and told the people God’s message. The people listened and turned back to God.",
+      "God is kind and gives us second chances when we are sorry.",
+      "Reference: Jonah 1:1–17; 2:1–10; 3:1–10 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "God told Jonah to go to Nineveh.",
+        "caption": "God’s call",
+        "image": "panel-jonah-1.svg"
+      },
+      {
+        "text": "Jonah ran away on a ship.",
+        "caption": "Running away",
+        "image": "panel-jonah-1.svg"
+      },
+      {
+        "text": "A big storm came.",
+        "caption": "A hard moment",
+        "image": "panel-jonah-2.svg"
+      },
+      {
+        "text": "Jonah was thrown into the sea.",
+        "caption": "Into the sea",
+        "image": "panel-jonah-2.svg"
+      },
+      {
+        "text": "A big fish swallowed Jonah and kept him safe.",
+        "caption": "Kept safe",
+        "image": "panel-jonah-3.svg"
+      },
+      {
+        "text": "Jonah prayed and said he was sorry.",
+        "caption": "I’m sorry",
+        "image": "panel-jonah-3.svg"
+      },
+      {
+        "text": "God gave Jonah a second chance.",
+        "caption": "Second chance",
+        "image": "panel-jonah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:1–17",
-          "Luke 10",
-          "2 Kings 2:1-14",
-          "Jonah 4"
+          "Psalm 23",
+          "Jonah 1:1–17; 2:1–10; 3:1–10",
+          "Jonah 4 only",
+          "Genesis 1"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Jonah 4.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Jonah 1:1–17; 2:1–10; 3:1–10.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Priscilla",
-          "Mary",
-          "God the Father"
+          "A giant fish only",
+          "Pharaoh",
+          "Goliath"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Right—God is kind, hears prayer, and gives second chances.",
+        "wrongFeedback": "Look for who calls Jonah, sends the fish, and forgives. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
           "God never hears when kids pray.",
+          "God is kind and gives us second chances when we are sorry.",
           "We should hide from God when we mess up.",
-          "God loves everyone—even people we think don't deserve it. So should we!",
           "The Bible is only pretend stories."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God loves everyone—even people we think don't deserve it. So should we!.)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: God is kind and gives us second chances when we are sorry.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Jonah sits angry outside Nineveh",
           "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city."
+          "Let us rise up and build.",
+          "Now the LORD had prepared a great fish to swallow up Jonah.",
+          "Everyone decided to never sleep again."
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Now the LORD had prepared a great fish to swallow up Jonah.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
           "Ignore God until we are older.",
-          "God loves everyone—even people we think don't deserve it. So should we!"
+          "Tell God we are sorry when we mess up — and thank Him that He gives second chances.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God loves everyone—even people we think don't deserve it. So should we!.)"
+        "wrongFeedback": "Think: does this choice show trust in a God who forgives? Pick the one that honors Him. (Answer: Tell God we are sorry when we mess up — and thank Him that He gives second chances.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jonah and the Vine with God's Word today.",
-    "takeaway": "God loves everyone—even people we think don't deserve it. So should we!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jonah and the Vine. Amen.",
+    "doneMessage": "Great job reading God Gives Jonah a Second Chance with God's Word today.",
+    "takeaway": "God is kind and gives us second chances when we are sorry.",
+    "prayer": "Lord, thank You for listening when we say we are sorry. Help us obey You and love others like You do. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonah sits angry outside Nineveh (jonah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A vine grows up to shade him—then a worm eats it (vine)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God says: I care about people even more than the vine (worm)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonah sits angry outside Nineveh (jonah 4)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A vine grows up to shade him—then a worm eats it (nineveh)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jonah standing on dry land after the fish has let him go the big fish is swimming away in the water with a gentle smile Jonah has a thankful face and is looking up toward heaven thick bold outlines with large open spaces on Jonah's robe the fish and the water for easy coloring soft waves sand and a gentle sky with minimal lines thankful and hopeful mood focus on God giving Jonah a second chance clean minimal no scary storm or inside-the-fish darkness plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonah thankful on dry land (second chance)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Gentle big fish — God kept Jonah safe (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonah prayed and said sorry (prayer)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Nineveh listens — God is kind (hope)"
+    ],
+    "readAlongImages": []
   },
   "jordanCrossing": {
     "kjvRef": "Joshua 3:14-17; 4:1-7, 18-24 (KJV)",
@@ -21413,7 +21458,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 10:1–18",
-          "Jonah 4",
+          "Jonah 1:1–17; 2:1–10; 3:1–10",
           "John 12:1–8",
           "Luke 15:11–32"
         ],

@@ -4514,18 +4514,46 @@
       kidContext: { who: 'God', to: 'His people', apply: 'God loves you — give Him your whole heart, not leftovers. He keeps every promise.' }
     },
     jonahVine: {
-      title: 'Jonah and the Vine',
+      title: 'God Gives Jonah a Second Chance',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jonah sits angry outside Nineveh' },
-        { src: 'panel-noah-2.svg', alt: 'A vine grows up to shade him—then a worm eats it' },
-        { src: 'panel-noah-3.svg', alt: 'God says: I care about people even more than the vine' }
+        {
+          src: 'panel-jonah-1.svg',
+          alt: 'God called Jonah to go to Nineveh — Jonah ran away on a ship instead'
+        },
+        {
+          src: 'panel-jonah-2.svg',
+          alt: 'A big storm — sailors afraid; Jonah was thrown into the sea'
+        },
+        {
+          src: 'panel-jonah-3.svg',
+          alt: 'God kept Jonah safe in the fish — Jonah prayed; God heard and gave him another chance'
+        }
       ],
-      caption: 'Swipe to see God\'s big heart—He cares for everyone! 🌿',
+      caption: 'Swipe to see God’s kindness — even when we run, He listens and gives second chances.',
       videoId: '',
       videoTitle: '',
-      keywords: ['jonah', 'vine', 'worm', 'jonah 4', 'nineveh', 'anger', 'mercy'],
-      kjvRef: 'Jonah 4',
-      kidContext: { who: 'God', to: 'Jonah', apply: 'God loves everyone—even people we think don\'t deserve it. So should we!' }
+      keywords: [
+        'jonah',
+        'nineveh',
+        'fish',
+        'mercy',
+        'sorry',
+        'prayer',
+        'obey',
+        'second chance',
+        'storm',
+        'jonah 1',
+        'jonah 2',
+        'jonah 3'
+      ],
+      kjvRef: 'Jonah 1:1–17; 2:1–10; 3:1–10',
+      kidContext: {
+        who: 'God',
+        to: 'Jonah — and every heart that needs forgiveness',
+        apply: 'God is kind and gives us second chances when we are sorry.'
+      },
+      narration:
+        "God Gives Jonah a Second Chance — Jonah 1:1–17; 2:1–10; 3:1–10. God told His prophet Jonah to go to Nineveh and speak His message. Jonah did not want to go, so he ran away on a ship. When a great storm came, the sailors were afraid. Jonah knew he had run from God, and he told them to throw him into the sea. The Lord had prepared a great fish — it swallowed Jonah and kept him safe for three days and three nights. Inside the fish, Jonah prayed and said he was sorry. God heard him, and the fish brought Jonah onto dry land. Then Jonah went to Nineveh, and the people listened and turned back to God. For you: when you mess up, tell God you are sorry — He is kind and gives second chances."
     },
     danielPray: {
       title: 'Daniel Prays Three Times a Day',

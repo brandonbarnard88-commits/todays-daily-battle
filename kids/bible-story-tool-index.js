@@ -1248,13 +1248,13 @@
   },
   {
     "key": "jonahVine",
-    "title": "Jonah and the Vine",
-    "kjvRef": "Jonah 4",
+    "title": "God Gives Jonah a Second Chance",
+    "kjvRef": "Jonah 1:1–17; 2:1–10; 3:1–10",
     "who": "God",
-    "to": "Jonah",
-    "apply": "God loves everyone—even people we think don't deserve it. So should we!",
+    "to": "Jonah — and every heart that needs forgiveness",
+    "apply": "God is kind and gives us second chances when we are sorry.",
     "theme": "Love",
-    "kw": "jonah vine worm jonah 4 nineveh anger mercy"
+    "kw": "jonah nineveh fish mercy sorry prayer obey second chance storm jonah 1 jonah 2 jonah 3 kindness"
   },
   {
     "key": "josephCoat",

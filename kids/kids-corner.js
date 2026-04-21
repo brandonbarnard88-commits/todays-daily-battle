@@ -126,7 +126,7 @@
       goliathChallenge: 'david',
       noah: 'noah',
       jonah: 'jonah',
-      jonahVine: 'jonah',
+      jonahVine: 'jonahVine',
       daniel: 'daniel-lions',
       danielLionsDen: 'daniel-lions',
       danielPray: 'daniel-lions',
@@ -2423,17 +2423,38 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 2:11</text>'
       ),
 
-      /* ── Week 4: Jonah Vine (58) ── */
+      /* ── Jonah — dry land, thankful heart, fish swims away gently (Jon. 1–3) ── */
       jonahVine: svg(
-        ground() + hills() +
-        person(200, 185, 12, 35) +
-        '<path d="M188 200 Q168 188 160 165 Q155 145 165 135 Q175 130 182 140 Q175 148 178 162 Q180 175 192 182" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M160 138 Q148 125 135 130 Q128 140 138 148" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M170 148 Q155 140 148 148 Q142 158 152 164" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M164 165 Q152 165 148 172 Q148 180 158 180" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M165 138 Q155 128 160 118 Q168 115 170 125" ' + sf + ' fill="white" stroke-width="2"/>' +
-        sun(320, 45, 22) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Jonah 4:7</text>'
+        ground() +
+        '<path d="M0 250 Q80 246 200 252 Q320 246 400 250" ' + s + ' stroke-width="2" fill="none" opacity="0.55"/>' +
+        /* sand */
+        '<path d="M0 252 L205 252 L200 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* calm water — soft waves only */
+        '<path d="M205 252 L400 252 L400 300 L205 300 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M220 268 Q240 262 260 268 Q280 274 300 268 Q320 262 340 268 Q360 274 380 268" ' +
+        s +
+        ' stroke-width="1.1" fill="none" opacity="0.45"/>' +
+        '<path d="M230 276 Q255 272 280 276 Q305 280 330 276" ' + s + ' stroke-width="0.85" fill="none" opacity="0.35"/>' +
+        cloud(20, 28) +
+        cloud(300, 22) +
+        sun(72, 48, 18) +
+        /* gentle light toward Jonah */
+        '<line x1="120" y1="42" x2="135" y2="168" ' + s + ' stroke-width="0.5" stroke-dasharray="9,10" opacity="0.22"/>' +
+        '<line x1="100" y1="48" x2="118" y2="165" ' + s + ' stroke-width="0.45" stroke-dasharray="9,10" opacity="0.18"/>' +
+        /* Jonah — thankful, looking up */
+        person(138, 172, 11, 30) +
+        '<path d="M126 192 L112 168 M150 192 L164 168" ' + s + ' stroke-width="1.75"/>' +
+        '<path d="M132 178 Q138 174 144 178" ' + s + ' stroke-width="1" fill="none" opacity="0.75"/>' +
+        '<circle cx="133" cy="166" r="1.3" fill="#111" opacity="0.35"/><circle cx="143" cy="166" r="1.3" fill="#111" opacity="0.35"/>' +
+        /* fish swimming away — simple, friendly */
+        '<path d="M268 218 Q300 200 332 212 Q348 218 352 228 Q336 236 312 232 Q284 238 268 228 Q262 222 268 218 Z" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<path d="M268 222 Q254 218 246 228 Q252 234 260 232 Q266 228 268 222 Z" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="328" cy="216" r="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="329" cy="215" r="2" fill="#111" opacity="0.25"/>' +
+        '<path d="M318 224 Q328 228 338 224" ' + s + ' stroke-width="1" fill="none" opacity="0.4"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Jonah 1–3</text>'
       ),
 
       /* ── Week 4: Daniel Pray (59) ── */

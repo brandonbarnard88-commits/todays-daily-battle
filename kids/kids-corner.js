@@ -3584,19 +3584,21 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 27:33–56</text>'
       ),
 
-      /* ── Week 7: Tomb Empty (87) ── */
+      /* ── Week 7: Empty tomb — dawn hill, cave opening, rolled stone, two Marys, morning star ── */
       tombEmpty: svg(
-        ground() + hills() +
-        '<path d="M115 255 L115 178 Q200 145 285 178 L285 255" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="115" y="178" width="170" height="77" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="82" cy="198" r="50" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<path d="M152 240 Q190 220 228 240 Q210 252 200 255 Q190 252 152 240" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="308" cy="162" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M290 168 Q274 150 290 136 Q304 148 308 163" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M326 168 Q342 150 326 136 Q312 148 308 163" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(350, 192, 10, 28) +
-        star(200, 25, 14) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 28:6</text>'
+        ground() +
+        '<path d="M50 255 Q120 205 200 185 Q280 205 350 255" ' + sf + ' fill="white" stroke-width="2.5" opacity="0.9"/>' +
+        '<path d="M145 255 L145 178 Q200 138 255 178 L255 255" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="128" cy="232" rx="28" ry="28" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M155 210 Q200 198 245 210" ' + s + ' stroke-width="2" opacity="0.85"/>' +
+        person(300, 182, 9, 26) +
+        person(322, 186, 8, 24) +
+        '<path d="M292 198 Q304 188 318 198" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="200" cy="115" r="22" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M200 93 L200 108 M188 100 L212 100" ' + s + ' stroke-width="2"/>' +
+        sun(38, 48, 11) +
+        star(200, 38, 9) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 28:1–10</text>'
       ),
 
       /* ── Week 7: Emmaus Road (88) ── */
@@ -7213,7 +7215,7 @@
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus', 'jesusParableGoodShepherd',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crossCarry', 'crucifixion',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crossCarry', 'crucifixion', 'tombEmpty',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

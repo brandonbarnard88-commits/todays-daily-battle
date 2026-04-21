@@ -322,7 +322,7 @@
     thessaloniansHope: 90,
     thomasDoubt: 95,
     timothyYouthExample: 142,
-    tombEmpty: 88,
+    tombEmpty: 231,
     towerBabel: 24,
     transfigure: 83,
     treeFruit: 119,

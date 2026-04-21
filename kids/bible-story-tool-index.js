@@ -3009,12 +3009,12 @@
   {
     "key": "tombEmpty",
     "title": "The Empty Tomb",
-    "kjvRef": "Matthew 28",
+    "kjvRef": "Matthew 28:1–10 (KJV) (par. Mark 16:1–8; Luke 24:1–12; John 20:1–18)",
     "who": "Jesus",
-    "to": "The women (and us)",
-    "apply": "Jesus is alive! Death couldn't hold Him—and He gives that life to you!",
+    "to": "Every child who needs hope after a sad day",
+    "apply": "Jesus rose again — His love is stronger than death, and He shares His life with us.",
     "theme": "Miracles",
-    "kw": "tomb empty risen matthew 28 angel stone resurrection"
+    "kw": "empty tomb sepulchre mary magdalene angel earthquake stone rolled he is risen he is not here galilee first day of the week dawn matthew 28 mark 16 luke 24 john 20 resurrection"
   },
   {
     "key": "prodigalSon",

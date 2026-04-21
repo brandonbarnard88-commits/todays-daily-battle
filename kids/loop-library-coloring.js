@@ -195,6 +195,7 @@
   "tenCommandments": "tenCommandments",
   "tenLepers": "healLeper",
   "tenVirgins": "tenVirgins",
+  "tombEmpty": "tombEmpty",
   "towerBabel": "towerBabel",
   "transfigure": "transfigure",
   "trial": "trial",

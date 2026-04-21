@@ -32406,89 +32406,142 @@
     ]
   },
   "tombEmpty": {
-    "kjvRef": "Matthew 28",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Matthew 28:1–10 (KJV) (par. Mark 16:1–8; Luke 24:1–12; John 20:1–18)",
+    "verseExcerpt": "He is not here: for he is risen, as he said. — Matthew 28:6 (KJV)",
+    "readAlongTitle": "The Empty Tomb",
+    "quizWrongHumilityHint": "Listen again — sabbath; dawn; first day; Mary; sepulchre; earthquake; angel; stone; Fear not; crucified; He is not here; risen; Galilee; great joy; All hail; Be not afraid.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "The Empty Tomb (Matthew 28).",
-      "Women come early to the tomb The stone is rolled away!",
-      "An angel says: He is not here—He is risen!",
-      "Jesus is alive!",
-      "Death couldn't hold Him—and He gives that life to you!"
+      "In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre.",
+      "And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men.",
+      "And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay.",
+      "And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you.",
+      "And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word.",
+      "And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.",
+      "Jesus is alive — His love is brighter than any sadness, and He gives us living hope.",
+      "Reference: Matthew 28:1–10 (KJV) (parallel in Mark, Luke, and John)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Early on the first day of the week, Mary Magdalene and the other Mary came to the sepulchre — In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre.",
+        "caption": "At the sepulchre",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "God sent an angel — the earth shook — and the stone was rolled away from the door — And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it.",
+        "caption": "Stone rolled back",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The angel said, Fear not — I know you seek Jesus — He is not here: for he is risen, as he said — Come, see the place where the Lord lay.",
+        "caption": "He is risen",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Go quickly and tell His disciples — He goes before you into Galilee — And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you.",
+        "caption": "Tell the disciples",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "They ran with fear and great joy to share the news — And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word.",
+        "caption": "Great joy",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Jesus met them with gentle words — Be not afraid — He is alive and loves us — And as they went to tell his disciples, behold, Jesus met them, saying, All hail. … Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.",
+        "caption": "Jesus is alive",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "Exodus 16:1-36",
-          "Matthew 28",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 28.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Lord",
-          "Jesus",
-          "The apostles",
-          "Joshua"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "Jesus is alive! Death couldn't hold Him—and He gives that life to you!",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up."
+          "Matthew 28:1–10 (also told in Mark, Luke, and John)",
+          "Genesis 6 only",
+          "Jonah 2 only",
+          "Revelation 4 only"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus is alive! Death couldn't hold Him—and He gives that life to you!.)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 28:1–10.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "Who came to the sepulchre as it began to dawn?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Women come early to the tomb"
+          "Mary Magdalene and the other Mary",
+          "Only Pharaoh’s soldiers",
+          "David and Goliath",
+          "Jonah inside a fish"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 28:1.",
+        "wrongFeedback": "Listen for the two Marys. (Answer: Mary Magdalene and the other Mary.)"
+      },
+      {
+        "question": "What did the angel say about Jesus?",
+        "choices": [
+          "He is not here: for he is risen, as he said.",
+          "He stayed in the grave forever.",
+          "He forgot His friends.",
+          "He was only a story."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 28:6.",
+        "wrongFeedback": "Listen for “He is not here” and “risen.” (Answer: He is not here: for he is risen….)"
+      },
+      {
+        "question": "What did the women do after they heard the good news?",
+        "choices": [
+          "They ran with fear and great joy to tell His disciples.",
+          "They hid and never spoke.",
+          "They went home to sleep only.",
+          "They forgot everything."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 28:8.",
+        "wrongFeedback": "Listen for “great joy” and “run.” (Answer: ran with fear and great joy….)"
+      },
+      {
+        "question": "What did Jesus say when He met them?",
+        "choices": [
+          "All hail … Be not afraid: go tell my brethren …",
+          "Run away and be silent forever.",
+          "Do not love anyone.",
+          "Stay in the dark."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 28:9–10.",
+        "wrongFeedback": "Listen for “All hail” and “Be not afraid.” (Answer: All hail… Be not afraid….)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Jesus is alive! Death couldn't hold Him—and He gives that life to you!",
-          "Ignore God until we are older."
+          "Tell Jesus when I feel sad — He is alive and His love is stronger than death.",
+          "Believe God never cares about kids.",
+          "Stop hoping on hard mornings.",
+          "Never smile again."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus is alive! Death couldn't hold Him—and He gives that life to you!.)"
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “alive,” “love,” and “hope.” (Answer: tell Jesus… His love is stronger….)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading The Empty Tomb with God's Word today.",
-    "takeaway": "Jesus is alive! Death couldn't hold Him—and He gives that life to you!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Empty Tomb. Amen.",
+    "takeaway": "The tomb was empty — Jesus kept His promise. His rising brings gentle hope to every sad heart.",
+    "prayer": "Lord Jesus, thank You that You are alive forever. When I feel heavy, help me remember the empty tomb and rest in You. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Women come early to the tomb (tomb)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The stone is rolled away! (empty)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: An angel says: He is not here—He is risen! (risen)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Women come early to the tomb (matthew 28)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The stone is rolled away! (angel)"
-    ]
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Soft dawn light over a quiet garden hill; a cave-tomb opening with the stone rolled to the side; two women standing at a gentle distance with peaceful, wondering faces; a hint of a bright angel figure seated on the stone (simple, kind outline — not harsh). Plenty of open sky and grass for coloring. Focus on the heart of the moment: Jesus is risen — the tomb is empty — hope has come. Style: clear, bold, tender, restful — never scary or dark; everything feels quiet, loving, and full of morning hope.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: Two Marys walking — gentle morning (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: Angel — stone rolled — quiet wonder (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: He is not here — He is risen (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: Go tell — running with great joy (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: Jesus meets them — Be not afraid (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: Empty tomb — living hope (rest)"
+    ],
+    "readAlongImages": []
   },
   "towerBabel": {
     "kjvRef": "Genesis 11",

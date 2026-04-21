@@ -6778,16 +6778,51 @@
     tombEmpty: {
       title: 'The Empty Tomb',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Women come early to the tomb' },
-        { src: 'panel-noah-2.svg', alt: 'The stone is rolled away!' },
-        { src: 'panel-noah-3.svg', alt: 'An angel says: He is not here—He is risen!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'End of the sabbath — dawn — Mary Magdalene and the other Mary come to the sepulchre'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Earthquake — angel of the Lord — stone rolled back — Fear not — He is not here: He is risen'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Come see where the Lord lay — run with joy — Jesus meets them — Be not afraid'
+        }
       ],
-      caption: 'Swipe to see the empty tomb—Jesus is alive! 🪨',
+      caption: 'Swipe slowly — the tomb is empty. Jesus is alive.',
       videoId: '',
       videoTitle: '',
-      keywords: ['tomb', 'empty', 'risen', 'matthew 28', 'angel', 'stone', 'resurrection'],
-      kjvRef: 'Matthew 28',
-      kidContext: { who: 'Jesus', to: 'The women (and us)', apply: 'Jesus is alive! Death couldn\'t hold Him—and He gives that life to you!' }
+      keywords: [
+        'empty tomb',
+        'sepulchre',
+        'Mary Magdalene',
+        'Mary',
+        'angel',
+        'earthquake',
+        'stone',
+        'rolled',
+        'He is risen',
+        'He is not here',
+        'Galilee',
+        'first day of the week',
+        'dawn',
+        'matthew 28',
+        'mark 16',
+        'luke 24',
+        'john 20',
+        'resurrection'
+      ],
+      kjvRef: 'Matthew 28:1–10 (KJV) (par. Mark 16:1–8; Luke 24:1–12; John 20:1–18)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who needs hope after a sad day',
+        apply:
+          'Jesus rose again — His love is stronger than death, and He shares His life with us.'
+      },
+      narration:
+        "The Empty Tomb — Matthew 28:1–10. In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men. And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay. And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word. And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me. For you: When mornings feel heavy or when hope feels far away, remember the empty tomb. Jesus rose again because He loves you — death could not keep Him, and His new life is a gentle promise you can hold on to. You can rest in His living love today and always."
     },
     emmausRoad: {
       title: 'Road to Emmaus',
@@ -9325,7 +9360,7 @@
       'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'trial', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'trial', 'crossCarry', 'jesusCrucifixion', 'crucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -9624,8 +9659,16 @@
     if (/lazarus|come out|john 11|raised.*dead/.test(low)) {
       return { type: 'carousel', story: 'lazarus' };
     }
-    if (/resurrection|empty tomb|risen|easter|matthew 28|john 20/.test(low)) {
-      return { type: 'carousel', story: 'resurrection' };
+    if (
+      /tombempty|empty tomb|sepulchr|he is not here|he is risen|rolled.*stone|angel.*stone|mary magdalene.*sepulchre|first day of the week.*mary|\bmatthew 28\b|matthew 28:(?:10|[1-9])\b|mark 16:[1-8]\b|luke 24:(?:1[0-2]|[1-9])\b|john 20:(?:1[0-7]|[1-9])\b|easter/i.test(
+        low
+      ) &&
+      !/matthew 28:1[89]|matthew 28:20|great commission|go ye therefore|teach all nations|all power is given/i.test(low)
+    ) {
+      return { type: 'carousel', story: 'tombEmpty' };
+    }
+    if (/resurrection|risen|john 20|matthew 28/.test(low)) {
+      return { type: 'carousel', story: 'jesusResurrection' };
     }
     if (/creation|genesis 1|let there be light|god made/.test(low)) {
       return { type: 'carousel', story: 'creation' };

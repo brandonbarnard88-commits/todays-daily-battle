@@ -1063,18 +1063,41 @@
         "Esther Helps Her People — Esther 4:1–17; 5:1–8; 7:1–10. The king of Persia chose Esther to be queen; she was Jewish, but the king did not know it. Haman planned to hurt all the Jewish people. Mordecai asked, who knoweth whether thou art come to the kingdom for such a time as this? Esther asked the Jews to fast and pray for her. Then she went to the king, and Esther answered, If it seem good unto the king, let the king and Haman come this day unto the banquet that I have prepared for him. At the right time she told the king about Haman’s wicked plan. The king was angry with Haman and stopped the evil plan. The Jewish people were saved. For you: God can use courage, prayer, and brave truth — even from one person — to help many."
     },
     jesusBirth: {
-      title: 'Birth of Jesus',
+      title: 'Jesus Is Born in Bethlehem',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Mary and Joseph travel to Bethlehem' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus born in a manger' },
-        { src: 'panel-jesus-3.svg', alt: 'Shepherds and angels celebrate!' }
+        { src: 'panel-jesus-1.svg', alt: 'Mary and Joseph travel to Bethlehem — no room at the inn' },
+        { src: 'panel-jesus-2.svg', alt: 'In a quiet stable, baby Jesus is wrapped and laid in a manger' },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Angels tell shepherds good tidings — they find Jesus, just as God promised'
+        }
       ],
-      caption: 'Swipe to see Jesus come as a baby—God loves us! 🎄',
+      caption: 'Swipe to see the night God’s Son was born — wonder, angels’ joy, and shepherds who hurried to worship.',
       videoId: 'v3656G6tWuI',
       videoTitle: 'The Story of Christmas – Jesus is Born!',
-      keywords: ['jesus', 'birth', 'manger', 'shepherds', 'angels', 'bethlehem', 'luke 2', 'matthew 2', 'wise men', 'christmas'],
-      kjvRef: 'Luke 2; Matthew 1–2',
-      kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came humbly as a baby to save us — God with us. Christmas is God\'s greatest gift.' }
+      keywords: [
+        'jesus',
+        'bethlehem',
+        'manger',
+        'stable',
+        'shepherds',
+        'angels',
+        'mary',
+        'joseph',
+        'luke 2',
+        'saviour',
+        'christmas',
+        'good tidings',
+        'baby jesus'
+      ],
+      kjvRef: 'Luke 2:1–20',
+      kidContext: {
+        who: 'God',
+        to: 'The whole world — everyone Jesus came to love',
+        apply: 'God sent His own Son as a baby so He could be with us.'
+      },
+      narration:
+        "Jesus Is Born in Bethlehem — Luke 2:1–20. Mary and Joseph went to Bethlehem. There was no room for them in the inn, so they stayed in a stable. That night Mary’s firstborn Son was born. She wrapped Him in soft cloths and laid Him in a manger. Shepherds keeping watch heard an angel say, Fear not: for, behold, I bring you good tidings of great joy… For unto you is born this day in the city of David a Saviour, which is Christ the Lord. A multitude of angels praised God — Glory to God in the highest, and on earth peace, good will toward men. The shepherds went with haste and found Mary and Joseph, and the babe lying in a manger, just as they had been told. For you: God sent His own Son as a baby so He could be with you."
     },
     jesusCalmsStorm: {
       title: 'Jesus Calms the Storm',
@@ -10242,7 +10265,7 @@
     david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
     adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection', josephSold: 'Protection',
     mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', bronzeSerpent: 'Miracles', tabernacle: 'Love', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
-    fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
+    fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Love', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',

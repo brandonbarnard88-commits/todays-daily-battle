@@ -2668,6 +2668,25 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:7</text>'
       ),
 
+      /* ── Jesus born — gentle stable, quiet animals, soft star (Luke 2:1–20) ── */
+      jesusBirth: svg(
+        ground() +
+        '<path d="M100 260 L100 142 L200 104 L300 142 L300 260" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M100 142 L200 104 L300 142" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<rect x="155" y="176" width="90" height="49" rx="6" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<circle cx="200" cy="190" r="10" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M196 192 Q200 187 204 192" ' + s + ' stroke-width="1.6"/>' +
+        person(118, 184, 10, 24) +
+        person(278, 184, 10, 24) +
+        '<ellipse cx="68" cy="250" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="1.65"/>' +
+        '<ellipse cx="52" cy="244" rx="6" ry="7" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="332" cy="250" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="1.65"/>' +
+        '<ellipse cx="348" cy="244" rx="6" ry="7" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        star(200, 46, 12) +
+        '<line x1="200" y1="60" x2="200" y2="100" ' + s + ' stroke-width="0.5" stroke-dasharray="7,6" opacity="0.28"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:1–20</text>'
+      ),
+
       /* ── Week 5: Jesus Temple (64) ── */
       jesusTemple: svg(
         ground() +
@@ -4178,7 +4197,7 @@
     angelMary: 'angelMary',
     shepherdsStar: 'shepherdsStar',
     jesusManger: 'jesusManger',
-    jesusBirth: 'jesusManger',
+    jesusBirth: 'jesusBirth',
     jesusTemple: 'jesusTemple',
     johnBaptize: 'johnBaptize',
     jesusBaptism: 'johnBaptize',

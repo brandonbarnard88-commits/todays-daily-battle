@@ -49,6 +49,7 @@
  * Ezekiel 37 — dry bones live (gentle): buildEzekielValleyBonesReadQuiz().
  * Jonah — mercy & second chance, gentle arc (Jon. 1–3): buildJonahVineReadQuiz() (library key: jonahVine).
  * Malachi — messenger of the covenant, gentle hope (Mal. 3:1; 4:5–6): buildMalachiMessageReadQuiz().
+ * Jesus born in Bethlehem (Luke 2:1–20, gentle): buildJesusBirthReadQuiz().
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -5631,6 +5632,113 @@ function buildMalachiMessageReadQuiz() {
   };
 }
 
+/** Jesus born in Bethlehem — manger, angels’ joy, shepherds (gentle). Library key: jesusBirth */
+function buildJesusBirthReadQuiz() {
+  return {
+    kjvRef: 'Luke 2:1–20 (KJV)',
+    verseExcerpt:
+      'For unto you is born this day in the city of David a Saviour, which is Christ the Lord. — Luke 2:11 (KJV)',
+    readAlongTitle: 'Jesus Is Born in Bethlehem',
+    quizWrongHumilityHint:
+      'Listen again — Bethlehem; no room; stable; manger; angels’ good news; shepherds found Jesus; God sent His Son to be with us.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Mary and Joseph had to travel to the town of Bethlehem.',
+      'When they got there, there was no room for them in the inn.',
+      'They stayed in a stable where the animals were kept.',
+      'That night baby Jesus was born.',
+      'Mary wrapped Him in soft cloths and laid Him in a manger.',
+      'Nearby, shepherds were watching their sheep.',
+      'An angel appeared and said, “Fear not: for, behold, I bring you good tidings of great joy… For unto you is born this day in the city of David a Saviour, which is Christ the Lord.”',
+      'Suddenly many angels were praising God, saying, “Glory to God in the highest, and on earth peace, good will toward men.”',
+      'The shepherds hurried to Bethlehem and found the baby Jesus just as the angel had said.',
+      'God sent His own Son as a baby so He could be with us.',
+      'Reference: Luke 2:1–20 (KJV)'
+    ],
+    readAlongSections: [
+      { text: 'Mary and Joseph went to Bethlehem.', caption: 'On the way', image: 'panel-jesus-1.svg' },
+      { text: 'There was no room in the inn.', caption: 'No room', image: 'panel-jesus-1.svg' },
+      { text: 'Baby Jesus was born in a stable.', caption: 'A quiet stable', image: 'panel-jesus-2.svg' },
+      { text: 'Mary laid Him in a manger.', caption: 'Soft cloths', image: 'panel-jesus-2.svg' },
+      { text: 'Angels told the shepherds the good news.', caption: 'Good tidings', image: 'panel-jesus-3.svg' },
+      { text: 'The shepherds found baby Jesus.', caption: 'They found Him', image: 'panel-jesus-3.svg' },
+      { text: 'God sent His Son to be with us.', caption: 'God with us', image: 'panel-jesus-3.svg' }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Luke 2:1–20', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 2:1–20.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'Pharaoh', 'Goliath', 'Samson'],
+        correctIndex: 0,
+        correctFeedback: 'Right—God sent His Son so He could be with us.',
+        wrongFeedback:
+          'Look for who planned this night and gave the promised Saviour. (Answer: God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never hears when kids pray.',
+          'God sent His own Son as a baby so He could be with us.',
+          'The Bible is only pretend stories.',
+          'We should hide from God when we mess up.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the last paragraphs slowly. Which option matches God’s love? (Answer: God sent His own Son as a baby so He could be with us.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'Let us rise up and build.',
+          'She laid him in a manger.',
+          'Everyone decided to never sleep again.'
+        ],
+        correctIndex: 2,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: She laid him in a manger.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Thank God for sending Jesus — and talk to Him about the good tidings the angels shared.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show thankfulness to God for Jesus? Pick the one that honors Him. (Answer: Thank God for sending Jesus — and talk to Him about the good tidings the angels shared.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Is Born in Bethlehem with God's Word today.",
+    takeaway: 'God sent His own Son as a baby so He could be with us.',
+    prayer:
+      'Lord, thank You for sending Jesus. Help us remember He came to be with us. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Baby Jesus lying in a manger with soft cloths Mary and Joseph are kneeling gently beside Him a few animals stand quietly nearby thick bold outlines with large open spaces on Mary\'s robe Joseph\'s robe the manger and the ground for easy coloring soft stable walls and a gentle star in the sky with minimal lines wonder and love mood focus on the night Jesus was born clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Bethlehem — no room (journey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Baby Jesus in the manger (manger)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angels — good tidings of great joy (angels)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Shepherds find Jesus (shepherds)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God sent His Son (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -5724,5 +5832,6 @@ module.exports = {
   ezekielValleyBones: buildEzekielValleyBonesReadQuiz(),
   jonahVine: buildJonahVineReadQuiz(),
   malachiMessage: buildMalachiMessageReadQuiz(),
+  jesusBirth: buildJesusBirthReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

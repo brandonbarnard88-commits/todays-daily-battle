@@ -248,13 +248,13 @@
   },
   {
     "key": "jesusBirth",
-    "title": "Birth of Jesus",
-    "kjvRef": "Luke 2; Matthew 1–2",
+    "title": "Jesus Is Born in Bethlehem",
+    "kjvRef": "Luke 2:1–20",
     "who": "God",
-    "to": "The whole world",
-    "apply": "Jesus came humbly as a baby to save us — God with us. Christmas is God's greatest gift.",
-    "theme": "Miracles",
-    "kw": "jesus birth manger shepherds angels bethlehem luke 2 matthew 2 wise men christmas"
+    "to": "The whole world — everyone Jesus came to love",
+    "apply": "God sent His own Son as a baby so He could be with us.",
+    "theme": "Love",
+    "kw": "jesus bethlehem manger stable shepherds angels mary joseph luke 2 saviour christmas good tidings baby jesus"
   },
   {
     "key": "cainAbel",

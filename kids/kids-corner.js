@@ -150,7 +150,8 @@
       jesusSermon: 'jesusSermon',
       samaritanWoman: 'samaritanWoman',
       noblemanSon: 'noblemanSon',
-      centurionServant: 'centurionServant'
+      centurionServant: 'centurionServant',
+      jesusHealsParalytic: 'jesusHealsParalytic'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -168,6 +169,7 @@
     if (low.indexOf('noblemanson') >= 0 || low === 'noblemanson') return 'noblemanSon';
     if (low.indexOf('centurionservant') >= 0 || low === 'centurionservant') return 'centurionServant';
     if (low.indexOf('jesuscalmsstorm') >= 0 || low === 'jesuscalmsstorm') return 'jesusCalmsStorm';
+    if (low.indexOf('jesushealsparalytic') >= 0 || low === 'jesushealsparalytic') return 'jesusHealsParalytic';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -3908,6 +3910,26 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 8:5–13</text>'
       ),
 
+      /* ── Week 5 gentle: Paralytic through the roof — forgive and heal (Mark 2:1–12) ── */
+      jesusHealsParalytic: svg(
+        ground() +
+        '<rect x="48" y="118" width="304" height="128" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M48 118 L200 64 L352 118" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<ellipse cx="200" cy="88" rx="38" ry="18" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M132 88 L132 132 M165 86 L165 130 M235 86 L235 130 M268 88 L268 132" ' + s + ' stroke-width="1.8" opacity="0.75"/>' +
+        '<rect x="156" y="126" width="88" height="32" rx="4" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<ellipse cx="188" cy="138" rx="11" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="200" cy="208" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="200" y1="220" x2="200" y2="256" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="172" y1="232" x2="228" y2="232" ' + s + ' stroke-width="2.5"/>' +
+        person(92, 178, 9, 24) +
+        person(118, 168, 9, 22) +
+        person(282, 168, 9, 22) +
+        person(308, 178, 9, 24) +
+        sun(330, 48, 16) +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 2:1–12</text>'
+      ),
+
       /* ── Week 11: Martha Serve (137) ── */
       marthaServe: svg(
         ground() +
@@ -4391,6 +4413,7 @@
     jesusSermon: 'jesusSermon',
     noblemanSon: 'noblemanSon',
     centurionServant: 'centurionServant',
+    jesusHealsParalytic: 'jesusHealsParalytic',
     jesusCalmsStorm: 'jesusCalmsStorm',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
@@ -4399,7 +4422,6 @@
     jesusCallingDisciples: 'jesusCalmsStorm',
     jesusSermonMount: 'mustardSeed',
     jesusHealsBlind: 'healBlind',
-    jesusHealsParalytic: 'healLeper',
     healBlind: 'healBlind',
     jesusBlessKids: 'jesusBlessKids',
     /* ── Week 6 ── */
@@ -4542,6 +4564,7 @@
     samaritanWoman: 'samaritanWoman',
     noblemanSon: 'noblemanSon',
     centurionServant: 'centurionServant',
+    jesusHealsParalytic: 'jesusHealsParalytic',
     jesusCalmsStorm: 'jesusCalmsStorm',
     marthaServe: 'marthaServe',
     marySit: 'marySit',

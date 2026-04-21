@@ -82,6 +82,7 @@
   "jesusBlessKids": "jesusBlessKids",
   "jesusCallingDisciples": "jesusCalmsStorm",
   "jesusCalmsStorm": "jesusCalmsStorm",
+  "jesusHealsParalytic": "jesusHealsParalytic",
   "jesusFeeds5000": "jesusFeeds5000",
   "jesusFirstMiracle": "weddingWine",
   "jesusParableGoodShepherd": "psalm23Shepherd",

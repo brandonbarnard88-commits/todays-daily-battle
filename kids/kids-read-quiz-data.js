@@ -12728,89 +12728,140 @@
     ]
   },
   "jesusHealsParalytic": {
-    "kjvRef": "Mark 2:1–12",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Mark 2:1–12 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "I say unto thee, Arise, and take up thy bed, and go thy way into thine house. — Mark 2:11 (KJV)",
+    "readAlongTitle": "Jesus Forgives and Heals a Man Who Could Not Walk",
+    "quizWrongHumilityHint": "Listen again — house full; four friends; roof; lowered; Son thy sins forgiven; arise take up bed; walked; amazed; glorified God.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Through the Roof to Jesus (Mark 2:1–12).",
-      "So many people.",
-      "no room at the door Four friends carry a paralyzed man up to the roof Lowered to Jesus.",
-      "rise, take up thy bed, and walk!",
-      "When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal."
+      "Jesus was teaching in a house.",
+      "Many people came to listen, so the house was full.",
+      "Four friends brought a man who could not walk.",
+      "They could not get inside because of the crowd, so they climbed onto the roof.",
+      "They made a hole in the roof and lowered their friend down on his bed right in front of Jesus.",
+      "When Jesus saw how much they believed, He said to the man, “Son, thy sins be forgiven thee.”",
+      "Some people thought only God could forgive sins.",
+      "Jesus said, “Whether is it easier, to say, Thy sins be forgiven thee; or to say, Arise, and walk?”",
+      "Then He said to the man, “Arise, and take up thy bed, and go thy way into thine house.”",
+      "The man stood up, took his bed, and walked home.",
+      "Everyone was amazed and praised God.",
+      "Jesus can forgive sins and make sick people well.",
+      "Reference: Mark 2:1–12 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus was teaching in a house.",
+        "caption": "Listening to Jesus",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Four friends brought a man who could not walk.",
+        "caption": "Carrying a friend",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "They lowered him through the roof.",
+        "caption": "Down to Jesus",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said, “Thy sins be forgiven thee.”",
+        "caption": "Forgiven",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said, “Arise, take up thy bed, and walk.”",
+        "caption": "Rise and walk",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The man stood up and walked home.",
+        "caption": "He walked!",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Jesus can forgive and heal.",
+        "caption": "Trust Him",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13:16–18",
+          "Psalm 23",
           "Mark 2:1–12",
-          "Exodus 40:1-38",
-          "2 Samuel 15:1-37; 16:15-23; 19:1-15"
+          "Jonah 1",
+          "Genesis 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Mark 2:1–12.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Mark 2:1–12.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "How did the friends get the man to Jesus when the house was too full?",
         "choices": [
-          "The Holy Ghost",
-          "The apostles",
-          "Jesus",
-          "Holy Spirit"
+          "They lowered him through the roof on his bed.",
+          "They gave up and went home.",
+          "They shouted from outside only.",
+          "They waited until next year."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—faith kept looking for a way to Jesus.",
+        "wrongFeedback": "Think about the roof and the bed being lowered. (Answer: They lowered him through the roof on his bed.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal."
+          "Jesus cannot forgive anyone.",
+          "Jesus can forgive sins and make sick people well.",
+          "Friends never help.",
+          "Roofs are only for rain."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal..)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about forgiving, healing, and praising God. (Answer: Jesus can forgive sins and make sick people well.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "So many people — no room at the door",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot."
+          "Jesus said, “Son, thy sins be forgiven thee.”",
+          "A rocket flew out of the soup.",
+          "The bed turned into a trampoline.",
+          "Everyone forgot how to walk."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—that comes straight from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Jesus’ kind words? (Answer: Son, thy sins be forgiven thee.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Never say sorry when we do wrong.",
-          "When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal.",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us."
+          "Thank Jesus for forgiving us — ask Him to help us bring friends to Him in prayer and love.",
+          "Never help anyone who is hurting.",
+          "Only pray when we feel perfect.",
+          "Hide from Jesus when we do wrong."
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal..)"
+        "wrongFeedback": "Think: which honors Jesus’ forgiveness and healing? (Answer: Thank Jesus for forgiving us — ask Him to help us bring friends to Him in prayer and love.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Through the Roof to Jesus with God's Word today.",
-    "takeaway": "When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Through the Roof to Jesus. Amen.",
+    "doneMessage": "Great job reading Jesus Forgives and Heals a Man Who Could Not Walk with God's Word today.",
+    "takeaway": "Jesus can forgive sins and make sick people well.",
+    "prayer": "Lord Jesus, thank You for forgiving us. Help us trust You and love others like those faithful friends. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: So many people — no room at the door (paralytic)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four friends carry a paralyzed man up to the roof (palsy)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Lowered to Jesus — rise, take up thy bed, and walk! (roof)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: So many people — no room at the door (mark 2)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four friends carry a paralyzed man up to the roof (faith)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: four friends lowering a man on his bed through a hole in the roof Jesus is standing below with a kind caring face the man on the bed looks hopeful thick bold outlines with large open spaces on the friends' robes the bed and the floor for easy coloring soft house walls and gentle light from above with minimal lines hopeful trusting mood focus on Jesus forgiving and healing clean minimal no fear or broken roof pieces plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: House full — preaching the word (gather)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Four friends — faith on the roof (carry)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Lowered to Jesus — Son, thy sins forgiven (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Arise, take up thy bed (heal)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Walked home — glorified God (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Jesus forgives and heals (hope)"
+    ],
+    "readAlongImages": []
   },
   "jesusLastSupper": {
     "kjvRef": "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",

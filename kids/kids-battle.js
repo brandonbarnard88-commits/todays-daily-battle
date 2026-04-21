@@ -5221,18 +5221,47 @@
       kidContext: { who: 'Jesus', to: 'The blind man (and us)', apply: 'Jesus has power to help us see truth — and to trust Him when others question.' }
     },
     jesusHealsParalytic: {
-      title: 'Through the Roof to Jesus',
+      title: 'Jesus Forgives and Heals a Man Who Could Not Walk',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'So many people — no room at the door' },
-        { src: 'panel-noah-2.svg', alt: 'Four friends carry a paralyzed man up to the roof' },
-        { src: 'panel-noah-3.svg', alt: 'Lowered to Jesus — rise, take up thy bed, and walk!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'The house is full — four friends carry a man who cannot walk'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They open the roof and lower him on his bed to Jesus'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Son, thy sins be forgiven thee — Arise, take up thy bed, and walk'
+        }
       ],
-      caption: 'Swipe to see friends bring him to Jesus — forgiven and healed! 🏠',
+      caption:
+        'Swipe to see friends of faith lower him to Jesus — forgiven, healed, and walking home. 🏠',
       videoId: '',
       videoTitle: '',
-      keywords: ['paralytic', 'palsy', 'roof', 'mark 2', 'faith', 'forgive', 'mat', 'friends', 'capernaum'],
+      keywords: [
+        'paralytic',
+        'palsy',
+        'roof',
+        'mark 2',
+        'faith',
+        'forgive',
+        'friends',
+        'capernaum',
+        'bed',
+        'heal',
+        'son'
+      ],
       kjvRef: 'Mark 2:1–12',
-      kidContext: { who: 'Jesus', to: 'The sick of the palsy (and his friends)', apply: 'When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'The sick of the palsy — his friends — and everyone who listens',
+        apply:
+          'Jesus can forgive sins and make sick people well. Keep bringing people to Him in prayer and love.'
+      },
+      narration:
+        "Jesus Forgives and Heals a Man Who Could Not Walk — Mark 2:1–12. And again he entered into Capernaum after some days; and it was noised that he was in the house. And straightway many were gathered together, insomuch that there was no room to receive them, no, not so much as about the door: and he preached the word unto them. And they come unto him, bringing one sick of the palsy, which was borne of four. And when they could not come nigh unto him for the press, they uncovered the roof where he was: and when they had broken it up, they let down the bed wherein the sick of the palsy lay. When Jesus saw their faith, he said unto the sick of the palsy, Son, thy sins be forgiven thee. But there were certain of the scribes sitting there, and reasoning in their hearts, Why doth this man thus speak blasphemies? who can forgive sins but God only? And immediately when Jesus perceived in his spirit that they so reasoned within themselves, he said unto them, Why reason ye these things in your hearts? Whether is it easier to say to the sick of the palsy, Thy sins be forgiven thee; or to say, Arise, and take up thy bed, and walk? But that ye may know that the Son of man hath power on earth to forgive sins, (he saith to the sick of the palsy,) I say unto thee, Arise, and take up thy bed, and go thy way into thine house. And immediately he arose, took up the bed, and went forth before them all; insomuch that they were all amazed, and glorified God, saying, We never saw it on this fashion. For you: Jesus can forgive and heal — keep coming to Him."
     },
     jesusBlessKids: {
       title: 'Jesus Blesses the Children',
@@ -7644,10 +7673,10 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusCalmsStorm', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
-      'jesusHealsParalytic', 'jesusFeeds5000', 'jesusWalksWater',
+      'jesusFeeds5000', 'jesusWalksWater',
       'jesusParableSower', 'jesusParableMustardSeed', 'jesusParableGoodShepherd',
       'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
@@ -7667,7 +7696,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusCalmsStorm', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */

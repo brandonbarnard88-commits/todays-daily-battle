@@ -3058,13 +3058,13 @@
   },
   {
     "key": "jesusHealsParalytic",
-    "title": "Through the Roof to Jesus",
+    "title": "Jesus Forgives and Heals a Man Who Could Not Walk",
     "kjvRef": "Mark 2:1–12",
     "who": "Jesus",
-    "to": "The sick of the palsy (and his friends)",
-    "apply": "When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal.",
+    "to": "The sick of the palsy — his friends — and everyone who listens",
+    "apply": "Jesus can forgive sins and make sick people well. Keep bringing people to Him in prayer and love.",
     "theme": "Miracles",
-    "kw": "paralytic palsy roof mark 2 faith forgive mat friends capernaum"
+    "kw": "paralytic palsy roof mark 2 faith forgive friends capernaum bed lowered son thy sins arise take up bed walk capernaum"
   },
   {
     "key": "timothyYouthExample",

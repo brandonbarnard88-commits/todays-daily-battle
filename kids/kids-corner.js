@@ -4953,6 +4953,56 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ephesians 6:14</text>'
       ),
 
+      /* Matthew 26:17–30 — Last Supper: low table, Jesus with bread and cup, friends around */
+      lastSupper: svg(
+        ground() +
+        '<rect x="44" y="54" width="312" height="168" rx="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="268" y="72" width="22" height="36" rx="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M279 72 L279 62 Q286 58 293 62 L293 72" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="286" cy="58" rx="10" ry="6" ' + sf + ' fill="white" stroke-width="1.6" opacity="0.9"/>' +
+        '<rect x="68" y="172" width="264" height="14" rx="6" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="168" cy="166" rx="14" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M228 158 L232 148 L236 158 L234 168 L230 168 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="168" rx="20" ry="7" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(200, 118, 12, 26) +
+        '<line x1="194" y1="140" x2="182" y2="152" ' + s + ' stroke-width="2"/>' +
+        '<line x1="206" y1="140" x2="218" y2="150" ' + s + ' stroke-width="2"/>' +
+        person(78, 168, 6, 13) +
+        person(102, 164, 6, 13) +
+        person(126, 162, 6, 13) +
+        person(150, 160, 6, 13) +
+        person(250, 160, 6, 13) +
+        person(274, 162, 6, 13) +
+        person(298, 164, 6, 13) +
+        person(322, 168, 6, 13) +
+        person(200, 178, 6, 12) +
+        person(62, 175, 5, 11) +
+        person(338, 175, 5, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:26–28</text>'
+      ),
+
+      /* Matthew 26:36–46 — Gethsemane: kneeling Jesus, moon, olive trees, three friends resting */
+      gardenPrayer: svg(
+        ground() +
+        '<circle cx="320" cy="52" r="16" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M52 210 Q68 150 88 210 M332 208 Q348 148 368 208" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M118 220 L118 145 Q132 125 146 145 L146 220" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="132" cy="128" rx="28" ry="20" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M248 222 L248 152 Q262 132 276 152 L276 222" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="262" cy="138" rx="26" ry="18" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="210" cy="238" rx="36" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="210" cy="198" r="10" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M198 206 L190 218 M222 206 L230 218" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M200 208 L200 228" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="118" cy="232" rx="16" ry="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="110" cy="220" r="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="168" cy="236" rx="16" ry="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="160" cy="224" r="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="288" cy="234" rx="16" ry="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="280" cy="222" r="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:39–42</text>'
+      ),
+
       /* ── Week 12: Prayer Closet (150) ── */
       prayerCloset: svg(
         ground() +
@@ -5136,7 +5186,6 @@
     prodigalSon: 'prodigalSonWelcome',
     lostSheep: 'parableLostSheep',
     parableLostSheep: 'parableLostSheep',
-    lastSupper: 'maryAnoint',
     armorOfGod: 'armorOfGod',
     davidKindness: 'mephibosheth',
     davidRepentance: 'davidBathsheba',
@@ -5298,7 +5347,6 @@
     transfigure: 'transfigure',
     judasKiss: 'judasKiss',
     betrayal: 'judasKiss',
-    gardenPrayer: 'prayerCloset',
     /* ── Week 7 ── */
     jesusTriumphalEntry: 'triumphalEntry',
     triumphalEntry: 'triumphalEntry',
@@ -5307,8 +5355,8 @@
     figTree: 'figTree',
     jesusFigTree: 'figTree',
     jesusAuthority: 'jesusAuthority',
-    jesusLastSupper: 'maryAnoint',
-    jesusGardenGethsemane: 'prayerCloset',
+    jesusLastSupper: 'lastSupper',
+    jesusGardenGethsemane: 'gardenPrayer',
     jesusCrucifixion: 'crucifixion',
     jesusResurrection: 'resurrection',
     crossCarry: 'crossCarry',

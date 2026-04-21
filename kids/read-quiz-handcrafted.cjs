@@ -94,6 +94,8 @@
  * Triumphal Entry — Matthew 21:1–11 (gentle): buildTriumphalEntryReadQuiz() (library key: triumphalEntry).
  * Palm Sunday — Jesus rides into Jerusalem — Matthew 21:1–11 (+ harmony refs): buildPalmSundayReadQuiz() (library key: palmSunday).
  * Judas betrays Jesus — Matthew 26:14–16; 26:47–50 (gentle): buildBetrayalReadQuiz() (library keys: betrayal; judasKiss).
+ * Last Supper — Matthew 26:17–30 (gentle): buildLastSupperReadQuiz() (library keys: lastSupper; jesusLastSupper).
+ * Jesus prays in Gethsemane — Matthew 26:36–46 (gentle): buildGardenPrayerReadQuiz() (library keys: gardenPrayer; jesusGardenGethsemane).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
@@ -11901,6 +11903,293 @@ function buildBetrayalReadQuiz() {
   };
 }
 
+/** Last Supper — Jesus shares bread and cup (gentle). Library keys: lastSupper; jesusLastSupper */
+function buildLastSupperReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:17–30 (KJV) (par. Mark 14:12–26; Luke 22:7–23)',
+    verseExcerpt: 'Take, eat; this is my body. — Matthew 26:26 (KJV)',
+    readAlongTitle: 'Jesus Shares the Last Supper',
+    quizWrongHumilityHint:
+      'Listen again — unleavened bread; passover; prepare; Master; my time is at hand; made ready; even; twelve; betray me; sorrowful; Lord is it I; bread; cup; new testament; remission of sins; Father’s kingdom; hymn; Olives.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Now the first day of the feast of unleavened bread the disciples came to Jesus, saying unto him, Where wilt thou that we prepare for thee to eat the passover?',
+      'And he said, Go into the city to such a man, and say unto him, The Master saith, My time is at hand; I will keep the passover at thy house with my disciples. And the disciples did as Jesus had appointed them; and they made ready the passover.',
+      'Now when the even was come, he sat down with the twelve. And as they did eat, he said, Verily I say unto you, that one of you shall betray me. And they were exceeding sorrowful, and began every one of them to say unto him, Lord, is it I?',
+      'And he answered and said, He that dippeth his hand with me in the dish, the same shall betray me. The Son of man goeth as it is written of him: but woe unto that man by whom the Son of man is betrayed! it had been good for that man if he had not been born. Then Judas, which betrayed him, answered and said, Master, is it I? He said unto him, Thou hast said.',
+      'And as they were eating, Jesus took bread, and blessed it, and brake it, and gave it to the disciples, and said, Take, eat; this is my body.',
+      'And he took the cup, and gave thanks, and gave it to them, saying, Drink ye all of it; For this is my blood of the new testament, which is shed for many for the remission of sins. But I say unto you, I will not drink henceforth of this fruit of the vine, until that day when I drink it new with you in my Father’s kingdom.',
+      'And when they had sung an hymn, they went out into the mount of Olives.',
+      'Jesus loves us so much that He gave His body and blood — His love never ends.',
+      'Reference: Matthew 26:17–30 (KJV) (parallel in Mark and Luke)'
+    ],
+    readAlongSections: [
+      {
+        text: 'The disciples prepared a special supper for Jesus in a room in the city.',
+        caption: 'Made ready the passover',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus sat down with His twelve friends to eat the Passover meal.',
+        caption: 'Sat down with the twelve',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He told them that one of them would betray Him, and they felt very sad.',
+        caption: 'Lord, is it I?',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus took bread, blessed it, brake it, and gave it to them saying, Take, eat; this is my body.',
+        caption: 'This is my body',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He took the cup, gave thanks, and said, Drink ye all of it; this is my blood of the new testament, shed for many for the remission of sins.',
+        caption: 'My blood of the new testament',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus was sharing a very special meal with them before He would go to the cross.',
+        caption: 'Love to the end',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:17–30 (also told in Mark and Luke)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Psalm 23 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26:17–30.)'
+      },
+      {
+        question: 'What did Jesus say about the bread He gave?',
+        choices: [
+          'Take, eat; this is my body.',
+          'This bread is only pretend.',
+          'Do not eat anything.',
+          'The bread was for animals only.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:26.',
+        wrongFeedback: 'Listen for “Take, eat” and “body.” (Answer: Take, eat; this is my body.)'
+      },
+      {
+        question: 'What did Jesus say the cup was?',
+        choices: [
+          'His blood of the new testament, shed for many for the remission of sins',
+          'Only grape juice with no meaning',
+          'A cup for hiding toys',
+          'Something to spill on purpose'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:28.',
+        wrongFeedback: 'Listen for “blood” and “new testament.” (Answer: blood of the new testament… remission of sins.)'
+      },
+      {
+        question: 'How did the disciples feel when Jesus said one would betray Him?',
+        choices: [
+          'They were exceeding sorrowful, and asked, Lord, is it I?',
+          'They laughed and ran away.',
+          'They did not care at all.',
+          'They fell asleep right away.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:22.',
+        wrongFeedback: 'Listen for “sorrowful.” (Answer: exceeding sorrowful… Lord, is it I?)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'They made ready the passover and Jesus sat with the twelve.',
+          'A rocket flew over the table.',
+          'Everyone turned into fish.',
+          'The table became a swimming pool.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches God’s Word.',
+        wrongFeedback: 'Pick the true detail from the story. (Answer: made ready the passover… twelve.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He gave His body and blood for us — His love never ends.',
+          'Believe God never cares about kids.',
+          'Never remember what Jesus did.',
+          'Hide when we feel sad.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with gratitude: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “love” and “remember.” (Answer: thank Jesus… love never ends.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Shares the Last Supper with God's Word today.",
+    takeaway:
+      'Jesus shared bread and cup with His friends — He gave Himself for us because He loves us with a love that never ends.',
+    prayer:
+      'Lord Jesus, thank You for Your body and blood given for me. Help me remember Your love today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): gentle Jesus at a low supper table center with a kind face; twelve disciples sit around with simple outlines; Jesus holds bread in one hand and a cup in the other; soft room walls, simple dishes, warm lamp glow suggested with light outlines — not dark or busy; large open table and floor space; bold clean lines; no text in the image.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Prepare the passover — room in the city (welcome)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Sat with the twelve — Passover meal (together)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: One shall betray me — sorrowful hearts (honesty)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Take, eat — this is my body (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: The cup — new testament (peace)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Drink it new in my Father’s kingdom (hope)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Gethsemane — Jesus prays; not My will but Thine (gentle). Library keys: gardenPrayer; jesusGardenGethsemane */
+function buildGardenPrayerReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:36–46 (KJV) (par. Mark 14:32–42; Luke 22:39–46)',
+    verseExcerpt: 'Nevertheless not as I will, but as thou wilt. — Matthew 26:39 (KJV)',
+    readAlongTitle: 'Jesus Prays in the Garden',
+    quizWrongHumilityHint:
+      'Listen again — Gethsemane; Sit ye here; Peter; sons of Zebedee; sorrowful; watch; fell on his face; let this cup pass; not as I will; asleep; watch and pray; spirit willing; flesh weak; third time; thy will be done; hour is at hand.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Then cometh Jesus with them unto a place called Gethsemane, and saith unto the disciples, Sit ye here, while I go and pray yonder.',
+      'And he took with him Peter and the two sons of Zebedee, and began to be sorrowful and very heavy. Then saith he unto them, My soul is exceeding sorrowful, even unto death: tarry ye here, and watch with me.',
+      'And he went a little further, and fell on his face, and prayed, saying, O my Father, if it be possible, let this cup pass from me: nevertheless not as I will, but as thou wilt.',
+      'And he cometh unto the disciples, and findeth them asleep, and saith unto Peter, What, could ye not watch with me one hour? Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.',
+      'He went away again the second time, and prayed, saying, O my Father, if this cup may not pass away from me, except I drink it, thy will be done. And he came and found them asleep again: for their eyes were heavy.',
+      'And he left them, and went away again, and prayed the third time, saying the same words.',
+      'Then cometh he to his disciples, and saith unto them, Sleep on now, and take your rest: behold, the hour is at hand, and the Son of man is betrayed into the hands of sinners. Rise, let us be going: behold, he is at hand that doth betray me.',
+      'Jesus chose His Father’s will because He loves us — we can pray and trust God too.',
+      'Reference: Matthew 26:36–46 (KJV) (parallel in Mark and Luke)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus went to a garden called Gethsemane with His disciples to pray.',
+        caption: 'Sit ye here',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He asked Peter, James, and John to stay awake and watch with Him.',
+        caption: 'Tarry ye here, and watch',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus prayed, O my Father… nevertheless not as I will, but as thou wilt.',
+        caption: 'Not as I will',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He found the disciples sleeping and gently reminded them to watch and pray.',
+        caption: 'Watch and pray',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus prayed the same words a second and third time.',
+        caption: 'Thy will be done',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'He chose to obey His Father even when it was very hard.',
+        caption: 'Love that obeys',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:36–46 (also told in Mark and Luke)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26:36–46.)'
+      },
+      {
+        question: 'What was the garden called where Jesus prayed?',
+        choices: ['Gethsemane', 'Jericho', 'Bethlehem', 'Nineveh'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:36.',
+        wrongFeedback: 'Listen for the garden name. (Answer: Gethsemane.)'
+      },
+      {
+        question: 'What did Jesus pray about God’s will?',
+        choices: [
+          'Nevertheless not as I will, but as thou wilt.',
+          'I will never pray.',
+          'Do whatever I want only.',
+          'Run away and hide forever.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:39.',
+        wrongFeedback: 'Listen for “not as I will.” (Answer: not as I will, but as thou wilt.)'
+      },
+      {
+        question: 'What did Jesus tell the disciples to do so they would not fall into temptation?',
+        choices: [
+          'Watch and pray.',
+          'Shout loudly only.',
+          'Hide under the table.',
+          'Never speak to God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:41.',
+        wrongFeedback: 'Listen for “watch” and “pray.” (Answer: Watch and pray.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus fell on his face and prayed three times about the cup and God’s will.',
+          'A dragon cooked supper.',
+          'Everyone flew to the moon.',
+          'The trees turned into candy.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches God’s Word.',
+        wrongFeedback: 'Pick the true detail. (Answer: prayed… third time.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell God my feelings and ask Him to help me trust His will like Jesus did.',
+          'Believe God never listens.',
+          'Stop praying when I am sad.',
+          'Never tell a grown-up when I feel scared.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “pray” and “trust.” (Answer: tell God… trust His will.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Prays in the Garden with God's Word today.",
+    takeaway:
+      'Jesus prayed honest prayers and chose His Father’s will — we can talk to God anytime and rest in His care.',
+    prayer:
+      'Lord Jesus, thank You that You understand hard days. Teach me to pray and trust God like You. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): Jesus kneels quietly in a garden under a soft moon circle; hands folded in prayer; peaceful heavy face; three disciples sleep gently nearby; simple olive trees; grassy ground; large open space around Jesus; bold outlines; moonlit but not scary or dark; no text in the image.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Gethsemane — come pray (quiet)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Watch with me — three friends (together)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Let this cup pass — honest prayer (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Watch and pray — willing spirit (gentleness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Third prayer — thy will be done (trust)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: God’s strong, gentle care (hope)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
 function buildJesusWeepsJerusalemReadQuiz() {
   return {
@@ -13278,6 +13567,10 @@ module.exports = {
   palmSunday: buildPalmSundayReadQuiz(),
   betrayal: buildBetrayalReadQuiz(),
   judasKiss: buildBetrayalReadQuiz(),
+  lastSupper: buildLastSupperReadQuiz(),
+  jesusLastSupper: buildLastSupperReadQuiz(),
+  gardenPrayer: buildGardenPrayerReadQuiz(),
+  jesusGardenGethsemane: buildGardenPrayerReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

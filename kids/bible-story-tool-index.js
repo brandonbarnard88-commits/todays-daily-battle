@@ -698,13 +698,13 @@
   },
   {
     "key": "gardenPrayer",
-    "title": "Garden Prayer",
-    "kjvRef": "Matthew 26:36–46; Luke 22:44",
+    "title": "Jesus Prays in the Garden",
+    "kjvRef": "Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)",
     "who": "Jesus",
-    "to": "God the Father (and us)",
-    "apply": "Jesus talks to God—talk to Him! Pray when you're scared or sad!",
+    "to": "Every child who feels scared, sad, or heavy about what might happen",
+    "apply": "Jesus understands hard feelings — we can pray like Him and trust our Father's strong, gentle care.",
     "theme": "Protection",
-    "kw": "gethsemane garden prayer matthew 26 mark 14 luke 22"
+    "kw": "gethsemane garden Gethsemane prayer watch cup Peter James John Zebedee not as I will thy will be done matthew 26 mark 14 luke 22"
   },
   {
     "key": "gideonFleece",
@@ -1858,13 +1858,13 @@
   },
   {
     "key": "lastSupper",
-    "title": "Last Supper",
-    "kjvRef": "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+    "title": "Jesus Shares the Last Supper",
+    "kjvRef": "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23)",
     "who": "Jesus",
-    "to": "His twelve disciples",
-    "apply": "Jesus shares bread—He loves us! Remember Him when you eat together!",
+    "to": "His twelve friends — and every child who feels sad when things change",
+    "apply": "Jesus gave His body and blood for us because He loves us — His love never ends, and He is always with us.",
     "theme": "Love",
-    "kw": "last supper bread wine luke 22 matthew 26 passover"
+    "kw": "last supper passover unleavened bread twelve betray bread cup new testament remission of sins Father's kingdom matthew 26 mark 14 luke 22"
   },
   {
     "key": "revelationLetters",
@@ -2478,13 +2478,13 @@
   },
   {
     "key": "jesusGardenGethsemane",
-    "title": "Prayer in Gethsemane",
-    "kjvRef": "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+    "title": "Jesus Prays in the Garden",
+    "kjvRef": "Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)",
     "who": "Jesus",
-    "to": "God the Father (and us)",
-    "apply": "When life feels heavy, we can pray honestly — and still say, Thy will be done.",
+    "to": "Every child who feels scared, sad, or heavy about what might happen",
+    "apply": "Jesus understands hard feelings — we can pray like Him and trust our Father's strong, gentle care.",
     "theme": "Protection",
-    "kw": "gethsemane garden prayer matthew 26 mark 14 luke 22 cup watch betray"
+    "kw": "gethsemane garden prayer watch cup Peter James John not as I will thy will be done matthew 26 mark 14 luke 22"
   },
   {
     "key": "priscillaTeach",
@@ -3078,13 +3078,13 @@
   },
   {
     "key": "jesusLastSupper",
-    "title": "The Last Supper",
-    "kjvRef": "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
+    "title": "Jesus Shares the Last Supper",
+    "kjvRef": "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23); 1 Corinthians 11:23–26",
     "who": "Jesus",
-    "to": "His disciples (and us)",
-    "apply": "Jesus gave us a way to remember His death until He comes — His body and blood for us.",
+    "to": "His twelve friends — and every child who feels sad when things change",
+    "apply": "Jesus gave His body and blood for us because He loves us — His love never ends, and He is always with us.",
     "theme": "Love",
-    "kw": "last supper passover bread cup covenant luke 22 matthew 26 remembrance judas"
+    "kw": "last supper passover bread cup new testament betray twelve remembrance matthew 26 mark 14 luke 22 1 corinthians 11"
   },
   {
     "key": "newEarth",

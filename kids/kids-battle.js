@@ -2054,18 +2054,47 @@
         "Jesus Teaches About the Resurrection — Matthew 22:23–33. The same day came to him the Sadducees, which say that there is no resurrection, and asked him, Saying, Master, Moses said, If a man die, having no children, his brother shall marry his wife, and raise up seed unto his brother. Now there were with us seven brethren: and the first, when he had married a wife, deceased, and, having no issue, left his wife unto his brother: Likewise the second also, and the third, unto the seventh. And last of all the woman died also. Therefore in the resurrection whose wife shall she be of the seven? for they all had her. Jesus answered and said unto them, Ye do err, not knowing the scriptures, nor the power of God. For in the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven. But as touching the resurrection of the dead, have ye not read that which was spoken unto you by God, saying, I am the God of Abraham, and the God of Isaac, and the God of Jacob? God is not the God of the dead, but of the living. And when the multitude heard it, they were astonished at his doctrine. For you: On hard days when things feel confusing or scary, remember what Jesus said: God is not the God of the dead, but of the living. Jesus is stronger than death, and He loves you very much. You can rest in Him."
     },
     lastSupper: {
-      title: 'Last Supper',
+      title: 'Jesus Shares the Last Supper',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus and the disciples at table' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus breaks bread' },
-        { src: 'panel-jesus-3.svg', alt: 'This is My body—He loves us!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Passover prepared — Jesus sits with the twelve — one of you shall betray me'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They were exceeding sorrowful — Lord, is it I? — Jesus teaches of the betrayer'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Take, eat; this is my body — the cup — my blood of the new testament — I will drink it new in my Father\'s kingdom'
+        }
       ],
-      caption: 'Swipe to see Jesus share bread—He loves us! 🍞',
-      videoId: 'y-SrXeZcVhU',
-      videoTitle: 'The Last Supper – Sharefaith Kids!',
-      keywords: ['last supper', 'bread', 'wine', 'luke 22', 'matthew 26', 'passover'],
-      kjvRef: 'Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23',
-      kidContext: { who: 'Jesus', to: 'His twelve disciples', apply: 'Jesus shares bread—He loves us! Remember Him when you eat together!' }
+      caption: 'Swipe slowly — Jesus shares bread and cup; His love is for you.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'last supper',
+        'passover',
+        'unleavened bread',
+        'bread',
+        'cup',
+        'new testament',
+        'betray',
+        'twelve',
+        'remission of sins',
+        'matthew 26',
+        'mark 14',
+        'luke 22'
+      ],
+      kjvRef: 'Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His twelve friends — and every child who feels sad when things change',
+        apply:
+          'Jesus gave His body and blood for us because He loves us — His love never ends, and He is always with us.'
+      },
+      narration:
+        "Jesus Shares the Last Supper — Matthew 26:17–30. Now the first day of the feast of unleavened bread the disciples came to Jesus, saying unto him, Where wilt thou that we prepare for thee to eat the passover? And he said, Go into the city to such a man, and say unto him, The Master saith, My time is at hand; I will keep the passover at thy house with my disciples. And the disciples did as Jesus had appointed them; and they made ready the passover. Now when the even was come, he sat down with the twelve. And as they did eat, he said, Verily I say unto you, that one of you shall betray me. And they were exceeding sorrowful, and began every one of them to say unto him, Lord, is it I? And he answered and said, He that dippeth his hand with me in the dish, the same shall betray me. The Son of man goeth as it is written of him: but woe unto that man by whom the Son of man is betrayed! it had been good for that man if he had not been born. Then Judas, which betrayed him, answered and said, Master, is it I? He said unto him, Thou hast said. And as they were eating, Jesus took bread, and blessed it, and brake it, and gave it to the disciples, and said, Take, eat; this is my body. And he took the cup, and gave thanks, and gave it to them, saying, Drink ye all of it; For this is my blood of the new testament, which is shed for many for the remission of sins. But I say unto you, I will not drink henceforth of this fruit of the vine, until that day when I drink it new with you in my Father's kingdom. And when they had sung an hymn, they went out into the mount of Olives. For you: On hard days when you feel sad or when things are about to change, remember Jesus shared this special meal with His friends. He gave His body and blood for us because He loves us so much. You can rest knowing Jesus is always with you and His love never ends."
     },
     jesusTemptation: {
       title: "Jesus' Temptation",
@@ -2149,18 +2178,49 @@
         "Jesus Sees the Poor Widow’s Gift — Mark 12:41–44. And Jesus sat over against the treasury, and beheld how the people cast money into the treasury: and many that were rich cast in much. And there came a certain poor widow, and she threw in two mites, which make a farthing. And he called unto him his disciples, and saith unto them, Verily I say unto you, That this poor widow hath cast more in, than all they which have cast into the treasury: For all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living. For you: Jesus sees when we give with a loving heart, even if it is only a little."
     },
     gardenPrayer: {
-      title: 'Garden Prayer',
+      title: 'Jesus Prays in the Garden',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus in the garden' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus prays to the Father' },
-        { src: 'panel-jesus-3.svg', alt: 'Not My will—Your will be done!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Gethsemane — Jesus asks Peter, James, and John to watch — My soul is exceeding sorrowful'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus falls on His face — O my Father… nevertheless not as I will, but as thou wilt'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Watch and pray — the spirit indeed is willing — He prayed a third time — Thy will be done'
+        }
       ],
-      caption: 'Swipe to see Jesus pray—talk to God! 🙏',
-      videoId: 'mk7Ey0XDx0w',
-      videoTitle: 'Garden of Gethsemane – CQ Kids!',
-      keywords: ['gethsemane', 'garden', 'prayer', 'matthew 26', 'mark 14', 'luke 22'],
-      kjvRef: 'Matthew 26:36–46; Luke 22:44',
-      kidContext: { who: 'Jesus', to: 'God the Father (and us)', apply: 'Jesus talks to God—talk to Him! Pray when you\'re scared or sad!' }
+      caption: 'Swipe slowly — Jesus prays honest tears to His Father, and chooses God\'s will.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'gethsemane',
+        'garden',
+        'prayer',
+        'watch',
+        'cup',
+        'Peter',
+        'James',
+        'John',
+        'Zebedee',
+        'not as I will',
+        'thy will be done',
+        'matthew 26',
+        'mark 14',
+        'luke 22'
+      ],
+      kjvRef: 'Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels scared, sad, or heavy about what might happen',
+        apply:
+          'Jesus understands hard feelings — we can pray like Him and trust our Father\'s strong, gentle care.'
+      },
+      narration:
+        "Jesus Prays in the Garden — Matthew 26:36–46. Then cometh Jesus with them unto a place called Gethsemane, and saith unto the disciples, Sit ye here, while I go and pray yonder. And he took with him Peter and the two sons of Zebedee, and began to be sorrowful and very heavy. Then saith he unto them, My soul is exceeding sorrowful, even unto death: tarry ye here, and watch with me. And he went a little further, and fell on his face, and prayed, saying, O my Father, if it be possible, let this cup pass from me: nevertheless not as I will, but as thou wilt. And he cometh unto the disciples, and findeth them asleep, and saith unto Peter, What, could ye not watch with me one hour? Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak. He went away again the second time, and prayed, saying, O my Father, if this cup may not pass away from me, except I drink it, thy will be done. And he came and found them asleep again: for their eyes were heavy. And he left them, and went away again, and prayed the third time, saying the same words. Then cometh he to his disciples, and saith unto them, Sleep on now, and take your rest: behold, the hour is at hand, and the Son of man is betrayed into the hands of sinners. Rise, let us be going: behold, he is at hand that doth betray me. For you: On the hardest days when you feel sad or scared about what might happen, remember Jesus in the garden. He prayed to His Father and said, Not as I will, but as thou wilt. Jesus understands hard feelings, and He chose to obey because He loves you. You can talk to God anytime and rest in His strong, gentle care."
     },
     betrayal: {
       title: 'Judas Betrays Jesus',
@@ -2262,32 +2322,93 @@
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus goes up—He\'s with God! He promised to come back—spread His love!' }
     },
     jesusLastSupper: {
-      title: 'The Last Supper',
+      title: 'Jesus Shares the Last Supper',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus and the twelve at the Passover table' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus breaks bread — This is My body' },
-        { src: 'panel-jesus-3.svg', alt: 'The cup — the new testament in My blood' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Passover prepared — Jesus sits with the twelve — one of you shall betray me'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They were exceeding sorrowful — Lord, is it I? — Jesus teaches of the betrayer'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Take, eat; this is my body — the cup — my blood of the new testament — I will drink it new in my Father\'s kingdom'
+        }
       ],
-      caption: 'Swipe to remember Jesus — bread, cup, love! 🍞',
+      caption: 'Swipe slowly — Jesus shares bread and cup; His love is for you.',
       videoId: '',
       videoTitle: '',
-      keywords: ['last supper', 'passover', 'bread', 'cup', 'covenant', 'luke 22', 'matthew 26', 'remembrance', 'judas'],
-      kjvRef: 'Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus gave us a way to remember His death until He comes — His body and blood for us.' }
+      keywords: [
+        'last supper',
+        'passover',
+        'unleavened bread',
+        'bread',
+        'cup',
+        'new testament',
+        'betray',
+        'twelve',
+        'remission of sins',
+        'matthew 26',
+        'mark 14',
+        'luke 22',
+        'remembrance'
+      ],
+      kjvRef: 'Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23); 1 Corinthians 11:23–26',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His twelve friends — and every child who feels sad when things change',
+        apply:
+          'Jesus gave His body and blood for us because He loves us — His love never ends, and He is always with us.'
+      },
+      narration:
+        "Jesus Shares the Last Supper — Matthew 26:17–30. Now the first day of the feast of unleavened bread the disciples came to Jesus, saying unto him, Where wilt thou that we prepare for thee to eat the passover? And he said, Go into the city to such a man, and say unto him, The Master saith, My time is at hand; I will keep the passover at thy house with my disciples. And the disciples did as Jesus had appointed them; and they made ready the passover. Now when the even was come, he sat down with the twelve. And as they did eat, he said, Verily I say unto you, that one of you shall betray me. And they were exceeding sorrowful, and began every one of them to say unto him, Lord, is it I? And he answered and said, He that dippeth his hand with me in the dish, the same shall betray me. The Son of man goeth as it is written of him: but woe unto that man by whom the Son of man is betrayed! it had been good for that man if he had not been born. Then Judas, which betrayed him, answered and said, Master, is it I? He said unto him, Thou hast said. And as they were eating, Jesus took bread, and blessed it, and brake it, and gave it to the disciples, and said, Take, eat; this is my body. And he took the cup, and gave thanks, and gave it to them, saying, Drink ye all of it; For this is my blood of the new testament, which is shed for many for the remission of sins. But I say unto you, I will not drink henceforth of this fruit of the vine, until that day when I drink it new with you in my Father's kingdom. And when they had sung an hymn, they went out into the mount of Olives. For you: On hard days when you feel sad or when things are about to change, remember Jesus shared this special meal with His friends. He gave His body and blood for us because He loves us so much. You can rest knowing Jesus is always with you and His love never ends."
     },
     jesusGardenGethsemane: {
-      title: 'Prayer in Gethsemane',
+      title: 'Jesus Prays in the Garden',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus prays in the garden — Father, Thy will be done' },
-        { src: 'panel-jesus-2.svg', alt: 'Disciples sleep — Watch and pray' },
-        { src: 'panel-jesus-3.svg', alt: 'Judas comes — the hour of betrayal' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Gethsemane — Jesus asks Peter, James, and John to watch — My soul is exceeding sorrowful'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus falls on His face — O my Father… nevertheless not as I will, but as thou wilt'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Watch and pray — the spirit indeed is willing — He prayed a third time — Thy will be done'
+        }
       ],
-      caption: 'Swipe to see Jesus pray — "Not My will, but Thine." 🙏',
+      caption: 'Swipe slowly — Jesus prays honest tears to His Father, and chooses God\'s will.',
       videoId: '',
       videoTitle: '',
-      keywords: ['gethsemane', 'garden', 'prayer', 'matthew 26', 'mark 14', 'luke 22', 'cup', 'watch', 'betray'],
-      kjvRef: 'Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46',
-      kidContext: { who: 'Jesus', to: 'God the Father (and us)', apply: 'When life feels heavy, we can pray honestly — and still say, Thy will be done.' }
+      keywords: [
+        'gethsemane',
+        'garden',
+        'prayer',
+        'watch',
+        'cup',
+        'Peter',
+        'James',
+        'John',
+        'Zebedee',
+        'not as I will',
+        'thy will be done',
+        'matthew 26',
+        'mark 14',
+        'luke 22'
+      ],
+      kjvRef: 'Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels scared, sad, or heavy about what might happen',
+        apply:
+          'Jesus understands hard feelings — we can pray like Him and trust our Father\'s strong, gentle care.'
+      },
+      narration:
+        "Jesus Prays in the Garden — Matthew 26:36–46. Then cometh Jesus with them unto a place called Gethsemane, and saith unto the disciples, Sit ye here, while I go and pray yonder. And he took with him Peter and the two sons of Zebedee, and began to be sorrowful and very heavy. Then saith he unto them, My soul is exceeding sorrowful, even unto death: tarry ye here, and watch with me. And he went a little further, and fell on his face, and prayed, saying, O my Father, if it be possible, let this cup pass from me: nevertheless not as I will, but as thou wilt. And he cometh unto the disciples, and findeth them asleep, and saith unto Peter, What, could ye not watch with me one hour? Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak. He went away again the second time, and prayed, saying, O my Father, if this cup may not pass away from me, except I drink it, thy will be done. And he came and found them asleep again: for their eyes were heavy. And he left them, and went away again, and prayed the third time, saying the same words. Then cometh he to his disciples, and saith unto them, Sleep on now, and take your rest: behold, the hour is at hand, and the Son of man is betrayed into the hands of sinners. Rise, let us be going: behold, he is at hand that doth betray me. For you: On the hardest days when you feel sad or scared about what might happen, remember Jesus in the garden. He prayed to His Father and said, Not as I will, but as thou wilt. Jesus understands hard feelings, and He chose to obey because He loves you. You can talk to God anytime and rest in His strong, gentle care."
     },
     jesusCrucifixion: {
       title: 'Jesus on the Cross',

@@ -80,6 +80,7 @@
   "jeremiahWeeping": "jeremiahWeeping",
   "jesus": "jesusBlessKids",
   "jesusAndChildren": "jesusBlessKids",
+  "jesusAndZacchaeus": "zacchaeus",
   "jesusBirth": "jesusBirth",
   "jesusBlessKids": "jesusBlessKids",
   "jesusCallingDisciples": "jesusCalmsStorm",
@@ -186,6 +187,6 @@
   "widowsMite": "widowMite",
   "wiseMen": "wiseMen",
   "witheredHand": "witheredHand",
-  "zacchaeus": "prayerKnock"
+  "zacchaeus": "zacchaeus"
   };
 })(typeof window !== "undefined" ? window : globalThis);

@@ -81,6 +81,7 @@
  * Pool of Bethesda — John 5:1–15 (gentle): buildBethesdaReadQuiz() (library key: bethesda).
  * Unforgiving servant — Matthew 18:21–35 (gentle): buildUnforgivingServantReadQuiz() (library key: unforgivingServant; alias forgive70x7).
  * Jesus welcomes the little children — Mark 10:13–16 (gentle): buildJesusBlessKidsReadQuiz() (library key: jesusBlessKids; alias jesusAndChildren).
+ * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
@@ -9980,6 +9981,139 @@ function buildJesusBlessKidsReadQuiz() {
   };
 }
 
+/** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
+function buildZacchaeusReadQuiz() {
+  return {
+    kjvRef: 'Luke 19:1–10 (KJV)',
+    verseExcerpt:
+      'For the Son of man is come to seek and to save that which was lost. — Luke 19:10 (KJV)',
+    readAlongTitle: 'Jesus Loves Zacchaeus',
+    quizWrongHumilityHint:
+      'Listen again — Jericho; short of stature; sycomore; Zacchaeus; make haste; come down; abide; joyfully; murmured; half; fourfold; salvation.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus was walking through Jericho.',
+      'A man named Zacchaeus was very short and wanted to see Jesus, but he could not see over the crowd.',
+      'Zacchaeus climbed up into a sycamore tree so he could see Jesus pass by.',
+      'When Jesus came to the tree, He looked up and said, “Zacchaeus, make haste, and come down; for to day I must abide at thy house.”',
+      'Zacchaeus came down quickly and was very happy.',
+      'The people were surprised because Zacchaeus had taken money that did not belong to him.',
+      'But Jesus loved him anyway.',
+      'Zacchaeus stood up and said, “Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold.”',
+      'Jesus said, “This day is salvation come to this house.”',
+      'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.',
+      'Reference: Luke 19:1–10 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Zacchaeus was very short.',
+        caption: 'Little of stature',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text: 'He climbed a tree to see Jesus.',
+        caption: 'Sycomore tree',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text: 'Jesus looked up and said, “Zacchaeus, make haste, and come down; for to day I must abide at thy house.”',
+        caption: 'Jesus saw him',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text: 'Zacchaeus came down quickly and was happy.',
+        caption: 'Received him joyfully',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text: 'Jesus said, “This day is salvation come to this house.”',
+        caption: 'Son of Abraham',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text: 'Jesus sees us and loves us.',
+        caption: 'Seek and save the lost',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Luke 19:1–10', 'Matthew 5', 'Acts 2', 'Genesis 12'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Luke 19:1–10.)'
+      },
+      {
+        question: 'What did Jesus first say to Zacchaeus in the tree?',
+        choices: [
+          '“Zacchaeus, make haste, and come down; for to day I must abide at thy house.”',
+          '“Stay in the tree forever.”',
+          '“Do not speak to anyone.”',
+          '“Run away to another town.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 19:5.',
+        wrongFeedback: 'Think about Jesus’ kind invitation in Luke 19. (Answer: make haste… abide at thy house.)'
+      },
+      {
+        question: 'What good did Zacchaeus say he would do after meeting Jesus?',
+        choices: [
+          'Give half of his goods to the poor — and restore fourfold if he wronged anyone.',
+          'Hide everything he owned.',
+          'Never say sorry.',
+          'Only help people who clapped the loudest.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches his honest words in Luke 19:8.',
+        wrongFeedback: 'Reread what Zacchaeus promised God. (Answer: half… poor… fourfold.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus knew Zacchaeus by name — and wanted to be a guest at his home.',
+          'Zacchaeus rode a rocket through Jericho.',
+          'The tree grew candy instead of leaves.',
+          'Jesus could not see anyone in the crowd.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 19:5–6.',
+        wrongFeedback: 'Cross out the joke answers. Which matches God’s Word? (Answer: knew his name… guest at his home.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Talk to Jesus honestly — He sees us, loves us, and can change our hearts.',
+          'Believe God only loves perfect people.',
+          'Stay hidden and never come to Him.',
+          'Try to earn God’s love by never making mistakes alone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches Jesus seeking and saving the lost? (Answer: honest… sees us… change our hearts.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Loves Zacchaeus with God's Word today.",
+    takeaway:
+      'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.',
+    prayer:
+      'Lord Jesus, You see me and know my name. Please change my heart and help me follow You today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Zacchaeus sitting in a tree looking down at Jesus. Jesus is standing below with a kind, inviting face and looking up at Zacchaeus. Thick, bold outlines with large open spaces on Zacchaeus’ robe, Jesus’ robe, the tree, and the ground for easy coloring. Soft road and gentle sky with minimal lines. Happy and welcoming mood — focus on Jesus seeing Zacchaeus and loving him. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Jericho road — little of stature (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Sycomore — climbed to see Jesus (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Zacchaeus — make haste, come down (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Joyfully received — abide at thy house (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Half to poor — fourfold restored (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Salvation — seek and save the lost (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Parable of the unforgiving servant — king’s mercy, heart forgiveness (gentle). Library key: unforgivingServant */
 function buildUnforgivingServantReadQuiz() {
   return {
@@ -10249,5 +10383,6 @@ module.exports = {
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),
   unforgivingServant: buildUnforgivingServantReadQuiz(),
+  zacchaeus: buildZacchaeusReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

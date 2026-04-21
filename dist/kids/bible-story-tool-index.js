@@ -1247,6 +1247,26 @@
     "kw": "jesus temptation desert matthew 4 devil bread scripture word"
   },
   {
+    "key": "zacchaeus",
+    "title": "Jesus Loves Zacchaeus",
+    "kjvRef": "Luke 19:1–10",
+    "who": "Jesus",
+    "to": "Zacchaeus — and everyone who feels small or overlooked",
+    "apply": "Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.",
+    "theme": "Love",
+    "kw": "zacchaeus jericho tree sycomore short jesus calls luke 19 tax collector salvation"
+  },
+  {
+    "key": "jesusAndZacchaeus",
+    "title": "Jesus Loves Zacchaeus",
+    "kjvRef": "Luke 19:1–10",
+    "who": "Jesus",
+    "to": "Zacchaeus — and everyone who feels small or overlooked",
+    "apply": "Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.",
+    "theme": "Love",
+    "kw": "zacchaeus jericho tree sycomore short jesus calls luke 19 tax collector salvation"
+  },
+  {
     "key": "samaritanWoman",
     "title": "Jesus Offers Living Water",
     "kjvRef": "John 4:1–42",
@@ -3275,16 +3295,6 @@
     "apply": "God used David's gentle playing to bring ease. The gifts God gives you — a song, a calm voice, a steady hand — can be a kindness to someone who is hurting.",
     "theme": "Love",
     "kw": "david harp young david king saul saul 1 samuel 16 1 samuel 16:14 1 samuel 16:23 evil spirit refreshed played with his hand cunning player on an harp armourbearer armorbearer send me david thy son son of jesse the bethlehemite music comfort peace"
-  },
-  {
-    "key": "zacchaeus",
-    "title": "Zacchaeus",
-    "kjvRef": "Luke 19:1–10",
-    "who": "Jesus",
-    "to": "Zacchaeus (a short man in a tree)",
-    "apply": "Jesus sees you—even if you're small! He knows your name and wants to be your friend!",
-    "theme": "Love",
-    "kw": "zacchaeus tree short jesus calls luke 19 tax collector"
   }
 ];
 })(typeof window !== 'undefined' ? window : this);

@@ -177,7 +177,8 @@
       bethesda: 'bethesda',
       unforgivingServant: 'unforgivingServant',
       forgive70x7: 'unforgivingServant',
-      jesusAndChildren: 'jesusBlessKids'
+      jesusAndChildren: 'jesusBlessKids',
+      jesusAndZacchaeus: 'zacchaeus'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -214,6 +215,7 @@
     if (low.indexOf('unforgivingservant') >= 0 || low === 'unforgivingservant') return 'unforgivingServant';
     if (low.indexOf('forgive70') >= 0 || low === 'forgive70x7') return 'unforgivingServant';
     if (low.indexOf('jesusandchildren') >= 0 || low === 'jesusandchildren') return 'jesusBlessKids';
+    if (low.indexOf('jesusandzacchaeus') >= 0 || low === 'jesusandzacchaeus') return 'zacchaeus';
     if (low.indexOf('bethesda') >= 0 || low === 'bethesda' || low.indexOf('poolofbethesda') >= 0) return 'bethesda';
     if (low.indexOf('manbornblind') >= 0 || low === 'manbornblind') return 'healBlind';
     if (low.indexOf('healblind') >= 0 || low === 'healblind' || low.indexOf('jesushealsblind') >= 0) return 'healBlind';
@@ -3666,7 +3668,52 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 10:22</text>'
       ),
 
-      /* ── Week 8: Zacchaeus Tree already exists ── */
+      /* ── Week 8: Zacchaeus — sycomore, Jesus looks up (Luke 19:1–10) ── */
+      zacchaeus: svg(
+        ground() +
+        hills() +
+        sun(48, 44, 18) +
+        cloud(300, 34) +
+        /* tree trunk + foliage */
+        '<path d="M228 250 L228 138" ' +
+        s +
+        ' stroke-width="5.5"/>' +
+        '<ellipse cx="228" cy="118" rx="62" ry="44" ' +
+        sf +
+        ' fill="white" stroke-width="3"/>' +
+        '<path d="M168 248 Q200 170 228 155 Q256 170 288 248" ' +
+        s +
+        ' stroke-width="2.5" fill="none"/>' +
+        /* Zacchaeus — small, up in branches */
+        '<circle cx="248" cy="132" r="8" ' +
+        sf +
+        ' fill="white" stroke-width="2.4"/>' +
+        '<line x1="248" y1="140" x2="248" y2="158" ' +
+        s +
+        ' stroke-width="2.2"/>' +
+        '<line x1="238" y1="150" x2="258" y2="150" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<line x1="248" y1="158" x2="242" y2="176" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<line x1="248" y1="158" x2="254" y2="176" ' +
+        s +
+        ' stroke-width="2"/>' +
+        /* Jesus below, looking up */
+        person(172, 178, 12, 34) +
+        '<path d="M170 182 Q184 168 192 182" ' +
+        s +
+        ' stroke-width="1.4"/>' +
+        '<path d="M176 196 L188 152" ' +
+        s +
+        ' stroke-width="1.8" stroke-dasharray="2,2"/>' +
+        /* soft road */
+        '<path d="M20 252 Q120 244 200 248 Q280 252 380 244" ' +
+        s +
+        ' stroke-width="2" opacity="0.55"/>' +
+        '<text x="200" y="290" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 19:5</text>'
+      ),
 
       /* ── Week 8: Mary Anoint (108) ── */
       maryAnoint: svg(
@@ -4871,10 +4918,11 @@
     forgive70x7: 'unforgivingServant',
     unforgivingServant: 'unforgivingServant',
     jesusAndChildren: 'jesusBlessKids',
+    jesusAndZacchaeus: 'zacchaeus',
     widowsMite: 'widowMite',
     widowMite: 'widowMite',
     richYoungRuler: 'richYoungRuler',
-    zacchaeus: 'prayerKnock',
+    zacchaeus: 'zacchaeus',
     maryAnoint: 'maryAnoint',
     /* ── Week 9 ── */
     stephenMartyr: 'stephenStones',

@@ -604,7 +604,7 @@
     },
     {
       id: 'zacchaeus',
-      title: 'Zacchaeus',
+      title: 'Jesus Loves Zacchaeus',
       verse:
         'For the Son of man is come to seek and to save that which was lost. - Luke 19:10',
       lead: 'Four pictures in Jericho—save each one, then watch your story.',

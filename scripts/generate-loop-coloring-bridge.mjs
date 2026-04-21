@@ -68,7 +68,7 @@ function main() {
   }
 
   /** Keys not present in loops.json but needed for deep links / alternate story keys. */
-  var EXTRA_LIB_TO_OUTLINE = { jesusAndChildren: 'jesusBlessKids' };
+  var EXTRA_LIB_TO_OUTLINE = { jesusAndChildren: 'jesusBlessKids', jesusAndZacchaeus: 'zacchaeus' };
   var ek = Object.keys(EXTRA_LIB_TO_OUTLINE);
   for (var ei = 0; ei < ek.length; ei++) {
     var lk = ek[ei];

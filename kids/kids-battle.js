@@ -1301,18 +1301,35 @@
         "The Father Who Welcomes His Son Home — Luke 15:11–32. And he said, A certain man had two sons: And the younger of them said to his father, Father, give me the portion of goods that falleth to me. And he divided unto them his living. And not many days after the younger son gathered all together, and took his journey into a far country, and there wasted his substance with riotous living. And when he had spent all, there arose a mighty famine in that land; and he began to be in want. And he went and joined himself to a citizen of that country; and he sent him into his fields to feed swine. And he would fain have filled his belly with the husks that the swine did eat: and no man gave unto him. And when he came to himself, he said, How many hired servants of my father's have bread enough and to spare, and I perish with hunger! I will arise and go to my father, and will say unto him, Father, I have sinned against heaven, and before thee, And am no more worthy to be called thy son: make me as one of thy hired servants. And he arose, and came to his father. But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him. And the son said unto him, Father, I have sinned against heaven, and in thy sight, and am no more worthy to be called thy son. But the father said to his servants, Bring forth the best robe, and put it on him; and put a ring on his hand, and shoes on his feet: And bring hither the fatted calf, and kill it; and let us eat, and be merry: For this my son was dead, and is alive again; he was lost, and is found. And they began to be merry. For you: God is like that loving father — He is always ready to welcome us when we come back to Him."
     },
     zacchaeus: {
-      title: 'Zacchaeus',
+      title: 'Jesus Loves Zacchaeus',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Zacchaeus climbs a tree to see' },
-        { src: 'panel-david-2.svg', alt: 'Jesus looks up and sees him' },
-        { src: 'panel-david-3.svg', alt: 'Jesus says: I\'m coming to your house!' }
+        { src: 'panel-david-1.svg', alt: 'A short man named Zacchaeus climbs a sycomore tree to see Jesus' },
+        { src: 'panel-david-2.svg', alt: 'Jesus looks up and calls Zacchaeus by name — come down, I must abide at thy house' },
+        { src: 'panel-david-3.svg', alt: 'Salvation comes to his house — a changed, joyful heart' }
       ],
-      caption: 'Swipe to see Jesus call Zacchaeus—He sees you! 🌳',
+      caption: 'Swipe to see Jesus find Zacchaeus in the tree — He sees you by name! 🌳',
       videoId: 'U-HjFU4wkUY',
       videoTitle: 'The Story of Zacchaeus – Bible Story for Kids!',
-      keywords: ['zacchaeus', 'tree', 'short', 'jesus calls', 'luke 19', 'tax collector'],
+      keywords: [
+        'zacchaeus',
+        'jericho',
+        'tree',
+        'sycomore',
+        'short',
+        'jesus calls',
+        'luke 19',
+        'tax collector',
+        'salvation'
+      ],
       kjvRef: 'Luke 19:1–10',
-      kidContext: { who: 'Jesus', to: 'Zacchaeus (a short man in a tree)', apply: 'Jesus sees you—even if you\'re small! He knows your name and wants to be your friend!' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'Zacchaeus — and everyone who feels small or overlooked',
+        apply:
+          'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.'
+      },
+      narration:
+        "Jesus Loves Zacchaeus — Luke 19:1–10. And Jesus entered and passed through Jericho. And, behold, there was a man named Zacchaeus, which was the chief among the publicans, and he was rich. And he sought to see Jesus who he was; and could not for the press, because he was little of stature. And he ran before, and climbed up into a sycomore tree to see him: for he was to pass that way. And when Jesus came to the place, he looked up, and saw him, and said unto him, Zacchaeus, make haste, and come down; for to day I must abide at thy house. And he made haste, and came down, and received him joyfully. And when they saw it, they all murmured, saying, That he was gone to be guest with a man that is a sinner. And Zacchaeus stood, and said unto the Lord; Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold. And Jesus said unto him, This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost. For you: Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts."
     },
     resurrection: {
       title: 'Resurrection',
@@ -7964,6 +7981,8 @@
     bibleStories.forgive70x7 = bibleStories.unforgivingServant;
     /** Alternate library name — same Mark 10 card (Jesus welcomes the little children, gentle). */
     bibleStories.jesusAndChildren = bibleStories.jesusBlessKids;
+    /** Alternate library name — same Luke 19 card (Zacchaeus, gentle). */
+    bibleStories.jesusAndZacchaeus = bibleStories.zacchaeus;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {

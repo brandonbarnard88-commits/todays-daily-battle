@@ -625,6 +625,10 @@ if (merged.unforgivingServant && !merged.forgive70x7) {
 if (merged.jesusBlessKids && !merged.jesusAndChildren) {
   merged.jesusAndChildren = merged.jesusBlessKids;
 }
+/** jesusAndZacchaeus — same gentle pack as zacchaeus (alternate library name). */
+if (merged.zacchaeus && !merged.jesusAndZacchaeus) {
+  merged.jesusAndZacchaeus = merged.zacchaeus;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

@@ -1197,6 +1197,16 @@
     "kw": "withered hand sabbath synagogue mark 3 stretch forth heal jesus mercy good hand"
   },
   {
+    "key": "bethesda",
+    "title": "Jesus Heals a Man Who Waited a Long Time",
+    "kjvRef": "John 5:1–15",
+    "who": "Jesus",
+    "to": "The sick man — and us when we wait a long time",
+    "apply": "Jesus sees when we have waited a long time — and He can make us well.",
+    "theme": "Miracles",
+    "kw": "bethesda jerusalem john 5 pool thirty-eight heal bed walk jesus waited mercy"
+  },
+  {
     "key": "centurionServant",
     "title": "Jesus Heals a Soldier's Servant from Far Away",
     "kjvRef": "Matthew 8:5–13",

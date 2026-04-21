@@ -132,6 +132,11 @@
       webm: '/media/kids-stories/beast-mark.webm',
       captionsVtt: '/media/kids-stories/beast-mark.vtt'
     },
+    bethesda: {
+      mp4: '/media/kids-stories/bethesda.mp4',
+      webm: '/media/kids-stories/bethesda.webm',
+      captionsVtt: '/media/kids-stories/bethesda.vtt'
+    },
     betrayal: {
       mp4: '/media/kids-stories/betrayal.mp4',
       webm: '/media/kids-stories/betrayal.webm',

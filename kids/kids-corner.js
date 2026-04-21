@@ -173,7 +173,8 @@
       healLeper: 'healLeper',
       manBornBlind: 'healBlind',
       healBlind: 'healBlind',
-      jesusHealsBlind: 'healBlind'
+      jesusHealsBlind: 'healBlind',
+      bethesda: 'bethesda'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -207,6 +208,7 @@
     if (low.indexOf('marysit') >= 0 || low === 'marysit') return 'maryMartha';
     if (low.indexOf('jesuslazarus') >= 0 || low === 'jesuslazarus') return 'lazarus';
     if (low.indexOf('tenlepers') >= 0 || low.indexOf('ten-lepers') >= 0) return 'tenLepers';
+    if (low.indexOf('bethesda') >= 0 || low === 'bethesda' || low.indexOf('poolofbethesda') >= 0) return 'bethesda';
     if (low.indexOf('manbornblind') >= 0 || low === 'manbornblind') return 'healBlind';
     if (low.indexOf('healblind') >= 0 || low === 'healblind' || low.indexOf('jesushealsblind') >= 0) return 'healBlind';
     if (low.indexOf('goodsamaritan') >= 0 || low === 'goodsamaritan') return 'goodSamaritan';
@@ -3038,6 +3040,31 @@
         '<text x="200" y="290" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 9:1–38</text>'
       ),
 
+      /* ── Week 5 gentle: Pool of Bethesda — kind words, mat, long wait (John 5:1–15) ── */
+      bethesda: svg(
+        ground() +
+        '<path d="M20 248 Q200 238 380 248" ' + s + ' stroke-width="1.6" opacity="0.35"/>' +
+        '<path d="M48 120 Q52 200 56 248 L320 248 Q328 180 332 108 L340 108 Q336 80 320 72 L72 72 Q52 80 48 108 Z" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M72 108 Q200 118 328 108" ' + s + ' stroke-width="1.4" opacity="0.45"/>' +
+        '<path d="M72 128 Q200 138 328 128" ' + s + ' stroke-width="1.2" opacity="0.35"/>' +
+        sun(52, 46, 14) +
+        cloud(278, 38) +
+        '<rect x="312" y="78" width="48" height="88" rx="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="312" y1="108" x2="360" y2="108" ' + s + ' stroke-width="1.6" opacity="0.5"/>' +
+        '<rect x="318" y="118" width="10" height="14" rx="2" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<rect x="332" y="118" width="10" height="14" rx="2" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        person(200, 140, 13, 34) +
+        '<path d="M168 168 Q158 158 148 172" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="125" cy="232" rx="38" ry="9" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<circle cx="118" cy="176" r="11" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M118 192 L118 218" ' + s + ' stroke-width="2.4"/>' +
+        '<path d="M110 200 L95 222 M126 200 L140 222" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M132 186 L148 175" ' + s + ' stroke-width="1.8"/>' +
+        person(68, 175, 9, 24) +
+        person(288, 178, 9, 22) +
+        '<text x="200" y="290" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 5:1–15</text>'
+      ),
+
       /* ── Week 5: Jesus Calm Storm already exists (jesusCalmsStorm) ── */
       /* ── Week 5: Jesus Walk Water already exists (jesusWalksWater) ── */
       /* ── Week 5: Jesus Feed 5000 already exists (jesusFeeds5000) ── */
@@ -4733,6 +4760,7 @@
     jesusHealsBlind: 'healBlind',
     healBlind: 'healBlind',
     manBornBlind: 'healBlind',
+    bethesda: 'bethesda',
     jesusBlessKids: 'jesusBlessKids',
     /* ── Week 6 ── */
     jesusParableSower: 'parableSower',
@@ -6472,7 +6500,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

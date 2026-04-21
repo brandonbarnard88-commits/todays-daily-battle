@@ -78,6 +78,7 @@
  * Jesus visits Mary and Martha — Luke 10:38–42 (gentle): buildMaryMarthaReadQuiz() (library key: maryMartha; alias marthaServe, marySit).
  * Jesus brings Lazarus back to life — John 11:1–44 (gentle): buildLazarusReadQuiz() (library key: lazarus; alias jesusLazarus).
  * Ten lepers — Luke 17:11–19 (gentle): buildTenLepersReadQuiz() (library key: tenLepers; alias healLeper).
+ * Pool of Bethesda — John 5:1–15 (gentle): buildBethesdaReadQuiz() (library key: bethesda).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
@@ -9720,6 +9721,136 @@ function buildManBornBlindReadQuiz() {
   };
 }
 
+/** Pool of Bethesda — wait, Wilt thou be made whole?, rise and walk (gentle). Library key: bethesda */
+function buildBethesdaReadQuiz() {
+  return {
+    kjvRef: 'John 5:1–15 (KJV) — gentle summary for little hearts',
+    verseExcerpt: 'Jesus saith unto him, Rise, take up thy bed, and walk. — John 5:8 (KJV)',
+    readAlongTitle: 'Jesus Heals a Man Who Waited a Long Time',
+    quizWrongHumilityHint:
+      'Listen again — Bethesda; five porches; water; thirty-eight years; Wilt thou be made whole; no man; Rise; bed; walk; temple; sin no more; tell.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'In Jerusalem there was a pool called Bethesda.',
+      'Many sick people lay there waiting for the water to move, because they believed the first one in after the water moved would be healed.',
+      'A man had been sick for thirty-eight years and could not walk.',
+      'Jesus saw him and asked, “Wilt thou be made whole?”',
+      'The man said he had no one to help him into the pool.',
+      'Jesus said, “Rise, take up thy bed, and walk.”',
+      'The man was healed right away, picked up his bed, and walked.',
+      'Later Jesus found him in the temple and said, “Behold, thou art made whole: sin no more, lest a worse thing come unto thee.”',
+      'The man told the people that Jesus had healed him.',
+      'Jesus sees when we have waited a long time and He can make us well.',
+      'Reference: John 5:1–15 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'There was a pool called Bethesda.',
+        caption: 'By the sheep gate…',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'A man had been sick for thirty-eight years.',
+        caption: 'A long time',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus saw him and asked, “Wilt thou be made whole?”',
+        caption: 'Kind question',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus said, “Rise, take up thy bed, and walk.”',
+        caption: 'Immediately',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The man was healed and walked.',
+        caption: 'Took up his bed',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus sees when we have waited a long time.',
+        caption: 'Made whole',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 119', 'John 5:1–15', 'Jonah 2', 'Genesis 12'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference. (Answer: John 5:1–15.)'
+      },
+      {
+        question: 'What was the pool called where sick people waited?',
+        choices: ['Bethesda', 'Siloam', 'Jordan', 'Galilee'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—the pool called Bethesda in Jerusalem.',
+        wrongFeedback: 'Think: which pool is in this gentle story? (Answer: Bethesda.)'
+      },
+      {
+        question: 'What did Jesus tell the man to do?',
+        choices: [
+          '“Rise, take up thy bed, and walk.”',
+          '“Hide thy bed forever.”',
+          '“Never speak again.”',
+          '“Swim across the sea.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 5:8.',
+        wrongFeedback: 'Listen for Jesus’ strong, kind command. (Answer: Rise… bed… walk.)'
+      },
+      {
+        question: 'Which gentle truth matches this story?',
+        choices: [
+          'Jesus sees when we have waited a long time — and He can make us well.',
+          'God forgets everyone who waits.',
+          'Waiting never matters.',
+          'Pools always fix every problem alone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that is the heart of this gentle summary.',
+        wrongFeedback:
+          'Cross out the cold answers. Which matches Jesus in John 5? (Answer: sees when we have waited… well.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He sees me — ask Him to help me trust His timing and His care.',
+          'Never thank God.',
+          'Only complain.',
+          'Forget that He knows.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus as the One who sees waiting hearts? (Answer: thank… trust.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Heals a Man Who Waited a Long Time with God's Word today.",
+    takeaway: 'Jesus sees when we have waited a long time — and He can make us well.',
+    prayer:
+      'Lord Jesus, thank You for seeing me. Help me trust You when I wait — and help me obey You with a thankful heart. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children: Jesus standing by the pool speaking kindly to a man who could not walk The man is sitting on his mat with a hopeful face Other people are sitting or lying nearby thick bold outlines with large open spaces on Jesus robe the man mat and the pool edge for easy coloring soft pool water and gentle temple walls with minimal lines kind and healing mood focus on Jesus healing the man who waited a long time clean minimal no fear or crowded sadness plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Pool of Bethesda — hopeful wait (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Thirty-eight years — Jesus sees (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Wilt thou be made whole? (kind)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Rise, take up thy bed (obey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Walked — bed on shoulder (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Temple — made whole (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Tell — Jesus healed him (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -9843,5 +9974,6 @@ module.exports = {
   lazarus: buildLazarusReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
+  bethesda: buildBethesdaReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

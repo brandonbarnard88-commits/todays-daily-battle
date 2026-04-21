@@ -5394,6 +5394,38 @@
       narration:
         "Jesus Gives Sight to a Man Who Was Born Blind — John 9:1–38. And as Jesus passed by, he saw a man which was blind from his birth. And his disciples asked him, saying, Master, who did sin, this man, or his parents, that he was born blind? Jesus answered, Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him. When he had thus spoken, he spat on the ground, and made clay of the spittle, and he anointed the eyes of the blind man with the clay, And said unto him, Go, wash in the pool of Siloam. He went his way therefore, and washed, and came seeing. The neighbours said, Is not this he that sat and begged? But he said, I am he… I was blind, but now I see. And Jesus said unto him, Dost thou believe on the Son of God? He answered and said, Who is he, Lord, that I might believe on him? And Jesus said unto him, Thou hast both seen him, and it is he that talketh with thee. And he said, Lord, I believe. And he worshipped him. For you: Jesus opens blind eyes and helps us see who He really is."
     },
+    bethesda: {
+      title: 'Jesus Heals a Man Who Waited a Long Time',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Pool of Bethesda — many waiting; Jesus sees a man who could not walk' },
+        { src: 'panel-noah-2.svg', alt: 'Wilt thou be made whole? — Rise, take up thy bed, and walk' },
+        { src: 'panel-noah-3.svg', alt: 'Immediately whole — he took up his bed and walked; behold, thou art made whole' }
+      ],
+      caption: 'Swipe to see Jesus speak kindness by the pool — rise, take up thy bed, and walk. 💧',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'bethesda',
+        'jerusalem',
+        'john 5',
+        'pool',
+        'thirty-eight',
+        'heal',
+        'bed',
+        'walk',
+        'jesus',
+        'waited',
+        'mercy'
+      ],
+      kjvRef: 'John 5:1–15',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The sick man — and us when we wait a long time',
+        apply: 'Jesus sees when we have waited a long time — and He can make us well.'
+      },
+      narration:
+        "Jesus Heals a Man Who Waited a Long Time — John 5:1–15. After this there was a feast of the Jews; and Jesus went up to Jerusalem. Now there is at Jerusalem by the sheep market a pool, which is called in the Hebrew tongue Bethesda, having five porches. In these lay a great multitude of sick folk waiting for the moving of the water — they hoped to be helped when the water moved. And a certain man was there, which had an infirmity thirty and eight years. When Jesus saw him lie, and knew that he had been now a long time in that case, he saith unto him, Wilt thou be made whole? The sick man answered him, Sir, I have no man, when the water is troubled, to put me into the pool: but while I am coming, another steppeth down before me. Jesus saith unto him, Rise, take up thy bed, and walk. And immediately the man was made whole, and took up his bed, and walked: on the same day was the sabbath. The man told others it was Jesus who had made him whole. Jesus found him in the temple, and said unto him, Behold, thou art made whole: sin no more, lest a worse thing come unto thee. For you: Jesus sees when we have waited a long time, and He can make us well in His wise way."
+    },
     jesusHealsParalytic: {
       title: 'Jesus Forgives and Heals a Man Who Could Not Walk',
       panels: [
@@ -8027,7 +8059,7 @@
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
       'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
-      'manBornBlind', 'jesusBlessKids',
+      'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
       'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
@@ -11187,7 +11219,7 @@
     centurionServant: 'Miracles',
     jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
-    jesusSermonMount: 'Obedience', manBornBlind: 'Miracles', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
+    jesusSermonMount: 'Obedience', bethesda: 'Miracles', manBornBlind: 'Miracles', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
     /* Week 6 */
     jesusHealsParalytic: 'Miracles', witheredHand: 'Miracles', mustardSeed: 'Obedience',
     jesusParableSower: 'Protection', jesusParableMustardSeed: 'Obedience', jesusParableGoodShepherd: 'Love',

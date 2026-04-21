@@ -152,6 +152,7 @@
     'jairus',
     'jesusWalksWater',
     'jesusFeeds5000',
+    'bethesda',
     'manBornBlind',
     'tenLepers',
     'jesusBlessKids',

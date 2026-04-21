@@ -413,27 +413,27 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 14:21</text>'
       ),
 
-      /* Daniel in lions’ den — whisper-soft lions; veil light; folded hands (Daniel 6:1–23) */
+      /* Daniel in lions’ den — softest lions; veil light; folded hands (Daniel 6:1–23) */
       daniel: svg(
         ground() +
-        /* cave arch — gentle curve, lighter stroke */
-        '<path d="M60 260 L60 145 Q200 68 340 145 L340 260" ' + sf + ' fill="white" stroke-width="2.45"/>' +
-        /* soft light — wider veil + glow + very gentle rays */
-        '<ellipse cx="200" cy="128" rx="82" ry="42" ' + sf + ' fill="white" stroke-width="0.65" opacity="0.22"/>' +
-        '<ellipse cx="200" cy="118" rx="58" ry="30" ' + sf + ' fill="white" stroke-width="1" opacity="0.4"/>' +
-        '<ellipse cx="200" cy="108" rx="44" ry="22" ' + sf + ' fill="white" stroke-width="1.15" opacity="0.78"/>' +
-        '<line x1="200" y1="54" x2="154" y2="132" ' + s + ' stroke-width="0.85" stroke-dasharray="12,11" opacity="0.34"/>' +
-        '<line x1="200" y1="54" x2="200" y2="136" ' + s + ' stroke-width="0.85" stroke-dasharray="12,11" opacity="0.34"/>' +
-        '<line x1="200" y1="54" x2="246" y2="132" ' + s + ' stroke-width="0.85" stroke-dasharray="12,11" opacity="0.34"/>' +
-        '<line x1="200" y1="54" x2="176" y2="122" ' + s + ' stroke-width="0.7" stroke-dasharray="10,12" opacity="0.28"/>' +
-        '<line x1="200" y1="54" x2="224" y2="122" ' + s + ' stroke-width="0.7" stroke-dasharray="10,12" opacity="0.28"/>' +
-        /* two lions — even calmer outlines */
-        '<ellipse cx="108" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="1.5"/>' +
-        '<circle cx="84" cy="218" r="15" ' + sf + ' fill="white" stroke-width="1.35"/>' +
-        '<path d="M77 214 Q81 216 85 214 Q89 216 93 214" ' + s + ' stroke-width="0.72" fill="none"/>' +
-        '<ellipse cx="292" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="1.5"/>' +
-        '<circle cx="316" cy="218" r="15" ' + sf + ' fill="white" stroke-width="1.35"/>' +
-        '<path d="M309 214 Q313 216 317 214 Q321 216 325 214" ' + s + ' stroke-width="0.72" fill="none"/>' +
+        /* cave arch — gentle curve, whisper-thin stroke */
+        '<path d="M60 260 L60 145 Q200 68 340 145 L340 260" ' + sf + ' fill="white" stroke-width="2.25"/>' +
+        /* soft light — wider veil + glow + feather rays */
+        '<ellipse cx="200" cy="130" rx="86" ry="44" ' + sf + ' fill="white" stroke-width="0.55" opacity="0.18"/>' +
+        '<ellipse cx="200" cy="118" rx="58" ry="30" ' + sf + ' fill="white" stroke-width="0.95" opacity="0.36"/>' +
+        '<ellipse cx="200" cy="108" rx="44" ry="22" ' + sf + ' fill="white" stroke-width="1.05" opacity="0.72"/>' +
+        '<line x1="200" y1="50" x2="150" y2="134" ' + s + ' stroke-width="0.78" stroke-dasharray="13,12" opacity="0.3"/>' +
+        '<line x1="200" y1="50" x2="200" y2="138" ' + s + ' stroke-width="0.78" stroke-dasharray="13,12" opacity="0.3"/>' +
+        '<line x1="200" y1="50" x2="250" y2="134" ' + s + ' stroke-width="0.78" stroke-dasharray="13,12" opacity="0.3"/>' +
+        '<line x1="200" y1="50" x2="174" y2="124" ' + s + ' stroke-width="0.65" stroke-dasharray="11,13" opacity="0.25"/>' +
+        '<line x1="200" y1="50" x2="226" y2="124" ' + s + ' stroke-width="0.65" stroke-dasharray="11,13" opacity="0.25"/>' +
+        /* two lions — lightest restful outlines */
+        '<ellipse cx="108" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="1.32"/>' +
+        '<circle cx="84" cy="218" r="15" ' + sf + ' fill="white" stroke-width="1.18"/>' +
+        '<path d="M77 214 Q81 216 85 214 Q89 216 93 214" ' + s + ' stroke-width="0.65" fill="none"/>' +
+        '<ellipse cx="292" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="1.32"/>' +
+        '<circle cx="316" cy="218" r="15" ' + sf + ' fill="white" stroke-width="1.18"/>' +
+        '<path d="M309 214 Q313 216 317 214 Q321 216 325 214" ' + s + ' stroke-width="0.65" fill="none"/>' +
         /* Daniel standing — folded hands in prayer */
         person(200, 138, 12, 30) +
         '<path d="M188 176 Q200 186 212 176" ' + s + ' stroke-width="2.2"/>' +

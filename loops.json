@@ -685,11 +685,11 @@
   },
   {
     "id": 74,
-    "title": "Jesus Feeds 5000",
+    "title": "Jesus Feeds a Hungry Crowd",
     "file": "",
     "audio": "",
-    "ref": "John 6:11",
-    "week": 6,
+    "ref": "Matthew 14:13–21",
+    "week": 5,
     "libraryKey": "jesusFeeds5000"
   },
   {
@@ -703,10 +703,10 @@
   },
   {
     "id": 76,
-    "title": "Parable of the Sower",
+    "title": "Jesus Tells a Story About Good Soil",
     "file": "",
     "audio": "",
-    "ref": "Matthew 13:8",
+    "ref": "Matthew 13:1–23",
     "week": 6,
     "libraryKey": "parableSower"
   },
@@ -1348,7 +1348,7 @@
     "audio": "",
     "ref": "Matthew 13:47",
     "week": 12,
-    "libraryKey": "parableSower"
+    "libraryKey": ""
   },
   {
     "id": 148,
@@ -1357,7 +1357,7 @@
     "audio": "",
     "ref": "Matthew 13:45-46",
     "week": 12,
-    "libraryKey": "parableSower"
+    "libraryKey": ""
   },
   {
     "id": 149,
@@ -1366,7 +1366,7 @@
     "audio": "",
     "ref": "Mark 8:9",
     "week": 12,
-    "libraryKey": "jesusFeeds5000"
+    "libraryKey": ""
   },
   {
     "id": 150,

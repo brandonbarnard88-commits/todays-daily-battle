@@ -1058,13 +1058,13 @@
   },
   {
     "key": "jesusFeeds5000",
-    "title": "Jesus Feeds 5,000",
-    "kjvRef": "John 6:1–14",
+    "title": "Jesus Feeds a Hungry Crowd",
+    "kjvRef": "Matthew 14:13–21",
     "who": "Jesus",
-    "to": "The 5,000 people (and us)",
-    "apply": "Jesus feeds everyone—He cares! Give God what you have—He can multiply it!",
+    "to": "The multitude — the disciples — and us",
+    "apply": "Jesus can take a little and make it enough for everyone. Bring what you have to Him.",
     "theme": "Miracles",
-    "kw": "jesus feeds 5000 bread fish miracle matthew 14 john 6"
+    "kw": "jesus feeds 5000 loaves fishes bread boy twelve baskets give ye them to eat matthew 14 miracle hungry crowd"
   },
   {
     "key": "healBlind",
@@ -1738,13 +1738,13 @@
   },
   {
     "key": "parableSower",
-    "title": "Parable of the Sower",
+    "title": "Jesus Tells a Story About Good Soil",
     "kjvRef": "Matthew 13:1–23",
     "who": "Jesus",
     "to": "The crowds (and us)",
-    "apply": "Plant good words—grow strong! Let God's word take root in your heart!",
+    "apply": "Jesus wants our hearts to be like good soil so His words can grow in us.",
     "theme": "Protection",
-    "kw": "sower parable seeds soil grow matthew 13 mark 4"
+    "kw": "sower parable seeds soil good soil word hear fruit matthew 13 mark 4"
   },
   {
     "key": "paulBarnabas",

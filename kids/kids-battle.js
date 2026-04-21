@@ -1184,18 +1184,48 @@
         "Jesus Heals a Man on the Sabbath — Mark 3:1–6. And he entered again into the synagogue; and there was a man there which had his hand withered. And they watched him, whether he would heal him on the sabbath day; that they might accuse him. And he saith unto the man which had the withered hand, Stand forth. And he saith unto them, Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill? But they held their peace. And when he had looked round about on them, being grieved for the hardness of their hearts, he saith unto the man, Stretch forth thine hand. And he stretched it out: and his hand was restored whole as the other. For you: Jesus does good and cares for people — come to Him with your needs."
     },
     jesusFeeds5000: {
-      title: 'Jesus Feeds 5,000',
+      title: 'Jesus Feeds a Hungry Crowd',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Big crowd, one boy with bread and fish' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus blesses the food' },
-        { src: 'panel-noah-3.svg', alt: 'Everyone eats—baskets left over!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'A great multitude — Give ye them to eat; a boy with five loaves and two fishes'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus blessed the loaves and fishes, looking up to heaven — sit down on the grass'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'They all did eat and were filled — twelve baskets of fragments remained'
+        }
       ],
-      caption: 'Swipe to see Jesus feed everyone—He cares! 🍞🐟',
+      caption:
+        'Swipe to see Jesus bless a boy’s lunch until everyone is fed — He cares. 🍞🐟',
       videoId: 'S6rj9cAJrWE',
       videoTitle: 'Jesus Feeds the 5,000 – Saddleback Kids!',
-      keywords: ['jesus', 'feeds', '5000', 'bread', 'fish', 'miracle', 'matthew 14', 'john 6'],
-      kjvRef: 'John 6:1–14',
-      kidContext: { who: 'Jesus', to: 'The 5,000 people (and us)', apply: 'Jesus feeds everyone—He cares! Give God what you have—He can multiply it!' }
+      keywords: [
+        'jesus',
+        'feeds',
+        '5000',
+        'loaves',
+        'fishes',
+        'bread',
+        'fish',
+        'miracle',
+        'matthew 14',
+        'give ye them to eat',
+        'twelve baskets',
+        'boy'
+      ],
+      kjvRef: 'Matthew 14:13–21',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The multitude — the disciples — and us',
+        apply:
+          'Jesus can take a little and make it enough for everyone. Bring what you have to Him.'
+      },
+      narration:
+        "Jesus Feeds a Hungry Crowd — Matthew 14:13–21. When Jesus heard of it, he departed thence by ship into a desert place apart: and when the people had heard thereof, they followed him on foot out of the cities. And Jesus went forth, and saw a great multitude, and was moved with compassion toward them, and he healed their sick. And when it was evening, his disciples came to him, saying, This is a desert place, and the time is now past; send the multitude away, that they may go into the villages, and buy themselves victuals. But Jesus said unto them, They need not depart; give ye them to eat. And they say unto him, We have here but five loaves, and two fishes. He said, Bring them hither to me. And he commanded the multitude to sit down on the grass, and took the five loaves, and the two fishes, and looking up to heaven, he blessed, and brake, and gave the loaves to his disciples, and the disciples to the multitude. And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. And they that had eaten were about five thousand men, beside women and children. For you: Jesus can take a little and make it enough — trust Him with what you have."
     },
     goodSamaritan: {
       title: 'Good Samaritan',
@@ -1649,18 +1679,39 @@
       kidContext: { who: 'Jesus', to: 'Us (when we\'re tempted)', apply: "Jesus says no—use God's word! When the devil lies, quote the Bible!" }
     },
     parableSower: {
-      title: 'Parable of the Sower',
+      title: 'Jesus Tells a Story About Good Soil',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Farmer scatters seeds' },
-        { src: 'panel-noah-2.svg', alt: 'Seeds on path, rocks, thorns' },
-        { src: 'panel-noah-3.svg', alt: 'Good soil—seeds grow strong!' }
+        { src: 'panel-noah-1.svg', alt: 'A farmer went forth to sow — seeds by the wayside' },
+        { src: 'panel-noah-2.svg', alt: 'Stony ground and thorns — some sprang up but withered or were choked' },
+        { src: 'panel-noah-3.svg', alt: 'Good ground — brought forth fruit, some thirty, some sixty, some an hundred' }
       ],
-      caption: 'Swipe to see seeds grow—plant good words! 🌱',
+      caption: 'Swipe to see seeds on path, rocks, thorns, and good soil — God’s Word can grow. 🌱',
       videoId: 'Y01N77fQrTU',
       videoTitle: 'The Parable of the Sower – Animated Scripture Lesson!',
-      keywords: ['sower', 'parable', 'seeds', 'soil', 'grow', 'matthew 13', 'mark 4'],
+      keywords: [
+        'sower',
+        'parable',
+        'seeds',
+        'soil',
+        'good soil',
+        'grow',
+        'word',
+        'hear',
+        'matthew 13',
+        'mark 4',
+        'wayside',
+        'thorns',
+        'fruit'
+      ],
       kjvRef: 'Matthew 13:1–23',
-      kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Plant good words—grow strong! Let God\'s word take root in your heart!' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'The crowds by the sea — and us',
+        apply:
+          'Jesus wants our hearts to be like good soil so His words can grow in us. Listen to God’s Word.'
+      },
+      narration:
+        "Jesus Tells a Story About Good Soil — Matthew 13:1–23. The same day went Jesus out of the house, and sat by the sea side. And great multitudes were gathered together unto him, so that he went into a ship, and sat; and the whole multitude stood on the shore. And he spake many things unto them in parables, saying, Behold, a sower went forth to sow; And when he sowed, some seeds fell by the way side, and the fowls came and devoured them up: Some fell upon stony places, where they had not much earth: and forthwith they sprung up, because they had no deepness of earth: And when the sun was up, they were scorched; and because they had no root, they withered away. And some fell among thorns; and the thorns sprung up, and choked them: But other fell into good ground, and brought forth fruit, some an hundredfold, some sixtyfold, some thirtyfold. Who hath ears to hear, let him hear. Later Jesus explained that the seed is the word of the kingdom; the good ground is an honest and good heart, hearing the word, and keeping it, and bringing forth fruit with patience. For you: ask God to help you listen — let His Word grow in you like good soil."
     },
     richYoungRuler: {
       title: 'Rich Young Ruler',
@@ -7771,11 +7822,11 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'jesusParableSower', 'jesusParableMustardSeed', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'jesusParableMustardSeed', 'jesusParableGoodShepherd',
       'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -7794,7 +7845,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */

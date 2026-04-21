@@ -154,7 +154,9 @@
       jesusHealsParalytic: 'jesusHealsParalytic',
       witheredHand: 'witheredHand',
       jairus: 'jairus',
-      jesusWalksWater: 'jesusWalksWater'
+      jesusWalksWater: 'jesusWalksWater',
+      jesusFeeds5000: 'jesusFeeds5000',
+      parableSower: 'parableSower'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -176,6 +178,8 @@
     if (low.indexOf('witheredhand') >= 0 || low === 'witheredhand') return 'witheredHand';
     if (low.indexOf('jairus') >= 0 || low === 'jairus') return 'jairus';
     if (low.indexOf('jesuswalkswater') >= 0 || low === 'jesuswalkswater') return 'jesusWalksWater';
+    if (low.indexOf('jesusfeeds5000') >= 0 || low === 'jesusfeeds5000') return 'jesusFeeds5000';
+    if (low.indexOf('parablesower') >= 0 || low === 'parablesower') return 'parableSower';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -648,33 +652,69 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 3:1–30</text>'
       ),
 
-      /* Jesus Feeds 5000 */
+      /* Week 5 gentle: Loaves and fishes — hungry crowd (Matthew 14:13–21) */
       jesusFeeds5000: svg(
         ground() +
         hills() +
-        sun(350, 50, 22) +
-        /* basket with loaves */
-        '<path d="M155 220 Q155 195 200 195 Q245 195 245 220 Q245 240 200 245 Q155 240 155 220 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M155 210 Q200 200 245 210" ' + s + ' stroke-width="2"/>' +
-        /* fish */
-        '<path d="M165 225 Q178 218 188 225 Q178 232 165 225 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M162 225 L155 220 L162 230 Z" ' + sf + ' fill="white" stroke-width="1.5"/>' +
-        '<path d="M210 225 Q223 218 233 225 Q223 232 210 225 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M207 225 L200 220 L207 230 Z" ' + sf + ' fill="white" stroke-width="1.5"/>' +
-        /* bread rolls */
-        '<ellipse cx="200" cy="205" rx="12" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* Jesus blessing */
-        '<circle cx="200" cy="148" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="200" y1="161" x2="200" y2="195" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="175" y1="172" x2="225" y2="172" ' + s + ' stroke-width="2.5"/>' +
-        /* crowd dots */
-        '<circle cx="100" cy="215" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="120" cy="220" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="80" cy="222" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="300" cy="215" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="320" cy="220" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="340" cy="215" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 6:11</text>'
+        sun(348, 48, 20) +
+        cloud(40, 38) +
+        '<ellipse cx="200" cy="248" rx="168" ry="22" ' + sf + ' fill="white" stroke-width="2.2" opacity="0.95"/>' +
+        '<path d="M52 248 Q120 238 200 242 Q280 238 348 248" ' + s + ' stroke-width="1.4" opacity="0.4"/>' +
+        person(168, 168, 11, 32) +
+        '<line x1="168" y1="200" x2="168" y2="232" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="156" y1="218" x2="180" y2="218" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="228" rx="36" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="188" cy="218" rx="9" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="200" cy="216" rx="9" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="212" cy="218" rx="9" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="194" cy="224" rx="8" ry="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="206" cy="224" rx="8" ry="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<path d="M178 212 Q188 200 200 205 Q212 200 222 212" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M210 212 Q220 200 232 212" ' + s + ' stroke-width="1.8"/>' +
+        person(118, 188, 8, 22) +
+        '<circle cx="92" cy="232" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="108" cy="236" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="124" cy="234" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="276" cy="234" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="292" cy="236" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="308" cy="232" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 14:13–21</text>'
+      ),
+
+      /* Week 6 gentle: Parable of the sower — farmer, path, rocks, thorns, good soil (Matthew 13:1–23) */
+      parableSower: svg(
+        ground() +
+        hills() +
+        sun(52, 44, 20) +
+        cloud(312, 38) +
+        person(92, 168, 11, 32) +
+        '<path d="M118 158 Q200 142 292 152" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3" opacity="0.55"/>' +
+        '<circle cx="132" cy="154" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="168" cy="150" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="210" cy="148" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="252" cy="152" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        /* path — bird, pecked seeds */
+        '<path d="M48 248 L92 248" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M62 232 L72 228 L68 238 Z" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="78" cy="244" r="2.5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="88" cy="248" r="2.5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        /* rocky ground — small withered sprout */
+        '<path d="M108 248 L118 228 L128 248" ' + s + ' stroke-width="2"/>' +
+        '<line x1="112" y1="248" x2="124" y2="248" ' + s + ' stroke-width="2"/>' +
+        '<line x1="116" y1="248" x2="120" y2="236" ' + s + ' stroke-width="1.6"/>' +
+        /* thorns */
+        '<path d="M152 248 L162 222 L172 248 M168 248 L168 218" ' + s + ' stroke-width="2"/>' +
+        '<path d="M178 232 Q188 226 198 232" ' + s + ' stroke-width="1.6"/>' +
+        /* good soil — taller plants and fruit dots */
+        '<path d="M248 248 L248 188 M256 248 L262 178 M274 248 L282 182 M290 248 L298 176" ' + s + ' stroke-width="2.6"/>' +
+        '<ellipse cx="248" cy="182" rx="12" ry="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="262" cy="172" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="282" cy="170" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="298" cy="168" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="240" cy="210" r="3" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="268" cy="200" r="3" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="292" cy="196" r="3" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:1–23</text>'
       ),
 
       /* ── Week 1: Moses Sea-Split (13) ── */
@@ -4334,7 +4374,6 @@
   var OUTLINE_ALIAS = {
     /* ── legacy mappings ── */
     mosesBush: 'burningBush',
-    parableSower: 'mustardSeed',
     goodSamaritan: 'loveNeighbor',
     prodigalSon: 'forgive70x7',
     lostSheep: 'psalm23Shepherd',
@@ -4462,6 +4501,8 @@
     witheredHand: 'witheredHand',
     jairus: 'jairus',
     jesusWalksWater: 'jesusWalksWater',
+    jesusFeeds5000: 'jesusFeeds5000',
+    parableSower: 'parableSower',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
@@ -4472,7 +4513,7 @@
     healBlind: 'healBlind',
     jesusBlessKids: 'jesusBlessKids',
     /* ── Week 6 ── */
-    jesusParableSower: 'mustardSeed',
+    jesusParableSower: 'parableSower',
     jesusParableMustardSeed: 'mustardSeed',
     jesusParableGoodShepherd: 'psalm23Shepherd',
     mustardSeed: 'mustardSeed',
@@ -4616,6 +4657,7 @@
     witheredHand: 'witheredHand',
     jairus: 'jairus',
     jesusWalksWater: 'jesusWalksWater',
+    jesusFeeds5000: 'jesusFeeds5000',
     marthaServe: 'marthaServe',
     marySit: 'marySit',
     dorcasRaise: 'dorcasRaise',

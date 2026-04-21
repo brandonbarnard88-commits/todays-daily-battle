@@ -67,6 +67,8 @@
  * Withered hand in the synagogue — Sabbath heal (Mark 3:1–6, gentle): buildWitheredHandReadQuiz() (library key: witheredHand).
  * Jairus’ daughter raised — believe and arise (Mark 5:21–43, gentle): buildJairusReadQuiz() (library key: jairus).
  * Jesus walks on the sea — be not afraid (Matthew 14:22–33, gentle): buildJesusWalksWaterReadQuiz() (library key: jesusWalksWater).
+ * Five loaves and two fishes — feed a hungry crowd (Matthew 14:13–21, gentle): buildJesusFeeds5000ReadQuiz() (library key: jesusFeeds5000).
+ * Parable of the sower — good soil (Matthew 13:1–23, gentle): buildParableSowerReadQuiz() (library key: parableSower).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -8074,6 +8076,290 @@ function buildJesusWalksWaterReadQuiz() {
   };
 }
 
+/** Five thousand fed — loaves and fishes (gentle). Library key: jesusFeeds5000 */
+function buildJesusFeeds5000ReadQuiz() {
+  return {
+    kjvRef: 'Matthew 14:13–21 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. — Matthew 14:20 (KJV)',
+    readAlongTitle: 'Jesus Feeds a Hungry Crowd',
+    quizWrongHumilityHint:
+      'Listen again — teach; send away; give ye them to eat; five loaves two fishes; sit on grass; blessed brake; disciples gave; filled; twelve baskets; five thousand men.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Many people followed Jesus to hear Him teach.',
+      'When it was late, the disciples said, “Send them away so they can buy food.”',
+      'Jesus said, “Give ye them to eat.”',
+      'The disciples found a boy with five loaves and two small fishes.',
+      'Jesus told the people to sit down on the grass.',
+      'He took the loaves and fishes, looked up to heaven, blessed them, and broke them.',
+      'He gave the pieces to the disciples, and the disciples gave them to the people.',
+      'Everyone ate and was filled.',
+      'When they gathered up the leftovers, there were twelve baskets full.',
+      'Five thousand men, plus women and children, had been fed from one boy’s lunch.',
+      'Jesus can take a little and make it enough for everyone.',
+      'Reference: Matthew 14:13–21 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Many people followed Jesus to hear Him.',
+        caption: 'Listening to Jesus',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'It was late and they were hungry.',
+        caption: 'Give ye them to eat',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The disciples found a boy with five loaves and two fishes.',
+        caption: 'A boy’s lunch',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus blessed the food and broke it.',
+        caption: 'Blessed and brake',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The disciples gave the food to the people.',
+        caption: 'Passed to everyone',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Everyone ate and was filled.',
+        caption: 'All were filled',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus can take a little and make it enough.',
+        caption: 'Twelve baskets left',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 14:13–21', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 14:13–21.)'
+      },
+      {
+        question: 'What did Jesus say when the disciples wanted to send the crowd away?',
+        choices: [
+          '“Give ye them to eat.”',
+          '“Hide the bread.”',
+          '“Do not share.”',
+          '“Go home alone.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus provides when we bring what we have to Him.',
+        wrongFeedback:
+          'Think about Jesus’ kind command in Matthew 14. (Answer: “Give ye them to eat.”)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'Jesus cannot help hungry people.',
+          'Jesus can take a little and make it enough for everyone.',
+          'Small gifts never matter.',
+          'We should never thank God for food.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the ending about everyone eating and the baskets left over. (Answer: Jesus can take a little and make it enough for everyone.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'They took up twelve baskets full of fragments.',
+          'A rocket made the fish fly.',
+          'The grass turned into jelly.',
+          'Everyone forgot how to sit down.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that wonder comes from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches the leftovers? (Answer: twelve baskets full of fragments.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He cares for us — offer Him what we have and trust Him to use it kindly.',
+          'Never share our lunch.',
+          'Only pray when we have lots.',
+          'Hide when someone is hungry.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus’ care and generosity? (Answer: Thank Jesus… offer Him what we have…)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Feeds a Hungry Crowd with God's Word today.",
+    takeaway: 'Jesus can take a little and make it enough for everyone.',
+    prayer:
+      'Lord Jesus, thank You that You care for every need. Take what we have and use it for Your love. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus sitting on the grass holding the five loaves and two fishes the boy stands nearby with a happy face many people are sitting on the grass in groups thick bold outlines with large open spaces on Jesus\' robe the boy\'s robe the loaves the fishes and the grass for easy coloring soft hills and a gentle sky with minimal lines kind generous mood focus on Jesus feeding the hungry crowd clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Crowd follows Jesus (listen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Late and hungry — give ye them to eat (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Five loaves two fishes — a boy’s lunch (gift)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Sit on grass — bless brake — disciples give (thankful)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: All ate and were filled — twelve baskets (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Jesus provides — little becomes enough (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Parable of the sower — God’s Word in good soil (gentle). Library key: parableSower */
+function buildParableSowerReadQuiz() {
+  return {
+    kjvRef: 'Matthew 13:1–23 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'But other fell into good ground, and brought forth fruit, some an hundredfold, some sixtyfold, some thirtyfold. — Matthew 13:8 (KJV)',
+    readAlongTitle: 'Jesus Tells a Story About Good Soil',
+    quizWrongHumilityHint:
+      'Listen again — farmer; seeds; path; birds; rocks; sun; thorns; choked; good soil; fruit; hear; Word; heart.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told the people a story about a farmer who went out to plant seeds.',
+      'Some seeds fell on the path and birds ate them.',
+      'Some fell on rocky ground and grew quickly but dried up when the sun came.',
+      'Some fell among thorns and were choked so they could not grow.',
+      'But some fell on good soil and grew tall, producing much fruit — thirty, sixty, or a hundred times as much.',
+      'Jesus said, “He that hath ears to hear, let him hear.”',
+      'Later He explained that the seed is God’s Word.',
+      'The good soil is a heart that listens, understands, and lets God’s Word grow.',
+      'Jesus wants our hearts to be like good soil so His words can grow in us.',
+      'Reference: Matthew 13:1–23 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus told a story about a farmer planting seeds.',
+        caption: 'A farmer sows',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Some seeds fell on the path and birds ate them.',
+        caption: 'Seeds on the path',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Some fell on rocks and dried up.',
+        caption: 'Rocky ground',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Some fell among thorns and were choked.',
+        caption: 'Thorns choked them',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Some fell on good soil and grew tall.',
+        caption: 'Good soil bears fruit',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus said the seed is God’s Word.',
+        caption: 'The seed is God’s Word',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Good hearts let God’s Word grow.',
+        caption: 'Hearts like good soil',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 13:1–23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 13:1–23.)'
+      },
+      {
+        question: 'In Jesus’ story, what does the seed stand for?',
+        choices: [
+          'God’s Word',
+          'Only rocks',
+          'Birds’ nests',
+          'Painted stones'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus explained that the seed is the Word of God.',
+        wrongFeedback:
+          'Think about what Jesus said the seed is. (Answer: God’s Word.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God’s Word cannot grow in anyone.',
+          'Jesus wants our hearts to be like good soil so His words can grow in us.',
+          'We should never listen.',
+          'Only birds need the Bible.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the ending about good soil and fruit. (Answer: hearts like good soil… His words can grow in us.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Some seed fell on good ground and brought forth fruit.',
+          'The farmer planted jelly beans that turned into rockets.',
+          'The path turned into a swimming pool.',
+          'Birds built a castle on the rocks.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that wonder comes from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Jesus’ parable? (Answer: good ground… fruit.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask God to help us listen to His Word and let it grow in our hearts—like good soil.',
+          'Never read or hear the Bible.',
+          'Only care about thorns.',
+          'Hide God’s Word from our family.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus’ teaching about hearing and growing? (Answer: listen… let it grow… good soil.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Tells a Story About Good Soil with God's Word today.",
+    takeaway: 'Jesus wants our hearts to be like good soil so His words can grow in us.',
+    prayer:
+      'Lord Jesus, plant Your Word in my heart. Help me listen and let it grow. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: a farmer scattering seeds on different ground one patch is good soil with tall green plants growing other patches show path rocks and thorns thick bold outlines with large open spaces on the farmer\'s robe the seeds the plants and the ground for easy coloring soft hills and a gentle sky with minimal lines hopeful growing mood focus on God\'s Word growing in good hearts clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Farmer sows seed — Jesus tells a story (listen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Path — birds eat seeds (careful)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Rocky ground — sun comes up (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Thorns choke — seeds cannot grow (slow)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Good soil — fruit thirty sixty hundred (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Ears to hear — Word grows in hearts (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -8185,5 +8471,7 @@ module.exports = {
   witheredHand: buildWitheredHandReadQuiz(),
   jairus: buildJairusReadQuiz(),
   jesusWalksWater: buildJesusWalksWaterReadQuiz(),
+  jesusFeeds5000: buildJesusFeeds5000ReadQuiz(),
+  parableSower: buildParableSowerReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

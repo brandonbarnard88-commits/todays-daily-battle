@@ -122,7 +122,7 @@
   "noah": "noah",
   "noblemanSon": "noblemanSon",
   "palmSunday": "greatCommission",
-  "parableSower": "mustardSeed",
+  "parableSower": "parableSower",
   "parableTalents": "richYoungRuler",
   "passoverLamb": "passoverLamb",
   "paulDamascus": "paulDamascus",

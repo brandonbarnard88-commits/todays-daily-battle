@@ -2497,6 +2497,16 @@
     "kw": "arrest gethsemane garden Judas kiss multitude swords staves put up sword legions angels scriptures forsook fled matthew 26 mark 14 luke 22 john 18"
   },
   {
+    "key": "trialBeforeCaiaphas",
+    "title": "Jesus Before Caiaphas",
+    "kjvRef": "Matthew 26:57–68 (par. Mark 14:53–65)",
+    "who": "Jesus",
+    "to": "Every child who feels alone or misunderstood when people are unkind",
+    "apply": "Jesus stayed calm and told the truth — He is the Son of God, and His strong, gentle love stays with you.",
+    "theme": "Protection",
+    "kw": "Caiaphas high priest council false witness temple three days held his peace Christ Son of God right hand of power clouds of heaven Peter palace blasphemy matthew 26 mark 14"
+  },
+  {
     "key": "priscillaTeach",
     "title": "Priscilla and Aquila Teach",
     "kjvRef": "Acts 18:24–28",

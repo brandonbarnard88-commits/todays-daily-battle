@@ -1632,6 +1632,11 @@
       webm: '/media/kids-stories/tree-of-life.webm',
       captionsVtt: '/media/kids-stories/tree-of-life.vtt'
     },
+    trialBeforeCaiaphas: {
+      mp4: '/media/kids-stories/trial-before-caiaphas.mp4',
+      webm: '/media/kids-stories/trial-before-caiaphas.webm',
+      captionsVtt: '/media/kids-stories/trial-before-caiaphas.vtt'
+    },
     trial: {
       mp4: '/media/kids-stories/trial.mp4',
       webm: '/media/kids-stories/trial.webm',

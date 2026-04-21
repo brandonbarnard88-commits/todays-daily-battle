@@ -5026,6 +5026,28 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:50–54</text>'
       ),
 
+      /* Matthew 26:57–68 — calm hall; Jesus center; Caiaphas seated; a few elders; soft pillars (no harsh faces) */
+      trialBeforeCaiaphas: svg(
+        ground() +
+        '<rect x="48" y="78" width="304" height="128" rx="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="92" y1="78" x2="92" y2="206" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="148" y1="78" x2="148" y2="206" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="252" y1="78" x2="252" y2="206" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="308" y1="78" x2="308" y2="206" ' + s + ' stroke-width="1.8"/>' +
+        '<rect x="62" y="172" width="56" height="32" rx="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="62" y1="172" x2="118" y2="160" ' + s + ' stroke-width="2"/>' +
+        person(90, 128, 9, 24) +
+        '<path d="M84 140 Q90 148 96 140" ' + s + ' stroke-width="1.3"/>' +
+        person(200, 118, 12, 40) +
+        '<path d="M192 132 Q200 126 208 132" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="188" y1="168" x2="188" y2="188" ' + s + ' stroke-width="2"/>' +
+        '<line x1="212" y1="168" x2="212" y2="188" ' + s + ' stroke-width="2"/>' +
+        person(278, 130, 7, 24) +
+        person(318, 134, 7, 24) +
+        person(232, 188, 6, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:63–64</text>'
+      ),
+
       /* ── Week 12: Prayer Closet (150) ── */
       prayerCloset: svg(
         ground() +
@@ -5383,6 +5405,9 @@
     jesusArrest: 'jesusArrest',
     arrest: 'jesusArrest',
     gethsemaneArrest: 'jesusArrest',
+    trialBeforeCaiaphas: 'trialBeforeCaiaphas',
+    caiaphasTrial: 'trialBeforeCaiaphas',
+    jesusBeforeCaiaphas: 'trialBeforeCaiaphas',
     jesusCrucifixion: 'crucifixion',
     jesusResurrection: 'resurrection',
     crossCarry: 'crossCarry',
@@ -7116,7 +7141,7 @@
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus', 'jesusParableGoodShepherd',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'betrayal', 'trial', 'crucifixion',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

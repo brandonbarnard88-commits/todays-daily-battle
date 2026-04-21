@@ -97,6 +97,7 @@
  * Last Supper — Matthew 26:17–30 (gentle): buildLastSupperReadQuiz() (library keys: lastSupper; jesusLastSupper).
  * Jesus prays in Gethsemane — Matthew 26:36–46 (gentle): buildGardenPrayerReadQuiz() (library keys: gardenPrayer; jesusGardenGethsemane).
  * Jesus is arrested in the garden — Matthew 26:47–56 (gentle): buildJesusArrestReadQuiz() (library key: jesusArrest; aliases arrest, gethsemaneArrest in slug maps).
+ * Jesus before Caiaphas — Matthew 26:57–68 (gentle): buildTrialBeforeCaiaphasReadQuiz() (library key: trialBeforeCaiaphas; aliases caiaphasTrial, jesusBeforeCaiaphas).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
@@ -12336,6 +12337,147 @@ function buildJesusArrestReadQuiz() {
   };
 }
 
+/** Jesus before Caiaphas — Matthew 26:57–68 (gentle). Library key: trialBeforeCaiaphas */
+function buildTrialBeforeCaiaphasReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:57–68 (KJV) (par. Mark 14:53–65)',
+    verseExcerpt:
+      'Thou hast said: nevertheless I say unto you, Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven. — Matthew 26:64 (KJV)',
+    readAlongTitle: 'Jesus Before Caiaphas',
+    quizWrongHumilityHint:
+      'Listen again — Caiaphas; scribes; elders; council; false witness; temple; three days; held his peace; adjure; living God; Christ; Son of God; Thou hast said; right hand of power; clouds of heaven; blasphemy; spit; buffeted; prophesy; smote thee.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'And they that had laid hold on Jesus led him away to Caiaphas the high priest, where the scribes and the elders were assembled. But Peter followed him afar off unto the high priest\'s palace, and went in, and sat with the servants, to see the end.',
+      'Now the chief priests, and elders, and all the council, sought false witness against Jesus, to put him to death; But found none: yea, though many false witnesses came, yet found they none. At the last came two false witnesses, And said, This fellow said, I am able to destroy the temple of God, and to build it in three days.',
+      'And the high priest arose, and said unto him, Answerest thou nothing? what is it which these witness against thee? But Jesus held his peace. And the high priest answered and said unto him, I adjure thee by the living God, that thou tell us whether thou be the Christ, the Son of God.',
+      'Jesus saith unto him, Thou hast said: nevertheless I say unto you, Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven.',
+      'Then the high priest rent his clothes, saying, He hath spoken blasphemy; what further need have we of witnesses? behold, now ye have heard his blasphemy. What think ye? They answered and said, He is guilty of death.',
+      'Then did they spit in his face, and buffeted him; and others smote him with the palms of their hands, Saying, Prophesy unto us, thou Christ, Who is he that smote thee?',
+      'Jesus told the truth with quiet strength — He is the Son of God, and He loves us still.',
+      'Reference: Matthew 26:57–68 (KJV) (parallel in Mark)'
+    ],
+    readAlongSections: [
+      {
+        text: 'The men took Jesus to the high priest Caiaphas and the elders.',
+        caption: 'Led him away to Caiaphas',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They tried to find people to say untrue things about Jesus, but they could not.',
+        caption: 'Sought false witness',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The high priest asked Jesus questions, but Jesus stayed quiet at first.',
+        caption: 'Jesus held his peace',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Then the high priest asked if He was the Christ, the Son of God.',
+        caption: 'I adjure thee by the living God',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus answered calmly, “Thou hast said… Hereafter shall ye see the Son of man sitting on the right hand of power.”',
+        caption: 'Thou hast said',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus told the truth even when it was hard, because He is the Son of God.',
+        caption: 'The Son of God',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:57–68 (also told in Mark)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26:57–68.)'
+      },
+      {
+        question: 'Who was the high priest where they took Jesus first?',
+        choices: ['Caiaphas', 'Pilate only', 'Herod only', 'Nineveh'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:57.',
+        wrongFeedback: 'Listen for the high priest’s name. (Answer: Caiaphas.)'
+      },
+      {
+        question: 'What did the council try to find against Jesus at first?',
+        choices: [
+          'False witness (untrue stories)',
+          'A birthday cake',
+          'A missing camel',
+          'A new king from Mars'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:59.',
+        wrongFeedback: 'Listen for “false witness.” (Answer: false witness.)'
+      },
+      {
+        question: 'Before answering the big question, what did Jesus do when the high priest asked about the witnesses’ words?',
+        choices: [
+          'He held his peace (stayed quiet).',
+          'He ran away.',
+          'He hid under a table.',
+          'He sang a silly song.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:62–63.',
+        wrongFeedback: 'Listen for “held his peace.” (Answer: He held his peace.)'
+      },
+      {
+        question: 'When asked if He was the Christ, the Son of God, how did Jesus answer?',
+        choices: [
+          'Thou hast said — and He spoke truthfully about the Son of man and the clouds of heaven.',
+          'He said He was not the Christ.',
+          'He refused to speak at all.',
+          'He said to forget God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:64.',
+        wrongFeedback: 'Listen for “Thou hast said.” (Answer: Thou hast said… Son of man… clouds of heaven.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus when people are unkind or unfair — remember He told the truth and stays with me.',
+          'Believe God is never near.',
+          'Never tell the truth.',
+          'Stay angry on purpose forever.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “truth” and “Jesus with me.” (Answer: tell Jesus… He stays with me.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Before Caiaphas with God's Word today.",
+    takeaway:
+      'Jesus stayed calm and spoke the truth — He is the Son of God, and His love holds us on hard days.',
+    prayer:
+      'Lord Jesus, thank You that You understand when people are unfair. Help me trust You and speak truth with love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus stands quietly and calmly in the center before the high priest, with a kind and peaceful face, His hands gently at His sides. The high priest sits on a simple seat with a surprised look (no anger). A few elders and scribes stand nearby listening. Soft room walls and pillars in the background with plenty of open floor space in the foreground for coloring. Focus on the heart of the moment: Jesus standing strong and true, speaking calmly about who He is. Style: clear, bold, tender, restful — never dark, scary, or unkind.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Led to Caiaphas — quiet hall (calm)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: False witness sought — God knows the truth (honesty)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Jesus held his peace — gentle strength (trust)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Christ, the Son of God — the big question (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Right hand of power — clouds of heaven (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Jesus tells the truth — Son of God loves us (love)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
 function buildJesusWeepsJerusalemReadQuiz() {
   return {
@@ -13720,6 +13862,9 @@ module.exports = {
   jesusArrest: buildJesusArrestReadQuiz(),
   arrest: buildJesusArrestReadQuiz(),
   gethsemaneArrest: buildJesusArrestReadQuiz(),
+  trialBeforeCaiaphas: buildTrialBeforeCaiaphasReadQuiz(),
+  caiaphasTrial: buildTrialBeforeCaiaphasReadQuiz(),
+  jesusBeforeCaiaphas: buildTrialBeforeCaiaphasReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

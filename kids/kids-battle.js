@@ -2276,7 +2276,7 @@
       videoId: 'zmYLuYfPQI8',
       videoTitle: 'Jesus & Pilate – The Miracle Maker!',
       keywords: ['pilate', 'trial', 'quiet', 'john 18', 'matthew 27', 'king'],
-      kjvRef: 'Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16',
+      kjvRef: 'Matthew 27:11–26; Mark 15:1–15; Luke 23:1–25; John 18:28–19:16',
       kidContext: { who: 'Jesus', to: 'Pilate (and us)', apply: 'Jesus stays quiet—trust God! When things are unfair, He knows the truth!' }
     },
     crucifixion: {
@@ -2457,6 +2457,52 @@
       },
       narration:
         "Jesus Is Arrested in the Garden — Matthew 26:47–56. And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people. Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast. And forthwith he came to Jesus, and said, Hail, master; and kissed him. And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him. And, behold, one of them which were with Jesus stretched out his hand, and drew his sword, and struck a servant of the high priest's, and smote off his ear. Then said Jesus unto him, Put up again thy sword into his place: for all they that take the sword shall perish with the sword. Thinkest thou that I cannot now pray to my Father, and he shall presently give me more than twelve legions of angels? But how then shall the scriptures be fulfilled, that thus it must be? In that same hour said Jesus to the multitudes, Are ye come out as against a thief with swords and staves for to take me? I sat daily with you teaching in the temple, and ye laid no hold on me. But all this was done, that the scriptures of the prophets might be fulfilled. Then all the disciples forsook him, and fled. For you: On hard days when someone hurts your feelings or when scary things happen, remember Jesus in the garden. He was calm and kind even when Judas kissed Him and the men took Him away. Jesus knows how you feel, and He chose to go through hard things because He loves you so much. You can rest safe in His strong, gentle love."
+    },
+    trialBeforeCaiaphas: {
+      title: 'Jesus Before Caiaphas',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Led to Caiaphas — scribes and elders — false witnesses sought — Peter afar off at the palace'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus held his peace — I adjure thee by the living God — Art thou the Christ, the Son of God?'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Thou hast said — Son of man at the right hand of power — clouds of heaven — He told the truth'
+        }
+      ],
+      caption: 'Swipe slowly — Jesus speaks the truth with quiet strength; He is the Son of God.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'Caiaphas',
+        'high priest',
+        'council',
+        'false witness',
+        'temple',
+        'three days',
+        'held his peace',
+        'Christ',
+        'Son of God',
+        'right hand of power',
+        'clouds of heaven',
+        'Peter',
+        'palace',
+        'matthew 26',
+        'mark 14'
+      ],
+      kjvRef: 'Matthew 26:57–68 (par. Mark 14:53–65)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels alone or misunderstood when people are unkind',
+        apply:
+          'Jesus stayed calm and told the truth — He is the Son of God, and His strong, gentle love stays with you.'
+      },
+      narration:
+        "Jesus Before Caiaphas — Matthew 26:57–68. And they that had laid hold on Jesus led him away to Caiaphas the high priest, where the scribes and the elders were assembled. But Peter followed him afar off unto the high priest's palace, and went in, and sat with the servants, to see the end. Now the chief priests, and elders, and all the council, sought false witness against Jesus, to put him to death; But found none: yea, though many false witnesses came, yet found they none. At the last came two false witnesses, And said, This fellow said, I am able to destroy the temple of God, and to build it in three days. And the high priest arose, and said unto him, Answerest thou nothing? what is it which these witness against thee? But Jesus held his peace. And the high priest answered and said unto him, I adjure thee by the living God, that thou tell us whether thou be the Christ, the Son of God. Jesus saith unto him, Thou hast said: nevertheless I say unto you, Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven. Then the high priest rent his clothes, saying, He hath spoken blasphemy; what further need have we of witnesses? behold, now ye have heard his blasphemy. What think ye? They answered and said, He is guilty of death. Then did they spit in his face, and buffeted him; and others smote him with the palms of their hands, Saying, Prophesy unto us, thou Christ, Who is he that smote thee? For you: On hard days when people say untrue things or when you feel alone, remember Jesus before Caiaphas. He stayed calm and told the truth because He is the Son of God. Jesus understands hard moments, and He is always with you. You can rest safe in His strong, gentle love."
     },
     jesusCrucifixion: {
       title: 'Jesus on the Cross',
@@ -9079,7 +9125,7 @@
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naamanHealed', 'jesusWalksWater',
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
-      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'jesusArrest', 'betrayal', 'trial', 'crucifixion',
+      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
       'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
@@ -9113,7 +9159,7 @@
       'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'trialBeforeCaiaphas', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -9751,13 +9797,20 @@
     ) {
       return { type: 'carousel', story: 'jesusArrest' };
     }
+    if (
+      /caiaphas|trialbeforecaiaphas|before caiaphas|matthew 26:5[7-9]|matthew 26:6[0-8]|false witness against jesus|destroy the temple.*three days|i adjure thee by the living god|whether thou be the christ|thou hast said.*son of man|right hand of power|coming in the clouds of heaven|rent his clothes|spoken blasphemy|guilty of death|prophesy unto us.*thou christ|who is he that smote|peter followed.*afar off.*palace/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'trialBeforeCaiaphas' };
+    }
     if (/gethsemane|garden.*prayer|matthew 26:36|mark 14:32/.test(low)) {
       return { type: 'carousel', story: 'gardenPrayer' };
     }
     if (/judas|betrayal|kiss.*betray|matthew 26:48/.test(low)) {
       return { type: 'carousel', story: 'betrayal' };
     }
-    if (/pilate|trial|john 18:28|matthew 27:11/.test(low)) {
+    if (/pilate|john 18:28|matthew 27:11|barabbas/.test(low)) {
       return { type: 'carousel', story: 'trial' };
     }
     if (/crucifixion|cross|calvary|matthew 27:33|john 19:17/.test(low)) {
@@ -12397,6 +12450,7 @@
     jesusLastSupper: 'Love',
     jesusGardenGethsemane: 'Protection',
     jesusArrest: 'Protection',
+    trialBeforeCaiaphas: 'Protection',
     crossCarry: 'Love', jesusCrucifixion: 'Love', tombEmpty: 'Miracles', jesusResurrection: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',
     pentecost: 'Miracles',
     holySpiritPentecost: 'Miracles',

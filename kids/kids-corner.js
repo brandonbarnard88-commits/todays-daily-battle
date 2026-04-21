@@ -143,7 +143,8 @@
       wiseMen: 'jesus-children',
       simeonAnna: 'jesus-children',
       jesusTemple: 'jesus-children',
-      jesusBaptism: 'jesus-children'
+      jesusBaptism: 'jesus-children',
+      jesusDisciples: 'jesusDisciples'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -383,6 +384,24 @@
         '<line x1="200" y1="215" x2="190" y2="235" ' + s + ' stroke-width="2.5"/>' +
         '<line x1="200" y1="215" x2="210" y2="235" ' + s + ' stroke-width="2.5"/>' +
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 4:39</text>'
+      ),
+
+      /* Jesus calls helpers — Sea of Galilee, nets (Matthew 4:18–22) */
+      jesusDisciples: svg(
+        sun(332, 46, 15) +
+        cloud(44, 38) +
+        '<path d="M0 198 Q120 182 200 194 Q280 188 400 198 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M12 212 Q200 200 388 212" ' + s + ' stroke-width="2" opacity="0.42"/>' +
+        '<path d="M24 226 Q200 218 376 226" ' + s + ' stroke-width="1.7" opacity="0.35"/>' +
+        '<line x1="0" y1="247" x2="400" y2="247" ' + s + ' stroke-width="2.4"/>' +
+        person(92, 128, 11, 30) +
+        person(172, 134, 10, 26) +
+        person(202, 134, 10, 26) +
+        '<ellipse cx="48" cy="254" rx="34" ry="9" ' + sf + ' fill="white" stroke-width="1.9"/>' +
+        '<path d="M32 250 Q48 232 64 250 M42 244 L42 258 M36 246 L54 246" ' + s + ' stroke-width="1.7"/>' +
+        '<path d="M278 202 L322 197 L328 228 L284 233 Z" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<line x1="302" y1="197" x2="302" y2="218" ' + s + ' stroke-width="1.9"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 4:18–22</text>'
       ),
 
       /* Moses and the Red Sea */
@@ -4262,6 +4281,7 @@
     jesusTemple: 'jesusTemple',
     johnBaptize: 'johnBaptize',
     jesusBaptism: 'jesusBaptism',
+    jesusDisciples: 'jesusDisciples',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',

@@ -138,7 +138,7 @@
     'johnBaptist',
     'jesusBaptism',
     'johnBaptize',
-    'jesusCallingDisciples',
+    'jesusDisciples',
     'jesusTempt',
     'jesusTemptation',
     'jesusFirstMiracle',

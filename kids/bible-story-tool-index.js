@@ -1107,6 +1107,16 @@
     "kw": "jesus baptism baptized jordan john baptist dove matthew 3 beloved son spirit heaven well pleased voice"
   },
   {
+    "key": "jesusDisciples",
+    "title": "Jesus Calls His Helpers",
+    "kjvRef": "Matthew 4:18–22",
+    "who": "Jesus",
+    "to": "Peter, Andrew, James, John — and everyone who listens",
+    "apply": "Jesus calls people to be with Him and help tell others about God’s love.",
+    "theme": "Love",
+    "kw": "jesus disciples fishers of men sea galilee peter andrew james john nets follow me matthew 4 boat zebedee"
+  },
+  {
     "key": "jesusTempt",
     "title": "Jesus Is Tempted",
     "kjvRef": "Matthew 4:1–11",

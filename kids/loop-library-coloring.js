@@ -157,6 +157,7 @@
   "simeonAnna": "simeonAnna",
   "jesusTemple": "jesusTemple",
   "jesusBaptism": "jesusBaptism",
+  "jesusDisciples": "jesusDisciples",
   "shunammiteReturn": "shunammiteReturn",
   "solomonTemple": "solomonTemple",
   "solomonTwoMothers": "solomonTwoMothers",

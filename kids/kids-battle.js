@@ -4924,6 +4924,49 @@
       narration:
         "Jesus Is Baptized by John — Matthew 3:13–17. Then cometh Jesus from Galilee to Jordan unto John, to be baptized of him. But John forbad Him, saying, I have need to be baptized of thee, and comest thou to me? And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered Him. And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto Him, and He saw the Spirit of God descending like a dove, and lighting upon Him: and lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased. For you: the Father loves His Son — and He invites us to listen to Jesus."
     },
+    jesusDisciples: {
+      title: 'Jesus Calls His Helpers',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus walks by the Sea of Galilee — Peter and Andrew casting a net'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus says, Follow me — I will make you fishers of men'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'James and John leave the boat — they follow Jesus too'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus call helpers by the sea — nets, boats, and His gentle “Follow me.”',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'jesus',
+        'disciples',
+        'fishers of men',
+        'sea of galilee',
+        'peter',
+        'andrew',
+        'james',
+        'john',
+        'matthew 4',
+        'nets',
+        'follow me'
+      ],
+      kjvRef: 'Matthew 4:18–22',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Peter, Andrew, James, John — and everyone who listens',
+        apply:
+          'Jesus calls ordinary people — kids too! — to be with Him and help tell others God’s love.'
+      },
+      narration:
+        "Jesus Calls His Helpers — Matthew 4:18–22. And Jesus, walking by the sea of Galilee, saw two brethren, Simon called Peter, and Andrew his brother, casting a net into the sea: for they were fishers. And he saith unto them, Follow me, and I will make you fishers of men. And they straightway left their nets, and followed him. And going on from thence, he saw other two brethren, James the son of Zebedee, and John his brother, in a ship with Zebedee their father, mending their nets; and he called them. And they immediately left the ship and their father, and followed him. For you: Jesus invites us to come be with Him and share His love."
+    },
     jesusTempt: {
       title: 'Jesus Is Tempted',
       panels: [
@@ -7332,7 +7375,7 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusWalksWater',
@@ -10484,7 +10527,8 @@
     jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
     /* Week 5 */
     angelMary: 'Miracles', shepherdsStar: 'Love', wiseMen: 'Love', simeonAnna: 'Love', jesusManger: 'Love', jesusTemple: 'Love',
-    johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Love', jesusTemptation: 'Obedience',
+    johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Love', jesusDisciples: 'Love',
+    jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
     /* Week 6 */

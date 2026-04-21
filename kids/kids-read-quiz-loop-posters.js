@@ -125,6 +125,7 @@
     jerichoWalls: 10,
     jesus: 106,
     jesusBaptism: 197,
+    jesusDisciples: 198,
     jesusBirth: 62,
     jesusBlessKids: 84,
     jesusCalmsStorm: 12,

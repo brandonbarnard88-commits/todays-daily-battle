@@ -55,6 +55,7 @@
  * Simeon & Anna — temple presentation (Luke 2:22–38, gentle): buildSimeonAnnaReadQuiz() (library key: simeonAnna).
  * Boy Jesus in the temple (Luke 2:41–52, gentle): buildJesusTempleReadQuiz() (library key: jesusTemple).
  * Jesus baptized — dove and the Father’s voice (Matthew 3:13–17, gentle): buildJesusBaptismReadQuiz() (library key: jesusBaptism).
+ * Jesus calls helpers — fishers of men (Matthew 4:18–22, gentle): buildJesusDisciplesReadQuiz() (library key: jesusDisciples).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -6382,6 +6383,140 @@ function buildJesusBaptismReadQuiz() {
   };
 }
 
+/** Jesus calls helpers — Sea of Galilee, follow Me (gentle). Library key: jesusDisciples */
+function buildJesusDisciplesReadQuiz() {
+  return {
+    kjvRef: 'Matthew 4:18–22 (KJV)',
+    verseExcerpt:
+      'Follow me, and I will make you fishers of men. — Matthew 4:19 (KJV)',
+    readAlongTitle: 'Jesus Calls His Helpers',
+    quizWrongHumilityHint:
+      'Listen again — Sea of Galilee; Peter and Andrew; follow Me; fishers of men; nets; James and John; boat; Zebedee their father.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus was walking by the Sea of Galilee.',
+      'He saw two brothers, Simon (called Peter) and Andrew, throwing a net into the sea because they were fishermen.',
+      'Jesus said to them, “Follow me, and I will make you fishers of men.”',
+      'They left their nets right away and followed Him.',
+      'A little farther on, Jesus saw James and John in a boat with their father, mending their nets.',
+      'He called them too.',
+      'They left the boat and their father and followed Jesus.',
+      'Jesus calls people to be with Him and help tell others about God’s love.',
+      'Reference: Matthew 4:18–22 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus walked by the Sea of Galilee.',
+        caption: 'By the sea',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He saw Peter and Andrew fishing.',
+        caption: 'Fishermen',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus said, “Follow me.”',
+        caption: 'Kind call',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They left their nets and followed Him.',
+        caption: 'Right away',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus saw James and John in their boat.',
+        caption: 'Mending nets',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'They left the boat and followed Jesus too.',
+        caption: 'Come, follow',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus calls people to be with Him.',
+        caption: 'With Him',
+        image: 'panel-jesus-2.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 4:18–22', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 4:18–22.)'
+      },
+      {
+        question: 'Who called Peter, Andrew, James, and John to follow Him?',
+        choices: ['Jesus', 'Herod', 'A nameless crowd only', 'Caesar'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus said, “Follow me,” by the sea.',
+        wrongFeedback:
+          'Think about who speaks “Follow me” and “fishers of men.” (Answer: Jesus.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'Jesus only cares about boats, not people.',
+          'Jesus invites people to come be with Him and help share God’s love.',
+          'Fishing nets are always bad.',
+          'The sea of Galilee was only pretend.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the ending paragraphs slowly. Which matches Jesus’ kind call? (Answer: Jesus invites people to come be with Him and help share God’s love.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Follow me, and I will make you fishers of men.',
+          'Everyone traded their boats for spaceships.',
+          'The disciples forgot how to walk.',
+          'A whale taught them to fish.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches Jesus’ words? (Answer: Follow me, and I will make you fishers of men.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He still calls people to trust Him and help others hear of God’s love.',
+          'Never listen when someone says “follow.”',
+          'Ignore the Bible until we feel perfect.',
+          'Only love people when it is easy.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which choice shows trust in Jesus’ call? (Answer: Thank Jesus that He still calls people to trust Him and help others hear of God’s love.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Calls His Helpers with God's Word today.",
+    takeaway: 'Jesus calls people to be with Him and help tell others about God’s love.',
+    prayer:
+      'Lord Jesus, thank You for calling people to follow You. Help us listen to Your voice and love others in Your name. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing by the sea calling two fishermen Peter and Andrew are leaving their nets and boat to follow Him thick bold outlines with large open spaces on Jesus\' robe the fishermen\' robes the nets and the water for easy coloring gentle waves and a soft sky with minimal lines kind and inviting mood focus on Jesus calling His helpers clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Walking by the Sea of Galilee (shore)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Peter and Andrew casting nets (fishers)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Follow me — fishers of men (call)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Leaving nets to follow (obey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: James and John — boat and nets (come)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: With Jesus — helper hearts (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -6481,5 +6616,6 @@ module.exports = {
   simeonAnna: buildSimeonAnnaReadQuiz(),
   jesusTemple: buildJesusTempleReadQuiz(),
   jesusBaptism: buildJesusBaptismReadQuiz(),
+  jesusDisciples: buildJesusDisciplesReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

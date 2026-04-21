@@ -54,6 +54,7 @@
  * Wise men — star, gifts, worship (Matthew 2:1–12, gentle): buildWiseMenReadQuiz() (library key: wiseMen).
  * Simeon & Anna — temple presentation (Luke 2:22–38, gentle): buildSimeonAnnaReadQuiz() (library key: simeonAnna).
  * Boy Jesus in the temple (Luke 2:41–52, gentle): buildJesusTempleReadQuiz() (library key: jesusTemple).
+ * Jesus baptized — dove and the Father’s voice (Matthew 3:13–17, gentle): buildJesusBaptismReadQuiz() (library key: jesusBaptism).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -6252,6 +6253,135 @@ function buildJesusTempleReadQuiz() {
   };
 }
 
+/** Jesus baptized — Jordan, dove, beloved Son (gentle). Library key: jesusBaptism */
+function buildJesusBaptismReadQuiz() {
+  return {
+    kjvRef: 'Matthew 3:13–17 (KJV)',
+    verseExcerpt:
+      'This is my beloved Son, in whom I am well pleased. — Matthew 3:17 (KJV)',
+    readAlongTitle: 'Jesus Is Baptized by John',
+    quizWrongHumilityHint:
+      'Listen again — Jordan River; John baptizing; Jesus asked John; suffer it to fulfil righteousness; heavens opened; Spirit like a dove; Father’s voice well pleased.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'When Jesus was grown up, His cousin John was baptizing people in the Jordan River.',
+      'John told everyone to get their hearts ready for the coming Savior.',
+      'Jesus came to the river and asked John to baptize Him.',
+      'John said, “I have need to be baptized of thee, and comest thou to me?”',
+      'Jesus answered, “Suffer it to be so now: for thus it becometh us to fulfil all righteousness.”',
+      'When Jesus came up out of the water, the heavens opened.',
+      'The Spirit of God came down like a dove and rested on Him.',
+      'A voice from heaven said, “This is my beloved Son, in whom I am well pleased.”',
+      'God the Father was pleased with His Son Jesus.',
+      'Reference: Matthew 3:13–17 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus came to the Jordan River.',
+        caption: 'By the river',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'John was baptizing people there.',
+        caption: 'Getting ready',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus asked John to baptize Him.',
+        caption: 'Humble hearts',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'When Jesus came up out of the water, the heavens opened.',
+        caption: 'Heavens opened',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'A dove came down and a voice from heaven said, “This is my beloved Son.”',
+        caption: 'Beloved Son',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'God the Father was pleased with Jesus.',
+        caption: 'Well pleased',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 3:13–17', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 3:13–17.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'Pharaoh', 'Goliath', 'Samson'],
+        correctIndex: 0,
+        correctFeedback: 'Right—the Father spoke from heaven and showed how He loved Jesus.',
+        wrongFeedback:
+          'Look for who opens heaven, sends the Spirit, and speaks over Jesus. (Answer: God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God the Father does not care about Jesus.',
+          'God the Father loves Jesus and was well pleased with Him — we can trust Jesus too.',
+          'The river was only pretend water.',
+          'John was afraid of every sound.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the ending paragraphs slowly. Which option matches the voice from heaven? (Answer: God the Father loves Jesus and was well pleased with Him — we can trust Jesus too.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A giant rubber duck floated by.',
+          'This is my beloved Son, in whom I am well pleased.',
+          'Let us rise up and build.',
+          'Everyone forgot how to swim.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches what you heard from heaven? (Answer: This is my beloved Son, in whom I am well pleased.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Thank God for Jesus — listen to Him, because the Father calls Him beloved.',
+          'Never say sorry when we do wrong.',
+          'Only read the Bible when we feel perfect.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust in Jesus? Pick the one that honors Him. (Answer: Thank God for Jesus — listen to Him, because the Father calls Him beloved.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Is Baptized by John with God's Word today.",
+    takeaway: 'God the Father was pleased with Jesus.',
+    prayer:
+      'Lord, thank You for Jesus Your beloved Son. Help us listen to Him and trust Him today. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing in the gentle river while John baptizes Him soft water ripples around them a dove is flying down from above with light rays thick bold outlines with large open spaces on Jesus\' robe John\'s robe and the water for easy coloring gentle river banks and a soft sky with minimal lines calm and holy mood focus on Jesus being baptized and God the Father being pleased clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and cream, friendly not scary, no text in image: Jesus comes to the Jordan (river)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and cream, friendly not scary, no text in image: John baptizes Jesus (water)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and cream, friendly not scary, no text in image: Heavens opened — dove (spirit)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and cream, friendly not scary, no text in image: Voice from heaven (beloved Son)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and cream, friendly not scary, no text in image: Father pleased (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -6350,5 +6480,6 @@ module.exports = {
   wiseMen: buildWiseMenReadQuiz(),
   simeonAnna: buildSimeonAnnaReadQuiz(),
   jesusTemple: buildJesusTempleReadQuiz(),
+  jesusBaptism: buildJesusBaptismReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

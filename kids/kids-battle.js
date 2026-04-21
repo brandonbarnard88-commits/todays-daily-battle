@@ -4883,18 +4883,46 @@
       kidContext: { who: 'God', to: 'Jesus (and us)', apply: 'God said yes to Jesus—He says yes to you too! Baptism is a big, happy yes.' }
     },
     jesusBaptism: {
-      title: 'Jesus Is Baptized',
+      title: 'Jesus Is Baptized by John',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus comes to the Jordan to be baptized by John' },
-        { src: 'panel-noah-2.svg', alt: 'John baptizes Jesus in the river' },
-        { src: 'panel-noah-3.svg', alt: 'Heavens open — dove, God\'s voice: This is My beloved Son!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'John baptizes in the Jordan — Jesus comes to fulfill all righteousness'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus is baptized — coming up from the water as the heavens open'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'The Spirit descends like a dove — the Father’s voice: This is my beloved Son'
+        }
       ],
-      caption: 'Swipe to see Jesus baptized — God the Father speaks! 🕊️',
+      caption:
+        'Swipe to see Jesus baptized in the river — heavens open, dove, and the Father’s loving voice.',
       videoId: '',
       videoTitle: '',
-      keywords: ['jesus', 'baptism', 'baptized', 'jordan', 'john', 'dove', 'matthew 3', 'mark 1', 'luke 3', 'spirit'],
-      kjvRef: 'Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22',
-      kidContext: { who: 'God the Father', to: 'Jesus (and us)', apply: 'God called Jesus His beloved Son — we can listen to Jesus and trust Him.' }
+      keywords: [
+        'jesus',
+        'baptism',
+        'baptized',
+        'jordan',
+        'john the baptist',
+        'dove',
+        'matthew 3',
+        'beloved son',
+        'heaven',
+        'spirit',
+        'well pleased'
+      ],
+      kjvRef: 'Matthew 3:13–17',
+      kidContext: {
+        who: 'God the Father',
+        to: 'Jesus — and everyone who listens',
+        apply: 'God the Father was pleased with Jesus — we can listen to Him and trust Him.'
+      },
+      narration:
+        "Jesus Is Baptized by John — Matthew 3:13–17. Then cometh Jesus from Galilee to Jordan unto John, to be baptized of him. But John forbad Him, saying, I have need to be baptized of thee, and comest thou to me? And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered Him. And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto Him, and He saw the Spirit of God descending like a dove, and lighting upon Him: and lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased. For you: the Father loves His Son — and He invites us to listen to Jesus."
     },
     jesusTempt: {
       title: 'Jesus Is Tempted',
@@ -10456,7 +10484,7 @@
     jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
     /* Week 5 */
     angelMary: 'Miracles', shepherdsStar: 'Love', wiseMen: 'Love', simeonAnna: 'Love', jesusManger: 'Love', jesusTemple: 'Love',
-    johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Obedience', jesusTemptation: 'Obedience',
+    johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Love', jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
     /* Week 6 */

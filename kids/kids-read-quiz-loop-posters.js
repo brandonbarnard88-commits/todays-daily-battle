@@ -124,7 +124,7 @@
     jairus: 71,
     jerichoWalls: 10,
     jesus: 106,
-    jesusBaptism: 66,
+    jesusBaptism: 197,
     jesusBirth: 62,
     jesusBlessKids: 84,
     jesusCalmsStorm: 12,

@@ -142,7 +142,8 @@
       goodSamaritan: 'good-samaritan',
       wiseMen: 'jesus-children',
       simeonAnna: 'jesus-children',
-      jesusTemple: 'jesus-children'
+      jesusTemple: 'jesus-children',
+      jesusBaptism: 'jesus-children'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -4260,7 +4261,7 @@
     jesusBirth: 'jesusBirth',
     jesusTemple: 'jesusTemple',
     johnBaptize: 'johnBaptize',
-    jesusBaptism: 'johnBaptize',
+    jesusBaptism: 'jesusBaptism',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',

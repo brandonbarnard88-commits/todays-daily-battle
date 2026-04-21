@@ -1098,13 +1098,13 @@
   },
   {
     "key": "jesusBaptism",
-    "title": "Jesus Is Baptized",
-    "kjvRef": "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
+    "title": "Jesus Is Baptized by John",
+    "kjvRef": "Matthew 3:13–17",
     "who": "God the Father",
-    "to": "Jesus (and us)",
-    "apply": "God called Jesus His beloved Son — we can listen to Jesus and trust Him.",
-    "theme": "Obedience",
-    "kw": "jesus baptism baptized jordan john dove matthew 3 mark 1 luke 3 spirit"
+    "to": "Jesus — and everyone who listens",
+    "apply": "God the Father was pleased with Jesus — we can listen to Him and trust Him.",
+    "theme": "Love",
+    "kw": "jesus baptism baptized jordan john baptist dove matthew 3 beloved son spirit heaven well pleased voice"
   },
   {
     "key": "jesusTempt",

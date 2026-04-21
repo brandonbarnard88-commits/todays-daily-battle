@@ -91,7 +91,7 @@
   "jesusFeeds5000": "jesusFeeds5000",
   "jesusFirstMiracle": "weddingWine",
   "jesusHealsParalytic": "jesusHealsParalytic",
-  "jesusParableGoodShepherd": "psalm23Shepherd",
+  "jesusParableGoodShepherd": "jesusParableGoodShepherd",
   "jesusSermon": "jesusSermon",
   "jesusSermonMount": "mustardSeed",
   "jesusTemple": "jesusTemple",

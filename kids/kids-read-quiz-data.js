@@ -13558,87 +13558,138 @@
     ]
   },
   "jesusParableGoodShepherd": {
-    "kjvRef": "John 10:1–18",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "John 10:1–18 (KJV)",
+    "verseExcerpt": "I am the good shepherd: the good shepherd giveth his life for the sheep. — John 10:11 (KJV)",
+    "readAlongTitle": "The Good Shepherd",
+    "quizWrongHumilityHint": "Listen again — sheepfold; door; shepherd; porter; voice; name; follow; good shepherd; life; hireling; wolf; know; other sheep; one fold; lay down; take again.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "The Good Shepherd (John 10:1–18).",
-      "Jesus says: I am the good shepherd Sheep know His voice and follow He layeth down His life for the sheep Listen for Jesus' voice.",
-      "He loves you, leads you, and laid down His life for you."
+      "Jesus told this gentle story to help us understand how much He loves and cares for us.",
+      "He said, Verily, verily, I say unto you, He that entereth not by the door into the sheepfold, but climbeth up some other way, the same is a thief and a robber. But he that entereth in by the door is the shepherd of the sheep. To him the porter openeth; and the sheep hear his voice: and he calleth his own sheep by name, and leadeth them out. And when he putteth forth his own sheep, he goeth before them, and the sheep follow him: for they know his voice.",
+      "Jesus said, I am the good shepherd: the good shepherd giveth his life for the sheep. He also said, I am the good shepherd, and know my sheep, and am known of mine… And other sheep I have, which are not of this fold: them also I must bring, and they shall hear my voice; and there shall be one fold, and one shepherd… I lay down my life for the sheep.",
+      "The sheep know their shepherd’s voice and follow him because they feel safe with him.",
+      "Reference: John 10:1–18 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus told a story about a shepherd and his sheep.",
+        "caption": "Shepherd and sheep",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The true shepherd enters by the door and calls his own sheep by name.",
+        "caption": "Calls them by name",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The sheep know their shepherd’s voice and follow him because they feel safe.",
+        "caption": "They know His voice",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said, I am the good shepherd.",
+        "caption": "The good shepherd",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The good shepherd giveth his life for the sheep and goeth before them.",
+        "caption": "Giveth his life",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "He knows His sheep, and they know Him. He brings all His sheep together into one safe fold.",
+        "caption": "One fold, one shepherd",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 18:17-39",
-          "2 Timothy 1:5–7; 3:15",
           "John 10:1–18",
-          "Daniel 6:1–23"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: John 10:1–18.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Holy Ghost",
-          "Jesus",
-          "The Lord",
-          "Holy Spirit"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "Listen for Jesus' voice — He loves you, leads you, and laid down His life for you.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up."
+          "Psalm 23",
+          "Luke 15",
+          "Genesis 1"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Listen for Jesus' voice — He loves you, leads you, and laid down His life for you..)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: John 10:1–18.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did Jesus say He is?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot.",
-          "Jesus says: I am the good shepherd"
+          "I am the good shepherd",
+          "I am only a visitor",
+          "I am afraid of sheep",
+          "I am too busy to care"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 10:11.",
+        "wrongFeedback": "Listen for “good shepherd.” (Answer: I am the good shepherd.)"
+      },
+      {
+        "question": "Why do the sheep follow the true shepherd?",
+        "choices": [
+          "They know his voice — and they follow him",
+          "They are forced with loud yelling",
+          "They do not hear anything",
+          "They run away from every sound"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 10:4.",
+        "wrongFeedback": "Listen for “voice” and “follow.” (Answer: they know his voice.)"
+      },
+      {
+        "question": "What does the good shepherd do for the sheep?",
+        "choices": [
+          "Giveth his life for the sheep",
+          "Hides when trouble comes",
+          "Forgets their names on purpose",
+          "Leaves them outside in the dark forever"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 10:11.",
+        "wrongFeedback": "Listen for “life” and “sheep.” (Answer: giveth his life for the sheep.)"
+      },
+      {
+        "question": "What did Jesus say about other sheep not of this fold?",
+        "choices": [
+          "Them also I must bring — they shall hear my voice — one fold, one shepherd",
+          "He would never speak to anyone else",
+          "Other sheep do not matter",
+          "Sheep should never be in a fold"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 10:16.",
+        "wrongFeedback": "Listen for “other sheep” and “one shepherd.” (Answer: bring them… one fold… one shepherd.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Listen for Jesus' voice — He loves you, leads you, and laid down His life for you.",
-          "Ignore God until we are older."
+          "Listen for Jesus’ voice — thank Him that He knows you and laid down His life for you.",
+          "Stop listening for anything good.",
+          "Believe shepherds are scary only.",
+          "Try to be perfect alone before praying."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Listen for Jesus' voice — He loves you, leads you, and laid down His life for you..)"
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with hope: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “voice,” “know,” and “good shepherd.” (Answer: listen… thank Him… laid down His life.)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading The Good Shepherd with God's Word today.",
-    "takeaway": "Listen for Jesus' voice — He loves you, leads you, and laid down His life for you.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Good Shepherd. Amen.",
+    "takeaway": "Jesus is the Good Shepherd — He knows us by name, calls us gently, and laid down His life so we can be safe with Him.",
+    "prayer": "Lord Jesus, thank You that You are the Good Shepherd. Help me hear Your voice and rest in Your care today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: I am the good shepherd (good shepherd)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Sheep know His voice and follow (john 10)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He layeth down His life for the sheep (sheep)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: I am the good shepherd (voice)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Sheep know His voice and follow (fold)"
-    ]
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. In the center, gentle Jesus stands as the Good Shepherd, holding a shepherd’s staff in one hand and reaching softly with the other toward a little lamb. Several gentle sheep stand close to Him, peaceful and safe — one lamb nuzzling near His feet. Soft rolling hills and a few simple fence posts in the background with plenty of open sky and ground for coloring. Focus: Jesus lovingly caring for His sheep, calling them by name, and keeping them safe. Style: clear, bold, tender, never scary or busy.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, green hills, friendly not scary, no text in image: Sheepfold and the door (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, green hills, friendly not scary, no text in image: Calls his own sheep by name (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, green hills, friendly not scary, no text in image: Sheep follow — they know his voice (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, green hills, friendly not scary, no text in image: I am the good shepherd (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, green hills, friendly not scary, no text in image: Lay down my life — one fold (peace)"
+    ],
+    "readAlongImages": []
   },
   "jesusParableMustardSeed": {
     "kjvRef": "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",

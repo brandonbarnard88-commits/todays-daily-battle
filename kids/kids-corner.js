@@ -187,7 +187,8 @@
       jesusAuthority: 'jesusAuthority',
       parableWickedHusbandmen: 'parableWickedHusbandmen',
       tributeToCaesar: 'tributeToCaesar',
-      sadduceesResurrection: 'sadduceesResurrection'
+      sadduceesResurrection: 'sadduceesResurrection',
+      jesusParableGoodShepherd: 'jesusParableGoodShepherd'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -205,6 +206,8 @@
     if (low.indexOf('tributetocaesar') >= 0 || low === 'tributetocaesar') return 'tributeToCaesar';
     if (low.indexOf('sadduceesresurrection') >= 0 || low === 'sadduceesresurrection')
       return 'sadduceesResurrection';
+    if (low.indexOf('jesusparablegoodshepherd') >= 0 || low === 'jesusparablegoodshepherd')
+      return 'jesusParableGoodShepherd';
     if (low.indexOf('jesus') >= 0) return 'jesus-children';
     if (low.indexOf('moses') >= 0) return low.indexOf('baby') >= 0 ? 'baby-moses' : 'moses-red-sea';
     if (low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses-red-sea';
@@ -2474,6 +2477,39 @@
         '<circle cx="206" cy="242" r="9" ' + sf + ' fill="white" stroke-width="2"/>' +
         sun(52, 46, 17) + cloud(320, 38) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ps 23:1</text>'
+      ),
+
+      /* John 10:1–18 — Good Shepherd: staff, hand to lamb, sheep, hills, fence posts */
+      jesusParableGoodShepherd: svg(
+        ground() +
+        '<path d="M0 252 Q120 210 200 222 Q300 208 400 248" ' + s + ' stroke-width="2.2" fill="none" opacity="0.55"/>' +
+        '<path d="M0 240 Q100 218 200 228 Q320 218 400 236" ' + s + ' stroke-width="1.6" fill="none" opacity="0.4"/>' +
+        /* fence posts */
+        '<line x1="52" y1="232" x2="52" y2="188" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="92" y1="236" x2="92" y2="194" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="132" y1="234" x2="132" y2="190" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="44" y1="198" x2="140" y2="198" ' + s + ' stroke-width="2"/>' +
+        /* Jesus — staff + reaching hand */
+        '<circle cx="200" cy="158" r="12" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<path d="M194 154 Q200 150 206 154" ' + s + ' stroke-width="1.3" fill="none"/>' +
+        '<line x1="200" y1="170" x2="200" y2="248" ' + s + ' stroke-width="2.6"/>' +
+        '<line x1="200" y1="188" x2="176" y2="208" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="188" x2="228" y2="200" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="248" x2="188" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="248" x2="212" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="212" y1="178" x2="228" y2="128" ' + s + ' stroke-width="2.8" stroke-linecap="round"/>' +
+        '<path d="M228 128 Q234 122 240 128" ' + s + ' stroke-width="2"/>' +
+        '<line x1="186" y1="196" x2="248" y2="232" ' + s + ' stroke-width="2" stroke-linecap="round"/>' +
+        /* lamb near feet */
+        '<ellipse cx="232" cy="258" rx="14" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="222" cy="250" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* sheep */
+        '<ellipse cx="118" cy="252" rx="20" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="104" cy="242" r="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="312" cy="254" rx="18" ry="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="300" cy="244" r="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(48, 42, 16) + cloud(320, 36) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 10:11</text>'
       ),
 
       /* Solomon asks for wisdom — kneeling prayer, stars, soft light, simple bed (1 Kings 3:5-15) */
@@ -5189,7 +5225,7 @@
     /* ── Week 6 ── */
     jesusParableSower: 'parableSower',
     jesusParableMustardSeed: 'mustardSeed',
-    jesusParableGoodShepherd: 'psalm23Shepherd',
+    jesusParableGoodShepherd: 'jesusParableGoodShepherd',
     mustardSeed: 'mustardSeed',
     tenLepers: 'healLeper',
     healLeper: 'healLeper',
@@ -6940,7 +6976,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus', 'jesusParableGoodShepherd',
         'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'

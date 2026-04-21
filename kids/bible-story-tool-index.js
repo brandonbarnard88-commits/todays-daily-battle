@@ -3021,10 +3021,10 @@
     "title": "The Good Shepherd",
     "kjvRef": "John 10:1–18",
     "who": "Jesus",
-    "to": "His sheep (and us)",
-    "apply": "Listen for Jesus' voice — He loves you, leads you, and laid down His life for you.",
+    "to": "His sheep — and everyone who listens (including us)",
+    "apply": "Jesus knows our name, calls us gently, and laid down His life — we can rest in His care on hard days.",
     "theme": "Love",
-    "kw": "good shepherd john 10 sheep voice fold life jesus"
+    "kw": "good shepherd john 10 sheepfold porter voice name follow fold lay down life other sheep one shepherd hireling wolf jesus"
   },
   {
     "key": "greatCommission",

@@ -6132,16 +6132,44 @@
     jesusParableGoodShepherd: {
       title: 'The Good Shepherd',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus says: I am the good shepherd' },
-        { src: 'panel-noah-2.svg', alt: 'Sheep know His voice and follow' },
-        { src: 'panel-noah-3.svg', alt: 'He layeth down His life for the sheep' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Sheepfold and the door — the shepherd calls his own sheep by name; the sheep hear his voice'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'He goeth before them, and the sheep follow him — for they know his voice'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'I am the good shepherd — I lay down my life for the sheep — one fold, and one shepherd'
+        }
       ],
-      caption: 'Swipe to hear the Shepherd who knows you by name! 🐑',
+      caption: 'Swipe slowly — Jesus is the Good Shepherd; He knows you by name.',
       videoId: '',
       videoTitle: '',
-      keywords: ['good shepherd', 'john 10', 'sheep', 'voice', 'fold', 'life', 'jesus'],
+      keywords: [
+        'good shepherd',
+        'john 10',
+        'sheep',
+        'sheepfold',
+        'voice',
+        'fold',
+        'life',
+        'porter',
+        'jesus',
+        'lay down my life',
+        'one shepherd'
+      ],
       kjvRef: 'John 10:1–18',
-      kidContext: { who: 'Jesus', to: 'His sheep (and us)', apply: 'Listen for Jesus\' voice — He loves you, leads you, and laid down His life for you.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'His sheep — and everyone who listens (including us)',
+        apply:
+          'Jesus knows our name, calls us gently, and laid down His life — we can rest in His care on hard days.'
+      },
+      narration:
+        "The Good Shepherd — John 10:1–18. Verily, verily, I say unto you, He that entereth not by the door into the sheepfold, but climbeth up some other way, the same is a thief and a robber. But he that entereth in by the door is the shepherd of the sheep. To him the porter openeth; and the sheep hear his voice: and he calleth his own sheep by name, and leadeth them out. And when he putteth forth his own sheep, he goeth before them, and the sheep follow him: for they know his voice. And a stranger will they not follow, but will flee from him: for they know not the voice of strangers. This parable spake Jesus unto them: but they understood not what things they were which he spake unto them. Then said Jesus unto them again, Verily, verily, I say unto you, I am the door of the sheep. All that ever came before me are thieves and robbers: but the sheep did not hear them. I am the door: by me if any man enter in, he shall be saved, and shall go in and out, and find pasture. The thief cometh not, but for to steal, and to kill, and to destroy: I am come that they might have life, and that they might have it more abundantly. I am the good shepherd: the good shepherd giveth his life for the sheep. But he that is an hireling, and not the shepherd, whose own the sheep are not, seeth the wolf coming, and leaveth the sheep, and fleeth: and the wolf catcheth them, and scattereth the sheep. The hireling fleeth, because he is an hireling, and careth not for the sheep. I am the good shepherd, and know my sheep, and am known of mine. As the Father knoweth me, even so know I the Father: and I lay down my life for the sheep. And other sheep I have, which are not of this fold: them also I must bring, and they shall hear my voice; and there shall be one fold, and one shepherd. Therefore doth my Father love me, because I lay down my life, that I might take it again. No man taketh it from me, but I lay it down of myself. I have power to lay it down, and I have power to take it again. This commandment have I received of my Father. For you: On hard days when you feel small or scared, remember Jesus is the Good Shepherd. He knows your name, He calls you gently, and He gave His life so you can be safe with Him forever. You can rest in His care."
     },
     tenLepers: {
       title: 'Jesus Heals Ten Men and One Says Thank You',

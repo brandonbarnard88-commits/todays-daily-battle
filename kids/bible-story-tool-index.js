@@ -1008,13 +1008,13 @@
   },
   {
     "key": "jeremiahWeeping",
-    "title": "Jeremiah the Weeping Prophet",
-    "kjvRef": "Lamentations 1–5",
-    "who": "God",
-    "to": "Jeremiah (and us)",
-    "apply": "Even when things feel broken, God's mercies are new — great is His faithfulness.",
+    "title": "Jeremiah Loves God's People",
+    "kjvRef": "Jeremiah 1:1–10; 13:17",
+    "who": "The LORD",
+    "to": "Jeremiah — and every heart that feels sad for others",
+    "apply": "The Lord cares when His people are sad — and He stays close to those who love Him.",
     "theme": "Obedience",
-    "kw": "jeremiah prophet lamentations jeremiah 1 youth weep jerusalem"
+    "kw": "jeremiah prophet tears weep love gods word listen jeremiah 1 jeremiah 13 sad help care"
   },
   {
     "key": "jesusAscension",

@@ -10941,89 +10941,127 @@
     ]
   },
   "jeremiahWeeping": {
-    "kjvRef": "Lamentations 1–5",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Jeremiah 1:1–10; 13:17 (KJV)",
+    "verseExcerpt": "mine eye shall weep sore, and run down with tears… — Jeremiah 13:17 (KJV)",
+    "readAlongTitle": "Jeremiah Loves God’s People",
+    "quizWrongHumilityHint": "Listen again — Jeremiah loved God and His people; the people would not listen; his heart was sad; he wept; he kept speaking God’s words; God helped him.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jeremiah the Weeping Prophet (Lamentations 1–5). Young Jeremiah.",
-      "God says, Do not say you are only a youth Jeremiah warns the people.",
-      "they will not listen Jeremiah weeps.",
-      "Lamentations for Jerusalem Even when things feel broken, God's mercies are new.",
-      "great is His faithfulness."
+      "Jeremiah was a prophet who loved God and loved God’s people.",
+      "He saw that the people were not listening to God, and this made his heart sad.",
+      "He cried tears for them and told them God still loved them.",
+      "Jeremiah kept speaking God’s words even when it was hard.",
+      "God was with Jeremiah and helped him.",
+      "The Lord cares when His people are sad, and He stays close to those who love Him.",
+      "Reference: Jeremiah 1:1–10; 13:17 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jeremiah loved God and loved God’s people.",
+        "caption": "A loving heart",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He saw the people were not listening.",
+        "caption": "Please listen",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "This made his heart sad.",
+        "caption": "A sad heart",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "He cried tears for them.",
+        "caption": "Tears of love",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jeremiah kept speaking God’s words.",
+        "caption": "God’s words",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God was with him and helped him.",
+        "caption": "God stayed near",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
-          "Lamentations 1–5",
-          "Joshua 2:1-21",
-          "Romans 3:23; 5:8; 6:23; 10:9–10"
+          "Psalm 23",
+          "Jeremiah 1:1–10; 13:17",
+          "Jonah 1",
+          "Genesis 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Lamentations 1–5.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Jeremiah 1:1–10; 13:17.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "David — and the Lord",
-          "Paul",
           "God",
-          "Jonathan"
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 0,
+        "correctFeedback": "Right—God stayed with Jeremiah and cares when His people are sad.",
+        "wrongFeedback": "Look for who helps Jeremiah speak truth and stays near a loving heart. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "God never hears when kids pray.",
+          "God does not care when we feel sad.",
           "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "Even when things feel broken, God's mercies are new — great is His faithfulness."
+          "The Lord cares when His people are sad — and He stays close to those who love Him.",
+          "We should hide from God when we mess up."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Even when things feel broken, God's mercies are new — great is His faithfulness..)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: The Lord cares when His people are sad — and He stays close to those who love Him.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Young Jeremiah — God says, Do not say you are only a youth",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "Mine eye shall weep sore, and run down with tears.",
+          "Everyone decided to never sleep again."
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Mine eye shall weep sore, and run down with tears.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Never say sorry when we do wrong.",
-          "Even when things feel broken, God's mercies are new — great is His faithfulness.",
           "Ignore God until we are older.",
+          "Tell God when we feel sad — and remember He stays close to those who love Him.",
+          "Never say sorry when we do wrong.",
           "Only be kind to people who are exactly like us."
         ],
         "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Even when things feel broken, God's mercies are new — great is His faithfulness..)"
+        "wrongFeedback": "Think: does this choice show trust in a God who cares? Pick the one that honors Him. (Answer: Tell God when we feel sad — and remember He stays close to those who love Him.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jeremiah the Weeping Prophet with God's Word today.",
-    "takeaway": "Even when things feel broken, God's mercies are new — great is His faithfulness.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jeremiah the Weeping Prophet. Amen.",
+    "doneMessage": "Great job reading Jeremiah Loves God’s People with God's Word today.",
+    "takeaway": "The Lord cares when His people are sad — and He stays close to those who love Him.",
+    "prayer": "Lord, thank You that You stay near when our hearts are sad. Help us love others like Jeremiah did. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Young Jeremiah — God says, Do not say you are only a youth (jeremiah)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jeremiah warns the people — they will not listen (prophet)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jeremiah weeps — Lamentations for Jerusalem (lamentations)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Young Jeremiah — God says, Do not say you are only a youth (jeremiah 1)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jeremiah warns the people — they will not listen (youth)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jeremiah the prophet sitting quietly with a gentle sad-but-kind face and a single small tear on his cheek he holds a small scroll thick bold outlines with large open spaces on Jeremiah's robe the scroll and the ground for easy coloring soft hills and a gentle sky in the background with minimal lines kind and caring mood focus on Jeremiah loving God's people and God being near him clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jeremiah loves God’s people (prophet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Speaking God’s words (scroll)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God stayed near Jeremiah (near)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Kind tears — loving heart (care)"
+    ],
+    "readAlongImages": []
   },
   "jerichoWalls": {
     "kjvRef": "Joshua 6:1-5, 11-16, 20 (KJV)",
@@ -22433,7 +22471,7 @@
         "choices": [
           "Revelation 1–22",
           "Judges 7:1-22",
-          "Lamentations 1–5",
+          "Jeremiah 1:1–10; 13:17",
           "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 0,
@@ -27591,7 +27629,7 @@
           "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
           "Joshua 3:14-17; 4:1-7, 18-24",
           "Matthew 25",
-          "Lamentations 1–5"
+          "Jeremiah 1:1–10; 13:17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",

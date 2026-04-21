@@ -45,6 +45,7 @@
  * Nehemiah walls (Nehemiah 1–3 focus): full read-along + quiz in buildNehemiahWallsReadQuiz().
  * Job trusts God when sad (Job 1–2, gentle): full read-along + quiz in buildJobSufferingReadQuiz().
  * Isaiah 9 — God promises a Savior: full read-along + quiz in buildIsaiahMessianicReadQuiz().
+ * Jeremiah — loving God’s people, gentle tears (Jer. 1:1–10; 13:17): buildJeremiahWeepingReadQuiz().
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -5192,6 +5193,108 @@ function buildIsaiahMessianicReadQuiz() {
   };
 }
 
+/** Jeremiah loves God’s people — tears, God’s words, nearness (Jer. 1:1–10; 13:17). Library key: jeremiahWeeping */
+function buildJeremiahWeepingReadQuiz() {
+  return {
+    kjvRef: 'Jeremiah 1:1–10; 13:17 (KJV)',
+    verseExcerpt:
+      'mine eye shall weep sore, and run down with tears… — Jeremiah 13:17 (KJV)',
+    readAlongTitle: 'Jeremiah Loves God’s People',
+    quizWrongHumilityHint:
+      'Listen again — Jeremiah loved God and His people; the people would not listen; his heart was sad; he wept; he kept speaking God’s words; God helped him.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jeremiah was a prophet who loved God and loved God’s people.',
+      'He saw that the people were not listening to God, and this made his heart sad.',
+      'He cried tears for them and told them God still loved them.',
+      'Jeremiah kept speaking God’s words even when it was hard.',
+      'God was with Jeremiah and helped him.',
+      'The Lord cares when His people are sad, and He stays close to those who love Him.',
+      'Reference: Jeremiah 1:1–10; 13:17 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      { text: 'Jeremiah loved God and loved God’s people.', caption: 'A loving heart', image: 'panel-jesus-1.svg' },
+      { text: 'He saw the people were not listening.', caption: 'Please listen', image: 'panel-jesus-1.svg' },
+      { text: 'This made his heart sad.', caption: 'A sad heart', image: 'panel-jesus-2.svg' },
+      { text: 'He cried tears for them.', caption: 'Tears of love', image: 'panel-jesus-2.svg' },
+      { text: 'Jeremiah kept speaking God’s words.', caption: 'God’s words', image: 'panel-jesus-3.svg' },
+      { text: 'God was with him and helped him.', caption: 'God stayed near', image: 'panel-jesus-3.svg' }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Jeremiah 1:1–10; 13:17', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Jeremiah 1:1–10; 13:17.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'A giant fish', 'Pharaoh', 'Goliath'],
+        correctIndex: 0,
+        correctFeedback: 'Right—God stayed with Jeremiah and cares when His people are sad.',
+        wrongFeedback:
+          'Look for who helps Jeremiah speak truth and stays near a loving heart. (Answer: God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God does not care when we feel sad.',
+          'The Bible is only pretend stories.',
+          'The Lord cares when His people are sad — and He stays close to those who love Him.',
+          'We should hide from God when we mess up.'
+        ],
+        correctIndex: 2,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: The Lord cares when His people are sad — and He stays close to those who love Him.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'Let us rise up and build.',
+          'Mine eye shall weep sore, and run down with tears.',
+          'Everyone decided to never sleep again.'
+        ],
+        correctIndex: 2,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Mine eye shall weep sore, and run down with tears.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Tell God when we feel sad — and remember He stays close to those who love Him.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust in a God who cares? Pick the one that honors Him. (Answer: Tell God when we feel sad — and remember He stays close to those who love Him.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jeremiah Loves God’s People with God's Word today.",
+    takeaway:
+      'The Lord cares when His people are sad — and He stays close to those who love Him.',
+    prayer:
+      'Lord, thank You that You stay near when our hearts are sad. Help us love others like Jeremiah did. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jeremiah the prophet sitting quietly with a gentle sad-but-kind face and a single small tear on his cheek he holds a small scroll thick bold outlines with large open spaces on Jeremiah\'s robe the scroll and the ground for easy coloring soft hills and a gentle sky in the background with minimal lines kind and caring mood focus on Jeremiah loving God\'s people and God being near him clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jeremiah loves God’s people (prophet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Speaking God’s words (scroll)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God stayed near Jeremiah (near)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Kind tears — loving heart (care)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -5281,5 +5384,6 @@ module.exports = {
   fieryFurnace: buildFieryFurnaceReadQuiz(),
   danielFieryFurnace: buildFieryFurnaceReadQuiz(),
   isaiahMessianic: buildIsaiahMessianicReadQuiz(),
+  jeremiahWeeping: buildJeremiahWeepingReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

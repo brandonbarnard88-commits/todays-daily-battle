@@ -2512,6 +2512,31 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Isaiah 9:2–7</text>'
       ),
 
+      /* ── Jeremiah — kind tears, scroll, soft hills (Jer. 1; 13) ── */
+      jeremiahWeeping: svg(
+        ground() +
+        '<path d="M0 250 Q120 228 200 250 Q280 228 400 250" ' +
+        s +
+        ' stroke-width="2" fill="none" opacity="0.78"/>' +
+        '<path d="M0 256 Q140 242 200 256 Q260 242 400 256" ' +
+        s +
+        ' stroke-width="1.35" fill="none" opacity="0.48"/>' +
+        '<ellipse cx="72" cy="54" rx="30" ry="14" ' +
+        sf +
+        ' fill="white" stroke-width="1.5" opacity="0.52"/>' +
+        person(200, 192, 11, 26) +
+        '<path d="M189 206 L180 214 M211 206 L220 214" ' + s + ' stroke-width="1.6"/>' +
+        '<circle cx="193" cy="205" r="1.6" fill="#111" opacity="0.28"/>' +
+        '<path d="M194 206 Q195 210 194 213" ' + s + ' stroke-width="0.85" opacity="0.42"/>' +
+        '<rect x="212" y="214" width="28" height="18" rx="3" ' +
+        sf +
+        ' fill="white" stroke-width="1.45"/>' +
+        '<line x1="216" y1="220" x2="236" y2="220" ' + s + ' stroke-width="0.7"/>' +
+        '<line x1="216" y1="224" x2="232" y2="224" ' + s + ' stroke-width="0.7"/>' +
+        sun(332, 46, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Jeremiah 1; 13</text>'
+      ),
+
       /* ── Week 5: Angel Mary (61) ── */
       angelMary: svg(
         ground() +
@@ -4053,7 +4078,7 @@
     elishaBlindArmy: 'elishaBlindArmy',
     elishaPoisonStew: 'elishaPoisonStew',
     isaiahMessianic: 'isaiahMessianic',
-    jeremiahWeeping: 'jobSuffering',
+    jeremiahWeeping: 'jeremiahWeeping',
     ezekielValleyBones: 'elishaShunammite',
     danielFieryFurnace: 'fieryFurnace',
     danielLionsDen: 'daniel',

@@ -4346,18 +4346,40 @@
         "God Promises a Savior — Isaiah 9:2–7. Long ago God spoke through His prophet Isaiah. Isaiah told God's people that a special child would be born — called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace. This child would bring light and joy to people walking in darkness. God was promising to send a Savior who would love and help His people — and God always keeps His promises. For you: you can trust God's Word; His promises are sure."
     },
     jeremiahWeeping: {
-      title: 'Jeremiah the Weeping Prophet',
+      title: 'Jeremiah Loves God\'s People',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Young Jeremiah — God says, Do not say you are only a youth' },
-        { src: 'panel-noah-2.svg', alt: 'Jeremiah warns the people — they will not listen' },
-        { src: 'panel-noah-3.svg', alt: 'Jeremiah weeps — Lamentations for Jerusalem' }
+        { src: 'panel-jesus-1.svg', alt: 'Jeremiah loved God — and loved God’s people with his whole heart' },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'The people would not listen — Jeremiah’s heart grew heavy, and he wept for them'
+        },
+        { src: 'panel-jesus-3.svg', alt: 'God stayed with Jeremiah — helping him speak God’s words in love' }
       ],
-      caption: 'Swipe to see God use a young heart that cared deeply! 💧',
+      caption: 'Swipe to see a gentle prophet, honest tears, and God staying near.',
       videoId: '',
       videoTitle: '',
-      keywords: ['jeremiah', 'prophet', 'lamentations', 'jeremiah 1', 'youth', 'weep', 'jerusalem'],
-      kjvRef: 'Lamentations 1–5',
-      kidContext: { who: 'God', to: 'Jeremiah (and us)', apply: 'Even when things feel broken, God\'s mercies are new — great is His faithfulness.' }
+      keywords: [
+        'jeremiah',
+        'prophet',
+        'tears',
+        'weep',
+        'love',
+        'gods word',
+        'listen',
+        'jeremiah 1',
+        'jeremiah 13',
+        'sad',
+        'help'
+      ],
+      kjvRef: 'Jeremiah 1:1–10; 13:17',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Jeremiah — and every heart that feels sad for others',
+        apply:
+          'The Lord cares when His people are sad — and He stays close to those who love Him.'
+      },
+      narration:
+        "Jeremiah Loves God’s People — Jeremiah 1:1–10; 13:17. Jeremiah was a prophet who loved God and loved God’s people. He saw that many were not listening to God, and his heart grew sad. He cried tears for them and kept speaking God’s words, because God still loved them. God was with Jeremiah and helped him. For you: God cares when you feel sad — and He stays close when you love Him."
     },
     ezekielValleyBones: {
       title: 'Valley of Dry Bones',

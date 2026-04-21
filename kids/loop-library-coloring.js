@@ -76,7 +76,7 @@
   "isaiahMessianic": "isaiahMessianic",
   "jacobLadder": "jacobLadder",
   "jairus": "jairus",
-  "jeremiahWeeping": "jobSuffering",
+  "jeremiahWeeping": "jeremiahWeeping",
   "jesus": "jesusBlessKids",
   "jesusBirth": "jesusManger",
   "jesusBlessKids": "jesusBlessKids",

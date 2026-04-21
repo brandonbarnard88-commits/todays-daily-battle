@@ -1341,18 +1341,51 @@
         "Jesus Loves Zacchaeus — Luke 19:1–10. And Jesus entered and passed through Jericho. And, behold, there was a man named Zacchaeus, which was the chief among the publicans, and he was rich. And he sought to see Jesus who he was; and could not for the press, because he was little of stature. And he ran before, and climbed up into a sycomore tree to see him: for he was to pass that way. And when Jesus came to the place, he looked up, and saw him, and said unto him, Zacchaeus, make haste, and come down; for to day I must abide at thy house. And he made haste, and came down, and received him joyfully. And when they saw it, they all murmured, saying, That he was gone to be guest with a man that is a sinner. And Zacchaeus stood, and said unto the Lord; Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold. And Jesus said unto him, This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost. For you: On hard days, remember — Jesus knows your name. He came to seek and to save the lost, and He loves you very much. You can come to Him just as you are."
     },
     resurrection: {
-      title: 'Resurrection',
+      title: 'Jesus Is Risen',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Women go to the tomb' },
-        { src: 'panel-jesus-2.svg', alt: 'Empty tomb—stone rolled away!' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus is alive—He lives forever!' }
+        {
+          src: 'panel-jesus-resurrection-1.svg',
+          alt: 'Early Sunday — the stone rolled away from the tomb; Mary Magdalene and the other Mary draw near'
+        },
+        {
+          src: 'panel-jesus-resurrection-2.svg',
+          alt: 'The angel — Fear not — He is not here: for he is risen, as he said — Come, see where the Lord lay'
+        },
+        {
+          src: 'panel-jesus-resurrection-3.svg',
+          alt: 'Jesus meets His friends with joy — worship at His feet — later, All power… Go ye therefore… I am with you alway'
+        }
       ],
-      caption: 'Swipe to see Jesus beat death—He lives forever! 🕊️',
-      videoId: '2_dKPsPDXGM',
-      videoTitle: 'Jesus Rose from the Grave – Kids Club Bible Story!',
-      keywords: ['resurrection', 'empty tomb', 'alive', 'easter', 'matthew 28', 'john 20'],
-      kjvRef: 'Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18',
-      kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus beat death—He lives forever! That\'s why we celebrate Easter—He won!' }
+      caption: 'Swipe slowly — Jesus is risen; He meets His friends with love and sends His disciples with peace.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'risen',
+        'He is risen',
+        'All hail',
+        'Galilee',
+        'great commission',
+        'I am with you alway',
+        'Mary Magdalene',
+        'angel',
+        'empty tomb',
+        'worshipped',
+        'teach all nations',
+        'matthew 28',
+        'mark 16',
+        'luke 24',
+        'john 20',
+        'resurrection'
+      ],
+      kjvRef: 'Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who needs joy after a hard or scary day',
+        apply:
+          'Jesus is alive forever — He is gentle with afraid hearts and stays with His people to the end of the world.'
+      },
+      narration:
+        "Jesus Is Risen — Matthew 28:1–10, 16–20. In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men. And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay. And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word. And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me. Then the eleven disciples went away into Galilee, into a mountain where Jesus had appointed them. And when they saw him, they worshipped him: but some doubted. And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen. For you: On hard days when you feel afraid or when everything feels dark, remember the risen Jesus. He is alive! He met the women with love and told His friends, I am with you alway. Jesus is alive forever and He is always with you. You can rest with great joy in His strong, gentle love."
     },
     creation: {
       title: 'Creation',
@@ -2619,18 +2652,51 @@
         "Jesus on the Cross — Matthew 27:33–56. And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots. And sitting down they watched him there; And set up over his head his accusation written, THIS IS JESUS THE KING OF THE JEWS. Then were there two thieves crucified with him, one on the right hand, and another on the left. And they that passed by reviled him, wagging their heads, And saying, Thou that destroyest the temple, and buildest it in three days, save thyself. If thou be the Son of God, come down from the cross. Likewise also the chief priests mocking him, with the scribes and elders, said, He saved others; himself he cannot save. If he be the King of Israel, let him now come down from the cross, and we will believe him. He trusted in God; let him deliver him now, if he will have him: for he said, I am the Son of God. The thieves also, which were crucified with him, cast the same in his teeth. Now from the sixth hour there was darkness over all the land unto the ninth hour. And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? Some of them that stood there, when they heard that, said, This man calleth for Elias. And straightway one of them ran, and took a spunge, and filled it with vinegar, and put it on a reed, and gave him to drink. The rest said, Let be, let us see whether Elias will come to save him. Jesus, when he had cried again with a loud voice, yielded up the ghost. And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; And the graves were opened, and many bodies of the saints which slept arose, And came out of the graves after his resurrection, and appeared unto many. Now when the centurion, and they that were with him, watching Jesus, saw the earthquake, and those things that were done, they feared greatly, saying, Truly this was the Son of God. And many women were there beholding afar off, which followed Jesus from Galilee, ministering unto him: Among which was Mary Magdalene, and Mary the mother of James and Joses, and the mother of Zebedee's children. For you: On the hardest days when you feel sad or when the world feels dark, remember Jesus on the cross. He chose to die there because He loves you so very much. He took all the hurt and sadness so we could be forgiven and live with Him forever. You can rest safe in His deep, gentle love even when things feel hard."
     },
     jesusResurrection: {
-      title: 'He Is Risen',
+      title: 'Jesus Is Risen',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'The tomb — stone rolled away' },
-        { src: 'panel-jesus-2.svg', alt: 'The angel — He is not here; He is risen' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus alive — worship and joy' }
+        {
+          src: 'panel-jesus-resurrection-1.svg',
+          alt: 'Early Sunday — the stone rolled away from the tomb; Mary Magdalene and the other Mary draw near'
+        },
+        {
+          src: 'panel-jesus-resurrection-2.svg',
+          alt: 'The angel — Fear not — He is not here: for he is risen, as he said — Come, see where the Lord lay'
+        },
+        {
+          src: 'panel-jesus-resurrection-3.svg',
+          alt: 'Jesus meets His friends with joy — worship at His feet — later, All power… Go ye therefore… I am with you alway'
+        }
       ],
-      caption: 'Swipe to see the empty tomb — Jesus is alive! ✨',
+      caption: 'Swipe slowly — Jesus is risen; He meets His friends with love and sends His disciples with peace.',
       videoId: '',
       videoTitle: '',
-      keywords: ['resurrection', 'risen', 'tomb', 'stone', 'angel', 'matthew 28', 'mark 16', 'luke 24', 'john 20'],
-      kjvRef: 'Matthew 28; Mark 16; Luke 24; John 20',
-      kidContext: { who: 'Jesus', to: 'His followers (and us)', apply: 'Death could not hold Him — because He lives, we have hope that never dies.' }
+      keywords: [
+        'risen',
+        'He is risen',
+        'All hail',
+        'Galilee',
+        'great commission',
+        'I am with you alway',
+        'Mary Magdalene',
+        'angel',
+        'empty tomb',
+        'worshipped',
+        'teach all nations',
+        'matthew 28',
+        'mark 16',
+        'luke 24',
+        'john 20',
+        'resurrection'
+      ],
+      kjvRef: 'Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who needs joy after a hard or scary day',
+        apply:
+          'Jesus is alive forever — He is gentle with afraid hearts and stays with His people to the end of the world.'
+      },
+      narration:
+        "Jesus Is Risen — Matthew 28:1–10, 16–20. In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men. And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay. And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word. And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me. Then the eleven disciples went away into Galilee, into a mountain where Jesus had appointed them. And when they saw him, they worshipped him: but some doubted. And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen. For you: On hard days when you feel afraid or when everything feels dark, remember the risen Jesus. He is alive! He met the women with love and told His friends, I am with you alway. Jesus is alive forever and He is always with you. You can rest with great joy in His strong, gentle love."
     },
     jesusAscension: {
       title: 'Jesus Ascends',

@@ -103,6 +103,7 @@
  * Jesus carries His cross — Matthew 27:31–32 (gentle; par. Mark 15:20–21; Luke 23:26–32; John 19:16–17): buildCrossCarryReadQuiz() (library key: crossCarry; read-quiz alias simonOfCyrene in generate-kids-read-quiz-data.mjs).
  * Jesus on the cross — Matthew 27:33–56 (gentle; Father forgive and “It is finished” in Luke / John in read-quiz): buildCrucifixionReadQuiz() (library key: crucifixion; read-quiz alias jesusCrucifixion in generate-kids-read-quiz-data.mjs).
  * The empty tomb — Matthew 28:1–10 (gentle): buildTombEmptyReadQuiz() (library key: tombEmpty).
+ * Jesus is risen — Matthew 28:1–10, 16–20 (gentle; harmony in ref): buildJesusResurrectionReadQuiz() (library keys: jesusResurrection; resurrection).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
@@ -13190,6 +13191,151 @@ function buildTombEmptyReadQuiz() {
   };
 }
 
+/** Jesus is risen — Matthew 28:1–10, 16–20 (gentle). Library keys: jesusResurrection; resurrection */
+function buildJesusResurrectionReadQuiz() {
+  return {
+    kjvRef: 'Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)',
+    verseExcerpt: 'He is not here: for he is risen, as he said. — Matthew 28:6 (KJV)',
+    readAlongTitle: 'Jesus Is Risen',
+    quizWrongHumilityHint:
+      'Listen again — dawn; sepulchre; earthquake; angel; stone; Fear not; crucified; He is not here; risen; Galilee; great joy; All hail; worshipped; Be not afraid; eleven disciples; mountain; All power; teach all nations; baptizing; Holy Ghost; I am with you alway; Amen.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre.',
+      'And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men.',
+      'And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay.',
+      'And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you.',
+      'And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word. And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.',
+      'Then the eleven disciples went away into Galilee, into a mountain where Jesus had appointed them. And when they saw him, they worshipped him: but some doubted. And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.',
+      'Jesus is alive — His love turns fear into joy, and His promise stays with us always.',
+      'Reference: Matthew 28:1–10, 16–20 (KJV) (told also in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Early on Sunday morning, the women went to the tomb and saw the stone rolled away — In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it.',
+        caption: 'Dawn at the tomb',
+        image: 'panel-jesus-resurrection-1.svg'
+      },
+      {
+        text: 'An angel said, “He is not here: for he is risen, as he said.” — And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay.',
+        caption: 'He is risen',
+        image: 'panel-jesus-resurrection-2.svg'
+      },
+      {
+        text: 'The women ran to tell the disciples the good news — And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word.',
+        caption: 'Great joy',
+        image: 'panel-jesus-resurrection-2.svg'
+      },
+      {
+        text: 'Suddenly Jesus met them and said, “All hail. Be not afraid.” — And as they went to tell his disciples, behold, Jesus met them, saying, All hail. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.',
+        caption: 'Jesus meets them',
+        image: 'panel-jesus-resurrection-3.svg'
+      },
+      {
+        text: 'The women held His feet and worshipped Him with great joy — And they came and held him by the feet, and worshipped him.',
+        caption: 'Worship and peace',
+        image: 'panel-jesus-resurrection-3.svg'
+      },
+      {
+        text: 'Later Jesus told His disciples, “All power is given unto me… Go ye therefore… and, lo, I am with you alway, even unto the end of the world.” — And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.',
+        caption: 'With you alway',
+        image: 'panel-jesus-resurrection-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 28:1–10, 16–20 (also told in Mark, Luke, and John)',
+          'Genesis 1 only',
+          'Jonah 2 only',
+          'Revelation 22 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 28:1–10, 16–20.)'
+      },
+      {
+        question: 'What did the women see as it began to dawn on the first day of the week?',
+        choices: [
+          'They came to the sepulchre and saw the angel had rolled back the stone from the door.',
+          'They stayed home and slept all morning.',
+          'They forgot why they came.',
+          'They never left the city.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:1–2.',
+        wrongFeedback: 'Listen for “dawn,” “sepulchre,” and “stone.” (Answer: stone rolled back….)'
+      },
+      {
+        question: 'What did the angel say about Jesus?',
+        choices: [
+          'He is not here: for he is risen, as he said.',
+          'He stayed in the grave forever.',
+          'He did not love His friends.',
+          'He was only a dream.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:6.',
+        wrongFeedback: 'Listen for “He is not here” and “risen.” (Answer: He is not here: for he is risen….)'
+      },
+      {
+        question: 'What happened while the women went to tell the disciples?',
+        choices: [
+          'Jesus met them, saying, All hail, and told them, Be not afraid.',
+          'They got lost and never spoke again.',
+          'They decided not to tell anyone.',
+          'They stayed at the tomb alone forever.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:9–10.',
+        wrongFeedback: 'Listen for “Jesus met them” and “All hail.” (Answer: Jesus met them… All hail….)'
+      },
+      {
+        question: 'What did the women do when they saw Jesus?',
+        choices: [
+          'They came and held him by the feet, and worshipped him.',
+          'They ran away and hid forever.',
+          'They refused to look at Him.',
+          'They forgot who He was.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:9.',
+        wrongFeedback: 'Listen for “held him by the feet” and “worshipped.” (Answer: held him by the feet… worshipped him.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Remember the risen Jesus on hard days — He said, I am with you alway, even unto the end of the world.',
+          'Believe God is far away when I feel afraid.',
+          'Stop hoping when mornings feel heavy.',
+          'Never tell anyone about Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “risen,” “with you alway,” and “great joy.” (Answer: remember Jesus… I am with you alway….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Is Risen with God's Word today.",
+    takeaway:
+      'Jesus kept every promise — He is alive, gentle with afraid hearts, and with His people to the end of the world.',
+    prayer:
+      'Lord Jesus, thank You that You are risen and that You stay with me. When I feel afraid, help me rest in Your living love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle risen Jesus stands in the center with a kind, joyful face and open arms. Mary Magdalene and the other Mary kneel nearby, reaching toward Him with happy, worshipful faces. The large stone is rolled away from the empty tomb in the background. Soft garden flowers, gentle hills, and bright sunrise sky with plenty of open ground in the foreground for coloring. Focus on the heart of the moment: Jesus alive and meeting His friends with love and peace. Style: clear, bold, tender, hopeful, and very restful — never dark or scary.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Two Marys — gentle morning at the sepulchre (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Angel — stone rolled — He is risen (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Running with great joy — good news (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Jesus meets them — All hail — Be not afraid (gentle)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Held His feet — worship with glad hearts (peace)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Galilee mountain — with you alway — Amen (rest)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
 function buildJesusWeepsJerusalemReadQuiz() {
   return {
@@ -14585,6 +14731,8 @@ module.exports = {
   crossCarry: buildCrossCarryReadQuiz(),
   crucifixion: buildCrucifixionReadQuiz(),
   tombEmpty: buildTombEmptyReadQuiz(),
+  jesusResurrection: buildJesusResurrectionReadQuiz(),
+  resurrection: buildJesusResurrectionReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

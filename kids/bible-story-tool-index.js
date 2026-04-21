@@ -3017,6 +3017,16 @@
     "kw": "empty tomb sepulchre mary magdalene angel earthquake stone rolled he is risen he is not here galilee first day of the week dawn matthew 28 mark 16 luke 24 john 20 resurrection"
   },
   {
+    "key": "jesusResurrection",
+    "title": "Jesus Is Risen",
+    "kjvRef": "Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)",
+    "who": "Jesus",
+    "to": "Every child who needs joy after a hard or scary day",
+    "apply": "Jesus is alive forever — He is gentle with afraid hearts and stays with His people to the end of the world.",
+    "theme": "Miracles",
+    "kw": "jesus is risen resurrection all hail galilee great commission i am with you alway mary magdalene angel empty tomb worshipped teach all nations matthew 28 mark 16 luke 24 john 20"
+  },
+  {
     "key": "prodigalSon",
     "title": "The Father Who Welcomes His Son Home",
     "kjvRef": "Luke 15:11–32",

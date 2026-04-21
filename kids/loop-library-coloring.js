@@ -196,6 +196,8 @@
   "tenLepers": "healLeper",
   "tenVirgins": "tenVirgins",
   "tombEmpty": "tombEmpty",
+  "jesusResurrection": "resurrection",
+  "resurrection": "resurrection",
   "towerBabel": "towerBabel",
   "transfigure": "transfigure",
   "trial": "trial",

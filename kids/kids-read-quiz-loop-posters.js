@@ -323,6 +323,8 @@
     thomasDoubt: 95,
     timothyYouthExample: 142,
     tombEmpty: 231,
+    jesusResurrection: 232,
+    resurrection: 232,
     towerBabel: 24,
     transfigure: 83,
     treeFruit: 119,

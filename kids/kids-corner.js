@@ -188,7 +188,18 @@
       parableWickedHusbandmen: 'parableWickedHusbandmen',
       tributeToCaesar: 'tributeToCaesar',
       sadduceesResurrection: 'sadduceesResurrection',
-      jesusParableGoodShepherd: 'jesusParableGoodShepherd'
+      jesusParableGoodShepherd: 'jesusParableGoodShepherd',
+      jesusResurrection: 'resurrection',
+      resurrection: 'resurrection',
+      tombEmpty: 'tombEmpty',
+      crossCarry: 'crossCarry',
+      crucifixion: 'crucifixion',
+      lastSupper: 'lastSupper',
+      gardenPrayer: 'gardenPrayer',
+      jesusArrest: 'jesusArrest',
+      trialBeforeCaiaphas: 'trialBeforeCaiaphas',
+      peterDenial: 'peterDenial',
+      trial: 'trial'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -208,6 +219,11 @@
       return 'sadduceesResurrection';
     if (low.indexOf('jesusparablegoodshepherd') >= 0 || low === 'jesusparablegoodshepherd')
       return 'jesusParableGoodShepherd';
+    if (low === 'jesusresurrection' || low === 'resurrection') return 'resurrection';
+    if (low.indexOf('tombempty') >= 0 || low === 'tombempty') return 'tombEmpty';
+    if (low.indexOf('crosscarry') >= 0 || low === 'crosscarry') return 'crossCarry';
+    if (low.indexOf('crucifixion') >= 0 || low === 'crucifixion' || low === 'jesuscrucifixion')
+      return 'crucifixion';
     if (low.indexOf('jesus') >= 0) return 'jesus-children';
     if (low.indexOf('moses') >= 0) return low.indexOf('baby') >= 0 ? 'baby-moses' : 'moses-red-sea';
     if (low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses-red-sea';
@@ -631,29 +647,29 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 37:3</text>'
       ),
 
-      /* The Resurrection */
+      /* Jesus is risen — gentle risen Lord, joyful Marys, rolled stone, garden, sunrise */
       resurrection: svg(
-        /* tomb rock rolled away */
-        '<circle cx="90" cy="200" r="55" ' + sf + ' fill="white" stroke-width="4"/>' +
-        /* tomb entrance */
-        '<path d="M130 260 L130 180 Q200 155 270 180 L270 260" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="130" y="180" width="140" height="80" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* empty burial cloth */
-        '<path d="M160 230 Q200 210 240 230 Q220 248 200 248 Q180 248 160 230" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        /* angel */
-        '<circle cx="330" cy="165" r="16" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<line x1="330" y1="181" x2="330" y2="220" ' + s + ' stroke-width="3"/>' +
-        '<path d="M310 170 Q295 150 310 140 Q325 150 330 165" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M350 170 Q365 150 350 140 Q335 150 330 165" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        /* women at tomb */
-        person(355, 195, 10, 28) +
-        person(375, 200, 9, 22) +
-        /* radiant light */
-        '<line x1="200" y1="20" x2="200" y2="60" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        '<line x1="180" y1="22" x2="170" y2="62" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        '<line x1="220" y1="22" x2="230" y2="62" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        star(200, 18, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 28:6</text>'
+        ground() +
+        hills() +
+        sun(52, 52, 20) +
+        '<path d="M248 255 Q278 198 318 172 Q348 158 372 188 L372 255" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<ellipse cx="230" cy="232" rx="34" ry="32" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M258 208 Q300 198 338 218" ' + s + ' stroke-width="2" opacity="0.85"/>' +
+        person(200, 118, 14, 40) +
+        '<line x1="200" y1="152" x2="168" y2="128" ' + s + ' stroke-width="3"/>' +
+        '<line x1="200" y1="152" x2="232" y2="128" ' + s + ' stroke-width="3"/>' +
+        '<path d="M192 132 Q200 126 208 132" ' + s + ' stroke-width="1.5"/>' +
+        person(128, 188, 10, 22) +
+        person(268, 188, 10, 22) +
+        '<path d="M116 210 Q128 198 134 210" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M256 210 Q268 198 276 210" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="72" cy="238" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="92" cy="244" r="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="112" cy="236" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="288" cy="240" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="308" cy="246" r="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        star(200, 42, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 28:6–10; 18–20</text>'
       ),
 
       /* Creation */
@@ -7216,7 +7232,7 @@
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus', 'jesusParableGoodShepherd',
         'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crossCarry', 'crucifixion', 'tombEmpty',
-        'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
+        'jesusResurrection', 'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];
 

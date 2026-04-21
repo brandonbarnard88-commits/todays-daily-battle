@@ -175,6 +175,7 @@
   "sunStandsStill": "sunStandsStill",
   "tabernacle": "tabernacle",
   "tenCommandments": "tenCommandments",
+  "tenLepers": "healLeper",
   "tenVirgins": "tenVirgins",
   "towerBabel": "towerBabel",
   "transfigure": "transfigure",

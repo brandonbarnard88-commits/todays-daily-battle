@@ -117,6 +117,7 @@
     samuelBirth: 173,
     healBlind: 72,
     healLeper: 73,
+    tenLepers: 73,
     holySpiritPentecost: 91,
     jesusHealsBlind: 72,
     jacobLadder: 26,

@@ -168,7 +168,9 @@
       marthaServe: 'maryMarthaVisit',
       marySit: 'maryMarthaVisit',
       lazarus: 'lazarus',
-      jesusLazarus: 'lazarus'
+      jesusLazarus: 'lazarus',
+      tenLepers: 'healLeper',
+      healLeper: 'healLeper'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -201,6 +203,7 @@
     if (low.indexOf('marthaserve') >= 0 || low === 'marthaserve') return 'maryMartha';
     if (low.indexOf('marysit') >= 0 || low === 'marysit') return 'maryMartha';
     if (low.indexOf('jesuslazarus') >= 0 || low === 'jesuslazarus') return 'lazarus';
+    if (low.indexOf('tenlepers') >= 0 || low.indexOf('ten-lepers') >= 0) return 'tenLepers';
     if (low.indexOf('goodsamaritan') >= 0 || low === 'goodsamaritan') return 'goodSamaritan';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
@@ -3211,18 +3214,30 @@
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 10:25–37</text>'
       ),
 
-      /* ── Week 6: Jesus Heal Leper (78) ── */
+      /* Week 6 gentle: Ten lepers — calling afar; one runs back with thanks (Luke 17:11–19) */
       healLeper: svg(
         ground() +
-        person(145, 195, 12, 35) +
-        '<path d="M138 210 Q128 220 130 235" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M132 205 Q120 210 118 222" ' + s + ' stroke-width="2"/>' +
-        '<path d="M155 205 Q148 215 150 225" ' + s + ' stroke-width="2"/>' +
-        person(258, 172, 13, 40) +
-        '<path d="M248 188 Q238 200 242 212" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="248" y1="188" x2="158" y2="210" ' + s + ' stroke-width="2.5" stroke-dasharray="5,3"/>' +
-        sun(330, 45, 20) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 17:14</text>'
+        hills() +
+        sun(46, 40, 15) +
+        '<path d="M32 254 Q200 234 368 254" ' + s + ' stroke-width="2" opacity="0.55"/>' +
+        person(74, 168, 7, 18) +
+        person(94, 172, 7, 18) +
+        person(114, 169, 7, 18) +
+        person(134, 171, 7, 18) +
+        person(154, 170, 7, 18) +
+        person(84, 188, 7, 16) +
+        person(104, 190, 7, 16) +
+        person(124, 188, 7, 16) +
+        person(144, 189, 7, 16) +
+        '<circle cx="66" cy="198" r="3" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<circle cx="178" cy="198" r="3" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<path d="M198 155 L188 138 M206 155 L216 138" ' + s + ' stroke-width="1.8"/>' +
+        person(205, 148, 9, 24) +
+        '<line x1="230" y1="188" x2="258" y2="178" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3" opacity="0.65"/>' +
+        person(278, 138, 12, 32) +
+        '<path d="M268 152 L256 166" ' + s + ' stroke-width="2.2"/>' +
+        star(200, 28, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 17:11–19</text>'
       ),
 
       /* ── Week 6 gentle: Jairus’ daughter — Jesus takes her hand (Mark 5:21–43) ── */
@@ -4559,6 +4574,7 @@
     marthaServe: 'maryMarthaVisit',
     marySit: 'maryMarthaVisit',
     maryMarthaVisit: 'maryMarthaVisit',
+    tenLepers: 'healLeper',
     prodigalSon: 'prodigalSonWelcome',
     lostSheep: 'parableLostSheep',
     parableLostSheep: 'parableLostSheep',
@@ -4710,6 +4726,7 @@
     jesusParableMustardSeed: 'mustardSeed',
     jesusParableGoodShepherd: 'psalm23Shepherd',
     mustardSeed: 'mustardSeed',
+    tenLepers: 'healLeper',
     healLeper: 'healLeper',
     jairus: 'jairus',
     transfigure: 'transfigure',
@@ -6442,7 +6459,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'tenLepers', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

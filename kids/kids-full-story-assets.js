@@ -527,6 +527,11 @@
       webm: '/media/kids-stories/heal-leper.webm',
       captionsVtt: '/media/kids-stories/heal-leper.vtt'
     },
+    tenLepers: {
+      mp4: '/media/kids-stories/heal-leper.mp4',
+      webm: '/media/kids-stories/heal-leper.webm',
+      captionsVtt: '/media/kids-stories/heal-leper.vtt'
+    },
     heavenDoor: {
       mp4: '/media/kids-stories/heaven-door.mp4',
       webm: '/media/kids-stories/heaven-door.webm',

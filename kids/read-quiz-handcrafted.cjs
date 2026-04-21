@@ -77,6 +77,7 @@
  * Good Samaritan — Luke 10:25–37 (gentle): buildParableGoodSamaritanReadQuiz() (library key: goodSamaritan).
  * Jesus visits Mary and Martha — Luke 10:38–42 (gentle): buildMaryMarthaReadQuiz() (library key: maryMartha; alias marthaServe, marySit).
  * Jesus brings Lazarus back to life — John 11:1–44 (gentle): buildLazarusReadQuiz() (library key: lazarus; alias jesusLazarus).
+ * Ten lepers — Luke 17:11–19 (gentle): buildTenLepersReadQuiz() (library key: tenLepers; alias healLeper).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -9440,6 +9441,146 @@ function buildLazarusReadQuiz() {
   };
 }
 
+/** Ten lepers — mercy, healing as they go, one returns with thanks (gentle). Library key: tenLepers */
+function buildTenLepersReadQuiz() {
+  return {
+    kjvRef: 'Luke 17:11–19 (KJV) — gentle summary for little hearts',
+    verseExcerpt: 'Arise, go thy way: thy faith hath made thee whole. — Luke 17:19 (KJV)',
+    readAlongTitle: 'Jesus Heals Ten Men and One Says Thank You',
+    quizWrongHumilityHint:
+      'Listen again — Samaria; Galilee; stood afar; mercy; priests; healed; glorified God; thanks; where are the nine; faith made whole; thank.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus was walking along the road between Samaria and Galilee.',
+      'Ten men who had a skin disease called leprosy saw Him.',
+      'They stood far away and called, “Jesus, Master, have mercy on us!”',
+      'Jesus said to them, “Go shew yourselves unto the priests.”',
+      'As they went, they were healed.',
+      'One of them, when he saw that he was healed, turned back and with a loud voice glorified God.',
+      'He fell down on his face at Jesus’ feet and gave Him thanks.',
+      'Jesus said, “Were there not ten cleansed? but where are the nine? Arise, go thy way: thy faith hath made thee whole.”',
+      'Jesus heals us and is happy when we remember to say thank you.',
+      'Reference: Luke 17:11–19 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Ten men with a skin disease saw Jesus.',
+        caption: 'They stood afar off',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'They called, “Jesus, have mercy on us!”',
+        caption: 'Master, have mercy on us',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus said, “Go show yourselves to the priests.”',
+        caption: 'Go shew yourselves unto the priests',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'As they went, they were healed.',
+        caption: 'Cleansed as they went',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'One man ran back and thanked Jesus.',
+        caption: 'He glorified God',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus said, “Thy faith hath made thee whole.”',
+        caption: 'Where are the nine?',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus is happy when we say thank you.',
+        caption: 'A thankful heart',
+        image: 'panel-noah-2.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Luke 17:11–19', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 17:11–19.)'
+      },
+      {
+        question: 'What did the men call out to Jesus before they were healed?',
+        choices: [
+          '“Jesus, Master, have mercy on us!”',
+          '“Bring us gold and toys.”',
+          '“Let us hide forever.”',
+          '“We do not need any help.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 17:13.',
+        wrongFeedback:
+          'Think about the honest cry for mercy in Luke 17. (Answer: Master, have mercy.)'
+      },
+      {
+        question: 'What did Jesus tell them to do?',
+        choices: [
+          '“Go shew yourselves unto the priests.”',
+          '“Stay far away forever.”',
+          '“Do not obey God.”',
+          '“Walk into the sea.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Jesus’ words in Luke 17:14.',
+        wrongFeedback:
+          'Reread what Jesus said before they were healed on the way. (Answer: show yourselves to the priests.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Only one came back to give thanks — and Jesus praised his faith.',
+          'Ten dinosaurs built a tower.',
+          'The road turned into jelly.',
+          'Nobody was healed.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that lines up with Jesus’ “where are the nine?” and “thy faith hath made thee whole.”',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Luke 17? (Answer: one came back… thanks.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus for helping me — and remember to say thank you to Him today.',
+          'Never say thank you to anyone.',
+          'Forget what God did.',
+          'Only grown-ups should speak to Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus like the one who returned? (Answer: thank… remember.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Heals Ten Men and One Says Thank You with God's Word today.",
+    takeaway: 'Jesus heals us and is happy when we remember to say thank you.',
+    prayer:
+      'Lord Jesus, thank You for loving me and healing my heart. Help me remember to say thank You. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children: Ten men with skin trouble standing far away calling to Jesus One man is running back to Jesus with a thankful face and arms raised Jesus has a kind caring face thick bold outlines with large open spaces on Jesus robe the men robes and the road for easy coloring soft road and gentle hills with minimal lines thankful and healing mood focus on the one man saying thank you clean minimal no scary disease details plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Afar off — mercy cry (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Go shew yourselves — obey Jesus (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Cleansed as they went (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: One turns back — glorified God (worship)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Thanks at Jesus’ feet (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Where are the nine? (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Faith made whole — say thank you (peace)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -9561,5 +9702,6 @@ module.exports = {
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),
+  tenLepers: buildTenLepersReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

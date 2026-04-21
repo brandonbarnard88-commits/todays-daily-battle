@@ -1187,14 +1187,24 @@
     "kw": "centurion servant capernaum matthew 8 faith speak the word great faith heal selfsame hour trust"
   },
   {
-    "key": "healLeper",
-    "title": "Jesus Heals Ten Lepers",
-    "kjvRef": "Luke 17",
+    "key": "tenLepers",
+    "title": "Jesus Heals Ten Men and One Says Thank You",
+    "kjvRef": "Luke 17:11–19",
     "who": "Jesus",
-    "to": "The lepers",
-    "apply": "Jesus heals and cleans us inside! Always say thank you to Him.",
+    "to": "The men — and us",
+    "apply": "Jesus heals us and is happy when we remember to say thank you.",
     "theme": "Miracles",
-    "kw": "leper heal luke 17 mercy clean thankful ten"
+    "kw": "ten lepers mercy heal luke 17 thankful priests samaria galilee faith jesus"
+  },
+  {
+    "key": "healLeper",
+    "title": "Jesus Heals Ten Men and One Says Thank You",
+    "kjvRef": "Luke 17:11–19",
+    "who": "Jesus",
+    "to": "The men — and us",
+    "apply": "Jesus heals us and is happy when we remember to say thank you.",
+    "theme": "Miracles",
+    "kw": "ten lepers mercy heal luke 17 thankful priests samaria galilee faith jesus"
   },
   {
     "key": "jesusHealsBlind",

@@ -154,7 +154,7 @@
     'jesusFeeds5000',
     'healBlind',
     'jesusHealsBlind',
-    'healLeper',
+    'tenLepers',
     'jesusBlessKids',
     'maryMartha',
     'goodSamaritan',

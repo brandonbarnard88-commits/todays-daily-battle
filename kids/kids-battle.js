@@ -5613,19 +5613,37 @@
       kjvRef: 'John 10:1–18',
       kidContext: { who: 'Jesus', to: 'His sheep (and us)', apply: 'Listen for Jesus\' voice — He loves you, leads you, and laid down His life for you.' }
     },
-    healLeper: {
-      title: 'Jesus Heals Ten Lepers',
+    tenLepers: {
+      title: 'Jesus Heals Ten Men and One Says Thank You',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ten lepers call out: Jesus, have mercy!' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus says: Go show yourselves to the priest' },
-        { src: 'panel-noah-3.svg', alt: 'As they go—all ten are clean!' }
+        { src: 'panel-noah-1.svg', alt: 'Ten men stand afar off — Jesus, Master, have mercy on us!' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus says — Go shew yourselves unto the priests; as they go they are healed' },
+        { src: 'panel-noah-3.svg', alt: 'One runs back thanking Jesus — Thy faith hath made thee whole' }
       ],
-      caption: 'Swipe to see Jesus heal ten lepers—be thankful! 🙌',
+      caption: 'Swipe to see mercy, healing, and one thankful heart — say thank you to Jesus. 🙌',
       videoId: '',
       videoTitle: '',
-      keywords: ['leper', 'heal', 'luke 17', 'mercy', 'clean', 'thankful', 'ten'],
-      kjvRef: 'Luke 17',
-      kidContext: { who: 'Jesus', to: 'The lepers', apply: 'Jesus heals and cleans us inside! Always say thank you to Him.' }
+      keywords: [
+        'ten lepers',
+        'mercy',
+        'heal',
+        'luke 17',
+        'thankful',
+        'priests',
+        'samaria',
+        'galilee',
+        'faith',
+        'jesus'
+      ],
+      kjvRef: 'Luke 17:11–19',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The men — and us',
+        apply:
+          'Jesus heals us and is happy when we remember to say thank you.'
+      },
+      narration:
+        "Jesus Heals Ten Men and One Says Thank You — Luke 17:11–19. And it came to pass, as he went to Jerusalem, that he passed through the midst of Samaria and Galilee. And as he entered into a certain village, there met him ten men that were lepers, which stood afar off: And they lifted up their voices, and said, Jesus, Master, have mercy on us. And when he saw them, he said unto them, Go shew yourselves unto the priests. And it came to pass, that, as they went, they were cleansed. And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God, And fell down on his face at his feet, giving him thanks: and he was a Samaritan. And Jesus answering said, Were there not ten cleansed? but where are the nine? There are not found that returned to give glory to God, save this stranger. And he said unto him, Arise, go thy way: thy faith hath made thee whole. For you: Jesus loves a thankful heart — remember to say thank you to Him."
     },
     jairus: {
       title: 'Jesus Brings a Girl Back to Life',
@@ -7862,6 +7880,8 @@
     bibleStories.marySit = bibleStories.maryMartha;
     /** Same gentle Bethany miracle (library / journey naming). */
     bibleStories.jesusLazarus = bibleStories.lazarus;
+    /** Legacy key — same gentle card as tenLepers (loops, older links). */
+    bibleStories.healLeper = bibleStories.tenLepers;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -8006,7 +8026,7 @@
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
       'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
-      'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
+      'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
@@ -11166,7 +11186,7 @@
     /* Week 6 */
     jesusHealsParalytic: 'Miracles', witheredHand: 'Miracles', mustardSeed: 'Obedience',
     jesusParableSower: 'Protection', jesusParableMustardSeed: 'Obedience', jesusParableGoodShepherd: 'Love',
-    healLeper: 'Miracles', jairus: 'Miracles',
+    tenLepers: 'Miracles', healLeper: 'Miracles', jairus: 'Miracles',
     transfigure: 'Miracles', judasKiss: 'Love',
     /* Week 7 */
     jesusTriumphalEntry: 'Protection', jesusLastSupper: 'Love', jesusGardenGethsemane: 'Protection',

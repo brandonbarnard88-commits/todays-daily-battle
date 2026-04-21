@@ -43,7 +43,7 @@
  * Elisha bones (2 Kings 13:20–21): full read-along + quiz in buildElishaBonesReadQuiz().
  * Ezra return (Ezra 1:1–11; 3:1–6): full read-along + quiz in buildEzraReturnReadQuiz().
  * Nehemiah walls (Nehemiah 1–3 focus): full read-along + quiz in buildNehemiahWallsReadQuiz().
- * Job trusts God (Job 1–2, gentle): full read-along + quiz in buildJobSufferingReadQuiz().
+ * Job trusts God when sad (Job 1–2, gentle): full read-along + quiz in buildJobSufferingReadQuiz().
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -4979,52 +4979,36 @@ function buildFieryFurnaceReadQuiz() {
   };
 }
 
-/** Job trusts God — Job 1–2; honest sadness, quiet friends, KJV heart line. */
+/** Job trusts God when he is sad — Job 1–2; quiet friends, KJV heart line. Library key: jobSuffering */
 function buildJobSufferingReadQuiz() {
   return {
-    kjvRef: 'Job 1:1–22; 2:11–13',
-    readAlongTitle: 'Read along',
-    hintAboveQuiz: 'Use the comic pictures above while you read.',
+    kjvRef: 'Job 1:1–22; 2:11–13 (KJV)',
+    verseExcerpt:
+      'The Lord gave, and the Lord hath taken away; blessed be the name of the Lord. — Job 1:21 (KJV)',
+    readAlongTitle: 'Job Trusts God When He Is Sad',
+    quizWrongHumilityHint:
+      'Listen again — Job loved God; he lost much and felt sad; friends sat quietly; Job blessed the Lord’s name; he still trusted God.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'Job Trusts God (Job 1:1–22; 2:11–13).',
-      'There was a man named Job who loved God with all his heart. He had a big family and many good things.',
-      'One day hard things happened to Job. He lost his animals, his servants, and even his children.',
-      'Job was very sad, but he did not stop loving God. He said, “The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”',
-      'His friends came to sit with him. They sat on the ground with him for seven days and seven nights without saying a word, because they saw how great his grief was.',
-      'Job still trusted God even when everything felt hard.',
-      'The Lord showed that He is with us even in our saddest days, and that trusting Him is the most important thing.'
+      'Job was a good man who loved God.',
+      'One day he lost almost everything that was dear to him.',
+      'He felt very sad, but he did not stop loving God.',
+      'Three friends came and sat with him quietly for seven days and seven nights.',
+      'Job said, “The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”',
+      'Even when he was sad, Job still trusted God.',
+      'Reference: Job 1:1–22; 2:11–13 (KJV)'
     ],
     readAlongSections: [
-      {
-        text: 'There was a man named Job who loved God.',
-        caption: 'A faithful heart',
-        image: 'panel-noah-1.svg'
-      },
-      {
-        text: 'Hard things happened and Job was very sad.',
-        caption: 'Honest sadness',
-        image: 'panel-noah-1.svg'
-      },
+      { text: 'Job was a good man who loved God.', caption: 'Loved God', image: 'panel-jesus-1.svg' },
+      { text: 'He lost almost everything.', caption: 'A hard day', image: 'panel-jesus-1.svg' },
+      { text: 'He felt very sad.', caption: 'Honest sadness', image: 'panel-jesus-2.svg' },
+      { text: 'Three friends sat with him quietly.', caption: 'Quiet friends', image: 'panel-jesus-2.svg' },
       {
         text: 'Job said, “The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”',
-        caption: 'Still blessing God',
-        image: 'panel-noah-2.svg'
+        caption: 'Bless His name',
+        image: 'panel-jesus-3.svg'
       },
-      {
-        text: 'His friends came and sat with him on the ground.',
-        caption: 'Friends draw near',
-        image: 'panel-noah-2.svg'
-      },
-      {
-        text: 'They sat quietly for many days because they saw how sad he was.',
-        caption: 'Quiet love',
-        image: 'panel-noah-3.svg'
-      },
-      {
-        text: 'Job still trusted God even when everything felt hard.',
-        caption: 'For you',
-        image: 'panel-noah-3.svg'
-      }
+      { text: 'Even when he was sad, Job still trusted God.', caption: 'Still trusting', image: 'panel-jesus-3.svg' }
     ],
     quizHeading: 'Quiz — think it through',
     questions: [
@@ -5034,65 +5018,68 @@ function buildJobSufferingReadQuiz() {
         correctIndex: 1,
         correctFeedback: "Yes—that matches this story's place in God's Word.",
         wrongFeedback:
-          'Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Job 1:1–22; 2:11–13.)'
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Job 1:1–22; 2:11–13.)'
       },
       {
         question: 'Who do we mainly learn from or watch in this story?',
         choices: ['God', 'A giant fish', 'Pharaoh', 'Goliath'],
         correctIndex: 0,
-        correctFeedback: 'Right—even when days are sad, God is still good and near.',
-        wrongFeedback: "Look for who Job kept loving and trusting. (Answer: God.)"
+        correctFeedback: 'Right—even when we feel sad, we can keep loving and trusting God.',
+        wrongFeedback:
+          'Look for who Job kept blessing and trusting in his hardest day. (Answer: God.)'
       },
       {
         question: 'Which choice sounds most like what this story teaches?',
         choices: [
           'God leaves us when we are sad.',
           'The Bible is only pretend stories.',
-          'We can trust God and bless His name even when life feels very hard.',
+          'We can love and trust God even on sad days — and tell Him how we feel.',
           'Friends should never sit with someone who is sad.'
         ],
         correctIndex: 2,
         correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
         wrongFeedback:
-          "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: We can trust God and bless His name even when life feels very hard.)"
+          'Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: We can love and trust God even on sad days — and tell Him how we feel.)'
       },
       {
         question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
         choices: [
           'A spaceship landed in the parking lot.',
-          'They sat on the ground with him for seven days and seven nights without saying a word.',
-          'Everyone decided to never sleep again.',
-          'A talking toaster became king of the city.'
+          'Let us rise up and build.',
+          'The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.',
+          'Everyone decided to never sleep again.'
         ],
-        correctIndex: 1,
+        correctIndex: 2,
         correctFeedback: 'Yes—that detail comes from the story God gave us.',
         wrongFeedback:
-          'Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: They sat on the ground with him for seven days and seven nights without saying a word.)'
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.)'
       },
       {
         question: 'What is one good way to respond to God after this story?',
         choices: [
           'Ignore God until we are older.',
-          'Tell God how we feel and trust Him—even on sad days.',
+          'Tell God how we feel and trust Him — even on sad days.',
           'Never say sorry when we do wrong.',
           'Only be kind to people who are exactly like us.'
         ],
         correctIndex: 1,
         correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
         wrongFeedback:
-          'Think: does this choice show trust in God when feelings are hard? Pick the one that honors Him. (Answer: Tell God how we feel and trust Him—even on sad days.)'
+          'Think: does this choice show trust in God when feelings are hard? Pick the one that honors Him. (Answer: Tell God how we feel and trust Him — even on sad days.)'
       }
     ],
     doneHeading: 'You did it!',
-    doneMessage: "Great job reading Job Trusts God with God's Word today.",
-    takeaway: 'God is with us even in our saddest days, and trusting Him is the most important thing.',
-    prayer: "God, thank You for the Bible. Help me remember what You showed me in Job Trusts God. Amen.",
+    doneMessage: "Great job reading Job Trusts God When He Is Sad with God's Word today.",
+    takeaway:
+      'We can still love and trust God when we feel sad — He is near, and He hears us.',
+    prayer:
+      'Lord, thank You that we can talk to You on happy days and hard days. Help us trust You when we feel sad. Amen.',
     imagePrompts: [
-      'Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: Job sitting on the ground with a sad but trusting face, three friends sitting quietly beside him, soft ground and a few rocks, gentle sky and distant hills, honest comforting mood, no graphic suffering, no scary scenes, no text, plenty of white space',
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Job loved God — a faithful heart (job)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Hard days — still trusting God (sad)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Friends sit quietly with Job (friends)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Blessed be the name of the Lord (job 1)"
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Job sitting on the ground with a sad but trusting face three friends sitting quietly beside him thick bold outlines with large open spaces on Job\'s robe the friends\' robes and the ground for easy coloring soft hills and a gentle sky in the background with minimal lines sad but trusting mood focus on Job still loving God even when he is sad clean minimal no scary loss shown plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Job loved God — a good heart (job)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Friends sit quietly — seven days (friends)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Blessed be the name of the Lord (job 1)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Still trusting on sad days (hope)"
     ],
     readAlongImages: []
   };

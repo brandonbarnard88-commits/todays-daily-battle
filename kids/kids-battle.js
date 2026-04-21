@@ -3692,18 +3692,31 @@
         "Nehemiah and the People Rebuild Together — Nehemiah 1:1–4; 2:1–20; 3:1–32. The walls of Jerusalem were broken down and the gates were burned with fire. Nehemiah heard the sad news while he was far away serving the king. He prayed to the God of heaven and asked the king for permission to go and rebuild the walls. The king sent him with letters and timber. When Nehemiah came to Jerusalem, he rose up at night and went out to see the broken walls. Then said I unto them, Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach. The people answered, Let us rise up and build. So they strengthened their hands for this good work. The LORD used Nehemiah to stir the hearts of His people to rebuild the walls of Jerusalem together. For you: God helps His people pray, work together, and rebuild."
     },
     jobSuffering: {
-      title: 'Job Trusts God',
+      title: 'Job Trusts God When He Is Sad',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Job loved God — then hard days came' },
-        { src: 'panel-noah-2.svg', alt: '“The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”' },
-        { src: 'panel-noah-3.svg', alt: 'Three friends sit with Job on the ground — quiet love' }
+        { src: 'panel-jesus-1.svg', alt: 'Job was good — he loved God with his whole heart' },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Hard days came — Job felt very sad, but he did not stop loving God'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Three friends sat with him quietly; Job blessed the Lord — still trusting'
+        }
       ],
-      caption: 'Swipe to see honest sadness, quiet friends, and trust in God — He is near. 🕊️',
+      caption: 'Swipe to see quiet friends, honest sadness, and a heart that keeps trusting God.',
       videoId: '',
       videoTitle: '',
-      keywords: ['job', 'trust', 'sad', 'friends', 'job 1', 'job 2', 'grief', 'faith', 'bless', 'silence'],
+      keywords: ['job', 'trust', 'sad', 'friends', 'job 1', 'job 2', 'lord gave', 'bless', 'faith', 'quiet', 'weep'],
       kjvRef: 'Job 1:1–22; 2:11–13',
-      kidContext: { who: 'God', to: 'Job (and us)', apply: 'God is with us even in our saddest days — we can still trust Him and bless His name.' }
+      kidContext: {
+        who: 'The LORD',
+        to: 'Job — and every heart that feels sad',
+        apply:
+          'We can still love and trust God when we feel sad — He is near, and He hears us when we pray.'
+      },
+      narration:
+        "Job Trusts God When He Is Sad — Job 1:1–22; 2:11–13. Job was a good man who loved God. One day he lost almost everything that was dear to him. He felt very sad, but he did not stop loving God. He said, The Lord gave, and the Lord hath taken away; blessed be the name of the Lord. Three friends came and sat with him quietly for seven days and seven nights. Even when he was sad, Job still trusted God. For you: you can tell God how you feel — and trust Him on hard days too."
     },
     psalm23Shepherd: {
       title: 'Psalm 23 — The Lord Is My Shepherd',

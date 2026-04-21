@@ -1188,13 +1188,13 @@
   },
   {
     "key": "jobSuffering",
-    "title": "Job Trusts God",
+    "title": "Job Trusts God When He Is Sad",
     "kjvRef": "Job 1:1–22; 2:11–13",
-    "who": "God",
-    "to": "Job (and us)",
-    "apply": "God is with us even in our saddest days — we can still trust Him and bless His name.",
+    "who": "The LORD",
+    "to": "Job — and every heart that feels sad",
+    "apply": "We can still love and trust God when we feel sad — He is near, and He hears us when we pray.",
     "theme": "Protection",
-    "kw": "job trust sad friends job 1 job 2 grief faith bless silence"
+    "kw": "job trust sad friends job 1 job 2 lord gave blessed be grief faith quiet comfort"
   },
   {
     "key": "johnBaptize",

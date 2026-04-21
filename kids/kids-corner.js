@@ -2244,26 +2244,35 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ezra 3:6</text>'
       ),
 
-      /* ── Week 4: Job — honest sadness, friends sit with him (54) ── */
+      /* ── Job — sad but trusting; friends close, soft hills (Job 1–2) ── */
       jobSuffering: svg(
         ground() +
-        hills() +
-        sun(48, 42, 16) +
-        cloud(300, 55) +
-        cloud(70, 48) +
-        '<ellipse cx="88" cy="252" rx="20" ry="11" ' +
+        '<path d="M0 248 Q120 226 200 248 Q280 226 400 248" ' +
+        s +
+        ' stroke-width="2.2" fill="none" opacity="0.85"/>' +
+        '<path d="M0 255 Q100 238 200 255 Q300 238 400 255" ' +
+        s +
+        ' stroke-width="1.5" fill="none" opacity="0.55"/>' +
+        sun(48, 44, 15) +
+        '<ellipse cx="72" cy="52" rx="28" ry="14" ' +
+        sf +
+        ' fill="white" stroke-width="1.6" opacity="0.55"/>' +
+        '<ellipse cx="318" cy="56" rx="32" ry="15" ' +
+        sf +
+        ' fill="white" stroke-width="1.6" opacity="0.55"/>' +
+        '<ellipse cx="88" cy="252" rx="22" ry="12" ' +
         sf +
         ' fill="white" stroke-width="2"/>' +
-        '<ellipse cx="318" cy="255" rx="18" ry="10" ' +
+        '<ellipse cx="318" cy="254" rx="20" ry="11" ' +
         sf +
         ' fill="white" stroke-width="2"/>' +
-        '<ellipse cx="200" cy="258" rx="120" ry="14" ' +
+        '<ellipse cx="200" cy="258" rx="118" ry="13" ' +
         sf +
         ' fill="white" stroke-width="2"/>' +
-        person(200, 200, 12, 28) +
-        person(120, 202, 10, 26) +
-        person(165, 200, 10, 26) +
-        person(275, 202, 10, 26) +
+        person(200, 198, 12, 28) +
+        person(148, 202, 10, 26) +
+        person(178, 198, 10, 26) +
+        person(248, 202, 10, 26) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Job 1:21</text>'
       ),
 

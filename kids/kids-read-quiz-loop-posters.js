@@ -201,6 +201,7 @@
     palmSunday: 85,
     parableSower: 76,
     parableHiddenTreasure: 208,
+    parablePearl: 209,
     parableTalents: 107,
     passoverLamb: 30,
     paulBarnabas: 113,

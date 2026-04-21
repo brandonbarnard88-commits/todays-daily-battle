@@ -1757,6 +1757,16 @@
     "kw": "hidden treasure field kingdom heaven matthew 13 joy sell buy jesus parable"
   },
   {
+    "key": "parablePearl",
+    "title": "Jesus Tells About a Pearl Worth Everything",
+    "kjvRef": "Matthew 13:45–46",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God’s kingdom is so wonderful it is worth everything. Finding Jesus is like the most beautiful pearl in the whole world.",
+    "theme": "Love",
+    "kw": "pearl merchant goodly pearls great price kingdom heaven matthew 13 sold all jesus parable"
+  },
+  {
     "key": "paulBarnabas",
     "title": "Paul & Barnabas Sent Out",
     "kjvRef": "Acts 13–14",

@@ -5515,6 +5515,39 @@
       narration:
         "Jesus Tells About a Treasure Worth Everything — Matthew 13:44. Again, the kingdom of heaven is like unto treasure hid in a field; the which when a man hath found, he hideth, and for joy thereof goeth and selleth all that he hath, and buyeth that field. For you: Jesus was teaching that God’s kingdom is so wonderful it is worth giving up everything else to have it — and finding Him is like finding the best treasure in the whole world."
     },
+    parablePearl: {
+      title: 'Jesus Tells About a Pearl Worth Everything',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a merchant seeking goodly pearls' },
+        { src: 'panel-noah-2.svg', alt: 'He found one pearl of great price' },
+        { src: 'panel-noah-3.svg', alt: 'He sold all that he had, and bought it' }
+      ],
+      caption: 'Swipe to see one pearl worth everything — God’s kingdom is joy! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'pearl',
+        'pearls',
+        'merchant',
+        'great price',
+        'kingdom of heaven',
+        'sold all',
+        'bought',
+        'matthew 13',
+        'parable',
+        'jesus',
+        'worth everything'
+      ],
+      kjvRef: 'Matthew 13:45–46',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'God’s kingdom is so wonderful it is worth everything. Finding Jesus is like the most beautiful pearl in the whole world.'
+      },
+      narration:
+        "Jesus Tells About a Pearl Worth Everything — Matthew 13:45–46. Again, the kingdom of heaven is like unto a merchant man, seeking goodly pearls: Who, when he had found one pearl of great price, went and sold all that he had, and bought it. For you: Jesus was teaching that God’s kingdom is so wonderful it is worth giving up everything else to have it — and finding Him is like finding the most beautiful and valuable pearl in the whole world."
+    },
     jesusParableGoodShepherd: {
       title: 'The Good Shepherd',
       panels: [
@@ -7902,7 +7935,7 @@
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'jesusParableGoodShepherd',
       'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -7921,7 +7954,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -11007,7 +11040,7 @@
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
     ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',

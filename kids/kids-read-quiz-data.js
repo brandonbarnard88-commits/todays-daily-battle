@@ -1,6 +1,6 @@
 /**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
- * Keys match TDB_BIBLE_STORIES (322 stories).
+ * Keys match TDB_BIBLE_STORIES (323 stories).
  * Regenerate: npm run kids:generate-read-quiz
  * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath; Elisha bones; Ezra return; Nehemiah walls; Job read-along sections).
  *
@@ -144,9 +144,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 22",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Jeremiah 1:1–10; 13:17",
-          "Judges 7:1-22"
+          "Luke 15:8–10",
+          "Job 1:1–22; 2:11–13",
+          "John 2:1–11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -465,10 +465,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1",
+          "1 Thessalonians 4:13–18; 5:16–24",
           "Acts 18:24–28",
-          "Isaiah 9:2–7",
-          "Mark 2:1–12"
+          "Luke 24:13–35",
+          "1 Samuel 13; 15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -547,10 +547,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
+          "Esther 2:1–17",
           "Acts 25–26",
-          "Acts 27",
-          "Acts 8:26–40"
+          "Daniel 6:22",
+          "2 Kings 2:1-14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -713,10 +713,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26",
-          "2 Samuel 15:1-37; 16:15-23; 19:1-15",
+          "Acts 12:1–19",
+          "Romans–Philemon",
           "Acts 28:1–10",
-          "1 Samuel 17:1-11, 32-51"
+          "Revelation 17–18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -797,9 +797,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 3",
-          "Matthew; Mark; Luke; John (Gospels overview)",
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Esther 4:1–17; 5:1–8; 7:1–10"
+          "Judges 16:4-21",
+          "Revelation 20",
+          "Romans 16:1–2"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -880,10 +880,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 6:18-23",
-          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
+          "1 Kings 17:8-16",
+          "1 Samuel 16:1-13",
           "Revelation 1:8, 11, 17–18",
-          "Matthew 17:20; Mark 11:23–24"
+          "Ezra 1:1–11; 3:1–6"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -964,10 +964,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 12",
-          "1 Kings 3:16-28",
+          "John 12:1–8",
+          "Jonah 1:1–17; 2:1–10; 3:1–10",
           "Revelation 22:12–13",
-          "Ephesians 6"
+          "Acts 13–14"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1049,10 +1049,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:4–21",
+          "Acts 18:24–28",
           "Luke 1",
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Joshua 2:1-21"
+          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
+          "Exodus 3:1-15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1133,10 +1133,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:4–21",
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
+          "Luke 24:13–35",
+          "1 Thessalonians 4:13–18; 5:16–24",
           "Luke 2:36–38",
-          "Joshua 2:1-21"
+          "1 Samuel 13; 15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1217,9 +1217,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:44",
-          "Acts 18:23–21:17",
-          "Matthew 6",
+          "1 Samuel 16:14-23",
+          "2 Kings 6:8-17",
+          "Joshua 6:1-21",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1299,9 +1299,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 20:1–18",
-          "2 Timothy 4:6–8",
-          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Revelation 13",
+          "Ruth 4:1-17",
+          "Acts 2:14–41",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1383,10 +1383,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
+          "1 Kings 19:9-18",
           "Ephesians 6",
-          "Acts 28:1–10",
-          "1 Timothy 4:12"
+          "1 Samuel 1:1-20",
+          "Philippians 2:8–11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1467,9 +1467,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 8:5–13",
-          "2 Kings 6:8-17",
-          "1 Samuel 16:14-23",
+          "Exodus 7:8–13",
+          "Acts 12:1–19",
+          "Romans–Philemon",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1551,10 +1551,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18:6-11, 17-19:17",
-          "1 Corinthians 12",
+          "Matthew 28; Mark 16; Luke 24; John 20",
+          "Luke 24:50–53; Acts 1:6–11",
           "Acts 1:6–11",
-          "2 Kings 2:19-22; 4:1-7"
+          "Genesis 40"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1636,10 +1636,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 3:1-15",
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
           "Numbers 22:1–20",
-          "2 Kings 6:18-23",
-          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12"
+          "Genesis 41",
+          "Acts 15:36–18:22"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1722,9 +1722,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Numbers 23–24",
-          "1 Kings 3:5-15",
-          "2 Kings 6:24-7:20",
-          "2 Kings 4:1-7"
+          "Matthew 7",
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Revelation 8–11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1805,10 +1805,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Mark 2:1–12",
+          "Acts 16:11–15",
           "Numbers 22",
-          "Matthew; Mark; Luke; John (Gospels overview)"
+          "Revelation 1"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2008,10 +2008,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 6:8–7:60",
-          "Numbers 22:1–20",
+          "Judges 4:1-16",
+          "Judges 6:11-40",
           "Revelation 13:16–18",
-          "Mark 3:1–6"
+          "2 Kings 4:8-37"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2092,10 +2092,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Samuel 9:1-13",
+          "Romans 3:23; 5:8; 6:23; 10:9–10",
           "Matthew 26",
-          "1 Peter 1–5",
-          "Acts 19"
+          "John 20:24–29",
+          "1 Samuel 9–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2418,9 +2418,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 4",
-          "Acts 8:26–40",
-          "Revelation 14–15",
-          "Judges 16:23-30"
+          "Luke 15",
+          "Matthew 13:44",
+          "Acts 16:16–40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2633,10 +2633,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 17",
+          "Acts 27–28",
           "Colossians 1:15–20; 3:1–4, 12–17",
-          "Matthew 14:22–33",
-          "Matthew 14:13–21"
+          "Revelation 19",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2719,9 +2719,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 22",
-          "Luke 23",
-          "Ephesians 6",
-          "2 Kings 4:1-7"
+          "Judges 6:11-40",
+          "2 Kings 4:8-37",
+          "Judges 4:1-16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2801,10 +2801,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:16–20; Mark 16:15–18",
+          "John 4:46–54",
           "1 Corinthians 12",
-          "1 Corinthians 13",
-          "1 John 1–5"
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "Acts 27–28"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2886,9 +2886,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 15",
-          "Mark 10:13–16",
-          "Luke 2:41–52",
-          "Genesis 37:28"
+          "2 Kings 5:1-14",
+          "Acts 28",
+          "Acts 5:12–16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2970,10 +2970,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jude 1",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
+          "Acts 20:7–12",
+          "Exodus 14:21-31",
           "Genesis 1",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32"
+          "Acts 3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3056,9 +3056,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 1:3",
-          "1 Corinthians 13",
-          "1 John 1–5",
-          "Matthew 13:1–23"
+          "Acts 2:1–13",
+          "Matthew 18:21–35",
+          "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3138,9 +3138,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 23",
-          "Matthew 25",
-          "Genesis 18:9–15",
-          "Acts 18:24–28"
+          "Acts 19",
+          "Exodus 2:5",
+          "1 Peter 1–5"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3220,9 +3220,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "Acts 13–14",
-          "Exodus 16:1-36",
-          "Acts 2:1–4"
+          "Job 1:1–22; 2:11–13",
+          "John 2:1–11",
+          "Luke 15:8–10"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3305,9 +3305,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6:22",
-          "1 Corinthians 12",
-          "Revelation 22:12–13",
-          "1 Samuel 16:11; 17:15, 34–37"
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
+          "Jude 1",
+          "Acts 15:36–18:22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3650,9 +3650,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6",
-          "Matthew 17:1–13",
-          "Revelation 22:12–13",
-          "Luke 2:22–38"
+          "1 Samuel 1",
+          "Mark 10:13–16",
+          "2 Timothy 1:5–7; 3:15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4936,9 +4936,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 18:6-11, 17-19:17",
-          "Genesis 1:3",
-          "Ephesians 6",
-          "2 Kings 4:1-7"
+          "2 Samuel 15:1-37; 16:15-23; 19:1-15",
+          "Exodus 20:1-17",
+          "1 Samuel 1:21-28; 2:1-11, 18-21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5019,10 +5019,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
-          "Acts 2:14–41",
+          "1 John 1–5",
+          "Matthew 28:16–20; Mark 16:15–18",
           "1 Samuel 18:6-11, 17-19:17",
-          "Ruth 4:1-17"
+          "1 Corinthians 13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5104,9 +5104,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 16:11; 17:15, 34–37",
-          "2 Samuel 5:1-12",
-          "Revelation 22",
-          "2 Kings 2:19-22; 4:1-7"
+          "Genesis 6–9",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Acts 27"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5309,10 +5309,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 6:1-14; 8:1-13, 22-30",
-          "Luke 1",
+          "2 Kings 6:18-23",
+          "Luke 17",
           "the Bible",
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
+          "Matthew 17:20; Mark 11:23–24"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5394,9 +5394,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18:6-11, 17-19:17",
-          "2 Kings 4:38-41",
-          "1 Corinthians 12",
+          "Matthew 17:20; Mark 11:23–24",
+          "Luke 17",
+          "2 Kings 6:18-23",
           "Acts 9:36–43"
         ],
         "correctIndex": 3,
@@ -5479,9 +5479,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Kings 6:24-7:20",
-          "Revelation 21–22",
-          "Acts 5:12–16"
+          "2 Kings 13:14-19",
+          "1 Samuel 16:14-23",
+          "Matthew 8:5–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5562,9 +5562,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jude 1",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Acts 27",
+          "Revelation 12",
+          "1 Samuel 3:1-21",
+          "Exodus 7–12",
           "Acts 2:42–47"
         ],
         "correctIndex": 3,
@@ -6021,9 +6021,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 10:12-14",
-          "1 Samuel 25:1-42",
-          "Numbers 22",
+          "Luke 2:22–38",
+          "Matthew 17:1–13",
+          "Revelation 22:12–13",
           "1 Kings 18:17-39"
         ],
         "correctIndex": 3,
@@ -7378,9 +7378,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 24:50–53; Acts 1:6–11",
-          "Genesis 40",
-          "Matthew 28; Mark 16; Luke 24; John 20",
+          "Ruth 1",
+          "Genesis 11",
+          "2 Kings 8:1-6",
           "Luke 24"
         ],
         "correctIndex": 3,
@@ -7960,10 +7960,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 6–9",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "Acts 2:1–13",
+          "1 John 1–5",
           "2 Timothy 1:5–7; 3:15",
-          "Acts 27–28"
+          "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8044,10 +8044,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:19-22; 4:1-7",
-          "Mark 5:21–43",
+          "Judges 13:1-25",
+          "Luke 19:1–10",
           "Philippians 2:8–11",
-          "2 Kings 5:20-27"
+          "Acts 7"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8379,10 +8379,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 1",
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "Exodus 32:1-8, 15-20, 30-32",
+          "Luke 24",
           "Matthew 17:20; Mark 11:23–24",
-          "Acts 15"
+          "Matthew; Mark; Luke; John (Gospels overview)"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8463,10 +8463,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:1–23",
+          "1 Samuel 1:1-20",
           "Matthew 17",
-          "Genesis 22",
-          "Joshua 8:1-8, 18-23, 26-29"
+          "1 Kings 18:17-39",
+          "2 Timothy 1:5–7; 3:15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8793,9 +8793,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 8:5–13",
-          "1 Samuel 16:14-23",
-          "Acts 28:1–10",
+          "Exodus 16:1-36",
+          "Exodus 12:1-14",
+          "Jonah 1:17",
           "Matthew 18:21–35"
         ],
         "correctIndex": 3,
@@ -8878,9 +8878,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Matthew 7",
-          "Revelation 8–11",
-          "1 Samuel 1:21-28; 2:1-11, 18-21"
+          "Acts 16:11–15",
+          "Matthew 13:1–23",
+          "1 Timothy 1–6; 2 Timothy 1–4"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8961,9 +8961,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Galatians 5",
-          "Exodus 7–12",
-          "1 Samuel 3:1-21",
-          "Revelation 12"
+          "2 Timothy 4:6–8",
+          "2 Samuel 9:1-13",
+          "Genesis 37:3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9044,10 +9044,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 16:16–40",
+          "Revelation 19",
           "Matthew 26:36–46; Luke 22:44",
-          "Luke 15:8–10",
-          "John 4:46–54"
+          "Acts 27–28",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9623,10 +9623,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 10:12-14",
-          "Judges 16:4-21",
+          "Matthew 7",
+          "1 Timothy 1–6; 2 Timothy 1–4",
           "1 Samuel 17:8–11, 16, 23–30",
-          "1 Samuel 25:1-42"
+          "Revelation 8–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9706,9 +9706,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 10",
-          "Luke 2:41–52",
-          "Mark 10:13–16",
-          "Genesis 37:28"
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
+          "Jude 1",
+          "Acts 15:36–18:22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9789,10 +9789,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:1–17",
+          "Luke 17",
           "Matthew 28:18–20",
-          "Daniel 6:22",
-          "2 Kings 2:1-14"
+          "1 Kings 17:8-16",
+          "Ezra 1:1–11; 3:1–6"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9873,9 +9873,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 8:1-6",
-          "Revelation 1:8, 11, 17–18",
-          "Genesis 11",
+          "Revelation 22:12–13",
+          "1 Samuel 18:6-11, 17-19:17",
+          "1 Corinthians 12",
           "1 Samuel 1"
         ],
         "correctIndex": 3,
@@ -10087,9 +10087,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 1–2",
-          "2 Kings 2:1-14",
-          "Daniel 6:22",
-          "Numbers 23–24"
+          "Revelation 21",
+          "Matthew 17:20; Mark 11:23–24",
+          "2 Kings 6:18-23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10171,9 +10171,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 9",
-          "Genesis 40",
-          "Exodus 2:5",
-          "Matthew 28; Mark 16; Luke 24; John 20"
+          "1 Samuel 17:1-11, 32-51",
+          "1 Kings 17:1-7",
+          "Matthew 26"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10255,10 +10255,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:16–20; Mark 16:15–18",
+          "Acts 5:12–16",
           "Luke 17",
-          "1 Corinthians 13",
-          "1 John 1–5"
+          "2 Kings 6:24-7:20",
+          "Revelation 21–22"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10341,9 +10341,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Acts 6:8–7:60",
-          "Mark 3:1–6",
-          "Judges 16:23-30"
+          "2 Kings 5:1-14",
+          "Acts 28",
+          "Joshua 24:14-15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10424,10 +10424,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 3; Matthew 3",
+          "Malachi 3:1; 4:5–6",
           "Revelation 21",
-          "Matthew 13:44",
-          "Luke 15"
+          "Titus 1–3",
+          "Matthew 25:14–30"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10506,9 +10506,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:1–3, 18–19",
-          "Revelation 12",
-          "1 Samuel 3:1-21",
+          "Revelation 13:16–18",
+          "Daniel 6",
+          "1 Kings 19:9-18",
           "Hebrews 11"
         ],
         "correctIndex": 3,
@@ -10591,9 +10591,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 15:11–32",
-          "Matthew 19:16–22",
-          "Acts 2",
+          "Acts 2:1–4",
+          "Psalm 23:1-6",
+          "Acts 13–14",
           "Acts 2:1–13"
         ],
         "correctIndex": 3,
@@ -10799,10 +10799,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22",
-          "Daniel 3:1–30",
+          "Matthew 13:31–32",
+          "Philemon 1",
           "Genesis 28:10–22",
-          "1 Samuel 25:1-42"
+          "Genesis 37:28"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10884,9 +10884,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Isaiah 9:2–7",
-          "Mark 2:1–12",
-          "Galatians 5"
+          "Acts 28:1–10",
+          "Matthew 8:5–13",
+          "1 Timothy 4:12"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11099,10 +11099,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 9",
+          "Acts 12:1–19",
           "James 2:14–26",
-          "Matthew 14:22–33",
-          "Matthew 14:13–21"
+          "Ruth 1:1-18",
+          "Revelation 17–18"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11421,9 +11421,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 16:11–15",
-          "Matthew 25:14–30",
-          "Revelation 1",
+          "Genesis 39–40",
+          "Exodus 14:21-31",
+          "Matthew 5:1–16",
           "Matthew; Mark; Luke; John (Gospels overview)"
         ],
         "correctIndex": 3,
@@ -11506,9 +11506,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 24:50–53; Acts 1:6–11",
-          "Genesis 40",
-          "Exodus 2:5",
-          "Matthew 28; Mark 16; Luke 24; John 20"
+          "Jonah 1:17",
+          "Exodus 16:1-36",
+          "John 11:1–44"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11850,9 +11850,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "the Bible",
-          "Luke 24",
-          "Judges 7:1-22",
+          "2 Timothy 1:5–7; 3:15",
+          "1 Samuel 1",
+          "Matthew 4:18–22; Luke 5:1–11",
           "Mark 10:13–16"
         ],
         "correctIndex": 3,
@@ -11935,10 +11935,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 4:18–22",
+          "Revelation 20",
           "Matthew 4:18–22; Luke 5:1–11",
-          "Jude 1",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
+          "Joshua 10:12-14",
+          "Judges 16:4-21"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12155,10 +12155,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 19:16–22",
-          "Genesis 18:9–15",
+          "2 Kings 6:1-7",
+          "Galatians 5",
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "Luke 15:11–32"
+          "2 Samuel 5:1-12"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12506,10 +12506,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14",
-          "Luke 18:1–8",
+          "Acts 28:1–10",
+          "1 Timothy 4:12",
           "John 2:1–11",
-          "Ruth 2:1-17"
+          "Matthew 8:5–13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12591,9 +12591,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1",
-          "Matthew 25:14–30",
-          "Acts 16:11–15",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "John 20:1–18",
+          "Joshua 3:14-17; 4:1-7, 18-24",
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 3,
@@ -12676,9 +12676,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Malachi 3:1; 4:5–6",
-          "2 John; 3 John",
+          "Exodus 20:1-17",
+          "Revelation 13:16–18",
+          "2 Samuel 15:1-37; 16:15-23; 19:1-15",
           "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 3,
@@ -12760,10 +12760,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 2",
-          "Matthew 28",
+          "Acts 2:42–47",
+          "1 Samuel 17:8–11, 16, 23–30",
           "John 9",
-          "Luke 2:8–20"
+          "Esther 5:1–8; 7:1–10"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12982,9 +12982,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Acts 16:16–40",
-          "John 4:46–54",
-          "Romans 16:1–2"
+          "Matthew 28",
+          "Luke 2:8–20",
+          "Genesis 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13066,9 +13066,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 13–14",
-          "Acts 2:1–4",
-          "Psalm 23:1-6",
+          "1 Kings 19:9-18",
+          "Philippians 2:8–11",
+          "1 Samuel 1:1-20",
           "John 11:1–44"
         ],
         "correctIndex": 3,
@@ -13150,10 +13150,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Galatians 5",
+          "Job 1:1–22; 2:11–13",
           "Luke 2:1–20",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Isaiah 9:2–7"
+          "John 4:46–54",
+          "Luke 15:8–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13233,10 +13233,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Timothy 4:6–8",
-          "Luke 18:1–8",
+          "Matthew 25",
+          "Acts 18:24–28",
           "John 10:1–18",
-          "John 20:1–18"
+          "Genesis 18:9–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13317,9 +13317,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Romans 16:1–2",
-          "Revelation 20",
-          "Acts 16:16–40",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Genesis 6–9",
+          "Matthew 14:22–33",
           "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 3,
@@ -13403,9 +13403,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "1 Timothy 4:12",
-          "Acts 28:1–10",
-          "Matthew 8:5–13"
+          "1 Kings 6:1-14; 8:1-13, 22-30",
+          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+          "Luke 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13488,9 +13488,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28; Mark 16; Luke 24; John 20",
-          "Luke 18:1–8",
-          "2 Timothy 4:6–8",
-          "John 20:1–18"
+          "2 Kings 6:8-17",
+          "1 Samuel 16:14-23",
+          "Matthew 8:5–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13695,10 +13695,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jude 1",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "Matthew 14:22–33",
           "Matthew 5–7",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32"
+          "Genesis 6–9"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13911,9 +13911,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 12",
-          "Genesis 1",
-          "Luke 2:36–38",
+          "Daniel 6:22",
+          "Esther 2:1–17",
+          "2 Kings 2:1-14",
           "Matthew 4:1–11"
         ],
         "correctIndex": 3,
@@ -13993,10 +13993,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Corinthians 13",
-          "1 John 1–5",
+          "Acts 9:36–43",
+          "Luke 23",
           "Matthew 4:1–11; Luke 4:1–13",
-          "Matthew 13:1–23"
+          "Esther 4:1–17; 5:1–8; 7:1–10"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14212,9 +14212,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Acts 27",
-          "Jude 1",
+          "1 Samuel 18:6-11, 17-19:17",
+          "2 Kings 2:19-22; 4:1-7",
+          "1 Corinthians 12",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -14689,10 +14689,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 2:1–12",
+          "John 11:1–44",
           "Luke 3; Matthew 3",
-          "Galatians 5",
-          "Isaiah 9:2–7"
+          "2 Kings 5:20-27",
+          "Mark 5:21–43"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14773,9 +14773,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 4:1–11",
-          "Joshua 7:1-11",
-          "Matthew 4:18–22; Luke 5:1–11",
+          "Acts 9:36–43",
+          "Esther 4:1–17; 5:1–8; 7:1–10",
+          "Luke 23",
           "Matthew 3:13–17"
         ],
         "correctIndex": 3,
@@ -14856,10 +14856,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 13; 15",
-          "Luke 24:13–35",
+          "Acts 18:1–3, 18–19",
+          "Titus 1–3",
           "1 John 1–5",
-          "1 Thessalonians 4:13–18; 5:16–24"
+          "Revelation 12"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14939,9 +14939,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1",
-          "Numbers 22",
-          "Daniel 3:1–30",
-          "1 Samuel 25:1-42"
+          "Joshua 7:1-11",
+          "2 Kings 5:15-19",
+          "Luke 2:41–52"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15021,10 +15021,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:22",
-          "2 Kings 2:1-14",
+          "Matthew 19:16–22",
+          "Genesis 18:9–15",
           "2 John; 3 John",
-          "Numbers 23–24"
+          "Luke 15:11–32"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15106,10 +15106,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "James 2:14–26",
+          "Galatians 5",
           "Jonah 1:17",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "John 10:1–18"
+          "Mark 2:1–12",
+          "Isaiah 9:2–7"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15434,9 +15434,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13:16–18",
-          "Daniel 6",
-          "1 Kings 19:9-18",
+          "Acts 5:12–16",
+          "Revelation 21–22",
+          "2 Kings 6:24-7:20",
           "Genesis 37:3"
         ],
         "correctIndex": 3,
@@ -15520,9 +15520,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 40",
-          "Acts 18:1–3, 18–19",
-          "Titus 1–3",
-          "Revelation 12"
+          "Ruth 1:1-18",
+          "Revelation 17–18",
+          "Luke 2:22–38"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15602,9 +15602,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 5:20-27",
-          "Mark 5:21–43",
-          "John 11:1–44",
+          "Exodus 3:1-15",
+          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
+          "2 Kings 6:18-23",
           "Genesis 39–40"
         ],
         "correctIndex": 3,
@@ -15687,9 +15687,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41:41",
-          "Genesis 18:9–15",
-          "Matthew 25",
-          "Acts 18:24–28"
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "2 Samuel 9:1-13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15772,9 +15772,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 37:28",
-          "John 4:1–42",
-          "Revelation 6–8:1",
-          "Numbers 13:1-33; 14:1-9"
+          "Exodus 16:1-36",
+          "2 John; 3 John",
+          "Exodus 12:1-14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15856,9 +15856,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28",
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "Genesis 3",
+          "Luke 1",
+          "1 Samuel 16:11; 17:15, 34–37",
+          "Acts 15",
           "Joshua 7:1-11"
         ],
         "correctIndex": 3,
@@ -16164,9 +16164,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26",
-          "Matthew 4:18–22",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
-          "John 9"
+          "Ephesians, Philippians, Colossians, Philemon",
+          "2 Peter 1–3",
+          "2 Kings 5:15-19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16245,10 +16245,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32",
-          "2 Peter 1–3",
+          "Numbers 22:1–20",
+          "Acts 2:42–47",
           "Jude 1",
-          "Ephesians, Philippians, Colossians, Philemon"
+          "Matthew 27; Mark 15; Luke 23; John 19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16330,9 +16330,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "1 Samuel 17:8–11, 16, 23–30",
-          "Luke 24:50–53; Acts 1:6–11",
-          "Matthew 28; Mark 16; Luke 24; John 20"
+          "Acts 2:42–47",
+          "Esther 5:1–8; 7:1–10",
+          "1 Samuel 17:8–11, 16, 23–30"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16412,9 +16412,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
-          "Exodus 3:1-15",
-          "2 Kings 13:20-21"
+          "2 Kings 2:1-14",
+          "Matthew 27; Mark 15; Luke 23; John 19",
+          "Esther 2:1–17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16496,9 +16496,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "1 Kings 3:16-28",
-          "Ruth 3:1-18",
-          "Revelation 1–3"
+          "2 Kings 6:24-7:20",
+          "Revelation 21–22",
+          "Acts 5:12–16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16580,10 +16580,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 13:1-25",
-          "Luke 19:1–10",
+          "Exodus 20:1-17",
+          "Revelation 13:16–18",
           "John 11:1–44",
-          "Acts 7"
+          "2 Samuel 15:1-37; 16:15-23; 19:1-15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16665,9 +16665,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Genesis 1:3",
-          "Ephesians 6",
-          "2 Kings 4:1-7"
+          "Matthew 17:20; Mark 11:23–24",
+          "2 Kings 6:18-23",
+          "1 Samuel 16:1-13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16749,9 +16749,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 15:8–10",
-          "Acts 7",
-          "Judges 13:1-25",
-          "Revelation 19"
+          "Acts 16:16–40",
+          "Matthew 13:44",
+          "Luke 15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16831,10 +16831,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 39–40",
-          "Matthew 5:1–16",
+          "Colossians 1:15–20; 3:1–4, 12–17",
+          "Genesis 3",
           "Luke 15",
-          "Exodus 7:8–13"
+          "1 Samuel 18:1-4; 20:1-42"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16917,9 +16917,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Corinthians 13",
-          "Luke 24:13–35",
-          "1 Samuel 13; 15",
-          "1 Thessalonians 4:13–18; 5:16–24"
+          "Judges 4:1-16",
+          "2 Kings 4:8-37",
+          "Judges 6:11-40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17001,10 +17001,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 6:11-40",
+          "Matthew 14:13–21",
           "the Bible",
-          "1 Samuel 16:11; 17:15, 34–37",
-          "2 Kings 4:8-37"
+          "Matthew 17:20; Mark 11:23–24",
+          "Luke 17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17086,9 +17086,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 16:11–15",
-          "Genesis 37:28",
-          "2 Kings 5:15-19",
-          "Luke 2:41–52"
+          "Acts 9:1–19",
+          "Acts 2:4–21",
+          "John 20:1–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17405,10 +17405,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 6:1-14; 8:1-13, 22-30",
+          "Genesis 1",
           "the Bible",
-          "Luke 1",
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
+          "Luke 24",
+          "Judges 4:1-16"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17488,10 +17488,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Corinthians 12",
+          "Matthew 6",
           "John 12:1–8",
-          "Matthew 17:1–13",
-          "Revelation 22:12–13"
+          "Matthew 13:45–46",
+          "Acts 18:23–21:17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17573,10 +17573,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 27",
-          "Acts 8:26–40",
+          "1 Kings 3:5-15",
+          "2 Kings 4:1-7",
           "John 20:1–18",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32"
+          "2 Kings 6:24-7:20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17654,10 +17654,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 4:18–22; Luke 5:1–11",
-          "1 Samuel 1:1-20",
+          "Joshua 10:12-14",
+          "Judges 16:4-21",
           "the Bible",
-          "Matthew 4:1–11"
+          "1 Samuel 25:1-42"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17861,10 +17861,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 25",
           "the Bible",
-          "Revelation 8–11",
-          "Matthew 7"
+          "Numbers 21:1-9",
+          "Acts 18:24–28"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17944,10 +17944,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "John 4:46–54",
+          "2 Kings 4:38-41",
+          "2 Kings 5:20-27",
           "Exodus 2:5",
-          "Matthew 14:22–33"
+          "1 Samuel 16:11; 17:15, 34–37"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18150,10 +18150,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 23:1-6",
-          "1 Samuel 13; 15",
+          "Ezekiel 37:1–14",
+          "Mark 4:35–41",
           "Exodus 14:21-31",
-          "Luke 24:13–35"
+          "1 Samuel 1–2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18232,9 +18232,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Exodus 7:8–13",
-          "1 Kings 17:1-7",
-          "Ezekiel 37:1–14",
-          "1 Samuel 1–2"
+          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
+          "2 Kings 6:18-23",
+          "Matthew 17:20; Mark 11:23–24"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18791,9 +18791,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 28:1–10",
-          "1 Samuel 16:14-23",
-          "Matthew 8:5–13",
+          "John 20:1–18",
+          "Acts 2:4–21",
+          "Acts 9:1–19",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -18877,9 +18877,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Revelation 6–8:1",
-          "John 4:1–42",
-          "Numbers 13:1-33; 14:1-9"
+          "1 Samuel 16:11; 17:15, 34–37",
+          "2 Kings 4:8-37",
+          "Judges 6:11-40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18961,10 +18961,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+          "Jude 1",
           "Genesis 6–9",
-          "Luke 15",
-          "Luke 3; Matthew 3"
+          "Acts 27",
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19180,9 +19180,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Acts 9:36–43",
-          "Genesis 1:3",
-          "Esther 4:1–17; 5:1–8; 7:1–10"
+          "Genesis 37:28",
+          "Luke 2:41–52",
+          "Matthew 13:31–32"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19264,9 +19264,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 4",
-          "2 Kings 13:20-21",
-          "1 Samuel 24:1-22",
+          "Luke 17",
+          "Job 1:1–22; 2:11–13",
+          "Matthew 14:13–21",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -19454,6 +19454,120 @@
     ],
     "readAlongImages": []
   },
+  "parablePearl": {
+    "kjvRef": "Matthew 13:45–46 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Who, when he had found one pearl of great price, went and sold all that he had, and bought it. — Matthew 13:46 (KJV)",
+    "readAlongTitle": "Jesus Tells About a Pearl Worth Everything",
+    "quizWrongHumilityHint": "Listen again — merchant; goodly pearls; one pearl; great price; sold all; bought it; kingdom; Jesus.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus told another story about the kingdom of heaven.",
+      "He said it is like a merchant man who was looking for beautiful pearls.",
+      "When he found one pearl that was very precious, he went and sold everything he had so he could buy that pearl.",
+      "Jesus was teaching that the kingdom of God is so wonderful that it is worth giving up everything else to have it.",
+      "Finding Jesus is like finding the most beautiful and valuable pearl in the whole world.",
+      "Reference: Matthew 13:45–46 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus told a story about a merchant looking for pearls.",
+        "caption": "Seeking goodly pearls",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "He found one very beautiful pearl.",
+        "caption": "One pearl of great price",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "He sold everything he had to buy it.",
+        "caption": "Sold all that he had",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The kingdom of God is worth everything.",
+        "caption": "And bought it",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Matthew 13:45–46",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 13:45–46.)"
+      },
+      {
+        "question": "What did the merchant do when he found the pearl of great price?",
+        "choices": [
+          "He went and sold all that he had, and bought it.",
+          "He hid it in a sock.",
+          "He threw it away.",
+          "He bought a rocket."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ parable in Matthew 13.",
+        "wrongFeedback": "Think about what the merchant did when he found the pearl. (Answer: sold all… buy it.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God’s kingdom is not worth much.",
+          "God’s kingdom is so wonderful it is worth giving up everything else to have it — and finding Jesus is like the most valuable pearl.",
+          "We should never be happy.",
+          "Pearls are only pretend."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about selling all and buying the pearl. (Answer: kingdom worth everything… finding Jesus.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "The kingdom of heaven is like a merchant seeking goodly pearls.",
+          "The merchant turned into a frog.",
+          "The pearl was made of pizza.",
+          "Everyone forgot how to walk."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Matthew 13:45–46? (Answer: merchant seeking goodly pearls.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He is the pearl of great price — ask Him to help us love Him more than anything else.",
+          "Never think about God’s kingdom.",
+          "Hide when we feel happy.",
+          "Only grown-ups need Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus as treasure? (Answer: thank Jesus… love Him more than anything else.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Tells About a Pearl Worth Everything with God's Word today.",
+    "takeaway": "Finding Jesus is like finding the most beautiful and valuable pearl in the whole world.",
+    "prayer": "Lord Jesus, You are the pearl of great price. Help me love You first today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a merchant man holding a beautiful pearl with a happy excited face he has sold everything and is holding the pearl close thick bold outlines with large open spaces on the man's robe the pearl and the ground for easy coloring soft market stall and gentle sky with minimal lines joyful valuable mood focus on the pearl worth everything clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: Merchant seeking goodly pearls (gentle search)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: One pearl of great price — wonder (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: Sold all that he had — trust (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: Bought it — the pearl is his (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: Kingdom worth everything (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: Jesus — most beautiful pearl (love)"
+    ],
+    "readAlongImages": []
+  },
   "parableSower": {
     "kjvRef": "Matthew 13:1–23 (KJV) — gentle summary for little hearts",
     "verseExcerpt": "But other fell into good ground, and brought forth fruit, some an hundredfold, some sixtyfold, some thirtyfold. — Matthew 13:8 (KJV)",
@@ -19600,10 +19714,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 6:1-21",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
           "Matthew 25:14–30",
-          "1 Samuel 16:14-23",
-          "2 Kings 6:8-17"
+          "Genesis 6–9",
+          "Acts 27–28"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19799,9 +19913,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 2:1-17",
-          "1 Samuel 18",
-          "Exodus 14",
+          "Exodus 2:5",
+          "Acts 20:7–12",
+          "Genesis 40",
           "Acts 13–14"
         ],
         "correctIndex": 3,
@@ -19884,9 +19998,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 4",
-          "1 Samuel 24:1-22",
-          "2 Kings 13:20-21",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "Ruth 2",
+          "Luke 2:8–20",
           "Acts 9:1–19"
         ],
         "correctIndex": 3,
@@ -19969,10 +20083,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 15",
-          "Luke 3; Matthew 3",
+          "Mark 4:35–41",
+          "1 Samuel 1–2",
           "Acts 9:1–19",
-          "Matthew 13:44"
+          "Matthew 4:1–11; Luke 4:1–13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20051,10 +20165,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22:1–20",
-          "Mark 3:1–6",
+          "Matthew 13:31–32",
+          "Genesis 37:28",
           "2 Timothy 4:6–8",
-          "Matthew 27; Mark 15; Luke 23; John 19"
+          "Ephesians, Philippians, Colossians, Philemon"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20136,9 +20250,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 19",
-          "Mark 4:35–41",
-          "Matthew 4:1–11; Luke 4:1–13",
-          "1 Samuel 1–2"
+          "Mark 10:13–16",
+          "Luke 2:41–52",
+          "1 Samuel 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20218,10 +20332,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 3:1-21",
+          "2 Kings 13:14-19",
           "Acts 20:7–12",
-          "Joshua 7:1-26",
-          "Exodus 7–12"
+          "Acts 2:1–13",
+          "Matthew 18:21–35"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20300,10 +20414,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 17:1–13",
-          "1 Corinthians 12",
+          "Exodus 14",
+          "1 Samuel 18",
           "Acts 13–14",
-          "Revelation 22:12–13"
+          "Ruth 2:1-17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20382,10 +20496,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 19:16–22",
-          "Genesis 18:9–15",
+          "Revelation 14–15",
+          "Judges 16:23-30",
           "Romans–Philemon",
-          "Luke 15:11–32"
+          "Acts 8:26–40"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20464,9 +20578,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26",
-          "1 Samuel 17:1-11, 32-51",
-          "Joshua 7:1-26",
+          "1 Kings 19:9-18",
+          "Philippians 2:8–11",
+          "Daniel 6",
           "Philemon 1"
         ],
         "correctIndex": 3,
@@ -20547,9 +20661,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 2:5",
-          "Acts 20:7–12",
-          "Acts 12:1–19",
+          "Mark 10:13–16",
+          "Luke 2:41–52",
+          "Genesis 37:28",
           "Ephesians, Philippians, Colossians, Philemon"
         ],
         "correctIndex": 3,
@@ -20630,9 +20744,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 28",
-          "Genesis 41",
-          "Revelation 6–8:1",
-          "Acts 15:36–18:22"
+          "Matthew 6",
+          "Revelation 4–5",
+          "Acts 18:23–21:17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20712,10 +20826,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
+          "Acts 8:26–40",
           "Acts 15:36–18:22",
-          "Acts 25–26",
-          "Exodus 3:1-15"
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
+          "Acts 27"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20796,10 +20910,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 1:1–22; 2:11–13",
+          "Matthew 28:18–20",
           "Acts 27",
-          "John 4:46–54",
-          "Luke 15:8–10"
+          "Matthew 5–7",
+          "Luke 2:1–20"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20880,9 +20994,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 12",
-          "1 Samuel 3:1-21",
-          "Acts 18:1–3, 18–19",
+          "Genesis 28:10–22",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
+          "Matthew 26:36–46; Luke 22:44",
           "Acts 27–28"
         ],
         "correctIndex": 3,
@@ -20965,10 +21079,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 3:13–17",
+          "Acts 28:1–10",
           "Acts 16:16–40",
-          "Genesis 39–40",
-          "Matthew 5:1–16"
+          "1 Samuel 16:14-23",
+          "Matthew 8:5–13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21048,10 +21162,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
-          "Luke 3; Matthew 3",
+          "Acts 18:1–3, 18–19",
+          "Revelation 12",
           "Acts 18:23–21:17",
-          "Hebrews 11"
+          "Titus 1–3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21130,9 +21244,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26",
-          "1 Samuel 17:1-11, 32-51",
-          "Joshua 7:1-26",
+          "John 4:1–42",
+          "Numbers 13:1-33; 14:1-9",
+          "Revelation 6–8:1",
           "1 Timothy 1–6; 2 Timothy 1–4"
         ],
         "correctIndex": 3,
@@ -21213,9 +21327,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Titus 1–3",
-          "Acts 2:4–21",
-          "Joshua 2:1-21",
-          "Acts 13–14"
+          "Revelation 14–15",
+          "Judges 16:23-30",
+          "Acts 8:26–40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21296,9 +21410,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2",
-          "1 Kings 17:8-16",
           "1 Samuel 16:1-13",
-          "Ezra 1:1–11; 3:1–6"
+          "Numbers 21:1-9",
+          "1 Kings 17:8-16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21381,9 +21495,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2:1–4",
-          "Revelation 4–5",
-          "Matthew 6",
-          "Acts 16:16–40"
+          "Genesis 37:3",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Matthew; Mark; Luke; John (Gospels overview)"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21464,10 +21578,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 20:1–18",
-          "1 Peter 1–5",
+          "Exodus 40:1-38",
+          "Joshua 8:1-8, 18-23, 26-29",
           "Acts 2:4–21",
-          "2 Timothy 4:6–8"
+          "Genesis 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21548,10 +21662,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Samuel 5:1-12",
-          "Revelation 22",
+          "Ruth 2:1-17",
+          "Exodus 14",
           "Luke 18:1–8",
-          "2 Kings 6:1-7"
+          "1 Samuel 18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21630,9 +21744,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 12",
-          "Genesis 1",
-          "Luke 2:36–38",
+          "2 John; 3 John",
+          "Matthew 25:14–30",
+          "Malachi 3:1; 4:5–6",
           "1 Peter 1–5"
         ],
         "correctIndex": 3,
@@ -21713,10 +21827,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
+          "Matthew 17",
           "Acts 3",
-          "Acts 28:1–10",
-          "1 Timothy 4:12"
+          "John 2:1–11",
+          "Revelation 21"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21796,10 +21910,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Romans–Philemon",
-          "Acts 2:14–41",
+          "Matthew 28; Mark 16; Luke 24; John 20",
+          "Genesis 40",
           "Acts 12:1–19",
-          "Exodus 14:21-31"
+          "Luke 24:50–53; Acts 1:6–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21964,9 +22078,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 10:13–16",
-          "Luke 2:41–52",
-          "Genesis 37:28",
+          "1 Samuel 16:1-13",
+          "1 Kings 17:8-16",
+          "Ezra 1:1–11; 3:1–6",
           "2 Peter 1–3"
         ],
         "correctIndex": 3,
@@ -22048,10 +22162,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Samuel 5:1-12",
+          "Genesis 22",
           "Acts 5:12–16",
-          "Revelation 1:8, 11, 17–18",
-          "Revelation 22"
+          "Judges 14:5-9",
+          "Exodus 40:1-38"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22133,9 +22247,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41",
-          "Genesis 22",
-          "Joshua 8:1-8, 18-23, 26-29",
-          "Exodus 40:1-38"
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
+          "Acts 15:36–18:22",
+          "Jude 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22216,9 +22330,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 5:15-19",
-          "Acts 5:12–16",
-          "Acts 28",
+          "Philemon 1",
+          "Revelation 1–3",
+          "Acts 2:14–41",
           "Acts 8:26–40"
         ],
         "correctIndex": 3,
@@ -22302,9 +22416,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 8:26–40",
-          "2 Kings 5:15-19",
-          "Joshua 7:1-11",
-          "Acts 28"
+          "Matthew 17:20; Mark 11:23–24",
+          "2 Kings 6:18-23",
+          "Luke 17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22385,10 +22499,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 7:1-22",
-          "Jeremiah 1:1–10; 13:17",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "John 20:1–18",
           "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Luke 24"
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22470,9 +22584,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Romans 16:1–2",
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Matthew; Mark; Luke; John (Gospels overview)",
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15"
+          "John 4:46–54",
+          "Acts 27–28",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22554,9 +22668,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Matthew 25",
-          "Genesis 18:9–15",
-          "Acts 18:24–28"
+          "Revelation 1:8, 11, 17–18",
+          "Genesis 11",
+          "Revelation 22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22638,10 +22752,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 21–22",
-          "2 Kings 6:24-7:20",
+          "Jeremiah 1:1–10; 13:17",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
           "Matthew 7",
-          "2 Peter 1–3"
+          "Judges 7:1-22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22722,9 +22836,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 41:41",
-          "Exodus 7:8–13",
-          "Philemon 1",
+          "2 Peter 1–3",
+          "Revelation 1–3",
+          "Ruth 3:1-18",
           "Acts 18:24–28"
         ],
         "correctIndex": 3,
@@ -22806,9 +22920,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 1:1-20",
-          "Matthew 4:1–11",
-          "Matthew 4:18–22; Luke 5:1–11",
+          "2 Timothy 4:6–8",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "Luke 18:1–8",
           "Acts 18:1–3, 18–19"
         ],
         "correctIndex": 3,
@@ -22890,9 +23004,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "John 20:1–18",
+          "Romans 16:1–2",
+          "Revelation 4–5",
+          "Judges 14:5-9",
           "Luke 15:11–32"
         ],
         "correctIndex": 3,
@@ -23823,10 +23937,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 2:1-21",
+          "Matthew 13:31–32",
           "Exodus 14",
-          "Acts 9:1–19",
-          "Acts 2:4–21"
+          "Luke 2:41–52",
+          "Genesis 37:28"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23909,9 +24023,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "Acts 27",
-          "Acts 8:26–40",
-          "Revelation 19"
+          "2 Kings 2:19-22; 4:1-7",
+          "Matthew 26:36–46; Luke 22:44",
+          "Genesis 28:10–22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23992,9 +24106,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1–22",
-          "Matthew 4:1–11; Luke 4:1–13",
-          "Joshua 24:14-15",
-          "2 Kings 5:1-14"
+          "Matthew 25",
+          "Acts 18:24–28",
+          "Numbers 21:1-9"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24076,9 +24190,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 17–18",
-          "Acts 2:42–47",
-          "Esther 5:1–8; 7:1–10",
-          "Matthew 27; Mark 15; Luke 23; John 19"
+          "Revelation 8–11",
+          "1 Samuel 1:21-28; 2:1-11, 18-21",
+          "Matthew 6"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24157,10 +24271,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 8–11",
-          "Matthew 6",
+          "Revelation 17–18",
+          "Acts 12:1–19",
           "Revelation 13",
-          "1 Samuel 1:21-28; 2:1-11, 18-21"
+          "Ruth 4:1-17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24242,9 +24356,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Peter 1–3",
-          "Ephesians, Philippians, Colossians, Philemon",
-          "Revelation 1–3"
+          "Genesis 28:10–22",
+          "Matthew 26:36–46; Luke 22:44",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24323,9 +24437,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:1-7",
-          "Ephesians 6",
-          "1 Kings 3:5-15",
+          "Philemon 1",
+          "Acts 2:14–41",
+          "Matthew 13:31–32",
           "Revelation 1–3"
         ],
         "correctIndex": 3,
@@ -24408,10 +24522,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "2 Kings 8:1-6",
+          "Joshua 10:12-14",
+          "Numbers 22",
           "Revelation 21–22",
-          "Ruth 1"
+          "1 Samuel 25:1-42"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24490,10 +24604,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28",
-          "Luke 2:8–20",
+          "Luke 15:11–32",
+          "Acts 2",
           "Revelation 21–22",
-          "Genesis 3"
+          "Luke 24:13–35"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24575,9 +24689,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 6–8:1",
-          "Psalm 23:1-6",
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "1 Samuel 9–10"
+          "Exodus 14",
+          "Ruth 2",
+          "Luke 2:8–20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24657,9 +24771,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 14–15",
-          "Mark 4:35–41",
-          "Matthew 4:1–11; Luke 4:1–13",
-          "1 Samuel 1–2"
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Jeremiah 1:1–10; 13:17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24738,10 +24852,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 John; 3 John",
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
           "Revelation 19",
-          "Exodus 12:1-14",
-          "Malachi 3:1; 4:5–6"
+          "Luke 15",
+          "Luke 3; Matthew 3"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24822,10 +24936,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:14-23",
-          "2 Kings 6:8-17",
+          "Matthew 26:36–46; Luke 22:44",
+          "Genesis 28:10–22",
           "Revelation 20",
-          "Matthew 8:5–13"
+          "2 Kings 2:19-22; 4:1-7"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24906,10 +25020,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Acts 27–28",
+          "Exodus 32:1-8, 15-20, 30-32",
+          "Esther 4:1–17; 5:1–8; 7:1–10",
           "the Bible",
-          "Revelation 19"
+          "Matthew; Mark; Luke; John (Gospels overview)"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24991,9 +25105,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 23",
-          "Acts 9:36–43",
-          "Esther 4:1–17; 5:1–8; 7:1–10",
+          "2 Peter 1–3",
+          "Revelation 1–3",
+          "2 Kings 6:24-7:20",
           "Revelation 4–5"
         ],
         "correctIndex": 3,
@@ -25075,9 +25189,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 8–11",
-          "Jeremiah 1:1–10; 13:17",
-          "Judges 7:1-22",
-          "Luke 24"
+          "Joshua 8:1-8, 18-23, 26-29",
+          "Genesis 22",
+          "Exodus 40:1-38"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25158,9 +25272,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 8:26–40",
-          "Judges 13:1-25",
-          "Revelation 14–15",
+          "Acts 16:11–15",
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 13:1–23",
           "Revelation 12"
         ],
         "correctIndex": 3,
@@ -25242,9 +25356,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 17–18",
-          "1 Kings 6:1-14; 8:1-13, 22-30",
-          "Ruth 4:1-17",
+          "Revelation 21",
+          "Job 1:1–22; 2:11–13",
+          "John 2:1–11",
           "Matthew 19:16–22"
         ],
         "correctIndex": 3,
@@ -25327,9 +25441,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Luke 19:1–10",
-          "Acts 7",
-          "Numbers 23–24"
+          "Joshua 7:1-11",
+          "Matthew 4:1–11",
+          "2 Kings 5:15-19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25409,9 +25523,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 24:13–35",
-          "Matthew 5:1–16",
-          "Matthew 3:13–17",
-          "Luke 10"
+          "Acts 9:1–19",
+          "John 20:1–18",
+          "Joshua 3:14-17; 4:1-7, 18-24"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25491,10 +25605,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 4:46–54",
-          "Luke 15:8–10",
+          "Acts 15",
+          "Luke 1",
           "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Acts 16:16–40"
+          "1 Samuel 16:11; 17:15, 34–37"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25693,9 +25807,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:8-37",
-          "James 2:14–26",
-          "Judges 6:11-40",
+          "1 Thessalonians 4:13–18; 5:16–24",
+          "Exodus 3:1-15",
+          "Acts 25–26",
           "Ruth 2"
         ],
         "correctIndex": 3,
@@ -25778,9 +25892,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 14:13–21",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 14:22–33",
+          "Mark 12",
+          "Genesis 1",
+          "Luke 2:36–38",
           "Ruth 1"
         ],
         "correctIndex": 3,
@@ -27415,9 +27529,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 18:9–15",
-          "Numbers 21:1-9",
-          "1 Samuel 16:1-13",
-          "Acts 18:24–28"
+          "Exodus 7–12",
+          "Joshua 7:1-26",
+          "1 Samuel 1:21-28; 2:1-11, 18-21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27499,10 +27613,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 17:1-11, 32-51",
+          "1 Samuel 24:1-22",
           "the Bible",
-          "Ezra 1:1–11; 3:1–6",
-          "1 Kings 17:8-16"
+          "Joshua 6:1-21",
+          "2 Kings 6:8-17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27584,9 +27698,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 13; 15",
-          "Acts 27",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Jude 1"
+          "Joshua 6:1-21",
+          "2 Kings 6:8-17",
+          "1 Samuel 16:14-23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27668,10 +27782,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 3:5-15",
+          "John 20:24–29",
           "1 Samuel 9–10",
-          "Revelation 1–3",
-          "Ruth 3:1-18"
+          "Luke 24:13–35",
+          "1 Samuel 13; 15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27752,10 +27866,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:11; 17:15, 34–37",
+          "Romans–Philemon",
           "1 Samuel 18",
-          "2 Kings 5:20-27",
-          "2 Kings 4:38-41"
+          "Revelation 17–18",
+          "Acts 12:1–19"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -28680,10 +28794,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 John; 3 John",
-          "Malachi 3:1; 4:5–6",
+          "Matthew 13:1–23",
+          "1 Timothy 1–6; 2 Timothy 1–4",
           "Acts 6:8–7:60",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
+          "Acts 16:11–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -28764,10 +28878,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 1:21-28; 2:1-11, 18-21",
-          "Joshua 7:1-26",
+          "Acts 13–14",
+          "Psalm 23:1-6",
           "Acts 6:8–7:60",
-          "Exodus 7–12"
+          "Acts 2:1–4"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -28849,9 +28963,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 7",
-          "Daniel 3:1–30",
-          "1 Kings 19:19-21",
-          "Esther 4:1–17"
+          "Matthew 26:36–46; Luke 22:44",
+          "Genesis 28:10–22",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29284,10 +29398,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 18:9–15",
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
           "Exodus 7–12",
-          "Luke 15:11–32",
-          "Matthew 19:16–22"
+          "Joshua 6:1-21",
+          "Hebrews 11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29368,10 +29482,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:14-23",
-          "2 Kings 6:8-17",
+          "Luke 3; Matthew 3",
+          "Luke 15",
           "Matthew 25",
-          "Matthew 8:5–13"
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29451,10 +29565,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Titus 1–3",
+          "Esther 4:1–17",
           "1 Thessalonians 4:13–18; 5:16–24",
-          "Acts 16:11–15",
-          "Matthew 25:14–30"
+          "Daniel 3:1–30",
+          "1 Kings 19:19-21"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29532,10 +29646,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2:22–38",
+          "Acts 15:36–18:22",
           "John 20:24–29",
-          "Luke 1",
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
+          "Revelation 6–8:1",
+          "Genesis 41"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29614,10 +29728,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15:36–18:22",
-          "Genesis 41",
+          "Psalm 23:1-6",
+          "Luke 24:13–35",
           "1 Timothy 4:12",
-          "2 Kings 5:1-14"
+          "Acts 2:1–4"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29699,10 +29813,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Timothy 1:5–7; 3:15",
-          "1 Samuel 1",
+          "Job 1:1–22; 2:11–13",
+          "Luke 15:8–10",
           "Matthew 28",
-          "1 Kings 18:17-39"
+          "John 2:1–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29782,10 +29896,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Timothy 1:5–7; 3:15",
-          "1 Samuel 1",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "Ruth 2",
           "Genesis 11",
-          "1 Kings 18:17-39"
+          "1 Peter 1–5"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29863,10 +29977,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 16:4-21",
+          "Joshua 10:12-14",
           "Matthew 17:1–13",
-          "Romans 16:1–2",
-          "Revelation 20"
+          "Revelation 20",
+          "Judges 16:4-21"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29947,9 +30061,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 12",
-          "Genesis 1",
-          "Luke 2:36–38",
+          "Matthew 5:1–16",
+          "Exodus 14:21-31",
+          "Genesis 39–40",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -30032,9 +30146,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "1 Samuel 16:1-13",
-          "Numbers 21:1-9",
-          "Acts 18:24–28"
+          "2 Kings 5:15-19",
+          "Joshua 7:1-11",
+          "Matthew 4:1–11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30114,9 +30228,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2:8–20",
-          "Revelation 1:8, 11, 17–18",
-          "Matthew 28",
+          "Genesis 37:28",
+          "Philemon 1",
+          "Matthew 13:31–32",
           "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
         ],
         "correctIndex": 3,
@@ -30199,9 +30313,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 2:1–11",
-          "Genesis 22",
-          "Joshua 8:1-8, 18-23, 26-29",
-          "Exodus 40:1-38"
+          "1 Kings 17:8-16",
+          "Ezra 1:1–11; 3:1–6",
+          "1 Samuel 16:1-13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30282,10 +30396,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 14:13–21",
-          "Luke 17",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "1 Peter 1–5",
           "Mark 12",
-          "Matthew 14:22–33"
+          "Ruth 2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30490,9 +30604,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 28:1–10",
-          "1 Samuel 16:14-23",
-          "Matthew 8:5–13",
+          "Acts 15",
+          "2 Kings 4:38-41",
+          "1 Samuel 16:11; 17:15, 34–37",
           "Mark 12"
         ],
         "correctIndex": 3,
@@ -30830,9 +30944,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "1 Samuel 18:1-4; 20:1-42",
-          "Genesis 3"
+          "Acts 12:1–19",
+          "Revelation 13",
+          "Romans–Philemon"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30913,10 +31027,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 2:5",
-          "Genesis 40",
+          "Esther 5:1–8; 7:1–10",
+          "Acts 2:42–47",
           "Luke 19:1–10",
-          "Acts 20:7–12"
+          "1 Samuel 17:8–11, 16, 23–30"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",

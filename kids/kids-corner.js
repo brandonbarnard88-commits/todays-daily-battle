@@ -159,7 +159,8 @@
       parableSower: 'parableSower',
       mustardSeed: 'mustardSeed',
       parableMustardSeed: 'mustardSeed',
-      parableHiddenTreasure: 'parableHiddenTreasure'
+      parableHiddenTreasure: 'parableHiddenTreasure',
+      parablePearl: 'parablePearl'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -185,6 +186,7 @@
     if (low.indexOf('parablesower') >= 0 || low === 'parablesower') return 'parableSower';
     if (low.indexOf('parablemustardseed') >= 0 || low === 'parablemustardseed') return 'parableMustardSeed';
     if (low.indexOf('parablehiddentreasure') >= 0 || low === 'parablehiddentreasure') return 'parableHiddenTreasure';
+    if (low.indexOf('parablepearl') >= 0 || low === 'parablepearl') return 'parablePearl';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -3075,6 +3077,31 @@
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:44</text>'
       ),
 
+      /* Week 6 gentle: Pearl of great price — merchant, one pearl, joy (Matthew 13:45–46) */
+      parablePearl: svg(
+        ground() +
+        hills() +
+        sun(50, 42, 20) +
+        cloud(300, 34) +
+        '<rect x="58" y="198" width="92" height="52" rx="6" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="58" y1="218" x2="150" y2="218" ' + s + ' stroke-width="1.6"/>' +
+        '<ellipse cx="78" cy="208" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="104" cy="210" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="128" cy="208" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="200" cy="168" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M192 176 Q200 170 208 176" ' + s + ' stroke-width="1.4"/>' +
+        '<line x1="200" y1="184" x2="200" y2="248" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="200" y1="204" x2="172" y2="220" ' + s + ' stroke-width="2.4"/>' +
+        '<line x1="200" y1="204" x2="228" y2="210" ' + s + ' stroke-width="2.4"/>' +
+        '<path d="M186 248 L182 262 L214 262 L210 248 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="218" cy="188" r="22" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<circle cx="218" cy="188" r="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M212 182 Q218 178 224 182" ' + s + ' stroke-width="1.2"/>' +
+        '<circle cx="248" cy="252" r="5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="268" cy="248" r="6" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:45–46</text>'
+      ),
+
       /* ── Week 6: Jesus Heal Leper (78) ── */
       healLeper: svg(
         ground() +
@@ -4542,6 +4569,7 @@
     mustardSeed: 'mustardSeed',
     parableMustardSeed: 'mustardSeed',
     parableHiddenTreasure: 'parableHiddenTreasure',
+    parablePearl: 'parablePearl',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
@@ -6287,7 +6315,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

@@ -71,6 +71,7 @@
  * Parable of the sower — good soil (Matthew 13:1–23, gentle): buildParableSowerReadQuiz() (library key: parableSower).
  * Mustard seed — kingdom grows from small (Matthew 13:31–32, gentle): buildParableMustardSeedReadQuiz() (library key: mustardSeed; alias parableMustardSeed).
  * Hidden treasure in a field — Matthew 13:44 (gentle): buildParableHiddenTreasureReadQuiz() (library key: parableHiddenTreasure).
+ * Pearl of great price — Matthew 13:45–46 (gentle): buildParablePearlReadQuiz() (library key: parablePearl).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -8622,6 +8623,128 @@ function buildParableHiddenTreasureReadQuiz() {
   };
 }
 
+/** Pearl of great price — merchant, one pearl, worth everything (gentle). Library key: parablePearl */
+function buildParablePearlReadQuiz() {
+  return {
+    kjvRef: 'Matthew 13:45–46 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Who, when he had found one pearl of great price, went and sold all that he had, and bought it. — Matthew 13:46 (KJV)',
+    readAlongTitle: 'Jesus Tells About a Pearl Worth Everything',
+    quizWrongHumilityHint:
+      'Listen again — merchant; goodly pearls; one pearl; great price; sold all; bought it; kingdom; Jesus.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told another story about the kingdom of heaven.',
+      'He said it is like a merchant man who was looking for beautiful pearls.',
+      'When he found one pearl that was very precious, he went and sold everything he had so he could buy that pearl.',
+      'Jesus was teaching that the kingdom of God is so wonderful that it is worth giving up everything else to have it.',
+      'Finding Jesus is like finding the most beautiful and valuable pearl in the whole world.',
+      'Reference: Matthew 13:45–46 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus told a story about a merchant looking for pearls.',
+        caption: 'Seeking goodly pearls',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'He found one very beautiful pearl.',
+        caption: 'One pearl of great price',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'He sold everything he had to buy it.',
+        caption: 'Sold all that he had',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The kingdom of God is worth everything.',
+        caption: 'And bought it',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 13:45–46', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 13:45–46.)'
+      },
+      {
+        question: 'What did the merchant do when he found the pearl of great price?',
+        choices: [
+          'He went and sold all that he had, and bought it.',
+          'He hid it in a sock.',
+          'He threw it away.',
+          'He bought a rocket.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Jesus’ parable in Matthew 13.',
+        wrongFeedback:
+          'Think about what the merchant did when he found the pearl. (Answer: sold all… buy it.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God’s kingdom is not worth much.',
+          'God’s kingdom is so wonderful it is worth giving up everything else to have it — and finding Jesus is like the most valuable pearl.',
+          'We should never be happy.',
+          'Pearls are only pretend.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the ending about selling all and buying the pearl. (Answer: kingdom worth everything… finding Jesus.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The kingdom of heaven is like a merchant seeking goodly pearls.',
+          'The merchant turned into a frog.',
+          'The pearl was made of pizza.',
+          'Everyone forgot how to walk.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that wonder comes from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Matthew 13:45–46? (Answer: merchant seeking goodly pearls.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He is the pearl of great price — ask Him to help us love Him more than anything else.',
+          'Never think about God’s kingdom.',
+          'Hide when we feel happy.',
+          'Only grown-ups need Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus as treasure? (Answer: thank Jesus… love Him more than anything else.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Tells About a Pearl Worth Everything with God's Word today.",
+    takeaway: 'Finding Jesus is like finding the most beautiful and valuable pearl in the whole world.',
+    prayer:
+      'Lord Jesus, You are the pearl of great price. Help me love You first today. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: a merchant man holding a beautiful pearl with a happy excited face he has sold everything and is holding the pearl close thick bold outlines with large open spaces on the man\'s robe the pearl and the ground for easy coloring soft market stall and gentle sky with minimal lines joyful valuable mood focus on the pearl worth everything clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: Merchant seeking goodly pearls (gentle search)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: One pearl of great price — wonder (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: Sold all that he had — trust (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: Bought it — the pearl is his (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: Kingdom worth everything (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and seafoam, friendly not scary, no text in image: Jesus — most beautiful pearl (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -8737,5 +8860,6 @@ module.exports = {
   parableSower: buildParableSowerReadQuiz(),
   mustardSeed: buildParableMustardSeedReadQuiz(),
   parableHiddenTreasure: buildParableHiddenTreasureReadQuiz(),
+  parablePearl: buildParablePearlReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

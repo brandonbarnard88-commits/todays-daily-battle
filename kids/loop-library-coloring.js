@@ -124,6 +124,7 @@
   "noblemanSon": "noblemanSon",
   "palmSunday": "greatCommission",
   "parableHiddenTreasure": "parableHiddenTreasure",
+  "parablePearl": "parablePearl",
   "parableSower": "parableSower",
   "parableTalents": "richYoungRuler",
   "passoverLamb": "passoverLamb",

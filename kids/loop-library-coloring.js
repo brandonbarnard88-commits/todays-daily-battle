@@ -162,6 +162,7 @@
   "jesusTempted": "jesusTempted",
   "jesusSermon": "jesusSermon",
   "samaritanWoman": "samaritanWoman",
+  "noblemanSon": "noblemanSon",
   "shunammiteReturn": "shunammiteReturn",
   "solomonTemple": "solomonTemple",
   "solomonTwoMothers": "solomonTwoMothers",

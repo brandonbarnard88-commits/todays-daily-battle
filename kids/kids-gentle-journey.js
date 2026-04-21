@@ -144,6 +144,7 @@
     'jesusTemptation',
     'jesusSermon',
     'samaritanWoman',
+    'noblemanSon',
     'jesusHealsParalytic',
     'jesusCalmsStorm',
     'jairus',

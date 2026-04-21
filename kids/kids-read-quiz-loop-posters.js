@@ -130,6 +130,7 @@
     jesusTempted: 200,
     jesusSermon: 201,
     samaritanWoman: 202,
+    noblemanSon: 203,
     jesusBirth: 62,
     jesusBlessKids: 84,
     jesusCalmsStorm: 12,

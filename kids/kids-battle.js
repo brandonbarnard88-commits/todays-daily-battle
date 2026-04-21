@@ -7029,6 +7029,49 @@
       narration:
         "Jesus Offers Living Water — John 4:1–42. When therefore the Lord knew how the Pharisees had heard that Jesus made and baptized more disciples than John, (Though Jesus himself baptized not, but his disciples,) He left Judaea, and departed again into Galilee. And he must needs go through Samaria. Then cometh he to a city of Samaria, which is called Sychar, near to the parcel of ground that Jacob gave to his son Joseph. Now Jacob's well was there. Jesus therefore, being wearied with his journey, sat thus on the well: and it was about the sixth hour. There cometh a woman of Samaria to draw water: Jesus saith unto her, Give me to drink. Then saith the woman of Samaria unto him, How is it that thou, being a Jew, askest drink of me, which am a woman of Samaria? Jesus answered and said unto her, If thou knewest the gift of God, and who it is that saith to thee, Give me to drink; thou wouldest have asked of him, and he would have given thee living water. Whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life. The woman then left her waterpot, and went her way into the city, and saith to the men, Come, see a man, which told me all things that ever I did: is not this the Christ? And many of the Samaritans of that city believed on him for the saying of the woman. For you: Jesus offers living water — come and drink."
     },
+    noblemanSon: {
+      title: 'Jesus Heals a Boy from Far Away',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'A nobleman hurries to Jesus — his son is very sick at home'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus speaks peace — Go thy way; thy son liveth'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Servants meet the father — Thy son liveth — at the hour Jesus spoke'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus heal a boy from far away — kind words, trusting father, happy news for home.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'nobleman',
+        'son',
+        'cana',
+        'capernaum',
+        'john 4',
+        'heal',
+        'believe',
+        'thy son liveth',
+        'same hour',
+        'servants',
+        'household'
+      ],
+      kjvRef: 'John 4:46–54',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The nobleman — and everyone who listens',
+        apply:
+          'Jesus can heal even when He is far away. His word is true — trust Him like this father did.'
+      },
+      narration:
+        "Jesus Heals a Boy from Far Away — John 4:46–54. So Jesus came again into Cana of Galilee, where he made the water wine. And there was a certain nobleman, whose son was sick at Capernaum. When he heard that Jesus was come out of Judaea into Galilee, he went unto him, and besought him that he would come down, and heal his son: for he was at the point of death. Then said Jesus unto him, Except ye see signs and wonders, ye will not believe. The nobleman saith unto him, Sir, come down ere my child die. Jesus saith unto him, Go thy way; thy son liveth. And the man believed the word that Jesus had spoken unto him, and he went his way. And as he was now going down, his servants met him, and told him, saying, Thy son liveth. Then enquired he of them the hour when he began to amend. And they said unto him, Yesterday at the seventh hour the fever left him. So the father knew that it was at the same hour, in the which Jesus said unto him, Thy son liveth: and himself believed, and his whole house. For you: Jesus is powerful and kind — trust His word."
+    },
     marthaServe: {
       title: 'Martha Serves Jesus',
       panels: [
@@ -7532,7 +7575,7 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusWalksWater',
@@ -7555,7 +7598,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -10689,6 +10732,7 @@
     jesusTempted: 'Obedience',
     jesusSermon: 'Love',
     samaritanWoman: 'Love',
+    noblemanSon: 'Miracles',
     jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',

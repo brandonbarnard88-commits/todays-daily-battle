@@ -60,6 +60,7 @@
  * Temptation in the wilderness — God’s Word (Matthew 4:1–11, gentle): buildJesusTemptedReadQuiz() (library key: jesusTempted).
  * Sermon on the Mount — gentle introduction (Matthew 5:1–16 summary, gentle): buildJesusSermonReadQuiz() (library key: jesusSermon).
  * Woman at the well — living water (John 4:1–42, gentle summary): buildSamaritanWomanReadQuiz() (library key: samaritanWoman).
+ * Nobleman’s son healed at a word (John 4:46–54, gentle): buildNoblemanSonReadQuiz() (library key: noblemanSon).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -7068,6 +7069,146 @@ function buildSamaritanWomanReadQuiz() {
   };
 }
 
+/** Nobleman’s son — Jesus heals from far away (gentle). Library key: noblemanSon */
+function buildNoblemanSonReadQuiz() {
+  return {
+    kjvRef: 'John 4:46–54 (KJV) — gentle summary for little hearts',
+    verseExcerpt: 'Jesus saith unto him, Go thy way; thy son liveth. — John 4:50 (KJV)',
+    readAlongTitle: 'Jesus Heals a Boy from Far Away',
+    quizWrongHumilityHint:
+      'Listen again — sick son; Cana; hurry; beg Jesus; Go thy way; thy son liveth; believed; servants; same hour; household believed.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'A nobleman had a son who was very sick.',
+      'The father heard that Jesus was in Cana and hurried to Him.',
+      'He begged Jesus, “Sir, come down ere my child die.”',
+      'Jesus answered, “Go thy way; thy son liveth.”',
+      'The man believed the word that Jesus spoke and went on his way.',
+      'On the way home his servants met him and said, “Thy son liveth.”',
+      'The father asked at what hour the boy began to get better.',
+      'They told him it was the same hour Jesus had said, “Thy son liveth.”',
+      'The nobleman and all his household believed in Jesus.',
+      'Jesus can heal even when He is far away. He is powerful and kind.',
+      'Reference: John 4:46–54 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A nobleman had a very sick son.',
+        caption: 'A worried father',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He hurried to Jesus and asked for help.',
+        caption: 'Come quickly',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus said, “Go thy way; thy son liveth.”',
+        caption: 'Jesus’ kind words',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The father believed Jesus.',
+        caption: 'He trusted',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'On the way home the servants said the boy was well.',
+        caption: 'Good news',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'It happened at the same hour Jesus spoke.',
+        caption: 'The same hour',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus can heal even when He is far away.',
+        caption: 'Far away or near',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'John 4:46–54', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 4:46–54.)'
+      },
+      {
+        question: 'What did Jesus tell the nobleman?',
+        choices: [
+          '“Go thy way; thy son liveth.”',
+          '“Build a bigger house first.”',
+          '“Wait until next summer.”',
+          '“Do not go home yet.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus spoke life with a calm, sure word.',
+        wrongFeedback:
+          'Think about what Jesus said so the father could go home in peace. (Answer: “Go thy way; thy son liveth.”)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'Jesus cannot help unless He is in the same room.',
+          'Jesus can heal even when He is far away — He is powerful and kind.',
+          'Fathers should never ask Jesus for help.',
+          'Servants never tell the truth.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the part about the same hour and the boy getting better. (Answer: Jesus can heal even when He is far away — He is powerful and kind.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The boy began to mend at the same hour Jesus spoke.',
+          'A purple elephant brought the news.',
+          'The road turned into jelly.',
+          'The father forgot his own name.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches the timing God gave us in His Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches the servants’ report? (Answer: The boy began to mend at the same hour Jesus spoke.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus for His power and kindness — trust His word today like the nobleman did.',
+          'Never believe good news from anyone.',
+          'Only pray when we feel completely fearless.',
+          'Ignore what Jesus says and hope for luck.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus’ sure word to the father? (Answer: Thank Jesus for His power and kindness — trust His word today like the nobleman did.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Heals a Boy from Far Away with God's Word today.",
+    takeaway: 'Jesus can heal even when He is far away. He is powerful and kind.',
+    prayer:
+      'Lord Jesus, thank You that Your word is true. Help us trust You like the nobleman — and thank You for Your kindness. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: a kind nobleman kneeling before Jesus and asking for help Jesus has a gentle caring face and is speaking to the father thick bold outlines with large open spaces on the nobleman\'s robe Jesus\' robe and the ground for easy coloring soft road and hills in the background with minimal lines hopeful trusting mood focus on Jesus healing the sick boy from far away clean minimal no fear or sickness shown plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and gold, friendly not scary, no text in image: Hurried father — asks Jesus (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and gold, friendly not scary, no text in image: Go thy way — thy son liveth (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and gold, friendly not scary, no text in image: Father believes — walks home (trust)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and gold, friendly not scary, no text in image: Servants meet him — good news (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and gold, friendly not scary, no text in image: Same hour — boy well (miracle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and gold, friendly not scary, no text in image: Household believes — Jesus is kind (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -7172,5 +7313,6 @@ module.exports = {
   jesusTempted: buildJesusTemptedReadQuiz(),
   jesusSermon: buildJesusSermonReadQuiz(),
   samaritanWoman: buildSamaritanWomanReadQuiz(),
+  noblemanSon: buildNoblemanSonReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

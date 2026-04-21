@@ -3017,6 +3017,16 @@
     "kw": "samaritan woman well john 4 living water gift of god samaria sychar jacob believe christ tell thirsty heart"
   },
   {
+    "key": "noblemanSon",
+    "title": "Jesus Heals a Boy from Far Away",
+    "kjvRef": "John 4:46–54",
+    "who": "Jesus",
+    "to": "The nobleman — and his whole household",
+    "apply": "Jesus can heal even when He is far away. His word is true — trust Him like this father did.",
+    "theme": "Miracles",
+    "kw": "nobleman son cana capernaum john 4 heal believe thy son liveth same hour servants household fever"
+  },
+  {
     "key": "thessaloniansHope",
     "title": "Thessalonians — Hope When We Grieve",
     "kjvRef": "1 Thessalonians 4:13–18; 5:16–24",

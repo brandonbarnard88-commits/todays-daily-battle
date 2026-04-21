@@ -2428,13 +2428,13 @@
   },
   {
     "key": "shepherdsStar",
-    "title": "Shepherds and the Star",
-    "kjvRef": "Luke 2",
+    "title": "The Shepherds Find Baby Jesus",
+    "kjvRef": "Luke 2:8–20",
     "who": "God",
-    "to": "The shepherds",
-    "apply": "God shares good news first with humble people! Run to Jesus—everyone is invited.",
+    "to": "The shepherds — and everyone who hears the good news",
+    "apply": "The good news of Jesus is for everyone.",
     "theme": "Love",
-    "kw": "shepherds star angels luke 2 bethlehem birth glory"
+    "kw": "shepherds angels bethlehem manger good tidings saviour luke 2 glory joy peace baby jesus"
   },
   {
     "key": "crossCarry",

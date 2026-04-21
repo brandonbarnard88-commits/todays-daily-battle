@@ -11624,7 +11624,7 @@
         "choices": [
           "Exodus 14",
           "Ruth 2:1-17",
-          "Luke 2",
+          "Luke 2:8–20",
           "Mark 10:13–16"
         ],
         "correctIndex": 3,
@@ -19364,7 +19364,7 @@
         "choices": [
           "Luke 1",
           "Acts 15:36–18:22",
-          "Luke 2",
+          "Luke 2:8–20",
           "Genesis 11"
         ],
         "correctIndex": 1,
@@ -20783,7 +20783,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41",
-          "Luke 2",
+          "Luke 2:8–20",
           "Genesis 11",
           "Ruth 2:1-17"
         ],
@@ -26421,89 +26421,136 @@
     ]
   },
   "shepherdsStar": {
-    "kjvRef": "Luke 2",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Luke 2:8–20 (KJV)",
+    "verseExcerpt": "Fear not: for, behold, I bring you good tidings of great joy… For unto you is born this day in the city of David a Saviour, which is Christ the Lord. — Luke 2:10–11 (KJV)",
+    "readAlongTitle": "The Shepherds Find Baby Jesus",
+    "quizWrongHumilityHint": "Listen again — fields at night; angel and glory; good tidings; many angels praised God; hurried to Bethlehem; found Jesus in the manger; told others; went home praising God.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Shepherds and the Star (Luke 2).",
-      "Shepherds watch their flock at night Angels fill the sky singing!",
-      "They run to Bethlehem—Jesus is born!",
-      "God shares good news first with humble people!",
-      "Run to Jesus—everyone is invited."
+      "That same night, shepherds were watching their sheep in the fields near Bethlehem.",
+      "Suddenly an angel of the Lord appeared to them, and the glory of the Lord shone all around.",
+      "The angel said, “Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.”",
+      "Then many angels appeared, praising God and saying, “Glory to God in the highest, and on earth peace, good will toward men.”",
+      "The shepherds said to one another, “Let us now go even unto Bethlehem, and see this thing which is come to pass.”",
+      "They hurried to the stable and found Mary and Joseph, and the baby Jesus lying in the manger.",
+      "They told everyone what the angel had said about the child.",
+      "The shepherds returned to their sheep, glorifying and praising God for all the things they had heard and seen.",
+      "The shepherds were so happy they had found baby Jesus, just as the angel said.",
+      "Reference: Luke 2:8–20 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Shepherds were watching their sheep at night.",
+        "caption": "Keeping watch",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "An angel appeared with bright light.",
+        "caption": "Do not fear",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The angel said, “Good tidings of great joy — a Saviour is born!”",
+        "caption": "Great joy",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Many angels praised God.",
+        "caption": "Glory to God",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The shepherds hurried to Bethlehem.",
+        "caption": "Let us go",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "They found baby Jesus in the manger.",
+        "caption": "Found Him",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "They were so happy they had found Him.",
+        "caption": "Full of joy",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 4:1–17",
-          "Matthew 28:18–20",
-          "Luke 2:1–20",
-          "Luke 2"
+          "Psalm 23",
+          "Luke 2:8–20",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 2.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 2:8–20.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "The crowds",
-          "Jesus",
-          "Joshua"
+          "Pharaoh",
+          "Goliath",
+          "Samson"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Right—God welcomed the shepherds with good tidings about Jesus.",
+        "wrongFeedback": "Look for who sends the angel’s message and invites us to come see Jesus. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "We should hide from God when we mess up.",
-          "God shares good news first with humble people! Run to Jesus—everyone is invited.",
+          "The good news of Jesus is only for special people.",
+          "The good news of Jesus is for everyone — we can run to Him with joy.",
           "God never hears when kids pray.",
           "The Bible is only pretend stories."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God shares good news first with humble people! Run to Jesus—everyone is invited..)"
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s invitation? (Answer: The good news of Jesus is for everyone — we can run to Him with joy.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Shepherds watch their flock at night",
-          "Everyone decided to never sleep again.",
           "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city."
+          "Let us rise up and build.",
+          "Glory to God in the highest, and on earth peace, good will toward men.",
+          "Everyone decided to never sleep again."
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Glory to God in the highest, and on earth peace, good will toward men.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
           "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
+          "Thank God for Jesus — and share the good tidings with someone kindly.",
           "Never say sorry when we do wrong.",
-          "God shares good news first with humble people! Run to Jesus—everyone is invited."
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God shares good news first with humble people! Run to Jesus—everyone is invited..)"
+        "wrongFeedback": "Think: does this choice show joy in Jesus? Pick the one that honors Him. (Answer: Thank God for Jesus — and share the good tidings with someone kindly.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Shepherds and the Star with God's Word today.",
-    "takeaway": "God shares good news first with humble people! Run to Jesus—everyone is invited.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Shepherds and the Star. Amen.",
+    "doneMessage": "Great job reading The Shepherds Find Baby Jesus with God's Word today.",
+    "takeaway": "The good news of Jesus is for everyone.",
+    "prayer": "Lord, thank You for the good tidings of great joy. Help us run to Jesus and tell others with kindness. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Shepherds watch their flock at night (shepherds)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angels fill the sky singing! (star)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: They run to Bethlehem—Jesus is born! (angels)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Shepherds watch their flock at night (luke 2)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angels fill the sky singing! (bethlehem)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: The shepherds standing quietly near the manger with happy wondering faces Baby Jesus is in the manger with Mary and Joseph nearby a few sheep stand close by thick bold outlines with large open spaces on the shepherds' robes the manger and the ground for easy coloring soft stable walls and a gentle star in the sky with minimal lines joyful and wondering mood focus on the shepherds finding baby Jesus clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Shepherds in the fields at night (watch)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel — good tidings of great joy (angel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Many angels praising God (glory)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Shepherds hurry to Bethlehem (run)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Found baby Jesus — happy hearts (manger)"
+    ],
+    "readAlongImages": []
   },
   "shunammiteReturn": {
     "kjvRef": "2 Kings 8:1-6 (KJV)",

@@ -2639,19 +2639,24 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 1:28</text>'
       ),
 
-      /* ── Week 5: Shepherds Star (62) ── */
+      /* ── Shepherds — stable, manger, joy at finding Jesus (Luke 2:8–20) ── */
       shepherdsStar: svg(
-        ground() + hills() +
-        star(200, 35, 22) +
-        '<line x1="200" y1="57" x2="200" y2="100" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
-        '<circle cx="198" cy="152" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M180 142 Q165 125 180 112 Q194 122 198 138" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M216 142 Q231 125 216 112 Q202 122 198 138" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(80, 188, 11, 32) + person(108, 192, 10, 28) +
-        '<ellipse cx="58" cy="228" rx="18" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="44" cy="220" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        person(290, 185, 10, 28) + person(320, 188, 10, 28) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:9</text>'
+        ground() +
+        '<path d="M72 262 L72 150 L200 106 L328 150 L328 262" ' + sf + ' fill="white" stroke-width="2.7"/>' +
+        '<path d="M72 150 L200 106 L328 150" ' + sf + ' fill="white" stroke-width="2.7"/>' +
+        '<rect x="170" y="186" width="76" height="42" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="208" cy="202" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(118, 188, 9, 24) +
+        person(285, 188, 9, 24) +
+        person(88, 198, 9, 26) +
+        person(112, 202, 8, 24) +
+        person(302, 200, 9, 26) +
+        '<ellipse cx="52" cy="252" rx="14" ry="7" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<ellipse cx="348" cy="252" rx="14" ry="7" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<ellipse cx="72" cy="256" rx="12" ry="6" ' + sf + ' fill="white" stroke-width="1.45"/>' +
+        star(200, 48, 11) +
+        '<line x1="200" y1="62" x2="200" y2="118" ' + s + ' stroke-width="0.46" stroke-dasharray="7,7" opacity="0.24"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:8–20</text>'
       ),
 
       /* ── Week 5: Jesus Manger (63) ── */

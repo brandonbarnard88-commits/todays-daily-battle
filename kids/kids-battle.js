@@ -4669,18 +4669,46 @@
       kidContext: { who: 'God', to: 'Mary', apply: 'God chooses ordinary people! When God calls you, say yes like Mary.' }
     },
     shepherdsStar: {
-      title: 'Shepherds and the Star',
+      title: 'The Shepherds Find Baby Jesus',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Shepherds watch their flock at night' },
-        { src: 'panel-noah-2.svg', alt: 'Angels fill the sky singing!' },
-        { src: 'panel-noah-3.svg', alt: 'They run to Bethlehem—Jesus is born!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Shepherds watch their sheep — an angel speaks, God’s glory shines around them'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Many angels praise God — good tidings of great joy for all people'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'The shepherds hurry to Bethlehem — they find baby Jesus in the manger, just as God said'
+        }
       ],
-      caption: 'Swipe to see the shepherds run to baby Jesus! ✨',
+      caption:
+        'Swipe to see the night angels sang—shepherds hurried, found Jesus, and went home praising God.',
       videoId: '',
       videoTitle: '',
-      keywords: ['shepherds', 'star', 'angels', 'luke 2', 'bethlehem', 'birth', 'glory'],
-      kjvRef: 'Luke 2',
-      kidContext: { who: 'God', to: 'The shepherds', apply: 'God shares good news first with humble people! Run to Jesus—everyone is invited.' }
+      keywords: [
+        'shepherds',
+        'angels',
+        'bethlehem',
+        'manger',
+        'good tidings',
+        'saviour',
+        'luke 2',
+        'glory',
+        'joy',
+        'peace',
+        'baby jesus'
+      ],
+      kjvRef: 'Luke 2:8–20',
+      kidContext: {
+        who: 'God',
+        to: 'The shepherds — and everyone who hears the good news',
+        apply: 'The good news of Jesus is for everyone.'
+      },
+      narration:
+        "The Shepherds Find Baby Jesus — Luke 2:8–20. Shepherds were in the fields keeping watch over their flock by night. The angel of the Lord came upon them, and the glory of the Lord shone round about them; and they were sore afraid. The angel said, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord. Suddenly there was with the angel a multitude of the heavenly host praising God, and saying, Glory to God in the highest, and on earth peace, good will toward men. The shepherds said one to another, Let us now go even unto Bethlehem, and see this thing which is come to pass. They came with haste, and found Mary and Joseph, and the babe lying in a manger. When they had seen it, they made known abroad the saying which was told them. They returned, glorifying and praising God. For you: the good news of Jesus is for everyone."
     },
     jesusManger: {
       title: 'Baby Jesus in the Manger',

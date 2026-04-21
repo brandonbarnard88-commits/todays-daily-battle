@@ -2118,19 +2118,23 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 5:2</text>'
       ),
 
-      /* Esther — gentle courage, queen before king, palace window (Esther 4:14) — first gentle beat */
+      /* Esther — simple crown, soft palace window light, queen before king (Esther 4–7) */
       estherBrave: svg(
         ground() +
         '<rect x="52" y="98" width="296" height="72" rx="8" ' +
         sf +
-        ' fill="white" stroke-width="2.2"/>' +
+        ' fill="white" stroke-width="2"/>' +
         '<path d="M110 98 L110 62 Q160 48 200 56 Q240 48 290 62 L290 98" ' +
         sf +
-        ' fill="white" stroke-width="2"/>' +
+        ' fill="white" stroke-width="1.75"/>' +
+        /* gentle window light above arch */
+        '<ellipse cx="200" cy="68" rx="72" ry="16" ' + sf + ' fill="white" stroke-width="0.55" opacity="0.22"/>' +
+        '<line x1="200" y1="54" x2="200" y2="88" ' + s + ' stroke-width="0.65" stroke-dasharray="9,8" opacity="0.32"/>' +
+        '<line x1="176" y1="58" x2="168" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.26"/>' +
+        '<line x1="224" y1="58" x2="232" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.26"/>' +
         person(175, 182, 11, 34) +
-        '<path d="M162 158 L166 146 L170 158 L176 140 L182 158 L186 146 L190 158 Z" ' +
-        sf +
-        ' fill="white" stroke-width="2"/>' +
+        /* small gentle crown — five soft peaks, lighter stroke */
+        '<path d="M168 158 L172 150 L176 156 L180 150 L184 158 Z" ' + sf + ' fill="white" stroke-width="1.45"/>' +
         '<path d="M150 192 L138 214 M200 192 L212 214" ' + s + ' stroke-width="1.8"/>' +
         person(298, 176, 12, 34) +
         '<rect x="276" y="198" width="56" height="28" rx="5" ' +
@@ -2142,7 +2146,7 @@
         '<path d="M290 162 Q307 148 324 162" ' + s + ' stroke-width="2"/>' +
         person(92, 194, 9, 28) +
         sun(48, 44, 16) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 4:14</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 4–7</text>'
       ),
 
       /* ── Week 4: Nehemiah — wall rising, teamwork, stones, soft gate, no weapons ── */

@@ -7319,49 +7319,54 @@
     "kjvRef": "Esther 4:1–17; 5:1–8; 7:1–10 (KJV)",
     "verseExcerpt": "and who knoweth whether thou art come to the kingdom for such a time as this? — Esther 4:14 (KJV)",
     "readAlongTitle": "Esther Helps Her People",
-    "quizWrongHumilityHint": "Listen again — prayer and fasting; brave words to the king; God turned the king’s heart to save His people.",
+    "quizWrongHumilityHint": "Listen again — God’s people prayed together; Esther was brave before the king; God used her to save His people.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "The king of Persia chose Esther to be queen. Esther was a Jewish girl, but the king did not know it.",
-      "A wicked man named Haman made a plan to hurt all the Jewish people. Mordecai asked who knoweth whether thou art come to the kingdom for such a time as this?",
-      "Esther asked all the Jews to fast and pray for her. Then she went to the king.",
-      "She prepared a banquet. At the right time she told the king about Haman’s wicked plan. The king was angry with Haman and stopped the evil plan. The Jewish people were saved.",
-      "God used Esther’s courage and prayer to protect His people.",
-      "Reference: Esther 4:1–17; 5:1–8; 7:1–10 (KJV)."
+      "Long ago, God’s people were far from home.",
+      "A wicked man named Haman planned to hurt all of God’s people.",
+      "Queen Esther was one of God’s people, but the king did not know it.",
+      "Her cousin Mordecai sent word: \"Who knows whether thou art come to the kingdom for such a time as this?\"",
+      "Esther asked all God’s people to pray and fast with her.",
+      "Then she went bravely to the king and said, \"If I have found favour in thy sight, let the king and Haman come to the banquet that I shall prepare.\"",
+      "At the right time she told the king about the wicked plan.",
+      "The king was angry with Haman and stopped the evil plan.",
+      "God used Queen Esther to help and save her people.",
+      "The Lord hears when His children pray and helps them in hard times.",
+      "Reference: Esther 4:1–17; 5:1–8; 7:1–10 (KJV)"
     ],
     "readAlongSections": [
       {
-        "text": "The king chose Esther to be queen.",
-        "caption": "A queen for such a time",
+        "text": "God’s people were far from home.",
+        "caption": "Far from home",
         "image": "panel-jesus-1.svg"
       },
       {
-        "text": "A wicked man made a plan to hurt the Jewish people.",
-        "caption": "A hard day for God’s people",
+        "text": "A bad man wanted to hurt them.",
+        "caption": "A hard plan",
         "image": "panel-jesus-1.svg"
       },
       {
-        "text": "Mordecai said, Who knoweth whether thou art come to the kingdom for such a time as this?",
+        "text": "Queen Esther was one of God’s people.",
+        "caption": "A brave queen",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Mordecai said, \"Who knows whether thou art come to the kingdom for such a time as this?\"",
         "caption": "Such a time as this",
         "image": "panel-jesus-2.svg"
       },
       {
-        "text": "Esther asked the Jews to pray and fast for her.",
+        "text": "Esther asked everyone to pray with her.",
         "caption": "Pray together",
         "image": "panel-jesus-2.svg"
       },
       {
-        "text": "And Esther answered, If it seem good unto the king, let the king and Haman come this day unto the banquet that I have prepared for him.",
-        "caption": "Come to the banquet",
+        "text": "She went bravely to the king.",
+        "caption": "Before the king",
         "image": "panel-jesus-3.svg"
       },
       {
-        "text": "At the right time Esther told the king. The king stopped the evil plan.",
-        "caption": "Truth spoken bravely",
-        "image": "panel-jesus-3.svg"
-      },
-      {
-        "text": "God used Esther to protect her people.",
+        "text": "God used Esther to help and save her people.",
         "caption": "For you",
         "image": "panel-jesus-3.svg"
       }
@@ -7409,12 +7414,12 @@
         "choices": [
           "A spaceship landed in the parking lot.",
           "The people answered, Let us rise up and build.",
-          "Mordecai asked who knoweth whether thou art come to the kingdom for such a time as this.",
+          "Who knows whether thou art come to the kingdom for such a time as this?",
           "Everyone decided to never sleep again."
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Mordecai asked who knoweth whether thou art come to the kingdom for such a time as this.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Who knows whether thou art come to the kingdom for such a time as this?)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
@@ -7431,10 +7436,10 @@
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Esther Helps Her People with God's Word today.",
-    "takeaway": "God can use courage, prayer, and brave truth to protect His people.",
+    "takeaway": "God hears when we pray and can use brave, gentle courage to help others.",
     "prayer": "Lord, thank You for Esther’s brave heart. Help us pray, speak truth, and trust You. Amen.",
     "imagePrompts": [
-      "Simple peaceful black-and-white line-art for young children ages 3–8: Queen Esther standing calmly before the seated king on a simple throne kind brave faces thick bold outlines large open spaces on robes throne floor soft palace wall arched window minimal lines courageous hopeful mood no anger no fear plenty of white space coloring page",
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Queen Esther standing bravely before the king in the palace gentle crown kind face king seated on throne looking at her thick bold outlines large open spaces on Esther's robe the king's robe and the palace floor for easy coloring soft palace walls and a window with light in the background with minimal lines brave and trusting mood focus on Esther helping her people because she prayed and trusted God clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther prays with God’s people (esther)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther speaks to the king (queen)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God protects His people (purim)",

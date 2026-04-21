@@ -32640,7 +32640,7 @@
         "image": "panel-jesus-2.svg"
       },
       {
-        "text": "Jesus answered calmly, “Thou hast said… Hereafter shall ye see the Son of man sitting on the right hand of power.”",
+        "text": "Jesus answered calmly, \"Thou hast said… Hereafter shall ye see the Son of man sitting on the right hand of power.\"",
         "caption": "Thou hast said",
         "image": "panel-jesus-3.svg"
       },

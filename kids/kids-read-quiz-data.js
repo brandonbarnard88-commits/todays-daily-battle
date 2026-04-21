@@ -144,7 +144,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 22",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
           "Jeremiah 1:1–10; 13:17",
           "Judges 7:1-22"
         ],
@@ -1134,7 +1134,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Isaiah 9:2–7",
-          "Revelation 1",
+          "2 John; 3 John",
           "Luke 2:36–38",
           "Mark 2:1–12"
         ],
@@ -1554,7 +1554,7 @@
           "Mark 5:21–43",
           "2 Kings 5:20-27",
           "Acts 1:6–11",
-          "John 11:1–44"
+          "John 10:1–18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2633,7 +2633,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Genesis 37:3",
           "Colossians 1:15–20; 3:1–4, 12–17",
           "Acts 13–14",
           "John 20:1–18"
@@ -2803,7 +2803,7 @@
         "choices": [
           "Luke 17",
           "1 Corinthians 12",
-          "Matthew 14:22–33",
+          "Job 1:1–22; 2:11–13",
           "Matthew 14:13–21"
         ],
         "correctIndex": 1,
@@ -5104,9 +5104,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 16:11; 17:15, 34–37",
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Matthew 28; Mark 16; Luke 24; John 20",
           "Matthew; Mark; Luke; John (Gospels overview)",
-          "Genesis 37:3"
+          "Genesis 40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5481,7 +5481,7 @@
           "the Bible",
           "Romans–Philemon",
           "Exodus 7:8–13",
-          "Genesis 37:28"
+          "Joshua 7:1-11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9624,7 +9624,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Exodus 7:8–13",
-          "Genesis 37:28",
+          "Joshua 7:1-11",
           "1 Samuel 17:8–11, 16, 23–30",
           "Romans–Philemon"
         ],
@@ -9929,7 +9929,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28:18–20",
-          "Luke 2:41–52",
+          "Matthew 4:1–11",
           "Mark 10:13–16",
           "1 Samuel 1"
         ],
@@ -10561,7 +10561,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1",
+          "2 John; 3 John",
           "Acts 16:11–15",
           "Matthew 13:45–46",
           "Hebrews 11"
@@ -13037,8 +13037,8 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Genesis 41:41",
-          "Matthew 5–7",
+          "Genesis 37:28",
+          "Luke 2:41–52",
           "Exodus 14:21-31"
         ],
         "correctIndex": 0,
@@ -13104,91 +13104,6 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The cup — the new testament in My blood (bread)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus and the twelve at the Passover table (cup)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus breaks bread — This is My body (covenant)"
-    ]
-  },
-  "jesusLazarus": {
-    "kjvRef": "John 11:1–44",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
-    "paragraphs": [
-      "Lazarus, Come Forth (John 11:1–44). Mary and Martha send word.",
-      "Lazarus is sick Jesus at the tomb.",
-      "Lazarus, come forth Lazarus lives.",
-      "many believe on Jesus Jesus is the resurrection and the life.",
-      "nothing is too dead for Him to reach."
-    ],
-    "quizHeading": "Quiz — think it through",
-    "questions": [
-      {
-        "question": "Where is this story found in the Bible?",
-        "choices": [
-          "Numbers 21:1-9",
-          "1 Samuel 16:1-13",
-          "1 Kings 17:8-16",
-          "John 11:1–44"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: John 11:1–44.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Jesus",
-          "God the Father",
-          "Philip",
-          "Jonathan"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God never hears when kids pray.",
-          "Jesus is the resurrection and the life — nothing is too dead for Him to reach.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus is the resurrection and the life — nothing is too dead for Him to reach..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Mary and Martha send word — Lazarus is sick",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Jesus is the resurrection and the life — nothing is too dead for Him to reach."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus is the resurrection and the life — nothing is too dead for Him to reach..)"
-      }
-    ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Lazarus, Come Forth with God's Word today.",
-    "takeaway": "Jesus is the resurrection and the life — nothing is too dead for Him to reach.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Lazarus, Come Forth. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary and Martha send word — Lazarus is sick (lazarus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus at the tomb — Lazarus, come forth (john 11)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Lazarus lives — many believe on Jesus (resurrection)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary and Martha send word — Lazarus is sick (life)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus at the tomb — Lazarus, come forth (mary)"
     ]
   },
   "jesusManger": {
@@ -13458,7 +13373,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Genesis 37:3",
+          "Genesis 40",
           "Luke 10:38–42",
           "Acts 9:1–19"
         ],
@@ -14051,7 +13966,7 @@
           "Mark 2:1–12",
           "Isaiah 9:2–7",
           "Matthew 4:1–11; Luke 4:1–13",
-          "2 John; 3 John"
+          "Jonah 1:17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15744,7 +15659,7 @@
           "Genesis 41:41",
           "Judges 6:11-40",
           "James 2:14–26",
-          "John 10:1–18"
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16386,7 +16301,7 @@
         "choices": [
           "the Bible",
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
-          "Luke 3; Matthew 3",
+          "1 John 1–5",
           "Luke 15:3–7"
         ],
         "correctIndex": 0,
@@ -16621,89 +16536,133 @@
     ]
   },
   "lazarus": {
-    "kjvRef": "John 11:1–44",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "John 11:1–44 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Jesus said unto her, I am the resurrection, and the life. — John 11:25 (KJV)",
+    "readAlongTitle": "Jesus Brings Lazarus Back to Life",
+    "quizWrongHumilityHint": "Listen again — Bethany; sick; died; four days; tomb; Martha; believe; resurrection; life; come forth; loose him; believe.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus.",
-      "But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days.",
-      "Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death!",
-      "For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection.",
-      "Trust Him with your hardest days—He has power to make things new."
+      "Jesus had a friend named Lazarus who lived in Bethany with his sisters Mary and Martha.",
+      "Lazarus became very sick and died.",
+      "When Jesus came, Lazarus had been in the tomb for four days.",
+      "Mary and Martha were very sad.",
+      "Jesus said to Martha, “I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”",
+      "Then Jesus went to the tomb and said, “Lazarus, come forth.”",
+      "Lazarus walked out of the tomb, alive again!",
+      "Many people who saw this believed in Jesus.",
+      "Jesus has power over death and brings hope and life.",
+      "Reference: John 11:1–44 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Lazarus was very sick and died.",
+        "caption": "A hard day in Bethany",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus came to the tomb.",
+        "caption": "Jesus draws near",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “I am the resurrection and the life.”",
+        "caption": "Believest thou this?",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus called, “Lazarus, come forth.”",
+        "caption": "Come forth",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Lazarus walked out alive.",
+        "caption": "Loose him, and let him go",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus has power over death.",
+        "caption": "Hope and life",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 6:1-21",
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+          "Psalm 23",
           "John 11:1–44",
-          "Hebrews 11"
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: John 11:1–44.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 11:1–44.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "Who was Lazarus to Jesus in this gentle story?",
         "choices": [
-          "Jesus",
-          "Mary",
-          "David",
-          "Peter"
+          "A dear friend whose family loved Him — Mary and Martha’s brother.",
+          "A stranger Jesus never met.",
+          "Someone who lived in a book only.",
+          "A pretend person with no family."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—that matches how John 11 introduces Lazarus of Bethany.",
+        "wrongFeedback": "Think: who were Mary and Martha to Lazarus? (Answer: friend… brother… sisters.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "Which words did Jesus say to Martha about resurrection and life?",
         "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad…"
+          "“I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”",
+          "“Be careful for nothing.”",
+          "“Peace, be still.”",
+          "“Take no thought for your life.”"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to….)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with John 11:25 and God's truth.",
+        "wrongFeedback": "Reread Martha’s moment with Jesus in John 11. (Answer: resurrection… life… believeth.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Mary and Martha sad – Lazarus is dead",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot."
+          "When Jesus called “Lazarus, come forth,” the one who was dead came out.",
+          "The tomb turned into a rocket.",
+          "Everyone forgot who Lazarus was.",
+          "Mary and Martha lived on the moon."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches John 11? (Answer: come forth… came out.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest…",
-          "Only be kind to people who are exactly like us."
+          "Thank Jesus that He has power over death — and ask Him to help me trust Him with hard, sad days.",
+          "Never talk to God.",
+          "Only think about fear.",
+          "Forget what Jesus said."
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection.….)"
+        "wrongFeedback": "Think: which honors Jesus as “the resurrection, and the life”? (Answer: thank… trust.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Lazarus Raised with God's Word today.",
-    "takeaway": "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust…",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Lazarus Raised. Amen.",
+    "doneMessage": "Great job reading Jesus Brings Lazarus Back to Life with God's Word today.",
+    "takeaway": "Jesus has power over death and brings hope and life.",
+    "prayer": "Lord Jesus, thank You that You are the resurrection and the life. Help me trust You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary and Martha sad – Lazarus is dead (lazarus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus at the tomb – Calling Lazarus out (raised)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Lazarus walking out alive – Jesus has power over death (dead)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary and Martha sad – Lazarus is dead (come out)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus at the tomb – Calling Lazarus out (alive)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children: Jesus standing outside the tomb calling Lazarus Lazarus is walking out wrapped in cloths with a happy alive face Mary and Martha stand nearby with thankful faces thick bold outlines with large open spaces on Jesus robe Lazarus cloths and the ground for easy coloring soft tomb opening and gentle hills with minimal lines hopeful and joyful mood focus on Jesus bringing Lazarus back to life clean minimal no fear or dark tomb plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Bethany — a friend is sick (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Four days — Jesus comes near (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Resurrection and life — Jesus speaks (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Come forth — call at the tomb (power)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Walking out — bound in graveclothes (alive)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Loose him — thankful hearts (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Many believed — hope spreads (love)"
+    ],
+    "readAlongImages": []
   },
   "loisTimothy": {
     "kjvRef": "the Bible",
@@ -17099,7 +17058,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 3; Matthew 3",
+          "1 John 1–5",
           "the Bible",
           "Hebrews 11",
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
@@ -17587,7 +17546,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "James 2:14–26",
-          "John 10:1–18",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
           "John 20:1–18",
           "Judges 6:11-40"
         ],
@@ -18208,7 +18167,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+          "John 11:1–44",
           "Acts 27",
           "Exodus 14:21-31",
           "Genesis 6–9"
@@ -18290,8 +18249,8 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Exodus 7:8–13",
-          "Luke 2:41–52",
-          "Genesis 37:28",
+          "Matthew 4:1–11",
+          "Joshua 7:1-11",
           "Matthew 13:31–32"
         ],
         "correctIndex": 0,
@@ -20142,7 +20101,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Exodus 14:21-31",
-          "Genesis 41:41",
+          "Genesis 37:28",
           "Acts 9:1–19",
           "Romans–Philemon"
         ],
@@ -20390,10 +20349,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 4:1–11",
+          "Matthew 4:1–11; Luke 4:1–13",
           "Acts 20:7–12",
           "Matthew 13:31–32",
-          "Joshua 7:1-11"
+          "Joshua 24:14-15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20473,7 +20432,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "2 Kings 5:20-27",
-          "John 11:1–44",
+          "John 10:1–18",
           "Acts 13–14",
           "Mark 5:21–43"
         ],
@@ -20968,10 +20927,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 11:1–44",
+          "John 10:1–18",
           "Acts 27",
           "Exodus 16:1-36",
-          "Jonah 1:17"
+          "Jonah 1:1–17; 2:1–10; 3:1–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21385,8 +21344,8 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Titus 1–3",
-          "Matthew 28; Mark 16; Luke 24; John 20",
-          "Genesis 40",
+          "Matthew 5:1–16",
+          "Genesis 39–40",
           "Luke 24:50–53; Acts 1:6–11"
         ],
         "correctIndex": 0,
@@ -22053,8 +22012,8 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 37:28",
-          "Luke 2:41–52",
+          "Joshua 7:1-11",
+          "Matthew 4:1–11",
           "Acts 2:14–41",
           "Exodus 7:8–13"
         ],
@@ -22390,7 +22349,7 @@
         "choices": [
           "Mark 2:1–12",
           "Acts 16:11–15",
-          "Revelation 1",
+          "2 John; 3 John",
           "Acts 8:26–40"
         ],
         "correctIndex": 3,
@@ -22558,7 +22517,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 14:13–21",
-          "Matthew 14:22–33",
+          "Job 1:1–22; 2:11–13",
           "Philippians 1:21; 2:5–11; 4:4–7, 13",
           "Luke 17"
         ],
@@ -22894,7 +22853,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Genesis 37:3",
           "John 20:1–18",
           "Acts 13–14",
           "Acts 18:24–28"
@@ -22979,7 +22938,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 17:8–11, 16, 23–30",
-          "Matthew 28; Mark 16; Luke 24; John 20",
+          "Matthew 5:1–16",
           "Luke 24:50–53; Acts 1:6–11",
           "Acts 18:1–3, 18–19"
         ],
@@ -24046,10 +24005,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jonah 1:1–17; 2:1–10; 3:1–10",
+          "Joshua 3:14-17; 4:1-7, 18-24",
           "Exodus 14",
           "James 2:14–26",
-          "John 10:1–18"
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24133,8 +24092,8 @@
         "choices": [
           "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
           "Matthew 4:18–22; Luke 5:1–11",
-          "Matthew 4:1–11",
-          "Joshua 7:1-11"
+          "Matthew 4:1–11; Luke 4:1–13",
+          "Joshua 24:14-15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24547,7 +24506,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 4:18–22; Luke 5:1–11",
-          "Matthew 4:1–11",
+          "Matthew 4:1–11; Luke 4:1–13",
           "1 Samuel 1:1-20",
           "Revelation 1–3"
         ],
@@ -24964,7 +24923,7 @@
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
           "Revelation 19",
           "Luke 15:3–7",
-          "Luke 3; Matthew 3"
+          "1 John 1–5"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25298,7 +25257,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 8–11",
-          "John 10:1–18",
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
           "James 2:14–26",
           "Judges 6:11-40"
         ],
@@ -27891,7 +27850,7 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 John 1–5",
+          "Revelation 1",
           "1 Samuel 9–10",
           "Acts 2:1–13",
           "Matthew 28:16–20; Mark 16:15–18"
@@ -28903,8 +28862,8 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 11:1–44",
-          "Jonah 1:17",
+          "John 10:1–18",
+          "Jonah 1:1–17; 2:1–10; 3:1–10",
           "Acts 6:8–7:60",
           "Mark 5:21–43"
         ],
@@ -28987,10 +28946,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 4:1–11",
+          "Matthew 4:1–11; Luke 4:1–13",
           "Matthew 13:31–32",
           "Acts 6:8–7:60",
-          "Joshua 7:1-11"
+          "Joshua 24:14-15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29922,10 +29881,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 39–40",
+          "Genesis 41:41",
           "Exodus 2:5",
           "Matthew 28",
-          "Matthew 5:1–16"
+          "Matthew 5–7"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -32061,6 +32020,135 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Jesus gentle — one thing needful (love)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Good part — not taken away (joy)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Listen today — small quiet moment (hope)"
+    ],
+    "readAlongImages": []
+  },
+  "jesusLazarus": {
+    "kjvRef": "John 11:1–44 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Jesus said unto her, I am the resurrection, and the life. — John 11:25 (KJV)",
+    "readAlongTitle": "Jesus Brings Lazarus Back to Life",
+    "quizWrongHumilityHint": "Listen again — Bethany; sick; died; four days; tomb; Martha; believe; resurrection; life; come forth; loose him; believe.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus had a friend named Lazarus who lived in Bethany with his sisters Mary and Martha.",
+      "Lazarus became very sick and died.",
+      "When Jesus came, Lazarus had been in the tomb for four days.",
+      "Mary and Martha were very sad.",
+      "Jesus said to Martha, “I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”",
+      "Then Jesus went to the tomb and said, “Lazarus, come forth.”",
+      "Lazarus walked out of the tomb, alive again!",
+      "Many people who saw this believed in Jesus.",
+      "Jesus has power over death and brings hope and life.",
+      "Reference: John 11:1–44 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Lazarus was very sick and died.",
+        "caption": "A hard day in Bethany",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus came to the tomb.",
+        "caption": "Jesus draws near",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “I am the resurrection and the life.”",
+        "caption": "Believest thou this?",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus called, “Lazarus, come forth.”",
+        "caption": "Come forth",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Lazarus walked out alive.",
+        "caption": "Loose him, and let him go",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus has power over death.",
+        "caption": "Hope and life",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "John 11:1–44",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 11:1–44.)"
+      },
+      {
+        "question": "Who was Lazarus to Jesus in this gentle story?",
+        "choices": [
+          "A dear friend whose family loved Him — Mary and Martha’s brother.",
+          "A stranger Jesus never met.",
+          "Someone who lived in a book only.",
+          "A pretend person with no family."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches how John 11 introduces Lazarus of Bethany.",
+        "wrongFeedback": "Think: who were Mary and Martha to Lazarus? (Answer: friend… brother… sisters.)"
+      },
+      {
+        "question": "Which words did Jesus say to Martha about resurrection and life?",
+        "choices": [
+          "“I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”",
+          "“Be careful for nothing.”",
+          "“Peace, be still.”",
+          "“Take no thought for your life.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with John 11:25 and God's truth.",
+        "wrongFeedback": "Reread Martha’s moment with Jesus in John 11. (Answer: resurrection… life… believeth.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "When Jesus called “Lazarus, come forth,” the one who was dead came out.",
+          "The tomb turned into a rocket.",
+          "Everyone forgot who Lazarus was.",
+          "Mary and Martha lived on the moon."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches John 11? (Answer: come forth… came out.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He has power over death — and ask Him to help me trust Him with hard, sad days.",
+          "Never talk to God.",
+          "Only think about fear.",
+          "Forget what Jesus said."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus as “the resurrection, and the life”? (Answer: thank… trust.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Brings Lazarus Back to Life with God's Word today.",
+    "takeaway": "Jesus has power over death and brings hope and life.",
+    "prayer": "Lord Jesus, thank You that You are the resurrection and the life. Help me trust You today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: Jesus standing outside the tomb calling Lazarus Lazarus is walking out wrapped in cloths with a happy alive face Mary and Martha stand nearby with thankful faces thick bold outlines with large open spaces on Jesus robe Lazarus cloths and the ground for easy coloring soft tomb opening and gentle hills with minimal lines hopeful and joyful mood focus on Jesus bringing Lazarus back to life clean minimal no fear or dark tomb plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Bethany — a friend is sick (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Four days — Jesus comes near (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Resurrection and life — Jesus speaks (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Come forth — call at the tomb (power)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Walking out — bound in graveclothes (alive)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Loose him — thankful hearts (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Many believed — hope spreads (love)"
     ],
     "readAlongImages": []
   }

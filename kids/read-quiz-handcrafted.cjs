@@ -76,6 +76,7 @@
  * Parable of the prodigal son — Luke 15:11–32 (gentle): buildParableProdigalSonReadQuiz() (library key: prodigalSon).
  * Good Samaritan — Luke 10:25–37 (gentle): buildParableGoodSamaritanReadQuiz() (library key: goodSamaritan).
  * Jesus visits Mary and Martha — Luke 10:38–42 (gentle): buildMaryMarthaReadQuiz() (library key: maryMartha; alias marthaServe, marySit).
+ * Jesus brings Lazarus back to life — John 11:1–44 (gentle): buildLazarusReadQuiz() (library key: lazarus; alias jesusLazarus).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -9304,6 +9305,141 @@ function buildMaryMarthaReadQuiz() {
   };
 }
 
+/** Jesus brings Lazarus back to life — resurrection and life, come forth (gentle). Library key: lazarus */
+function buildLazarusReadQuiz() {
+  return {
+    kjvRef: 'John 11:1–44 (KJV) — gentle summary for little hearts',
+    verseExcerpt: 'Jesus said unto her, I am the resurrection, and the life. — John 11:25 (KJV)',
+    readAlongTitle: 'Jesus Brings Lazarus Back to Life',
+    quizWrongHumilityHint:
+      'Listen again — Bethany; sick; died; four days; tomb; Martha; believe; resurrection; life; come forth; loose him; believe.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus had a friend named Lazarus who lived in Bethany with his sisters Mary and Martha.',
+      'Lazarus became very sick and died.',
+      'When Jesus came, Lazarus had been in the tomb for four days.',
+      'Mary and Martha were very sad.',
+      'Jesus said to Martha, “I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”',
+      'Then Jesus went to the tomb and said, “Lazarus, come forth.”',
+      'Lazarus walked out of the tomb, alive again!',
+      'Many people who saw this believed in Jesus.',
+      'Jesus has power over death and brings hope and life.',
+      'Reference: John 11:1–44 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Lazarus was very sick and died.',
+        caption: 'A hard day in Bethany',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus came to the tomb.',
+        caption: 'Jesus draws near',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus said, “I am the resurrection and the life.”',
+        caption: 'Believest thou this?',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus called, “Lazarus, come forth.”',
+        caption: 'Come forth',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Lazarus walked out alive.',
+        caption: 'Loose him, and let him go',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus has power over death.',
+        caption: 'Hope and life',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'John 11:1–44', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 11:1–44.)'
+      },
+      {
+        question: 'Who was Lazarus to Jesus in this gentle story?',
+        choices: [
+          'A dear friend whose family loved Him — Mary and Martha’s brother.',
+          'A stranger Jesus never met.',
+          'Someone who lived in a book only.',
+          'A pretend person with no family.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches how John 11 introduces Lazarus of Bethany.',
+        wrongFeedback:
+          'Think: who were Mary and Martha to Lazarus? (Answer: friend… brother… sisters.)'
+      },
+      {
+        question: 'Which words did Jesus say to Martha about resurrection and life?',
+        choices: [
+          '“I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”',
+          '“Be careful for nothing.”',
+          '“Peace, be still.”',
+          '“Take no thought for your life.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that lines up with John 11:25 and God's truth.",
+        wrongFeedback:
+          'Reread Martha’s moment with Jesus in John 11. (Answer: resurrection… life… believeth.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'When Jesus called “Lazarus, come forth,” the one who was dead came out.',
+          'The tomb turned into a rocket.',
+          'Everyone forgot who Lazarus was.',
+          'Mary and Martha lived on the moon.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that wonder comes from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches John 11? (Answer: come forth… came out.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He has power over death — and ask Him to help me trust Him with hard, sad days.',
+          'Never talk to God.',
+          'Only think about fear.',
+          'Forget what Jesus said.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus as “the resurrection, and the life”? (Answer: thank… trust.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Brings Lazarus Back to Life with God's Word today.",
+    takeaway: 'Jesus has power over death and brings hope and life.',
+    prayer:
+      'Lord Jesus, thank You that You are the resurrection and the life. Help me trust You today. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children: Jesus standing outside the tomb calling Lazarus Lazarus is walking out wrapped in cloths with a happy alive face Mary and Martha stand nearby with thankful faces thick bold outlines with large open spaces on Jesus robe Lazarus cloths and the ground for easy coloring soft tomb opening and gentle hills with minimal lines hopeful and joyful mood focus on Jesus bringing Lazarus back to life clean minimal no fear or dark tomb plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Bethany — a friend is sick (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Four days — Jesus comes near (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Resurrection and life — Jesus speaks (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Come forth — call at the tomb (power)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Walking out — bound in graveclothes (alive)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Loose him — thankful hearts (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Many believed — hope spreads (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -9424,5 +9560,6 @@ module.exports = {
   prodigalSon: buildParableProdigalSonReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
+  lazarus: buildLazarusReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

@@ -184,7 +184,6 @@
     'zacchaeus',
     'jesusParableGoodShepherd',
     'lazarus',
-    'jesusLazarus',
     'maryAnoint',
     'palmSunday',
     'jesusTriumphalEntry',

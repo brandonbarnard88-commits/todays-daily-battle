@@ -602,6 +602,10 @@ if (merged.maryMartha && !merged.marthaServe) {
 if (merged.maryMartha && !merged.marySit) {
   merged.marySit = merged.maryMartha;
 }
+/** jesusLazarus — same gentle pack as lazarus (library / journey naming). */
+if (merged.lazarus && !merged.jesusLazarus) {
+  merged.jesusLazarus = merged.lazarus;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

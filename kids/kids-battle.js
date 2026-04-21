@@ -1314,21 +1314,6 @@
       kjvRef: 'Luke 19:1–10',
       kidContext: { who: 'Jesus', to: 'Zacchaeus (a short man in a tree)', apply: 'Jesus sees you—even if you\'re small! He knows your name and wants to be your friend!' }
     },
-    lazarus: {
-      title: 'Lazarus Raised',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: "Mary and Martha sad – Lazarus is dead" },
-        { src: 'panel-jesus-2.svg', alt: "Jesus at the tomb – Calling Lazarus out" },
-        { src: 'panel-jesus-3.svg', alt: "Lazarus walking out alive – Jesus has power over death" }
-      ],
-      caption: 'Swipe to see Jesus give life—don\'t be sad! ✨',
-      videoId: '1FT04jjh3Q8',
-      videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
-      keywords: ['lazarus', 'raised', 'dead', 'come out', 'alive', 'john 11'],
-      kjvRef: 'John 11:1–44',
-      kidContext: { who: 'Jesus', to: 'Mary, Martha, and Lazarus', apply: "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life." },
-      narration: "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus. But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days. Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death! For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest days—He has power to make things new."
-    },
     resurrection: {
       title: 'Resurrection',
       panels: [
@@ -7610,33 +7595,37 @@
     },
     /* ── Week 12 (145–160) ── */
     lazarus: {
-      title: 'Jesus Raises Lazarus',
+      title: 'Jesus Brings Lazarus Back to Life',
       panels: [
-        { src: 'panel-noah-1.svg', alt: "Mary and Martha sad – Lazarus is dead" },
-        { src: 'panel-noah-2.svg', alt: "Jesus at the tomb – Calling Lazarus out" },
-        { src: 'panel-noah-3.svg', alt: "Lazarus walking out alive – Jesus has power over death" }
+        { src: 'panel-noah-1.svg', alt: 'Bethany — Lazarus and his sisters Mary and Martha; Lazarus becomes very sick' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus meets Martha — I am the resurrection, and the life' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus calls “Lazarus, come forth” — he walks out alive; many believe' }
       ],
-      caption: 'Swipe to see Jesus raise Lazarus from the dead! 🪨',
+      caption: 'Swipe to see Jesus call Lazarus out — the resurrection and the life. ✨',
       videoId: '1FT04jjh3Q8',
       videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
-      keywords: ['lazarus', 'raise', 'john 11', 'resurrection', 'mary', 'martha', 'come out'],
-      kjvRef: 'John 11:1–44',
-      kidContext: { who: 'Jesus', to: 'Mary and Martha (and us)', apply: "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life." },
-      narration: "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus. But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days. Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death! For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest days—He has power to make things new."
-    },
-    jesusLazarus: {
-      title: 'Lazarus, Come Forth',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary and Martha send word — Lazarus is sick' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus at the tomb — Lazarus, come forth' },
-        { src: 'panel-noah-3.svg', alt: 'Lazarus lives — many believe on Jesus' }
+      keywords: [
+        'lazarus',
+        'bethany',
+        'raised',
+        'come forth',
+        'resurrection',
+        'life',
+        'john 11',
+        'mary',
+        'martha',
+        'tomb',
+        'believe'
       ],
-      caption: 'Swipe to see Jesus call Lazarus out of the grave! ✨',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['lazarus', 'john 11', 'resurrection', 'life', 'mary', 'martha', 'tomb', 'miracle'],
       kjvRef: 'John 11:1–44',
-      kidContext: { who: 'Jesus', to: 'Mary, Martha, Lazarus (and us)', apply: 'Jesus is the resurrection and the life — nothing is too dead for Him to reach.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'Mary, Martha, Lazarus, and us',
+        apply:
+          'Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.'
+      },
+      narration:
+        "Jesus Brings Lazarus Back to Life — John 11:1–44. Now a certain man was sick, named Lazarus, of Bethany, the town of Mary and her sister Martha. When Jesus heard that Lazarus was sick, He abode two days still in the same place where He was. Then said Jesus unto His disciples plainly, Lazarus is dead. When Jesus came, Lazarus had been in the grave four days. Then Martha, as soon as she heard that Jesus was coming, went and met Him. Martha saith unto Jesus, Lord, if thou hadst been here, my brother had not died. Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live: And whosoever liveth and believeth in me shall never die. Believest thou this? When they came to the tomb where Lazarus was laid, Jesus cried with a loud voice, Lazarus, come forth. And he that was dead came forth, bound hand and foot with graveclothes: and his face was bound about with a napkin. Jesus saith unto them, Loose him, and let him go. Therefore many of the Jews which came to Mary, and had seen the things which Jesus did, believed on him. For you: Jesus has power over death and gives life — trust Him forever."
     },
     greatCommission: {
       title: 'The Great Commission',
@@ -7871,6 +7860,8 @@
     /** Same gentle card — Mary & Martha (Luke 10:38–42); legacy split keys. */
     bibleStories.marthaServe = bibleStories.maryMartha;
     bibleStories.marySit = bibleStories.maryMartha;
+    /** Same gentle Bethany miracle (library / journey naming). */
+    bibleStories.jesusLazarus = bibleStories.lazarus;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {

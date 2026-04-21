@@ -178,6 +178,7 @@
     lambBook: 156,
     lastSupper: 86,
     lazarus: 11,
+    jesusLazarus: 11,
     loisTimothy: 142,
     lostSheep: 78,
     lostCoin: 79,

@@ -166,7 +166,9 @@
       prodigalSon: 'prodigalSonWelcome',
       maryMartha: 'maryMarthaVisit',
       marthaServe: 'maryMarthaVisit',
-      marySit: 'maryMarthaVisit'
+      marySit: 'maryMarthaVisit',
+      lazarus: 'lazarus',
+      jesusLazarus: 'lazarus'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -198,6 +200,7 @@
     if (low.indexOf('marymartha') >= 0 || low.indexOf('maryandmartha') >= 0) return 'maryMartha';
     if (low.indexOf('marthaserve') >= 0 || low === 'marthaserve') return 'maryMartha';
     if (low.indexOf('marysit') >= 0 || low === 'marysit') return 'maryMartha';
+    if (low.indexOf('jesuslazarus') >= 0 || low === 'jesuslazarus') return 'lazarus';
     if (low.indexOf('goodsamaritan') >= 0 || low === 'goodsamaritan') return 'goodSamaritan';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
@@ -4292,19 +4295,31 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 18:3</text>'
       ),
 
-      /* ── Week 12: Jesus Bethany — Lazarus (145) ── */
+      /* Week 12 gentle: Lazarus — Jesus calls, come forth; thankful sisters (John 11:1–44) */
       lazarus: svg(
-        ground() + hills() +
-        '<path d="M115 258 L115 178 Q200 148 285 178 L285 258" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="115" y="178" width="170" height="80" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="75" cy="200" r="48" ' + sf + ' fill="white" stroke-width="4"/>' +
-        person(200, 182, 12, 35) +
-        '<path d="M192 198 Q185 210 188 225" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M208 198 Q215 210 212 225" ' + s + ' stroke-width="2.5"/>' +
-        person(280, 162, 13, 38) +
-        '<path d="M272 175 Q262 185 266 198" ' + s + ' stroke-width="2.5"/>' +
-        star(200, 30, 14) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 11:43</text>'
+        ground() +
+        hills() +
+        sun(44, 40, 16) +
+        '<line x1="200" y1="38" x2="200" y2="118" ' + s + ' stroke-width="1.3" opacity="0.45"/>' +
+        '<line x1="200" y1="48" x2="150" y2="95" ' + s + ' stroke-width="1.2" opacity="0.4"/>' +
+        '<line x1="200" y1="48" x2="250" y2="95" ' + s + ' stroke-width="1.2" opacity="0.4"/>' +
+        '<path d="M108 262 L108 172 Q200 118 292 172 L292 262" ' + sf + ' fill="white" stroke-width="3.5"/>' +
+        '<rect x="108" y="172" width="184" height="90" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="78" cy="228" rx="24" ry="30" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        person(138, 148, 12, 34) +
+        '<path d="M152 180 L210 172" ' + s + ' stroke-width="2.6"/>' +
+        '<circle cx="220" cy="160" r="10" ' + sf + ' fill="white" stroke-width="2.3"/>' +
+        '<path d="M214 168 L214 168 Q220 172 226 168" ' + s + ' stroke-width="1.4"/>' +
+        '<path d="M214 178 L210 218" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="198" y1="188" x2="242" y2="188" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="198" y1="196" x2="240" y2="196" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="198" y1="204" x2="238" y2="204" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M210 218 L206 248" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M220 218 L232 246" ' + s + ' stroke-width="2.2"/>' +
+        person(276, 162, 10, 26) +
+        person(306, 166, 10, 26) +
+        star(200, 26, 12) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 11:1–44</text>'
       ),
 
       /* ── Week 12: Great Commission (146) ── */

@@ -1057,6 +1057,26 @@
     "kw": "jairus daughter arise mark 5 talitha cumi damsel believe miracle faith children"
   },
   {
+    "key": "lazarus",
+    "title": "Jesus Brings Lazarus Back to Life",
+    "kjvRef": "John 11:1–44",
+    "who": "Jesus",
+    "to": "Mary, Martha, Lazarus, and us",
+    "apply": "Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.",
+    "theme": "Miracles",
+    "kw": "lazarus bethany raised come forth resurrection life john 11 mary martha tomb believe"
+  },
+  {
+    "key": "jesusLazarus",
+    "title": "Jesus Brings Lazarus Back to Life",
+    "kjvRef": "John 11:1–44",
+    "who": "Jesus",
+    "to": "Mary, Martha, Lazarus, and us",
+    "apply": "Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.",
+    "theme": "Miracles",
+    "kw": "lazarus bethany raised come forth resurrection life john 11 mary martha tomb believe"
+  },
+  {
     "key": "jesusCallingDisciples",
     "title": "Jesus Calls Disciples",
     "kjvRef": "Matthew 4:18–22; Luke 5:1–11",
@@ -1595,26 +1615,6 @@
     "apply": "Jesus shares bread—He loves us! Remember Him when you eat together!",
     "theme": "Love",
     "kw": "last supper bread wine luke 22 matthew 26 passover"
-  },
-  {
-    "key": "lazarus",
-    "title": "Lazarus Raised",
-    "kjvRef": "John 11:1–44",
-    "who": "Jesus",
-    "to": "Mary, Martha, and Lazarus",
-    "apply": "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life.",
-    "theme": "Miracles",
-    "kw": "lazarus raised dead come out alive john 11"
-  },
-  {
-    "key": "jesusLazarus",
-    "title": "Lazarus, Come Forth",
-    "kjvRef": "John 11:1–44",
-    "who": "Jesus",
-    "to": "Mary, Martha, Lazarus (and us)",
-    "apply": "Jesus is the resurrection and the life — nothing is too dead for Him to reach.",
-    "theme": "Miracles",
-    "kw": "lazarus john 11 resurrection life mary martha tomb miracle"
   },
   {
     "key": "revelationLetters",

@@ -544,30 +544,30 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 1:1</text>'
       ),
 
-      /* Fiery Furnace — thin walls, extra-soft base flame, lighter waves, gentle fourth + arch light */
+      /* Fiery Furnace — thin walls, softer flame lines, whisper-gentle fourth + arch light */
       fieryFurnace: svg(
         ground() +
         /* soft opening light above arch */
-        '<ellipse cx="200" cy="108" rx="72" ry="22" ' + sf + ' fill="none" stroke-width="1" opacity="0.4"/>' +
-        '<line x1="200" y1="86" x2="200" y2="118" ' + s + ' stroke-width="1.2" stroke-dasharray="5,4" opacity="0.5"/>' +
-        '<line x1="178" y1="92" x2="168" y2="120" ' + s + ' stroke-width="1" stroke-dasharray="5,4" opacity="0.45"/>' +
-        '<line x1="222" y1="92" x2="232" y2="120" ' + s + ' stroke-width="1" stroke-dasharray="5,4" opacity="0.45"/>' +
+        '<ellipse cx="200" cy="108" rx="76" ry="24" ' + sf + ' fill="none" stroke-width="0.9" opacity="0.35"/>' +
+        '<line x1="200" y1="82" x2="200" y2="118" ' + s + ' stroke-width="1.05" stroke-dasharray="6,5" opacity="0.45"/>' +
+        '<line x1="176" y1="88" x2="166" y2="122" ' + s + ' stroke-width="0.95" stroke-dasharray="6,5" opacity="0.4"/>' +
+        '<line x1="224" y1="88" x2="234" y2="122" ' + s + ' stroke-width="0.95" stroke-dasharray="6,5" opacity="0.4"/>' +
         /* furnace — soft rounded box, thin arch */
-        '<rect x="88" y="88" width="224" height="182" rx="14" ' + sf + ' fill="white" stroke-width="2.85"/>' +
-        '<path d="M118 270 L118 118 Q200 92 282 118 L282 270" ' + sf + ' fill="white" stroke-width="2.1"/>' +
-        /* layered flames — faint base veil + softer waves */
-        '<path d="M 88 270 Q 130 258 200 252 Q 270 258 312 270" ' + sf + ' fill="white" stroke-width="0.85"/>' +
-        '<path d="M 98 270 Q 140 250 200 242 Q 260 250 302 270" ' + sf + ' fill="white" stroke-width="0.95"/>' +
-        '<path d="M 92 270 Q 130 218 168 208 Q 200 198 232 208 Q 270 218 308 270" ' + sf + ' fill="white" stroke-width="1.45"/>' +
-        '<path d="M 108 270 Q 150 232 200 222 Q 250 232 292 270" ' + sf + ' fill="white" stroke-width="1.15"/>' +
-        '<path d="M 125 270 Q 168 245 200 238 Q 232 245 275 270" ' + sf + ' fill="white" stroke-width="1"/>' +
+        '<rect x="88" y="88" width="224" height="182" rx="14" ' + sf + ' fill="white" stroke-width="2.75"/>' +
+        '<path d="M118 270 L118 118 Q200 92 282 118 L282 270" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* layered flames — lighter strokes */
+        '<path d="M 88 270 Q 130 258 200 252 Q 270 258 312 270" ' + sf + ' fill="white" stroke-width="0.75"/>' +
+        '<path d="M 98 270 Q 140 250 200 242 Q 260 250 302 270" ' + sf + ' fill="white" stroke-width="0.85"/>' +
+        '<path d="M 92 270 Q 130 218 168 208 Q 200 198 232 208 Q 270 218 308 270" ' + sf + ' fill="white" stroke-width="1.25"/>' +
+        '<path d="M 108 270 Q 150 232 200 222 Q 250 232 292 270" ' + sf + ' fill="white" stroke-width="1"/>' +
+        '<path d="M 125 270 Q 168 245 200 238 Q 232 245 275 270" ' + sf + ' fill="white" stroke-width="0.88"/>' +
         /* three friends */
         person(148, 178, 9, 26) +
         person(182, 176, 9, 26) +
         person(216, 178, 9, 26) +
-        /* fourth — twin soft rings, smaller peaceful figure */
-        '<circle cx="252" cy="168" r="19" ' + sf + ' fill="none" stroke-width="0.75" opacity="0.55"/>' +
-        '<circle cx="252" cy="168" r="13" ' + sf + ' fill="none" stroke-width="0.9"/>' +
+        /* fourth — wider soft halo, lighter inner ring, small peaceful figure */
+        '<circle cx="252" cy="168" r="21" ' + sf + ' fill="none" stroke-width="0.65" opacity="0.42"/>' +
+        '<circle cx="252" cy="168" r="14" ' + sf + ' fill="none" stroke-width="0.75" opacity="0.72"/>' +
         person(252, 180, 5.5, 18) +
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 3:1–30</text>'
       ),

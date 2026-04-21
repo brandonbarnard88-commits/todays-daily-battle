@@ -4643,7 +4643,7 @@ function buildFieryFurnaceReadQuiz() {
     prayer:
       'Lord, thank You that You never leave us. Help us trust You and obey. Amen.',
     imagePrompts: [
-      'Simple peaceful black-and-white line-art scene for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them soft gentle flames around them peaceful trusting faces thick bold outlines large open spaces on the men\'s robes the fourth figure the flames and the ground soft furnace walls with minimal lines trusting safe mood focus God walking with His servants in the fire clean minimal no fear or burning plenty of white space age-appropriate coloring page',
+      'Simple peaceful black-and-white line-art scene for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them the fire shown as soft gentle flames around them peaceful trusting faces thick bold outlines large open spaces on the men\'s robes the fourth figure the flames and the ground for easy coloring soft furnace walls with minimal lines trusting safe mood focus God walking with His servants in the fire clean minimal no fear or burning plenty of white space age-appropriate coloring page',
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends refuse to bow (shadrach)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace — seven times hotter (daniel 3)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — Son of God (angel)",

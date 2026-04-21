@@ -6372,18 +6372,40 @@
       kidContext: { who: 'God', to: 'Ruth', apply: 'Stick with those you love even in hard times! Loyalty is a gift—and God honors it.' }
     },
     estherFast: {
-      title: 'Esther Fasts and Goes to the King',
+      title: 'Esther Prays and Fasts for Her People',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mordecai tells Esther: you must act!' },
-        { src: 'panel-noah-2.svg', alt: 'Esther fasts three days with all the Jews' },
-        { src: 'panel-noah-3.svg', alt: 'Esther goes to the king—scepter out, she\'s safe!' }
+        { src: 'panel-jesus-1.svg', alt: 'Haman’s plan — Mordecai asks: who knoweth whether thou art come for such a time as this?' },
+        { src: 'panel-jesus-2.svg', alt: 'Esther asks God’s people to pray and fast with her for three days' },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: '“If I perish, I perish” — then she goes bravely to the king, trusting the Lord'
+        }
       ],
-      caption: 'Swipe to see Esther fast, pray, and step out brave! 👑',
+      caption: 'Swipe to see quiet prayer, fasting together, and brave trust before the king.',
       videoId: '',
       videoTitle: '',
-      keywords: ['esther', 'fast', 'esther 4', 'scepter', 'pray', 'brave', 'mordecai'],
-      kjvRef: 'Esther 4–5',
-      kidContext: { who: 'God', to: 'Esther', apply: 'Fast, pray, then go! God gives courage to those who seek Him first.' }
+      keywords: [
+        'esther',
+        'fast',
+        'pray',
+        'mordecai',
+        'haman',
+        'such a time',
+        'if i perish',
+        'esther 4',
+        'three days',
+        'brave',
+        'help'
+      ],
+      kjvRef: 'Esther 4:1–17',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Esther and every heart that asks Him for help',
+        apply:
+          'The Lord hears when His children pray and fast and ask for help — and He gives courage for the next step.'
+      },
+      narration:
+        "Esther Prays and Fasts for Her People — Esther 4:1–17. Haman made a plan to hurt all God’s people. Mordecai sent word to Queen Esther, Who knoweth whether thou art come to the kingdom for such a time as this? Esther asked all God’s people to fast and pray with her for three days. She said, I will go in unto the king, which is not according to the law: and if I perish, I perish. She trusted God — then went bravely to the king. For you: the Lord hears when we pray and ask for help, and He walks with us when the next step feels hard."
     },
     sarahPromise: {
       title: 'Sarah Receives the Promise',

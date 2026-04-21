@@ -3423,19 +3423,33 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 2:8</text>'
       ),
 
-      /* ── Week 10: Esther Fast (130) ── */
+      /* ── Esther prays and fasts — kneeling, soft window light, quiet room (Esther 4:1–17) ── */
       estherFast: svg(
         ground() +
-        person(200, 165, 13, 40) +
-        '<path d="M186 162 L186 140 L194 148 L200 135 L206 148 L214 140 L214 162 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="190" y1="178" x2="162" y2="198" ' + s + ' stroke-width="3"/>' +
-        '<polygon points="158,194 155,207 166,204" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(80, 182, 10, 28) + person(105, 185, 10, 28) +
-        person(295, 182, 10, 28) + person(320, 185, 10, 28) +
-        '<path d="M88 178 Q100 168 108 175" ' + s + ' stroke-width="2"/>' +
-        '<path d="M305 178 Q317 168 325 175" ' + s + ' stroke-width="2"/>' +
-        sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 4:16</text>'
+        '<rect x="52" y="72" width="296" height="140" rx="8" ' +
+        sf +
+        ' fill="white" stroke-width="1.85"/>' +
+        /* window — gentle light */
+        '<rect x="68" y="86" width="96" height="78" rx="5" ' + sf + ' fill="white" stroke-width="1.55"/>' +
+        '<line x1="116" y1="86" x2="116" y2="164" ' + s + ' stroke-width="1.15"/>' +
+        '<line x1="68" y1="126" x2="164" y2="126" ' + s + ' stroke-width="1.15"/>' +
+        '<ellipse cx="116" cy="124" rx="44" ry="32" ' + sf + ' fill="white" stroke-width="0.45" opacity="0.2"/>' +
+        '<line x1="116" y1="92" x2="116" y2="158" ' + s + ' stroke-width="0.6" stroke-dasharray="10,9" opacity="0.35"/>' +
+        '<line x1="86" y1="98" x2="78" y2="148" ' + s + ' stroke-width="0.55" stroke-dasharray="10,9" opacity="0.28"/>' +
+        '<line x1="146" y1="98" x2="154" y2="148" ' + s + ' stroke-width="0.55" stroke-dasharray="10,9" opacity="0.28"/>' +
+        /* simple bed */
+        '<rect x="278" y="154" width="62" height="36" rx="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M278 154 L340 138 L340 154" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* kneeling cushion */
+        '<ellipse cx="220" cy="242" rx="40" ry="8" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        /* kneeling figure — folded hands */
+        '<circle cx="220" cy="172" r="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M220 183 L220 210 Q218 222 214 232" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M208 198 Q220 206 232 198" ' + s + ' stroke-width="1.85"/>' +
+        '<path d="M212 204 L220 212 L228 204" ' + s + ' stroke-width="1.65"/>' +
+        '<path d="M204 228 L196 244 M236 228 L244 244" ' + s + ' stroke-width="1.9"/>' +
+        sun(340, 44, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 4:1–17</text>'
       ),
 
       /* ── Week 10: Sarah Promise (131) ── */

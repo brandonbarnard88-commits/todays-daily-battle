@@ -608,13 +608,13 @@
   },
   {
     "key": "estherFast",
-    "title": "Esther Fasts and Goes to the King",
-    "kjvRef": "Esther 4–5",
-    "who": "God",
-    "to": "Esther",
-    "apply": "Fast, pray, then go! God gives courage to those who seek Him first.",
+    "title": "Esther Prays and Fasts for Her People",
+    "kjvRef": "Esther 4:1–17",
+    "who": "The LORD",
+    "to": "Esther and every heart that asks Him for help",
+    "apply": "The Lord hears when His children pray and fast and ask for help — and He gives courage for the next step.",
     "theme": "Obedience",
-    "kw": "esther fast esther 4 scepter pray brave mordecai"
+    "kw": "esther fast pray mordecai haman such a time if i perish esther 4 three days brave help"
   },
   {
     "key": "esther",

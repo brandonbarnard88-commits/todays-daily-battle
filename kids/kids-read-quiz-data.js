@@ -7662,89 +7662,128 @@
     "readAlongImages": []
   },
   "estherFast": {
-    "kjvRef": "Esther 4–5",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Esther 4:1–17 (KJV)",
+    "verseExcerpt": "I will go in unto the king, which is not according to the law: and if I perish, I perish. — Esther 4:16 (KJV)",
+    "readAlongTitle": "Esther Prays and Fasts for Her People",
+    "quizWrongHumilityHint": "Listen again — Haman’s plan; Mordecai’s words; pray and fast three days; “if I perish, I perish”; then brave before the king.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Esther Fasts and Goes to the King (Esther 4–5).",
-      "Mordecai tells Esther: you must act!",
-      "Esther fasts three days with all the Jews Esther goes to the king—scepter out, she's safe!",
-      "Fast, pray, then go!",
-      "God gives courage to those who seek Him first."
+      "A wicked man named Haman made a plan to hurt all of God’s people.",
+      "Mordecai sent word to Queen Esther: \"Who knows whether thou art come to the kingdom for such a time as this?\"",
+      "Esther was afraid, but she asked all God’s people to pray and fast with her for three days.",
+      "She said, \"I will go in unto the king, which is not according to the law: and if I perish, I perish.\"",
+      "Esther prayed and trusted God.",
+      "Then she went bravely to the king.",
+      "The Lord hears when His children pray and fast and ask for help.",
+      "Reference: Esther 4:1–17 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A bad man wanted to hurt God’s people.",
+        "caption": "A hard plan",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Mordecai sent word to Esther.",
+        "caption": "Mordecai’s word",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Esther asked everyone to pray and fast with her.",
+        "caption": "Pray and fast",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "She said, \"If I perish, I perish.\"",
+        "caption": "Brave words",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Esther prayed and trusted God.",
+        "caption": "Quiet trust",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Then she went bravely to the king.",
+        "caption": "Before the king",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 24:13–35",
-          "Psalm 23:1-6",
-          "Esther 4–5",
-          "1 Samuel 9–10"
+          "Psalm 23",
+          "Esther 4:1–17",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Esther 4–5.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Esther 4:1–17.)"
       },
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "John",
-          "Paul",
-          "David — and the Lord",
-          "God"
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 0,
+        "correctFeedback": "Right—the Lord hears when His children pray and ask for help.",
+        "wrongFeedback": "Look for who answers quiet prayer and gives courage to do the next right thing. (Answer: God.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Fast, pray, then go! God gives courage to those who seek Him first.",
-          "We should hide from God when we mess up.",
+          "God never hears when kids pray.",
           "The Bible is only pretend stories.",
-          "God never hears when kids pray."
+          "The Lord hears prayer and fasting — and He helps when His children ask.",
+          "We should hide from God when we mess up."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Fast, pray, then go! God gives courage to those who seek Him first..)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: The Lord hears prayer and fasting — and He helps when His children ask.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Mordecai tells Esther: you must act!",
           "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "Everyone decided to never sleep again.",
+          "If I perish, I perish — I will go in unto the king, which is not according to the law.",
+          "The people answered, Let us rise up and build."
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: If I perish, I perish — I will go in unto the king, which is not according to the law.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
           "Ignore God until we are older.",
-          "Fast, pray, then go! God gives courage to those who seek Him first.",
-          "Never say sorry when we do wrong."
+          "Pray, ask God for help, and trust Him for the next brave step — even when it feels hard.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Fast, pray, then go! God gives courage to those who seek Him first..)"
+        "wrongFeedback": "Think: does this choice show trust in a God who hears prayer? Pick the one that honors Him. (Answer: Pray, ask God for help, and trust Him for the next brave step — even when it feels hard.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Esther Fasts and Goes to the King with God's Word today.",
-    "takeaway": "Fast, pray, then go! God gives courage to those who seek Him first.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Esther Fasts and Goes to the King. Amen.",
+    "doneMessage": "Great job reading Esther Prays and Fasts for Her People with God's Word today.",
+    "takeaway": "The Lord hears when His children pray, fast, and ask for help — and He walks with us in brave moments.",
+    "prayer": "Lord, thank You that You hear when we pray. Help us trust You and take the next brave step You give. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mordecai tells Esther: you must act! (esther)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther fasts three days with all the Jews (fast)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther goes to the king—scepter out, she's safe! (esther 4)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mordecai tells Esther: you must act! (scepter)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther fasts three days with all the Jews (pray)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Queen Esther kneeling quietly in her room with her hands folded in prayer thick bold outlines a soft window with light shining gently on her large open spaces on Esther's robe and the floor for easy coloring minimal palace walls and a simple bed in the background brave and trusting mood focus on Esther praying and fasting for her people clean minimal no fear or sadness plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mordecai’s message — such a time as this (esther)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God’s people pray and fast together (pray)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: If I perish, I perish — brave heart (esther 4)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther goes bravely to the king (king)"
+    ],
+    "readAlongImages": []
   },
   "euniceMother": {
     "kjvRef": "2 Timothy 1:5–7; 3:15",
@@ -15042,7 +15081,7 @@
           "the Bible",
           "Daniel 6:22",
           "1 Kings 19:19-21",
-          "Esther 4–5"
+          "Esther 4:1–17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22491,7 +22530,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28:18–20",
-          "Esther 4–5",
+          "Esther 4:1–17",
           "Revelation 13",
           "Luke 2; Matthew 1–2"
         ],
@@ -28398,7 +28437,7 @@
           "1 Kings 19:19-21",
           "Daniel 3:1–30",
           "Mark 12",
-          "Esther 4–5"
+          "Esther 4:1–17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
